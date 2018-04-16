@@ -1,13 +1,13 @@
-# Note in Myanmar language:
+### Note in Myanmar language:
 
 Python module ကို conda environment မှာ installation လုပ်ထားပြီး၊ command prompt မှာ (သို့) python program မှာ import လုပ် ခေါ်သုံးလို့ ရပေမဲ့၊   
 Jupyter notebook ထဲကနေ import လုပ်တဲ့ အခါမှာ error ပေးတဲ့ အခြေအနေ
 
-# Error: 
+### Error: 
 
 Installed package import error in Jupyter notebook
 
-# How to fix:
+### How to fix:
 
 (py3.6.2) lar@lar-air:~$ conda install nb_conda
 Fetching package metadata ...........
