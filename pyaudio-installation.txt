@@ -1,0 +1,76 @@
+Date: 16 Apr 2018 
+
+### Note in Myanmar language:
+pyaudio Python module ကို installation လုပ်တဲ့ အခါမှာ တွေ့ရတဲ့ error နဲ့ ပတ်သက်ပြီး
+
+### Error:
+When I install pyaudio I got following error:
+
+(py3.6.2) lar@lar-air:~/experiment/thinkDSP/ThinkDSP-master/book$ pip install pyaudio
+Collecting pyaudio
+  Using cached PyAudio-0.2.11.tar.gz
+Building wheels for collected packages: pyaudio
+  Running setup.py bdist_wheel for pyaudio ... error
+  Complete output from command /home/lar/anaconda3/envs/py3.6.2/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-3341q5kq/pyaudio/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/pip-wheel-mxrcwsq6 --python-tag cp36:
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-3.6
+  copying src/pyaudio.py -> build/lib.linux-x86_64-3.6
+  running build_ext
+  building '_portaudio' extension
+  creating build/temp.linux-x86_64-3.6
+  creating build/temp.linux-x86_64-3.6/src
+  gcc -pthread -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/lar/anaconda3/envs/py3.6.2/include/python3.6m -c src/_portaudiomodule.c -o build/temp.linux-x86_64-3.6/src/_portaudiomodule.o
+  src/_portaudiomodule.c:29:23: fatal error: portaudio.h: No such file or directory
+  compilation terminated.
+  error: command 'gcc' failed with exit status 1
+  
+  ----------------------------------------
+  Failed building wheel for pyaudio
+  Running setup.py clean for pyaudio
+Failed to build pyaudio
+Installing collected packages: pyaudio
+  Running setup.py install for pyaudio ... error
+    Complete output from command /home/lar/anaconda3/envs/py3.6.2/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-3341q5kq/pyaudio/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-record-zpatoq3c/install-record.txt --single-version-externally-managed --compile:
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-3.6
+    copying src/pyaudio.py -> build/lib.linux-x86_64-3.6
+    running build_ext
+    building '_portaudio' extension
+    creating build/temp.linux-x86_64-3.6
+    creating build/temp.linux-x86_64-3.6/src
+    gcc -pthread -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/lar/anaconda3/envs/py3.6.2/include/python3.6m -c src/_portaudiomodule.c -o build/temp.linux-x86_64-3.6/src/_portaudiomodule.o
+    src/_portaudiomodule.c:29:23: fatal error: portaudio.h: No such file or directory
+    compilation terminated.
+    error: command 'gcc' failed with exit status 1
+    
+    ----------------------------------------
+Command "/home/lar/anaconda3/envs/py3.6.2/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-3341q5kq/pyaudio/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-record-zpatoq3c/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /tmp/pip-install-3341q5kq/pyaudio/
+
+--------
+
+### Solved with following:
+
+sudo apt-get install libasound-dev
+
+pip install portaudio
+(I couldn't install ... version error)
+
+Download portaudio from http://portaudio.com/download.html
+
+cd ~/Downloads/
+cd portaudio/
+./configure
+make
+sudo make install
+
+pip install pyaudio
+
+Solved!!!
+
+==========
