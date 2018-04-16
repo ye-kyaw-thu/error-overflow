@@ -4,7 +4,7 @@ Date: 16 Apr 2018
 pyaudio Python module ကို installation လုပ်တဲ့ အခါမှာ တွေ့ရတဲ့ error နဲ့ ပတ်သက်ပြီး
 
 ### Error:
-When I install pyaudio I got following error:
+When I install pyaudio, I got following error:
 
 (py3.6.2) lar@lar-air:~/experiment/thinkDSP/ThinkDSP-master/book$ pip install pyaudio
 Collecting pyaudio
