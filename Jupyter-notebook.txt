@@ -3,7 +3,9 @@
 Python module ကို conda environment မှာ installation လုပ်ထားပြီး၊ command prompt မှာ (သို့) python program မှာ import လုပ် ခေါ်သုံးလို့ ရပေမဲ့၊   
 Jupyter notebook ထဲကနေ import လုပ်တဲ့ အခါမှာ error ပေးတဲ့ အခြေအနေ
 
-# Error: Installed package import error in Jupyter notebook
+# Error: 
+
+Installed package import error in Jupyter notebook
 
 # How to fix:
 
