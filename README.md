@@ -5,6 +5,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်ကို installation
 
 # Table of Content  
 
-#pyaudio-installation.txt
-#Jupyter-notebook-import.txt	
-#
+1. pyaudio-installation.txt
+2. Jupyter-notebook-import.txt	
+3. 
