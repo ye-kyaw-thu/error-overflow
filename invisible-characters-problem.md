@@ -39,8 +39,24 @@ M-BM- M-BM- $
 
 ဒီလိုပြဿနာက လွယ်မလိုလိုနဲ့ အတွေ့အကြုံမရှိရင် မလိုအပ်ပဲနဲ့ အချိန်အကြာကြီး ယူပြီး ဖြေရှင်းရတတ်ပါတယ်။  
 ဖြေရှင်းပုံ ဖြေရှင်းနည်းက အမျိုးမျိုး ရှိပေမဲ့ ဒီနေ့တော့ Linux OS ရဲ့ အသုံးဝင်တဲ့ cat နဲ့ sed command ၂ခုကို သုံးပြီး ဖြေရှင်းပြပါမယ်။  
-အရင်ဆုံး invisible characters "M-BM-" ကို ရိုက်ထည့်ထားတဲ့ cosine, sine တွက်ပေးတဲ့ Python ပရိုဂရမ်ကို ပုံမှန်အတိုင်း cat command နဲ့ ရိုက်ကြည့်ရင်  
-အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+အရင်ဆုံး invisible characters "M-BM-" ကို ရိုက်ထည့်ထားတဲ့ cosine, sine တွက်ပေးတဲ့ Python ပရိုဂရမ်ကို ပုံမှန်အတိုင်း  
+cat command နဲ့ ရိုက်ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+
+```bash
+(py3.6.2) lar@lar-air:~/experiment/pyqt/example/paint-draw/diagramscene/M-BM-problem$ cat cosine-sine.py
+import sys
+from math import cos, sin, radians
+
+#      <--- Invisible characters! 
+
+input_radians = float(sys.argv[1])
+
+def calc_cos_sine(r):
+    print("Cosine of radians ", input_radians, ":", cos(radians (r)))
+    print("Sine of radians ", input_radians, ":", sin(radians (r)))
+
+calc_cos_sine(input_radians)
+```
 
 
 
