@@ -126,6 +126,6 @@ Cosine of radians  60.0 : 0.5000000000000001
 Sine of radians  60.0 : 0.8660254037844386
 ```
 
-#Reference
+# Reference  
 
 [https://en.wikipedia.org/wiki/Non-breaking_space](https://en.wikipedia.org/wiki/Non-breaking_space)  
