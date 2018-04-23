@@ -97,4 +97,23 @@ Linux ရဲ့ powerful command တစ်ခုဖြစ်တဲ့ sed comman
 cat -A ./cosine-sine.py | sed s/M-BM-//g > ./cosine-sine-clean.py
 ```
 
+ဖိုင်အသစ်အဖြစ် သိမ်းထားတဲ့ ./cosine-sine-clean.py ပရိုဂရမ်ကို cat -A နဲ့ ရိုက်ကြည့်ရင် M-BM- စာလုံးတွေ မရှိတော့တာကို တွေ့ရပါလိမ့်မယ်။  
+
+```bash
+$cat -A ./cosine-sine-clean.py 
+import sys$$
+from math import cos, sin, radians$$
+$$
+#      <--- Invisible characters! $$
+$$
+input_radians = float(sys.argv[1])$$
+$$
+def calc_cos_sine(r):$$
+    print("Cosine of radians ", input_radians, ":", cos(radians (r)))$$
+    print("Sine of radians ", input_radians, ":", sin(radians (r)))$$
+$$
+calc_cos_sine(input_radians)$$
+```
+
+
 
