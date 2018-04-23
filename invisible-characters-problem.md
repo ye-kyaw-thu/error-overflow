@@ -129,3 +129,4 @@ Sine of radians  60.0 : 0.8660254037844386
 # Reference  
 
 [https://en.wikipedia.org/wiki/Non-breaking_space](https://en.wikipedia.org/wiki/Non-breaking_space)  
+[https://askubuntu.com/questions/357248/how-to-remove-special-m-bm-character-with-sed](https://askubuntu.com/questions/357248/how-to-remove-special-m-bm-character-with-sed)
