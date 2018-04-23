@@ -58,6 +58,16 @@ def calc_cos_sine(r):
 calc_cos_sine(input_radians)
 ```
 
+အဲဒီ ပရိုဂရမ်ကို run ကြည့်ရင်တော့ အောက်ပါအတိုင်း error ပေးပါလိမ့်မယ်။  
+
+```bash
+$ python ./cosine-sine.py 
+  File "./cosine-sine.py", line 9
+        print("Cosine of radians ", input_radians, ":", cos(radians (r)))
+            ^
+SyntaxError: invalid character in identifier
+```
+
 ```bash
 $ cat -A ./cosine-sine.py 
 import sys$
