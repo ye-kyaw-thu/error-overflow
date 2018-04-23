@@ -43,7 +43,7 @@ M-BM- M-BM- $
 cat command နဲ့ ရိုက်ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
 
 ```bash
-(py3.6.2) lar@lar-air:~/experiment/pyqt/example/paint-draw/diagramscene/M-BM-problem$ cat cosine-sine.py
+$ cat cosine-sine.py
 import sys
 from math import cos, sin, radians
 
@@ -58,5 +58,19 @@ def calc_cos_sine(r):
 calc_cos_sine(input_radians)
 ```
 
-
+```bash
+$ cat -A ./cosine-sine.py 
+import sys$
+from math import cos, sin, radians$
+$
+#M-BM- M-BM- M-BM- M-BM- M-BM-  <--- Invisible characters! $
+$
+input_radians = float(sys.argv[1])$
+$
+def calc_cos_sine(r):$
+M-BM- M-BM- M-BM- M-BM- print("Cosine of radians ", input_radians, ":", cos(radians (r)))$
+    print("Sine of radians ", input_radians, ":", sin(radians (r)))$
+$
+calc_cos_sine(input_radians)$
+```
 
