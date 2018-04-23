@@ -12,3 +12,29 @@ Website တစ်ခုကနေ Python ပရိုဂရမ် တစ်ပု
 အတွေ့အကြုံအရ မသင်္ကာလို့ hidden (or) invisible characters တွေကို cat command နဲ့ ပရင့်ထုတ်လိုက်တော့ ပြဿနာကို သိလိုက်ရပါတယ်။  
 ကျွန်တော် copy ကူးပြီး run ဖို့ ကြိုးစားတဲ့ ပရိုဂရမ်က လိုင်းတွေအများကြီးမို့လို့ မြင်သာအောင် လိုင်းတချို့ကိုပဲ ဥပမာအနေနဲ့ ပြရရင် အောက်ပါအတိုင်း ဖြစ်ပါတယ်။   
 
+```bash
+class DiagramScene(QGraphicsScene):$
+M-BM- M-BM- M-BM- M-BM- InsertItem, InsertLine, InsertText, MoveItemM-BM-  = range(4)$
+M-BM- M-BM- $
+M-BM- M-BM- M-BM- M-BM- itemInserted = pyqtSignal(DiagramItem)$
+M-BM- M-BM- $
+M-BM- M-BM- M-BM- M-BM- textInserted = pyqtSignal(QGraphicsTextItem)$
+M-BM- M-BM- $
+M-BM- M-BM- M-BM- M-BM- itemSelected = pyqtSignal(QGraphicsItem)$
+M-BM- M-BM- $
+M-BM- M-BM- M-BM- M-BM- def __init__(self, itemMenu, parent=None):$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- super(DiagramScene, self).__init__(parent)$
+M-BM- M-BM- $
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myItemMenu = itemMenu$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myMode = self.MoveItem$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myItemType = DiagramItem.Step$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.line = None$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.textItem = None$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myItemColor = Qt.white$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myTextColor = Qt.black$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myLineColor = Qt.black$
+M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- M-BM- self.myFont = QFont()$
+M-BM- M-BM- $
+```
+
+
