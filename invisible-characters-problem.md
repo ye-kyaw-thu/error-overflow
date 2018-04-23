@@ -1,9 +1,9 @@
-#Invisible Characters Problem
+# Invisible Characters Problem
 
-#In English:  
+# In English:  
 Display and removing invisible characters.  
 
-#In Myanmar Language:  
+# In Myanmar Language:  
 ဖိုင်ထဲမှာ ရှိနေတဲ့ ပုံမှန်အားဖြင့် မမြင်ရတဲ့ စာလုံးတွေက ကျွန်တော်တို့ရဲ့ အလုပ်တွေကို ပုံစံအမျိုးမျိုးနဲ့ ဒုက္ခပေးတတ်ပါတယ်။  
 ဒီနေ့ လက်တွေ့ကြုံရတဲ့ပြဿနာတစ်ခုကို ဥပမာတစ်ခုကိုအနေနဲ့ ပေးပါမယ်။  
 
