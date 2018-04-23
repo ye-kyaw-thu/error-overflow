@@ -94,26 +94,20 @@ Unicode (UTF-8) နဲ့ပြောရင်တော့ U+00A0 (a non-breakin
 Linux ရဲ့ powerful command တစ်ခုဖြစ်တဲ့ sed command ကို သုံးပြီး M-BM- စာလုံးတွေအားလုံးကို ဘာမှမရှိတဲ့ စာလုံးနဲ့ အစားထိုးခိုင်းပြီး ဖျက်ပစ်လို့ ရပါတယ်။  
 
 ```bash
-cat -A ./cosine-sine.py | sed s/M-BM-//g > ./cosine-sine-clean.py
+cat -v ./cosine-sine.py | sed s/M-BM-//g > ./cosine-sine-clean.py
 ```
+ဒီနေရာမှ သတိထားစေချင်တာက -A option ကို မသုံးမိစေပါနဲ့။ ဘာ့ကြောင့်ဆိုရင် -A option ဆိုရင် စာကြောင်းအဆုံးတွေကိုပါ $ သင်္ကေတနဲ့ ရိုက်ပြတော့  
+အဲဒီ $ သင်္ကေတတွေကိုပါ cosine-sine-clean.py ဆိုတဲ့ ဖိုင်ထဲမှာ သိမ်းပေးမှာစိုးလို့ပါ။ အဲဒါကြောင့် မမြင်ရတဲ့ စာလုံးတွေကိုပဲ ရိုက်ပြပေးတဲ့ -v option ကိုပဲ သုံးပါ။  
 
 ဖိုင်အသစ်အဖြစ် သိမ်းထားတဲ့ ./cosine-sine-clean.py ပရိုဂရမ်ကို cat -A နဲ့ ရိုက်ကြည့်ရင် M-BM- စာလုံးတွေ မရှိတော့တာကို တွေ့ရပါလိမ့်မယ်။  
 
 ```bash
-$cat -A ./cosine-sine-clean.py 
-import sys$$
-from math import cos, sin, radians$$
-$$
-#      <--- Invisible characters! $$
-$$
-input_radians = float(sys.argv[1])$$
-$$
-def calc_cos_sine(r):$$
-    print("Cosine of radians ", input_radians, ":", cos(radians (r)))$$
-    print("Sine of radians ", input_radians, ":", sin(radians (r)))$$
-$$
-calc_cos_sine(input_radians)$$
 ```
 
+clean လုပ်ထားပြီးသား python ပရိုဂရမ်ကို run လို့လည်း ရပါပြီ။  
+
+```bash
+
+```
 
 
