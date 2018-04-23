@@ -118,9 +118,14 @@ calc_cos_sine(input_radians)
 ```
 
 clean လုပ်ထားပြီးသား python ပရိုဂရမ်ကို run လို့လည်း ရပါပြီ။  
+radians 60 ကို ပေးပြီးတော့ cosine, sine ကို တွက်ခိုင်းကြည့်ကြရအောင်။  
 
 ```bash
-
+$ python ./cosine-sine-clean.py 60
+Cosine of radians  60.0 : 0.5000000000000001
+Sine of radians  60.0 : 0.8660254037844386
 ```
 
+#Reference
 
+[https://en.wikipedia.org/wiki/Non-breaking_space](https://en.wikipedia.org/wiki/Non-breaking_space)  
