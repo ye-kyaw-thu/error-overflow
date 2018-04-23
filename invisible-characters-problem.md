@@ -68,7 +68,8 @@ $ python ./cosine-sine.py
 SyntaxError: invalid character in identifier
 ```
 မမြင်ရတဲ့ စာလုံးတွေကိုပါ python က interpret လုပ်ဖို့ ကြိုးစားတာကြောင့် ပေးတဲ့ error ဖြစ်ပါတယ်။  
-မမြင်ရတဲ့ စာလုံးတွေကို လွယ်လွယ်နဲ့ ကြည့်လို့ ရတာကတော့ cat command ကို -A (--show-all) သို့မဟုတ် -v (--show-nonprinting) option တွေကို သုံးပြီးတော့  
+မမြင်ရတဲ့ စာလုံးတွေကို လွယ်လွယ်နဲ့ ကြည့်လို့ ရတာကတော့ cat command ကို  
+-A (--show-all) သို့မဟုတ် -v (--show-nonprinting) option တွေကို သုံးပြီးတော့  
 ကြည့်နိုင်ပါတယ်။ cosine-sine.py ပရိုဂရမ်ကို cat -A နဲ ရိုက်ခိုင်းတဲ့အခါမှာတော့ အောက်ပါအတိုင်း M-BM- စာလုံးတွေကို ရိုက်ပြပေးပါလိမ့်မယ်။  
 
 ```bash
