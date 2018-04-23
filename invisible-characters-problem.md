@@ -90,4 +90,11 @@ calc_cos_sine(input_radians)$
 
 ဒီနေရာမှာ ပရိုဂရမ် run လို့ မရအောင်ဒုက္ခပေးနေတဲ့ -M-BM- စာလုံးတွေက ASCII byte sequence နဲ့ ပြောရရင် 0xc2 0xa0 နံပါတ်တွေ ဖြစ်ပါတယ်။  
 Unicode (UTF-8) နဲ့ပြောရင်တော့ U+00A0 (a non-breaking space character) ဖြစ်ပါတယ်။ အတိုကောက်အနေနဲ့ NBSP လို့လဲ သုံးကြပါတယ်။  
+ကောင်းပါပြီ။ အဲဒီ ပရိုဂရမ်ထဲက M-BM- စာလုံးတွေကို ဘယ်လိုဖယ်ကြမလဲ။  
+Linux ရဲ့ powerful command တစ်ခုဖြစ်တဲ့ sed command ကို သုံးပြီး M-BM- စာလုံးတွေအားလုံးကို ဘာမှမရှိတဲ့ စာလုံးနဲ့ အစားထိုးခိုင်းပြီး ဖျက်ပစ်လို့ ရပါတယ်။  
+
+```bash
+cat -A ./cosine-sine.py | sed s/M-BM-//g > ./cosine-sine-clean.py
+```
+
 
