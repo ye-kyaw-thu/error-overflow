@@ -88,3 +88,6 @@ $
 calc_cos_sine(input_radians)$
 ```
 
+ဒီနေရာမှာ ပရိုဂရမ် run လို့ မရအောင်ဒုက္ခပေးနေတဲ့ -M-BM- စာလုံးတွေက ASCII byte sequence နဲ့ ပြောရရင် 0xc2 0xa0 နံပါတ်တွေ ဖြစ်ပါတယ်။  
+Unicode (UTF-8) နဲ့ပြောရင်တော့ U+00A0 (a non-breaking space character) ဖြစ်ပါတယ်။ အတိုကောက်အနေနဲ့ NBSP လို့လဲ သုံးကြပါတယ်။  
+
