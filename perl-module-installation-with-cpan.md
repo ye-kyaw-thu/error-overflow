@@ -153,5 +153,6 @@ BMP file ကို parsing လုပ်တဲ့အလုပ်တွေကိ�
 
 [https://www.cpan.org/](https://www.cpan.org/)  
 [https://en.wikipedia.org/wiki/CPAN](https://en.wikipedia.org/wiki/CPAN)  
+[cpan command line tool](http://perldoc.perl.org/cpan.html)
 [Link of Image::BMP](http://search.cpan.org/~daveola/Image-BMP-1.17/lib/Image/BMP.pm)  
 
