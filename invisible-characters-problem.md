@@ -126,6 +126,17 @@ Cosine of radians  60.0 : 0.5000000000000001
 Sine of radians  60.0 : 0.8660254037844386
 ```
 
+# Some more examples  
+
+in perl language:
+```perl
+my $char = pack(“C“,$x);
+my $char = pack(^@M-^\C^@M-^\,$x);
+
+print “$char color=”#ff00ff”>”;
+print ^@M-^\$char color=^@M-^]#ff00ff^@M-^]>^@M-^];
+```
+
 # Reference  
 
 [https://en.wikipedia.org/wiki/Non-breaking_space](https://en.wikipedia.org/wiki/Non-breaking_space)  
