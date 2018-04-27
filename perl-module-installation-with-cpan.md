@@ -44,7 +44,7 @@ Enter 'h' for help.
 cpan[1]>
 ```
 
-ကျွန်တော်တို့ install လုပ်ချင်တာက Image::BMP မို့လို့ install Image::BMP ဆိုပြီး ရိုက်ထည့်ရင် CPAN မှာ ရှိမရှိကို cpan command က ရှာဖွေပြီးတော့၊ ရှိတယ်ဆိုရင် download လုပ်ပေးတာမို့ အရမ်းကို အဆင်ပြေပါတယ်။  
+ကျွန်တော်တို့ install လုပ်ချင်တာက Image::BMP မို့လို့ install Image::BMP ဆိုပြီး ရိုက်ထည့်ရင် CPAN မှာ ရှိမရှိကို cpan command က ရှာဖွေပြီးတော့၊ ရှိတယ်ဆိုရင် download လုပ်ပြီး installation လုပ်ပေးတာမို့ အရမ်းကို အဆင်ပြေပါတယ်။  
 
 ```bash
 cpan[1]> install Image::BMP
