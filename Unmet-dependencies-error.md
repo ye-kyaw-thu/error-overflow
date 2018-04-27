@@ -27,7 +27,7 @@ The following packages have unmet dependencies:
                     Depends: libsord-0-0 but it is not going to be installed
 E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
 ```
-ကံကောင်းတဲ့ အခါမှာတော့ error message ရဲ့ နောက်ဆုံးလိုင်းမှာ ဖော်ပြထားတဲ့ apt-get -f install သို့မဟုတ် apt-get --fix-broken install ဆိုတဲ့ command နဲ့ ပြေလည်သွားတတ်ပါတယ်။ ဒီနေရာမှာ ကျွန်တော် ပေးချင်တဲ့ message တစ်ခုက error တစ်ခုခု တက်လာရင် အဲဒီပေးတဲ့ message ကို သေသေချာချာ ဖတ်ကြည့်ပါဆိုတဲ့ အချက်ပါ။ မလိုအပ်ပဲ တစ်ခုခု ဖြစ်တာနဲ့ Googling ပဲ လုပ်နေရင် လွယ်လွယ်နဲ့ဖြေရှင်းနိုင်တဲ့ ပြဿနာက ပိုကြာတတ်လို့ပါ။  
+ကံကောင်းတဲ့ အခါမှာတော့ error message ရဲ့ နောက်ဆုံးလိုင်းမှာ ဖော်ပြထားတဲ့ apt-get -f install သို့မဟုတ် apt-get --fix-broken install ဆိုတဲ့ command နဲ့ ပြေလည်သွားတတ်ပါတယ်။ ဒီနေရာမှာ ကျွန်တော် ပေးချင်တဲ့ message တစ်ခုက error တစ်ခုခု တက်လာရင် အဲဒီပေးတဲ့ message ကို သေသေချာချာ ဖတ်ကြည့်ပါဆိုတဲ့ အချက်ပါ။ မလိုအပ်ပဲ တစ်ခုခု ဖြစ်တာနဲ့ Googling ပဲ လုပ်နေရင် လွယ်လွယ်နဲ့ဖြေရှင်းနိုင်တဲ့ ပြဿနာက ပိုကြာတတ်လို့ပါ။ ကျွန်တော်ရဲ့ စက်မှာ ဖြစ်တဲ့ unmet dependencies error ကတော့ အောက်ပါအတိုင်း ဖြေရှင်းလို့ ရသွားခဲ့ပါတယ်။   
 
 ```bash
 $ sudo apt --fix-broken install
