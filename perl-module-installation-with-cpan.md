@@ -145,3 +145,5 @@ Terminal does not support GetHistory.
 Lockfile removed.
 
 ```
+
+Image::BMP module က ကိုယ်ရဲ့ library path အောက်ထဲမှာ ရှိသွားပြီဆိုရင်တော့ BMP ပုံဖိုင်တွေကို perl program ကနေ view လုပ်ကြည့်တာ၊ BMP file ကို parsing လုပ်
