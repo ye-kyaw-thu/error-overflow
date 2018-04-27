@@ -20,7 +20,8 @@ man cpan
 ```
 
 ## Usage example  
-ဆိုကြပါစို့ ကျွန်တော်တို့က Image::BMP ဆိုတဲ့ perl module က ကိုယ်ရဲ့ စက်ထဲမှာ မရှိလို့ installation လုပ်ချင်ရင်အောက်ပါ အဆင့်တွေအတိုင်း လုပ်ဆောင်ပါတယ်။  
+ဆိုကြပါစို့ ကျွန်တော်တို့က Image::BMP ဆိုတဲ့ perl module က ကိုယ်ရဲ့ စက်ထဲမှာ မရှိလို့ installation လုပ်ချင်ရင်  
+အောက်ပါ အဆင့်တွေအတိုင်း လုပ်ဆောင်ပါတယ်။  
 ဗဟုသုတအတွက် Image::BMP class က စက်ထဲမှာမရှိတဲ့အခါမှာ ပေးတဲ့ error message နဲ့ installation ကို cpan command နဲ့လုပ်တဲ့ အခါမှာ မြင်ရမဲ့ output message တွေအားလုံးကို ဖော်ပြပါမယ်။
 
 ဥပမာ ./readBMP ဆိုတဲ့ ပရိုဂရမ်က Image::BMP module ကို ယူသုံးထားပြီး၊ အဲဒီ perl module က စက်ထဲမှာ မရှိရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
