@@ -9,8 +9,8 @@ It will interact with [The Comprehensive Perl Archive Network (CPAN)](https://ww
 # in Myanmar language:
 
 perl ပရိုဂရမ်မင်း မှာလည်း တခြား ပရိုဂရမ်မင်း ဘာသာစကားတွေလိုပဲ ပြင်ပ library (သို့မဟုတ်) module တွေကို ခေါ်ပြီး သုံးပါတယ်။  
-ကိုယ်run ချင်တဲ့ ပရိုဂရမ်ကအတွက် လိုအပ်တဲ့ perl module တွေကို installation လုပ်ချင်တဲ့ အခါမှာ cpan ဆိုတဲ့ commandline tool ကို သုံးပါတယ်။  
-cpan နဲ့ ပတ်သက်ပြီး သုံးပုံသုံးနည်းကို အလွယ် မိတ်ဆက်ပါမယ်။  
+ကိုယ်run ချင်တဲ့ ပရိုဂရမ်အတွက် လိုအပ်တဲ့ perl module တွေကို installation လုပ်ချင်တဲ့ အခါမှာ cpan ဆိုတဲ့ commandline tool ကို သုံးပါတယ်။  
+cpan နဲ့ ပတ်သက်ပြီး သုံးပုံသုံးနည်းကို အလွယ် မိတ်ဆက်ပေးပါမယ်။  
 
 ## help for cpan 
 Linux ရဲ့ ထုံးစံအတိုင်း cpan command နဲ့ ပတ်သတ်တဲ့ help (သို့) option တွေကို အသေးစိတ်ကြည့်ချင်ရင်
@@ -21,7 +21,7 @@ man cpan
 
 ## Usage example  
 ဆိုကြပါစို့ ကျွန်တော်တို့က Image::BMP ဆိုတဲ့ perl module က ကိုယ်ရဲ့ စက်ထဲမှာ မရှိလို့ installation လုပ်ချင်ရင်အောက်ပါ အဆင့်တွေအတိုင်း လုပ်ဆောင်ပါတယ်။  
-ဗဟုသုတအတွက် Image::BMP class ကို installation လုပ်ရတဲ့ အခါမှာ မြင်ရမဲ့ output တွေအားလုံးကို ဖော်ပြပါမယ်။  
+ဗဟုသုတအတွက် Image::BMP class က စက်ထဲမှာမရှိတဲ့အခါမှာ ပေးတဲ့ error message နဲ့ installation ကို cpan command နဲ့လုပ်တဲ့ အခါမှာ မြင်ရမဲ့ output message တွေအားလုံးကို ဖော်ပြပါမယ်။
 
 ဥပမာ ./readBMP ဆိုတဲ့ ပရိုဂရမ်က Image::BMP module ကို ယူသုံးထားပြီး၊ အဲဒီ perl module က စက်ထဲမှာ မရှိရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
 
