@@ -3,7 +3,7 @@
 # in English:
 Relating to unmet dependencies error when trying to install a program or a libray ...
 You know, sometimes we have to read the error message carefully.
-You can solve with **sudo apt --fix-broken install** (if you are lucky)
+You can solve with **sudo apt --fix-broken install** or **sudo apt -f install** (if you are lucky)
 
 # in Myanmar language:
 Linux OS မှာ application တစ်ခုခု သို့မဟုတ် library တစ်ခုခုကို installation လုပ်တဲ့ အခါမှာ Unmet dependencies error ဆိုတာမျိုး ဖြစ်တဲ့အခါ အလွယ်ဆုံး ဖြေရှင်းပုံဖြေရှင်းနည်း တစ်ခုကို မိတ်ဆက်ပေးပါမယ်။ ဒီ error က ကိုယ် install လုပ်ချင်တဲ့ application သို့မဟုတ် library က လိုအပ်တဲ့ dependencies တွေနဲ့ ဆိုင်ပေမဲ့ ဘာ့ကြောင့် ဒီလို error တက်လာတယ်ဆိုပြီးတော့ တိတိကျကျ ပြောဖို့က ခက်ပါတယ်။ အကြောင်းအရင်းက installation လုပ်တဲ့ ပရိုဂရမ် နဲ့ဆိုင်သလို command line ကနေ application package management အတွက်သုံးတဲ့ apt ပရိုဂရမ်နဲ့ ပတ်သက်နေလို့ပါပဲ။      
