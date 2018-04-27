@@ -146,4 +146,12 @@ Lockfile removed.
 
 ```
 
-Image::BMP module က ကိုယ်ရဲ့ library path အောက်ထဲမှာ ရှိသွားပြီဆိုရင်တော့ BMP ပုံဖိုင်တွေကို perl program ကနေ view လုပ်ကြည့်တာ၊ BMP file ကို parsing လုပ်
+Image::BMP module ကကိုယ်ရဲ့ library path အောက်ထဲမှာ ရှိသွားပြီဆိုရင်တော့ BMP ပုံတွေကို perl program ကနေ view လုပ်ကြည့်တာမျိုး၊  
+BMP file ကို parsing လုပ်တဲ့အလုပ်တွေကို စမ်းကြည့်လို့ ရပါပြီ။  
+
+# Reference
+
+[https://www.cpan.org/](https://www.cpan.org/)  
+[https://en.wikipedia.org/wiki/CPAN](https://en.wikipedia.org/wiki/CPAN)  
+[Link of Image::BMP](http://search.cpan.org/~daveola/Image-BMP-1.17/lib/Image/BMP.pm)  
+
