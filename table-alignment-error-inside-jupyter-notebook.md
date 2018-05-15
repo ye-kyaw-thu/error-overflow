@@ -34,27 +34,26 @@ Jupyter notebook ရဲ့ cell ထဲမှာ markdown table တစ်ခု �
 လက်ရှိ ဖြေရှင်းထားတဲ့ နည်းကတော့ အောက်ပါအတိုင်းဖြစ်ပါတယ်။  
 
 ```
-| <p align="center"> Escape sequence | အလုပ်လုပ်ပုံ |
+| <p align="left"> Escape sequence | <p align="left"> အလုပ်လုပ်ပုံ |
 | --- | --- |
 | <p align="left"> \a | <p align="left"> သတိပေးချင်တဲ့ အခါ၊ စပီကာကနေ bell အသံပေးချင်တဲ့အခါ သုံးတယ်။ ASCII bell character လို့လည်းခေါ်တယ်။ |
-| <p align="center"> \b | <p align="center"> Backspace ကီးကို ရိုက်ချင်တဲ့အခါ သုံးတယ်။ |
-| <p align="center"> \c | <p align="center"> သူ့နောက်က စာလုံးတွေကို ရိုက်မပေးတော့ဘူး။ နောက်ပြီး စာကြောင်းအသစ်တစ်ကြောင်းအနေနဲ့လည်း ခွဲမပေးပါဘူး|
-| <p align="center"> \f | <p align="center"> form feed (စာမျက်နှာ အသစ်ခွဲ) အလုပ်ကို လုပ်ပေးတယ်။ |
-| <p align="center"> \n | <p align="center"> လက်ရှိ ရောက်ရှိနေတဲ့နေရာကနေ စာကြောင်းအသစ်ရဲ့ ဘယ်ဘက် အကျဆုံးနေရာကို ရွှေ့ပေးလိမ့်မယ်။ |
-| <p align="center"> \r | <p align="center"> Carriage return သင်္ကေတပါ။ လက်ရှိစာကြောင်းရဲ့ ဘယ်ဘက်ထိပ်ဆုံး နေရာကို ရွှေ့ချင်တဲ့အခါ အသုံးပြုတယ်။ |
-| <p align="center"> \t | <p align="center"> Horizontal Tab ကီးကို ရိုက်ဖို့အတွက် သုံးတယ်။ |
-| <p align="center"> \v | <p align="center"> Vertical Tab ကီးကို ရိုက်ဖို့အတွက် သုံးတယ်။ |
-| <p align="center"> \\&zwnj;[ | <p align="center"> စကရင်မှာ ရိုက်ပြဖို့မဟုတ်ပဲ၊ တစ်ခြား အလုပ်လုပ်ဖို့ သတ်မှတ်ထားသောစာလုံး (non-printing character) တွေရဲ့ ကွင်းစ |
-| <p align="center"> \\&zwnj;] | <p align="center"> စကရင်မှာ ရိုက်ပြဖို့မဟုတ်ပဲ၊ တစ်ခြား အလုပ်လုပ်ဖို့ သတ်မှတ်ထားသောစာလုံး (non-printing character) တွေရဲ့ ကွင်းပိတ် |
-| <p align="center"> \\' | <p align="center"> single quote ကို ရိုက်ဖို့အတွက်သုံးတယ်။ |
-| <p align="center"> \\" | <p align="center"> double quote ကို ရိုက်ဖို့အတွက်သုံးတယ်။ |
-| <p align="center"> \\nnn | <p align="center"> eight-bit စာလုံးတွေကို　octal value နဲ့ ရိုက်ဖို့အတွက်သုံးတယ်။  |
-| <p align="center"> \\xHH | <p align="center"> eight-bit စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့အတွက်သုံးတယ်။  |
-| <p align="center"> \uHHHH | <p align="center"> Unicode (ISO/IEC 10646) စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့သုံးပါတယ်။ (hexadecimal ဂဏန်း 4 လုံးအထိ) |
-| <p align="center"> \UHHHHHHHH | <p align="center"> Unicode (ISO/IEC 10646) စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့သုံးပါတယ်။ (hexadecimal ဂဏန်း ၈ လုံးအထိ) |
-| <p align="center"> \cx | <p align="center"> control ကီးနဲ့ တခြားကီးတစ်ခုခုကို တွဲရိုက်ဖို့ (control-x) အတွက် သုံးပါတယ်။ |
+| <p align="left"> \b | <p align="left"> Backspace ကီးကို ရိုက်ချင်တဲ့အခါ သုံးတယ်။ |
+| <p align="left"> \c | <p align="left"> သူ့နောက်က စာလုံးတွေကို ရိုက်မပေးတော့ဘူး။ နောက်ပြီး စာကြောင်းအသစ်တစ်ကြောင်းအနေနဲ့လည်း ခွဲမပေးပါဘူး|
+| <p align="left"> \f | <p align="left"> form feed (စာမျက်နှာ အသစ်ခွဲ) အလုပ်ကို လုပ်ပေးတယ်။ |
+| <p align="left"> \n | <p align="left"> လက်ရှိ ရောက်ရှိနေတဲ့နေရာကနေ စာကြောင်းအသစ်ရဲ့ ဘယ်ဘက် အကျဆုံးနေရာကို ရွှေ့ပေးလိမ့်မယ်။ |
+| <p align="left"> \r | <p align="left"> Carriage return သင်္ကေတပါ။ လက်ရှိစာကြောင်းရဲ့ ဘယ်ဘက်ထိပ်ဆုံး နေရာကို ရွှေ့ချင်တဲ့အခါ အသုံးပြုတယ်။ |
+| <p align="left"> \t | <p align="left"> Horizontal Tab ကီးကို ရိုက်ဖို့အတွက် သုံးတယ်။ |
+| <p align="left"> \v | <p align="left"> Vertical Tab ကီးကို ရိုက်ဖို့အတွက် သုံးတယ်။ |
+| <p align="left"> \\&zwnj;[ | <p align="left"> စကရင်မှာ ရိုက်ပြဖို့မဟုတ်ပဲ၊ တစ်ခြား အလုပ်လုပ်ဖို့ သတ်မှတ်ထားသောစာလုံး (non-printing character) တွေရဲ့ ကွင်းစ |
+| <p align="left"> \\&zwnj;] | <p align="left"> စကရင်မှာ ရိုက်ပြဖို့မဟုတ်ပဲ၊ တစ်ခြား အလုပ်လုပ်ဖို့ သတ်မှတ်ထားသောစာလုံး (non-printing character) တွေရဲ့ ကွင်းပိတ် |
+| <p align="left"> \\' | <p align="left"> single quote ကို ရိုက်ဖို့အတွက်သုံးတယ်။ |
+| <p align="left"> \\" | <p align="left"> double quote ကို ရိုက်ဖို့အတွက်သုံးတယ်။ |
+| <p align="left"> \\nnn | <p align="left"> eight-bit စာလုံးတွေကို　octal value နဲ့ ရိုက်ဖို့အတွက်သုံးတယ်။  |
+| <p align="left"> \\xHH | <p align="left"> eight-bit စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့အတွက်သုံးတယ်။  |
+| <p align="left"> \uHHHH | <p align="left"> Unicode (ISO/IEC 10646) စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့သုံးပါတယ်။ (hexadecimal ဂဏန်း 4 လုံးအထိ) |
+| <p align="left"> \UHHHHHHHH | <p align="left"> Unicode (ISO/IEC 10646) စာလုံးတွေကို hexadecimal value နဲ့ ရိုက်ဖို့သုံးပါတယ်။ (hexadecimal ဂဏန်း ၈ လုံးအထိ) |
+| <p align="left"> \cx | <p align="left"> control ကီးနဲ့ တခြားကီးတစ်ခုခုကို တွဲရိုက်ဖို့ (control-x) အတွက် သုံးပါတယ်။ |
 ```
-
 
 Google Chrome Browser မှာ မြင်ရတဲ့ ဇယားပုံကတော့ အောက်ပါအတိုင်း left alignment ဖြစ်ပါတယ်။  
 
