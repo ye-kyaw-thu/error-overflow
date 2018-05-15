@@ -1,4 +1,10 @@
+# Markdown Table Alignment Error inside Jupyter Notebook 
 
+# In English:  
+Although I tried ":---" for left alignment, "---:" for right alignment and ":---:" for center alignment, not working at all.
+My current solution is adding HTML code such as "<p align="left"> in each cell.
+
+# In Myanmar Language:
 
 ```
 | Escape sequence | အလုပ်လုပ်ပုံ |
