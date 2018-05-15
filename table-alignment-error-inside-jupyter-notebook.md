@@ -55,6 +55,7 @@ Jupyter notebook ရဲ့ cell ထဲမှာ markdown table တစ်ခု �
 | <p align="center"> \cx | <p align="center"> control ကီးနဲ့ တခြားကီးတစ်ခုခုကို တွဲရိုက်ဖို့ (control-x) အတွက် သုံးပါတယ်။ |
 ```
 
+
 Google Chrome Browser မှာ မြင်ရတဲ့ ဇယားပုံကတော့ အောက်ပါအတိုင်း left alignment ဖြစ်ပါတယ်။  
 
 <p align="center">
