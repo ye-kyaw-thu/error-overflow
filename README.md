@@ -11,3 +11,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 4. [invisible-characters-problem.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/invisible-characters-problem.md)
 5. [perl-module-installation-with-cpan.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/perl-module-installation-with-cpan.md)
 6. [Unmet-dependencies-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Unmet-dependencies-error.md)
+7. [table-alignment-error-inside-jupyter-notebook.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/table-alignment-error-inside-jupyter-notebook.md)
