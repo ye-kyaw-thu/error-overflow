@@ -58,5 +58,10 @@ Jupyter notebook ရဲ့ cell ထဲမှာ markdown table တစ်ခု �
 Google Chrome Browser မှာ မြင်ရတဲ့ ဇယားပုံကတော့ အောက်ပါအတိုင်း left alignment ဖြစ်ပါတယ်။  
 
 <p align="center">
- <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/markdown-table-alignment-error-within-Jupyter-notebook-solution.png" alt="aligned-table" width="700px" height="520px" /> 
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/markdown-table-alignment-error-within-Jupyter-notebook-solution.png" alt="aligned-table" width="700px" height="530px" /> 
 </p>
+
+# Reference:  
+
+[Markdown table alignment #3024](https://github.com/jupyter/notebook/issues/3024)  
+
