@@ -56,5 +56,5 @@ Jupyter notebook ရဲ့ cell ထဲမှာ markdown table တစ်ခု �
 ```
 
 <p align="center">
- <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/markdown-table-alignment-error-within-Jupyter-notebook-solution.png" alt="aligned-table" width="700px" height="500px" /> 
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/markdown-table-alignment-error-within-Jupyter-notebook-solution.png" alt="aligned-table" width="700px" height="450px" /> 
 </p>
