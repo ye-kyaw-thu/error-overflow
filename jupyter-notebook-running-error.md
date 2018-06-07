@@ -1,4 +1,5 @@
-
+Today, I installed caffe and updated some Python libraries ...
+After that, when I run jupyter I got following error:
 
 ```bash
 (py3.6.2) lar@lar-air:~/ss2018$ jupyter notebook Deep\ Learning\ Notebook.ipynb 
@@ -19,8 +20,9 @@ Traceback (most recent call last):
 SyntaxError: invalid syntax
 ```
 
-==========
+The solution is just install jupyter again:
 
+```bash
 (py3.6.2) lar@lar-air:~/ss2018$ pip3 install jupyter
 Requirement already satisfied: jupyter in /home/lar/anaconda3/envs/py3.6.2/lib/python3.6/site-packages (1.0.0)
 Requirement already satisfied: ipykernel in /home/lar/anaconda3/envs/py3.6.2/lib/python3.6/site-packages (from jupyter) (4.8.2)
@@ -70,6 +72,11 @@ Installing collected packages: python-dateutil
     Uninstalling python-dateutil-1.5:
       Successfully uninstalled python-dateutil-1.5
 Successfully installed python-dateutil-2.7.3
+```
+
+Now OK! as follow :)
+
+```bash
 (py3.6.2) lar@lar-air:~/ss2018$ jupyter notebook ./Deep\ Learning\ Notebook.ipynb
 [I 08:52:25.542 NotebookApp] [nb_conda_kernels] enabled, 9 kernels found
 [I 08:52:25.954 NotebookApp] The port 8888 is already in use, trying another port.
@@ -90,3 +97,4 @@ Created new window in existing browser session.
 [I 08:52:30.491 NotebookApp] Kernel started: b7c4eccb-bc4b-45ac-ae23-a1d8c388c963
 [I 08:52:32.187 NotebookApp] Adapting to protocol v5.1 for kernel b7c4eccb-bc4b-45ac-ae23-a1d8c388c963
 [I 08:52:35.203 NotebookApp] Starting buffering for b7c4eccb-bc4b-45ac-ae23-a1d8c388c963:8f23d07f45ea44f4b892ecdcbbd80d30
+```
