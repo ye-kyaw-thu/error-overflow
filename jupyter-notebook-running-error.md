@@ -20,7 +20,7 @@ Traceback (most recent call last):
 SyntaxError: invalid syntax
 ```
 
-The solution is just install jupyter again:
+The solution is just reinstall jupyter as follows:
 
 ```bash
 (py3.6.2) lar@lar-air:~/ss2018$ pip3 install jupyter
@@ -74,7 +74,7 @@ Installing collected packages: python-dateutil
 Successfully installed python-dateutil-2.7.3
 ```
 
-Now OK! as follow :)
+Now OK! :)  
 
 ```bash
 (py3.6.2) lar@lar-air:~/ss2018$ jupyter notebook ./Deep\ Learning\ Notebook.ipynb
