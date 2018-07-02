@@ -67,6 +67,12 @@ user ဖိုလ်ဒါကို နာမည်တစ်ခုခု ပြ�
  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice_Now-OK.png" alt="LibreOffice Now Ready" width="652px" height="358px" /> 
 </p>
 
+စောစောက LibreOffice ရဲ့ configuration ဖိုလ်ဒါအောက်ကို ပြန်ဝင်ကြည့်တဲ့အခါ အောက်ပါအတိုင်း user ဖိုလ်ဒါအသစ်ကို ဆောက်ပေးတာကို တွေ့ရှိရပါလိမ့်မယ်။  
+
+<p align="center">
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/new-user-profile-and-old-one.png" alt="user vs user.old folders" width="452px" height="258px" /> 
+</p>
+
 # Reference:  
 
 [[Solved] OpenOffice keeps crashing when I try to use it](https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521)  
