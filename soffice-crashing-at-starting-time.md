@@ -46,6 +46,9 @@ Discard Recovery Data ကို ရွေးလည်း အတူတူပါ�
    $ sudo apt-get install libreoffice | tee libreoffice-installation.log
 ```
 
+ဒါပေမဲ့ command prompt မှာ ``` $ soffice ``` ရိုက်ပြီး ဖွင့်လိုက်တိုင်းမှာ အထက်မှာ ပြထားတဲ့ Recovery Dialog Box က ပြန်ပြနေပြီးတော့  
+recovery လုပ်လုပ်၊ မလုပ်လုပ် soffice က ပြန်ထွက်သွားပြီး၊ သုံးလို့ မရဖြစ်နေခဲ့ပါတယ်။  
+
 # How to Solve:  
 
 
