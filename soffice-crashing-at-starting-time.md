@@ -28,6 +28,20 @@ Discard Recovery Data ကို ရွေးလည်း အတူတူပါ�
  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice-Error.png" alt="Error" width="552px" height="428px" /> 
 </p>
 
+အဲဒါနဲ့ LibreOffice ကို အောက်ပါအတိုင်း uninstall လုပ်လိုက်ပါတယ်။  
+
+```
+   $sudo apt-get remove --purge libreoffice*
+
+   $sudo apt-get clean
+
+   $sudo apt-get autoremove
+
+```
+
+# How to Solve:  
+
+
 # Reference:  
 
 [[Solved] OpenOffice keeps crashing when I try to use it](https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521)  
