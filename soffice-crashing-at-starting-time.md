@@ -77,3 +77,4 @@ user ဖိုလ်ဒါကို နာမည်တစ်ခုခု ပြ�
 
 [[Solved] OpenOffice keeps crashing when I try to use it](https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521)  
 [OpenOffice vs. LibreOffice](https://www.howtogeek.com/187663/openoffice-vs.-libreoffice-whats-the-difference-and-which-should-you-use/)
+[https://wiki.ubuntu.com/LibreOffice](https://wiki.ubuntu.com/LibreOffice)
