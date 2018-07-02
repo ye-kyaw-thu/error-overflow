@@ -64,7 +64,7 @@ Note: YOUR_USER_ID ဆိုတဲ့ နေရာမှာ ကိုယ့် l
 user ဖိုလ်ဒါကို နာမည်တစ်ခုခု ပြောင်းပြီးသွားပြီဆိုရင်တော့ command prompt မှာ ``` $ soffice``` ဆိုပြီး ရိုက်လိုက်ရင် LibreOffice ရဲ့ Welcome Dialog Box တက်လာပြီး အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ LibreOffice က သုံးဖို့ အဆင်သင့်ဖြစ်တာကို တွေ့ရပါလိမ့်မယ်။  
 
 <p align="center">
- <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice_Now-OK.png" alt="LibreOffice Now Ready" width="552px" height="328px" /> 
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice_Now-OK.png" alt="LibreOffice Now Ready" width="652px" height="358px" /> 
 </p>
 
 # Reference:  
