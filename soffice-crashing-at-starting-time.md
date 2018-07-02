@@ -25,7 +25,7 @@ LibreOffice က တရက်မှာသုံးနေရင်းနဲ့ cra
 
 
 <p align="center">
- <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice-Error.png" alt="Error" width="852px" height="638px" /> 
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice-Error.png" alt="Error" width="652px" height="438px" /> 
 </p>
 
 # Reference:  
