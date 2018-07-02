@@ -51,6 +51,21 @@ recovery လုပ်လုပ်၊ မလုပ်လုပ် soffice က ပ
 
 # How to Solve:  
 
+Googling လုပ်ကြည့်လိုက်တော့ ပြဿနာက user profile ကို သိမ်းပေးထားလို့၊ ရှိနေတဲ့ LibreOffice ကို ဖျက်ပြီးတော့ installation အသစ်လုပ်ထားလဲ  
+ဘာမှ အပြောင်းအလဲမဖြစ်ပဲ၊ soffice က မတက်နိုင်ဘူးဖြစ်နေတယ်လို့ သိလိုက်ရပါတယ်။  
+
+ဖြေရှင်းနည်းကတော့ "/home/YOUR_USER_ID/.config/libreoffice/4" ဆိုတဲ့ path အောက်ကိုဝင်ပြီးတော့ "user" ဆိုတဲ့ ဖိုလ်ဒါကို နာမည်ပြောင်းပါ။  
+ဥပမာ mv user user.old
+
+Note: YOUR_USER_ID ဆိုတဲ့ နေရာမှာ ကိုယ့် login account name နဲ့ အစားထိုးပါ
+
+တကယ်လို့ GUI ကနေ သွားမယ်ဆိုရင်တော့ "Ctrl+H" ကိုနှိပ် (သို့) View menu အောက်က "Show Hidden Files" ကို ရွေးမှသာ ဖွက်ထားတဲ့ ဖိုလ်ဒါဖြစ်တဲ့ ".config" ကို မြင်ရမှာ ဖြစ်ပါတယ်။  
+
+user ဖိုလ်ဒါကို နာမည်တစ်ခုခု ပြောင်းပြီးသွားပြီဆိုရင်တော့ command prompt မှာ ``` $ soffice``` ဆိုပြီး ရိုက်လိုက်ရင် LibreOffice ရဲ့ Welcome Dialog Box တက်လာပြီး အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ LibreOffice က သုံးဖို့ အဆင်သင့်ဖြစ်တာကို တွေ့ရပါလိမ့်မယ်။  
+
+<p align="center">
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice_Now-OK.png" alt="LibreOffice Now Ready" width="552px" height="428px" /> 
+</p>
 
 # Reference:  
 
