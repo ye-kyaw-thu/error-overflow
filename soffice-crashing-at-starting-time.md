@@ -20,9 +20,8 @@ soffice
 
 # In Myanmar Language:  
 
-LibreOffice က တရက်မှာသုံးနေရင်းနဲ့ crash ဖြစ်သွားပြီးတော့၊  စာသင်ဖို့အတွက် presentation slide ပြင်ဖို့ Impress presentation ဖိုင်တစ်ဖိုင်ကို ဖွင့်လိုက်တိုင်းမှာ အောက်ပါ အတိုင်း   
-
-
+LibreOffice က တရက်မှာသုံးနေရင်းနဲ့ crash ဖြစ်သွားပြီးတော့၊  စာသင်ဖို့အတွက် presentation slide ပြင်ဖို့ Impress presentation ဖိုင်တစ်ဖိုင်ကို ဖွင့်လိုက်တိုင်းမှာ အောက်ပါ အတိုင်း အရင်ဖွင့်ခဲ့တဲ့ ဖိုင်တစ်ဖိုင်ကို recover လုပ်မလားမေးတဲ့ dialog box ပေါ်လာပြီး၊ OK button ကို နှိပ်လိုက်ရင် LibreOffice က တက်မလာတော့ပါဘူး။  
+Discard Recovery Data ကို ရွေးလည်း အတူတူပါပဲ။ LibreOffice က တက်မလာပါဘူး။ Impress presentation slide ဖိုင်သာမက၊ တခြား Writer Document, Calc Spreadsheet ဖိုင်တွေကို ဖွင့်လို့လည်း မရဖြစ်နေတဲ့ အခြေအနေပါ။   
 
 <p align="center">
  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/LibreOffice-Error.png" alt="Error" width="552px" height="428px" /> 
