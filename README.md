@@ -14,4 +14,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 7. [table-alignment-error-inside-jupyter-notebook.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/table-alignment-error-inside-jupyter-notebook.md)
 8. [jupyter notebook running error1](https://github.com/ye-kyaw-thu/error-overflow/blob/master/jupyter-notebook-running-error.md)  
 9. [import-tensorflow-error1](https://github.com/ye-kyaw-thu/error-overflow/blob/master/import-tensorflow-error.md)  
+10. [LibreOffice (soffice) Crashing When I Start](https://github.com/ye-kyaw-thu/error-overflow/blob/master/soffice-crashing-at-starting-time.md)
 
