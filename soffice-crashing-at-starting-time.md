@@ -30,5 +30,5 @@ Discard Recovery Data ကို ရွေးလည်း အတူတူပါ�
 
 # Reference:  
 
-[https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521](https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521)  
+[[Solved] OpenOffice keeps crashing when I try to use it](https://forum.openoffice.org/en/forum/viewtopic.php?f=6&t=88521)  
 [OpenOffice vs. LibreOffice](https://www.howtogeek.com/187663/openoffice-vs.-libreoffice-whats-the-difference-and-which-should-you-use/)
