@@ -1,21 +1,23 @@
-# OpenOffice (soffice) Crashing When I Start
+# LibreOffice (soffice) Crashing When I Start
 
 Date: 2 July 2018
 
 # In English:
 
-For some reasons, OpenOffice crushed.   
-I removed and re-install OpenOffice but keep crushing when I run.  
+For some reasons, LibreOffice crushed.   
+I removed and re-install LibreOffice but keep crushing when I run.  
 
 How to solve:  
-Rename OpenOffice user profile.  
+Rename LibreOffice user profile.  
 On Ubuntu:  
 cd /home/YOUR_USER_ID/.config/libreoffice/4  
 
 And then, change foldername user to user.old as follows:  
 mv user user.old  
 
-Start OpenOffice:  
+Start LibreOffice:  
 soffice  
 
-# In Myanmar Language:
+# In Myanmar Language:  
+
+LibreOffice က တရက်မှာသုံးနေရင်းနဲ့ crash ဖြစ်သွားပြီးတော့၊  စာသင်ဖို့အတွက် presentation slide ပြင်ဖို့ Impress presentation ဖိုင်တစ်ဖိုင်ကို ဖွင့်လိုက်တိုင်းမှာ အောက်ပါ အတိုင်း   
