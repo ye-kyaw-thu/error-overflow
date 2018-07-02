@@ -31,12 +31,19 @@ Discard Recovery Data ကို ရွေးလည်း အတူတူပါ�
 အဲဒါနဲ့ LibreOffice ကို အောက်ပါအတိုင်း uninstall လုပ်လိုက်ပါတယ်။  
 
 ```
-   $sudo apt-get remove --purge libreoffice*
+   $ sudo apt-get remove --purge libreoffice*
 
-   $sudo apt-get clean
+   $ sudo apt-get clean
 
-   $sudo apt-get autoremove
+   $ sudo apt-get autoremove
 
+```
+
+ပြီးတော့ အောက်ပါအတိုင်း install ပြန်လုပ်ခဲ့ပါတယ်။  
+(အင်တာနက် ချိတ်ဆက်ထားရပါမယ်)  
+
+```
+   $ sudo apt-get install libreoffice | tee libreoffice-installation.log
 ```
 
 # How to Solve:  
