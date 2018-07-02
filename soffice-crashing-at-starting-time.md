@@ -70,7 +70,7 @@ user ဖိုလ်ဒါကို နာမည်တစ်ခုခု ပြ�
 စောစောက LibreOffice ရဲ့ configuration ဖိုလ်ဒါအောက်ကို ပြန်ဝင်ကြည့်တဲ့အခါ အောက်ပါအတိုင်း user ဖိုလ်ဒါအသစ်ကို ဆောက်ပေးတာကို တွေ့ရှိရပါလိမ့်မယ်။  
 
 <p align="center">
- <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/new-user-profile-and-old-one.png" alt="user vs user.old folders" width="552px" height="258px" /> 
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/new-user-profile-and-old-one.png" alt="user vs user.old folders" width="652px" height="258px" /> 
 </p>
 
 # Reference:  
