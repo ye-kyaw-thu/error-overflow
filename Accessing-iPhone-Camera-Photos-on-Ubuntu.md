@@ -1,5 +1,29 @@
 # How to Access iPhone Camera Photos on Ubuntu (16.04 LTS)
 
+လုပ်ရမဲ့ အဆင့်တွေက အောက်ပါအတိုင်း
+
+```bash
+(py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+SUCCESS: Paired with device ec4c86554046aa2ad8751b79cce01131943b3407
+
+(py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ ifuse ~/iphone/
+
+(py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ cd ~/iphone/
+
+(py3.6.2) lar@lar-air:~/iphone$ ls
+AirFair  Downloads       MediaAnalysis  PhotoStreamsData  Recordings
+Books    FactoryLogs     PhotoData      Purchases
+DCIM     iTunes_Control  Photos         Radio
+
+(py3.6.2) lar@lar-air:~/iphone$ nautilus .
+```
+
+idevicepair pair လုပ်စဉ်မှာ၊ တကယ်လို့ iphone ကနေ trust ဆိုတဲ့ button ကို မနှိပ်ပေးရသေးရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
+
+```bash
+(py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+ERROR: Please accept the trust dialog on the screen of device ec4c86554046aa2ad8751b79cce01131943b3407, then attempt to pair again.
+```
 
 # Reference
 
