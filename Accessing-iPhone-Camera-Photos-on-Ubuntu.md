@@ -9,7 +9,7 @@ Ubuntu OS ကနေ iPhone အထဲက ဖိုလ်ဒါတွေကို 
 
 [https://pastebin.com/6u0TEhjz](https://pastebin.com/6u0TEhjz)
 
-အဲဒီ "iphone-setup.sh" ပရိုဂရမ်ကတော့ လိုအပ်တဲ့ library ဖိုင်တွေ (ဥပမာ libimobiledevice), library တွေကို install လုပ်တဲ့ အခါမှာလိုအပ်တဲ့ dependencies တွေကို ဒေါင်းလုဒ်လုပ်ပေးတာမျိုး၊ install လုပ်ပေးတာမျိုးကို အားလုံး လုပ်ပေးမဲ့ ဖိုင်ဖြစ်လို့ အရမ်းအထောက်အကူဖြစ်ပါတယ်။  
+အဲဒီ "iphone-setup.sh" ပရိုဂရမ်ကတော့ iphone နဲ့ Ubuntu OS နှစ်ခုအကြား ချိတ်ဆက်ဖို့အတွက်၊ လိုအပ်တဲ့ library ဖိုင်တွေ (ဥပမာ libimobiledevice), library တွေကို install လုပ်တဲ့ အခါမှာလိုအပ်တဲ့ dependencies တွေကို ဒေါင်းလုဒ်လုပ်ပေးတာမျိုး၊ install လုပ်ပေးတာမျိုးကို အားလုံး လုပ်ပေးမဲ့ ဖိုင်ဖြစ်လို့ အရမ်းအထောက်အကူဖြစ်ပါတယ်။  
 အထက်ပါ လင့်ခ်ကို access မလုပ်နိုင်တဲ့ အခါမျိုးအတွက် script တစ်ခုလုံးကို အောက်ပါအတိုင်း ကော်ပီကူးပေးထားပါတယ်။  
 
 ```bash
