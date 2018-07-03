@@ -1,6 +1,7 @@
 # How to Access iPhone Camera Photos on Ubuntu (16.04 LTS)
 
-လုပ်ရမဲ့ အဆင့်တွေက အောက်ပါအတိုင်း
+တကယ်လို့ iPhone ကိုသုံးရင် ဖုန်းနဲ့ရိုက်ထားတဲ့ ဓာတ်ပုံတွေကို HDD မှာ backup ကူးချင်တဲ့အခါမျိုးမှာ၊  
+Ubuntu OS ကနေ iPhone အထဲက ဖိုလ်ဒါတွေကို access လုပ်နိုင်အောင် လုပ်ရမဲ့ အဆင့်တွေကတော့ အောက်ပါအတိုင်း ဖြစ်ပါတယ်။  
 
 ## Running iphone-setup.sh
 
