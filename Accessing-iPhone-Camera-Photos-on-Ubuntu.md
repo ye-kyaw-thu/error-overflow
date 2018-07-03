@@ -25,6 +25,13 @@ idevicepair pair လုပ်စဉ်မှာ၊ တကယ်လို့ ipho
 ERROR: Please accept the trust dialog on the screen of device ec4c86554046aa2ad8751b79cce01131943b3407, then attempt to pair again.
 ```
 
+တကယ်လို့ USB ကြိုးမချိတ်ထားခဲ့ရင် အောက်ပါအတိုင်း error message ပေးလိမ့်မယ်။
+
+```bash
+(py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+No device found, is it plugged in?
+```
+
 # Reference
 
 [https://askubuntu.com/questions/928750/how-do-i-access-ios-camera-pictures-on-ubuntu-17-04](https://askubuntu.com/questions/928750/how-do-i-access-ios-camera-pictures-on-ubuntu-17-04)  
