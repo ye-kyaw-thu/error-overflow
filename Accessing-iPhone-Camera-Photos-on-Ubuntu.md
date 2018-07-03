@@ -32,6 +32,22 @@ ERROR: Please accept the trust dialog on the screen of device ec4c86554046aa2ad8
 No device found, is it plugged in?
 ```
 
+iphone ဖိုလ်ဒါကို infuse နဲ့ ခေါ်ချိတ်တဲ့ အခါမှာ အောက်ပါအတိုင်း Permission denied ဆိုတဲ့ error message ကိုပေးနေရင်
+
+```bash
+lar@lar-air:~$ sudo ifuse ~/iphone/
+[sudo] password for lar: 
+There was an error accessing the mount point: Permission denied
+```
+
+sudo ခံပြီးမှ command ကို ရိုက်ပါ။  
+
+```bash
+lar@lar-air:~$ sudo umount ~/iphone/
+
+lar@lar-air:~$ ifuse ~/iphone/
+```
+
 # Reference
 
 [https://askubuntu.com/questions/928750/how-do-i-access-ios-camera-pictures-on-ubuntu-17-04](https://askubuntu.com/questions/928750/how-do-i-access-ios-camera-pictures-on-ubuntu-17-04)  
