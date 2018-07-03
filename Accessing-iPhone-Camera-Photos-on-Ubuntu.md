@@ -33,6 +33,8 @@ DCIM     iTunes_Control  Photos         Radio
 (py3.6.2) lar@lar-air:~/iphone$ nautilus .
 ```
 
+## Relating to Some Error Messages
+
 idevicepair pair လုပ်စဉ်မှာ၊ တကယ်လို့ iphone ကနေ trust ဆိုတဲ့ button ကို မနှိပ်ပေးရသေးရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
 
 ```
