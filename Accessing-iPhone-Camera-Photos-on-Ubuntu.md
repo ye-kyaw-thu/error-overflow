@@ -80,18 +80,19 @@ lar@lar-air:~/tool$ sudo ./iphone-setup.sh
 ## Running "idevicepair" and "ifuse" commands
 
 ```
+lar@lar-air:~$ mkdir ~/iphone/
 
-lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+lar@lar-air:~$ idevicepair pair
 SUCCESS: Paired with device ec4c86554046aa2ad8751b79cce01131943b3407
 
-lar@lar-air:~/student/nie/from/17jun2018$ ifuse ~/iphone/
+lar@lar-air:~$ ifuse ~/iphone/
 
 ```
 
 ## Accessing iPhone Photos
 
 ```
-lar@lar-air:~/student/nie/from/17jun2018$ cd ~/iphone/
+lar@lar-air:~$ cd ~/iphone/
 
 lar@lar-air:~/iphone$ ls
 AirFair  Downloads       MediaAnalysis  PhotoStreamsData  Recordings
@@ -106,14 +107,14 @@ lar@lar-air:~/iphone$ nautilus .
 idevicepair pair လုပ်စဉ်မှာ၊ တကယ်လို့ iphone ကနေ trust ဆိုတဲ့ button ကို မနှိပ်ပေးရသေးရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
 
 ```
-lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+lar@lar-air:~$ idevicepair pair
 ERROR: Please accept the trust dialog on the screen of device ec4c86554046aa2ad8751b79cce01131943b3407, then attempt to pair again.
 ```
 
 တကယ်လို့ USB ကြိုးမချိတ်ထားခဲ့ရင် အောက်ပါအတိုင်း error message ပေးလိမ့်မယ်။
 
 ```
-lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
+lar@lar-air:~$ idevicepair pair
 No device found, is it plugged in?
 ```
 
