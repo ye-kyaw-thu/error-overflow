@@ -2,12 +2,27 @@
 
 လုပ်ရမဲ့ အဆင့်တွေက အောက်ပါအတိုင်း
 
+## Running iphone-setup.sh
+
+```
+lar@lar-air:~/tool$ chmod +x ./iphone-setup.sh 
+lar@lar-air:~/tool$ ex -bsc '%!awk "{sub(/\r/,\"\")}1"' -cx iphone_setup.sh
+lar@lar-air:~/tool$ sudo ./iphone-setup.sh 
+```
+
+## Running "idevicepair" and "ifuse" commands
+
 ```
 (py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ idevicepair pair
 SUCCESS: Paired with device ec4c86554046aa2ad8751b79cce01131943b3407
 
 (py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ ifuse ~/iphone/
 
+```
+
+## Accessing iPhone Photos
+
+```
 (py3.6.2) lar@lar-air:~/student/nie/from/17jun2018$ cd ~/iphone/
 
 (py3.6.2) lar@lar-air:~/iphone$ ls
