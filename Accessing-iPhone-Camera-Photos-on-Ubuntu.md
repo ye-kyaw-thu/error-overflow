@@ -153,3 +153,4 @@ lar@lar-air:~$ ifuse ~/iphone/
 [How to access and mount iPhone 6 in Linux - Tutorial](https://www.dedoimedo.com/computers/linux-iphone-6.html)  
 [On Ubuntu 16.04, since iOS 10 update, libimobiledevice can't connect to my iPhone. This is my attempt to document a fix.](https://gist.github.com/samrocketman/70dff6ebb18004fc37dc5e33c259a0fc)  
 [https://askubuntu.com/questions/812006/how-can-i-mount-my-iphone-6s-on-ubuntu-16-04](https://askubuntu.com/questions/812006/how-can-i-mount-my-iphone-6s-on-ubuntu-16-04)  
+[PASTEBIN link of iphone-setup.sh script file](https://pastebin.com/6u0TEhjz)
