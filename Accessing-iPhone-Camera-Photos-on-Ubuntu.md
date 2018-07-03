@@ -108,8 +108,7 @@ lar@lar-air:~/iphone$ nautilus .
  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/iphone_folders.png" alt="Folders of iPhone" width="797px" height="550px" /> 
 </p>
 
-DCIM ဖိုလ်ဒါအထဲကို ဝင်ပြီးတော့ ကိုယ်ကြည့်ချင်တဲ့ ဓာတ်ပုံတွေကို သိမ်းထားတဲ့ ဖိုလ်ဒါတစ်ခုခုကို ဖွင့်ကြည့်ရင်တော့ အောက်ပါကဲ့သို့သော ဓာတ်ပုံတွေကို မြင်ရပါလိမ့်မယ်။  
-အဲဒါဆိုရင် လိုချင်တဲ့ ဓာတ်ပုံတွေကို ဖိုလ်ဒါတစ်ခုခုဆီကို ကော်ပီကူးတာမျိုး၊ တခြား HDD တစ်လုံးဆီကို backup လုပ်တာမျိုး လုပ်လို့ ရပါပြီ။ :)  
+DCIM ဖိုလ်ဒါအထဲကို ဝင်ပြီးတော့ ကိုယ်ကြည့်ချင်တဲ့ ဓာတ်ပုံတွေကို သိမ်းထားတဲ့ ဖိုလ်ဒါတစ်ခုခုကို ဖွင့်ကြည့်ရင်တော့ အောက်ပါကဲ့သို့သော ဓာတ်ပုံတွေကို မြင်ရပါလိမ့်မယ်။ အဲဒါဆိုရင် လိုချင်တဲ့ ဓာတ်ပုံတွေကို ဖိုလ်ဒါတစ်ခုခုဆီကို ကော်ပီကူးတာမျိုး၊ တခြား HDD တစ်လုံးဆီကို backup လုပ်တာမျိုး လုပ်လို့ ရပါပြီ။ :)  
 
 <p align="center">
  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/eg-photos-under-a-DCIM-folder.png" alt="Example photos" width="797px" height="550px" /> 
