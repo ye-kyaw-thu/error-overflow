@@ -102,6 +102,12 @@ DCIM     iTunes_Control  Photos         Radio
 lar@lar-air:~/iphone$ nautilus .
 ```
 
+အောက်ပါအတိုင်း iPhone အထဲက ဖိုလ်ဒါတွေကို မြင်ရပါလိမ့်မယ်။  
+
+<p align="center">
+ <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/iphone_folders.png" alt="Folders of iPhone" width="797px" height="550px" /> 
+</p>
+
 ## Relating to Some Error Messages
 
 idevicepair pair လုပ်စဉ်မှာ၊ တကယ်လို့ iphone ကနေ trust ဆိုတဲ့ button ကို မနှိပ်ပေးရသေးရင် အောက်ပါအတိုင်း error message ပေးပါလိမ့်မယ်။  
