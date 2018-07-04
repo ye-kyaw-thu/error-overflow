@@ -218,4 +218,15 @@ WARNING:root:Debug message: No module named 'caffe2.python.caffe2_pybind11_state
 
 ```
 
-What I learned from this installation:
+### What I learned from this installation:  
+
+I need to export both __PYTHONPATH__ and __LD_LIBRARY_PATH__ after the Caffe2 installation.
+
+
+# Reference  
+
+[https://caffe2.ai/docs/getting-started.html?platform=ubuntu&configuration=compile](https://caffe2.ai/docs/getting-started.html?platform=ubuntu&configuration=compile)  
+[https://caffe2.ai/docs/faq.html](https://caffe2.ai/docs/faq.html)  
+[https://github.com/facebookresearch/Detectron/issues/202](https://github.com/facebookresearch/Detectron/issues/202)  
+
+
