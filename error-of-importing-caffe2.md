@@ -182,53 +182,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> from caffe2.python import *
 >>> 
 
-Above is OK! WHY "from caffe2.python import core" is not OK???
+# Above is OK! WHY "from caffe2.python import core" is not OK???
 
 ===========
+
+# Check $LD_LIBRARY_PATH
 
 (py3.6.5) lar@lar-air:~$ echo $LD_LIBRARY_PATH 
 :/lib:/lib64:/usr/lib:/usr/lib64:/lib:/lib64:/usr/lib:/usr/lib64
 
-============
-
-(py3.6.5) lar@lar-air:~$ conda info
-Current conda install:
-
-               platform : linux-64
-          conda version : 4.3.25
-       conda is private : False
-      conda-env version : 4.3.25
-    conda-build version : not installed
-         python version : 3.6.1.final.0
-       requests version : 2.14.2
-       root environment : /home/lar/anaconda3  (writable)
-    default environment : /home/lar/anaconda3/envs/py3.6.5
-       envs directories : /home/lar/anaconda3/envs
-                          /home/lar/.conda/envs
-          package cache : /home/lar/anaconda3/pkgs
-                          /home/lar/.conda/pkgs
-           channel URLs : https://conda.anaconda.org/conda-forge/linux-64
-                          https://conda.anaconda.org/conda-forge/noarch
-                          https://repo.continuum.io/pkgs/free/linux-64
-                          https://repo.continuum.io/pkgs/free/noarch
-                          https://repo.continuum.io/pkgs/r/linux-64
-                          https://repo.continuum.io/pkgs/r/noarch
-                          https://repo.continuum.io/pkgs/pro/linux-64
-                          https://repo.continuum.io/pkgs/pro/noarch
-            config file : /home/lar/.condarc
-             netrc file : None
-           offline mode : False
-             user-agent : conda/4.3.25 requests/2.14.2 CPython/3.6.1 Linux/4.13.0-45-generic debian/stretch/sid glibc/2.23    
-                UID:GID : 1000:1000
-
-=============
+# ============
 
 lar@lar-air:~/tool/pytorch/build/lib$ source ~/.bashrc
 
-I updated the LD_LIBRARY_PATH to include caffe2 build directory:
-For my case: /home/lar/tool/pytorch/build/lib
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/lib64:/usr/lib:/usr/lib64:/home/lar/tool/pytorch/build/lib
+# I updated the LD_LIBRARY_PATH to include caffe2 build directory:
+# For my case: /home/lar/tool/pytorch/build/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/lib64:/usr/lib:/usr/lib64:/home/lar/tool/pytorch/build/lib
 
 lar@lar-air:~/tool/pytorch/build/lib$ echo $LD_LIBRARY_PATH 
 :/lib:/lib64:/usr/lib:/usr/lib64:/lib:/lib64:/usr/lib:/usr/lib64:/lib:/lib64:/usr/lib:/usr/lib64:/home/lar/tool/pytorch/build/lib
@@ -236,9 +205,7 @@ lar@lar-air:~/tool/pytorch/build/lib$ source activate py3.6.5
 (py3.6.5) lar@lar-air:~/tool/pytorch/build/lib$ python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
 Success
 
-================
-
-Confirmation again:
+# Confirmation again:
 
 (py3.6.5) lar@lar-air:~/tool/pytorch/build/lib$ python
 Python 3.6.5 | packaged by conda-forge | (default, Apr  6 2018, 13:39:56) 
@@ -248,8 +215,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 WARNING:root:This caffe2 python run does not have GPU support. Will run in CPU only mode.
 WARNING:root:Debug message: No module named 'caffe2.python.caffe2_pybind11_state_hip'
 >>> 
-
-==================
 
 ```
 
