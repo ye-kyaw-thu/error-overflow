@@ -5,7 +5,7 @@ I installed caffe2 based on the instructions supported by the following link:
 
 ## Installation steps in details
 
-Installation for Dependencies:
+Installation for Dependencies:  
 
 ```
 $ sudo apt-get update
@@ -33,6 +33,23 @@ $ sudo pip install \
       protobuf
       
 $ sudo apt-get install -y --no-install-recommends libgflags-dev
+```
+
+Clone source code of Caffe2 from Github repository:  
+
+```
+$ git clone --recursive https://github.com/pytorch/pytorch.git && cd pytorch
+$ git submodule update --init
+```
+
+Building, configuring, Compiling:  
+
+```
+$ mkdir build && cd build
+
+$ cmake ..
+
+$sudo make install
 ```
 
 # Problem:  
