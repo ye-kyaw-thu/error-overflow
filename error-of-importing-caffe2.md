@@ -49,7 +49,12 @@ $ mkdir build && cd build
 
 $ cmake ..
 
-$sudo make install
+$ sudo make install
+```
+Testing Caffe2 installation:  
+
+```
+cd ~ && python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
 ```
 
 # Problem:  
