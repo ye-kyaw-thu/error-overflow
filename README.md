@@ -15,5 +15,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 8. [jupyter notebook running error1](https://github.com/ye-kyaw-thu/error-overflow/blob/master/jupyter-notebook-running-error.md)  
 9. [import-tensorflow-error1](https://github.com/ye-kyaw-thu/error-overflow/blob/master/import-tensorflow-error.md)  
 10. [LibreOffice (soffice) Crashing When I Start](https://github.com/ye-kyaw-thu/error-overflow/blob/master/soffice-crashing-at-starting-time.md)
-11. [Accessing-iPhone-Camera-Photos-on-Ubuntu](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Accessing-iPhone-Camera-Photos-on-Ubuntu.md)
+11. [Accessing-iPhone-Camera-Photos-on-Ubuntu](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Accessing-iPhone-Camera-Photos-on-Ubuntu.md)  
+12. [Error of "from caffe2.python import core"](https://github.com/ye-kyaw-thu/error-overflow/blob/master/error-of-importing-caffe2.md)  
 
