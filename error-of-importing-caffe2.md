@@ -8,8 +8,8 @@ I installed caffe2 based on the instructions supported by the following link:
 Installation for Dependencies:
 
 ```
-sudo apt-get update
-sudo apt-get install -y --no-install-recommends \
+$ sudo apt-get update
+$ sudo apt-get install -y --no-install-recommends \
       build-essential \
       cmake \
       git \
@@ -27,10 +27,12 @@ sudo apt-get install -y --no-install-recommends \
       protobuf-compiler \
       python-dev \
       python-pip                          
-sudo pip install \
+$ sudo pip install \
       future \
       numpy \
       protobuf
+      
+$ sudo apt-get install -y --no-install-recommends libgflags-dev
 ```
 
 # Problem:  
