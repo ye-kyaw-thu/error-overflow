@@ -17,4 +17,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 10. [LibreOffice (soffice) Crashing When I Start](https://github.com/ye-kyaw-thu/error-overflow/blob/master/soffice-crashing-at-starting-time.md)
 11. [Accessing-iPhone-Camera-Photos-on-Ubuntu](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Accessing-iPhone-Camera-Photos-on-Ubuntu.md)  
 12. [Error of "from caffe2.python import core"](https://github.com/ye-kyaw-thu/error-overflow/blob/master/error-of-importing-caffe2.md)  
+13. [sylbreak and "ur" error with Jupyter Notebook](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sylbreak-and-Python-ur-error-with-JupyterNotebook.ipynb)  
 
