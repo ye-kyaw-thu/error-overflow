@@ -1,3 +1,10 @@
+# Notes of Keras Installation on an Anaconda Environment
+
+## in English:
+I still got import error message of "keras.datasets" even I installed it with pip.  
+The solution was installation with "conda install keras".
+
+## in Myanmar language:
 
 keras.datasets က လက်ရှိသုံးနေတဲ့ notebook မှာ မရှိသေးလို့ import လုပ်လို့မရ
 
