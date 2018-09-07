@@ -6,8 +6,9 @@ The solution was installation with "conda install keras".
 
 ## in Myanmar language:
 
-keras.datasets က လက်ရှိသုံးနေတဲ့ notebook မှာ မရှိသေးလို့ import လုပ်လို့မရ
+keras.datasets က လက်ရှိသုံးနေတဲ့ notebook မှာ မရှိသေးလို့ import လုပ်လို့မရ  
 
+```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ python
 Python 3.6.5 | packaged by conda-forge | (default, Apr  6 2018, 13:39:56) 
 [GCC 4.8.2 20140120 (Red Hat 4.8.2-15)] on linux
@@ -18,12 +19,12 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ModuleNotFoundError: No module named 'keras.datasets'
 >>> exit()
+```
 
-==========
+အဲဒါကြောင့် pip နဲ့ keras.datasets ကို install လုပ်ပြီး  
+import လုပ်ကြည့်လဲ အောက်ပါအတိုင်း error message ရခဲ့။  
 
-အဲဒါကြောင့် pip နဲ့ keras.datasets ကို install လုပ်ပြီး
-import လုပ်ကြည့်လဲ အောက်ပါအတိုင်း error message ရခဲ့။
-
+```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ pip install keras.datasets
 Collecting keras.datasets
   Downloading https://files.pythonhosted.org/packages/07/20/9ed10cd3247cc29c362c77c52d820928ab4f955b7e1ba9e77a288b4c5f3c/keras_datasets-0.1.0-py2.py3-none-any.whl
@@ -47,11 +48,11 @@ ModuleNotFoundError: No module named 'keras.datasets'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ModuleNotFoundError: No module named 'keras.datasets'
+```
 
-==========
+အဲဒါကြောင့် conda ကိုသုံးပြီး အောက်ပါအတိုင်း installation လုပ်ခဲ့
 
-အဲဒါကြောင့် conda ကိုသုံးပြီး အောက်ပါအတိုင်း install လုပ်ခဲ့
-
+```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ conda install keras
 Fetching package metadata ...........
 Solving package specifications: .
@@ -90,11 +91,13 @@ keras-preproce 100% |###########################################################
 CondaError: OSError(28, 'No space left on device')
 CondaError: OSError(28, 'No space left on device')
 CondaError: OSError(28, 'No space left on device')
+```
 
 အထက်ပါ Error က notebook မှာ disk space မရှိတော့လို့ပေးတာ။
 အဲဒါကြောင့် disk space ကို clean လုပ်ပြီးတော့
 အောက်ပါအတိုင်း keras ကို ပြန် install လုပ်ခဲ့
 
+```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ conda install keras
 Fetching package metadata ...........
 Solving package specifications: .
@@ -119,9 +122,11 @@ The following packages will be DOWNGRADED:
     numpy:               1.14.5-py36_blas_openblash24bf2e0_200 conda-forge [blas_openblas] --> 1.13.1-py36_0
 
 Proceed ([y]/n)? y
+```
 
-Installation ပြီးတဲ့အခါမှာတော့ import လုပ်လို့ ရသွားပါတယ်။
+Installation ပြီးတဲ့အခါမှာတော့ import လုပ်လို့ ရသွားပါတယ်။ :)
 
+```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ python
 Python 3.6.5 | packaged by conda-forge | (default, Apr  6 2018, 13:39:56) 
 [GCC 4.8.2 20140120 (Red Hat 4.8.2-15)] on linux
@@ -130,3 +135,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 Using TensorFlow backend.
 >>> from keras.datasets import mnist
 >>> 
+```
