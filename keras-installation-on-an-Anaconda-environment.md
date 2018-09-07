@@ -93,9 +93,8 @@ CondaError: OSError(28, 'No space left on device')
 CondaError: OSError(28, 'No space left on device')
 ```
 
-အထက်ပါ Error က notebook မှာ disk space မရှိတော့လို့ပေးတာ။
-အဲဒါကြောင့် disk space ကို clean လုပ်ပြီးတော့
-အောက်ပါအတိုင်း keras ကို ပြန် install လုပ်ခဲ့
+အထက်ပါ Error က notebook မှာ disk space မရှိတော့လို့ပေးတာ။  
+အဲဒါကြောင့် disk space ကို clean လုပ်ပြီးတော့ အောက်ပါအတိုင်း keras ကို ပြန် install လုပ်ခဲ့  
 
 ```
 (py3.6.5) lar@lar-air:~/experiment/cnn/exe1$ conda install keras
