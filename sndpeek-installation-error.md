@@ -202,3 +202,6 @@ chuck_fft.h        fmatrix.o       makefile       makefile.win32  Rolloff.o    s
 chuck_fft.o        fvec.o          makefile.alsa  MarSignal.o     RtAudio.cpp  sndpeek.dsp  Stk.h        Thread.o
 
 ```
+
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Arr-sound-of-Myanmar-language.png" alt="Visualization of sylbreak RE" width="812x180"/>
+<p align="center"> Fig. Realtime 3D animated Myanmar syllable "အား" (a:) </p>  
