@@ -1,8 +1,8 @@
 # Notes relating to installation of sndpeek
 
 ## in English:
-Just note of how I fixed installation error of sndpeek.
-Link of sndpeek: 
+Just note of how I fixed installation error of sndpeek.  
+Link of sndpeek:   
 http://soundlab.cs.princeton.edu/software/sndpeek/
 
 ## in Myanmar language:
