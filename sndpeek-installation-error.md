@@ -1,6 +1,19 @@
-Error with make linux-alsa:
+# Notes relating to installation of sndpeek
 
-I also tried with adding LDFLAG as follows:
+## in English:
+Just note of how I fixed installation error of sndpeek.
+Link of sndpeek: 
+http://soundlab.cs.princeton.edu/software/sndpeek/
+
+## in Myanmar language:
+sndpeek ပရိုဂရမ်ကို installation လုပ်စဉ်မှာ တွေ့ရတဲ့ error ကို ဘယ်လိုပုံစံနဲ့ ဖြေရှင်းခဲ့ရတယ်ဆိုတဲ့ note ပါ။
+
+
+make linux-alsa လုပ်စဉ်မှာ တွေ့ရတဲ့ error တွေဖြစ်ပါတယ်။  
+အောက်ပါအတိုင်းပါ။  
+
+``` bash
+#I also tried with adding LDFLAG as follows:
 
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ make linux-alsa 'LDFLAG=-L/usr/lib/x86_64-linux-gnu/'
 make -f makefile.alsa
@@ -34,8 +47,9 @@ make[1]: *** [sndpeek] Error 1
 make[1]: Leaving directory '/home/lar/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek'
 makefile:20: recipe for target 'linux-alsa' failed
 make: [linux-alsa] Error 2 (ignored)
+```
 
-
+```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ sudo apt-get install libsndfile-dev
 Reading package lists... Done
 Building dependency tree       
@@ -88,13 +102,12 @@ Setting up libvorbis-dev:amd64 (1.3.5-3ubuntu0.2) ...
 Setting up libsndfile1-dev (1.0.25-10ubuntu0.16.04.1) ...
 Processing triggers for libc-bin (2.23-0ubuntu10) ...
 
+```
 
-===================
-===================
+I got one more Error Message:  
+(နောက်ထပ် error တစ်ခု ရှင်းဖို့ကျန်)  
 
-
-One More Error Message:
-
+```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ make linux-alsa
 make -f makefile.alsa
 make[1]: Entering directory '/home/lar/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek'
@@ -129,15 +142,22 @@ make[1]: Leaving directory '/home/lar/experiment/audio-image-classification/tool
 makefile:20: recipe for target 'linux-alsa' failed
 make: [linux-alsa] Error 2 (ignored)
 
+```
 
+I edited makefile.alsa as follows:
+(makefile.als ကို အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့တယ်)
+
+```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ vi makefile.alsa
 
 #LIBS=-L/usr/X11R6/lib -lglut -lGL -lGLU -lasound -lXmu -lX11 -lXext -lXi -lm -lsndfile
 LIBS=-L/usr/X11R6/lib -lglut -lGL -lGLU -lasound -lXmu -lX11 -lXext -lXi -lm -lsndfile -lusb-1.0 -l pthread
+```
 
+Error fixed!!! :)
+(ဒီတစ်ခါတော့ make linux-alsa က error မပေးတော့ပိုင်း compile လုပ်သွားပါပြီ)
 
-==========
-
+```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ make clean
 rm -f *.o 
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ make linux-alsa
@@ -166,9 +186,19 @@ gcc -D__LINUX_ALSA__ -D__LITTLE_ENDIAN__ -I../marsyas/ -O3 -c ../marsyas/MarSign
 gcc -D__LINUX_ALSA__ -D__LITTLE_ENDIAN__ -I../marsyas/ -O3 -c ../marsyas/fmatrix.cpp
 g++ -o sndpeek chuck_fft.o RtAudio.o Thread.o sndpeek.o Stk.o Centroid.o DownSampler.o Flux.o LPC.o MFCC.o RMS.o Rolloff.o System.o fvec.o AutoCorrelation.o Communicator.o Hamming.o MagFFT.o NormRMS.o MarSignal.o fmatrix.o -L/usr/X11R6/lib -lglut -lGL -lGLU -lasound -lXmu -lX11 -lXext -lXi -lm -lsndfile -lusb-1.0 -l pthread
 make[1]: Leaving directory '/home/lar/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek'
+
+```
+
+Yae! I got sndpeek!
+(sndpeek ကို run လို့ရပါပြီ)
+
+```bash
+
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ ls
 AutoCorrelation.o  Communicator.o  Hamming.o      makefile.jack   MFCC.o       RtAudio.h    sndpeek.dsw  Stk.o       util_sndfile.c
 Centroid.o         DownSampler.o   LPC.o          makefile.oss    NormRMS.o    RtAudio.o    sndpeek.o    System.o    util_sndfile.h
 chuck_fft.c        Flux.o          MagFFT.o       makefile.osx    RMS.o        sndpeek      sndpeek.opt  Thread.cpp
 chuck_fft.h        fmatrix.o       makefile       makefile.win32  Rolloff.o    sndpeek.cpp  Stk.cpp      Thread.h
 chuck_fft.o        fvec.o          makefile.alsa  MarSignal.o     RtAudio.cpp  sndpeek.dsp  Stk.h        Thread.o
+
+```
