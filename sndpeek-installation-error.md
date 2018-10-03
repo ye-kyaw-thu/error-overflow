@@ -144,8 +144,8 @@ make: [linux-alsa] Error 2 (ignored)
 
 ```
 
-I edited makefile.alsa as follows:
-(makefile.als ကို အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့တယ်)
+I edited makefile.alsa as follows:  
+(makefile.als ကို အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့တယ်)  
 
 ```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ vi makefile.alsa
@@ -154,8 +154,8 @@ I edited makefile.alsa as follows:
 LIBS=-L/usr/X11R6/lib -lglut -lGL -lGLU -lasound -lXmu -lX11 -lXext -lXi -lm -lsndfile -lusb-1.0 -l pthread
 ```
 
-Error fixed!!! :)
-(ဒီတစ်ခါတော့ make linux-alsa က error မပေးတော့ပိုင်း compile လုပ်သွားပါပြီ)
+Error fixed!!! :)  
+(ဒီတစ်ခါတော့ make linux-alsa က error မပေးတော့ပိုင်း compile လုပ်သွားပါပြီ)  
 
 ```bash
 (py3.6.5) lar@lar-air:~/experiment/audio-image-classification/tool/sndpeek-1.4/src/sndpeek$ make clean
@@ -189,8 +189,8 @@ make[1]: Leaving directory '/home/lar/experiment/audio-image-classification/tool
 
 ```
 
-Yae! I got sndpeek!
-(sndpeek ကို run လို့ရပါပြီ)
+Yae! I got sndpeek!  
+(sndpeek ကို run လို့ရပါပြီ)  
 
 ```bash
 
@@ -202,9 +202,8 @@ chuck_fft.h        fmatrix.o       makefile       makefile.win32  Rolloff.o    s
 chuck_fft.o        fvec.o          makefile.alsa  MarSignal.o     RtAudio.cpp  sndpeek.dsp  Stk.h        Thread.o
 
 ```
-```
-./sndpeek
-```
+
+./sndpeek  
 
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Arr-sound-of-Myanmar-language.png" alt="Visualization of sylbreak RE" width="1440x900"/>
 <p align="center"> Fig. Realtime 3D animated Myanmar syllable "အား" (a:) </p>  
