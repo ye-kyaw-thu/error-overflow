@@ -1,4 +1,4 @@
-# Notes relating to installation of sndpeek
+# sndpeek installation error
 
 ## in English:
 Just note of how I fixed installation error of sndpeek.  
