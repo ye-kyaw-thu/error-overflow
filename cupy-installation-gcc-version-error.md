@@ -6,7 +6,7 @@ error -- unsupported GNU version! gcc versions later than 6 are not supported! c
 
 ## How to Solve:
 
-Comment Out the following line of $CUDA_HOME/include/host_config.h:
+Comment out the following line of $CUDA_HOME/include/host_config.h:
 
 #if __GNUC__ > 6
 
