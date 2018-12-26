@@ -1,6 +1,10 @@
-#error -- unsupported GNU version! gcc versions later than 6 are not supported! chainer
+# Cupy Installation Error Relating to GCC Version
 
-=========
+## How to solve following error:
+
+error -- unsupported GNU version! gcc versions later than 6 are not supported! chainer
+
+## Comment Out the following line of $CUDA_HOME/include/host_config.h:
 
 #if __GNUC__ > 6
 
@@ -8,7 +12,7 @@
 
 #endif /* __GNUC__ > 6 */
 
-========
+## Install cupy Again:
 
 $ pip install cupy
 Collecting cupy
@@ -22,4 +26,4 @@ Building wheels for collected packages: cupy
 Successfully built cupy
 Installing collected packages: cupy
 Successfully installed cupy-5.1.0
-(base) yekyawthu@bit-MS-7B09:~/exp/cha
+(base) yekyawthu@bserver:~/exp/cha
