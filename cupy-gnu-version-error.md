@@ -16,6 +16,7 @@ Comment Out the following line of $CUDA_HOME/include/host_config.h:
 
 ## Install cupy Again:
 
+```
 $ pip install cupy
 Collecting cupy
   Using cached https://files.pythonhosted.org/packages/1c/16/788a9e55c92a9c6b022811a30aeee9f26eef7010516d12df5a33be69484c/cupy-5.1.0.tar.gz
@@ -29,3 +30,4 @@ Successfully built cupy
 Installing collected packages: cupy
 Successfully installed cupy-5.1.0
 (base) yekyawthu@bserver:~/exp/cha
+```
