@@ -1,10 +1,12 @@
 # Cupy Installation Error Relating to GCC Version
 
-## How to solve following error:
+## Error Message is as follows:
 
 error -- unsupported GNU version! gcc versions later than 6 are not supported! chainer
 
-## Comment Out the following line of $CUDA_HOME/include/host_config.h:
+## How to Solve:
+
+Comment Out the following line of $CUDA_HOME/include/host_config.h:
 
 #if __GNUC__ > 6
 
