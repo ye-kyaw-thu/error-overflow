@@ -22,7 +22,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ cat reply.txt
 စနစ်တကျ လုပ်တဲ့ researcher အရေအတွက်က အရမ်းနည်းနေပါသေးတယ်။
 ```
 
-# txt to pdf conversion with enscript and ps2pf
+# txt to pdf conversion with enscript and ps2pdf
 
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ enscript ./reply.txt -p reply.ps
