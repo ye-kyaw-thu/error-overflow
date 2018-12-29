@@ -219,8 +219,8 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc --variable mainfont="
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-pandoc2.pdf 
 ```
 
-## YAEH!!!!
-## I got PDF file with correct Myanmar sentences !!! :)
+## YAEH!!!!   
+I got PDF file with correct Myanmar sentences !!! :)
 
 # Reference:
 
