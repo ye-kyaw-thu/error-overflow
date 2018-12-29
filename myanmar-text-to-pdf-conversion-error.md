@@ -37,7 +37,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ ps2pdf ./reply.ps ./reply-co
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-enscript.pdf 
 ```
-[see reply-conv-with-enscript.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-enscript.pdf)
+[see Myanmar characters of reply-conv-with-enscript.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-enscript.pdf)
 
 # convert txt to pdf with pandoc
 # Got error as follows:
@@ -68,7 +68,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc ./reply.txt -o ./repl
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-pandoc.pdf 
 ```
-[See reply-conv-with-pandoc.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-pandoc.pdf)
+[See Myanmar characters of reply-conv-with-pandoc.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-pandoc.pdf)
 
 # convert txt to pdf with libreoffice
 
@@ -89,7 +89,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ mv reply.pdf ./reply-conv-wi
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-libreoffice.pdf 
 ```
-[see reply-conv-with-libreoffice.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-libreoffice.pdf)
+[see Myanmar characters of reply-conv-with-libreoffice.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-libreoffice.pdf)
 
 # installation of cups-pdf
 
@@ -158,7 +158,7 @@ INFO: texttopdf (PID 28981) exited with no errors.
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-cupsfilter.pdf 
 ```
-[see reply-conv-with-cupsfilter.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-cupsfilter.pdf)  
+[see Myanmar characters of reply-conv-with-cupsfilter.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-cupsfilter.pdf)  
 
 # No comment
 Oh! NO ~!!!! my Myanmar language ...
@@ -227,7 +227,7 @@ Done
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-wkhtmltopdf.pdf 
 ```
-[see reply-conv-with-wkhtmltopdf.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-wkhtmltopdf.pdf)
+[see Myanmar characters of reply-conv-with-wkhtmltopdf.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-wkhtmltopdf.pdf)
 
 # convert txt to pdf with pandoc again
 # *** for this time, I used --variable mainfont="Myanmar3" option
