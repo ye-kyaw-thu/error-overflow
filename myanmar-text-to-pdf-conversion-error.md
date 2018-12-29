@@ -1,5 +1,6 @@
 # cat reply.txt
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ cat reply.txt
 > Main difficulty is could not get enough language resources
 > in Myanmar language. As I have to deal with unstructured social media data,
@@ -7,6 +8,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ cat reply.txt
 မြန်မာစာ သုတေသနအတွက် က လုပ်စရာတွေအများကြီးကျန်သေးတယ်။
 မြန်မာတစ်နိုင်ငံလုံးမှာ တကယ်တမ်း မြန်မာစာ NLP အတွက်အချိန်ပေးပြီး လုပ်နိုင်တဲ့သူ၊
 စနစ်တကျ လုပ်တဲ့ researcher အရေအတွက်က အရမ်းနည်းနေပါသေးတယ်။
+```
 
 # txt to pdf conversion with enscript and ps2pf
 
