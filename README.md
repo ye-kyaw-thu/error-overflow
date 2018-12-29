@@ -1,7 +1,7 @@
 # error-overflow
 Notes relating to program installation errors, library import errors ...
 
-Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို installation လုပ်တဲ့ အခါမှာတွေ့ရတတ်တဲ့ error တွေ၊ ကျွန်တော် နေ့စဉ်လိုလိုသုံးဖြစ်တဲ့ Perl, Python programming နဲ့ ပတ်သက်တဲ့ library import  လုပ်တဲ့အခါမှာတွေ့ရတဲ့ error တွေကို ဖြေရှင်းပုံ ဖြေရှင်းနည်း၊ တခြား အသုံးဝင်တဲ့ tool စတာတွေနဲ့ ပတ်သက်ပြီး ကြုံရင်ကြုံသလို ရေးသွားပါမယ်။ ကျွန်တော်ကိုယ်တိုင်က ကိုယ်သုံးနေတဲ့ စက်တွေထဲမှာ note.txt ဖိုင်၊ xxx-installation.log ဖိုင် ဆိုပြီး သိမ်းထားတာမျိုးတွေရှိပေမဲ့ သိကြတဲ့အတိုင်းပဲ GitHub မှာတင်ထားတာက ရှာရဖွေရတာ လွယ်ကူတာရော၊ မြန်ဆန်တာရော၊ နောက်ပြီးတော့ error တက်ပြီး solution ကို ဟိုရှာဒီရှာ လုပ်နေတဲ့ တစ်ယောက်ယောက်အတွက်တော့ သေချာပေါက် အသုံးဝင်ပါလိမ့်မယ်။  
+Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို installation လုပ်တဲ့ အခါမှာတွေ့ရတတ်တဲ့ error တွေ၊ ကျွန်တော် နေ့စဉ်လိုလိုသုံးဖြစ်တဲ့ Perl, Python programming နဲ့ ပတ်သက်တဲ့ library import  လုပ်တဲ့အခါမှာတွေ့ရတဲ့ error တွေကို ဖြေရှင်းပုံ ဖြေရှင်းနည်း၊ မြန်မာစာနဲ့ ဆိုင်တဲ့ ပြဿနာတွေ၊ တခြား အသုံးဝင်တဲ့ tool စတာတွေနဲ့ ပတ်သက်ပြီး ကြုံရင်ကြုံသလို ရေးသွားပါမယ်။ ကျွန်တော်ကိုယ်တိုင်က ကိုယ်သုံးနေတဲ့ စက်တွေထဲမှာ note.txt ဖိုင်၊ xxx-installation.log ဖိုင် ဆိုပြီး သိမ်းထားတာမျိုးတွေရှိပေမဲ့ သိကြတဲ့အတိုင်းပဲ GitHub မှာတင်ထားတာက ရှာရဖွေရတာ လွယ်ကူတာရော၊ မြန်ဆန်တာရော၊ နောက်ပြီးတော့ error တက်ပြီး solution ကို ဟိုရှာဒီရှာ လုပ်နေတဲ့ တစ်ယောက်ယောက်အတွက်တော့ သေချာပေါက် အသုံးဝင်ပါလိမ့်မယ်။  
 
 # Table of Content  
 
@@ -22,5 +22,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 15. [sndpeek peek installation error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sndpeek-installation-error.md)  
 16. [dtrx, Do the Right Extraction](https://github.com/ye-kyaw-thu/error-overflow/blob/master/dtrx.md)
 17. [cupy-installation-gcc-version-error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/cupy-installation-gcc-version-error.md)
+18. [myanmar-text-to-pdf-conversion-error]()
 
 
