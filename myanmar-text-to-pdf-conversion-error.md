@@ -227,7 +227,7 @@ Done
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-wkhtmltopdf.pdf 
 ```
-(see reply-conv-with-wkhtmltopdf.pdf file)[https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-wkhtmltopdf.pdf]
+[see reply-conv-with-wkhtmltopdf.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-wkhtmltopdf.pdf)
 
 # convert txt to pdf with pandoc again
 # *** for this time, I used --variable mainfont="Myanmar3" option
@@ -240,7 +240,7 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc --variable mainfont="
 ```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-pandoc2.pdf 
 ```
-(see reply-conv-with-pandoc2.pdf file)[https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-pandoc2.pdf]
+[see reply-conv-with-pandoc2.pdf file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-text2pdf-output/reply-conv-with-pandoc2.pdf)
 
 ## YAEH!!!!   
 I got PDF file with correct Myanmar sentences !!! :)
