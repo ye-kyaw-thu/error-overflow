@@ -1,0 +1,8 @@
+> Main difficulty is could not get enough language resources
+> in Myanmar language. As I have to deal with unstructured social media data,
+> it is challenging to apply with existing resources.
+မြန်မာစာ သုတေသနအတွက် က လုပ်စရာတွေအများကြီးကျန်သေးတယ်။
+မြန်မာတစ်နိုင်ငံလုံးမှာ တကယ်တမ်း မြန်မာစာ NLP အတွက်အချိန်ပေးပြီး လုပ်နိုင်တဲ့သူ၊
+စနစ်တကျ လုပ်တဲ့ researcher အရေအတွက်က အရမ်းနည်းနေပါသေးတယ်။
+
+
