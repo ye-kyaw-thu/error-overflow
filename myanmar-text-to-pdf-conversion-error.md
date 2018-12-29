@@ -1,4 +1,4 @@
-# Error of conversion Myanmar language text file into pdf file
+# Error of converting Myanmar language text file into pdf file
 
 ဒီ ပြဿနာက မြန်မာစာဖိုင်တွေကို ကိုင်တွယ်ပြီး လုပ်တဲ့ အခါမှာ ကြုံတွေ့ရတဲ့ ပြဿနာတွေ အထဲက တစ်ခုပါ။  
 မြန်မာစာ ပါနေတဲ့ text ဖိုင်ကို pdf ဖိုင်ကို ပြောင်းတဲ့အခါမှာ မြန်မာစာလုံးတွေက pdf ဖိုင်မှာ မှန်မှန်ကန်ကန် ပြမပေးတာမျိုးကို  
