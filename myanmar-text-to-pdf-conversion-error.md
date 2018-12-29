@@ -12,19 +12,24 @@ lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ cat reply.txt
 
 # txt to pdf conversion with enscript and ps2pf
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ enscript ./reply.txt -p reply.ps
 [ 1 page * 1 copy ] left in reply.ps
 3 lines were wrapped
 14 non-printable characters
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ ps2pdf ./reply.ps ./reply-conv-with-enscript.pdf
+```
 
 # confirm converted pdf file with evince:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-enscript.pdf 
+```
 
 # convert txt to pdf with pandoc
 # Got error as follows:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc ./reply.txt -o ./reply-conv-with-pandoc.pdf
 ! Package inputenc Error: Unicode char မ (U+1019)
 (inputenc)                not set up for use with LaTeX.
@@ -37,17 +42,23 @@ l.56 ...ging to apply with existing resources. မ
 
 Try running pandoc with --latex-engine=xelatex.
 pandoc: Error producing PDF
+```
 
 # conversion looks OK if I used --latex-engine=xelatex
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc ./reply.txt -o ./reply-conv-with-pandoc.pdf --latex-engine=xelatex
+```
 
 # confirm converted pdf with evince:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-pandoc.pdf 
+```
 
 # convert txt to pdf with libreoffice
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ libreoffice --convert-to "pdf" ./reply.txt 
 
 (soffice:28658): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
@@ -57,13 +68,17 @@ convert /home/lar/tool/perl/preparing/pdf2mytxt/github/reply.txt -> /home/lar/to
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ ls
 reply-conv-with-enscript.pdf  reply-conv-with-pandoc.pdf  reply.pdf  reply.ps  reply.txt
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ mv reply.pdf ./reply-conv-with-libreoffice.pdf
+```
 
 # confirm converted pdf file with evince:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-libreoffice.pdf 
+```
 
 # installation of cups-pdf
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/comment$ sudo apt-get install cups-pdf
 [sudo] password for lar: 
 Reading package lists... Done
@@ -91,9 +106,11 @@ Processing triggers for cups (2.1.3-4ubuntu0.6) ...
 Updating PPD files for cups-pdf ...
 Setting up printer-driver-cups-pdf (2.6.1-21) ...
 Setting up cups-pdf (2.6.1-21) ...
+```
 
 # conv txt to pdf with cupsfilter:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ cupsfilter ./reply.txt > ./reply-conv-with-cupsfilter.pdf
 DEBUG: argv[0]="cupsfilter"
 DEBUG: argv[1]="1"
@@ -120,6 +137,7 @@ DEBUG: envp[14]="CHARSET=utf-8"
 DEBUG: envp[15]="FINAL_CONTENT_TYPE=application/pdf"
 INFO: texttopdf (PID 28981) started.
 INFO: texttopdf (PID 28981) exited with no errors.
+```
 
 # No comment
 Oh! NO ~!!!! my Myanmar language ...
@@ -127,6 +145,7 @@ Oh! NO ~!!!! my Myanmar language ...
 # Trying with wkhtmltopdf:
 # Installation of wkhtmltopdf:
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/comment$ sudo apt-get install xvfb
 Reading package lists... Done
 Building dependency tree       
@@ -171,29 +190,37 @@ Unpacking wkhtmltopdf (0.12.2.4-1) ...
 Processing triggers for man-db (2.7.5-1) ...
 Setting up wkhtmltopdf (0.12.2.4-1) ...
 lar@lar-air:~/tool/perl/preparing/pdf2myt
+```
 
 # conv txt to pdf with wkhtmltopdf
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ wkhtmltopdf ./reply.txt ./reply-conv-with-wkhtmltopdf.pdf
 Loading page (1/2)
 Printing pages (2/2)                                               
 Done         
+```
 
 # confirm converted pdf file with evince:
-                                                  
+
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-wkhtmltopdf.pdf 
+```
 
 # convert txt to pdf with pandoc again
 # *** for this time, I used --variable mainfont="Myanmar3" option
 
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ pandoc --variable mainfont="Myanmar3" --latex-engine=xelatex ./reply.txt -o reply-conv-with-pandoc2.pdf
-
+```
 
 # confirm converted pdf file with evince:
+```
 lar@lar-air:~/tool/perl/preparing/pdf2mytxt/github$ evince ./reply-conv-with-pandoc2.pdf 
+```
 
 # YAEH!!!! I got PDF file with correct Myanmar sentences !!! :)
 
-Reference:
+# Reference:
 
 https://stackoverflow.com/questions/18178084/pandoc-and-foreign-characters
