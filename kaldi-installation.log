@@ -1,0 +1,1703 @@
+### Github ကနေ Kaldi ကို ကိုယ်စက်ထဲကို clone လုပ်
+
+yekyawthu@bit-MS-7B09:~/exp$ git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
+Cloning into 'kaldi'...
+remote: Enumerating objects: 43, done.
+remote: Counting objects: 100% (43/43), done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 96932 (delta 11), reused 10 (delta 2), pack-reused 96889
+Receiving objects: 100% (96932/96932), 110.46 MiB | 1.26 MiB/s, done.
+Resolving deltas: 100% (74771/74771), done.
+
+yekyawthu@bit-MS-7B09:~/exp$ cd kaldi/
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi$ ls
+COPYING  egs  INSTALL  misc  README.md  scripts  src  tools  windows
+
+### latest update version ဖြစ်ရဲ့လား ဆိုတာကို confirm လုပ်တာပါ
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi$ git pull
+Already up to date.
+
+### Kaldi က OpenFST ကိုလည်းသုံးတော့ မရှိလို့ error ပေးတာ
+### Kaldi ရဲ့ tool တွေကို installation လုပ်တဲ့အခါမှာ OpenFST လည်း ပါမှာမို့လို့
+### ဒီ error ကို ကျော်သွားလို့ ရပါတယ်
+
+If you don't have OpenFst you will get following error:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi$ cd src
+yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ ./configure --shared
+Configuring ...
+Checking compiler g++ ...
+Checking OpenFst library in  ...
+***configure failed: Could not find file /include/fst/fst.h:
+  you may not have installed OpenFst. See ../tools/INSTALL ***
+
+### INSTALL ဆိုတဲ့ဖိုင်ကို ဖတ်ကြည့်တာကောင်းတယ်
+### Checking INSTALL file:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ cat INSTALL
+
+These instructions are valid for UNIX-like systems (these steps have
+been run on various Linux distributions; Darwin; Cygwin).  For native Windows
+compilation, see ../windows/INSTALL.
+
+You must first have completed the installation steps in ../tools/INSTALL
+(compiling OpenFst; getting ATLAS and CLAPACK headers).
+
+The installation instructions are
+
+  ./configure --shared
+  make depend -j 8
+  make -j 8
+
+Note that we added the "-j 8" to run in parallel because "make" takes a long
+time.  8 jobs might be too many for a laptop or small desktop machine with not
+many cores.
+
+For more information, see documentation at http://kaldi-asr.org/doc/
+and click on "The build process (how Kaldi is compiled)".
+
+### Kaldi ရဲ့ tool ဖိုလ်ဒါအောက်ထဲကိုဝင်ပြီး
+### Check the tool folder:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ cd ../tools
+yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ ls
+ATLAS_headers  CLAPACK  config  extras  INSTALL  install_pfile_utils.sh  install_portaudio.sh  install_speex.sh  install_srilm.sh  Makefile
+
+### toolတွေရဲ့ INSTALL ဖိုင်ကိုလည်း ဖတ်ကြည့်သင့်တယ်
+### အဲဒီ ဖိုင်ထဲမှာ ညွှန်ကြားထားတဲ့အတိုင်း run သွားဖို့ လိုအပ်တယ်
+### Check the INSTALL file of tools:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ cat INSTALL
+To check the prerequisites for Kaldi, first run
+
+  extras/check_dependencies.sh
+
+and see if there are any system-level installations you need to do. Check the
+output carefully. There are some things that will make your life a lot easier
+if you fix them at this stage. If your system default C++ compiler is not
+supported, you can do the check with another compiler by setting the CXX
+environment variable, e.g.
+
+  CXX=g++-4.8 extras/check_dependencies.sh
+
+  make
+
+which by default will install ATLAS headers, OpenFst, SCTK and sph2pipe.
+OpenFst requires a relatively recent C++ compiler with C++11 support, e.g.
+g++ >= 4.7, Apple clang >= 5.0 or LLVM clang >= 3.3. If your system default
+compiler does not have adequate support for C++11, you can specify a C++11
+compliant compiler as a command argument, e.g.
+
+  make CXX=g++-4.8
+
+If you have multiple CPUs and want to speed things up, you can do a parallel
+build by supplying the "-j" option to make, e.g. to use 4 CPUs
+
+  make -j 4
+
+In extras/, there are also various scripts to install extra bits and pieces that
+are used by individual example scripts.  If an example script needs you to run
+one of those scripts, it will tell you what to do.
+
+Check dependencies:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/check_dependencies.sh
+extras/check_dependencies.sh: subversion is not installed
+extras/check_dependencies.sh: WARNING python 2.7 is not the default python. We fixed this by adding a correct symlink more prominently on the path.
+extras/check_dependencies.sh: If you really want to use python 3.7.0 as default, add an empty file /home/yekyawthu/exp/kaldi/tools/python/.use_default_python and run this script again.
+extras/check_dependencies.sh: we recommend that you run (our best guess):
+ sudo apt-get install  subversion
+You should probably do: 
+ sudo apt-get install libatlas3-base
+
+### python 
+### Yes I should install under one conda env:
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ conda create -n kaldi python=3
+
+yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ source activate kaldi
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$
+
+Check dependencies again:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/check_dependencies.sh
+extras/check_dependencies.sh: subversion is not installed
+extras/check_dependencies.sh: we recommend that you run (our best guess):
+ sudo apt-get install  subversion
+You should probably do: 
+ sudo apt-get install libatlas3-base
+
+Installation of subversion:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ sudo apt-get install  subversion
+[sudo] password for yekyawthu: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  bbswitch-dkms libpython-all-dev python-all python-all-dev python-asn1crypto python-cffi-backend python-crypto python-cryptography python-dbus
+  python-enum34 python-gi python-idna python-ipaddress python-keyring python-keyrings.alt python-pkg-resources python-secretstorage python-setuptools
+  python-six python-wheel python-xdg
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libserf-1-1 libsvn1
+Suggested packages:
+  db5.3-util libapache2-mod-svn subversion-tools
+The following NEW packages will be installed:
+  libserf-1-1 libsvn1 subversion
+0 upgraded, 3 newly installed, 0 to remove and 5 not upgraded.
+Need to get 2,061 kB of archives.
+After this operation, 9,380 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 libserf-1-1 amd64 1.3.9-6 [44.4 kB]
+Get:2 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 libsvn1 amd64 1.9.7-4ubuntu1 [1,183 kB]
+Get:3 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 subversion amd64 1.9.7-4ubuntu1 [834 kB]
+Fetched 2,061 kB in 3s (775 kB/s)   
+Selecting previously unselected package libserf-1-1:amd64.
+(Reading database ... 234059 files and directories currently installed.)
+Preparing to unpack .../libserf-1-1_1.3.9-6_amd64.deb ...
+Unpacking libserf-1-1:amd64 (1.3.9-6) ...
+Selecting previously unselected package libsvn1:amd64.
+Preparing to unpack .../libsvn1_1.9.7-4ubuntu1_amd64.deb ...
+Unpacking libsvn1:amd64 (1.9.7-4ubuntu1) ...
+Selecting previously unselected package subversion.
+Preparing to unpack .../subversion_1.9.7-4ubuntu1_amd64.deb ...
+Unpacking subversion (1.9.7-4ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+/sbin/ldconfig.real: /home/yekyawthu/local/lib/ is not a known library type
+Setting up libserf-1-1:amd64 (1.3.9-6) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Setting up libsvn1:amd64 (1.9.7-4ubuntu1) ...
+Setting up subversion (1.9.7-4ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+/sbin/ldconfig.real: /home/yekyawthu/local/lib/ is not a known library type
+
+Recheck dependencies:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/check_dependencies.sh
+You should probably do: 
+ sudo apt-get install libatlas3-base
+
+### libatlas3-base ကို install လုပ်ဖို့လိုအပ်တယ်
+### Installation of libatlas3-base:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ sudo apt-get install libatlas3-base
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ libatlas3-base : Depends: libgfortran4 (>= 7) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+
+### ကိုယ်စက်ရဲ့ Linux OS version, ထည့်ထားတဲ့၊ ရှိနေတဲ့ library version တွေအပေါ်ကို
+### မူတည်ပြီးတော့ အောက်ပါ error မျိုး တက်နိုင်ပါတယ်။
+### စက် တစ်လုံးနဲ့ တစ်လုံး error က တူမှာ မဟုတ်သလို၊ ဖြေရှင်းလို့ရတဲ့ solution လည်း တူမှာ မဟုတ်ပါ
+### Kaldi က လိုအပ်တဲ့ tool တွေ၊ library တွေက ကိုယ့်စက်ထဲမှာ ရှိပြီးသား၊ ဗားရှင်းတွေလည်း ကိုက်ညီရင်
+### error က တက်ချင်မှလည်း တက်ပါလိမ့်မယ်။
+### Got ERROR!!!
+
+### လက်ရှိစက်မှာ ပြေလည်သွားတဲ့နည်းလမ်းကတော့ အောက်ပါ အဆင့်တွေ အတိုင်းပါ။
+### Kaldi က သုံးထားတဲ့ gcc-7.3 ကို သပ်သပ် installation လုပ်ခဲ့ပါတယ်။
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ sudo add-apt-repository ppa:jonathonf/gcc-7.3
+ Backport of GCC 7.3 from Cosmic
+
+This is built against, and requires, ppa:jonathonf/gcc
+ More info: https://launchpad.net/~jonathonf/+archive/ubuntu/gcc-7.3
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+Get:1 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic InRelease [15.9 kB]
+Ign:2 https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 InRelease                             
+Hit:3 http://mm.archive.ubuntu.com/ubuntu bionic InRelease                                             
+Hit:4 https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 Release                            
+Hit:6 http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu bionic InRelease
+Get:7 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main i386 Packages [14.5 kB]
+Get:8 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 Packages [14.7 kB]
+Get:9 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main Translation-en [5,628 B]
+Fetched 50.7 kB in 3s (19.9 kB/s)         
+Reading package lists... Done
+
+### libgfortran4 ကိုလည်း install လုပ်ခဲ့တယ်
+### Installation of libgfortran4
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ sudo apt-get install libgfortran4
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  cpp-7 g++-7 gcc-7 gcc-7-base gcc-7-multilib lib32asan4 lib32cilkrts5 lib32gcc-7-dev lib32ubsan0 libasan4 libcilkrts5 libgcc-7-dev libstdc++-7-dev
+  libubsan0 libx32asan4 libx32cilkrts5 libx32gcc-7-dev libx32ubsan0
+Suggested packages:
+  gcc-7-locales g++-7-multilib gcc-7-doc libstdc++6-7-dbg libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg
+  libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg libstdc++-7-doc
+The following NEW packages will be installed:
+  libgfortran4
+The following packages will be upgraded:
+  cpp-7 g++-7 gcc-7 gcc-7-base gcc-7-multilib lib32asan4 lib32cilkrts5 lib32gcc-7-dev lib32ubsan0 libasan4 libcilkrts5 libgcc-7-dev libstdc++-7-dev
+  libubsan0 libx32asan4 libx32cilkrts5 libx32gcc-7-dev libx32ubsan0
+18 upgraded, 1 newly installed, 0 to remove and 7 not upgraded.
+Need to get 32.0 MB of archives.
+After this operation, 2,032 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 libx32asan4 amd64 7.3.0-30ubuntu1~18.04.york0 [352 kB]
+Get:2 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 lib32cilkrts5 amd64 7.3.0-30ubuntu1~18.04.york0 [47.4 kB]
+Get:3 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 lib32ubsan0 amd64 7.3.0-30ubuntu1~18.04.york0 [140 kB]
+Get:4 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 libasan4 amd64 7.3.0-30ubuntu1~18.04.york0 [358 kB]
+Get:5 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 libubsan0 amd64 7.3.0-30ubuntu1~18.04.york0 [126 kB]                               
+Get:6 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 libcilkrts5 amd64 7.3.0-30ubuntu1~18.04.york0 [42.5 kB]                            
+Get:7 http://ppa.launchpad.net/jonathonf/gcc-7.3/ubuntu bionic/main amd64 g++-7 amd64 7.3.0-30ubuntu1~18.04.york0 [7,570 kB]                                 
+15% [7 g++-7 2,602 kB/7,570 kB 34%]                                                                                                          221 kB/s 2min 8s
+
+### check_dependencies.sh ကို ပြန် run ကြည့်ရအောင်
+### recheck dependencies when it is finished ...
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/check_dependencies.sh
+You should probably do: 
+ sudo apt-get install libatlas3-base
+
+### အထက်ပါအတိုင်း libatlas3-base ကို install လုပ်ဖို့လိုအပ်ကြောင်း
+### message ပြနေပါသေးတယ်။
+### အဲဒါကြောင့် apt-get နဲ့ libatlas3-base ကို install ထပ်လုပ်ပါတယ်
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ sudo apt-get install libatlas3-base
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  libatlas3-base
+0 upgraded, 1 newly installed, 0 to remove and 7 not upgraded.
+Need to get 3,732 kB of archives.
+After this operation, 15.4 MB of additional disk space will be used.
+Get:1 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 libatlas3-base amd64 3.10.3-5 [3,732 kB]
+Fetched 3,732 kB in 3s (1,119 kB/s)         
+Selecting previously unselected package libatlas3-base:amd64.
+(Reading database ... 233619 files and directories currently installed.)
+Preparing to unpack .../libatlas3-base_3.10.3-5_amd64.deb ...
+Unpacking libatlas3-base:amd64 (3.10.3-5) ...
+Setting up libatlas3-base:amd64 (3.10.3-5) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3 to provide /usr/lib/x86_64-linux-gnu/libblas.so.3 (libblas.so.3-x86_64-linux-gnu) in auto mode
+update-alternatives: using /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3 to provide /usr/lib/x86_64-linux-gnu/liblapack.so.3 (liblapack.so.3-x86_64-linux-gnu) in auto mode
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+/sbin/ldconfig.real: /home/yekyawthu/local/lib/ is not a known library type
+
+### dependency တွေကိုရဲ့ လိုအပ်ချက်ကို ပြန့်စစ်ကြည့်တော့
+### Recheck the dependencies again:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/check_dependencies.sh
+extras/check_dependencies.sh: all OK.
+
+### အဆင်ပြေသွားပြီ
+### Yaeh~!!!
+
+### ကိုယ်စက်ရဲ့ CPU core အရေအတွက်ကို "nproc" command နဲ့ ကြည့်လို့ရတယ် 
+### Check the number of processing units available in your system
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ nproc
+32
+
+### tool ဖိုလ်ဒါအောက်မှာ make လုပ်ပါ
+### Then run Make:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ make -j 32
+
+...
+...
+
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions/ngram'
+make[4]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions/ngram'
+make[4]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions'
+make[5]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions'
+make[4]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions'
+make[3]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src/extensions'
+make[3]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src'
+make[4]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src'
+make[3]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src'
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7/src'
+make[2]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7'
+make[3]: Entering directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7'
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/openfst-1.6.7'
+rm -f openfst
+ln -s openfst-1.6.7 openfst
+-e 
+
+
+Warning: IRSTLM is not installed by default anymore. If you need IRSTLM
+Warning: use the script extras/install_irstlm.sh
+All done OK.
+
+### IRSTLM ဆိုတဲ့ language model ဆောက်တဲ့ tool ကမရှိသေးလို့ ပေးတဲ့ warning message ပါ
+### အဲဒါကြောင့် IRSTLM ကို install လုပ်ဖို့လိုအပ်ပါတယ်
+### Installation of IRSTLM:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ extras/install_irstlm.sh
+
+...
+...
+libtool: install: /usr/bin/install -c prune-lm /home/yekyawthu/exp/kaldi/tools/irstlm/bin/prune-lm
+libtool: install: /usr/bin/install -c quantize-lm /home/yekyawthu/exp/kaldi/tools/irstlm/bin/quantize-lm
+libtool: install: /usr/bin/install -c prune-lm /home/yekyawthu/exp/kaldi/tools/irstlm/bin/prune-lm
+libtool: install: /usr/bin/install -c score-lm /home/yekyawthu/exp/kaldi/tools/irstlm/bin/score-lm
+libtool: install: /usr/bin/install -c tlm /home/yekyawthu/exp/kaldi/tools/irstlm/bin/tlm
+libtool: install: /usr/bin/install -c plsa /home/yekyawthu/exp/kaldi/tools/irstlm/bin/plsa
+libtool: install: /usr/bin/install -c verify-caching /home/yekyawthu/exp/kaldi/tools/irstlm/bin/verify-caching
+libtool: install: /usr/bin/install -c cswa /home/yekyawthu/exp/kaldi/tools/irstlm/bin/cswa
+ /bin/mkdir -p '/home/yekyawthu/exp/kaldi/tools/irstlm/include'
+ /usr/bin/install -c -m 644 cmd.h thpool.h dictionary.h gzfilebuf.h htable.h index.h lmContainer.h lmclass.h lmmacro.h lmtable.h lmInterpolation.h mempool.h mfstream.h n_gram.h ngramcache.h ngramtable.h timer.h util.h crc.h interplm.h linearlm.h mdiadapt.h mixture.h normcache.h shiftlm.h cplsa.h cswam.h doc.h '/home/yekyawthu/exp/kaldi/tools/irstlm/include'
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/src'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/src'
+Making install in scripts
+make[1]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm/scripts'
+make[2]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm/scripts'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/home/yekyawthu/exp/kaldi/tools/irstlm/bin'
+ /usr/bin/install -c add-start-end.sh build-lm-qsub.sh build-lm.sh rm-start-end.sh split-ngt.sh mdtsel.sh build-sublm.pl goograms2ngrams.pl lm-stat.pl merge-sublm.pl ngram-split.pl sort-lm.pl split-dict.pl plsa.sh '/home/yekyawthu/exp/kaldi/tools/irstlm/bin'
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/scripts'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/scripts'
+Making install in doc
+make[1]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm/doc'
+make[2]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/doc'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm/doc'
+make[1]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+make[2]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+make  install-exec-hook
+make[3]: Entering directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+cd /home/yekyawthu/exp/kaldi/tools/irstlm/ && \
+  ln -s -n -f lib lib64
+make[3]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/tools/irstlm'
+***() Installation of IRSTLM finished successfully
+***() Please source the tools/extras/env.sh in your path.sh to enable it
+
+### tool တွေကို install လုပ်တာပြီးသွားတော့
+### Kaldi ကို compile လုပ်ရအောင်
+### Let's configure, make, make install for Kaldi
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/tools$ cd ../src/
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ ./configure
+Configuring ...
+Checking compiler g++ ...
+Checking OpenFst library in /home/yekyawthu/exp/kaldi/tools/openfst ...
+Checking cub library in /home/yekyawthu/exp/kaldi/tools/cub ...
+Doing OS specific configurations ...
+On Linux: Checking for linear algebra header files ...
+Using ATLAS as the linear algebra library.
+Successfully configured ATLAS with ATLASLIBS=/usr/lib/x86_64-linux-gnu//libatlas.so.3 /usr/lib/x86_64-linux-gnu//libf77blas.so.3 /usr/lib/x86_64-linux-gnu//libcblas.so.3 /usr/lib/x86_64-linux-gnu//liblapack_atlas.so.3
+***configure failed: CUDA 9_0 does not support g++ (g++-7).
+                 You need g++ < 7.0. ***
+
+### အထက်ပါအတိုင်း g++ version နဲ့ ပတ်သက်တဲ့ error တက်ပါတယ်
+### အဲဒါကြောင့် gcc version ကို စစ်ဆေးကြည့်ရအောင်
+### I got error relating to g++ or gcc version and thus
+### let's check current gcc version
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ which gcc-6
+/usr/bin/gcc-6
+
+### Soft link ချိတ်ကြည့်တယ် အဆင်ပြေမလားလို့
+### Try with making soft link:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ sudo ln -s /usr/bin/gcc-6 /usr/local/cuda/bin/gcc
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ sudo ln -s /usr/bin/g++-6 /usr/local/cuda/bin/g++
+
+### အဆင်မပြေပါဘူး။ same error ကို ဆက်ရနေလို့
+### Not working ...
+
+### နောက်ဆုံးတော့  "update-alternatives" command ကိုသုံးပြီးတော့
+### gcc version ကို ပြောင်းပေးလိုက်ပါတယ်။
+### And thus I used alternative:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ sudo update-alternatives --config gcc
+There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
+
+  Selection    Path              Priority   Status
+------------------------------------------------------------
+* 0            /usr/bin/gcc-6     60        auto mode
+  1            /usr/bin/gcc-4.8   60        manual mode
+  2            /usr/bin/gcc-6     60        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: warning: forcing reinstallation of alternative /usr/bin/gcc-6 because link group gcc is broken
+
+### ပြောင်းပြီးတဲ့အခါမှာ အောက်ပါအတိုင်းမြင်ရပါလိမ့်မယ်
+### I selected No. 2 gcc-6
+
+yekyawthu@bit-MS-7B09:~$ update-alternatives --config gcc
+There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
+
+  Selection    Path              Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/gcc-6     60        auto mode
+  1            /usr/bin/gcc-4.8   60        manual mode
+* 2            /usr/bin/gcc-6     60        manual mode
+
+### ./configure ကို ထပ် run ကြည့်တယ်
+### ./configure again
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ ./configure
+Configuring ...
+Checking compiler g++ ...
+Checking OpenFst library in /home/yekyawthu/exp/kaldi/tools/openfst ...
+Checking cub library in /home/yekyawthu/exp/kaldi/tools/cub ...
+Doing OS specific configurations ...
+On Linux: Checking for linear algebra header files ...
+Using ATLAS as the linear algebra library.
+Successfully configured ATLAS with ATLASLIBS=/usr/lib/x86_64-linux-gnu//libatlas.so.3 /usr/lib/x86_64-linux-gnu//libf77blas.so.3 /usr/lib/x86_64-linux-gnu//libcblas.so.3 /usr/lib/x86_64-linux-gnu//liblapack_atlas.so.3
+Using CUDA toolkit /usr/local/cuda (nvcc compiler and runtime libraries)
+Info: configuring Kaldi not to link with Speex (don't worry, it's only needed if you
+intend to use 'compress-uncompress-speex', which is very unlikely)
+SUCCESS
+To compile: make clean -j; make depend -j; make -j
+ ... or e.g. -j 10, instead of -j, to use a specified number of CPUs
+
+### အထက်ပါအတိုင်း ./configure အဆင်ပြေသွားပါပြီ
+### YAEH~!!!
+
+### နောက်တစ်ဆင့်အနေနဲ့ make depend လုပ်မယ်
+### make depend 
+
+Runing Make Depend:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ make depend -j 32
+
+...
+...
+/usr/local/cuda/bin/nvcc -M --machine 64 -DHAVE_CUDA -ccbin g++ -DKALDI_DOUBLEPRECISION=0 -std=c++11 -DCUDA_API_PER_THREAD_DEFAULT_STREAM  -lineinfo --verbose -Xcompiler "-std=c++11 -I.. -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -O1  -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -I/home/yekyawthu/exp/kaldi/tools/ATLAS_headers/include -msse -msse2 -pthread -g  -DHAVE_CUDA -I/usr/local/cuda/include -fPIC -pthread -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -rdynamic" -I/usr/local/cuda/include -I/home/yekyawthu/exp/kaldi/tools/cub cu-kernels.cu >> .depend.mk
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/chainbin'
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/local/cuda/bin
+#$ _THERE_=/usr/local/cuda/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_DIR_=targets/x86_64-linux
+#$ TOP=/usr/local/cuda/bin/..
+#$ NVVMIR_LIBRARY_DIR=/usr/local/cuda/bin/../nvvm/libdevice
+#$ LD_LIBRARY_PATH=/usr/local/cuda/bin/../lib:
+#$ PATH=/usr/local/cuda/bin/../open64/bin:/usr/local/cuda/bin/../nvvm/bin:/usr/local/cuda/bin:/home/yekyawthu/miniconda3/envs/kaldi/bin:/home/yekyawthu/miniconda3/bin:/home/yekyawthu/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+#$ INCLUDES="-I/usr/local/cuda/bin/../targets/x86_64-linux/include"  
+#$ LIBRARIES=  "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib"
+#$ CUDAFE_FLAGS=
+#$ PTXAS_FLAGS=
+#$ g++ -std=c++11 -D__CUDA_ARCH__=300 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  -std=c++11 -I.. -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -O1  -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -I/home/yekyawthu/exp/kaldi/tools/ATLAS_headers/include -msse -msse2 -pthread -g  -DHAVE_CUDA -I/usr/local/cuda/include -fPIC -pthread -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -rdynamic -I"/usr/local/cuda/include" -I"/home/yekyawthu/exp/kaldi/tools/cub" "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER_BUILD__=176" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=9" -D"HAVE_CUDA" -D"KALDI_DOUBLEPRECISION=0" -D"CUDA_API_PER_THREAD_DEFAULT_STREAM" -include "cuda_runtime.h" -m64 "cu-kernels.cu" > "/tmp/tmpxft_0000c8f5_00000000-4_cu-kernels.cpp1.ii" 
+#$ g++ -std=c++11 -E -x c++ -D__CUDACC__ -D__NVCC__  -std=c++11 -I.. -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -O1  -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -I/home/yekyawthu/exp/kaldi/tools/ATLAS_headers/include -msse -msse2 -pthread -g  -DHAVE_CUDA -I/usr/local/cuda/include -fPIC -pthread -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -rdynamic -I"/usr/local/cuda/include" -I"/home/yekyawthu/exp/kaldi/tools/cub" "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER_BUILD__=176" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=9" -D"HAVE_CUDA" -D"KALDI_DOUBLEPRECISION=0" -D"CUDA_API_PER_THREAD_DEFAULT_STREAM" -include "cuda_runtime.h" -m64 "cu-kernels.cu" > "/tmp/tmpxft_0000c8f5_00000000-5_cu-kernels.cpp4.ii" 
+#$ -- Filter Dependencies --
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/cudamatrix'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/featbin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/nnet2'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/nnet3bin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/gmmbin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/nnet2bin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/nnet3'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/bin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/latbin'
+
+### make လုပ်မယ်။ ဒီနေရာမှာ ကိုယ့်စက်မှာက CPU processing unit က 4 လုံးပဲရှိရင်
+### -j 4 လုပ်ရပါမယ်။
+### Make :
+
+make -j 32
+
+...
+...
+-gnu//libatlas.so.3 /usr/lib/x86_64-linux-gnu//libf77blas.so.3 /usr/lib/x86_64-linux-gnu//libcblas.so.3 /usr/lib/x86_64-linux-gnu//liblapack_atlas.so.3 -Wl,-rpath=/usr/lib/x86_64-linux-gnu -lm -lpthread -ldl -lcublas -lcusparse -lcudart -lcurand -lnvToolsExt  -o lattice-difference
+make[2]: Leaving directory '/home/yekyawthu/exp/kaldi/src/latbin'
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src'
+make -C matrix test
+make[1]: Entering directory '/home/yekyawthu/exp/kaldi/src/matrix'
+g++ -std=c++11 -I.. -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -O1  -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -I/home/yekyawthu/exp/kaldi/tools/ATLAS_headers/include -msse -msse2 -pthread -g  -DHAVE_CUDA -I/usr/local/cuda/include -fPIC -pthread -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -rdynamic   -c -o matrix-lib-test.o matrix-lib-test.cc
+g++ -std=c++11 -I.. -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -O1  -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -I/home/yekyawthu/exp/kaldi/tools/ATLAS_headers/include -msse -msse2 -pthread -g  -DHAVE_CUDA -I/usr/local/cuda/include -fPIC -pthread -isystem /home/yekyawthu/exp/kaldi/tools/openfst/include -rdynamic   -c -o sparse-matrix-test.o sparse-matrix-test.cc
+g++  -Wl,-rpath=/home/yekyawthu/exp/kaldi/tools/openfst/lib  -rdynamic  sparse-matrix-test.o kaldi-matrix.a ../base/kaldi-base.a   /home/yekyawthu/exp/kaldi/tools/openfst/lib/libfst.so /usr/lib/x86_64-linux-gnu//libatlas.so.3 /usr/lib/x86_64-linux-gnu//libf77blas.so.3 /usr/lib/x86_64-linux-gnu//libcblas.so.3 /usr/lib/x86_64-linux-gnu//liblapack_atlas.so.3 -Wl,-rpath=/usr/lib/x86_64-linux-gnu -lm -lpthread -ldl -o sparse-matrix-test
+g++  -Wl,-rpath=/home/yekyawthu/exp/kaldi/tools/openfst/lib  -rdynamic  matrix-lib-test.o kaldi-matrix.a ../base/kaldi-base.a   /home/yekyawthu/exp/kaldi/tools/openfst/lib/libfst.so /usr/lib/x86_64-linux-gnu//libatlas.so.3 /usr/lib/x86_64-linux-gnu//libf77blas.so.3 /usr/lib/x86_64-linux-gnu//libcblas.so.3 /usr/lib/x86_64-linux-gnu//liblapack_atlas.so.3 -Wl,-rpath=/usr/lib/x86_64-linux-gnu -lm -lpthread -ldl -o matrix-lib-test
+Running matrix-lib-test ... 1s... SUCCESS matrix-lib-test
+Running sparse-matrix-test ... 0s... SUCCESS sparse-matrix-test
+make[1]: Leaving directory '/home/yekyawthu/exp/kaldi/src/matrix'
+echo Done
+Done
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$
+
+### Kaldi installation ကပြီးသွားလို့ test-run လုပ်ကြည့်ရအောင်
+### It looks Kaldi installation finished successfully
+
+### example ASR folder တွေထဲကို ဝင်ကြည့်ရအောင်
+### Check example folders:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/src$ cd ../egs/
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs$ ls
+aishell          bentham               cifar                    gale_arabic    ifnenit           README.txt       sre16         uw3            yomdle_tamil
+aishell2         bn_music_speech       commonvoice              gale_mandarin  librispeech       reverb           svhn          voxceleb       yomdle_zh
+ami              callhome_diarization  csj                      gp             lre               rimes            swahili       voxforge       zeroth_korean
+an4              callhome_egyptian     dihard_2018              heroico        lre07             rm               swbd          vystadial_cz
+apiai_decode     chime1                fame                     hkust          madcat_ar         sitw             tedlium       vystadial_en
+aspire           chime2                farsdat                  hub4_english   madcat_zh         sprakbanken      thchs30       wsj
+aurora4          chime3                fisher_callhome_spanish  hub4_spanish   mini_librispeech  sprakbanken_swe  tidigits      yesno
+babel            chime4                fisher_english           iam            multi_en          sre08            timit         yomdle_fa
+babel_multilang  chime5                fisher_swbd              iban           ptb               sre10            tunisian_msa  yomdle_korean
+
+### ပုံမှန်အလုပ်လုပ်နေကြအတိုင်း README ကို ဖတ်ကြည့်ပြီးမှ ရှေ့ဆက်အလုပ်လုပ်ပါလို့ အကြံပေးချင်ပါတယ်
+### I suggest you to read README file
+
+read README file of example folder:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs$ cat README.txt 
+
+This directory contains example scripts that demonstrate how to 
+use Kaldi.  Each subdirectory corresponds to a corpus that we have
+example scripts for.
+
+Note: we now have some scripts using free data, including voxforge,
+vystadial_{cz,en} and yesno.  Most of the others are available from
+the Linguistic Data Consortium (LDC), which requires money (unless you
+have a membership).
+
+If you have an LDC membership, probably rm/s5 or wsj/s5 should be your first
+choice to try out the scripts.
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs$
+
+### အလွယ်ဆုံးနဲ့ အမြန်ဆုံးဖြစ်တဲ့ yes-no ASR system building ကို စမ်းrun ကြည့်ရအောင်
+### Let's try yes-no ASR
+
+### egs ဖိုလ်ဒါအောက်မှာရှိတဲ့ yesno ဖိုလ်ဒါအောက်ထဲကို ဝင်ပါ
+### cd yesno
+
+Enter yesno folder:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs$ cd yesno/
+
+### "ls" command နဲ့ ဘာဖိုင်တွေ၊ ဖိုလ်ဒါတွေရှိသလဲ ကြည့်ရအောင်
+### run ls command
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ ls
+README.txt  s5
+
+### လက်ရှိ စက်ထဲမှာ tree command မရှိလို့
+### there is no "tree" command
+
+I found tree command is not found on my GPU server:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ tree .
+
+Command 'tree' not found, but can be installed with:
+
+sudo apt install tree
+
+### "tree" command ကို Ubuntu Linux မှာလုပ်နေကြအတိုင်း
+### apt-get install နဲ့ install လုပ်ခဲ့တယ်
+### Install "tree" command for browsing folder structure:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ sudo apt-get install tree
+[sudo] password for yekyawthu: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 7 not upgraded.
+Need to get 40.7 kB of archives.
+After this operation, 105 kB of additional disk space will be used.
+Get:1 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 tree amd64 1.7.0-5 [40.7 kB]
+Fetched 40.7 kB in 1s (28.7 kB/s)
+Selecting previously unselected package tree.
+(Reading database ... 233636 files and directories currently installed.)
+Preparing to unpack .../tree_1.7.0-5_amd64.deb ...
+Unpacking tree (1.7.0-5) ...
+Setting up tree (1.7.0-5) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ 
+
+### အဓိက က tree command ကို သုံးပြီးတော့ လက်ရှိ yesno ဖိုလ်ဒါအောက်မှာ
+### ဘာဖိုင်တွေ၊ ဘာဖိုလ်ဒါတွေရှိသလဲဆိုတာကို မြင်အောင် ကြည့်စေချင်တာပါ။
+### tree command က ဖိုင်၊ ဖိုလ်ဒါတွေရဲ့ structure ကို visualization လုပ်ပေးတဲ့ command ပါ။
+### အသုံးဝင်တဲ့ command ပါ။
+### ကိုယ်တိုင် ASR system အသစ်တစ်ခု build လုပ်တော့မယ်ဆိုရင် အလားတူ ဖိုလ်ဒါ structure တွေ၊
+### ဖိုင်တွေကို ကြိုတင်ပြင်ဆင်ရမှာမို့ လေ့လာထားသင့်တယ်။
+### နောက်ပြီးတော့ တချို့ ဖိုင်တွေက ASR system ဆောက်ပြီးတဲ့အခါမှာ အသစ်ထွက်လာမှာတွေလည်းရှိလို့
+### အဲဒါကိုလည်း နှိုင်းယှဉ်ကြည့်လို့ရဖို့အတွက် လုပ်ပြတာပါ။
+### Let's see folder structure before building ASR system
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ tree .
+.
+├── README.txt
+└── s5
+    ├── conf
+    │   ├── mfcc.conf
+    │   └── topo_orig.proto
+    ├── input
+    │   ├── lexicon_nosil.txt
+    │   ├── lexicon.txt
+    │   ├── phones.txt
+    │   └── task.arpabo
+    ├── local
+    │   ├── create_yesno_txt.pl
+    │   ├── create_yesno_waves_test_train.pl
+    │   ├── create_yesno_wav_scp.pl
+    │   ├── prepare_data.sh
+    │   ├── prepare_dict.sh
+    │   ├── prepare_lm.sh
+    │   └── score.sh -> ../steps/score_kaldi.sh
+    ├── path.sh
+    ├── run.sh
+    ├── steps -> ../../wsj/s5/steps
+    └── utils -> ../../wsj/s5/utils
+
+6 directories, 16 files
+
+### run.sh ကို run လိုက်ရင် yes-no ASR system ကို ဆောက်ပေးပြီးတော့
+### decode ပါ လုပ်ကြည့်ပြီး WER% ကိုပါ ပြပေးပါလိမ့်မယ်။
+
+### Here, I just run run.sh and just testing Kaldi installation.
+### It is working well on my current GPU server.
+### If you want to train with your own data, 
+### you need to study based on steps/ and utils/ folders.
+
+### တကယ်တမ်းက ဘယ်လို အဆင့်တွေလုပ်သွားတယ်ဆိုတာကို အသေးစိတ်သိဖို့က
+### run.sh shell script ဖိုင်ကိုလည်း လေ့လာရပါမယ်။
+### နောက်ပြီးတော့ steps ဖိုလ်ဒါ နဲ့ utils ဖိုလ်ဒါတွေကိုလည်း ဝင်ကြည့်စေချင်ပါတယ်။
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno$ cd s5/
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ ls
+conf  input  local  path.sh  run.sh  steps  utils
+
+### ပထမဆုံး run.sh ကို run ကြည့်တဲ့အခါ error အသေးတစ်ခုတက်ပါတယ်။
+### အောက်ပါအတိုင်းပါ
+### Got error as follow:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ time ./run.sh 
+--2019-01-11 08:26:35--  http://www.openslr.org/resources/1/waves_yesno.tar.gz
+Resolving www.openslr.org (www.openslr.org)... 46.101.158.64
+Connecting to www.openslr.org (www.openslr.org)|46.101.158.64|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4703754 (4.5M) [application/x-gzip]
+Saving to: ‘waves_yesno.tar.gz.1’
+
+waves_yesno.tar.gz.1                    100%[=============================================================================>]   4.49M   601KB/s    in 8.8s    
+
+2019-01-11 08:26:44 (520 KB/s) - ‘waves_yesno.tar.gz.1’ saved [4703754/4703754]
+
+waves_yesno/
+waves_yesno/1_0_0_0_0_0_1_1.wav
+waves_yesno/1_1_0_0_1_0_1_0.wav
+waves_yesno/1_0_1_1_1_1_0_1.wav
+waves_yesno/1_1_1_1_0_1_0_0.wav
+waves_yesno/0_0_1_1_1_0_0_0.wav
+waves_yesno/0_1_1_1_1_1_1_1.wav
+
+gzip: stdin: unexpected end of file
+tar: Unexpected EOF in archive
+tar: Unexpected EOF in archive
+tar: Error is not recoverable: exiting now
+
+real    0m9.231s
+user    0m0.004s
+sys     0m0.027s
+
+### GPU server ကို wifi အင်တာနက်နဲ့ ချိတ်ပြီး run ခဲ့တာပါ။
+### error က tar ဖိုင်နဲ့ ပတ်သက်နေပါတယ်။
+### လိုအပ်တဲ့ waves_yesno.tar.gz.1 ဖိုင်ကို run.sh script ဖိုင်ထဲကနေပဲ
+### အော်တို ဒေါင်းလုဒ်လုပ်တာမို့ လက်ရှိ error message က အဲဒီကိစ္စနဲ့ ပတ်သက်နေတယ်
+### လို့ ယူဆပါတယ်။
+### I think relating to internet connection or tar file downloading error ...
+
+### အဲဒါကြောင့် အလွယ်ဆုံးကတော့ run.sh script ကို နောက်တစ်ခေါက် ပြန် run ကြည့်တာပါပဲ။
+### Try again ./run.sh:
+
+Preparing train and test data
+Dictionary preparation succeeded
+utils/prepare_lang.sh --position-dependent-phones false data/local/dict <SIL> data/local/lang data/lang
+Checking data/local/dict/silence_phones.txt ...
+--> reading data/local/dict/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/silence_phones.txt is OK
+
+Checking data/local/dict/optional_silence.txt ...
+--> reading data/local/dict/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/optional_silence.txt is OK
+
+Checking data/local/dict/nonsilence_phones.txt ...
+--> reading data/local/dict/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict/lexicon.txt
+--> reading data/local/dict/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/lexicon.txt is OK
+
+Checking data/local/dict/extra_questions.txt ...
+--> data/local/dict/extra_questions.txt is empty (this is OK)
+--> SUCCESS [validating dictionary directory data/local/dict]
+
+**Creating data/local/dict/lexiconp.txt from data/local/dict/lexicon.txt
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang
+Checking data/lang/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> found no unexplainable phones in phones.txt
+
+Checking data/lang/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.int corresponds to data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.csl corresponds to data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang/phones/nonsilence.{txt, int, csl} ... 
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 2 entry/entries in data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.int corresponds to data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.csl corresponds to data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang/phones/silence.txt
+--> data/lang/phones/silence.int corresponds to data/lang/phones/silence.txt
+--> data/lang/phones/silence.csl corresponds to data/lang/phones/silence.txt
+--> data/lang/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.int corresponds to data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.csl corresponds to data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 2 entry/entries in data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.int corresponds to data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.csl corresponds to data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 3 entry/entries in data/lang/phones/roots.txt
+--> data/lang/phones/roots.int corresponds to data/lang/phones/roots.txt
+--> data/lang/phones/roots.{txt, int} are OK
+
+Checking data/lang/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 3 entry/entries in data/lang/phones/sets.txt
+--> data/lang/phones/sets.int corresponds to data/lang/phones/sets.txt
+--> data/lang/phones/sets.{txt, int} are OK
+
+Checking data/lang/phones/extra_questions.{txt, int} ...
+Checking optional_silence.txt ...
+--> reading data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang/phones/disambig.txt has "#0" and "#1"
+--> data/lang/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word-level disambiguation symbols...
+--> data/lang/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking data/lang/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces   
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang/oov.txt
+--> data/lang/oov.int corresponds to data/lang/oov.txt   
+--> data/lang/oov.{txt, int} are OK
+
+--> data/lang/L.fst is olabel sorted
+--> data/lang/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang]   
+Preparing language models for test
+1.20397 1.20397
+Succeeded in formatting data.
+steps/make_mfcc.sh --nj 1 data/train_yesno exp/make_mfcc/train_yesno mfcc
+utils/validate_data_dir.sh: WARNING: you have only one speaker.  This probably a bad idea.
+   Search for the word 'bold' in http://kaldi-asr.org/doc/data_prep.html
+   for more information.
+utils/validate_data_dir.sh: Successfully validated data-directory data/train_yesno
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating MFCC features for train_yesno
+steps/compute_cmvn_stats.sh data/train_yesno exp/make_mfcc/train_yesno mfcc
+Succeeded creating CMVN stats for train_yesno   
+fix_data_dir.sh: kept all 3 utterances.
+fix_data_dir.sh: old files are kept in data/train_yesno/.backup
+steps/make_mfcc.sh --nj 1 data/test_yesno exp/make_mfcc/test_yesno mfcc
+utils/validate_data_dir.sh: WARNING: you have only one speaker.  This probably a bad idea.
+   Search for the word 'bold' in http://kaldi-asr.org/doc/data_prep.html
+   for more information.
+utils/validate_data_dir.sh: Successfully validated data-directory data/test_yesno
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating MFCC features for test_yesno
+steps/compute_cmvn_stats.sh data/test_yesno exp/make_mfcc/test_yesno mfcc
+Succeeded creating CMVN stats for test_yesno
+fix_data_dir.sh: kept all 3 utterances.
+fix_data_dir.sh: old files are kept in data/test_yesno/.backup
+steps/train_mono.sh --nj 1 --cmd utils/run.pl --totgauss 400 data/train_yesno data/lang exp/mono0a
+steps/train_mono.sh: Initializing monophone system.
+steps/train_mono.sh: Compiling training graphs
+steps/train_mono.sh: Aligning data equally (pass 0)
+steps/train_mono.sh: Pass 1
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 2
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 3
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 4
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 5
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 6
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 7
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 8
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 9
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 10
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 11
+steps/train_mono.sh: Pass 12
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 13
+steps/train_mono.sh: Pass 14
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 15
+steps/train_mono.sh: Pass 16
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 17
+steps/train_mono.sh: Pass 18
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 19
+steps/train_mono.sh: Pass 20
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 21
+steps/train_mono.sh: Pass 22
+steps/train_mono.sh: Pass 23
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 24
+steps/train_mono.sh: Pass 25
+steps/train_mono.sh: Pass 26
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 27
+steps/train_mono.sh: Pass 28
+steps/train_mono.sh: Pass 29
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 30
+steps/train_mono.sh: Pass 31
+steps/train_mono.sh: Pass 32
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 33
+steps/train_mono.sh: Pass 34
+steps/train_mono.sh: Pass 35
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 36
+steps/train_mono.sh: Pass 37
+steps/train_mono.sh: Pass 38
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 39
+steps/diagnostic/analyze_alignments.sh --cmd utils/run.pl data/lang exp/mono0a
+analyze_phone_length_stats.py: WARNING: optional-silence SIL is seen only 66.6666666667% of the time at utterance end.  This may not be optimal.
+steps/diagnostic/analyze_alignments.sh: see stats in exp/mono0a/log/analyze_alignments.log
+76 warnings in exp/mono0a/log/update.*.log
+20 warnings in exp/mono0a/log/align.*.*.log
+1 warnings in exp/mono0a/log/analyze_alignments.log
+exp/mono0a: nj=1 align prob=-81.67 over 0.00h [retry=33.3%, fail=0.0%] states=11 gauss=72
+steps/train_mono.sh: Done training monophone system in exp/mono0a
+0.534295 0.533859
+[info]: LG not stochastic.
+0.534295 0.533859
+[info]: CLG not stochastic. 
+0.5342 -0.000304614
+HCLGa is not stochastic
+steps/decode.sh --nj 1 --cmd utils/run.pl exp/mono0a/graph_tgpr data/test_yesno exp/mono0a/decode_test_yesno
+decode.sh: feature type is delta
+steps/diagnostic/analyze_lats.sh --cmd utils/run.pl exp/mono0a/graph_tgpr exp/mono0a/decode_test_yesno
+analyze_phone_length_stats.py: WARNING: optional-silence SIL is seen only 66.6666666667% of the time at utterance begin.  This may not be optimal.
+steps/diagnostic/analyze_lats.sh: see stats in exp/mono0a/decode_test_yesno/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,5) and mean=2.6
+steps/diagnostic/analyze_lats.sh: see stats in exp/mono0a/decode_test_yesno/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd utils/run.pl data/test_yesno exp/mono0a/graph_tgpr exp/mono0a/decode_test_yesno
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+%WER 8.33 [ 2 / 24, 0 ins, 2 del, 0 sub ] exp/mono0a/decode_test_yesno/wer_7_1.0
+
+### အထက်ပါအတိုင်း ASR model building အဆင့်ရော
+### decoding အဆင့်ရော အဆင်ပြေပြေနဲ့ run လို့ ပြီးသွားတဲ့ ပုံရှိပါတယ်။
+### လက်ရှိမှာ WER (Word Error Rate) % က 8.33 ရပါတယ်။
+### yes-no လိုလွယ်ကူတဲ့ ASR system မို့လို့ ရလဒ်က ကောင်းတယ်လို့ ပြောလို့ မရပါဘူး။
+### တစ်ခုရှိတာက လက်ရှိမှာ monophone training/testing လုပ်တာပဲ ရှိပါသေးတယ်။
+
+### We got WER 8.33.
+
+### tar ဖိုင်ဒေါင်းလုဒ်လုပ်တဲ့ အခါမှာ ပြဿနာရှိနေတာလားဆိုတာကို
+### confirm လုပ်ချင်လို့ ရှိနေတဲ့ tar.gz ဖိုင်ကို ဖျက်ပြီးတော့
+### နောက်တစ်ခေါက် run.sh ကို ပြန် run ကြည့်ပါသေးတယ်။
+
+### How about download the tar file and running again.
+
+Remove tar file:
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ rm waves_yesno.tar.gz
+
+Run again:
+
+./run.sh
+
+...
+...
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+%WER 8.33 [ 2 / 24, 0 ins, 2 del, 0 sub ] exp/mono0a/decode_test_yesno/wer_7_1.0
+
+real    0m4.576s
+user    0m5.090s
+sys     0m1.516s
+
+### အထက်ပါအတိုင်း %WER က အတူတူပဲ ရရှိပါတယ်။
+### ရလဒ်နဲ့ ပတ်သက်ပြီး WER ကို လက်ရှိ monophone ရလဒ်ထက်
+### မြင့်အောင်က လုပ်တဲ့နည်းတွေရှိပါသေးတယ်။
+### အဓိက ရည်ရွယ်ချက်ဖြစ်တဲ့ Kaldi installation ကတော့ အိုကေပါတယ်။
+
+### Oh! I got the same %WER.
+### It is different with others result presented in Kaldi introduction blogs
+### such as %WER 0.00
+### The data was updated?! However, it looks Keldi is running well.
+### Kaldi installation finished successfully. :)
+
+### နောက်ဆက်တွဲ information အနေနဲ့
+### run.sh ကို run ပြီးသွားတဲ့အခါမှာ ဘယ်လို ဖိုလ်ဒါအသစ်တွေ၊ ဖိုင်အသစ်တွေတိုးလာတယ်
+### ဆိုတာကို လေ့လာသင့်ပါတယ်။
+### Confirming the yesno/:
+### (By doing this you will know which folders are updated
+### after running ./run.sh shell script)
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ ls -la
+total 4652
+drwxrwxr-x 9 yekyawthu yekyawthu    4096 ဇန်   11 08:35 .
+drwxrwxr-x 3 yekyawthu yekyawthu    4096 ဇန်   10 22:01 ..
+drwxrwxr-x 2 yekyawthu yekyawthu    4096 ဇန်   10 22:01 conf
+drwxrwxr-x 7 yekyawthu yekyawthu    4096 ဇန်   11 08:35 data
+drwxrwxr-x 4 yekyawthu yekyawthu    4096 ဇန်   11 08:35 exp
+drwxrwxr-x 2 yekyawthu yekyawthu    4096 ဇန်   10 22:01 input
+drwxrwxr-x 2 yekyawthu yekyawthu    4096 ဇန်   10 22:01 local
+drwxrwxr-x 2 yekyawthu yekyawthu    4096 ဇန်   11 08:35 mfcc
+-rw-rw-r-- 1 yekyawthu yekyawthu     375 ဇန်   10 22:01 path.sh
+-rwxrwxr-x 1 yekyawthu yekyawthu    1222 ဇန်   10 22:01 run.sh
+lrwxrwxrwx 1 yekyawthu yekyawthu      18 ဇန်   10 22:01 steps -> ../../wsj/s5/steps
+lrwxrwxrwx 1 yekyawthu yekyawthu      18 ဇန်   10 22:01 utils -> ../../wsj/s5/utils
+drwxr-xr-x 2 yekyawthu yekyawthu    4096 မတ်   21  2014 waves_yesno
+-rw-rw-r-- 1 yekyawthu yekyawthu 4703754 အောက်  4  2017 waves_yesno.tar.gz.1
+-rw-rw-r-- 1 yekyawthu yekyawthu   11182 ဇန်   11 08:29 yesno-run.log
+
+### -d option က ဖိုင်တွေမပါပဲနဲ့ ဖိုလ်ဒါတွေချည်းပဲ ကြည့်ဖို့အတွက် ပေးတဲ့ option ပါ
+### Run tree -d . command:
+
+$tree -d .
+.
+├── conf
+├── data
+│   ├── lang
+│   │   └── phones
+│   ├── lang_test_tg
+│   │   ├── phones
+│   │   └── tmp
+│   ├── local
+│   │   ├── dict
+│   │   └── lang
+│   ├── test_yesno
+│   │   └── split1
+│   │       └── 1
+│   └── train_yesno
+│       └── split1
+│           └── 1
+├── exp
+│   ├── make_mfcc
+│   │   ├── test_yesno
+│   │   └── train_yesno
+│   └── mono0a
+│       ├── decode_test_yesno
+│       │   ├── log
+│       │   └── scoring_kaldi
+│       │       ├── log
+│       │       ├── penalty_0.0
+│       │       │   └── log
+│       │       ├── penalty_0.5
+│       │       │   └── log
+│       │       ├── penalty_1.0
+│       │       │   └── log
+│       │       └── wer_details
+│       ├── graph_tgpr
+│       │   └── phones
+│       └── log
+├── input
+├── local
+├── mfcc
+├── steps -> ../../wsj/s5/steps
+├── utils -> ../../wsj/s5/utils
+└── waves_yesno
+
+41 directories
+
+### ./conf ဖိုလ်ဒါကိုလည်း ကြည့်သင့်တယ်
+### Let's see ./conf/ folder also
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ tree ./conf/
+./conf/
+├── mfcc.conf
+└── topo_orig.proto
+
+0 directories, 2 files
+
+### ./input ဖိုလ်ဒါကိုလည်း ကြည့်သင့်တယ်
+### you should see under ./input folder also
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ tree ./input/
+./input/
+├── lexicon_nosil.txt
+├── lexicon.txt
+├── phones.txt
+└── task.arpabo
+
+0 directories, 4 files
+
+### ./local ဖိုလ်ဒါတွေကိုလည်း လေ့လာသင့်ပါတယ်
+### run tree command for ./local
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ tree ./local/
+./local/
+├── create_yesno_txt.pl
+├── create_yesno_waves_test_train.pl
+├── create_yesno_wav_scp.pl
+├── prepare_data.sh
+├── prepare_dict.sh
+├── prepare_lm.sh
+└── score.sh -> ../steps/score_kaldi.sh
+
+0 directories, 7 files
+
+### conf/ ဖိုလ်ဒါ input/ ဖိုလ်ဒါ နဲ့ local/ ဖိုလ်ဒါတွေက
+### ./run.sh ကို run ပြီးသွားတဲ့အခါမှာလည်းဘာမှ အပြောင်းအလဲ မရှိတာကို
+### တွေ့ရပါလိမ့်မယ်။
+###
+### *** Actually no updating on original folders of 
+### conf/, input/ and local/ after running ./run.sh.
+### This is because original folders are just keeping
+### general information about the language and data.
+
+### တခြား ကျန်နေတဲ့ ဖိုလ်ဒါတွေကိုလည်း tree command (သို့) ls နဲ့ လေ့လာကြည့်ပါ။
+### Checking other folders:
+
+$tree ./data/
+./data
+├── lang
+│   ├── L_disambig.fst
+│   ├── L.fst
+│   ├── oov.int
+│   ├── oov.txt
+│   ├── phones
+│   │   ├── align_lexicon.int
+│   │   ├── align_lexicon.txt
+│   │   ├── context_indep.csl
+│   │   ├── context_indep.int
+│   │   ├── context_indep.txt
+│   │   ├── disambig.csl
+│   │   ├── disambig.int
+│   │   ├── disambig.txt
+│   │   ├── extra_questions.int
+│   │   ├── extra_questions.txt
+│   │   ├── nonsilence.csl
+│   │   ├── nonsilence.int
+│   │   ├── nonsilence.txt
+│   │   ├── optional_silence.csl
+│   │   ├── optional_silence.int
+│   │   ├── optional_silence.txt
+│   │   ├── roots.int
+│   │   ├── roots.txt
+│   │   ├── sets.int
+│   │   ├── sets.txt
+│   │   ├── silence.csl
+│   │   ├── silence.int
+│   │   ├── silence.txt
+│   │   ├── wdisambig_phones.int
+│   │   ├── wdisambig.txt
+│   │   └── wdisambig_words.int
+│   ├── phones.txt
+│   ├── topo
+│   └── words.txt
+├── lang_test_tg
+│   ├── G.fst
+│   ├── L_disambig.fst
+│   ├── L.fst
+│   ├── oov.int
+│   ├── oov.txt
+│   ├── phones
+│   │   ├── align_lexicon.int
+│   │   ├── align_lexicon.txt
+│   │   ├── context_indep.csl
+│   │   ├── context_indep.int
+│   │   ├── context_indep.txt
+│   │   ├── disambig.csl
+│   │   ├── disambig.int
+│   │   ├── disambig.txt
+│   │   ├── extra_questions.int
+│   │   ├── extra_questions.txt
+│   │   ├── nonsilence.csl
+│   │   ├── nonsilence.int
+│   │   ├── nonsilence.txt
+│   │   ├── optional_silence.csl
+│   │   ├── optional_silence.int
+│   │   ├── optional_silence.txt
+│   │   ├── roots.int
+│   │   ├── roots.txt
+│   │   ├── sets.int
+│   │   ├── sets.txt
+│   │   ├── silence.csl
+│   │   ├── silence.int
+│   │   ├── silence.txt
+│   │   ├── wdisambig_phones.int
+│   │   ├── wdisambig.txt
+│   │   └── wdisambig_words.int
+│   ├── phones.txt
+│   ├── tmp
+│   │   ├── CLG_1_0.fst
+│   │   ├── disambig_ilabels_1_0.int
+│   │   ├── ilabels_1_0
+│   │   └── LG.fst
+│   ├── topo
+│   └── words.txt
+├── local
+│   ├── dict
+│   │   ├── lexiconp.txt
+│   │   ├── lexicon.txt
+│   │   ├── lexicon_words.txt
+│   │   ├── nonsilence_phones.txt
+│   │   ├── optional_silence.txt
+│   │   └── silence_phones.txt
+│   ├── lang
+│   │   ├── align_lexicon.txt
+│   │   ├── lexiconp_disambig.txt
+│   │   ├── lexiconp.txt
+│   │   ├── lex_ndisambig
+│   │   ├── phone_map.txt
+│   │   └── phones
+│   ├── lm_tg.arpa
+│   ├── test_yesno.txt
+│   ├── test_yesno_wav.scp
+│   ├── train_yesno.txt
+│   ├── train_yesno_wav.scp
+│   ├── waves_all.list
+│   ├── waves.test
+│   └── waves.train 
+├── test_yesno
+│   ├── cmvn.scp
+│   ├── feats.scp
+│   ├── spk2utt
+│   ├── split1
+│   │   └── 1
+│   │       ├── cmvn.scp
+│   │       ├── feats.scp
+│   │       ├── spk2utt
+│   │       ├── text
+│   │       ├── utt2spk
+│   │       └── wav.scp
+│   ├── text
+│   ├── utt2spk
+│   └── wav.scp  
+└── train_yesno
+    ├── cmvn.scp
+    ├── feats.scp
+    ├── spk2utt
+    ├── split1
+    │   └── 1
+    │       ├── cmvn.scp
+    │       ├── feats.scp
+    │       ├── spk2utt
+    │       ├── text
+    │       ├── utt2spk
+    │       └── wav.scp 
+    ├── text
+    ├── utt2spk
+    └── wav.scp   
+
+14 directories, 115 files
+
+### run.sh ကို မrun ခင်က အခြေအနေနဲ့ နှိုင်းယှဉ်ကြည့်ရင်
+### data/ ဖိုလ်ဒါအောက်မှာ ဖိုင်အသစ်တွေ တိုးလာတာကို တွေ့ရှိရပါလိမ့်မယ်။
+### You will noticed that data/ directory has a lot of new staff in it.
+
+
+### exp/ ဖိုလ်ဒါမှာတော့ လေ့လာစရာတွေအများကြီးပါ
+### ASR system building နဲ့ ပတ်သက်ပြီးတော့ လက်တွေ့တည်ဆောက်တဲ့ အပိုင်းတွေကို
+### သိရှိဖို့အတွက်က exp/  ဖိုလ်ဒါထဲက ဖိုင်တွေနဲ့ ပတ်သက်ပြီးတော့ အချိန်ယူ လေ့လာရပါလိမ့်မယ်။
+### Kaldi က ရှင်းပြထားတဲ့ အောက်ပါလင့်(ခ်)ကိုလည်း ဖတ်ကြည့်ပါ။
+### http://kaldi-asr.org/doc/tutorial_running.html
+### 
+### When you explore exp/ directory, you will get a lot of information
+### relating to yes-no ASR experiments:
+
+$tree ./exp/
+./exp/
+├── make_mfcc
+│   ├── test_yesno
+│   │   ├── cmvn_test_yesno.log
+│   │   └── make_mfcc_test_yesno.1.log
+│   └── train_yesno
+│       ├── cmvn_train_yesno.log
+│       └── make_mfcc_train_yesno.1.log
+└── mono0a
+    ├── 0.mdl
+    ├── 40.mdl
+    ├── 40.occs
+    ├── ali.1.gz
+    ├── cmvn_opts
+    ├── decode_test_yesno
+    │   ├── lat.1.gz
+    │   ├── log
+    │   │   ├── analyze_alignments.log
+    │   │   ├── analyze_lattice_depth_stats.log
+    │   │   ├── decode.1.log
+    │   │   ├── get_lattice_stats.1.log
+    │   │   └── lattice_best_path.1.log
+    │   ├── num_jobs
+    │   ├── scoring_kaldi
+    │   │   ├── best_wer
+    │   │   ├── log
+    │   │   │   ├── stats1.log
+    │   │   │   ├── stats2.log
+    │   │   │   └── wer_bootci.log
+    │   │   ├── penalty_0.0
+    │   │   │   ├── 10.txt
+    │   │   │   ├── 11.txt
+    │   │   │   ├── 12.txt
+    │   │   │   ├── 13.txt
+    │   │   │   ├── 14.txt
+    │   │   │   ├── 15.txt
+    │   │   │   ├── 16.txt
+    │   │   │   ├── 17.txt
+    │   │   │   ├── 7.txt
+    │   │   │   ├── 8.txt
+    │   │   │   ├── 9.txt
+    │   │   │   └── log
+    │   │   │       ├── best_path.10.log
+    │   │   │       ├── best_path.11.log
+    │   │   │       ├── best_path.12.log
+    │   │   │       ├── best_path.13.log
+    │   │   │       ├── best_path.14.log
+    │   │   │       ├── best_path.15.log
+    │   │   │       ├── best_path.16.log
+    │   │   │       ├── best_path.17.log
+    │   │   │       ├── best_path.7.log
+    │   │   │       ├── best_path.8.log
+    │   │   │       ├── best_path.9.log
+    │   │   │       ├── score.10.log
+    │   │   │       ├── score.11.log
+    │   │   │       ├── score.12.log
+    │   │   │       ├── score.13.log
+    │   │   │       ├── score.14.log
+    │   │   │       ├── score.15.log
+    │   │   │       ├── score.16.log
+    │   │   │       ├── score.17.log
+    │   │   │       ├── score.7.log
+    │   │   │       ├── score.8.log
+    │   │   │       └── score.9.log
+    │   │   ├── penalty_0.5
+    │   │   │   ├── 10.txt
+    │   │   │   ├── 11.txt
+    │   │   │   ├── 12.txt
+    │   │   │   ├── 13.txt
+    │   │   │   ├── 14.txt
+    │   │   │   ├── 15.txt
+    │   │   │   ├── 16.txt
+    │   │   │   ├── 17.txt
+    │   │   │   ├── 7.txt
+    │   │   │   ├── 8.txt
+    │   │   │   ├── 9.txt
+    │   │   │   └── log
+    │   │   │       ├── best_path.10.log
+    │   │   │       ├── best_path.11.log
+    │   │   │       ├── best_path.12.log
+    │   │   │       ├── best_path.13.log
+    │   │   │       ├── best_path.14.log
+    │   │   │       ├── best_path.15.log
+    │   │   │       ├── best_path.16.log
+    │   │   │       ├── best_path.17.log
+    │   │   │       ├── best_path.7.log
+    │   │   │       ├── best_path.8.log
+    │   │   │       ├── best_path.9.log
+    │   │   │       ├── score.10.log
+    │   │   │       ├── score.11.log
+    │   │   │       ├── score.12.log
+    │   │   │       ├── score.13.log
+    │   │   │       ├── score.14.log
+    │   │   │       ├── score.15.log
+    │   │   │       ├── score.16.log
+    │   │   │       ├── score.17.log
+    │   │   │       ├── score.7.log
+    │   │   │       ├── score.8.log
+    │   │   │       └── score.9.log
+    │   │   ├── penalty_1.0
+    │   │   │   ├── 10.txt
+    │   │   │   ├── 11.txt
+    │   │   │   ├── 12.txt
+    │   │   │   ├── 13.txt
+    │   │   │   ├── 14.txt
+    │   │   │   ├── 15.txt
+    │   │   │   ├── 16.txt
+    │   │   │   ├── 17.txt
+    │   │   │   ├── 7.txt
+    │   │   │   ├── 8.txt
+    │   │   │   ├── 9.txt
+    │   │   │   └── log
+    │   │   │       ├── best_path.10.log
+    │   │   │       ├── best_path.11.log
+    │   │   │       ├── best_path.12.log
+    │   │   │       ├── best_path.13.log
+    │   │   │       ├── best_path.14.log
+    │   │   │       ├── best_path.15.log
+    │   │   │       ├── best_path.16.log
+    │   │   │       ├── best_path.17.log
+    │   │   │       ├── best_path.7.log
+    │   │   │       ├── best_path.8.log
+    │   │   │       ├── best_path.9.log
+    │   │   │       ├── score.10.log
+    │   │   │       ├── score.11.log
+    │   │   │       ├── score.12.log
+    │   │   │       ├── score.13.log
+    │   │   │       ├── score.14.log
+    │   │   │       ├── score.15.log
+    │   │   │       ├── score.16.log
+    │   │   │       ├── score.17.log
+    │   │   │       ├── score.7.log
+    │   │   │       ├── score.8.log
+    │   │   │       └── score.9.log
+    │   │   ├── test_filt.txt
+    │   │   └── wer_details
+    │   │       ├── lmwt
+    │   │       ├── ops
+    │   │       ├── per_spk
+    │   │       ├── per_utt
+    │   │       ├── wer_bootci
+    │   │       └── wip   
+    │   ├── wer_10_0.0
+    │   ├── wer_10_0.5
+    │   ├── wer_10_1.0
+    │   ├── wer_11_0.0
+    │   ├── wer_11_0.5   
+    │   ├── wer_11_1.0   
+    │   ├── wer_12_0.0   
+    │   ├── wer_12_0.5 
+    │   ├── wer_12_1.0
+    │   ├── wer_13_0.0
+    │   ├── wer_13_0.5
+    │   ├── wer_13_1.0
+    │   ├── wer_14_0.0
+    │   ├── wer_14_0.5
+    │   ├── wer_14_1.0
+    │   ├── wer_15_0.0
+    │   ├── wer_15_0.5
+    │   ├── wer_15_1.0
+    │   ├── wer_16_0.0
+    │   ├── wer_16_0.5
+    │   ├── wer_16_1.0
+    │   ├── wer_17_0.0
+    │   ├── wer_17_0.5
+    │   ├── wer_17_1.0
+    │   ├── wer_7_0.0
+    │   ├── wer_7_0.5
+    │   ├── wer_7_1.0
+    │   ├── wer_8_0.0
+    │   ├── wer_8_0.5
+    │   ├── wer_8_1.0
+    │   ├── wer_9_0.0
+    │   ├── wer_9_0.5
+    │   └── wer_9_1.0   
+    ├── final.mdl -> 40.mdl
+    ├── final.occs -> 40.occs
+    ├── fsts.1.gz
+    ├── graph_tgpr
+    │   ├── disambig_tid.int
+    │   ├── HCLG.fst  
+    │   ├── num_pdfs  
+    │   ├── phones
+    │   │   ├── align_lexicon.int
+    │   │   ├── align_lexicon.txt
+    │   │   ├── disambig.int
+    │   │   ├── disambig.txt
+    │   │   ├── optional_silence.csl
+    │   │   ├── optional_silence.int
+    │   │   ├── optional_silence.txt
+    │   │   └── silence.csl
+    │   ├── phones.txt
+    │   └── words.txt 
+    ├── log
+    │   ├── acc.10.1.log
+    │   ├── acc.11.1.log
+    │   ├── acc.1.1.log
+    │   ├── acc.12.1.log
+    │   ├── acc.13.1.log
+    │   ├── acc.14.1.log
+    │   ├── acc.15.1.log
+    │   ├── acc.16.1.log
+    │   ├── acc.17.1.log
+    │   ├── acc.18.1.log
+    │   ├── acc.19.1.log
+    │   ├── acc.20.1.log
+    │   ├── acc.21.1.log
+    │   ├── acc.2.1.log
+    │   ├── acc.22.1.log
+    │   ├── acc.23.1.log
+    │   ├── acc.24.1.log
+    │   ├── acc.25.1.log
+    │   ├── acc.26.1.log
+    │   ├── acc.27.1.log   
+    │   ├── acc.28.1.log
+    │   ├── acc.29.1.log
+    │   ├── acc.30.1.log
+    │   ├── acc.31.1.log
+    │   ├── acc.3.1.log
+    │   ├── acc.32.1.log
+    │   ├── acc.33.1.log
+    │   ├── acc.34.1.log
+    │   ├── acc.35.1.log
+    │   ├── acc.36.1.log
+    │   ├── acc.37.1.log
+    │   ├── acc.38.1.log
+    │   ├── acc.39.1.log
+    │   ├── acc.4.1.log
+    │   ├── acc.5.1.log
+    │   ├── acc.6.1.log
+    │   ├── acc.7.1.log
+    │   ├── acc.8.1.log
+    │   ├── acc.9.1.log
+    │   ├── align.0.1.log
+    │   ├── align.10.1.log
+    │   ├── align.1.1.log
+    │   ├── align.12.1.log
+    │   ├── align.14.1.log
+    │   ├── align.16.1.log
+    │   ├── align.18.1.log
+    │   ├── align.20.1.log
+    │   ├── align.2.1.log
+    │   ├── align.23.1.log
+    │   ├── align.26.1.log
+    │   ├── align.29.1.log
+    │   ├── align.3.1.log
+    │   ├── align.32.1.log
+    │   ├── align.35.1.log
+    │   ├── align.38.1.log
+    │   ├── align.4.1.log
+    │   ├── align.5.1.log
+    │   ├── align.6.1.log  
+    │   ├── align.7.1.log
+    │   ├── align.8.1.log
+    │   ├── align.9.1.log
+    │   ├── analyze_alignments.log
+    │   ├── compile_graphs.1.log
+    │   ├── get_phone_alignments.1.log
+    │   ├── init.log
+    │   ├── update.0.log
+    │   ├── update.10.log
+    │   ├── update.11.log
+    │   ├── update.12.log
+    │   ├── update.13.log
+    │   ├── update.14.log
+    │   ├── update.15.log
+    │   ├── update.16.log
+    │   ├── update.17.log
+    │   ├── update.18.log
+    │   ├── update.19.log
+    │   ├── update.1.log
+    │   ├── update.20.log
+    │   ├── update.21.log
+    │   ├── update.22.log
+    │   ├── update.23.log
+    │   ├── update.24.log
+    │   ├── update.25.log
+    │   ├── update.26.log
+    │   ├── update.27.log
+    │   ├── update.28.log
+    │   ├── update.29.log
+    │   ├── update.2.log
+    │   ├── update.30.log
+    │   ├── update.31.log
+    │   ├── update.32.log
+    │   ├── update.33.log
+    │   ├── update.34.log
+    │   ├── update.35.log
+    │   ├── update.36.log
+    │   ├── update.37.log  
+    │   ├── update.38.log
+    │   ├── update.39.log
+    │   ├── update.3.log
+    │   ├── update.4.log
+    │   ├── update.5.log
+    │   ├── update.6.log
+    │   ├── update.7.log
+    │   ├── update.8.log
+    │   └── update.9.log
+    ├── num_jobs
+    ├── phones.txt
+    └── tree
+
+18 directories, 283 files
+
+### Automatic Speech Recognition (ASR) နဲ့ Speaker Recognition တွေမှာ
+### မသိမဖြစ်သိရမယ့် Mel Frequency Cepstral Coefficient (MFCC) feature
+### နဲ့ ပတ်သက်တဲ့ ဖိုလ်ဒါကတော့ Kaldi မှာ mfcc/ ဆိုတဲ့ ဖိုလ်ဒါပါပဲ။
+### Checking mfcc directory:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ tree ./mfcc/
+./mfcc/
+├── cmvn_test_yesno.ark
+├── cmvn_test_yesno.scp
+├── cmvn_train_yesno.ark
+├── cmvn_train_yesno.scp
+├── raw_mfcc_test_yesno.1.ark
+├── raw_mfcc_test_yesno.1.scp
+├── raw_mfcc_train_yesno.1.ark
+└── raw_mfcc_train_yesno.1.scp
+
+0 directories, 8 files
+
+### WER တွက်ထားတဲ့ ဖိုင်တွေနဲ့ ပတ်သက်ပြီးသိမ်းထားတဲ့ ဖိုင်နာမည်တွေကတော့
+### wer_ နဲ့ စတဲ့ ဖိုင်တွေပါပဲ။
+### Checking WER files in details:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a$ ls
+0.mdl  40.mdl  40.occs  ali.1.gz  cmvn_opts  decode_test_yesno  final.mdl  final.occs  fsts.1.gz  graph_tgpr  log  num_jobs  phones.txt  tree
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a$ cd decode_test_yesno/
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a/decode_test_yesno$ ls
+lat.1.gz  scoring_kaldi  wer_10_1.0  wer_11_1.0  wer_12_1.0  wer_13_1.0  wer_14_1.0  wer_15_1.0  wer_16_1.0  wer_17_1.0  wer_7_1.0  wer_8_1.0  wer_9_1.0
+log       wer_10_0.0     wer_11_0.0  wer_12_0.0  wer_13_0.0  wer_14_0.0  wer_15_0.0  wer_16_0.0  wer_17_0.0  wer_7_0.0   wer_8_0.0  wer_9_0.0
+num_jobs  wer_10_0.5     wer_11_0.5  wer_12_0.5  wer_13_0.5  wer_14_0.5  wer_15_0.5  wer_16_0.5  wer_17_0.5  wer_7_0.5   wer_8_0.5  wer_9_0.5
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a/decode_test_yesno$ cat wer_10_0.0
+compute-wer --text --mode=present ark:exp/mono0a/decode_test_yesno/scoring_kaldi/test_filt.txt ark,p:- 
+%WER 16.67 [ 4 / 24, 1 ins, 3 del, 0 sub ]
+%SER 66.67 [ 2 / 3 ]
+Scored 3 sentences, 0 not present in hyp.
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a/decode_test_yesno$ cat wer_10_0.5
+compute-wer --text --mode=present ark:exp/mono0a/decode_test_yesno/scoring_kaldi/test_filt.txt ark,p:- 
+%WER 12.50 [ 3 / 24, 0 ins, 3 del, 0 sub ]
+%SER 33.33 [ 1 / 3 ]
+Scored 3 sentences, 0 not present in hyp.
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/exp/mono0a/decode_test_yesno$ cat wer_17_0.5
+compute-wer --text --mode=present ark:exp/mono0a/decode_test_yesno/scoring_kaldi/test_filt.txt ark,p:- 
+%WER 16.67 [ 4 / 24, 0 ins, 4 del, 0 sub ]
+%SER 33.33 [ 1 / 3 ]
+Scored 3 sentences, 0 not present in hyp.
+
+### input ဖိုလ်ဒါအထဲက ရှိတဲ့ ဖိုင်တစ်ချို့ကို ဥပမာအနေနဲ့
+### cat command ကို သုံးပြီး ရိုက်ပြထားတာပါ
+### Input directory information:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5$ cd input/
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/input$ ls
+lexicon_nosil.txt  lexicon.txt  phones.txt  task.arpabo
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/input$ cat lexicon_nosil.txt 
+YES Y
+NO N
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/input$ cat lexicon.txt 
+<SIL> SIL
+YES Y
+NO N
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/input$ cat phones.txt 
+SIL
+Y
+N
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/input$ cat task.arpabo 
+
+\data\
+ngram 1=4
+
+\1-grams:
+-1      NO
+-1      YES
+-99 <s>
+-1 </s>
+
+\end\
+
+=======
+
+### train ဖိုလ်ဒါအထဲက ဖိုင်တွေကို ပြထားတာပါ။
+### Checking train folder:
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/data/train_yesno$ ls
+cmvn.scp  feats.scp  spk2utt  split1  text  utt2spk  wav.scp
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/data/train_yesno$ cat text
+0_0_1_1_1_0_0_0 NO NO YES YES YES NO NO NO
+0_1_1_1_1_1_1_1 NO YES YES YES YES YES YES YES
+1_0_0_0_0_0_1_1 YES NO NO NO NO NO YES YES
+
+(kaldi) yekyawthu@bit-MS-7B09:~/exp/kaldi/egs/yesno/s5/data/train_yesno$ cat utt2spk 
+0_0_1_1_1_0_0_0 global
+0_1_1_1_1_1_1_1 global
+1_0_0_0_0_0_1_1 global
+
+
