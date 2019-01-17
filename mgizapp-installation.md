@@ -1,4 +1,16 @@
-# mgizapp Installation Note:
+# mgizapp Installation Note
+
+First download mgiza:
+
+```bash
+git clone https://github.com/moses-smt/mgiza
+```
+
+Change your path for installation process:
+
+```bash
+cd mgiza/mgizapp/
+```
 
 As usual, check INSTALL file:
 
