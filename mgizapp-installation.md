@@ -14,7 +14,7 @@ First download mgiza:
 git clone https://github.com/moses-smt/mgiza
 ```
 
-Change your path for installation process:
+Change your path for the installation process:
 
 ```bash
 cd mgiza/mgizapp/
