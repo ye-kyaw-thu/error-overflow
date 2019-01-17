@@ -1,9 +1,14 @@
-mgizapp Installation Note:
+# mgizapp Installation Note:
 
 As usual, check INSTALL file:
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# vi INSTALL 
+```
 
 Run cmake .:
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# cmake .
 -- The C compiler identification is GNU 5.4.0
 -- The CXX compiler identification is GNU 5.4.0
@@ -84,12 +89,12 @@ CMake Error at CMakeLists.txt:79 (MESSAGE):
 -- Configuring incomplete, errors occurred!
 See also "/home/yekyawthu/tool/mgiza/mgizapp/CMakeFiles/CMakeOutput.log".
 See also "/home/yekyawthu/tool/mgiza/mgizapp/CMakeFiles/CMakeError.log".
-
-============
+```
 
 We got above ERROR MESSAGE!
 We need to install Boost:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# apt-get install libboost-all-dev
 Reading package lists... Done
 Building dependency tree       
@@ -173,9 +178,11 @@ Setting up libhwloc-plugins (1.11.2-3) ...
 Processing triggers for libc-bin (2.23-0ubuntu10) ...
 Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# 
+```
 
 Run again cmake .:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# cmake .
 CMake Warning (dev) at cmake/CheckCXXSourceCompiles.cmake:16 (IF):
   Policy CMP0054 is not set: Only interpret if() arguments as variables or
@@ -204,11 +211,13 @@ Boost found
 -- Generating done
 -- Build files have been written to: /home/yekyawthu/tool/mgiza/mgizapp
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# 
+```
 
 It looks OK!
 
-=======
+Let's make:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# make
 Scanning dependencies of target snt2coocrmp
 [  1%] Building CXX object src/CMakeFiles/snt2coocrmp.dir/snt2cooc-reduce-mem-preprocess.cpp.o
@@ -305,10 +314,11 @@ Scanning dependencies of target mkcls
 [100%] Linking CXX executable ../../bin/mkcls
 [100%] Built target mkcls
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# 
-
-=======
+```
 
 Run make install:
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# make install
 [  2%] Built target snt2coocrmp
 [  5%] Built target snt2plain
@@ -344,9 +354,11 @@ Install the project...
 -- Installing: /home/yekyawthu/tool/mgiza/mgizapp/inst/./run.sh
 -- Installing: /home/yekyawthu/tool/mgiza/mgizapp/inst/./snt2cooc.pl
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# 
+```
 
 cd ./bin:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp/bin# ./mkcls --help
 Fehlerhafte Option: --help
 mkcls - a program for making word classes: Usage: 
@@ -361,27 +373,44 @@ Literature:
  Franz Josef Och: �Maximum-Likelihood-Sch�tzung von Wortkategorien mit Verfahren
  der kombinatorischen Optimierung?Studienarbeit, Universit�t Erlangen-N�rnberg,
  Germany,1995. 
-
-==========
+```
 
 You need to update your .bashrc file for running mkcls from everywhere:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp/bin# pwd
 /home/yekyawthu/tool/mgiza/mgizapp/bin
+```
 
+Update your .bashrc file:
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp/bin# vi ~/.bashrc
+```
+
 Add following line:
 export PATH="/home/yekyawthu/tool/mgiza/mgizapp/bin:$PATH"
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp/bin# cd ..
+```
 
+If you haven't run "source" command yet ...
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# mkcls --help
 -su: mkcls: command not found
+```
 
+Run source command:
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# source ~/.bashrc
+```
 
 Now You can run mkcls:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/mgiza/mgizapp# mkcls --help
 Fehlerhafte Option: --help
 mkcls - a program for making word classes: Usage: 
@@ -396,5 +425,6 @@ Literature:
  Franz Josef Och: �Maximum-Likelihood-Sch�tzung von Wortkategorien mit Verfahren
  der kombinatorischen Optimierung?Studienarbeit, Universit�t Erlangen-N�rnberg,
  Germany,1995. 
+```
 
 ============ FIN =============
