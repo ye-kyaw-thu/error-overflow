@@ -1,10 +1,11 @@
 # mgizapp Installation Note
 
 Message for my students and someone who are not familiar with Linux environment:  
+```
 Please note, I am running as a root in this case.  
 For your case, you need to use sudo command (if your account is in the sudoers list) or you have to contact to your server admin.  
 Of course, if you are running on your own notebook, you are the administrator!  
-
+```
 
 First download mgiza:
 
