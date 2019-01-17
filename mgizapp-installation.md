@@ -103,7 +103,7 @@ See also "/home/yekyawthu/tool/mgiza/mgizapp/CMakeFiles/CMakeOutput.log".
 See also "/home/yekyawthu/tool/mgiza/mgizapp/CMakeFiles/CMakeError.log".
 ```
 
-We got above ERROR MESSAGE!
+We got above ERROR MESSAGE!  
 We need to install Boost:
 
 ```bash
