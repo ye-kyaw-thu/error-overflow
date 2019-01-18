@@ -1,9 +1,9 @@
-# SRILM Installation Note:
+# SRILM Installation Note
 
 Download from the following site:
 http://www.speech.sri.com/projects/srilm/download.html
 
-Unzip:
+# Unzip with tar command
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tar -xzvf srilm-1.7.2.tar.gz
 ./misc/src/SRILMversion.h
@@ -15,28 +15,33 @@ root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tar -xzvf srilm-1.7.2.tar.gz
 ./misc/doc/Opt.man
 ./misc/doc/Opt.doc
 
+# Check inside srilm folder
+
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# ls
 ACKNOWLEDGEMENTS  INSTALL   README   doc      go.build-android       lattice  man   srilm-1.7.2.tar.gz  zlib
 CHANGES           License   RELEASE  dstruct  go.build-android-hard  lib      misc  utils
 Copyright         Makefile  common   flm      go.build-android-v8    lm       sbin  visual_studio
 
-Read INSTALL file:
+# Read INSTALL file
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# vi INSTALL 
 
-Update Makefile
+# Update Makefile
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# nano Makefile 
 
 # SRILM = /home/speech/stolcke/project/srilm/devel
+# Add your path here, for example
 SRILM = /usr/share/srilm/
 
-Check tcsh:
+# Check tcsh
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tcsh --help
 -su: tcsh: command not found
 
-We need to install tcsh
+# We need to install tcsh
+
 Here, I am running on a docker env with root user account.
+
 For your case, use "sudo" command:
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# apt-get install tcsh
@@ -58,7 +63,7 @@ Unpacking tcsh (6.18.01-5) ...
 Setting up tcsh (6.18.01-5) ...
 update-alternatives: using /bin/tcsh to provide /bin/csh (csh) in auto mode
 
-Now "tcsh --help" command work (i.e. your installation of tcsh success):
+# Now "tcsh --help" command work (i.e. your installation of tcsh success):
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tcsh --help
 tcsh 6.18.01 (Astron) 2012-02-14 (x86_64-unknown-linux) options wide,nls,dl,al,kan,rh,nd,color,filec
@@ -86,9 +91,8 @@ tcsh 6.18.01 (Astron) 2012-02-14 (x86_64-unknown-linux) options wide,nls,dl,al,k
 
 See the tcsh(1) manual page for detailed information.
 
-=====
 
-make
+# make
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# make SRILM=/home/yekyawthu/tool/srilm World
 
@@ -102,10 +106,7 @@ make[2]: Nothing to be done for 'release-scripts'.
 make[2]: Leaving directory '/home/yekyawthu/tool/srilm/zlib/src'
 make[1]: Leaving directory '/home/yekyawthu/tool/srilm'
 
-
-========
-
-Browse the folder:
+# Browse the folder:
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm/bin/i686-m64# ls
 add-classes-to-pfsg        continuous-ngram-count     lattice-tool        metadb            pfsg-to-fsm                 sort-lm
@@ -124,17 +125,15 @@ compute-best-sentence-mix  hidden-ngram               make-sub-lm         ngram-
 compute-oov-rate           hits-from-log              maxalloc            ngram-merge       sentid-to-ctm
 context-ngrams             htklat-vocab               merge-nbest         pfsg-to-dot       sentid-to-sclite
 
-======
-
-Update your PATH:
+# Update your PATH:
 
 vi ~/.bashrc
 export PATH="/home/yekyawthu/tool/srilm/bin/i686-m64:$PATH"
 
 source ~/.bashrc
-========
 
-Confirm SRILM installation is success or not:
+
+# Confirm SRILM installation is success or not:
 
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# ngram-count -help
 Usage of command "ngram-count"
@@ -360,4 +359,5 @@ Usage of command "ngram-count"
  -memuse:                  show memory usage
  the default action is to write counts to stdout
  -help:                    Print this message
-root@2223cfe7eb4a:/home/yekyawthu/tool/srilm#
+
+OK. From now on, you can start working on language model building with SRILM toolkit!
