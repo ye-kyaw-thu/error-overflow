@@ -82,7 +82,8 @@ Setting up tcsh (6.18.01-5) ...
 update-alternatives: using /bin/tcsh to provide /bin/csh (csh) in auto mode
 ```
 
-# Now "tcsh --help" command work (i.e. your installation of tcsh success):
+# Now "tcsh --help" command work
+(i.e. your installation of tcsh success)  
 
 ```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tcsh --help
