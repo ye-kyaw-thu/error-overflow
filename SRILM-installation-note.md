@@ -1,4 +1,4 @@
-SRILM Installation Note:
+# SRILM Installation Note:
 
 Download from the following site:
 http://www.speech.sri.com/projects/srilm/download.html
