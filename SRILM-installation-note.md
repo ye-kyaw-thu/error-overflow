@@ -5,6 +5,7 @@ http://www.speech.sri.com/projects/srilm/download.html
 
 # Unzip with tar command
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tar -xzvf srilm-1.7.2.tar.gz
 ./misc/src/SRILMversion.h
 ./misc/src/fcheck.h
@@ -14,36 +15,53 @@ root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tar -xzvf srilm-1.7.2.tar.gz
 ./misc/doc/tmac.sprite
 ./misc/doc/Opt.man
 ./misc/doc/Opt.doc
+```
 
 # Check inside srilm folder
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# ls
 ACKNOWLEDGEMENTS  INSTALL   README   doc      go.build-android       lattice  man   srilm-1.7.2.tar.gz  zlib
 CHANGES           License   RELEASE  dstruct  go.build-android-hard  lib      misc  utils
 Copyright         Makefile  common   flm      go.build-android-v8    lm       sbin  visual_studio
+```
 
 # Read INSTALL file
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# vi INSTALL 
+```
 
-# Update Makefile
+# You have to update Makefile
+Here, I used nano text editor. You can also use vi or emacs ...
+
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# nano Makefile 
+```
+# Updating the "SRILM path" inside "Makefile"
 
+```bash
+# the following is the original example path of Makefile
 # SRILM = /home/speech/stolcke/project/srilm/devel
+
 # Add your path here, for example
 SRILM = /usr/share/srilm/
 
+```
+
 # Check tcsh
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tcsh --help
 -su: tcsh: command not found
+```
 
 # We need to install tcsh
 
-Here, I am running on a docker env with root user account.
+Here, I am running on a docker env with root user account.  
+For your case, use "sudo" command:  
 
-For your case, use "sudo" command:
-
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# apt-get install tcsh
 Reading package lists... Done
 Building dependency tree       
@@ -62,9 +80,11 @@ Preparing to unpack .../tcsh_6.18.01-5_amd64.deb ...
 Unpacking tcsh (6.18.01-5) ...
 Setting up tcsh (6.18.01-5) ...
 update-alternatives: using /bin/tcsh to provide /bin/csh (csh) in auto mode
+```
 
 # Now "tcsh --help" command work (i.e. your installation of tcsh success):
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# tcsh --help
 tcsh 6.18.01 (Astron) 2012-02-14 (x86_64-unknown-linux) options wide,nls,dl,al,kan,rh,nd,color,filec
 
@@ -90,10 +110,11 @@ tcsh 6.18.01 (Astron) 2012-02-14 (x86_64-unknown-linux) options wide,nls,dl,al,k
 --version	print the version shell variable and exit 
 
 See the tcsh(1) manual page for detailed information.
+```
 
+# OK. Let's make
 
-# make
-
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# make SRILM=/home/yekyawthu/tool/srilm World
 
 /home/yekyawthu/tool/srilm/sbin/decipher-install 0555 compute-sclite ../../bin
@@ -105,9 +126,11 @@ make[2]: Entering directory '/home/yekyawthu/tool/srilm/zlib/src'
 make[2]: Nothing to be done for 'release-scripts'.
 make[2]: Leaving directory '/home/yekyawthu/tool/srilm/zlib/src'
 make[1]: Leaving directory '/home/yekyawthu/tool/srilm'
+```
 
 # Browse the folder:
 
+```
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm/bin/i686-m64# ls
 add-classes-to-pfsg        continuous-ngram-count     lattice-tool        metadb            pfsg-to-fsm                 sort-lm
 add-dummy-bows             de-vq-lm                   log10-to-bytelog    multi-ngram       pfsg-vocab                  split-tagged-ngrams
@@ -124,17 +147,24 @@ compute-best-rover-mix     get-unigram-probs          make-ngram-pfsg     ngram-
 compute-best-sentence-mix  hidden-ngram               make-sub-lm         ngram-count       select-vocab
 compute-oov-rate           hits-from-log              maxalloc            ngram-merge       sentid-to-ctm
 context-ngrams             htklat-vocab               merge-nbest         pfsg-to-dot       sentid-to-sclite
+```
 
 # Update your PATH:
 
+```bash
 vi ~/.bashrc
 export PATH="/home/yekyawthu/tool/srilm/bin/i686-m64:$PATH"
+```
 
+# source your .bashrc file
+
+```bash
 source ~/.bashrc
-
+```
 
 # Confirm SRILM installation is success or not:
 
+```bash
 root@2223cfe7eb4a:/home/yekyawthu/tool/srilm# ngram-count -help
 Usage of command "ngram-count"
  -version:                 print version information
@@ -359,5 +389,6 @@ Usage of command "ngram-count"
  -memuse:                  show memory usage
  the default action is to write counts to stdout
  -help:                    Print this message
+```
 
 OK. From now on, you can start working on language model building with SRILM toolkit!
