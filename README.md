@@ -23,9 +23,10 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 16. [dtrx, Do the Right Extraction](https://github.com/ye-kyaw-thu/error-overflow/blob/master/dtrx.md)
 17. [cupy-installation-gcc-version-error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/cupy-installation-gcc-version-error.md)
 18. [myanmar-text-to-pdf-conversion-error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/myanmar-text-to-pdf-conversion-error.md)  
-19. [kaldi-installation.log](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kaldi-installation.log)  
-20. [mgizapp-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mgizapp-installation.md)  
-21. [SRILM-installation-note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/SRILM-installation-note.md)  
+19. [kaldi-installation log](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kaldi-installation.log)  
+20. [mgizapp-installation log](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mgizapp-installation.md)  
+21. [SRILM-installation-note](https://github.com/ye-kyaw-thu/error-overflow/blob/master/SRILM-installation-note.md)  
+22. [not in gzip format error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/not-in-gzip-format.md)  
 
 
 
