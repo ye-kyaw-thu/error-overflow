@@ -1,6 +1,8 @@
 
 # Error for extracting .tar.gz file
 
+.tar.gz ဖိုင်ကို ပုံမှန်အတိုင်း tar-xzvf command နဲ့ ဖြေတဲ့အခါမှာ မဖြေနိုင်ဘဲ error ရ  
+
 ```bash
 $ tar -xzvf ./ngramtool-20040530.tar.gz 
 
@@ -9,7 +11,10 @@ tar: Child returned status 1
 tar: Error is not recoverable: exiting now
 ```
 
-# check file type
+# Check file type
+
+ဖိုင်အမျိုးအစားကို file command နဲ့ စစ်ဆေးကြည့်တော့ gzip နဲ့ zip လုပ်ထားတာမဟုတ်ပဲ  
+tar နဲ့ compress လုပ်ထားတဲ့ဖိုင်ဆိုတာကို အောက်ပါအတိုင်း တွေ့ရတယ်။  
 
 ```bash
 $ file ./ngramtool-20040530.tar.gz 
@@ -17,6 +22,8 @@ $ file ./ngramtool-20040530.tar.gz
 ```
 
 # Solution
+
+အဲဒါကြောင့် "z" option ကို မထည့်ပဲ "tar -xvf" နဲ့ ဆိုရင် ဖြေလို့ရပါတယ်။  
 
 ```bash
 $ tar -xvf ./ngramtool-20040530.tar.gz 
