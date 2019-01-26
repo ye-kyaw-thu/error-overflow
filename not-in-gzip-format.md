@@ -18,6 +18,7 @@ $ file ./ngramtool-20040530.tar.gz
 
 # Solution
 
+```bash
 $ tar -xvf ./ngramtool-20040530.tar.gz 
 ngramtool-20040530/
 ngramtool-20040530/src/
@@ -30,4 +31,4 @@ ngramtool-20040530/src/iconvert.cpp
 ...
 ...
 ...
-
+```
