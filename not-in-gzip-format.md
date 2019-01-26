@@ -1,7 +1,7 @@
 
 # Error for extracting .tar.gz file
 
-.tar.gz ဖိုင်ကို ပုံမှန်အတိုင်း tar-xzvf command နဲ့ ဖြေတဲ့အခါမှာ အောက်ပါအတိုင်း error ပေးတယ်  
+.tar.gz ဖိုင်ကို ပုံမှန်အတိုင်း "tar -xzvf" command နဲ့ ဖြေတဲ့အခါမှာ အောက်ပါအတိုင်း error ပေးတယ်  
 
 ```bash
 $ tar -xzvf ./ngramtool-20040530.tar.gz 
