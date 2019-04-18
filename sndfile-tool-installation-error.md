@@ -1,3 +1,6 @@
+
+
+```
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool$ mkdir sndfile-waveform
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool$ cd sndfile-waveform/
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform$ sudo apt-get build-dep sndfile-tools
@@ -362,6 +365,9 @@ Makefile:814: recipe for target 'bin/sndfile-generate-chirp' failed
 make: *** [bin/sndfile-generate-chirp] Error 63
 
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ vi Makefile
+```
+
+```
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ rm -f aclocal.m4
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ aclocal && libtoolize --force && autoreconf
 
@@ -524,8 +530,9 @@ config.status: executing libtool commands
   Installation directories :
 
     Program directory : ................... /usr/local/bin
+```
 
-
+```
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ make
   CC       src/bin_sndfile_generate_chirp-common.o
   CCLD     bin/sndfile-generate-chirp
@@ -546,3 +553,4 @@ config.status: executing libtool commands
   CC       src/bin_sndfile_jackplay-jackplay.o
   CCLD     bin/sndfile-jackplay
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$
+```
