@@ -1,4 +1,4 @@
-
+# Error Message: libtool: You should recreate aclocal.m4 with macros from libtool 2.4.2
 
 ```
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool$ mkdir sndfile-waveform
@@ -363,9 +363,11 @@ libtool: You should recreate aclocal.m4 with macros from libtool 2.4.2
 libtool: and run autoconf again.
 Makefile:814: recipe for target 'bin/sndfile-generate-chirp' failed
 make: *** [bin/sndfile-generate-chirp] Error 63
-
-(py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ vi Makefile
 ```
+
+# Solution
+
+ဖြေရှင်းခဲ့တာကတော့ aclocal.m4 ဖိုင်ကိုဖျက်ပြီး ကိုယ်စက်ထဲမှာ ရှိနေတဲ့ libtool verion နဲ့ ကိုက်ညီတဲ့ aclocal.m4 ဖိုင်ကို ပြန်အသစ်ဆောက်ခဲ့တာပါပဲ။ အောက်ပါအတိုင်းပါ။  
 
 ```
 (py3.6.5) lar@lar-air:/media/lar/Transcend/tool/sndfile-waveform/sndfile-tools$ rm -f aclocal.m4
