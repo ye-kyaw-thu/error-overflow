@@ -27,6 +27,7 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 20. [mgizapp-installation log](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mgizapp-installation.md)  
 21. [SRILM-installation-note](https://github.com/ye-kyaw-thu/error-overflow/blob/master/SRILM-installation-note.md)  
 22. [not in gzip format error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/not-in-gzip-format.md)  
+23. [libtool: You should recreate aclocal.m4 with macros from ... error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sndfile-tool-installation-error.md)  
 
 
 
