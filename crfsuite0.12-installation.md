@@ -7,10 +7,13 @@ Download link: https://github.com/chokkan/liblbfgs
 
 ## After download liblbfgs
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ mv ~/Downloads/liblbfgs-master.zip .
+```
 
 ## Unzip
 
+```
 (base) ye@ykt-pro:~/tool$ unzip ./liblbfgs-master.zip 
 Archive:  ./liblbfgs-master.zip
 7fc787678e4a7f02eaef1c21b36b9bc3bcc0d39b
@@ -47,20 +50,28 @@ Archive:  ./liblbfgs-master.zip
   inflating: liblbfgs-master/sample/sample.c  
   inflating: liblbfgs-master/sample/sample.cpp  
   inflating: liblbfgs-master/sample/sample.vcxproj  
+```
 
 ## Change directory
+
+```
 (base) ye@ykt-pro:~/tool$ cd liblbfgs-master/
+```
 
 ## Run ./autogen.sh and got error!!!
+
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ ./autogen.sh 
 libtoolize:   error: One of these is required:
 libtoolize:                 gm4 gnum4 m4
 libtoolize:   error: Please install GNU M4, or 'export M4=/path/to/gnu/m4'.
 ./autogen.sh: 20: ./autogen.sh: aclocal: not found
 aclocal failed!
+```
 
 ## To solve error try to install libtool
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ sudo apt-get install libtool m4 automake
 [sudo] password for ye: 
 E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
@@ -69,14 +80,17 @@ E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is an
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ sudo apt-get install libtool
 E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
 E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+```
 
 ## Check the process
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ ps aux | grep -i apt
 root      5551  0.0  0.0   4624   772 ?        Ss   21:11   0:00 /bin/sh /usr/lib/apt/apt.systemd.daily install
 root      5555  0.0  0.0   4624  1640 ?        S    21:11   0:00 /bin/sh /usr/lib/apt/apt.systemd.daily lock_is_held install
 root     11404 32.0  1.2 177640 98056 ?        RN   21:14   0:00 /usr/bin/python3 /usr/lib/update-notifier/apt-check --human-readable
 ye       11411  0.0  0.0  21824  1036 pts/0    S+   21:14   0:00 grep --color=auto -i apt
+```
 
 အထက်မှာ မြင်ရတဲ့အတိုင်း apt.systemd.daily* နဲ့ ဆိုင်တဲ့ process တွေက run နေတာကို
 တွေ့ရတယ်။
@@ -89,6 +103,7 @@ Reference: https://itsfoss.com/could-not-get-lock-error/
 
 ## After waiting, try to install again
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ sudo apt-get install libtool m4 automake
 Reading package lists... Done
 Building dependency tree       
@@ -128,9 +143,11 @@ Processing triggers for install-info (6.5.0.dfsg.1-2) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
+```
 
 ## Installation of liblbfgs
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ ./autogen.sh 
 libtoolize: putting auxiliary files in '.'.
 libtoolize: copying file './ltmain.sh'
@@ -150,9 +167,11 @@ Makefile.am: installing './INSTALL'
 lib/Makefile.am:24: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
 lib/Makefile.am: installing './depcomp'
 sample/Makefile.am:15: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+```
 
 ## ./configure
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ ./configure
 checking for a BSD-compatible install... /usr/bin/install -c
 checking whether build environment is sane... yes
@@ -171,9 +190,11 @@ config.status: creating config.h
 config.status: executing depfiles commands
 config.status: executing libtool commands
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
+```
 
 ## make
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ make
 make  all-recursive
 make[1]: Entering directory '/home/ye/tool/liblbfgs-master'
@@ -189,9 +210,11 @@ make[2]: Entering directory '/home/ye/tool/liblbfgs-master'
 make[2]: Leaving directory '/home/ye/tool/liblbfgs-master'
 make[1]: Leaving directory '/home/ye/tool/liblbfgs-master'
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
+```
 
 ## make install
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ make install
 Making install in lib
 make[1]: Entering directory '/home/ye/tool/liblbfgs-master/lib'
@@ -209,9 +232,11 @@ make[1]: Leaving directory '/home/ye/tool/liblbfgs-master/lib'
 Makefile:455: recipe for target 'install-recursive' failed
 make: *** [install-recursive] Error 1
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
+```
 
 *** Note make install ကို run ဖို့ sudo ခံပေးရမယ်။
 
+```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ sudo make install
 Making install in lib
 make[1]: Entering directory '/home/ye/tool/liblbfgs-master/lib'
@@ -262,14 +287,14 @@ make[2]: Nothing to be done for 'install-exec-am'.
 make[2]: Leaving directory '/home/ye/tool/liblbfgs-master'
 make[1]: Leaving directory '/home/ye/tool/liblbfgs-master'
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
-
-----------
+```
 
 # CRFsuite Installation 
 
 After you download ...
 move to that tar.gz file to your installation folder
 
+```
 (base) ye@ykt-pro:~/tool$ tar -xzvf ./crfsuite-0.12.tar.gz 
 crfsuite-0.12/
 crfsuite-0.12/lib/
@@ -280,9 +305,11 @@ crfsuite-0.12/lib/crf/src/
 crfsuite-0.12/lib/crf/src/dataset.c
 ...
 ...
+```
 
 ## Change folder
 
+```
 (base) ye@ykt-pro:~/tool$ cd crfsuite-0.12/
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ ls
 aclocal.m4  config.guess  COPYING       genbinary.sh.in  ltmain.sh    swig
@@ -291,9 +318,11 @@ autogen.sh  config.sub    depcomp       INSTALL          Makefile.in
 ChangeLog   configure     example       install-sh       missing
 compile     configure.in  frontend      lib              README
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
+```
 
 ## Installation
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ ./autogen.sh 
 libtoolize: putting auxiliary files in '.'.
 libtoolize: copying file './ltmain.sh'
@@ -311,15 +340,19 @@ autom4te: /usr/bin/m4 failed with exit status: 1
 aclocal: error: echo failed with exit status: 1
 aclocal failed!
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
+```
 
 *** Got Error!
 
-Error message မှာ ပြောထားတဲ့ အတိုင်း ဖိုင်နာမည်ပြောင်းကြည့် ...
+### Error message မှာ ပြောထားတဲ့ အတိုင်း ဖိုင်နာမည်ပြောင်းကြည့် ...
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ ls configure
 configure     configure.in  
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ mv configure.in configure.ac
+```
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ ./autogen.sh 
 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
 libtoolize: You should add the contents of 'm4/libtool.m4' to 'aclocal.m4'.
@@ -332,14 +365,16 @@ configure.ac:33: the top level
 autom4te: /usr/bin/m4 failed with exit status: 1
 aclocal: error: echo failed with exit status: 1
 aclocal failed!
+```
 
 ## Skip running ./autogen.sh and Install
 
-**** ./autogen.sh အဆင့်ကို မလုပ်တော့ပဲ ပုံမှန်အတိုင်းပဲ အောက်ပါအတိုင်း
+./autogen.sh အဆင့်ကို မလုပ်တော့ပဲ ပုံမှန်အတိုင်းပဲ အောက်ပါအတိုင်း
 installation လုပ်တော့ အဆင်ပြေသွားတယ်
 
 ## ./configure
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ ./configure
 checking build system type... x86_64-unknown-linux-gnu
 checking host system type... x86_64-unknown-linux-gnu
@@ -376,11 +411,11 @@ config.status: creating swig/Makefile
 config.status: creating config.h
 config.status: executing depfiles commands
 config.status: executing libtool commands
+```
 
 ## Run make
 
-(base) ye@ykt-pro:~/tool$ mv ~/Downloads/crfsuite-0.12.tar.gz .
-
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ make
 make  all-recursive
 make[1]: Entering directory '/home/ye/tool/crfsuite-0.12'
@@ -407,9 +442,11 @@ make[2]: Leaving directory '/home/ye/tool/crfsuite-0.12/swig'
 make[2]: Entering directory '/home/ye/tool/crfsuite-0.12'
 make[2]: Leaving directory '/home/ye/tool/crfsuite-0.12'
 make[1]: Leaving directory '/home/ye/tool/crfsuite-0.12'
+```
 
 ## sudo make install
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ sudo make install
 [sudo] password for ye: 
 Making install in include
@@ -450,9 +487,11 @@ test -z "/usr/local/share/doc/crfsuite" || /bin/mkdir -p "/usr/local/share/doc/c
 make[2]: Leaving directory '/home/ye/tool/crfsuite-0.12'
 make[1]: Leaving directory '/home/ye/tool/crfsuite-0.12'
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
+```
 
 # Check crfsuite command
 
+```
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ crfsuite --help
 CRFSuite 0.12  Copyright (c) 2007-2011 Naoaki Okazaki
 
@@ -467,5 +506,6 @@ COMMAND:
 
 For the usage of each command, specify -h option in the command argument.
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
+```
 
-**** Installation Success!!!
+### Installation Success!!! Yae~!!! :)
