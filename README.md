@@ -29,6 +29,8 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 22. [not in gzip format error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/not-in-gzip-format.md)  
 23. [libtool: You should recreate aclocal.m4 with macros from ... error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sndfile-tool-installation-error.md)  
 24. [KenLM-running-error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kenlm-running-errror.md)  
+25. [crfsuite0.12-installation](https://github.com/ye-kyaw-thu/error-overflow/blob/master/crfsuite0.12-installation.md)  
+
 
 
 
