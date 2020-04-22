@@ -1,9 +1,9 @@
 # CRFSuite version 0.12 Installation Note
 
-CRF-Suite ကို installation မလုပ်ခင်မှာ အရင်ဆုံး liblbfgs က ကိုယ့်စက်ထဲမှာ မရှိသေးရင်
-အဲဒါကို အရင်ဆုံး install လုပ်ပေးရတယ်။
+CRF-Suite ကို installation မလုပ်ခင်မှာ အရင်ဆုံး liblbfgs က ကိုယ့်စက်ထဲမှာ မရှိသေးရင်  
+အဲဒါကို အရင်ဆုံး install လုပ်ပေးရတယ်။  
 
-Download link: https://github.com/chokkan/liblbfgs
+Download link: https://github.com/chokkan/liblbfgs  
 
 ## After download liblbfgs
 
@@ -92,14 +92,14 @@ root     11404 32.0  1.2 177640 98056 ?        RN   21:14   0:00 /usr/bin/python
 ye       11411  0.0  0.0  21824  1036 pts/0    S+   21:14   0:00 grep --color=auto -i apt
 ```
 
-အထက်မှာ မြင်ရတဲ့အတိုင်း apt.systemd.daily* နဲ့ ဆိုင်တဲ့ process တွေက run နေတာကို
-တွေ့ရတယ်။
-ဆရာက System setting မှာ application, installed software package တွေကို အော်တို update လုပ်ခိုင်းထားလို့ ...
-ဆရာ က ဒီ ကွန်ပျူတာကို ပိတ်ထားတာ ၂ပတ်လောက် ရှိနေလို့ Ubuntu OS က auto update လုပ်နေလို့ ... 
+အထက်မှာ မြင်ရတဲ့အတိုင်း apt.systemd.daily* နဲ့ ဆိုင်တဲ့ process တွေက run နေတာကို  
+တွေ့ရတယ်။  
+ဆရာက System setting မှာ application, installed software package တွေကို အော်တို update လုပ်ခိုင်းထားလို့ ...  
+ဆရာ က ဒီ ကွန်ပျူတာကို ပိတ်ထားတာ ၂ပတ်လောက် ရှိနေလို့ Ubuntu OS က auto update လုပ်နေလို့ ...   
 
-အဲဒီလို ကိစ္စဆိုရင်တော့ စောင့် ယုံပဲ ရှိတယ်။
-ခဏစောင့်တယ်။
-Reference: https://itsfoss.com/could-not-get-lock-error/
+အဲဒီလို ကိစ္စဆိုရင်တော့ စောင့် ယုံပဲ ရှိတယ်။  
+ခဏစောင့်တယ်။  
+Reference: https://itsfoss.com/could-not-get-lock-error/  
 
 ## After waiting, try to install again
 
@@ -234,7 +234,7 @@ make: *** [install-recursive] Error 1
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ 
 ```
 
-*** Note make install ကို run ဖို့ sudo ခံပေးရမယ်။
+*** Note make install ကို run ဖို့ sudo ခံပေးရမယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/liblbfgs-master$ sudo make install
@@ -291,10 +291,10 @@ make[1]: Leaving directory '/home/ye/tool/liblbfgs-master'
 
 # CRFsuite Installation 
 
-Download link: http://www.chokkan.org/software/crfsuite/
+Download link: http://www.chokkan.org/software/crfsuite/  
 
-After you download ...
-move to that tar.gz file to your installation folder
+After you download ...  
+move to that tar.gz file to your installation folder  
 
 ```
 (base) ye@ykt-pro:~/tool$ tar -xzvf ./crfsuite-0.12.tar.gz 
@@ -344,7 +344,7 @@ aclocal failed!
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
 ```
 
-*** Got Error!
+*** Got Error!  
 
 ### Error message မှာ ပြောထားတဲ့ အတိုင်း ဖိုင်နာမည်ပြောင်းကြည့် ...
 
@@ -371,8 +371,8 @@ aclocal failed!
 
 ## Skip running ./autogen.sh and Install
 
-./autogen.sh အဆင့်ကို မလုပ်တော့ပဲ ပုံမှန်အတိုင်းပဲ အောက်ပါအတိုင်း
-installation လုပ်တော့ အဆင်ပြေသွားတယ်
+./autogen.sh အဆင့်ကို မလုပ်တော့ပဲ ပုံမှန်အတိုင်းပဲ အောက်ပါအတိုင်း  
+installation လုပ်တော့ အဆင်ပြေသွားတယ်  
 
 ## ./configure
 
@@ -510,4 +510,4 @@ For the usage of each command, specify -h option in the command argument.
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
 ```
 
-### Installation Success!!! Yeah~!!! :)
+### Installation Success!!! Yeah~!!! :)  
