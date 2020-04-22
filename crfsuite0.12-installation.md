@@ -291,6 +291,8 @@ make[1]: Leaving directory '/home/ye/tool/liblbfgs-master'
 
 # CRFsuite Installation 
 
+Download link: http://www.chokkan.org/software/crfsuite/
+
 After you download ...
 move to that tar.gz file to your installation folder
 
