@@ -1,4 +1,4 @@
-# CRF-Suite Installation Note
+# CRFSuite version 0.12 Installation Note
 
 CRF-Suite ကို installation မလုပ်ခင်မှာ အရင်ဆုံး liblbfgs က ကိုယ့်စက်ထဲမှာ မရှိသေးရင်
 အဲဒါကို အရင်ဆုံး install လုပ်ပေးရတယ်။
@@ -508,4 +508,4 @@ For the usage of each command, specify -h option in the command argument.
 (base) ye@ykt-pro:~/tool/crfsuite-0.12$ 
 ```
 
-### Installation Success!!! Yae~!!! :)
+### Installation Success!!! Yeah~!!! :)
