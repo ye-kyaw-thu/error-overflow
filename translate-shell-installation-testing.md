@@ -604,8 +604,8 @@ Why not test this thing
 ```
 
 
-**Google ထက်စာရင် Bing ရော Yandex ကောက translation လုပ်ပေးတာ နှေးတယ်။
-**Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!
+**Google ထက်စာရင် Bing ရော Yandex ကောက translation လုပ်ပေးတာ နှေးတယ်။  
+**Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!  
 
 ```
 lar@lar-air:~/tool/translate-shell$ trans -e google -b "Ничего, были бы кости, а мясо будет"  -sp -n f
