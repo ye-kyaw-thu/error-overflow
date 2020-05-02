@@ -555,6 +555,8 @@ Translations of မောင်မောင် နဲ့ အောင်အေ�
 
 ## Testing with Bing and Yandex Engines
 
+TTS မှာ ပြောတဲ့ အသံရဲ့ male, female ရွေးတာ လုပ်လို့ရတယ်။
+
 ```
 lar@lar-air:~/tool/translate-shell$ trans -e yandex "Ничего, были бы кости, а мясо будет" -sp -n f
 Ничего, были бы кости, а мясо будет
@@ -602,8 +604,8 @@ Why not test this thing
 ```
 
 
-**နှေးတယ်။
-**Error ပေးတယ် Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!
+**Google ထက်စာရင် Bing ရော Yandex ကောက translation လုပ်ပေးတာ နှေးတယ်။
+**Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!
 
 ```
 lar@lar-air:~/tool/translate-shell$ trans -e google -b "Ничего, были бы кости, а мясо будет"  -sp -n f
