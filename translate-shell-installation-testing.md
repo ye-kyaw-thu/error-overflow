@@ -1,5 +1,6 @@
-### Installation
+## Installation
 
+```
 lar@lar-air:~/tool$ git clone https://github.com/soimort/translate-shell
 Cloning into 'translate-shell'...
 remote: Enumerating objects: 4, done.
@@ -16,9 +17,11 @@ lar@lar-air:~/tool/translate-shell$ sudo make install
 [sudo] password for lar: 
 [OK] Task build completed.
 [OK] translate-shell installed.
+```
 
-### Testing
+## Testing
 
+```
 lar@lar-air:~/tool/translate-shell$ trans နေကောင်းလား
 နေကောင်းလား
 (naykaungglarr)
@@ -30,9 +33,11 @@ Translations of နေကောင်းလား
 
 နေကောင်းလား
     How are you, how are u
+```
 
-### ဘာသာ နှစ်ဘာသာကို ပြန်ခိုင်းတာ
+## ဘာသာ နှစ်ဘာသာကို ပြန်ခိုင်းတာ
 
+```
 lar@lar-air:~/tool/translate-shell$ trans :my+zh 俺は自然言語処理の研究者です
 俺は自然言語処理の研究者です
 (Ore wa shizen gengo shori no kenkyūshadesu)
@@ -58,8 +63,11 @@ Translations of 俺は自然言語処理の研究者です
 俺は自然言語処理の研究者です
     我是自然语言处理研究员, 我是自然语言处理的研究
 lar@lar-air:~/tool/translate-shell$ 
+```
 
-### ဘာသာ သုံးဘာသာ တခါတည်း ပြန်ခိုင်းတာ
+## ဘာသာ သုံးဘာသာ တခါတည်း ပြန်ခိုင်းတာ
+
+```
 lar@lar-air:~/tool/translate-shell$ trans :ko+th+fr 俺は自然言語処理の研究者です
 俺は自然言語処理の研究者です
 (Ore wa shizen gengo shori no kenkyūshadesu)
@@ -106,8 +114,11 @@ Translations of 俺は自然言語処理の研究者です
 俺は自然言語処理の研究者です
     Je suis chercheur en traitement du langage naturel, I est un chercheur de traitement du langage naturel
 lar@lar-air:~/tool/translate-shell$
+```
 
-### တချို့ဘာသာစကားတွေကြတော့ target language ကို သေသေချာချာ ခွဲခြားပေးဖို့လိုအပ်
+## တချို့ဘာသာစကားတွေကြတော့ target language ကို သေသေချာချာ ခွဲခြားပေးဖို့လိုအပ်
+
+```
 တယ်။ ဥပမာ ဂျပန်နဲ့ တရုပ်က စာလုံးတွေ တူကြပေမဲ့ အဓိပ္ပါယ် မတူတဲ့ အခါမျိုး ရှိတယ်လေ။
 
 lar@lar-air:~/tool/translate-shell$ trans ja: 手紙
@@ -136,9 +147,11 @@ Translations of 手紙
 
 手紙
     Toilet paper
+```
 
-### စာလုံး တစ်လုံးချင်းစီကို ဘာသာပြန်ခိုင်းတာ
+## စာလုံး တစ်လုံးချင်းစီကို ဘာသာပြန်ခိုင်းတာ
 
+```
 lar@lar-air:~/tool/translate-shell$ trans en:ja word processor
 word
 /wərd/
@@ -169,9 +182,11 @@ noun
 
 word
     語, ワード, 一言, 単語
+```
 
-### Multiple words တွေ သို့မဟုတ် phrase ကို ဘာသာပြန်ခိုင်းတာ
+## Multiple words တွေ သို့မဟုတ် phrase ကို ဘာသာပြန်ခိုင်းတာ
 
+```
 lar@lar-air:~/tool/translate-shell$ trans en:ja "word processor"
 word processor
 
@@ -187,9 +202,11 @@ noun
 
 word processor
     ワードプロセッサ, ワードプロセッサー
+```
 
-### Multiple lines ကို ပြန်ခိုင်းတာ
+## Multiple lines ကို ပြန်ခိုင်းတာ
 
+```
 lar@lar-air:~/tool/translate-shell$ trans my:ja "ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ့တယ် ။
 > ပြီးတော့  ထိုင်းမှာ ၂နှစ် နေခဲ့တယ်။"
 ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ့တယ် ။
@@ -208,27 +225,32 @@ Translations of ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ�
 ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ့တယ် ။
     私は日本に17年間住んでいます。, 私は日本で17年間に行ってきました。
 
-
     
 ပြီးတော့  ထိုင်းမှာ ၂နှစ် နေခဲ့တယ်။
     そして、私はタイで2年間過ごしました。, 私はタイで2年でした。
 lar@lar-air:~/tool/translate-shell$ 
+```
 
-### Brief mode
+## Brief mode
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -b my:ja "ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ့တယ် ။
 ပြီးတော့  ထိုင်းမှာ ၂နှစ် နေခဲ့တယ်။"
 私は日本に17年間住んでいます。
 そして、私はタイで2年間過ごしました。
+```
 
-### Brief mode မှာ phonetic notation ကိုပါ ပြစေချင်ရင်
+## Brief mode မှာ phonetic notation ကိုပါ ပြစေချင်ရင်
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -b my:@ja "ငါ ဂျပန်မှာ ၁၇နှစ် နေခဲ့တယ် ။
 ပြီးတော့  ထိုင်းမှာ ၂နှစ် နေခဲ့တယ်။"
 Watashi wa Nihon ni 17-nenkan sunde imasu. Soshite, watashi wa Tai de 2-nenkan sugoshimashita.
+```
 
 ### Dictionary mode အနေနဲ့လည်း Google Translate ကို သုံးနိုင်တယ်
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -d fr:my mot
 mot
 
@@ -255,14 +277,18 @@ Synonyms
 
 Examples
     - J’ai reçu un ot de lui qui m’apprenait son départ .
+```
 
-### Dictionary + brief mode
+## Dictionary + brief mode
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -d -b fr:my mot
 စကားလုံး
+```
 
-### Language Identification
+## Language Identification
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -id 言葉
 日本語
 Name                  Japanese
@@ -283,9 +309,11 @@ ISO 639-3             mya
 SIL                   http://www-01.sil.org/iso639-3/documentation.asp?id=mya
 Glottolog             http://glottolog.org/resource/languoid/id/nucl1310
 Wikipedia             http://en.wikipedia.org/wiki/Myanmar_language
+```
 
-### TTS
+## TTS
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -b -p :my "I miss you my dear."
 ငါနင့်ကိုချစ်တယ်
 
@@ -303,9 +331,11 @@ Translations of I miss you my dear.
 
 I miss you my dear.
     愛しい人、私はあなたに会いたいです。, あなたが恋しいです。, あなたがいなくて寂しいです。, 私はあなたに私の愛するを欠場します。
+```
 
-### Interactive Translation Shell
+## Interactive Translation Shell
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -shell en:ja
 Translate Shell
 (:q to quit)
@@ -334,9 +364,11 @@ National Geographic
     ナショナル・ジオグラフィック, ナショナルジオグラフィック
 
 English> 
+```
 
-### Interactive shell + TTS
+## Interactive shell + TTS
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -shell -p -b en:ja
 Translate Shell
 (:q to quit)
@@ -347,13 +379,17 @@ English> I miss Thai foods.
 English> I might kick you. Are you OK my friend? Look at me!!!
 キックするかもしれません。大丈夫？私を見て！！！
 English> 
+```
 
-### Integration with Text Editor
+## Integration with Text Editor
 
+```
 https://github.com/VincentCordobes/vim-translate
+```
 
-### Testing with emacs
+## Testing with emacs
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -emacs
 
 Translate Shell
@@ -442,7 +478,9 @@ Examples
     - It is extraordinary how much can be achieved when you put enthusiasm into a routine task, a special project or a simple hello or conversation.
 
     - Excuse him for picking that awful blue hue - I had always told him to let me pick the color to match with his chestnut-blondish hair, but hello!
+```
 
+```
 > en:my
 English> Please go away my friend
 Please go away my friend
@@ -493,11 +531,11 @@ come to me
     ကျွန်တော့်ဆီလာပါ, ငါ့ထံသို့လာကြ, ငါ့ထံသို့လာ
 
 English> 
+```
 
-==============
+## testing with emacs
 
-Keep testing with emacs
-
+```
 မြန်မာစာ> မောင်မောင် နဲ့ အောင်အောင် က ညီအကို တွေ ဖြစ်ကြပါသည်
 မောင်မောင် နဲ့ အောင်အောင် က ညီအကို တွေ ဖြစ်ကြပါသည်
 (maungmaung nae aaungaaung k nyeaako tway  hpyitkyaparsai)
@@ -513,10 +551,11 @@ Translations of မောင်မောင် နဲ့ အောင်အေ�
 
 မြန်မာစာ> 
 
-=========
+```
 
-### Testing with Bing and Yandex Engines
+## Testing with Bing and Yandex Engines
 
+```
 lar@lar-air:~/tool/translate-shell$ trans -e yandex "Ничего, были бы кости, а мясо будет" -sp -n f
 Ничего, были бы кости, а мясо будет
 (nichego, by`li by` kosti, a myaso budet)
@@ -560,12 +599,14 @@ Why not test this thing
 
 
 [  -> 粵語 ]
+```
 
 
+**နှေးတယ်။
+**Error ပေးတယ် Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!
 
-*** နှေးတယ်။
-*** Error ပေးတယ် Yandex က ပထမ ၃ခါလောက် ရပြီးတော့ နောက်ပိုင်း မရတော့ဘူး ?!?!
-
+```
 lar@lar-air:~/tool/translate-shell$ trans -e google -b "Ничего, были бы кости, а мясо будет"  -sp -n f
 Nothing, there would be bones, but meat would be
+```
 
