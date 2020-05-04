@@ -32,6 +32,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 25. [crfsuite0.12-installation](https://github.com/ye-kyaw-thu/error-overflow/blob/master/crfsuite0.12-installation.md)  
 26. [testing-translate-shell](https://github.com/ye-kyaw-thu/error-overflow/blob/master/translate-shell-installation-testing.md)  
 27. [lib-install-libdtrie.0.2.11](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lib-install-libdtrie.0.2.11.md)  
-
-
+28. [SWATH-thai-word-segmenter](https://github.com/ye-kyaw-thu/error-overflow/blob/master/swath-github-installation.md)  
 
