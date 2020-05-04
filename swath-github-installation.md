@@ -1,12 +1,15 @@
 # How to install SWATH Thai Word Segmenter
 
-Note: Before you install SWATH, you should install the dependency library named "Double-Array Trie".
+Note: Before you install SWATH, you should install the dependency library named "Double-Array Trie".  
 Link for downloading libdatrie-0.2.11:   
 https://linux.thai.net/~thep/datrie/datrie.html
 
+Installation note of datrie:  
+[https://github.com/ye-kyaw-thu/error-overflow/blob/master/lib-install-libdtrie.0.2.11.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lib-install-libdtrie.0.2.11.md)  
+
 ## clone the source code from github
 
-```
+```bash
 (base) ye@ykt-pro:~/tool$ git clone https://github.com/tlwg/swath
 Cloning into 'swath'...
 remote: Enumerating objects: 2182, done.
