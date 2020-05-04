@@ -305,6 +305,39 @@ make[1]: Leaving directory '/home/ye/tool/swath'
 
 ## Testing SWATH Thai word segmentation
 
+Traditionally, we did --help  
+
+```
+(base) ye@ykt-pro:~/tool/swath$ swath --help
+Usage: swath [mule] [-v|--verbose] [-b "delimiter"] [-d dict-dir]
+       [-f html|rtf|latex|lambda] [-m long|max] [-u {u|t},{u|t}] [-h|[-]-help]
+Options:
+	mule : for use with mule
+	-v   : verbose mode
+	-b   : define a word delimiter string for the output
+	-d   : specify dictionary path
+	-f   : specify format of the input
+		html     : HTML file
+		rtf      : RTF file
+		latex    : LaTeX file
+		lambda   : The input and output are same as latex, except that
+		           the word delimiter is ^^^^200b
+	-m   : choose word matching scheme when analyzing
+		long     : longest matching scheme
+		max      : maximal matching scheme
+	-u   : specify encodings of input and output in 'i,o' form,
+	       for input and output respectively, where 'i', 'o' is one of:
+		u        : The input/output is in UTF-8
+		t        : The input/output is in TIS-620
+	-help: display this help message
+(base) ye@ykt-pro:~/tool/swath$ 
+
+```
+
+***Finished swath installation!!! :)  
+
+## Word Segmentation with SWATH  
+
 ```
 
 ```
