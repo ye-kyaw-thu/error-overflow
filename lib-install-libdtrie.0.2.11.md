@@ -1,3 +1,11 @@
+# Installation of libdatrie-0.2.11 (Double-Array Trie)
+
+First download Double-Array Trie Library from the following link:  
+[https://linux.thai.net/~thep/datrie/datrie.html](https://linux.thai.net/~thep/datrie/datrie.html)
+
+## Untar
+
+```bash
 (base) ye@ykt-pro:~/tool$ tar -xf ./libdatrie-0.2.11.tar.xz 
 (base) ye@ykt-pro:~/tool$ cd libdatrie-0.2.11/
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ ls
@@ -115,12 +123,21 @@ config.status: creating tests/Makefile
 config.status: creating config.h
 config.status: executing depfiles commands
 config.status: executing libtool commands
+```bash
+
+list the files:
+
+```bash
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ ls
 aclocal.m4  ChangeLog    config.log     configure.ac  datrie-0.2.pc     INSTALL  Makefile     man     README.migration  tools
 AUTHORS     config.h     config.status  COPYING       datrie-0.2.pc.in  libtool  Makefile.am  NEWS    stamp-h1          VERSION
 build-aux   config.h.in  configure      datrie        doc               m4       Makefile.in  README  tests
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ 
+```
 
+## run make
+
+```bash
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ make
 make  all-recursive
 make[1]: Entering directory '/home/ye/tool/libdatrie-0.2.11'
@@ -186,7 +203,11 @@ make[2]: Entering directory '/home/ye/tool/libdatrie-0.2.11'
 make[2]: Leaving directory '/home/ye/tool/libdatrie-0.2.11'
 make[1]: Leaving directory '/home/ye/tool/libdatrie-0.2.11'
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ 
+```
 
+## run make install
+
+```bash
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ sudo make install
 [sudo] password for ye: 
 Making install in datrie
@@ -274,4 +295,6 @@ make[2]: Nothing to be done for 'install-exec-am'.
 make[2]: Leaving directory '/home/ye/tool/libdatrie-0.2.11'
 make[1]: Leaving directory '/home/ye/tool/libdatrie-0.2.11'
 (base) ye@ykt-pro:~/tool/libdatrie-0.2.11$ 
+```
 
+**Fin library installation!
