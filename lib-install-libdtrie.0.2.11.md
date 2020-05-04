@@ -1,5 +1,6 @@
 # Installation of libdatrie-0.2.11 (Double-Array Trie)
 
+This library is useful and it is also required when you need SWATH Thai word segmenter.  
 First download Double-Array Trie Library from the following link:  
 [https://linux.thai.net/~thep/datrie/datrie.html](https://linux.thai.net/~thep/datrie/datrie.html)
 
