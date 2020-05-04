@@ -9,7 +9,7 @@ Installation note of datrie:
 
 ## clone the source code from github
 
-```bash
+```
 (base) ye@ykt-pro:~/tool$ git clone https://github.com/tlwg/swath
 Cloning into 'swath'...
 remote: Enumerating objects: 2182, done.
