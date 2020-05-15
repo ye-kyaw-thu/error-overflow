@@ -1,4 +1,4 @@
-# winzip နဲ့ zip လုပ်ထားတဲ့ ဖိုင်ကို Linux OS ပေါ်မှာ unzip command နဲ့ ဖြေရင်တွေ့ရတဲ့ error တစ်ခု ရှင်းနည်း
+# winzip နဲ့ zip လုပ်ထားတဲ့ ဖိုင်ကို Linux OS ပေါ်မှာ unzip command နဲ့ ဖြေရင်တွေ့ရတဲ့ error တစ်ခုကို ရှင်းနည်း
 
 Repair.zip ဖိုင်က Windows OS မှာ winzip ဆိုတဲ့ အများသုံးကြတဲ့ zip လုပ်ပေးတဲ့ utility တစ်ခုပါ။  
 ကြုံရတာက အဲဒီဖိုင်ကို Linux OS ပေါ်မှာ unzip command နဲ့ ဖြေတဲ့ အခါမှာ အောက်ပါအတိုင်း error ကို ပေးပါတယ်။  
@@ -47,3 +47,5 @@ Files: 2
 Size:       171975
 Compressed: 31534
 ```
+
+Reference: [https://openwritings.net/pg/linux/unzip-error-unsupported-compression-method-99](https://openwritings.net/pg/linux/unzip-error-unsupported-compression-method-99)  
