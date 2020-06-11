@@ -1,5 +1,11 @@
 # Persephone Installation, Errors and Testing Note
 
+မြန်မာ ကျောင်းသားတွေကို မှာချင်တယ်။  
+ကိုယ့်စက်ထဲမှာ installation မလုပ်ခင်မှာ အခုရေးထားတဲ့ error note သို့မဟုတ် installation note ကို အစအဆုံး ဖတ်ကြည့်ပြီးတော့မှ လုပ်ပါ။  
+အောက်ပါ note က ဆရာစက်ထဲမှာ installation လုပ်တုန်းက တက်လာတဲ့ error တွေအားလုံးကို log လုပ်ထားတာမို့ ...  
+
+ပွိုင့်ကိုပဲပြောရရင် tersorflow version မတူတဲ့ ပြဿနာက အဓိကပါ။  
+
 ## Create New Conda Environment
 
 ```
@@ -654,7 +660,7 @@ Successfully installed absl-py-0.9.0 astor-0.8.1 gast-0.2.2 google-pasta-0.2.0 g
 
 Finally I can manage to install persephone successfully!!! :)
 
-## download Na data and extracted
+## Download "Na" data and Extracted
 
 I downloaded "Na" data that used for example training with persephone.  
 After downloaded, I moved it to the folder under ~/exp/persephone/persephone-tutorial/.  
@@ -681,7 +687,7 @@ Command 'ipython' not found, but can be installed with:
 sudo apt install ipython
 ```
 
-## iPython Installation with sudo apt
+## iPython Installation with "sudo apt"
 
 I got the error when I installed iPython with "sudo apt".  
 
