@@ -1,3 +1,8 @@
+# Persephone Installation, Errors and Testing Note
+
+## Create New Conda Environment
+
+```
 (base) ye@ykt-pro:~/exp/persephone$ conda create --name persephone python=3
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -76,9 +81,20 @@ Executing transaction: done
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
+```
 
+## Activate the Environment
+
+```
 (base) ye@ykt-pro:~/exp/persephone$ conda activate persephone
-(persephone) ye@ykt-pro:~/exp/persephone$ ls
+(persephone) ye@ykt-pro:~/exp/persephone$
+```
+
+## Install persephone
+
+I got tensorflow version not match error.
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ pip install persephone
 Collecting persephone
   Downloading persephone-0.4.2-py3-none-any.whl (66 kB)
@@ -121,14 +137,38 @@ Installing collected packages: pip
     Uninstalling pip-20.0.2:
       Successfully uninstalled pip-20.0.2
 Successfully installed pip-20.1.1
-(persephone) ye@ykt-pro:~/exp/persephone$ pip install --ignore-installed --upgrade tensorflow==1.15ERROR: Could not find a version that satisfies the requirement tensorflow==1.15 (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
+```
+
+I got following error:  
+ERROR: No matching distribution found for tensorflow<2,>=1.13.1 (from persephone)  
+
+And thus, I tried several versions of tensorflow installation ...  
+
+## Try to upgrade tensorflow version 1.15
+
+```
+(persephone) ye@ykt-pro:~/exp/persephone$ pip install --ignore-installed --upgrade tensorflow==1.15
+ERROR: Could not find a version that satisfies the requirement tensorflow==1.15 (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
 ERROR: No matching distribution found for tensorflow==1.15
+```
+
+## I tried several times again
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ python3 -m pip install tensorflow==1.15.0
 ERROR: Could not find a version that satisfies the requirement tensorflow==1.15.0 (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
 ERROR: No matching distribution found for tensorflow==1.15.0
+```
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ python3 -m pip install tensorflow==1.14.0
 ERROR: Could not find a version that satisfies the requirement tensorflow==1.14.0 (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
 ERROR: No matching distribution found for tensorflow==1.14.0
+```
+
+## Check available tensorflow versions
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ python -m pip search tensorflow
 tensorflow (2.2.0)                                - TensorFlow is an open source machine learning
                                                     framework for everyone.
@@ -312,11 +352,11 @@ tensorflow-cpu-2.0-preview (0.0.0)                -
 PSCMRCET-Tensorflow-object-trainer (1.3.0)        - Custom Object training system can be done by
                                                     using single command line
 (persephone) ye@ykt-pro:~/exp/persephone$
+```
 
-=========
+## Tensorflow Installation Success for 1.13.1
 
-Tensorflow Installation Success as follows:
-
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ pip2 install 'tensorflow==1.13.1' --force-reinstall
 Collecting tensorflow==1.13.1
   Cache entry deserialization failed, entry ignored
@@ -379,9 +419,13 @@ Successfully built grpcio
 Installing collected packages: six, funcsigs, mock, enum34, absl-py, numpy, tensorflow-estimator, futures, grpcio, h5py, keras-applications, setuptools, protobuf, keras-preprocessing, gast, werkzeug, wheel, markdown, tensorboard, backports.weakref, termcolor, astor, tensorflow
 Successfully installed absl-py-0.9.0 astor-0.8.1 backports.weakref-1.0.post1 enum34-1.1.10 funcsigs-1.0.2 futures-3.3.0 gast-0.3.3 grpcio-1.29.0 h5py-2.10.0 keras-applications-1.0.8 keras-preprocessing-1.1.2 markdown-3.1.1 mock-3.0.5 numpy-1.16.6 protobuf-3.12.2 setuptools-44.1.1 six-1.15.0 tensorboard-1.14.0 tensorflow-1.14.0 tensorflow-estimator-1.14.0 termcolor-1.1.0 werkzeug-1.0.1 wheel-0.34.2
 (persephone) ye@ykt-pro:~/exp/persephone$
+```
 
-### Reinstall persephone
+## Reinstall persephone
 
+Tensorflow framework looks OK and thus, I reinstall persephone again as follows:  
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ pip uninstall persephone
 WARNING: Skipping persephone as it is not installed.
 (persephone) ye@ykt-pro:~/exp/persephone$ pip install persephone
@@ -393,7 +437,11 @@ Collecting pympi-ling==1.69
   Using cached pympi-ling-1.69.tar.gz (29 kB)
 ERROR: Could not find a version that satisfies the requirement tensorflow<2,>=1.13.1 (from persephone) (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
 ERROR: No matching distribution found for tensorflow<2,>=1.13.1 (from persephone)
+```
 
+### Used "--force-reinstall" option of pip
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ pip install persephone --force-reinstall
 Collecting persephone
   Using cached persephone-0.4.2-py3-none-any.whl (66 kB)
@@ -414,11 +462,15 @@ Collecting pympi-ling==1.69
   Using cached pympi-ling-1.69.tar.gz (29 kB)
 ERROR: Could not find a version that satisfies the requirement tensorflow<2,>=1.13.1 (from persephone) (from versions: 2.2.0rc1, 2.2.0rc2, 2.2.0rc3, 2.2.0rc4, 2.2.0)
 ERROR: No matching distribution found for tensorflow<2,>=1.13.1 (from persephone)
+```
 
 Oh!!! No ...
 
-### Downgrade Python Version
+## Downgrade Python Version
 
+Another option is downgrading the Python version ....
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ python --version
 Python 3.8.3
 (persephone) ye@ykt-pro:~/exp/persephone$ conda install python=3.7
@@ -477,9 +529,11 @@ setuptools-46.4.0    | 514 KB    | #############################################
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
+```
 
-### Try again
+## Try again installation of persephone
 
+```
 (persephone) ye@ykt-pro:~/exp/persephone$ python --version
 Python 3.7.7
 (persephone) ye@ykt-pro:~/exp/persephone$ pip install persephone --force-reinstall
@@ -596,9 +650,17 @@ Installing collected packages: joblib, numpy, scipy, scikit-learn, pympi-ling, s
       Successfully uninstalled wheel-0.34.2
 Successfully installed absl-py-0.9.0 astor-0.8.1 gast-0.2.2 google-pasta-0.2.0 grpcio-1.29.0 h5py-2.10.0 importlib-metadata-1.6.0 joblib-0.15.1 keras-applications-1.0.8 keras-preprocessing-1.1.2 markdown-3.2.2 nltk-3.4.5 numpy-1.18.4 opt-einsum-3.2.1 persephone-0.4.2 pint-0.9 protobuf-3.12.2 pydub-0.20.0 pympi-ling-1.69 python-speech-features-0.6 scikit-learn-0.21.2 scipy-1.4.1 setuptools-47.1.1 six-1.15.0 tensorboard-1.15.0 tensorflow-1.15.3 tensorflow-estimator-1.15.1 termcolor-1.1.0 werkzeug-1.0.1 wheel-0.34.2 wrapt-1.12.1 zipp-3.1.0
 (persephone) ye@ykt-pro:~/exp/persephone$ 
+```
 
-### download Na data and extracted
+Finally I can manage to install persephone successfully!!! :)
 
+## download Na data and extracted
+
+I downloaded "Na" data that used for example training with persephone.  
+After downloaded, I moved it to the folder under ~/exp/persephone/persephone-tutorial/.  
+
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ tree -L 2
 .
 ├── na_example
@@ -607,17 +669,23 @@ Successfully installed absl-py-0.9.0 astor-0.8.1 gast-0.2.2 google-pasta-0.2.0 g
 └── na_example.zip
 
 3 directories, 1 file
+```
 
-### iPython Installation
+The example shows running on iPython shell. Currently there is no iPython on my "persephone" conda environment.  
 
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ ipython
 
 Command 'ipython' not found, but can be installed with:
 
 sudo apt install ipython
+```
 
-==========
+## iPython Installation with sudo apt
 
+I got the error when I installed iPython with "sudo apt".  
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ sudo apt install ipython
 [sudo] password for ye: 
 Reading package lists... Done
@@ -728,9 +796,12 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
 ModuleNotFoundError: No module named 'IPython'
+```
 
-==========
+## iPython installation with pip
 
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ pip install ipython
 Collecting ipython
   Downloading ipython-7.15.0-py3-none-any.whl (783 kB)
@@ -775,9 +846,13 @@ Successfully built backcall
 Installing collected packages: ptyprocess, pexpect, parso, jedi, wcwidth, prompt-toolkit, decorator, ipython-genutils, traitlets, pickleshare, pygments, backcall, ipython
 Successfully installed backcall-0.1.0 decorator-4.4.2 ipython-7.15.0 ipython-genutils-0.2.0 jedi-0.17.0 parso-0.7.0 pexpect-4.8.0 pickleshare-0.7.5 prompt-toolkit-3.0.5 ptyprocess-0.6.0 pygments-2.6.1 traitlets-4.3.3 wcwidth-0.1.9
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$
+```
 
-### Error Relating to ffmpeg, avconv
+## Error Relating to ffmpeg, avconv
 
+When I train with example data ... I found that I need to install "ffmpeg or avconv" as follows:  
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ ipython
 Python 3.7.7 (default, May  7 2020, 21:25:33) 
 Type 'copyright', 'credits' or 'license' for more information
@@ -789,8 +864,11 @@ In [1]: from persephone import corpus
 
 In [2]:   
 
-### Installing ffmpeg
+```
 
+## Installing ffmpeg
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ sudo apt install ffmpeg
 
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ ffmpeg --help
@@ -914,9 +992,13 @@ Subtitle options:
 -fix_sub_duration   fix subtitles duration
 -canvas_size size   set canvas size (WxH or abbreviation)
 -spre preset        set the subtitle options to the indicated preset
+```
 
-### Start Running
+## Start Training with "Na" Data
 
+I got error message as follows:  
+
+```
 (persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial$ ipython
 Python 3.7.7 (default, May  7 2020, 21:25:33) 
 Type 'copyright', 'credits' or 'license' for more information
@@ -947,23 +1029,31 @@ PersephoneException                       Traceback (most recent call last)
 PersephoneException: The supplied path requires a 'wav' subdirectory.
 
 Got ERROR!!!
+```
 
-### Change Folder
+## Change Folder
 
+```
 (base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
 feat  label
 (base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ mv feat/ wav
 (base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
 label  wav
+```
 
-### Now OK
+## Training with "Na" Data Again.
 
+Finally training success as follows:  
+
+```
 $ ipython
 > from persephone import corpus
 > corp = corpus.Corpus("fbank", "phonemes", "data/na_example")
+```
 
-====> You have to wait for several minutes ...
+You have to wait for several minutes ...
 
+```
 ...
 ...
 ...
@@ -1049,11 +1139,12 @@ WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/persephone/lib/python3.7/si
 
 
 In [5]:  experiment.train_ready(corp)
+```
 
-### 
+Training was started at 23:01 ...  
+(23:01 မှာ training ... လုပ်ခဲ့)  
 
-23:01 မှာ training ...
-
+```
 exp_dir ./exp/0, epoch 21
 	Batch...0...1...2...3...4...5...6...7...8...9...10...11...12...13...14...15...16...17...18...19...20...21...22...23...24...25...26...27...28...29...30...31...32...33...34...35...36...37...38...39...40...41...42...43...44...45...46...47...48...49...50...51...52...53...54...55...56...57...58...59...60...61...62...63...64...65...66...67...68...69...70...71...72...73...74...75...76...77...78...79...80...81...82...83...84...85...86...87...88...89...90...91...92...93...94...95...96...97...98...99...100...101...102...103...104...105...106...107...108...109...110...111...112...113...114...115...116...117...118...119...120...121...122...123...124...125...126...127...128...129...130...131...132...133...134...135...136...137...138...139...140...141...142...143...144...145...146...147...148...149...150...151...152...153...154...155...156...157...158...159...160...161...162...163...164...165...166...167...168...169...170...171...172...173...174...175...176...177...178...179...180...181...182...183...184...185...186...187...188...189...190...191...192...193...194...195...196...197...198...199...200...201...202...203...204...205...206...207...208...209...210...211...212...213...214...215...216...217...218...219...220...221...222...223...224...225...226...227...228...229...230...
 exp_dir ./exp/0, epoch 22
@@ -1063,11 +1154,12 @@ exp_dir ./exp/0, epoch 23
 Out[5]: './exp/0'
 
 In [6]:        
+```
 
-နောက်နေ့ မနက်မှ ပြီးတယ်။
+Training လုပ်လို့ ပြီးတာက နောက်နေ့ မနက်မှ ပြီးတယ်။  
 
 
-Reference:
+## Reference:
 
 https://stackoverflow.com/questions/52584907/how-to-downgrade-python-from-3-7-to-3-6
 https://github.com/tensorflow/tensorflow/issues/34302
