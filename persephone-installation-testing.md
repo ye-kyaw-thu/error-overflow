@@ -1167,9 +1167,10 @@ Training လုပ်လို့ ပြီးတာက နောက်နေ့
 
 ## Reference:
 
-https://stackoverflow.com/questions/52584907/how-to-downgrade-python-from-3-7-to-3-6
-https://github.com/tensorflow/tensorflow/issues/34302
-https://stackoverflow.com/questions/41937915/how-to-pip-install-old-version-of-librarytensorflow
-https://stackoverflow.com/questions/45179915/importerror-no-module-named-ipython
+[https://github.com/persephone-tools/persephone](https://github.com/persephone-tools/persephone)  
+[https://stackoverflow.com/questions/52584907/how-to-downgrade-python-from-3-7-to-3-6](https://stackoverflow.com/questions/52584907/how-to-downgrade-python-from-3-7-to-3-6)
+[https://github.com/tensorflow/tensorflow/issues/34302](https://github.com/tensorflow/tensorflow/issues/34302)
+[https://stackoverflow.com/questions/41937915/how-to-pip-install-old-version-of-librarytensorflow](https://stackoverflow.com/questions/41937915/how-to-pip-install-old-version-of-librarytensorflow)
+[https://stackoverflow.com/questions/45179915/importerror-no-module-named-ipython](https://stackoverflow.com/questions/45179915/importerror-no-module-named-ipython)  
 
 
