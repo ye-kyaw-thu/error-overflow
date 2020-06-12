@@ -1040,11 +1040,46 @@ Got ERROR!!!
 ## Change Folder
 
 ```
-(base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
 feat  label
-(base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ mv feat/ wav
-(base) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ mv feat/ wav
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ ls
 label  wav
+```
+
+## Folder structure and file contents
+
+The followings are the folder structure and the example file contents:
+(မြင်သာအောင် ဖိုလ်ဒါတွေကို ဘယ်လို ခွဲသိမ်းထားရမယ်။ label ဖိုင်တွေက ဘယ်လို ရှိတယ်ဆိုတာကို ပြမယ်)
+
+```
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ tree ./wav -L 2 | head
+./wav
+├── crdo-NRU_F4_ACCOMP_PFV.0.wav
+├── crdo-NRU_F4_ACCOMP_PFV.10.wav
+├── crdo-NRU_F4_ACCOMP_PFV.11.wav
+├── crdo-NRU_F4_ACCOMP_PFV.12.wav
+├── crdo-NRU_F4_ACCOMP_PFV.13.wav
+├── crdo-NRU_F4_ACCOMP_PFV.14.wav
+├── crdo-NRU_F4_ACCOMP_PFV.15.wav
+├── crdo-NRU_F4_ACCOMP_PFV.16.wav
+├── crdo-NRU_F4_ACCOMP_PFV.17.wav
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ tree ./label -L 2 | head
+./label
+├── crdo-NRU_F4_ACCOMP_PFV.0.phonemes
+├── crdo-NRU_F4_ACCOMP_PFV.0.phonemes_and_tones
+├── crdo-NRU_F4_ACCOMP_PFV.10.phonemes
+├── crdo-NRU_F4_ACCOMP_PFV.10.phonemes_and_tones
+├── crdo-NRU_F4_ACCOMP_PFV.11.phonemes
+├── crdo-NRU_F4_ACCOMP_PFV.11.phonemes_and_tones
+├── crdo-NRU_F4_ACCOMP_PFV.12.phonemes
+├── crdo-NRU_F4_ACCOMP_PFV.12.phonemes_and_tones
+├── crdo-NRU_F4_ACCOMP_PFV.13.phonemes
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ cat ./label/crdo-NRU_F4_ACCOMP_PFV.0.phonemes
+l e dz ɯ z e l e dz ɯ z e
+(persephone) ye@ykt-pro:~/exp/persephone/persephone-tutorial/data/na_example$ cat ./label/crdo-NRU_F4_ACCOMP_PFV.0.phonemes_and_tones 
+l e ˧ dz ɯ ˥ z e ˩ | l e ˧ dz ɯ ˥ z e ˩
+
 ```
 
 ## Training with "Na" Data Again.
