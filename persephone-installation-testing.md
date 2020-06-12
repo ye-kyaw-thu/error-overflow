@@ -1049,7 +1049,7 @@ label  wav
 
 ## Folder structure and file contents
 
-The followings are the folder structure and the example file contents:
+The followings are the folder structure and the example file contents:  
 (မြင်သာအောင် ဖိုလ်ဒါတွေကို ဘယ်လို ခွဲသိမ်းထားရမယ်။ label ဖိုင်တွေက ဘယ်လို ရှိတယ်ဆိုတာကို ပြမယ်)
 
 ```
