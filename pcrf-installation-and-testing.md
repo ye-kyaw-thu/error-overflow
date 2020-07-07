@@ -1,5 +1,15 @@
 # pcrf (Python Conditional Random Fields) Progam Installation and Testing Log
 
+CRF++, CRFSuite တိုကိုပဲ experiment တွေလုပ်တဲ့အခါမှာ သုံးဖြစ်ပါတယ်။  
+ဒီ pcrf ကတော့ CRF ကိုပဲ python version အနေနဲ့ စမ်းရေးထားတဲ့ ပရိုဂရမ်လို့ ယူဆပါတယ်။  
+link: [https://github.com/hitwsl/pcrf](https://github.com/hitwsl/pcrf)  
+
+ကျောင်းသား တစ်ယောက်က CRF++, CRFSuite နဲ့ training လုပ်တာ memory insufficient error ဖြစ်နေတယ်ဆိုလို့ ဒီ pcrf က မြန်တာနဲ့ memory managment လုပ်ပေးတာ ကောင်းတယ်ဆိုလို့ စမ်းသုံးကြည့်ရင်း မှတ်ထားတဲ့ installation, training, testing log ဖိုင်ပါ။  
+
+ဒီ pcrf tool က Python 2.7 version ကို သုံးထားတာမို့ အကောင်းဆုံးကတော့ Python 2.7 environment ကို ကိုယ့်စက်ထဲမှာ ပြင်ဆင်ပြီးတော့ pcrf ကို သုံးတာက အကောင်းဆုံးပါပဲ။ 2to3 tool (Python 2 ပရိုဂရမ်တွေကို 3 version ပြောင်းဖို့) ကို သုံးပြီး pcrf ကို Python 3 version အဖြစ် ပြောင်းလို့ရပေမဲ့ သူက ခေါ်သုံးထားတဲ့ library ကလည်း အားလုံး match ဖြစ်ဖို့ လိုအပ်တာကြောင့် ကျွန်တော်ကတော့ py2.7 environment အသစ်ကို လုပ်ပြီးတော့ စမ်းကြည့်ခဲ့ပါတယ်။ enviornment control လုပ်တာကတော့ Anaconda ကို သုံးပြီးတော့ လုပ်ပါတယ်။    
+
+အရင်ဆုံး ကိုယ့်စက်ထဲမှာ python 2.7 env က ရှိမရှိကို check လုပ်ကြည့်ရအောင်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/pcrf$ conda info --envs
 # conda environments:
@@ -9,6 +19,8 @@ conda3.6                 /home/ye/tool/anaconda3/envs/conda3.6
 persephone               /home/ye/tool/anaconda3/envs/persephone
 tensorflow               /home/ye/tool/anaconda3/envs/tensorflow
 ```
+
+"conda" command နဲ့ environment အသစ် ကို "py2.7" ဆိုတဲ့ နာမည်နဲ့ ဖန်တီးရင်းနဲ့ python ကိုလည်း ကိုယ်လိုချင်တဲ့ ဗားရှင်း 2.7 အတိအကျ သတ်မှတ်ပြီး သွားကြရအောင်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/pcrf$ conda create -n py2.7 python=2.7
@@ -98,22 +110,37 @@ Executing transaction: done
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
+```
 
+"conda activate" command နဲ့ အသစ် create လုပ်ခဲ့တဲ့ py2.7 enviornment အောက်ကို ဝင်ရအောင်။  
+
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/pcrf$ conda activate py2.7
-(py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ ls
-LinearCRF2.py      pcrf-test.py   __pycache__  templatechunk       testchunk.data  trainchunk.data
-LinearCRF2.py.bak  pcrf-train.py  README.md    templatesimple.txt  train1.txt      trainsimple.data
-(py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cd ..
-(py2.7) ye@ykt-pro:/media/ye/project1/tool$ mv pcrf/ pcrf-py3
+```
+
+pcrf ကို git clone လုပ်ရအောင်  
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool$ git clone https://github.com/hitwsl/pcrf
 Cloning into 'pcrf'...
 remote: Enumerating objects: 34, done.
 remote: Total 34 (delta 0), reused 0 (delta 0), pack-reused 34
 Unpacking objects: 100% (34/34), done.
+```
+
+pcrf ဖိုလ်ဒါအောက်ကို ဝင်ပြီး ဖိုင်တွေကို ကြည့်ရအောင်။  
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool$ cd pcrf
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ ls
 LinearCRF2.py  pcrf-train.py  templatechunk       testchunk.data  trainchunk.data
 pcrf-test.py   README.md      templatesimple.txt  train1.txt      trainsimple.data
+```
+
+pcrf-train command ကို ရိုက်ထည့်ပြီး help screen ကြည့်လို့ ရပြီလား confirm လုပ်ရအောင်  
+
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ python ./pcrf-train.py 
 Traceback (most recent call last):
   File "./pcrf-train.py", line 12, in <module>
@@ -121,6 +148,11 @@ Traceback (most recent call last):
   File "/media/ye/project1/tool/pcrf/LinearCRF2.py", line 19, in <module>
     from scipy.misc import logsumexp
 ImportError: No module named scipy.misc
+```
+
+scipy လိုတာမို့ scipy ကို install လုပ်ရအောင်  
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ pip install scipy
 DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
 Collecting scipy
@@ -129,6 +161,11 @@ Collecting scipy
 Requirement already satisfied: numpy>=1.8.2 in /home/ye/.local/lib/python2.7/site-packages (from scipy) (1.16.6)
 Installing collected packages: scipy
 Successfully installed scipy-1.2.3
+```
+
+pcrf-train.py ကို run ပြီး help screen ကြည့်ရအောင်  
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ python ./pcrf-train.py 
 usage: pcrf-train.py [-h] [-r {0,1,2}] [-s SIGMA] [-m {0,1}] [-f FD]
                      datafile templatefile modelfile
@@ -136,6 +173,8 @@ pcrf-train.py: error: too few arguments
 ```
 
 ## Train simple model
+
+template ဖိုင် format က CRF++ နဲ့ အတူတူပါပဲ။  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat templatesimple.txt 
@@ -148,6 +187,9 @@ U01:%x[0,1]
 #B00:%x[0,0]/%x[0,1]
 ```
 
+pcrf က ကိုယ့်စက်ထဲမှာ run လို့ ရမရ simple model data ကိုနဲ့ train လုပ်ကြည့်ရအောင်။  
+အရင်ဆုံး trainsimple.data ကို ကြည့်ကြည့်ရအောင်။  
+
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head trainsimple.data 
 1 1 A
@@ -157,6 +199,8 @@ U01:%x[0,1]
 2 1 B
 2 2 O
 ```
+
+training လုပ်တာ အိုကေတယ်။ အောက်ပါအတိုင်းပါ  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-train.py trainsimple.data templatesimple.txt simple-crf-model | tee simple-model-train.log
@@ -231,6 +275,9 @@ sys	0m0.458s
 
 ## Testing with simple model
 
+
+train လုပ်ခဲ့ simple-crf-model ကို testing လုပ်ကြည့်ရအောင်  
+
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ python pcrf-test.py trainsimple.data simple-crf-model result.txt
 number of labels: 3
@@ -243,6 +290,8 @@ Write max(y) to file: result.txt
 Test finished in  0.00246095657349 seconds. 
 ```
 
+Result ဖိုင်ကို ကြည့်ရအောင်  
+
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat result.txt 
 1 1 A A
@@ -253,6 +302,8 @@ Test finished in  0.00246095657349 seconds.
 2 2 O O
 2 2 O O
 ```
+
+training data နဲ့ Confirmation လုပ်ကြည့်ရအောင်  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat trainsimple.data 
@@ -268,7 +319,11 @@ Test finished in  0.00246095657349 seconds.
 
 Note: You should know ... Chunking = Segmentation  
 
+
 ### Check the chunking training data  
+
+chunking မော်ဒယ် ဆောက်တဲ့အခါမှာ သုံးထားတဲ့ training data ဖိုင်ကို ကြည့်ရအောင်  
+well known ဒေတာဖြစ်တဲ့ CoNLL shared task ဒေတာဖြစ်တာကို အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -n 30 trainchunk.data 
@@ -338,6 +393,9 @@ B
 ```
 
 ### Start chunking training
+
+model တစ်ခုခု training လုပ်တဲ့အခါမှာ အချိန်ကို time command နဲ့ မှတ်ပါ။  
+log ဖိုင်ကို tee command ကို သုံးပြီး log လုပ်ပါ။  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-train.py trainchunk.data templatechunk chunk-model | tee chunk-train.log
@@ -525,6 +583,8 @@ sys	0m42.963s
 
 ### Check the test data
 
+test data ကို ကြည့်ရအောင်  
+
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -30 ./testchunk.data 
 Confidence NN B-NP
@@ -561,6 +621,8 @@ from IN B-PP
 
 ### Testing chunk-model with test data
 
+Testing ကို အောက်ပါအတိုင်း လုပ်ခဲ့တယ် ...  
+
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-test.py testchunk.data chunk-model result.txt | tee test-chunk.log
 number of labels: 14
@@ -579,6 +641,8 @@ sys	0m0.449s
 ```
 
 ### Check the result file
+
+result.txt ဖိုင်ကိုလည်း Check လုပ်ရအောင်  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -30 result.txt 
