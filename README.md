@@ -1,5 +1,5 @@
 # error-overflow
-Notes relating to program installation errors, library import errors ...
+Notes relating to program installation errors, library import errors, training & testing log files ...
 
 Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို installation လုပ်တဲ့ အခါမှာတွေ့ရတတ်တဲ့ error တွေ၊ ကျွန်တော် နေ့စဉ်လိုလိုသုံးဖြစ်တဲ့ Perl, Python programming နဲ့ ပတ်သက်တဲ့ library import  လုပ်တဲ့အခါမှာတွေ့ရတဲ့ error တွေကို ဖြေရှင်းပုံ ဖြေရှင်းနည်း၊ မြန်မာစာနဲ့ ဆိုင်တဲ့ ပြဿနာတွေ၊ တခြား အသုံးဝင်တဲ့ tool စတာတွေနဲ့ ပတ်သက်ပြီး ကြုံရင်ကြုံသလို ရေးသွားပါမယ်။ ကျွန်တော်ကိုယ်တိုင်က ကိုယ်သုံးနေတဲ့ စက်တွေထဲမှာ note.txt ဖိုင်၊ xxx-installation.log ဖိုင် ဆိုပြီး သိမ်းထားတာမျိုးတွေရှိပေမဲ့ သိကြတဲ့အတိုင်းပဲ GitHub မှာတင်ထားတာက ရှာရဖွေရတာ လွယ်ကူတာရော၊ မြန်ဆန်တာရော၊ နောက်ပြီးတော့ error တက်ပြီး solution ကို ဟိုရှာဒီရှာ လုပ်နေတဲ့ တစ်ယောက်ယောက်အတွက်တော့ သေချာပေါက် အသုံးဝင်ပါလိမ့်မယ်။  
 
