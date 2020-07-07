@@ -1,6 +1,6 @@
 # pcrf (Python Conditional Random Fields) Progam Installation and Testing Log
 
-CRF++, CRFSuite တိုကိုပဲ experiment တွေလုပ်တဲ့အခါမှာ သုံးဖြစ်ပါတယ်။  
+တောက်လျှောက်လိုလို CRF++, CRFSuite toolkit တွေကိုပဲ statistical sequence-to-sequence learning experiment တွေလုပ်တဲ့အခါမှာ သုံးဖြစ်ခဲ့ပါတယ်။  
 ဒီ pcrf ကတော့ CRF ကိုပဲ python version အနေနဲ့ စမ်းရေးထားတဲ့ ပရိုဂရမ်လို့ ယူဆပါတယ်။  
 link: [https://github.com/hitwsl/pcrf](https://github.com/hitwsl/pcrf)  
 
