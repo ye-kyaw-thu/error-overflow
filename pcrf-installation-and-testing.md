@@ -1,5 +1,6 @@
 # pcrf (Python Conditional Random Fields) Progam Installation and Testing Log
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/pcrf$ conda info --envs
 # conda environments:
 #
@@ -7,7 +8,9 @@ base                  *  /home/ye/tool/anaconda3
 conda3.6                 /home/ye/tool/anaconda3/envs/conda3.6
 persephone               /home/ye/tool/anaconda3/envs/persephone
 tensorflow               /home/ye/tool/anaconda3/envs/tensorflow
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/pcrf$ conda create -n py2.7 python=2.7
 Collecting package metadata (current_repodata.json): done
 Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
@@ -130,9 +133,11 @@ Successfully installed scipy-1.2.3
 usage: pcrf-train.py [-h] [-r {0,1,2}] [-s SIGMA] [-m {0,1}] [-f FD]
                      datafile templatefile modelfile
 pcrf-train.py: error: too few arguments
+```
 
 ## Train simple model
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat templatesimple.txt 
 # Unigram
 
@@ -141,7 +146,9 @@ U01:%x[0,1]
 
 # Bigram
 #B00:%x[0,0]/%x[0,1]
+```
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head trainsimple.data 
 1 1 A
 2 1 B
@@ -149,7 +156,9 @@ U01:%x[0,1]
 1 1 A
 2 1 B
 2 2 O
+```
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-train.py trainsimple.data templatesimple.txt simple-crf-model | tee simple-model-train.log
 Valid Template Line Number: 3
 number of labels: 3
@@ -218,9 +227,11 @@ CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
 real	0m0.341s
 user	0m0.423s
 sys	0m0.458s
+```
 
 ## Testing with simple model
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ python pcrf-test.py trainsimple.data simple-crf-model result.txt
 number of labels: 3
 Linear CRF in Python.. ver 0.1 
@@ -230,7 +241,9 @@ Note: If Y is useless, correct rate is also useless.
 correct: 7 error: 0  correct rate: 1.0
 Write max(y) to file: result.txt
 Test finished in  0.00246095657349 seconds. 
+```
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat result.txt 
 1 1 A A
 2 1 B B
@@ -239,7 +252,9 @@ Test finished in  0.00246095657349 seconds.
 2 1 B B
 2 2 O O
 2 2 O O
- 
+```
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat trainsimple.data 
 1 1 A
 2 1 B
@@ -247,12 +262,15 @@ Test finished in  0.00246095657349 seconds.
 1 1 A
 2 1 B
 2 2 O
+```
 
 ## Chunking Training
 
-Note: You should know ... Chunking = Segmentation
+Note: You should know ... Chunking = Segmentation  
 
-### Check the chunking training data
+### Check the chunking training data  
+
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -n 30 trainchunk.data 
 Rockwell NNP B-NP
 International NNP I-NP
@@ -284,10 +302,11 @@ jetliners NNS I-NP
 . . O
 
 Rockwell NNP B-NP
+```
 
 ### Check the template
 
-Note: Template is important and you should defined the template at first!
+Note: Template is important and you should defined the template at first!  
 
 ```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ cat templatechunk 
@@ -320,6 +339,7 @@ B
 
 ### Start chunking training
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-train.py trainchunk.data templatechunk chunk-model | tee chunk-train.log
 Valid Template Line Number: 20
 read  10000  lines.
@@ -501,9 +521,11 @@ CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
 real	4m9.594s
 user	13m39.250s
 sys	0m42.963s
+```
 
 ### Check the test data
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -30 ./testchunk.data 
 Confidence NN B-NP
 in IN B-PP
@@ -535,9 +557,11 @@ a DT B-NP
 substantial JJ I-NP
 improvement NN I-NP
 from IN B-PP
+```
 
 ### Testing chunk-model with test data
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ time python pcrf-test.py testchunk.data chunk-model result.txt | tee test-chunk.log
 number of labels: 14
 Linear CRF in Python.. ver 0.1 
@@ -552,9 +576,11 @@ Test finished in  1.36823821068 seconds.
 real	0m1.629s
 user	0m1.294s
 sys	0m0.449s
+```
 
 ### Check the result file
 
+```
 (py2.7) ye@ykt-pro:/media/ye/project1/tool/pcrf$ head -30 result.txt 
 Confidence NN B-NP B-NP
 in IN B-PP B-PP
@@ -586,3 +612,4 @@ a DT B-NP B-NP
 substantial JJ I-NP I-NP
 improvement NN I-NP I-NP
 from IN B-PP B-PP
+```
