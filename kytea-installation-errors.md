@@ -120,4 +120,7 @@ make: *** [all-recursive] Error 1
 ```
 
 ## Reference  
+[https://github.com/neubig/kytea](https://github.com/neubig/kytea)  
+[https://github.com/neubig/kytea/issues/22](https://github.com/neubig/kytea/issues/22)  
+[https://github.com/protocolbuffers/protobuf/issues/152](https://github.com/protocolbuffers/protobuf/issues/152)  
 [https://qiita.com/SUZUKI_Masaya/items/bd03f39e20a1a8f7f4f6#%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB](https://qiita.com/SUZUKI_Masaya/items/bd03f39e20a1a8f7f4f6#%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)  
