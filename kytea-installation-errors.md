@@ -1,4 +1,4 @@
-## Kytea Installation fails Note
+## Kytea Installation Make Error Note
 
 Kytea ကို ဂျပန်အစိုးရသုတေသနဌာန NICT, Kyoto မှာ researcher အဖြစ် ၄နှစ်ကြာ အလုပ်လုပ်ခဲ့စဉ်က ဂျပန်စာအတွက်ကော၊ မြန်မစာအတွက်ကော၊ ကမ္ဘောဒီးယားစာအတွက်ကော tagging model တွေဆောက်ဖို့အတွက် အကြိမ်ကြိမ်အခါခါ သုံးခဲ့ပါတယ်။ အခုနောက်ပိုင်း Linux distribution မှာ Kytea ကို အဆင်ပြေပြေနဲ့ installation လုပ်လို့ မရတဲ့ ပြဿနာတက်နေတယ်။ အဲဒီအတွက် မှတ်ထားတဲ့ installation note ပါ။ ဒီနေ့အထိတော့ နောက်ပိုင်း စက်တွေမှာ installation လုပ်တဲ့ အခါမှာ make မှာ ရပ်နေတဲ့ အခြေအနေပါ။ ရှင်းရအုံးမယ် ...
 ```
