@@ -1,5 +1,6 @@
 # Error building a language model with Kenlm
 
+```
 $ lmplz -o 3 < ./bookmar.zh-my.f2 > ./bookmar.zh-my.f2.arpa
 === 1/5 Counting and sorting n-grams ===
 Reading /media/lar/Transcend/talk/demo-en/my-syl-checker/perl-code/substring/syl-lm/kenlm-tst/tst-tmp/bookmar.zh-my.f2
@@ -8,9 +9,11 @@ Reading /media/lar/Transcend/talk/demo-en/my-syl-checker/perl-code/substring/syl
 /home/lar/tool/kenlm/util/scoped.cc:20 in void* util::{anonymous}::InspectAddr(void*, std::size_t, const char*) threw MallocException because `!addr && requested'.
 Cannot allocate memory for 5067657200 bytes in malloc
 Aborted (core dumped)
+```
 
 # Use -S option
 
+```
 lar@lar-air:/media/lar/Transcend/talk/demo-en/my-syl-checker/perl-code/substring/syl-lm/kenlm-tst/tst-tmp$ lmplz -S 10% -o 3 < ./bookmar.zh-my.f2 > ./bookmar.zh-my.f2.arpa
 === 1/5 Counting and sorting n-grams ===
 Reading /media/lar/Transcend/talk/demo-en/my-syl-checker/perl-code/substring/syl-lm/kenlm-tst/tst-tmp/bookmar.zh-my.f2
@@ -43,3 +46,4 @@ Chain sizes: 1:318384 2:2393408 3:5699580
 ----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
 ****************************************************************************************************
 Name:lmplz	VmPeak:985864 kB	VmRSS:14480 kB	RSSMax:215772 kB	user:0.441743	sys:0.317368	CPU:0.759155	real:0.923923
+```
