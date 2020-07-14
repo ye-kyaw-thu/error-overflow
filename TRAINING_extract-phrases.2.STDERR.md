@@ -1,6 +1,6 @@
 # Example Error Relating to Myanmar-Braille SMT
 
-SMTလုပတဲ့ ကျောင်းသားတွေ လေ့လာနိုင်အောင် example အဖြစ် တင်ထားပေးထားတာပါ။  
+SMTလုပ်တဲ့ ကျောင်းသားတွေ လေ့လာနိုင်အောင် example အဖြစ် တင်ထားပေးထားတာပါ။  
 Output of "TRAINING_extract-phrases.2.STDERR".  
 
 ```
