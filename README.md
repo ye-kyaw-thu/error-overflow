@@ -37,3 +37,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 30. [persephone-installation-testing](https://github.com/ye-kyaw-thu/error-overflow/blob/master/persephone-installation-testing.md)  
 31. [pcrf-installation-and-testing.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/pcrf-installation-and-testing.md)  
 32. [kytea-installation-errors](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kytea-installation-errors.md)  
+33. [TRAINING_extract-phrases.2.STDERR](https://github.com/ye-kyaw-thu/error-overflow/blob/master/TRAINING_extract-phrases.2.STDERR.md)  
