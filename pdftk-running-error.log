@@ -1,0 +1,41 @@
+Installation of Java lib for pdftk:
+https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-and-later
+
+Ref link: https://stackoverflow.com/questions/50883270/unexpected-exception-in-open-reader
+
+(base) ye@ykt-pro:/media/ye/Transcend/yLab/intern-2/text-gen$ bash ./split-even-odd.pdf ./myanmarconstitution2008mm.pdf 
+Total pages in your PDF file: 424
+Error: Unexpected Exception in open_reader()
+java.io.FileNotFoundException: ./myanmarconstitution2008mm.pdf (Permission denied)
+   at gnu.java.nio.channels.FileChannelImpl.open(libgcj.so.16)
+   at gnu.java.nio.channels.FileChannelImpl.<init>(libgcj.so.16)
+   at gnu.java.nio.channels.FileChannelImpl.create(libgcj.so.16)
+   at java.io.RandomAccessFile.<init>(libgcj.so.16)
+   at pdftk.com.lowagie.text.pdf.RandomAccessFileOrArray.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PRTokeniser.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PdfReader.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PdfReader.<init>(pdftk)
+Error: Failed to open PDF file: 
+   ./myanmarconstitution2008mm.pdf
+Errors encountered.  No output created.
+Done.  Input errors, so no output created.
+I/O Error: Couldn't open file 'odd.pdf': No such file or directory.
+No. of pages of odd.pdf: 
+Error: Unexpected Exception in open_reader()
+java.io.FileNotFoundException: ./myanmarconstitution2008mm.pdf (Permission denied)
+   at gnu.java.nio.channels.FileChannelImpl.open(libgcj.so.16)
+   at gnu.java.nio.channels.FileChannelImpl.<init>(libgcj.so.16)
+   at gnu.java.nio.channels.FileChannelImpl.create(libgcj.so.16)
+   at java.io.RandomAccessFile.<init>(libgcj.so.16)
+   at pdftk.com.lowagie.text.pdf.RandomAccessFileOrArray.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PRTokeniser.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PdfReader.<init>(pdftk)
+   at pdftk.com.lowagie.text.pdf.PdfReader.<init>(pdftk)
+Error: Failed to open PDF file: 
+   ./myanmarconstitution2008mm.pdf
+Errors encountered.  No output created.
+Done.  Input errors, so no output created.
+I/O Error: Couldn't open file 'even.pdf': No such file or directory.
+No. of pages of even.pdf: 
+(base) ye@ykt-pro:/media/ye/Transcend/yLab/intern-2/text-gen$ sudo ln -s /snap/pdftk/current/usr/bin/pdftk /usr/bin/pdftk
+
