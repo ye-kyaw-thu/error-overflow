@@ -1,8 +1,6 @@
-Installation of Java lib for pdftk:
-https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-and-later
+## Installation of Java lib for pdftk:
 
-Ref link: https://stackoverflow.com/questions/50883270/unexpected-exception-in-open-reader
-
+```
 (base) ye@ykt-pro:/media/ye/Transcend/yLab/intern-2/text-gen$ bash ./split-even-odd.pdf ./myanmarconstitution2008mm.pdf 
 Total pages in your PDF file: 424
 Error: Unexpected Exception in open_reader()
@@ -37,5 +35,15 @@ Errors encountered.  No output created.
 Done.  Input errors, so no output created.
 I/O Error: Couldn't open file 'even.pdf': No such file or directory.
 No. of pages of even.pdf: 
-(base) ye@ykt-pro:/media/ye/Transcend/yLab/intern-2/text-gen$ sudo ln -s /snap/pdftk/current/usr/bin/pdftk /usr/bin/pdftk
+```
 
+## Solution
+
+```
+(base) ye@ykt-pro:/media/ye/Transcend/yLab/intern-2/text-gen$ sudo ln -s /snap/pdftk/current/usr/bin/pdftk /usr/bin/pdftk
+```
+
+## Reference
+
+https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-and-later
+Ref link: https://stackoverflow.com/questions/50883270/unexpected-exception-in-open-reader
