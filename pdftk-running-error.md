@@ -1,3 +1,5 @@
+# pdftk ကို installation လုပ်ထားပေမဲ့ run လိုက်တဲ့အခါမှာ တက်တဲ့ error  
+
 ## Installation of Java lib for pdftk:
 
 ကျွန်တော်ရဲ့ Github, tool/ repository ရဲ့ bash shell script တစ်ပုဒ်ဖြစ်တဲ့ split-even-odd.pdf ကို ကျောင်းသားတွေကို run ပြဖို့အတွက် pdftk ကို installation လုပ်ထားပေမဲ့ run တဲ့အခါမှာ အောက်ပါအတိုင်း error တက်ပါတယ်။   
