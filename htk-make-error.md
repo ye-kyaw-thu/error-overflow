@@ -251,7 +251,7 @@ ChangeLog  config.log    config.sub     configure.ac  FAQ  HLMTools  HTKBook  HT
 ### Reference:  
 
 Ref:
-http://www.voxforge.org/home/forums/message-boards/general-discussion/error-attempting-to-install-htk/8
+http://www.voxforge.org/home/forums/message-boards/general-discussion/error-attempting-to-install-htk/8  
 gcc version error အတွက် က  
 sudo apt-get install gcc-multilib g++-multilib
 
