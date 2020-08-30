@@ -1,8 +1,6 @@
 # HTK Make Error
 
-HTK toolkit က (Automatic Speech Recognition) ASR field မှာ acoustic model ဆောက်ဖို့အတွက် တွင်တွင်ကျယ်ကျယ်သုံးခဲ့ကြတဲ့ traditional tool တစ်ခုဖြစ်ပါတယ်။  
-လက်ရှိအချိန်အထိလည်း ASR လောကထဲကို ဝင်ကြမယ်ဆိုရင် မသိမဖြစ်တဲ့ modeling technique ပါပဲ။  
-Internship ကျောင်းသားတစ်ချို့ကို လက်တွေ့လုပ်ပြဖို့ installation လုပ်တဲ့အခါမှာ make all အဆင့်မှာ အောက်ပါ error ကို တွေ့လို့ ဖြေရှင်းပုံဖြေရှင်းနည်းကို reference အဖြစ်အသုံးဝင်အောင် မှတ်သားထားတာပါ။  
+HTK toolkit က (Automatic Speech Recognition) ASR field မှာ acoustic model ဆောက်ဖို့အတွက် တွင်တွင်ကျယ်ကျယ်သုံးခဲ့ကြတဲ့ traditional tool တစ်ခုဖြစ်ပါတယ်။ လက်ရှိအချိန်အထိလည်း ASR လောကထဲကို ဝင်ကြမယ်ဆိုရင် မသိမဖြစ်တဲ့ modeling technique ပါပဲ။ Internship ကျောင်းသားတစ်ချို့ကို လက်တွေ့လုပ်ပြဖို့ installation လုပ်တဲ့အခါမှာ make all အဆင့်မှာ အောက်ပါ error ကို တွေ့လို့ ဖြေရှင်းပုံဖြေရှင်းနည်းကို reference အဖြစ်အသုံးဝင်အောင် မှတ်သားထားတာပါ။  
 
 
 (base) ye@ykt-pro:~/tool/htk$ ./configure --prefix=/usr/local မှာ ဘာပြဿနာမှ မရှိပဲ make all လုပ်တဲ့အခါမှာ အောက်ပါအတိုင်း Error ပေးတယ် ဆိုပါစို့...  
