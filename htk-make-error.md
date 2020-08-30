@@ -7,6 +7,35 @@ HTK toolkit က (Automatic Speech Recognition) ASR field မှာ acoustic mode
 
 ```
 (base) ye@ykt-pro:~/tool/htk$ make all
+(cd HTKLib && make HTKLib.a) \
+  || case "" in *k*) fail=yes;; *) exit 1;; esac;
+make[1]: Entering directory '/home/ye/tool/htk/HTKLib'
+/usr/local/bin/ccache-gcc  -m32 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -g -O2 -I. -DPHNALG   -c -o HGraf.o HGraf.c
+In file included from HShell.h:40:0,
+                 from HGraf.c:54:
+/usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No such file or directory
+ #include <bits/libc-header-start.h>
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+<builtin>: recipe for target 'HGraf.o' failed
+make[1]: *** [HGraf.o] Error 1
+make[1]: Leaving directory '/home/ye/tool/htk/HTKLib'
+Makefile:96: recipe for target 'HTKLib/HTKLib.a' failed
+make: *** [HTKLib/HTKLib.a] Error 1
+```
+
+## Solution No. 1
+
+```
+sudo apt-get install gcc-multilib g++-multilib
+```
+
+## Another Error: Missing Separator (did you mean TAB instead of 8 spaces?)
+
+နောက်ထပ်တွေ့ရတဲ့ error တစ်မျိုးကတော့ အောက်ပါအတိုင်းပါ  
+
+```
+(base) ye@ykt-pro:~/tool/htk$ make all
 (cd HTKTools && make all) \
   || case "" in *k*) fail=yes;; *) exit 1;; esac;
 make[1]: Entering directory '/home/ye/tool/htk/HTKTools'
@@ -21,7 +50,7 @@ Makefile:111: recipe for target 'hlmtools' failed
 make: *** [hlmtools] Error 1
 ```
 
-# Solution
+## Solution No. 2
 
 HLMTools အောက်မှာရှိတဲ့ Makefile ကို အောက်ပါအတိုင်း ဝင်ပြင်ပေးလိုက်ပါ  
 
@@ -253,5 +282,6 @@ ChangeLog  config.log    config.sub     configure.ac  FAQ  HLMTools  HTKBook  HT
 Ref:
 http://www.voxforge.org/home/forums/message-boards/general-discussion/error-attempting-to-install-htk/8  
 gcc version error အတွက် က  
-sudo apt-get install gcc-multilib g++-multilib
+https://github.com/sirfz/tesserocr/issues/130
+
 
