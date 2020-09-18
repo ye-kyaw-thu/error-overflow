@@ -40,5 +40,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 33. [TRAINING_extract-phrases.2.STDERR](https://github.com/ye-kyaw-thu/error-overflow/blob/master/TRAINING_extract-phrases.2.STDERR.md)  
 34. [pdftk-running-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/pdftk-running-error.md)  
 35. [htk-make-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/htk-make-error.md)  
-
+36. [google-trans-installation-eg.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/google-trans-installation-eg.md)  
 
