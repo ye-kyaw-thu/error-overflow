@@ -1,5 +1,7 @@
 ## Installation
 
+git clone လုပ်ပြီး ကိုယ့်စက်ထဲကို repository ကို ကော်ပီကူးယူတယ် 
+
 ```
 (base) ye@ykt-pro:~/tool$ git clone https://github.com/rsennrich/subword-nmt
 Cloning into 'subword-nmt'...
@@ -8,6 +10,8 @@ remote: Total 576 (delta 0), reused 0 (delta 0), pack-reused 576
 Receiving objects: 100% (576/576), 233.30 KiB | 254.00 KiB/s, done.
 Resolving deltas: 100% (349/349), done.
 ```
+
+Folder အထဲကို ဝင်ကြည့်ရအောင်    
 
 ```
 (base) ye@ykt-pro:~/tool$ cd subword-nmt/
@@ -119,6 +123,9 @@ Syllable ဖြတ်ထားတဲ့ ဒေတာနဲ့ BPE unit build လ
 နာ ဆာ မှ ဒုံး ပျံ စ တက် တာ နဲ့ သူ မှတ် တမ်း ရေး ခဲ့ တယ် ။
 ```
 
+BPE Unit ကို တခြား ဘာ parameter မှ မပေးတော့ပဲ ရိုးရိုးလေးဆောက်မယ်ဆိုရင်  
+Python script နဲ့ပဲ run ကြည့်ကြရအောင်   
+
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ time python ./learn_bpe.py -i ./y-test/big-lm2.my -o ./y-test/big-lm2.syl.bpe-model
 
@@ -131,6 +138,8 @@ sys	0m0.148s
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ ls ./y-test/
 big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 ```
+
+မော်ဒယ်ဖိုင် အထဲကို ကြည့်ကြည့်ရအောင်   
 
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head -20 ./big-lm2.syl.bpe-model 
@@ -158,6 +167,8 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 
 ## Segmenting with Syllable based BPE
 
+test ဖိုင် နံပါတ်၁ က အောက်ပါအတိုင်း  
+
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ cat test1.txt 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
@@ -167,10 +178,14 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 ဘတ်စ် ကား စီး ပြီး ရုံး တက် တဲ့ ဘိလပ် ပြန် ညွှန် ကြား ရေး မှူး ချုပ်
 ```
 
+test1.txt ဖိုင်ကို BPE နဲ့ ဖြတ်ခိုင်းကြည့်ရအောင်  
+
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ python ../apply_bpe.py -i ./test1.txt -c ./big-lm2.syl.bpe-model -o ./test1.bpe
 ```
 
+ထွက်လာတဲ့ output က အောက်ပါအတိုင်း   
+မြန်မာစာအတွက် syllable unite က strong ဖြစ်ပြီးသားပါ။  
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ cat ./test1.bpe 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
@@ -185,6 +200,7 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 
 ## Character Segmentation
 
+Character segmentation ကို အောက်ပါအတိုင်း လုပ်ခဲ့  
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ ./char-segmentation.sh ./big-lm2.my.syl.clean > ./big-lm2.my.char
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head ./big-lm2.my.char 
@@ -208,6 +224,8 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ perl ./clean-space.pl ./big-lm2.my.char > ./big-lm2.my.char.clean
 ```
 
+head လုပ်ကြည့်   
+
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head ./big-lm2.my.char.clean 
 မ င ် း အ ဲ ့ ဒ ါ က ိ ု အ ခ ြ ာ း တ စ ် ခ ု န ဲ ့ မ ခ ျ ိ တ ် ဘ ူ း လ ာ း ။
@@ -222,6 +240,8 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 န ာ ဆ ာ မ ှ ဒ ု ံ း ပ ျ ံ စ တ က ် တ ာ န ဲ ့ သ ူ မ ှ တ ် တ မ ် း ရ ေ း ခ ဲ ့ တ ယ ် ။
 ```
 ## Learn Character based BPE for Myanmar Language
+
+Error တက်တယ် အောက်ပါအတိုင်း...  
 
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ time python ./learn_bpe.py -i ./y-test/big-lm2.my.char.clean -o ./y-test/big-lm2.char.bpe-model
@@ -238,6 +258,53 @@ sys	0m0.028s
 ```
 
 Character segmentation ကြောင့်လို့ ယူဆတယ်။
+
+## Building Syllable Vocab File
+
+Vocab ဖိုင် ဆောက်ကြည့်မယ် ဆိုရင်  
+
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ python ./get_vocab.py -i ./y-test/big-lm2.my.syl.clean -o ./y-test/big-lm2.my.syl.vocab
+```
+
+Syllable နဲ့ ဆောက်ထားတဲ့ ဖိုင်ဆိုက်ကို check ...  
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ cd ./y-test/
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ wc ./big-lm2.my.syl.vocab 
+ 3301  6602 52427 ./big-lm2.my.syl.vocab
+ ```
+ 
+ head လုပ်ကြည့်တော့ freq အများဆုံးက ထိပ်ဆုံးမှာ ထားတာကို တွေ့ရ ...  
+ 
+ ```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head ./big-lm2.my.syl.vocab 
+။ 99804
+အ 47509
+တယ် 36208
+ပါ 33475
+မ 31526
+က 27813
+ကို 26064
+မှာ 17897
+ကျွန် 17690
+၊ 15364
+```
+
+freq အနည်းဆုံးက ဖိုင်ရဲ့ အောက်ဆုံးမှာ ...  
+
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ tail ./big-lm2.my.syl.vocab 
+ဘဲ့ 1
+၆း 1
+မိင် 1
+ဘွမ် 1
+ဖြယ် 1
+ခေါ 1
+ဘဲ” 1
+ကင်္ြန် 1
+၅း 1
+ရဘ် 1
+```
 
 ## Reference
 
