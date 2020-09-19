@@ -242,20 +242,20 @@ Character segmentation ကြောင့်လို့ ယူဆတယ်။
 ## Reference
 
 Code:  
-https://github.com/rsennrich/subword-nmt  
+[https://github.com/rsennrich/subword-nmt](https://github.com/rsennrich/subword-nmt)  
 
 > hxbai commented on Jun 27, 2019  
 > I think your corpus is too small to learn the bpe, you cannot use the scripts directly since it learn the bpe on the training set and apply it to the dev and test set. You may need to change the scripts and learn the bpe on a relatively large training set, then apply the bpe codes to your selected sents.  
 
-https://github.com/hxbai/Deep_Enhanced_Repr_for_IDRR/issues/2  
+[https://github.com/hxbai/Deep_Enhanced_Repr_for_IDRR/issues/2(]https://github.com/hxbai/Deep_Enhanced_Repr_for_IDRR/issues/2)  
 
 ## Papers 
 
-BPE-Dropout: Simple and Effective Subword Regularization:
-https://arxiv.org/pdf/1910.13267.pdf  
+BPE-Dropout: Simple and Effective Subword Regularization:  
+[https://arxiv.org/pdf/1910.13267.pdf](https://arxiv.org/pdf/1910.13267.pdf)  
 
 Finding Better Subword Segmentation for Neural Machine Translation:  
-http://cips-cl.org/static/anthology/CCL-2018/CCL-18-074.pdf  
+[http://cips-cl.org/static/anthology/CCL-2018/CCL-18-074.pdf](http://cips-cl.org/static/anthology/CCL-2018/CCL-18-074.pdf)  
 
 Neural Machine Translation of Rare Words with Subword Units:  
-https://arxiv.org/pdf/1508.07909v5.pdf  
+[https://arxiv.org/pdf/1508.07909v5.pdf](https://arxiv.org/pdf/1508.07909v5.pdf)  
