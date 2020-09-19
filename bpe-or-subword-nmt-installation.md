@@ -1,18 +1,22 @@
 ## Installation
 
+```
 (base) ye@ykt-pro:~/tool$ git clone https://github.com/rsennrich/subword-nmt
 Cloning into 'subword-nmt'...
 remote: Enumerating objects: 576, done.
 remote: Total 576 (delta 0), reused 0 (delta 0), pack-reused 576
 Receiving objects: 100% (576/576), 233.30 KiB | 254.00 KiB/s, done.
 Resolving deltas: 100% (349/349), done.
+```
 
+```
 (base) ye@ykt-pro:~/tool$ cd subword-nmt/
-
 (base) ye@ykt-pro:~/tool/subword-nmt$ ls
 apply_bpe.py  get_vocab.py  learn_joint_bpe_and_vocab.py  README.md  subword_nmt
 CHANGELOG.md  learn_bpe.py  LICENSE                       setup.py
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt$ python ./setup.py install
 running install
 running bdist_egg
@@ -93,13 +97,15 @@ Finished processing dependencies for subword-nmt==0.3.7
 (base) ye@ykt-pro:~/tool/subword-nmt$ ls
 apply_bpe.py  CHANGELOG.md  get_vocab.py  learn_joint_bpe_and_vocab.py  README.md  subword_nmt
 build         dist          learn_bpe.py  LICENSE                       setup.py   subword_nmt.egg-info
+```
 
 *** Installation က pip install နဲ့လည်း လုပ်လို့ရတယ်။
 
 ## Build Syllable based BPE Units
 
-word ဖြတ်ထားတဲ့ ဒေတာနဲ့ BPE unit build လုပ်တာ
+Syllable ဖြတ်ထားတဲ့ ဒေတာနဲ့ BPE unit build လုပ်တာ
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head big-lm2.my.syl.clean 
 မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
 သူ မ ဘယ် သူ့ ကို မှ မ မှတ် မိ တော့ ဘူး ။
@@ -111,16 +117,22 @@ word ဖြတ်ထားတဲ့ ဒေတာနဲ့ BPE unit build လု�
 အ တင်း ပြော ရ တာ မုန်း တယ် ။
  နောက် ဆုံး တစ် ကြိမ် သူ့ ကို ချစ် ပါ တယ် လို့ ပြော ခွ င့် တောင် မ ရ တော့ ဘူး ။
 နာ ဆာ မှ ဒုံး ပျံ စ တက် တာ နဲ့ သူ မှတ် တမ်း ရေး ခဲ့ တယ် ။
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ time python ./learn_bpe.py -i ./y-test/big-lm2.my -o ./y-test/big-lm2.syl.bpe-model
 
 real	0m16.046s
 user	0m15.895s
 sys	0m0.148s
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ ls ./y-test/
 big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head -20 ./big-lm2.syl.bpe-model 
 #version: 0.2
 ေ ာ
@@ -142,30 +154,38 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 တ ော
 မ ှ
 က ို</w>
+```
 
 ## Segmenting with Syllable based BPE
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ cat test1.txt 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
 စာ တော် တဲ့ ကျောင်း သူ တစ် ယောက် ပါ
 အ ရမ်း ဆော့ တဲ့ ကလေး က ကျန်း မာ တယ်
 အခု တော့ ပါ နက် ဆ ရာ ဟာ စက် တင် ဘာ လ ၁၉ ရက် နေ့ မှာ ဆန္ဒ ပြ ပွဲ ကျင်း ပ ဖို့ အ တွက် ပြင် ဆင် နေ ပါ တယ် ။
 ဘတ်စ် ကား စီး ပြီး ရုံး တက် တဲ့ ဘိလပ် ပြန် ညွှန် ကြား ရေး မှူး ချုပ်
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ python ../apply_bpe.py -i ./test1.txt -c ./big-lm2.syl.bpe-model -o ./test1.bpe
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ cat ./test1.bpe 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
 စာ တော် တဲ့ ကျောင်း သူ တစ် ယောက် ပါ
 အ ရမ်း ဆော့ တဲ့ ကလေး က ကျန်း မာ တယ်
 အခု တော့ ပါ နက် ဆ ရာ ဟာ စက် တင် ဘာ လ ၁၉ ရက် နေ့ မှာ ဆန္ဒ ပြ ပွဲ ကျင်း ပ ဖို့ အ တွက် ပြင် ဆင် နေ ပါ တယ် ။
 ဘတ်စ် ကား စီး ပြီး ရုံး တက် တဲ့ ဘိ@@ လပ် ပြန် ညွှန် ကြား ရေး မှူး ချုပ်
+```
 
 ####################
 ####################
 
 ## Character Segmentation
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ ./char-segmentation.sh ./big-lm2.my.syl.clean > ./big-lm2.my.char
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head ./big-lm2.my.char 
 မ င ် း အ ဲ ့ ဒ ါ က ိ ု အ ခ ြ ာ း တ စ ် ခ ု န ဲ ့ မ ခ ျ ိ တ ် ဘ ူ း လ ာ း ။ 
@@ -178,13 +198,17 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 အ တ င ် း ပ ြ ေ ာ ရ တ ာ မ ု န ် း တ ယ ် ။ 
  န ေ ာ က ် ဆ ု ံ း တ စ ် က ြ ိ မ ် သ ူ ့ က ိ ု ခ ျ စ ် ပ ါ တ ယ ် လ ိ ု ့ ပ ြ ေ ာ ခ ွ င ့ ် တ ေ ာ င ် မ ရ တ ေ ာ ့ ဘ ူ း ။ 
 န ာ ဆ ာ မ ှ ဒ ု ံ း ပ ျ ံ စ တ က ် တ ာ န ဲ ့ သ ူ မ ှ တ ် တ မ ် း ရ ေ း ခ ဲ ့ တ ယ ် ။ 
+```
 
 ## Clean heading and trailing spaces etc.
 
 ပိုနေတဲ့ space တွေကို အောက်ပါအတိုင်း ဖျက်ခဲ့
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ perl ./clean-space.pl ./big-lm2.my.char > ./big-lm2.my.char.clean
+```
 
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ head ./big-lm2.my.char.clean 
 မ င ် း အ ဲ ့ ဒ ါ က ိ ု အ ခ ြ ာ း တ စ ် ခ ု န ဲ ့ မ ခ ျ ိ တ ် ဘ ူ း လ ာ း ။
 သ ူ မ ဘ ယ ် သ ူ ့ က ိ ု မ ှ မ မ ှ တ ် မ ိ တ ေ ာ ့ ဘ ူ း ။
@@ -196,9 +220,10 @@ big-lm2.my  big-lm2.my.syl.clean  big-lm2.syl.bpe-model
 အ တ င ် း ပ ြ ေ ာ ရ တ ာ မ ု န ် း တ ယ ် ။
  န ေ ာ က ် ဆ ု ံ း တ စ ် က ြ ိ မ ် သ ူ ့ က ိ ု ခ ျ စ ် ပ ါ တ ယ ် လ ိ ု ့ ပ ြ ေ ာ ခ ွ င ့ ် တ ေ ာ င ် မ ရ တ ေ ာ ့ ဘ ူ း ။
 န ာ ဆ ာ မ ှ ဒ ု ံ း ပ ျ ံ စ တ က ် တ ာ န ဲ ့ သ ူ မ ှ တ ် တ မ ် း ရ ေ း ခ ဲ ့ တ ယ ် ။
+```
+## Learn Character based BPE for Myanmar Language
 
-## Learn BPE
-
+```
 (base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt$ time python ./learn_bpe.py -i ./y-test/big-lm2.my.char.clean -o ./y-test/big-lm2.char.bpe-model
 Traceback (most recent call last):
   File "./learn_bpe.py", line 361, in <module>
@@ -210,6 +235,7 @@ ValueError: max() arg is an empty sequence
 real	0m1.920s
 user	0m1.891s
 sys	0m0.028s
+```
 
 Character segmentation ကြောင့်လို့ ယူဆတယ်။
 
