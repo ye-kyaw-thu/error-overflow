@@ -259,6 +259,19 @@ sys	0m0.028s
 
 Character segmentation ကြောင့်လို့ ယူဆတယ်။
 
+## Extra Testing
+
+character ဖြတ်ထားတာကို input လုပ်ပြီး syllable နဲ့ ဆောက်ထားတဲ့ BPE model ကိုသုံးပြီး pass လုပ်ရင်လည်း မဖြတ်ပေနိုင်တာကို အောက်ပါအတိုင်း တွေ့ရလိမ့်မယ်။  
+
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ python ../apply_bpe.py -c ./big-lm2.syl.bpe-model -i ./test1.char
+မ င ် း က ိ ု င ါ ဘ ယ ် လ ိ ု ခ ေ ါ ် ရ မ လ ဲ 
+စ ာ တ ေ ာ ် တ ဲ ့ က ျ ေ ာ င ် း သ ူ တ စ ် ယ ေ ာ က ် ပ ါ 
+အ ရ မ ် း ဆ ေ ာ ့ တ ဲ ့ က လ ေ း က က ျ န ် း မ ာ တ ယ ် 
+အ ခ ု တ ေ ာ ့ ပ ါ န က ် ဆ ရ ာ ဟ ာ စ က ် တ င ် ဘ ာ လ ၁ ၉ ရ က ် န ေ ့ မ ှ ာ ဆ န ္ ဒ ပ ြ ပ ွ ဲ က ျ င ် း ပ ဖ ိ ု ့ အ တ ွ က ် ပ ြ င ် ဆ င ် န ေ ပ ါ တ ယ ် ။ 
+ဘ တ ် စ ် က ာ း စ ီ း ပ ြ ီ း ရ ု ံ း တ က ် တ ဲ ့ ဘ ိ လ ပ ် ပ ြ န ် ည ွ ှ န ် က ြ ာ း ရ ေ း မ ှ ူ း ခ ျ ု ပ ် 
+```
+
 ## Building Syllable Vocab File
 
 Vocab ဖိုင် ဆောက်ကြည့်မယ် ဆိုရင်  
