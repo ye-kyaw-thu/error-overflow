@@ -671,7 +671,9 @@ spm_train --input=<input> --model_prefix=<model_name> --vocab_size=8000 --charac
 
 ### Build Unigram
 
-ဒီနေရာမှာတော့ vocab_size ကို 8000 ထားကြည့်ထားပါတယ်။  
+ဒီနေရာမှာတော့ vocab_size ကို 8000 ထားကြည့်ထားပါတယ်။ 
+မော်ဒယ်ဖိုင်နာမည်ရဲ့ prefix ကိုတော့ --model_prefix ဆိုတဲ့ option နဲ့ သတ်မှတ်လို့ရတာမို့ word-unigram ဆိုပြီး မော်ဒယ်ရဲ့ ဖိုင်နာမည်ကိုကြည့်တာနဲ့ word segmentation လုပ်ထားတဲ့ training ဒေတာနဲ့ ဆောက်ခဲ့တယ်၊ မော်ဒယ်ကတော့ unigram အမျိုးအစားဆိုတာကို ကွဲကွဲပြားပြားသိအောင် ပေးခဲ့ပါတယ်။  
+နောက်ထပ် အရေးကြီးတဲ့ အချက်တချက်က Sentencepiece ရဲ့ GitHub မှာလည်း ဖော်ပြထားသလို --character_coverage နဲ့ ပတ်သက်ပြီး ပေးတဲ့အခါမှာ မြန်မာစာလို ဘာသာစကားအတွက်က 1.0 ထားသင့်ပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-unigram --vocab_size=8000 --character_coverage=1.0 --model_type=unigram
@@ -757,7 +759,7 @@ sys	0m0.108s
 
 ```
 
-အထက်ပါအတိုင်း ဆောက်လုပ်ရတာကို တွေ့ရပါတယ်။  
+အထက်ပါအတိုင်း မော်ဒယ်ကို အောင်အောင်မြင်မြင်နဲ့ဆောက်လို့ရတာကို တွေ့ရပါတယ်။  
 
 ### Build Syllable Unigram Got Error
 
@@ -841,7 +843,7 @@ sys	0m0.084s
 
 ### Build Syllable Unigram with <=1869
 
-vocab_size ကို 1000 ထားပြီး training လုပ်တော့ မော်ဒယ်ဖိုင် ထွက်လာပါတယ်။  
+vocab_size ကို 1000 ထားပြီး training လုပ်တော့မှ မော်ဒယ်ဖိုင် ထွက်လာပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-unigram --vocab_size=1000 --character_coverage=1.0 --model_type=unigram
@@ -931,8 +933,11 @@ syl-unigram.model  word-unigram.model
 
 ## Build BPE
 
+BPE unit နဲ့ မော်ဒယ်ဆောက်ကြည့်ရအောင်...  
 
 ### Word BPE
+
+Word segmentation လုပ်ထားတဲ့ training ဖိုင် big-lm2.my ကို သုံးမယ်။ ဖိုင်နာမည်ရဲ့ prefix ကိုတော့ word-bpe နဲ့ စပေးဖို့ option ပေးထားခဲ့ပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-bpe --vocab_size=8000 --character_coverage=1.0 --model_type=bpe
@@ -1467,6 +1472,8 @@ real	0m2.632s
 user	0m2.929s
 sys	0m0.052s
 ```
+
+လက်ရှိ ဆိုရင် စုစုပေါင်း မော်ဒယ် သုံးဖိုင် ရှိနေပါပြီ။ model ရဲ့ file zie ကိုလည်း ကြည့်ကြည့်ပါ။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ll *.model -h
