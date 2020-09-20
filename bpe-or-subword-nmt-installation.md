@@ -379,6 +379,84 @@ freq အနည်းဆုံးက ဖိုင်ရဲ့ အောက်ဆ�
 ရဘ် 1
 ```
 
+## FYI
+
+အထက်မှာ လုပ်ပြခဲ့တာတွေက python program ကို ခေါ်ပြီး run တာပါ။
+တကယ်က ကိုယ့်စက်ထဲမှာ install သေချာ လုပ်ထားရင် အောက်ပါအတိုင်း subword-nmt command နဲ့လည်း BPE unit တွေကိုမော်ဒယ်ဆောက်တာ၊ segmentation လုပ်တာမျိုး လုပ်လို့ ရပါလိမ့်မယ်။  
+
+learn-bpe option ကို သုံးဖို့ အတွက်က   
+
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ subword-nmt learn-bpe -h
+usage: subword-nmt learn-bpe [-h] [--input PATH] [--output PATH]
+                             [--symbols SYMBOLS] [--min-frequency FREQ]
+                             [--dict-input] [--total-symbols] [--verbose]
+
+learn BPE-based word segmentation
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input PATH, -i PATH
+                        Input text (default: standard input).
+  --output PATH, -o PATH
+                        Output file for BPE codes (default: standard output)
+  --symbols SYMBOLS, -s SYMBOLS
+                        Create this many new symbols (each representing a
+                        character n-gram) (default: 10000))
+  --min-frequency FREQ  Stop if no symbol pair has frequency >= FREQ (default:
+                        2))
+  --dict-input          If set, input file is interpreted as a dictionary
+                        where each line contains a word-count pair
+  --total-symbols, -t   subtract number of characters from the symbols to be
+                        generated (so that '--symbols' becomes an estimate for
+                        the total number of symbols needed to encode text).
+  --verbose, -v         verbose mode.
+```
+
+apply-bpe option ကို သုံးဖို့အတွက်က  
+
+```
+(base) ye@ykt-pro:~/tool/subword-nmt/build/lib/subword_nmt/y-test$ subword-nmt apply-bpe -h
+usage: subword-nmt apply-bpe [-h] [--input PATH] --codes PATH [--merges INT]
+                             [--output PATH] [--separator STR]
+                             [--vocabulary PATH] [--vocabulary-threshold INT]
+                             [--dropout P] [--glossaries STR [STR ...]]
+
+learn BPE-based word segmentation
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input PATH, -i PATH
+                        Input file (default: standard input).
+  --codes PATH, -c PATH
+                        File with BPE codes (created by learn_bpe.py).
+  --merges INT, -m INT  Use this many BPE operations (<= number of learned
+                        symbols)default: Apply all the learned merge
+                        operations
+  --output PATH, -o PATH
+                        Output file (default: standard output)
+  --separator STR, -s STR
+                        Separator between non-final subword units (default:
+                        '@@'))
+  --vocabulary PATH     Vocabulary file (built with get_vocab.py). If
+                        provided, this script reverts any merge operations
+                        that produce an OOV.
+  --vocabulary-threshold INT
+                        Vocabulary threshold. If vocabulary is provided, any
+                        word with frequency < threshold will be treated as OOV
+  --dropout P           Dropout BPE merge operations with probability P
+                        (Provilkov et al., 2019). Use this on training data
+                        only.
+  --glossaries STR [STR ...]
+                        Glossaries. Words matching any of the words/regex
+                        provided in glossaries will not be affected by the BPE
+                        (i.e. they will neither be broken into subwords, nor
+                        concatenated with other subwords. Can be provided as a
+                        list of words/regex after the --glossaries argument.
+                        Enclose each regex in quotes.
+
+
+```
 ## Reference
 
 Code:  
