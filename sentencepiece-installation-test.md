@@ -2188,3 +2188,7 @@ Subword Regularization: Improving Neural Network Translation Models with Multipl
 
 Neural Machine Translation of Rare Words with Subword Units:  
 [https://www.aclweb.org/anthology/P16-1162.pdf](https://www.aclweb.org/anthology/P16-1162.pdf)  
+
+# Github Source
+
+[Sentencepiece](https://github.com/google/sentencepiece)  
