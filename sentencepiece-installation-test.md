@@ -2178,4 +2178,13 @@ moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ o
 <s> ▁ချုပ် ▁မှူး ▁ရေး ▁ကြား ▁ညွှန် ▁ပြန် ▁ဘိလပ် ▁တဲ့ ▁တက် ▁ရုံး ▁ပြီး ▁စီး ▁ကား ▁ဘတ်စ် </s>
 ```
 
+unigram, bpe, char, word စတဲ့ မော်ဒယ် ၄ခုထဲကမှ ဘယ်မော်ဒယ်က အကောင်းဆုံး ရလဒ်ကို ကိုယ့်ဆောက်ထားတဲ့ မော်ဒယ်က ပေးမှာလဲ ဆိုတဲ့ အချက်ကတော့ အတိအကျပြောဖို့ ခက်ပါတယ်။ ဘာကြောင့်လဲ ဆိုတော့ ဘယ်လို ဒိုမိန်း၊ ဘယ်လိုဒေတာကို သုံးမှာလဲ၊ ပြီးတော့ ဘယ်လောက် ပမာဏ (data size) ကို သုံးမှာလည်း၊ ပြီးတော့ ဘယ်လို application မျိုးအတွက် ရည်ရွယ်တဲ့ မော်ဒယ်ကို ဆောက်မှာလည်း ဆိုတဲ့ အချက်တွေ အများကြီးအပေါ်မှာတော့ မူတည်ပါလိမ့်မယ်။ ကျွန်တော်တို့ မြန်မာစာလို under-resourced langauge အတွက်ကတော့ အကြံပေးရရင်၊ မော်ဒယ်ဆောက်ကြည့် evaluation လုပ်ကြည့်ပြီး confirmation လုပ်တဲ့နည်းကတော့ အသင့်တော်ဆုံးလို့ပဲ ပြောရမှာပါပဲ။ သီအိုရီလို့ ပြောရမလား လက်ရှိအချိန်အထိတော့ ကျွန်တော်လုပ်ခဲ့တဲ့ experiment တွေကနေ ပြောနိုင်တာကတော့ မြန်မာစာလို ဒေတာနည်းတဲ့ machine translation အတွက်ကတော့ sub-word unit တွေက ရလဒ်ကောင်းကောင်းပေးတာကို တွေ့ရပါတယ်။ syllable unit, bpe unit တို့ပါ။  
 
+
+# Reference Papers
+
+Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates:  
+[https://arxiv.org/pdf/1804.10959.pdf](https://arxiv.org/pdf/1804.10959.pdf)  
+
+Neural Machine Translation of Rare Words with Subword Units:  
+[https://www.aclweb.org/anthology/P16-1162.pdf](https://www.aclweb.org/anthology/P16-1162.pdf)  
