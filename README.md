@@ -42,4 +42,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 35. [htk-make-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/htk-make-error.md)  
 36. [Google-trans-installation-error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/google-trans-installation-eg.md)  
 37. [bpe-or-subword-nmt-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/bpe-or-subword-nmt-installation.md)  
+38. [sentencepiece-installation-test.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sentencepiece-installation-test.md)  
 
