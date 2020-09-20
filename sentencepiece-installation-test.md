@@ -2178,6 +2178,161 @@ moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ o
 <s> ▁ချုပ် ▁မှူး ▁ရေး ▁ကြား ▁ညွှန် ▁ပြန် ▁ဘိလပ် ▁တဲ့ ▁တက် ▁ရုံး ▁ပြီး ▁စီး ▁ကား ▁ဘတ်စ် </s>
 ```
 
+## Extracting Vocab List
+
+ဆောက်ထားတဲ့ မော်ဒယ်ကနေ vocab list ကိုလည်း ဆွဲထုပ်လို့ ရပါတယ်။  
+command option ရဲ့ syntax ကတော့ အောက်ပါအတိုင်းပါ။  
+
+spm_export_vocab --model=<model_file> --output=<output file>  
+
+### Extracting Vocab List from syl-word.model
+ပထမဆုံး syl-word.model ဖိုင်ထဲကနေ vocab list ကို ဆွဲထုတ်ကြည့်ကြရအောင် ...   
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ spm_export_vocab --model=syl-word.model --output=syl-word.vocab
+```
+
+မော်ဒယ်ဆောကစဉ်မှာ ပေးခဲ့တဲ့ vocab size အတိုင်း စာလုံးရေအရေအတွက်က ရှိမှာ ဖြစ်ပါတယ်။  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./syl-word.vocab 
+ 1000  2000 23089 ./syl-word.vocab
+```
+
+vocab ဖိုင်ရဲ့ ထိပ်ပိုင်းကို head command နဲ့ ခေါ်ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head ./syl-word.vocab 
+<unk>	0
+<s>	0
+</s>	0
+▁။	-2.646
+▁အ	-3.38824
+▁တယ်	-3.65992
+▁ပါ	-3.7384
+▁မ	-3.79826
+▁က	-3.9237
+▁ကို	-3.98853
+```
+
+tail နဲ့ syl-word.vocab ဖိုင်ရဲ့ နောက်ဆုံး ၁၀ကြောင်းကို ကြည့်ကြည့်ရအောင်  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ tail ./syl-word.vocab 
+▁ဂတ်	-9.92285
+▁တိမ်	-9.92285
+▁ဓါး	-9.92285
+▁သင်္ကြန်	-9.92285
+▁2	-9.93745
+▁လူး	-9.93745
+▁ခေါင်	-9.95227
+▁မြက်	-9.95227
+▁ရှိုး	-9.95227
+▁ရှူး	-9.95227
+
+```
+
+### Extracting Vocab List from syl-char.model
+
+character segmentation နဲ့ ဆောက်ထားတဲ့ မော်ဒယ်ကနေလည်း vocab list ကို ဆွဲကြည့်ရအောင်   
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ spm_export_vocab --model=syl-char.model --output=char-word.vocab
+```
+
+character မော်ဒယ်ရဲ့ vocab ဖိုင်မှာတော့ အရေအတွက်က နည်းမှာ ဖြစ်ပါတယ်။ စုစုပေါင်း 245 လုံးပဲ ရှိတာကို တွေ့ရပါတယ်။  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./char-word.vocab 
+ 245  490 2957 ./char-word.vocab
+```
+
+head လုပ်ကြည့်ရအောင်   
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head ./char-word.vocab 
+<unk>	0
+<s>	0
+</s>	0
+▁	-1.32184
+	-2.49005
+ာ	-3.09707
+း	-3.17944
+က	-3.29593
+တ	-3.35336
+ေ	-3.39885
+```
+
+ကိုယ်သုံးထားတဲ့ training ဖိုင်အပေါ်ကို မူတည်ပြီး မြန်မာစာလုံး မဟုတ်တဲ့ စာလုံးတွေလည်း vocab ဖိုင်ထဲမှာ ရှိနေနိုင်တယ်ဆိုတာကို သဘောပေါက်ပါ။  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ tail ./char-word.vocab 
+说	-15.4788
+道	-15.4788
+配	-15.4788
+随	-15.4788
+音	-15.4788
+频	-15.4788
+餐	-15.4788
+麦	-15.4788
+龙	-15.4788
+😉	-15.4788
+
+```
+
+### Extracting Vocab List from word-word.model
+
+
+ဒီတစ်ခါတော့ word-word.model ကထဲကနေ spm_export_vocab command နဲ့ vocab list ကို ဆွဲထုတ်ကြည့်မယ်။  
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ spm_export_vocab --model=word-word.model --output=word-word.vocab
+```
+
+မော်ဒယ်ဆောက်စဉ်မှာ ပေးခဲ့တဲ့ setting အတိုင်း vocab ကတော့ စုစုပေါင်း 8000 ရှိပါလိမ့်မယ်။
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./word-word.vocab 
+  8000  16000 280232 ./word-word.vocab
+```
+  
+vocab ဖိုင်ကို shuffle လုပ်ပြီး စာလုံး ၃၀ ကို list လုပ်ကြည့်ကြရအောင်    
+
+```
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ shuf ./word-word.vocab | head -30
+▁တစ်ဦးတည်းသော	-12.3683
+▁ညီမဟာ	-12.1451
+▁မီးခိုး	-11.5573
+▁ကိုယ့်ကိုယ်ကို	-12.3683
+▁။”	-11.9628
+▁စာရွက်စာတမ်း	-10.982
+▁ပွင့်ပွင့်လင်းလင်း	-11.8087
+▁စတင်မှု	-12.1451
+▁တော့ပါဘူး	-11.2697
+▁ဖခင်	-10.171
+▁အရင်းအနှီး	-11.3567
+▁ပဉ္စမ	-11.5573
+▁ငါ့	-5.72807
+▁ခွဲစိတ်ခန်း	-12.1451
+▁ကြည့်ခဲ့တယ်	-12.1451
+▁အကြောင်းအရင်း	-11.6751
+▁အိတ်	-7.98001
+▁ကော်လံ	-12.1451
+▁ဘဲဥ	-11.9628
+▁ပုံပဲ	-11.8087
+▁စိန်	-10.9214
+▁ဘယ့်နှယ်	-12.1451
+▁လူသတ်မှု	-12.1451
+▁ပြုပြင်ပြောင်းလဲရေး	-12.1451
+▁ရောက်ပြီး	-12.1451
+▁ဂရုစိုက်	-8.96707
+▁အရေးတကြီး	-11.9628
+▁မိမိ	-9.58018
+▁ဆန္ဒရှိ	-10.6191
+▁လူတန်းစား	-10.8642
+```
+
+## Suggestion for You
+
 unigram, bpe, char, word စတဲ့ မော်ဒယ် ၄ခုထဲကမှ ဘယ်မော်ဒယ်က အကောင်းဆုံး ရလဒ်ကို ကိုယ့်ဆောက်ထားတဲ့ မော်ဒယ်က ပေးမှာလဲ ဆိုတဲ့ အချက်ကတော့ အတိအကျပြောဖို့ ခက်ပါတယ်။ ဘာကြောင့်လဲ ဆိုတော့ ဘယ်လို ဒိုမိန်း၊ ဘယ်လိုဒေတာကို သုံးမှာလဲ၊ ပြီးတော့ ဘယ်လောက် ပမာဏ (data size) ကို သုံးမှာလဲ၊ ဘယ်လို Neural network architecture ကို သုံးမှာလဲ ... ပြီးတော့ ဘယ်လို application မျိုးအတွက် ရည်ရွယ်တဲ့ မော်ဒယ်ကို ဆောက်မှာလဲ ဆိုတဲ့ အချက်တွေ အများကြီးအပေါ်မှာတော့ မူတည်ပါလိမ့်မယ်။ ကျွန်တော်တို့မြန်မာစာလို under-resourced langauge တွေအတွက်ကတော့ အကြံပေးရရင်၊ မော်ဒယ်ဆောက်ကြည့် evaluation လုပ်ကြည့်ပြီး confirmation လုပ်တဲ့နည်းကတော့ အသင့်တော်ဆုံးလို့ပဲ ပြောရမှာပါပဲ။ သီအိုရီလို့ ပြောရမလား လက်ရှိအချိန်အထိတော့ ကျွန်တော်လုပ်ခဲ့တဲ့ experiment တွေကနေပြောနိုင်တာကတော့ မြန်မာစာလို ဒေတာနည်းတဲ့ machine translation အတွက်ကတော့ sub-word unit တွေက ရလဒ်ကောင်းကောင်းပေးတာကို တွေ့ရပါတယ်။ syllable unit, bpe unit တို့ပါ။ မမေ့ပါနဲ့နော် မတူတဲ့ segmentation unit တွေနဲ့ ဆောက်ထားတဲ့ မော်ဒယ်တွေကို နှိုင်းယှဉ်တဲ့ အခါမှာ evaluation မလုပ်ခင်မှာ reference/hypothessis ဒေတာတွေကိုတော့ segmentation unite တစ်ခုပေါ်မှာ ညှိပြီးတော့ လုပ်မှသာ equal comparison ဖြစ်လိမ့်မယ် ဆိုတဲ့ အချက်ကို။  
 
 
