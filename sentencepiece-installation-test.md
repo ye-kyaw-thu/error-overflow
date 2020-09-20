@@ -63,6 +63,7 @@ CMakeLists.txt  CONTRIBUTING.md  doc   python   sentencepiece.pc.in  tensorflow 
 
 ## Error with make command
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ make -j $(nproc)
 Scanning dependencies of target sentencepiece
 Scanning dependencies of target sentencepiece_train-static
@@ -170,9 +171,11 @@ make[1]: *** Waiting for unfinished jobs....
 [ 81%] Built target sentencepiece-static
 Makefile:151: recipe for target 'all' failed
 make: *** [all] Error 2
+```
 
 ## Check HDD Information
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ lsblk -f
 NAME   FSTYPE   LABEL     UUID                                 MOUNTPOINT
 loop0  squashfs                                                /snap/gnome-characters/550
@@ -203,29 +206,37 @@ sdb
 sdc                                                            
 ├─sdc1 vfat     EFI       5F66-17ED                            
 └─sdc2 exfat    project1  5E5F-7ACF                            /media/ye/project1
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ mount | grep "^/dev"
 /dev/sda2 on / type ext4 (rw,relatime,errors=remount-ro)
 /dev/sda1 on /boot/efi type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
 /dev/sdc2 on /media/ye/project1 type fuseblk (rw,nosuid,nodev,relatime,user_id=0,group_id=0,default_permissions,allow_other,blksize=4096,uhelper=udisks2)
 /dev/sdb1 on /media/ye/Transcend type fuseblk (rw,nosuid,nodev,relatime,user_id=0,group_id=0,default_permissions,allow_other,blksize=4096,uhelper=udisks2)
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ sudo file -sL /dev/sdc2
 /dev/sdc2: DOS/MBR boot sector
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ sudo file -sL /dev/sdb1
 /dev/sdb1: DOS/MBR boot sector, code offset 0x52+2, OEM-ID "NTFS    ", sectors/cluster 8, Media descriptor 0xf8, sectors/track 63, heads 255, hidden sectors 2048, dos < 4.0 BootSector (0x80), FAT (1Y bit by descriptor); NTFS, sectors/track 63, sectors 1953519615, $MFT start cluster 786432, $MFTMirror start cluster 2, bytes/RecordSegment 2^(-1*246), clusters/index block 1, serial number 09c2ef43b2ef4104e
+```
 
 ## move to ~/tool
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool$ mv ./sentencepiece/ ~/tool/
 (base) ye@ykt-pro:/media/ye/project1/tool$ cd ~/tool/
 (base) ye@ykt-pro:~/tool$ cd sentencepiece/
 (base) ye@ykt-pro:~/tool/sentencepiece$ ls
 appveyor.yml  CMakeLists.txt  CONTRIBUTING.md  doc      python     sentencepiece.pc.in  tensorflow  test.sh      VERSION
 build         config.h.in     data             LICENSE  README.md  src                  test.bat    third_party
+```
 
 ## Installation
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece$ rm -r build
 (base) ye@ykt-pro:~/tool/sentencepiece$ mkdir build
 (base) ye@ykt-pro:~/tool/sentencepiece$ cd build
@@ -260,9 +271,11 @@ build         config.h.in     data             LICENSE  README.md  src          
 -- Generating done
 -- Build files have been written to: /home/ye/tool/sentencepiece/build
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ 
+```
 
 ## run make
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ make -j $(nproc)
 Scanning dependencies of target sentencepiece_train-static
 Scanning dependencies of target sentencepiece-static
@@ -395,9 +408,11 @@ Scanning dependencies of target spm_normalize
 [100%] Built target spm_train
 [100%] Built target spm_normalize
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ 
+```
 
 ## run sudo make install
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ sudo make install
 [ 10%] Built target sentencepiece_train-static
 [ 46%] Built target sentencepiece-static
@@ -432,9 +447,11 @@ Install the project...
 -- Set runtime path of "/usr/local/bin/spm_export_vocab" to ""
 -- Installing: /usr/local/include/sentencepiece_trainer.h
 -- Installing: /usr/local/include/sentencepiece_processor.h
+```
 
 ## sudo ldconfig -v
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ sudo ldconfig -v
 /sbin/ldconfig.real: Can't stat /usr/local/lib/i386-linux-gnu: No such file or directory
 /sbin/ldconfig.real: Can't stat /usr/local/lib/i686-linux-gnu: No such file or directory
@@ -512,9 +529,11 @@ Install the project...
 	libmonoboehm-2.0.so.1 -> libmonoboehm-2.0.so.1.0.0
 	libann.so.0 -> libann.so.0.0.0
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ 
+```
 
 ## Call --help
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ spm_train --help
 sentencepiece
 
@@ -566,47 +585,64 @@ Usage: spm_train [options] files
    --pad_piece (Override PAD (<pad>) piece.)  type: std::string default: "<pad>"
    --unk_surface (Dummy surface string for <unk>. In decoding <unk> is decoded to `unk_surface`.)  type: std::string default: " ⁇ "
    --train_extremely_large_corpus (Increase bit depth for unigram tokenization.)  type: bool default: false
+```
 
 ## Preparing Training and Test Data
 
 ### Training Data
+
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head -n 3 ./big-lm2.my
 မင်း အဲ့ဒါ ကို အခြား တစ်ခုနဲ့ မ ချိတ် ဘူးလား ။
 သူမ ဘယ်သူ့ကိုမှ မ မှတ်မိတော့ဘူး ။
 အဲ့ဒါ ကျွန်တော် တို့ အတွက် ခက်ခဲ တယ် ။
+```
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head -n 3 ./big-lm2.my.syl.clean 
 မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
 သူ မ ဘယ် သူ့ ကို မှ မ မှတ် မိ တော့ ဘူး ။
 အဲ့ ဒါ ကျွန် တော် တို့ အ တွက် ခက် ခဲ တယ် ။
+```
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./big-lm2.my
    92458   940841 12500002 ./big-lm2.my
+```
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./big-lm2.my.syl.clean 
    92458  1407301 12929896 ./big-lm2.my.syl.clean
+```
 
 ### Test Data
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head ./test1.txt 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
 စာ တော် တဲ့ ကျောင်း သူ တစ် ယောက် ပါ
 အ ရမ်း ဆော့ တဲ့ ကလေး က ကျန်း မာ တယ်
 အခု တော့ ပါ နက် ဆ ရာ ဟာ စက် တင် ဘာ လ ၁၉ ရက် နေ့ မှာ ဆန္ဒ ပြ ပွဲ ကျင်း ပ ဖို့ အ တွက် ပြင် ဆင် နေ ပါ တယ် ။
 ဘတ်စ် ကား စီး ပြီး ရုံး တက် တဲ့ ဘိလပ် ပြန် ညွှန် ကြား ရေး မှူး ချုပ်
+```
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head test2.raw
 နိုင်ငံတခု ထူထောင်တဲ့အခါမှာ စစ်တပ်၊ စီးပွားရေးလုပ်ငန်းတွေနဲ့ တရားရုံးစတဲ့ ပင်မအဖွဲ့အစည်းတွေသာမက စာပေ ယဉ်ကျေးမှု စိတ်ဓာတ်ပိုင်းကလည်း နိုင်ငံသိစိတ် ချစ်စိတ်တွေ ပေါ်လာအောင် ဆော်ဩ ပေးရပါတယ်။ ဒါကိုသိတဲ့ လူကြီးပိုင်းက မြန်မာပြည်အတွက် ပြတိုက် စာကြည့်တိုက်နဲ့ အနုပညာတိုက်တွေ ရှိဖို့လိုတဲ့အကြောင်း ကိုလိုနီခေတ်ကစပြီး တိုက်တွန်းခဲ့ကြသလို ဒီယဉ်ကျေးမှု အဆောက်အဦတွေကို ကွပ်ကဲဖို့ အတွက် ပညာရှင်တွေ ပေါ်ထွက်ဖို့လည်း ကမ္ဘာစစ် မဖြစ်ခင်ကတည်းက စိုင်းပြင်းခဲ့ကြပါတယ်။ ဒါကြောင့် ဦးခင်ဇော်နဲ့ ဦးသိန်းဟန်ကို ပိဋကတ်တိုက်ပညာလို့ ခေါ်တဲ့ စာကြည့်တိုက်လုပ်ငန်းအတွက် ဗြိတိန်ကို စေလွှတ်ခဲ့ သလို ပန်းချီပညာသင်အဖြစ် ဦးဘဉာဏ်နဲ့ ဦးဘဇော်ကိုလည်း ဒီ့အရင်ကတည်းက လန်ဒန်ကို ပို့ခဲ့ပါတယ်။
 
 ဒါပေမဲ့ ကိုလိုနီခေတ်မြန်မာနိုင်ငံမှာ အဲဒီအချိန်ထိ အမျိုးသားစာကြည့်တိုက်နဲ့ ပြတိုက်၊ အနုပညာပြခန်းတွေ မရှိသေးဘဲ ရန်ကုန် တက္ကသိုလ် ပိဋကတ်တိုက်နဲ့ ရန်ကုန်မြို့ထဲက ဗားနတ်ပိဋကတ်တိုက်နဲ့ ပြတိုက်အပြင် ပြည်နားက မှော်ဇာ၊ ရခိုင်က မြောက်ဦးနဲ့ အညာက ပုဂံ၊ ရွှေဘိုနဲ့ မန္တလေးမှာ ကမ္ပည်းကျောက်စာဌာန ပြတိုက်ကလေးတွေပဲ ရှိခဲ့ပါတယ်။
+```
 
 ## Training Unigram
 
+```
 command ရဲ့ syntax က အောက်ပါအတိုင်း   
 spm_train --input=<input> --model_prefix=<model_name> --vocab_size=8000 --character_coverage=1.0 --model_type=<type>
+```
 
 ### Build Unigram
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-unigram --vocab_size=8000 --character_coverage=1.0 --model_type=unigram
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -688,8 +724,11 @@ real	0m4.920s
 user	0m9.525s
 sys	0m0.108s
 
+```
+
 ### Build Syllable Unigram Got Error
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-unigram --vocab_size=8000 --character_coverage=1.0 --model_type=unigram
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -763,11 +802,13 @@ Program terminated with an unrecoverable error.
 real	0m2.610s
 user	0m2.935s
 sys	0m0.084s
+```
 
 ### Build Syllable Unigram with <=1869
 
 vocab size ကို 1000 ထားပြီး training လုပ်တော့ မော်ဒယ်ဖိုင် ထွက်လာတယ်။  
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-unigram --vocab_size=1000 --character_coverage=1.0 --model_type=unigram
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -844,6 +885,8 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: syl-unigram.vocab
 real	0m2.687s
 user	0m3.076s
 sys	0m0.073s
+```
+
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ls *.model
@@ -853,6 +896,8 @@ syl-unigram.model  word-unigram.model
 ## Build BPE
 
 ### Word BPE
+
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-bpe --vocab_size=8000 --character_coverage=1.0 --model_type=bpe
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1384,6 +1429,7 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: word-bpe.vocab
 real	0m2.632s
 user	0m2.929s
 sys	0m0.052s
+```
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ll *.model -h
@@ -1394,6 +1440,7 @@ sys	0m0.052s
 
 ### Syllable BPE
 
+```
 Syllable BPE မှာလည်း error ထွက်တယ်
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-bpe --vocab_size=8000 --character_coverage=1.0 --model_type=bpe
 ...
@@ -1410,11 +1457,14 @@ Program terminated with an unrecoverable error.
 real	0m0.852s
 user	0m1.189s
 sys	0m0.041s
+```
+
 
 ### Build Again with Smaller Vocab Size
 
 vocab size ကို 1000 ထားပြီး ဆောက်ကြည့်တော့ OK တယ် ...  
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-bpe --vocab_size=1000 --character_coverage=1.0 --model_type=bpe
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1526,6 +1576,7 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: syl-bpe.vocab
 real	0m0.714s
 user	0m1.056s
 sys	0m0.028s
+```
 
 Check the output model ...   
 
@@ -1538,6 +1589,7 @@ syl-bpe.model  syl-unigram.model  word-bpe.model  word-unigram.model
 
 ### Build Word Char
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-char --vocab_size=8000 --character_coverage=1.0 --model_type=char
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1602,6 +1654,9 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: word-char.vocab
 real	0m0.524s
 user	0m0.855s
 sys	0m0.016s
+```
+
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ls *.model
 syl-bpe.model  syl-unigram.model  word-bpe.model  word-char.model  word-unigram.model
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ll -h *.model
@@ -1610,20 +1665,26 @@ syl-bpe.model  syl-unigram.model  word-bpe.model  word-char.model  word-unigram.
 -rw-r--r-- 1 ye ye 445K စက်   20 18:17 word-bpe.model
 -rw-r--r-- 1 ye ye 235K စက်   20 18:25 word-char.model
 -rw-r--r-- 1 ye ye 447K စက်   20 18:07 word-unigram.model
+```
 
 char model အတွက်က vocab size ကို ပြောင်းကြည့်လဲ အတူတူပဲဆိုတာကို တွေ့ရတယ်
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-char --vocab_size=1000 --character_coverage=1.0 --model_type=char
+```
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ll -h *.model
 -rw-r--r-- 1 ye ye 251K စက်   20 18:22 syl-bpe.model
 -rw-r--r-- 1 ye ye 251K စက်   20 18:13 syl-unigram.model
 -rw-r--r-- 1 ye ye 445K စက်   20 18:17 word-bpe.model
 -rw-r--r-- 1 ye ye 235K စက်   20 18:28 word-char.model
 -rw-r--r-- 1 ye ye 447K စက်   20 18:07 word-unigram.model
+```
 
 ### Build char Model with Syllable Segmented Training Data
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-char --vocab_size=1000 --character_coverage=1.0 --model_type=char
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1688,6 +1749,7 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: syl-char.vocab
 real	0m0.554s
 user	0m0.918s
 sys	0m0.020s
+```
 
 char model မှာက word နဲ့ပဲ ဆောက်ဆောက် syllable ဖြတ်ပြီးတော့ပဲ ဆောက်ဆောက် ထွက်လာတဲ့ output model မှာ size က အတူတူပဲ ဆိုတာကို confirmation လုပ်ခဲ့တယ်။  
 
@@ -1699,6 +1761,7 @@ char model မှာက word နဲ့ပဲ ဆောက်ဆောက် syll
 
 ## Build word Model with Word Segmented Training Data
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-word --vocab_size=8000 --character_coverage=1.0 --model_type=word
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1772,11 +1835,13 @@ sys	0m0.012s
 -rw-r--r-- 1 ye ye 235K စက်   20 18:28 word-char.model
 -rw-r--r-- 1 ye ye 447K စက်   20 18:07 word-unigram.model
 -rw-r--r-- 1 ye ye 499K စက်   20 18:34 word-word.model
+```
 
 ### Build word Model with Syllable Segmented Training Data
 
 အောက်ပါအတိုင်း error ပေးတယ်
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-word --vocab_size=8000 --character_coverage=1.0 --model_type=word
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1842,9 +1907,11 @@ Program terminated with an unrecoverable error.
 real	0m0.678s
 user	0m1.021s
 sys	0m0.028s
+```
 
 ### Change vocab size
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-word --vocab_size=1000 --character_coverage=1.0 --model_type=word
 sentencepiece_trainer.cc(79) LOG(INFO) Starts training with : 
 trainer_spec {
@@ -1909,6 +1976,7 @@ trainer_interface.cc(617) LOG(INFO) Saving vocabs: syl-word.vocab
 real	0m0.693s
 user	0m1.036s
 sys	0m0.028s
+```
 
 ထင်ထားတဲ့အတိုင်းပါပဲ word မော်ဒယ်အတွက်က syllable ဖြတ်ပြီး ဆောက်တာနဲ့ word segmentation လုပ်ပြီး ဆောက်တာရဲ့ output မော်ဒယ်တွေက မတူပါဘူး။ အောက်ပါအတိုင်းပါပဲ  
 
@@ -1926,6 +1994,7 @@ spm_encode --model=<model_file> --output_format=id < input > output
 
 ## Segmentation on test1.txt
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ spm_encode --model=syl-unigram.model --output_format=piece < ./test1.txt
 ▁မင်း ▁ကို ▁ငါ ▁ဘယ် လ ိ ု ▁ခေါ် ▁ရ ▁မ ▁လဲ
 ▁စာ ▁တော် ▁တဲ့ ▁ကျ ောင်း ▁သူ ▁တ စ် ▁ယောက် ▁ပါ
@@ -1974,6 +2043,7 @@ spm_encode --model=<model_file> --output_format=id < input > output
 ▁အ ▁ရမ်း ▁ဆော့ ▁တဲ့ ▁ကလေး ▁က ▁ကျန်း ▁မာ ▁တယ်
 ▁အခု ▁တော့ ▁ပါ ▁နက် ▁ဆ ▁ရာ ▁ဟာ ▁စက် ▁တင် ▁ဘာ ▁လ ▁၁၉ ▁ရက် ▁နေ့ ▁မှာ ▁ဆန္ဒ ▁ပြ ▁ပွဲ ▁ကျင်း ▁ပ ▁ဖို့ ▁အ ▁တွက် ▁ပြင် ▁ဆင် ▁နေ ▁ပါ ▁တယ် ▁။
 ▁ဘတ်စ် ▁ကား ▁စီး ▁ပြီး ▁ရုံး ▁တက် ▁တဲ့ ▁ဘိလပ် ▁ပြန် ▁ညွှန် ▁ကြား ▁ရေး ▁မှူး ▁ချုပ်
+```
 
 ## Segmentation on test2.raw
 
@@ -1993,6 +2063,7 @@ spm_encode --model=word-word.model --output_format=piece < ./test2.raw
 
 moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ output တွေကို လေ့လာကြည့်ကြရအောင်   
 
+```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ spm_encode --model=syl-unigram.model --output_format=piece < ./test2.raw
 ▁နိုင် င ံ တ ခ ု ▁ထူ ထ ောင် တ ဲ့ အ ခ ါ မ ှ ာ ▁စစ် တ ပ် ၊ ▁စီး ပ ွ ား ရ ေး လ ုပ် င န်း တ ွ ေ န ဲ့ ▁တ ရ ား ရ ုံး စ တ ဲ့ ▁ပင် မ အ ဖ ွဲ ့ အ စ ည်း တ ွ ေ သ ာ မ က ▁စာ ပ ေ ▁ယဉ် က ျ ေး မ ှ ု ▁စ ိတ် ဓ ာ တ် ပ ိုင်း က လ ည်း ▁နိုင် င ံ သ ိ စ ိတ် ▁ချစ် စ ိတ် တ ွ ေ ▁ပေါ် လာ အ ောင် ▁ဆ ော် ဩ ▁ပေး ရ ပ ါ တ ယ် ။ ▁ဒါ က ိ ု သ ိ တ ဲ့ ▁လူ က ြ ီး ပ ိုင်း က ▁မြန် မ ာ ပ ြ ည ် အ တ ွက် ▁ပြ တ ိုက် ▁စာ က ြ ည ့ ် တ ိုက် န ဲ့ ▁အ န ု ပ ည ာ တ ိုက် တ ွ ေ ▁ရှိ ဖ ိ ု ့ လ ိ ု တ ဲ့ အ က ြ ောင်း ▁ကို လ ိ ု န ီ ခ ေ တ် က စ ပ ြ ီး ▁တိုက် တ ွ န်း ခ ဲ့ က ြ သ လ ိ ု ▁ဒီ ယ ဉ် က ျ ေး မ ှ ု ▁အ ဆ ောက် အ ဦ တ ွ ေ က ိ ု ▁ကွ ပ် က ဲ ဖ ိ ု ့ ▁အ တ ွက် ▁ပ ည ာ ရ ှ င် တ ွ ေ ▁ပေါ် ထ ွက် ဖ ိ ု ့ လ ည်း ▁ကမ္ဘာ စ စ် ▁မ ဖ ြ စ် ခ င် က တ ည်း က ▁စ ိုင်း ပ ြ င်း ခ ဲ့ က ြ ပ ါ တ ယ် ။ ▁ဒါ က ြ ေ ာ င ့ ် ▁ဦး ခ င် ဇ ော် န ဲ့ ▁ဦး သ ိန်း ဟ န် က ိ ု ▁ပိ ဋ က တ် တ ိုက် ပ ည ာ လ ိ ု ့ ▁ခေါ် တ ဲ့ ▁စာ က ြ ည ့ ် တ ိုက် လ ုပ် င န်း အ တ ွက် ▁ဗ ြိ တ ိန် က ိ ု ▁စေ လ ွ ှ တ် ခ ဲ့ ▁သ လ ိ ု ▁ပန် း ခ ျ ီ ပ ည ာ သ င် အ ဖ ြ စ် ▁ဦး ဘ ဉ ာ ဏ် န ဲ့ ▁ဦး ဘ ဇ ော် က ိ ု လ ည်း ▁ဒီ ့ အ ရ င် က တ ည်း က ▁လန် ဒ န် က ိ ု ▁ပို့ ခ ဲ့ ပ ါ တ ယ် ။
 
@@ -2025,5 +2096,7 @@ moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ o
 ▁နိုင်ငံတခု▁ထူထောင်တဲ့အခါမှာ▁စစ်တပ်၊▁စီးပွားရေးလုပ်ငန်းတွေနဲ့▁တရားရုံးစတဲ့▁ပင်မအဖွဲ့အစည်းတွေသာမက ▁စာပေ ▁ယဉ်ကျေးမှု ▁စိတ်ဓာတ်ပိုင်းကလည်း▁နိုင်ငံသိစိတ်▁ချစ်စိတ်တွေ▁ပေါ်လာအောင်▁ဆော်ဩ▁ပေးရပါတယ်။▁ဒါကိုသိတဲ့▁လူကြီးပိုင်းက▁မြန်မာပြည်အတွက် ▁ပြတိုက် ▁စာကြည့်တိုက်နဲ့▁အနုပညာတိုက်တွေ▁ရှိဖို့လိုတဲ့အကြောင်း▁ကိုလိုနီခေတ်ကစပြီး▁တိုက်တွန်းခဲ့ကြသလို▁ဒီယဉ်ကျေးမှု▁အဆောက်အဦတွေကို▁ကွပ်ကဲဖို့ ▁အတွက် ▁ပညာရှင်တွေ▁ပေါ်ထွက်ဖို့လည်း▁ကမ္ဘာစစ်▁မဖြစ်ခင်ကတည်းက▁စိုင်းပြင်းခဲ့ကြပါတယ်။ ▁ဒါကြောင့် ▁ဦးခင်ဇော်နဲ့▁ဦးသိန်းဟန်ကို▁ပိဋကတ်တိုက်ပညာလို့▁ခေါ်တဲ့▁စာကြည့်တိုက်လုပ်ငန်းအတွက်▁ဗြိတိန်ကို▁စေလွှတ်ခဲ့ ▁သလို ▁ပန်းချီပညာသင်အဖြစ်▁ဦးဘဉာဏ်နဲ့▁ဦးဘဇော်ကိုလည်း▁ဒီ့အရင်ကတည်းက▁လန်ဒန်ကို▁ပို့ခဲ့ပါတယ်။
 
 ▁ဒါပေမဲ့ ▁ကိုလိုနီခေတ်မြန်မာနိုင်ငံမှာ▁အဲဒီအချိန်ထိ▁အမျိုးသားစာကြည့်တိုက်နဲ့▁ပြတိုက်၊▁အနုပညာပြခန်းတွေ▁မရှိသေးဘဲ ▁ရန်ကုန် ▁တက္ကသိုလ် ▁ပိဋကတ်တိုက်နဲ့▁ရန်ကုန်မြို့ထဲက▁ဗားနတ်ပိဋကတ်တိုက်နဲ့▁ပြတိုက်အပြင်▁ပြည်နားက▁မှော်ဇာ၊▁ရခိုင်က▁မြောက်ဦးနဲ့▁အညာက▁ပုဂံ၊▁ရွှေဘိုနဲ့▁မန္တလေးမှာ▁ကမ္ပည်းကျောက်စာဌာန▁ပြတိုက်ကလေးတွေပဲ▁ရှိခဲ့ပါတယ်။
+```
+
 
 
