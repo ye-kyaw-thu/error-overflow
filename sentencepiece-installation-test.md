@@ -2033,8 +2033,11 @@ sys	0m0.028s
 # Applying
 
 command line syntax က အောက်ပါအတိုင်း  
+
+```
 spm_encode --model=<model_file> --output_format=piece < input > output  
 spm_encode --model=<model_file> --output_format=id < input > output
+```
 
 ## Segmentation on test1.txt
 
@@ -2183,7 +2186,10 @@ moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ o
 ဆောက်ထားတဲ့ မော်ဒယ်ကနေ vocab list ကိုလည်း ဆွဲထုပ်လို့ ရပါတယ်။  
 command option ရဲ့ syntax ကတော့ အောက်ပါအတိုင်းပါ။  
 
+```
 spm_export_vocab --model=<model_file> --output=<output file>  
+```
+
 
 ### Extracting Vocab List from syl-word.model
 ပထမဆုံး syl-word.model ဖိုင်ထဲကနေ vocab list ကို ဆွဲထုတ်ကြည့်ကြရအောင် ...   
