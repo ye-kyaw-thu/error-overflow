@@ -2192,4 +2192,4 @@ Neural Machine Translation of Rare Words with Subword Units:
 # Github Source
 
 Sentencepiece ရဲ့ source code ရှိတဲ့ GitHub Link:  
-[Sentencepiece](https://github.com/google/sentencepiece)  
+[https://github.com/google/sentencepiece](https://github.com/google/sentencepiece)  
