@@ -1989,7 +1989,7 @@ sys	0m0.028s
 # Applying
 
 command line syntax က အောက်ပါအတိုင်း  
-spm_encode --model=<model_file> --output_format=piece < input > output
+spm_encode --model=<model_file> --output_format=piece < input > output  
 spm_encode --model=<model_file> --output_format=id < input > output
 
 ## Segmentation on test1.txt
@@ -2051,14 +2051,14 @@ spm_encode --model=<model_file> --output_format=id < input > output
 အောက်ပါ command ကို run ပါမယ်။  
 
 ```
-spm_encode --model=syl-unigram.model --output_format=piece < ./test2.raw
-spm_encode --model=word-unigram.model --output_format=piece < ./test2.raw
-spm_encode --model=syl-bpe.model --output_format=piece < ./test2.raw
-spm_encode --model=word-bpe.model --output_format=piece < ./test2.raw
-spm_encode --model=syl-char.model --output_format=piece < ./test2.raw
-spm_encode --model=word-char.model --output_format=piece < ./test2.raw
-spm_encode --model=syl-word.model --output_format=piece < ./test2.raw
-spm_encode --model=word-word.model --output_format=piece < ./test2.raw
+spm_encode --model=syl-unigram.model --output_format=piece < ./test2.raw  
+spm_encode --model=word-unigram.model --output_format=piece < ./test2.raw  
+spm_encode --model=syl-bpe.model --output_format=piece < ./test2.raw  
+spm_encode --model=word-bpe.model --output_format=piece < ./test2.raw  
+spm_encode --model=syl-char.model --output_format=piece < ./test2.raw  
+spm_encode --model=word-char.model --output_format=piece < ./test2.raw  
+spm_encode --model=syl-word.model --output_format=piece < ./test2.raw  
+spm_encode --model=word-word.model --output_format=piece < ./test2.raw  
 ```
 
 moel တစ်ခုချင်းစီရဲ့ ထွက်လာတဲ့ output တွေကို လေ့လာကြည့်ကြရအောင်   
