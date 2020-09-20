@@ -175,6 +175,8 @@ make: *** [all] Error 2
 
 ## Check HDD Information
 
+lsblk command နဲ့ HDD mount point တွေနဲ့ file system ကို check လုပ်လို့ ရပါတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ lsblk -f
 NAME   FSTYPE   LABEL     UUID                                 MOUNTPOINT
@@ -208,6 +210,8 @@ sdc
 └─sdc2 exfat    project1  5E5F-7ACF                            /media/ye/project1
 ```
 
+mount command နဲ့ grep command ကို တွဲပြီးတော့လည်း check လုပ်နိုင်ပါတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ mount | grep "^/dev"
 /dev/sda2 on / type ext4 (rw,relatime,errors=remount-ro)
@@ -216,12 +220,17 @@ sdc
 /dev/sdb1 on /media/ye/Transcend type fuseblk (rw,nosuid,nodev,relatime,user_id=0,group_id=0,default_permissions,allow_other,blksize=4096,uhelper=udisks2)
 ```
 
+file command နဲ့လည်း check လုပ်လို့ ရပါတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ sudo file -sL /dev/sdc2
 /dev/sdc2: DOS/MBR boot sector
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ sudo file -sL /dev/sdb1
 /dev/sdb1: DOS/MBR boot sector, code offset 0x52+2, OEM-ID "NTFS    ", sectors/cluster 8, Media descriptor 0xf8, sectors/track 63, heads 255, hidden sectors 2048, dos < 4.0 BootSector (0x80), FAT (1Y bit by descriptor); NTFS, sectors/track 63, sectors 1953519615, $MFT start cluster 786432, $MFTMirror start cluster 2, bytes/RecordSegment 2^(-1*246), clusters/index block 1, serial number 09c2ef43b2ef4104e
 ```
+
+အထက်ပါ Error က symbolic link လုပ်လို့ မရတဲ့ error ပါ။  
+လက်ရှိ ဆရာ သုံးထားတာက 3TB HDD အကြီးကြီးဖြစ်ပြီး အဲဒီအပေါ်မှာ installation လုပ်ဖို့ ကြိုးစားရင်း symbolic link ကို create လုပ်လို့ မရတဲ့ error လို့ နားလည်ပါတယ်။ အဲဒါကြောင့် git clone လုပ်ထားတဲ့ folder ကို notebook ရဲ့ builtin HDD အောက်က tool/ အောက်ကို move လုပ်ပြီး installation ကို ဆက်လုပ်ကြည့်ခဲ့ပါတယ်။  
 
 ## move to ~/tool
 
@@ -235,6 +244,8 @@ build         config.h.in     data             LICENSE  README.md  src          
 ```
 
 ## Installation
+
+ရှိနေပြီးသား build ဖိုလ်ဒါကို ဖျက်ပြီး အသစ်ပြန် create လုပ်ပါတယ်။ ပြီးမှ installation ရဲ့ command တစ်ခုဖြစ်တဲ့ cmake .. ကို run လုပ်တာ အဆင်ပြေပြေနဲ့ ပြီးသွားတာကို အောက်ပါအတိုင်း တွေ့ရပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece$ rm -r build
@@ -274,6 +285,8 @@ build         config.h.in     data             LICENSE  README.md  src          
 ```
 
 ## run make
+
+make command ကို run တဲ့အခါမှာတော့ CPU က ကိုယ့်စက်ထဲမှာ ရှိတဲ့ အရေအတွက်ကို nproc command နဲ့ ရှာကြည့်ပြီး make ကို pass လုပ်ပေးတော့ installation process က ပိုမြန်ဆန်ပါလိမ့်မယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ make -j $(nproc)
@@ -412,6 +425,8 @@ Scanning dependencies of target spm_normalize
 
 ## run sudo make install
 
+နောက်ဆုံး installation command ဖြစ်တဲ့ make install ကို run တာပါ။ သူကတော့ super user right ရှိမှ run လို့ရမှာ ဖြစ်ပါတယ်။  
+
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ sudo make install
 [ 10%] Built target sentencepiece_train-static
@@ -450,6 +465,8 @@ Install the project...
 ```
 
 ## sudo ldconfig -v
+
+ldconfig command ကတော့ library configuration ဖိုင်ကို update လုပ်တဲ့ command ပါ။ -v (verbose) နဲ့ run တာမို့ screen မှာ ထွက်လာမယ့် output တွေက အများကြီးမို့လို့ အိုက်ဒီယာရအောင် တချို့ကိုပဲ ပြထားပါတယ်။ မဟုတ်ရင် လိုင်းက ထောင်ချီပြီးတော့ ရှိမှာမို့ပါ။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ sudo ldconfig -v
@@ -533,6 +550,8 @@ Install the project...
 
 ## Call --help
 
+ထုံးစံအတိုင်းပါ installation က အဆင်ပြေပြေနဲ့ ကိုယ့်စက်ထဲမှာ ပြီးစီးသွားမယ်ဆိုရင် အောက်ပါအတိုင်း help ခေါ်ကြည့်လို့ ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/build$ spm_train --help
 sentencepiece
@@ -589,6 +608,8 @@ Usage: spm_train [options] files
 
 ## Preparing Training and Test Data
 
+Training data နှစ်ဖိုင် သုံးပါမယ်။ တစ်ဖိုင်က big-lm2.my ဖိုင်ပါ။ သူကတော့ manual word segmentation လုပ်ထားတဲ့ ဖိုင်ပါ။ နောက်တစ်ဖိုင်ရဲ့ နာမည်ကတော့ big-lm2.my.syl.clean ဖိုင်ပါ။ အဲဒီဖိုင်ကတော့ စောစောက big-lm2.my ဖိုင်ကိုပဲ syllable breaking လုပ်ထားပြီးတော့ ပိုနေတဲ့ space တွေကို ရှင်းထားတဲ့ ဖိုင်ဖြစ်ပါတယ်။  
+
 ### Training Data
 
 ```
@@ -605,6 +626,8 @@ Usage: spm_train [options] files
 အဲ့ ဒါ ကျွန် တော် တို့ အ တွက် ခက် ခဲ တယ် ။
 ```
 
+ဖိုင်ရဲ့ size ကတော့ အောက်ပါအတိုင်းပါ။ စုစုပေါင်း စာကြောင်းရေအရေအတွက်ကတော့ 92,458 ရှိပါတယ်။ ကိုးသောင်းကျော်ရှိပါတယ်။ BPE ဆောက်တဲ့အခါမှာ တကယ်က ဒေတာကို များနိုင်သမျှ များအောင် ပြင်ထားတဲ့ monolingual ဖိုင်နဲ့ ဆောက်ကြမှသာ သင့်တော်ပါလိမ့်မယ်။  
+
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ wc ./big-lm2.my
    92458   940841 12500002 ./big-lm2.my
@@ -617,8 +640,10 @@ Usage: spm_train [options] files
 
 ### Test Data
 
+test ဖိုင် နှစ်ဖိုင်ပြင်ထားပါတယ်။ အဲဒီ ဖိုင်အထဲမှာ ပါတဲ့ ဒေတာက အောက်ပါအတိုင်းပါ။ စာကြောင်းရေက အများကြီး မထည့်ထားပါဘူး  
+
 ```
-(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head ./test1.txt 
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ cat ./test1.txt 
 မင်း ကို ငါ ဘယ်လို ခေါ် ရ မ လဲ
 စာ တော် တဲ့ ကျောင်း သူ တစ် ယောက် ပါ
 အ ရမ်း ဆော့ တဲ့ ကလေး က ကျန်း မာ တယ်
@@ -626,8 +651,10 @@ Usage: spm_train [options] files
 ဘတ်စ် ကား စီး ပြီး ရုံး တက် တဲ့ ဘိလပ် ပြန် ညွှန် ကြား ရေး မှူး ချုပ်
 ```
 
+အောက်ပါဖိုင်ကတော့ BBC Burmese ရဲ့ article တစ်ခုတည်းကနေ ယူထားတဲ့ စာကြောင်းတွေ ဖြစ်ပါတယ်။  
+
 ```
-(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ head test2.raw
+(base) ye@ykt-pro:~/tool/sentencepiece/y-test$ cat test2.raw
 နိုင်ငံတခု ထူထောင်တဲ့အခါမှာ စစ်တပ်၊ စီးပွားရေးလုပ်ငန်းတွေနဲ့ တရားရုံးစတဲ့ ပင်မအဖွဲ့အစည်းတွေသာမက စာပေ ယဉ်ကျေးမှု စိတ်ဓာတ်ပိုင်းကလည်း နိုင်ငံသိစိတ် ချစ်စိတ်တွေ ပေါ်လာအောင် ဆော်ဩ ပေးရပါတယ်။ ဒါကိုသိတဲ့ လူကြီးပိုင်းက မြန်မာပြည်အတွက် ပြတိုက် စာကြည့်တိုက်နဲ့ အနုပညာတိုက်တွေ ရှိဖို့လိုတဲ့အကြောင်း ကိုလိုနီခေတ်ကစပြီး တိုက်တွန်းခဲ့ကြသလို ဒီယဉ်ကျေးမှု အဆောက်အဦတွေကို ကွပ်ကဲဖို့ အတွက် ပညာရှင်တွေ ပေါ်ထွက်ဖို့လည်း ကမ္ဘာစစ် မဖြစ်ခင်ကတည်းက စိုင်းပြင်းခဲ့ကြပါတယ်။ ဒါကြောင့် ဦးခင်ဇော်နဲ့ ဦးသိန်းဟန်ကို ပိဋကတ်တိုက်ပညာလို့ ခေါ်တဲ့ စာကြည့်တိုက်လုပ်ငန်းအတွက် ဗြိတိန်ကို စေလွှတ်ခဲ့ သလို ပန်းချီပညာသင်အဖြစ် ဦးဘဉာဏ်နဲ့ ဦးဘဇော်ကိုလည်း ဒီ့အရင်ကတည်းက လန်ဒန်ကို ပို့ခဲ့ပါတယ်။
 
 ဒါပေမဲ့ ကိုလိုနီခေတ်မြန်မာနိုင်ငံမှာ အဲဒီအချိန်ထိ အမျိုးသားစာကြည့်တိုက်နဲ့ ပြတိုက်၊ အနုပညာပြခန်းတွေ မရှိသေးဘဲ ရန်ကုန် တက္ကသိုလ် ပိဋကတ်တိုက်နဲ့ ရန်ကုန်မြို့ထဲက ဗားနတ်ပိဋကတ်တိုက်နဲ့ ပြတိုက်အပြင် ပြည်နားက မှော်ဇာ၊ ရခိုင်က မြောက်ဦးနဲ့ အညာက ပုဂံ၊ ရွှေဘိုနဲ့ မန္တလေးမှာ ကမ္ပည်းကျောက်စာဌာန ပြတိုက်ကလေးတွေပဲ ရှိခဲ့ပါတယ်။
@@ -635,12 +662,16 @@ Usage: spm_train [options] files
 
 ## Training Unigram
 
+အရင်ဆုံး unigram unit model ကို ဆောက်ကြည့်ရအောင်  
+
 ```
 command ရဲ့ syntax က အောက်ပါအတိုင်း   
 spm_train --input=<input> --model_prefix=<model_name> --vocab_size=8000 --character_coverage=1.0 --model_type=<type>
 ```
 
 ### Build Unigram
+
+ဒီနေရာမှာတော့ vocab_size ကို 8000 ထားကြည့်ထားပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my --model_prefix=word-unigram --vocab_size=8000 --character_coverage=1.0 --model_type=unigram
@@ -726,7 +757,11 @@ sys	0m0.108s
 
 ```
 
+အထက်ပါအတိုင်း ဆောက်လုပ်ရတာကို တွေ့ရပါတယ်။  
+
 ### Build Syllable Unigram Got Error
+
+သို့သော် syllable ဖြတ်ထားတဲ့ training ဒေတာဖိုင်ကို သုံးပြီး ဆောက်ကြည့်တဲ့အခါမှာတော့ vocab_size ကို 8000 ထားရင် အောက်ပါအတိုင်း error ပေးတာကို တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-unigram --vocab_size=8000 --character_coverage=1.0 --model_type=unigram
@@ -806,7 +841,7 @@ sys	0m0.084s
 
 ### Build Syllable Unigram with <=1869
 
-vocab size ကို 1000 ထားပြီး training လုပ်တော့ မော်ဒယ်ဖိုင် ထွက်လာတယ်။  
+vocab_size ကို 1000 ထားပြီး training လုပ်တော့ မော်ဒယ်ဖိုင် ထွက်လာပါတယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ time spm_train --input=./big-lm2.my.syl.clean --model_prefix=syl-unigram --vocab_size=1000 --character_coverage=1.0 --model_type=unigram
@@ -887,6 +922,7 @@ user	0m3.076s
 sys	0m0.073s
 ```
 
+output ထွက်လာတဲ့ ဖိုင်တွေကတော့ ကိုယ်ပေးခဲ့တဲ့ prefix အပေါ်မှာလည်း မူတည်ပါလိမ့်မယ်။  
 
 ```
 (base) ye@ykt-pro:~/tool/sentencepiece/y-test$ ls *.model
@@ -894,6 +930,7 @@ syl-unigram.model  word-unigram.model
 ```
 
 ## Build BPE
+
 
 ### Word BPE
 
