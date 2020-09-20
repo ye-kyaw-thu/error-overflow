@@ -1,5 +1,15 @@
+# Sentencepiece Installation and Testing Log
+
+Neural Network ကို သုံးပြီးတော့ machine translation, text generation စတဲ့ မော်ဒယ်တွေကို ဆောက်ကြမယ်ဆိုရင် မြန်မာစာ စာကြောင်းတွေကို ဘယ်လိုပုံစံနဲ့ word segmentation လုပ်ကြမှာလဲ ဆိုတာကို စဉ်းစားဖို့ လိုအပ်ပါတယ်။ ဘာကြောင့်လဲ ဆိုတော့ အဲဒီ ဖြတ်ထားတဲ့ segmentation unit တွေအပေါ်ကို မူတည်ပြီး model ရဲ့ learning လုပ်ရတာ၊ learn လုပ်ပြီး ရလာတဲ့ model ရဲ့ performance တွေက ကွာခြားသွားတဲ့ ကိစ္စတွေရှိလို့ ဖြစ်ပါတယ်။ အဲဒါကြောင့် sub-word unit ကို သုံးပြီး training လုပ်တာက option တစ်ခုဖြစ်လာပါတယ်။   
+
+Senencepiece tool က အဲဒီလို စာကြောင်းတွေကို unigram, bpe, char, word တွေ ဖြတ်ဖို့အတွက် သုံးတဲ့ tool တစ်ခုပါ။  
+ဒီနေရာမှာ အဲဒီ tool ကို installation လုပ်တဲ့ အဆင့်ကနေ မော်ဒယ်ဆောက်တာ၊ ပြီးတော့ ဆောက်ထားတဲ့ မော်ဒယ်တွေကို သုံးပြီးတော့ segmentation လုပ်တာတွေကို လုပ်ပြထားတဲ့ draft tutorial တစ်ခု ဖြစ်ပါတယ်။ မြန်မာကျောင်းသားတွေအတွက် ရည်ရွယ်တာမို့ မြန်မာစာ ကို သုံးပြီး လုပ်ပြထားတာပါ။  
+
+ဒီ tutorial ကို ဖတ်မဲ့ သူက Linux OS, command တွေနဲ့ ရင်းနှီးပြီးသားလို့ ယူဆထားပါတယ်။  
+
 ## Git clone
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool$ git clone https://github.com/google/sentencepiece
 Cloning into 'sentencepiece'...
 remote: Enumerating objects: 260, done.
@@ -8,9 +18,11 @@ remote: Compressing objects: 100% (209/209), done.
 remote: Total 3235 (delta 104), reused 123 (delta 46), pack-reused 2975
 Receiving objects: 100% (3235/3235), 27.30 MiB | 406.00 KiB/s, done.
 Resolving deltas: 100% (2159/2159), done.
+```
 
 ## Installation
 
+```
 (base) ye@ykt-pro:/media/ye/project1/tool$ cd sentencepiece/
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece$ ls
 appveyor.yml    config.h.in      data  LICENSE  README.md            src         test.bat  third_party
@@ -47,6 +59,7 @@ CMakeLists.txt  CONTRIBUTING.md  doc   python   sentencepiece.pc.in  tensorflow 
 -- Generating done
 -- Build files have been written to: /media/ye/project1/tool/sentencepiece/build
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ 
+```
 
 ## Error with make command
 
