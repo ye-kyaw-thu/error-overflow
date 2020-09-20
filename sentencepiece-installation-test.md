@@ -63,6 +63,8 @@ CMakeLists.txt  CONTRIBUTING.md  doc   python   sentencepiece.pc.in  tensorflow 
 
 ## Error with make command
 
+ဒီ error ကတော့ ဆရာ့စက်မှာ ထွက်တဲ့ error ပါ။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/sentencepiece/build$ make -j $(nproc)
 Scanning dependencies of target sentencepiece
