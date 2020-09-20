@@ -20,6 +20,8 @@ apply_bpe.py  get_vocab.py  learn_joint_bpe_and_vocab.py  README.md  subword_nmt
 CHANGELOG.md  learn_bpe.py  LICENSE                       setup.py
 ```
 
+setup.py ကို သုံးပြီးတော့ install လုပ်မယ်...  
+
 ```
 (base) ye@ykt-pro:~/tool/subword-nmt$ python ./setup.py install
 running install
