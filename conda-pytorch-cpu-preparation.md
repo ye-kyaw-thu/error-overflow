@@ -4,6 +4,8 @@ Conda environment အသစ်တစ်ခု create လုပ်ပြီးတ
 
 ## Creating a new environment with python=3.7
 
+"--name" ဆိုတဲ့ option က ကိုယ်အသစ်ဖန်တီးမဲ့ enviroment ရဲ့ နာမည်ကိုပေးဖို့အတွက် သုံးတာပါ။ "pytorch1_py37" ဆိုတဲ့ နာမည်ကို ပေးထားပါတယ်။ ကိုယ်ကြိုက်တဲ့နာမည်ကို ပေးလို့ ရပါတယ်။ ပြီးတော့ installation လုပ်ချင်တဲ့ python ကိုလည်း ဗားရှင်းပါ သတ်မှတ်ပြီး install လုပ်ချင်လို့ "python=3.7" ဆိုပြီး ပေးခဲ့တာပါ။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ conda create --name pytorch1_py37 python=3.7
 Collecting package metadata (current_repodata.json): done
@@ -78,6 +80,8 @@ Executing transaction: done
 (base) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$
 ```
 
+အသစ် installation လုပ်ထားတဲ့ environment ထဲကို ဝင်မယ်ဆိုရင် "conda activate \<environment-name\>" ဆိုတဲ့ command ကို သုံးပါတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ conda activate pytorch1_py37
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ conda env list
@@ -94,6 +98,8 @@ tensorflow               /home/ye/tool/anaconda3/envs/tensorflow
 
 
 ## Installation of pytorch-cpu
+
+pytorch ကို installation လုပ်တဲ့အခါ ပုံမှန်က GPU version နဲ့ သွားပါလိမ့်မယ်။ တကယ်လို့ ကိုယ်ရဲ့ notebook ထဲမှာ experiment အသေးတချို့ကို လုပ်ချင်တယ်ဆိုရင်တော့ pytorch-cpu ကို installation လုပ်မယ် ဆိုရင်တော့ "conda install" နဲ့ run တဲ့အခါမှာ pytorch-cpu ဆိုပြီး သတ်မှတ်ပေးမှ ရပါလိမ့်မယ်။ "-c" option ကတော့ install လုပ်မယ့် package ကို ရှာတဲ့အခါမှာ ရှာစေချင်တဲ့ channel ကိုသတ်မှတ်ပေးတာ ဖြစ်ပါတယ်။   
 
 ```
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ conda install -c pytorch pytorch-cpu
@@ -159,22 +165,34 @@ Executing transaction: done
 
 ## Testing import torch framework
 
+installation လုပ်ထားတဲ့ pytorch က import လုပ်လို့ ရမရ စမ်းသပ်တာဖို့အတွက် ပရိုဂရမ်အသေးလေး တပုဒ်ရေးထားပြီး run တာကို နမူနာ လုပ်ပြထားတာ ဖြစ်ပါတယ်။   
+အရင်ဆုံး python code ကို ကြည့်ရအောင်။  
+
 ```
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ cat ./pytorch-import-test.py 
 from __future__ import print_function
 import torch
-x = torch.rand(5, 3)
+x = torch.rand(2, 3, 4)
 print(x)
+```
+
+run ကြည့်ရအောင်။ coding မှာမြင်ရတဲ့အတိုင်း "torch.rand(2, 3, 4)" ဆိုပြီး tensor ရဲ့ shape ကို 2, 3, 4 ဆိုပြီးထားခဲ့လို့ အဲဒီ shape မှာ random value နဲ့ ဖြည့်ပြီးပြပေးပါလိမ့်မယ်။  
+
+```
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ python ./pytorch-import-test.py 
-tensor([[0.6174, 0.5393, 0.9648],
-        [0.2540, 0.9619, 0.6084],
-        [0.1670, 0.0631, 0.2904],
-        [0.3890, 0.2189, 0.1863],
-        [0.9708, 0.0973, 0.3608]])
+tensor([[[0.8172, 0.8915, 0.3025, 0.3595],
+         [0.2715, 0.7749, 0.4014, 0.8265],
+         [0.4307, 0.1273, 0.4391, 0.3232]],
+
+        [[0.3288, 0.7164, 0.3346, 0.8309],
+         [0.0037, 0.1166, 0.7883, 0.0706],
+         [0.8236, 0.7092, 0.0606, 0.3490]]])
 
 ```
 
 ## Installation of tqdm library
+
+"tqdm" library ကတော့လိုအပ်မှ installation လုပ်ပါ။ pytorch-cpu installation နဲ့ မဆိုင်ပါဘူး။ progress bar ပြဖို့အတွက် အသုံးဝင်လို့ ဥပမာအနေနဲ့ ထည့်ထားတာပဲ ဖြစ်ပါတယ်။  
 
 ```
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ pip install tqdm
@@ -189,16 +207,23 @@ We recommend you use --use-feature=2020-resolver to test your packages with the 
 nltk 3.5 requires click, which is not installed.
 nltk 3.5 requires joblib, which is not installed.
 Successfully installed tqdm-4.50.0
+```
 
-(pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ python
-Python 3.7.9 (default, Aug 31 2020, 12:42:55) 
-[GCC 7.3.0] :: Anaconda, Inc. on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import tqdm
->>> exit()
+tqdm ကို library ကို input လုပ်ပြီး test လုပ်ကြည့်ရအောင်။  
+
+```
+(pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ cat ./tqdm-demo.py 
+from tqdm import tqdm
+for i in tqdm(range(9000000)):
+    pass
+
+(pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ python ./tqdm-demo.py 
+100%|██████████████████████████████████████████████████████████████████████████| 9000000/9000000 [00:01<00:00, 4674827.43it/s]
 ```
 
 ## For the above ERROR
+
+အထက်မှာ tqdm installation လုပ်စဉ်မှာ မြင်ရတဲ့ error က pip နဲ့ ဆိုင်တဲ့ error ပါ။   
 
 ```
 (pytorch1_py37) ye@ykt-pro:/media/ye/project1/tool/Mask-Language-Model$ python -m pip install --upgrade pip
@@ -226,4 +251,5 @@ Successfully installed example-0.1.0
 
 ## Reference
 
-https://stackoverflow.com/questions/63277123/what-is-use-feature-2020-resolver-error-message-with-jupyter-installation-on
+[https://tqdm.github.io/](https://tqdm.github.io/)  
+[https://stackoverflow.com/questions/63277123/what-is-use-feature-2020-resolver-error-message-with-jupyter-installation-on](https://stackoverflow.com/questions/63277123/what-is-use-feature-2020-resolver-error-message-with-jupyter-installation-on)  
