@@ -89,7 +89,14 @@ ctest10              ctest10.nopipe.word.TAGGED  train10              train10.no
 ctest10.nopipe       otest.nopipe.word           train10.nopipe       train10.nopipe.word
 ctest10.nopipe.word  otest.nopipe.word.TAGGED    train10.nopipe.DICT  train10.shuf
 ```
-
+အထက်မှာ မြင်ရတဲ့ ဖိုင်တွေထဲက ဘာဖိုင်တွေဘာလိမ့်ဆိုပြီး သိချင်တဲ့သူတွေလည်း ရှိနိုင်တာမို့ ဖိုင်တချို့နဲ့ ပတ်သက်ပြီး ရှင်းပြရရင်  
+- ctest10 က closed-test 10 ပါ။  
+- ctest10.nopipe ဆိုတဲ့ ဖိုင်ကတော့ ctest10 ဖိုင်ထဲကနေ compound word တွေရဲ့ boundary (pipe) ကို ဖြုတ်ထားတဲ့ ဖိုင်ပါ။  
+- ctest10.nopipe.word ဆိုတဲ့ ဖိုင်ကတော့ word တွေပဲ ရှိနေပြီး POS tag တွေ မပါတဲ့ ဖိုင်ပါ။
+- ctest10.nopipe.word.TAGGED ဆိုတဲ့ ဖိုင်ကတော့ train10 model နဲ့ tagging လုပ်ပြီးထွက်လာတဲ့ output ဖိုင်ဖြစ်ပါတယ်။  
+- otest ကတော့ open test ဒေတာဖိုင်ဖြစ်ပါတယ်။  
+- train10.nopipe.DICT ကတော့ dictionary ဖိုင် ဖြစ်ပါတယ်။  
+- train10.nopipe.RDR ကတော့ RDR model ဖိုင် ဖြစ်ပါတယ်။  
 
 ## Path of my RDRPOSTagger
 
