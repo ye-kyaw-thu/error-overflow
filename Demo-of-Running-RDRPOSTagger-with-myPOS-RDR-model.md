@@ -33,26 +33,63 @@ myPOS
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ cd myPOS/
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS$ ls
 CICLING2017  corpus-draft-ver-0.9  corpus-draft-ver-1.0  README.md
+```
+
+လက်ရှိ တင်ပေးထားတဲ့အထဲမှာ version 1.0 က အမြင့်ဆုံးပါ။ (version 2.0 ကို ဒီနှစ်ကုန်မှာ တင်ပေးနိုင်ဖို့ ပြင်ဆင်နေပါတယ်)  
+ver-1.0 အောက်ထဲကို cd command နဲ့ ဝင်ရအောင်...  
+
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS$ cd corpus-draft-ver-1.0/
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0$ ls
 data         mk-wordtag.pl             mypos-dver.1.0.lcw.txt       mypos-dver.1.0.txt
 how2run.txt  model                     mypos-dver.1.0.lcw.uniq.txt  mypos-dver.1.0.word.txt
 mk-pair.pl   mypos-dver.1.0.cword.txt  mypos-dver.1.0.tag.txt       Note.txt
+```
+
+model ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာ approach ခြောက်မျိုးနဲ့ training လုပ်ထားတဲ့ ဖိုလ်ဒါတွေကို အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်...  
+
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0$ cd model
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model$ ls
 3gHMM  crf  kytea  low-resource-pos-tagging-2014  maxent  rdr
+```
+
+RDR model ကို သုံးမှာမို့၊ rdr/ ဖိုလ်ဒါအောက်ကို ဝင်ရအောင် ...  
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model$ cd rdr
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr$ ls
 evaluate-all.sh  otest              pipe2space-all.sh          rdr-train.log  t3  t7           train-rdr-all.sh
 evaluate.py      otest.nopipe       prepare-word-files4rdr.sh  t1             t4  t8
 mk-wordtag.pl    otest.nopipe.col   rdr-evaluate-results.log   t10            t5  t9
 note.txt         otest.nopipe.word  rdr-test.log               t2             t6  test-all.sh
+```
+
+တကယ်တမ်းက training data နဲ့ မော်ဒယ်ကို တစ်ခါပဲ train လုပ်လို့လည်း ရပေမဲ့ incremental POS tagging experiment လုပ်တာမို့ t{0..10} အထိ ဖိုလ်ဒါ ၁၀ခုကွဲနေပါလိမ့်မယ်။ t0 က training ဒေတာ 1000 စာကြောင်းနဲ့ training လုပ်ထားတာပါ။ t1 က training ဒေတာ 2000 စသည်ဖြင့် ဒေတာကို တစ်ထောင်စီ တိုးတိုးပြီး training လုပ်သွားတာပါ။ ဖိုင်နာမည်တွေက train1, train2 ... train10 ဆိုပြီး ပေးထားခဲ့တာမို့ အဲဒီဖိုင် တစ်ဖိုင်ချင်းစီရဲ့ စာကြောင်းရေအရေအတွက်ကို wc (word count) command နဲ့ ကြည့်ကြည့်ရင် အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr$ for i in {1..10};do wc ./t$i/train$i; done;
+  1000  20262 400530 ./t1/train1
+  2000  39607 784811 ./t2/train2
+   3000   59467 1178131 ./t3/train3
+   4000   79198 1570479 ./t4/train4
+   5000   98362 1949801 ./t5/train5
+   6000  118434 2347169 ./t6/train6
+   7000  138387 2738757 ./t7/train7
+   8000  157848 3124390 ./t8/train8
+   9000  177895 3521510 ./t9/train9
+  10000  197625 3912071 ./t10/train10
+```
+
+လက်ရှိမှာက t10/ ဖိုလ်ဒါအောက်က train10 နဲ့ training လုပ်ထားတာက အကောင်းဆုံး performance ကို ပေးတာမို့ t10 ဖိုလ်ဒါအောက်ကို သွားရအောင်...  
+
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr$ cd t10
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ ls
 ctest10              ctest10.nopipe.word.TAGGED  train10              train10.nopipe.RDR
 ctest10.nopipe       otest.nopipe.word           train10.nopipe       train10.nopipe.word
 ctest10.nopipe.word  otest.nopipe.word.TAGGED    train10.nopipe.DICT  train10.shuf
 ```
+
 
 ## Path of my RDRPOSTagger
 
