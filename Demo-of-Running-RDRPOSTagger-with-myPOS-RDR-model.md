@@ -117,7 +117,7 @@ hex2uni.py          log          myseg           RDRPOSTagger.py     test.sh    
 
 ## Preparing test file
 
-
+POS tagging လုပ်တာကို စမ်းပြဖို့အတွက် test ဖိုင်တစ်ဖိုင်ကို gedit နဲ့ ဝင်ရိုက်ခဲ့ပါတယ်။ အဲဒီရိုက်ခဲ့တဲ့ ဗမာစာကြောင်းတို နှစ်ကြောင်းကိုလည်း cat command နဲ့ရိုက်ပြထားပါတယ်။  
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ gedit new-test.txt
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ cat ./new-test.txt
@@ -127,6 +127,8 @@ hex2uni.py          log          myseg           RDRPOSTagger.py     test.sh    
 
 ## Try Tagging with RDRPOSTagger
 
+တစ်ခု သိထားစေချင်တာက RDRPOSTagger.py ပရိုဂရမ်ဖိုင်က open source အနေနဲ့ တင်ပေးထားတဲ့ ပရိုဂရမ်မို့လို့ နောက်ပြီးတော့ သုတေသနအတွက် သုံးခဲ့တဲ့ ပရိုဂရမ်ကို ရှဲလုပ်ထားတာမို့လို့ end user တွေအတွက် မရည်ရွယ်ထားပါဘူးလို့ နားလည်ပါတယ်။ အဲဒါကြောင့်လို့ထင်ပါတယ် coding က အနုစိပ်ရေးထားတာတော့ မဟုတ်ပါဘူး။ RDR ကို Installation လုပ်ထားတဲ့ path အောက်ကနေ ခေါ်မသုံးပဲနဲ့ စောစောက အထက်မှာပြခဲ့တဲ့ myPOS folder path အောက်ကနေ့ RDRPOSTagger လုပ်ဖို့ ကြိုးစားရင် အောက်ပါအတိုင်း error ပေးပါလိမ့်မယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ python /media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger/RDRPOSTagger.py tag ./train10.nopipe.RDR ./train10.nopipe.DICT ./new-test.txt 
 Traceback (most recent call last):
@@ -134,8 +136,12 @@ Traceback (most recent call last):
     os.chdir("./pSCRDRtagger")
 FileNotFoundError: [Errno 2] No such file or directory: './pSCRDRtagger'
 ```
+အထက်မှာ မြင်နေရတဲ့ error က os.chdir နဲ့ လက်ရှိရောက်နေတဲ့ path အောက်က pSCRDRtagger ဆိုတဲ့ path ထဲကိုဝင်ဖို့ ကြိုးစားတာကြောင့် ဖြစ်တဲ့ error ပါ။  
 
 ## Try agin
+
+ကျွန်တော် run တဲ့ ပုံစံကတော့ RDRPOSTagger ကို download လုပ်ထားတဲ့ path အောက်ကနေပဲ run ပါတယ်။  
+အောက်ပါမြင်ရတဲ့အတိုင်းပါပဲ။ RDR model ဖိုင်နဲ့ DICT ဖိုင် ပြီးတော့ test data ပြင်ဆင်ခဲ့တဲ့ ဖိုင်ရှိတဲ့ path တွေကိုတော့ သေသေချာချာ မှန်မှန်ကန်ကန် command line argument ပေးမှ ဖြစ်ပါလိမ့်မယ်။ အဲဒါဆိုရင်တော့ စာကြောင်း ၂ကြောင်း ရိုက်ထားတဲ့ ဖိုင်ကို POS tagging လုပ်ပေးသွားပါလိမ့်မယ်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger$ python ./RDRPOSTagger.py tag /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/train10.nopipe.RDR /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/train10.nopipe.DICT /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/new-test.txt 
@@ -152,8 +158,13 @@ Output file: /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-dra
 
 ## Checked the POS tagged output file
 
+POS tagging လုပ်ပေးပြီး ထွက်လာတဲ့ ဖိုင်ကို .TAGGED ဆိုတဲ့ extension နဲ့ သိမ်းပေးတာကြောင့် အဲဒီဖိုင်ထဲက စာကြောင်းတွေကို စစ်ဆေးကြည့်ရင်တော့ POS tagging လုပ်ပေးသွားတာကို မြင်ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ cat ./new-test.txt.TAGGED 
 ဘာ/pron နေရာ/n မှာ/ppm ခက်/adj နေ/part တာ/part လဲ/part ။/punc
 ကြိုးစား/v ပါ/part အဆင်ပြေ/v ရ/part မယ်/ppm
 ```
+
+**တစ်ခုတော့ ရှိပါတယ်။ ကိုယ်က POS tagging လုပ်ချင်တဲ့ စာကြောင်းတွေကိုတော့ word segmentation ကြိုဖြတ်ပေးထားရပါလိမ့်မယ်။  
+
