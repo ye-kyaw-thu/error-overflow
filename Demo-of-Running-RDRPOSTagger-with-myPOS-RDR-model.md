@@ -100,6 +100,14 @@ ctest10.nopipe.word  otest.nopipe.word.TAGGED    train10.nopipe.DICT  train10.sh
 
 ## Path of my RDRPOSTagger
 
+ကျွန်တော် train လုပ်ပေးထားတဲ့ RDR model ဖိုင်ကို သုံးဖို့အတွက်က RDRPOSTagger ဆိုတာကို ကိုယ့်စက်ထဲမှာ download လုပ်ထားရပါလိမ့်မယ်။  
+- Sourceforge Link ကတော့ [http://rdrpostagger.sourceforge.net/](http://rdrpostagger.sourceforge.net/)  
+- GitHub Link ကတော့ [https://github.com/datquocnguyen/RDRPOSTagger](https://github.com/datquocnguyen/RDRPOSTagger)  
+
+ဒီနေရာမှာတော့ download လုပ်တာကို မပြထားပါဘူး။  
+သုံးပြမှာက Python program မို့လို့ RDRPOSTaggger ကို သုံးဖို့အတွက် installation လည်းထူးထူးထွေထွေ လုပ်စရာမလိုအပ်ပါဘူး။  
+ကျွန်တော့် စက်ထဲမှာ တော့ အောက်မှာ မြင်ရတဲ့အတိုင်း portable HDD တစ်လုံးရဲ့ path တစ်ခုမှာ installation လုပ်ထားပါတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger$ ls
 double.log          hex2uni.py~  myro            RDRPOSTagger4En.py  RDRPOSTagger.py~  test.sh~          train.sh~
@@ -108,6 +116,7 @@ hex2uni.py          log          myseg           RDRPOSTagger.py     test.sh    
 ```
 
 ## Preparing test file
+
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ gedit new-test.txt
