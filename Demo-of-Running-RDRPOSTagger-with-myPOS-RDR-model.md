@@ -1,15 +1,14 @@
 # Demo of How to make POS tagging with trained myPOS Burmese RDR Tagger
 
-မြန်မာကျောင်းသူ တစ်ယောက်က ကျွန်တော့်ဆီကို myPOS RDR မော်ဒယ်နဲ့ ဗမာစာကြောင်းတွေကို POS tagging လုပ်ဖို့ ကြိုးစားနေတာ အကြိမ်ကြိမ်အခါခါ ရှိပေမဲ့ ခက်ခဲနေတယ်လို့ အီးမေးလ်နဲ့ အကူအညီတောင်းတာကို ကြုံရလို့ ဒီ error-overflow မှာ အကြမ်းရှင်းပြလိုက်ပါတယ်။  
+မြန်မာကျောင်းသူ တစ်ယောက်က ကျွန်တော့်ဆီကို myPOS RDR မော်ဒယ်နဲ့ ဗမာစာကြောင်းတွေကို POS tagging လုပ်ဖို့ ကြိုးစားနေတာ အကြိမ်ကြိမ်အခါခါ ရှိပေမဲ့ ခက်ခဲနေတယ်လို့ အီးမေးလ်နဲ့ အကူအညီတောင်းတာကို ကြုံရလို့ ဒီ error-overflow မှာ အကြမ်းရှင်းပြလိုက်ပါတယ်။ ဘယ်နေရာမှာ error တက်နေတယ်ဆိုတာကိုလည်း အီးမေးလ်ထဲမှာက မဖော်ပြထားလို့ အခြေခံအားဖြင့် command line သုံးတဲ့ အတွေ့အကြုံနည်းလို့ သို့မဟုတ် python program ကို run တဲ့နေရာမှာ အောက်မှာ ပြထားသလို error မျိုး တက်နေတာကြောင့်လို့ ယူဆပါတယ်။ နဂို RDR POSTagger python ပရိုဂရမ်ကလည်း original author က သူ့ experiment အတွက်ပဲ အကြမ်းရေးထားတာကြောင့် coding, debugging စတဲ့ အတွေ့အကြုံတွေ သိပ်မရှိလို့ POS tagging လုပ်ဖို့အတွက် ခက်ခဲနေတာလို့ နားလည်ပါတယ်။  
 
-## Preparing a new folder
-```
-(base) ye@ykt-pro:/media/ye/project1/4github$ mkdir demo-of-RDR-myPOS-using
-(base) ye@ykt-pro:/media/ye/project1/4github$ cd demo-of-RDR-myPOS-using/
-(base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ 
-```
+myPOS ကို သုံးဖို့ ကြိုးစားတာကို သိရလို့ ဝမ်းသာရပါတယ်။ အောက်မှာ ပြထားတဲ့ အဆင့်တွေက ပထမဆုံး myPOS RDR model ကိုအသုံးပြုမယ့် သူတွေအတွက် အတိုင်းအတာ တစ်ခုအထိ အသုံးဝင်ပါလိမ့်မယ်။  
 
 ## Cloning myPOS
+
+GitHub မှာတင်ထားတဲ့ repository ကို ကိုယ့်စက်ထဲကို download လုပ်တဲ့အဆင့်ဖြစ်ပါတယ်။  
+ကိုယ့်စက်ထဲမှာတော့ git command ကို run ဖို့အတွက် မရှိသေးဘူး ဆိုရင်တော့ "sudo apt install git" ဆိုတဲ့ command မျိုးနဲ့ install လုပ်ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ git clone https://github.com/ye-kyaw-thu/myPOS
 Cloning into 'myPOS'...
@@ -22,7 +21,11 @@ Resolving deltas: 100% (1469/1469), done.
 Checking out files: 100% (999/999), done.
 ```
 
-## Check and Move to RDR Model Folder
+အထက်ပါ git clone နဲ့ repository ကို ကော်ပီကူးဖို့ အခက်တွေ့နေရင် Download button ကို သုံးပြီးတော့ myPOS repository တစ်ခုလုံးကို ကိုယ့်စက်ထဲကို download လုပ်ရင်လည်း အဆင်ပြေပါလိမ့်မယ်။  
+
+## Move to RDR Model Folder and Check files
+
+Clone လုပ်ပြီး ရရှိလာတဲ့ myPOS ဖိုလ်ဒါထဲကို ဝင်ပြီး ရှိတဲ့ ဖိုင်တွေ၊ ဖိုလ်ဒါတွေကို လေ့လာရင်းနဲ့ RDR model ရှိတဲ့ path အောက်ကို ရောက်အောင် သွားရပါလိမ့်မယ်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ ls
