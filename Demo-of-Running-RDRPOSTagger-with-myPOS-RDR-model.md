@@ -1,10 +1,16 @@
+# Demo of How to make POS tagging with trained myPOS Burmese RDR Tagger
+
+မြန်မာကျောင်းသူ တစ်ယောက်က ကျွန်တော့်ဆီကို myPOS RDR မော်ဒယ်နဲ့ ဗမာစာကြောင်းတွေကို POS tagging လုပ်ဖို့ ကြိုးစားနေတာ အကြိမ်ကြိမ်အခါခါ ရှိပေမဲ့ ခက်ခဲနေတယ်လို့ အီးမေးလ်နဲ့ အကူအညီတောင်းတာကို ကြုံရလို့ ဒီ error-overflow မှာ အကြမ်းရှင်းပြလိုက်ပါတယ်။  
 
 ## Preparing a new folder
+```
 (base) ye@ykt-pro:/media/ye/project1/4github$ mkdir demo-of-RDR-myPOS-using
 (base) ye@ykt-pro:/media/ye/project1/4github$ cd demo-of-RDR-myPOS-using/
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ 
+```
 
 ## Cloning myPOS
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ git clone https://github.com/ye-kyaw-thu/myPOS
 Cloning into 'myPOS'...
 remote: Enumerating objects: 4, done.
@@ -14,9 +20,11 @@ remote: Total 2143 (delta 0), reused 0 (delta 0), pack-reused 2139
 Receiving objects: 100% (2143/2143), 89.40 MiB | 503.00 KiB/s, done.
 Resolving deltas: 100% (1469/1469), done.
 Checking out files: 100% (999/999), done.
+```
 
 ## Check and Move to RDR Model Folder
 
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ ls
 myPOS
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using$ cd myPOS/
@@ -41,31 +49,39 @@ note.txt         otest.nopipe.word  rdr-test.log               t2             t6
 ctest10              ctest10.nopipe.word.TAGGED  train10              train10.nopipe.RDR
 ctest10.nopipe       otest.nopipe.word           train10.nopipe       train10.nopipe.word
 ctest10.nopipe.word  otest.nopipe.word.TAGGED    train10.nopipe.DICT  train10.shuf
+```
 
 ## Path of my RDRPOSTagger
 
+```
 (base) ye@ykt-pro:/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger$ ls
 double.log          hex2uni.py~  myro            RDRPOSTagger4En.py  RDRPOSTagger.py~  test.sh~          train.sh~
 ExtRDRPOSTagger.py  __init__.py  myro.train.out  RDRPOSTagger4Vn.py  romy.train.out    train.myro.slash  train-test.log
 hex2uni.py          log          myseg           RDRPOSTagger.py     test.sh           train.sh
+```
 
 ## Preparing test file
 
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ gedit new-test.txt
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ cat ./new-test.txt
 ဘာ နေရာ မှာ ခက် နေ တာ လဲ ။
 ကြိုးစား ပါ အဆင်ပြေ ရ မယ်
+```
 
 ## Try Tagging with RDRPOSTagger
 
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ python /media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger/RDRPOSTagger.py tag ./train10.nopipe.RDR ./train10.nopipe.DICT ./new-test.txt 
 Traceback (most recent call last):
   File "/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger/RDRPOSTagger.py", line 9, in <module>
     os.chdir("./pSCRDRtagger")
 FileNotFoundError: [Errno 2] No such file or directory: './pSCRDRtagger'
+```
 
 ## Try agin
 
+```
 (base) ye@ykt-pro:/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger$ python ./RDRPOSTagger.py tag /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/train10.nopipe.RDR /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/train10.nopipe.DICT /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/new-test.txt 
 
 => Read a POS tagging model from /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/train10.nopipe.RDR
@@ -76,10 +92,12 @@ FileNotFoundError: [Errno 2] No such file or directory: './pSCRDRtagger'
 
 Output file: /media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10/new-test.txt.TAGGED
 (base) ye@ykt-pro:/media/ye/Transcend/tool/RDRPOSTagger/pSCRDRtagger$
+```
 
 ## Checked the POS tagged output file
 
+```
 (base) ye@ykt-pro:/media/ye/project1/4github/demo-of-RDR-myPOS-using/myPOS/corpus-draft-ver-1.0/model/rdr/t10$ cat ./new-test.txt.TAGGED 
 ဘာ/pron နေရာ/n မှာ/ppm ခက်/adj နေ/part တာ/part လဲ/part ။/punc
 ကြိုးစား/v ပါ/part အဆင်ပြေ/v ရ/part မယ်/ppm
-
+```
