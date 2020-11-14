@@ -1,4 +1,4 @@
-# Installation of Old PyTorch Version Example
+# Installation of Old PyTorch CPU Version Example
 
 PyTorch old version တွေက pip install နဲ့ လုပ်လို့ မရဘူး။  
 link ပေးပြီး installation လုပ်တဲ့ ပုံစံနဲ့လုပ်လို့ ရတယ်။  
@@ -97,6 +97,18 @@ Building wheels for collected packages: future
 Successfully built future
 Installing collected packages: future, torch
 Successfully installed future-0.18.2 torch-1.5.1+cpu
+```
+
+Interactive Python ကို တင်လိုက်ပြီးတော့ torch ကို import လုပ်ပြီး installation လုပ်ထားတဲ့ version ကို confirm လုပ်ကြည့်ရအောင်...  
+
+```
+(pytorch1.5.1cpu_py36) ye@ykt-pro:/media/ye/project1/tool/lstm-crf-pytorch$ python
+Python 3.6.12 |Anaconda, Inc.| (default, Sep  8 2020, 23:10:56) 
+[GCC 7.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> print(torch.__version__)
+1.5.1+cpu
 ```
 
 ## Reference
