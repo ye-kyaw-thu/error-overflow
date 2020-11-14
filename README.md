@@ -45,4 +45,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 38. [sentencepiece-installation-test.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sentencepiece-installation-test.md)  
 39. [conda-pytorch-cpu-preparation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/conda-pytorch-cpu-preparation.md)  
 40. [Demo-of-Running-RDRPOSTagger-with-myPOS-RDR-model.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Demo-of-Running-RDRPOSTagger-with-myPOS-RDR-model.md)  
-
+41. [Demo-Installation-of-Old-PyTorch-CPU-Version](https://github.com/ye-kyaw-thu/error-overflow/blob/master/old-version-pytorch-cpu-installaiton-note.md)  
