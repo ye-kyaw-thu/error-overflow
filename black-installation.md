@@ -105,3 +105,7 @@ for line1, line2 in zip(fp1, fp2):
 fp1.close()
 fp2.close()
 ```
+
+## Reference
+
+[How to Auto-Format Your Python Code with Black: https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)  
