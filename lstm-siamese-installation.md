@@ -652,9 +652,9 @@ gedit နဲ့ ဖွင့်ပြီးတော့...
 
 အောက်ပါလိုင်းတွေကို update လုပ်ခဲ့ ...  
 ကိုယ့်ဒေတာရှိတဲ့ path နဲ့ အစားထိုးသွားပါ။   
-```
+```python
 #df = pd.read_csv('sample_data.csv')
-df = pd.read_csv('./para-tst-1/8k.train.csv')  
+df = pd.read_csv('./para-tst-1/original/line-no.para-no-para.shuf.final.csv')
 ```
 
 ## Backup checkpoints folder
@@ -1744,28 +1744,45 @@ real	1m24.144s
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
 ```
 
-လက်ရှိ para-not-para ဒေတာ ၂သောင်းကိုပဲ သုံးပြီး validation လုပ်သွားတာမှာ
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ...  
+လက်ရှိ para နဲ့ not-para ဒေတာစုစုပေါင်း နှစ်သောင်းရဲ့ 80% တစ်သောင်းရှစ်ထောင်ကိုသုံး training လုပ်ပြီး၊   
+20% ဖြစ်တဲ့ နှစ်ထောင် ကိုသုံး validation လုပ်သွားတာမှာ validation loss: 0.2632 နဲ့ validation accuracy: 0.8840 ရပါတယ်။   
+မဆိုးပါဘူး။ ဒီထက် ရလဒ်ကောင်းအောင် ကတော့ ဒေတာတိုးတာ network architecture ပြောင်းတာ၊ parameter tuning စတာတွေကိုလုပ်သွားရပါလိမ့်မယ်။   
+
+
 ## Editing testing python file
 
-
+တကယ်လို့ ဆောက်ထားပြီးသားမော်ဒယ်ကို test-data နဲ့ similarity တိုင်းတာတာမျိုး လုပ်ချင်ရင်တော့ example testing ပရိုဂရမ်ကို ကော်ပီကူးပြီး လုပ်သွားပါ။  
+ဥပမာ အနေနဲ့ test-para1.py ဆိုပြီးကော်ပီကူးထားရင် အဲဒီဖိုင်ကို gedit နဲ့ဖွင့်ပြီး ဝင်ပြင်တာလုပ်ရပါလိမ့်မယ်။  
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ gedit test-para1.py
 ```
 
-မော်ဒယ် ရှိတဲ့ path နဲ့ model ဖိုင်နာမည်ကို ရိုက်ထည့်ပေးရမယ်။
-ပုံမှန်အားဖြင့် မော်ဒယ်က checkpoints ဆိုတဲ့ အောက်မှာ သိမ်းလိမ့်မယ်။
-နံပါတ်အကြီးဆုံးဟာက နောက်ဆုံး မော်ဒယ်လို့ စဉ်းစားလို့ ရတယ်။
+အနည်းဆုံးတော့ မော်ဒယ် ရှိတဲ့ path နဲ့ model ဖိုင်နာမည်ကို ရိုက်ထည့်ပေးရမယ်။   
+ပုံမှန်အားဖြင့် မော်ဒယ်က checkpoints ဆိုတဲ့ အောက်မှာ သိမ်းလိမ့်မယ်။  
+နံပါတ်အကြီးဆုံးဟာက နောက်ဆုံး မော်ဒယ်၊ အကောင်းဆုံးမော်ဒယ်ပါ။  
+configuration setting ပေါ်မူတည်ပြီး epoch တိုင်းရဲ့ မော်ဒယ်ကို သိမ်းပေးခိုင်းထားခဲ့ရင် အဲဒီဖိုလ်ဒါအောက်မှာ မော်ဒယ်တွေက တစ်ခုထက်မက ရှိနေပါလိမ့်မယ်။  
 
+ဆရာက အောက်ပါအတိုင်း ပြင်ဆင်တာတွေလုပ်ခဲ့တယ်။ မော်ဒယ်ဖိုင်ရဲ့ extension ကတော့ .h5 ပါ။  
+.h5 ဆိုတာက Hierarchical Data Format (HDF) ရဲ့ file extension ပါ။  
+
+```python
 #model = load_model("/media/ye/project1/tool/lstm-siamese-text-similarity/checkpoints/1605650354/lstm_50_50_0.17_0.25.h5")
 model = load_model("/media/ye/project1/tool/lstm-siamese-text-similarity/checkpoints/1608068575/lstm_50_50_0.17_0.25.h5")
+```
 
-လက်ရှိ testing python ဖိုင် မှာက စာကြောင်းအချို့ကို ရိုက်ထည့်ထားပြီး စမ်းထားတာမို့ အဲဒါကို အရင် အစားထိုးကြည့်ပြီး testing လုပ်ခဲ့တယ်။ ဗမာစာကြောင်းတွေက test ဖိုင်ကနေ ယူထားတယ်။
+လက်ရှိ testing လုပ်တဲ့ python ဖိုင် မှာက စာကြောင်းအချို့ကို ရိုက်ထည့်ထားပြီး စမ်းထားတာမို့   
+အဲဒါကို အရင် အစားထိုးကြည့်ပြီး testing လုပ်ခဲ့တယ်။ ဗမာစာကြောင်းတွေက test ဖိုင်ကနေ ယူထားတယ်။  
 
+```python
 #test_sentence_pairs = [('What can make Physics easy to learn?','How can you make physics easy to learn?'),('How many times a day do a clocks hands overlap?','What does it mean that every time I look at the clock the numbers are the same?')]
 test_sentence_pairs = [('ဦးခိုက်ရှိခိုး ပါ ၏','ဦးခိုက် ပါ တယ်'),('ဆရာတော် ကြီး များ သက်တော် ရာ ကျော် ရှည် ပါ စေ','ဆရာတော် ကြီး များ ကျန်းမာ သက် ရှည် ပါ စေ'),('ကြိုက် သွား ပြီ','ကြိုဆို လိုက် ပါ'),('စောက် လုပ် ကို ရှုပ် တယ်','စောက် လုပ် တွေ က ရှုပ် နေ တာ ပဲ'),('သူ နဲ့ ကင်းကွာ နေ တာ ကြာ ပြီ','သူ နဲ့ အနီးဆုံး မှာ ပဲ နေ ပါ တယ်'),('ထမင်း ကို ဖိတ်စင် အောင် မ စား ပါ နဲ့ ။','ရေ ကို ဖိတ်စင် အောင် မ ခပ် ပါ နဲ့ ။'),('မိုး အလွန်အကျွံ ရွာ သောကြောင့် လမ်း များ သည် ဗွက် ဖြစ် နေ သည် ။','မိုး အလွန်အကျွံ ရွာ သောကြောင့် လမ်း မှာ ကောင်းကောင်း သွား မ ရ ပါ ။'),('ရွဲ့လားစောင်းလား မ လုပ် နဲ့ နော်','စောင်း ပြော နေ တာ လား'),('ဝမ်းမြောက် ဝမ်းသာ ဖြစ် မိ ပါ သည်','ဝမ်းမြောက် ဝမ်းသာ ရှိ လှ ပေ စွ'),('တော် တယ် ဆက် ပြီး တော့ ကြိုးစား ပါ','တော် တယ် ဆက် ကြိုးစား ပါ')]
+```
 
 ## Testing-1
 
+test-para1.py နဲ့ testing လုပ်ခဲ့တော့ အောက်ပါအတိုင်း output/result တွေကို ရရှိခဲ့...  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./test-para1.py 2>&1 | tee test-para1.log1
 Using TensorFlow backend.
 WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
@@ -1813,150 +1830,44 @@ real	0m8.444s
 user	0m8.614s
 sys	0m0.843s
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
+```
 
 ## How about increasing no. of epoch for training?!
 
-model.py ဖိုင်မှာ အောက်ပါ statement ကို တွေ့ခဲ့
+model.py ဖိုင်မှာ အောက်ပါ statement ကို တွေ့ခဲ့။ နှစ်နေရာရှိတယ် ....
 
+```python
         model.fit([train_data_x1, train_data_x2, leaks_train], train_labels,
                   validation_data=([val_data_x1, val_data_x2, leaks_val], val_labels),
                   epochs=50, batch_size=3, shuffle=True,
                   callbacks=[early_stopping, model_checkpoint, tensorboard])
+```
 
-code ကတော့ အသေတွေဖြစ်နေလို့ coding ဖိုင်ထဲကို ဝင်ပြင်မှရတဲ့ ပုံစံတော့ ဖြစ်နေတယ်။
-epochs=100 ထားကြည့်မယ်။
+code ကတော့ အသေတွေဖြစ်နေလို့ coding ဖိုင်ထဲကို ဝင်ပြင်မှရတဲ့ ပုံစံတော့ ဖြစ်နေတယ်။  
+ပြင်ချင်ရင် အဲဒီမှာ epochs=100 ထားကြည့်တာမျိုး လုပ်လို့ရတယ်။  
 
-## Training with epoch 100
+epoch=100 နဲ့ run ကြည့်ခဲ့သေးတယ်။  ဘာသွားတွေ့ရသလဲ ဆိုတော့ epoch က 100 ထိသွားစရာမလိုပဲ early stop နဲ့ learning လုပ်တာက ရပ်သွားတာကို တွေ့ရ။  
+ဆိုလိုတာက မော်ဒယ်က ဒီရလဒ်က အကောင်းဆုံးပါပဲ။  
 
-Epoch 15/200
+ဆရာ training/validation ဒေတာပမာဏ ကိုလည်းအတိုးအလျော့လုပ်ပြီး စမ်းခဲ့ပါသေးတယ်။  
+ဥပမာ စုစုပေါင်း ဒေတာ ရှစ်ထောင်နဲ့ပဲ စမ်းတဲ့အခါမှာ အောက်ပါအတိုင်းရပါတယ်။  
 
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./train-para1.py 2>&1 | tee ./para-tst-1/para1.train.log2
-...
-...
-  64/7200 [..............................] - ETA: 4s - loss: 0.5177 - acc: 0.7969
- 192/7200 [..............................] - ETA: 4s - loss: 0.3482 - acc: 0.8542
- 320/7200 [>.............................] - ETA: 3s - loss: 0.2993 - acc: 0.8781
- 448/7200 [>.............................] - ETA: 3s - loss: 0.2853 - acc: 0.8929
- 576/7200 [=>............................] - ETA: 3s - loss: 0.3203 - acc: 0.8767
- 704/7200 [=>............................] - ETA: 3s - loss: 0.3018 - acc: 0.8835
- 832/7200 [==>...........................] - ETA: 3s - loss: 0.3022 - acc: 0.8834
- 960/7200 [===>..........................] - ETA: 3s - loss: 0.2991 - acc: 0.8823
-1088/7200 [===>..........................] - ETA: 3s - loss: 0.3041 - acc: 0.8796
-1216/7200 [====>.........................] - ETA: 3s - loss: 0.3039 - acc: 0.8775
-1344/7200 [====>.........................] - ETA: 3s - loss: 0.3020 - acc: 0.8780
-1472/7200 [=====>........................] - ETA: 3s - loss: 0.3010 - acc: 0.8784
-1600/7200 [=====>........................] - ETA: 3s - loss: 0.2978 - acc: 0.8781
-1728/7200 [======>.......................] - ETA: 2s - loss: 0.2971 - acc: 0.8767
-1856/7200 [======>.......................] - ETA: 2s - loss: 0.2991 - acc: 0.8777
-1984/7200 [=======>......................] - ETA: 2s - loss: 0.2970 - acc: 0.8785
-2112/7200 [=======>......................] - ETA: 2s - loss: 0.2946 - acc: 0.8797
-2240/7200 [========>.....................] - ETA: 2s - loss: 0.2950 - acc: 0.8781
-2368/7200 [========>.....................] - ETA: 2s - loss: 0.2938 - acc: 0.8784
-2496/7200 [=========>....................] - ETA: 2s - loss: 0.2943 - acc: 0.8782
-2624/7200 [=========>....................] - ETA: 2s - loss: 0.2928 - acc: 0.8788
-2752/7200 [==========>...................] - ETA: 2s - loss: 0.2912 - acc: 0.8808
-2880/7200 [===========>..................] - ETA: 2s - loss: 0.2880 - acc: 0.8826
-3008/7200 [===========>..................] - ETA: 2s - loss: 0.2880 - acc: 0.8826
-3136/7200 [============>.................] - ETA: 2s - loss: 0.2863 - acc: 0.8827
-3264/7200 [============>.................] - ETA: 2s - loss: 0.2850 - acc: 0.8833
-3392/7200 [=============>................] - ETA: 2s - loss: 0.2866 - acc: 0.8818
-3520/7200 [=============>................] - ETA: 1s - loss: 0.2856 - acc: 0.8815
-3648/7200 [==============>...............] - ETA: 1s - loss: 0.2846 - acc: 0.8819
-3776/7200 [==============>...............] - ETA: 1s - loss: 0.2876 - acc: 0.8803
-3904/7200 [===============>..............] - ETA: 1s - loss: 0.2847 - acc: 0.8819
-4032/7200 [===============>..............] - ETA: 1s - loss: 0.2853 - acc: 0.8822
-4160/7200 [================>.............] - ETA: 1s - loss: 0.2861 - acc: 0.8820
-4288/7200 [================>.............] - ETA: 1s - loss: 0.2838 - acc: 0.8829
-4416/7200 [=================>............] - ETA: 1s - loss: 0.2845 - acc: 0.8816
-4544/7200 [=================>............] - ETA: 1s - loss: 0.2849 - acc: 0.8816
-4672/7200 [==================>...........] - ETA: 1s - loss: 0.2877 - acc: 0.8812
-4800/7200 [===================>..........] - ETA: 1s - loss: 0.2867 - acc: 0.8815
-4928/7200 [===================>..........] - ETA: 1s - loss: 0.2885 - acc: 0.8801
-5056/7200 [====================>.........] - ETA: 1s - loss: 0.2913 - acc: 0.8792
-5184/7200 [====================>.........] - ETA: 1s - loss: 0.2913 - acc: 0.8781
-5312/7200 [=====================>........] - ETA: 1s - loss: 0.2905 - acc: 0.8784
-5440/7200 [=====================>........] - ETA: 0s - loss: 0.2892 - acc: 0.8789
-5568/7200 [======================>.......] - ETA: 0s - loss: 0.2903 - acc: 0.8779
-5696/7200 [======================>.......] - ETA: 0s - loss: 0.2886 - acc: 0.8775
-5824/7200 [=======================>......] - ETA: 0s - loss: 0.2896 - acc: 0.8774
-5952/7200 [=======================>......] - ETA: 0s - loss: 0.2888 - acc: 0.8775
-6080/7200 [========================>.....] - ETA: 0s - loss: 0.2887 - acc: 0.8786
-6208/7200 [========================>.....] - ETA: 0s - loss: 0.2892 - acc: 0.8781
-6336/7200 [=========================>....] - ETA: 0s - loss: 0.2901 - acc: 0.8782
-6464/7200 [=========================>....] - ETA: 0s - loss: 0.2896 - acc: 0.8784
-6592/7200 [==========================>...] - ETA: 0s - loss: 0.2903 - acc: 0.8782
-6720/7200 [===========================>..] - ETA: 0s - loss: 0.2895 - acc: 0.8789
-6784/7200 [===========================>..] - ETA: 0s - loss: 0.2896 - acc: 0.8784
-6912/7200 [===========================>..] - ETA: 0s - loss: 0.2915 - acc: 0.8773
-7040/7200 [============================>.] - ETA: 0s - loss: 0.2908 - acc: 0.8770
-7168/7200 [============================>.] - ETA: 0s - loss: 0.2896 - acc: 0.8777
-7200/7200 [==============================] - 4s 560us/step - loss: 0.2900 - acc: 0.8775 - val_loss: 0.2673 - val_acc: 0.8911
-
-real	1m12.165s
-user	3m30.772s
-sys	0m4.319s
-
-ငါဘာသွားတွေ့ရသလဲ ဆိုတော့ epoch က 100 ထိသွားစရာမလိုပဲ ရပ်သွားတာကို တွေ့ရ။
-
-1st time training တုန်းက
+1st time training တုန်းက  
+```
 7200/7200 [==============================] - 4s 515us/step - loss: 0.3297 - acc: 0.8583 - val_loss: 0.2858 - val_acc: 0.8761
+```
 
-အခု 2nd time training မှာက
+အခု 2nd time training မှာက  
+```
 7200/7200 [==============================] - 4s 560us/step - loss: 0.2900 - acc: 0.8775 - val_loss: 0.2673 - val_acc: 0.8911
+```
+ဆိုတော ... နည်းနည်းတက်လာတာတော့ တွေ့ရ  
 
-ဆိုတော ... နည်းနည်းတက်လာတာတော့ တွေ့ရ
+## Some More Error Notes
 
-## Testing2
+တကယ်လို့ training/validation လုပ်တဲ့ဒေတာမှာ blank field တွေ ရှိနေရင် အောက်ပါအတိုင်း error ပေးပါလိမ့်မယ်။  
 
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./test-para1.py 
-Using TensorFlow backend.
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:74: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:133: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:3445: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:181: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:186: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
-
-2020-12-16 05:15:12.007248: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2893330000 Hz
-2020-12-16 05:15:12.007873: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55babb34c420 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-12-16 05:15:12.007912: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:190: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:199: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:206: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:3376: The name tf.log is deprecated. Please use tf.math.log instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/tensorflow_core/python/ops/nn_impl.py:183: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Use tf.where in 2.0, which has the same broadcast rule as np.where
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
-
-WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:973: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
-
-10/10 [==============================] - 1s 66ms/step
-[('ဝမ်းမြောက် ဝမ်းသာ ဖြစ် မိ ပါ သည်', 'ဝမ်းမြောက် ဝမ်းသာ ရှိ လှ ပေ စွ', 0.9992092), ('တော် တယ် ဆက် ပြီး တော့ ကြိုးစား ပါ', 'တော် တယ် ဆက် ကြိုးစား ပါ', 0.9992092), ('ဦးခိုက်ရှိခိုး ပါ ၏', 'ဦးခိုက် ပါ တယ်', 0.99920917), ('ဆရာတော် ကြီး များ သက်တော် ရာ ကျော် ရှည် ပါ စေ', 'ဆရာတော် ကြီး များ ကျန်းမာ သက် ရှည် ပါ စေ', 0.99920917), ('ကြိုက် သွား ပြီ', 'ကြိုဆို လိုက် ပါ', 0.99920917), ('စောက် လုပ် ကို ရှုပ် တယ်', 'စောက် လုပ် တွေ က ရှုပ် နေ တာ ပဲ', 0.99920917), ('သူ နဲ့ ကင်းကွာ နေ တာ ကြာ ပြီ', 'သူ နဲ့ အနီးဆုံး မှာ ပဲ နေ ပါ တယ်', 0.99920917), ('ထမင်း ကို ဖိတ်စင် အောင် မ စား ပါ နဲ့ ။', 'ရေ ကို ဖိတ်စင် အောင် မ ခပ် ပါ နဲ့ ။', 0.99920917), ('မိုး အလွန်အကျွံ ရွာ သောကြောင့် လမ်း များ သည် ဗွက် ဖြစ် နေ သည် ။', 'မိုး အလွန်အကျွံ ရွာ သောကြောင့် လမ်း မှာ ကောင်းကောင်း သွား မ ရ ပါ ။', 0.99920917), ('ရွဲ့လားစောင်းလား မ လုပ် နဲ့ နော်', 'စောင်း ပြော နေ တာ လား', 0.99920917)]
-
-real	0m8.556s
-user	0m8.612s
-sys	0m0.872s
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
-
-## 20K နဲ့ training/validation လုပ်တော့ Error ပေး
-
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./train-para1.py 2>&1 | tee ./para-tst-1/para1.train.log3
 Using TensorFlow backend.
 Traceback (most recent call last):
@@ -1972,13 +1883,18 @@ real	0m2.136s
 user	0m2.247s
 sys	0m0.428s
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
+```
+
+training/validation လုပ်မယ့် CSV ဖိုင်တွေရဲ့ အကြောင်းတိုင်းမှာ ကော်မာအရေအတွက်က အတူတူရှိရပါမယ်။  
+မရှိရင် မော်ဒယ်ဆောက်တဲ့အခါမှာ အထက်ပါကဲ့သို့သော် error တွေကို ရနိုင်ပါတယ်။  
 
 ## Checking fields
 
+ကိုယ့်ဒေတာဖိုင်ထဲမှာ blank field ရှိမရှိ စစ်တာနဲ့ ပတ်သက်တဲ့ shell command တချို့ကိုပါ လေ့လာနိုင်အောင် note ရေးပေးထားလိုက်မယ်။  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ grep '^,\|,,\|,$' ./line-no.para-no-para.shuf.final
 ,sentences1,sentences2,is_similar
 20000,
-
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ tail ./line-no.para-no-para.shuf.final
 19991,ထောင်ချ ပစ် ရ မှာ,ထောင် ထဲ မှာ ပစ် ထား တယ်,0
 19992,ကလေး တွေ ခုန်ပေါက်ပြေးလွှား ပြီး ကစား နေ ကြ တယ် ။,ကလေး တွေ ပျော်ရွှင် စွာ ရေကူး နေ ကြ တယ် ။,0
@@ -1990,13 +1906,18 @@ sys	0m0.428s
 19998,ရှိခိုး ဦးချ ပါ တယ်,အမေ့ ကို ရှိခိုး မယ်,0
 19999,အကြောင်း အရာ လေး စုံစမ်း ကြည့် ဦး ။,သတင်း လေး စုံစမ်း ကြည့် ဦး ။,1
 20000,
+```
 
-Ref: https://www.unix.com/shell-programming-and-scripting/172723-checking-csv-files-empty-fields.html
-
-လိုင်းနံပါတ်က Zero က စထားတာမို့ ....
-
+အထက်က အမှားက လိုင်းနံပါတ်က Zero က စထားတာကို ဆရာက ဂရုမပြုမိလို့ ဖြစ်ခဲ့တဲ့ အမှားမျိုးပါ ....  
+ဖိုင်ရဲ့ နောက်ဆုံးစာကြောင်းတစ်ကြောင်းတည်းကို ဖျက်တာလုပ်ချင်ရင် sed command နဲ့ အလွယ်တကူလုပ်လို့ ရပါတယ်။ အောက်ပါအတိုင်းပါ ...  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1$ sed '$d' < ./2k.test.csv  > tmp.tst
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1$ mv tmp.tst ./2k.test.csv(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1$ tail ./2k.test.csv 
+(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1$ mv tmp.tst ./2k.test.csv
+```
+
+ဖျက်သွားမသွားကို ပြန်စစ်ကြည့်...  
+```
+(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1$ tail ./2k.test.csv 
 19990,ငါ့ ကို ဘယ်သူ တွေ မေးမြန်း ခဲ့ ကြသေးလဲ ။,ငါ့ ကို ဘယ်သူ တွေ မေး ခဲ့ သေးလဲ ။,1
 19991,ထောင်ချ ပစ် ရ မှာ,ထောင် ထဲ မှာ ပစ် ထား တယ်,0
 19992,ကလေး တွေ ခုန်ပေါက်ပြေးလွှား ပြီး ကစား နေ ကြ တယ် ။,ကလေး တွေ ပျော်ရွှင် စွာ ရေကူး နေ ကြ တယ် ။,0
@@ -2007,39 +1928,10 @@ Ref: https://www.unix.com/shell-programming-and-scripting/172723-checking-csv-fi
 19997,ဂွ တော့ အတော် ကျ ကုန် ပြီ,ဂွ ကျ သွား လို့ ကောက် ပေး ပါ,0
 19998,ရှိခိုး ဦးချ ပါ တယ်,အမေ့ ကို ရှိခိုး မယ်,0
 19999,အကြောင်း အရာ လေး စုံစမ်း ကြည့် ဦး ။,သတင်း လေး စုံစမ်း ကြည့် ဦး ။,1
+```
 
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed '$d' < ./line-no.para-no-para.shuf.final > tmp.tst
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ mv tmp.tst ./line-no.para-no-para.shuf.final
+## Some Reference Links
 
+[https://github.com/amansrivastava17/lstm-siamese-text-similarity](https://github.com/amansrivastava17/lstm-siamese-text-similarity)  
+[https://www.unix.com/shell-programming-and-scripting/172723-checking-csv-files-empty-fields.html](https://www.unix.com/shell-programming-and-scripting/172723-checking-csv-files-empty-fields.html)
 
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed '$d' < ./line-no.para-no-para.shuf.final.csv > tmp.tst
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ mv tmp.tst line-no.para-no-para.shuf.final.csv 
-
-
-## Train again
-
-(tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./train-para1.py 2>&1 | tee ./para-tst-1/original/train-after-last-err-line-removed.log
-....
-...
-15872/18000 [=========================>....] - ETA: 1s - loss: 0.2723 - acc: 0.8862
-16000/18000 [=========================>....] - ETA: 1s - loss: 0.2719 - acc: 0.8862
-16128/18000 [=========================>....] - ETA: 1s - loss: 0.2717 - acc: 0.8862
-16256/18000 [==========================>...] - ETA: 0s - loss: 0.2723 - acc: 0.8860
-16384/18000 [==========================>...] - ETA: 0s - loss: 0.2716 - acc: 0.8863
-16512/18000 [==========================>...] - ETA: 0s - loss: 0.2716 - acc: 0.8861
-16640/18000 [==========================>...] - ETA: 0s - loss: 0.2722 - acc: 0.8856
-16768/18000 [==========================>...] - ETA: 0s - loss: 0.2726 - acc: 0.8854
-16896/18000 [===========================>..] - ETA: 0s - loss: 0.2724 - acc: 0.8855
-17024/18000 [===========================>..] - ETA: 0s - loss: 0.2725 - acc: 0.8853
-17152/18000 [===========================>..] - ETA: 0s - loss: 0.2724 - acc: 0.8854
-17280/18000 [===========================>..] - ETA: 0s - loss: 0.2723 - acc: 0.8855
-17408/18000 [============================>.] - ETA: 0s - loss: 0.2718 - acc: 0.8857
-17536/18000 [============================>.] - ETA: 0s - loss: 0.2727 - acc: 0.8856
-17664/18000 [============================>.] - ETA: 0s - loss: 0.2729 - acc: 0.8858
-17792/18000 [============================>.] - ETA: 0s - loss: 0.2726 - acc: 0.8860
-17920/18000 [============================>.] - ETA: 0s - loss: 0.2726 - acc: 0.8859
-18000/18000 [==============================] - 10s 559us/step - loss: 0.2726 - acc: 0.8859 - val_loss: 0.2632 - val_acc: 0.8840
-
-real	1m24.144s
-user	4m9.061s
-sys	0m4.584s
