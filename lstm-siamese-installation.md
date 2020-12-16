@@ -5,8 +5,7 @@ Some notes of installation/training of LSTM based Siamese Network for my PhD stu
 
 ## Creating a New Conda Environment
 
-Tensorflow framework နဲ့ Keras ကိုလည်း သုံးထားတာမို့၊ ကောင်းတာက အရင်ဆုံး conda environment အသစ်လုပ်ပြီး ဖြစ်နိုင်သ၍  
-သုံးမယ့် lstm-siamese code က သုံးထားတဲ့ library လိုအပ်ချက်တွေကို ပြင်ဆင်တာက ကောင်းတာမို့ ...   
+Tensorflow framework နဲ့ Keras ကိုလည်း သုံးထားတာမို့၊ ကောင်းတာက အရင်ဆုံး conda environment အသစ်လုပ်ပြီး ဖြစ်နိုင်သ၍ သုံးမယ့် lstm-siamese code က သုံးထားတဲ့ library လိုအပ်ချက်တွေကို ပြင်ဆင်တာက ကောင်းတာမို့ ...   
 အရင်ဆုံး conda command ကို သုံးပြီး tensor1.15.4_keras2.2.4 ဆိုတဲ့ environment ကို create လုပ်ခဲ့တယ်။  
 
 ```
@@ -187,8 +186,7 @@ Successfully installed tensorboard-1.15.0
 
 ## Got Error When Training with Sample Data
 
-LSTM-Siamese model ကို training လုပ်ဖို့အတွက် ရှာကြည့်တော့ train-sample.py ဆိုတဲ့ python script ကိုရှာတွေ့လို့ အဲဒီ code နဲ့  
-တင်ပေးထားတဲ့ sample data ကို သုံးပြီး စမ်းကြည့်တော့ အောက်ပါအတိုင်း error တွေ့ရ...  
+LSTM-Siamese model ကို training လုပ်ဖို့အတွက် ရှာကြည့်တော့ train-sample.py ဆိုတဲ့ python script ကိုရှာတွေ့လို့ အဲဒီ code နဲ့ တင်ပေးထားတဲ့ sample data ကို သုံးပြီး စမ်းကြည့်တော့ အောက်ပါအတိုင်း error တွေ့ရ...   
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ python ./train-sample.py 2>&1 | tee train-sample.log
 Traceback (most recent call last):
@@ -209,7 +207,7 @@ AttributeError: module 'numpy' has no attribute 'dtype'
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
 ```
 
-numpy library version ပြဿနာလို့ ထင်တယ်...  
+numpy library version ပြဿနာလို့ ထင်တယ်...   
 
 ## Remove numpy and Reinstall Lower Version
 
@@ -378,16 +376,13 @@ Epoch 8/200
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
 ```
 
-Very fast!!!
-Accuracy က သိပ်အကောင်းကြီး မဟုတ်ပေမဲ့ လက်ရှိဒေတာနဲ့ လက်ရှိ setting နဲ့ အချိန်တိုတိုအတွင်းမှာ similarity measure လုပ်နိုင်တာမို့   
-ရည်ရွယ်ထားတဲ့ paraphrase experiment အတွက် အဆင်ပြေနိုင်တယ် ... :)
+***Very fast!!!***  
+Accuracy က သိပ်အကောင်းကြီး မဟုတ်ပေမဲ့ လက်ရှိဒေတာနဲ့ လက်ရှိ setting နဲ့ အချိန်တိုတိုအတွင်းမှာ similarity measure လုပ်နိုင်တာမို့ ရည်ရွယ်ထားတဲ့ paraphrase experiment အတွက် အဆင်ပြေနိုင်တယ် ... :)
 
 ## Testing
 
-Testing ကိုလည်း သူ့မှာ ပါတဲ့ original script ဖြစ်တဲ့ test-sample.py နဲ့ စမ်းကြည့်ခဲ့တယ်။  
-Error အမျိုးမျိုး ပေးတယ်။  
-
-Finally, source code debug လုပ်တာရသွားတယ်။  
+Testing ကိုလည်း သူ့မှာ ပါတဲ့ original script ဖြစ်တဲ့ test-sample.py နဲ့ စမ်းကြည့်ခဲ့တယ်။ Error အမျိုးမျိုးပေးတယ်။  
+Finally, source code debug လုပ်တာရသွားတယ်။    
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ python test-sample.py 2>&1 | tee test-sample.log
 Using TensorFlow backend.
@@ -434,15 +429,11 @@ WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/tensor1.15.4_keras2.2.4/lib
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
 ```
 
-ဒီ testing code မှာက similarity ကိုတိုင်းတာချင်တဲ့ စာကြောင်းတွေကို source code ထဲကနေ ပေးထားတယ်။  
-output မှာတော့ အထက်မှာ မြင်ရတဲ့အတိုင်း score တွေကို သေချာထုတ်ပေးလို့ အဆင်ပြေတယ်။  
+ဒီ testing code မှာက similarity ကိုတိုင်းတာချင်တဲ့ စာကြောင်းတွေကို source code ထဲကနေ ပေးထားတယ်။ output မှာတော့ အထက်မှာ မြင်ရတဲ့အတိုင်း score တွေကို သေချာထုတ်ပေးလို့ အဆင်ပြေတယ်။  
 
 ## Testing with paraphrase data
 
-မနေ့ကညကလား ပို့ထားတဲ့ manual ပြင်ဆင်နေတဲ့ paraphrase မဟုတ်တဲ့ စာကြောင်း တစ်သောင်းနဲ့   
-လက်ရှိ ရှိနေတဲ့ paraphrase စာကြောင်း ရှစ်သောင်းကျော်ကနေ တစ်သောင်းကို ဆွဲထုတ်ယူပြီး test experiment လုပ်ကြည့်မယ်။  
-အရင်ဆုံး အောက်ပါအတိုင်း ဒေတာတွေကို ပြင်ဆင်တယ်။
-
+မနေ့ကညကလား ပို့ထားတဲ့ manual ပြင်ဆင်နေတဲ့ paraphrase မဟုတ်တဲ့ စာကြောင်း တစ်သောင်းနဲ့ လက်ရှိ ရှိနေတဲ့ paraphrase စာကြောင်း ရှစ်သောင်းကျော်ကနေ တစ်သောင်းကို ဆွဲထုတ်ယူပြီး test experiment လုပ်ကြည့်မယ်။ အရင်ဆုံး အောက်ပါအတိုင်း ဒေတာတွေကို ပြင်ဆင်တယ်။  
 data တွေကို လက်ရှိ ဖိုလ်ဒါအောက်ကို ကောပီကူးခဲ့...  
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ cp /media/ye/project1/student/utycc-newR/seminar/6thSeminar/MyintMyintHtay/23Nov2020/forsec/paraphrase_sentence.final .
@@ -473,8 +464,7 @@ original paraphrase data 10k ရဲ့ format က အောက်ပါအတိ
 စား ချင် တယ် လေ	စား ချင် ပါ သည်
 ```
 
-ထုံးစံအတိုင်း ဒေတာတွေကို training/validation မလုပ်ခင်မှာ သုံးမယ့်ပရိုဂရမ်၊ framework က သတ်မှတ်ထားတဲ့ format ဖြစ်အောင်ညှိပေးဖို့ လိုအပ်တယ်။  
-အရင်ဆုံး "sed command" ကို သုံးပြီးတော့ format ပြောင်းတယ်။  
+ထုံးစံအတိုင်း ဒေတာတွေကို training/validation မလုပ်ခင်မှာ သုံးမယ့်ပရိုဂရမ်၊ framework က သတ်မှတ်ထားတဲ့ format ဖြစ်အောင်ညှိပေးဖို့ လိုအပ်တယ်။ အရင်ဆုံး "sed command" ကို သုံးပြီးတော့ format ပြောင်းတယ်။  
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\(.*\)/\1,1/;s/\t/,/' < ./10k.para > ./10k.para.format
 ```
@@ -509,7 +499,7 @@ non-paraphrase အတွက်လည်း \<sentence\>,\<sentence\>,0 ဆို
 တစ်သက် လုံး ရှောင်တိမ်း နေ လိုက် ပါ ကွာ နားအေး တယ် ။	တစ်သက် လုံး တိမ်းရှောင် နေ လိုက် ပါ ကွာ နားငြီး တယ် ။	0
 ```
 
-ဆရာတို့ ပြင်ဆင်ထားတာက \<TAB\> ကီးခြားထားတာမို့...
+ဆရာတို့ ပြင်ဆင်ထားတာက \<TAB\> ကီးခြားထားတာမို့...  
 sed command ကို သုံပြီးတော့ \<TAB\> ကီးနေရာကို comma နဲ့ အစားထိုးခဲ့တယ်။   
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\t/,/g' < ./not-para-human.5k.txt > ./not-para-human.5k.txt.format
@@ -593,12 +583,12 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 20000
 ```
 
-စောစောက ပြင်ဆင်ခဲ့တဲ့ shuffle လုပ်ထားပြီးသား paraphrase+non-paraphrase ဒေတာတွေရဲ့ ဖိုင်နဲ့ လိုင်းနံပါတ်-ဖိုင် ကို ကော်မာနဲ့ခြားပြီး တွဲပေးခဲ့တယ်။  
+စောစောက ပြင်ဆင်ခဲ့တဲ့ shuffle လုပ်ထားပြီးသား paraphrase+non-paraphrase ဒေတာတွေရဲ့ ဖိုင်နဲ့ လိုင်းနံပါတ်-ဖိုင် ကို ကော်မာနဲ့ခြားပြီး တွဲပေးခဲ့တယ်။   
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ paste line-no ./para-not-para.shuf -d"," > ./line-no.para-no-para.shuf
 ```
 
-တွဲပြီး သိမ်းထားတဲ့ဖိုင်အသစ် line-no.para-no-para.shuf ရဲ့ ထိပ်ဆုံး ၁၀ကြောင်းကို head command နဲ့စကရင်မှာ ရိုက်ထုတ်ကြည့်ခဲ့...  
+တွဲပြီး သိမ်းထားတဲ့ဖိုင်အသစ် line-no.para-no-para.shuf ရဲ့ ထိပ်ဆုံး ၁၀ကြောင်းကို head command နဲ့စကရင်မှာ ရိုက်ထုတ်ကြည့်ခဲ့...   
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./line-no.para-no-para.shuf 
 0,ပိန် လိုက် တာ ပိန်ကပ် နေ တာ ပဲ ။,ပိန်း လိုက် တာ ကွာ ။,0
@@ -615,9 +605,7 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 
 ## Adding column header
 
-CSV ဖိုင်တွေရဲ့ ထုံးစံအတိုင်း ဖိုင်ရဲ့ထိပ်ဆုံးအကြောင်းက column header တပ်ပေးရအောင်။  
-ဆရာက sample data ရဲ့column header ကိုပဲယူလိုက်ပါတယ်။  
-နာမည်က သိပ်ပြဿနာမရှိလို့ နောက်ပြီး Python code အထဲက field-name ဖတ်ထားတဲ့ စာကြောင်းတွေကိုလည်း ဝင်မပြင်ချင်လို့ ...  
+CSV ဖိုင်တွေရဲ့ ထုံးစံအတိုင်း ဖိုင်ရဲ့ထိပ်ဆုံးအကြောင်းက column header တပ်ပေးရအောင်။ ဆရာက sample data ရဲ့column header ကိုပဲယူလိုက်ပါတယ်။ နာမည်က သိပ်ပြဿနာမရှိလို့ နောက်ပြီး Python code အထဲက field-name ဖတ်ထားတဲ့ စာကြောင်းတွေကိုလည်း ဝင်မပြင်ချင်လို့ ...   
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ (echo ",sentences1,sentences2,is_similar" && cat ./line-no.para-no-para.shuf) > line-no.para-no-para.shuf.final
 ```
@@ -659,13 +647,12 @@ df = pd.read_csv('./para-tst-1/original/line-no.para-no-para.shuf.final.csv')
 
 ## Backup checkpoints folder
 
-checkpoints/ ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာ configuration setting မှာ သတ်မှတ်ထားတဲ့အတိုင်း best model ကိုသိမ်းပေးတာဘာညာ လုပ်ပေးသွားလိမ့်မယ်။  
-တစ်ခုရှိတာက training မလုပ်ခင်မှာ ရှေ့မှာ ဆောက်ခဲ့တဲ့ မော်ဒယ်တွေဘာတွေကို backup လုပ်တဲ့ အလေ့အကျင့်လုပ်ပါ။  
+checkpoints/ ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာ configuration setting မှာ သတ်မှတ်ထားတဲ့အတိုင်း best model ကိုသိမ်းပေးတာဘာညာ လုပ်ပေးသွားလိမ့်မယ်။ တစ်ခုရှိတာက training မလုပ်ခင်မှာ ရှေ့မှာ ဆောက်ခဲ့တဲ့ မော်ဒယ်တွေဘာတွေကို backup လုပ်တဲ့ အလေ့အကျင့်လုပ်ပါ။   
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ mv checkpoints/ checkpoints.bak
 ```
 
-မော်ဒယ်မဆောက်ခင်မှာ Confirmation တစ်ခု လုပ်ရလိမ့်မယ်..  
+မော်ဒယ်မဆောက်ခင်မှာ Confirmation တစ်ခု လုပ်ရလိမ့်မယ်...  
 training မလုပ်ခင်မှာ တကယ်လို့ ကိုယ်က (Ctrl+Shift+t နဲ့ပဲဖြစ်ဖြစ်) terminal အသစ်ဖွင့်သုံးထားတာဆိုရင်တော့ conda command သုံးပြီး   
 LSTM Siamese Network experiment လုပ်ဖို့အတွက် ပြင်ဆင်ထားခဲ့တဲ့ Python environment အောက်ကို ပြန်ဝင်ရပါလိမ့်မယ်။   
 ```
@@ -675,7 +662,7 @@ LSTM Siamese Network experiment လုပ်ဖို့အတွက် ပြ�
 
 ## Training-1
 
-ငါတို့ပြင်ဆင်ခဲ့ကြတဲ့ ဗမာစာ paraphrase ဒေတာကိုသုံးပြီး CPU Notebook ပေါ်မှာပဲ မောဒယ်စမ်းဆောက်ကြည့်ရအောင်....  
+ငါတို့ပြင်ဆင်ခဲ့ကြတဲ့ ဗမာစာ paraphrase ဒေတာကိုသုံးပြီး CPU Notebook ပေါ်မှာပဲ မောဒယ်စမ်းဆောက်ကြည့်ရအောင်....   
 WARNING တွေက ခဏမေ့ထားပါ အိုကေပါတယ်။   
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ time python ./train-para1.py 2>&1 | tee ./para-tst-1/original/train-after-last-err-line-removed.log
@@ -1747,32 +1734,26 @@ real	1m24.144s
 အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ...  
 လက်ရှိ para နဲ့ not-para ဒေတာစုစုပေါင်း နှစ်သောင်းရဲ့ 80% တစ်သောင်းရှစ်ထောင်ကိုသုံး training လုပ်ပြီး၊   
 20% ဖြစ်တဲ့ နှစ်ထောင် ကိုသုံး validation လုပ်သွားတာမှာ validation loss: 0.2632 နဲ့ validation accuracy: 0.8840 ရပါတယ်။   
-မဆိုးပါဘူး။ ဒီထက် ရလဒ်ကောင်းအောင် ကတော့ ဒေတာတိုးတာ network architecture ပြောင်းတာ၊ parameter tuning စတာတွေကိုလုပ်သွားရပါလိမ့်မယ်။   
-
+မဆိုးပါဘူး။ ဒီထက် ရလဒ်ကောင်းအောင် ကတော့ ဒေတာတိုးတာ network architecture ပြောင်းတာ၊ parameter tuning စတာတွေကိုလုပ်သွားရပါလိမ့်မယ်။    
 
 ## Editing testing python file
 
-တကယ်လို့ ဆောက်ထားပြီးသားမော်ဒယ်ကို test-data နဲ့ similarity တိုင်းတာတာမျိုး လုပ်ချင်ရင်တော့ example testing ပရိုဂရမ်ကို ကော်ပီကူးပြီး လုပ်သွားပါ။  
-ဥပမာ အနေနဲ့ test-para1.py ဆိုပြီးကော်ပီကူးထားရင် အဲဒီဖိုင်ကို gedit နဲ့ဖွင့်ပြီး ဝင်ပြင်တာလုပ်ရပါလိမ့်မယ်။  
+တကယ်လို့ ဆောက်ထားပြီးသားမော်ဒယ်ကို test-data နဲ့ similarity တိုင်းတာတာမျိုး လုပ်ချင်ရင်တော့ example testing ပရိုဂရမ်ကို ကော်ပီကူးပြီး လုပ်သွားပါ။ ဥပမာ အနေနဲ့ test-para1.py ဆိုပြီးကော်ပီကူးထားရင် အဲဒီဖိုင်ကို gedit နဲ့ဖွင့်ပြီး ဝင်ပြင်တာလုပ်ရပါလိမ့်မယ်။   
+
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$ gedit test-para1.py
 ```
 
-အနည်းဆုံးတော့ မော်ဒယ် ရှိတဲ့ path နဲ့ model ဖိုင်နာမည်ကို ရိုက်ထည့်ပေးရမယ်။   
-ပုံမှန်အားဖြင့် မော်ဒယ်က checkpoints ဆိုတဲ့ အောက်မှာ သိမ်းလိမ့်မယ်။  
-နံပါတ်အကြီးဆုံးဟာက နောက်ဆုံး မော်ဒယ်၊ အကောင်းဆုံးမော်ဒယ်ပါ။  
-configuration setting ပေါ်မူတည်ပြီး epoch တိုင်းရဲ့ မော်ဒယ်ကို သိမ်းပေးခိုင်းထားခဲ့ရင် အဲဒီဖိုလ်ဒါအောက်မှာ မော်ဒယ်တွေက တစ်ခုထက်မက ရှိနေပါလိမ့်မယ်။  
+အနည်းဆုံးတော့ မော်ဒယ် ရှိတဲ့ path နဲ့ model ဖိုင်နာမည်ကို ရိုက်ထည့်ပေးရမယ်။ ပုံမှန်အားဖြင့် မော်ဒယ်က checkpoints ဆိုတဲ့ အောက်မှာ သိမ်းလိမ့်မယ်။ နံပါတ်အကြီးဆုံးဟာက နောက်ဆုံး မော်ဒယ်၊ အကောင်းဆုံးမော်ဒယ်ပါ။ configuration setting ပေါ်မူတည်ပြီး epoch တိုင်းရဲ့ မော်ဒယ်ကို သိမ်းပေးခိုင်းထားခဲ့ရင် အဲဒီဖိုလ်ဒါအောက်မှာ မော်ဒယ်တွေက တစ်ခုထက်မက ရှိနေပါလိမ့်မယ်။  
 
-ဆရာက အောက်ပါအတိုင်း ပြင်ဆင်တာတွေလုပ်ခဲ့တယ်။ မော်ဒယ်ဖိုင်ရဲ့ extension ကတော့ .h5 ပါ။  
-.h5 ဆိုတာက Hierarchical Data Format (HDF) ရဲ့ file extension ပါ။  
+ဆရာက အောက်ပါအတိုင်း ပြင်ဆင်တာတွေလုပ်ခဲ့တယ်။ မော်ဒယ်ဖိုင်ရဲ့ extension ကတော့ .h5 ပါ။ .h5 ဆိုတာက Hierarchical Data Format (HDF) ရဲ့ file extension ပါ။  
 
 ```python
 #model = load_model("/media/ye/project1/tool/lstm-siamese-text-similarity/checkpoints/1605650354/lstm_50_50_0.17_0.25.h5")
 model = load_model("/media/ye/project1/tool/lstm-siamese-text-similarity/checkpoints/1608068575/lstm_50_50_0.17_0.25.h5")
 ```
 
-လက်ရှိ testing လုပ်တဲ့ python ဖိုင် မှာက စာကြောင်းအချို့ကို ရိုက်ထည့်ထားပြီး စမ်းထားတာမို့   
-အဲဒါကို အရင် အစားထိုးကြည့်ပြီး testing လုပ်ခဲ့တယ်။ ဗမာစာကြောင်းတွေက test ဖိုင်ကနေ ယူထားတယ်။  
+လက်ရှိ testing လုပ်တဲ့ python ဖိုင် မှာက စာကြောင်းအချို့ကို ရိုက်ထည့်ထားပြီး စမ်းထားတာမို့ အဲဒါကို အရင် အစားထိုးကြည့်ပြီး testing လုပ်ခဲ့တယ်။ ဗမာစာကြောင်းတွေက test ဖိုင်ကနေ ယူထားတယ်။  
 
 ```python
 #test_sentence_pairs = [('What can make Physics easy to learn?','How can you make physics easy to learn?'),('How many times a day do a clocks hands overlap?','What does it mean that every time I look at the clock the numbers are the same?')]
@@ -1834,7 +1815,7 @@ sys	0m0.843s
 
 ## How about increasing no. of epoch for training?!
 
-model.py ဖိုင်မှာ အောက်ပါ statement ကို တွေ့ခဲ့။ နှစ်နေရာရှိတယ် ....
+model.py ဖိုင်မှာ အောက်ပါ statement ကို တွေ့ခဲ့။ နှစ်နေရာရှိတယ် ...  
 
 ```python
         model.fit([train_data_x1, train_data_x2, leaks_train], train_labels,
@@ -1843,11 +1824,9 @@ model.py ဖိုင်မှာ အောက်ပါ statement ကို တ�
                   callbacks=[early_stopping, model_checkpoint, tensorboard])
 ```
 
-code ကတော့ အသေတွေဖြစ်နေလို့ coding ဖိုင်ထဲကို ဝင်ပြင်မှရတဲ့ ပုံစံတော့ ဖြစ်နေတယ်။  
-ပြင်ချင်ရင် အဲဒီမှာ epochs=100 ထားကြည့်တာမျိုး လုပ်လို့ရတယ်။  
+code ကတော့ အသေတွေဖြစ်နေလို့ coding ဖိုင်ထဲကို ဝင်ပြင်မှရတဲ့ ပုံစံတော့ ဖြစ်နေတယ်။ ပြင်ချင်ရင် အဲဒီမှာ epochs=100 ထားကြည့်တာမျိုး လုပ်လို့ရတယ်။  
 
-epoch=100 နဲ့ run ကြည့်ခဲ့သေးတယ်။  ဘာသွားတွေ့ရသလဲ ဆိုတော့ epoch က 100 ထိသွားစရာမလိုပဲ early stop နဲ့ learning လုပ်တာက ရပ်သွားတာကို တွေ့ရ။  
-ဆိုလိုတာက မော်ဒယ်က ဒီရလဒ်က အကောင်းဆုံးပါပဲ။  
+epoch=100 နဲ့ run ကြည့်ခဲ့သေးတယ်။  ဘာသွားတွေ့ရသလဲ ဆိုတော့ epoch က 100 ထိသွားစရာမလိုပဲ early stop နဲ့ learning လုပ်တာက ရပ်သွားတာကို တွေ့ရ။ ဆိုလိုတာက မော်ဒယ်က ဒီရလဒ်က အကောင်းဆုံးပါပဲ။  
 
 ဆရာ training/validation ဒေတာပမာဏ ကိုလည်းအတိုးအလျော့လုပ်ပြီး စမ်းခဲ့ပါသေးတယ်။  
 ဥပမာ စုစုပေါင်း ဒေတာ ရှစ်ထောင်နဲ့ပဲ စမ်းတဲ့အခါမှာ အောက်ပါအတိုင်းရပါတယ်။  
@@ -1885,12 +1864,12 @@ sys	0m0.428s
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity$
 ```
 
-training/validation လုပ်မယ့် CSV ဖိုင်တွေရဲ့ အကြောင်းတိုင်းမှာ ကော်မာအရေအတွက်က အတူတူရှိရပါမယ်။  
-မရှိရင် မော်ဒယ်ဆောက်တဲ့အခါမှာ အထက်ပါကဲ့သို့သော် error တွေကို ရနိုင်ပါတယ်။  
+training/validation လုပ်မယ့် CSV ဖိုင်တွေရဲ့ အကြောင်းတိုင်းမှာ ကော်မာအရေအတွက်က အတူတူရှိရပါမယ်။ မရှိရင် မော်ဒယ်ဆောက်တဲ့အခါမှာ အထက်ပါကဲ့သို့သော် error တွေကို ရနိုင်ပါတယ်။  
 
 ## Checking fields
 
 ကိုယ့်ဒေတာဖိုင်ထဲမှာ blank field ရှိမရှိ စစ်တာနဲ့ ပတ်သက်တဲ့ shell command တချို့ကိုပါ လေ့လာနိုင်အောင် note ရေးပေးထားလိုက်မယ်။  
+
 ```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ grep '^,\|,,\|,$' ./line-no.para-no-para.shuf.final
 ,sentences1,sentences2,is_similar
