@@ -443,15 +443,23 @@ output မှာတော့ အထက်မှာ မြင်ရတဲ့အ�
 လက်ရှိ ရှိနေတဲ့ paraphrase စာကြောင်း ရှစ်သောင်းကျော်ကနေ တစ်သောင်းကို ဆွဲထုတ်ယူပြီး test experiment လုပ်ကြည့်မယ်။  
 အရင်ဆုံး အောက်ပါအတိုင်း ဒေတာတွေကို ပြင်ဆင်တယ်။
 
+data တွေကို လက်ရှိ ဖိုလ်ဒါအောက်ကို ကောပီကူးခဲ့...  
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ cp /media/ye/project1/student/utycc-newR/seminar/6thSeminar/MyintMyintHtay/23Nov2020/forsec/paraphrase_sentence.final .
 
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ cp /media/ye/project1/student/utycc-newR/seminar/6thSeminar/MyintMyintHtay/16Dec2020/not-para-human.5k.txt .
 
+(base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ wc paraphrase_sentence.final 
+   84498  1166569 15423318 paraphrase_sentence.final   
+```
+
+ရှစ်သောင်း ကျော်ရှိပေမဲ့ test-experiment အတွက်က အဲဒီအထဲကနေ paraphrase မဟုတ်တဲ့ ဒေတာနဲ့လည်းမျှသွားအောင် လောလောဆယ် စာကြောင်းတစ်သောင်း ကိုပဲ ဆွဲထုတ်ယူခဲ့တယ်။  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head -n 10000 ./paraphrase_sentence.final > 10k.para
+```
 
-original paraphrase data 10k ရဲ့ format က အောက်ပါအတိုင်း
-
+original paraphrase data 10k ရဲ့ format က အောက်ပါအတိုင်း  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./10k.para
 အောင်မြင် အောင် ကြိုးစား ပါ အားပေး နေ ဆဲ	အောင်မြင် မှု တွေ ရ ပါ စေ အားပေး လျက်
 မျှော် နေ တာ ကြာ ပြီ	မျှော်လင့် နေ တာ ကြာ ပြီ
@@ -463,12 +471,16 @@ original paraphrase data 10k ရဲ့ format က အောက်ပါအတိ
 ငွေ မ ပြည့်စုံ တဲ့ အတွက် ကြောင့် ငါ နိုင်ငံ ခြား မ သွား တော့ ဘူး ။	ငွေ ပြည့်ပြည့်စုံစုံ မ ရှိ တဲ့ အတွက် ကြောင့် ငါ နိုင်ငံ ခြား မ သွား တော့ ဘူး ။
 ဂုဏ်ယူ လျက် ပါ	ဂုဏ်ယူ လိုက် တာ
 စား ချင် တယ် လေ	စား ချင် ပါ သည်
+```
 
-sed command ကို သုံးပြီးတော့ format ပြောင်းတယ်။
+ထုံးစံအတိုင်း ဒေတာတွေကို training/validation မလုပ်ခင်မှာ သုံးမယ့်ပရိုဂရမ်၊ framework က သတ်မှတ်ထားတဲ့ format ဖြစ်အောင်ညှိပေးဖို့ လိုအပ်တယ်။  
+အရင်ဆုံး "sed command" ကို သုံးပြီးတော့ format ပြောင်းတယ်။  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\(.*\)/\1,1/;s/\t/,/' < ./10k.para > ./10k.para.format
+```
 
-လိုချင်တဲ့ format တော့ ရသွားပြီ။ အောက်ပါအတိုင်း
-
+paraphrase ဒေတာတွေအတွက် လိုချင်တဲ့ format တော့ ရသွားပြီ။ အောက်ပါအတိုင်း paraphrase ဖြစ်တဲ့ စာကြောင်းအတွဲတွေကိုတော့ နံပါတ် 1 ဆိုပြီး လေဘယ်တပ်ပါတယ်။  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./10k.para.format 
 အောင်မြင် အောင် ကြိုးစား ပါ အားပေး နေ ဆဲ,အောင်မြင် မှု တွေ ရ ပါ စေ အားပေး လျက်,1
 မျှော် နေ တာ ကြာ ပြီ,မျှော်လင့် နေ တာ ကြာ ပြီ,1
@@ -480,9 +492,10 @@ sed command ကို သုံးပြီးတော့ format ပြော�
 ငွေ မ ပြည့်စုံ တဲ့ အတွက် ကြောင့် ငါ နိုင်ငံ ခြား မ သွား တော့ ဘူး ။,ငွေ ပြည့်ပြည့်စုံစုံ မ ရှိ တဲ့ အတွက် ကြောင့် ငါ နိုင်ငံ ခြား မ သွား တော့ ဘူး ။,1
 ဂုဏ်ယူ လျက် ပါ,ဂုဏ်ယူ လိုက် တာ,1
 စား ချင် တယ် လေ,စား ချင် ပါ သည်,1
+```
 
-non-paraphrase ပြင်ဆင်တယ်။ အောက်ပါအတိုင်း
-
+non-paraphrase အတွက်လည်း <sentence>,<sentence>,0 ဆိုတဲ့ format ကိုပြင်ဆင်ရတယ်။ အောက်ပါအတိုင်း  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head not-para-human.5k.txt 
 သူ ဟာ အားကစား အမျိုးမျိုး မှာ စိတ်ပါဝင်စား တယ် ဆို တာ ခင်ဗျား သိ သလား ။	သူ ဟာ အားကစား အမျိုးမျိုး မှာ ကျွမ်းကျင် တယ် ဆို တာ ခင်ဗျား သိ သလား ။	0
 စံပယ် ဆို အရမ်း ကြိုက် တယ်	စံပယ် ပန်း နှင့် ထုတ် ထား ပါ တယ်	0
@@ -494,7 +507,8 @@ non-paraphrase ပြင်ဆင်တယ်။ အောက်ပါအတိ�
 ဒါ သူ ယူ ထား တဲ့ နောက်ဇနီး လေ ။	ဒါ သူ ယူ ထား တဲ့ နောက်မယား ရဲ့ သား လေ ။	0
 ကောင်း သော နေ့လယ်ပိုင်း လေး ပါ နော်	ပျော် စရာ မွေးနေ့ ဖြစ် ပါစေ	0
 တစ်သက် လုံး ရှောင်တိမ်း နေ လိုက် ပါ ကွာ နားအေး တယ် ။	တစ်သက် လုံး တိမ်းရှောင် နေ လိုက် ပါ ကွာ နားငြီး တယ် ။	0
-
+```
+  
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\t/,/g' < ./not-para-human.5k.txt > ./not-para-human.5k.txt.format
 
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./not-para-human.5k.txt.format 
