@@ -494,7 +494,7 @@ paraphrase ဒေတာတွေအတွက် လိုချင်တဲ့ f
 စား ချင် တယ် လေ,စား ချင် ပါ သည်,1
 ```
 
-non-paraphrase အတွက်လည်း <sentence>,<sentence>,0 ဆိုတဲ့ format ကိုပြင်ဆင်ရတယ်။ အောက်ပါအတိုင်း  
+non-paraphrase အတွက်လည်း \<sentence\>,\<sentence\>,0 ဆိုတဲ့ format ကိုပြင်ဆင်ရတယ်။ အောက်ပါအတိုင်း အဆင့်ဆင့်လုပ်သွားခဲ့တယ်...  
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head not-para-human.5k.txt 
 သူ ဟာ အားကစား အမျိုးမျိုး မှာ စိတ်ပါဝင်စား တယ် ဆို တာ ခင်ဗျား သိ သလား ။	သူ ဟာ အားကစား အမျိုးမျိုး မှာ ကျွမ်းကျင် တယ် ဆို တာ ခင်ဗျား သိ သလား ။	0
@@ -508,9 +508,15 @@ non-paraphrase အတွက်လည်း <sentence>,<sentence>,0 ဆိုတ�
 ကောင်း သော နေ့လယ်ပိုင်း လေး ပါ နော်	ပျော် စရာ မွေးနေ့ ဖြစ် ပါစေ	0
 တစ်သက် လုံး ရှောင်တိမ်း နေ လိုက် ပါ ကွာ နားအေး တယ် ။	တစ်သက် လုံး တိမ်းရှောင် နေ လိုက် ပါ ကွာ နားငြီး တယ် ။	0
 ```
-  
-(base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\t/,/g' < ./not-para-human.5k.txt > ./not-para-human.5k.txt.format
 
+ဆရာတို့ ပြင်ဆင်ထားတာက \<TAB\> ကီးခြားထားတာမို့...
+sed command ကို သုံပြီးတော့ \<TAB\> ကီးနေရာကို comma နဲ့ အစားထိုးခဲ့တယ်။   
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ sed 's/\t/,/g' < ./not-para-human.5k.txt > ./not-para-human.5k.txt.format
+```
+
+format ကို တချက် confirmation လုပ်ခဲ့...  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./not-para-human.5k.txt.format 
 သူ ဟာ အားကစား အမျိုးမျိုး မှာ စိတ်ပါဝင်စား တယ် ဆို တာ ခင်ဗျား သိ သလား ။,သူ ဟာ အားကစား အမျိုးမျိုး မှာ ကျွမ်းကျင် တယ် ဆို တာ ခင်ဗျား သိ သလား ။,0
 စံပယ် ဆို အရမ်း ကြိုက် တယ်,စံပယ် ပန်း နှင့် ထုတ် ထား ပါ တယ်,0
@@ -523,18 +529,26 @@ non-paraphrase အတွက်လည်း <sentence>,<sentence>,0 ဆိုတ�
 ကောင်း သော နေ့လယ်ပိုင်း လေး ပါ နော်,ပျော် စရာ မွေးနေ့ ဖြစ် ပါစေ,0
 တစ်သက် လုံး ရှောင်တိမ်း နေ လိုက် ပါ ကွာ နားအေး တယ် ။,တစ်သက် လုံး တိမ်းရှောင် နေ လိုက် ပါ ကွာ နားငြီး တယ် ။,0
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$
+```
 
-paraphrase data + not paraphrase data (နှစ်မျိုးကို ပေါင်းတယ်)
-
+paraphrase data နဲ့ not paraphrase data နှစ်မျိုးကို ပေါင်းခဲ့တယ်။   
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ cat ./10k.para.format ./not-para-human.5k.txt.format > para-not-para
+```
+
+စာကြောင်းရေအရေအတွက်ကို စစ်ဆေးကြည့်ခဲ့...  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ wc ./para-not-para 
   20000  288758 3962466 ./para-not-para
+```
 
-shuffle လုပ်တယ်
+shuffle လုပ်တယ်။ ဒီအဆင့်ဟာလည်း အရေးကြီးပါတယ်။ ခုနောက်ပိုင်း Neural Network framework တွေမှာတော့ epoch တစ်ခေါက် training လုပ်တိုင်းမှာ shuffle လုပ်ပေးတဲ့ facility တွေပါပေမဲ့ ကိုယ်တိုင်က အလေ့အကျင့်တစ်ခုအနေနဲ့ လုပ်သွားတာကကောင်းပါတယ်။ မဟုတ်ရင် training တွေလုပ်ပြီးမှ ဒေတာက shuffle မလုပ်ခဲ့လို့ model မှာ ဘက်လိုက်မှုရှိတာမျိုးကို ဂရုပြုမိရင် မော်ဒယ်ကို အစကနေ ပြန်ဆောက်ကြရတာမို့ပါ။    
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ shuf ./para-not-para > ./para-not-para.shuf
+```
 
-Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK ...
-
+Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK ...  
+```
 (base) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./para-not-para.shuf 
 ပိန် လိုက် တာ ပိန်ကပ် နေ တာ ပဲ ။,ပိန်း လိုက် တာ ကွာ ။,0
 ဘယ်လို နည်း နဲ့ မှ ကြည်ညို လို့ မ ရ တော့ ဘူး,ကြည်ညို စရာ မ ကောင်း ဘူး,1
@@ -546,9 +560,12 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 သူမ မင်း ကို မ သိ ခဲ့ ပါ ဘူး ။,သူမ မင်း ကို သိ တယ် ။,0
 ဒီထက် လှူ နိုင် ကြ ပါ စေ,ဒီထက် ပို ပြီး လှူနိုင်တန်းနိုင် ပါ စေ,1
 မကျက်တကျက် လား ၊ အတော်အသင့် အကျက် လား ၊ ကျက်ကျက် ကြီး လား ။,မကျက်တကျက် တွေ အတော်အသင့် ကျက် တွေ မ စား ပါ နဲ့ ။,0
+```
 
 ## prepare line number
 
+အခုသုံးကြည့်ဖို့အတွက် ပြင်ဆင်နေတဲ့ LSTM Siamese program ရဲ့ data format မှာက ရှေ့ဆုံးမှာ လိုင်းနံပါတ်ဖြည့်ထားပါတယ်။ အဲဒီအတွက် အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ seq 0 20000 > ./line-no
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head line-no
 0
@@ -561,6 +578,8 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 7
 8
 9
+```
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ tail line-no
 19991
 19992
@@ -572,9 +591,15 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 19998
 19999
 20000
+```
 
+စောစောက ပြင်ဆင်ခဲ့တဲ့ shuffle လုပ်ထားပြီးသား paraphrase+non-paraphrase ဒေတာတွေရဲ့ ဖိုင်နဲ့ လိုင်းနံပါတ်-ဖိုင် ကို ကော်မာနဲ့ခြားပြီး တွဲပေးခဲ့တယ်။  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ paste line-no ./para-not-para.shuf -d"," > ./line-no.para-no-para.shuf
+```
 
+တွဲပြီး သိမ်းထားတဲ့ဖိုင်အသစ် line-no.para-no-para.shuf ရဲ့ ထိပ်ဆုံး ၁၀ကြောင်းကို head command နဲ့စကရင်မှာ ရိုက်ထုတ်ကြည့်ခဲ့...  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./line-no.para-no-para.shuf 
 0,ပိန် လိုက် တာ ပိန်ကပ် နေ တာ ပဲ ။,ပိန်း လိုက် တာ ကွာ ။,0
 1,ဘယ်လို နည်း နဲ့ မှ ကြည်ညို လို့ မ ရ တော့ ဘူး,ကြည်ညို စရာ မ ကောင်း ဘူး,1
@@ -586,11 +611,19 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 7,သူမ မင်း ကို မ သိ ခဲ့ ပါ ဘူး ။,သူမ မင်း ကို သိ တယ် ။,0
 8,ဒီထက် လှူ နိုင် ကြ ပါ စေ,ဒီထက် ပို ပြီး လှူနိုင်တန်းနိုင် ပါ စေ,1
 9,မကျက်တကျက် လား ၊ အတော်အသင့် အကျက် လား ၊ ကျက်ကျက် ကြီး လား ။,မကျက်တကျက် တွေ အတော်အသင့် ကျက် တွေ မ စား ပါ နဲ့ ။,0
+```
 
 ## Adding column header
 
+CSV ဖိုင်တွေရဲ့ ထုံးစံအတိုင်း ဖိုင်ရဲ့ထိပ်ဆုံးအကြောင်းက column header တပ်ပေးရအောင်။  
+ဆရာက sample data ရဲ့column header ကိုပဲယူလိုက်ပါတယ်။  
+နာမည်က သိပ်ပြဿနာမရှိလို့ နောက်ပြီး Python code အထဲက field-name ဖတ်ထားတဲ့ စာကြောင်းတွေကိုလည်း ဝင်မပြင်ချင်လို့ ...  
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ (echo ",sentences1,sentences2,is_similar" && cat ./line-no.para-no-para.shuf) > line-no.para-no-para.shuf.final
+```
 
+တကယ်က အခုမှသာ မော်ဒယ်ဆောက်ဖို့အတွက် လိုအပ်တဲ့ format ကို ပြင်ဆင်တာပြီးစီးသွားတာပါ။   
+```
 (tensor1.15.4_keras2.2.4) ye@ykt-pro:/media/ye/project1/tool/lstm-siamese-text-similarity/para-tst-1/original$ head ./line-no.para-no-para.shuf.final 
 ,sentences1,sentences2,is_similar
 0,ပိန် လိုက် တာ ပိန်ကပ် နေ တာ ပဲ ။,ပိန်း လိုက် တာ ကွာ ။,0
@@ -602,10 +635,7 @@ Format checking ကို အကြမ်းလုပ်ခဲ့။ It looks OK
 6,ရေလုံ တဲ့ ကုတ် အင်္ကျီ ပြ ပေး မလား ။,ကုတ် အင်္ကျီ ရေလုံ တာ ဝတ် သွား ပါ ။,0
 7,သူမ မင်း ကို မ သိ ခဲ့ ပါ ဘူး ။,သူမ မင်း ကို သိ တယ် ။,0
 8,ဒီထက် လှူ နိုင် ကြ ပါ စေ,ဒီထက် ပို ပြီး လှူနိုင်တန်းနိုင် ပါ စေ,1
-
-သူ Python code ကသုံးထားတဲ့ column header အတိုင်းပဲ ထားထားလိုက်တယ်။
-နာမည်က သိပ်ပြဿနာမရှိလို့ နောက်ပြီး code အထဲက ဖတ်ထားတဲ့ စာကြောင်းတွေကိုလည်း ဝင်မပြင်ချင်လို့ ...
-
+```
 
 ## Split Training Data and Test Data
 
