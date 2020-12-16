@@ -1,7 +1,7 @@
 # LSTM-Siamese-Text-Similarities-Installation
 
 Some notes of installation/training of LSTM based Siamese Network for my PhD student Myint Myint Htay (UTYCC).  
-အရင်ဆုံး git clone https://github.com/amansrivastava17/lstm-siamese-text-similarity လုပ်ခဲ့တယ်။   
+အရင်ဆုံး ```git clone https://github.com/amansrivastava17/lstm-siamese-text-similarity``` လုပ်ခဲ့တယ်။   
 
 ## Creating a New Conda Environment
 
