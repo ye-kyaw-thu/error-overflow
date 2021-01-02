@@ -50,4 +50,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 43. [black-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/black-installation.md)  
 44. [lstm-siamese-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lstm-siamese-installation.md)  
 45. [mkcls-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mkcls-installation.md)  
-
+46. [boost_1_75_0-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/boost_1_75_0-installation.md)  
