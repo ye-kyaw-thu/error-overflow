@@ -2,7 +2,7 @@
 
 ## Introduction to Franz Och's ```mkcls```
 
-mkcls က စာလုံးတွေကို word cluster ဆောက်ဖို့အတွက် သုံးတဲ့ tool တစ်ခုပါ။ အော်ရဂျင်နယ် code က [Franz Och](https://en.wikipedia.org/wiki/Franz_Josef_Och) က ၁၉၉၀လောက်မှာ ရေးခဲ့ပြီးတော့ NLP လောကမှာ မသိတဲ့သူမရှိလောက်အောင်ကို နာမည်ကြီးတဲ့ tool တစ်ခု ဖြစ်ပါတယ်။ Bigram contextual similarity ကို အခြေခံထားပြီး လက်ရှိ ဗားရှင်းက အခုနောက်ပိုင်းသုံးတဲ့ C++ compiler နဲ့ run လို့ရအောင် ပြင်ထားတဲ့ ဗားရှင်းဖြစ်ပါတယ်။ Algorithm နဲ့ ပတ်သက်ပြီးအသေးစိတ် လေ့လာချင်တဲ့ သူတွေက [The StatMT Blog](http://statmt.blogspot.com/2014/07/understanding-mkcls.html), [paper](https://www.aclweb.org/anthology/E99-1010/) တို့ကို ဖတ်ရှုလေ့လာပါ။   
+mkcls က စာလုံးတွေကို word cluster ဆောက်ဖို့အတွက် သုံးတဲ့ tool တစ်ခုပါ။ အော်ရဂျင်နယ် code က [Franz Och](https://en.wikipedia.org/wiki/Franz_Josef_Och) က ၁၉၉၀လောက်မှာ ရေးခဲ့ပြီးတော့ NLP လောကမှာ မသိတဲ့သူမရှိလောက်အောင်ကို နာမည်ကြီးတဲ့ tool တစ်ခု ဖြစ်ပါတယ်။ Algorithm က bigram contextual similarity ကိုအခြေခံထားပြီး mkcls မှာတော့ algorighm တစ်ခုထက်မက ပါဝင်ပါတယ်။ လက်ရှိ ဗားရှင်းက အခုနောက်ပိုင်းသုံးတဲ့ C++ compiler နဲ့ run လို့ရအောင် update လုပ်ထားတဲ့ ဗားရှင်းဖြစ်ပါတယ်။ Algorithm နဲ့ ပတ်သက်ပြီးအသေးစိတ် လေ့လာချင်တဲ့ သူတွေက [The StatMT Blog](http://statmt.blogspot.com/2014/07/understanding-mkcls.html), [paper](https://www.aclweb.org/anthology/E99-1010/) တို့ကို ဖတ်ရှုလေ့လာပါ။   
 
 ## git clone
 
