@@ -49,4 +49,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 42. [Eigen-Cloning-Error](https://github.com/ye-kyaw-thu/error-overflow/blob/master/eigan-clone-error.md)  
 43. [black-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/black-installation.md)  
 44. [lstm-siamese-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lstm-siamese-installation.md)  
+45. [mkcls-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mkcls-installation.md)  
 
