@@ -52,5 +52,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 45. [mkcls-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mkcls-installation.md)  
 46. [boost_1_75_0-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/boost_1_75_0-installation.md)  
 47. [java-installation-on-ubuntu20.10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/java-installation-on-ubuntu20.10.md)  
-48. [vlc-player-installation.md)](https://github.com/ye-kyaw-thu/error-overflow/blob/master/vlc-player-installation.md)  
+48. [vlc-player-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/vlc-player-installation.md)  
 
