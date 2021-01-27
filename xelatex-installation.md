@@ -1,5 +1,6 @@
 ## apt-get texlive-xetex
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install texlive-xetex
 [sudo] password for ye: 
 Reading package lists...
@@ -302,9 +303,11 @@ Running updmap-sys. This may take some time... done.
 Running mktexlsr /var/lib/texmf ... done.
 Building format(s) --all.
 	This may take some time... done.
-	
+```
+
 ## check with --help
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ xelatex --help
 Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
    or: xetex [OPTION]... \FIRST-LINE
@@ -361,9 +364,11 @@ Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
 
 Email bug reports to xetex@tug.org.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
 ## Prepare Makefile
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ cat Makefile 
 .PHONY: all clean view
 
@@ -383,6 +388,7 @@ $(FILE).pdf: $(FILE).tex
 	xelatex $(FILE).tex
 	#bibtex $(FILE)
 	evince $(FILE).pdf
+```
 
 ## File Information
 
@@ -390,11 +396,14 @@ $(FILE).pdf: $(FILE).tex
 Here, I used ACL conf. template
 Link: https://2021.aclweb.org/calls/papers/#call-for-papers---main-conference
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ ls
 acl2021.bib  acl2021.sty  acl2021.tex  acl_natbib.bst  anthology.bib  Makefile  wfst-mt.tex
+```
 
 ## run make command
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ make
 xelatex wfst-mt.tex
 This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex)
@@ -906,13 +915,17 @@ Transcript written on wfst-mt.log.
 #bibtex wfst-mt
 evince wfst-mt.pdf
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$
+```
 
 ## Output PDF file
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ ls
 acl2021.bib  acl2021.sty  acl2021.tex  acl_natbib.bst  anthology.bib  Makefile  wfst-mt.aux  wfst-mt.log  wfst-mt.out  wfst-mt.pdf  wfst-mt.tex
+```
 
 ## Reference
 
-https://tex.stackexchange.com/questions/179778/xelatex-under-ubuntu
+[https://tex.stackexchange.com/questions/179778/xelatex-under-ubuntu](https://tex.stackexchange.com/questions/179778/xelatex-under-ubuntu)  
+
 
