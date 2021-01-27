@@ -1,5 +1,7 @@
 ## apt-get texlive-xetex
 
+သိရသလောက်ကတော့ ဗမာပြည်မှာလက်ရှိလုပ်တဲ့ conference တွေမှာတော့ latex ကို မသုံးကြသေးပေမဲ့ နာမည်ကြီး conference တွေ journal တွေမှာတော့ latex ကို သုံးကြတာမို့ သုတေသန စာတမ်းရေးကြတဲ့အခါမှာ latex template ကို သုံးကြပါတယ်။ pdflatex, MiKTeX, TeX Live, MacTeX စတဲ့ latex compiler အမျိုးမျိုးရှိပေမဲ့ ဒီနေရာမှာတော့ ကျွန်တော်သုံးတဲ့ xelatex installation နဲ့ ပတ်သက်တဲ့ note ပါ။ ပထမဆုံး installation လုပ်ကြတဲ့ သူတွေအတွက် အသုံးဝင်ပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install texlive-xetex
 [sudo] password for ye: 
@@ -368,6 +370,9 @@ Email bug reports to xetex@tug.org.
 
 ## Prepare Makefile
 
+တကယ်တမ်း စာတမ်းကို ရေးတဲ့အခါမှာတော့ gedit လို text editor ပေါ်မှာ စာတမ်းရေးလိုက် xelatex နဲ့ compile လုပ်လိုက် အကြိမ်ကြိမ်အခါခါ လုပ်ရတာမို့...
+Makefile ကို အောက်ပါအတိုင်း ပြင်ပြီး သုံးပါတယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ cat Makefile 
 .PHONY: all clean view
@@ -393,8 +398,8 @@ $(FILE).pdf: $(FILE).tex
 ## File Information
 
 
-Here, I used ACL conf. template
-Link: https://2021.aclweb.org/calls/papers/#call-for-papers---main-conference
+Here, I used ACL conf. template  
+Link: [https://2021.aclweb.org/calls/papers/#call-for-papers---main-conference](https://2021.aclweb.org/calls/papers/#call-for-papers---main-conference)  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ ls
@@ -918,6 +923,9 @@ evince wfst-mt.pdf
 ```
 
 ## Output PDF file
+
+Makefile က အဆင်ပြေပြေနဲ့ compile error မဖြစ်ခဲ့ဘူး ကိုယ့်စက်ထဲမှာ PDF viewer တစ်ခုဖြစ်တဲ့ evince ကိုလည်း install လုပ်ထားတယ်ဆိုရင် compile လုပ်ပြီးထွက်လာတဲ့ PDF ဖိုင်ကို ဖွင့်ပေးပါလိမ့်မယ်။  
+compile လုပ်ပြီးတဲ့အခါမှာ wfst-mt.pdf ကိုအောက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/paper/ACL2021/wfst-mt/paper/latex$ ls
