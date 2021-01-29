@@ -1,5 +1,11 @@
+# Installation Log of ImageMagick
+
+ImageMagick က ပုံဖိုင်တွေကို အမျိုးမျိုးပြုပြင်ပြောင်းလဲဖို့အတွက် အင်မတန် အသုံးဝင်တဲ့ tool ပါ။  
+Installation log ကို reference အဖြစ် တင်ထားတာ။  
+
 ## wget
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ wget https://www.imagemagick.org/download/ImageMagick.tar.gz
 --2021-01-30 04:32:08--  https://www.imagemagick.org/download/ImageMagick.tar.gz
 Resolving www.imagemagick.org (www.imagemagick.org)... 44.234.227.205
@@ -16,9 +22,11 @@ Saving to: ‘ImageMagick.tar.gz’
 ImageMagick.tar.gz                            100%[================================================================================================>]  14.10M   484KB/s    in 29s     
 
 2021-01-30 04:32:40 (496 KB/s) - ‘ImageMagick.tar.gz’ saved [14789095/14789095]
+```
 
 ## tar xzvf
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ tar xzvf ./ImageMagick.tar.gz 
 ImageMagick-7.0.10-60/
 ImageMagick-7.0.10-60/coders/
@@ -2234,9 +2242,11 @@ ImageMagick-7.0.10-60/www/high-dynamic-range.html
 ImageMagick-7.0.10-60/www/import.html
 ImageMagick-7.0.10-60/www/magick-core.html
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd ImageMagick-7.0.10-60/
+```
 
 ## configure
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ ./configure
 checking build system type... x86_64-pc-linux-gnu
 checking host system type... x86_64-pc-linux-gnu
@@ -3067,9 +3077,11 @@ Options used to compile and link:
 ==============================================================================
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$
+```
 
 ## make install
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ sudo make install
 [sudo] password for ye: 
 make  install-am
@@ -3497,9 +3509,11 @@ mkdir -p -- /usr/local/share/doc/ImageMagick-7/www/Magick++
  /usr/bin/install -c -m 644 MagickCore/ImageMagick.pc MagickCore/MagickCore.pc MagickCore/ImageMagick-7.Q16HDRI.pc MagickCore/MagickCore-7.Q16HDRI.pc MagickWand/MagickWand.pc MagickWand/MagickWand-7.Q16HDRI.pc Magick++/lib/Magick++.pc Magick++/lib/Magick++-7.Q16HDRI.pc '/usr/local/lib/pkgconfig'
 make[2]: Leaving directory '/home/ye/tool/ImageMagick-7.0.10-60'
 make[1]: Leaving directory '/home/ye/tool/ImageMagick-7.0.10-60'
+```
 
 ## make
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ make
 make  all-am
 make[1]: Entering directory '/home/ye/tool/ImageMagick-7.0.10-60'
@@ -3774,17 +3788,21 @@ cp -f MagickWand/MagickWand.pc MagickWand/MagickWand-7.Q16HDRI.pc
 cp -f Magick++/lib/Magick++.pc Magick++/lib/Magick++-7.Q16HDRI.pc
 make[1]: Leaving directory '/home/ye/tool/ImageMagick-7.0.10-60'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$
+```
 
 ## ldconfig
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ convert --help
 convert: error while loading shared libraries: libMagickCore-7.Q16HDRI.so.8: cannot open shared object file: No such file or directory
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ convert -help
 convert: error while loading shared libraries: libMagickCore-7.Q16HDRI.so.8: cannot open shared object file: No such file or directory
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ sudo ldconfig /usr/local/lib
+```
 
 ## convert -help
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$ convert -help
 Version: ImageMagick 7.0.10-60 Q16 x86_64 2021-01-25 https://imagemagick.org
 Copyright: (C) 1999-2021 ImageMagick Studio LLC
@@ -4125,3 +4143,4 @@ with an image format name and a colon (i.e. ps:image) or specify the
 image type as the filename suffix (i.e. image.ps).  Specify 'file' as
 '-' for standard input or output.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/ImageMagick-7.0.10-60$
+```
