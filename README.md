@@ -54,4 +54,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 47. [java-installation-on-ubuntu20.10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/java-installation-on-ubuntu20.10.md)  
 48. [vlc-player-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/vlc-player-installation.md)  
 49. [xelatex-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xelatex-installation.md)  
+50. [ImageMagick-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ImageMagick-installation.md)  
 
