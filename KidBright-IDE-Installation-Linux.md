@@ -1,3 +1,12 @@
+# KidBright IDE Installation Note
+
+ကျွန်တော် NECTEC မှာ Visiting Professor နဲ့ ရှိနေစဉ်မှာ KidBright ကို မြန်မာကလေးတွေရဲ့ programming education အတွက် ရည်ရွယ်ပြီး project တစ်ခုအနေနဲ့ လုပ်ကိုင်ခွင့်ရလို့ လက်ရှိမှာ သင်ကြားရေးဗီဒီယိုတွေကို ဗမာလိုပြန်တာ၊ KidBright IDE ကို ဗမာလိုပြောင်းတာ၊ ပရိုဂရမ် အသစ်တချို့ကို develop လုပ်တာတွေကို လုပ်ဖြစ်နေပါတယ်။  
+
+ဒီ Note ကတော့ KidBright IDE (version 1.6.0) ကို Linux OS (Ubuntu 18.04.5 LTS) ပေါ်မှာ installation လုပ်တဲ့အခါမှာ ပေးတဲ့ error နဲ့ solution ကိုရေးထားတာဖြစ်ပါတယ်။  
+
+y  
+31 Jan 2021  
+
 ## git clone
 
 ```
