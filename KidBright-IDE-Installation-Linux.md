@@ -1,5 +1,6 @@
 ## git clone
 
+```
 (base) ye@ykt-pro:~/tool$ git clone https://gitlab.com/kidbright/kbide --recursive
 Cloning into 'kbide'...
 warning: redirecting to https://gitlab.com/kidbright/kbide.git/
@@ -9,17 +10,22 @@ remote: Compressing objects: 100% (461/461), done.
 remote: Total 7343 (delta 403), reused 761 (delta 347), pack-reused 6503
 Receiving objects: 100% (7343/7343), 166.69 MiB | 698.00 KiB/s, done.
 Resolving deltas: 100% (2695/2695), done.
+```
 
 ## run npm run build
+
+```
 (base) ye@ykt-pro:~/tool$ cd kbide/
 (base) ye@ykt-pro:~/tool/kbide$ npm run build
 
 Command 'npm' not found, but can be installed with:
 
 sudo apt install npm
+```
 
 ## Check nodejs, if not you need to install
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ sudo apt install nodejs
 [sudo] password for ye: 
 Reading package lists... Done
@@ -36,11 +42,13 @@ The following packages were automatically installed and are no longer required:
   python-ttystatus
 Use 'sudo apt autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 73 not upgraded.
+```
 
 nojs က လက်ရှိ စက်မှာ ရှိပြီးသား
 
 ## install npm
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ sudo apt install npm
 Reading package lists... Done
 Building dependency tree       
@@ -441,9 +449,11 @@ Setting up node-gyp (3.6.2-1ubuntu1) ...
 Setting up npm (3.5.2-0ubuntu4) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) ye@ykt-pro:~/tool/kbide$ 
+```
 
 ## npm run build
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ npm run build
 
 > kidbrightide@1.6.0 build /home/ye/tool/kbide
@@ -751,16 +761,22 @@ npm ERR! There is likely additional logging output above.
 npm ERR! Please include the following file with any support request:
 npm ERR!     /home/ye/tool/kbide/npm-debug.log
 (base) ye@ykt-pro:~/tool/kbide$ 
+```
 
 ## Remove node_modules/
 
+Solution က KidBright နဲ့ အတူပါလာတဲ့ node_modules/ ဖိုလ်ဒါတစ်ခုလုံးကို ဖျက်ပစ်ပြီး npm install ပြန်လုပ်တာပါ။  
+အဲဒါကြောင့် အရင်ဆုံး ဖျက်ရအောင်...  
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ ls
 app  archive  docs  esp32  gulpfile.js  index.js  node_modules  npm-debug.log  package.json  package-lock.json  plugins  README.md
 (base) ye@ykt-pro:~/tool/kbide$ rm -rf node_modules/
+```
 
 ## install npm
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ npm install
 npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
 npm WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
@@ -1122,9 +1138,11 @@ kidbrightide@1.6.0 /home/ye/tool/kbide
     └── xtend@4.0.2 
 
 (base) ye@ykt-pro:~/tool/kbide$ 
+```
 
 ## npm run build
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ npm run build
 
 > kidbrightide@1.6.0 build /home/ye/tool/kbide
@@ -1162,20 +1180,26 @@ xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar
 [04:15:12] Starting 'build'...
 [04:15:12] Finished 'build' after 31 μs
 (base) ye@ykt-pro:~/tool/kbide$ 
+```
 
 ## start
 
+```
 (base) ye@ykt-pro:~/tool/kbide$ npm start
 
 > kidbrightide@1.6.0 start /home/ye/tool/kbide
 > node index.js
 
 2021-01-31 04:18:06	info	webserver listening on port 8000
+```
 
 ## open server page
 
+```
 From your browser:
 http://localhost:8000/home
+```
+
 
 
 ## Reference
