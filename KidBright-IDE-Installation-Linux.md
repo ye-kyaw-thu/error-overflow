@@ -1217,5 +1217,12 @@ http://localhost:8000/home
 
 ## Reference
 
-https://stackoverflow.com/questions/21406738/cant-get-gulp-to-run-cannot-find-module-gulp-util
+KidBright Homepage (English Language):  
+[https://www.kid-bright.org/en/](https://www.kid-bright.org/en/)  
+
+KidBright IDE (Online):  
+[https://www.kid-bright.org/simulator/home](https://www.kid-bright.org/simulator/home)  
+
+Stackoverflow reference link for gulp error:  
+[https://stackoverflow.com/questions/21406738/cant-get-gulp-to-run-cannot-find-module-gulp-util](https://stackoverflow.com/questions/21406738/cant-get-gulp-to-run-cannot-find-module-gulp-util)
 
