@@ -55,5 +55,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 48. [vlc-player-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/vlc-player-installation.md)  
 49. [xelatex-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xelatex-installation.md)  
 50. [ImageMagick-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ImageMagick-installation.md)  
-51. []()  
+51. [KidBright-IDE-Installation-Linux.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/KidBright-IDE-Installation-Linux.md)  
 
