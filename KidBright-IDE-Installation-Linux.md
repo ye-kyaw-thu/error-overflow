@@ -1209,6 +1209,10 @@ From your browser:
 http://localhost:8000/home
 ```
 
+## Screenshot of the KidBright IDE
+
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/kidbright-IDE-on-Linux.png" alt="KidBright IDE (English Language)" width="812x180"/>
+<p align="center"> Fig. KidBright IDE (Version 1.6.0) on Google Chrome Browser </p>  
 
 
 ## Reference
