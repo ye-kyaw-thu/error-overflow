@@ -1211,8 +1211,7 @@ http://localhost:8000/home
 
 ## Screenshot of the KidBright IDE
 
-အထက်ပါ link ဖြစ်တဲ့ http://localhost:8000/home ကို Google Browser ကနေ ခေါ်တဲ့အခါမှာ အောက်ပါအတိုင်း KidBright IDE ကို မြင်ရပါလိမ့်မယ်။  
-Default အနေနဲ့က Thai နဲ့ English ဘာသာစကားနှစ်မျိုးပါပါတယ်။ အခု မြင်ကြရတာကတော့ အင်္ဂလိပ် ဘာသာစကားနဲ့ ပြောင်းထားတဲ့ IDE ပါ။  
+အထက်ပါ link ဖြစ်တဲ့ http://localhost:8000/home ကို Google Browser ကနေ ခေါ်တဲ့အခါမှာ အောက်ပါအတိုင်း KidBright IDE ကို မြင်ရပါလိမ့်မယ်။ Default အနေနဲ့က Thai နဲ့ English ဘာသာစကားနှစ်မျိုးပါပါတယ်။ အခု မြင်ကြရတာကတော့ အင်္ဂလိပ် ဘာသာစကားနဲ့ ပြောင်းထားတဲ့ IDE ပါ။  
 
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/kidbright-IDE-on-Linux.png" alt="KidBright IDE (English Language)" width="812x180"/>
 <p align="center"> Fig. KidBright IDE (Version 1.6.0) on Google Chrome Browser </p>  
