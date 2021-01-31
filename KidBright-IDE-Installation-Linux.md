@@ -53,7 +53,7 @@ Use 'sudo apt autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 73 not upgraded.
 ```
 
-nojs က လက်ရှိ စက်မှာ ရှိပြီးသား
+nodejs က လက်ရှိ စက်မှာ ရှိပြီးသား  
 
 ## install npm
 
