@@ -1,22 +1,27 @@
 
 ## git clone
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/irstlm-team/irstlm
 Cloning into 'irstlm'...
 remote: Enumerating objects: 1781, done.
 remote: Total 1781 (delta 0), reused 0 (delta 0), pack-reused 1781
 Receiving objects: 100% (1781/1781), 3.54 MiB | 674.00 KiB/s, done.
 Resolving deltas: 100% (1187/1187), done.
+```
 
 ## check files
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd irstlm/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ ls
 CMakeLists.txt  configure.ac  Copyright  doc  LICENSE  Makefile.am  NOTE  README.md  regenerate-makefiles.sh  scripts  src
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## Regnerate Makefile
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ sh regenerate-makefiles.sh --force
 Calling /usr/bin/autoreconf
 configure.ac:10: warning: LT_INIT was called before AM_PROG_AR
@@ -131,9 +136,11 @@ configure.ac:10: warning: AC_PROG_LIBTOOL was called before AM_PROG_AR
 aclocal.m4:70: AM_PROG_AR is expanded from...
 configure.ac:10: the top level
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## ./configure
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ ./configure
 checking for a BSD-compatible install... /usr/bin/install -c
 checking whether build environment is sane... yes
@@ -249,18 +256,22 @@ config.status: executing depfiles commands
 config.status: executing libtool commands
 configure: The software will be installed into /usr/local
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## Check
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ echo | g++ -E -x c++ -std=c++0x -dM - >& /dev/null ; echo $?
 0
+```
 
-It looks OK!
+It looks OK!  
 
-Reference: https://github.com/irstlm-team/irstlm
+Reference: [https://github.com/irstlm-team/irstlm](https://github.com/irstlm-team/irstlm)  
 
 ## run make
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ make
 (CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /home/ye/tool/irstlm/missing autoheader)
 configure.ac:10: warning: LT_INIT was called before AM_PROG_AR
@@ -299,19 +310,22 @@ make[1]: *** [Makefile:407: all-recursive] Error 1
 make[1]: Leaving directory '/home/ye/tool/irstlm'
 make: *** [Makefile:339: all] Error 2
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## Update Makefile.am
 
 Reference: https://lintaka.wordpress.com/2018/12/13/irstlm-error/
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ gedit src/Makefile.am 
 
 #AM_CXXFLAGS = -static -isystem/usr/include -W -Wall -ffor-scope -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES $(BOOST_CPPFLAGS) -DMYCODESIZE=3
 AM_CXXFLAGS = -static -I/usr/include -W -Wall -ffor-scope -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES $(BOOST_CPPFLAGS) -DMYCODESIZE=3
-
+```
 
 ## Rrun make again
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ make
 make  all-recursive
 make[1]: Entering directory '/home/ye/tool/irstlm'
@@ -2004,9 +2018,11 @@ make[2]: Entering directory '/home/ye/tool/irstlm'
 make[2]: Leaving directory '/home/ye/tool/irstlm'
 make[1]: Leaving directory '/home/ye/tool/irstlm'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## make install
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$ sudo make install
 [sudo] password for ye: 
 Making install in src
@@ -2081,23 +2097,29 @@ make[2]: Nothing to be done for 'install-data-am'.
 make[2]: Leaving directory '/home/ye/tool/irstlm'
 make[1]: Leaving directory '/home/ye/tool/irstlm'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm$
+```
 
 ## How to build LM with IRSTLM
 
+```
 build-lm.sh -i TRAIN -n 3 -o iARPA_LM.gz -k 3 [-p]
-Here, TRAIN is filename of the corpus.
+```
+
+Here, TRAIN is filename of the corpus.  
 
 ## Check these scripts
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/irstlm/scripts$ ls
 add-start-end.sh  build-lm.sh     CMakeLists.txt      lm-stat.pl  Makefile.am  mdtsel.sh       ngram-split.pl  plsa.sh          sort-lm.pl     split-ngt.sh
 build-lm-qsub.sh  build-sublm.pl  goograms2ngrams.pl  Makefile    Makefile.in  merge-sublm.pl  other           rm-start-end.sh  split-dict.pl  wrapper
+```
 
 ## Reference
 
-Paper:
-https://www.researchgate.net/publication/221486318_IRSTLM_An_open_source_toolkit_for_handling_large_scale_language_models
+Paper:  
+[https://www.researchgate.net/publication/221486318_IRSTLM_An_open_source_toolkit_for_handling_large_scale_language_models](https://www.researchgate.net/publication/221486318_IRSTLM_An_open_source_toolkit_for_handling_large_scale_language_models)  
 
-A tutorial on the IRSTLM library:
-https://pdfs.semanticscholar.org/12bc/c0548ed7f93e6675147e606b8bd98005ca5e.pdf
+A tutorial on the IRSTLM library:  
+[https://pdfs.semanticscholar.org/12bc/c0548ed7f93e6675147e606b8bd98005ca5e.pdf](https://pdfs.semanticscholar.org/12bc/c0548ed7f93e6675147e606b8bd98005ca5e.pdf)  
 
