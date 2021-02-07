@@ -3,6 +3,12 @@
 Download from the following site:
 http://www.speech.sri.com/projects/srilm/download.html
 
+ဖောင်ဖြည့်ဖို့ လိုအပ်တယ်။  
+Name, Organization, Address, Email, Website တို့ ဖြည့်ပြီး I accept the License ဆိုတဲ့ button ကို နှိပ်လိုက်ရင် ရွေးထားတဲ့ SRILM version tar ဖိုင်ကို download လုပ်ပေးပါလိမ့်မယ်။  
+
+ဖိုလ်ဒါ အသစ်တစ်ခုဆောက်ပြီး အဲဒီ ဖိုလ်ဒါထဲကို download လုပ်ထားတဲ့ tar ဖိုင်ကို ရွှေ့ပြီးမှ ဖြေပါ။  
+ဒီနေရာမှာတော့ srilm ဆိုတဲ့ ဖိုလ်ဒါအသစ်ဆောက်ပြီး အောက်ပါအတိုင်း tar command နဲ့ ဖြေပြထားပါတယ်။  
+
 # Unzip with tar command
 
 ```bash
