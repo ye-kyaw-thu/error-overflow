@@ -1662,6 +1662,7 @@ GIZA++ သို့မဟုတ် mgizapp ကို လည်း install လု
 
 ## Reference
 
-https://achrafothman.net/site/how-to-install-moses-statistical-machine-translation-in-ubuntu/
-https://github.com/artetxem/monoses/issues/12
+https://github.com/moses-smt/mosesdecoder/tree/RELEASE-4.0  
+https://achrafothman.net/site/how-to-install-moses-statistical-machine-translation-in-ubuntu/  
+https://github.com/artetxem/monoses/issues/12  
 
