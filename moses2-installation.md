@@ -1,16 +1,21 @@
 ## git clone
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ git clone https://github.com/moses-smt/mosesdecoder.git
+```
 
 ## Open README file
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ gedit README
+```
 
 And you must refer following link:
 http://www.statmt.org/moses/?n=Development.GetStarted
 
 ## Check How Many CPU
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ lscpu
 Architecture:                    x86_64
 CPU op-mode(s):                  32-bit, 64-bit
@@ -52,9 +57,11 @@ Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
                                  vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida a
                                  rat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
 ## Run bjam
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ./bjam -j8
 ...
 ...
@@ -155,28 +162,34 @@ You MUST do 3 things before sending to the mailing list:
    3. Say what is the EXACT command you executed when you got the error
 ERROR
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
 ## Got Error
 
 အပေါ်မှာ မြင်ရတဲ့အတိုင်း 
 
+```
 *** No errors detected
 ...failed updating 30 targets...
 ...skipped 32 targets...
 ...updated 976 targets...
 The build failed. 
+```
 
-ပြီးတော့ 
+ပြီးတော့  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/bin$ ls
 1-1-Extraction  config.log        evaluator  fragment           hgdecode         lmplz        phrase-lookup                   pro            sentence-bleu        TMining
 biconcor        CreateProbingPT2  extractor  gcc-10             kbmira           mert         phrase_table_vocab              query          sentence-bleu-nbest  train-expected-bleu
 build_binary    dump_counts       filter     generateSequences  kenlm_benchmark  moses_chart  prepare-expected-bleu-training  queryOnDiskPt  symal
+```
 
-*** moses ဆိုတဲ့ binary ကို မတွေ့ဘူး။
+Note: moses ဆိုတဲ့ binary ကို မတွေ့ဘူး။
 
 ## Install all required packages
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install subversion
 [sudo] password for ye: 
 Reading package lists... Done
@@ -227,7 +240,9 @@ Setting up subversion (1.14.0-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 Processing triggers for man-db (2.9.3-2) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ 
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install zlib1g-dev
 Reading package lists... Done
 Building dependency tree       
@@ -235,7 +250,9 @@ Reading state information... Done
 zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu4).
 zlib1g-dev set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libicu-dev
 Reading package lists... Done
 Building dependency tree       
@@ -264,7 +281,9 @@ Setting up icu-devtools (67.1-4) ...
 Setting up libicu-dev:amd64 (67.1-4) ...
 Processing triggers for man-db (2.9.3-2) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libboost-all-dev
 ...
 ...
@@ -297,7 +316,9 @@ Setting up libboost-mpi-dev (1.71.0.0ubuntu4) ...
 Setting up libboost-all-dev (1.71.0.0ubuntu4) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libbz2-dev
 Reading package lists... Done
 Building dependency tree       
@@ -325,7 +346,9 @@ Setting up libbz2-dev:amd64 (1.0.8-4ubuntu2) ...
 Processing triggers for install-info (6.7.0.dfsg.2-5) ...
 install-info: warning: no info dir entry in `/usr/share/info/automake-history.info.gz'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install liblzma-dev
 Reading package lists... Done
 Building dependency tree       
@@ -345,7 +368,9 @@ Preparing to unpack .../liblzma-dev_5.2.4-1ubuntu1_amd64.deb ...
 Unpacking liblzma-dev:amd64 (5.2.4-1ubuntu1) ...
 Setting up liblzma-dev:amd64 (5.2.4-1ubuntu1) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install python-dev
 Reading package lists... Done
 Building dependency tree       
@@ -417,7 +442,9 @@ Setting up python-dev-is-python2 (2.7.17-4) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install graphviz
 Reading package lists... Done
 Building dependency tree       
@@ -425,7 +452,9 @@ Reading state information... Done
 graphviz is already the newest version (2.42.2-4).
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install imagemagick
 Reading package lists... Done
 Building dependency tree       
@@ -538,11 +567,13 @@ Processing triggers for libc-bin (2.32-0ubuntu3) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for fontconfig (2.13.1-2ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
-တချို့ package တွေက စက်ထဲမှာ ရှိတာသိတယ်။
-သို့သော် update မဖြစ်ရင် သိချင်လို့ ...
-နောက် စက်ထဲမှာ သုံးခဲ့တဲ့ version ကိုလည်း ခင်ဗျားတို့ကို သိစေချင်လို့...
+တချို့ package တွေက စက်ထဲမှာ ရှိတာသိတယ်။  
+သို့သော် update မဖြစ်ရင် သိချင်လို့ ...  
+နောက် စက်ထဲမှာ သုံးခဲ့တဲ့ version ကိုလည်း ခင်ဗျားတို့ကို သိစေချင်လို့...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install make
 Reading package lists... Done
 Building dependency tree       
@@ -551,7 +582,9 @@ make is already the newest version (4.3-4ubuntu1).
 make set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install cmake
 Reading package lists... Done
 Building dependency tree       
@@ -559,7 +592,9 @@ Reading state information... Done
 cmake is already the newest version (3.16.3-3ubuntu2).
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libgoogle-perftools-dev
 Reading package lists... Done
 Building dependency tree       
@@ -597,7 +632,9 @@ Setting up libgoogle-perftools-dev:amd64 (2.7-1ubuntu6) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ 
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install autoconf
 Reading package lists... Done
 Building dependency tree       
@@ -606,7 +643,9 @@ autoconf is already the newest version (2.69-11.1).
 autoconf set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install doxygen
 Reading package lists... Done
 Building dependency tree       
@@ -646,9 +685,11 @@ Setting up doxygen (1.8.18-1ubuntu3) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
 ## Run bjam again with some more parameters
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$time ./bjam --with-boost=/home/ye/tool/boost_1_75_0 --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8
 ...
 ...
@@ -673,12 +714,17 @@ real	0m8.643s
 user	0m13.800s
 sys	0m0.893s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
 ## clean and rebuild
 
+```
 ./bjam --clean
+```
 
-after that,
+after that,  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
 ...
 ...
@@ -898,11 +944,13 @@ ERROR
 real	3m44.076s
 user	27m13.047s
 sys	1m27.699s
+```
 
-/bin/ အောက်မှာ moses command လည်း မရှိလို့ Error!!!
+Note: /bin/ အောက်မှာ moses command လည်း မရှိလို့ Error!!!  
 
 ## Install other dependencies
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ sudo apt-get install libsoap-lite-perl
 Reading package lists... Done
 Building dependency tree       
@@ -972,23 +1020,29 @@ Setting up libxmlrpc-lite-perl (0.717-4) ...
 Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ 
+```
 
+```
 wget http://www.achrafothman.net/aslsmt/tools/cmph_2.0.orig.tar.gz
 tar zxvf cmph_2.0.orig.tar.gz
 cd cmph-2.0/
 ./configure
 make
 make install
+```
 
+```
 wget http://www.achrafothman.net/aslsmt/tools/xmlrpc-c_1.33.14.orig.tar.gz
 tar zxvf xmlrpc-c_1.33.14.orig.tar.gz
 cd xmlrpc-c-1.33.14/
 ./configure
 make
 make install
+```
 
 ## clean and run bjam again
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ./bjam --clean
 XMLRPC-C: USING VERSION 1.33.14 FROM /usr/local
 BUILDING MOSES SERVER!
@@ -1001,7 +1055,9 @@ Building Moses2
 ...updating 1 target...
 common.Clean clean
 ...updated 1 target...
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
 ...
 ...
@@ -1050,9 +1106,11 @@ ERROR
 real	4m47.875s
 user	34m52.430s
 sys	1m54.282s
+```
 
 ## Retry
 
+```
 time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
 ...
 ...
@@ -1161,9 +1219,11 @@ real	4m55.006s
 user	34m54.304s
 sys	1m53.954s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
-ဒီတစ်ခါတော့ moses2 binary ထွက်လာတယ်။
+Note: ဒီတစ်ခါတော့ moses2 binary ထွက်လာတယ်။  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ cd bin
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/bin$ ls
 biconcor      config.log        dump_counts  extractor  fragment  hgdecode  kenlm_benchmark  mert    moses_chart    phrase_table_vocab              pro    sentence-bleu        symal
@@ -1346,11 +1406,11 @@ Distortion ExampleStatefulFF ExampleStatelessFF GPULM KENLM KENLMBatch LanguageM
 
 No configuration file was specified.  Use -config or -f
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/bin$ 
+```
 
-######################
-######################
 ## Download Sample Models
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ wget http://www.statmt.org/moses/download/sample-models.tgz
 --2021-02-08 02:09:28--  http://www.statmt.org/moses/download/sample-models.tgz
 Resolving www.statmt.org (www.statmt.org)... 129.215.197.184
@@ -1364,29 +1424,40 @@ sample-models.tgz                                  100%[========================
 2021-02-08 02:10:34 (165 KB/s) - ‘sample-models.tgz’ saved [10956904/10956904]
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
 ## ls and tar
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ls
 biconcor  bjam        contrib  cruise-control  doc           jam-files  lib  mert   misc   moses2     OnDiskPt        previous.sh  README              run-regtests.sh    scripts  symal  vw
 bin       compile.sh  COPYING  defer           doxygen.conf  Jamroot    lm   mingw  moses  moses-cmd  phrase-extract  probingpt    regression-testing  sample-models.tgz  search   util
-
+```
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ tar xzf sample-models.tgz
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ls
 biconcor  bjam        contrib  cruise-control  doc           jam-files  lib  mert   misc   moses2     OnDiskPt        previous.sh  README              run-regtests.sh  sample-models.tgz  search  util
 bin       compile.sh  COPYING  defer           doxygen.conf  Jamroot    lm   mingw  moses  moses-cmd  phrase-extract  probingpt    regression-testing  sample-models    scripts            symal   vw
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ls
 lm  phrase-model  string-to-tree  tree-to-tree
+```
 
 ## Testing the decoder
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat ./phrase-model/in 
 das ist ein kleines haus
 das ist ein kleines haus
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ../bin/moses2 -f phrase-model/moses.ini < phrase-model/in > out
 Starting...
 Defined parameters (per moses.ini or switch):
@@ -1414,16 +1485,17 @@ Loaded : [0.403846] seconds
 RUN BATCH
 Decoding took 0.406174
 Finished
+```
 
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ wc out
- 2 10 46 out
-
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat out
 this is a small house 
 this is a small house 
+```
 
 ## String to Tree Translation
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat ./string-to-tree/in
 das ist ein kleines haus
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ../bin/moses2 -f string-to-tree/moses.ini < string-to-tree/in > out.stt
@@ -1458,9 +1530,11 @@ Decoding took 0.412893
 Finished
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat out.stt 
 this is a small house
+```
 
 ## Tree to Tree Translation
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ../bin/moses2 -f tree-to-tree/moses.ini < tree-to-tree/in.xml > out.ttt
 Starting...
 Defined parameters (per moses.ini or switch):
@@ -1491,13 +1565,17 @@ Loaded : [0.000714271] seconds
 RUN BATCH
 Decoding took 0.0016255
 Finished
+```
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat ./out.ttt 
 <tree label="TOP"><tree label="OS">overhead</tree> <tree label="NS">oxygen</tree> <tree label="NS">masks</tree> in the <tree label="NS">cabin <tree label="NS">section</tree></tree> <tree label="OS">had dropped into place .</tree></tree>
+```
 
 ## Note
 
-PBSMT ကို training မလုပ်ခင်မှာ...
-GIZA++ သို့မဟုတ် mgizapp ကို လည်း install လုပ်ဖို့ မမေ့နဲ့အုံး။
+PBSMT ကို training မလုပ်ခင်မှာ...  
+GIZA++ သို့မဟုတ် mgizapp ကို လည်း install လုပ်ဖို့ မမေ့နဲ့အုံး။  
 
 ## Reference
 
