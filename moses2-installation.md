@@ -1477,6 +1477,8 @@ No configuration file was specified.  Use -config or -f
 
 ## Download Sample Models
 
+moses က ဥပမာအနေနဲ့ စမ်းလို့ ရအောင်ပြင်ပေးထားတဲ့ train လုပ်ထားတဲ့ မော်ဒယ်တချို့ကို download လုပ်ပြီး translation ကို ကိုယ့်စက်ထဲမှာ လုပ်လို့ ရမရ confirmation လုပ်ကြည့်ကြရအောင်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ wget http://www.statmt.org/moses/download/sample-models.tgz
 --2021-02-08 02:09:28--  http://www.statmt.org/moses/download/sample-models.tgz
@@ -1500,6 +1502,9 @@ sample-models.tgz                                  100%[========================
 biconcor  bjam        contrib  cruise-control  doc           jam-files  lib  mert   misc   moses2     OnDiskPt        previous.sh  README              run-regtests.sh    scripts  symal  vw
 bin       compile.sh  COPYING  defer           doxygen.conf  Jamroot    lm   mingw  moses  moses-cmd  phrase-extract  probingpt    regression-testing  sample-models.tgz  search   util
 ```
+
+tar command နဲ့ ဖြေမယ်...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ tar xzf sample-models.tgz
 ```
@@ -1518,11 +1523,16 @@ lm  phrase-model  string-to-tree  tree-to-tree
 
 ## Testing the decoder
 
+အရင်ဆုံး PBSMT မော်ဒယ်ကို သုံးပြီး စမ်းကြည့်ကြရအောင်။  
+source ဖိုင်ထဲမှာ ဘာတွေရေးထားလည်း ကြည့်ကြရအောင်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat ./phrase-model/in 
 das ist ein kleines haus
 das ist ein kleines haus
 ```
+အထက်ပါအတိုင်း ဂျာမန်စာကြောင်းနှစ်ကြောင်း ရိုက်ထည့်ထားတာကို တွေ့ရလိမ့်မယ်။  
+translation လုပ်ကြည့်ရင် အောက်ပါအတိုင်း message တချို့ တက်လာတာကို တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ../bin/moses2 -f phrase-model/moses.ini < phrase-model/in > out
@@ -1554,6 +1564,8 @@ Decoding took 0.406174
 Finished
 ```
 
+ဘာသာပြန်ပြီး ထွက်လာတဲ့ out ဖိုင်ကို cat command သုံးပြီး print လုပ်ကြည့်ရင် အောက်ပါအတိုင်း အင်္ဂလိပ်လို ဘာသာပြန်ပေးထားတာကို တွေ့ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat out
 this is a small house 
@@ -1561,6 +1573,8 @@ this is a small house
 ```
 
 ## String to Tree Translation
+
+String-to-Tree မော်ဒယ်ကိုလည်း အောက်ပါအတိုင်း စမ်းကြည့်ကြရအောင်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ cat ./string-to-tree/in
@@ -1600,6 +1614,8 @@ this is a small house
 ```
 
 ## Tree to Tree Translation
+
+Tree-to-Tree မော်ဒယ်ကိုလည်း အောက်ပါအတိုင်း စမ်းသုံးကြည့်ပြီး ကိုယ့်စက်ထဲမှာ moses2 က ကောင်းကောင်း အလုပ်လုပ်ပေးသလား ဆိုတာကို သေချာအောင် လုပ်ကြရအောင်...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/sample-models$ ../bin/moses2 -f tree-to-tree/moses.ini < tree-to-tree/in.xml > out.ttt
