@@ -1,4 +1,9 @@
+Statistical Machine Translation (SMT) အတွက် moses2 ကို installation လုပ်တဲ့အခါမှာ စက်ထဲမှာ ရှိတဲ့ library, environment တွေအပေါ်ကို မူတည်ပြီး error က case by case ပါပဲ။  
+
 ## git clone
+
+အရင်ဆုံး GitHub ကနေ cloning လုပ်မယ်။  
+အဲဒီလို လုပ်ဖို့အတွက်က ကိုယ့်စက်ထဲမှာတော့ git command သုံးလို့ရဖို့အတွက် ကြို install လုပ်ထားရပါမယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ git clone https://github.com/moses-smt/mosesdecoder.git
@@ -6,14 +11,19 @@
 
 ## Open README file
 
+ပရိုဂရမ် သို့မဟုတ် framework စတာတွေကို install မလုပ်ခင်မှာ README ဖိုင်ကို အရင်ဆုံး ဖတ်ပါလို့ အကြံပေးချင်ပါတယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ gedit README
 ```
 
-And you must refer following link:
-http://www.statmt.org/moses/?n=Development.GetStarted
+And you must refer following link:  
+http://www.statmt.org/moses/?n=Development.GetStarted  
 
 ## Check How Many CPU
+
+ကိုယ့်စက်ထဲမှာ CPU ဘယ်နှစ်လုံးရှိသလဲ ဆိုတာကို check လုပ်ကြည့်မယ်ဆိုရင် lscpu command ကို သုံးလို့ ရပါတယ်။  
+bjam ဆိုတဲ့ command ကို သုံးပြီး moses2 ကို install လုပ်တဲ့အခါမှာ ကိုယ့်စက်ထဲမှာ ရှိတဲ့ cpu တွေအကုန်သုံးပြီး parallel running လုပ်ရင် ပိုမြန်လို့ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ lscpu
@@ -60,6 +70,9 @@ Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
 ```
 
 ## Run bjam
+
+bjam ကိုသုံးပြီး install လုပ်ပါမယ်။  
+လက်ရှိသုံးတဲ့စက်မှာက CPU စုစုပေါင်း ၈လုံးရှိတာမို့ -j8 ဆိုတဲ့ option ကို ပေးပြီးတော့ CPU ရှစ်လုံးစလုံးကို သုံးမယ်လို့ ညွှန်ကြားတာပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ./bjam -j8
@@ -176,7 +189,11 @@ ERROR
 The build failed. 
 ```
 
-ပြီးတော့  
+moses/moses2 ကို install လုပ်တဲ့အခါမှာ တချို့ target တွေက fail ဖြစ်ရင်လည်း moses က run လို့ ရတတ်ပါတယ်။  
+moses/moses2 က facility အများကြီး support လုပ်တဲ့ phrase-based SMT toolkit မို့လို့ target အားလုံးကို skip မဖြစ်ပဲ installation လုပ်နိုင်ဖို့က အချိန်ပေးပြင်ဆင်ရပါလိမ့်မယ်။  
+
+ကျွန်တော်တို့အတွက် အလိုအပ်ဆုံး command ဖြစ်တဲ့ moses သို့မဟုတ် moses2 က bin/ ဖိုလ်ဒါအောက်မှာ မရှိရင်တော့ အဲဒါက ပြဿနာပါပဲ...  
+
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder/bin$ ls
@@ -185,9 +202,12 @@ biconcor        CreateProbingPT2  extractor  gcc-10             kbmira          
 build_binary    dump_counts       filter     generateSequences  kenlm_benchmark  moses_chart  prepare-expected-bleu-training  queryOnDiskPt  symal
 ```
 
-Note: moses ဆိုတဲ့ binary ကို မတွေ့ဘူး။
+Note: moses ဆိုတဲ့ binary ကို မတွေ့ဘူး။  
 
 ## Install all required packages
+
+တကယ်က လိုအပ်တဲ့ package တွေအားလုံးက ကိုယ့်စက်ထဲမှာ ရှိနေရမှာမို့...
+မရှိဘူးထင်နိုင်တဲ့ package တွေကို တစ်ခုပြီး တစ်ခု install လုပ်သွားရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install subversion
@@ -242,6 +262,8 @@ Processing triggers for man-db (2.9.3-2) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ 
 ```
 
+zlib1g-dev ကို install လုပ်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install zlib1g-dev
 Reading package lists... Done
@@ -251,6 +273,8 @@ zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu4).
 zlib1g-dev set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 ```
+
+libicu-dev ကို install လုပ်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libicu-dev
@@ -282,6 +306,8 @@ Setting up libicu-dev:amd64 (67.1-4) ...
 Processing triggers for man-db (2.9.3-2) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
+
+libboost-all-dev ကို install လုပ်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libboost-all-dev
@@ -318,6 +344,8 @@ Processing triggers for man-db (2.9.3-2) ...
 Processing triggers for libc-bin (2.32-0ubuntu3) ...
 ```
 
+libbz2-dev ကို install လုပ်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libbz2-dev
 Reading package lists... Done
@@ -348,6 +376,8 @@ install-info: warning: no info dir entry in `/usr/share/info/automake-history.in
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
 
+liblzma-dev ကို install လုပ်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install liblzma-dev
 Reading package lists... Done
@@ -369,6 +399,8 @@ Unpacking liblzma-dev:amd64 (5.2.4-1ubuntu1) ...
 Setting up liblzma-dev:amd64 (5.2.4-1ubuntu1) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
+
+python-dev ကိုလည်း install လုပ်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install python-dev
@@ -444,6 +476,8 @@ Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
 
+ဒီ graphviz ကလည်း အရမ်းအသုံးဝင်တဲ့ library ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install graphviz
 Reading package lists... Done
@@ -453,6 +487,9 @@ graphviz is already the newest version (2.42.2-4).
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
+
+imagemagick ကိုလည်း install လုပ်မယ်။  
+သေချာတာက moses running process ကို graph အဖြစ်နဲ့ ထုတ်ပေးတဲ့အခါမှာ သုံးပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install imagemagick
@@ -573,6 +610,8 @@ Processing triggers for fontconfig (2.13.1-2ubuntu3) ...
 သို့သော် update မဖြစ်ရင် သိချင်လို့ ...  
 နောက် စက်ထဲမှာ သုံးခဲ့တဲ့ version ကိုလည်း ခင်ဗျားတို့ကို သိစေချင်လို့...  
 
+စက်ထဲမှာရှိတဲ့ make က upgrade လုပ်စရာမလိုရင်တော့ အောက်ပါလိုမျိုး message တွေကို မြင်ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install make
 Reading package lists... Done
@@ -584,6 +623,9 @@ make set to manually installed.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
 
+make လိုပဲအသုံးဝင်တဲ့ cmake ကိုလည်း install လုပ်ပါ။  
+ဒီ make, cmake တို့ကတော့ တကယ်က moses တစ်ခုတည်းအတွက် မဟုတ်ပါဘူး။ Linux မှာ source compilation လုပ်တဲ့အခါမှာ တကယ်ကို မရှိမဖြစ်လိုအပ်တဲ့ tool တွေပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install cmake
 Reading package lists... Done
@@ -593,6 +635,7 @@ cmake is already the newest version (3.16.3-3ubuntu2).
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
+libgoogle-perftools-dev ကိုလည်း install လုပ်ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install libgoogle-perftools-dev
@@ -634,6 +677,8 @@ Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ 
 ```
 
+autoconf ကတော့ install လုပ်တဲ့အခါမှာ စက်အလိုက် ပြင်ဆင်ပေးမဲ့ configuration တွေကို ပြင်ဆင်ဖို့အတွက် အသုံးဝင်တဲ့ tool ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install autoconf
 Reading package lists... Done
@@ -644,6 +689,8 @@ autoconf set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 93 not upgraded.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
+
+Documentation တွေ ပြင်ဆင်တဲ့နေရာမှာ အသုံးဝင်တဲ့ doxygen ကိုလည်း installation လုပ်ကြရအောင်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ sudo apt-get install doxygen
@@ -689,6 +736,10 @@ Processing triggers for libc-bin (2.32-0ubuntu3) ...
 
 ## Run bjam again with some more parameters
 
+အထက်ပါအတိုင်း လိုအပ်တဲ့ package, library တွေကို install လုပ်ပြီးတဲ့အခါမှာ bjam ထပ် run ကြည့်ရအောင်။  
+ဒီတစ်ခါတော့ ကိုယ့်စက်ထဲမှာ install လုပ်ထားတဲ့ boost, irstlm, srilm တို့ရဲ့ path တွေကိုပါ ပေးပြီး compile လုပ်ကြည့်ပါမယ်။  
+ဒီဟာတွေက option တွေပါ။ သို့သော် language model တွေကို moses/moses2 က default ပါပြီး သုံးတဲ့ KenLM အပြင် တခြား powerful ဖြစ်တဲ့ statistical language model ဆောက်တဲ့ tool တွေကိုပါ သုံးချင်တယ်ဆိုရင်တော့ --with-irstlm, --with-srilm ဆိုတဲ့ option တွေကို သုံးပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$time ./bjam --with-boost=/home/ye/tool/boost_1_75_0 --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8
 ...
@@ -718,11 +769,14 @@ sys	0m0.893s
 
 ## clean and rebuild
 
+moses/moses2 က bin/ ဖိုလ်ဒါအောက်မှာ output အနေနဲ့ ထွက်မလာဘူး။  
+အဲဒါကြောင့် clean လုပ်ပြီးမှ bjam ကို run တာမျိုး လုပ်ခဲ့တယ်။  
+
 ```
 ./bjam --clean
 ```
 
-after that,  
+bjam ကို နောက်တစ်ခေါက် ထပ် run ကြည့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
@@ -946,9 +1000,11 @@ user	27m13.047s
 sys	1m27.699s
 ```
 
-Note: /bin/ အောက်မှာ moses command လည်း မရှိလို့ Error!!!  
+Note: /bin/ အောက်မှာ moses command လည်း မရှိလို့ Error!!!  ပါပဲ။  
 
 ## Install other dependencies
+
+perl နဲ့ ပတ်သက်တဲ့ ပရိုဂရမ်တွေကလည်း moses မှာ အများကြီးသုံးထားလို့ perl နဲ့ ဆိုင်တဲ့ library တချို့ကို ထပ်ဖြည့် install လုပ်ပါမယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ sudo apt-get install libsoap-lite-perl
@@ -1022,6 +1078,8 @@ Processing triggers for libc-bin (2.32-0ubuntu3) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ 
 ```
 
+cmph နဲ့ xmlrpc တို့ကိုလည်း အောက်ပါအတိုင်း install လုပ်ပါမယ်။  
+
 ```
 wget http://www.achrafothman.net/aslsmt/tools/cmph_2.0.orig.tar.gz
 tar zxvf cmph_2.0.orig.tar.gz
@@ -1042,6 +1100,8 @@ make install
 
 ## clean and run bjam again
 
+cleaning လုပ်ပြီး ထပ် bjam လုပ်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ ./bjam --clean
 XMLRPC-C: USING VERSION 1.33.14 FROM /usr/local
@@ -1056,6 +1116,7 @@ Building Moses2
 common.Clean clean
 ...updated 1 target...
 ```
+-a option ကိုလည်း သုံးမယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
@@ -1110,8 +1171,12 @@ sys	1m54.282s
 
 ## Retry
 
+ဒီတစ်ခါတော့ --with-cmph option ကိုပါ ထပ်ဖြည့်ကြည့်ပါတယ်။  
+
+
 ```
-time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -a
+time ./bjam  --with-irstlm=/home/ye/tool/irstlm --with-srilm=/home/ye/tool/srilm-1.7.3/bin/i686-m64 -j8 -–with-cmph=/home/ye/tool/cmph-2.0 -a
+
 ...
 ...
 ...
@@ -1221,7 +1286,9 @@ sys	1m53.954s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$
 ```
 
-Note: ဒီတစ်ခါတော့ moses2 binary ထွက်လာတယ်။  
+Note: ဒီတစ်ခါတော့ moses2 binary ထွက်လာတယ်။ အဆင်ပြေသွားပါပြီ။  :)  
+
+bin/ ဖိုလ်ဒါကို check လုပ်ကြည့်ပြီးတော့ moses2 --help ကိုလည်း ခေါ်ကြည့်ကြရအောင်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesdecoder$ cd bin
