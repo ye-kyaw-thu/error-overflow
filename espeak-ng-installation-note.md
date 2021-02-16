@@ -1277,6 +1277,8 @@ Pty Language       Age/Gender VoiceName          File                 Other Lang
 
 ## Testing
 
+--ipa option ပေးပြီး IPA symbol ကို print ထုတ်ကြည့်ခဲ့...
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng -v my --ipa
 ရဲကျော်သူ
@@ -1290,6 +1292,8 @@ ntskˈo2mlŋ  bˈu2
 မဟုတ်သေးပါဘူး
 mhˈuɜt  ðe2pˈebu2
 ```
+
+ဗမာအသံထွက်လည်း အဆင်မပြေ၊ IPA symbol ကလည်း အဆင်မပြေသေးတာကို တွေ့ရ...
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng -v en --ipa
