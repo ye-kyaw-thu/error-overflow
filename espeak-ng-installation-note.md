@@ -1,5 +1,6 @@
 ## cloning
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/espeak-ng/espeak-ng/
 Cloning into 'espeak-ng'...
 remote: Enumerating objects: 159, done.
@@ -8,8 +9,11 @@ remote: Compressing objects: 100% (110/110), done.
 remote: Total 42488 (delta 71), reused 103 (delta 47), pack-reused 42329
 Receiving objects: 100% (42488/42488), 49.71 MiB | 722.00 KiB/s, done.
 Resolving deltas: 100% (29289/29289), done.
+```
 
 ## checking
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd espeak-ng/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ ls
 android       configure.ac    COPYING.BSD2  data        emscripten       fastlane  Makefile.am  src    vim
@@ -18,11 +22,13 @@ CHANGELOG.md  COPYING.APACHE  COPYING.UCD   docs        espeak-ng.pc.in  m4     
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ find /usr/lib | grep libespeak-ng
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1.1.49
+```
 
 espeak ကို install လုပ်ထားတာရှိလို့ အထက်ပါအတိုင်း library တွေကို မြင်နေရတာ...
 
 ## autogen
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ ./autogen.sh 
 libtoolize: putting auxiliary files in '.'.
 libtoolize: copying file './ltmain.sh'
@@ -43,9 +49,11 @@ Makefile.am:483: warning: '%'-style pattern rules are a GNU make extension
 Makefile.am:1005: warning: '%'-style pattern rules are a GNU make extension
 Makefile.am: installing './INSTALL'
 Makefile.am: installing './depcomp'
+```
 
 ## configure
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ ./configure
 checking for a BSD-compatible install... /usr/bin/install -c
 checking whether build environment is sane... yes
@@ -264,11 +272,13 @@ configure:
             Russian:                   no
             Chinese (Mandarin):        no
             Chinese (Cantonese):       no
-
+	    
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$
+```
 
 ## make with jx option
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ make -j8 src/espeak-ng src/speak-ng
 Makefile:2783: warning: ignoring prerequisites on suffix rule definition
   CC       src/espeak-ng.o
@@ -836,29 +846,39 @@ Makefile:2783: warning: ignoring prerequisites on suffix rule definition
 make: *** [Makefile:2784: docs/add_language.html] Error 127
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ which bash
 /usr/bin/bash
+```
 
 ## Update Makefile
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ gedit Makefile
 
 #SHELL = /bin/bash
 SHELL = /usr/bin/bash
+```
 
 ## try again make docs
 
 Error က အောက်ပါ လိုင်းနဲ့ ဆိုင်တာကို တွေ့ရ
 
+```
 2784   .md.html: _layouts/webpage.html
 2785   	@echo "  MD        $@"
 2786   	@cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
 2787   		$(KRAMDOWN) --template _layouts/webpage.html > $@
-		
+```
+
 လိုင်း 618 မှာ အောက်ပါ setting ကို တွေ့ရ...
+
+```
 KRAMDOWN = no
+```
 
 no ဆိုတဲ့ setting ကြောင့်လို့ ယူဆ။
 
 ## Installation of Kramdown
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ sudo gem install kramdown
 Fetching kramdown-2.3.0.gem
 Successfully installed kramdown-2.3.0
@@ -866,24 +886,33 @@ Parsing documentation for kramdown-2.3.0
 Installing ri documentation for kramdown-2.3.0
 Done installing documentation for kramdown after 0 seconds
 1 gem installed
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ which kramdown 
 /usr/local/bin/kramdown
+```
 
 ## Edit Makefile and Retry
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ which kramdown 
 /usr/local/bin/kramdown
+```
 
 gedit Makefile
+```
 618    KRAMDOWN = yes
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ sudo make docs
 Makefile:2784: warning: ignoring prerequisites on suffix rule definition
   MD        docs/guide.html
 yes: unrecognized option '--template'
 Try 'yes --help' for more information.
 make: *** [Makefile:2785: docs/guide.html] Error 1
+```
 
 I skip make docs ...
 
@@ -893,6 +922,7 @@ https://github.com/espeak-ng/espeak-ng/blob/master/docs/languages.md#:~:text=Dev
 
 ## compile for Myanmar languages
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ make my
 Makefile:2784: warning: ignoring prerequisites on suffix rule definition
 ESPEAK_DATA_PATH=/home/ye/tool/espeak-ng src/espeak-ng --compile-intonations && \
@@ -919,16 +949,20 @@ Compiling: 'my_rules'
 	78 rules, 64 groups (0)
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$
+```
 
 ## make for Burmese language
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ find /usr/lib | grep libespeak-ng
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1.1.49
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ 
+```
 
 ## make for all support languages
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ make
 Makefile:2784: warning: ignoring prerequisites on suffix rule definition
 make  all-am
@@ -1050,9 +1084,11 @@ Compiling: 'bn_rules'
 ...
 ...
 ...
+```
 
 ## make check
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ make check
 ...
 ...
@@ -1063,10 +1099,11 @@ s;E2m t'ys;VtS;_! p;,It;s'ot d;E2v;Itn'AttsVt; p@-rats'Ent dv'A (en)s'i:(ru) ojd
 > dv'A (en)s'i:(ru) v'os;E2m t'otS;ka# vOs;Ims'ot dv'Attsat;d;'evI3t; t'ys;VtS;_! s;,Ims'ot SE2z;d;d;Is;'jatv'os;E2m p@-rats'Ent dv'AttsVt; (en)s'i:(ru) p@-rats'Ent dv;'es;t;I p@-rats'Ent dv'A (en)s'i:(ru) p;'jat; t'otS;ka# S,E#s;t;s'ot SE2z;d;d;Is;'jatd;'evI3t; t'ys;VtS;_! s'o@-*Okojd;'in p@-rats'Ent dv'AttsVt; tS;It'yR;I t'otS;ka# p;Vd;d;Is;'jatd;'evI3t; t'ys;VtS;_! S,E#s;t;s'ot d;E2v;In'ostOd;'evI3t; p@-rats'Ent dv'A (en)s'i:(ru) d;'es;It; t'otS;ka# dv'A m;,IlI;'onof_! S,E#s;t;s'ot p;Vd;d;Is;'jatdv;'e t'ys;VtS;_! t@-r;'ista# d;E2v;In'ostOojd;'in p@-rats'Ent dv'AttsVt; d;'es;It; t'otS;ka# dv;'es;t;I SE2z;d;d;Is;'jatp;'jat; t'ys;VtS;_! dv;'es;t;I t@-r;'ittsat;v'os;E2m p@-rats'Ent dv'A (en)s'i:(ru) d;'es;It; t'otS;ka# dv'A m;,IlI;'onof_! S,E#s;t;s'ot p;Vd;d;Is;'jatdv;'e t'ys;VtS;_! t@-r;'ista# d;E2v;In'ostOojd;'in p@-rats'Ent dv'AttsVt; (en)z'Ed(ru) p@-rats'Ent dv'AttsVt; (en)'Em(ru) p@-rats'Ent dv;'e t'ys;VdZ; d;'es;It; t'otS;ka# n'ojltR;'i_!s;'ejm v'os;E#mS'Es;t;_!p;'jat; p@-rats'Ent dv'A (en)s'i:(ru) d;E2v;Itn'AttsVt; t'otS;ka# s;,Ims'ot d;E2v;In'ostOv'os;E2m t'ys;VtS;_! p;,It;s'ot t@-r;'ittsat;s;'ejm p@-rats'Ent dv'AttsVt; (en)v'i:(ru) p@-rats'Ent dv;'es;t;I ojd;'in t'otS;ka# st'o s;'emd;E2s;VttS;It'yR;I t'ys;VtS;_! st'o v'os;E2md;E2s;atv'os;E2m p@-rats'Ent dv'AttsVt; (en)'eI(ru) p@-rats'Ent dv;'es;t;I ojd;'in t'otS;ka# tS;It'yr;E2sta# v'os;E2md;E2s;atv'os;E2m t'ys;VtS;_! p;,It;s'ot d;E2v;Itn'AttsVt; p@-rats'Ent dv'A (en)s'i:(ru) ojd;'in t'otS;ka# tS;It'yr;E2sta# v'os;E2md;E2s;atv'os;E2m t'ys;VtS;_! p;,It;s'ot d;E2v;Itn'AttsVt; p@-rats'Ent dv;'es;t;I p@-rats'Ent dv;'es;t;I p@-rats'Ent dv;'es;t;I ojd;'in p@-rats'Ent dv;'es;t;I t'otS;ka# vOs;Ims'ot p;Vd;d;Is;'jats;'ejm t'ys;VtS;
 make: *** [Makefile:2809: tests/translate.check] Error 1
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ make check
-
+```
 
 ## make library
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
 [sudo] password for ye: 
 Makefile:2784: warning: ignoring prerequisites on suffix rule definition
@@ -1132,19 +1169,25 @@ cp -prf espeak-ng-data/* /usr/local/share/espeak-ng-data
 make[2]: Leaving directory '/home/ye/tool/espeak-ng'
 make[1]: Leaving directory '/home/ye/tool/espeak-ng'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ find /usr/lib | grep libespeak-ng
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1
 /usr/lib/x86_64-linux-gnu/libespeak-ng.so.1.1.49
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$
+```
 
 ## checkin with TAB
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak
 espeak     espeak-ng 
+```
 
 ## checking with --help
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng --help
 
 eSpeak NG text-to-speech: 1.50  Data at: /usr/lib/x86_64-linux-gnu/espeak-ng-data
@@ -1221,16 +1264,20 @@ or text is spoken from stdin, read separately one line by line at a time.
 	   If <language> is omitted, then list all voices.
 --load     Load voice from a file in current directory by name.
 -h, --help Show this help.
+```
 
 ## Check for Myanmar language
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng --voices=my
 Pty Language       Age/Gender VoiceName          File                 Other Languages
  5  my              --/M      Myanmar_(Burmese)  sit/my               
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$
+```
 
 ## Testing
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng -v my --ipa
 ရဲကျော်သူ
 jˌateˈau2  ðˈu1
@@ -1242,7 +1289,9 @@ mŋ  ə2ðˈak bj  lˌoəðalˈakwats
 ntskˈo2mlŋ  bˈu2
 မဟုတ်သေးပါဘူး
 mhˈuɜt  ðe2pˈebu2
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng -v en --ipa
 who are you
 hˈuː ɑː juː
@@ -1252,7 +1301,9 @@ I have a computer
 aɪ hav ɐ kəmpjˈuːtə
 I am a researcher
 aɪɐm ɐ ɹɪsˈɜːtʃə
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/espeak-ng$ espeak-ng -v zh --ipa
 中新网2月15日电 综合报道，英国哈里王子和妻子梅根正准备迎接他们的第二个孩子。
 ts.ˈonɡ5 ɕˈi5n wˈɑ2ŋ ˈər5 ˈyɛ5 ji5wˈu2 ʐˈi.5 tˈiɛ5n tsˈonɡ5 xˈo-ɜ pˈɑu5 tˈɑu5
@@ -1260,4 +1311,4 @@ jˈi5ŋ kˈuoɜ xˈɑ5 lˈi2 wˈɑɜŋ tsi̪ɜ xˈo-ɜ tɕhˈi5 tsi̪2 mˈeiɜ k
 哈里夫妇的发言人14日证实，39岁的梅根已怀有身孕。
 xˈɑ5 lˈi2 fu4 fˈu5 tə1 fˈɑ5 jˈiɛɜn ʐˈəɜn ji5sˈi̪5 ʐˈi.5 ts.ˈə5ŋ s.ˈi.ɜ
 sa5ntɕˈiou2 sˈuei5 tə1 mˈeiɜ kˈə5n jˈi2 xˈuaiɜ jˈiou2 s.ˈə5n ʲˈyə5n
-
+```
