@@ -262,5 +262,5 @@ uptotwomonths NOUN pobj
 
 ## Reference
 
-https://spacy.io/
-https://spacy.io/usage/spacy-101
+https://spacy.io/  
+https://spacy.io/usage/spacy-101  
