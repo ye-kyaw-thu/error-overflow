@@ -97,6 +97,8 @@ Successfully installed blis-0.7.4 catalogue-2.0.1 click-7.1.2 cymem-2.0.5 murmur
 
 ## If you don't have downloaded trained pipeline
 
+Spacy library ကို install လုပ်ယုံနဲ့က word segmentation တန်းလုပ်လို့ မရသေးပါဘူး။ အောက်ပါအတိုင်း error ပေးပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ python
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
@@ -162,6 +164,7 @@ You can now load the package via spacy.load('en_core_web_sm')
 
 ## Testing with Example Program
 
+Reference link က ယူလာတဲ့ python code နဲ့ အင်္ဂလိပ်စာလုံးဖြတ်ကြည့်တာ အို
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ python ./test.py 
 Noun phrases: ['Sebastian Thrun', 'self-driving cars', 'Google', 'few people', 'the company', 'him', 'I', 'you', 'very senior CEOs', 'major American car companies', 'my hand', 'I', 'Thrun', 'an interview', 'Recode']
@@ -180,11 +183,10 @@ earlier this week DATE
 ### Case 1:
 
 ```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ cat ./tokenization.py 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ cat tokenization.py 
 import spacy
 
 nlp = spacy.load("en_core_web_sm")
-#doc = nlp("IthasbeenconfirmedthateightthoroughbredracehorsesatRandwickRacecourseinSydneyhavebeeninfectedwithequineinfluenza.Randwickhasbeenlockeddown,andisexpectedtoremainsofor uptotwomonths.")
 doc = nlp("It has been confirmed that eight thoroughbred race horses at Randwick Racecourse in Sydney have been infected with equine influenza . Randwick has been locked down , and is expected to remain so for up to two months .")
 
 for token in doc:
