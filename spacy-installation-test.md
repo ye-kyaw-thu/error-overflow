@@ -238,6 +238,7 @@ months NOUN pobj
 
 ### Case 2:
 
+အင်္ဂလိပ်စာလုံးတွေမှာရှိနေတဲ့ spacing အားလုံးကို ဖြုတ်ပြီးတော့ စမ်းကြည့်တဲ့အခါမှာတော့ word segmentation လုပ်မပေးနိုင်တာကို တွေ့ရတယ်။ တကယ်ကတော့ အင်္ဂလိပ်စာအတွက်ရှိနေတဲ့ tokenizer (အင်္ဂလိပ်စာအတွက်က word segmentation လို့သုံးတာနည်းတယ်) တွေအားလုံးလိုလိုက ဒီလိုပါပဲ။ ဒီ testing ကနေ Spacy tokenizer ကလည်း space လုံးဝရှိမနေတဲ့ အင်္ဂလိပ်စာကြောင်းတွေကို segmentation လုပ်မပေးနိုင်တာကို confirm လုပ်လို့ ရသွားပါပြီ။  
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ cat ./tokenization.py 
 import spacy
