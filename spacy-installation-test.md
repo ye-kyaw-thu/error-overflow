@@ -1,5 +1,19 @@
 ### Installation Spacy Python Library and Testing for English Word Segmentation
 
+မြန်မာနိုင်ငံရဲ့ လက်ရှိ နိုင်ငံရေး အခြေအနေရ တကယ်တမ်း experiment တွေက အချိန်မှီပြီးစီးနိုင်မလားဆိုတာက ခန့်မှန်းလို့မရပေမဲ့ WAT-2021 ရဲ့ Myanmar-English, English-Myanmar machine translation share task အတွက် ပြင်ဆင်စရာရှိတာတွေကို ဆက်လက် ပြင်ဆင်နေပါတယ်။ အခု post က အဲဒီ share task အတွက် data preparation အပိုင်းထဲက တစ်ပိုင်းပါ။ အတိုပြောရရင် UCSY ရဲ့ မြန်မာစာ training data က word segmentation လုပ်မထားပါဘူး။ ဗမာစာစာလုံးဖြတ်ဖို့အတွက် word segmenter ကို သပ်သပ် develop လုပ်ခဲ့ပေမဲ့၊ ဗမာစာထဲမှာရောပြီးပါနေတဲ့ အင်္ဂလိပ်စာစာလုံးတွေပါ အောက်ပါအတိုင်း အားလုံး ပူးနေတာမို့၊ အဲဒီ အင်္ဂလိပ်စာလုံးတွေကို ဆွဲထုတ်ပြီး word segmentation လုပ်ဖို့အတွက် Spacy Python Library နဲ့ English word segmentation ကို စမ်းထားတုန်း မှတ်ထားတဲ့ installation note ပါ။   
+
+```text
+SeesaengKanyothaကုမ္ပဏီကဝန်ထမ်းသာဝပါ။
+ဟုတ်လား။ငါကမင်းကိုရုံးကိုခဏခဏလာနေတဲ့JapanThilawaDevelopmentLtd.ကလို့ထင်တာ။
+ကားဆရာရေParkTramstationကိုမောင်းခိုင်းမလို့၊ဒီကနေဆိုရင်တော်တော်ဝေးတာမို့ဘယ်လောက်လောက်ပိုက်ဆံပေးရမှာလည်းဆိုတာကိုခန့်မှန်းပေးလို့ရမလား။
+GreentaxiServiceကကားကိုပဲခေါ်ပေးပါရှင့်။
+ကျွန်မရဲ့အီးမေးလ်လိပ်စာကရိုက်ရမယ့်နေရာမှာတော့thailand@gmail.comဆိုပြီးရိုက်ထည့်ပေးပါ။
+Anthory’sPipistrelleနှင့်Ioffre’sPipistrelleဆိုတာကလင်းနို့မျိုးစိတ်နာမည်တွေပါခင်ဗျာ။
+```
+
+CopyRight ဘာညာအတွက် အင်္ဂလိပ်စာလုံးကိုပဲ UCSY corpus ထဲက ဥပမာအနေနဲ့ ယူထားပေမဲ့ ဗမာစာကြောင်းတွေကတော့ အစားထိုးပြထားတာပါ။  
+
+
 ## Install Spacy Library
 
 ```
