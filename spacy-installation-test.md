@@ -2,6 +2,7 @@
 
 ## Install Spacy Library
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ python
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
@@ -78,10 +79,11 @@ Installing collected packages: murmurhash, cymem, preshed, spacy-legacy, catalog
       Successfully uninstalled Click-7.0
 Successfully installed blis-0.7.4 catalogue-2.0.1 click-7.1.2 cymem-2.0.5 murmurhash-1.0.5 pathy-0.4.0 preshed-3.0.5 pydantic-1.7.3 smart-open-3.0.0 spacy-3.0.5 spacy-legacy-3.0.1 srsly-2.4.0 thinc-8.0.2 typer-0.3.2 wasabi-0.8.2
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
-
+```
 
 ## If you don't have downloaded trained pipeline
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ python
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
@@ -97,9 +99,11 @@ Traceback (most recent call last):
 OSError: [E050] Can't find model 'en_core_web_sm'. It doesn't seem to be a Python package or a valid path to a data directory.
 >>> exit()
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
+```
 
 ## Download
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ python -m spacy download en_core_web_sm
 Collecting en-core-web-sm==3.0.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0-py3-none-any.whl (13.7 MB)
@@ -140,9 +144,11 @@ Successfully installed en-core-web-sm-3.0.0
 ✔ Download and installation successful
 You can now load the package via spacy.load('en_core_web_sm')
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$
+```
 
 ## Testing with Example Program
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ python ./test.py 
 Noun phrases: ['Sebastian Thrun', 'self-driving cars', 'Google', 'few people', 'the company', 'him', 'I', 'you', 'very senior CEOs', 'major American car companies', 'my hand', 'I', 'Thrun', 'an interview', 'Recode']
 Verbs: ['start', 'work', 'drive', 'take', 'tell', 'shake', 'turn', 'be', 'talk', 'say']
@@ -153,11 +159,13 @@ Thrun PERSON
 Recode PERSON
 earlier this week DATE
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$
+```
 
 ## Testing for English Word Segmentation
 
 ### Case 1:
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ cat ./tokenization.py 
 import spacy
 
@@ -210,9 +218,11 @@ two NUM nummod
 months NOUN pobj
 . PUNCT punct
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$
+```
 
 ### Case 2:
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$ cat ./tokenization.py 
 import spacy
 
@@ -231,7 +241,7 @@ andisexpectedtoremainsofor NOUN prep
 uptotwomonths NOUN pobj
 . PUNCT punct
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/word-seg-tool/spacy$
-
+```
 
 ## Reference
 
