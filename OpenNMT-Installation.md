@@ -1,5 +1,6 @@
 ## Installing OpenNMT
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$ pip install -e .
 Obtaining file:///home/ye/tool/OpenNMT-py
 Requirement already satisfied: tqdm<5,>=4.51 in /home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages (from OpenNMT-py==2.0.0) (4.55.1)
@@ -110,9 +111,11 @@ Installing collected packages: urllib3, pyasn1, idna, chardet, rsa, requests, py
   Running setup.py develop for OpenNMT-py
 Successfully installed Jinja2-2.11.3 MarkupSafe-1.1.1 OpenNMT-py Werkzeug-1.0.1 absl-py-0.12.0 cachetools-4.2.1 chardet-4.0.0 click-7.1.2 configargparse-1.4 flask-1.1.2 future-0.18.2 google-auth-1.28.0 google-auth-oauthlib-0.4.3 grpcio-1.36.1 idna-2.10 importlib-metadata-3.7.3 itsdangerous-1.1.0 markdown-3.3.4 oauthlib-3.1.0 protobuf-3.15.6 pyasn1-0.4.8 pyasn1-modules-0.2.8 pyonmttok-1.25.0 pyyaml-5.3.1 requests-2.25.1 requests-oauthlib-1.3.0 rsa-4.7.2 sentencepiece-0.1.95 tensorboard-2.4.1 tensorboard-plugin-wit-1.8.0 torch-1.6.0 torchtext-0.5.0 urllib3-1.26.4 waitress-1.4.4
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$
+```
 
 ## Installing Requirements
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$ pip install -r requirements.opt.txt
 Collecting git+git://github.com/NVIDIA/apex.git@700d6825e205732c1d6be511306ca4e595297070 (from -r requirements.opt.txt (line 6))
   Cloning git://github.com/NVIDIA/apex.git (to revision 700d6825e205732c1d6be511306ca4e595297070) to /tmp/pip-req-build-jlao6024
@@ -167,9 +170,11 @@ Installing collected packages: llvmlite, subword-nmt, sentencepiece, pyrouge, nu
       Successfully uninstalled cffi-1.14.5
 Successfully installed apex-0.1 cffi-1.14.3 joblib-0.17.0 llvmlite-0.32.1 numba-0.43.0 pyrouge-0.1.3 sentencepiece-0.1.94 subword-nmt-0.3.7
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$
+```
 
 ## Preparing the Data
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT$ mkdir tutorial
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT$ cd tutorial
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ wget https://s3.amazonaws.com/opennmt-trainingdata/toy-ende.tar.gz
@@ -185,17 +190,21 @@ toy-ende.tar.gz                       100%[=====================================
 2021-03-20 23:55:20 (469 KB/s) - ‘toy-ende.tar.gz’ saved [1662081/1662081]
 
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$
+```
 
 ## Extract .tar.gz
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ tar xf toy-ende.tar.gz
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ cd toy-ende/
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ ls
 src-test.txt  src-train.txt  src-val.txt  tgt-test.txt  tgt-train.txt  tgt-val.txt
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ 
+```
 
 ## Check the Data
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ wc *
    2737   61376  344699 src-test.txt
   10000  225069 1253552 src-train.txt
@@ -277,10 +286,13 @@ Der Antrag , Paragraf 365 , auf dessen Grundlage die Expremierministerin verurte
 Libyscher Sieg
 Die Geschichte des libyschen Befreiungskampfes oder libyschen Rebellion kennt schon ihre Verlierer .
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ 
+```
 
 ## Preparing config file
 
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ cat ./toy_en_de.yaml 
+
+```
 # toy_en_de.yaml
 
 ## Where the samples will be written
@@ -314,9 +326,11 @@ save_checkpoint_steps: 500
 train_steps: 1000
 valid_steps: 500
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$
+```
 
 ## Building Vocabs
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_build_vocab -config toy_en_de.yaml -n_sample 10000
 Corpus corpus_1's weight should be given. We default it to 1 for you.
 [2021-03-21 00:19:12,363 INFO] Counter vocab from 10000 samples.
@@ -330,6 +344,7 @@ real	0m0.708s
 user	0m0.602s
 sys	0m0.060s
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ 
+```
 
 Reference for the more complex configuration file:
 https://github.com/OpenNMT/OpenNMT-py/tree/master/config
@@ -340,6 +355,7 @@ On my computer:
 
 ## Training
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_build_vocab -config toy_en_de.yaml -n_sample 10000
 Corpus corpus_1's weight should be given. We default it to 1 for you.
 [2021-03-21 00:19:12,363 INFO] Counter vocab from 10000 samples.
@@ -454,15 +470,18 @@ real	9m24.291s
 user	8m38.686s
 sys	0m44.289s
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$
+```
 
 Check the folder...
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ cd toy-ende/
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ ls
 run  src-test.txt  src-train.txt  src-val.txt  tgt-test.txt  tgt-train.txt  tgt-val.txt
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ cd run/
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende/run$ ls
 example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_500.pt
+```
 
 ## Translate
 
