@@ -537,9 +537,9 @@ example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_1000_releas
 
 ## Reference
 
-Paper: OpenNMT: Neural Machine Translation Toolkit
+Paper: OpenNMT: Neural Machine Translation Toolkit  
 Link: https://www.aclweb.org/anthology/W18-1817.pdf
 
-An open source neural machine translation system.
+An open source neural machine translation system.  
 https://opennmt.net/
 
