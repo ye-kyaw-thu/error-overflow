@@ -485,6 +485,7 @@ example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_500.pt
 
 ## Translate
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_translate -model toy-ende/run/model_step_1000.pt -src toy-ende/src-test.txt -output toy-ende/pred_1000.txt -gpu 0 -verbose | tee translate.log
 ...
 ...
@@ -524,13 +525,15 @@ PRED SCORE: -193.0609
 real	3m1.507s
 user	3m2.472s
 sys	0m0.648s
+```
 
 ## Release
 
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ onmt_release_model --model toy-ende/run/model_step_1000.pt --output toy-ende/run/model_step_1000_release.pt
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ ls ./toy-ende/run/
 example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_1000_release.pt  model_step_500.pt
-
+```
 
 ## Reference
 
@@ -540,7 +543,3 @@ Link: https://www.aclweb.org/anthology/W18-1817.pdf
 An open source neural machine translation system.
 https://opennmt.net/
 
-
-
-Screenshot png file path:
-nvidia-smi-screenshot-onmt-tutorial-running-onGPU0.png
