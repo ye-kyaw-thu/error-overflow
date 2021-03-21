@@ -1831,10 +1831,47 @@ PRED SCORE: -86.9961
 ...
 ...
 ...
+[2021-03-21 23:01:34,009 INFO] 
+SENT 924: ['While', 'it', 'is', 'considered', 'to', 'be', 'a', 'safe', 'Labour', 'seat', ',', 'the', 'by-election', 'is', 'expected', 'to', 'be', 'heavily', 'contested', '.']
+PRED 924: အ လုပ် သ မား လွှတ် တော် ကိုယ် စား လှယ် နေ ရာ လစ် လပ် နေ စဉ် အ တွင်း အ လုပ် သ မား များ အ တွက် လုံ ခြုံ မှု ရှိ သည် ဟု ယူ ဆ ရ သည် ။
+PRED SCORE: -27.2210
 
+[2021-03-21 23:01:34,009 INFO] 
+SENT 925: ['So', 'far', 'four', 'candidates', 'have', 'put', 'their', 'names', 'forward', ':', 'Auckland', 'city', 'councillor', 'Glenda', 'Fryer', ',', 'former', 'candidate', 'Hamish', 'McCracken', ',', 'University', 'of', 'Auckland', 'political', 'studies', 'lecturer', 'Meg', 'Bates', 'and', 'employment', 'lawyer', 'Helen', 'White', '.']
+PRED 925: ထို့ ကြော င့် သူ တို့ ၏ ကိုယ် စား လှယ် လောင်း လေး ဦး သည် နိုင် ငံ ရေး အ လုပ် သ မား ရေး ရာ ဝန် ကြီး ဌာ န အ ကြီး အ ကဲ များ ဖြစ် သ ည့် ဦး စီး အ ဖွဲ့ မှ ကိုယ် စား လှယ် လောင်း တစ် ဦး ဖြစ် သ ည့် ဦး ဆောင် သူ များ ဖြစ် ကြ သည် ။
+PRED SCORE: -59.0637
+
+[2021-03-21 23:01:34,009 INFO] 
+SENT 926: ['List', 'MP', 'Phil', 'Twyford', ',', 'widely', 'expected', 'to', 'succeed', 'Ms', 'Clark', ',', 'has', 'not', 'put', 'his', 'name', 'forward', '.']
+PRED 926: အ ခမ်း အ နား တွင် တပ် မ တော် ကာ ကွယ် ရေး ဦး စီး ချုပ် ဗိုလ် ချုပ် မှူး ကြီး သန်း ရွှေ က သူ ၏ နာ မည် ကို မ မျှော် လ င့် ဘဲ အောင် မြင် စွာ ကျင်း ပ နိုင် ခဲ့ သည် ။
+PRED SCORE: -24.7840
+
+[2021-03-21 23:01:34,009 INFO] 
+SENT 927: ['The', 'National', 'Party', 'has', 'narrowed', 'its', 'possible', 'candidates', 'down', 'to', 'two', ':', 'list', 'MP', 'Melissa', 'Lee', 'or', 'unsuccessful', '2008', 'candidate', 'Ravi', 'Musuku', '.']
+PRED 927: အ မျိုး သား ပါ တီ ဟာ ၂၀၀၈ ခု နှစ် မေ လ ၂ ရက် နေ့ မှာ အ မျိုး သား လွှတ် တော် ကိုယ် စား လှယ် လောင်း နှစ် ဦး ကို နိုင် ငံ တော် ကိုယ် စား လှယ် လောင်း များ ဖြစ် သည် ။
+PRED SCORE: -26.4059
+
+[2021-03-21 23:01:34,009 INFO] 
+SENT 928: ['The', 'decision', 'will', 'be', 'made', 'at', 'a', 'party', 'meeting', 'on', '4', 'May', '.']
+PRED 928: အ စည်း အ ဝေး တွင် ( ၄ ) ကြိမ် မြောက် ကျင်း ပ ပြု လုပ် မည် ။
+PRED SCORE: -8.3334
+
+[2021-03-21 23:01:34,009 INFO] 
+SENT 929: ['The', 'Greens', 'and', 'ACT', 'New', 'Zealand', 'will', 'both', 'contest', 'the', 'by-election', ',', 'but', 'have', 'yet', 'to', 'select', 'candidates', '.']
+PRED 929: မဲ ဆန္ဒ ရှင် ကိုယ် စား လှယ် များ နှ င့် ရွေး ချယ် တင် မြှောက် ခံ ကိုယ် စား လှယ် များ နှစ် ဦး စ လုံး ယှဉ် ပြိုင် ရန် ရွေး ချယ် ထား သော် လည်း မ ကြာ သေး မီ က ရွေး ကောက် ပွဲ တွင် ပါ ဝင် ယှဉ် ပြိုင် ရန် ဖြစ် သည် ။
+PRED SCORE: -38.6518
+
+[2021-03-21 23:01:34,009 INFO] 
+SENT 930: ['Iran', '&amp;', 'apos', ';', 's', 'Minister', 'of', 'Justice', 'Gholam-Hossein', 'Elham', 'has', 'requested', 'that', 'Dutch', 'politician', 'Geert', 'Wilders', '&amp;', 'apos', ';', 'Qur', '&amp;', 'apos', ';', 'an', 'film', 'named', 'Fitna', 'should', 'be', 'prohibited', 'by', 'the', 'Dutch', 'government', ',', 'Iranian', 'press-agency', 'IRNA', 'reports', '.']
+PRED 930: အ စိုး ရ ဝန် ကြီး ဌာ န ဝန် ကြီး က နိုင် ငံ ရေး သ မား တစ် ဦး ကို အ မည် စာ ရေး ဆ ရာ ဟု ခေါ် သ ည့် အ စီ ရင် ခံ စာ တွင် ဖော် ပြ ထား သ ည့် နိုင် ငံ ရေး သ မား တစ် ဦး ကို နိုင် ငံ ရေး သ မား တစ် ဦး က သတ် မှတ် ထား သ င့် သ ည့် အ စီ ရင် ခံ စာ များ ကို ပယ် ဖျက် ခြင်း ဖြစ် သည် ။
+PRED SCORE: -70.4601
+...
+...
+...
 ```
 
-Training လုပ်တုန်းက ဗမာစာဘက် အခြမ်းကို syllable breaking လုပ်ပြီးမှ train ထားတာမို့ translation/testing လုပ်တဲ့အခါမှာလည်း translated output က syllable ဖြတ်ပြီးသားအနေနဲ့ပဲ ရပါလိမ့်မယ်။  
+Training လုပ်တုန်းက ဗမာစာဘက် အခြမ်းကို syllable breaking လုပ်ပြီးမှ train ထားတာမို့ translation/testing လုပ်တဲ့အခါမှာလည်း translated output က syllable ဖြတ်ပြီးသားအနေနဲ့ပဲ ရပါလိမ့်မယ်။ ပြီးတော့ input လုပ်လိုက်တဲ့ စာကြောင်း (i.e. source) နဲ့ လက်ရှိ train လုပ်ထားတဲ့မော်ဒယ်ကနေ ဘာသာပြန်ပေးထားတဲ့ စာကြောင်းတွေရဲ့ လိုအပ်ချက်တွေ၊ ဘာသာပြန်အမှားတွေကိုလည်း လေ့လာကြည့်စေချင်ပါတယ်။  
+
 
 ## Reference
 
