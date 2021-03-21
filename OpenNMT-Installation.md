@@ -530,11 +530,15 @@ example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_1000_releas
 
 ## Copying configuration file for Transformer architecture
 
+OpenNMT က transformer architecture NMT အတွက် ဥပမာအနေနဲ့ ပြင်ဆင်ပေးထားတဲ့ configuration ဖိုင်ကို အရင်ဆုံးကော်ပီကူးယူခဲ့တယ်။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py/config$ cp config-transformer-base-1GPU.yml /home/ye/exp/nmt/openNMT/wat2021/exp-syl4/
 ```
 
 ## Check the Data
+
+Corpus information (training, developing, testing files) ကတော့ အောက်ပါအတိုင်းပါ။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data$ wc *.{en,my}
@@ -581,8 +585,85 @@ It is speculated that he was hit by a United States missile , which is now ident
 ## Editing config file
 
 for running transformer model with WAT2021 data, I have to edit the config file ...  
+configuration ဖိုင်မှာအဓိက update လုပ်ရတာကတော့ ကိုယ်သုံးမယ့် corpus (i.e. training/validation) ဖိုင်နာမည်တွေကိုပါ။  
+update လုပ်ထားတဲ့ configuration ဖိုင်ကတော့ အောက်ပါအတိုင်းပါ။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ cat ./config-transformer-wat2021.yml 
+## Based on the config-transformer-base-1GPU.yml, I updated for WAT2021 NMT esperiment
+## Updated by Ye Kyaw Thu, LST, NECTEC, Thailand
+## 21 Mar2021
+## 
+
+## Where the samples will be written
+save_data: data/run/transformer
+## Where the vocab(s) will be written
+src_vocab: data/run/transformer.vocab.src
+tgt_vocab: data/run/transformer.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: data/train.en
+        path_tgt: data/train.my
+    valid:
+        path_src: data/valid.en
+        path_tgt: data/valid.my
+        
+# Vocabulary files that were just created
+src_vocab: data/run/transformer.vocab.src
+tgt_vocab: data/run/transformer.vocab.tgt
+
+save_model: exp/transformer1.en-my
+save_checkpoint_steps: 10000
+keep_checkpoint: 10
+seed: 3435
+train_steps: 500000
+valid_steps: 10000
+warmup_steps: 8000
+report_every: 100
+
+decoder_type: transformer
+encoder_type: transformer
+word_vec_size: 512
+rnn_size: 512
+layers: 6
+transformer_ff: 2048
+heads: 8
+
+accum_count: 8
+optim: adam
+adam_beta1: 0.9
+adam_beta2: 0.998
+decay_method: noam
+learning_rate: 2.0
+max_grad_norm: 0.0
+
+#batch_size: 4096
+batch_size: 64
+batch_type: tokens
+normalization: tokens
+dropout: 0.1
+label_smoothing: 0.1
+
+max_generator_batches: 2
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'
+
+world_size: 1
+## Run with GPU no. zero
+gpu_ranks: [0]
+
+```
 
 ## Building Vocabs
+
+onmt_build_vocab နဲ့ source, target language-pair အတွက် vocab building လုပ်မယ်။  
+-config option နဲ့ စောစောက update လုပ်ထားခဲ့တဲ့ configuration ဖိုင်ကိုတော့ argument passing လုပ်ပေးရလိမ့်မယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ time onmt_build_vocab -config ./config-transformer-wat2021.yml -n_sample 10000
@@ -600,6 +681,7 @@ sys	0m0.053s
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$
 ```
 
+Vocab ဖိုင်ကို head command နဲ့ ကြည့်ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရလိမ့်မယ်။  
 Check the Vocabs...  
 
 ```
@@ -635,6 +717,8 @@ a	2174
 ```
 
 ## Start Training and Got ERROR
+
+Transofmer architecture နဲ့ training လုပ်ကြည့်တဲ့အခါမှာ အောက်ပါအတိုင်း error ပေးတယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ time onmt_train -config ./config-transformer-wat2021.yml 
@@ -1023,6 +1107,7 @@ sys	0m0.589s
 
 ## Training
 
+Batch size ကို လျှော့ကြည့်ပြီး run တော့ အဆင်ပြေသွားခဲ့...  
 Chage batch size as follows:  
 
 ```
@@ -1455,7 +1540,7 @@ transformer1.en-my_step_30000.pt  transformer1.en-my_step_60000.pt
 
 ## Testing/Translation with GPU
 
-GPU နှစ်လုံးစလုံးက သုံးထားတုန်း (GPU 0 က လက်ရှိ OpenNMT experiment နဲ့ GPU 1 က တခြား fairseq နဲ့ run ထားတဲ့ experiment) ကို လက်ရှိ ဆောက်ထားတဲ့ မော်ဒယ် 70K model နဲ့ translate လုပ်ဖို့ ကြိုးစားကြည့်တော့ memory က မနိုင်လို့ အောက်ပါအတိုင်း error ပေးတာကို တွေ့ရပါတယ်။
+GPU နှစ်လုံးစလုံးက သုံးထားတုန်း (GPU 0 က လက်ရှိ OpenNMT experiment နဲ့ GPU no. 1 က တခြား fairseq နဲ့ run ထားတဲ့ experiment) ကို လက်ရှိ ဆောက်ထားတဲ့ မော်ဒယ် 70K model နဲ့ translate လုပ်ဖို့ ကြိုးစားကြည့်တော့ memory က မနိုင်လို့ အောက်ပါအတိုင်း error ပေးတာကို တွေ့ရပါတယ်။
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/exp$ time onmt_translate -model ./transformer1.en-my_step_70000.pt -src ../data/test.en -output ../exp/hyp-70kmodel.txt -gpu 0 -verbose | tee ../exp/translate-70kmodel.log
