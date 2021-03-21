@@ -523,6 +523,1119 @@ sys	0m0.648s
 example.vocab.src  example.vocab.tgt  model_step_1000.pt  model_step_1000_release.pt  model_step_500.pt
 ```
 
+---
+
+## Copying configuration file for Transformer architecture
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py/config$ cp config-transformer-base-1GPU.yml /home/ye/exp/nmt/openNMT/wat2021/exp-syl4/
+```
+
+## Check the Data
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data$ wc *.{en,my}
+    1018    27929   151447 test.en
+  238014  3357260 17186660 train.en
+    1000    27318   147768 valid.en
+    1018    58895   561443 test.my
+  238014  6285996 60847350 train.my
+    1000    57709   550454 valid.my
+  480064  9815107 79445122 total
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data$ head -n 3 *.my
+==> test.my <==
+ဆစ် ဒ နီ က ရ န့် ဝစ်ခ် မြင်း ပြိုင် ကွင်း မှ မျိုး သ န့် ပြိုင် မြင်း ရှစ် ကောင် ဟာ မြင်း တုတ် ကွေး ရော ဂါ ကူး စက် ခံ ခဲ့ ရ တယ် ဆို တာ အ တည် ပြု ခဲ့ ပါ တယ် ။
+ရ န့် ဝစ်ခ် ကို ပိတ် ထား ခဲ့ ပြီး ၂ လ အ ထိ ကြာ ကြာ ဆက် လက် ထိန်း သိမ်း ထား ရန် မျှော် လ င့် ပါ တယ် ။
+အ လွန် ပြင်း ထန် သော တုတ် ကွေး ဟာ ရ န့် ဝစ်ခ် မှာ အ မြဲ ထား သော မြင်း ၇၀၀ ထဲ က အ များ စု ကို ကူး စက် လိ မ့် မည် လို့ ခ န့် မှန်း ထား ပါ တယ် ။
+
+==> train.my <==
+ကြိမ် ချောင်း ရဲ စ ခန်း တွင် လူ သတ် မှု ဖြ င့် အ မှု ဖွ င့် ထား ပြီး ပြီ ။
+ရဲ များ က စုံ စမ်း လျက် ရှိ သည် ။
+တပ် မ တော် တပ် ဖွဲ့ သည် ရှမ်း ပြည် နယ် မြောက် ပိုင်း တာ မိုး ညဲ မြို့ ၌ မ နေ့ က ရှောင် တ ခင် စစ် ဆေး မှု တစ် ခု ပြု လုပ် စဉ် အ တွင်း ယာဉ် တစ် စီး မှ လက် နက် များ နှ င့် တ ရား မ ဝင် သစ် များ ကို ဖမ်း ဆီး ရ မိ ခဲ့ သည် ။
+
+==> valid.my <==
+&quot; သူ ၏ ဆုံး ပါး ခြင်း အ တွက် ကျွန် တော် တို့ ဝမ်း နည်း သော် လည်း ၊ လူ မျိုး ရေး နှ င့် ဘာ သာ ရေး ရန် စွယ် ကို နှိုး ဆွ ပေး သော အ မွေ အ နှစ် တစ် ခု ကို သူ ချန် ထား ခဲ့ သည် ။ &quot;
+ပါ ကစ္စ တန် နိုင် ငံ ၏ ဝတ် ဇီ ရီ စ တန် မြောက် ပိုင်း ရှိ ၊ လူ က ထိန်း ရန် မ လို သော စစ် လေ ယာဉ် မှ ပစ် ခတ် ခြင်း အ နေ ဖြ င့် ယ ခု သတ် မှတ် ထား သော ၊ အ မေ ရိ ကန် ပြည် ထောင် စု ဒုံး ကျည် ဖြ င့် ၊ သူ့ ကို ထိ ခိုက် စေ ခဲ့ သည် ဟု ထင် ကြေး ပေး ခဲ့ ပြီး နောက် နောက် ထပ် အ လွန် များ ပြား သော စစ် သွေး ကြွ များ လည်း သေ ဆုံး ကြောင်း သ တင်း ပို့ ခဲ့ သည် ။
+&quot; လူ က ထိန်း ရန် မ လို သော လေ ယာဉ် မှ ပစ် ခတ် ရန် ဒုံး ကျည် ပေါ် ပေါက် ခဲ့ သည် ၊ &quot; ဟု ပါ ကစ္စ တန် သ တင်း ထောက် လှမ်း ရေး အ ရာ ရှိ တစ် ယောက် က ပြော ခဲ့ သည် ။
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data$ head -n 3 *.en
+==> test.en <==
+It has been confirmed that eight thoroughbred race horses at Randwick Racecourse in Sydney have been infected with equine influenza .
+Randwick has been locked down , and is expected to remain so for up to two months .
+It is expected that the virulent flu will affect the majority of the 700 horses stabled at Randwick .
+
+==> train.en <==
+A murder case has been opened at the Kyeikgyaung police station .
+Police are investigating .
+Tatmadaw troops seized arms and illegal timber from a vehicle during a surprise check in Tarmoenyae in northern Shan state yesterday .
+
+==> valid.en <==
+&amp; quot ; Though we are sad for his loss , he left a legacy that will inflame the enemy nation and religion . &amp; quot ;
+It is speculated that he was hit by a United States missile , which is now identified as being fired from a Predator drone , in the North Waziristan of Pakistan , and a dozen more militants were also reported dead .
+&amp; quot ; The missile appeared to have been fired by a drone , &amp; quot ; said a Pakistani intelligence official .
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data$
+```
+
+## Editing config file
+
+for running transformer model with WAT2021 data, I have to edit the config file ...  
+
+## Building Vocabs
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ time onmt_build_vocab -config ./config-transformer-wat2021.yml -n_sample 10000
+Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2021-03-21 02:29:27,542 INFO] Counter vocab from 10000 samples.
+[2021-03-21 02:29:27,542 INFO] Build vocab on 10000 transformed examples/corpus.
+[2021-03-21 02:29:27,547 INFO] corpus_1's transforms: TransformPipe()
+[2021-03-21 02:29:27,547 INFO] Loading ParallelCorpus(data/train.en, data/train.my, align=None)...
+[2021-03-21 02:29:27,849 INFO] Counters src:11588
+[2021-03-21 02:29:27,849 INFO] Counters tgt:2538
+
+real	0m0.747s
+user	0m0.588s
+sys	0m0.053s
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$
+```
+
+Check the Vocabs...  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data/run$ head *
+==> transformer.vocab.src <==
+the	17622
+.	9630
+of	9142
+,	8102
+and	7332
+to	5909
+in	4058
+The	2447
+for	2275
+a	2174
+
+==> transformer.vocab.tgt <==
+အ	26656
+င့်	11634
+သည်	10256
+များ	10223
+။	10002
+ရေး	6817
+သ	6671
+ကို	6440
+ပါ	6216
+ရ	6164
+
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/data/run$ wc *
+ 11588  23176 122798 transformer.vocab.src
+  2538   5076  37987 transformer.vocab.tgt
+ 14126  28252 160785 total
+```
+
+## Start Training and Got ERROR
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ time onmt_train -config ./config-transformer-wat2021.yml 
+[2021-03-21 02:40:55,268 INFO] Missing transforms field for corpus_1 data, set to default: [].
+[2021-03-21 02:40:55,268 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2021-03-21 02:40:55,268 INFO] Missing transforms field for valid data, set to default: [].
+[2021-03-21 02:40:55,268 INFO] Parsed 2 corpora from -data.
+[2021-03-21 02:40:55,268 INFO] Get special vocabs from Transforms: {'src': set(), 'tgt': set()}.
+[2021-03-21 02:40:55,268 INFO] Loading vocab from text file...
+[2021-03-21 02:40:55,268 INFO] Loading src vocabulary from data/run/transformer.vocab.src
+[2021-03-21 02:40:55,285 INFO] Loaded src vocab has 11588 tokens.
+[2021-03-21 02:40:55,288 INFO] Loading tgt vocabulary from data/run/transformer.vocab.tgt
+[2021-03-21 02:40:55,292 INFO] Loaded tgt vocab has 2538 tokens.
+[2021-03-21 02:40:55,293 INFO] Building fields with vocab in counters...
+[2021-03-21 02:40:55,295 INFO]  * tgt vocab size: 2542.
+[2021-03-21 02:40:55,306 INFO]  * src vocab size: 11590.
+[2021-03-21 02:40:55,306 INFO]  * src vocab size = 11590
+[2021-03-21 02:40:55,306 INFO]  * tgt vocab size = 2542
+[2021-03-21 02:40:55,308 INFO] Building model...
+[2021-03-21 02:40:57,258 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(11590, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (transformer): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(2542, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=512, out_features=2542, bias=True)
+    (1): Cast()
+    (2): LogSoftmax(dim=-1)
+  )
+)
+[2021-03-21 02:40:57,260 INFO] encoder: 24849408
+[2021-03-21 02:40:57,260 INFO] decoder: 27830766
+[2021-03-21 02:40:57,260 INFO] * number of parameters: 52680174
+[2021-03-21 02:40:57,262 INFO] Starting training on GPU: [0]
+[2021-03-21 02:40:57,262 INFO] Start training loop and validate every 10000 steps...
+[2021-03-21 02:40:57,262 INFO] corpus_1's transforms: TransformPipe()
+[2021-03-21 02:40:57,262 INFO] Loading ParallelCorpus(data/train.en, data/train.my, align=None)...
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/py3.6env/bin/onmt_train", line 33, in <module>
+    sys.exit(load_entry_point('OpenNMT-py', 'console_scripts', 'onmt_train')())
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/train.py", line 169, in main
+    train(opt)
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/train.py", line 154, in train
+    train_process(opt, device_id=0)
+  File "/home/ye/tool/OpenNMT-py/onmt/train_single.py", line 112, in main
+    valid_steps=opt.valid_steps)
+  File "/home/ye/tool/OpenNMT-py/onmt/trainer.py", line 244, in train
+    report_stats)
+  File "/home/ye/tool/OpenNMT-py/onmt/trainer.py", line 368, in _gradient_accumulation
+    with_align=self.with_align)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ye/tool/OpenNMT-py/onmt/models/model.py", line 69, in forward
+    with_align=with_align)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ye/tool/OpenNMT-py/onmt/decoders/transformer.py", line 473, in forward
+    with_align=with_align,
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ye/tool/OpenNMT-py/onmt/decoders/transformer.py", line 98, in forward
+    output, attns = self._forward(*args, **kwargs)
+  File "/home/ye/tool/OpenNMT-py/onmt/decoders/transformer.py", line 263, in _forward
+    inputs_norm, dec_mask, layer_cache, step
+  File "/home/ye/tool/OpenNMT-py/onmt/decoders/transformer.py", line 150, in _forward_self_attn
+    attn_type="self",
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ye/tool/OpenNMT-py/onmt/modules/multi_headed_attn.py", line 205, in forward
+    context_original = torch.matmul(drop_attn, value)
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 3.94 GiB total capacity; 2.56 GiB already allocated; 50.81 MiB free; 2.62 GiB reserved in total by PyTorch)
+
+real	0m9.933s
+user	0m10.725s
+sys	0m0.589s
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$
+```
+
+## Training
+
+Chage batch size as follows:  
+
+```
+#batch_size: 4096
+batch_size: 64
+```
+
+Retrain again ...  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4$ time onmt_train -config ./config-transformer-wat2021.yml 
+[2021-03-21 02:45:29,005 INFO] Missing transforms field for corpus_1 data, set to default: [].
+[2021-03-21 02:45:29,005 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2021-03-21 02:45:29,005 INFO] Missing transforms field for valid data, set to default: [].
+[2021-03-21 02:45:29,005 INFO] Parsed 2 corpora from -data.
+[2021-03-21 02:45:29,005 INFO] Get special vocabs from Transforms: {'src': set(), 'tgt': set()}.
+[2021-03-21 02:45:29,005 INFO] Loading vocab from text file...
+[2021-03-21 02:45:29,005 INFO] Loading src vocabulary from data/run/transformer.vocab.src
+[2021-03-21 02:45:29,022 INFO] Loaded src vocab has 11588 tokens.
+[2021-03-21 02:45:29,025 INFO] Loading tgt vocabulary from data/run/transformer.vocab.tgt
+[2021-03-21 02:45:29,029 INFO] Loaded tgt vocab has 2538 tokens.
+[2021-03-21 02:45:29,029 INFO] Building fields with vocab in counters...
+[2021-03-21 02:45:29,031 INFO]  * tgt vocab size: 2542.
+[2021-03-21 02:45:29,041 INFO]  * src vocab size: 11590.
+[2021-03-21 02:45:29,041 INFO]  * src vocab size = 11590
+[2021-03-21 02:45:29,041 INFO]  * tgt vocab size = 2542
+[2021-03-21 02:45:29,043 INFO] Building model...
+[2021-03-21 02:45:31,021 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(11590, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (transformer): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(2542, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=512, out_features=2542, bias=True)
+    (1): Cast()
+    (2): LogSoftmax(dim=-1)
+  )
+)
+[2021-03-21 02:45:31,022 INFO] encoder: 24849408
+[2021-03-21 02:45:31,022 INFO] decoder: 27830766
+[2021-03-21 02:45:31,022 INFO] * number of parameters: 52680174
+[2021-03-21 02:45:31,024 INFO] Starting training on GPU: [0]
+[2021-03-21 02:45:31,024 INFO] Start training loop and validate every 10000 steps...
+[2021-03-21 02:45:31,024 INFO] corpus_1's transforms: TransformPipe()
+[2021-03-21 02:45:31,024 INFO] Loading ParallelCorpus(data/train.en, data/train.my, align=None)...
+[2021-03-21 02:46:26,207 INFO] Step 100/500000; acc:   3.92; ppl: 541.41; xent: 6.29; lr: 0.00001; 386/784 tok/s;     55 sec
+[2021-03-21 02:47:21,730 INFO] Step 200/500000; acc:   6.98; ppl: 248.54; xent: 5.52; lr: 0.00002; 393/780 tok/s;    111 sec
+[2021-03-21 02:48:16,789 INFO] Step 300/500000; acc:  12.59; ppl: 130.58; xent: 4.87; lr: 0.00004; 370/780 tok/s;    166 sec
+[2021-03-21 02:49:11,782 INFO] Step 400/500000; acc:  18.14; ppl: 79.03; xent: 4.37; lr: 0.00005; 372/789 tok/s;    221 sec
+[2021-03-21 02:50:07,942 INFO] Step 500/500000; acc:  25.05; ppl: 49.99; xent: 3.91; lr: 0.00006; 381/790 tok/s;    277 sec
+[2021-03-21 02:51:04,942 INFO] Step 600/500000; acc:  31.47; ppl: 31.77; xent: 3.46; lr: 0.00007; 383/788 tok/s;    334 sec
+[2021-03-21 02:52:04,021 INFO] Step 700/500000; acc:  30.62; ppl: 32.34; xent: 3.48; lr: 0.00009; 418/823 tok/s;    393 sec
+[2021-03-21 02:53:04,561 INFO] Step 800/500000; acc:  32.75; ppl: 27.50; xent: 3.31; lr: 0.00010; 417/825 tok/s;    454 sec
+[2021-03-21 02:54:08,207 INFO] Step 900/500000; acc:  30.34; ppl: 31.43; xent: 3.45; lr: 0.00011; 398/853 tok/s;    517 sec
+[2021-03-21 02:55:11,845 INFO] Step 1000/500000; acc:  33.04; ppl: 25.46; xent: 3.24; lr: 0.00012; 404/862 tok/s;    581 sec
+[2021-03-21 02:56:15,449 INFO] Step 1100/500000; acc:  32.92; ppl: 24.51; xent: 3.20; lr: 0.00014; 417/863 tok/s;    644 sec
+[2021-03-21 02:57:17,359 INFO] Step 1200/500000; acc:  35.85; ppl: 18.94; xent: 2.94; lr: 0.00015; 420/853 tok/s;    706 sec
+[2021-03-21 02:58:19,257 INFO] Step 1300/500000; acc:  36.20; ppl: 18.72; xent: 2.93; lr: 0.00016; 414/851 tok/s;    768 sec
+[2021-03-21 02:59:17,734 INFO] Step 1400/500000; acc:  38.24; ppl: 16.63; xent: 2.81; lr: 0.00017; 359/810 tok/s;    827 sec
+[2021-03-21 03:00:16,657 INFO] Step 1500/500000; acc:  41.80; ppl: 13.58; xent: 2.61; lr: 0.00019; 367/815 tok/s;    886 sec
+[2021-03-21 03:01:15,161 INFO] Step 1600/500000; acc:  38.01; ppl: 17.50; xent: 2.86; lr: 0.00020; 337/809 tok/s;    944 sec
+[2021-03-21 03:02:14,468 INFO] Step 1700/500000; acc:  40.31; ppl: 14.71; xent: 2.69; lr: 0.00021; 341/823 tok/s;   1003 sec
+[2021-03-21 03:03:12,443 INFO] Step 1800/500000; acc:  39.32; ppl: 16.07; xent: 2.78; lr: 0.00022; 353/811 tok/s;   1061 sec
+
+...
+...
+...
+```
+
+
+## Checking the Model
+
+## Testing with GPU
+
+GPU နှစ်လုံးစလုံးက သုံးထားတုန်း (GPU 0 က လက်ရှိ OpenNMT experiment နဲ့ GPU 1 က တခြား fairseq နဲ့ run ထားတဲ့ experiment) ကို လက်ရှိ ဆောက်ထားတဲ့ မော်ဒယ် 70K model နဲ့ translate လုပ်ဖို့ ကြိုးစားကြည့်တော့ memory က မနိုင်လို့ အောက်ပါအတိုင်း error ပေးတာကို တွေ့ရပါတယ်။
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/exp$ time onmt_translate -model ./transformer1.en-my_step_70000.pt -src ../data/test.en -output ../exp/hyp-70kmodel.txt -gpu 0 -verbose | tee ../exp/translate-70kmodel.log
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/py3.6env/bin/onmt_translate", line 33, in <module>
+    sys.exit(load_entry_point('OpenNMT-py', 'console_scripts', 'onmt_translate')())
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/translate.py", line 44, in main
+    translate(opt)
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/translate.py", line 15, in translate
+    translator = build_translator(opt, logger=logger, report_score=True)
+  File "/home/ye/tool/OpenNMT-py/onmt/translate/translator.py", line 32, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/ye/tool/OpenNMT-py/onmt/model_builder.py", line 93, in load_test_model
+    opt.gpu)
+  File "/home/ye/tool/OpenNMT-py/onmt/model_builder.py", line 259, in build_base_model
+    model.to(device)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 607, in to
+    return self._apply(convert)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 376, in _apply
+    param_applied = fn(param)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 605, in convert
+    return t.to(device, dtype if t.is_floating_point() else None, non_blocking)
+RuntimeError: CUDA error: out of memory
+
+real	0m4.360s
+user	0m13.326s
+sys	0m0.638s
+```
+
+GPU နံပါတ် 1 ကိုလည်း တခြား အလုပ်လုပ်ခိုင်းထားပေမဲ့ translate လုပ်တာလေးပဲဆိုတော့ လုပ်ပေးနိုင်မလားဆိုတာကို confirm လုပ်ကြည့်တာ... မရပါဘူး။    
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/exp$ time onmt_translate -model ./transformer1.en-my_step_70000.pt -src ../data/test.en -output ../exp/hyp-70kmodel.txt -gpu 1 -verbose | tee ../exp/translate-70kmodel.log
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/py3.6env/bin/onmt_translate", line 33, in <module>
+    sys.exit(load_entry_point('OpenNMT-py', 'console_scripts', 'onmt_translate')())
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/translate.py", line 44, in main
+    translate(opt)
+  File "/home/ye/tool/OpenNMT-py/onmt/bin/translate.py", line 15, in translate
+    translator = build_translator(opt, logger=logger, report_score=True)
+  File "/home/ye/tool/OpenNMT-py/onmt/translate/translator.py", line 32, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/ye/tool/OpenNMT-py/onmt/model_builder.py", line 93, in load_test_model
+    opt.gpu)
+  File "/home/ye/tool/OpenNMT-py/onmt/model_builder.py", line 259, in build_base_model
+    model.to(device)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 607, in to
+    return self._apply(convert)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 354, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 376, in _apply
+    param_applied = fn(param)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 605, in convert
+    return t.to(device, dtype if t.is_floating_point() else None, non_blocking)
+RuntimeError: CUDA error: out of memory
+
+real	0m3.473s
+user	0m12.334s
+sys	0m0.381s
+```
+
+## Testing with CPU
+
+လက်ရှိမှာ GPU နှစ်လုံးစလုံး မအားလို့ GPU ကို assign မလုပ်ပဲ လက်ရှိ ပြီးနေတဲ့ မော်ဒယ်နဲ့ပဲ ဘာသာပြန်ခိုင်းကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ။
+Translation time ကတော့ အချိန်ကြာတယ်။ သို့သော် translated output တွေကတော့ ဗမာစာကြောင်းဆန်နေတာ၊ တော်တော်လေးကောင်းတာကို တွေ့ရပါလိမ့်မယ်... :)
+
+```
+py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/exp$ time onmt_translate -model ./transformer1.en-my_step_70000.pt -src ../data/test.en -output ../exp/hyp-70kmodel.txt -verbose | tee ../exp/translate-70kmodel.log
+[2021-03-21 13:57:32,459 INFO] Translating shard 0.
+[2021-03-21 14:04:31,913 INFO] 
+SENT 1: ['It', 'has', 'been', 'confirmed', 'that', 'eight', 'thoroughbred', 'race', 'horses', 'at', 'Randwick', 'Racecourse', 'in', 'Sydney', 'have', 'been', 'infected', 'with', 'equine', 'influenza', '.']
+PRED 1: အ ဆို ပါ ပြိုင် ပွဲ တွင် ပါ ဝင် ယှဉ် ပြိုင် သူ ရှစ် ဦး နှ င့် အ တူ ယှဉ် တွဲ နေ ထိုင် သူ ရှစ် ဦး အား အ တည် ပြု ခဲ့ သည် ဟု အ တည် ပြု ခဲ့ သည် ။
+PRED SCORE: -38.5376
+
+[2021-03-21 14:04:31,913 INFO] 
+SENT 2: ['Randwick', 'has', 'been', 'locked', 'down', ',', 'and', 'is', 'expected', 'to', 'remain', 'so', 'for', 'up', 'to', 'two', 'months', '.']
+PRED 2: အ သက် ၁၈ နှစ် ပြ ည့် ပြီး မှ ဖြစ် မယ် လို့ မျှော် လ င့် ပါ တယ် ။
+PRED SCORE: -17.2223
+
+[2021-03-21 14:04:31,913 INFO] 
+SENT 3: ['It', 'is', 'expected', 'that', 'the', 'virulent', 'flu', 'will', 'affect', 'the', 'majority', 'of', 'the', '700', 'horses', 'stabled', 'at', 'Randwick', '.']
+PRED 3: အ များ အား ဖြ င့် ငွေ ကျပ် သိန်း ( ၅၀၀ ) ကို ထိ ခိုက် စေ မည် ဟု မျှော် လ င့် ပါ သည် ။
+PRED SCORE: -22.3083
+
+[2021-03-21 14:04:31,913 INFO] 
+SENT 4: ['NSW', 'Minister', 'for', 'Primary', 'Industries', 'said', 'the', 'facility', 'would', 'be', 'quarantined', 'until', '30', 'days', 'after', 'the', 'last', 'sign', 'of', 'the', 'flu', '.']
+PRED 4: ဝန် ကြီး ဌာ န သည် ရက် ပေါင်း ၃၀ အ တွင်း ဝန် ကြီး ဌာ န ကို အ သုံး ပြု ပြီး နောက် ဝန် ကြီး က ပြော သည် ။
+PRED SCORE: -21.0435
+
+[2021-03-21 14:04:31,913 INFO] 
+SENT 5: ['The', 'cases', 'are', 'the', 'first', 'infections', 'of', 'race', 'horses', ',', 'despite', 'infecting', 'dozens', 'of', 'recreational', 'horses', 'across', 'NSW', 'and', 'Queensland', '.']
+PRED 5: ပ ထ မ ဦး ဆုံး အ နေ ဖြ င့် အ ဝတ် အ စား များ နှ င့် အ ဝတ် အ ထည် များ ကို အ ဝတ် အ ထည် နှ င့် အ ဝတ် အ ထည် များ ကို ဝတ် ဆင် ထား သည် ။
+PRED SCORE: -31.9870
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 6: ['The', 'flu', 'is', 'highly', 'contagious', 'but', 'cannot', 'be', 'transmitted', 'to', 'humans', '.']
+PRED 6: အ မေ ရိ ကန် နိုင် ငံ က လူ သား များ အ တွက် ကူး စက် မှု မ ပြု နိုင် ပါ ။
+PRED SCORE: -20.2262
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 7: ['The', 'national', 'racing', 'shutdown', 'was', 'costing', 'the', 'industry', 'tens', 'of', 'millions', 'of', 'dollars', 'every', 'day', '.']
+PRED 7: အ မျိုး သား အ ဆ င့် စီး ပွား ရေး လုပ် ငန်း ရှင် များ အ နေ ဖြ င့် အ မေ ရိ ကန် ဒေါ် လာ ၁ ဒ သ မ ၅ သန်း ခ န့် ရှိ ပါ သည် ။
+PRED SCORE: -23.1208
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 8: ['Chief', 'Executive', 'of', 'Racing', 'NSW', ',', 'Peter', 'V', '&amp;', 'apos', ';', 'Landys', 'said', 'while', 'racing', 'had', 'been', 'disrupted', 'since', 'a', 'ban', 'on', 'horse', 'movements', 'last', 'weekend', 'today', 'was', 'a', '&amp;', 'quot', ';', 'grim', ',', 'black', 'day', '&amp;', 'quot', ';', 'for', 'the', 'racing', 'industry', 'in', 'NSW', '.']
+PRED 8: မြန် မာ နိုင် ငံ တွင် လွန် ခဲ့ သော ရက် သတ္တ ပတ် အ နည်း ငယ် က တည်း က ပင် လယ် ဓား ပြ တိုက် မှု ဖြစ် ပွား ခဲ့ သ ည့် စ နေ ၊ တ နင်္ဂ နွေ နေ့ က တည်း က ပင် ပီ တာ က ပြော သည် ။
+PRED SCORE: -49.1662
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 9: ['Racing', 'is', 'expected', 'to', 'resume', 'in', 'all', 'Australian', 'states', 'except', 'NSW', 'and', 'Queensland', 'on', 'the', 'weekend', '.']
+PRED 9: တိုင်း ဒေ သ ကြီး နှ င့် ပြည် နယ် များ အား လုံး တွင် စ နေ ၊ တ နင်္ဂ နွေ နေ့ နှ င့် တ နင်္ဂ နွေ နေ့ များ တွင် မည် သ ည့် အ ချိန် တွင် မ ဆို အာ မ ခံ ထား ရှိ ရ မည် ။
+PRED SCORE: -32.8415
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 10: ['While', 'Sydney', '&amp;', 'apos', ';', 's', 'spring', 'racing', 'carnival', 'has', 'been', 'canceled', ',', 'Melbourne', '&amp;', 'apos', ';', 's', 'is', 'expected', 'to', 'kick', 'off', 'this', 'weekend', 'with', 'the', 'Caufield', 'Cup', '.']
+PRED 10: နွေ ဦး ရာ သီ အား လပ် ရက် ခ ရီး စဉ် ပြီး ဆုံး သ ည့် အ ခါ အ မေ ရိ ကန် ပြည် ထောင် စု ၏ အ သံ ထွက် ပေါ် လာ ခြင်း ဖြစ် သည် ။
+PRED SCORE: -35.7012
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 11: ['The', 'cup', 'will', 'be', 'ran', 'with', 'special', 'precautions', 'in', 'place', 'to', 'attempt', 'to', 'keep', 'the', 'state', 'free', 'of', 'the', 'virus', '.']
+PRED 11: နိုင် ငံ တော် သည် နိုင် ငံ တော် ၏ အ ကျိုး စီး ပွား အ တွက် ကြို တင် ပြင် ဆင် မှု များ ပြု လုပ် ရန် ကြိုး ပမ်း ဆောင် ရွက် မည် ။
+PRED SCORE: -21.8588
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 12: ['Contact', 'between', 'the', 'general', 'public', 'and', 'those', 'working', 'with', 'the', 'horses', 'will', 'be', 'banned', 'and', 'Sydney-based', 'jockeys', 'Darren', 'Beadman', 'and', 'Hugh', 'Bowman', 'and', 'a', 'number', 'of', 'interstate', 'trainers', 'including', 'Bart', 'Cummings', 'are', 'not', 'allowed', 'to', 'take', 'part', '.']
+PRED 12: အ များ ပြည် သူ ဝန် ထမ်း များ နှ င့် အ တူ အ လုပ် လုပ် ကိုင် နေ သူ များ အ ကြား အ လုပ် လုပ် ကိုင် နေ သူ များ နှ င့် အ တူ အ လုပ် လုပ် ကိုင် ခွ င့် ပြု ထား သ ည့် သင် တန်း သား များ နှ င့် အ တူ အ လုပ် လုပ် ကိုင် ခွ င့် မ ပြု သ ည့် သင် တန်း သား များ အ ပါ အ ဝင် သင် တန်း သား များ နှ င့် အ တူ သင် တန်း တက် ခွ င့် မ ပြု ရ ။
+PRED SCORE: -74.8321
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 13: ['Federal', 'Minister', 'for', 'Agriculture', ',', 'Peter', 'McGauran', 'said', 'the', 'spring', 'carnival', 'in', 'Melbourne', 'will', 'remain', '&amp;', 'quot', ';', 'largely', 'intact', '&amp;', 'quot', ';', 'despite', 'losing', 'some', 'of', 'the', 'biggest', 'names', 'in', 'Australian', 'racing', '.']
+PRED 13: ဝန် ကြီး ဌာ န အ နေ ဖြ င့် မီ တာ ရှည် လျား သော ပင် လယ် ရေ မျက် နှာ ပြင် အ မြ င့် ဆုံး ရေ ချိုး ခန်း အ မည် တွင် ပါ ရှိ သ ည့် အ မည် များ အ နက် မှ ယ ခု ကဲ့ သို့ ပင် စင် ကာ ပူ သမ္မ တ နိုင် ငံ ဝန် ကြီး ချုပ် က ပြော ကြား သည် ။
+PRED SCORE: -71.3782
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 14: ['At', 'least', '11', 'people', 'were', 'killed', 'Dec.', '26', 'and', '27', 'in', 'neighborhood', 'gang', 'turf', 'fights', 'between', 'drug', 'dealers', 'at', 'shantytown', '&amp;', 'quot', ';', 'morro', 'da', 'Mineira', '&amp;', 'quot', ';', '(', 'Miner', 'Hill', ')', 'in', 'the', 'Catumbi', 'neighborhood', 'of', 'Rio', 'de', 'Janeiro', ',', 'Brazil', '.']
+PRED 14: အ နည်း ဆုံး ၁၁ - ၁၁ - ၁၁ - ၅ - ၅ - ၂၀၁၆ ရက် နေ့ တွင် တောင် ကြီး မြို့ နယ် တွင် မူး ယစ် ဆေး ဝါး တိုက် ဖျက် ရေး လုပ် ငန်း များ ဆောင် ရွက် နေ သ ည့် လူ ဦး ရေ ၆ ဦး သေ ဆုံး ခဲ့ သည် ။
+PRED SCORE: -44.4893
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 15: ['The', 'region', 'is', 'controlled', 'by', 'rival', 'gang', 'Comando', 'Vermelho', '(', 'Red', 'Command', ')', ',', 'which', 'does', 'not', 'approve', 'of', 'other', 'gangs', 'selling', 'drugs', 'in', 'the', 'region', '.']
+PRED 15: တိုင်း ဒေ သ ကြီး သည် မူး ယစ် ဆေး ဝါး ရောင်း ဝယ် ရေး လုပ် ငန်း များ ကို အ တည် ပြု ခြင်း မ ပြု ရ သေး သော ဒေ သ များ ကို အ တည် ပြု ခြင်း မ ပြု ရ ။
+PRED SCORE: -33.4137
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 16: ['Comando', 'Vermelho', 'members', 'started', 'attacking', 'the', 'rival', 'members', 'of', 'ADA', 'to', 'protect', 'their', 'turf', '.']
+PRED 16: အ ဖွဲ့ ဝင် များ သည် သူ တို့ ၏ ဦး စီး အ ဖွဲ့ ဝင် များ အား သူ တို့ ၏ ဦး ဆောင် မှု ဖြ င့် ကာ ကွယ် စော င့် ရှောက် ခဲ့ သည် ။
+PRED SCORE: -28.2103
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 17: ['On', 'Friday', 'evening', ',', 'an', 'explosion', 'in', 'Chengdu', ',', 'China', 'caused', 'partial', 'shutdown', 'of', 'a', 'facility', 'operated', 'by', 'Foxconn', ',', 'one', 'of', 'the', 'world', '&amp;', 'apos', ';', 's', 'biggest', 'electronics', 'manufacturers', 'and', 'a', 'major', 'supplier', 'to', 'companies', 'like', 'Hewlett-Packard', ',', 'Dell', ',', 'Sony', ',', 'Apple', ',', 'Motorola', 'and', 'Nokia', '.']
+PRED 17: သော ကြာ နေ့ ည နေ ပိုင်း တွင် တ ရုတ် ပြည် သူ့ သမ္မ တ နိုင် ငံ သည် ကမ္ဘာ လုံး ဆိုင် ရာ မ တော် တ ဆ ထိ ခိုက် မှု ဖြစ် ပွား မှု ကြော င့် ကမ္ဘာ လုံး ဆိုင် ရာ အ ကြီး ဆုံး ကုမ္ပ ဏီ တစ် ခု ဖြစ် သ ည့် အ တွက် အ ကြီး ဆုံး အ ဆ င့် မြ င့် ပ ရိ ဘော ဂ အ ရေ အ တွက် တစ် ခု နှ င့် တစ် ခု တို့ ဖြစ် သည် ။
+PRED SCORE: -66.8427
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 18: ['Initial', 'investigations', 'now', 'suggest', 'the', 'explosion', 'was', 'caused', 'by', 'poor', 'ventilation', ',', 'which', 'lead', 'to', 'high', 'concentrations', 'of', 'combustible', 'dust', '.']
+PRED 18: မ တော် တ ဆ ဖြစ် ပွား မှု ဖြစ် ပွား မှု ဖြစ် ပွား မှု ကြော င့် ဖြစ် ပွား ရ သ ည့် အ ကြောင်း အ ရာ များ မှာ မ တော် တ ဆ ဖြစ် ပွား မှု အ ဆ င့် မြ င့် မား လာ ခြင်း ဖြစ် သည် ။
+PRED SCORE: -43.2014
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 19: ['The', 'blast', 'happened', 'at', '7', ':', '18PM', ',', 'around', 'the', 'time', 'workers', 'change', 'shifts', '.']
+PRED 19: အ လုပ် သ မား ခု နစ် ဦး ခ န့် တွင် အ လုပ် သ မား ခု နစ် ဦး ခ န့် ဖြ င့် အ လုပ် သ မား ခု နစ် ဦး ခ န့် ရှိ ခဲ့ သည် ။
+PRED SCORE: -21.6234
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 20: ['At', 'least', 'three', 'people', 'were', 'killed', ',', 'at', 'least', 'fifteen', 'injured', '.']
+PRED 20: အ နည်း ဆုံး သုံး ဦး ဒဏ် ရာ ရ ရှိ ခဲ့ သည် ။
+PRED SCORE: -6.2094
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 21: ['Foxconn', 'halted', 'production', 'to', 'investigate', ',', 'saying', '&amp;', 'quot', ';', 'All', 'operations', 'at', 'the', 'affected', 'workshop', 'remain', 'suspended', 'and', 'production', 'at', 'all', 'other', 'workshops', 'that', 'carry', 'out', 'similar', 'processing', 'functions', 'have', 'also', 'been', 'halted', 'pending', 'the', 'results', 'of', 'the', 'investigation', '.', '&amp;', 'quot', ';']
+PRED 21: အ လုပ် ရုံ ဆွေး နွေး ပွဲ များ ပြု လုပ် ခြင်း နှ င့် အ ခြား အ လုပ် ရုံ ဆွေး နွေး ပွဲ များ ပြု လုပ် ခြင်း တို့ ကြော င့် အ လုပ် ရုံ ဆွေး နွေး ပွဲ များ ကျင်း ပ ခြင်း မ ပြု သေး မီ ကာ လ အ ပိုင်း အ ခြား ကာ လ အ ပိုင်း အ ခြား ကာ လ အ ပိုင်း အ ခြား အ လိုက် အ လုပ် ရုံ ဆွေး နွေး ပွဲ များ ပြု လုပ် ခဲ့ သည် ။
+PRED SCORE: -60.8002
+
+[2021-03-21 14:04:31,914 INFO] 
+SENT 22: ['&amp;', 'quot', ';', 'All', 'other', 'production', 'operations', 'in', 'our', 'facilities', 'in', 'China', 'continue', 'operating', 'normally', '.', '&amp;', 'quot', ';']
+PRED 22: ကျွန် တော် တို့ တ ရုတ် နိုင် ငံ က ထုတ် လုပ် သ ည့် လုပ် ငန်း များ အား လုံး ကို ဆက် လက် ဆောင် ရွက် နေ ပါ သည် ။
+PRED SCORE: -22.5282
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 23: ['On', 'Monday', ',', 'city', 'officials', 'gave', 'the', 'cause', 'as', 'combustible', 'dust', 'in', 'the', 'air', 'at', 'a', 'polishing', 'workshop', '.']
+PRED 23: တ နင်္လာ နေ့ တွင် မြို့ နယ် တာ ဝန် ရှိ သူ များ က လေ ကောင်း လေ သ န့် စင် ခန်း တွင် အ လုပ် ရုံ ဆွေး နွေး ပွဲ တစ် ခု ပြု လုပ် ခဲ့ သည် ။
+PRED SCORE: -21.5170
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 24: ['Hong', 'Kong-based', 'labor', 'rights', 'group', 'Students', '&amp;', 'amp', ';', 'Scholars', 'Against', 'Corporate', 'Misbehavior', 'said', 'they', 'reported', 'aluminium', 'dust', 'problems', 'in', 'March', 'when', 'they', 'reviewed', 'working', 'conditions', 'at', 'Foxconn', '.']
+PRED 24: ကျောင်း သား များ အ လုပ် သ မား များ ၏ အ ခွ င့် အ ရေး များ ဆိုင် ရာ ပြ ဿ နာ များ ကို ပြန် လည် သုံး သပ် သ ည့် အ ခါ အ လုပ် သ မား အင် အား စု များ က ပြန် လည် သုံး သပ် သ ည့် အ ခြေ အ နေ များ ကို ရှင်း လင်း ပြော ကြား ကြ သည် ။
+PRED SCORE: -49.4947
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 25: ['After', 'the', 'explosion', ',', 'they', 'commented', 'that', 'workers', 'were', 'complaining', '&amp;', 'quot', ';', 'the', 'ventilation', 'of', 'the', 'department', 'is', 'poor', '.', '&amp;', 'quot', ';']
+PRED 25: ဓာ တု ပစ္စည်း နှ င့် ဆက် စပ် ပစ္စည်း များ အ လုပ် သ မား များ အ လုပ် သ မား များ အ လုပ် သ မား များ က အန္တ ရာယ် ရှိ သ ည့် အ လုပ် သ မား များ ဖြစ် ကြောင်း ဖော် ပြ ခဲ့ သည် ။
+PRED SCORE: -30.8029
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 26: ['&amp;', 'quot', ';', 'In', 'the', 'process', ',', 'there', 'is', 'lots', 'of', 'aluminum', '(', 'aluminium', ')', 'dust', 'floating', 'in', 'the', 'air', '.', '&amp;', 'quot', ';']
+PRED 26: လုပ် ငန်း စဉ် တွင် လေ ကောင်း လေ သ န့် စင် ခန်း များ အ များ ကြီး ပါ ဝင် သည် ။
+PRED SCORE: -14.8807
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 27: ['&amp;', 'quot', ';', 'Workers', 'always', 'breathe', 'in', 'aluminum', 'dust', 'even', 'though', 'they', 'put', 'on', 'masks', '.', '&amp;', 'quot', ';']
+PRED 27: <unk> ကို အ မြဲ တမ်း အ သုံး ပြု နေ သော် လည်း သူ တို့ က အ ဝတ် အ ထည် ကို ဝတ် ဆင် ထား သည် ။
+PRED SCORE: -26.6554
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 28: ['&amp;', 'quot', ';', 'When', 'workers', 'take', 'off', 'their', 'cotton', 'gloves', ',', 'their', 'hands', 'are', 'covered', 'with', 'aluminum', 'dust', '.', '&amp;', 'quot', ';']
+PRED 28: အ လုပ် သ မား တွေ က သူ တို့ ရဲ့ လက် တွေ ကို ကိုင် ဆောင် ထား တဲ့ အ ခါ အ လုပ် သ မား တွေ က သူ တို့ ရဲ့ လက် ဆွဲ အိတ် တွေ ကို အ ပေါ် ဖုံး နဲ့ ချည် ထား တယ် ။
+PRED SCORE: -36.9568
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 29: ['Foxconn', 'responded', 'by', 'saying', 'the', 'group', 'was', 'trying', 'to', '&amp;', 'quot', ';', 'capitalize', 'on', 'the', 'tragic', 'accident', '&amp;', 'quot', ';', 'and', 'misrepresented', '&amp;', 'quot', ';', 'Foxconn', '&amp;', 'apos', ';', 's', 'commitment', 'to', 'the', 'health', 'and', 'safety', 'of', 'our', 'employees', '.', '&amp;', 'quot', ';']
+PRED 29: မ တော် တ ဆ ဖြစ် ပွား မှု နှ င့် ကျန်း မာ ရေး ဝန် ထမ်း များ ၏ လုံ ခြုံ ရေး အ ခြေ အ နေ များ ကို ပြော ကြား ရာ တွင် မ တော် တ ဆ ဖြစ် ပွား မှု နှ င့် ကျန်း မာ ရေး ဝန် ထမ်း များ ၏ အ သက် အန္တ ရာယ် ကင်း ရှင်း ရေး တို့ ကို အ လေး အ နက် ထား ဖော် ပြ ထား သည် ။
+PRED SCORE: -54.4647
+
+[2021-03-21 14:04:31,915 INFO] 
+SENT 30: ['Research', 'group', 'IHS', 'iSuppli', 'said', 'the', 'explosion', 'may', 'cause', 'loss', 'of', 'production', 'of', '500,000', 'iPads', 'during', 'this', 'quarter', 'of', 'the', 'year', '.']
+PRED 30: ဓာ တု ပစ္စည်း နှ င့် ဆက် စပ် ပစ္စည်း များ ၏ အ ဓိ က အ ကြောင်း အ ရာ များ ကို နှစ် စဉ် ထုတ် လွှ င့် ခြင်း ဖြ င့် ထုတ် လုပ် နိုင် သည် ။
+PRED SCORE: -27.1393
+
+```
+
 ## Reference
 
 Paper: OpenNMT: Neural Machine Translation Toolkit  
