@@ -1784,6 +1784,33 @@ PRED SCORE: -54.4647
 SENT 30: ['Research', 'group', 'IHS', 'iSuppli', 'said', 'the', 'explosion', 'may', 'cause', 'loss', 'of', 'production', 'of', '500,000', 'iPads', 'during', 'this', 'quarter', 'of', 'the', 'year', '.']
 PRED 30: ဓာ တု ပစ္စည်း နှ င့် ဆက် စပ် ပစ္စည်း များ ၏ အ ဓိ က အ ကြောင်း အ ရာ များ ကို နှစ် စဉ် ထုတ် လွှ င့် ခြင်း ဖြ င့် ထုတ် လုပ် နိုင် သည် ။
 PRED SCORE: -27.1393
+...
+...
+...
+[2021-03-21 17:05:16,866 INFO] 
+SENT 236: ['&amp;', 'quot', ';', 'What', 'we', 'see', 'instead', 'is', ',', 'where', 'there', 'were', 'errors', 'made', 'they', 'were', 'based', 'on', 'poor', 'decision-making', 'process', 'or', 'using', 'wrong', 'information', ',', '&amp;', 'quot', ';', 'he', 'said', '.']
+PRED 236: ကျွန် တော် တို့ တွေ့ ခဲ့ တဲ့ အ စား အ သောက် တွေ က ဆင်း ရဲ နွမ်း ပါး မှု လျှော့ ချ ရေး လုပ် ငန်း စဉ် တွေ မှာ အ ခြေ ခံ ကျ တဲ့ အ ချက် အ လက် တွေ အ ပေါ် မှာ အ ခြေ ခံ ပြီး ပြော တာ ပါ ။
+PRED SCORE: -40.0995
+
+[2021-03-21 17:05:16,866 INFO] 
+SENT 237: ['The', 'Guardian', 'reported', 'that', '&amp;', 'quot', ';', 'the', 'report', 'is', 'narrowly', 'focused', 'on', 'the', 'final', 'days', 'before', 'the', 'explosion', 'rather', 'than', 'on', 'earlier', 'decisions', 'about', 'well', 'design', 'and', 'safety', 'procedures', '.', '&amp;', 'quot', ';']
+PRED 237: အ ဆို ပါ အ စီ ရင် ခံ စာ တွင် ဖော် ပြ ထား သ ည့် ဓာတ် ခွဲ ခန်း ၏ လုံ ခြုံ ရေး ဆိုင် ရာ လုပ် ထုံး လုပ် နည်း များ သည် စော စော ပိုင်း အ စီ ရင် ခံ စာ တွင် ထ ည့် သွင်း ဖော် ပြ ထား သ ည့် အ ချက် အ လက် များ နှ င့် သက် ဆိုင် သ ည့် အ ချက် များ ကို ဖော် ပြ ထား သည် ။
+PRED SCORE: -51.9576
+
+[2021-03-21 17:05:16,866 INFO] 
+SENT 238: ['&amp;', 'quot', ';', 'No', 'BP', 'officials', 'have', 'been', 'sacked', 'for', 'their', 'role', 'in', 'the', 'explosion', ',', 'and', 'Bly', 'said', 'there', 'was', 'no', 'indication', 'of', 'any', 'blame', 'beyond', 'the', 'well-site', 'managers', '.', '&amp;', 'quot', ';']
+PRED 238: မ တော် တ ဆ ထိ ခိုက် မှု ဖြစ် ပွား မှု အ တွက် တာ ဝန် ရှိ သူ များ က အ ပြစ် မ ရှိ ကြောင်း ပြော ကြား ပြီး ဖြစ် ပါ သည် ။
+PRED SCORE: -29.5328
+
+[2021-03-21 17:05:16,866 INFO] 
+SENT 239: ['The', 'Associated', 'Press', 'reported', 'that', 'Bly', '&amp;', 'quot', ';', 'said', 'at', 'a', 'briefing', 'in', 'Washington', 'that', 'the', 'internal', 'report', 'was', 'a', 'reconstruction', 'of', 'what', 'happened', 'on', 'the', 'rig', 'based', 'on', 'the', 'company', '&amp;', 'apos', ';', 's', 'data', 'and', 'interviews', 'with', 'mostly', 'BP', 'employees', 'and', 'was', 'not', 'meant', 'to', 'focus', 'on', 'assigning', 'blame', '.', '&amp;', 'quot', ';']
+PRED 239: အ ဆို ပါ သ တင်း စာ ရှင်း လင်း ပွဲ တွင် ဖော် ပြ ထား သ ည့် အ ဆို ပါ သ တင်း အ ချက် အ လက် များ ကို ဖော် ပြ ထား သ ည့် အ ကြောင်း အ ရာ များ အ ပေါ် အ ခြေ ခံ ၍ ပြန် လည် ဖော် ပြ ထား သ ည့် အ ကြောင်း အ ရာ များ နှ င့် စပ် လျဉ်း ၍ အ ဆို ပါ အ စီ ရင် ခံ စာ တွင် ဖော် ပြ ထား သ ည့် အ ချက် အ လက် များ ကို ဖော် ပြ ထား ခြင်း မ ရှိ ပါ ဟု ဖော် ပြ ထား သည် ။
+PRED SCORE: -65.5599
+
+[2021-03-21 17:05:16,866 INFO] 
+SENT 240: ['&amp;', 'quot', ';', 'The', 'six-person', 'investigating', 'panel', 'only', 'had', 'access', 'to', 'a', 'few', 'workers', 'from', 'other', 'companies', ',', 'and', 'samples', 'of', 'the', 'actual', 'cement', 'used', 'in', 'the', 'well', 'were', 'not', 'released', '.', '&amp;', 'quot', ';']
+PRED 240: အ လုပ် သ မား အင် အား အ နည်း ငယ် သာ ပါ က အ လုပ် သ မား အင် အား အ နည်း ငယ် သာ ရှိ ပြီး အ လုပ် သ မား အင် အား အ သုံး ပြု သ ည့် အ လုပ် သ မား အင် အား အ သုံး ပြု သ ည့် အ လုပ် သ မား အင် အား အ နည်း ငယ် သာ သာ ရှိ ပါ သည် ။
+PRED SCORE: -47.1950
 
 ```
 
