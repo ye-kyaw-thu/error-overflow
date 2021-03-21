@@ -1446,7 +1446,14 @@ Retrain again ...
 
 ## Checking the Model
 
-## Testing with GPU
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/wat2021/exp-syl4/exp$ ls
+transformer1.en-my_step_10000.pt  transformer1.en-my_step_40000.pt  transformer1.en-my_step_70000.pt
+transformer1.en-my_step_20000.pt  transformer1.en-my_step_50000.pt  
+transformer1.en-my_step_30000.pt  transformer1.en-my_step_60000.pt  
+```
+
+## Testing/Translation with GPU
 
 GPU နှစ်လုံးစလုံးက သုံးထားတုန်း (GPU 0 က လက်ရှိ OpenNMT experiment နဲ့ GPU 1 က တခြား fairseq နဲ့ run ထားတဲ့ experiment) ကို လက်ရှိ ဆောက်ထားတဲ့ မော်ဒယ် 70K model နဲ့ translate လုပ်ဖို့ ကြိုးစားကြည့်တော့ memory က မနိုင်လို့ အောက်ပါအတိုင်း error ပေးတာကို တွေ့ရပါတယ်။
 
@@ -1522,7 +1529,7 @@ user	0m12.334s
 sys	0m0.381s
 ```
 
-## Testing with CPU
+## Testing/Translation with CPU
 
 လက်ရှိမှာ GPU နှစ်လုံးစလုံး မအားလို့ GPU ကို assign မလုပ်ပဲ လက်ရှိ ပြီးနေတဲ့ မော်ဒယ်နဲ့ပဲ ဘာသာပြန်ခိုင်းကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ။
 Translation time ကတော့ အချိန်ကြာတယ်။ သို့သော် translated output တွေကတော့ ဗမာစာကြောင်းဆန်နေတာ၊ တော်တော်လေးကောင်းတာကို တွေ့ရပါလိမ့်မယ်... :)
