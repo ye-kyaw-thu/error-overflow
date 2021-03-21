@@ -1814,6 +1814,8 @@ PRED SCORE: -47.1950
 
 ```
 
+Training လုပ်တုန်းက ဗမာစာဘက် အခြမ်းကို syllable breaking လုပ်ပြီးမှ train ထားတာမို့ translation/testing လုပ်တဲ့အခါမှာလည်း translated output က syllable ဖြတ်ပြီးသားအနေနဲ့ပဲ ရပါလိမ့်မယ်။  
+
 ## Reference
 
 Reference for the more complex configuration file:  
