@@ -1,4 +1,11 @@
+# OpenNMT Installation and Demo Running with English-Myanmar Parallel Corpus
+
+Neural Machine Translation framework တွေက လက်ရှိမှာ အများကြီးရှိပါတယ်။ အဲဒီထဲက OpenNMT framework ကို installation လုပ်တဲ့အဆင့်ကနေ ကိုယ့်ဒေတာနဲ့ကိုယ် run တာကို ဒီမိုလုပ်ပြထားပါတယ်။  
+
 ## Installing OpenNMT
+
+OpenNMT Python version source code ကို GitHub ကနေ အရင်ဆုံး download လုပ်ပါ။ လုပ်ပြီးရင် အောက်ပါအတိုင်း installation လုပ်ပါ။  
+Anaconda ကိုသုံးပြီးတော့ Python 3.6 version environment ကို ကြိုပြင်ဆင်ထားသင့်ပါတယ်။ အဲဒီအဆင့်တွေကိုတော့ ဒီနေရာမှာ skip လုပ်ပြီးသွားပါမယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$ pip install -e .
@@ -115,6 +122,8 @@ Successfully installed Jinja2-2.11.3 MarkupSafe-1.1.1 OpenNMT-py Werkzeug-1.0.1 
 
 ## Installing Requirements
 
+တခြား လိုအပ်တဲ့ library, tool တွေကို installation လုပ်ပါ။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpenNMT-py$ pip install -r requirements.opt.txt
 Collecting git+git://github.com/NVIDIA/apex.git@700d6825e205732c1d6be511306ca4e595297070 (from -r requirements.opt.txt (line 6))
@@ -174,6 +183,9 @@ Successfully installed apex-0.1 cffi-1.14.3 joblib-0.17.0 llvmlite-0.32.1 numba-
 
 ## Preparing the Data
 
+Machine translation မလုပ်ခင်မှာ အမြဲတမ်း လုပ်ရတာကတော့ data preparation ပါ။  
+ဒီနေရာမှာတော့ အဆင်သင့်ရှိပြီးသားဖြစ်တဲ့ English-Germany parallel corpus ကို download လုပ်ပြီးသုံးပါမယ်။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT$ mkdir tutorial
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT$ cd tutorial
@@ -194,6 +206,8 @@ toy-ende.tar.gz                       100%[=====================================
 
 ## Extract .tar.gz
 
+tar.gz ဖိုင်ကို အောက်ပါအတိုင်း ဖြေပါ။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ tar xf toy-ende.tar.gz
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ cd toy-ende/
@@ -203,6 +217,8 @@ src-test.txt  src-train.txt  src-val.txt  tgt-test.txt  tgt-train.txt  tgt-val.t
 ```
 
 ## Check the Data
+
+Training ဒေတာက စာကြောင်းရေ တစ်သောင်းပဲရှိတဲ့ parallel corpus အသေးလေးပါ။ validation data က စာကြောင်းရေ သုံးထောင်ဖြစ်ပြီးတော့၊ test data ကတော့ နှစ်ထောင့်ခုနှစ်ရာကျော်ရှိပါတယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial/toy-ende$ wc *
@@ -290,6 +306,8 @@ Die Geschichte des libyschen Befreiungskampfes oder libyschen Rebellion kennt sc
 
 ## Preparing config file
 
+Toy config ဖိုင်ကို လေ့လာကြည့်ပါ။  
+
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ cat ./toy_en_de.yaml 
 
 ```
@@ -330,6 +348,8 @@ valid_steps: 500
 
 ## Building Vocabs
 
+NMT အတွက်က vocab dictionary အရင်ဆောက်ဖို့ လိုအပ်ပါတယ်။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_build_vocab -config toy_en_de.yaml -n_sample 10000
 Corpus corpus_1's weight should be given. We default it to 1 for you.
@@ -345,13 +365,6 @@ user	0m0.602s
 sys	0m0.060s
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ 
 ```
-
-Reference for the more complex configuration file:
-https://github.com/OpenNMT/OpenNMT-py/tree/master/config
-
-On my computer:
-/home/ye/tool/OpenNMT-py/config
-
 
 ## Training
 
@@ -1776,9 +1789,14 @@ PRED SCORE: -27.1393
 
 ## Reference
 
+Reference for the more complex configuration file:
+https://github.com/OpenNMT/OpenNMT-py/tree/master/config
+
 Paper: OpenNMT: Neural Machine Translation Toolkit  
 Link: https://www.aclweb.org/anthology/W18-1817.pdf
 
 An open source neural machine translation system.  
 https://opennmt.net/
 
+Ref for the English-Myanmar Corpus:  
+https://lotus.kuee.kyoto-u.ac.jp/WAT/WAT2021/index.html
