@@ -356,18 +356,6 @@ On my computer:
 ## Training
 
 ```
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_build_vocab -config toy_en_de.yaml -n_sample 10000
-Corpus corpus_1's weight should be given. We default it to 1 for you.
-[2021-03-21 00:19:12,363 INFO] Counter vocab from 10000 samples.
-[2021-03-21 00:19:12,363 INFO] Build vocab on 10000 transformed examples/corpus.
-[2021-03-21 00:19:12,368 INFO] corpus_1's transforms: TransformPipe()
-[2021-03-21 00:19:12,368 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
-[2021-03-21 00:19:12,570 INFO] Counters src:24995
-[2021-03-21 00:19:12,570 INFO] Counters tgt:35816
-
-real	0m0.708s
-user	0m0.602s
-sys	0m0.060s
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/nmt/openNMT/tutorial$ time onmt_train -config toy_en_de.yaml
 [2021-03-21 00:28:48,357 INFO] Missing transforms field for corpus_1 data, set to default: [].
 [2021-03-21 00:28:48,357 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
