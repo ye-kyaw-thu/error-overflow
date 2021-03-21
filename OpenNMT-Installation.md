@@ -1816,8 +1816,8 @@ PRED SCORE: -47.1950
 
 ## Reference
 
-Reference for the more complex configuration file:
-https://github.com/OpenNMT/OpenNMT-py/tree/master/config
+Reference for the more complex configuration file:  
+https://github.com/OpenNMT/OpenNMT-py/tree/master/config  
 
 Paper: OpenNMT: Neural Machine Translation Toolkit  
 Link: https://www.aclweb.org/anthology/W18-1817.pdf
