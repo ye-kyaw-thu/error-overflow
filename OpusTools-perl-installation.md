@@ -31,6 +31,8 @@ CHANGES  inc  lib  LICENSE  Makefile.PL  README.md  scripts  t  TODO
 ```
 ## perl Makefile.PL
 
+perl Makefile.PL က perl package တွေကို install လုပ်တဲ့အခါမှာ ပေးရတဲ့ command တစ်ခုပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ perl Makefile.PL
 *** Module::AutoInstall version 1.19
@@ -68,6 +70,8 @@ Writing MYMETA.yml and MYMETA.json
 ```
 
 ## make all
+
+Error မရှိဘူး ဆိုရင်တော့ ```make all``` ကို run ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ make all
@@ -651,6 +655,8 @@ Manifying 1 pod document
 
 ## make install
 
+ပြီးရင်တော့ ```make install``` command ကို run ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ sudo make install
 "/usr/bin/perl" "-Iinc" Makefile.PL --config= --installdeps=CGI,0,Lingua::Sentence,0,Ufal::UDPipe,0,XML::Writer,0
@@ -705,6 +711,8 @@ Appending installation info to /usr/lib/x86_64-linux-gnu/perl/5.30/perllocal.pod
 
 ## Check Scripts
 
+tmx2moses ရှိတဲ့ ဖိုလ်ဒါအောက်ကို သွားရအောင်...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ ls
 blib  CHANGES  inc  lib  LICENSE  Makefile  Makefile.PL  MYMETA.json  MYMETA.yml  pm_to_blib  README.md  scripts  t  TODO
@@ -716,23 +724,12 @@ admin  alignments  convert  multilingwis  opus-cat  opus-index  opus-read  opus-
 bitext2tmx  moses2opus  opus2bitext  opus2moses  opus2multi  opus2text  opus2tmx  opus-iso639  text2utf8.pl  tmx2moses  tmx2opus  tmx2opus-new  xml2opus  xml2txt_simple.pl
 ```
 
-OpusTool-Perl ကို စက်ထဲမှာ ထည့်ထားပြီးပြီ...  
-
 tmx2moses: convert TMX files into aligned plain text files  
 tmx2moses perl script နဲ့ convert လုပ်နိုင်တယ်လို့ ထင်တယ်။  
 ကိုယ်ဖာ့သာကိုယ် script ရေးပြီး ပြောင်းလည်းရနိုင်ပေမဲ့... ရှိပြီးသား tool ကို သုံးတာကလည်း ကောင်းတဲ့အပိုင်းတွေအများကြီးရှိပါတယ်။  
 
 ## Converting tmx to moses
 
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ perl ./tmx2moses ./example.tmx 
-```
-
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ ls
-bitext2tmx   example.tmx.en-fr.en  moses2opus   opus2moses  opus2text  opus-iso639   tmx2moses  tmx2opus-new  xml2txt_simple.pl
-example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8.pl  tmx2opus   xml2opus
-```
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx
@@ -754,6 +751,20 @@ example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8
   </body>
 </tmx>
 ```
+
+convert လုပ်ကြည့်ရအောင်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ perl ./tmx2moses ./example.tmx 
+```
+convert လုပ်ပြီးသွားရင် အောက်ပါအတိုင်း example.tmx.en-fr.en ဖိုင်နဲ့ example.tmx.en-fr.fr ကို output လုပ်ပေးတာကို တွေ့ရပါလိမ့်မယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ ls
+bitext2tmx   example.tmx.en-fr.en  moses2opus   opus2moses  opus2text  opus-iso639   tmx2moses  tmx2opus-new  xml2txt_simple.pl
+example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8.pl  tmx2opus   xml2opus
+```
+
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.en
