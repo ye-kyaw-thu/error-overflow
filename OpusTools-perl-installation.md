@@ -730,6 +730,7 @@ tmx2moses perl script နဲ့ convert လုပ်နိုင်တယ်လ�
 
 ## Converting tmx to moses
 
+convert လုပ်ဖို့အတွက် example ဖိုင်တစ်ခုကိုဖန်တီးဖို့အတွက် [TMX wiki](https://en.wikipedia.org/wiki/Translation_Memory_eXchange) မှာပြထားတဲ့ example ကိုပဲ ယူလိုက်ပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx
@@ -769,6 +770,8 @@ example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.en
 Hello world!
+```
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.fr
 Bonjour tout le monde!
 ```
