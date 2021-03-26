@@ -766,6 +766,7 @@ bitext2tmx   example.tmx.en-fr.en  moses2opus   opus2moses  opus2text  opus-iso6
 example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8.pl  tmx2opus   xml2opus
 ```
 
+ဖိုင် content ကို ```cat``` command နဲ့ရိုက်ကြည့်ရင် အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.en
