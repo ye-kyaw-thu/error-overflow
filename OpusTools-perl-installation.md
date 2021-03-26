@@ -31,6 +31,7 @@ CHANGES  inc  lib  LICENSE  Makefile.PL  README.md  scripts  t  TODO
 ```
 ## perl Makefile.PL
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ perl Makefile.PL
 *** Module::AutoInstall version 1.19
 *** Checking for Perl dependencies...
@@ -64,10 +65,11 @@ if you have problems building this extension.
 Generating a Unix-style Makefile
 Writing Makefile for OPUS::Tools
 Writing MYMETA.yml and MYMETA.json
-
+```
 
 ## make all
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ make all
 "/usr/bin/perl" "-Iinc" Makefile.PL --config= --installdeps=CGI,0,Lingua::Sentence,0,Ufal::UDPipe,0,XML::Writer,0
 *** Installing dependencies...
@@ -645,9 +647,11 @@ cp scripts/convert/xml2opus blib/script/xml2opus
 Manifying 14 pod documents
 Manifying 1 pod document
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$
+```
 
 ## make install
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ sudo make install
 "/usr/bin/perl" "-Iinc" Makefile.PL --config= --installdeps=CGI,0,Lingua::Sentence,0,Ufal::UDPipe,0,XML::Writer,0
 Manifying 14 pod documents
@@ -697,9 +701,11 @@ Installing /usr/local/bin/moses2opus
 Installing /usr/local/bin/opus2text
 Appending installation info to /usr/lib/x86_64-linux-gnu/perl/5.30/perllocal.pod
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$
+```
 
 ## Check Scripts
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ ls
 blib  CHANGES  inc  lib  LICENSE  Makefile  Makefile.PL  MYMETA.json  MYMETA.yml  pm_to_blib  README.md  scripts  t  TODO
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl$ cd scripts/
@@ -708,23 +714,27 @@ admin  alignments  convert  multilingwis  opus-cat  opus-index  opus-read  opus-
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts$ cd convert/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ ls
 bitext2tmx  moses2opus  opus2bitext  opus2moses  opus2multi  opus2text  opus2tmx  opus-iso639  text2utf8.pl  tmx2moses  tmx2opus  tmx2opus-new  xml2opus  xml2txt_simple.pl
+```
 
-================
-OpusTool-Perl ကို စက်ထဲမှာ ထည့်ထားပြီးပြီ...
-https://github.com/Helsinki-NLP/OpusTools-perl
+OpusTool-Perl ကို စက်ထဲမှာ ထည့်ထားပြီးပြီ...  
 
-tmx2moses: convert TMX files into aligned plain text files
-tmx2moses perl script နဲ့ convert လုပ်နိုင်တယ်လို့ ထင်တယ်။
-ကိုယ်ဖာ့သာကိုယ် script ရေးပြီး ပြောင်းလည်းရနိုင်ပေမဲ့...
+tmx2moses: convert TMX files into aligned plain text files  
+tmx2moses perl script နဲ့ convert လုပ်နိုင်တယ်လို့ ထင်တယ်။  
+ကိုယ်ဖာ့သာကိုယ် script ရေးပြီး ပြောင်းလည်းရနိုင်ပေမဲ့... ရှိပြီးသား tool ကို သုံးတာကလည်း ကောင်းတဲ့အပိုင်းတွေအများကြီးရှိပါတယ်။  
 
 ## Converting tmx to moses
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ perl ./tmx2moses ./example.tmx 
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ ls
 bitext2tmx   example.tmx.en-fr.en  moses2opus   opus2moses  opus2text  opus-iso639   tmx2moses  tmx2opus-new  xml2txt_simple.pl
 example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8.pl  tmx2opus   xml2opus
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx
 <tmx version="1.4">
   <header
@@ -743,10 +753,12 @@ example.tmx  example.tmx.en-fr.fr  opus2bitext  opus2multi  opus2tmx   text2utf8
     </tu>
   </body>
 </tmx>
+```
 
-
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.en
 Hello world!
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$ cat ./example.tmx.en-fr.fr
 Bonjour tout le monde!
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/OpusTools-perl/scripts/convert$
+```
+
