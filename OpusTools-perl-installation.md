@@ -779,6 +779,8 @@ Bonjour tout le monde!
 
 ## Reference
 
-1. [https://helda.helsinki.fi/bitstream/handle/10138/327852/2020.eamt_1_499.pdf?sequence=1](https://helda.helsinki.fi/bitstream/handle/10138/327852/2020.eamt_1_499.pdf?sequence=1)  
-2. Paper: Mikko Aulamo, Umut Sulubacak, Sami Virpioja, Jorg Tiedemann, [OpusTools and Parallel Corpus Diagnostics](https://www.aclweb.org/anthology/2020.lrec-1.467.pdf)  
+1. Paper: Jorg Tiedemann, Santhosh Thottingal, [OPUS-MT – Building open translation services for the World](https://helda.helsinki.fi/bitstream/handle/10138/327852/2020.eamt_1_499.pdf?sequence=1),Proceedings of the 22nd Annual Conference of the European Association for Machine Translation, p. 479–480
+Lisboa, Portugal, November 2020  
+2. Paper: Mikko Aulamo, Umut Sulubacak, Sami Virpioja, Jorg Tiedemann, [OpusTools and Parallel Corpus Diagnostics](https://www.aclweb.org/anthology/2020.lrec-1.467.pdf), Proceedings of the 12th Conference on Language Resources and Evaluation (LREC 2020), pages 3782–3789
+Marseille, 11–16 May 2020  
 
