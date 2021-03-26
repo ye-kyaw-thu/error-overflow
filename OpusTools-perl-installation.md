@@ -777,3 +777,8 @@ Hello world!
 Bonjour tout le monde!
 ```
 
+## Reference
+
+1. [https://helda.helsinki.fi/bitstream/handle/10138/327852/2020.eamt_1_499.pdf?sequence=1](https://helda.helsinki.fi/bitstream/handle/10138/327852/2020.eamt_1_499.pdf?sequence=1)  
+2. Paper: Mikko Aulamo, Umut Sulubacak, Sami Virpioja, Jorg Tiedemann, [OpusTools and Parallel Corpus Diagnostics](https://www.aclweb.org/anthology/2020.lrec-1.467.pdf)  
+
