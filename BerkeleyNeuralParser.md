@@ -105,7 +105,7 @@ Installing collected packages: murmurhash, immutables, cymem, catalogue, wasabi,
 Successfully installed blis-0.7.4 catalogue-2.0.1 contextvars-2.4 cymem-2.0.5 immutables-0.15 murmurhash-1.0.5 packaging-20.9 pathy-0.4.0 preshed-3.0.5 pydantic-1.7.3 pyparsing-2.4.7 smart-open-3.0.0 spacy-3.0.5 spacy-legacy-3.0.1 srsly-2.4.0 thinc-8.0.2 typer-0.3.2 wasabi-0.8.2
 ```
 
-benepar (i.e. Berkeley Neural Parser) ကို installation မလုပ်ရသေးသူး...
+benepar (i.e. Berkeley Neural Parser) ကို installation မလုပ်ရသေးသူး... အဲဒါကြောင့် အောက်ပါ error ကို ပေးတာပါ။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ gedit download.py
@@ -120,6 +120,8 @@ ModuleNotFoundError: No module named 'benepar'
 ```
 
 ## Installation of Self-Attentive-Parser of Berkeley Nerual Parser
+
+Berkeley Nerual Parser ကို git clone ပဲ လုပ်ထားပြီး installation မလုပ်ရသေးလို့ setup.py ကို အောက်ပါအတိုင်း run ခဲ့တယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ ls
@@ -487,6 +489,8 @@ Using /home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages
 Finished processing dependencies for benepar==0.2.0
 ```
 
+ပြင်ထားတဲ့ download.py ပရိုဂရမ်ကို cat နဲ့ ကြည့်ရအောင်...  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ cat ./download.py 
 import benepar
@@ -495,6 +499,9 @@ benepar.download('benepar_en3')
 [nltk_data] Downloading package benepar_en3 to /home/ye/nltk_data...
 [nltk_data]   Unzipping models/benepar_en3.zip.
 ```
+
+benepar paerser ကို test လုပ်ကြည့်ရအောင်။  
+Package 'en_core_web_md' က ဒီ pyton environment မှာ download မလုပ်ရသေးဘူးဆိုတာကို တွေ့ရ...    
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
@@ -509,6 +516,8 @@ Traceback (most recent call last):
     raise IOError(Errors.E050.format(name=name))
 OSError: [E050] Can't find model 'en_core_web_md'. It doesn't seem to be a Python package or a valid path to a data directory.
 ```
+
+spacy ကို သုံးပြီးတော့ en_core_web_md မော်ဒယ်ကို ဒေါင်းလုပ် လုပ်ရအောင်...  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python3 -m spacy download en_core_web_md
