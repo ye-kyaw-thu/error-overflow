@@ -577,6 +577,34 @@ State TV
 ## Parsing a Corpus
 
 ဒီတစ်ခါတော့ အင်္ဂလိပ်စာ စာကြောင်းရေ ၂သိန်းကျော်ရှိတဲ့ WAT2021 share MT Task ရဲ့ အင်္ဂလိပ်စာ corpus ကို parsing လုပ်ကြည့်ပါမယ်။  
+program ကို အောက်ပါအတိုင်းရေးခဲ့ပါတယ်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ cat benepar-file.py 
+import benepar, spacy
+import sys
+
+filename = sys.argv[1]
+nlp = spacy.load('en_core_web_md')
+
+if spacy.__version__.startswith('2'):
+   nlp.add_pipe(benepar.BeneparComponent("benepar_en3"))
+else:
+   nlp.add_pipe("benepar", config={"model": "benepar_en3"})
+
+r_file = open(filename, "r")
+with open(filename+".parse.txt","a") as w_file:
+    for line in r_file:
+       doc = nlp(line)
+       sent = list(doc.sents)[0]
+       #print(sent._.parse_string)
+       w_file.write(sent._.parse_string+"\n")
+
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$
+```
+
+parsing လုပ်တာ ဘယ်လောက်ကြာသလဲ ဆိုတာကိုလည်း သိချင်လို့ python command ရဲ့ ရှေ့မှာ time command ကို ခံထားခဲ့ပါတယ်။  
+input file က train.en ဖိုင်ပါ။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ time python ./benepar-file.py ./train.en
