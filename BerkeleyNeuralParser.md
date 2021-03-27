@@ -577,7 +577,7 @@ State TV
 
 ## Reference
 
-https://github.com/explosion/spaCy/issues/4577
-https://github.com/nikitakit/self-attentive-parser  
+https://github.com/explosion/spaCy/issues/4577  
+https://github.com/nikitakit/self-attentive-parser   
 
 
