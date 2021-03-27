@@ -574,6 +574,59 @@ BBC News ကနေ အင်္ဂလိပ်လို ရေးထားတဲ
 State TV
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$
 ```
+## Parsing a Corpus
+
+ဒီတစ်ခါတော့ အင်္ဂလိပ်စာ စာကြောင်းရေ ၂သိန်းကျော်ရှိတဲ့ WAT2021 share MT Task ရဲ့ အင်္ဂလိပ်စာ corpus ကို parsing လုပ်ကြည့်ပါမယ်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ time python ./benepar-file.py ./train.en
+/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/distributions/distribution.py:46: UserWarning: <class 'torch_struct.distributions.TreeCRF'> does not define `arg_constraints`. Please set `arg_constraints = {}` or initialize the distribution with `validate_args=False` to turn off validation.
+  'with `validate_args=False` to turn off validation.')
+Token indices sequence length is longer than the specified maximum sequence length for this model (537 > 512). Running this sequence through the model will result in indexing errors
+Traceback (most recent call last):
+  File "./benepar-file.py", line 15, in <module>
+    doc = nlp(line)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/language.py", line 995, in __call__
+    error_handler(name, proc, [doc], e)
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/util.py", line 1498, in raise_error
+    raise e
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/language.py", line 990, in __call__
+    doc = proc(doc, **component_cfg.get(name, {}))
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/benepar-0.2.0-py3.6.egg/benepar/integrations/spacy_plugin.py", line 154, in __call__
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/benepar-0.2.0-py3.6.egg/benepar/parse_chart.py", line 414, in parse
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/benepar-0.2.0-py3.6.egg/benepar/parse_chart.py", line 414, in <listcomp>
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/benepar-0.2.0-py3.6.egg/benepar/parse_chart.py", line 193, in encode
+  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/benepar-0.2.0-py3.6.egg/benepar/retokenization.py", line 179, in __call__
+ValueError: Sentence of length 538 (in sub-word tokens) exceeds the maximum supported length of 512
+
+real	4m16.785s
+user	4m20.542s
+sys	0m6.267s
+```
+parsing time က မြန်ပါတယ်။ သို့သော် အထက်မှာ မြင်ရတဲ့အတိုင်း parser က လုပ်ပေးနိုင်တာက sentence length က 512 အထိက maximum လို့ ထင်တယ်။   
+input လုပ်လိုက်တဲ့ corpus ဖိုင်နဲ့ parsed လုပ်ပြီး ထွက်လာတဲ့ output ဖိုင်နှစ်ဖိုင်ရဲ့ စာကြောင်းရေ အရေအတွက်ကို နှိုင်းယှဉ်ကြည့်တော့ အောက်ပါအတိုင်း 8263 ကြောင်းကိုပဲ parsing လုပ်ပေးနိုင်တာကို တွေ့ရပါလိမ့်မယ်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ wc ./train.en
+  238014  3357260 17186660 ./train.en
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ wc ./train.en.parse.txt 
+   8263  472855 2521622 ./train.en.parse.txt
+```
+parsed လုပ်ထားတဲ့ စာကြောင်းတချို့ကို ကြည့်ကြည့်ရအောင်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ head ./train.en.parse.txt 
+(S (NP (DT A) (NN murder) (NN case)) (VP (VBZ has) (VP (VBN been) (VP (VBN opened) (PP (IN at) (NP (DT the) (NNP Kyeikgyaung) (NN police) (NN station)))))) (. .))
+(S (NP (NNS Police)) (VP (VBP are) (VP (VBG investigating))) (. .))
+(S (NP (NNP Tatmadaw) (NNS troops)) (VP (VBD seized) (NP (NP (NNS arms)) (CC and) (NP (JJ illegal) (NN timber))) (PP (IN from) (NP (DT a) (NN vehicle))) (PP (IN during) (NP (NP (NP (DT a) (JJ surprise) (NN check)) (PP (IN in) (NP (NP (NNP Tarmoenyae)) (PP (IN in) (NP (JJ northern) (NNP Shan) (NN state)))))) (NP (NN yesterday))))) (. .))
+(S (NP (DT The) (NNS police)) (VP (VBD intercepted) (CC and) (VBD searched) (NP (DT a) (NNP Mitsubishi) (NNP Pajero))) (. .))
+(S (NP (DT The) (NNS police)) (VP (VBD discovered) (NP (NP (CD one) (NN pistol)) (VP (VBN loaded) (PP (IN with) (NP (NP (CD seven) (NNS bullets)) (CC and) (NP (NP (CD 740) (NNS pieces)) (PP (IN of) (NP (JJ sawed) (NN timber))))))))) (. .))
+(S (NP (DT The) (NNS troops)) (VP (MD will) (VP (VB hand) (PRT (RP over)) (NP (NP (NP (NNP U) (NNP Sai) (NNP Kyaw) (NNP Win)) (, ,) (NP (NP (DT the) (NN driver)) (PP (IN of) (NP (DT the) (NN car))))) (, ,) (CC and) (NP (NP (NNP U) (NNP Than) (NNP Maung)) (, ,) (SBAR (WHNP (WP who)) (S (VP (VBD was) (NP (NP (NP (DT a) (NN passenger)) (PP (IN on) (NP (NN board)))) (VP (VBG carrying) (NP (DT the) (NN pistol))))))) (, ,))) (PP (IN to) (NP (NNP Tarmoenyae) (NN police) (NN station))) (, ,) (PP (VBG according) (PP (IN to) (NP (DT the) (JJ local) (NNS authorities)))))) (. .))
+(S (NP (NN Fighting)) (VP (VBD happened) (PP (IN between) (NP (NP (NP (NNP Tatmadaw) (CC &) (CD amp) (SYM ;) (NNP apos) (-RRB- ;) (POS s)) (NNS troops)) (CC and) (NP (NNP KIA) (JJ armed) (NN group))))) (. .))
+(S (NP (NP (DT An) (JJ armed) (NN clash)) (PP (IN between) (NP (NP (DT the) (NNS troops)) (PP (IN of) (NP (DT the) (NML (NNP Tatmadaw) (CC and) (NNP KIA)) (JJ armed) (NN group)))))) (VP (VBD happened) (NP (NN yesterday)) (PP (IN in) (NP (NP (NNP Muse) (NN township)) (PP (IN in) (NP (JJ northern) (NNP Shan) (NN state)))))) (. .))
+(S (NP (NP (DT The) (NNS troops)) (PP (IN of) (NP (DT the) (NNP Tatmadaw)))) (VP (VBD returned) (NP (NN fire)) (PP (IN to) (NP (DT the) (JJ armed) (NN group))) (SBAR (IN after) (S (NP (PRP they)) (VP (VBD were) (VP (VBN attacked) (PP (IN by) (NP (DT the) (NN group))) (ADVP (ADVP (NP (QP (RB about) (CD four)) (NNS miles)) (RB east) (PP (IN of) (NP (NNP Mawtaung) (NN village)))) (SBAR (IN while) (S (VP (VBG conducting) (NP (NN area) (NN clearance) (NN operation))))))))))) (. .))
+(S (NP (DT The) (JJ armed) (NN group)) (VP (VBD withdrew) (PP (IN to) (NP (NML (JJ south) (HYPH -) (NN west)) (NN direction)))) (. .))
+```
 
 ## Reference
 
