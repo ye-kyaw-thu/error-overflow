@@ -2,6 +2,7 @@
 
 ## git clone
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/nikitakit/self-attentive-parser
 Cloning into 'self-attentive-parser'...
 remote: Enumerating objects: 190, done.
@@ -13,7 +14,19 @@ Resolving deltas: 100% (300/300), done.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd self-attentive-parser/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ ls
 data  EVALB  EVALB_SPMRL  EXPERIMENTS.md  LICENSE  README.md  setup.py  src
+```
+
+## Install Spacy and Download en_core_web_md
+
+py3.6env အောက်ကိုဝင်တယ်။  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ conda activate py3.6env
+```
+
+Spacy က ဒီ python environment ထဲမှာ မရှိသေးတာကိုတွေ့ရ။ အဲဒါနဲ့ Spacy ကိုပါ installation လုပ်ခဲ့တယ်။  
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python -m spacy download en_core_web_md
 /home/ye/anaconda3/envs/py3.6env/bin/python: No module named spacy
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ pip install spacy
@@ -90,6 +103,11 @@ Installing collected packages: murmurhash, immutables, cymem, catalogue, wasabi,
     Uninstalling smart-open-4.1.0:
       Successfully uninstalled smart-open-4.1.0
 Successfully installed blis-0.7.4 catalogue-2.0.1 contextvars-2.4 cymem-2.0.5 immutables-0.15 murmurhash-1.0.5 packaging-20.9 pathy-0.4.0 preshed-3.0.5 pydantic-1.7.3 pyparsing-2.4.7 smart-open-3.0.0 spacy-3.0.5 spacy-legacy-3.0.1 srsly-2.4.0 thinc-8.0.2 typer-0.3.2 wasabi-0.8.2
+```
+
+benepar (i.e. Berkeley Neural Parser) ကို installation မလုပ်ရသေးသူး...
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ gedit download.py
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ cat ./download.py 
 import benepar
@@ -99,6 +117,11 @@ Traceback (most recent call last):
   File "./download.py", line 1, in <module>
     import benepar
 ModuleNotFoundError: No module named 'benepar'
+```
+
+## Installation of Self-Attentive-Parser of Berkeley Nerual Parser
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ ls
 data  download.py  EVALB  EVALB_SPMRL  EXPERIMENTS.md  LICENSE  README.md  setup.py  src
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python setup.py install
@@ -462,37 +485,18 @@ Adding immutables 0.15 to easy-install.pth file
 
 Using /home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages
 Finished processing dependencies for benepar==0.2.0
+```
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ cat ./download.py 
 import benepar
 benepar.download('benepar_en3')
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./download.py 
 [nltk_data] Downloading package benepar_en3 to /home/ye/nltk_data...
 [nltk_data]   Unzipping models/benepar_en3.zip.
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ gedit benepar-test.py
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
-  File "./benepar-test.py", line 11
-    doc = nlp("""State TV had warned in a separate broadcast on Friday that people "should learn from the tragedy of earlier ugly deaths that you can be in danger of getting shot to the head and back"."""")
-                                                                                                                                                                                                             ^
-SyntaxError: EOL while scanning string literal
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
-Traceback (most recent call last):
-  File "./benepar-test.py", line 2, in <module>
-    nlp = spacy.load('en_core_web_md')
-  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/__init__.py", line 47, in load
-    return util.load_model(name, disable=disable, exclude=exclude, config=config)
-  File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/util.py", line 329, in load_model
-    raise IOError(Errors.E050.format(name=name))
-OSError: [E050] Can't find model 'en_core_web_md'. It doesn't seem to be a Python package or a valid path to a data directory.
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
-Traceback (most recent call last):
-  File "./benepar-test.py", line 2, in <module>
-    spacy.download('en_core_web_md')
-AttributeError: module 'spacy' has no attribute 'download'
-(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
-Traceback (most recent call last):
-  File "./benepar-test.py", line 2, in <module>
-    nltk.download('en_core_web_md')
-NameError: name 'nltk' is not defined
+```
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
 [nltk_data] Error loading en_core_web_md: Package 'en_core_web_md' not
 [nltk_data]     found in index
@@ -504,6 +508,9 @@ Traceback (most recent call last):
   File "/home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/spacy/util.py", line 329, in load_model
     raise IOError(Errors.E050.format(name=name))
 OSError: [E050] Can't find model 'en_core_web_md'. It doesn't seem to be a Python package or a valid path to a data directory.
+```
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python3 -m spacy download en_core_web_md
 Collecting en-core-web-md==3.0.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.0.0/en_core_web_md-3.0.0-py3-none-any.whl (47.1 MB)
@@ -545,6 +552,11 @@ Installing collected packages: en-core-web-md
 Successfully installed en-core-web-md-3.0.0
 ✔ Download and installation successful
 You can now load the package via spacy.load('en_core_web_md')
+```
+
+BBC News ကနေ အင်္ဂလိပ်လို ရေးထားတဲ့ စာကြောင်းတစ်ကြောင်းကို ကော်ပီကူးယူပြီး parsing လုပ်ကြည့်တော့ အိုကေသွားတာကို တွေ့ရတယ်။  
+
+```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$ python ./benepar-test.py 
 /home/ye/anaconda3/envs/py3.6env/lib/python3.6/site-packages/torch/distributions/distribution.py:46: UserWarning: <class 'torch_struct.distributions.TreeCRF'> does not define `arg_constraints`. Please set `arg_constraints = {}` or initialize the distribution with `validate_args=False` to turn off validation.
   'with `validate_args=False` to turn off validation.')
@@ -552,7 +564,7 @@ You can now load the package via spacy.load('en_core_web_md')
 ('S',)
 State TV
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/self-attentive-parser$
-
+```
 
 ## Reference
 
