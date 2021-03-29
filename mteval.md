@@ -1,4 +1,4 @@
-# mteval Installation and Usage
+# "mteval" Installation and Usage
 
 [mteval](https://github.com/odashi/mteval) က machine translation performance ကို တိုင်းတာတဲ့ automatic evaluation matrix တွေထဲက နာမည်ကြီး approach နှစ်ခုဖြစ်တဲ့ [BLEU](https://en.wikipedia.org/wiki/BLEU) နဲ့ [RIBES](https://github.com/nttcslab-nlp/RIBES) အပြင် edit distance based [WER](https://en.wikipedia.org/wiki/Word_error_rate) တွက်တာကိုပါ ပရိုဂရမ်တစ်ပုဒ်ထဲကနေ တပေါင်းထဲလုပ်ပေးနိုင်တဲ့ tool ပါ။ Machine Translation သုတေသန လုပ်နေကြတဲ့သူတွေအတွက် အသုံးဝင်ပါတယ်။    
 
@@ -122,7 +122,7 @@ ref.my က reference ဖိုင်ပါ။ hyp.iter10000.my, hyp.iter5000.my 
 hyp.iter10000.my  hyp.iter5000.my  hyp.iter95000.my  ref.my
 ```
 
-## Example Usage of mteval
+## Example Usage of "mteval"
 
 mteval ကိုသုံးပြီးတော့ BLEU score, RIBES score နှစ်မျိုးစလုံးကို corpus level တွက်ခိုင်းကြည့်ရအောင်။  
 
