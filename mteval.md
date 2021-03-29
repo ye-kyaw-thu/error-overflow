@@ -278,3 +278,8 @@ WER:distance=48420
 WER:samples=1018
 WER:score=822.693940
 ```
+
+## Reference
+
+mteval GitHub page:  
+https://github.com/odashi/mteval
