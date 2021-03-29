@@ -145,7 +145,8 @@ BLEU=0.251149	RIBES=0.860091
 BLEU=0.386280	RIBES=0.867717
 ```
 
-ဒီတစ်ခါတော့ mteval-pairwise ဆိုတဲ့ command ကိုသုံးပြီး pairwise evaluation လုပ်ကြည့်ရအောင်။ -i (iteration), -s (sampling) option တွေကိုလည်း ပေးဖို့လိုအပ်ပါတယ်။  
+ဒီတစ်ခါတော့ mteval-pairwise ဆိုတဲ့ command ကိုသုံးပြီး pairwise evaluation လုပ်ကြည့်ရအောင်။  
+-i (iteration), -s (sampling) option တွေကိုလည်း ပေးဖို့လိုအပ်ပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-pairwise -i 1000 -s 100 -e BLEU RIBES -r ./ref.my -h ./hyp.iter{95000,10000}.my
