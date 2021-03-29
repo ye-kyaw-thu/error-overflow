@@ -281,5 +281,18 @@ WER:score=822.693940
 
 ## Reference
 
-mteval GitHub page:  
-https://github.com/odashi/mteval
+1. mteval GitHub page:  
+https://github.com/odashi/mteval  
+
+2. A Gentle Introduction to Calculating the BLEU Score for Text in Python  
+https://machinelearningmastery.com/calculate-bleu-score-for-text-python/  
+
+3. Automatic Evaluation of Translation Quality for Distant Language Pairs  
+https://www.aclweb.org/anthology/D10-1092.pdf  
+
+4. C++ port of the RIBES evalation metric  
+https://github.com/neubig/ribes-c  
+
+5. SCTK, the NIST Scoring Toolkit (Another Good WER Calculation Tool)  
+https://github.com/usnistgov/SCTK  
+
