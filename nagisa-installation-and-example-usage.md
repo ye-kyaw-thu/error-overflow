@@ -180,7 +180,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 [dynet] memory allocation done.
 ```
 Library import ကတော့ အဆင်ပြေပြေနဲ့ အိုကေတာကို အထက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
-
 POS-tagging လုပ်ကြည့်တော့လည်း tagging လုပ်ပေးတာကို အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မယ်။  
 
 ```
