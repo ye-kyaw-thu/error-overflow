@@ -168,7 +168,8 @@ Finished processing dependencies for nagisa==0.2.7
 Nagisa ရဲ့ GitHub source မှာ ပြထားတဲ့ example usage ကိုပဲ ကိုယ့်စက်ထဲမှာ ဂျပန်စာကြောင်း အသစ်တစ်ကြောင်းနဲ့ လက်တွေ့ လုပ်ကြည့်ရအောင်...  
 ဥပမာအဖြစ် သုံးပြထားတဲ့ ဂျပန်စာကြောင်း တစ်ကြောင်းကတော့ NHK Japan ရဲ့ ဒီနေ့ (29 Mar 2021) မြန်မာနိုင်ငံနဲ့ ပတ်သက်တဲ့ ဆောင်းပါးတစ်ပုဒ်ထဲကနေပဲ ယူလိုက်တာပါ။ အောက်မှာ link ထည့်ပေးထားပါတယ်။  
 
-nagisa python library ကို import လုပ်ကြည့်မယ်။  
+```nagisa``` python library ကို import လုပ်ကြည့်မယ်။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/nagisa$ python
 Python 3.6.12 |Anaconda, Inc.| (default, Sep  8 2020, 23:10:56) 
