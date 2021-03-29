@@ -23,6 +23,8 @@ appveyor.yml  docs  LICENSE.txt  MANIFEST.in  nagisa  README.md  setup.cfg  setu
 
 ## setup.py install
 
+```python setup.py install``` command နဲ့ installation လုပ်မယ်။  
+
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/nagisa$ python setup.py install
 running install
