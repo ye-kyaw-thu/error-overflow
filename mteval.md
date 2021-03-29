@@ -1,6 +1,6 @@
 # mteval Installation and Usage
 
-[mteval](https://github.com/odashi/mteval) က machine translation performance ကို တိုင်းတာတဲ့ automatic evaluation matrix တွေထဲက နာမည်ကြီး approach နှစ်ခုဖြစ်တဲ့ [BLEU](https://en.wikipedia.org/wiki/BLEU) နဲ့ [RIBES](https://github.com/nttcslab-nlp/RIBES) အပြင် edit distance based [WER](https://en.wikipedia.org/wiki/Word_error_rate) တွက်တာကိုပါ လုပ်ပေးနိုင်တဲ့ tool ပါ။  
+[mteval](https://github.com/odashi/mteval) က machine translation performance ကို တိုင်းတာတဲ့ automatic evaluation matrix တွေထဲက နာမည်ကြီး approach နှစ်ခုဖြစ်တဲ့ [BLEU](https://en.wikipedia.org/wiki/BLEU) နဲ့ [RIBES](https://github.com/nttcslab-nlp/RIBES) အပြင် edit distance based [WER](https://en.wikipedia.org/wiki/Word_error_rate) တွက်တာကိုပါ ပရိုဂရမ်တစ်ပုဒ်ထဲကနေ တပေါင်းထဲလုပ်ပေးနိုင်တဲ့ tool ပါ။ Machine Translation သုတေသန လုပ်နေကြတဲ့သူတွေအတွက် အသုံးဝင်ပါတယ်။    
 
 ## git clone
 
@@ -90,6 +90,8 @@ make[1]: Leaving directory '/home/ye/tool/mteval/build'
 
 ## make test
 
+make လုပ်ခဲ့တာ အဆင်ပြေမပြေကို test လုပ်ကြည့်ရအောင်...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ make test
 Running tests...
@@ -106,24 +108,27 @@ Total Test time (real) =   0.00 sec
 
 ## Preparation 
 
-y-test ဆိုတဲ့ ဖိုလ်ဒါတစ်ခုဆောက်ပြီး၊ evaluation လုပ်လို့ရဖို့အတွက် reference ဖိုင်နဲ့ translated output ဖိုင်တွေကို ပြင်ဆင်ပါမယ်။  
+y-test ဆိုတဲ့ ဖိုလ်ဒါအသစ် တစ်ခုဆောက်ပြီး၊ evaluation လုပ်လို့ရဖို့အတွက် reference ဖိုင်နဲ့ translated output ဖိုင်တွေကို ပြင်ဆင်ပါမယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ mkdir y-test
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ cd y-test/
 ```
 
-ref.my က reference ဖိုင်ပါ။ hyp.iter10000.my ဖိုင်နဲ့ hyp.iter5000.my ဖိုင်က NMT system တစ်ခုကနေ ဘာသာပြန်ပြီး ထွက်လာတဲ့ translaed output ဖိုင်နှစ်ဖိုင်ပါ။  
+ref.my က reference ဖိုင်ပါ။ hyp.iter10000.my, hyp.iter5000.my နဲ့ hyp.iter95000.my ဖိုင်တွေက English-Myanmar NMT system တစ်ခုကနေ ဘာသာပြန်ပြီး ထွက်လာတဲ့ translaed output ဖိုင် သုံးဖိုင်ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ls
 hyp.iter10000.my  hyp.iter5000.my  hyp.iter95000.my  ref.my
 ```
+mteval ကိုသုံးပြီးတော့ BLEU score, RIBES score နှစ်မျိုးစလုံးကို corpus level တွက်ခိုင်းကြည့်ရအောင်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus -e BLEU RIBES -r ./ref.my -h ./hyp.iter95000.my 
 BLEU=0.134730	RIBES=0.621727
 ```
+
+mteval ကိုသုံးပြီးတော့ BLEU score, RIBES score နှစ်မျိုးစလုံးကို sentence level တွက်ခိုင်းကြည့်ရအောင်။ Sentence level တွက်ခိုင်းရင် စာကြောင်းရေအရေအတွက်ရှိသလောက်ကို တစ်ကြောင်းချင်းတွက်ထုတ်ပေးမှာမို့ output ကို STDOUT ကို မပို့တော့ပဲ ```> ./eval.sentence.out``` ဆိုတဲ့ပုံစံနဲ့ redirection လုပ်ပြီး eval.sentence.out ဖိုင်ထဲမှာ သိမ်းခိုင်းခဲ့ပါတယ်။ ပြီးမှ ဖိုင်content ကို မြင်ရအောင်လို့ head command နဲ့ ၁၀ကြောင်းရိုက်ထုတ်ပြထားပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-sentence -e BLEU RIBES -r ./ref.my -h ./hyp.iter95000.my > ./eval.sentence.out
@@ -140,20 +145,29 @@ BLEU=0.251149	RIBES=0.860091
 BLEU=0.386280	RIBES=0.867717
 ```
 
+ဒီတစ်ခါတော့ mteval-pairwise ဆိုတဲ့ command ကိုသုံးပြီး pairwise evaluation လုပ်ကြည့်ရအောင်။ -i (iteration), -s (sampling) option တွေကိုလည်း ပေးဖို့လိုအပ်ပါတယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-pairwise -i 1000 -s 100 -e BLEU RIBES -r ./ref.my -h ./hyp.iter{95000,10000}.my
 BLEU: p=0.000000 (1000/1000)	RIBES: p=0.000000 (1000/1000)
 ```
+
+အောက်ပါ usage example ကတော့ hyp.iter5000.my နဲ့ hyp.iter95000.my နှစ်ဖိုင်ကို pairwise evauation လုပ်ထားတဲ့ ရလဒ်ပါ။  
+ဒီတစ်ခါတော့ p value က 1.0 အပြည့်ရတာကို တွေ့ရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-pairwise -i 1000 -s 100 -e BLEU RIBES -r ./ref.my -h ./hyp.iter{5000,95000}.my
 BLEU: p=1.000000 (0/1000)	RIBES: p=1.000000 (0/1000)
 ```
 
+အောက်ပါ ဥပမာကတော့ -s 500 ထားပြီး run ခဲ့တဲ့ output ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-pairwise -i 1000 -s 500 -e BLEU RIBES -r ./ref.my -h ./hyp.iter{5000,95000}.my
 BLEU: p=1.000000 (0/1000)	RIBES: p=1.000000 (0/1000)
 ```
+
+mteval command မှာ BLEU score, RIBES score တွက်တဲ့အခါမှာလည်း parameter တချို့ဖြည့်ပြီး အသေးစိတ်တွက်ခိုင်းလို့ ရပါတယ်။ အောက်ပါ ဥပမာနှစ်ခုကတော့ BLEU score တွက်တဲ့အခါမှာ ngram value နဲ့ smoothing value တွေကို parameter ပေးပြီး တွက်ပြထားတာ ဖြစ်ပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus -e BLEU:ngram=5:smooth=1 -r ./ref.my -h ./hyp.iter95000.my 
