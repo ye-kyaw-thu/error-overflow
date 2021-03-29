@@ -121,6 +121,9 @@ ref.my က reference ဖိုင်ပါ။ hyp.iter10000.my, hyp.iter5000.my 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ls
 hyp.iter10000.my  hyp.iter5000.my  hyp.iter95000.my  ref.my
 ```
+
+## Example Usage of mteval
+
 mteval ကိုသုံးပြီးတော့ BLEU score, RIBES score နှစ်မျိုးစလုံးကို corpus level တွက်ခိုင်းကြည့်ရအောင်။  
 
 ```
