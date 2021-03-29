@@ -198,6 +198,8 @@ BLEU:ngram:4:match=3224
 BLEU:samples=1018
 ```
 
+## --help
+
 Linux command တွေကို မသုံးခင်မှာ command line option နဲ့ syntax တွေကို လေ့လာတဲ့ ပုံစံအတိုင်း --help နဲ့လည်း help screen ခေါ်ကြည့်လို့ ရပါတယ်။  
 
 ```
@@ -257,6 +259,8 @@ Configurations:
   -s [ --sample ] arg      (required) number of sentences in a virtual test 
                            sets
 ```
+
+## WER Calculation with mteval
 
 အထူးသဖြင့် Automatic Speech Recognition မှာ အသုံးများတဲ့ WER (Word Error Rate) ကိုလည်း mteval command နဲ့ တွက်ခိုင်းလို့ ရပါတယ်။ Evaluation option ကို -e WER ဆိုပြီး ပေးလိုက်ယုံပါပဲ။  
 ```tr '\t' '\n'``` ကတော့ ထွက်လာတဲ့ output တွေကို ကြည့်ရတာ အဆင်ပြေအောင် tr command သုံးပြီး "TAB" နဲ့ ခြားထားတာတွေကို "ENTER" နဲ့ အစားထိုးထားတာ ဖြစ်ပါတယ်။  
