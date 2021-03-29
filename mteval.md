@@ -1,6 +1,10 @@
 # mteval Installation and Usage
 
+[mteval](https://github.com/odashi/mteval) က machine translation performance ကို တိုင်းတာတဲ့ automatic evaluation matrix တွေထဲက နာမည်ကြီး approach နှစ်ခုဖြစ်တဲ့ [BLEU](https://en.wikipedia.org/wiki/BLEU) နဲ့ [RIBES](https://github.com/nttcslab-nlp/RIBES) အပြင် edit distance based [WER](https://en.wikipedia.org/wiki/Word_error_rate) တွက်တာကိုပါ လုပ်ပေးနိုင်တဲ့ tool ပါ။  
+
 ## git clone
+
+အရင်ဆုံး clone လုပ်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/odashi/mteval
@@ -26,6 +30,10 @@ Resolving deltas: 100% (290/290), done.
 -- Generating done
 -- Build files have been written to: /home/ye/tool/mteval/build
 ```
+
+## make
+
+-j 8 က လက်ရှိ install လုပ်မယ့် စက်ထဲမှာ CPU ရှစ်လုံး ရှိလို့ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ make -j 8
@@ -80,6 +88,8 @@ make[2]: Leaving directory '/home/ye/tool/mteval/build'
 make[1]: Leaving directory '/home/ye/tool/mteval/build'
 ```
 
+## make test
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ make test
 Running tests...
@@ -92,10 +102,18 @@ Test project /home/ye/tool/mteval/build
 Total Test time (real) =   0.00 sec
 ```
 
+အထက်ပါ အတိုင်း test pass ဖြစ်တယ်။  
+
+## Preparation 
+
+y-test ဆိုတဲ့ ဖိုလ်ဒါတစ်ခုဆောက်ပြီး၊ evaluation လုပ်လို့ရဖို့အတွက် reference ဖိုင်နဲ့ translated output ဖိုင်တွေကို ပြင်ဆင်ပါမယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ mkdir y-test
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build$ cd y-test/
 ```
+
+ref.my က reference ဖိုင်ပါ။ hyp.iter10000.my ဖိုင်နဲ့ hyp.iter5000.my ဖိုင်က NMT system တစ်ခုကနေ ဘာသာပြန်ပြီး ထွက်လာတဲ့ translaed output ဖိုင်နှစ်ဖိုင်ပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ls
