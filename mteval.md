@@ -176,6 +176,8 @@ BLEU=0.102184
 BLEU=0.245931
 ```
 
+နောက်ထပ်အသုံးဝင်တဲ့ option တစ်ခုက --output-stats ဆိုတဲ့ option ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus --output-stats -e BLEU  -r ./ref.my -h ./hyp.iter95000.my | tr '\t' '\n'
 BLEU=0.134730
@@ -191,6 +193,8 @@ BLEU:ngram:4:hyp=42523
 BLEU:ngram:4:match=3224
 BLEU:samples=1018
 ```
+
+Linux command တွေကို မသုံးခင်မှာ command line option နဲ့ syntax တွေကို လေ့လာတဲ့ ပုံစံအတိုင်း --help နဲ့လည်း help screen ခေါ်ကြည့်လို့ ရပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus --help
@@ -209,6 +213,8 @@ Configurations:
   -e [ --evaluator ] arg   (required) evaluator specifications
 ```
 
+အောက်ပါဥပမာကတော့ mteval-sentence command ကို --help နဲ့ help ခေါ်ကြည့်ရင် မြင်ရမယ့် output ပါ။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-sentence --help
 Calculate sentence-wise evaluation metrics
@@ -225,6 +231,8 @@ Input files:
 Configurations:
   -e [ --evaluator ] arg   (required) evaluator specifications
 ```
+
+mteval-pairwise command ရဲ့ help ကိုလည်း ကြည့်ကြည့်ရအောင်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-pairwise --help
@@ -246,10 +254,14 @@ Configurations:
                            sets
 ```
 
+အထူးသဖြင့် Automatic Speech Recognition မှာ အသုံးများတဲ့ WER (Word Error Rate) ကိုလည်း mteval command နဲ့ တွက်ခိုင်းလို့ ရပါတယ်။ Evaluation option ကို -e WER ဆိုပြီး ပေးလိုက်ယုံပါပဲ။  
+```tr '\t' '\n'``` ကတော့ ထွက်လာတဲ့ output တွေကို ကြည့်ရတာ အဆင်ပြေအောင် tr command သုံးပြီး "TAB" နဲ့ ခြားထားတာတွေကို "ENTER" နဲ့ အစားထိုးထားတာ ဖြစ်ပါတယ်။  
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus -e WER  -r ./ref.my -h ./hyp.iter95000.my | tr '\t' '\n'
 WER=0.808147
 ```
+
+```--output-stats``` option ကိုပါ ထည့်ပြီး သုံးပြထားတာပါ။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mteval/build/y-test$ ../bin/mteval-corpus --output-stats -e WER  -r ./ref.my -h ./hyp.iter95000.my | tr '\t' '\n'
