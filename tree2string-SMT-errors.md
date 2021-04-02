@@ -522,8 +522,8 @@ sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတ
 Reference: moses manual, page 98  
 
 Removed:  
-```sort-buffer-size 10G```bash  
+```sort-buffer-size 10G```sh  
 
 Added:  
-```--sort-batch-size 1024 --sort-compress gzip \```bash    
+```--sort-batch-size 1024 --sort-compress gzip \```sh  
 
