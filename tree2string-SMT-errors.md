@@ -526,8 +526,9 @@ Removed:
 sort-buffer-size 10G
 ```console  
 
-Added: 
+Added:   
+
 ```
---sort-batch-size 1024 --sort-compress gzip \
+--sort-batch-size 1024 --sort-compress gzip
 ```console  
 
