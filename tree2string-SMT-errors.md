@@ -1016,7 +1016,7 @@ sys	30m53.357s
 ```
 
 Note:  
-```--extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \```
+```--extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \```  
 ```--decoder-flags "-max-chart-span 500 -threads all -v 0" \```   
 ထည့်တော့ အချိန်ကတော့ ပုံမှန်ထက် ပိုကြာတယ်။ သို့သော် rule-table က မထွက်ဘူး။  
 
