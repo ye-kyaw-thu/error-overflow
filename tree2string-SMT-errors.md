@@ -732,3 +732,33 @@ Exit code: 137
 The decoder died. CONFIG WAS -weight-overwrite 'PhrasePenalty0= 0.001951 TranslationModel0= 0.001951 0.001951 0.001951 0.001951 WordPenalty0= -0.009756 TranslationModel1= -0.975610 LM0= 0.004878' 
 ```
 
+STDIO မှာ ပေးတဲ့ message က အောက်ပါအတိုင်း...  
+
+```console
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28552 kB	RSSMax:2152680 kB	user:8.65769	sys:2.38937	CPU:11.0471	real:24.3283
+mkdir: cannot create directory ‘work.en-my/output’: File exists
+./t2s.sh: line 107: 557608 Killed                  ${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -max-chart-span 1000 -threads ${JOBS} -inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 13.
+BLEU = 0.00, 15.3/1.9/0.3/0.0 (BP=1.000, ratio=1.828, hyp_len=1108, ref_len=606)
+BLEU=0.000000	RIBES=0.297547	WER=1.726437
+
+real	7m11.980s
+user	20m23.466s
+sys	0m27.315s
+```
+
