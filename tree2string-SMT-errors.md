@@ -344,3 +344,83 @@ dev.en  test.en  train.en
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ cat test.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl > ../test.en
 ```
+
+SMT/NMT experiment တွေလုပ်တဲ့အခါမှာ data preparation အဆင့်ကနေ နောက်ပိတ်ဆုံး testing/evauation အဆင့်အထိ log ဖိုင်တွေက အဆင့်ဆင့်ရှိပါလိမ့်မယ်။ Error ရှိတယ်လို့ ယူဆရင်၊ BLEU score ဘာညာက တအားနည်းနေရင် အဲဒီ log ဖိုင်တွေကို အဆင့်ဆင့်ကြည့်ပြီး debug လုပ်ကြရပါတယ်...  
+
+ဒီ tree-to-string expeirment ကို WAT2021 share task data (English-Myanmar parallel data) နဲ့ လုပ်ကြည့်တဲ့အခါမှာလည်း အရမ်းကြာနေတာ... ရလဒ်က မကောင်းတာကို တောက်လျှောက် တွေ့ရပါတယ်။  
+ဒီ error log ဖိုင်က အဲဒီလိုလက်တွေ့ တွေ့ရတဲ့ error တွေကို debug လုပ်တာ၊ ရလဒ် အပြောင်းအလဲ တချို့ ရှိတာ၊ tree-to-string experiment က လက်တွေ့မှာ ခက်တာတွေကို မှတ်တမ်းအနေနဲ့ log လုပ်ထားတာ ဖြစ်ပါတယ်။ အောက်ပါ အဆင့်တွေ ကနေ တချို့ အသုံးဝင်မယ့် information တချို့ကို ရရှိပါလိမ့်မယ်။  
+
+## Check log file
+
+mert.log ဖိုင်မှာတော့ အောက်ပါအတိုင်း  tuning ကို 2 iteration အထိတော့ လုပ်သွားပုံရတယ်။  
+ERROR message မရှိဘူး။  
+
+```
+Name:moses_chart        VmPeak:1175656 kB       VmRSS:197696 kB RSSMax:801380 kB        user:11.596     sys:16.548      CPU:28.144      real:17.031
+The decoder returns the scores in this order: LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel1
+Executing: gzip -f run2.best100.out
+Scoring the nbestlist.
+exec: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert/extractor.sh
+Executing: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert/extractor.sh > extract.out 2> extract.err
+Executing: \cp -f init.opt run2.init.opt
+exec: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/mert -d 8  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat --scfile run1.scores.dat,run2.scores.dat --ifile run2.init.opt -n 20 -r 2000 --threads 8
+Executing: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/mert -d 8  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat --scfile run1.scores.dat,run2.scores.dat --ifile run2.init.opt -n 20 -r 2000 --threads 8 > mert.out 2> mert.log
+Executing: \cp -f extract.err run2.extract.err
+Executing: \cp -f extract.out run2.extract.out
+Executing: \cp -f mert.out run2.mert.out
+Executing: \cp -f mert.log run2.mert.log
+Executing: touch mert.log run2.mert.log
+Executing: \cp -f weights.txt run2.weights.txt
+run 2 end at ၂၀၂၁ မတ် ၃၁ ဗုဒ္ဓဟူး ၀၄:၄၃:၁၂ နံနက် +0630
+None of the weights changed more than 1e-05. Stopping.
+Executing: \cp -f init.opt run2.init.opt
+(2) BEST at 2: 0 0 0 0 0 0 0 0 => 0 at ၂၀၂၁ မတ် ၃၁ ဗုဒ္ဓဟူး ၀၄:၄၃:၁၂ နံနက် +0630
+Executing: \cp -f mert.log run2.mert.log
+featlist: LM0=0
+featlist: WordPenalty0=0
+featlist: PhrasePenalty0=0
+featlist: TranslationModel0=0
+featlist: TranslationModel0=0
+featlist: TranslationModel0=0
+featlist: TranslationModel0=0
+featlist: TranslationModel1=0
+Parsing --decoder-flags: |-threads 8 -max-chart-span 1000|
+Saving new config to: ./moses.ini
+Saved: ./moses.ini
+1-10.20.2 0.2 0.2 0.2-1000.5Training finished at ၂၀၂၁ မတ် ၃၁ ဗုဒ္ဓဟူး ၀၄:၄၃:၁၂ နံနက် +0630
+```
+
+ဇာဇာလှိုင် report ထဲမှာ ပြောခဲ့သလိုပဲ input က English ကို output ကလည်း English ပဲ ပြန်ထွက်နေတယ်။  
+tunning 1, 2 ရဲ့ translated output ၁၀ကြောင်းစီက အောက်ပါအတိုင်း ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run1.out
+``/`` Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &apos;&apos;/&apos;&apos;
+It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
+``/`` The/DT missile/NN appeared/VBD to/TO have/VB been/VBN fired/VBN by/IN a/DT drone/NN ,/, &apos;&apos;/&apos;&apos; said/VBD a/DT Pakistani/NNP intelligence/NN official/NN ./.
+``/`` They/PRP do/VBP have/VB an/DT ability/NN to/TO regenerate/VB and/CC replace/VB these/DT guys/NNS ,/, &apos;&apos;/&apos;&apos; said/VBD a/DT Western/JJ intelligence/NN official/NN ./.
+Al-Libi/NNP is/VBZ said/VBD to/TO have/VB been/VBN the/DT third/JJ highest/JJS ranking/JJ member/NN of/IN al-Qaeda/NN ./.
+The/DT Government/NNP of/IN Pakistan/NNP said/VBD they/PRP did/VBD not/RB know/VB about/IN his/PRP$ death/NN ./.
+The/DT details/NNS of/IN the/DT death/NN have/VBP not/RB yet/RB been/VBN fully/RB released/VBN ./.
+Both/DT teams/NNS entered/VBD Sunday/NNP &apos;s/POS match/NN with/IN a/DT seven-game/JJ unbeaten/JJ streak/NN to/TO give/VB them/PRP the/DT chance/NN to/TO take/VB the/DT final/JJ playoff/NN spot/NN ./.
+In/IN the/DT end/NN ,/, Chicago/NNP Fire/NNP beat/NN Los/NNP Angeles/NNP Galaxy/NNP to/TO take/VB the/DT last/JJ playoff/NN spot/NN ./.
+Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Los/NNP Angeles/NNP Galaxy/NNP 22-5/CD ./.
+```
+
+tuning iteration no. 2 ရဲ့ output ဖိုင်ကိုလည်း စစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run2.out
+``/`` Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &apos;&apos;/&apos;&apos;
+It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
+``/`` The/DT missile/NN appeared/VBD to/TO have/VB been/VBN fired/VBN by/IN a/DT drone/NN ,/, &apos;&apos;/&apos;&apos; said/VBD a/DT Pakistani/NNP intelligence/NN official/NN ./.
+``/`` They/PRP do/VBP have/VB an/DT ability/NN to/TO regenerate/VB and/CC replace/VB these/DT guys/NNS ,/, &apos;&apos;/&apos;&apos; said/VBD a/DT Western/JJ intelligence/NN official/NN ./.
+Al-Libi/NNP is/VBZ said/VBD to/TO have/VB been/VBN the/DT third/JJ highest/JJS ranking/JJ member/NN of/IN al-Qaeda/NN ./.
+The/DT Government/NNP of/IN Pakistan/NNP said/VBD they/PRP did/VBD not/RB know/VB about/IN his/PRP$ death/NN ./.
+The/DT details/NNS of/IN the/DT death/NN have/VBP not/RB yet/RB been/VBN fully/RB released/VBN ./.
+Both/DT teams/NNS entered/VBD Sunday/NNP &apos;s/POS match/NN with/IN a/DT seven-game/JJ unbeaten/JJ streak/NN to/TO give/VB them/PRP the/DT chance/NN to/TO take/VB the/DT final/JJ playoff/NN spot/NN ./.
+In/IN the/DT end/NN ,/, Chicago/NNP Fire/NNP beat/NN Los/NNP Angeles/NNP Galaxy/NNP to/TO take/VB the/DT last/JJ playoff/NN spot/NN ./.
+Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Los/NNP Angeles/NNP Galaxy/NNP 22-5/CD ./.
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$
+```
+
