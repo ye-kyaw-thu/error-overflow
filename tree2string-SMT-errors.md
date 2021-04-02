@@ -1576,3 +1576,67 @@ sys	27m54.679s
 
 BLEU score က 2.27 ဆိုတော့ လက်ရှိထိ အမြင့်ဆုံးပဲ။ သောက်တလွဲ ... :)  
 
+## Try again
+
+```
+  --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \  
+  --decoder-flags "-threads ${JOBS} -max-chart-span 500 --verbose 1" \  
+```
+
+scoring/extracting rules လုပ်နေစဉ်မှာ error တက်တာ။ ERROR က အောက်ပါအတိုင်း...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+
+Score v2.1 -- scoring methods for extracted rules
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.....
+......................................................................................................................................................................................................................................................................ERROR: faulty line 26217286: တိုး တက် [V][X] ကူ ပေး နိုင် [X] ||| [V][X] [V
+Error: unequal numbers of non-terminals. Make sure the text does not contain words in square brackets (like [xxx]).
+...........................................................................................................................................................................................................................
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ 
+```
+
+##  Try --DisallowNonTermConsecTarget and Retrain
+
+```
+ --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --DisallowNonTermConsecTarget --AllowOnlyUnalignedWords" \
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294512  26302580 aligned.grow-diag-final-and
+        0         0        20 extract.inv.sorted.gz
+  1408796   7991289 360636041 extract.sorted.gz
+        3        45       192 glue-grammar
+   518517   1555551  16593955 lex.e2f
+   518517   1555551  16593955 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+        0         0        20 rule-table.gz
+        0         0        20 rule-table.half.e2f.gz
+   680565   3783931 169361418 rule-table.half.f2e.gz
+  3840526  29930803 678779464 total
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.....
+
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+..............................................................................................................................................................ERROR: faulty line 15846940: [S][X] [S] ||| [S][X] �
+.....................................................................Killed
+```
+
+*** ဒီဟာက သေချာတယ် မြန်မာစာ ဒေတာ ညစ်ပတ်မှုကြောင့် ဖြစ်တာ...  
+
