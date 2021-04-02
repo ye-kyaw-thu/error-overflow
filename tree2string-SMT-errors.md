@@ -843,6 +843,7 @@ sys	0m33.632s
 
 ## Update t2s.sh and Training/Tunning/Testing Again
 
+```console
 #!/bin/bash
 
 ## Tree to String SMT with moses
@@ -964,9 +965,11 @@ perl ${MOSES_SCRIPT}/generic/multi-bleu.perl ${REF} < ${outfile}
 ## Evaluation with mteval tool
 ## Check corpus level BLEU, RIBES and WER scores for your tree2string experiment
 ${MTEVAL_DIR}/mteval-corpus -e BLEU RIBES WER -r ${REF} -h ${outfile}
+```
 
------------------
+Running t2s.sh...  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
 === 1/5 Counting and sorting n-grams ===
 Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
@@ -1010,11 +1013,14 @@ BLEU=0.000000	RIBES=0.000000	WER=1.020299
 real	38m1.788s
 user	142m9.764s
 sys	30m53.357s
+```
 
-Note:   --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \
---decoder-flags "-max-chart-span 500 -threads all -v 0" \ ထည့်တော့ အချိန်ကတော့ ပုံမှန်ထက် ပိုကြာတယ်။
-သို့သော် rule-table က မထွက်ဘူး။
+Note:  
+```--extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \```
+```--decoder-flags "-max-chart-span 500 -threads all -v 0" \```   
+ထည့်တော့ အချိန်ကတော့ ပုံမှန်ထက် ပိုကြာတယ်။ သို့သော် rule-table က မထွက်ဘူး။  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
    238014   3463768  28441812 aligned.0.en
    238014   6285996  60847350 aligned.0.my
@@ -1028,9 +1034,11 @@ Note:   --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTer
        38        58       871 moses-tuned.ini
         0         0        20 rule-table.gz
   4694826  35000315 907468925 total
+```
 
-training error က အောက်ပါအတိုင်း
+training error က အောက်ပါအတိုင်း  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail training_TM.log 
 ....Score v2.1 -- scoring methods for extracted rules
 processing hierarchical rules
@@ -1043,13 +1051,15 @@ Aborted (core dumped)
 gzip: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.11447/phrase-table.half.0000000.gz: unexpected end of file
 ..................................................................Killed
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ 
+```
 
 ## Update the script and Run again
 
-Rule ကို maximum 300 ထိပဲ ထားပြီး လုပ်ခဲ့...
+Rule ကို maximum 300 ထိပဲ ထားပြီး လုပ်ခဲ့...  
 
-extraction လုပ်တာ... learn လုပ်တာတော့ အဆင့်ဆင့်ဖြစ်လာလို့ တိုးတက်မှု ရှိ ...
+extraction လုပ်တာ... learn လုပ်တာတော့ အဆင့်ဆင့်ဖြစ်လာလို့ တိုးတက်မှု ရှိ ...  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.14008$ ls
 align.0000000  align.0000007           extract.0000002.inv.gz  extract.0000006.gz      glue.0000003  sortBD6gLO  source.0000000  source.0000007  target.0000006
 align.0000001  chk.extract.6.out       extract.0000003.gz      extract.0000006.inv.gz  glue.0000004  sortfueEbB  source.0000001  target.0000000  target.0000007
@@ -1059,9 +1069,11 @@ align.0000004  extract.0000001.gz      extract.0000004.inv.gz  glue.0000000     
 align.0000005  extract.0000001.inv.gz  extract.0000005.gz      glue.0000001            sort4TNBdO    sortRnJTJP  source.0000005  target.0000004
 align.0000006  extract.0000002.gz      extract.0000005.inv.gz  glue.0000002            sortA9TAjB    sortTmCiGQ  source.0000006  target.0000005
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.14008$
+```
 
-သို့သော် Rule table မဆောက်ပေးနိုင်...
+သို့သော် Rule table မဆောက်ပေးနိုင်...  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
 === 1/5 Counting and sorting n-grams ===
 Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
@@ -1105,3 +1117,5 @@ BLEU=0.000000	RIBES=0.000000	WER=1.020299
 real	37m50.763s
 user	144m0.369s
 sys	34m14.781s
+```
+
