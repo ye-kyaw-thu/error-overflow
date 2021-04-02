@@ -1267,3 +1267,162 @@ Moses manual ထဲက example က အောက်ပါအတိုင်း...
 <tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
 ```
 
+##  --extract-options "--MaxSpan 100  and Run Again
+
+Changed option  --extract-options "--MaxSpan 100  and the result is as follows:
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+
+### Information of folder, path and other variables...
+ SOURCE: en
+ TARGET: my
+ EXP_DIR: /home/ye/exp/smt/wat2021/tree-smt/tree2string
+ LM: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train
+ CORPUS: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train
+ DEV_SOURCE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/dev.en
+ DEV_TARGET: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my
+ TEST: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/test.en
+ REF: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/test.my
+ LM_ORDER: 6
+ JOBS: 8
+ MOSES_SCRIPT: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+ MOSES_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin
+ EXT_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/training-tools
+ WORK_DIR: work.en-my
+ TRAINING_DIR: work.en-my/training
+ MODEL_DIR: work.en-my/training/model
+ MTEVAL_DIR: /home/ye/tool/mteval/build/bin
+ LM_FILE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz
+ OUTPUT_DIR: work.en-my/output
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28656 kB	RSSMax:2153456 kB	user:7.29601	sys:1.7008	CPU:8.99681	real:22.29
+ERROR cannot open weight-ini 'work.en-my/tuning/mert/moses.ini': No such file or directory at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/support/substitute-weights.perl line 34.
+BLEU = 1.27, 29.6/5.1/1.3/0.4 (BP=0.434, ratio=0.545, hyp_len=32103, ref_len=58895)
+BLEU=0.012747	RIBES=0.430519	WER=0.924014
+
+real	39m14.751s
+user	133m48.306s
+sys	31m37.537s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$
+
+No. 2  နဲ့ နှိုင်းယှဉ်ကြည်မယ်။
+No.2 (--max-chart-span 30) တုန်းက
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model2/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294773  26304055 aligned.grow-diag-final-and
+   151070    873413  40454631 extract.inv.sorted.gz
+   136744    771330  34734429 extract.sorted.gz
+        3        45       192 glue-grammar
+   518532   1555596  16594649 lex.e2f
+   518532   1555596  16594649 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+   313080   1728472  80555025 rule-table.gz
+  2352089  21529149 304528893 total
+
+အခု experiment No.3 (--max-chart-span 100) မှာက အောက်ပါအတိုင်း
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294546  26302649 aligned.grow-diag-final-and
+   285540   1656068  76211489 extract.inv.sorted.gz
+   269013   1525496  69351378 extract.sorted.gz
+        3        45       192 glue-grammar
+   518504   1555512  16593254 lex.e2f
+   518504   1555512  16593254 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+   556787   3095770 143728680 rule-table.gz
+  2862479  24432873 438072159 total
+
+## No. 4 (--max-chart-span 500) ထိ တိုးကြည့်
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+Score v2.1 -- scoring methods for extracted rules
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.....
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e......
+....................................................................................................................................................................................................................................................................Killed
+..........................................................................................................................
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$
+
+## No. 4 (--max-chart-span 300) ထိ တိုးကြည့်
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+Score v2.1 -- scoring methods for extracted rules
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.....
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+...........................................................................................................................................................................................................................................................................Killed
+............................................................................................................
+
+## Removed: --NonTermConsecSource --AllowOnlyUnalignedWords
+
+training လုပ်တဲ့အဆင့်မှာ
+ Removed: --NonTermConsecSource --AllowOnlyUnalignedWords
+ ပြီးတော့ --extract-options "--MaxSpan 250" ထားတယ်။ 
+
+tuning လုပ်တဲ့အဆင့်မှာ -max-chart-span 250 ထားပြီး experiment လုပ်ကြည့်ခဲ့...
+
+-------------
+
+ERROR: tag tree closed, but not opened:<tree label="S"> <tree label="P"> While/IN </tree> <tree label="VP"> <tree label="V"> destroying/VBG </tree> <tree label="NP"> opium/NN </tree> </tree> fields/NNS <tree label="P"> in/IN </tree> Mongshu/NNP ,/, <tree label="NP"> a/DT combined/JJ team/NN </tree> <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> government/NN </tree> </tree> troops/NNS ,/, <tree label="NP"> police/NN </tree> ,/, <tree label="NP"> departmental/JJ staff/NN </tree> and/CC <tree label="NP"> the/DT public/NN </tree> <tree label="VP"> <tree label="V"> were/VBD </tree> </tree> <tree label="VP"> <tree label="V"> attacked/VBN </tree> </tree> <tree label="P"> with/IN </tree> heavy/JJ and/CC light/JJ weapons/NNS <tree label="P"> by/IN </tree> members/NNS <tree label="P"> of/IN </tree> the/DT Shan/NNP <tree label="NP"> state/NN </tree> <tree label="NP"> army/NN </tree> <tree label="/("> Wanhai/NNP </tree> / </tree> <tree label="NP"> group/NN </tree> ./. </tree>
+
+Let's check details
+
+<tree label="S">, <tree label="P">, <tree label="VP">, <tree label="V">, <tree label="NP">, <tree label="P">, <tree label="NP">, <tree label="PP">, <tree label="P">,
+<tree label="NP">, <tree label="NP">,  <tree label="NP">, <tree label="NP">, <tree label="VP">, <tree label="V">, <tree label="VP">, <tree label="V">, <tree label="P">, <tree label="P">, <tree label="P">, <tree label="NP">, <tree label="NP">, <tree label="/(">, <tree label="NP"> 
+in total = 24 opening tags
+</tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>
+in total = 25 closed tags
+
+
+အဖွင့်မပိတ် မညီတဲ့ error ကို manual counting လုပ်ကြည့်တော့ ပေးတဲ့ error အတိုင်း XML opening tag အရေအတွက်နဲ့ closed tag အရေအတွက်က မညီတာကို တွေ့ရ။
+စုစုပေါင်း အဲဒီလိုမျိုးerror ပေးနေတဲ့ စာကြောင်း ဘယ်နှစ်ကြောင်း ရှိသလဲ ဆိုတာကိုလည်း training log ဖိုင်ကနေ count လုပ်ကြည့်တော့...
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ cat ./training_TM.log | grep "ERROR: tag tree closed, but not opened" | wc
+   5580  643678 5432242
+
+5580 ရှိတယ်။ ဒီကိစ္စက လွယ်မလိုလိုနဲ့ auto correction လုပ်ဖို့က စဉ်းစားရလိမ့်မယ်...
+စာကြောင်းရေ ၃သိန်းနီးပါးမှာ ၅ထောင်ကျော်ဆိုတော့ မျက်စိမိတ်ပြီးပဲ ဆက်လုပ်သင့်သလား?!?!
