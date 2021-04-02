@@ -29,7 +29,7 @@ Parser တွေက အင်္ဂလိပ်စာမှာတောင် �
 ဒီနေရာမှာတော့ NLTK parser ကို သုံးပြီး ကျောင်းသူတစ်ယောက်က သူစမ်းထားတာကို report တင်ထားလို့ အဲဒီ NLTK parser နဲ့ parsing လုပ်ထားတဲ့ ဒေတာကိုပဲ သုံးပြီး moses နဲ့ SMT experiment လုပ်သွားမှာ ဖြစ်ပါတယ်။  
 NLT နဲ့ parse လုပ်မယ် ဆိုရင် အောက်ပါလိုမျိုး Python script ရေးပြီး parsing လုပ်လို့ ရပါတယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-tmp/data/parsing/example$ cat ./nltk_parser.py 
 import nltk 
 #nltk.download('punkt') 
@@ -62,7 +62,7 @@ with open("bbc.article.parse.txt","a") as w_file:
 
 Python script ကို run တဲ့အခါမှာ တကယ်လို့ nltk package တွေ၊ မော်ဒယ်တွေက ကိုယ့်စက်ထဲမှာ မရှိသေးရင် download လုပ်သွားပါလိမ့်မယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-tmp/data/parsing/example$ python ./nltk_parser.py 
 [nltk_data] Downloading package averaged_perceptron_tagger to
 [nltk_data]     /home/ye/nltk_data...
@@ -72,7 +72,7 @@ Python script ကို run တဲ့အခါမှာ တကယ်လို့
 
 ဥပမာ အနေနဲ့ parsing လုပ်ပြမယ့် စာကြောင်းတွေက BBC News (https://www.bbc.com/news/world-asia-56612247) က စာကြောင်းငါးကြောင်းကို ယူသုံးထားပါတယ်။ Parsing မလုပ်ခင်က အင်္ဂလိပ်စာကြောင်းတွေက အောက်ပါအတိုင်း ရှိပါလိမ့်မယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-tmp/data/parsing/example$ cat ./bbc.article.txt 
 Myanmar's military seized power in the South East Asian nation after overthrowing the government and declared a state of emergency.
 Just days later, the civil disobedience movement began to emerge - professionals refusing to return to work in protest.
@@ -83,7 +83,7 @@ Rights group the Assistance Association for Political Prisoners say more than 50
 
 Parsing လုပ်ပြီးတဲ့အခါမှာတော့ အောက်ပါပုံစံ ရရှိပါလိမ့်မယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-tmp/data/parsing/example$ cat ./bbc.article.parse.txt
 (S Myanmar/NNP 's/POS (NP military/JJ seized/JJ power/NN) (P in/IN) the/DT South/NNP East/NNP (NP Asian/JJ nation/NN) (P after/IN) (VP (V overthrowing/VBG) (NP the/DT government/NN)) and/CC (VP (V declared/VBD) (NP a/DT state/NN) (PP (P of/IN) (NP emergency/NN))) ./.)
 (S Just/RB days/NNS later/RB ,/, (NP the/DT civil/JJ disobedience/NN) (NP movement/NN) (VP (V began/VBD)) to/TO (VP (V emerge/VB)) -/: professionals/NNS (VP (V refusing/VBG)) to/TO (VP (V return/VB)) to/TO (VP (V work/VB) (PP (P in/IN) (NP protest/NN))) ./.)
@@ -156,7 +156,7 @@ Note: ထိုနည်းလည်းကောင်းပဲ Billip parser �
 
 ထုံးစံအတိုင်း SMT experiment အတွက် corpus preparation လုပ်ရတယ်။ tree-to-string, string-to-tree SMT experiment လုပ်ဖို့အတွက်က ဒေတာနှစ်မျိုး ပြင်ရပါလိမ့်မယ်။ Tokenized (e.g. word segmented, syllable segmented, sub-word level segmented) ဒေတာတွေကို ပြင်ရတဲ့အပိုင်းနဲ့ syntax tree parse လုပ်ထားတဲ့ ဒေတာကိုလည်း အောက်ပါအတိုင်း ဖိုလ်ဒါခွဲသိမ်းရပါတယ်။  
 
-```
+```console
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ tree -L 1 ./data.tok/
 ./data.tok/
 ├── dev.my
@@ -166,7 +166,7 @@ Note: ထိုနည်းလည်းကောင်းပဲ Billip parser �
 
 tree ဒေတာကတော့ data.tree/ အောက်မှာ သိမ်းထားတယ်။  
 
-```
+```console
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ tree -L 1 ./data.tree/
 ./data.tree/
 ├── dev.en
@@ -198,7 +198,7 @@ You MUST specify the parameter -external-bin-dir at /home/ye/tool/mosesbin/ubunt
 
 Error ကို ဖြေရှင်းတာကတော့ moses system က ရှာနေတဲ့ path အတိုင်း mgiza ကို GIZA++/ ဖိုလ်ဒါအောက်မှာ ကော်ပီကူးထည့်ခဲ့တယ်။ ထိုနည်းလည်းကောင်းပဲ snt2cooc ဖိုင်ကိုလည်း snt2cooc.out/ ဖိုလ်ဒါအောက်မှာ ကော်ပီကူးထည့်ခဲ့ပါတယ်။ folder tree က အောက်ပါအတိုင်း လုပ်ပေးလိုက်ရင် ပြေလည်သွားလိမ့်မယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesbin/ubuntu-17.04/training-tools$ ls
 merge_alignment.py  mgiza  mkcls  snt2cooc
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesbin/ubuntu-17.04/training-tools$ mkdir GIZA++
@@ -222,7 +222,7 @@ merge_alignment.py  mgiza  mkcls  snt2cooc
 တစ်ခု ရှိတာက GIZA single thread နဲ့ align လုပ်တာက အရမ်းကြာနေတယ်။ အဲဒါကြောင့် Ctrl+C နဲ့ ပရိုဂရမ်ကို break လုပ်လိုက်တယ်။  
 Log ကို ကြည့်တော့...  
 
-```
+```console
 Using SCRIPTS_ROOTDIR: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
 Using single-thread GIZA
 using gzip 
@@ -237,7 +237,7 @@ Forking...
 
 Training time မြန်ဖို့အတွက် mgiza နဲ့ သုံးလို့ ရဖို့ အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ ls
 d4norm                    force-align-moses.sh  hmmnorm             mgiza  plain2snt            run.sh    snt2cooc.pl  snt2plain       symal
 force-align-moses-old.sh  giza2bal.pl           merge_alignment.py  mkcls  plain2snt-hasvcb.py  snt2cooc  snt2coocrmp  sntpostproc.py
@@ -292,7 +292,7 @@ using gzip
 
 ## Recheck the format of parsed tree
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/wmt2014-scripts/example/data$ head -n 1 parallelC.de-en.parsed.en 
 <tree label="sent"><tree label="root"><tree label="nsubj"><tree label="det"><tree label="DT">The</tree></tree><tree label="NN">ECB</tree></tree><tree label="VBZ">wants</tree><tree label="xcomp"><tree label="aux"><tree label="TO">to</tree></tree><tree label="VB">hold</tree><tree label="dobj"><tree label="NN">inflation</tree></tree><tree label="prep"><tree label="TO">to</tree><tree label="pcomp"><tree label="IN">under</tree><tree label="pobj"><tree label="num"><tree label="CD">two</tree></tree><tree label="NN">percent</tree><tree label="punct"><tree label=",">,</tree></tree><tree label="cc"><tree label="CC">or</tree></tree><tree label="conj"><tree label="advmod"><tree label="RB">somewhere</tree></tree><tree label="IN">in</tree><tree label="pobj"><tree label="det"><tree label="DT">that</tree></tree><tree label="NN">vicinity</tree></tree></tree></tree></tree></tree></tree><tree label="punct"><tree label=".">.</tree></tree></tree></tree>
 ```
@@ -300,7 +300,7 @@ using gzip
 moses က လက်ခံတာက အထက်မှာ ပြထားသလို xml tag format ပုံစံလို့ ထင်တယ်။  
 လက်ရှိ parsed လုပ်ထားတဲ့ training ဒေတာက bracket နဲ့ parsed လုပ်ထားတဲ့ format ဖြစ်နေတာကိုတွေ့ရ။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 3 ./train.en 
 (S (NP A/DT murder/NN) (NP case/NN) (VP (V has/VBZ)) (VP (V been/VBN)) (VP (V opened/VBN)) (P at/IN) the/DT Kyeikgyaung/NNP police/NNS (NP station/NN) ./.)
 (S Police/NNS (VP (V are/VBP)) (VP (V investigating/VBG)) ./.)
@@ -311,7 +311,7 @@ moses က လက်ခံတာက အထက်မှာ ပြထားသလ�
 
 Bracket format ကနေ XML tag format အဖြစ်ပြောင်းဖို့ tool program တွေက moses မှာ wrapper အနေနဲ့ ပါပါတယ်။ သို့သော် SMT experiment အတွက် NLTK parser ရဲ့ output ကို ဒီ wrapper နဲ့ တကယ်တမ်း အဆင်ပြေ မပြေဆိုတာကတော့ လေ့လာဖို့ လိုအပ်လိမ့်မယ်...  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers$ ls
 adam-suffix-array                 madamira-wrapper.perl                 make-factor-en-pos.mxpost.perl    parse-de-berkeley.perl  senna2brackets.py
 berkeleyparsed2mosesxml.perl      mada-wrapper.perl                     make-factor-pos.tree-tagger.perl  parse-de-bitpar.perl    syntax-hyphen-splitting.perl
@@ -325,7 +325,7 @@ madamira-tok.perl                 make-factor-en-porter.perl            mosesxml
 
 berkeleyparsed2mosesxml.perl နဲ့ ပြောင်းတဲ့ ပုံစံ ဥပမာကတော့ အောက်ပါအတိုင်းပါ  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 3 test.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl 
 <tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
 <tree label="S"> Randwick/NNP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> locked/VBN </tree> </tree> down/RP ,/, and/CC <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> expected/VBN </tree> </tree> to/TO <tree label="VP"> <tree label="V"> remain/VB </tree> </tree> so/RB <tree label="P"> for/IN </tree> <tree label="P"> up/IN </tree> to/TO two/CD months/NNS ./. </tree>
@@ -334,7 +334,7 @@ berkeleyparsed2mosesxml.perl နဲ့ ပြောင်းတဲ့ ပုံ�
 
 အောက်ပါအတိုင်း အင်္ဂလိပ်စာ training/development/test data အားလုံးကို format conversion လုပ်ခဲ့တယ်။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ ls
 dev.en  test.en  train.en
 
@@ -355,7 +355,7 @@ SMT/NMT experiment တွေလုပ်တဲ့အခါမှာ data prepara
 mert.log ဖိုင်မှာတော့ အောက်ပါအတိုင်း  tuning ကို 2 iteration အထိတော့ လုပ်သွားပုံရတယ်။  
 ERROR message မရှိဘူး။  
 
-```
+```console
 Name:moses_chart        VmPeak:1175656 kB       VmRSS:197696 kB RSSMax:801380 kB        user:11.596     sys:16.548      CPU:28.144      real:17.031
 The decoder returns the scores in this order: LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel1
 Executing: gzip -f run2.best100.out
@@ -393,7 +393,7 @@ Saved: ./moses.ini
 ကျောင်းသူ ဇာဇာလှိုင် report ထဲမှာ ပြောခဲ့သလိုပဲ input က English ကို output ကလည်း English ပဲ ပြန်ထွက်နေတယ်။  
 tunning 1, 2 ရဲ့ translated output ၁၀ကြောင်းစီက အောက်ပါအတိုင်း ...  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run1.out
 ``/`` Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &apos;&apos;/&apos;&apos;
 It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
@@ -409,7 +409,7 @@ Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Lo
 
 tuning iteration no. 2 ရဲ့ output ဖိုင်ကိုလည်း စစ်ကြည့်ခဲ့...  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run2.out
 ``/`` Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &apos;&apos;/&apos;&apos;
 It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
@@ -428,7 +428,7 @@ Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Lo
 
 tree-to-string, string-to-tree, tree-to-tree SMT experiment မှာက PBSMT ရဲ့ phrase table လိုပဲ rule table ဆိုတာ ရှိတယ်။ အဲဒီ rule table ကို ဆောက်မပေးနိုင်တာကို အောက်ပါအတိုင်း တွေ့ရ။  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc ./rule-table.gz 
  0  0 20 ./rule-table.gz
 ```
@@ -440,7 +440,7 @@ XML format ကို PTB အဖြစ် ပြောင်းပြီး run �
 XML tag parsing လုပ်တဲ့ tool တွေထဲမှာ berkeleyparsed2mosesxml_PTB.perl ဆိုတဲ့ wrapper လည်း ရှိသေးတယ်။  
 ဘာတွေကွာတာလဲ?!  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/train.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./train.en
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/dev.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./dev.en
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/test.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./test.en
@@ -469,7 +469,7 @@ PTB perl script မှာက အောက်ပါလို single, double အ�
 
 ## Training/Tunning Again with PTB Tree Format
 
-```
+```console
 Memory estimate for binary LM:
 type     MB
 probing 185 assuming -p 1.5
@@ -521,6 +521,6 @@ model/ Folder ထဲက file size တွေကို check လုပ်ကြည
 sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတာလား ?!?!?!  
 Reference: moses manual, page 98  
 
-Removed: ```sort-buffer-size 10G```bash  
-Added:   ```--sort-batch-size 1024 --sort-compress gzip \```  
+Removed: ```sort-buffer-size 10G```sh  
+Added:   ```--sort-batch-size 1024 --sort-compress gzip \```sh    
 
