@@ -1267,9 +1267,9 @@ Moses manual ထဲက example က အောက်ပါအတိုင်း...
 <tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
 ```
 
-##  --extract-options "--MaxSpan 100  and Run Again
+##  --extract-options "--MaxSpan 100"  and Run Again
 
-Changed option  --extract-options "--MaxSpan 100  and the result is as follows:  
+Changed option  --extract-options "--MaxSpan 100"  and the result is as follows:  
 
 ```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
@@ -1355,7 +1355,7 @@ No.2 (--max-chart-span 30) တုန်းက
   2352089  21529149 304528893 total
 ```
 
-အခု experiment No.3 (--max-chart-span 100) မှာက အောက်ပါအတိုင်း  
+အခု experiment No.3 "--max-chart-span 100" မှာက အောက်ပါအတိုင်း  
 
 ```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
@@ -1373,7 +1373,7 @@ No.2 (--max-chart-span 30) တုန်းက
   2862479  24432873 438072159 total
 ```
 
-## No. 4 (--max-chart-span 500) ထိ တိုးကြည့်
+## No. 4 "--max-chart-span 500" ထိ တိုးကြည့်
 
 ```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
@@ -1390,7 +1390,7 @@ Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2st
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$
 ```
 
-## No. 4 (--max-chart-span 300) ထိ တိုးကြည့်
+## No. 4 "--max-chart-span 300" ထိ တိုးကြည့်
 
 ```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
@@ -1406,7 +1406,7 @@ Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2st
 ............................................................................................................
 ```
 
-## Removed: --NonTermConsecSource --AllowOnlyUnalignedWords
+## Removed: "--NonTermConsecSource --AllowOnlyUnalignedWords"
 
 training လုပ်တဲ့အဆင့်မှာ  
 
