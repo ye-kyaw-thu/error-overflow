@@ -1776,4 +1776,100 @@ user	119m43.460s
 sys	30m33.201s
 ```
 
+## Change parameters and Train Again
+
+Training:  
+```
+  --extract-options "--MaxSpan 80 --MinHoleSource 1 --MinWords 0 --DisallowNonTermConsecTarget" \
+ ```
+ 
+Tuning:  
+```
+    --decoder-flags "-threads ${JOBS} -max-chart-span 80 --verbose 1" \
+```
+
+Testing:  
+```
+${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -max-chart-span 80 -threads ${JOBS} --inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+
+### Information of folder, path and other variables...
+ SOURCE: en
+ TARGET: my
+ EXP_DIR: /home/ye/exp/smt/wat2021/tree-smt/tree2string
+ LM: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train
+ CORPUS: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train
+ DEV_SOURCE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/dev.en
+ DEV_TARGET: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my
+ TEST: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/test.en
+ REF: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/test.my
+ LM_ORDER: 6
+ JOBS: 8
+ MOSES_SCRIPT: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+ MOSES_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin
+ EXT_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/training-tools
+ WORK_DIR: work.en-my
+ TRAINING_DIR: work.en-my/training
+ MODEL_DIR: work.en-my/training/model
+ MTEVAL_DIR: /home/ye/tool/mteval/build/bin
+ LM_FILE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz
+ OUTPUT_DIR: work.en-my/output
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28488 kB	RSSMax:2153044 kB	user:7.20619	sys:1.67403	CPU:8.88022	real:22.4791
+BLEU = 2.38, 21.7/3.9/1.1/0.3 (BP=1.000, ratio=1.450, hyp_len=85404, ref_len=58895)
+BLEU=0.023815	RIBES=0.359538	WER=1.368267
+
+real	25m42.388s
+user	133m38.139s
+sys	28m31.003s
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/output$ head test.out
+အ အ စိုး ရ က eight/CD ကြောင်း လေး တည် တင် ခံ thoroughbred/VBD ကို လူ မျိုး Randwick/NNP ကို horses/NNS ခဲ့ Racecourse/NNP . ၆ ရာ Sydney/NNP ရေး ရာ ဌာ န ဖုန်း ခံ စား ခွ င့် ရှိ equine/JJ ကို ဖွဲ့ င့် ကူး စက် ကွေး ဝေ ဒ နာ ခံ စား နေ ရ ရင်း နှီး မြှုပ် နှံ မှု
+Randwick/NNP အ စိုး ရ ၏ ဥ ပ down/RP သော့ ခတ် မှာ အ လုပ် လုပ် ကေ အန် ယူ မှု များ လက် လှမ်း မီ မှု စဉ် များ ဖြ င့် ဖွဲ့ စည်း ကို ပါ ဖြစ် နေ ဖို့ ခု နဲ့ ပြည် နယ် ခြေ ပြု ကို စီ မံ ခ န့် ခွဲ ( နိုင် ဆောင် months/NNS က ရင် လူ မျိုး
+အ မှာ ယာန် ၅ virulent/NN ခိုင် မျှော် မှန်း ထား ကျောက် တုံး က တုပ် ကွေး ကျိုး သက် ရောက် ခြင်း ကို ထိ တွင် ညာ တွင် ရှိ ယာန် ၅ . နေ ရာ အ များ စု ) horses/NNS stabled/VBN Randwick/NNP က န မ့် တုန် က ရင် လူ မျိုး
+NSW/NNP Primary/NNP ကို ဘဏ္ဍာ ရေး သည် ။ သို့ မှ Industries/NNPS &apos; ဟု က စီး quarantined/VBN နိုင် ကို က ရင်း မြစ် ဆုံး သည် အ ထိ ဆက် လက် ဖြစ် စဉ် အ က တော့ ယာန် ၅ . ၆ တုပ် ကွေး ရော ကို ရင် ဆိုင် ဖို့ ယာန် ၅ . ကြမ်း ကို last/JJ လက် မှတ် ရေး ထိုး နှုန်း က ရင် လူ မျိုး များ အ နေ ဖြ
+ရ ဖြ င့် အ စိုး ရေး ဆွဲ ပေါင်း သင်း ဆက် ဆံ ရေး နယ် ပယ် အ တွင် ညီ လာ ခံ infections/NNS ပြေး ပွဲ ( ၁ နိုင် horses/NNS လည်း အ infecting/VBG ငန်း များ တွင် dozens/NNS recreational/JJ ဆွေး နွေး ထား horses/NNS NSW/NNP က န့် လ န့် ဖြတ် ၍ Queensland/NNP မှ စ တင် ၍ အ ကောင် အ ထည် ဖော် စီ အ
+ကွေး မိ နေ ခြေ ပြု highly/RB လုပ် ငန်း တူ contagious/JJ အ ကို humans/NNS ဖို့ စေ လွှဲ ပြောင်း ပေး ဆောင် ရွက် ရ မည် ဟု အ ၏ နဲ့ အ ပါ အ ဝင် ခြင်း ။
+ခြင်း ကြော င့် တိုး တက် မှု ကော် မ တီ racing/NN shutdown/NN millions/NNS ကြေး ရေး စက် မှု လက် မှု tens/NNS ကြီး ကို လည် တည် ဆောက် ရေး အ တွက် ကို ရင် နေ့ တိုင်း ( dollars/NNS သက် ၁၀ - ၁၃ နှစ် ကြား ပါ ။
+Chief/NNP Racing/NNP ကြေး ရေး မ Executive/NNP မှု ရင် NSW/NNP Peter/NNP နှ င့် V/NNP ချက် အ လက် မှတ် တမ်း များ အ ရ၎င်း တို့ ကျွန် တော့် Landys/NNP တွင် ရှိ စဉ် တွင် ဒီ ကြား က တိ ပြု ထား ပြီး ပြိုင် တည် ငွေ ကို ရ လိုက် ထား လုံး စုံ တား ၏ တည် စဉ် က တည်း က အ နှော င့် အ ယှက် ဖြစ် ရ ခြင်း ကျ က movements/NNS ဒီ နေ့ ပတ် တာ ထား တော် ( သည် အ လုပ် သ မား စက် မှု racing/NN မျှ အ NSW/NNP တယ် တွင် မြန် မာ့ အ ( ကျွန် တော့် နယ် ၏ တစ် စိတ် တစ် ဒေ သင် တန်း ပေး ရွေး ချယ် ခံ မ မှ ခါ တော် နေ့ black/JJ ဝက် ကျော် ၊ ( ကျွန် တော့် grim/JJ မှာ ခဲ့ ပါ ။ ငန်း စဉ် တွင် ဒီ ဖွဲ့ စည်း တည် ထောင် ထား ၏ တည် တဲ့
+Racing/VBG ခြေ ပြု ( ဘယ် လို ဆက် ဖြစ် လာ မျှ အ လ ကား ဖြစ် ခဲ့ Australian/JJ အ ပါ အ ဝင် တယ် \ ဖို့ ကို စီ မံ ခ န့် ခွဲ ရန် ဗ ဟို Queensland/NNP တံ ရော NSW/NNP မှ တစ် ပါး အ ခြား နေ ရာ ကျ ယာန် ၅ . ဒီ တစ် ပတ် င့် ဖြူး ပါ စေ ။
+ချို့ ကျွန် တော့် နွေ ဦး ရာ သီ ကာ ကွယ် ရေး ကို င့် တွင် ရှိ များ မ တိုင် မီ မှ Sydney/NNP က ပြိုင် carnival/NN ဖျက် သိမ်း လိုက် ခဲ့ သ ည့် အ တွင်း လို့ စော ဒ က တတ် သ လို ဖို့ ခြင်း ကောင်း အန် ပီ အေ ) များ င့် တွင် ရှိ ၏ လုပ် ငန်း စဉ် တွင် ဒီ မှ Melbourne/NNP ပြင် ရှိ အ ခြေ ကျွေး မွေး လုပ် Caufield/NNP တွင် ဤ ပုဒ် မ ၏ ပုဒ် မ ခွဲ ( ဒီ သီ တင်း ပတ် ကုန် ဖုန် ချယ် ခံ Cup/NNP က ရင် လူ မျိုး
+```
+
+*** ခုချိန်ထိ အကောင်းဆုံး BLEU Score လား?!  
 
