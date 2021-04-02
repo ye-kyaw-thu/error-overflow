@@ -2222,3 +2222,26 @@ real	25m50.482s
 user	131m48.365s
 sys	28m59.198s
 ```
+
+## References
+
+Some links relating to parsing with NLTK:
+1. https://www.nltk.org/_modules/nltk/tree.html  
+2. https://www.districtdatalabs.com/syntax-parsing-with-corenlp-and-nltk  
+3. https://www.semicolonworld.com/question/43055/stanford-parser-and-nltk  
+4. https://stackoverflow.com/questions/42322902/how-to-get-parse-tree-using-python-nltk  
+5. https://coling.epfl.ch/TP/TP-parsing.php  
+6. http://nltk.sourceforge.net/doc/en/ch07.html  
+7. https://stackoverflow.com/questions/57293069/escape-parentheses-in-nltk-parse-tree
+8. https://stackoverflow.com/questions/24363145/quick-nltk-parse-into-syntax-tree
+9. Constituent-based Syntactic Parsing with NLTK: https://www.cs.bgu.ac.il/~elhadad/nlp16/nltk-pcfg.html
+
+Relating to moses SMT:  
+1. Moses Homepage: https://www.statmt.org/moses/
+2. User Manual: https://www.statmt.org/moses/manual/manual.pdf
+
+Scripts:  
+1. Tree-to-String Example Script of WAT2015: http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2015/baseline/baselineSystemTree2String.html
+2. String-to-Tree Example Script of WAT2015: http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2015/baseline/baselineSystemString2Tree.html  
+
+
