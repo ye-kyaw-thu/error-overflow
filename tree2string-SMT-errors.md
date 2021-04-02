@@ -390,7 +390,7 @@ Saved: ./moses.ini
 1-10.20.2 0.2 0.2 0.2-1000.5Training finished at ၂၀၂၁ မတ် ၃၁ ဗုဒ္ဓဟူး ၀၄:၄၃:၁၂ နံနက် +0630
 ```
 
-ဇာဇာလှိုင် report ထဲမှာ ပြောခဲ့သလိုပဲ input က English ကို output ကလည်း English ပဲ ပြန်ထွက်နေတယ်။  
+ကျောင်းသူ ဇာဇာလှိုင် report ထဲမှာ ပြောခဲ့သလိုပဲ input က English ကို output ကလည်း English ပဲ ပြန်ထွက်နေတယ်။  
 tunning 1, 2 ရဲ့ translated output ၁၀ကြောင်းစီက အောက်ပါအတိုင်း ...  
 
 ```
