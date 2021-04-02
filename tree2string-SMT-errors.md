@@ -521,6 +521,9 @@ model/ Folder ထဲက file size တွေကို check လုပ်ကြည
 sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတာလား ?!?!?!  
 Reference: moses manual, page 98  
 
-Removed: ```sort-buffer-size 10G```sh  
-Added:   ```--sort-batch-size 1024 --sort-compress gzip \```sh    
+Removed:
+```sort-buffer-size 10G```bash  
+
+Added:
+```--sort-batch-size 1024 --sort-compress gzip \```bash    
 
