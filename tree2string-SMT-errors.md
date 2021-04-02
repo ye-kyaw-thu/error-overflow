@@ -522,13 +522,12 @@ sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတ
 Reference: moses manual, page 98  
 
 Removed: 
-```
+```console
 sort-buffer-size 10G
-```console  
+```
 
 Added:   
-
-```
+```console
 --sort-batch-size 1024 --sort-compress gzip
-```console  
+```  
 
