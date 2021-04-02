@@ -152,7 +152,29 @@ Constituent tree:
 
 Note: ထိုနည်းလည်းကောင်းပဲ Billip parser က အများဆုံး parse လုပ်ပေးနိုင်တာက 184 words အထိပဲ ဖြစ်ပြီးတော့ အဲဒီထက်ကျော်တဲ့ စာကြောင်းတွေဆိုရင် "list index out of range error" ပေးပါလိမ့်မယ်။  
  
- 
+## Tokenized and Tree Data Preparation
+
+ထုံးစံအတိုင်း SMT experiment အတွက် corpus preparation လုပ်ရတယ်။ tree-to-string, string-to-tree SMT experiment လုပ်ဖို့အတွက်က ဒေတာနှစ်မျိုး ပြင်ရပါလိမ့်မယ်။ Tokenized (e.g. word segmented, syllable segmented, sub-word level segmented) ဒေတာတွေကို ပြင်ရတဲ့အပိုင်းနဲ့ syntax tree parse လုပ်ထားတဲ့ ဒေတာကိုလည်း အောက်ပါအတိုင်း ဖိုလ်ဒါခွဲသိမ်းရပါတယ်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ tree -L 1 ./data.tok/
+./data.tok/
+├── dev.my
+├── test.my
+└── train.my
+```
+
+tree ဒေတာကတော့ data.tree/ အောက်မှာ သိမ်းထားတယ်။  
+
+```
+(py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ tree -L 1 ./data.tree/
+./data.tree/
+├── dev.en
+├── test.en
+├── train.en
+└── train.my
+```
+
 ## Preparing t2s.sh Shell Script
 
 tree-to-string SMT experiment ကို လုပ်ဖို့အတွက်က ကိုယ့်စက်ထဲမှာ moses က run လို့ ရအောင် ပြင်ဆင်ပြီးသား ဖြစ်ရပါလိမ့်မယ်။  
