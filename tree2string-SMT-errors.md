@@ -307,3 +307,27 @@ moses က လက်ခံတာက အထက်မှာ ပြထားသလ�
 (S Tatmadaw/NNP troops/NNS (VP (V seized/VBD)) arms/NNS and/CC (NP illegal/JJ timber/NN) (PP (P from/IN) (NP a/DT vehicle/NN)) (PP (P during/IN) (NP a/DT surprise/NN)) (NP check/NN) (P in/IN) Tarmoenyae/NNP (P in/IN) northern/JJ Shan/NNP (NP state/NN) (NP yesterday/NN) ./.)
 ```
 
+## Format Conversion
+
+Bracket format ကနေ XML tag format အဖြစ်ပြောင်းဖို့ tool program တွေက moses မှာ wrapper အနေနဲ့ ပါပါတယ်။ သို့သော် SMT experiment အတွက် NLTK parser ရဲ့ output ကို ဒီ wrapper နဲ့ တကယ်တမ်း အဆင်ပြေ မပြေဆိုတာကတော့ လေ့လာဖို့ လိုအပ်လိမ့်မယ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers$ ls
+adam-suffix-array                 madamira-wrapper.perl                 make-factor-en-pos.mxpost.perl    parse-de-berkeley.perl  senna2brackets.py
+berkeleyparsed2mosesxml.perl      mada-wrapper.perl                     make-factor-pos.tree-tagger.perl  parse-de-bitpar.perl    syntax-hyphen-splitting.perl
+berkeleyparsed2mosesxml_PTB.perl  make-factor-brown-cluster-mkcls.perl  make-factor-stem.perl             parse-en-bllip.perl     tagger-german-chunk.perl
+conll2mosesxml.py                 make-factor-de-lemma.perl             make-factor-suffix.perl           parse-en-collins.perl   tree-converter-mosesxml.sh
+filter-excluded-lines.perl        make-factor-de-morph.perl             morfessor-wrapper.perl            parse-en-egret.perl
+find-unparseable.perl             make-factor-de-pos.perl               mosesxml2berkeleyparsed.perl      parse-en-senna.perl
+madamira-tok.perl                 make-factor-en-porter.perl            mosesxml2brackets.py              parse-en-stanford.py
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers$
+```
+
+berkeleyparsed2mosesxml.perl နဲ့ ပြောင်းတဲ့ ပုံစံ ဥပမာကတော့ အောက်ပါအတိုင်းပါ  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 3 test.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl 
+<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
+<tree label="S"> Randwick/NNP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> locked/VBN </tree> </tree> down/RP ,/, and/CC <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> expected/VBN </tree> </tree> to/TO <tree label="VP"> <tree label="V"> remain/VB </tree> </tree> so/RB <tree label="P"> for/IN </tree> <tree label="P"> up/IN </tree> to/TO two/CD months/NNS ./. </tree>
+<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> expected/VBN </tree> <tree label="PP"> <tree label="P"> that/IN </tree> <tree label="NP"> the/DT virulent/NN </tree> </tree> <tree label="NP"> flu/NN </tree> </tree> will/MD <tree label="VP"> <tree label="V"> affect/VB </tree> <tree label="NP"> the/DT majority/NN </tree> </tree> <tree label="P"> of/IN </tree> the/DT 700/CD horses/NNS <tree label="VP"> <tree label="V"> stabled/VBN </tree> </tree> <tree label="P"> at/IN </tree> Randwick/NNP ./. </tree>
+```
