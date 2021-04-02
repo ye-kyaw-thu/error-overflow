@@ -2223,7 +2223,24 @@ user	131m48.365s
 sys	28m59.198s
 ```
 
+## Figure for Your Reference
+
+tree-to-string, string-to-tree နဲ့ tree-to-tree တွေကို run တဲ့အခါမှာ သတိထားရမှာက memory usage ပါ။ အထူးသဖြင့် sorting လုပ်တဲ့အချိန်လိုမျိုး rule extraction လုပ်တဲ့ အချိန်လိုမျိုးမှာပါ။ အောက်ပါ screenshot က rule extraction စလုပ်တာနဲ့ memory (including Swap memory) က ဘယ်လောက်အထိ တက်သွားနိုင်တယ်ဆိုတာကို မြင်သာအောင် ဥပမာအနေနဲ့ ပြထားတာပါ။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/huge-momory-usage.png" alt="" width="1102x733" /></p>  
+<p align="center">Fig. Screenshot of Linux System Monitor</p>
+
+
 ## References
+
+Syntax Parsers:  
+
+1. Stanford Parser version 4.2.0: https://nlp.stanford.edu/software/lex-parser.shtml
+2. BLLIP Reranking Parser: https://github.com/BLLIP/bllip-parser
+3. Berkeley Neural Parser: https://github.com/nikitakit/self-attentive-parser
+4. nltk.parse package: https://www.nltk.org/api/nltk.parse.html
+5. The Phrase Parser: https://www.link.cs.cmu.edu/link/ph-explanation.html
 
 Some links relating to parsing with NLTK:
 1. https://www.nltk.org/_modules/nltk/tree.html  
@@ -2244,4 +2261,6 @@ Scripts:
 1. Tree-to-String Example Script of WAT2015: http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2015/baseline/baselineSystemTree2String.html
 2. String-to-Tree Example Script of WAT2015: http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2015/baseline/baselineSystemString2Tree.html  
 
+BBC Article Link: 
+https://www.bbc.com/news/world-asia-56612247  
 
