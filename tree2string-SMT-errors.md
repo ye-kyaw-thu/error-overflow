@@ -1119,3 +1119,90 @@ user	144m0.369s
 sys	34m14.781s
 ```
 
+## Update t2s.sh and Run again
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+...........................................................................................................................................terminate called after throwing an instance of 'std::length_error'
+  what():  vector::_M_default_append
+Aborted (core dumped)
+
+gzip: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.17005/phrase-table.half.0000000.gz: unexpected end of file
+......................................................................................................ERROR: faulty line 17529895: [S][X] [S] ||| [S][X] �
+..............................................................Killed
+```
+
+ပြဿနာ က အောက်ပါ file building steps တွေကနေ မြင်ရပါလိမ့်မယ်။  
+rule-table.half.e2f.gz နဲ့ rule-table.half.f2e.gz ကို building လုပ်တဲ့အထိ အဆင်ပြေပုံမြင်ရတယ်။  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+    238014    3463768   28441812 aligned.0.en
+    238014    6285996   60847350 aligned.0.my
+    238014    5294277   26301273 aligned.grow-diag-final-and
+   1314283    7599764  343738313 extract.inv.sorted.gz
+   1376601    7804041  352418594 extract.sorted.gz
+         3         45        192 glue-grammar
+    518529    1555587   16594453 lex.e2f
+    518529    1555587   16594453 lex.f2e
+    843482    4719400  208928768 rule-table.half.e2f.gz
+    726751    4051032  182562826 rule-table.half.f2e.gz
+wc: tmp.19169: Is a directory
+         0          0          0 tmp.19169
+   6012220   42329497 1236428034 total
+```
+
+သို့သော် အောက်မှာ မြင်ရတဲ့အတိုင်း rule-table.gz ဆောက်တဲ့အထိ မရောက်ပဲ ပရိုဂရမ်က ရပ်သွားတယ်...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294277  26301273 aligned.grow-diag-final-and
+  1314283   7599764 343738313 extract.inv.sorted.gz
+  1376601   7804041 352418594 extract.sorted.gz
+        3        45       192 glue-grammar
+   518529   1555587  16594453 lex.e2f
+   518529   1555587  16594453 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+        0         0        20 rule-table.gz
+  4442073  33559225 844938561 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$
+```
+
+## Memory Problem
+
+သတိထားမိတာက rule extraction, rule table ဆောက်တဲ့အခါမှာ memory တအားယူတယ်...
+
+```console
+Exit Code 137: Indicates failure as container received SIGKILL (Manual intervention or 'oom-killer' [OUT-OF-MEMORY])  
+Memory မနိုင်လို့ tuning မလုပ်နိုင်တဲ့ ERROR!!!  
+```
+
+## removed --max-chart-span and Train again
+
+```console
+X (1) [56,56]=X (1) [56,56]=V (1) [56,57]=X (1) [56,58]=X (1) [56,59]=X (1) [56,59]=VP (1) [56,60]=X (1) [56,61]=X (1) [56,62]=X (1) [56,63]=X (1) [56,64]=X (1) [56,65]=X (1) [56,66]=X (1) [56,67]=X (1) [57,57]=X (1) [57,58]=X (1) [57,58]=NP (1) [57,59]=X (1) [57,60]=X (1) [57,61]=X (1) [57,62]=X (1) [57,63]=X (1) [57,64]=X (1) [57,65]=X (1) [57,66]=X (1) [57,67]=X (1) [58,58]=X (1) [58,59]=X (1) [58,60]=X (1) [58,61]=X (1) [58,62]=X (1) [58,63]=X (1) [58,64]=X (1) [58,65]=X (1) [58,66]=X (1) [58,67]=X (1) [59,59]=X (1) [59,59]=NP (1) [59,60]=X (1) [59,61]=X (1) [59,62]=X (1) [59,63]=X (1) [59,64]=X (1) [59,65]=X (1) [59,66]=X (1) [59,67]=X (1) [60,60]=X (1) [60,60]=P (1) [60,61]=X (1) [60,62]=X (1) [60,63]=X (1) [60,64]=X (1) [60,65]=X (1) [60,66]=X (1) [60,67]=X (1) [61,61]=X (1) [61,62]=X (1) [61,63]=X (1) [61,64]=X (1) [61,65]=X (1) [61,66]=X (1) [61,67]=X (1) [62,62]=X (1) [62,63]=X (1) [62,64]=X (1) [62,65]=X (1) [62,66]=X (1) [62,67]=X (1) [63,63]=X (1) [63,64]=X (1) [63,65]=X (1) [63,66]=X (1) [63,67]=X (1) [64,64]=X (1) [64,65]=X (1) [64,66]=X (1) [64,67]=X (1) [65,65]=X (1) [65,66]=X (1) [65,67]=X (1) [66,66]=X (1) [66,67]=X (1) [67,67]=X (1) 
+
+Killed
+Exit code: 137
+The decoder died. CONFIG WAS -weight-overwrite 'LM0= 0.004878 TranslationModel0= 0.001951 0.001951 0.001951 0.001951 PhrasePenalty0= 0.001951 TranslationModel1= -0.975610 WordPenalty0= -0.009756' 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ tail ./mert.log 
+```
+
+Memory ပြဿနာ ဖြစ်နေတယ်လို့ နားလည်တယ်...  
+
+## Add   --threads ${JOBS} \ and Try again
+
+```console
+ (1) [12,16]=X (1) [12,17]=X (1) [12,18]=X (1) [12,19]=X (1) [13,13]=X (1) [13,13]=VP (1) [13,13]=V (1) [13,14]=X (1) [13,15]=X (1) [13,16]=X (1) [13,17]=X (1) [13,18]=X (1) [13,19]=X (1) [14,14]=X (1) [14,15]=X (1) [14,16]=X (1) [14,17]=X (1) [14,18]=X (1) [14,19]=X (1) [15,15]=X (1) [15,15]=V (1) [15,16]=X (1) [15,17]=X (1) [15,17]=VP (1) [15,18]=X (1) [15,19]=X (1) [16,16]=X (1) [16,16]=P (1) [16,17]=X (1) [16,17]=PP (1) [16,18]=X (1) [16,19]=X (1) [17,17]=X (1) [17,17]=NP (1) [17,18]=X (1) [17,19]=X (1) [18,18]=X (1) [18,19]=X (1) [19,19]=X (1) 
+
+Line 532: Initialize search took 0.017Killed
+Exit code: 137
+The decoder died. CONFIG WAS -weight-overwrite 'TranslationModel0= 0.001951 0.001951 0.001951 0.001951 PhrasePenalty0= 0.001951 WordPenalty0= -0.009756 TranslationModel1= -0.975610 LM0= 0.004878'
+```
+
