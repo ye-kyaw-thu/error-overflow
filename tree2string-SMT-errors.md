@@ -1269,8 +1269,9 @@ Moses manual ထဲက example က အောက်ပါအတိုင်း...
 
 ##  --extract-options "--MaxSpan 100  and Run Again
 
-Changed option  --extract-options "--MaxSpan 100  and the result is as follows:
+Changed option  --extract-options "--MaxSpan 100  and the result is as follows:  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
 
 ### Information of folder, path and other variables...
@@ -1333,11 +1334,12 @@ BLEU=0.012747	RIBES=0.430519	WER=0.924014
 real	39m14.751s
 user	133m48.306s
 sys	31m37.537s
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$
+```
 
-No. 2  နဲ့ နှိုင်းယှဉ်ကြည်မယ်။
-No.2 (--max-chart-span 30) တုန်းက
+No. 2  နဲ့ နှိုင်းယှဉ်ကြည်မယ်။  
+No.2 (--max-chart-span 30) တုန်းက  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model2/work.en-my/training/model$ wc *
    238014   3463768  28441812 aligned.0.en
    238014   6285996  60847350 aligned.0.my
@@ -1351,9 +1353,11 @@ No.2 (--max-chart-span 30) တုန်းက
        38        58       871 moses-tuned.ini
    313080   1728472  80555025 rule-table.gz
   2352089  21529149 304528893 total
+```
 
-အခု experiment No.3 (--max-chart-span 100) မှာက အောက်ပါအတိုင်း
+အခု experiment No.3 (--max-chart-span 100) မှာက အောက်ပါအတိုင်း  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
    238014   3463768  28441812 aligned.0.en
    238014   6285996  60847350 aligned.0.my
@@ -1367,9 +1371,11 @@ No.2 (--max-chart-span 30) တုန်းက
        38        58       871 moses-tuned.ini
    556787   3095770 143728680 rule-table.gz
   2862479  24432873 438072159 total
+```
 
 ## No. 4 (--max-chart-span 500) ထိ တိုးကြည့်
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
 Score v2.1 -- scoring methods for extracted rules
 using inverse mode
@@ -1382,9 +1388,11 @@ Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2st
 ....................................................................................................................................................................................................................................................................Killed
 ..........................................................................................................................
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$
+```
 
 ## No. 4 (--max-chart-span 300) ထိ တိုးကြည့်
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
 Score v2.1 -- scoring methods for extracted rules
 using inverse mode
@@ -1396,33 +1404,48 @@ adjusting phrase translation probabilities with Good Turing discounting
 Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
 ...........................................................................................................................................................................................................................................................................Killed
 ............................................................................................................
+```
 
 ## Removed: --NonTermConsecSource --AllowOnlyUnalignedWords
 
-training လုပ်တဲ့အဆင့်မှာ
- Removed: --NonTermConsecSource --AllowOnlyUnalignedWords
- ပြီးတော့ --extract-options "--MaxSpan 250" ထားတယ်။ 
+training လုပ်တဲ့အဆင့်မှာ  
 
-tuning လုပ်တဲ့အဆင့်မှာ -max-chart-span 250 ထားပြီး experiment လုပ်ကြည့်ခဲ့...
+ Removed: 
+ ```console
+ --NonTermConsecSource --AllowOnlyUnalignedWords
+ ```
+ ပြီးတော့   
+ 
+ ```console
+ --extract-options "--MaxSpan 250"
+ ``` ထားတယ်။   
 
+tuning လုပ်တဲ့အဆင့်မှာ -max-chart-span 250 ထားပြီး experiment လုပ်ကြည့်ခဲ့...  
+
+```console
 -------------
 
 ERROR: tag tree closed, but not opened:<tree label="S"> <tree label="P"> While/IN </tree> <tree label="VP"> <tree label="V"> destroying/VBG </tree> <tree label="NP"> opium/NN </tree> </tree> fields/NNS <tree label="P"> in/IN </tree> Mongshu/NNP ,/, <tree label="NP"> a/DT combined/JJ team/NN </tree> <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> government/NN </tree> </tree> troops/NNS ,/, <tree label="NP"> police/NN </tree> ,/, <tree label="NP"> departmental/JJ staff/NN </tree> and/CC <tree label="NP"> the/DT public/NN </tree> <tree label="VP"> <tree label="V"> were/VBD </tree> </tree> <tree label="VP"> <tree label="V"> attacked/VBN </tree> </tree> <tree label="P"> with/IN </tree> heavy/JJ and/CC light/JJ weapons/NNS <tree label="P"> by/IN </tree> members/NNS <tree label="P"> of/IN </tree> the/DT Shan/NNP <tree label="NP"> state/NN </tree> <tree label="NP"> army/NN </tree> <tree label="/("> Wanhai/NNP </tree> / </tree> <tree label="NP"> group/NN </tree> ./. </tree>
+```
 
 Let's check details
 
+```console
 <tree label="S">, <tree label="P">, <tree label="VP">, <tree label="V">, <tree label="NP">, <tree label="P">, <tree label="NP">, <tree label="PP">, <tree label="P">,
 <tree label="NP">, <tree label="NP">,  <tree label="NP">, <tree label="NP">, <tree label="VP">, <tree label="V">, <tree label="VP">, <tree label="V">, <tree label="P">, <tree label="P">, <tree label="P">, <tree label="NP">, <tree label="NP">, <tree label="/(">, <tree label="NP"> 
 in total = 24 opening tags
 </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>, </tree>
+```
 in total = 25 closed tags
 
 
-အဖွင့်မပိတ် မညီတဲ့ error ကို manual counting လုပ်ကြည့်တော့ ပေးတဲ့ error အတိုင်း XML opening tag အရေအတွက်နဲ့ closed tag အရေအတွက်က မညီတာကို တွေ့ရ။
-စုစုပေါင်း အဲဒီလိုမျိုးerror ပေးနေတဲ့ စာကြောင်း ဘယ်နှစ်ကြောင်း ရှိသလဲ ဆိုတာကိုလည်း training log ဖိုင်ကနေ count လုပ်ကြည့်တော့...
+အဖွင့်မပိတ် မညီတဲ့ error ကို manual counting လုပ်ကြည့်တော့ ပေးတဲ့ error အတိုင်း XML opening tag အရေအတွက်နဲ့ closed tag အရေအတွက်က မညီတာကို တွေ့ရ။  
+စုစုပေါင်း အဲဒီလိုမျိုးerror ပေးနေတဲ့ စာကြောင်း ဘယ်နှစ်ကြောင်း ရှိသလဲ ဆိုတာကိုလည်း training log ဖိုင်ကနေ count လုပ်ကြည့်တော့...  
 
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ cat ./training_TM.log | grep "ERROR: tag tree closed, but not opened" | wc
    5580  643678 5432242
+```
 
-5580 ရှိတယ်။ ဒီကိစ္စက လွယ်မလိုလိုနဲ့ auto correction လုပ်ဖို့က စဉ်းစားရလိမ့်မယ်...
-စာကြောင်းရေ ၃သိန်းနီးပါးမှာ ၅ထောင်ကျော်ဆိုတော့ မျက်စိမိတ်ပြီးပဲ ဆက်လုပ်သင့်သလား?!?!
+5580 ရှိတယ်။ ဒီကိစ္စက လွယ်မလိုလိုနဲ့ auto correction လုပ်ဖို့က စဉ်းစားရလိမ့်မယ်...  
+စာကြောင်းရေ ၃သိန်းနီးပါးမှာ ၅ထောင်ကျော်ဆိုတော့ မျက်စိမိတ်ပြီးပဲ ဆက်လုပ်သင့်သလား?!?!  
