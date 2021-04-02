@@ -502,7 +502,7 @@ sys	21m35.443s
 အထက်ပါအတိုင်း ရပ်သွားတာ တွေ့ရတယ်။  
 model/ Folder ထဲက file size တွေကို check လုပ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
 
-```
+```console
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
    238014   3463768  28441812 aligned.0.en
    238014   6285996  60847350 aligned.0.my
@@ -522,5 +522,5 @@ sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတ
 Reference: moses manual, page 98  
 
 Removed: ```sort-buffer-size 10G```bash  
-Added:   ```--sort-batch-size 1024 --sort-compress gzip \```bash  
+Added:   ```--sort-batch-size 1024 --sort-compress gzip \```  
 
