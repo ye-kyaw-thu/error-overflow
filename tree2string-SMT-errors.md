@@ -1873,3 +1873,352 @@ Racing/VBG ခြေ ပြု ( ဘယ် လို ဆက် ဖြစ် လ�
 
 *** ခုချိန်ထိ အကောင်းဆုံး BLEU Score လား?!  
 
+## Changed span option and Try again
+
+```
+  --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --DisallowNonTermConsecTarget" \
+    --decoder-flags "-threads ${JOBS} -max-chart-span 500 --verbose 1" \
+    ${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -max-chart-span 500 -threads ${JOBS} --inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294579  26302911 aligned.grow-diag-final-and
+   127970    718940  32672827 extract.inv.sorted.gz
+   104317    601522  27603322 extract.sorted.gz
+        3        45       192 glue-grammar
+   518534   1555602  16594429 lex.e2f
+   518534   1555602  16594429 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+        0         0        20 rule-table.gz
+  1983486  19476214 209059393 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ cd ..
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ ls
+corpus  giza.en-my  giza.my-en  lm  model  training_TM.log
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f........
+..
+.......................................................................................terminate called after throwing an instance of 'std::length_error'
+  what():  vector::_M_default_append
+
+Aborted (core dumped)
+
+gzip: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.9801/phrase-table.half.0000000.gz: unexpected end of file
+
+-------
+
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28512 kB	RSSMax:2153024 kB	user:7.14307	sys:1.71931	CPU:8.86238	real:21.7397
+ERROR cannot open weight-ini 'work.en-my/tuning/mert/moses.ini': No such file or directory at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/support/substitute-weights.perl line 34.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.456, ratio=0.560, hyp_len=32989, ref_len=58895)
+BLEU=0.000000	RIBES=0.000000	WER=1.020299
+
+real	25m10.608s
+user	120m50.059s
+sys	28m30.674s
+```
+
+## Changed Span and Try Again
+
+Running with 250:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294558  26302747 aligned.grow-diag-final-and
+   127883    715114  32564855 extract.inv.sorted.gz
+   104838    602090  27568553 extract.sorted.gz
+        3        45       192 glue-grammar
+   518520   1555560  16594071 lex.e2f
+   518520   1555560  16594071 lex.f2e
+       48       102      1230 moses.ini
+       46        77      1007 moses-tuned.ini
+    18614    103984   4784511 rule-table.gz
+  2002514  19576854 213700399 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ cd ..
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.Score v2.1 -- scoring methods for extracted rules
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.......
+..
+....................................................................................ERROR: faulty line 4250115: under/IN positive/JJ influence/NN [PP] ||| လေး ရက် ခ ရီး သုံး 
+....
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ cd ../
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my$ cd tuning/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ ls
+mert  mert.log
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ tail ./mert.log 
+featlist: PhrasePenalty0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel1=0 
+Parsing --decoder-flags: |-threads 8 -max-chart-span 250 --verbose 1|
+Saving new config to: ./moses.ini
+Saved: ./moses.ini
+1-10.20.2 0.2 0.2 0.2-1000.5Training finished at ၂၀၂၁ ဧပြီ ၀၂ သောကြာ ၀၈:၃၃:၄၂ နံနက် +0630
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ cd mert/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ ls
+extract.err    filtered           init.opt   run1.best100.out.gz  run1.features.dat  run1.moses.ini    run2.best100.out.gz  run2.features.dat  run2.moses.ini    weights.txt
+extractor.sh   filterphrases.err  mert.log   run1.dense           run1.init.opt      run1.out          run2.dense           run2.init.opt      run2.out
+extract.out    filterphrases.out  mert.out   run1.extract.err     run1.mert.log      run1.scores.dat   run2.extract.err     run2.mert.log      run2.scores.dat
+features.list  finished_step.txt  moses.ini  run1.extract.out     run1.mert.out      run1.weights.txt  run2.extract.out     run2.mert.out      run2.weights.txt
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ cat moses.ini 
+# MERT optimized configuration
+# decoder /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses_chart
+# BLEU 0 on dev /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/dev.en
+# We were before running iteration 2
+# finished ၂၀၂၁ ဧပြီ ၀၂ သောကြာ ၀၈:၃၃:၄၂ နံနက် +0630
+### MOSES CONFIG FILE ###
+#########################
+
+# input factors
+[input-factors]
+0
+
+# mapping steps
+[mapping]
+0 T 0
+1 T 1
+
+[cube-pruning-pop-limit]
+1000
+
+[non-terminals]
+X
+
+[search-algorithm]
+3
+
+[inputtype]
+3
+
+[feature]
+UnknownWordPenalty
+WordPenalty
+PhrasePenalty
+PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/rule-table.gz input-factor=0 output-factor=0
+PhraseDictionaryMemory name=TranslationModel1 num-features=1 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/glue-grammar input-factor=0 output-factor=0 tuneable=true
+KENLM name=LM0 factor=0 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz order=6
+
+# dense weights for feature functions
+
+[max-chart-span]
+250
+
+[threads]
+8
+
+[verbose]
+1
+[weight]
+
+LM0= 0
+WordPenalty0= 0
+PhrasePenalty0= 0
+TranslationModel0= 0 0 0 0
+TranslationModel1= 0
+UnknownWordPenalty0= 1
+```
+
+```
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28648 kB	RSSMax:2152996 kB	user:7.16719	sys:1.72688	CPU:8.89407	real:21.9768
+BLEU = 0.35, 9.9/1.3/0.1/0.0 (BP=0.817, ratio=0.831, hyp_len=48969, ref_len=58895)
+BLEU=0.003452	RIBES=0.151155	WER=1.099984
+
+real	26m18.066s
+user	122m16.139s
+sys	31m11.672s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$
+```
+    
+Parameter အထူးသဖြင့် ကို span variable (i.e. --MaxSpan, --max-chart-span) အမျိုးမျိုးကစားပြီး စမ်း run ခဲ့တယ်။  
+တစ်ခု သိရမှာက အဲဒီ variable က training မှာ ပြောင်းရင်၊ tuning မှာရော၊ testing မှာရော ပြောင်းပေးရတယ် ဆိုတဲ့အချက်... 
+
+## Run with 60
+
+Experiment လုပ်တာက အစအဆုံး ပြီးရင် အောက်ပါလိုမျိုး folder structure ရှိလိမ့်မယ်။  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my$ tree -L 2
+.
+├── output
+│   ├── test.out
+│   └── test.out.log
+├── training
+│   ├── corpus
+│   ├── giza.en-my
+│   ├── giza.my-en
+│   ├── lm
+│   ├── model
+│   └── training_TM.log
+└── tuning
+    ├── mert
+    └── mert.log
+
+9 directories, 4 files
+```
+
+model ဖိုလ်ဒါအောက်က file တွေရဲ့ file size ကို စစ်ကြည့်...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294294  26301282 aligned.grow-diag-final-and
+   134555    760479  34529053 extract.inv.sorted.gz
+   110945    641186  29223874 extract.sorted.gz
+        3        45       192 glue-grammar
+   518532   1555596  16594590 lex.e2f
+   518532   1555596  16594590 lex.f2e
+       48       102      1230 moses.ini
+       46        77      1007 moses-tuned.ini
+   236211   1314717  60373344 rule-table.gz
+  2232914  20871856 272908324 total
+  ```
+
+training_TM.log ကိုလည်း ကြည့်ခဲ့...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ cd ../
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2eScore v2.1 -- scoring methods for extracted rules
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f........
+..
+..................................................................................................
+```
+
+mert.log ဖိုင်ကို check လုပ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ cd ../tuning/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ ls ./mert
+extract.err    filtered           init.opt   run1.best100.out.gz  run1.features.dat  run1.moses.ini    run2.best100.out.gz  run2.features.dat  run2.moses.ini    weights.txt
+extractor.sh   filterphrases.err  mert.log   run1.dense           run1.init.opt      run1.out          run2.dense           run2.init.opt      run2.out
+extract.out    filterphrases.out  mert.out   run1.extract.err     run1.mert.log      run1.scores.dat   run2.extract.err     run2.mert.log      run2.scores.dat
+features.list  finished_step.txt  moses.ini  run1.extract.out     run1.mert.out      run1.weights.txt  run2.extract.out     run2.mert.out      run2.weights.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ tail ./mert.log 
+featlist: PhrasePenalty0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel0=0 
+featlist: TranslationModel1=0 
+Parsing --decoder-flags: |-threads 8 -max-chart-span 60 --verbose 1|
+Saving new config to: ./moses.ini
+Saved: ./moses.ini
+1-10.20.2 0.2 0.2 0.2-1000.5Training finished at ၂၀၂၁ ဧပြီ ၀၂ သောကြာ ၀၁:၃၅:၃၁ ညနေ +0630
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ cd ../output/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/output$ tail test.out.log 
+                                                                                                                                                                                                                                                                                                                                                                                                                                      121   0   0   0   0 
+                                                                                                                                                                                                                                                                                                                                                                                                                                        138   0   0   0 
+                                                                                                                                                                                                                                                                                                                                                                                                                                          143   0   0 
+                                                                                                                                                                                                                                                                                                                                                                                                                                            162   0 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                1 
+BEST TRANSLATION: 12412321 S  -> S </s> :0-0 : term=1-1 : nonterm=0-0 : c=0.000 core=(0.000,-1.000,1.000,0.000,0.000,0.000,0.000,0.000,0.000)  [0..215] 12411199 [total=-1200.000] core=(-1200.000,-623.000,189.000,-362.033,-154.980,-834.012,-1822.135,14.998,-3025.972) 
+Line 917: Additional reporting took 0.022 seconds total
+Line 917: Translation took 38.803 seconds total
+Translation took 182.867 seconds
+Name:moses_chart	VmPeak:12230144 kB	VmRSS:2995424 kB	RSSMax:11810016 kB	user:980.012	sys:15.799	CPU:995.811	real:161.511
+```
+
+Console မှာ ပေါ်နေတဲ့ လက်ရှိ parameter တွေနဲ့ t2s.sh ကို run ရင် ကြာချိန် ဘယ်လောက်ရှိတယ်ဆိုတာကို log လုပ်ခဲ့ ...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+
+### Information of folder, path and other variables...
+ SOURCE: en
+ TARGET: my
+ EXP_DIR: /home/ye/exp/smt/wat2021/tree-smt/tree2string
+ LM: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train
+ CORPUS: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train
+ DEV_SOURCE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/dev.en
+ DEV_TARGET: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my
+ TEST: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/test.en
+ REF: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/test.my
+ LM_ORDER: 6
+ JOBS: 8
+ MOSES_SCRIPT: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+ MOSES_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin
+ EXT_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/training-tools
+ WORK_DIR: work.en-my
+ TRAINING_DIR: work.en-my/training
+ MODEL_DIR: work.en-my/training/model
+ MTEVAL_DIR: /home/ye/tool/mteval/build/bin
+ LM_FILE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz
+ OUTPUT_DIR: work.en-my/output
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28536 kB	RSSMax:2153116 kB	user:7.29618	sys:1.64475	CPU:8.94093	real:22.4247
+BLEU = 2.43, 21.6/4.0/1.1/0.4 (BP=1.000, ratio=1.451, hyp_len=85446, ref_len=58895)
+BLEU=0.024322	RIBES=0.359027	WER=1.368188
+
+real	25m50.482s
+user	131m48.365s
+sys	28m59.198s
+```
