@@ -13,13 +13,14 @@ tree-to-string SMT က သုတေသန အနေနဲ့ လုပ်စရ�
 
 ## Parsing
 
-အင်္ဂလိပ်စာကြောင်းတွေကို syntax tree အဖြစ်ပြောင်းပေးတဲ့ Parser တွေ အမျိုးမျိုး ရှိတယ်။  
+အင်္ဂလိပ်စာကြောင်းတွေကို syntax tree အဖြစ်ပြောင်းပေးတဲ့ Parser တွေ အမျိုးမျိုး ရှိတယ်။ Parsing လုပ်တဲ့ technique တွေကလည်း အမျိုးမျိုး study လုပ်နေကြသလို၊ သဒ္ဒါပိုင်းအနေနဲ့လည်း လေ့လာတဲ့ အပိုင်းတွေ၊ ဦးတည်ချက်တွေက အမျိုးမျိုးပါပဲ။ ကိုယ်က ဘယ်လို parsing မျိုးကို လုပ်ချင်တာလဲ ဆိုတဲ့ အပေါ်ကို မူတည်ပြီး parser ကိုလည်း ရွေးကြရပါလိမ့်မယ်။    
 ဥပမာ  
 
 1. (Stanford Parser version 4.2.0)[https://nlp.stanford.edu/software/lex-parser.shtml]  
 2. (BLLIP Reranking Parser)[https://github.com/BLLIP/bllip-parser]
 3. (Berkeley Neural Parser)[https://github.com/nikitakit/self-attentive-parser]
 4. (nltk.parse package)[https://www.nltk.org/api/nltk.parse.html]
+5. (The Phrase Parser)[https://www.link.cs.cmu.edu/link/ph-explanation.html]
 
 ## Syntax Tree Parsing with NLTK
 
@@ -94,44 +95,65 @@ Parsing လုပ်ပြီးတဲ့အခါမှာတော့ အေ�
 တကယ် လက်တွေ့ SMT/NMT experiment တွေအတွက် parsing လုပ်တဲ့အခါမှာတော့ parsing grammar တွေကို အသေးစိတ် စစ်ဆေးတာ၊ ပြင်တာ လုပ်နိုင်ရင် လုပ်ကြပါ။ အနည်းဆုံးတော့ input ပေးလိုက်တဲ့ စာကြောင်းတွေအားလုံးက output အဖြစ် ထုတ်ပေးနိုင်ရဲ့လား (i.e. check no. of sentences between input vs output) ဆိုတာကိုတော့ စစ်ရပါလိမ့်မယ်။  
 
 ဒါ့အပြင် သုံးတဲ့ parser တွေအပေါ်မူတည်ပြီးထွက်လာတဲ့ output တွေရဲ့ format က bracket နဲ့ ထုတ်တာ၊ XML tree အနေနဲ့ ထုတ်တာ စသည်ဖြင့် အမျိုးမျိုး ကွဲပြားနိုင်ပါတယ်။  
-CMU တက္ကသိုလ်ရဲ့ phrase-parser (version 4.0) ရဲ့ online demo site ကို "Rights group the Assistance Association for Political Prisoners say more than 500 people have been killed since the military crackdown began." ဆိုတဲ့ စာကြောင်းကို parse လုပ်လိုက်ရင် အောက်ပါလိုမျိုး output ထုတ်ပေးပါလိမ့်မယ်။  
+CMU တက္ကသိုလ်ရဲ့ phrase-parser (version 4.0) ရဲ့ online demo site ကို "But there has increasingly been an escalation of violence between police officers and civilians." ဆိုတဲ့ စာကြောင်းကို parse လုပ်လိုက်ရင် အောက်ပါလိုမျိုး output ထုတ်ပေးပါလိမ့်မယ်။  
 
 ```
-++++Time                                          0.01 seconds (252.51 total)
-Found 32 linkages (26 with no P.P. violations)
-  Linkage 1, cost vector = (UNUSED=0 DIS=2 AND=0 LEN=31)
+++++Time                                          0.01 seconds (252.53 total)
+Found 12 linkages (8 with no P.P. violations)
+  Linkage 1, cost vector = (UNUSED=0 DIS=1 AND=1 LEN=22)
 
-    +--------------------CC-------------------+                             
-    |       +-----------Os-----------+        |                             
-    |       |     +--------DG--------+        +--------Wd-------+       +---
-    +---Sp--+     |       +-----G----+        |       +----G----+---Sp--+   
-    |       |     |       |          |        |       |         |       |   
-rights.n group.v the Assistance Association for.c Political Prisoners say.v 
+    +---------------------------------------------------------Xp------------
+    |                                     +-----------------MVp-------------
+    |                 +--------PPf--------+-----Ost----+                    
+    +--Wc--+-Wdc+-SFst+         +----E----+    +--Dsu--+---Mp--+--Jp--+     
+    |      |    |     |         |         |    |       |       |      |     
+LEFT-WALL but there has.v increasingly been.v an escalation.n of violence.n 
 
 
--------Ce---------+                             +-----Jp----+
-  +IDBA+-EN+-Dmcn-+---Sp--+--PPf-+---Pv--+--MVp-+    +--D*u-+
-  |    |   |      |       |      |       |      |    |      |
-more than 500 people.p have.v been.v killed.v since the mili[?].n 
+--------------------------------------------+
+---+                                        |
+   +--------Jp--------+                     |
+   |        +----AN---+                     |
+   |        |         |                     |
+between police.s officers.n and civilians.n . 
+
+
+    +---------------------------------------------------------Xp------------
+    |                                     +-----------------MVp-------------
+    |                 +--------PPf--------+-----Ost----+                    
+    +--Wc--+-Wdc+-SFst+         +----E----+    +--Dsu--+---Mp--+--Jp--+     
+    |      |    |     |         |         |    |       |       |      |     
+LEFT-WALL but there has.v increasingly been.v an escalation.n of violence.n 
+
+
+--------------------------------------------+
+---+                                        |
+   |                                        |
+   +----------------Jp---------------+      |
+   |                                 |      |
+between police.s officers.n and civilians.n . 
 
 Constituent tree:
 
-(S (NP Rights)
-   (VP group
-       (NP the Assistance Association))
-   for
-   (S (NP Political Prisoners)
-      (VP say
-          (SBAR (S (NP (QP more than 500)
-                       people)
-                   (VP have
-                       (VP been
-                           (VP killed
-                               (PP since
-                                   (NP the mili))))))))))
+(S But
+   (NP there)
+   (VP has
+       (VP (ADVP increasingly)
+           been
+           (NP (NP an escalation)
+               (PP of
+                   (NP violence)))
+           (PP between
+               (NP (NP police officers)
+                   and
+                   (NP civilians)))))
+   .)
+
 ```
 
-
+Note: ထိုနည်းလည်းကောင်းပဲ Billip parser က အများဆုံး parse လုပ်ပေးနိုင်တာက 184 words အထိပဲ ဖြစ်ပြီးတော့ အဲဒီထက်ကျော်တဲ့ စာကြောင်းတွေဆိုရင် "list index out of range error" ပေးပါလိမ့်မယ်။  
+ 
+ 
 ## Preparing t2s.sh Shell Script
 
 ဒီနေရာမှာ 
