@@ -1600,7 +1600,7 @@ Error: unequal numbers of non-terminals. Make sure the text does not contain wor
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ 
 ```
 
-##  Try --DisallowNonTermConsecTarget and Retrain
+##  Try "--DisallowNonTermConsecTarget" and Retrain
 
 ```
  --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --DisallowNonTermConsecTarget --AllowOnlyUnalignedWords" \
@@ -1639,4 +1639,141 @@ Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2st
 ```
 
 *** ဒီဟာက သေချာတယ် မြန်မာစာ ဒေတာ ညစ်ပတ်မှုကြောင့် ဖြစ်တာ...  
+
+##  Removed --AllowOnlyUnalignedWords and Train Again
+
+```
+--extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --DisallowNonTermConsecTarget" \
+```
+
+တွေ့ရတဲ့ ERROR က ...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+ERROR: tag tree closed, but not opened:<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> was/VBD </tree> </tree> March/NNP 1988/CD and/CC I/PRP <tree label="VP"> <tree label="V"> had/VBD </tree> </tree> <tree label="VP"> <tree label="V"> overheard/VBN </tree> </tree> bits/NNS <tree label="P"> of/IN </tree> conversations/NNS <tree label="P"> between/IN </tree> Lugyis/NNP <tree label="/("> Burmese/NNP <tree label="P"> for/IN </tree> adults/NNS </tree> / </tree> <tree label="P"> about/IN </tree> scuffles/NNS <tree label="P"> between/IN </tree> students/NNS <tree label="PP"> <tree label="P"> from/IN </tree> <tree label="NP"> the/DT engineering/NN </tree> </tree> <tree label="NP"> university/NN </tree> and/CC <tree label="NP"> security/NN </tree> officials/NNS ./. </tree>
+ERROR: tag tree closed, but not opened:<tree label="S"> <tree label="NP"> The/DT department/NN </tree> <tree label="P"> of/IN </tree> foreign/JJ affairs/NNS <tree label="VP"> <tree label="V"> was/VBD </tree> </tree> <tree label="VP"> <tree label="V"> formed/VBN </tree> </tree> <tree label="P"> on/IN </tree> 17/CD March/NNP 1947/CD <tree label="PP"> <tree label="P"> under/IN </tree> <tree label="NP"> the/DT government/NN </tree> </tree> &amp;/CC <tree label="NP"> amp/NN </tree> ;/: apos/CC ;/: <tree label="NP"> s/JJ notification/NN </tree> 77/CD <tree label="NP"> d/NN </tree> <tree label="/("> <tree label="NP"> mm/NN </tree> </tree> / </tree> 47/CD and/CC General/NNP Aung/NNP San/NNP <tree label="VP"> <tree label="V"> became/VBD </tree> </tree> the/DT first/JJ foreign/JJ affairs/NNS <tree label="NP"> minister/NN </tree> <tree label="P"> of/IN </tree> Myanmar/NNP ./. </tree>
+Killed
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+.................ERROR: faulty line 1712586: building/VBG [NP][X] [VP] ||| ရာ တွင် အုတ် တစ် ချပ် သဲ တစ် ပွ င့် အ ဖြစ် ပူး ပေါင်း ပါ ဝင် လျက် စစ် မှန် [NP][X] �
+Error: unequal numbers of non-terminals. Make sure the text does not contain words in square brackets (like [xxx]).
+...........................
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294512  26302580 aligned.grow-diag-final-and
+   126841    714378  32508583 extract.inv.sorted.gz
+   104223    600515  27515282 extract.sorted.gz
+        3        45       192 glue-grammar
+   518517   1555551  16593955 lex.e2f
+   518517   1555551  16593955 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+        0         0        20 rule-table.gz
+        0         0        20 rule-table.half.e2f.gz
+   187191   1041404  46887924 rule-table.half.f2e.gz
+       11        11        65 rule-table.half.f2e.gz.coc
+  2169431  20511891 255693839 total
+```
+
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ cat ./moses.ini
+#########################
+### MOSES CONFIG FILE ###
+#########################
+
+# input factors
+[input-factors]
+0
+
+# mapping steps
+[mapping]
+0 T 0
+1 T 1
+
+[cube-pruning-pop-limit]
+1000
+
+[non-terminals]
+X
+
+[search-algorithm]
+3
+
+[inputtype]
+3
+
+[max-chart-span]
+20
+1000
+
+# feature functions
+[feature]
+UnknownWordPenalty
+WordPenalty
+PhrasePenalty
+PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/rule-table.gz input-factor=0 output-factor=0
+PhraseDictionaryMemory name=TranslationModel1 num-features=1 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/glue-grammar input-factor=0 output-factor=0 tuneable=true
+KENLM name=LM0 factor=0 path=/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz order=6
+
+# dense weights for feature functions
+[weight]
+# The default weights are NOT optimized for translation quality. You MUST tune the weights.
+# Documentation for tuning is here: http://www.statmt.org/moses/?n=FactoredTraining.Tuning 
+UnknownWordPenalty0= 1
+WordPenalty0= -1
+PhrasePenalty0= 0.2
+TranslationModel0= 0.2 0.2 0.2 0.2
+TranslationModel1= -100
+LM0= 0.5
+```
+
+## span ကို "200" လျှော့ခဲ့
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+using inverse mode
+processing hierarchical rules
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.e2f.Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e........
+.
+................................................WARNING: phrase pair 2392666 has alignment point (0, 9787) out of bounds (2, 11)
+........................................
+
+
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28476 kB	RSSMax:2152968 kB	user:7.18683	sys:1.66776	CPU:8.85459	real:21.9858
+BLEU = 0.19, 9.2/1.2/0.1/0.0 (BP=0.783, ratio=0.803, hyp_len=47299, ref_len=58895)
+BLEU=0.001948	RIBES=0.125556	WER=1.092858
+
+real	24m16.960s
+user	119m43.460s
+sys	30m33.201s
+```
+
 
