@@ -331,3 +331,16 @@ berkeleyparsed2mosesxml.perl နဲ့ ပြောင်းတဲ့ ပုံ�
 <tree label="S"> Randwick/NNP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> locked/VBN </tree> </tree> down/RP ,/, and/CC <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> expected/VBN </tree> </tree> to/TO <tree label="VP"> <tree label="V"> remain/VB </tree> </tree> so/RB <tree label="P"> for/IN </tree> <tree label="P"> up/IN </tree> to/TO two/CD months/NNS ./. </tree>
 <tree label="S"> It/PRP <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> expected/VBN </tree> <tree label="PP"> <tree label="P"> that/IN </tree> <tree label="NP"> the/DT virulent/NN </tree> </tree> <tree label="NP"> flu/NN </tree> </tree> will/MD <tree label="VP"> <tree label="V"> affect/VB </tree> <tree label="NP"> the/DT majority/NN </tree> </tree> <tree label="P"> of/IN </tree> the/DT 700/CD horses/NNS <tree label="VP"> <tree label="V"> stabled/VBN </tree> </tree> <tree label="P"> at/IN </tree> Randwick/NNP ./. </tree>
 ```
+
+အောက်ပါအတိုင်း အင်္ဂလိပ်စာ training/development/test data အားလုံးကို format conversion လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ ls
+dev.en  test.en  train.en
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ cat train.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl > ../train.en
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ cat dev.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl > ../dev.en
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree/original.tree$ cat test.en | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml.perl > ../test.en
+```
