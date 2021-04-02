@@ -424,3 +424,47 @@ Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Lo
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$
 ```
 
+## Faild to Build the Rule Table
+
+tree-to-string, string-to-tree, tree-to-tree SMT experiment မှာက PBSMT ရဲ့ phrase table လိုပဲ rule table ဆိုတာ ရှိတယ်။ အဲဒီ rule table ကို ဆောက်မပေးနိုင်တာကို အောက်ပါအတိုင်း တွေ့ရ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc ./rule-table.gz 
+ 0  0 20 ./rule-table.gz
+```
+
+XML format ကို PTB အဖြစ် ပြောင်းပြီး run ကြည့်ရင်ကော... ?!   
+
+## Changing English tree data into PTB
+
+XML tag parsing လုပ်တဲ့ tool တွေထဲမှာ berkeleyparsed2mosesxml_PTB.perl ဆိုတဲ့ wrapper လည်း ရှိသေးတယ်။  
+ဘာတွေကွာတာလဲ?!  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/train.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./train.en
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/dev.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./dev.en
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ cat ./original.tree/test.en.parse | perl /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/wrappers/berkeleyparsed2mosesxml_PTB.perl > ./test.en
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 1 *.en
+==> dev.en <==
+<tree label="S"> &quot;/&quot; <tree label="P"> Though/IN </tree> we/PRP <tree label="VP"> <tree label="V"> are/VBP </tree> </tree> sad/JJ <tree label="P"> for/IN </tree> his/PRP$ <tree label="NP"> loss/NN </tree> ,/, he/PRP <tree label="VP"> <tree label="V"> left/VBD </tree> <tree label="NP"> a/DT legacy/NN </tree> </tree> that/WDT will/MD <tree label="VP"> <tree label="V"> inflame/VB </tree> <tree label="NP"> the/DT enemy/NN </tree> <tree label="NP"> nation/NN </tree> </tree> and/CC <tree label="NP"> religion/NN </tree> ./. &quot;/&quot; </tree>
+
+==> test.en <==
+<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
+
+==> train.en <==
+<tree label="S"> <tree label="NP"> A/DT murder/NN </tree> <tree label="NP"> case/NN </tree> <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> opened/VBN </tree> </tree> <tree label="P"> at/IN </tree> the/DT Kyeikgyaung/NNP police/NNS <tree label="NP"> station/NN </tree> ./. </tree>
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$
+```
+
+**** တစ်ခုရှိတာက PTB ဆိုတဲ့ ဖိုင်နာမည်က မတူပေမဲ့ output က အရမ်း ကွဲပြားမှုရှိပုံ မရဘူးလို့ ထင်တယ်။ 
+
+PTB perl script မှာက အောက်ပါလို single, double အားလုံးကို cover ဖြစ်အောင် update လုပ်ထားပုံရတယ်။  
+
+```perl
+  s/\'\'/\&quot;/g;
+  s/``/\&quot;/g;
+```
+
+နောက်ပိုင်း experiment တွေအားလုံးကို PTB tree format နဲ့ပဲ ထပ် run ခဲ့တယ်။  
+
+
