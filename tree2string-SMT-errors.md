@@ -184,7 +184,7 @@ Online manual of moses: https://www.statmt.org/moses/manual/manual.pdf
 Experiment ကို config ဖိုင် ပြင်ဆင်ပြီး Experiment Management System (EMS) နဲ့လည်း run လို့ရပေမဲ့ ဒီနေရာမှာတော့ shell script ပြင်ပြီးပဲ run တာနဲ့ပဲသွားပါမယ်။  
 
 [WAT2015](http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2015/baseline/baselineSystemTree2String.html) က tree to string SMT shell script ကို အခြေခံပြီးတော့ t2s.sh ဖိုင်ကို ပြင်ခဲ့တယ်။   
-## Error Relating to Alignment Process
+## Error Relating to Alignment Process or GIZA++/mgiza
 
 အောက်ပါအတိုင်း error ပေးတာမျိုး ကြုံရနိုင်ပါတယ်။  
 
@@ -217,5 +217,59 @@ merge_alignment.py  mgiza  mkcls  snt2cooc
     └── snt2cooc
 
 2 directories, 6 files
+```
+
+တစ်ခု ရှိတာက GIZA single thread နဲ့ align လုပ်တာက အရမ်းကြာနေတယ်။ အဲဒါကြောင့် Ctrl+C နဲ့ ပရိုဂရမ်ကို break လုပ်လိုက်တယ်။  
+Log ကို ကြည့်တော့...  
+
+```
+Using SCRIPTS_ROOTDIR: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+Using single-thread GIZA
+using gzip 
+(1) preparing corpus @ Tue Mar 30 23:55:23 +0630 2021
+Executing: mkdir -p /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/corpus
+(1.0) selecting factors @ Tue Mar 30 23:55:23 +0630 2021
+Forking...
+(1.0.5) reducing factors to produce /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train.0-0.my  @ Tue Mar 30 23:55:23 +0630 2021
+(1.0.5) reducing factors to produce /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train.0-0.en  @ Tue Mar 30 23:55:23 +0630 2021
+  /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train.0-0.en in place, reusing
+```
+
+Training time မြန်ဖို့အတွက် mgiza နဲ့ သုံးလို့ ရဖို့ အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ ls
+d4norm                    force-align-moses.sh  hmmnorm             mgiza  plain2snt            run.sh    snt2cooc.pl  snt2plain       symal
+force-align-moses-old.sh  giza2bal.pl           merge_alignment.py  mkcls  plain2snt-hasvcb.py  snt2cooc  snt2coocrmp  sntpostproc.py
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ mkdir GIZA++
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ cp mgiza ./GIZA++/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ mkdir snt2cooc.out
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ cp snt2cooc ./snt2cooc.out/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$ tree
+.
+├── d4norm
+├── force-align-moses-old.sh -> /home/ye/tool/mgiza/mgizapp/scripts/force-align-moses-old.sh
+├── force-align-moses.sh -> /home/ye/tool/mgiza/mgizapp/scripts/force-align-moses.sh
+├── GIZA++
+│   └── mgiza
+├── giza2bal.pl -> /home/ye/tool/mgiza/mgizapp/scripts/giza2bal.pl
+├── hmmnorm
+├── merge_alignment.py -> /home/ye/tool/mgiza/mgizapp/scripts/merge_alignment.py
+├── mgiza
+├── mkcls
+├── plain2snt
+├── plain2snt-hasvcb.py -> /home/ye/tool/mgiza/mgizapp/scripts/plain2snt-hasvcb.py
+├── run.sh -> /home/ye/tool/mgiza/mgizapp/scripts/run.sh
+├── snt2cooc
+├── snt2cooc.out
+│   └── snt2cooc
+├── snt2cooc.pl -> /home/ye/tool/mgiza/mgizapp/scripts/snt2cooc.pl
+├── snt2coocrmp
+├── snt2plain
+├── sntpostproc.py -> /home/ye/tool/mgiza/mgizapp/scripts/sntpostproc.py
+└── symal
+
+2 directories, 19 files
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$
 ```
 
