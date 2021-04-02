@@ -1510,3 +1510,69 @@ Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Lo
 
 *** span Parameter ကတော့ ထည့်ဖို့ လိုကို လိုအပ်တယ်။ tuning ကို iteration နှစ်ခေါက် လုပ်သွားပေမဲ့ moses.ini မှာ လုံးဝ zero တွေဖြစ်နေတာ...  
 
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+
+### Information of folder, path and other variables...
+ SOURCE: en
+ TARGET: my
+ EXP_DIR: /home/ye/exp/smt/wat2021/tree-smt/tree2string
+ LM: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train
+ CORPUS: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/train
+ DEV_SOURCE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/dev.en
+ DEV_TARGET: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my
+ TEST: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tree/test.en
+ REF: /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/test.my
+ LM_ORDER: 6
+ JOBS: 8
+ MOSES_SCRIPT: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+ MOSES_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin
+ EXT_BIN: /home/ye/tool/mosesbin/ubuntu-17.04/training-tools
+ WORK_DIR: work.en-my
+ TRAINING_DIR: work.en-my/training
+ MODEL_DIR: work.en-my/training/model
+ MTEVAL_DIR: /home/ye/tool/mteval/build/bin
+ LM_FILE: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/lm/lm.my.arpa.gz
+ OUTPUT_DIR: work.en-my/output
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28584 kB	RSSMax:2153068 kB	user:7.39152	sys:1.76009	CPU:9.15162	real:22.1513
+BLEU = 2.27, 22.1/3.9/1.1/0.3 (BP=1.000, ratio=1.328, hyp_len=78202, ref_len=58895)
+BLEU=0.022748	RIBES=0.364165	WER=1.275269
+
+real	29m39.682s
+user	120m32.932s
+sys	27m54.679s
+```
+
+BLEU score က 2.27 ဆိုတော့ လက်ရှိထိ အမြင့်ဆုံးပဲ။ သောက်တလွဲ ... :)  
+
