@@ -762,3 +762,82 @@ user	20m23.466s
 sys	0m27.315s
 ```
 
+*** ဒီတစ်ခေါက်တော့ -threads ကိုပါ ဖြုတ်ပြီး ထပ် run ကြည့်မယ်။  
+
+```console
+${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+```
+
+## Training/Tuning Again
+
+```console
+
+                    200  79  93 200 166  79 147  53  59  56  60  54  62   0
+                      200  54 194 200  85 137  54  61  49  52  64  70   0
+                        200 131 202  90 141  50  59  52  44  56  87   0
+                          200 157  41 133  67  61  53  45  59  72   0
+                            180  89  84 128  71  49  46  56  58   0
+                              200 145  81 117  65  44  63  54   0
+                                129  55  79  82  55  70  71   0
+                                  194  75  65  64 101  87   0
+                                    200  58  57 119 128   0
+                                      196  54  89 169   0
+                                        188  57 113   0
+                                          200  82   0
+                                            200   0
+                                                1
+BEST TRANSLATION: 565227 S  -> S </s> :0-0 : term=1-1 : nonterm=0-0 : c=-0.018 core=(0.000,-1.000,1.000,0.000,0.000,0.000,0.000,0.000,0.000)  [0..23] 563645 [total=-601.815] core=(-600.000,-28.000,39.000,-78.429,-54.963,-58.760,-24.729,1.000,-156.980)
+Line 26Killed
+Exit code: 137
+The decoder died. CONFIG WAS -weight-overwrite 'PhrasePenalty0= 0.001951 LM0= 0.004878 TranslationModel1= -0.975610 TranslationModel0= 0.001951 0.001951 0.001951 0.001951 WordPenalty0= -0.009756'
+```
+
+**** Tuning Step No. 2 မှာ ရပ်သွားတယ်။ အဲဒါ ဘာကြောင့်လဲ ဆိုတာကို သိအောင် ကြိုးစားရလိမ့်မယ်။
+
+အဲဒီ 2 iteration tuned tree-to-string model နဲ့ပဲ test input English ဖိုင်ကို အစအဆုံး ပြန်ပေးနိုင်လားနဲ့ BLEU score ကို checking ... လုပ်ခဲ့ အောက်ပါ ရလဒ် ကို တွေ့ရ...  
+
+```console
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28480 kB	RSSMax:2152632 kB	user:8.90507	sys:2.25423	CPU:11.1593	real:24.9991
+mkdir: cannot create directory ‘work.en-my/output’: File exists
+BLEU = 1.51, 17.1/2.6/0.7/0.2 (BP=1.000, ratio=1.855, hyp_len=109271, ref_len=58895)
+BLEU=0.015136	RIBES=0.309893	WER=1.735291
+
+real	54m9.279s
+user	60m3.523s
+sys	0m33.632s
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/output$ wc *
+    1018   109271  1042311 test.out
+   43272  2818960 18677336 test.out.log
+   44290  2928231 19719647 total
+```
+
+*** တိုးတက်မှုတော့ ရှိတယ်။ Training/Tuning/Testing/Evaluation pipeline အားလုံး အစအဆုံး လုပ်သွားပုံရတယ်။ :)
+*** Score ကတော့ မကောင်းသေးဘူး...  
+
+
