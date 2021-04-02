@@ -467,4 +467,60 @@ PTB perl script မှာက အောက်ပါလို single, double အ�
 
 နောက်ပိုင်း experiment တွေအားလုံးကို PTB tree format နဲ့ပဲ ထပ် run ခဲ့တယ်။  
 
+## Training/Tunning Again with PTB Tree Format
+
+```
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28588 kB	RSSMax:2152644 kB	user:8.64781	sys:2.26682	CPU:10.9146	real:24.4983
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.456, ratio=0.560, hyp_len=32989, ref_len=58895)
+BLEU=0.000000	RIBES=0.000000	WER=1.020299
+
+real	32m57.119s
+user	134m46.693s
+sys	21m35.443s
+```
+
+အထက်ပါအတိုင်း ရပ်သွားတာ တွေ့ရတယ်။  
+model/ Folder ထဲက file size တွေကို check လုပ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294762  26303989 aligned.grow-diag-final-and
+        0         0        20 extract.inv.sorted.gz
+        0         0        20 extract.sorted.gz
+        3        45       192 glue-grammar
+   518555   1555665  16595410 lex.e2f
+   518555   1555665  16595410 lex.f2e
+       48       102      1230 moses.ini
+       46        77      1007 moses-tuned.ini
+        0         0        20 rule-table.gz
+  1751249  18156080 148786460 total
+```
+
+sorting လုပ်တဲ့ နေရာမှာ failed ဖြစ်နေတာလား ?!?!?!  
+Reference: moses manual, page 98  
+
+Removed: ```sort-buffer-size 10G```bash  
+Added:   ```--sort-batch-size 1024 --sort-compress gzip \```bash  
 
