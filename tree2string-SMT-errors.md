@@ -841,3 +841,267 @@ sys	0m33.632s
 *** Score ကတော့ မကောင်းသေးဘူး...  
 
 
+## Update t2s.sh and Training/Tunning/Testing Again
+
+#!/bin/bash
+
+## Tree to String SMT with moses
+## Written by Ye, LST, NECTEC, Thailand
+## Preparation for WAT2021 MT Share Task
+## This shell script referred: http://orchid.kuee.kyoto-u.ac.jp/WAT/WAT2017/baseline/baselineSystemTree2String.html
+## Last updated: 30 Mar 2021
+##
+## If you want to run this shell script you will need parallel corpus including tree parsed SOURCE data,
+## moses SMT toolkit: https://github.com/moses-smt/mosesdecoder
+## mgiza alignment tool: https://github.com/moses-smt/mgiza
+
+## Variables preparations for data, script and path
+SOURCE=en
+TARGET=my
+EXP_DIR=/home/ye/exp/smt/wat2021/tree-smt/tree2string
+LM=${EXP_DIR}/data.tok/train
+CORPUS=${EXP_DIR}/data.tree/train
+DEV_SOURCE=${EXP_DIR}/data.tree/dev.${SOURCE}
+DEV_TARGET=${EXP_DIR}/data.tok/dev.${TARGET}
+TEST=${EXP_DIR}/data.tree/test.${SOURCE}
+REF=${EXP_DIR}/data.tok/test.${TARGET}
+LM_ORDER=6
+JOBS=8
+
+MOSES_SCRIPT=/home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+MOSES_BIN=/home/ye/tool/mosesbin/ubuntu-17.04/moses/bin
+#EXT_BIN=/home/ye/tool/mgiza/mgizapp/bin/
+EXT_BIN=/home/ye/tool/mosesbin/ubuntu-17.04/training-tools
+
+WORK_DIR=work.${SOURCE}-${TARGET}
+TRAINING_DIR=${WORK_DIR}/training
+MODEL_DIR=${WORK_DIR}/training/model
+
+## Optional tool for evaluation
+## https://github.com/odashi/mteval
+MTEVAL_DIR=/home/ye/tool/mteval/build/bin
+
+## Prepare directories
+mkdir t2s_Model
+cd t2s_Model/
+mkdir -p ${TRAINING_DIR}/lm
+
+## Training STRING language model for TARGET language
+LM_FILE=`pwd`/${TRAINING_DIR}/lm/lm.${TARGET}.arpa.gz
+${MOSES_BIN}/lmplz --order ${LM_ORDER} -S 80% -T /tmp < ${LM}.${TARGET} | gzip > ${LM_FILE}
+
+
+## Training translation model
+# Removed: sort-buffer-size 10G
+# Removed:  --sort-batch-size 1024 --sort-compress gzip \
+# Removed:   --extract-options "--MaxSpan 1000 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \
+
+${MOSES_SCRIPT}/training/train-model.perl \
+  --root-dir `pwd`/${TRAINING_DIR} \
+  --model-dir `pwd`/${MODEL_DIR} \
+  --corpus ${CORPUS} \
+  --external-bin-dir ${EXT_BIN} \
+  --f ${SOURCE} \
+  --e ${TARGET} \
+  --parallel \
+  --alignment grow-diag-final-and \
+  --mgiza --mgiza-cpus 8 \
+  --score-options "--GoodTuring" \
+  --hierarchical \
+  --glue-grammar \
+  --lm 0:${LM_ORDER}:${LM_FILE}:8 \
+  --source-syntax \
+  --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \
+  --cores ${JOBS} \
+  --parallel \
+  >& ${TRAINING_DIR}/training_TM.log
+
+
+## Tuning
+mkdir -p ${WORK_DIR}/tuning
+#   --decoder-flags "-threads ${JOBS} -max-chart-span 1000" \
+#   --decoder-flags " -max-chart-span 1000" \
+#   --continue --skip-decoder \
+#   --decoder-flags "-threads ${JOBS} -v 0" \
+
+${MOSES_SCRIPT}/training/mert-moses.pl \
+  ${DEV_SOURCE} \
+  ${DEV_TARGET} \
+  ${MOSES_BIN}/moses_chart \
+  --continue \
+  `pwd`/${MODEL_DIR}/moses.ini \
+  --mertdir ${MOSES_BIN} \
+  --working-dir `pwd`/${WORK_DIR}/tuning/mert \
+  --threads ${JOBS} \
+  --no-filter-phrase-table \
+  --inputtype 3 \
+  --predictable-seeds \
+  --batch-mira --return-best-dev --batch-mira-args "-J 300"  \
+  --decoder-flags "-max-chart-span 500 -threads all -v 0" \
+  >& ${WORK_DIR}/tuning/mert.log
+
+
+## Updating tuned best weights into the configuration file
+perl ${MOSES_SCRIPT}/ems/support/substitute-weights.perl \
+  ${MODEL_DIR}/moses.ini \
+  ${WORK_DIR}/tuning/mert/moses.ini \
+  ${MODEL_DIR}/moses-tuned.ini
+
+
+## Translating
+OUTPUT_DIR=${WORK_DIR}/output
+mkdir ${OUTPUT_DIR}
+outfile=${OUTPUT_DIR}/test.out
+
+#${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -max-chart-span 1000 -threads ${JOBS} -inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+#${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini -threads ${JOBS} -inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+${MOSES_BIN}/moses_chart -config ${MODEL_DIR}/moses-tuned.ini --inputtype 3 < ${TEST} > ${outfile} 2> ${outfile}.log
+
+## Evaluation with multi-bleu.perl
+# /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+perl ${MOSES_SCRIPT}/generic/multi-bleu.perl ${REF} < ${outfile}
+
+## Evaluation with mteval tool
+## Check corpus level BLEU, RIBES and WER scores for your tree2string experiment
+${MTEVAL_DIR}/mteval-corpus -e BLEU RIBES WER -r ${REF} -h ${outfile}
+
+-----------------
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28352 kB	RSSMax:2152772 kB	user:7.24807	sys:1.74523	CPU:8.99329	real:22.0898
+ERROR cannot open weight-ini 'work.en-my/tuning/mert/moses.ini': No such file or directory at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/support/substitute-weights.perl line 34.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.456, ratio=0.560, hyp_len=32989, ref_len=58895)
+BLEU=0.000000	RIBES=0.000000	WER=1.020299
+
+real	38m1.788s
+user	142m9.764s
+sys	30m53.357s
+
+Note:   --extract-options "--MaxSpan 500 --MinHoleSource 1 --MinWords 0 --NonTermConsecSource --AllowOnlyUnalignedWords" \
+--decoder-flags "-max-chart-span 500 -threads all -v 0" \ ထည့်တော့ အချိန်ကတော့ ပုံမှန်ထက် ပိုကြာတယ်။
+သို့သော် rule-table က မထွက်ဘူး။
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294741  26303924 aligned.grow-diag-final-and
+  1444800   8323532 374485305 extract.inv.sorted.gz
+  1498839   8520905 384199383 extract.sorted.gz
+        3        45       192 glue-grammar
+   518528   1555584  16594419 lex.e2f
+   518528   1555584  16594419 lex.f2e
+       48       102      1230 moses.ini
+       38        58       871 moses-tuned.ini
+        0         0        20 rule-table.gz
+  4694826  35000315 907468925 total
+
+training error က အောက်ပါအတိုင်း
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail training_TM.log 
+....Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+............................................................................................................................................................................................................................................................................................................................terminate called after throwing an instance of 'std::length_error'
+  what():  vector::_M_default_append
+Aborted (core dumped)
+
+gzip: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.11447/phrase-table.half.0000000.gz: unexpected end of file
+..................................................................Killed
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ 
+
+## Update the script and Run again
+
+Rule ကို maximum 300 ထိပဲ ထားပြီး လုပ်ခဲ့...
+
+extraction လုပ်တာ... learn လုပ်တာတော့ အဆင့်ဆင့်ဖြစ်လာလို့ တိုးတက်မှု ရှိ ...
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.14008$ ls
+align.0000000  align.0000007           extract.0000002.inv.gz  extract.0000006.gz      glue.0000003  sortBD6gLO  source.0000000  source.0000007  target.0000006
+align.0000001  chk.extract.6.out       extract.0000003.gz      extract.0000006.inv.gz  glue.0000004  sortfueEbB  source.0000001  target.0000000  target.0000007
+align.0000002  extract.0000000.gz      extract.0000003.inv.gz  extract.0000007.gz      glue.0000005  sortjX7JkD  source.0000002  target.0000001
+align.0000003  extract.0000000.inv.gz  extract.0000004.gz      extract.0000007.inv.gz  glue.0000006  sortM4eLDz  source.0000003  target.0000002
+align.0000004  extract.0000001.gz      extract.0000004.inv.gz  glue.0000000            sort089xhB    sortMzBcvP  source.0000004  target.0000003
+align.0000005  extract.0000001.inv.gz  extract.0000005.gz      glue.0000001            sort4TNBdO    sortRnJTJP  source.0000005  target.0000004
+align.0000006  extract.0000002.gz      extract.0000005.inv.gz  glue.0000002            sortA9TAjB    sortTmCiGQ  source.0000006  target.0000005
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/tmp.14008$
+
+သို့သော် Rule table မဆောက်ပေးနိုင်...
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string$ time ./t2s.sh 
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/train.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 6285996 types 9789
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:117468 2:809923776 3:1518607104 4:2429771264 5:3543416576 6:4859542528
+Statistics:
+1 9789 D1=0.722244 D2=1.10259 D3+=1.08703
+2 222136 D1=0.67195 D2=1.06259 D3+=1.44678
+3 956559 D1=0.770592 D2=1.1215 D3+=1.34752
+4 1898498 D1=0.833995 D2=1.18933 D3+=1.33204
+5 2665563 D1=0.877419 D2=1.26852 D3+=1.38285
+6 3139196 D1=0.582375 D2=1.71726 D3+=1.66681
+Memory estimate for binary LM:
+type     MB
+probing 185 assuming -p 1.5
+probing 218 assuming -r models -p 1.5
+trie     84 without quantization
+trie     43 assuming -q 8 -b 8 quantization 
+trie     74 assuming -a 22 array pointer compression
+trie     34 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:117468 2:3554176 3:19131180 4:45563952 5:74635764 6:100454272
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+####################################################################################################
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:13032640 kB	VmRSS:28564 kB	RSSMax:2152608 kB	user:7.31025	sys:1.72898	CPU:9.03923	real:22.1509
+ERROR cannot open weight-ini 'work.en-my/tuning/mert/moses.ini': No such file or directory at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/support/substitute-weights.perl line 34.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl line 139, <STDIN> line 1018.
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.456, ratio=0.560, hyp_len=32989, ref_len=58895)
+BLEU=0.000000	RIBES=0.000000	WER=1.020299
+
+real	37m50.763s
+user	144m0.369s
+sys	34m14.781s
