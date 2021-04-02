@@ -1449,3 +1449,64 @@ in total = 25 closed tags
 
 5580 ရှိတယ်။ ဒီကိစ္စက လွယ်မလိုလိုနဲ့ auto correction လုပ်ဖို့က စဉ်းစားရလိမ့်မယ်...  
 စာကြောင်းရေ ၃သိန်းနီးပါးမှာ ၅ထောင်ကျော်ဆိုတော့ မျက်စိမိတ်ပြီးပဲ ဆက်လုပ်သင့်သလား?!?!  
+
+
+Note for me: လက်ရှိ မော်ဒယ် ဆောက်ထားတာကို debug လုပ်ဖို့ study လုပ်ဖို့အတွက် "t2s_Model1/", "t2s_Model2/", "t2s_Model3/", "t2s_Model4/" ဆိုပြီး နာမည်ပြောင်း သိမ်းထားခဲ့...  
+*** Tree parsing ကို ပြန်စစ်ရလိမ့်မယ်။ NLTK နဲ့ parse လုပ်ထားတာကို အသေးစိတ် ပြန်စစ်ရလိမ့်မယ်။  
+
+## Removed some parameters and Train Again
+
+Training မှာ  
+  ```--extract-options "--MinHoleSource 1 --MinHoleTarget 1 --MinWords 0" \```
+
+Tuning မှာ  
+ ```--decoder-flags "--threads ${JOBS} --verbose 1" \```
+ 
+ ```console
+ (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model$ wc *
+   238014   3463768  28441812 aligned.0.en
+   238014   6285996  60847350 aligned.0.my
+   238014   5294613  26303068 aligned.grow-diag-final-and
+    76217    428342  19510487 extract.inv.sorted.gz
+    64307    366634  16654814 extract.sorted.gz
+        3        45       192 glue-grammar
+   518507   1555521  16593724 lex.e2f
+   518507   1555521  16593724 lex.f2e
+       48       102      1230 moses.ini
+       46        77      1007 moses-tuned.ini
+   149078    829741  38148051 rule-table.gz
+  2040755  19780360 223095459 total
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run2.out 
+&quot;/&quot; Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &quot;/&quot;
+It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
+&quot;/&quot; The/DT missile/NN appeared/VBD to/TO have/VB been/VBN fired/VBN by/IN a/DT drone/NN ,/, &quot;/&quot; said/VBD a/DT Pakistani/NNP intelligence/NN official/NN ./.
+&quot;/&quot; They/PRP do/VBP have/VB an/DT ability/NN to/TO regenerate/VB and/CC replace/VB these/DT guys/NNS ,/, &quot;/&quot; said/VBD a/DT Western/JJ intelligence/NN official/NN ./.
+Al-Libi/NNP is/VBZ said/VBD to/TO have/VB been/VBN the/DT third/JJ highest/JJS ranking/JJ member/NN of/IN al-Qaeda/NN ./.
+The/DT Government/NNP of/IN Pakistan/NNP said/VBD they/PRP did/VBD not/RB know/VB about/IN his/PRP$ death/NN ./.
+The/DT details/NNS of/IN the/DT death/NN have/VBP not/RB yet/RB been/VBN fully/RB released/VBN ./.
+Both/DT teams/NNS entered/VBD Sunday/NNP &apos;s/POS match/NN with/IN a/DT seven-game/JJ unbeaten/JJ streak/NN to/TO give/VB them/PRP the/DT chance/NN to/TO take/VB the/DT final/JJ playoff/NN spot/NN ./.
+In/IN the/DT end/NN ,/, Chicago/NNP Fire/NNP beat/NN Los/NNP Angeles/NNP Galaxy/NNP to/TO take/VB the/DT last/JJ playoff/NN spot/NN ./.
+Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Los/NNP Angeles/NNP Galaxy/NNP 22-5/CD ./.
+```
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ wc run1.out 
+  1000  28543 253906 run1.out
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ head run1.out
+&quot;/&quot; Though/IN we/PRP are/VBP sad/JJ for/IN his/PRP$ loss/NN ,/, he/PRP left/VBD a/DT legacy/NN that/WDT will/MD inflame/VB the/DT enemy/NN nation/NN and/CC religion/NN ./. &quot;/&quot;
+It/PRP is/VBZ speculated/VBN that/IN he/PRP was/VBD hit/VBN by/IN a/DT United/NNP States/NNPS missile/NN ,/, which/WDT is/VBZ now/RB identified/VBN as/IN being/VBG fired/VBN from/IN a/DT Predator/NNP drone/NN ,/, in/IN the/DT North/NNP Waziristan/NNP of/IN Pakistan/NNP ,/, and/CC a/DT dozen/NN more/JJR militants/NNS were/VBD also/RB reported/VBN dead/JJ ./.
+&quot;/&quot; The/DT missile/NN appeared/VBD to/TO have/VB been/VBN fired/VBN by/IN a/DT drone/NN ,/, &quot;/&quot; said/VBD a/DT Pakistani/NNP intelligence/NN official/NN ./.
+&quot;/&quot; They/PRP do/VBP have/VB an/DT ability/NN to/TO regenerate/VB and/CC replace/VB these/DT guys/NNS ,/, &quot;/&quot; said/VBD a/DT Western/JJ intelligence/NN official/NN ./.
+Al-Libi/NNP is/VBZ said/VBD to/TO have/VB been/VBN the/DT third/JJ highest/JJS ranking/JJ member/NN of/IN al-Qaeda/NN ./.
+The/DT Government/NNP of/IN Pakistan/NNP said/VBD they/PRP did/VBD not/RB know/VB about/IN his/PRP$ death/NN ./.
+The/DT details/NNS of/IN the/DT death/NN have/VBP not/RB yet/RB been/VBN fully/RB released/VBN ./.
+Both/DT teams/NNS entered/VBD Sunday/NNP &apos;s/POS match/NN with/IN a/DT seven-game/JJ unbeaten/JJ streak/NN to/TO give/VB them/PRP the/DT chance/NN to/TO take/VB the/DT final/JJ playoff/NN spot/NN ./.
+In/IN the/DT end/NN ,/, Chicago/NNP Fire/NNP beat/NN Los/NNP Angeles/NNP Galaxy/NNP to/TO take/VB the/DT last/JJ playoff/NN spot/NN ./.
+Chicago/NNP Fire/NNP controlled/VBD the/DT game/NN as/IN they/PRP outshot/VBP Los/NNP Angeles/NNP Galaxy/NNP 22-5/CD ./.
+```
+
+*** span Parameter ကတော့ ထည့်ဖို့ လိုကို လိုအပ်တယ်။ tuning ကို iteration နှစ်ခေါက် လုပ်သွားပေမဲ့ moses.ini မှာ လုံးဝ zero တွေဖြစ်နေတာ...  
+
