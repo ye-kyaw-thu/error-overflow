@@ -273,3 +273,37 @@ force-align-moses-old.sh  giza2bal.pl           merge_alignment.py  mkcls  plain
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/mgiza/mgizapp/bin$
 ```
 
+## Assign More CPU for the Alignment Process
+
+train-model.perl  run တဲ့ command မှာ အောက်ပါ option ကို ဖြည့်လိုက်တယ်။  
+```  --mgiza --mgiza-cpus 6 \```
+
+ပြီးတော့ လက်ရှိ စက်မှာက CPU က ရှစ်လုံးပဲ ရှိတာမို့ ```JOBS=6``` ထားလိုက်တယ်။  
+ပြန် train တော့ log ဖိုင်မှာတော့ အောက်ပါအတိုင်း multi-thread ကို GIZA သုံးတယ်ဆိုတာတော့ မြင်လာရပြီ...   
+
+```
+Using SCRIPTS_ROOTDIR: /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts
+Using multi-thread GIZA
+using gzip 
+...
+```
+
+သို့သော် training က အရမ်းကြာနေသေး...  
+
+## Recheck the format of parsed tree
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/wmt2014-scripts/example/data$ head -n 1 parallelC.de-en.parsed.en 
+<tree label="sent"><tree label="root"><tree label="nsubj"><tree label="det"><tree label="DT">The</tree></tree><tree label="NN">ECB</tree></tree><tree label="VBZ">wants</tree><tree label="xcomp"><tree label="aux"><tree label="TO">to</tree></tree><tree label="VB">hold</tree><tree label="dobj"><tree label="NN">inflation</tree></tree><tree label="prep"><tree label="TO">to</tree><tree label="pcomp"><tree label="IN">under</tree><tree label="pobj"><tree label="num"><tree label="CD">two</tree></tree><tree label="NN">percent</tree><tree label="punct"><tree label=",">,</tree></tree><tree label="cc"><tree label="CC">or</tree></tree><tree label="conj"><tree label="advmod"><tree label="RB">somewhere</tree></tree><tree label="IN">in</tree><tree label="pobj"><tree label="det"><tree label="DT">that</tree></tree><tree label="NN">vicinity</tree></tree></tree></tree></tree></tree></tree><tree label="punct"><tree label=".">.</tree></tree></tree></tree>
+```
+
+moses က လက်ခံတာက အထက်မှာ ပြထားသလို xml tag format ပုံစံလို့ ထင်တယ်။  
+လက်ရှိ parsed လုပ်ထားတဲ့ training ဒေတာက bracket နဲ့ parsed လုပ်ထားတဲ့ format ဖြစ်နေတာကိုတွေ့ရ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 3 ./train.en 
+(S (NP A/DT murder/NN) (NP case/NN) (VP (V has/VBZ)) (VP (V been/VBN)) (VP (V opened/VBN)) (P at/IN) the/DT Kyeikgyaung/NNP police/NNS (NP station/NN) ./.)
+(S Police/NNS (VP (V are/VBP)) (VP (V investigating/VBG)) ./.)
+(S Tatmadaw/NNP troops/NNS (VP (V seized/VBD)) arms/NNS and/CC (NP illegal/JJ timber/NN) (PP (P from/IN) (NP a/DT vehicle/NN)) (PP (P during/IN) (NP a/DT surprise/NN)) (NP check/NN) (P in/IN) Tarmoenyae/NNP (P in/IN) northern/JJ Shan/NNP (NP state/NN) (NP yesterday/NN) ./.)
+```
+
