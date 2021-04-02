@@ -1206,3 +1206,64 @@ Exit code: 137
 The decoder died. CONFIG WAS -weight-overwrite 'TranslationModel0= 0.001951 0.001951 0.001951 0.001951 PhrasePenalty0= 0.001951 WordPenalty0= -0.009756 TranslationModel1= -0.975610 LM0= 0.004878'
 ```
 
+## Removed   --no-filter-phrase-table \ and Run Again
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning$ tail ./mert.log 
+Line 695: Translation took 5.585 seconds total
+Translation took 11.440 seconds
+Name:moses_chart	VmPeak:1176512 kB	VmRSS:202644 kB	RSSMax:790704 kB	user:10.488	sys:21.520	CPU:32.008	real:17.931
+The decoder returns the scores in this order: LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel1
+Executing: gzip -f run1.best100.out
+Scoring the nbestlist.
+exec: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert/extractor.sh
+Executing: /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert/extractor.sh > extract.out 2> extract.err
+Exit code: 1
+ERROR: Failed to run '/home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert/extractor.sh'. at /home/ye/tool/mosesbin/ubuntu-17.04/moses/scripts/training/mert-moses.pl line 1775.
+```
+
+*** ဒီ တစ်ခါမှာတော့ extract လုပ်တဲ့အခါမှာ ERROR ရှိတယ်လိုပြောနေလားလို့...   
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/tuning/mert$ cat extract.err 
+Binary write mode is NOT selected
+Scorer type: BLEU,HWCM
+name: case value: true
+name: case value: true
+name: case value: true
+Number of scorers: 2
+The weights for the interpolated scorers are: 
+0.5 0.5 
+Loading reference from /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my
+.........Exception: Unable to open /home/ye/exp/smt/wat2021/tree-smt/tree2string/data.tok/dev.my.trees
+```
+
+Option က tree နဲ့ ဆိုင်တာမို့လို့ ပေးတဲ့ error ...  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training$ tail ./training_TM.log 
+ERROR: tag tree closed, but not opened:<tree label="S"> <tree label="NP"> The/DT meeting/NN </tree> <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> the/DT union/NN </tree> </tree> <tree label="NP"> peace/NN </tree> <tree label="NP"> dialogue/NN </tree> <tree label="NP"> joint/JJ committee/NN </tree> <tree label="/("> UPDJC/NNP </tree> / </tree> <tree label="VP"> <tree label="V"> was/VBD </tree> </tree> <tree label="VP"> <tree label="V"> attended/VBN </tree> </tree> <tree label="P"> by/IN </tree> State/NNP Counsellor/NNP Daw/NNP Aung/NNP San/NNP Su/NNP Kyi/NNP ,/, <tree label="NP"> the/DT committee/NN </tree> &amp;/CC <tree label="NP"> amp/NN </tree> ;/: apos/CC ;/: <tree label="NP"> s/JJ vice/NN </tree> <tree label="NP"> chairman/NN </tree> Phado/NNP Saw/NNP Kwe/NNP Htoo/NNP Win/NNP ,/, U/NNP Thu/NNP Wai/NNP ,/, <tree label="NP"> union/NN </tree> ministers/NNS and/CC other/JJ members/NNS <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> the/DT committee/NN </tree> </tree> ./. </tree>
+ERROR: tag tree closed, but not opened:<tree label="S"> These/DT <tree label="VP"> <tree label="V"> are/VBP </tree> </tree> one/CD <tree label="NP"> fact/NN </tree> <tree label="VP"> <tree label="V"> concerning/VBG </tree> <tree label="NP"> sovereignty/NN </tree> </tree> ,/, one/CD <tree label="PP"> <tree label="P"> in/IN </tree> <tree label="NP"> the/DT practice/NN </tree> </tree> <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> sovereignty/NN </tree> </tree> ,/, two/CD <tree label="PP"> <tree label="P"> in/IN </tree> <tree label="NP"> equality/NN </tree> </tree> ,/, five/CD <tree label="PP"> <tree label="P"> in/IN </tree> <tree label="NP"> self/NN </tree> </tree> <tree label="NP"> legislation/NN </tree> ,/, <tree label="VP"> <tree label="V"> ten/VBN </tree> <tree label="PP"> <tree label="P"> in/IN </tree> <tree label="NP"> federal/JJ union/NN </tree> </tree> <tree label="NP"> principle/NN </tree> </tree> <tree label="/("> <tree label="NP"> structure/NN </tree> and/CC <tree label="NP"> delegation/NN </tree> <tree label="PP"> <tree label="P"> of/IN </tree> <tree label="NP"> authority/NN </tree> </tree> </tree> / </tree> ,/, and/CC two/CD <tree label="PP"> <tree label="P"> in/IN </tree> <tree label="NP"> the/DT democracy/NN </tree> </tree> <tree label="NP"> system/NN </tree> ./. </tree>
+ERROR: tag tree closed, but not opened:<tree label="S"> ွှThere/EX <tree label="VP"> <tree label="V"> is/VBZ </tree> </tree> only/RB one/CD <tree label="NP"> female/JJ cabinet/NN </tree> <tree label="NP"> minister/NN </tree> <tree label="/("> Suu/NNP Kyi/NNP </tree> / </tree> and/CC two/CD female/JJ chief/JJ ministers/NNS ./. </tree>
+ERROR: tag tree closed, but not opened:<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> was/VBD </tree> </tree> March/NNP 1988/CD and/CC I/PRP <tree label="VP"> <tree label="V"> had/VBD </tree> </tree> <tree label="VP"> <tree label="V"> overheard/VBN </tree> </tree> bits/NNS <tree label="P"> of/IN </tree> conversations/NNS <tree label="P"> between/IN </tree> Lugyis/NNP <tree label="/("> Burmese/NNP <tree label="P"> for/IN </tree> adults/NNS </tree> / </tree> <tree label="P"> about/IN </tree> scuffles/NNS <tree label="P"> between/IN </tree> students/NNS <tree label="PP"> <tree label="P"> from/IN </tree> <tree label="NP"> the/DT engineering/NN </tree> </tree> <tree label="NP"> university/NN </tree> and/CC <tree label="NP"> security/NN </tree> officials/NNS ./. </tree>
+ERROR: tag tree closed, but not opened:<tree label="S"> <tree label="NP"> The/DT department/NN </tree> <tree label="P"> of/IN </tree> foreign/JJ affairs/NNS <tree label="VP"> <tree label="V"> was/VBD </tree> </tree> <tree label="VP"> <tree label="V"> formed/VBN </tree> </tree> <tree label="P"> on/IN </tree> 17/CD March/NNP 1947/CD <tree label="PP"> <tree label="P"> under/IN </tree> <tree label="NP"> the/DT government/NN </tree> </tree> &amp;/CC <tree label="NP"> amp/NN </tree> ;/: apos/CC ;/: <tree label="NP"> s/JJ notification/NN </tree> 77/CD <tree label="NP"> d/NN </tree> <tree label="/("> <tree label="NP"> mm/NN </tree> </tree> / </tree> 47/CD and/CC General/NNP Aung/NNP San/NNP <tree label="VP"> <tree label="V"> became/VBD </tree> </tree> the/DT first/JJ foreign/JJ affairs/NNS <tree label="NP"> minister/NN </tree> <tree label="P"> of/IN </tree> Myanmar/NNP ./. </tree>
+Score v2.1 -- scoring methods for extracted rules
+processing hierarchical rules
+adjusting phrase translation probabilities with Good Turing discounting
+Loading lexical translation table from /home/ye/exp/smt/wat2021/tree-smt/tree2string/t2s_Model/work.en-my/training/model/lex.f2e.....
+.........................................
+```
+
+Moses manual ထဲက example က အောက်ပါအတိုင်း...  
+
+```
+<tree label="NP"> <tree label="DET"> the </tree> <tree label="NN"> cat </tree> </tree>
+```
+
+လက်ရှိ corpus ရဲ့ format က အောက်ပါအတိုင်း..  
+
+```console
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/tree-smt/tree2string/data.tree$ head -n 1 test.en
+<tree label="S"> It/PRP <tree label="VP"> <tree label="V"> has/VBZ </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> confirmed/VBN </tree> </tree> <tree label="P"> that/IN </tree> eight/CD <tree label="VP"> <tree label="V"> thoroughbred/VBD </tree> <tree label="NP"> race/NN </tree> </tree> horses/NNS <tree label="P"> at/IN </tree> Randwick/NNP Racecourse/NNP <tree label="P"> in/IN </tree> Sydney/NNP <tree label="VP"> <tree label="V"> have/VBP </tree> </tree> <tree label="VP"> <tree label="V"> been/VBN </tree> </tree> <tree label="VP"> <tree label="V"> infected/VBN </tree> <tree label="PP"> <tree label="P"> with/IN </tree> <tree label="NP"> equine/JJ influenza/NN </tree> </tree> </tree> ./. </tree>
+```
+
