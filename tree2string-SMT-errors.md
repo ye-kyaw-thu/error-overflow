@@ -837,7 +837,7 @@ sys	0m33.632s
    44290  2928231 19719647 total
 ```
 
-*** တိုးတက်မှုတော့ ရှိတယ်။ Training/Tuning/Testing/Evaluation pipeline အားလုံး အစအဆုံး လုပ်သွားပုံရတယ်။ :)
+*** တိုးတက်မှုတော့ ရှိတယ်။ Training/Tuning/Testing/Evaluation pipeline အားလုံး အစအဆုံး လုပ်သွားပုံရတယ်။ :)  
 *** Score ကတော့ မကောင်းသေးဘူး...  
 
 
