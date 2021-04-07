@@ -14,6 +14,8 @@ MT experiment တွေအတွက် အသုံးဝင်ပါလိမ�
 
 ## Decoding/Translation Error
 
+translation.sh ဆိုတဲ့ shell script ထဲကနေ ခေါ် run တဲ့အခါမှာ error ပေးပါတယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ ./translation.sh 
 Using tuned no filtered ini file ...
@@ -137,7 +139,8 @@ Loading TranslationModel0
 
 ## One more confirmation
 
--i နဲ့ input မပေးလည်း မရဘူး။  
+အထက်ပါအတိုင်း error ပေးနေတာနဲ့ bash shell script ထဲကနေ မသွားတော့ပဲ interactive translation လုပ်ခိုင်းကြည့်ခဲ့ပါတယ်။  
+ဒီနေရာမှာ -i နဲ့ input မပေးလည်း မရဘူးဆိုတာကို သွားတွေ့ရပါတယ်။  
 phrase table ကို load လုပ်လိုက်ရင်ကို killed ဖြစ်သွားတာ...  
 
 ```
