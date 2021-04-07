@@ -166,6 +166,8 @@ Reading /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.1.gz
 
 ## Compact Phrase Table
 
+Compact phrase table ကိုတော့ အောက်ပါအတိုင်း build လုပ်ခဲ့ပါတယ်။   
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4/baseline/my-en/model$ time ~/tool/mosesbin/ubuntu-17.04/moses/bin/processPhraseTableMin -in ./phrase-table.1.gz -out phrase-table -nscores 4 -threads 4
 Used options:
@@ -217,12 +219,16 @@ extract.1.inv.sorted.gz        extract.1.sorted.gz    lex.1.f2e  phrase-table.1.
 
 ##  Editing moses.ini
 
+moses.ini ဖိုင်ထဲမှာ အောက်ပါအတိုင်း ဝင် update လုပ်ပါတယ်။  
+phrase-table.1.gz နေရာမှာ phrase-table.minphr နဲ့ အစားထိုးတာပါ...  
 ```
 #PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.1.gz input-factor=0 output-factor=0
 PhraseDictionaryCompact name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.minphr input-factor=0 output-factor=0
 ```
 
 ## Test Translation with STDIO
+
+Interactive translation လုပ်ခိုင်းကြည့်တော့ အဆင်ပြေသွားပါပြီ...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4/baseline/my-en/model$ /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1
