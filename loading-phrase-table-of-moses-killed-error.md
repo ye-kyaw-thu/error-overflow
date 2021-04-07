@@ -2,6 +2,7 @@
 
 ## Decoding/Translation Error
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ ./translation.sh 
 Using tuned no filtered ini file ...
 English-Myanmar:
@@ -120,12 +121,14 @@ Finished loading UnknownWordPenalty0
 Loading TranslationModel0
 1000000 2000000 3000000 4000000 5000000 6000000 ./translation.sh: line 16: 167699 Killed                  /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses2 -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/en-my/tuning/moses.tuned.ini.1 -i /home/ye/exp/smt/wat2021/exp-syl4/data/train.my > ./my-en/train.myen.hyp
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ 
+```
 
 ## One more confirmation
 
--i နဲ့ input မပေးလည်း မရဘူး။
-phrase table ကို load လုပ်လိုက်ရင်ကို killed ဖြစ်သွားတာ...
+-i နဲ့ input မပေးလည်း မရဘူး။  
+phrase table ကို load လုပ်လိုက်ရင်ကို killed ဖြစ်သွားတာ...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1
 ...
 ...
@@ -144,9 +147,11 @@ Start loading text phrase table. Moses format : [35.557] seconds
 Reading /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.1.gz
 ----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
 *************************************************************************Killed
+```
 
 ## Compact Phrase Table
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4/baseline/my-en/model$ time ~/tool/mosesbin/ubuntu-17.04/moses/bin/processPhraseTableMin -in ./phrase-table.1.gz -out phrase-table -nscores 4 -threads 4
 Used options:
 	Text phrase table will be read from: ./phrase-table.1.gz
@@ -193,14 +198,18 @@ extract.1.inv.sorted.gz        extract.1.sorted.gz    lex.1.f2e  phrase-table.1.
 -rw-rw-r-- 1 ye ye 124M ဧပြီ   8 00:05 ./phrase-table.minphr
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4/baseline/my-en/model$ file ./phrase-table.minphr 
 ./phrase-table.minphr: data
+```
 
 ##  Editing moses.ini
 
+```
 #PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.1.gz input-factor=0 output-factor=0
 PhraseDictionaryCompact name=TranslationModel0 num-features=4 path=/home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.minphr input-factor=0 output-factor=0
+```
 
 ## Test Translation with STDIO
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4/baseline/my-en/model$ /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1
 Defined parameters (per moses.ini or switch):
 	config: /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1 
@@ -243,10 +252,12 @@ BEST TRANSLATION: အဆင်ပြေ|UNK|UNK|UNK go . ပြီလား|UNK|
 Line 0: Decision rule took 0.000 seconds total
 Line 0: Additional reporting took 0.000 seconds total
 Line 0: Translation took 0.034 seconds total
+```
 
 ## Translation with -i option
 
-/home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -threads all --max-phrase-length 200 -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1 -i /home/ye/exp/smt/wat2021/exp-syl4/data/train.my > ./my-en/train.myen.hyp
+```
+$/home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -threads all --max-phrase-length 200 -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1 -i /home/ye/exp/smt/wat2021/exp-syl4/data/train.my > ./my-en/train.myen.hyp
 ...
 ...
 ...
@@ -289,11 +300,11 @@ Line 2391: Initialize search took 0.023 seconds total
 Line 2391: Collecting options took 0.041 seconds at moses/Manager.cpp Line 141
 Line 2390: Collecting options took 0.480 seconds at moses/Manager.cpp Line 141
 Line 2374: Search took 5.063 seconds
-
+```
 
 ## Reference
 
-https://garbo999.github.io/moses/2017/05/25/moses-error-loading-table-into-memory-killed.html
-https://moses-support.mit.narkive.com/9UOIYHZZ/phrasedictionarycompact-problem
-http://www.statmt.org/moses/?n=Advanced.RuleTables
-https://garbo999.github.io/moses/2017/08/23/binarise-phrase-table-lexicalised-reordering-models.html
+https://garbo999.github.io/moses/2017/05/25/moses-error-loading-table-into-memory-killed.html  
+https://moses-support.mit.narkive.com/9UOIYHZZ/phrasedictionarycompact-problem  
+http://www.statmt.org/moses/?n=Advanced.RuleTables  
+https://garbo999.github.io/moses/2017/08/23/binarise-phrase-table-lexicalised-reordering-models.html  
