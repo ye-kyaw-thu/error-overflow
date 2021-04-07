@@ -164,7 +164,7 @@ Reading /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/model/phrase-table.1.gz
 *************************************************************************Killed
 ```
 
-## Compact Phrase Table
+## Building a Compact Phrase Table
 
 Compact phrase table ကိုတော့ အောက်ပါအတိုင်း build လုပ်ခဲ့ပါတယ်။   
 
