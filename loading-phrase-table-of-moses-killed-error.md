@@ -277,6 +277,9 @@ Line 0: Translation took 0.034 seconds total
 
 ## Translation with -i option
 
+ဒီတစ်ခါတော့ -i option ကို သုံးပြီး input file ပေးပြီး translation လုပ်ခိုင်းကြည့်ခဲ့ပါတယ်။  
+အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ phrase table ကို loading လုပ်သွားပြီး translation လည်း အဆင်ပြေတာကို တွေ့ရပါတယ်။  
+
 ```
 $/home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -threads all --max-phrase-length 200 -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1 -i /home/ye/exp/smt/wat2021/exp-syl4/data/train.my > ./my-en/train.myen.hyp
 ...
