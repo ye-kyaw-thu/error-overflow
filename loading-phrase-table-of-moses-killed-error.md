@@ -8,6 +8,7 @@
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ wc ../exp-syl4/data/dev.my
   1000  57709 550454 ../exp-syl4/data/dev.my
 ```
+
 ပြဿနာက translation လုပ်ဖို့အတွက် phrase table ကို loading လုပ်တဲ့နေရာမှာ memory မနိုင်ပဲ killed ဖြစ်သွားတာပါ။  
 အဲဒါကို compact phrase table လုပ်ပြီး ဖြေရှင်းခဲ့တာကို practical error solving log တစ်ခုအနေနဲ့ တင်ပေးထားတာပါ။  
 MT experiment တွေအတွက် အသုံးဝင်ပါလိမ့်မယ်။  
