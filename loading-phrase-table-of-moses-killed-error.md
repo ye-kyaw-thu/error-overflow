@@ -404,6 +404,7 @@ sys	0m29.617s
 
 ## Controlling the Input Length
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ ls
 dev.myen.hyp  tmp
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ cd ..
@@ -499,11 +500,13 @@ real	39m7.887s
 user	151m1.157s
 sys	0m32.294s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$
+```
 
-အထက်မှာ မြင်ရတဲ့အတိုင်း line နံပါတ် 7800 ပတ်ဝန်းကျင်မှာ killed ဖြစ်ဖြစ်သွားတာကို တွေ့ရ...
+အထက်မှာ မြင်ရတဲ့အတိုင်း line နံပါတ် 7800 ပတ်ဝန်းကျင်မှာ killed ဖြစ်ဖြစ်သွားတာကို တွေ့ရ...  
 
-ပထမတစ်ခေါက် translated output ဖိုင်နဲ့ နှိုင်းယှဉ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...
+ပထမတစ်ခေါက် translated output ဖိုင်နဲ့ နှိုင်းယှဉ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ wc *
    1000   30674  159260 dev.myen.hyp
 wc: tmp: Is a directory
@@ -512,7 +515,9 @@ wc: tmp: Is a directory
    8863  188085 1062934 total
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ wc ./tmp/train.myen.hyp 
   7813 153657 883681 ./tmp/train.myen.hyp
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ tail -3 ./tmp/train.myen.hyp 
 self-administered division leading body or self-administered zone leading bodies of the annual budgets of the constitution in accordance with the provisions of the relevant region or state government , in co-ordination with the agreement shall be obtained . 
 self-administered division leading body or self-administered zone leading bodies of the relevant region or state budget law and allotted budget prescribed in accordance with rules and regulations of finance . 
@@ -521,21 +526,26 @@ self-administered division leading body or self-administered zone leading bodies
 region or state under the supervision of the high court of the courts at different levels of judges jurisdictions Magistral powers , duties , powers and rights , and prescribing , in accord with the law . 
 The supreme court of the union , region or state and courts in the other ranks and staff of the staff institutional duties , powers and prescribing , in accord with the law . 
 The president select three members of the speaker of the Pyithu Hluttaw elected by the three members and Amyotha Hluttaw speaker select three members of the total nine the list of its of the state , the constitution tribunal , chairman of the member &amp; apos ; s be submitted to the Pyidaungsu Hluttaw for its approval . 
+```
 
-Hint အနေနဲ့တော့ ငါ ဘာမှ မရသလိုပဲ...
-သို့သော်... သို့သော်... နောက်ဆုံးရပ်သွားတဲ့ စာကြောင်း တွေကို word count လုပ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...
+Hint အနေနဲ့တော့ ငါ ဘာမှ မရသလိုပဲ...  
+သို့သော်... သို့သော်... နောက်ဆုံးရပ်သွားတဲ့ စာကြောင်း တွေကို word count လုပ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
 
+``
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ echo "The president select three members of the speaker of the Pyithu Hluttaw elected by the three members and Amyotha Hluttaw speaker select three members of the total nine the list of its of the state , the constitution tribunal , chairman of the member &amp; apos ; s be submitted to the Pyidaungsu Hluttaw for its approval ." | wc
       1      58     323
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran/my-en$ echo "self-administered division leading body or self-administered zone leading bodies of the financial year before the expiry of the relevant region or state parliament budget law may not in the region or state concerned from the government budget permission time before the Region or State Hluttaw is budget law which is permitted expenditure within the framework of the ." | wc
       1      58     369
+```
 
-wc ရလဒ်က "58" လုံး တူနေတာကို သွားတွေ့ရ...
-သေချာတယ် no. of words, phrase length တို့နဲ့ ပတ်သက်မှုရှိကို ရှိရမယ်...
+wc ရလဒ်က "58" လုံး တူနေတာကို သွားတွေ့ရ...  
+သေချာတယ် no. of words, phrase length တို့နဲ့ ပတ်သက်မှုရှိကို ရှိရမယ်...  
 
 ## Try again
 
 ဒီတစ်ခါတော့ -threads all ပြန်ထားပြီး၊ max-phrase-length option ကို မထည့်ပဲ ထားကြည့်လိုက်တယ်....  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$ time /home/ye/tool/mosesbin/ubuntu-17.04/moses/bin/moses -threads all -f /home/ye/exp/smt/wat2021/exp-syl4/baseline/my-en/tuning/moses.tuned.ini.1 -i /home/ye/exp/smt/wat2021/exp-syl4/data/train.my > ./my-en/train.myen.hyp
 
 Line 7825: Initialize search took 0.031 seconds total
@@ -634,7 +644,7 @@ real	28m51.184s
 user	172m19.783s
 sys	0m24.932s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/smt/wat2021/exp-syl4-tran$
-
+```
 
 
 ## Reference
