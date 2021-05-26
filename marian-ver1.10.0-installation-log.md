@@ -2,6 +2,8 @@
 
 ## Check CUDA Version
 
+Run ```nvcc --version``` command...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -9,6 +11,41 @@ Copyright (c) 2005-2020 NVIDIA Corporation
 Built on Wed_Jul_22_19:09:09_PDT_2020
 Cuda compilation tools, release 11.0, V11.0.221
 Build cuda_11.0_bu.TC445_37.28845127_0
+```
+
+```nvidia-smi``` command ကို run ရင်လည်း CUDA Version ကို မြင်ရတယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ nvidia-smi 
+Wed May 26 18:34:55 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.119.03   Driver Version: 450.119.03   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Quadro P1000        Off  | 00000000:01:00.0  On |                  N/A |
+| 43%   51C    P5    N/A /  N/A |   1204MiB /  4036MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  Quadro P1000        Off  | 00000000:03:00.0 Off |                  N/A |
+| 34%   35C    P8    N/A /  N/A |      7MiB /  4040MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1475      G   /usr/lib/xorg/Xorg                379MiB |
+|    0   N/A  N/A      1605      G   /usr/bin/gnome-shell              321MiB |
+|    0   N/A  N/A      2372      G   ...gAAAAAAAAA --shared-files      498MiB |
+|    0   N/A  N/A    680445      G   gnome-control-center                1MiB |
+|    1   N/A  N/A      1475      G   /usr/lib/xorg/Xorg                  4MiB |
++-----------------------------------------------------------------------------+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$
 ```
 
 ## git clone
