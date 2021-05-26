@@ -82,7 +82,9 @@ Submodule path 'src/3rd_party/simple-websocket-server': checked out '257439f5bd0
 ## make
 
 ```
-make -j 8
+make -j 8  
+-j 8 ဆိုတာက လက်ရှိ marian ကို install လုပ်နေတဲ့ ဆရာ့စက်မှာက CPU ရှစ်လုံး ရှိလို့...  
+
 ...
 ...
 ...
@@ -119,6 +121,8 @@ make: *** [Makefile:152: all] Error 2
 ```
 
 ## Try again
+
+gcc version ကို update လုပ်ခဲ့...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ sudo update-alternatives --config gcc
@@ -820,7 +824,7 @@ Usage: ./spm_train [options] files
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
 ```
 
-check ./spm_normalize command options...  
+check ./spm_normalize command options...   
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_normalize --help
