@@ -1,6 +1,8 @@
+# Marian Version1.10.0 Installation Log
 
 ## git clone
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/marian-nmt/marian
 Cloning into 'marian'...
 remote: Enumerating objects: 9782, done.
@@ -9,9 +11,11 @@ remote: Compressing objects: 100% (2240/2240), done.
 remote: Total 58079 (delta 7763), reused 9277 (delta 7449), pack-reused 48297
 Receiving objects: 100% (58079/58079), 39.66 MiB | 721.00 KiB/s, done.
 Resolving deltas: 100% (44570/44570), done.
+```
 
 ## cmake
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd marian/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian$ mkdir build
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian$ cd build/
@@ -73,9 +77,11 @@ Submodule path 'src/3rd_party/simple-websocket-server': checked out '257439f5bd0
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/ye/tool/marian/build
+```
 
 ## make
 
+```
 make -j 8
 ...
 ...
@@ -110,9 +116,11 @@ make[1]: *** [CMakeFiles/Makefile2:632: src/3rd_party/CMakeFiles/nccl_install.di
 make[1]: Leaving directory '/home/ye/tool/marian/build'
 make: *** [Makefile:152: all] Error 2
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
 ## Try again
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ sudo update-alternatives --config gcc
 [sudo] password for ye: 
 There are 3 choices for the alternative gcc (providing /usr/bin/gcc).
@@ -126,7 +134,11 @@ There are 3 choices for the alternative gcc (providing /usr/bin/gcc).
 
 Press <enter> to keep the current choice[*], or type selection number: 2
 update-alternatives: using /usr/bin/gcc-8 to provide /usr/bin/gcc (gcc) in manual mode
+```
 
+make again...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ make -j 8
 ...
 ...
@@ -200,9 +212,13 @@ make[2]: Leaving directory '/home/ye/tool/marian/build'
 [100%] Built target marian_train
 make[1]: Leaving directory '/home/ye/tool/marian/build'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
 ## Call --help
 
+marian command ရဲ့ help screen ကို ကြည့်ပြီးတော့ NMT training option တွေကို လေ့လာခဲ့...
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./marian --help
 Marian: Fast Neural Machine Translation in C++
 Usage: ./marian [OPTIONS]
@@ -415,7 +431,11 @@ Validation set options:
   --valid-translation-output TEXT       (Template for) path to store the translation. E.g., validation-output-after-{U}-updates-{T}-tokens.txt. Template parameters: {E} for epoch; {B} for No. of batches within epoch; {U} for total No. of updates; {T} for total No. of tokens seen.
   --keep-best                           Keep best model for each validation metric
   --valid-log TEXT                      Log validation scores to file given by  arg
+```
 
+Decoder ရဲ့ help screen ကနေ option တွေကို လေ့လာကြည့်ခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./marian-decoder --help
 Marian: Fast Neural Machine Translation in C++
 Usage: ./marian-decoder [OPTIONS]
@@ -527,7 +547,11 @@ Translator options:
   --weights VECTOR ...                  Scorer weights
   --output-sampling=false               Noise output layer with gumbel noise
   --output-approx-knn VECTOR ...        Use approximate knn search in output layer (currently only in transformer)
+```
 
+./marian-scorer --help ကိုလည်း လေ့လာခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./marian-scorer --help
 Marian: Fast Neural Machine Translation in C++
 Usage: ./marian-scorer [OPTIONS]
@@ -633,7 +657,11 @@ Scorer options:
   --fp16                                Shortcut for mixed precision inference with float16, corresponds to: --precision float16
   --precision VECTOR=float32 ...        Mixed precision for inference, set parameter type in expression graph
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
+vocab ဆောက်တဲ့ command ကိုလည်း လေ့လာခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./marian-vocab --help
 Create a vocabulary from text corpora given on STDIN
 Usage: ./marian-vocab [OPTIONS]
@@ -662,7 +690,11 @@ Allowed options:
 Examples:
   ./marian-conv -f model.npz -t model.bin --gemm-type packed16
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
+./spm_encode command ကိုလည်း လေ့လာခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_encode --help
 sentencepiece
 
@@ -682,8 +714,11 @@ Usage: ./spm_encode [options] files
    --help (show help)  type: bool default: false
    --version (show version)  type: bool default: false
    --minloglevel (Messages logged at a lower level than this don't actually get logged anywhere)  type: int default: 0
+```
 
+./spm_decode --help ခေါ်ကြည့်ခဲ့...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_decode --help
 sentencepiece
 
@@ -701,7 +736,11 @@ Usage: ./spm_decode [options] files
 
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
+./spm_export_vocab --help  ကိုလည်း ခေါ်ကြည့်ခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_export_vocab --help
 sentencepiece
 
@@ -716,7 +755,11 @@ Usage: ./spm_export_vocab [options] files
 
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
+./spm_train ရဲ့ --help ကိုလည်း ခေါ်ကြည့်ခဲ့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_train --help
 sentencepiece
 
@@ -775,7 +818,11 @@ Usage: ./spm_train [options] files
 
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
+```
 
+check ./spm_normalize command options...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ ./spm_normalize --help
 sentencepiece
 
@@ -795,19 +842,25 @@ Usage: ./spm_normalize [options] files
 
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$
-
+```
 
 ## source
+
+updating .bashrc ...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ sudo gedit ~/.bashrc
 [sudo] password for ye: 
 ```
 
+marian installation လုပ်ထားတဲ့ path ကို export လုပ်ခဲ့...  
+
 ```
 # for marian-GPU
 export PATH=$PATH:/home/ye/tool/marian/build
 ```
+
+source command ကို run ခဲ့...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/marian/build$ source ~/.bashrc
