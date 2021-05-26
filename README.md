@@ -66,4 +66,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 59. [mteval.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mteval.md)  
 60. [nagisa-installation-and-example-usage.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/nagisa-installation-and-example-usage.md)  
 61. [loading-phrase-table-of-moses-killed-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/loading-phrase-table-of-moses-killed-error.md)  
+62. [marian-ver1.10.0-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/marian-ver1.10.0-installation-log.md)  
 
