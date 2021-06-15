@@ -175,7 +175,7 @@ ERROR!!!  ERROR!!!   ERROR!!!
 
 ==============
 
-
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ sudo apt-get update && \
 > sudo apt-get install -y build-essential \
 > libseccomp-dev pkg-config squashfs-tools cryptsetup
@@ -209,7 +209,9 @@ E: The repository 'http://ppa.launchpad.net/videolan/stable-daily/ubuntu groovy 
 N: Updating from such a repository can't be done securely, and is therefore disabled by default.
 N: See apt-secure(8) manpage for repository creation and user configuration details.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ 
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ sudo rm -r /usr/local/go
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ export VERSION=1.13.15 OS=linux ARCH=amd64
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz && \
@@ -226,14 +228,18 @@ Saving to: ‘/tmp/go1.13.15.linux-amd64.tar.gz’
 2021-06-15 15:55:48 (38.1 MB/s) - ‘/tmp/go1.13.15.linux-amd64.tar.gz’ saved [120173208/120173208]
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
 > echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
 > source ~/.bashrc
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ echo $PATH
 /usr/local/go/bin:/home/ye/.local/bin:/home/ye/anaconda3/bin:/home/ye/anaconda3/condabin:/home/ye/.local/bin:/home/ye/.local/bin:/usr/share/maven/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ye/tool/ELAN_6-0/opt/elan-6.0/bin:/home/ye/tool/kenlm/build/bin:/home/ye/tool/SCTK/bin:/home/tool/node-v8.17.0-linux-x64/bin:home/ye/tool/srilm-1.7.3/bin/i686-m64:/home/ye/tool/htk/bin.cpu:/home/ye/tool/julius/julius:/home/ye/tool/subword-nmt:/home/ye/tool/marian/build:/home/ye/tool/mteval/build/bin:/home/ye/tool/NiuTrans.SMT/bin:/usr/local/go/bin:/home/ye/tool/ELAN_6-0/opt/elan-6.0/bin:/home/ye/tool/kenlm/build/bin:/home/ye/tool/SCTK/bin:/home/tool/node-v8.17.0-linux-x64/bin:home/ye/tool/srilm-1.7.3/bin/i686-m64:/home/ye/tool/htk/bin.cpu:/home/ye/tool/julius/julius:/home/ye/tool/subword-nmt:/home/ye/tool/marian/build:/home/ye/tool/mteval/build/bin:/home/ye/tool/NiuTrans.SMT/bin:/home/ye/go/bin
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh |
 > sh -s -- -b $(go env GOPATH)/bin v1.21.0
 golangci/golangci-lint info checking GitHub for tag 'v1.21.0'
@@ -274,7 +280,9 @@ Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 98ad49a3d Merge pull request #5575 from dctrud/3.6.3-security-local
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity$ cd ${GOPATH}/src/github.com/sylabs/singularity && \
 > ./mconfig && \
 > cd ./builddir && \
@@ -727,10 +735,12 @@ go: finding github.com/mattn/go-shellwords v1.0.10
  INSTALL SUID /usr/local/libexec/singularity/bin/starter-suid
  DONE
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity/builddir$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity/builddir$ singularity version
 3.6.3
-
+```
 
 
 ## Reference
