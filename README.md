@@ -67,5 +67,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 60. [nagisa-installation-and-example-usage.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/nagisa-installation-and-example-usage.md)  
 61. [loading-phrase-table-of-moses-killed-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/loading-phrase-table-of-moses-killed-error.md)  
 62. [marian-ver1.10.0-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/marian-ver1.10.0-installation-log.md)  
-63. [https://github.com/ye-kyaw-thu/error-overflow/blob/master/singularity-ver-3.6.3-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/singularity-ver-3.6.3-installation.md)  
+63. [singularity-ver-3.6.3-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/singularity-ver-3.6.3-installation.md)  
 
