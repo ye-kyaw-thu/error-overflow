@@ -3,7 +3,7 @@
 Singularity site က ညွှန်ကြားထားတဲ့ အောက်ပါ quick-start အတိုင်း installation လုပ်ပေမဲ့ error တက်လာတာကို ဖြေရှင်းတဲ့ note ပါ။  
 [https://sylabs.io/guides/3.0/user-guide/quick_start.html](https://sylabs.io/guides/3.0/user-guide/quick_start.html)
 
-*Error ကို မလေ့လာချင်ပဲ အဆင်ပြေတဲ့ installation step တွေကိုပဲ တန်းသွားချင်ရင်တော့ Page Down တော်တော်လေး လုပ်သွားပြီး ERROR!!! နောက်ပိုင်းက အဆင့်တွေကနေပဲ စလုပ်သွားပါ။*  
+***Error ကို မလေ့လာချင်ပဲ အဆင်ပြေတဲ့ installation step တွေကိုပဲ တန်းသွားချင်ရင်တော့ Page Down တော်တော်လေး လုပ်သွားပြီး ERROR!!! နောက်ပိုင်းက အဆင့်တွေကနေပဲ စလုပ်သွားပါ။***  
 
 ## Installation of Go
 
@@ -171,7 +171,7 @@ make: Entering directory '/usr/local/go/src/github.com/sylabs/singularity/buildd
 make: *** No rule to make target 'install'.  Stop.
 make: Leaving directory '/usr/local/go/src/github.com/sylabs/singularity/builddir'
 ```
-ERROR!!!  
+ERROR!!!  ERROR!!!   ERROR!!!    
 
 ==============
 
