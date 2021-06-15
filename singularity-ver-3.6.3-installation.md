@@ -175,6 +175,9 @@ ERROR!!!  ERROR!!!   ERROR!!!
 
 ==============
 
+Referene link မှာ discussion လုပ်ထားတာကို လေ့လာကြည့်တော့ go version က အတိအကျသွားမှ singularity က အဆင်ပြေတဲ့ ပုံရှိတယ်။  
+အဲဒါကြောင့် go/ ရဲ့ folder တစ်ခုလုံးကို ဖျက်လိုက်ပြီးတော့မှ go version ကို 1.13.15 ကိုပဲ installation လုပ်ပြီးတော့မှ singularity ကို installation လုပ်ကြည့်တော့ အဆင်ပြေပြေနဲ့ ပြီးသွားပါတယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ sudo apt-get update && \
 > sudo apt-get install -y build-essential \
