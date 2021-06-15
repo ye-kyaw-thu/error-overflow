@@ -1,36 +1,51 @@
+# Singularity Version 3.6.3 Installation
+
+Singularity site က ညွှန်ကြားထားတဲ့ အောက်ပါ quick-start အတိုင်း installation လုပ်ပေမဲ့ error တက်လာတာကို ဖြေရှင်းတဲ့ note ပါ။  
+[https://sylabs.io/guides/3.0/user-guide/quick_start.html](https://sylabs.io/guides/3.0/user-guide/quick_start.html)
+
+*Error ကို မလေ့လာချင်ပဲ အဆင်ပြေတဲ့ installation step တွေကိုပဲ တန်းသွားချင်ရင်တော့ Page Down တော်တော်လေး လုပ်သွားပြီး ERROR!!! နောက်ပိုင်းက အဆင့်တွေကနေပဲ စလုပ်သွားပါ။*  
 
 ## Installation of Go
 
-https://golang.org/doc/install
-Download go tar file.
+https://golang.org/doc/install  
+Download go tar file.  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ sudo rm -rf /usr/local/go
 [sudo] password for ye: 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ export PATH=$PATH:/usr/local/go/bin
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ go version
 go version go1.16.5 linux/amd64
+```
 
 ## Installation of Singularity
 
-https://sylabs.io/guides/3.0/user-guide/quick_start.html
+https://sylabs.io/guides/3.0/user-guide/quick_start.html  
 
-base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ which go
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ which go
 /usr/local/go/bin/go
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/Downloads$ cd /usr/local/go/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go$ ls
 api  AUTHORS  bin  CONTRIBUTING.md  CONTRIBUTORS  doc  favicon.ico  lib  LICENSE  misc  PATENTS  pkg  README.md  robots.txt  SECURITY.md  src  test  VERSION
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go$ cd src
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src$ ls
 all.bash  bootstrap.bash  bytes       cmd        context   embed     flag    go.sum  index     make.bash  math  path       README.vendor  run.bat  strconv  testdata  unicode
 all.bat   bufio           clean.bash  cmp.bash   crypto    encoding  fmt     hash    internal  make.bat   mime  plugin     reflect        run.rc   strings  testing   unsafe
 all.rc    buildall.bash   clean.bat   compress   database  errors    go      html    io        Make.dist  net   race.bash  regexp         runtime  sync     text      vendor
 archive   builtin         clean.rc    container  debug     expvar    go.mod  image   log       make.rc    os    race.bat   run.bash       sort     syscall  time
+```
 
 ## Clone the Singularity repository
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src$ sudo mkdir -p github.com/sylabs
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src$ cd github.com/sylabs/
 
@@ -48,9 +63,11 @@ Resolving deltas: 100% (60565/60565), done.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$ ls
 CHANGELOG.md  CONTRIBUTING.md  COPYRIGHT.md  docs  etc       go.mod  INSTALL.md  LICENSE-APACHE-2.0  LICENSE.md  mconfig  NOTICE-APACHE-2.0  README.md  SUPPORT.md
 cmd           CONTRIBUTORS.md  dist          e2e   examples  go.sum  internal    LICENSE-LBNL.md     makeit      mlocal   pkg                scripts
+```
 
 ## Install Go dependencies
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$ go get -u -v github.com/golang/dep/cmd/dep
 go: downloading github.com/golang/dep v0.5.4
 go: downloading github.com/pkg/errors v0.9.1
@@ -121,9 +138,11 @@ github.com/golang/dep/gps
 /home/ye/go/pkg/mod/github.com/golang/dep@v0.5.4/gps/constraint.go:122:16: invalid type assertion: c.(semver.Version) (non-interface type *semver.Constraints on left)
 /home/ye/go/pkg/mod/github.com/golang/dep@v0.5.4/gps/constraint.go:149:4: undefined: semver.Constraint
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$
+```
 
 ## Compile the Singularity binary
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$ sudo ./mconfig 
 Configuring for project `singularity-ce' with languages: C, Golang
 => running pre-basechecks project specific checks ...
@@ -132,13 +151,17 @@ Configuring for project `singularity-ce' with languages: C, Golang
  checking: host C++ compiler... c++
  checking: host Go compiler (at least version 1.13)... not found!
 mconfig: could not complete configuration
+```
 
-Checking ...
-version က 1.13 ထက် မြင့်နေလို့ ပေးတဲ့ message ပဲလို့ ထင်တယ်။
+Checking ...  
+version က 1.13 ထက် မြင့်နေလို့ ပေးတဲ့ message ပဲလို့ ထင်တယ်။  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$ go version
 go version go1.16.5 linux/amd64
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/usr/local/go/src/github.com/sylabs/singularity$ make -C builddir
 make: Entering directory '/usr/local/go/src/github.com/sylabs/singularity/builddir'
 make: *** No targets specified and no makefile found.  Stop.
@@ -147,10 +170,11 @@ make: Leaving directory '/usr/local/go/src/github.com/sylabs/singularity/builddi
 make: Entering directory '/usr/local/go/src/github.com/sylabs/singularity/builddir'
 make: *** No rule to make target 'install'.  Stop.
 make: Leaving directory '/usr/local/go/src/github.com/sylabs/singularity/builddir'
-
-ERROR!!!
+```
+ERROR!!!  
 
 ==============
+
 
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~$ sudo apt-get update && \
 > sudo apt-get install -y build-essential \
