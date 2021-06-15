@@ -811,4 +811,5 @@ For additional help or support, please visit https://www.sylabs.io/docs/
 
 ## Reference
 
-https://github.com/hpcng/singularity/issues/5099
+https://github.com/hpcng/singularity/issues/5099  
+https://sylabs.io/guides/3.0/user-guide/quick_start.html  
