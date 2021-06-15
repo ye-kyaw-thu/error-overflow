@@ -809,6 +809,110 @@ For additional help or support, please visit https://www.sylabs.io/docs/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity/builddir$
  ```
 
+## Check Example Definition Files
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity/examples$ tree
+.
+├── apps
+│   ├── README.md
+│   ├── Singularity
+│   └── Singularity.cowsay
+├── arch
+│   ├── README.md
+│   └── Singularity
+├── asciinema
+│   └── Singularity
+├── busybox
+│   └── Singularity
+├── centos
+│   └── Singularity
+├── debian
+│   └── Singularity
+├── docker
+│   └── Singularity
+├── instances
+│   └── Singularity
+├── legacy
+│   ├── 2.1
+│   │   ├── arch.def
+│   │   ├── busybox.def
+│   │   ├── centos.def
+│   │   ├── debian.def
+│   │   ├── fedora.def
+│   │   ├── scientific.def
+│   │   └── ubuntu.def
+│   ├── 2.2
+│   │   ├── arch.def
+│   │   ├── busybox.def
+│   │   ├── centos.def
+│   │   ├── contrib
+│   │   │   ├── centos7-ompi_cuda.def
+│   │   │   ├── centos7-ompi_master.def
+│   │   │   ├── centos-minimal.def
+│   │   │   ├── debian85-tensorflow-0.10.def
+│   │   │   ├── fedora.def
+│   │   │   ├── linuxbrew_and_non-root_software_example.def
+│   │   │   ├── r_python_julia.def
+│   │   │   ├── ubuntu16-tensorflow-0.12.1.def
+│   │   │   ├── ubuntu16-tensorflow-0.12.1-gpu.def
+│   │   │   ├── ubuntu-bio.def
+│   │   │   ├── ubuntu-openfoam.def
+│   │   │   └── ubuntu-root.def
+│   │   ├── debian.def
+│   │   ├── docker.def
+│   │   ├── README
+│   │   ├── scientific.def
+│   │   └── ubuntu.def
+│   └── 2.3
+│       └── contrib
+│           └── raspbian.def
+├── library
+│   └── Singularity
+├── multistage
+│   └── Singularity
+├── opensuse
+│   └── Singularity
+├── plugins
+│   ├── cli-plugin
+│   │   ├── go.mod
+│   │   ├── go.sum
+│   │   ├── main.go
+│   │   └── README.md
+│   ├── config-plugin
+│   │   ├── go.mod
+│   │   ├── go.sum
+│   │   └── main_linux.go
+│   ├── log-plugin
+│   │   ├── go.mod
+│   │   ├── go.sum
+│   │   └── main.go
+│   └── ubuntu-userns-overlay-plugin
+│       ├── go.mod
+│       ├── go.sum
+│       └── main.go
+├── raspbian
+│   └── Singularity
+├── README.md
+├── scientific
+│   └── Singularity
+├── scratch
+│   ├── Singularity.alpine
+│   └── Singularity.busybox
+├── self
+│   ├── README.md
+│   └── Singularity
+├── shub
+│   └── Singularity
+├── sle
+│   └── Singularity
+└── ubuntu
+    └── Singularity
+
+29 directories, 65 files
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/go/src/github.com/sylabs/singularity/examples$ 
+```
+
 ## Reference
 
 https://github.com/hpcng/singularity/issues/5099  
