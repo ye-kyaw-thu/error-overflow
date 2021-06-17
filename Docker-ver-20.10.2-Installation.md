@@ -1,24 +1,29 @@
-Docker Installation on Local Machine
+# Docker Installation on Local Machine
 
-Local machine စက်ထဲမှာ docker က ရှိမနေပါဘူး။
+Local machine စက်ထဲမှာ docker က ရှိမနေပါဘူး။  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ docker
 Command 'docker' not found, but can be installed with:
 sudo snap install docker     # version 19.03.13, or
 sudo apt  install docker.io  # version 20.10.2-0ubuntu1~20.10.1
 See 'snap info docker' for additional versions.
+```
 
 အရင် ဆုံး ကိုယ့်စက်ထဲမှာ docker ရှိနေခဲ့ရင်၊ ဖျက်ချင်ရင် အောက်ပါ command:  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo apt-get remove docker docker-engine docker.io
 [sudo] password for ye: 
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
 E: Unable to locate package docker-engine
+```
 
 system က up-to-date ဖြစ်စေချင်ရင်...   
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo apt-get update
 Hit:1 http://dl.google.com/linux/chrome/deb stable InRelease
 Hit:2 https://packages.microsoft.com/repos/ms-teams stable InRelease                                                                        
@@ -34,9 +39,11 @@ Reading package lists... Done
 E: The repository 'http://ppa.launchpad.net/videolan/stable-daily/ubuntu groovy Release' does not have a Release file.
 N: Updating from such a repository can't be done securely, and is therefore disabled by default.
 N: See apt-secure(8) manpage for repository creation and user configuration details.
+```
 
 Docker ကို installation လုပ်...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo apt install docker.io
 Reading package lists... Done
 Building dependency tree       
@@ -108,20 +115,30 @@ Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/
 Processing triggers for systemd (246.6-1ubuntu1.3) ...
 Processing triggers for man-db (2.9.3-2) ...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ 
+```
 
 dependency packages တွေကို installation လုပ်...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo snap install docker
+```
+
 ခဏ ကြာမယ်... အဆင်ပြေပြေနဲ့ docker dependency package တွေကို installation လုပ်နိုင်ခဲ့ရင် အောက်ပါ message ကို မြင်ရလိမ့်မယ်။  
 
+```
 docker 19.03.13 from Canonical✓ installed
+```
 
 install လုပ်ထားတဲ့ Docker ရဲ့ version ကို ရိုက်ကြည့်ရအောင်...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ docker --version
 Docker version 20.10.2, build 20.10.2-0ubuntu1~20.10.1
+```
 
 Docker hub ကနေ hello-world လို့ခေါ်တဲ့ image ကို pull လုပ်ကြည့်ရအောင်...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ time sudo docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -155,22 +172,28 @@ real	0m7.060s
 user	0m0.032s
 sys	0m0.032s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$
+```
 
 အဆင်ပြေပြေနဲ့ docker image ကို pull လုပ်သွားခဲ့သလား ဆိုတာကို confirmation လုပ်ကြည့်ရအောင်...   
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo docker images
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
 hello-world   latest    d1165f221234   3 months ago   13.3kB
+```
 
 Pull လုပ်ထားတဲ့ container အားလုံးကို ကြည့်ချင်ရင်...  
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo docker ps -a
 CONTAINER ID   IMAGE         COMMAND    CREATED              STATUS                          PORTS     NAMES
 b656b6c2a86b   hello-world   "/hello"   About a minute ago   Exited (0) About a minute ago             gracious_chebyshev
+```
 
-လက်ရှိ run နေတဲ့ docker တွေကို ကြည့်ချင်ရင်...
+လက်ရှိ run နေတဲ့ docker တွေကို ကြည့်ချင်ရင်...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ sudo docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-
-
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/NECTEC/hpc/tst$ 
+```
