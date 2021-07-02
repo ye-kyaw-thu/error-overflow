@@ -1,6 +1,6 @@
 # git lfs Installation and Usage
 
-git, github ကို သုံးပြီးတော့ ကိုယ် develop လုပ်ထားတဲ့ source code, data တွေကို upload လုပ်တဲ့အခါမှာ filesize က 50 mb ကျော်လာတဲ့အခါမှာ ပုံမှန်အတိုင်း git push လုပ်တာမျိုး လုပ်လို့ မရပါဘူး။ ထိုနည်းလည်းကောင်းပဲ browser ကနေလည်း upload ပေးမလုပ်ပါဘူး။ အကြောင်းအရင်းကတော့ git ဆိုတာက သိကြတဲ့အတိုင်း version control system ဖြစ်ပြီး developer တွေအများကြီးနဲ့ system တစ်ခုကို framework တစ်ခုကို အတူတူ develop လုပ်ကြရတာမို့ ဖိုင်အရွယ်အစားတွေက ကြီးလာတဲ့အခါမှာ push, pull တစ်ယောက်ချင်းစီက လုပ်ကြတဲ့အခါမှာ download/upload တွေကြောင့် git repository ကို up-to-date လုပ်တဲ့အခါမှာ လေးကုန်တာတို့လိုမျိုး ပြဿနာတွေ ဖြစ်တတ်တာမို့ပါ။  
+git, github ကို သုံးပြီးတော့ ကိုယ် develop လုပ်ထားတဲ့ source code, data တွေကို upload လုပ်တဲ့အခါမှာ filesize က 50 MB ကျော်လာတဲ့အခါမှာ ပုံမှန်အတိုင်း git push လုပ်တာမျိုး လုပ်လို့ မရပါဘူး။ ထိုနည်းလည်းကောင်းပဲ browser ကနေလည်း upload ပေးမလုပ်ပါဘူး။ အကြောင်းအရင်းကတော့ git ဆိုတာက သိကြတဲ့အတိုင်း version control system ဖြစ်ပြီး developer တွေအများကြီးနဲ့ system တစ်ခုကို framework တစ်ခုကို အတူတူ develop လုပ်ကြရတာမို့ ဖိုင်အရွယ်အစားတွေက ကြီးလာတဲ့အခါမှာ push, pull တစ်ယောက်ချင်းစီက လုပ်ကြတဲ့အခါမှာ download/upload တွေကြောင့် git repository ကို up-to-date လုပ်တဲ့အခါမှာ လေးကုန်တာတို့လိုမျိုး ပြဿနာတွေ ဖြစ်တတ်တာမို့ပါ။  
 
 အဲဒီအတွက် solution တစ်ခုက git lfs ကို သုံးပြီး filesize ကြီးတဲ့ ဖိုင်တွေကို compress လုပ်ပြီးမှ လိုအပ်တဲ့အခါမှသာ local နဲ့ remote repository အကြားမှာ အပြောင်းအလဲ လုပ်တဲ့ပုံစံပါ။  
 
