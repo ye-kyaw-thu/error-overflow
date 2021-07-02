@@ -416,6 +416,11 @@ commit လုပ်ကြည့်ရအောင် အဆင်ပြေရဲ
 
 commit လုပ်တာတော့ အထက်မှာ မြင်ရတဲ့အတိုင်း အဆင်ပြေပုံရှိပါတယ်။   
 
+push မလုပ်ခင်မှာ online မှာ ရှိနေတဲ့ myPOS ရဲ့ repository ကို ကြိုကြည့်ထားကြရအောင်...  
+
+
+git push လုပ်ပြီး အထက်မှာ ကြည့်ခဲ့တဲ့ remote repository ကို update လုပ်ကြည့်ရအောင်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git push
 Username for 'https://github.com': ye-kyaw-thu
