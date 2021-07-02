@@ -99,29 +99,42 @@ install.sh
 
 ## Installation
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs$ ./install.sh 
 install: cannot create regular file '/usr/local/bin/git-lfs': Permission denied
+```
 
 sudo ကို command ရှေ့က ခံပေးဖိုလိုအပ်တယ်...
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs$ sudo ./install.sh 
 [sudo] password for ye: 
 Git LFS initialized.
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs$ 
+```
 
 ## Usage of git lfs
 
 copy large experiment folder of NCRF++ to current repository:
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ cp -r ../../../../iSAI-NLP2020-paper-experiment/4_NCRFPP .
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ ls
 1_RDR  2_CRF  3_HMM  4_NCRFPP  README.md
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$
+```
 
 ## run git add
 
+git command ရဲ့ အလုပ်လုပ်ပုံကိုတော့ သိပြီးသားလို့ ယူဆပါတယ်။  
+git add, git commit, git push စတဲ့ command တွေကို မသိသေးရင် အရင်လေ့လာပါ။  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git add ./4_NCRFPP/
+```
 
 ## check bigger files
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment/4_NCRFPP/2_NCRFPP_with_otest_100%_ASEAN/1__Report_NCRFPP_POS_1-3/1_Report_wordCNN-CRF-charLSTM_myPOS_V2_with_100%_ASEAN/sample_data$ ll  -h
 total 128M
 drwxr-xr-x 2 ye ye 4.0K ဇူ     2 08:50 ./
@@ -132,7 +145,11 @@ drwxr-xr-x 3 ye ye 4.0K ဇူ     2 08:50 ../
 -rwxr-xr-x 1 ye ye 7.4M ဇူ     2 08:50 raw.bmes*
 -rwxr-xr-x 1 ye ye 1.8M ဇူ     2 08:50 test.bmes*
 -rwxr-xr-x 1 ye ye 7.4M ဇူ     2 08:50 train.bmes*
+```
 
+NCRF++ မော်ဒယ်တွေကို သိမ်းထားတဲ့ ဖိုလ်ဒါတိုင်းကို ဝင်ကြည့်တော့ .dset ဖိုင်တွေက 100MB ကျော်တာတွေကိုလည်း တွေ့ရပါတယ်။ ဒါတောင် အခုရောက်နေတဲ့ path က myPOS version 2.0 ကိုပဲ သုံးထားတဲ့ experiment ဖိုလ်ဒါပါ။ iSAI-NLP 2020 conference အတွက် ပြင်ခဲ့စဉ်က run ထားခဲ့တဲ့ ဖိုလ်ဒါပါ။ myPOS version 3.0 အတွက်ဆိုရင်တော့ လက်ရှိ filesize ထက် ပိုကြီးမယ့်ပုံရှိတယ်...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment/4_NCRFPP/2_NCRFPP_with_otest_100%_ASEAN/1__Report_NCRFPP_POS_1-3/4_Report_wordLSTM-CRF-charCNN_myPOS_V2_100%ASEAN/sample_data$ ll -h
 total 127M
 drwxr-xr-x 2 ye ye 4.0K ဇူ     2 08:50 ./
@@ -144,20 +161,40 @@ drwxr-xr-x 3 ye ye 4.0K ဇူ     2 08:50 ../
 -rwxr-xr-x 1 ye ye 1.8M ဇူ     2 08:50 test.bmes*
 -rwxr-xr-x 1 ye ye 7.4M ဇူ     2 08:50 train.bmes*
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment/4_NCRFPP/2_NCRFPP_with_otest_100%_ASEAN/1__Report_NCRFPP_POS_1-3/4_Report_wordLSTM-CRF-charCNN_myPOS_V2_100%ASEAN/sample_data$ 
+```
 
-အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ NCRF++ ရဲ့ ".dset" extension ရှိတဲ့ ဖိုင်တွေက ဆိုက်တွေက ကြီးတာကို တွေ့ရတယ်။
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ NCRF++ ရဲ့ ".dset" extension ရှိတဲ့ ဖိုင်တွေက ဆိုက်တွေက ကြီးတာကို တွေ့ရတယ်။  
 
 ## Prepare git lfs for *.dset files
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git lfs install
 Updated git hooks.
 Git LFS initialized.
+```
 
+ကိုယ်က track လုပ်စေချင်တဲ့ file extension ကို git lfs track ဆိုတဲ့ command ကိုသုံးပြီးတော့ track လုပ်ခိုင်းထားရပါလိမ့်မယ်။  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git lfs track "*.dset"
 Tracking "*.dset"
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git add .gitattributes 
+```
 
+သေချာအောင်လို့ .gitattributes ဆိုတဲ့ hidden file ကိုလည်း add လုပ်ထားပါ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git add .gitattributes 
+```
+
+4_NCRFPP/ ဖိုလ်ဒါ တစ်ခုလုံးကို git index ထဲကို ထည့်ပါမယ်။  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git add ./4_NCRFPP/
+```
+
+commit လုပ်ကြည့်ရအောင် အဆင်ပြေရဲ့လားလို့...  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git commit -m "4_NCRFPP/ for iSAI-NLP2020 Experiments"
 [master 6df62a6] 4_NCRFPP/ for iSAI-NLP2020 Experiments
  213 files changed, 14970841 insertions(+)
@@ -375,7 +412,11 @@ Tracking "*.dset"
  create mode 100755 corpus-ver-3.0/iSAI-NLP2020-paper-experiment/4_NCRFPP/2_NCRFPP_with_otest_100%_ASEAN/wordLSTM-CRF.train.config
  create mode 100755 corpus-ver-3.0/iSAI-NLP2020-paper-experiment/4_NCRFPP/2_NCRFPP_with_otest_100%_ASEAN/wordLSTM-charCNN.train.config
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ 
+```
 
+commit လုပ်တာတော့ အထက်မှာ မြင်ရတဲ့အတိုင်း အဆင်ပြေပုံရှိပါတယ်။   
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$ git push
 Username for 'https://github.com': ye-kyaw-thu
 Password for 'https://ye-kyaw-thu@github.com': 
@@ -392,4 +433,4 @@ remote: Resolving deltas: 100% (26/26), completed with 2 local objects.
 To https://github.com/ye-kyaw-thu/myPOS
    ae0ca00..6df62a6  master -> master
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$
-
+```
