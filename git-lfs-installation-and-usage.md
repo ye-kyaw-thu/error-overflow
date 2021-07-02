@@ -1,12 +1,31 @@
+# git lfs Installation and Usage
+
+git, github ကို သုံးပြီးတော့ ကိုယ် develop လုပ်ထားတဲ့ source code, data တွေကို upload လုပ်တဲ့အခါမှာ filesize က 50 mb ကျော်လာတဲ့အခါမှာ ပုံမှန်အတိုင်း git push လုပ်တာမျိုး လုပ်လို့ မရပါဘူး။ ထိုနည်းလည်းကောင်းပဲ browser ကနေလည်း upload ပေးမလုပ်ပါဘူး။ အကြောင်းအရင်းကတော့ git ဆိုတာက သိကြတဲ့အတိုင်း version control system ဖြစ်ပြီး developer တွေအများကြီးနဲ့ system တစ်ခုကို framework တစ်ခုကို အတူတူ develop လုပ်ကြရတာမို့ ဖိုင်အရွယ်အစားတွေက ကြီးလာတဲ့အခါမှာ push, pull တစ်ယောက်ချင်းစီက လုပ်ကြတဲ့အခါမှာ download/upload တွေကြောင့် git repository ကို up-to-date လုပ်တဲ့အခါမှာ လေးကုန်တာတို့လိုမျိုး ပြဿနာတွေ ဖြစ်တတ်တာမို့ပါ။  
+
+အဲဒီအတွက် solution တစ်ခုက git lfs ကို သုံးပြီး filesize ကြီးတဲ့ ဖိုင်တွေကို compress လုပ်ပြီးမှ လိုအပ်တဲ့အခါမှသာ local နဲ့ remote repository အကြားမှာ အပြောင်းအလဲ လုပ်တဲ့ပုံစံပါ။  
+
+myPOS version 3.0 မှာ NCRF++ model တွေပါတော့ အဲဒီထဲက ".dset" နဲ့ ဆုံးတဲ့ ဖိုင်တွေက ဖိုင်ဆိုက်ကြီးတာမို့ git lfs ကို သုံးပြီး github ပေါ်ကို တင်ဖြစ်ခဲ့လို့ practical git lfs usage ဥပမာကောင်းမို့လို့ error-overflow မှာ log ဖိုင်ကို တင်ပေးထားလိုက်ပါတယ်။  
+
+## Download git lfs
+
 
 Download link: https://git-lfs.github.com/
-After you download the git-ltfs...
 
+## Move tar.gz File
+
+After you download the git-ltfs...
+Move tar.gz file to your installation path...
+
+```
 mkdir git-lfs (under your installation path)
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs/$ mv ~/Downloads/git-lfs-linux-amd64-v2.13.3.tar.gz .
+```
 
-## Unzip
+## Unzip tar.gz file
 
+Unzipping...
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs$ tar -xzvf ./git-lfs-linux-amd64-v2.13.3.tar.gz 
 README.md
 CHANGELOG.md
@@ -76,7 +95,7 @@ man/git-lfs-logs.1
 git-lfs
 install.sh
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/git-lfs$ 
-
+```
 
 ## Installation
 
