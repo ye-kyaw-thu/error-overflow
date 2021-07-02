@@ -415,9 +415,17 @@ commit လုပ်ကြည့်ရအောင် အဆင်ပြေရဲ
 ```
 
 commit လုပ်တာတော့ အထက်မှာ မြင်ရတဲ့အတိုင်း အဆင်ပြေပုံရှိပါတယ်။   
-
 push မလုပ်ခင်မှာ online မှာ ရှိနေတဲ့ myPOS ရဲ့ repository ကို ကြိုကြည့်ထားကြရအောင်...  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/before-push.png" />  
+</p>  
+<div align="center">
+  Fig. Before running "git push" command or before updating the remote repository  
+</div>   
+
+
+## git push 
 
 git push လုပ်ပြီး အထက်မှာ ကြည့်ခဲ့တဲ့ remote repository ကို update လုပ်ကြည့်ရအောင်။  
 
@@ -439,3 +447,14 @@ To https://github.com/ye-kyaw-thu/myPOS
    ae0ca00..6df62a6  master -> master
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/myPOS2/corpus-ver-2.0/git/myPOS/corpus-ver-3.0/iSAI-NLP2020-paper-experiment$
 ```
+
+filesize ကြီးတဲ့ ဖိုင်တွေအားလုံးကို အောင်အောင်မြင်မြင်နဲ့ upload လုပ်သွားတယ်လို့ ထင်ပါတယ်။  
+သေချာအောင် browser ကို refresh လုပ်ပြီး mypos repository ကို ဝင်ကြည့်တဲ့အခါမှာ အောက်ပါပုံအတိုင်း 4_NCRFPP ဖိုလ်ဒါအသစ်ပေါ်လာတာကို တွေ့ရပါလိမ့်မယ်။  
+The End! :P  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/after-push.png" />  
+</p>  
+<div align="center">
+  Fig. After running "git push" command  
+</div>   
