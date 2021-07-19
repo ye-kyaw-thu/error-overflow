@@ -119,3 +119,130 @@ Error on ./telex
 ```
 
 အဆင်မပြေဘူး...  
+
+## Using thaiconv Converter
+
+Googling လုပ်ရင်း နောက်ဆုံး သွားတွေ့တာက [thaiconv](http://www.lyndonhill.com/Projects/thaiconv.html) ဆိုတဲ့ ထိုင်းဖောင့်ကို UTF8 ပြောင်းပေးတဲ့ tool တစ်ခုပါ။  
+
+Downloads/ ဖိုလ်ဒါအောက်ကနေ working directory ဆီကို move လုပ် tar command နဲ့ unzip လုပ်ပြီး ထွက်လာတဲ့ executable file ကို ls လုပ်ကြည့်ခဲ့တယ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus$ mv ~/Downloads/thaiconv-1_8-linux.tar.bz2 .
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus$ tar -xf ./thaiconv-1_8-linux.tar.bz2 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus$ ls
+lexitron-corpus  LST20_Corpus  LST20_Corpus.zip  ReadMe.txt  thaiconv  thaiconv-1_8-linux.tar.bz2
+```
+
+Help screen ခေါ်ကြည့်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ ../thaiconv -h
+thaiconv v1.8
+Thai text transcoding tool. Lyndon Hill (c) 2017.
+Usage: thaiconv [-h] [-s] [-sq] [-in X] [-out Y] [-noent] [-bom] -r input_filename [-w output_filename]
+  Input/Output Formats: 0 = TIS-620, 1 = UTF-8 Thai, 2 = HTML, 3 = UTF-8 Latin 1 (cross coded Thai)
+For extended information please see
+<http://www.lyndonhill.com/Projects/thaiconv.html>
+
+Reference: http://www.lyndonhill.com/Projects/thaiconv.html
+```
+
+Conversion လုပ်ကြည့်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ ../thaiconv -r ./etlex -out 1 > ./etlex.utf8 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ ../thaiconv -r ./telex -out 1 > ./telex.utf8 
+```
+
+file command နဲ့ UTF-8 encoding ကို ပြောင်းသွားပြီလား ဆိုတာကို စစ်ကြည့်တော့ ပြောင်းပေးသွားတာကို အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ file {etlex,telex}.utf8
+etlex.utf8: UTF-8 Unicode text
+telex.utf8: UTF-8 Unicode text
+```
+
+file အတွင်းက စာသားတွေကိုလည်း မျက်လုံးနဲ့ကြည့်ချင်လို့ head command နဲ့ ထိပ်ဆုံး ၁၀ကြောင်းကို ရိုက်ထုတ်ခိုင်းပြီး ကြည့်ခဲ့တော့ အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ conversion လုပ်ပေးသွားတာကို တွေ့ရ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ head ./etlex.utf8 
+<Doc>
+<esearch>a</esearch>
+<eentry>a</eentry>
+<tentry>หนึ่ง (คำนำหน้าคำนามเพื่อแสดงว่าคำนามนั้นๆ ไม่ชี้เฉพาะ)</tentry>
+<ecat>DET</ecat>
+<id>0</id>
+</Doc>
+<Doc>
+<esearch>A</esearch>
+<eentry>A</eentry>
+```
+
+telex.utf8 ဖိုင်ကိုလည်း head command နဲ့ ရိုက်ကြည့်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ head ./telex.utf8 
+<Doc>
+<tsearch>ดังกล่าวข้างต้น</tsearch>
+<tentry>ดังกล่าวข้างต้น</tentry>
+<eentry>abovementioned</eentry>
+<tcat>PRON</tcat>
+<tsyn>ดังกล่าว</tsyn>
+<tsample>หน่วยงานของเราสามารถรับบทบาทได้เป็นอย่างดี ตามสภาพความพร้อมด้านต่างๆ ดังกล่าวข้างต้น</tsample>
+<id>0</id>
+</Doc>
+<Doc>
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ 
+```
+
+converted License file also...  
+ထိုင်းလိုရေးထားတဲ့ လိုင်စင်ဖိုင်ကိုလည်း UTF-8 အဖြစ် conversion လုပ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ ../thaiconv -r ./LICENSE-th.txt -out 1 > ./LICENSE-th.txt.utf8
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus$ head ./LICENSE-th.txt.utf8 
+สงวนลิขสิทธิ์ พ.ศ. 2546 โดยศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ
+ข้อตกลงการอนุญาตใช้สิทธิ์ (LICENSE AGREEMENT)
+
+ข้อตกลงการอนุญาตใช้สิทธิ์ หมายถึง ข้อตกลงทางกฎหมายระหว่างผู้ใช้และศูนย์ฯ 
+กรุณาอ่านรายละเอียดของข้อตกลงนี้ก่อนเป็น "ผู้ใช้" เพื่อใช้ประโยชน์จากซอฟต์แวร์
+พจนานุกรมอิเล็กทรอนิกส์นี้ สาระสำคัญของข้อตกลงการอนุญาตใช้สิทธิ์ฉบับนี้ประกอบด้วย 
+ข้อความสงวนลิขสิทธิ์ (Copyright Notice) คำนิยาม (Definitions) การยอมรับข้อ
+ตกลงการอนุญาตใช้สิทธิ์ (Acceptance of License Agreement) เงื่อนไขการใช้ 
+(Terms of Use) และข้อสงวนสิทธิ์การรับประกัน (Disclaimer of Warranty) 
+```
+
+## Testing -s option of thaiconv
+
+thaiconv ရဲ့ -s option (Scan input file and report on type.) ကိုလည်း စမ်းကြည့်ခဲ့။  
+ဒီ -s option နဲ့ input-file ထဲမှာ ပါတဲ့ စာလုံးတွေရဲ့ encoding information ကို အသေးစိတ် သိနိုင်။  
+အသုံးဝင်တဲ့ option တစ်ခုပါပဲ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus/tmp$ ../../thaiconv -s -r ./etlex
+thaiconv Scan Report
+--------------------
+
+11844562	plain ASCII characters.
+367717	extended ASCII characters.
+885	UTF-8 multibyte characters in Thai range.
+68794	UTF-8 multibyte characters in Latin range.
+667623	UTF-8 multibyte characters not in Thai range.
+12949581	Total characters.
+
+File is probably Thai TIS-620
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus/tmp$ ../../thaiconv -s -r ./telex 
+thaiconv Scan Report
+--------------------
+
+7566164	plain ASCII characters.
+740059	extended ASCII characters.
+3166	UTF-8 multibyte characters in Thai range.
+153266	UTF-8 multibyte characters in Latin range.
+1374960	UTF-8 multibyte characters not in Thai range.
+9837615	Total characters.
+
+File is probably Thai TIS-620
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/data/LST-Thai-corpus/lexitron-corpus/tmp$
+```
+
