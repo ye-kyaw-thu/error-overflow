@@ -220,10 +220,28 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 [labels]
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
 
-** to add figure
 ```
 
-browser ကနေလည်း tag တွေကို 
+စာလုံး တစ်လုံးချင်းစီကို browser မှာ tagging လုပ်တဲ့အခါမှာ ကိုယ် tag လုပ်ချင်တဲ့ စာလုံးကို mouse နဲ့ selection မှတ်လိုက်တာနဲ့ အောက်ပါအတိုင်း myPOS မှာ သတ်မှတ်ထားတဲ့ POS tag တွေကိုရွေးဖို့အတွက် selection  box ကို မြင်ရပါလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPOS-tags-selection-box2.png" alt="drawing" width="800"/>  
+</p>  
+<div align="center">
+  Fig. POS tags selection box
+</div>   
+
+မြန်မာစာ စာကြောင်းတချို့ကို manual tagging လုပ်ပြီးတဲ့အခါမှာ အောက်ပါလိုမျိုး လှလှပပ မြင်ရပါလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brat-myPOS-skip2.png" alt="drawing" width="800"/>  
+</p>  
+<div align="center">
+  Fig. An examples of tagged Myanmar sentences
+</div>   
+
+အခု ဥပမာအနေနဲ့ manual tagging လုပ်နေတာက head.txt ဖိုင်မို့လို့ tagged လုပ်ထားတာကို သိမ်းပေးထားတဲ့ ဖိုင်နာမည်က head.ann ဖြစ်လာပြီးတော့ အဲဒီ ဖိုင်ထဲမှာတော့ tagging လုပ်ထားတာနဲ့ ပတ်သက်တာတွေကို အောက်ပါအတိုင်း မှတ်သားထားပေးထားတာကို တွေ့ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
 T1	adj 0 2	ဒီ
@@ -257,6 +275,12 @@ T27	punc 120 121	။
 ```
 
 ## Testing Skip Line Problem
+
+စာကြောင်းတွေကို manual tagging လုပ်တဲ့အခါမှာ လက်တွေ့မှာက ခက်တဲ့စာကြောင်းမို့လို့ လောလောဆယ် မလုပ်သေးဘူး ဆိုပြီးတော့ ကျော်သွားတာမျိုး လုပ်တတ်ကြပါတယ်။  
+တခါတလေမှာ စာကြောင်း တစ်ကြောင်းလုံး ပြီးအောင် tag မလုပ်သေးပဲ ဘယ်လို tag ကို ရွေးရမလဲ မသေချာတာကြောင့် နောက်မှ ပြန်စစ်ပြီး ဆက်လုပ်မယ်ဆိုပြီးတော့ တပိုင်းတစနဲ့ ထားထားတာမျိုးလည်း ရှိတတာပါတယ်။  
+အဲဒီ ကိစ္စအတွက် စမ်းကြည့်ခဲ့တော့ head.ann မှာက tag လုပ်ခဲ့တဲ့ အစီအစဉ်အတိုင်းပဲ save လုပ်ပေးသွားတာကို တွေ့ရပါတယ်။  
+တကယ်တမ်းကတော့ ဒီကိစ္စက ann ဖိုင်တွေကနေ ကိုယ်လိုချင်တဲ့ tagged corpus အဖြစ် ပြန်ဆွဲထုတ်ယူတဲ့အခါမှာ corpus ထဲက စာကြောင်းအစီအစဉ်နဲ့ လွဲသွားနိုင်တယ်လို့ မြင်မိပါတယ်။  
+တကယ်တမ်း ဒီ tool ကို သုံးပြီး manual tagging လုပ်တဲ့အခါမှာ ဒီကိစ္စကိုပါ စဉ်းစားပြီးတော့ စာကြောင်းတွေကို အစဉ်အလိုက်အတိုင်း အထက်အောက် တစ်ကြောင်းချင်းစီ တပ်သွားမှ ဖြစ်မယ်လို့ ထင်ပါတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
