@@ -84,6 +84,9 @@ Web page တစ်ခုအနေနဲ့ အောက်ပါ UI လိုမ
 
 ## Check Files
 
+Example tagged လုပ်ပြထားတဲ့ folder တွေကို ဝင်လေ့လာခဲ့တယ်။  
+အောက်ပါ ဖိုင်စာရင်းက ပေါ်တူဂီဘာသာစကား conll ဒေတာနဲ့ ပတ်သက်တယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ ls
 annotation.conf                            portuguese_bosque_train.conll-doc-284.ann  portuguese_bosque_train.conll-doc-531.txt  portuguese_bosque_train.conll-doc-747.ann
@@ -99,9 +102,14 @@ portuguese_bosque_train.conll-doc-261.ann  portuguese_bosque_train.conll-doc-504
 portuguese_bosque_train.conll-doc-261.txt  portuguese_bosque_train.conll-doc-531.ann  portuguese_bosque_train.conll-doc-73.txt   visual.conf
 ```
 
+annotation.conf ဖိုင်ကို ဝင်လေ့လာခဲ့။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ vi annotation.conf 
 ```
+
+ဒီ annotation tool ကို သုံးမယ်ဆိုရင် စာကြောင်း အကြောင်း ၁၀၀လောက် ၁၅၀လောက်ကို text ဖိုင် တစ်ဖိုင်စီသွား လုပ်တာက သင့်တော်တယ်။  
+myPOS corpus (version 3.0) တစ်ခုလုံး ဆိုရင် စာကြောင်းရေ လေးသောင်းကျော်ရှိတာမို့ သူ့ကို loading လုပ်ကြည့်တဲ့အခါမှာ အချိန်အရမ်းကြာပြီးတော့ load လုပ်မပေးနိုင်တာကို တွေ့ရတယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ head portuguese_bosque_train.conll-doc-120.txt 
@@ -116,6 +124,13 @@ ROOT « Não podemos permitir que a contratação colectiva continue bloqueada ,
 ROOT « Somos obrigados a tornar os nossos programas o mais interessantes possível , em um ambiente onde existem múltiplas escolhas » , refere Victor_Neufeld , o produtor executivo de o programa 20/20 , de a ABC , citado por a Associated_Press .
 ROOT « Cada_vez fazemos mais pesquisa para encontrar histórias novas e cada_vez vamos mais fundo para as investigar . »
 ```
+
+annotation ကို ဘယ်လို data format နဲ့ သိမ်းပေးထားတာလဲ ဆိုတာကို example tagged လုပ်ပြထားတဲ့ ဖိုင်ကနေ လေ့လာခဲ့တယ်။  
+အောက်ပါ format အတိုင်း သိမ်းပေးတာကို တွေ့ရတယ်။  
+T1, T2 ဆိုတာက Tagged-1, Tagged-2 လားလို့....  
+ဒုတိယ ကော်လံမှာ tag တွေကို သိမ်းထားတယ်။  
+တတိယ ကော်လံနဲ့ စတုတ္ထကော်လံက tag လုပ်ထားတဲ့ စာလုံးက character ဘယ်နေရာကနေ ဘယ်နေရာအထိ ဆိုတာကို letter (or character) ရဲ့ position အလိုက် မှတ်ထားတဲ့ပုံစံ။  
+နောက်ဆုံးကော်လံ ကတော့ tagged လုပ်ထားတဲ့ ပေါ်တူဂီစာကြောင်းထဲက စာလုံးတွေ ကို သိမ်းထားတာ...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ head portuguese_bosque_train.conll-doc-120.ann
@@ -133,6 +148,10 @@ T10	conj-c 50 51	e
 ```
 
 ## Tagging on myPOS (version 3.0)
+
+myPOS နဲ့ annotation tool ကို စမ်းဖို့အတွက် အရင်ဆုံး annotation.conf ဖိုင်မှာ setting ဝင်လုပ်ခဲ့တယ်။  
+\[entities\] ဆိုတဲ့ အောက်မှာ myPOS မှာ သုံးထားတဲ့ POS tag-set ကို tag တစ်ခုစီကို စာကြောင်း တစ်ကြောင်းစီ ရေးတဲ့ပုံစံနဲ့ ဝင်ဖြည့်ခဲ့တယ်။  
+ကျန်တဲ့ relations, events တို့ကိုတော့ မဆိုင်လို့ blank ထားထားခဲ့တယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat annotation.conf 
@@ -168,6 +187,9 @@ v
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
 ```
 
+visual.conf ဖိုင်ကတော့ browser မှာ tag တစ်ခုချင်းစီကို ဘယ်လိုအရောင်နဲ့ ပေါ်စေချင်သလဲ စတဲ့ visual နဲ့ ဆိုင်တဲ့ setting ဖိုင်ပါ။  
+ကိုယ်အဆင်ပြေသလို ထားလို့ အိုကေပါလိမ့်မယ်။  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat visual.conf 
 # Visual configuration options for the CoNLL 2002 Shared Task on
@@ -201,6 +223,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 ** to add figure
 ```
 
+browser ကနေလည်း tag တွေကို 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
 T1	adj 0 2	ဒီ
