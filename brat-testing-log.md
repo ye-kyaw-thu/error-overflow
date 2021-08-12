@@ -391,3 +391,13 @@ T45	ppm 195 198	သည်
 T46	punc 199 200	။
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
 ```
+
+အထက်မှာ myPOS corpus (version 3.0) ကိုသုံးပြီး ဥပမာအနေနဲ့ manual POS tagging လုပ်ထားတာကို ဒီမိုလုပ်ပြခဲ့ပေမဲ့ [brat rapid annotation tool (brat)](https://github.com/nlplab/brat) က ကိုယ်လုပ်ချင်တဲ့ tagging scheme မျိုးစုံကို သတ်မှတ်ပြီး tagging လုပ်လို့ ရတဲ့ tool မို့လို့ တကယ်အသုံးဝင်ပါတယ်။ pure NLP တစ်ခုတည်းအတွက် မဟုတ်ပဲ BioNLP တို့လို ကိစ္စတွေအတွက်လည်း အသုံးဝင်ပါလိမ့်မယ်။ အောက်ပါ screenshot က [2006 CoNLL Shared Task](https://catalog.ldc.upenn.edu/LDC2015T11) ရဲ့ ပေါ်တူဂီ dependency tree ဒေတာဖိုင်ကို လေ့လာနိုင်အောင် ထည့်ပေးထားတာပါ။          
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brat-CoNLL-ST_2006_portuguese-example.png" alt="drawing" width="800"/>  
+</p>  
+<div align="center">
+  Fig. An examples of dependency tree for Portuguese
+</div>   
+<br />
