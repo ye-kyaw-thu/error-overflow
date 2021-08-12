@@ -227,7 +227,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 စာလုံး တစ်လုံးချင်းစီကို browser မှာ tagging လုပ်တဲ့အခါမှာ ကိုယ် tag လုပ်ချင်တဲ့ စာလုံးကို mouse နဲ့ selection မှတ်လိုက်တာနဲ့ အောက်ပါအတိုင်း myPOS မှာ သတ်မှတ်ထားတဲ့ POS tag တွေကိုရွေးဖို့အတွက် selection  box ကို မြင်ရပါလိမ့်မယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPOS-tags-selection-box2.png" alt="drawing" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPOS-tags-selection-box2.png" alt="drawing" width="500"/>  
 </p>  
 <div align="center">
   Fig. POS tags selection box
