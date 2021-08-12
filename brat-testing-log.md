@@ -3,6 +3,26 @@
 Brat က ဆရာ Tsujii တို့အဖွဲ့က develop လုပ်ထားတဲ့ annotation tool ပါ။  
 အဲဒီ tool ကို ဒီတစ်ခါတော့ မြန်မာစာ annotation အတွက် သုံးဖို့လိုအပ်လာလို့ စမ်းကြည့်ထားတုန်းက note အဖြစ် ရေးထားတဲ့ log ပါ။  
 
+## git clone
+
+git clone နဲ့ ကိုယ့်local စက်ထဲကို download လုပ်ယူပါမယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/nlplab/brat
+Cloning into 'brat'...
+remote: Enumerating objects: 17063, done.
+remote: Counting objects: 100% (34/34), done.
+remote: Compressing objects: 100% (25/25), done.
+remote: Total 17063 (delta 11), reused 23 (delta 9), pack-reused 17029
+Receiving objects: 100% (17063/17063), 84.47 MiB | 17.21 MiB/s, done.
+Resolving deltas: 100% (10305/10305), done.
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ cd brat
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat$ ls
+ajax.cgi         apache-user.sh      configurations   diff.xhtml    favicon.ico  install.sh     lighttpd_fcgi.conf  res            static         tutorial.cgi
+ajax.fcgi        client              CONTRIBUTING.md  example-data  index.html   LICENSE.md     offline.xhtml       server         testserver.py
+apache-group.sh  config_template.py  CONTRIBUTORS.md  external      index.xhtml  lighttpd.conf  README.md           standalone.py  tools
+```
+
 ## Standalone Installation
 
 တစ်ယောက်ထက်မကတဲ့ annotator တွေ web-server မှာ အလုပ်အတူတူ လုပ်လို့ရအောင်လည်း Brat က support လုပ်ပါတယ်။ Facility တွေအများကြီးပါ။ ဒါပေမဲ့ ဒီ testing ကတော့ ကိုယ့်စက်ထဲမှာပဲ data ပြင်ဆင်တဲ့သူ တစ်ယောက်တည်း အတွက်ပဲ စမ်းခဲ့ပါတယ်။ Standalone installation ပါ။  
