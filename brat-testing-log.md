@@ -75,6 +75,12 @@ Web page တစ်ခုအနေနဲ့ အောက်ပါ UI လိုမ
 အသုံးပြုပုံ ဘာညာနဲ့ ပတ်သက်တဲ့ Tutorial လည်း ရှိပါတယ်။  
 လေ့လာကြည့်ကြပါ။  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brat-tutorial-screen.png" alt="drawing" width="800"/>  
+</p>  
+<div align="center">
+  Fig. Tutorial Screen of Brat Annotation Tool  
+</div>   
 
 ## Check Files
 
