@@ -25,7 +25,8 @@ apache-group.sh  config_template.py  CONTRIBUTORS.md  external      index.xhtml 
 
 ## Standalone Installation
 
-တစ်ယောက်ထက်မကတဲ့ annotator တွေ web-server မှာ အလုပ်အတူတူ လုပ်လို့ရအောင်လည်း Brat က support လုပ်ပါတယ်။ Facility တွေအများကြီးပါ။ ဒါပေမဲ့ ဒီ testing ကတော့ ကိုယ့်စက်ထဲမှာပဲ data ပြင်ဆင်တဲ့သူ တစ်ယောက်တည်း အတွက်ပဲ စမ်းခဲ့ပါတယ်။ Standalone installation ပါ။  
+တစ်ယောက်ထက်မကတဲ့ annotator တွေ web-server မှာ အလုပ်အတူတူ လုပ်လို့ရအောင်လည်း Brat က support လုပ်ပါတယ်။ Facility တွေအများကြီးပါ။ ဒါပေမဲ့ ဒီ testing ကတော့ ကိုယ့်စက်ထဲမှာပဲ data ပြင်ဆင်တဲ့သူ တစ်ယောက်တည်း အတွက်ပဲ စမ်းခဲ့ပါတယ်။ Standalone installation (-u option) ပါ။  
+user name နဲ့ password ကို သတ်မှတ်ပေးရပါလိမ့်မယ်။  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat$ ./install.sh -u
