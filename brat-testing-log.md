@@ -1,6 +1,13 @@
+# Brat Testing Log
+
+Brat က ဆရာ Tsujii တို့အဖွဲ့က develop လုပ်ထားတဲ့ annotation tool ပါ။  
+အဲဒီ tool ကို ဒီတစ်ခါတော့ မြန်မာစာ annotation အတွက် သုံးဖို့လိုအပ်လာလို့ စမ်းကြည့်ထားတုန်းက note အဖြစ် ရေးထားတဲ့ log ပါ။  
 
 ## Standalone Installation
 
+တစ်ယောက်ထက်မကတဲ့ annotator တွေ web-server မှာ အလုပ်အတူတူ လုပ်လို့ရအောင်လည်း Brat က support လုပ်ပါတယ်။ Facility တွေအများကြီးပါ။ ဒါပေမဲ့ ဒီ testing ကတော့ ကိုယ့်စက်ထဲမှာပဲ data ပြင်ဆင်တဲ့သူ တစ်ယောက်တည်း အတွက်ပဲ စမ်းခဲ့ပါတယ်။ Standalone installation ပါ။  
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat$ ./install.sh -u
 Please enter the user name that you want to use when logging into brat:
 ye
@@ -44,11 +51,14 @@ brat developers and/or file a bug to the brat bug tracker:
 ## Run Brat as Standalone Server
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat$ python standalone.py
 Serving brat at http://0.0.0.0:8001
+```
 
 ## Screenshot
 
+
 ## Check Files
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ ls
 annotation.conf                            portuguese_bosque_train.conll-doc-284.ann  portuguese_bosque_train.conll-doc-531.txt  portuguese_bosque_train.conll-doc-747.ann
 portuguese_bosque_train.conll-doc-120.ann  portuguese_bosque_train.conll-doc-284.txt  portuguese_bosque_train.conll-doc-590.ann  portuguese_bosque_train.conll-doc-747.txt
@@ -61,7 +71,13 @@ portuguese_bosque_train.conll-doc-241.ann  portuguese_bosque_train.conll-doc-48.
 portuguese_bosque_train.conll-doc-241.txt  portuguese_bosque_train.conll-doc-504.ann  portuguese_bosque_train.conll-doc-710.txt  README
 portuguese_bosque_train.conll-doc-261.ann  portuguese_bosque_train.conll-doc-504.txt  portuguese_bosque_train.conll-doc-73.ann   tools.conf
 portuguese_bosque_train.conll-doc-261.txt  portuguese_bosque_train.conll-doc-531.ann  portuguese_bosque_train.conll-doc-73.txt   visual.conf
+```
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ vi annotation.conf 
+```
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ head portuguese_bosque_train.conll-doc-120.txt 
 ROOT Um quarteto formado por Bob_Mover ( sax alto e voz ) , Carlo_Morena ( piano ) , Pedro_Gonçalves ( contrabaixo ) e João_Silvestre ( bateria ) actua a_partir_de as 23h , em a catedral lisboeta de o jazz : em o Hot_Clube de Portugal .
 ROOT Uma « autêntica » big_band , constituída por 16 músicos , com alguns de os temas mais conhecidos de o reportório « standard » liderada por o trombonista Claus_Nymark e com a voz de Ana_Paula_Oliveira : em o Speakeasy ( Cais_da_Rocha Conde_d'Óbidos -- Armazém 115 ) , a as 23h e 01h.
@@ -73,6 +89,9 @@ ROOT Em o fim , Manuel_Carvalho_da_Silva , coordenador de a CGTP , também ajudo
 ROOT « Não podemos permitir que a contratação colectiva continue bloqueada , que o desemprego continue a aumentar , que a segurança social , a saúde e a educação continuem a degradar- se » .
 ROOT « Somos obrigados a tornar os nossos programas o mais interessantes possível , em um ambiente onde existem múltiplas escolhas » , refere Victor_Neufeld , o produtor executivo de o programa 20/20 , de a ABC , citado por a Associated_Press .
 ROOT « Cada_vez fazemos mais pesquisa para encontrar histórias novas e cada_vez vamos mais fundo para as investigar . »
+```
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$ head portuguese_bosque_train.conll-doc-120.ann
 T1	ROOT 0 4	ROOT
 T2	art 5 7	Um
@@ -85,9 +104,11 @@ T8	n 41 44	sax
 T9	adj 45 49	alto
 T10	conj-c 50 51	e
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/examples/CoNLL-ST_2006$
+```
 
 ## Tagging on myPOS (version 3.0)
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat annotation.conf 
 # Simple text-based definitions of entity types for the CoNLL 2002 Shared
 # Task on Language-Independent Named Entity Recognition.
@@ -119,7 +140,9 @@ v
 
 [attributes]
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat visual.conf 
 # Visual configuration options for the CoNLL 2002 Shared Task on
 # Language-Independent Named Entity Recognition.
@@ -150,7 +173,9 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
 
 ** to add figure
+```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
 T1	adj 0 2	ဒီ
 T2	n 3 5	ဆေ
@@ -180,9 +205,11 @@ T25	part 112 114	ပါ
 T26	part 115 119	ပေါ့
 T27	punc 120 121	။
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ 
+```
 
 ## Testing Skip Line Problem
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
 T1	adj 0 2	ဒီ
 T2	n 3 5	ဆေ
@@ -214,6 +241,9 @@ T27	punc 120 121	။
 T28	n 201 208	ပေဟိုင်
 T29	n 209 215	ဥယျာဉ်
 T30	punc 216 217	။
+```
+
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$ cat head.ann 
 T1	adj 0 2	ဒီ
 T2	n 3 5	ဆေ
@@ -262,3 +292,4 @@ T44	part 193 194	ရ
 T45	ppm 195 198	သည်
 T46	punc 199 200	။
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat/data/mypos$
+```
