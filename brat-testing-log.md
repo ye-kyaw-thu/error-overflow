@@ -401,3 +401,8 @@ T46	punc 199 200	။
   Fig. An examples of dependency tree for Portuguese
 </div>   
 <br />
+
+## Reference
+
+Brat Homepage: http://brat.nlplab.org/index.html  
+Manual: http://brat.nlplab.org/manual.html  
