@@ -71,6 +71,7 @@ Web page တစ်ခုအနေနဲ့ အောက်ပါ UI လိုမ
 <div align="center">
   Fig. Open project folder dialogue screen of Brat Annotation Tool  
 </div>   
+<br />
 
 အသုံးပြုပုံ ဘာညာနဲ့ ပတ်သက်တဲ့ Tutorial လည်း ရှိပါတယ်။  
 လေ့လာကြည့်ကြပါ။  
@@ -81,6 +82,7 @@ Web page တစ်ခုအနေနဲ့ အောက်ပါ UI လိုမ
 <div align="center">
   Fig. Tutorial Screen of Brat Annotation Tool  
 </div>   
+<br />
 
 ## Check Files
 
@@ -230,6 +232,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 <div align="center">
   Fig. POS tags selection box
 </div>   
+<br />
 
 မြန်မာစာ စာကြောင်းတချို့ကို manual tagging လုပ်ပြီးတဲ့အခါမှာ အောက်ပါလိုမျိုး လှလှပပ မြင်ရပါလိမ့်မယ်။  
 
@@ -239,6 +242,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 <div align="center">
   Fig. An examples of tagged Myanmar sentences
 </div>   
+<br />
 
 အခု ဥပမာအနေနဲ့ manual tagging လုပ်နေတာက head.txt ဖိုင်မို့လို့ tagged လုပ်ထားတာကို သိမ်းပေးထားတဲ့ ဖိုင်နာမည်က head.ann ဖြစ်လာပြီးတော့ အဲဒီ ဖိုင်ထဲမှာတော့ tagging လုပ်ထားတာနဲ့ ပတ်သက်တာတွေကို အောက်ပါအတိုင်း မှတ်သားထားပေးထားတာကို တွေ့ရပါလိမ့်မယ်။  
 
