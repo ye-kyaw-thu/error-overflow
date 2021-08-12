@@ -55,6 +55,26 @@ Serving brat at http://0.0.0.0:8001
 
 ## Screenshot
 
+Installation က အဆင်ပြေပြေနဲ့ ပြီးသွားပြီဆိုရင်တော့ standalone mode နဲ့ run ကြည့်ကြရအောင်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/brat$ python standalone.py
+Serving brat at http://0.0.0.0:8001
+```
+
+Web page တစ်ခုအနေနဲ့ အောက်ပါ UI လိုမျိုးကို မြင်ရပါလိမ့်မယ်။  
+ကိုယ် annotation လုပ်မယ့် project ဖိုလ်ဒါအောက်ကိုဝင်ပြီး အလုပ်လုပ်သွားယုံပါပဲ။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brat-running-standalone-mode.png" alt="drawing" width="800"/>  
+</p>  
+<div align="center">
+  Fig. Open project folder dialogue screen of Brat Annotation Tool  
+</div>   
+
+အသုံးပြုပုံ ဘာညာနဲ့ ပတ်သက်တဲ့ Tutorial လည်း ရှိပါတယ်။  
+လေ့လာကြည့်ကြပါ။  
+
 
 ## Check Files
 
