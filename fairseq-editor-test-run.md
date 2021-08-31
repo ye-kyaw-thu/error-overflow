@@ -278,6 +278,7 @@ wmt14.en-fr.fconv-py
 ## Test with pre-trained model
 
 Download လုပ်ထားတဲ့ pre-trained မော်ဒယ်က English ကနေ French ကို ဘာသာပြန်ပေးတဲ့ မော်ဒယ်မို့လို့ အောက်ပါအတိုင်း command ပေး run ပြီးတော့ အင်္ဂလိပ်စာကြောင်း ၃ ကြောင်းကို ဘာသာပြန်စမ်းကြည့်ခဲ့တယ်။  
+မှတ်ချက်။ ။ option သို့မဟုတ် argument တွေကိုတော့ အနည်းဆုံး ပဲ ထားပြီး run ခဲ့တယ်။ နောက်တစ်ချက် အရေးကြီးတာက training လုပ်ထားတုန်းက setting တချို့ကို လိုက်နာမှ fairseq-interactive နဲ့လည်း အဆင်ပြေလိမ့်မယ်။  
 
 ```
 (py3.6env) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/fairseq-editor/pre-trained$ fairseq-interactive --path /home/ye/tool/fairseq-editor/pre-trained/wmt14.en-fr.fconv-py/model.pt /home/ye/tool/fairseq-editor/pre-trained/wmt14.en-fr.fconv-py/ --beam 5 --source-lang en --target-lang fr
@@ -385,4 +386,8 @@ RuntimeError: result type Float can't be cast to the desired output type Long
 ```
 conda install -c conda-forge pytorch cudatoolkit=11.0 nvidia-apex fairseq==0.10.1 sentencepiece
 ```
+
+## Note for me
+
+မြအိစံရဲ့ (SIIT) experiment မှာ error တက်နေလို့ ဆရာ့စက်ထဲမှာ စမ်း run ကြည့်ခဲ့တဲ့ note အကြမ်းပါ။  
 
