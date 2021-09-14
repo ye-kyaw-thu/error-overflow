@@ -1091,3 +1091,75 @@ CPU ရှစ်လုံးနဲ့ စက်မှာ ၁နာရီခွ�
 
 41 directories, 61 files
 ```
+## Learn Command-line Arguments Through --help
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py -h
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+usage: train.py [-h] [--is_char_based [IS_CHAR_BASED]] [--nois_char_based]
+                [--word2vec_model WORD2VEC_MODEL]
+                [--word2vec_format WORD2VEC_FORMAT]
+                [--embedding_dim EMBEDDING_DIM]
+                [--dropout_keep_prob DROPOUT_KEEP_PROB]
+                [--l2_reg_lambda L2_REG_LAMBDA]
+                [--training_files TRAINING_FILES]
+                [--hidden_units HIDDEN_UNITS] [--batch_size BATCH_SIZE]
+                [--num_epochs NUM_EPOCHS] [--evaluate_every EVALUATE_EVERY]
+                [--checkpoint_every CHECKPOINT_EVERY]
+                [--allow_soft_placement [ALLOW_SOFT_PLACEMENT]]
+                [--noallow_soft_placement]
+                [--log_device_placement [LOG_DEVICE_PLACEMENT]]
+                [--nolog_device_placement]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --is_char_based [IS_CHAR_BASED]
+                        is character based syntactic similarity. if false then
+                        word embedding based semantic similarity is
+                        used.(default: True)
+  --nois_char_based
+  --word2vec_model WORD2VEC_MODEL
+                        word2vec pre-trained embeddings file (default: None)
+  --word2vec_format WORD2VEC_FORMAT
+                        word2vec pre-trained embeddings file format
+                        (bin/text/textgz)(default: None)
+  --embedding_dim EMBEDDING_DIM
+                        Dimensionality of character embedding (default: 300)
+  --dropout_keep_prob DROPOUT_KEEP_PROB
+                        Dropout keep probability (default: 1.0)
+  --l2_reg_lambda L2_REG_LAMBDA
+                        L2 regularizaion lambda (default: 0.0)
+  --training_files TRAINING_FILES
+                        training file (default: None)
+  --hidden_units HIDDEN_UNITS
+                        Number of hidden units (default:50)
+  --batch_size BATCH_SIZE
+                        Batch Size (default: 64)
+  --num_epochs NUM_EPOCHS
+                        Number of training epochs (default: 200)
+  --evaluate_every EVALUATE_EVERY
+                        Evaluate model on dev set after this many steps
+                        (default: 100)
+  --checkpoint_every CHECKPOINT_EVERY
+                        Save model after this many steps (default: 100)
+  --allow_soft_placement [ALLOW_SOFT_PLACEMENT]
+                        Allow device soft device placement
+  --noallow_soft_placement
+  --log_device_placement [LOG_DEVICE_PLACEMENT]
+                        Log placement of ops on devices
+  --nolog_device_placement
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
+
+
