@@ -1,6 +1,12 @@
 # Deep Siamese Text Similarity Experiment Log
 
-https://github.com/dhwajraj/deep-siamese-text-similarity
+Siamese Network က စိတ်ဝင်စားတယ်။  
+ဒါပေမဲ့ develop လုပ်ခဲ့တာတွေက Python2.7 တို့ လွန်ခဲ့တဲ့ ၃နှစ် ၄နှစ် ပတ်ဝန်းကျင်က source code တွေဖြစ်တာ များတော့ ကျောင်းသားတွေအနေနဲ့က ကိုယ်စက်ထဲမှာ download လုပ်ပြီး run ကြတဲ့အခါမှာ သိပ်အလွယ်ကြီး မဟုတ်ဘူး။ ကိုယ်တိုင်လည်း အတွေ့အကြုံက ရှိပေမဲ့ အတိုင်းအတာ တစ်ခုအထိ အချိန်ပေးရတာ များပါတယ်။  
+
+ဒီတစ်ခါတော့ Deep Siamese ဆိုတာကို ကိုယ့်စက်ထဲမှာ run ဖို့ ပြင်ခဲ့စဉ်က log တစ်ခုလုံးကို တင်ပေးထားလိုက်တယ်။  
+တင်ထားတာက debug လုပ်လိုက် run ကြည့်လိုက် တကယ့် raw log မို့လို့... ဒီ log ကို ဖတ်ကြည့်ပြီး လုပ်တဲ့သူတွေက မလိုအပ်တဲ့ အဆင့်တွေကို ကျော်ပြီးလုပ်သွားပါ။  
+
+source code link: https://github.com/dhwajraj/deep-siamese-text-similarity
 
 ## Create a New Conda Env
 
@@ -74,8 +80,9 @@ Executing transaction: done
 
 ## Install Some Dependencies
 
-Prepare requirements.txt file.
+Prepare requirements.txt file.  
 
+```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ vi requirements.txt
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ cat ./requirements.txt 
 numpy==1.11.0
@@ -83,13 +90,15 @@ tensorflow==1.2.1
 gensim==1.0.1
 nltk==3.2.2
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$
+```
 
-Installation with following command:
+Installation with following command:  
+
 ```
 pip install -r requirements.txt
 ```
 
-Installation လုပ်တော့ အောက်ပါ error ဖြစ်တယ်။
+Installation လုပ်တော့ အောက်ပါ error ဖြစ်တယ်။  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ cat ./requirements.txt 
@@ -205,8 +214,9 @@ ERROR: Command errored out with exit status 1: /home/ye/anaconda3/envs/paraphras
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ 
 ```
 
-အဲဒါနဲ့ သပ်သပ်စီ လက်ရှိ Conda environment မှာ ပဲ version ကို မကန့်သတ်ပဲ installation လုပ်ကြည့်ခဲ့...
+အဲဒါနဲ့ သပ်သပ်စီ လက်ရှိ Conda environment မှာ ပဲ version ကို မကန့်သတ်ပဲ installation လုပ်ကြည့်ခဲ့...  
 
+```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ pip install numpy
 Collecting numpy
   Using cached numpy-1.19.5-cp36-cp36m-manylinux2010_x86_64.whl (14.8 MB)
@@ -221,8 +231,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 1.19.5
 >>> exit()
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$
+```
 
-tensorflow ကို အောက်ပါအတိုင်း install လုပ်ခဲ့...
+tensorflow ကို အောက်ပါအတိုင်း install လုပ်ခဲ့...  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ pip install tensorflow
@@ -287,6 +298,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ## git clone "Deep Siamese Text Similarity"
 
+git clone ဆိုတဲ့ command နဲ့ ကိုယ့်စက်ထဲကို download လုပ်ယူခဲ့...  
+
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2$ git clone https://github.com/dhwajraj/deep-siamese-text-similarity
 Cloning into 'deep-siamese-text-similarity'...
@@ -319,12 +332,12 @@ SyntaxError: invalid syntax
 input_helpers.py ကပဲ python2.7 နဲ့ ရေးထားတာ လား?!...  
 
 ဒီတစ်ကြောင်းပဲ လို့ထင်တယ်။  
+
 ```
         print len(vocab_processor.vocabulary_)
 ```
 
-အဲဒီ တစ်ကြောင်းကို bracket ခတ်ပြီး ထပ် run ကြည့်ခဲ့...
-အောက်ပါအတိုင်း error ပေးတယ်။
+အဲဒီ တစ်ကြောင်းကို bracket ခတ်ပြီး ထပ် run ကြည့်ခဲ့... အောက်ပါအတိုင်း error ပေးတယ်။  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py 
@@ -359,7 +372,7 @@ Proceed (y/n)? y
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
-tensorflow==1.2.1 ကို install လုပ်ခဲ့...  
+tensorflow==1.2.1 ကို install လုပ်ခဲ့...   
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ pip install tensorflow==1.2.1
@@ -386,7 +399,7 @@ Successfully installed backports.weakref-1.0rc1 bleach-1.5.0 html5lib-0.9999999 
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
-install လုပ်ခဲ့တဲ့ tensorflow ကို import လုပ်ကြည့်ခဲ့...  
+install လုပ်ခဲ့တဲ့ tensorflow ကို import လုပ်ကြည့်ခဲ့...   
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python
@@ -411,7 +424,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-train.py ကို ထပ် run ကြည့်ခဲ့...  
+train.py ကို ထပ် run ကြည့်ခဲ့...   
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py
@@ -436,10 +449,10 @@ NameError: name 'reload' is not defined
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
-Trying to fix above error message!
-Ref: https://stackoverflow.com/questions/10142764/nameerror-name-reload-is-not-defined/10142772
+Trying to fix above error message!  
+Ref: https://stackoverflow.com/questions/10142764/nameerror-name-reload-is-not-defined/10142772  
 
-code ကို ဝင်ပြင်ခဲ့တယ်...  
+code ကို ဝင်ပြင်ခဲ့တယ်...   
 
 ```python
 # added by Ye
@@ -453,7 +466,7 @@ if sys.version[0] == '2':
     sys.setdefaultencoding("utf-8")
 ```
 
-ထပ် error ရတယ်။
+ထပ် error ရတယ်။  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py
@@ -479,14 +492,15 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print(self.emb
 ```
 
 
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ gedit siamese_network_semantic.py
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ gedit siamese_network_semantic.py  
+
 
 ```python
         print (self.embedded_words1)
 ```
 
-ထပ် run ကြည့်တယ်... 
-အောက်ပါ error ရတယ်...  
+ထပ် run ကြည့်တယ်...   
+အောက်ပါ error ရတယ်...    
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py
@@ -531,18 +545,18 @@ NameError: name 'xrange' is not defined
 
 ```
 
-ဒီ error ကတော့ python 3 နဲ့ 2.7 ကြားမှာ ဖြစ်နေတဲ့ ပုံမှန်ကိစ္စပါ။  
-ဖြေရှင်းရလွယ်ပါတယ်။  
+ဒီ error ကတော့ python 3 နဲ့ 2.7 ကြားမှာ ဖြစ်နေတဲ့ ပုံမှန်ကိစ္စပါ။   
+ဖြေရှင်းရလွယ်ပါတယ်။   
 
 
-input_helpers.py ဖိုင်မှာ အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...  
+input_helpers.py ဖိုင်မှာ အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...   
 
 ```python
 #        for i in xrange(len(combined)):
         for i in range(len(combined)):
 ```
 
-ထပ် run ကြည့်ခဲ့တယ်။
+ထပ် run ကြည့်ခဲ့တယ်။  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py
@@ -602,7 +616,7 @@ NameError: name 'xrange' is not defined
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
 ```
 
-xrange နဲ့ ပတ်သက်တဲ့ error ပါပဲ...  
+xrange နဲ့ ပတ်သက်တဲ့ error ပါပဲ...   
 
 gedit train.py နဲ့ အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...  
 
@@ -672,15 +686,15 @@ AttributeError: 'generator' object has no attribute 'next'
 
 ```
 
-Ref: https://stackoverflow.com/questions/21622193/python-3-2-coroutine-attributeerror-generator-object-has-no-attribute-next/21622696
-အောက်ပါအတိုင်း ဝင်ပြင်ဆင်ခဲ့...  
+Ref: https://stackoverflow.com/questions/21622193/python-3-2-coroutine-attributeerror-generator-object-has-no-attribute-next/21622696  
+အောက်ပါအတိုင်း ဝင်ပြင်ဆင်ခဲ့...   
 
 ```
 #        batch = batches.next()
         batch = next()        
 ```
 
-အောက်ပါအတိုင်း Error ထပ် ရခဲ့...  
+အောက်ပါအတိုင်း Error ထပ် ရခဲ့...   
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./train.py
@@ -741,14 +755,14 @@ TypeError: next expected at least 1 arguments, got 0
 ```
 
 အောက်ပါအတိုင်း ပြင်ပြီး ထပ် run ကြည့်ခဲ့...  
-Ref: https://stackoverflow.com/questions/31860030/typeerror-next-expected-at-least-1-arguments-got-0-i-am-trying-to-iterate-thro  
+Ref: https://stackoverflow.com/questions/31860030/typeerror-next-expected-at-least-1-arguments-got-0-i-am-trying-to-iterate-thro   
 
 ```
 #        batch = batches.next()
         batch = reader.next()     
 ```
 
-အောက်ပါအတိုင်း error ရခဲ့...  
+အောက်ပါအတိုင်း error ရခဲ့...   
 
 ```
 tput/unstack_1:7' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:8' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:9' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:10' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:11' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:12' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:13' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:14' shape=(?, 300) dtype=float32>]
@@ -765,7 +779,7 @@ NameError: name 'reader' is not defined
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
 ```
 
-အောက်ပါအတိုင်း error ပေးတယ်။
+အောက်ပါအတိုင်း error ပေးတယ်။  
 
 ```
 k_1:14' shape=(?, 300) dtype=float32>]
@@ -781,15 +795,15 @@ Traceback (most recent call last):
 NameError: name 'reader' is not defined
 ```
 
-Ref: https://community.dataquest.io/t/guided-project-1-name-error-name-reader-is-not-defined/363909
-အောက်ပါအတိုင်း update လုပ်ခဲ့...  
+Ref: https://community.dataquest.io/t/guided-project-1-name-error-name-reader-is-not-defined/363909  
+အောက်ပါအတိုင်း update လုပ်ခဲ့...    
 
 ```
 ## added by Ye
 from csv import reader
 ```
 
-ဒီတစ်ခါ run ကြည့်တော့ အောက်ပါအတိုင်း error အသစ် ထပ်ရခဲ့...  
+ဒီတစ်ခါ run ကြည့်တော့ အောက်ပါအတိုင်း error အသစ် ထပ်ရခဲ့...    
 
 ```
 tput/unstack_1:7' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:8' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:9' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:10' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:11' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:12' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:13' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:14' shape=(?, 300) dtype=float32>]
@@ -805,15 +819,17 @@ Traceback (most recent call last):
 TypeError: 'builtin_function_or_method' object is not an iterator
 ```
 
-ငါက သေချာ မကြည့်ပဲ ကမမ်းကတမ်း debugging လုပ်နေခဲ့....
-နည်းနည်း ပြန်စဉ်းစားကြည့်ပြီး လုပ်တော့ ရသွားခဲ့
+ငါက သေချာ မကြည့်ပဲ ကမမ်းကတမ်း debugging လုပ်နေခဲ့....  
+နည်းနည်း ပြန်စဉ်းစားကြည့်ပြီး လုပ်တော့ ရသွားခဲ့  
 
-Ref: https://stackoverflow.com/questions/1073396/is-generator-next-visible-in-python-3
-ပြင်ခဲ့တာက အောက်ပါအတိုင်း
+Ref: https://stackoverflow.com/questions/1073396/is-generator-next-visible-in-python-3  
+ပြင်ခဲ့တာက အောက်ပါအတိုင်း  
 
 ```python
         batch = batches.__next__()
 ```
 
-ဒီ တစ်ခေါက် run တော့ training လုပ်နေပြီ... ရလဒ်ကို ကြည့်ရအောင်...
+ဒီ တစ်ခေါက် run တော့ training လုပ်နေပြီ... ရလဒ်ကို ကြည့်ရအောင်...  
+
+
 
