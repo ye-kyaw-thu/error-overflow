@@ -1968,7 +1968,7 @@ tensorboard --logdir ./runs/1631593567/
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/training-with-myPara-epoch50-tensorboard-eg.png" alt="checking Acc/Loss with Tensorboard"/>  
 </p>  
 <div align="center">
-  Fig. Checking accuracy and loss with tensorboard 
+  Fig. Checking accuracy and loss with tensorboard for character model with epoch 50
 </div> 
 
 <br />
