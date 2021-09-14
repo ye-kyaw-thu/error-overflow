@@ -831,5 +831,5 @@ Ref: https://stackoverflow.com/questions/1073396/is-generator-next-visible-in-py
 
 ဒီ တစ်ခေါက် run တော့ training လုပ်နေပြီ... ရလဒ်ကို ကြည့်ရအောင်...  
 
-
+![Deep-Siamese-Neural-Network](https://github.com/ye-kyaw-thu/error-overflow/blob/master/gif/after-the-debugging-deep-siamese-14Sept2021.gif)  
 
