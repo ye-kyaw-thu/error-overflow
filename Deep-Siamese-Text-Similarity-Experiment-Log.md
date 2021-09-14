@@ -1758,5 +1758,49 @@ bk  open-test.col123  test.col123  train.final
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ mv open-test.col123 open-test.final
 ```
 
+filename တွေကို ဘယ်လို ပေးရမလဲ ဆိုတာကို coding ကို ဝင်ကြည့်မှ အဆင်ပြေတယ်။  
+training data အတွက်က program argument အနေနဲ့ ပေးလို့ ရပေမဲ့ validation အတွက်က coding ထဲမှာ filename ကို အောက်ပါအတိုင်း အသေပေးထားတာတွေ့ရ...  
+
+```python
+        with open('validation.txt'+str(i),'w') as f:
+            for text1,text2,label in zip(x1_dev,x2_dev,y_dev):
+                f.write(str(label)+"\t"+text1+"\t"+text2+"\n")
+            f.close()
+        del x1_dev
+        del y_dev
+        
+```
+
+validation.txt0, validation.txt1 ဆိုပြီး ဖိုင်နာမည်ကို ပေးသွားလို့ ရတယ်လို့ နားလည်တယ်။  
+
+original training ဒေတာနဲ့ validation ဒေတာတွေကို နေရာရွှေ့ခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv person_match.train2 ./original-data/
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv validation.txt0 ./original-data/
+```
+
+Validation test နှစ်စုံကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp valid.final ../../validation.txt0
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp open-test.final ../../validation.txt1
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ 
+```
+
+training data ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp train.final ../../train.txt
+```
+
+train.py မှာလည်း default training ဖိုင်နာမည်ကို အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...  
+
+```
+#tf.flags.DEFINE_string("training_files", "person_match.train2", "training file (default: None)")  #for sentence semantic similarity use "train_snli.txt"
+tf.flags.DEFINE_string("training_files", "train.txt", "training file (default: None)")  #for sentence semantic similarity use "train_snli.txt"
+```
+
+## Training with Myanmar Paraphrase Data
 
 
