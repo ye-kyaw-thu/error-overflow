@@ -1428,3 +1428,129 @@ Accuracy: 0.865909
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
 ```
 
+## Check Original Taining Data Format
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ head person_match.train2 
+Taras Fedorovych	Fedorowicz	y
+Alan Rodger, Baron Rodger of Earlsferry	Rodger	y
+Juliana Carneiro da Cunha	Carneiro	y
+Tommy de la Cruz	De la Cruz	y
+Alexander Walker Scott	Alexander Walker	y
+Robert Conroy	1862	y
+Guillermo Iberio Ortiz Mayagoitia	Guillermo Ortiz	y
+Les AuCoin	Aucoin	y
+Charles Robinson, Jr.	Charles Robinson	y
+Bill Baggs	Bagg	y
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ tail ./person_match.train2 
+Mohammed Fazle Baki	Md. Fazle Baki	y
+Shensheng Zhang	Shen-sheng Zhang	y
+James B. D. Joshi	James Joshi	y
+Thomas A. Down	Thomas Down	y
+Frank Hung-Fat Leung	Frank H. Leung	y
+Geoffrey W. Hill	G. W. Hill	y
+Simon L. Harding	Simon Harding	y
+Antonio Fernández	Antonio Fernández Anta	y
+Argyrios Zymnis	Argyris Zymnis	y
+N. R. Achuthan	Nirmala Achuthan	y
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ head ./validation.txt0 
+1	mifsud	carmelo mifsud bonnici
+1	paulo machado de carvalho filho	paulo machado
+1	kristopher van varenberg	van varenberg
+0	philip iv of france	van der hoeven
+1	charles gordon-lennox	charles gordon-lennox, 5th duke of richmond
+0	charles manners-sutton, 1st viscount canterbury	guy haworth
+0	alda bandeira	s. p. balasubrahmanyam
+0	t. patrick martin	jetsun
+0	sir robert munro, 6th baronet	reesor
+1	kate ter horst	ter horst
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ tail ./validation.txt0 
+0	f. jay taylor	meinoud rost van tonningen
+0	thomas w. sneddon, jr.	cagdas e. gerede
+0	diego hidalgo schnur	tatanka
+1	den uyl	jan den uyl
+0	emilio pasquale mancini	renee elio
+0	hanns	f. g. l. chester
+1	henry howard, 13th duke of norfolk	henry fitzalan-howard
+0	henry roxby benson	gerard la pucelle
+0	kent hughes	abdul ahad
+0	sir richard glyn, 9th baronet	van campen
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
+
+## Check Our Data
+
+```
+(paraphrase1) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara/data3$ head train.csv
+id,senid1,senid2,sentence1,sentence2,is_duplicate
+0,1,2,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0
+1,3,4,​ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0
+2,5,6,​ ကျေးဇူး အများကြီး တင် ပါ တယ် ။,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0
+3,7,8,​ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။,ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။,0
+4,9,10,​ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။,ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။,0
+5,11,12,​ ကောင်း သော ည ပါ ။,ကောင်း သော နေ့ ပါ ။,0
+6,13,14, ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။,သာယာတဲ့ နေ့ကလေး ပါပဲ ။,0
+7,15,16, ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။,ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။,0
+8,17,18, ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။,အတန်း လွတ်သွားမှာ စိုးတယ် ။,0
+(paraphrase1) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara/data3$ head test.csv 
+id,senid1,senid2,sentence1,sentence2,is_duplicate
+0,1,2,ကောင်း လိုက် တဲ့ သတင်း လေး ပါ,ကောင်း သော သတင်း ပါ ပဲ,1
+1,3,4,ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။,ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။,0
+2,5,6,ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်,ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်,1
+3,7,8,တကယ် ကို လေးစား သွား ပြီ,ငါ သူ့ ကို သဘောမကျ ဘူး,0
+4,9,10,ဂုဏ်ယူ တယ် မြန်မာ အတွက်,ဂုဏ်ယူ ပါ တယ် မြန်မာ,1
+5,11,12,မင်း ဘယ် ကို ရောက် နေ တာ လဲ ။,မင်း ဘာတွေ ကို လုပ် နေ တာ လဲ ။,0
+6,13,14,ဆရာတော် ကြီး များ သက်တော် ရာ ကျော် ရှည် ပါစေ,ဆရာတော် အသက် ရာ ကျော် ရှည် ပါစေ ဘေးရန်ကင်း ပါစေ,1
+7,15,16,ရှိခိုး လျက် ပါ,ရှိခိုး ကန်တော့ ဦးခိုက် ပါ ၏,1
+8,17,18,အောင်မြင် ပါစေ အမြဲ အားပေး လျက်,အားပေး လိုက် လို့ အောင်မြင် တာ လား,0
+(paraphrase1) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara/data3$
+```
+
+## Data Preparation
+
+မြန်မာစာ ဒေတာနဲ့ (သို့) လက်ရှိ ငါတို့ ပြင်ထားတဲ့ format နဲ့က run လို့ မရဘူး။ အဲဒါကြောင့် Deep Siamese ပရိုဂရမ်က သုံးထားတဲ့ format ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...   
+
+```
+(paraphrase1) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara/data3$ cp {train,test,open-test}.csv /home/ye/exp/myPara2/deep-siamese-text-similarity/my-para/
+(paraphrase1) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara/data3$ 
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 4-6 -d"," ./test.csv > test.4-6
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 4-6 -d"," ./train.csv > train.4-6
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 4-6 -d"," ./open-test.csv > open-test.4-6
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.4-6
+   1001   10731  138637 open-test.4-6
+   1001   14907  202268 test.4-6
+  40462  591508 8350847 train.4-6
+  42464  617146 8691752 total
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.csv
+   1001   10731  151440 open-test.csv
+   1001   14907  215068 test.csv
+  40462  591517 9056946 train.csv
+  42464  617155 9423454 total
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed 's/\,/\t/g' ./test.4-6 > ./test.4-6.tab
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed 's/\,/\t/g' ./train.4-6 > ./train.4-6.tab
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed 's/\,/\t/g' ./open-test.4-6 > ./open-test.4-6.tab
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head -n 3 *.tab
+==> open-test.4-6.tab <==
+sentence1	sentence2	is_duplicate
+၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။	0
+၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။	0
+
+==> test.4-6.tab <==
+sentence1	sentence2	is_duplicate
+ကောင်း လိုက် တဲ့ သတင်း လေး ပါ	ကောင်း သော သတင်း ပါ ပဲ	1
+ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။	ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။	0
+
+==> train.4-6.tab <==
+sentence1	sentence2	is_duplicate
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။	0
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။	ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။	0
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
