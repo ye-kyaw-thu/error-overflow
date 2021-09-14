@@ -2040,7 +2040,7 @@ sys	20m17.571s
 အထက်ပါ Myanmar paraphrase classification with character model, epoch 100 ရဲ့ training/validation ရလဒ်တွေက အောက်ပါအတိုင်းပါ...  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPara-char-epoch100-accuracy.png" alt="checking Acc/Loss with Tensorboard"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPara-char-epoch100-accuracy.png" alt="checking Acc/Loss with Tensorboard" width="1000"/>  
 </p>  
 <div align="center">
   Fig. The accuracy graph of character model with epoch 100
@@ -2049,7 +2049,7 @@ sys	20m17.571s
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPara-char-epoch100-loss.png" alt="checking Acc/Loss with Tensorboard"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myPara-char-epoch100-loss.png" alt="checking Acc/Loss with Tensorboard" width="1000"/>  
 </p>  
 <div align="center">
   Fig. The loss graph of character model with epoch 100
