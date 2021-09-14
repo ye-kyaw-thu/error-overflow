@@ -1733,14 +1733,14 @@ Delivery ပို့ရန် ကောင်လေး လိုအပ် ပ�
 for Validation and Open-test data:  
 
 ```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 3 ./test.csv > ./data/test.col3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 3 ./open-test.csv > ./data/open-test.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 6 ./test.csv > ./data/test.col6
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 6 ./open-test.csv > ./data/open-test.col6
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
 ```
 
 ```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/test.col3 ./test.col12 > ./data/test.col123
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/open-test.col3 ./open-test.col12 > ./data/open-test.col123
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/test.col6 ./test.col12 > ./data/test.col123
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/open-test.col6 ./open-test.col12 > ./data/open-test.col123
 ```
 
 gedit နဲ့ ထိပ်ဆုံးလိုင်းကို ဝင်ဖျက်ရင် ဒေတာပြင်ပြီးသွားပြီ။  
@@ -1774,31 +1774,54 @@ training data အတွက်က program argument အနေနဲ့ ပေး�
 validation.txt0, validation.txt1 ဆိုပြီး ဖိုင်နာမည်ကို ပေးသွားလို့ ရတယ်လို့ နားလည်တယ်။  
 
 original training ဒေတာနဲ့ validation ဒေတာတွေကို နေရာရွှေ့ခဲ့...  
+နောက်ဆုံး သုံးမယ့် file တွေက အောက်ပါအတိုင်း   
 
 ```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv person_match.train2 ./original-data/
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv validation.txt0 ./original-data/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ head train.txt
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ ပဲ နော်	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ လို့ ပဲ မြင် တယ်	y
+ ပျော် စရာ ကြီး ပါ	ပျော်ရွှင် စရာ ပါ	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ လေး ပေါ့	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ ပဲ	y
+ ပျော် စရာ ကြီး ပါ	ပျော် တယ် ကြည်နူး တယ်	y
+၎င်း ဓူဝံ ကြယ် သည် ကမ္ဘာ ၏ မြောက် ဝင်ရိုးစွန်း တွင် တည်ရှိ ပြီး မြောက် အရပ် ကို အမြဲ ညွှန်ပြ ပေး သည် ။	၎င်း ဓူဝံ ကြယ် သည် ကမ္ဘာ ၏ မြောက် ဝင်ရိုးစွန်း တွင် တည်ရှိ ပြီး မြောက် အရပ် ကို အမြဲ ညွှန် ပေး သည် ။	y
+၅၀၀ ကီလိုမီတာ မိုင် ၉၀၀၀ ရှည်မျော သည် ။	ကမ်းရိုးတန်း အလျား ၁၄	y
+Apple ကုန်တံဆိပ် ဖုန်း များ သည် အရည်အသွေး ကောင်းမွန် ကြ သည် ။	Apple ကုန်အမှတ်တံဆိပ် ဖုန်း များ သည် အရည်အသွေး ကောင်းမွန် ကြ သည် ။	y
+Delivery ပို့ရန် ကောင်လေး လိုအပ် ပါ တယ် ။	Delivery ပို့ ရန် ကောင်းကလေး လိုအပ် ပါ တယ် ။	y
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ head validation.txt0
+0	တော် ပါ တယ် လေးစား တယ်	နှမြော စရာ ကြီး ကွယ်
+1	ဒိုင် က ညစ် တာ	ဒိုင် ညစ် တယ်
+0	ကူညီ ပေး စေ ချင် ပါ တယ်	ကြည့် ချင် လိုက် တာ ဘယ် က လွှင့် မလဲ
+0	တရားမျှတ မှု ရှိ နိုင် ကြ ပါစေ	ကျွန်မ စကား ကြောင့် မူယာ တစ် ချက် မျက်နှာ မ ကောင်း ဖြစ် သွား ၏
+0	အဖိတ်နေ့ မှာ မယ်သီလ တို့ ဆွမ်းဆန်ခံ ကြွ လိမ့် မယ် ။	ကြိုဆို နေ ပါ တယ်
+0	ထည့်ပေး ထား သော ထမင်း ကို ကုန်စင်အောင် စား ပါ ။	ကောင်း နေ ရော
+0	ခြင်ပေါက်ဖွား ခြင်း ကို ဘယ်လို တားဆီး မလဲ	ဒီ ကလေး အရမ်း ဆင်ခြေပေး တယ်
+0	အောင်မြင် ပါစေ အမြဲ အားပေး လျက်	ဝမ်းမြောက် ဝမ်းသာ သာဓု ၃ ကြိမ် ခေါ် ပါ တယ်
+0	ဂိုးသမား ကောင်း ပါ တယ်	ဆက် ကြိုးစား ပါ အားပေး မယ်
+0	ကျန်းမာ ပြီး ဘေးကင်း ပါစေ	သူ စောဒကတက် နေ တယ် ။
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ head validation.txt1
+0	၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။
+0	၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။
+0	၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။
+0	၂ မိုင် ထက် ပို ရှည် တယ် ။	၂ မိုင် လောက် သွား ရ တယ် ။
+0	၄ ရက် အတွင်း အိမ် ပြန် မယ် ။	၄ ရက် လောက် နေ ရင် ပြန် လာ ပါ ။
+0	၅ ဒေါ်လာ ထက် ပို ပါ တယ် ။	၅ ဒေါ်လာ လောက် ကျ သင့် တယ် ။
+0	၅ ဒေါ်လာ ထက် နဲ ပါ တယ် ။	၅ ဒေါ်လာ ဆို နဲ ပါ တယ် ။
+0	၅ ဒေါ်လာ ပဲ ရှိ တယ် ။	၅ ဒေါ်လာ လောက် ရှိ လား ။
+0	၅ လမ်းက စားသောက်ဆိုင် မှာ စား ချင် တယ် ။	၅ လမ်း မှာ စားသောက်ဆိုင် ရှိ လား ။
+0	ကျေးဇူးပြုပြီး မီနူးရ နိုင် မလား ။	ကျေးဇူးပြုပြီး မီနူး ထဲ က အတိုင်း ရ နိုင် မလား ။
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
 ```
 
-Validation test နှစ်စုံကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+file size တွေရဲ့ information က အောက်ပါအတိုင်း...  
 
 ```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp valid.final ../../validation.txt0
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp open-test.final ../../validation.txt1
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ 
-```
-
-training data ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
-
-```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp train.final ../../train.txt
-```
-
-train.py မှာလည်း default training ဖိုင်နာမည်ကို အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...  
-
-```
-#tf.flags.DEFINE_string("training_files", "person_match.train2", "training file (default: None)")  #for sentence semantic similarity use "train_snli.txt"
-tf.flags.DEFINE_string("training_files", "train.txt", "training file (default: None)")  #for sentence semantic similarity use "train_snli.txt"
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc train.txt 
+  15640  233644 2893579 train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc validation.txt0
+  4692  69876 869662 validation.txt0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc validation.txt1
+  1000  12674 138604 validation.txt1
 ```
 
 ## Training with Myanmar Paraphrase Data
