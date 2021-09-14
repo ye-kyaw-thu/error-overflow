@@ -1817,6 +1817,154 @@ original text နဲ့ train ထားတာလည်း ရှိလို့.
 
 character နဲ့ run ခဲ့ ...
 
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --num_epochs 50 2>&1 | tee train-char-epoch50.log
+2021-09-14 17:22:27.291395: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 17:22:27.291416: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 17:22:27.291420: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 17:22:27.291422: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 17:22:27.291424: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Parameters:
+ALLOW_SOFT_PLACEMENT=True
+BATCH_SIZE=64
+CHECKPOINT_EVERY=1000
+DROPOUT_KEEP_PROB=1.0
+EMBEDDING_DIM=300
+EVALUATE_EVERY=1000
+HIDDEN_UNITS=50
+IS_CHAR_BASED=True
+L2_REG_LAMBDA=0.0
+LOG_DEVICE_PLACEMENT=False
+NUM_EPOCHS=50
+TRAINING_FILES=train.txt
+WORD2VEC_FORMAT=text
+WORD2VEC_MODEL=wiki.simple.vec
+
+Loading training data from train.txt
+Building vocabulary
+Length of loaded vocabulary =98
+dumping validation 0
+Train/Dev split for train.txt: 42228/4692
+starting graph def
+started session
+[<tf.Tensor 'output/unstack:0' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:1' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:2' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:3' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:4' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:5' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:6' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:7' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:8' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:9' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:10' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:11' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:12' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:13' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack:14' shape=(?, 300) dtype=float32>]
+[<tf.Tensor 'output/unstack_1:0' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:1' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:2' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:3' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:4' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:5' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:6' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:7' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:8' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:9' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:10' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:11' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:12' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:13' shape=(?, 300) dtype=float32>, <tf.Tensor 'output/unstack_1:14' shape=(?, 300) dtype=float32>]
+initialized siameseModel object
+defined training_ops
+defined gradient summaries
+Writing to /home/ye/exp/myPara2/deep-siamese-text-similarity/runs/1631614951
+
+init all variables
+[[array([19,  5,  6, 10,  7,  4,  6, 13,  2,  3, 12, 27,  2, 18, 35])
+  array([34, 35, 62, 12,  2, 34, 37, 33,  3,  7,  2, 10, 32, 33,  2]) 0]
+ [array([37, 10,  7,  2, 28, 16,  6,  2, 62, 21,  7, 13,  2,  9, 20])
+  array([10,  4,  5, 13, 59, 22, 13, 18, 17,  7,  2,  3, 14,  2, 18]) 0]
+ [array([ 9, 16, 32, 60, 32, 33, 13,  2,  3, 14,  2, 31,  2, 30, 33])
+  array([61, 13, 60, 32, 33, 10,  7,  2, 45, 22, 13, 28, 11,  5,  6]) 1]
+ ...
+ [array([28, 17,  7, 13, 10, 11, 20,  7, 51,  2,  9,  2, 18,  6,  2])
+  array([28, 17,  7, 13, 10, 11, 20,  7, 51,  2,  9,  2, 18,  6,  2]) 1]
+ [array([34, 32, 28,  7,  2, 56, 35,  2,  8, 12, 13,  2, 45, 32, 33])
+  array([34, 32, 28,  7,  2, 56, 35,  2,  8, 12, 13,  2, 45, 32, 33]) 1]
+ [array([44, 10,  7,  2, 10, 11, 32, 33, 13,  8,  6, 13,  2, 21, 32])
+  array([27, 22,  2, 10,  2, 18, 10, 19,  7,  2, 37,  4, 17,  7, 28]) 0]]
+(42228, 3)
+TRAIN 2021-09-14T17:22:34.467969: step 1, loss 0.104869, acc 0.703125
+(1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1) [0.7228426  0.70311946 0.6689437  0.74712044 0.7588836  0.7367509
+ 0.7423743  0.70503914 0.7097842  0.7233885  0.7015295  0.72005475
+ 0.68342423 0.75234264 0.66156316 0.72910476 0.63605756 0.71473706
+ 0.71906424 0.6476928  0.6368718  0.74751556 0.739291   0.71910137
+ 0.7178705  0.73053616 0.7658531  0.7020739  0.7006539  0.75535154
+ 0.6397792  0.6719798  0.6946104  0.63752306 0.7432048  0.6868644
+ 0.673546   0.75386614 0.7485469  0.7748737  0.7433629  0.6583958
+ 0.6983609  0.6466102  0.70500195 0.62406594 0.629249   0.7356372
+ 0.7205792  0.7019439  0.75504035 0.69082147 0.7238766  0.7279587
+ 0.75519866 0.7009046  0.73951507 0.7181911  0.6846975  0.7252145
+ 0.7332474  0.69621295 0.6613988  0.69604206] [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+TRAIN 2021-09-14T17:22:34.523919: step 2, loss 0.117165, acc 0.640625
+(1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1) [0.6403134  0.699832   0.7184507  0.6897673  0.6099598  0.7621312
+ 0.752492   0.5123035  0.58121604 0.552051   0.66513413 0.7217747
+ 0.7151997  0.68314177 0.7104632  0.7413689  0.6846424  0.63214844
+ 0.7569284  0.6269265  0.65527844 0.68405277 0.719569   0.67128974
+ 0.64879596 0.7018228  0.85006934 0.7008645  0.67306525 0.70108455
+ 0.7433712  0.70727587 0.70731866 0.7159384  0.68623745 0.6692966
+ 0.79595685 0.7077783  0.65152055 0.62030697 0.7397595  0.6895023
+ 0.68711716 0.70094234 0.68051136 0.54211134 0.6925647  0.5966107
+ 0.6281844  0.7278306  0.756788   0.70443463 0.69034183 0.7566798
+ 0.6648226  0.7280827  0.7273223  0.72308725 0.7292816  0.7299788
+ 0.7888011  0.6733662  0.671531   0.70622325] [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+TRAIN 2021-09-14T17:22:34.556643: step 3, loss 0.103037, acc 0.703125
+...
+...
+...
+...
+...
+...
+ 0.8603376  0.17818424 0.07762048 0.10578492] [0. 0. 0. 0. 1. 0. 1. 1. 0. 0. 0. 1. 0. 0. 0. 0. 0. 1. 0. 1. 0. 1. 0. 1.
+ 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 0. 0. 0. 0. 0. 1. 0. 1. 0.
+ 0. 0. 0. 0. 0. 1. 1. 1. 0. 0. 1. 1. 0. 1. 1. 1.]
+TRAIN 2021-09-14T17:41:42.082900: step 32949, loss 0.0122488, acc 0.984375
+(1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0) [0.01759469 0.0346491  0.01773486 0.9999344  0.99939954 0.99634296
+ 0.985249   0.99885213 0.99210066 0.23745357 0.94950384 0.19063194
+ 0.9998161  0.9998979  0.06118951 0.04668707 0.99996763 0.96335
+ 0.04441455 0.9999776  0.12334152 0.9050146  0.99954176 0.9999964
+ 0.98700446 0.7966908  0.99973184 0.02240145 0.99587125 0.9999227
+ 0.04773209 0.7282799  0.99998575 0.05638697 0.9970182  0.04685412
+ 0.03273954 0.10128768 0.7594312  0.88697624 0.14179127 0.99745476
+ 0.0894561  0.1224346  0.99968207 0.6746357  0.99970984 0.03490018
+ 0.11313327 0.84791106 0.09020269 0.02863695 0.99985415 0.99994534
+ 0.05367226 0.984751   0.9207436  0.06163626 0.04649518 0.9820613
+ 0.07533711 0.99915206 0.13171151 0.9989518 ] [1. 1. 1. 0. 0. 0. 0. 0. 0. 1. 0. 1. 0. 0. 1. 1. 0. 0. 1. 0. 1. 0. 0. 0.
+ 0. 0. 0. 1. 0. 0. 1. 0. 0. 1. 0. 1. 1. 1. 0. 0. 1. 0. 1. 1. 0. 0. 0. 1.
+ 1. 0. 1. 1. 0. 0. 1. 0. 0. 1. 1. 0. 1. 0. 1. 0.]
+TRAIN 2021-09-14T17:41:42.120989: step 32950, loss 0.00925516, acc 0.984375
+(0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0)/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+ [0.99253154 0.19331038 0.9574837  0.98238796 0.05297118 0.99984115
+ 0.5796681  0.27019942 0.99538493 0.9976765  0.8289619  0.07189957
+ 0.04746499 0.15106255 0.9999968  0.10152893 0.9998525  0.11503272
+ 0.933221   0.89964664 0.80016875 0.99743956 0.9999647  0.99998844
+ 0.09476809 0.999969   0.99998236 0.99949366 0.9771544  0.99999034
+ 0.12532079 0.1068604  0.8388157  0.9781501  0.8506993  0.98022735
+ 0.03307126 0.08057828 0.9933547  0.24445897 0.08390144 0.97213584
+ 0.2044727  0.79894054 0.05971796 0.05905108 0.99733734 0.9165366
+ 0.99729794 0.98179424 0.3736628  0.21080233 0.07405753 0.10773523
+ 0.90384406 0.07302347 0.99441576 0.9426707  0.10396013 0.97811204
+ 0.11866362 0.99994695 0.97931874 0.99997073] [0. 1. 0. 0. 1. 0. 0. 1. 0. 0. 0. 1. 1. 1. 0. 1. 0. 1. 0. 0. 0. 0. 0. 0.
+ 1. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0. 0. 1. 1. 0. 1. 1. 0. 1. 0. 1. 1. 0. 0.
+ 0. 0. 1. 1. 1. 1. 0. 1. 0. 0. 1. 0. 1. 0. 0. 0.]
+
+real	19m20.078s
+user	84m42.974s
+sys	10m6.671s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
+```
+
+
+for checking the log:  
+
+```
+tensorboard --logdir ./runs/1631593567/
+```
+
+
 
 
 
