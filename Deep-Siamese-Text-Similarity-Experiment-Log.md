@@ -2059,6 +2059,7 @@ sys	20m17.571s
 
 ## Evaluation with Validation.txt0
 
+
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631618306/checkpoints/model-32000 --vocab_filepath ./runs/1631618306/checkpoints/vocab --eval_filepath ./validation.txt0
 ...
@@ -2088,3 +2089,30 @@ sys	20m17.571s
 Accuracy: 0.966539
 ```
 
+## Validation with Validation.txt1
+
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631618306/checkpoints/model-32000 --vocab_filepath ./runs/1631618306/checkpoints/vocab --eval_filepath ./validation.txt1
+...
+...
+...
+0.33295318484306335
+0.7900525331497192
+0.21132522821426392
+0.5631528496742249
+0.1898920238018036
+0.49018043279647827
+0.7191677093505859
+0.29480621218681335
+0.10198315978050232
+0.1400306522846222
+0.9661251306533813
+0.28176015615463257
+0.30746933817863464
+0.2912597060203552
+0.07379546761512756
+0.3612543046474457
+0.6867332458496094
+Accuracy: 0.543544
+```
