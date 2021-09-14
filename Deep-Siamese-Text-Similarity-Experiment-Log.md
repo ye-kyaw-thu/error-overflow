@@ -2059,6 +2059,8 @@ sys	20m17.571s
 
 ## Evaluation with Validation.txt0
 
+ဒီဒေတာက program က validation လုပ်ဖို့အတွက် training data ထဲက ဆွဲထုတ်ထားတဲ့ ဒေတာပါ။  
+အဲဒါကိုပဲ သုံးပြီး ပြန် evaluation လုပ်ကြည့်တာ...  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631618306/checkpoints/model-32000 --vocab_filepath ./runs/1631618306/checkpoints/vocab --eval_filepath ./validation.txt0
@@ -2089,8 +2091,9 @@ sys	20m17.571s
 Accuracy: 0.966539
 ```
 
-## Validation with Validation.txt1
+## Evaluation with Open Test Data
 
+ဒီဒေတာက လုံးဝ open-test ဒေတာပါ  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631618306/checkpoints/model-32000 --vocab_filepath ./runs/1631618306/checkpoints/vocab --eval_filepath ./validation.txt1
@@ -2116,3 +2119,35 @@ Accuracy: 0.966539
 0.6867332458496094
 Accuracy: 0.543544
 ```
+
+## Evaluation with Closed-Test Data
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631618306/checkpoints/model-32000 --vocab_filepath ./runs/1631618306/checkpoints/vocab --eval_filepath ./my-para/data/closed-test.final
+...
+...
+...
+0.06834502518177032
+0.1330200433731079
+0.09447325021028519
+0.10914053022861481
+0.199232280254364
+0.024631556123495102
+0.5442995429039001
+0.09711595624685287
+0.5433968305587769
+0.0807630717754364
+0.05371960252523422
+0.2358183115720749
+0.9972859621047974
+0.10500875115394592
+0.040762852877378464
+0.07162264734506607
+0.02737630344927311
+0.560492992401123
+0.030253712087869644
+0.1330290585756302
+0.1289135217666626
+Accuracy: 0.671
+```
+
