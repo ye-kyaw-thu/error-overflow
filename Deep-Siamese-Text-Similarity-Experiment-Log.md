@@ -1162,4 +1162,126 @@ optional arguments:
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
+## Evaluation
+
+Evaluation ကို မော်ဒယ် တစ်ခုနဲ့ လုပ်ကြည့်တော့ အောက်ပါအတိုင်း python version error ပေး...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python eval.py --model ./runs/1631593567/checkpoints/model/graph9999.pb 
+  File "eval.py", line 45
+    print checkpoint_file
+                        ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(checkpoint_file)?
+
+real	0m0.038s
+user	0m0.027s
+sys	0m0.012s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
+
+Fixed followings:   
+
+```
+print (checkpoint_file)
+...
+...
+        for ex in all_predictions:
+            print (ex)
+```
+
+eval လုပ်ကြည့်တော့...  
+အောက်ပါအတိုင်း vocab ဖိုင်ရှာမတွေ့ကြောင်း error ပေးတယ်...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python eval.py --model ./runs/1631593567/checkpoints/model/graph9999.pb 
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+
+Parameters:
+ALLOW_SOFT_PLACEMENT=True
+BATCH_SIZE=64
+CHECKPOINT_DIR=
+EVAL_FILEPATH=validation.txt0
+LOG_DEVICE_PLACEMENT=False
+MODEL=./runs/1631593567/checkpoints/model/graph9999.pb
+VOCAB_FILEPATH=runs/1512222837/checkpoints/vocab
+
+Loading testing/labelled data from validation.txt0
+Traceback (most recent call last):
+  File "eval.py", line 38, in <module>
+    x1_test,x2_test,y_test = inpH.getTestDataSet(FLAGS.eval_filepath, FLAGS.vocab_filepath, 30)
+  File "/home/ye/exp/myPara2/deep-siamese-text-similarity/input_helpers.py", line 219, in getTestDataSet
+    vocab_processor = vocab_processor.restore(vocab_path)
+  File "/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/preprocessing/text.py", line 226, in restore
+    return pickle.loads(f.read())
+  File "/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py", line 118, in read
+    self._preread_check()
+  File "/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py", line 78, in _preread_check
+    compat.as_bytes(self.__name), 1024 * 512, status)
+  File "/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/contextlib.py", line 88, in __exit__
+    next(self.gen)
+  File "/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/errors_impl.py", line 466, in raise_exception_on_not_ok_status
+    pywrap_tensorflow.TF_GetCode(status))
+tensorflow.python.framework.errors_impl.NotFoundError: runs/1512222837/checkpoints/vocab
+
+real	0m2.462s
+user	0m2.623s
+sys	0m1.066s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
+
+အဲဒါနဲ့ help ခေါ်ကြည့်...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py -h
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+usage: eval.py [-h] [--batch_size BATCH_SIZE]
+               [--checkpoint_dir CHECKPOINT_DIR]
+               [--eval_filepath EVAL_FILEPATH]
+               [--vocab_filepath VOCAB_FILEPATH] [--model MODEL]
+               [--allow_soft_placement [ALLOW_SOFT_PLACEMENT]]
+               [--noallow_soft_placement]
+               [--log_device_placement [LOG_DEVICE_PLACEMENT]]
+               [--nolog_device_placement]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --batch_size BATCH_SIZE
+                        Batch Size (default: 64)
+  --checkpoint_dir CHECKPOINT_DIR
+                        Checkpoint directory from training run
+  --eval_filepath EVAL_FILEPATH
+                        Evaluate on this data (Default: None)
+  --vocab_filepath VOCAB_FILEPATH
+                        Load training time vocabulary (Default: None)
+  --model MODEL         Load trained model checkpoint (Default: None)
+  --allow_soft_placement [ALLOW_SOFT_PLACEMENT]
+                        Allow device soft device placement
+  --noallow_soft_placement
+  --log_device_placement [LOG_DEVICE_PLACEMENT]
+                        Log placement of ops on devices
+  --nolog_device_placement
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
 
