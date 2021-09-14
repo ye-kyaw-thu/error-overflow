@@ -1606,3 +1606,157 @@ n
 42464 42463 84960 total
 ```
 
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f1,2 train.4-6.tab > ./train.col12
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head ./train.col12 
+sentence1	sentence2
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။	ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။
+ ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။
+ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။	ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။
+ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။	ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။
+ ကောင်း သော ည ပါ ။	ကောင်း သော နေ့ ပါ ။
+ ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။	သာယာတဲ့ နေ့ကလေး ပါပဲ ။
+ ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။	ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။
+ ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။	အတန်း လွတ်သွားမှာ စိုးတယ် ။
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f1,2 test.4-6.tab > ./test.col12
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f1,2 open-test.4-6.tab > ./open-test.col12
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.col12
+   1001   11677  136625 open-test.col12
+   1001   15907  200255 test.col12
+  40462  631911 8269912 train.col12
+  42464  659495 8606792 total
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.col3
+ 1001  1000  2012 open-test.4-6.tab.col3
+ 1001  1001  2013 test.4-6.tab.col3
+40462 40462 80935 train.4-6.tab.col3
+42464 42463 84960 total
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./test.col12 ./test.4-6.tab.col3 > valid
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./train.col12 ./train.4-6.tab.col3 > train
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./open-test.col12 ./open-test.4-6.tab.col3 > open-test
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc {train,valid,open-test}
+  40462  672373 8350847 train
+   1001   16908  202268 valid
+   1001   12677  138637 open-test
+  42464  701958 8691752 total
+```
+
+check the content:  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head ./train
+sentence1	sentence2	is_duplicate
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။	n
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။	ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။	n
+ ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။	n
+ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။	ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။	n
+ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။	ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။	n
+ ကောင်း သော ည ပါ ။	ကောင်း သော နေ့ ပါ ။	n
+ ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။	သာယာတဲ့ နေ့ကလေး ပါပဲ ။	n
+ ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။	ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။	n
+ ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။	အတန်း လွတ်သွားမှာ စိုးတယ် ။	n
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head ./valid
+sentence1	sentence2	is_duplicate
+ကောင်း လိုက် တဲ့ သတင်း လေး ပါ	ကောင်း သော သတင်း ပါ ပဲ	y
+ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။	ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။	n
+ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်	ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်	y
+တကယ် ကို လေးစား သွား ပြီ	ငါ သူ့ ကို သဘောမကျ ဘူး	n
+ဂုဏ်ယူ တယ် မြန်မာ အတွက်	ဂုဏ်ယူ ပါ တယ် မြန်မာ	y
+မင်း ဘယ် ကို ရောက် နေ တာ လဲ ။	မင်း ဘာတွေ ကို လုပ် နေ တာ လဲ ။	n
+ဆရာတော် ကြီး များ သက်တော် ရာ ကျော် ရှည် ပါစေ	ဆရာတော် အသက် ရာ ကျော် ရှည် ပါစေ ဘေးရန်ကင်း ပါစေ	y
+ရှိခိုး လျက် ပါ	ရှိခိုး ကန်တော့ ဦးခိုက် ပါ ၏	y
+အောင်မြင် ပါစေ အမြဲ အားပေး လျက်	အားပေး လိုက် လို့ အောင်မြင် တာ လား	n
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head ./open-test
+sentence1	sentence2	is_duplicate
+၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။	n
+၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။	n
+၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။	n
+၂ မိုင် ထက် ပို ရှည် တယ် ။	၂ မိုင် လောက် သွား ရ တယ် ။	n
+၄ ရက် အတွင်း အိမ် ပြန် မယ် ။	၄ ရက် လောက် နေ ရင် ပြန် လာ ပါ ။	n
+၅ ဒေါ်လာ ထက် ပို ပါ တယ် ။	၅ ဒေါ်လာ လောက် ကျ သင့် တယ် ။	n
+၅ ဒေါ်လာ ထက် နဲ ပါ တယ် ။	၅ ဒေါ်လာ ဆို နဲ ပါ တယ် ။	n
+၅ ဒေါ်လာ ပဲ ရှိ တယ် ။	၅ ဒေါ်လာ လောက် ရှိ လား ။	n
+၅ လမ်းက စားသောက်ဆိုင် မှာ စား ချင် တယ် ။	၅ လမ်း မှာ စားသောက်ဆိုင် ရှိ လား ။	n
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+အထက်ပါ format က တခြား training process တွေ အတွက်လည်း သုံးလိုရလို ဒီအတိုင်းပဲ သိမ်းထားချင်တယ်။  
+
+Deep Siamese နဲ့ run ဖို့ က column header ကိုဖြုတ်ရမယ်။ ပြီးတော့ validation နဲ့ open-test အတွက်က label ကို 1st column မှာ ထားပေးရမယ်။  0,1 နဲ့ ပြောင်းပေးရမယ်။  
+အဲဒါတွေအတွက် အောက်ပါအတိုင်း လုပ်ခဲ့...  
+
+Folder အသစ်ဆောက်ပြီး အဲဒီထဲမှာ လုပ်မယ်။  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ mkdir data
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ mv train ./data/
+```
+
+အရင်ဆုံး train ဖိုင်ထဲက ထိပ်ဆုံး column header ကို gedit နဲ့ ဝင်ဖြုတ်ခဲ့ပြီးတော့ awk နဲ့ column 3 က y ဖြစ်နေတာတွေပဲ ဆွဲထုတ်ခဲ့... 
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ awk -F "[\t]" '$3 == "y" {print;}' ./train | head
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ ပဲ နော်	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ လို့ ပဲ မြင် တယ်	y
+ ပျော် စရာ ကြီး ပါ	ပျော်ရွှင် စရာ ပါ	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ လေး ပေါ့	y
+ ပျော် စရာ ကြီး ပါ	ပျော် စရာ ပဲ	y
+ ပျော် စရာ ကြီး ပါ	ပျော် တယ် ကြည်နူး တယ်	y
+၎င်း ဓူဝံ ကြယ် သည် ကမ္ဘာ ၏ မြောက် ဝင်ရိုးစွန်း တွင် တည်ရှိ ပြီး မြောက် အရပ် ကို အမြဲ ညွှန်ပြ ပေး သည် ။	၎င်း ဓူဝံ ကြယ် သည် ကမ္ဘာ ၏ မြောက် ဝင်ရိုးစွန်း တွင် တည်ရှိ ပြီး မြောက် အရပ် ကို အမြဲ ညွှန် ပေး သည် ။	y
+၅၀၀ ကီလိုမီတာ မိုင် ၉၀၀၀ ရှည်မျော သည် ။	ကမ်းရိုးတန်း အလျား ၁၄	y
+Apple ကုန်တံဆိပ် ဖုန်း များ သည် အရည်အသွေး ကောင်းမွန် ကြ သည် ။	Apple ကုန်အမှတ်တံဆိပ် ဖုန်း များ သည် အရည်အသွေး ကောင်းမွန် ကြ သည် ။	y
+Delivery ပို့ရန် ကောင်လေး လိုအပ် ပါ တယ် ။	Delivery ပို့ ရန် ကောင်းကလေး လိုအပ် ပါ တယ် ။	y
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ awk -F "[\t]" '$3 == "y" {print;}' ./train > train.final
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ wc train.final 
+  15640  233644 2893579 train.final
+```
+
+for Validation and Open-test data:  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 3 ./test.csv > ./data/test.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -d "," -f 3 ./open-test.csv > ./data/open-test.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/test.col3 ./test.col12 > ./data/test.col123
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ paste ./data/open-test.col3 ./open-test.col12 > ./data/open-test.col123
+```
+
+gedit နဲ့ ထိပ်ဆုံးလိုင်းကို ဝင်ဖျက်ရင် ဒေတာပြင်ပြီးသွားပြီ။  
+backup ကူးပြီး final naming လုပ်။  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ ls
+open-test.col123  test.col123  train.final
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ mkdir bk
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ cp * ./bk
+cp: -r not specified; omitting directory 'bk'
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ ls
+bk  open-test.col123  test.col123  train.final
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ mv test.col123 valid.final
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data$ mv open-test.col123 open-test.final
+```
+
+
+
