@@ -2240,4 +2240,5 @@ sys	0m1.134s
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631625490/checkpoints/model-60000 --vocab_filepath ./runs/1631625490/checkpoints/vocab --eval_filepath ./my-para/data/closed-test.final 
 ```
 
+## Training with Word Unit, 200 Epoch
 
