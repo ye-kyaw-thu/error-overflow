@@ -981,4 +981,113 @@ TRAIN 2021-09-14T12:52:53.396726: step 166800, loss 0.0193407, acc 0.984375
 အဆင်ပြေပြေနဲ့ training လုပ်တာ ပြီးသွားတယ်။   
 CPU ရှစ်လုံးနဲ့ စက်မှာ ၁နာရီခွဲလောက်တော့ ကြာတယ်။  
 
+## Check Trained Models
 
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/runs$ tree
+.
+├── 1631592338
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631592339.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631592338.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631592634
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631592635.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631592635.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631592802
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631592803.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631592803.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631592933
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631592935.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631592934.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631593044
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631593045.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631593044.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631593180
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631593181.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631593180.administrator-HP-Z2-Tower-G4-Workstation
+├── 1631593513
+│   ├── checkpoints
+│   │   ├── graphpb.txt
+│   │   └── vocab
+│   └── summaries
+│       ├── dev
+│       │   └── events.out.tfevents.1631593514.administrator-HP-Z2-Tower-G4-Workstation
+│       └── train
+│           └── events.out.tfevents.1631593513.administrator-HP-Z2-Tower-G4-Workstation
+└── 1631593567
+    ├── checkpoints
+    │   ├── checkpoint
+    │   ├── graphpb.txt
+    │   ├── model
+    │   │   ├── graph12999.pb
+    │   │   ├── graph1999.pb
+    │   │   ├── graph2999.pb
+    │   │   ├── graph4999.pb
+    │   │   ├── graph6999.pb
+    │   │   ├── graph9999.pb
+    │   │   └── graph999.pb
+    │   ├── model-10000.data-00000-of-00001
+    │   ├── model-10000.index
+    │   ├── model-10000.meta
+    │   ├── model-1000.data-00000-of-00001
+    │   ├── model-1000.index
+    │   ├── model-1000.meta
+    │   ├── model-13000.data-00000-of-00001
+    │   ├── model-13000.index
+    │   ├── model-13000.meta
+    │   ├── model-2000.data-00000-of-00001
+    │   ├── model-2000.index
+    │   ├── model-2000.meta
+    │   ├── model-3000.data-00000-of-00001
+    │   ├── model-3000.index
+    │   ├── model-3000.meta
+    │   ├── model-5000.data-00000-of-00001
+    │   ├── model-5000.index
+    │   ├── model-5000.meta
+    │   ├── model-7000.data-00000-of-00001
+    │   ├── model-7000.index
+    │   ├── model-7000.meta
+    │   └── vocab
+    └── summaries
+        ├── dev
+        │   └── events.out.tfevents.1631593568.administrator-HP-Z2-Tower-G4-Workstation
+        └── train
+            └── events.out.tfevents.1631593567.administrator-HP-Z2-Tower-G4-Workstation
+
+41 directories, 61 files
+```
