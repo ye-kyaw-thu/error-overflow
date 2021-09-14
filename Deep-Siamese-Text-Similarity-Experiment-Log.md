@@ -1554,3 +1554,55 @@ sentence1	sentence2	is_duplicate
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
 ```
 
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 3 ./test.4-6.tab > test.4-6.tab.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head test.4-6.tab.col3 
+is_duplicate
+1
+0
+1
+0
+1
+0
+1
+1
+0
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 3 ./train.4-6.tab > train.4-6.tab.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ cut -f 3 ./open-test.4-6.tab > open-test.4-6.tab.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.col3
+ 1001  1000  2012 open-test.4-6.tab.col3
+ 1001  1001  2013 test.4-6.tab.col3
+40462 40462 80935 train.4-6.tab.col3
+42464 42463 84960 total
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed -i 'y/10/yn/' ./test.4-6.tab.col3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ head ./test.4-6.tab.col3 
+is_duplicate
+y
+n
+y
+n
+y
+n
+y
+y
+n
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed -i 'y/10/yn/' ./train.4-6.tab.col3 
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ sed -i 'y/10/yn/' ./open-test.4-6.tab.col3 
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para$ wc *.col3
+ 1001  1000  2012 open-test.4-6.tab.col3
+ 1001  1001  2013 test.4-6.tab.col3
+40462 40462 80935 train.4-6.tab.col3
+42464 42463 84960 total
+```
+
