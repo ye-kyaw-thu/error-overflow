@@ -1285,3 +1285,146 @@ optional arguments:
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
+ပြောရရင်တော့ evaluation ကို ဘယ်လို လုပ်ရတယ် ဆိုတာကိုလည်း တိတိကျကျ run ပြမထားဘူး...  
+ကိုယ့်ဖာသာကိုယ် hack လုပ်ရင် နောက်ဆုံး evaluation လုပ်လို့ ရသွားတယ်။  
+ပေးခဲ့တဲ့ command က အောက်ပါအတိုင်း...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ python ./eval.py --model ./runs/1631593567/checkpoints/model-13000 --vocab_filepath ./runs/1631593567/checkpoints/vocab 
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+
+Parameters:
+ALLOW_SOFT_PLACEMENT=True
+BATCH_SIZE=64
+CHECKPOINT_DIR=
+EVAL_FILEPATH=validation.txt0
+LOG_DEVICE_PLACEMENT=False
+MODEL=./runs/1631593567/checkpoints/model-13000
+VOCAB_FILEPATH=./runs/1631593567/checkpoints/vocab
+
+Loading testing/labelled data from validation.txt0
+79
+
+Evaluating...
+
+./runs/1631593567/checkpoints/model-13000
+2021-09-14 14:34:33.573920: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 14:34:33.573939: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 14:34:33.573943: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 14:34:33.573946: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-14 14:34:33.573949: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+WARNING:tensorflow:From /home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/util/tf_should_use.py:170: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+[[array([26,  7,  1, 20, 12,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0])
+  array([ 8, 14,  5, 26,  2, 13,  4, 16, 26,  7,  1, 20, 12,  3, 16]) 1]
+ [array([30, 14, 12, 13,  4, 16, 26, 14,  8, 17, 14,  3,  4, 16,  3])
+  array([30, 14, 12, 13,  4, 16, 26, 14,  8, 17, 14,  3,  4,  0,  0]) 1]
+ [array([19,  5,  7, 20, 21,  4, 30, 17,  2,  5, 16, 31, 14, 15, 16])
+  array([31, 14, 15, 16, 31, 14,  5,  2, 15, 27,  2,  5, 10,  0,  0]) 1]
+ ...
+ [array([17,  2, 15,  5, 32, 16,  5,  4, 18, 27, 32, 16, 27,  2, 15])
+  array([10,  2,  5, 14,  5,  3, 16, 13, 14, 16, 30, 12,  8,  2, 13]) 0]
+ [array([19,  2, 15, 21, 16, 17, 12, 10, 17,  2, 20,  0,  0,  0,  0])
+  array([14, 27,  3, 12, 13, 16, 14, 17, 14,  3,  0,  0,  0,  0,  0]) 0]
+ [array([20,  7,  5, 16,  5,  7,  8, 17, 14,  5,  3, 16, 10, 13, 32])
+  array([31, 14, 15, 16,  8, 14, 26, 30,  2, 15,  0,  0,  0,  0,  0]) 0]]
+(3960, 3)
+[0.48051894 0.11134904 0.15258537 0.7697163  0.0696125  0.87505776
+ 0.34775648 0.84484607 0.84156024 0.25541663 0.45018306 0.9276639
+ 0.8588505  0.10373925 0.25809535 0.829069   0.9014754  0.3874177
+ 0.931582   0.8640543  0.53605944 0.8160944  0.90925324 0.98244625
+ 0.86023    0.8273528  0.6396485  0.8740547  0.8570869  0.9634491
+ 0.4846367  0.8188962  0.80158556 0.42632192 0.29289934 0.46139133
+ 0.59343356 0.3886755  0.25678825 0.25288665 0.18385643 0.6398447
+ 0.14113942 0.79824036 0.27164763 0.63877755 0.7744924  0.13190815
+ 0.8305942  0.9375213  0.55820745 0.09367575 0.84264743 0.7852408
+ 0.93713546 0.84100986 0.6631142  0.8599447  0.78172016 0.7812325
+ 0.8978783  0.6283619  0.9054264  0.92028683 0.21720225 0.9316196
+ 0.14823997 0.85767025 0.93312055 0.16351505 0.78072757 0.82527053
+ 0.7020502  0.5713685  0.2301845  0.65169305 0.5405332  0.7864149
+ 0.7405968  0.8773768  0.6099557  0.95185816 0.9294704  0.3592625
+ 0.4895674  0.35303137 0.14132403 0.44698346 0.64555603 0.83869654
+ 0.8340916  0.2255398  0.21403314 0.8650171  0.62657565 0.7684638
+ 0.43415007 0.78368187 0.89564157 0.7489605  0.83786595 0.468486
+ 0.90813476 0.66140026 0.7990641  0.8605188  0.7656862  0.97035235
+ 0.13441287 0.17562373 0.82581407 0.16445178 0.6182474  0.87445325
+ 0.13715796 0.23939237 0.8922461  0.8675207  0.846599   0.5280631
+ 0.8464384  0.5945585  0.1486523  0.09214944 0.79281336 0.83066046
+ 0.2560978  0.9583661 ]
+DEV acc 0.8828125
+[0.9755     0.19461726 0.835866   0.7594421  0.39340064 0.7631643
+ 0.7573837  0.77263474 0.35451734 0.9303884  0.09532365 0.7262197
+ 0.9200206  0.7052126  0.8722166  0.8114673  0.89015865 0.66902566
+ 0.24330233 0.6901295  0.18609518 0.3236155  0.83077455 0.893309
+ 0.7651193  0.81558937 0.8003434  0.86193377 0.7299626  0.5487027
+ 0.8483336  0.73139733 0.7621548  0.84510374 0.47026336 0.12956257
+ 0.551719   0.170433   0.8669925  0.29510263 0.6779065  0.94104064
+ 0.29814607 0.7479773  0.60581124 0.20047289 0.9024934  0.7376424
+ 0.5419169  0.3573726  0.1945846  0.6134591  0.3494092  0.8688659
+ 0.7913153  0.21187618 0.95152646 0.8353385  0.8166604  0.7286643
+ 0.4252748  0.28371325 0.3178186  0.9424079  0.17993969 0.4842985
+ 0.85404986 0.17751585 0.8304757  0.7534187  0.9765113  0.7950901
+ 0.7388128  0.853298   0.13332441 0.6460604  0.91460294 0.15531307
+ 0.83708763 0.41470402 0.95186967 0.9156639  0.9138113  0.24061309
+ 0.8869199  0.9052033  0.68316144 0.9431843  0.94497824 0.88665134
+ 0.6311262  0.7483303  0.7283564  0.8386759  0.7026322  0.12282453
+ 0.83167577 0.29675242 0.8670999  0.82671225 0.87358826 0.8342904
+ 0.24250157 0.9327047  0.82464963 0.8519388  0.66966647 0.498218
+ 0.8494306  0.93589324 0.68974173 0.68862534 0.17979579 0.84488505
+ 0.9666872  0.8227533  0.83127224 0.14260317 0.5165744  0.8055586
+ 0.4616744  0.56815547 0.6833526  0.759102   0.9476213  0.27432793
+ 0.14658232 0.6932883 ]
+DEV acc 0.859375
+...
+...
+...
+...
+...
+0.7531898021697998
+0.7812643051147461
+0.9171555042266846
+0.8714993000030518
+0.8629871010780334
+0.8651865720748901
+0.14436538517475128
+0.8010897040367126
+0.3041492700576782
+0.8359568119049072
+0.8607620596885681
+0.953765332698822
+0.6105573773384094
+0.41982027888298035
+0.22305311262607574
+0.95859295129776
+0.7022679448127747
+0.8070364594459534
+0.8831055760383606
+0.7331452965736389
+0.8412736058235168
+0.591589093208313
+0.8378694653511047
+0.28716591000556946
+0.8234173655509949
+0.926723837852478
+0.6341679692268372
+0.9080979228019714
+0.8508889675140381
+0.9194278120994568
+Accuracy: 0.865909
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
+```
+
