@@ -1803,4 +1803,20 @@ tf.flags.DEFINE_string("training_files", "train.txt", "training file (default: N
 
 ## Training with Myanmar Paraphrase Data
 
+အရင်ဆုံး epoch ကို 1 ပဲ ထားပြီး run ကြည့်ခဲ့...  
+အလုပ် လုပ်မလုပ် သိချင်တာနဲ့... log ဖိုင်ကို ဝင်ကြည့်ချင်တာနဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --num_epochs 1 2>&1 | tee train-epoch1.log
+```
+
+runs ဖိုလ်ဒါက HDD size တော့ ယူလိမ့်မယ်။
+လက်ရှိ runs ဖိုလ်ဒါက 140 items, totalling 11.9 GB ယူထားတယ်။  
+original text နဲ့ train ထားတာလည်း ရှိလို့...   
+
+
+character နဲ့ run ခဲ့ ...
+
+
+
 
