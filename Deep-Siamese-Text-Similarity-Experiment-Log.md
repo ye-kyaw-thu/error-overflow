@@ -2276,11 +2276,10 @@ Deep Siamese experiment လုပ်မယ့် folder အောက်ကို
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ cp /media/ye/SP\ PHD\ U3/test-myWord/myWord-main/my-para/*.syl .
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc *.syl
    1000   16435  142309 open-test.final.syl
-  15640  314485 3036944 train.syl
   15640  314485 2974426 train.txt.syl
    4692   94009  890123 validation.txt0.syl
    1000   16435  142309 validation.txt1.syl
-  37972  755849 7186111 total
+  22332  441364 4149167 total
 ```
 
 ပထမ run ခဲ့တဲ့ manual Segmentation နဲ့ ဒေတာကို အောက်ပါအတိုင်း .manual file extension တွေနဲ့ နာမည်ပြောင်း သိမ်းထားခဲ့...  
@@ -2293,6 +2292,18 @@ Deep Siamese experiment လုပ်မယ့် folder အောက်ကို
    1000   12674  138604 validation.txt1.manual
   22332  328646 4036539 total
 ```
+
+Deep Siamese ကို run ဖို့အတွက်... code ထဲကို ဝင်မပြင်ချင်လို့ command prompt ကနေပဲ ဖိုင်နာမည်တွေကို အောက်ပါအတိုင်း ပြောင်းခဲ့တယ်။  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv open-test.final.syl open-test.final
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.syl ./train.txt
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv validation.txt0.syl validation.txt0
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv validation.txt1.syl validation.txt1
+```
+## Training with Syllable Unit, 200 Epoch
+
+
 
 ## Training with Word Unit, 200 Epoch
 
