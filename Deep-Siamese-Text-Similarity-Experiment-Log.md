@@ -2640,7 +2640,7 @@ real	0m7.392s
 user	0m8.042s
 sys	0m1.202s
 ```
-
+char နဲ့တုန်းက open test: 557, closed-test: 697  မို့လို့... 
 ရလဒ်မှာ char နဲ့ syl က သိပ်မကွာသလိုပဲ word2vec မော်ဒယ်ကို သပ်သပ်ဆောက်ပြီး command line argument ကနေ ပေးရမယ်လို့ ယူဆခဲ့...  
 
 
