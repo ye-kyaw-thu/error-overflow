@@ -3044,6 +3044,79 @@ Deep Siamese run မယ့် folder အောက်ကို ဆောက်ထ
 
 ## Retraining with Syllable Unit, 200 Epoch (for this time, I will use word2vec)
 
+word2vec နဲ့ fasttest folder က အောက်ပါ path မှာ...  
+
+```
+/home/ye/exp/myPara2/deep-siamese-text-similarity/my-para/data/w2v_fasttext
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --nois_char_based --word2vec_model ./my-para/data/w2v_fasttext/mypara-syl/all-para.word2vec --embedding_dim 500 --num_epochs 200 2>&1 | tee train-syl-epoch200-w2v.log1
+```
+
+အောက်ပါအတိုင်း error ပေးနေ...  
+
+```
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+
+Parameters:
+ALLOW_SOFT_PLACEMENT=True
+BATCH_SIZE=64
+CHECKPOINT_EVERY=1000
+DROPOUT_KEEP_PROB=1.0
+EMBEDDING_DIM=500
+EVALUATE_EVERY=1000
+HIDDEN_UNITS=50
+IS_CHAR_BASED=False
+L2_REG_LAMBDA=0.0
+LOG_DEVICE_PLACEMENT=False
+NUM_EPOCHS=200
+TRAINING_FILES=train.txt
+WORD2VEC_FORMAT=text
+WORD2VEC_MODEL=./my-para/data/w2v_fasttext/mypara-syl/all-para.word2vec
+
+Loading training data from train.txt
+Traceback (most recent call last):
+  File "./train.py", line 61, in <module>
+    FLAGS.batch_size, FLAGS.is_char_based)
+  File "/home/ye/exp/myPara2/deep-siamese-text-similarity/input_helpers.py", line 180, in getDataSets
+    x1_text, x2_text, y=self.getTsvData(training_paths)
+  File "/home/ye/exp/myPara2/deep-siamese-text-similarity/input_helpers.py", line 87, in getTsvData
+    y.append(int(l[2]))
+ValueError: invalid literal for int() with base 10: 'y'
+
+real	0m2.519s
+user	0m2.666s
+sys	0m0.998s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ 
+
+getTsvData  y.append(int(l[2])) ValueError: invalid literal for int() with base 10: 'y'
+```
+
+Debug လုပ်ကြည့်တော့ သူက sentence level training လုပ်တဲ့အခါမှာ label ကို 0, 1 ထားတယ်။  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/sent-data$ head train_snli.txt
+A person on a horse jumps over a broken down airplane.	A person is at a diner, ordering an omelette.	0
+A person on a horse jumps over a broken down airplane.	A person is outdoors, on a horse.	1
+Children smiling and waving at camera	There are children present	1
+Children smiling and waving at camera	The kids are frowning	0
+A boy is jumping on skateboard in the middle of a red bridge.	The boy skates down the sidewalk.	0
+A boy is jumping on skateboard in the middle of a red bridge.	The boy does a skateboarding trick.	1
+An older man sits with his orange juice at a small table in a coffee shop while employees in bright colored shirts smile in the background.	A boy flips a burger.	0
+Two blond women are hugging one another.	The women are sleeping.	0
+Two blond women are hugging one another.	There are women showing affection.	1
+A few people in a restaurant setting, one of them is drinking orange juice.	The people are sitting at desks in school.	0
+```
+
+ပြီးတော့ နာမည် သို့မဟုတ် phrase အနေနဲ့ training လုပ်တဲ့အခါမှာက label အားလုံးကို y ပဲ ထားထားတာ...  
+အထက်မှာ ငါရခဲ့တဲ့ ရလဒ်တွေက အဲဒီလို y တွေကိုပဲ ရွေးထုတ်ထားပြီး training လုပ်ခဲ့တဲ့ ရလဒ်တွေ...  
+
+လောလောဆယ် ပြင်ဆင်ထားတဲ့ ဒေတာတွေက y တွေချည်းပဲ မို့ အဲဒါနဲ့ပဲ အရင် training လုပ်ကြည့်မယ်။ အဲဒါနဲ့ ရလဒ်ကောင်းရင်လည်း အဲဒါကို ယူလို့ရတယ်။ သုံးလို့ ရတယ်။  
+
+
+
 
 
 ## Training with Manual Word Unit, 200 Epoch (for this time, I will use word2vec)
