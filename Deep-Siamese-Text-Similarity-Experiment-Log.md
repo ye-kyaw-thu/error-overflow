@@ -3257,6 +3257,83 @@ phrase အနေနဲ့ run တဲ့အခါမှာ သူက validation s
 
 ## Preprocessing
 
+
+wor2vec နဲ့ fasttext တွေကို သိမ်ထားမယ့် folder path:
+/home/ye/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext
+
+Prepare Training Data (containing both 0 and 1):
+
+Original CSV ဖိုင်ကို final-prepare ဆိုတဲ့ folder အသစ်အောက်မှာ ကော်ပီကူးသိမ်းပြီး အဲဒီအောက်မှာ training data ကို Deep Siamese ရဲ့ format နဲ့ ကိုက်အောင်ပြင်တဲ့ အလုပ်ကို လုပ်သွားမယ်။   
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ wc train.csv 
+  40462  591517 9056946 train.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ head train.csv 
+id,senid1,senid2,sentence1,sentence2,is_duplicate
+0,1,2,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0
+1,3,4,​ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0
+2,5,6,​ ကျေးဇူး အများကြီး တင် ပါ တယ် ။,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0
+3,7,8,​ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။,ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။,0
+4,9,10,​ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။,ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။,0
+5,11,12,​ ကောင်း သော ည ပါ ။,ကောင်း သော နေ့ ပါ ။,0
+6,13,14, ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။,သာယာတဲ့ နေ့ကလေး ပါပဲ ။,0
+7,15,16, ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။,ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။,0
+8,17,18, ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။,အတန်း လွတ်သွားမှာ စိုးတယ် ။,0
+```
+
+Column နံပါတ် ၄ ၅ ၆ ကို ပဲ ဖြတ်ထုတ်ယူ...   
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cut -d"," -f4,5,6 ./train.csv > train.csv.col456
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ head ./train.csv.col456 
+sentence1,sentence2,is_duplicate
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0
+ ကျေးဇူး အများကြီး တင် ပါ တယ် ။,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0
+ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။,ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။,0
+ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။,ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။,0
+ ကောင်း သော ည ပါ ။,ကောင်း သော နေ့ ပါ ။,0
+ ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။,သာယာတဲ့ နေ့ကလေး ပါပဲ ။,0
+ ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။,ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။,0
+ ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။,အတန်း လွတ်သွားမှာ စိုးတယ် ။,0
+```
+
+CSV ကနေ TAB delimiter အဖြစ် အောက်ပါအတိုင်း ပြောင်းခဲ့။ sed နဲ့ အစားထိုးတာထက် အခုလို field တစ်ခုချင်းစီ ဖြတ်ထုတ်ပြီးမှ paste နဲ့ ပေါင်းတာက ပို အန္တရာယ်ကင်းလို့....   
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cut -d"," -f 1 ./train.csv.col456 > f1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cut -d"," -f 2 ./train.csv.col456 > f2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cut -d"," -f 3 ./train.csv.col456 > f3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ paste f1 f2 f3 > train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ rm f1 f2 f3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ head ./train.txt
+sentence1	sentence2	is_duplicate
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။	0
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။	ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။	0
+ ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။	0
+ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။	ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။	0
+ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။	ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။	0
+ ကောင်း သော ည ပါ ။	ကောင်း သော နေ့ ပါ ။	0
+ ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။	သာယာတဲ့ နေ့ကလေး ပါပဲ ။	0
+ ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို  ပြန်ဆက် ပါရစေ ။	ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။	0
+ ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။	အတန်း လွတ်သွားမှာ စိုးတယ် ။	0
+```
+
+check file:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ wc train.txt
+  40462  672373 8350847 train.txt
+```
+
+copy to experiment folder:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cp ./train.txt ../../../
+```
+
+
+
 ## Preparing word2vec and fasttext
 
 ## Training with Manual Word Unit, 200 Epoch 
