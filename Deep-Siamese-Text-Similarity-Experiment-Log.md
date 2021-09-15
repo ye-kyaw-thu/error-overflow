@@ -2806,9 +2806,26 @@ closed.f2  closed.f3  open.f2  open.f3  train.f1  train.f2
 ```
 
 ဒီတစ်ခါတော့ myWord နဲ့ ဖြတ်ထားတာအတွက်ကို ပြင်ဆင်မယ်...  
+word segmentation ကို myWord ကိုသုံးခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ time python ./myword.py word ./my-para/manual-my/mypara-all.manual ./my-para/word-my/mypara-all.word
+
+real	3m40.834s
+user	3m40.691s
+sys	0m0.128s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ 
+```
+
+check the no. of sentences ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my$ wc mypara-all.word 
+  35280  271501 3224985 mypara-all.word
+```
 
 
-## Building Word2Vec, fasttext Models
+## Building Word2Vec, fasttext Models for Syllable
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cp all-para.txt /home/ye/4github/syl-ngram/ref/playing_with_fasttext/
