@@ -2248,7 +2248,7 @@ sys	0m1.134s
 myWord Segmentation Tool ကို သုံးပြီးတော့ အောက်ပါအတိုင်း syllable segmentation လုပ်ခဲ့...  
 
 ```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/train.txt ./my-para/train.syl
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/train.txt ./my-para/train.txt.syl
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/validation.txt0 ./my-para/validation.txt0.syl
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/validation.txt1 ./my-para/validation.txt1.syl
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/open-test.final ./my-para/open-test.final.syl 
@@ -2276,7 +2276,7 @@ Deep Siamese experiment လုပ်မယ့် folder အောက်ကို
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ cp /media/ye/SP\ PHD\ U3/test-myWord/myWord-main/my-para/*.syl .
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc *.syl
    1000   16435  146307 open-test.final.syl
-  15640  314485 3036944 train.syl
+  15640  314485 3036944 train.txt.syl
    4692   94009  908853 validation.txt0.syl
    1000   16435  146307 validation.txt1.syl
   22332  441364 4238411 total
