@@ -2254,7 +2254,7 @@ myWord Segmentation Tool ကို သုံးပြီးတော့ အေ�
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/open-test.final ./my-para/open-test.final.syl 
 ```
 
-တစ်ခုရှိတာက အခု syllable ဖြတ်တာက "label<TAB>string1<TAB>string2" ဆိုတဲ့ format နဲ့ "string1<TAB>string2<TAB>label" ဆိုတဲ့ format နှစ်မျိုးနဲ့ ရိုက်ထားတဲ့ စာကြောင်းတွေကို တန်ပြီးတော့ myWord ကို parse လုပ်ပြီး ဖြတ်ခဲ့တာမို့ ထွက်လာတဲ့ output က အောက်က ဥပမာ စာကြောင်းတွေမှာ ဖြစ်နေသလိုပါပဲ (မျက်စိနဲ့ကြည့်ရင်တော့ မသိသာ) "label<SPACE><TAB><SPACE>string1<SPACE><TAB><SPACE>sring2" ဆိုတဲ့ ပုံစံ မျိုး output တွေ ထွက်လာလိမ့်မယ်။  
+တစ်ခုရှိတာက အခု syllable ဖြတ်တာက "label\<TAB\>string1\<TAB\>string2" ဆိုတဲ့ format နဲ့ "string1\<TAB\>string2\<TAB\>label" ဆိုတဲ့ format နှစ်မျိုးနဲ့ ရိုက်ထားတဲ့ စာကြောင်းတွေကို တန်းပြီးတော့ myWord ကို parse လုပ်ပြီး ဖြတ်ခဲ့တာမို့ ထွက်လာတဲ့ output က အောက်က ဥပမာ စာကြောင်းတွေမှာ ဖြစ်နေသလိုပါပဲ (မျက်စိနဲ့ကြည့်ရင်တော့ မသိသာ) "label\<SPACE\>\<TAB\>\<SPACE\>string1\<SPACE\>\<TAB\>\<SPACE\>sring2" ဆိုတဲ့ ပုံစံ မျိုး output တွေ ထွက်လာလိမ့်မယ်။  
   
 ```
 0 	 ၁ ၁ ဒေါ် လာ ကျ ပါ တယ် ။ 	 ၁ ၁ နာ ရီ လာ ခေါ် မယ် ။
