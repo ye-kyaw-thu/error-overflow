@@ -2643,6 +2643,80 @@ sys	0m1.202s
 char နဲ့တုန်းက open test: 557, closed-test: 697  မို့လို့... 
 ရလဒ်မှာ char နဲ့ syl က သိပ်မကွာသလိုပဲ word2vec မော်ဒယ်ကို သပ်သပ်ဆောက်ပြီး command line argument ကနေ ပေးရမယ်လို့ ယူဆခဲ့...  
 
+## Building Word2Vec, fasttext for Syllable Data
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ head -n 3 *
+==> closed-test.final.syl <==
+1	ကောင်း လိုက် တဲ့ သ တင်း လေး ပါ	ကောင်း သော သ တင်း ပါ ပဲ
+0	ခု ဒီ တံ ဆိပ် က ဈေး လိုက် နေ တယ် ။	ဒီ တံ ဆိပ် က ဈေး အ ရမ်း တက် နေ တယ် ။
+1	ကျွန် မ ဘက် က စ ပြီး ကျေ အေး ပေး တယ် နော်	ကျွန် မ ဘက် က စ ပြီး ကျေ လည် တာ နော်
+
+==> open-test.final.syl <==
+0	၁ ၁ ဒေါ် လာ ကျ ပါ တယ် ။	၁ ၁ နာ ရီ လာ ခေါ် မယ် ။
+0	၁ ၁ နာ ရီ ခွဲ အိမ် ပြန် မယ် ။	၁ ၁ နာ ရီ ခွဲ အ ရောက် လာ ပါ ။
+0	၁ ၁ : ၃ ၀ ပြန် ရောက် မယ် လို့ ထင် သ လား ။	၁ ၁ : ၃ ၀ အ တိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။
+
+==> train.txt.syl <==
+ ပျော် စ ရာ ကြီး ပါ	ပျော် စ ရာ ပဲ နော်	y
+ ပျော် စ ရာ ကြီး ပါ	ပျော် စ ရာ လို့ ပဲ မြင် တယ်	y
+ ပျော် စ ရာ ကြီး ပါ	ပျော် ရွှင် စ ရာ ပါ	y
+
+==> validation.txt0.syl <==
+0	တော် ပါ ပေ တယ် လေး စား ဂုဏ် ယူ မိ ပါ တယ်	ထိ ထိ ရောက် ရောက် အ ရေး ယူ ပေး ပါ
+1	ဒိုင် ညစ် တယ်	ဒိုင် က ညစ် တာ
+0	ကူ ညီ ပေး စေ ချင် ပါ တယ်	ကျွန် တော် တို့ မ လှ လို့ ရ တယ်
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./closed-test.final.syl > ./closed.f2
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./closed-test.final.syl > ./closed.f3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./open-test.final.syl > ./open.f2
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./open-test.final.syl > ./open.f3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./train.txt.syl > ./train.f2
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./train.txt.syl > ./train.f3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./validation.txt0.syl > ./valid.f2
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./validation.txt0.syl > ./valid.f3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ ls
+closed.f2  closed-test.final.syl  open.f3              train.f2  train.txt.syl        valid.f2
+closed.f3  open.f2                open-test.final.syl  train.f3  validation.txt0.syl  valid.f3
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ paste train.f2 train.f3 valid.f
+valid.f2  valid.f3  
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ paste train.f2 train.f3 valid.f2 valid.f3 closed.f2 closed.f3 open.f2 open.f3 > all-para.txt
+```
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cp all-para.txt /home/ye/4github/syl-ngram/ref/playing_with_fasttext/
+```
+
+word2vec နဲ့ fasttext မော်ဒယ် နှစ်ခုကို အောက်ပါအတိုင်း program တစ်ပုဒ်ကို refer/update လုပ်ပြီး ဆောက်ခဲ့တယ်။  
+ကိုယ့်စက်ထဲမှာက command line နဲ့ word2vec ကို ဆောက်တာ၊ fasttext command နဲ့ ဆောက်တာလည်း လုပ်လို့ ရတယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./all-para.txt
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 0M words
+Number of words:  1327
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  121556 lr:  0.000000 avg.loss:  2.530337 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('ပွား', 0.8231478929519653), ('ပ', 0.8066482543945312), ('ကပ်', 0.7989271283149719), ('ပေါင်း', 0.7834250926971436), ('သော်', 0.7466834783554077), ('ပြည်', 0.7398074865341187), ('ကမ္ဘာ', 0.7311006784439087), ('ငဉ်', 0.7295233011245728), ('မော်', 0.7273308634757996), ('ပွဲ', 0.7215660214424133), ('ခိုင်', 0.7213265299797058), ('ဇာ', 0.7209988236427307), ('ရန်', 0.7161328792572021), ('စည်း', 0.7160824537277222), ('တိုး', 0.706506073474884), ('ဩ', 0.7056975364685059), ('သတ်', 0.7045521140098572), ('များ', 0.704490065574646), ('မြိုင့်', 0.7007927894592285), ('သင်္ကန်း', 0.699887752532959)] 
+
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.8953080177307129, 'ဟောင်း'), (0.8905119895935059, 'ညောင်း'), (0.8808940052986145, 'ဘောင်း'), (0.8607454299926758, 'ယောင်း'), (0.8558489084243774, 'အောင်း'), (0.8547207117080688, 'ဆောင်း'), (0.8530898690223694, 'လောင်း'), (0.8524867296218872, 'သောင်း'), (0.8471701741218567, 'မောင်း'), (0.8411751985549927, 'ချောင်း'), (0.8342663049697876, 'ရောင်း'), (0.8330811262130737, 'ထောင်း'), (0.8247120380401611, 'စောင်း'), (0.8135457038879395, 'နှောင်း'), (0.7960479855537415, 'ဖောင်း'), (0.7959949374198914, 'ကောင်း'), (0.7523844838142395, 'ပြောင်း'), (0.7491981387138367, 'ကြောင်း'), (0.7450031042098999, 'ကျင်း'), (0.7447229623794556, 'နောင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ 
+```
+
+ပထမ မြင်ရတာက word2vec မော်ဒယ်ရဲ့ "ကျောင်း" ဆိုတဲ့ syllable နဲ့ similar ဖြစ်တဲ့ syllable တွေကို ဆွဲထုတ်ထားတာ။   
+ဒုတိယ မြင်ရတာက fasttext မော်ဒယ်ရဲ့ "ကျောင်း" ဆိုတဲ့ syllable နဲ့ similar ဖြစ်တဲ့ syllable တွေကို ဆွဲထုတ်ထားတာ။    
 
 ## Training with Word Unit, 200 Epoch
 
