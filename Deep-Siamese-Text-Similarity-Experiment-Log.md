@@ -2275,12 +2275,12 @@ Deep Siamese experiment လုပ်မယ့် folder အောက်ကို
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ cp /media/ye/SP\ PHD\ U3/test-myWord/myWord-main/my-para/*.syl .
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc *.syl
-   1000   16435  146307 open-test.final.syl
-  15640  314485 3036944 train.txt.syl
-   4692   94009  908853 validation.txt0.syl
-   1000   16435  146307 validation.txt1.syl
-  22332  441364 4238411 total
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+   1000   16435  142309 open-test.final.syl
+  15640  314485 3036944 train.syl
+  15640  314485 2974426 train.txt.syl
+   4692   94009  890123 validation.txt0.syl
+   1000   16435  142309 validation.txt1.syl
+  37972  755849 7186111 total
 ```
 
 ပထမ run ခဲ့တဲ့ manual Segmentation နဲ့ ဒေတာကို အောက်ပါအတိုင်း .manual file extension တွေနဲ့ နာမည်ပြောင်း သိမ်းထားခဲ့...  
