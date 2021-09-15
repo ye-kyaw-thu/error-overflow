@@ -2932,15 +2932,107 @@ y 0.11803807 -0.0059538484 -0.039868176 0.06798492 -0.04294115 -0.04061252 0.038
 ```
 
 
-## word2vec, fasttext Preparation for Word Unit
+## word2vec, fasttext Preparation for Word Unit (i.e. manually segmented)
 
 လုပ်လက်စနဲ့ တခါတည်း Word Unit အတွက်လည်း word2vec နဲ့ fasttext မော်ဒယ်တွေကို myPara Corpus နဲ့ ဆောက်ထားခဲ့။  
 Note: အချိန်မှီရင် myWord corpus နဲ့ myPara ကို ပေါင်းပြီး word2vec မော်ဒယ် အကြီး ဆောက်ပြီးတော့ experiment လုပ်ကြည့်ရန်။  
 တစ်ခုရှိတာက အဲဒီလို လုပ်လိုက်ရင် character နဲ့ run ထားတဲ့ မော်ဒယ်နဲ့တော့ direct comparison လုပ်ဖို့ ခက်လိမ့်မယ်။  
 
-လောလောဆယ်တော့ Word Unit အတွက်လည်း myPara Corpus နဲ့ အောက်ပါအတိုင်း word2vec, fasttext တွေကို ပြင်ဆင်ခဲ့...   
+လောလောဆယ်တော့ Word Unit အတွက်လည်း myPara Corpus နဲ့ အောက်ပါအတိုင်း word2vec, fasttext တွေကို ပြင်ဆင်ခဲ့...  
+final Output အနေနဲ့ က အောက်ပါသုံးဖိုင် ရမယ်။  
+
+- all-para.word2vec
+- all-para.fasttext.bin
+- all-para.fasttext.vector
+
+အလုပ်လုပ်မယ့် folder ဆီကို mypara corpus manual segmentation ဒေတာကို ကော်ပီကူး...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my$ cp mypara-all.manual /home/ye/4github/syl-ngram/ref/playing_with_fasttext/
+```
+
+word2vec နဲ့ fasttext မော်ဒယ်ဆောက်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./mypara-all.manual 
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 0M words
+Number of words:  2524
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  166157 lr:  0.000000 avg.loss:  2.373572 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('ပေါ်ထွန်း', 0.9712773561477661), ('စိုက်ပျိုး', 0.9701921343803406), ('သော်လည်း', 0.9683841466903687), ('ကျမ်းဂန်', 0.966464102268219), ('သစ်ပင်', 0.9655385613441467), ('ပြေး', 0.9643632769584656), ('ယောင်', 0.9635617136955261), ('အားနည်းသူ', 0.9624178409576416), ('အမှာစကား', 0.96114182472229), ('အတွင်း', 0.9610957503318787), ('ဒုတိယ', 0.9609416723251343), ('ကိုး', 0.9603080153465271), ('ကာလ', 0.9600256681442261), ('မြွက်ကြား', 0.9593163728713989), ('ကယုကယ', 0.9589902758598328), ('စစ်ပွဲ', 0.9579262137413025), ('ပွတ်', 0.9576618075370789), ('ကိုယ်ဝန်', 0.9568699598312378), ('ချေ', 0.9567964673042297), ('ကျောင်းအုပ်ကြီး', 0.9552498459815979)] 
+
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.9846287965774536, 'ဟောင်း'), (0.9821839928627014, 'ရောင်း'), (0.9801282286643982, 'လောင်း'), (0.9791935682296753, 'ဖောင်း'), (0.9789695739746094, 'ချောင်း'), (0.9788998961448669, 'ရလဒ်ကောင်း'), (0.9776743054389954, 'ကံကောင်း'), (0.9726752042770386, 'လည်းကောင်း'), (0.9718174934387207, 'ဆောင်း'), (0.971022367477417, 'စုဆောင်း'), (0.9681249260902405, 'မောင်း'), (0.966025710105896, 'စောင်း'), (0.9654709696769714, 'နေကောင်း'), (0.964064359664917, 'တောင်း'), (0.9635544419288635, 'ကားမောင်း'), (0.9628528356552124, 'နေမကောင်း'), (0.9599199295043945, 'ကောင်း'), (0.9592843055725098, 'အကောင်း'), (0.9579277634620667, 'ကောင်းကောင်း'), (0.9559436440467834, 'ရောင်ဆင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ 
+```
+
+fasttest မော်ဒယ်က bin ပဲ လက်ရှိ output အနေနဲ့ ရသေးတာမို့ အောက်ပါအတိုင်း vec (normal text file format) ကို ပြောင်းခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 
 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ls ./mypara-manual/
+all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec  mypara-all.manual
+```
+
+## word2vec, fasttext Preparation for Word Unit Segmented with myWord Segmentation Tool
+
+ဒီတစ်ခါတော့ myWord Segmentation Tool နဲ့ ဖြတ်ထားတဲ့ ဒေတာကိုလည်း word2vec နဲ့ fasttext တွေဆောက်မယ်။  
+
+အရင်ဆုံး စာလုံးဖြတ်ထားတဲ့ file ကို အလုပ်လုပ်မယ့် folder ဆီကို ကော်ပီကူး...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my$ cp mypara-all.word /home/ye/4github/syl-ngram/ref/playing_with_fasttext/
+```
+
+word2vec (text file format) နဲ့ fasttext (binary file) ကို ရဖို့အတွက် အောက်ပါအတိုင်း run ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./mypara-all.word 
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 0M words
+Number of words:  2270
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  165331 lr:  0.000000 avg.loss:  2.473827 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('ဝင်', 0.9266782999038696), ('ကြီးပြင်း', 0.9038617610931396), ('ပြေး', 0.8990140557289124), ('ထွန်း', 0.89654141664505), ('ပွဲ', 0.8948243856430054), ('ပန်း', 0.8947284817695618), ('ခိုင်', 0.8942050933837891), ('ကပ်', 0.8937804698944092), ('ရပ်နား', 0.8883771896362305), ('ဘျမ်း', 0.8875871300697327), ('၄', 0.886764645576477), ('စီးပွား', 0.8851052522659302), ('ဇကာ', 0.8846842646598816), ('ဝင်ရောက်', 0.8842604756355286), ('သနည်း', 0.882266104221344), ('အိမ်', 0.8776984810829163), ('ပွား', 0.8749026656150818), ('တံကဲ', 0.8732095956802368), ('ပျောက်ပျက်', 0.8730794787406921), ('မောင်း', 0.8730676770210266)] 
+
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.9544370770454407, 'သရဖူဆောင်း'), (0.9521687030792236, 'စုဆောင်း'), (0.9521067142486572, 'ရောင်း'), (0.9479786157608032, 'ဖောင်း'), (0.9418590068817139, 'ကံကောင်း'), (0.9414095878601074, 'ဟောင်း'), (0.9406473636627197, 'ချောင်း'), (0.937873363494873, 'မောင်း'), (0.9377909898757935, 'ဆောင်းပါး'), (0.9377263188362122, 'လောင်း'), (0.9371371865272522, 'ကြိမ်းမောင်း'), (0.9367919564247131, 'ဆောင်း'), (0.9364582300186157, 'ရှေးဟောင်း'), (0.9305664300918579, 'အောင်း'), (0.9292629957199097, 'ကျောင်းသား'), (0.9214203953742981, 'အကောင်း'), (0.9205161929130554, 'ဖျောင်းဖျ'), (0.9190094470977783, 'ဘုန်းကြီးကျောင်း'), (0.9188613891601562, 'ကူးပြောင်း'), (0.9045475721359253, 'ကောင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
+
+fasttext bin ကနေ vector plain text format ရအောင် အောက်ပါအတိုင်း လုပ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ mv all-para.* ./mypara-word/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ cd mypara-word/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext/mypara-word$ ls
+all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec
+```
 
 ## Training with Word Unit, 200 Epoch
 
