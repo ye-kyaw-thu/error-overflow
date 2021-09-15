@@ -2267,5 +2267,16 @@ Deep Siamese experiment လုပ်မယ့် folder အောက်ကို
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
 ```
 
+ပထမ run ခဲ့တဲ့ manual Segmentation နဲ့ ဒေတာကို အောက်ပါအတိုင်း .manual file extension တွေနဲ့ နာမည်ပြောင်း သိမ်းထားခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ wc *.manual
+   1000   12674  138604 open-test.final.manual
+  15640  233644 2893579 train.txt.manual
+   4692   69654  865752 validation.txt0.manual
+   1000   12674  138604 validation.txt1.manual
+  22332  328646 4036539 total
+```
+
 ## Training with Word Unit, 200 Epoch
 
