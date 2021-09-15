@@ -7,7 +7,7 @@ Siamese Network ကို စိတ်ဝင်စားတယ်။
 
 source code link: https://github.com/dhwajraj/deep-siamese-text-similarity
 
-Enjoy! Debugging... :)  
+Enjoy! Debugging & Hacking the Deep Siamese Model... :)  
 
 y@Lab  
 14 Sept 2021  
