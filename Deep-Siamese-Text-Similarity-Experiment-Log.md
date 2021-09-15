@@ -3034,5 +3034,17 @@ Warning : `load_model` does not return WordVectorModel or SupervisedModel any mo
 all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec
 ```
 
-## Training with Word Unit, 200 Epoch
+## Retraining with Syllable Unit, 200 Epoch (for this time, I will use word2vec)
+
+## Training with Manual Word Unit, 200 Epoch (for this time, I will use word2vec)
+
+## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch (for this time, I will use word2vec)
+
+## Retraining with Syllable Unit, 200 Epoch (for this time, I will use fasttext)
+
+## Training with Manual Word Unit, 200 Epoch (for this time, I will use fasttext)
+
+## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch (for this time, I will use fasttext)
+
+
 
