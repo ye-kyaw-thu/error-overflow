@@ -2718,5 +2718,77 @@ print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
 ပထမ မြင်ရတာက word2vec မော်ဒယ်ရဲ့ "ကျောင်း" ဆိုတဲ့ syllable နဲ့ similar ဖြစ်တဲ့ syllable တွေကို ဆွဲထုတ်ထားတာ။   
 ဒုတိယ မြင်ရတာက fasttext မော်ဒယ်ရဲ့ "ကျောင်း" ဆိုတဲ့ syllable နဲ့ similar ဖြစ်တဲ့ syllable တွေကို ဆွဲထုတ်ထားတာ။    
 
+ခု ဆောက်ခဲ့တာက myPara Corpus ထဲမှာ ရှိတဲ့ စာလုံးတွေ ကို syllable ဖြတ်ထားတာနဲ့ပဲ ဆောက်ထားတာ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ head -n 2 ./all-para.word2vec 
+1784 500
+ပါ 0.37244356 0.56611603 0.48474115 0.6031777 -0.4505382 -0.2746808 0.12651987 0.12649426 0.045680463 0.26101395 0.21693195 0.12225574 0.067934416 0.2673442 0.15868858 -0.24570772 -0.38072526 -0.06830177 -0.5683561 0.19374624 0.17118008 0.016827634 0.11786197 -0.16147865 0.08785961 -0.46517852 -0.35112914 0.068276875 0.020713389 0.041030068 -0.035507496 0.43896672 0.3029661 0.15723917 -0.03690397 0.020477975 0.21211721 -0.03776245 -0.14975749 -0.532014
+...
+...
+```
+
+fasttext ရဲ့ output ကတော့ လောလောဆယ် binary format နဲ့ပဲ ရှိသေးတယ်။  
+
+
+## Convert fasttext bin to vec Format
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ cat fasttext_bin-to-vec.py 
+import sys
+from fasttext import load_model
+#import tensorflow as tf
+#from fasttext import load_word2vec_format
+
+# Ye, LST
+# I updated this code: https://stackoverflow.com/questions/58337469/how-to-save-fasttext-model-in-vec-format
+#Ref: https://stackoverflow.com/questions/48017343/how-to-convert-gensim-word2vec-model-to-fasttext-model
+
+
+# original BIN model loading
+f = load_model(sys.argv[1])
+lines=[]
+
+# get all words from model
+words = f.get_words()
+
+with open(sys.argv[2],'w') as file_out:
+    
+    # the first line must contain number of total words and vector dimension
+    file_out.write(str(len(words)) + " " + str(f.get_dimension()) + "\n")
+
+    # line by line, you append vectors to VEC file
+    for w in words:
+        v = f.get_word_vector(w)
+        vstr = ""
+        for vi in v:
+            #config = tf.ConfigProto( device_count = {'GPU': 1 , 'CPU': 56} ) 
+            vstr += " " + str(vi)
+        try:
+            file_out.write(w + vstr+'\n')
+        except:
+            pass
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
+
+fasttext bin ဖိုင်ကနေ vec ကို ပြောင်းထားခဲ့... လိုအပ်ရင် သုံးဖို့.... Deep Siamese မှာက text format သို့မဟုတ် vec format ရော binary format ကိုရော ခွင့်ပြုထားလို့....  
+ပြီးတော့ လူအနေနဲ့က ကိုယ်ဆောက်ထားတဲ့ word2vec, fasttext မော်ဒယ်တွေကိုလည်း မျက်လုံးနဲ့ ကြည့်ပြီး confirmation လုပ်တာက ကောင်းလို့...  
+
+အောက်ပါအတိုင်း command ပေးပြီး run ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+```
+
+output vector ဖိုင်ကို confirm လုပ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ head -n 3 ./all-para.fasttext.vector 
+1327 500
+y 0.11803807 -0.0059538484 -0.039868176 0.06798492 -0.04294115 -0.04061252 0.038582884 -0.045880213 0.17151836 -0.049289834 -0.08403759 0.0075357365 0.013414924 -0.015835846 -0.029434219 0.04345471 0.044386454 -0.053039677 0.0034440125 0.048566647 -0.08146793 0.019674815 0.21577293 -0.0076261684 -0.06369582 -0.10587478 0.058592193 0.06362913 0.05232598 0.033913843 0.10804905 -0.03561741 0.04159803 -0.012685538 0.0046959985 -0.028543212 -0.002129108 -0.03172332 0.04909301 -0.018985532 0.077273086 0.022501929 -0.02081753 -0.03644567 -0.0767379 0.029325014 0.010480709 0.13495953 0.020376649 -0.00395286 0.12773803 0.018018143 0.06888831 -0.014275079 0.030391939 -0.10680618 -0.054560322 -0.01206048 -0.025071673 0.059077114 0.020614766 0.0019675284 0.016606526 -0.06658499 0.05477988 -0.027976317 0.012254027 0.050258808 0.046026204 -0.11615581 -0.08595513 -0.04720106 -0.02644769 0.029198378 0.08464057 -0.0
+```
+
+
 ## Training with Word Unit, 200 Epoch
 
