@@ -3252,16 +3252,27 @@ phrase အနေနဲ့ run တဲ့အခါမှာ သူက validation s
 
 -------------
 
+**ပြောရရင်တော့ တကယ် စာတမ်းမှာ သုံးလို့ ရမယ့် Experiment က ဒီကနေ စတာပါ...**
 
-## Training with Manual Word Unit, 200 Epoch (for this time, I will use word2vec)
 
-## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch (for this time, I will use word2vec)
+## Preprocessing
 
-## Retraining with Syllable Unit, 200 Epoch (for this time, I will use fasttext)
+## Preparing word2vec and fasttext
 
-## Training with Manual Word Unit, 200 Epoch (for this time, I will use fasttext)
+## Training with Manual Word Unit, 200 Epoch 
 
-## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch (for this time, I will use fasttext)
+### word2vec embedding
+### with fasttext embedding
+
+## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
+
+### with word2vec embedding
+### with fasttext embedding
+
+## Training with Syllable Unit, 200 Epoch
+
+### word2vec embedding
+### with fasttext embedding
 
 
 
