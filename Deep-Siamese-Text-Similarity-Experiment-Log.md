@@ -3332,6 +3332,44 @@ copy to experiment folder:
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/preprocess/final-prepare$ cp ./train.txt ../../../
 ```
 
+Final manual word segmented data:  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ wc *
+   1000   16905  202235 closed-test
+   1000   12674  138604 open-test.final.manual
+  40461  672370 8350814 train.txt
+  42461  701949 8691653 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ head -n 3 *
+==> closed-test <==
+1	ကောင်း လိုက် တဲ့ သတင်း လေး ပါ	ကောင်း သော သတင်း ပါ ပဲ
+0	ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။	ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။
+1	ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်	ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်
+
+==> open-test.final.manual <==
+0	၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။
+0	၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။
+0	၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။
+
+==> train.txt <==
+ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။	0
+ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။	ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။	0
+ ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။	0
+
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 1 ./train.txt > train.f1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 2 ./train.txt > train.f2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 2 ./closed-test > closed-test.f2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 3 ./closed-test > closed-test.f3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 2 ./open-test.final.manual > open-test.f2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cut -f 3 ./open-test.final.manual > open-test.f3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cat ./train.f1 ./train.f2 ./closed-test.f2 ./closed-test.f3 ./open-test.f2 ./open-test.f3 > mypara-all.manual
+```
+
+syllable အတွက် စပြင်ခဲ့...  
+
+
 
 
 ## Preparing word2vec and fasttext
