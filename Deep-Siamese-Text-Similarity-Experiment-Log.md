@@ -3034,7 +3034,17 @@ Warning : `load_model` does not return WordVectorModel or SupervisedModel any mo
 all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec
 ```
 
+Deep Siamese run မယ့် folder အောက်ကို ဆောက်ထားတဲ့ word2vec, fasttext တွေကို ကော်ပီကူးခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ cp -r mypara-manual /home/ye/exp/myPara2/deep-siamese-text-similarity/my-para/data/w2v_fasttext/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ cp -r mypara-syl /home/ye/exp/myPara2/deep-siamese-text-similarity/my-para/data/w2v_fasttext/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ cp -r mypara-word /home/ye/exp/myPara2/deep-siamese-text-similarity/my-para/data/w2v_fasttext/
+```
+
 ## Retraining with Syllable Unit, 200 Epoch (for this time, I will use word2vec)
+
+
 
 ## Training with Manual Word Unit, 200 Epoch (for this time, I will use word2vec)
 
