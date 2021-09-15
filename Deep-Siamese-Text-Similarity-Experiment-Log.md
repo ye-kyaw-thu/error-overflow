@@ -3367,8 +3367,61 @@ Final manual word segmented data:
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ cat ./train.f1 ./train.f2 ./closed-test.f2 ./closed-test.f3 ./open-test.f2 ./open-test.f3 > mypara-all.manual
 ```
 
-syllable အတွက် စပြင်ခဲ့...  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext/mypara-manual$ wc *
+    1000    16905   202235 closed-test
+   84922   659489  8606732 mypara-all.manual
+    1000    12674   138604 open-test.final.manual
+   40461   672370  8350814 train.txt
+  127383  1361438 17298385 total
+```
 
+**syllable အတွက် စပြင်ခဲ့...**  
+
+syllable segmentation ကို အောက်ပါအတိုင်း လုပ်ခဲ့...  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/syl-my2/closed-test ./my-para/syl-my2/closed-test.syl1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/syl-my2/mypara-all.manual ./my-para/syl-my2/mypara-all.manual.syl1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/syl-my2/open-test.final.manual ./my-para/syl-my2/open-test.final.manual.syl1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/syl-my2/train.txt ./my-para/syl-my2/train.txt.syl1
+```
+
+Column ခွဲထားတဲ့ ဖိုင်တွေကို syllable ဝင်ဖြတ်ရတာဖြစ်လို့ \<Space\>\<TAB\>\<Space\> ဆိုပြီး space ပိုတာမျိုးတွေရှိလို့အောက်ပါအတိုင်း space cleaning လုပ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ bash ./space-tab-space-to-tab.sh ./closed-test.syl1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ perl ./clean-space.pl ./closed-test.syl1 > closed-test.syl
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ perl ./clean-space.pl ./mypara-all.manual.syl1 > ./mypara-all.manual.syl 
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ bash ./space-tab-space-to-tab.sh ./open-test.final.manual.syl1 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ perl ./clean-space.pl ./open-test.final.manual.syl1 > ./open-test.final.manual.syl
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ bash ./space-tab-space-to-tab.sh ./train.txt.syl1 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ perl ./clean-space.pl ./train.txt.syl1 > ./train.txt.syl
+```
+
+syl1 တွေက dummy file တွေမို့ အဲဒါတွေကို နောက်ပိုင်းမှာ မရှုပ်အောင် ဖျက်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ rm *.syl1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ wc *.syl
+    1000    22293   207626 closed-test.syl
+   84921   928148  8874942 mypara-all.manual.syl
+    1000    16435   142309 open-test.final.manual.syl
+   40461   931880  8610117 train.txt.syl
+  127382  1898756 17834994 total
+```
+
+ခုထဲက manual word အတွက်နဲ့ syllable ဒေတာပြင်ဆင်တာ ပြီးသွားပြီ...  
+
+**word segmentation with myWord ကို စလုပ်မယ်...**
 
 
 
