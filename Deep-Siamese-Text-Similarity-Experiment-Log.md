@@ -2643,7 +2643,7 @@ sys	0m1.202s
 char နဲ့တုန်းက open test: 557, closed-test: 697  မို့လို့... 
 ရလဒ်မှာ char နဲ့ syl က သိပ်မကွာသလိုပဲ word2vec မော်ဒယ်ကို သပ်သပ်ဆောက်ပြီး command line argument ကနေ ပေးရမယ်လို့ ယူဆခဲ့...  
 
-## Building Word2Vec, fasttext for Syllable Data
+## Preprocessing, Cutting Only Myanmar Text Columns
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ head -n 3 *
@@ -2668,22 +2668,147 @@ char နဲ့တုန်းက open test: 557, closed-test: 697  မို့�
 0	ကူ ညီ ပေး စေ ချင် ပါ တယ်	ကျွန် တော် တို့ မ လှ လို့ ရ တယ်
 ```
 
+format က အထက်ပါအတိုင်း training data နဲ့ test data က မတူဘူး။ အဲဒါကြောင့် training အတွက်က col1, col2 ကို ဖြတ်ထုတ်ရမယ်။  
+test ဒေတာတွေအတွက်က col2 နဲ့ col3 ကို ဖြတ်ထုတ်ရမယ်။  
+
 ```
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./closed-test.final.syl > ./closed.f2
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./closed-test.final.syl > ./closed.f3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./open-test.final.syl > ./open.f2
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./open-test.final.syl > ./open.f3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./train.txt.syl > ./train.f2
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./train.txt.syl > ./train.f3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f2 ./validation.txt0.syl > ./valid.f2
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cut -f3 ./validation.txt0.syl > ./valid.f3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ ls
-closed.f2  closed-test.final.syl  open.f3              train.f2  train.txt.syl        valid.f2
-closed.f3  open.f2                open-test.final.syl  train.f3  validation.txt0.syl  valid.f3
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ paste train.f2 train.f3 valid.f
-valid.f2  valid.f3  
-(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ paste train.f2 train.f3 valid.f2 valid.f3 closed.f2 closed.f3 open.f2 open.f3 > all-para.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cat ./print-myanmar-text-columns.sh 
+#!/bin/bash
+
+#Note validation.txt1 နဲ့ open-test.final နဲ့က အတူတူပဲ
+
+cut -f1 train.txt > train.f1
+cut -f2 train.txt > train.f2
+
+cut -f2 closed-test.final > closed.f2
+cut -f3 closed-test.final > closed.f3
+
+cut -f2 open-test.final > open.f2
+cut -f3 open-test.final > open.f3
 ```
+
+အထက်က shell script နဲ့ အောက်ပါအတိုင်း မြန်မာစာ စာကြောင်းပါတဲ့ column တွေကို ဆွဲထုတ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ bash ./print-myanmar-text-columns.sh 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ ls *.f{1..3}
+closed.f2  closed.f3  open.f2  open.f3  train.f1  train.f2
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ mv *.f{1..3} ./manual-my/
+```
+combind all  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my$ head -3 *
+==> closed.f2 <==
+ကောင်း လိုက် တဲ့ သတင်း လေး ပါ
+ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။
+ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်
+
+==> closed.f3 <==
+ကောင်း သော သတင်း ပါ ပဲ
+ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။
+ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်
+
+==> open.f2 <==
+၁၁ ဒေါ်လာ ကျ ပါ တယ် ။
+၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။
+၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။
+
+==> open.f3 <==
+၁၁ နာရီ လာ ခေါ် မယ် ။
+၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။
+၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။
+
+==> train.f1 <==
+ ပျော် စရာ ကြီး ပါ
+ ပျော် စရာ ကြီး ပါ
+ ပျော် စရာ ကြီး ပါ
+
+==> train.f2 <==
+ပျော် စရာ ပဲ နော်
+ပျော် စရာ လို့ ပဲ မြင် တယ်
+ပျော်ရွှင် စရာ ပါ
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my$ cat train.f1 train.f2 closed.f2 closed.f3 open.f2 open.f3 > mypara-all.manual
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my$ wc mypara-all.manual 
+  35280  245584 3199139 mypara-all.manual
+```
+အခု ဖြတ်ပြီးသွားတာက manual ဖြတ်ထားတဲ့ ဒေတာအတွက်...  
+
+Syllable အတွက်လည်း အောက်ပါအတိုင်း လုပ်ခဲ့တယ်။   
+အရင်ဆုံး shell script ကို ပြင်ဆင်ခဲ့တယ်။   
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cat ./print-myanmar-text-columns-syl.sh 
+#!/bin/bash
+
+#Note validation.txt1 နဲ့ open-test.final နဲ့က အတူတူပဲ
+
+cut -f1 train.txt.syl > ./syl-my/train.f1
+cut -f2 train.txt.syl > ./syl-my/train.f2
+
+cut -f2 closed-test.final.syl > ./syl-my/closed.f2
+cut -f3 closed-test.final.syl > ./syl-my/closed.f3
+
+cut -f2 open-test.final.syl > ./syl-my/open.f2
+cut -f3 open-test.final.syl > ./syl-my/open.f3
+
+```
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ bash ./print-myanmar-text-columns-syl.sh 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cd syl-my/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my$ head -n 3 *
+==> closed.f2 <==
+ကောင်း လိုက် တဲ့ သ တင်း လေး ပါ
+ခု ဒီ တံ ဆိပ် က ဈေး လိုက် နေ တယ် ။
+ကျွန် မ ဘက် က စ ပြီး ကျေ အေး ပေး တယ် နော်
+
+==> closed.f3 <==
+ကောင်း သော သ တင်း ပါ ပဲ
+ဒီ တံ ဆိပ် က ဈေး အ ရမ်း တက် နေ တယ် ။
+ကျွန် မ ဘက် က စ ပြီး ကျေ လည် တာ နော်
+
+==> open.f2 <==
+၁ ၁ ဒေါ် လာ ကျ ပါ တယ် ။
+၁ ၁ နာ ရီ ခွဲ အိမ် ပြန် မယ် ။
+၁ ၁ : ၃ ၀ ပြန် ရောက် မယ် လို့ ထင် သ လား ။
+
+==> open.f3 <==
+၁ ၁ နာ ရီ လာ ခေါ် မယ် ။
+၁ ၁ နာ ရီ ခွဲ အ ရောက် လာ ပါ ။
+၁ ၁ : ၃ ၀ အ တိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။
+
+==> train.f1 <==
+ ပျော် စ ရာ ကြီး ပါ
+ ပျော် စ ရာ ကြီး ပါ
+ ပျော် စ ရာ ကြီး ပါ
+
+==> train.f2 <==
+ပျော် စ ရာ ပဲ နော်
+ပျော် စ ရာ လို့ ပဲ မြင် တယ်
+ပျော် ရွှင် စ ရာ ပါ
+```
+
+combind all Myanmar text...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my$ ls
+closed.f2  closed.f3  open.f2  open.f3  train.f1  train.f2
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my$ cat train.f1 train.f2 closed.f2 closed.f3 open.f2 open.f3 > ./mypara-all.syl
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my$ wc ./mypara-all.syl 
+  35280  335561 3288936 ./mypara-all.syl
+
+```
+
+ဒီတစ်ခါတော့ myWord နဲ့ ဖြတ်ထားတာအတွက်ကို ပြင်ဆင်မယ်...  
+
+
+## Building Word2Vec, fasttext Models
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/my-para/data/4word2vec/syl$ cp all-para.txt /home/ye/4github/syl-ngram/ref/playing_with_fasttext/
@@ -2788,6 +2913,16 @@ output vector ဖိုင်ကို confirm လုပ်ခဲ့...
 1327 500
 y 0.11803807 -0.0059538484 -0.039868176 0.06798492 -0.04294115 -0.04061252 0.038582884 -0.045880213 0.17151836 -0.049289834 -0.08403759 0.0075357365 0.013414924 -0.015835846 -0.029434219 0.04345471 0.044386454 -0.053039677 0.0034440125 0.048566647 -0.08146793 0.019674815 0.21577293 -0.0076261684 -0.06369582 -0.10587478 0.058592193 0.06362913 0.05232598 0.033913843 0.10804905 -0.03561741 0.04159803 -0.012685538 0.0046959985 -0.028543212 -0.002129108 -0.03172332 0.04909301 -0.018985532 0.077273086 0.022501929 -0.02081753 -0.03644567 -0.0767379 0.029325014 0.010480709 0.13495953 0.020376649 -0.00395286 0.12773803 0.018018143 0.06888831 -0.014275079 0.030391939 -0.10680618 -0.054560322 -0.01206048 -0.025071673 0.059077114 0.020614766 0.0019675284 0.016606526 -0.06658499 0.05477988 -0.027976317 0.012254027 0.050258808 0.046026204 -0.11615581 -0.08595513 -0.04720106 -0.02644769 0.029198378 0.08464057 -0.0
 ```
+
+
+## word2vec, fasttext Preparation for Word Unit
+
+လုပ်လက်စနဲ့ တခါတည်း Word Unit အတွက်လည်း word2vec နဲ့ fasttext မော်ဒယ်တွေကို myPara Corpus နဲ့ ဆောက်ထားခဲ့။  
+Note: အချိန်မှီရင် myWord corpus နဲ့ myPara ကို ပေါင်းပြီး word2vec မော်ဒယ် အကြီး ဆောက်ပြီးတော့ experiment လုပ်ကြည့်ရန်။  
+တစ်ခုရှိတာက အဲဒီလို လုပ်လိုက်ရင် character နဲ့ run ထားတဲ့ မော်ဒယ်နဲ့တော့ direct comparison လုပ်ဖို့ ခက်လိမ့်မယ်။  
+
+လောလောဆယ်တော့ Word Unit အတွက်လည်း myPara Corpus နဲ့ အောက်ပါအတိုင်း word2vec, fasttext တွေကို ပြင်ဆင်ခဲ့...   
+
 
 
 ## Training with Word Unit, 200 Epoch
