@@ -3271,8 +3271,12 @@ phrase အနေနဲ့ run တဲ့အခါမှာ သူက validation s
 
 ## Training with Syllable Unit, 200 Epoch
 
-### word2vec embedding
+### with word2vec embedding
 ### with fasttext embedding
 
+## Training with character Unit, 200 Epoch
+
+### with word2vec embedding
+### with fasttext embedding
 
 
