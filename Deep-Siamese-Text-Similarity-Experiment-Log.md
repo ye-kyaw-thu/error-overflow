@@ -2254,6 +2254,22 @@ myWord Segmentation Tool ကို သုံးပြီးတော့ အေ�
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py syllable ./my-para/open-test.final ./my-para/open-test.final.syl 
 ```
 
+တစ်ခုရှိတာက အခု syllable ဖြတ်တာက "label<TAB>string1<TAB>string2" ဆိုတဲ့ format နဲ့ "string1<TAB>string2<TAB>label" ဆိုတဲ့ format နှစ်မျိုးနဲ့ ရိုက်ထားတဲ့ စာကြောင်းတွေကို တန်ပြီးတော့ myWord ကို parse လုပ်ပြီး ဖြတ်ခဲ့တာမို့ ထွက်လာတဲ့ output က အောက်က ဥပမာ စာကြောင်းတွေမှာ ဖြစ်နေသလိုပါပဲ (မျက်စိနဲ့ကြည့်ရင်တော့ မသိသာ) "label<SPACE><TAB><SPACE>string1<SPACE><TAB><SPACE>sring2" ဆိုတဲ့ ပုံစံ မျိုး output တွေ ထွက်လာလိမ့်မယ်။  
+  
+```
+0 	 ၁ ၁ ဒေါ် လာ ကျ ပါ တယ် ။ 	 ၁ ၁ နာ ရီ လာ ခေါ် မယ် ။
+0 	 ၁ ၁ နာ ရီ ခွဲ အိမ် ပြန် မယ် ။ 	 ၁ ၁ နာ ရီ ခွဲ အ ရောက် လာ ပါ ။
+0 	 ၁ ၁ : ၃ ၀ ပြန် ရောက် မယ် လို့ ထင် သ လား ။ 	 ၁ ၁ : ၃ ၀ အ တိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။
+0 	 ၂ မိုင် ထက် ပို ရှည် တယ် ။ 	 ၂ မိုင် လောက် သွား ရ တယ် ။
+0 	 ၄ ရက် အ တွင်း အိမ် ပြန် မယ် ။ 	 ၄ ရက် လောက် နေ ရင် ပြန် လာ ပါ ။
+```
+
+အဲဒီ ကိစ္စကို ရှင်းဖိုအတွက် အောက်ပါအတိုင်း sed command ကို သုံးခဲ့တယ်။  
+  
+```
+$ sed -i $'s/ \t /\t/g' ./open-test.final.syl
+```
+  
 Deep Siamese experiment လုပ်မယ့် folder အောက်ကို ကော်ပြီကူးယူခဲ့...  
 
 ```
