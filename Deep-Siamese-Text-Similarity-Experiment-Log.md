@@ -4319,6 +4319,17 @@ Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run 
   </br>
   
 အဲဒါကြောင့် coding ကို ဝင်ပြင်ဖို့ လိုအပ်တယ်။  
+
+input_helpers.py ဖိုင်ကို အောက်ပါအတိုင်း ဝင်ပြင်ဆင်ခဲ့...  
+  
+```python
+    def getDataSets(self, training_paths, max_document_length, percent_dev, batch_size, is_char_based):
+        if is_char_based:
+            #x1_text, x2_text, y=self.getTsvDataCharBased(training_paths)
+            x1_text, x2_text, y=self.getTsvData(training_paths)
+        else:
+            x1_text, x2_text, y=self.getTsvData(training_paths)
+```
   
   
 ## Links
