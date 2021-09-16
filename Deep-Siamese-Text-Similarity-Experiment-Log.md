@@ -4299,3 +4299,9 @@ Character က လုပ်ဖို့ လိုအပ်ချင်မှ လ�
 - universal sentence ကို သုံးကြည့်ရမလား?!  
 - လက်ရှိ wordvec က မြန်မာစာ paraphrase ဒေတာနဲ့ပဲ ဆောက်ထားတာ အဲဒါကြောင့် word2vec အနေနဲ့ ကြည့်မယ်ဆိုရင် language model နဲ့ တူလို့ data များများနဲ့ ဆောက်ဖို့လိုအပ်တယ်။ myWord data ပါ ပေါင်းပြီး word2vec ဆောက်ပြီး run ရင်တော့ theory အရ ရလဒ်က ပိုကောင်းလာနိုင်တယ်...  
   
+## Links
+  - https://arxiv.org/pdf/1803.11175.pdf
+  - https://tfhub.dev/google/universal-sentence-encoder/4
+  - https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/semantic_similarity_with_tf_hub_universal_encoder.ipynb#scrollTo=BnvjATdy64eR
+  
+  
