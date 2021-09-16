@@ -3451,8 +3451,61 @@ sys	0m0.596s
 space cleaning...  
 
 ```
-
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ bash ./space-tab-space-to-tab.sh ./closed-test.word1 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ bash ./space-tab-space-to-tab.sh ./train.txt.word1 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ bash ./space-tab-space-to-tab.sh ./open-test.final.manual.word1 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$
 ```
+
+နောက်ထပ် ပရိုဂရမ် တပုဒ်နဲ့ စာကြောင်းအစ၊ စာကြောင်းအဆုံးနဲ့ စာလုံး တစ်လုံးနဲ့ တစ်လုံးကြားမှာ မလိုတဲ့ <space> အပိုတွေကို ရှင်းထုတ်ခဲ့...  
+  
+```
+ (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ perl ./clean-space.pl ./closed-test.word1 > ./closed-test.word
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ perl ./clean-space.pl ./mypara-all.manual.word1 > ./mypara-all.manual.word
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ perl ./clean-space.pl ./open-test.final.manual.word1 > ./open-test.final.manual.word
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ perl ./clean-space.pl ./train.txt.word1 > ./train.txt.word
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ 
+```
+
+cleaning လုပ်စဉ်မှာ ခဏသုံးခဲ့တဲ့ dummy file တွေဖြစ်တဲ့ ".word1" ဖိုင်တွေကို ဖျက်ခဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ rm *.word1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ wc *.word
+    1000    18272   203625 closed-test.word
+   84921   753196  8699990 mypara-all.manual.word
+    1000    13766   139640 open-test.final.manual.word
+   40461   764288  8442342 train.txt.word
+  127382  1549522 17485597 total
+```
+  
+ဖိုင်ထဲက content တွေကို မျက်လုံးနဲ့ confirm လုပ်ခဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ head -n 3 *.word
+==> closed-test.word <==
+1	ကောင်း လိုက် တဲ့ သတင်း လေး ပါ	ကောင်း သော သတင်း ပါ ပဲ
+0	ခု ဒီ တံဆိပ် က ဈေး လိုက် နေ တယ် ။	ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။
+1	ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်	ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်
+
+==> mypara-all.manual.word <==
+ကျွန်တော် စီး ဖို့ ချစ် စရာ ဖိနပ် တစ် ရံ ကို ရှာ မ တွေ့ လို့ ပါ ။
+ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မ လဲ ။
+ကျေးဇူး အများကြီး တင် ပါ တယ် ။
+
+==> open-test.final.manual.word <==
+0	၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။
+0	၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။
+0	၁၁:၃၀ ပြန် ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။
+
+==> train.txt.word <==
+ကျွန်တော် စီး ဖို့ ချစ် စရာ ဖိနပ် တစ် ရံ ကို ရှာ မ တွေ့ လို့ ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော် က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲ များ တဲ့ လူ လို့ ထင် မိ တယ် ။	0
+ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မ လဲ ။	ကျေးဇူး နော် ၊ ဘယ် တော့ ပြန် တွေ့ ကြ မ လဲ ။	0
+ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။	0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$
+```
+                              
+                              
 
 ## Preparing word2vec and fasttext
 
