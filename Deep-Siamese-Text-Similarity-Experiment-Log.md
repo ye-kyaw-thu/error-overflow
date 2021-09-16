@@ -3884,7 +3884,59 @@ user	302m5.470s
 sys	35m5.831s
 ```
   
+Closed-test နဲ့ Evaluation ရလဒ်က...  
   
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631770932/checkpoints/model-97000 --vocab_filepath ./runs/1631770932/checkpoints/vocab --eval_filepath ./closed-test
+...
+...
+...
+0.02291765995323658
+0.962419867515564
+0.017590908333659172
+0.016503769904375076
+0.17908570170402527
+0.9913085103034973
+0.0086247269064188
+0.05625711381435394
+0.9947324991226196
+0.9085485339164734
+0.9825022220611572
+0.024478977546095848
+0.02972199022769928
+0.02680038847029209
+Accuracy: 0.969
+
+real	0m6.462s
+user	0m6.960s
+sys	0m1.242s
+```
+
+Open test နဲ့ Evaluation ရလဒ်...  
+  
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631770932/checkpoints/model-97000 --vocab_filepath ./runs/1631770932/checkpoints/vocab --eval_filepath ./open-test.final.manual
+...
+...
+...
+0.7002002000808716
+0.9887453317642212
+0.9927669167518616
+0.9894479513168335
+0.9788118004798889
+0.9657342433929443
+0.9853591322898865
+0.9841658473014832
+0.9000328183174133
+0.043093930929899216
+Accuracy: 0.447447
+
+real	0m6.261s
+user	0m6.960s
+sys	0m1.261s
+```
+
+
 ### word2vec embedding
   
 
