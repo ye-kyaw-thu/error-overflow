@@ -3951,8 +3951,7 @@ sys	0m1.261s
 
   to do ...  
   
-## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
-
+## Training with Syllable Unit, 200 Epoch
   
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ cp train.txt.syl /home/ye/exp/myPara2/deep-siamese-text-similarity/
@@ -3962,6 +3961,8 @@ sys	0m1.261s
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.syl train.txt
 ```
 
+### with word2vec embedding
+  
 Training...  
   
 ```
@@ -4112,11 +4113,11 @@ sys	0m1.251s
   </br>
   
 
-
-### with word2vec embedding
 ### with fasttext embedding
 
-## Training with Syllable Unit, 200 Epoch
+to do...  
+  
+## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
 
 ### with word2vec embedding
 ### with fasttext embedding
