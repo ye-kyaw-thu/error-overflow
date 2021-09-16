@@ -3938,7 +3938,7 @@ user	0m6.960s
 sys	0m1.261s
 ```
   
-<p float="left">
+<p float="left"  align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-accuracy.png" width="300" />
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-loss.png" width="300" /> 
 </p>
