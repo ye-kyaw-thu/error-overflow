@@ -3567,6 +3567,16 @@ for manual word Unit:
 ```
   
 syl, manual-word, word ဖြတ်ထားတဲ့ ဖိုင်တွေအကြား word-count ကွာတာကို လေ့လာခဲ့...  
+
+### wor2vec, fasttext creation for "manual-word"
+  
+
+### wor2vec, fasttext creation for "syllable"
+  
+### wor2vec, fasttext creation for "word segmented with myWord"
+  
+
+  
   
 
 ## Training with Manual Word Unit, 200 Epoch 
