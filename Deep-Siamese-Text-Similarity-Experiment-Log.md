@@ -4282,9 +4282,7 @@ sys	0m1.317s
 ### with fasttext embedding
 
   
-Character က လုပ်ဖို့ လိုအပ်ချင်မှ လိုအပ်လိမ့်မယ်... ?!    
-(လက်ရှိ ရလဒ်တွေထက် ပိုကောင်းနိုင်လို့ လုပ်ဖို့ ဆုံးဖြတ်ခဲ့... )  
-  
+ 
 ## Training with character Unit, 200 Epoch
 
 ### with Manual Segmented Word
