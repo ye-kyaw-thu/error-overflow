@@ -3818,6 +3818,8 @@ drwxrwxr-x 7 ye ye 4.0K စက်   15 23:18 ../
 -rwxr-xr-x 1 ye ye 8.3M စက်   16 12:27 mypara-all.manual.word*
 ```
   
+### word2vec embedding
+  
 Training မလုပ်ခင်မှာ training data ကို run မယ့် path အောက်ကို copy ကူးခဲ့...   
 ခု run မှာက manual word segmentation (i.e. original myPara Corpus data) နဲ့...  
   
@@ -3935,14 +3937,22 @@ real	0m6.261s
 user	0m6.960s
 sys	0m1.261s
 ```
-
-
-### word2vec embedding
   
-
 ### with fasttext embedding
 
+  to do ...  
+  
 ## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
+
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ cp train.txt.syl /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ cp ./closed-test.syl /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ cp ./open-test.final.manual.syl /home/ye/exp/myPara2/deep-siamese-text-similarity/
+
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.syl train.txt
+```
+
 
 ### with word2vec embedding
 ### with fasttext embedding
