@@ -4122,7 +4122,34 @@ to do...
   
 ## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
 
+Training မလုပ်ခင်မှာ training data ကို run မယ့် path အောက်ကို copy ကူးခဲ့...   
+ခု run မှာက "word segmentation with myWord" နဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ ls
+clean-space.pl  closed-test.word  mypara-all.manual.word  open-test.final.manual.word  space-tab-space-to-tab.sh  train.txt.word
+```
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cp train.txt.word /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cp ./closed-test.word /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cp ./open-test.final.manual.word /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$
+```
+  
+train.py က ယူသုံးမှာက train.txt ဖိုင်မို့လို့ train.txt.word ကို train.txt အဖြစ် နာမည်ပြောင်းပေးခဲ့...  
+
+```
+  (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.word train.txt
+```
+  
 ### with word2vec embedding
+Start training ...  
+  
+```
+
+```
+  
 ### with fasttext embedding
 
 Character က လုပ်ဖို့ လိုအပ်ချင်မှ လိုအပ်လိမ့်မယ်... ?!    
