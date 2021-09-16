@@ -4103,8 +4103,8 @@ sys	0m1.251s
   
   
 <p float="left"  align="center">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-manual-200epoch-w2v-accuracy.png" width="300" />
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-manual-200epoch-w2v-loss.png" width="300" /> 
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-200epoch-w2v-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-200epoch-w2v-loss.png" width="300" /> 
 </p>
 <div align="center">
   Fig.1 Training and Evaluation Result with Syllable Unit, word2vec, 200 epoch. Left: Accuracy, Right: Loss
