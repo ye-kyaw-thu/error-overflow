@@ -3947,6 +3947,8 @@ sys	0m1.261s
 </div>   
   </br>
   
+**open test data နဲ့ ရလဒ်တွေက နည်းတယ်...  fasttext embedding မှာ ရလဒ်ပိုကောင်းလာဖို့ မျှော်လင့်တယ်...  
+  
 ### with fasttext embedding
 
   to do ...  
@@ -4112,7 +4114,8 @@ sys	0m1.251s
 </div>   
   </br>
   
-
+**open test data နဲ့ ရလဒ်တွေက နည်းတယ်...  fasttext embedding မှာ ရလဒ်ပိုကောင်းလာဖို့ မျှော်လင့်တယ်...  
+  
 ### with fasttext embedding
 
 to do...  
@@ -4129,4 +4132,8 @@ Character က လုပ်ဖို့ လိုအပ်ချင်မှ လ�
 ### with word2vec embedding
 ### with fasttext embedding
 
-
+----------------
+  
+တကယ်လို့ ရလဒ်က မကောင်းရင် training လုပ်တဲ့ ပုံစံကို ပထမဆုံး run ခဲ့တဲ့ char မှာလုပ်ခဲ့သလိုပဲ...  training ကို paraphrase စာကြောင်းတွေနဲ့ပဲ ပြင်ထားတဲ့ training data ကို သုံးပြီးတော့ validation, testing ကိုပဲ para+no-para ရောထားတဲ့ ဒေတာနဲ့ လုပ်သွားတဲ့ ပုံစံနဲ့ ဆိုရင်ကော... ?!
+  
+  
