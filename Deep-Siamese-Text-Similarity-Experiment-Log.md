@@ -4074,7 +4074,31 @@ sys	0m1.198s
 Evaluation with closed test data...  
   
 ```
-  
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631782087/checkpoints/model-48000 --vocab_filepath ./runs/1631782087/checkpoints/vocab --eval_filepath ./closed-test.syl 
+...
+...
+...
+0.2634804844856262
+0.8883613348007202
+0.06093858927488327
+0.8401598334312439
+0.016606930643320084
+0.06594143062829971
+0.11839007586240768
+0.9407025575637817
+0.04454350098967552
+0.11671852320432663
+0.9733070135116577
+0.8989876508712769
+0.9675915241241455
+0.08163182437419891
+0.03284897282719612
+0.015808621421456337
+Accuracy: 0.964
+
+real	0m6.290s
+user	0m7.001s
+sys	0m1.251s
 ```
   
 
