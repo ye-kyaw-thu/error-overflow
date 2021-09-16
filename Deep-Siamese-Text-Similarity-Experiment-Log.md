@@ -3613,25 +3613,120 @@ output ထွက်လာတဲ့ word2vec နဲ့ fasttext ဖိုင်�
 
 ```
  
-move လုပ်ပေးခဲ့...   
+move လုပ်ခဲ့ ...   
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ mv ./all-para.{word2vec,fasttext.bin,fasttext.vector} ./mypara-manual/
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ls ./mypara-manual/
 all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec  mypara-all.manual
 ```
+
+wc count လုပ်ပြီး စာလုံးအရေအတွက်ကို confirmation လုပ်ခဲ့....   
   
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ wc ./mypara-manual/*
+   7430223   43125790 4022529962 ./mypara-manual/all-para.fasttext.bin
+      5590    2800091   33139857 ./mypara-manual/all-para.fasttext.vector
+     25465   12757465  165233108 ./mypara-manual/all-para.word2vec
+     84921     659489    8606282 ./mypara-manual/mypara-all.manual
+   7546199   59342835 4229509209 total
+```
 
 ### wor2vec, fasttext creation for "syllable"
   
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./mypara-syl/mypara-all.manual.syl 
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 1M words
+Number of words:  1698
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  171847 lr:  0.000000 avg.loss:  2.285939 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('ပဉ္စ', 0.5370543599128723), ('ဘုန်း', 0.5247331857681274), ('မြို့', 0.5121671557426453), ('ကြွ', 0.5113822817802429), ('စု', 0.4787759780883789), ('တန်း', 0.47199782729148865), ('ပွား', 0.44916942715644836), ('လိမ္မာ', 0.41200706362724304), ('မှူး', 0.41169601678848267), ('အုပ်', 0.4100281894207001), ('သား', 0.4082058370113373), ('ဂန်', 0.4068843722343445), ('စုန်း', 0.39872241020202637), ('ဇင်း', 0.39803269505500793), ('ဖွား', 0.3973041772842407), ('မန်း', 0.39071279764175415), ('နွား', 0.38369205594062805), ('မဂ္ဂ', 0.38261133432388306), ('ရွာ', 0.37912026047706604), ('ရိုး', 0.3771994709968567)] 
 
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.7989024519920349, 'လျောင်း'), (0.7456591129302979, 'ပျောင်း'), (0.7406554222106934, 'ဖျောင်း'), (0.7350637316703796, 'ချောင်း'), (0.7133853435516357, 'သောင်း'), (0.6981094479560852, 'ကျော'), (0.6794184446334839, 'ကျော့'), (0.6780442595481873, 'ဘောင်း'), (0.6744620203971863, 'မောင်း'), (0.6675193309783936, 'ညောင်း'), (0.6367529034614563, 'ဟောင်း'), (0.6356250643730164, 'ထောင်း'), (0.6198782920837402, 'ဖောင်း'), (0.6182639598846436, 'ယောင်း'), (0.6182332634925842, 'အောင်း'), (0.6042153239250183, 'ကျော်'), (0.5988919138908386, 'စောင်း'), (0.5975959300994873, '/'), (0.5973014235496521, 'လောင်း'), (0.5396040678024292, 'နောင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+```
+
+mv လုပ်ခဲ့...  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ mv ./all-para.{word2vec,fasttext.bin,fasttext.vector} ./mypara-syl/
+```
+  
+wc နဲ့ count လုပ်ကြည့်ခဲ့...  
+  
+```
+  (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ wc ./mypara-syl/*
+   7313171   42466874 4006828598 ./mypara-syl/all-para.fasttext.bin
+      1699     850700   10071849 ./mypara-syl/all-para.fasttext.vector
+      2265    1134265   13722059 ./mypara-syl/all-para.word2vec
+     84921     928148    8874942 ./mypara-syl/mypara-all.manual.syl
+   7402056   45379987 4039497448 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
   
 ### wor2vec, fasttext creation for "word segmented with myWord"
   
-
+word2vec နဲ့ fastext bin ဖိုင် အရင်ထုတ်...  
   
-  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./mypara-word/mypara-all.manual.word
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 0M words
+Number of words:  3892
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  145675 lr:  0.000000 avg.loss:  2.283026 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('ပြေး', 0.7961063981056213), ('ခွဲ', 0.7723153829574585), ('၉', 0.7554347515106201), ('အိုးစည်', 0.7439748644828796), ('အိမ်', 0.7432504892349243), ('မနက်', 0.73084557056427), ('သစ်ပင်', 0.7282942533493042), ('ချင်း', 0.7281666994094849), ('ခြောက်', 0.7259509563446045), ('ရွာ', 0.7217157483100891), ('မိုး', 0.7168434858322144), ('ကိုး', 0.7160293459892273), ('ခရီး', 0.7147096395492554), ('တက်', 0.7122154831886292), ('အတွင်း', 0.7082696557044983), ('ဆောက်', 0.7070903182029724), ('6', 0.7063080668449402), ('လမ်း', 0.7039904594421387), ('ဒယီးဒယိုင်', 0.7018947005271912), ('ရှစ်', 0.6975663304328918)] 
 
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.9004136323928833, 'လဲလျောင်း'), (0.8921953439712524, 'ဟောင်း'), (0.8709333539009094, 'မောင်း'), (0.8656821250915527, 'ညောင်း'), (0.8641787767410278, 'ယာဉ်မောင်း'), (0.856418788433075, 'လည်ချောင်း'), (0.8552566170692444, 'ချောင်း'), (0.8549490571022034, 'အဟောင်း'), (0.850272536277771, 'ဇနီးလောင်း'), (0.849738359451294, 'ကြာညောင်း'), (0.8468860387802124, 'ကျောင်းအုပ်ကြီး'), (0.8459020256996155, 'ဖောင်း'), (0.8434823751449585, 'ပျော့ပျောင်း'), (0.8413714170455933, 'လောင်း'), (0.8298735618591309, 'ဖြားယောင်း'), (0.8275929689407349, 'ကြိမ်းမောင်း'), (0.8272570371627808, 'ကျောင်းသား'), (0.8240382075309753, 'ဘောင်းဘီတို'), (0.8207239508628845, 'ငရုတ်ကောင်း'), (0.8204129338264465, 'ပြတ်တောင်းတောင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$  
+```
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ 
+```
+  
+ပြီးသွားတဲ့ word2vec, fasttext ဖိုင်တွေကို 
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ mv ./all-para.{word2vec,fasttext.bin,fasttext.vector} ./mypara-word/
+```
+  
+wc နဲ့ စာလုံးတွေကို ရေတွက်ကြည့်ခဲ့...  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ wc ./mypara-word/*
+   7389827   42894550 4015683697 ./mypara-word/all-para.fasttext.bin
+      3893    1949894   23149133 ./mypara-word/all-para.fasttext.vector
+      8493    4254493   53833877 ./mypara-word/all-para.word2vec
+     84921     753196    8699990 ./mypara-word/mypara-all.manual.word
+   7487134   49852133 4101366697 total
+```
+  
 ## Training with Manual Word Unit, 200 Epoch 
 
 ### word2vec embedding
