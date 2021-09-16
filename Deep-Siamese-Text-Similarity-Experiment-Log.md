@@ -3423,6 +3423,27 @@ syl1 တွေက dummy file တွေမို့ အဲဒါတွေကိ�
 
 **word segmentation with myWord ကို စလုပ်မယ်...**
 
+အရင်ဆုံး manual word segmentation လုပ်ထားတဲ့ ဖိုင်တွေကို ကော်ပီကူးမယ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp ./manual-my2/* ./word-my2/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cd word-my2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ ls
+closed-test  mypara-all.manual  open-test.final.manual  train.txt
+```
+
+manual-my2/ အောက်ထဲမှာ word-segmentation လုပ်မယ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cd ../..
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py word ./my-para/word-my2/closed-test ./my-para/word-my2/closed-test.word1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py word ./my-para/word-my2/mypara-all.manual ./my-para/word-my2/mypara-all.manual.word1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ python ./myword.py word ./my-para/word-my2/open-test.final.manual ./my-para/word-my2/open-test.final.manual.word1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main$ time python ./myword.py word ./my-para/word-my2/train.txt ./my-para/word-my2/train.txt.word1
+```
+
+space cleaning...  
+
 
 
 ## Preparing word2vec and fasttext
