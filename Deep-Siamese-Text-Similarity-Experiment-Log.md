@@ -3432,7 +3432,7 @@ syl1 တွေက dummy file တွေမို့ အဲဒါတွေကိ�
 closed-test  mypara-all.manual  open-test.final.manual  train.txt
 ```
 
-manual-my2/ အောက်ထဲမှာ word-segmentation လုပ်မယ်...  
+word-my2/ အောက်ထဲမှာ word-segmentation လုပ်မယ်...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cd ../..
