@@ -4337,13 +4337,52 @@ sys	34m25.437s
 Evaluation with Open Test Data...  
   
 ```
-  
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631816270/checkpoints/model-89000 --vocab_filepath ./runs/1631816270/checkpoints/vocab --eval_filepath ./open-test.final.manual.word 
+...
+...
+...
+0.9373813271522522
+0.723473846912384
+0.9477940201759338
+0.9427857995033264
+0.9797320365905762
+0.9321064352989197
+0.9682533740997314
+0.722674548625946
+0.9753073453903198
+0.9798092842102051
+Accuracy: 0.437437
+
+real	0m7.645s
+user	0m7.942s
+sys	0m1.276s
+
 ```
   
 Evaluation with Closed Test Data...  
   
 ```
-  
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631816270/checkpoints/model-89000 --vocab_filepath ./runs/1631816270/checkpoints/vocab --eval_filepath ./closed-test.word 
+...
+...
+...
+0.08742140978574753
+0.17588753998279572
+0.03499225899577141
+0.9809699058532715
+0.20026858150959015
+0.5987406373023987
+0.9703155755996704
+0.27455997467041016
+0.9868044853210449
+0.18742233514785767
+0.04543688893318176
+0.08513258397579193
+Accuracy: 0.932
+
+real	0m7.339s
+user	0m7.923s
+sys	0m1.236s 
 ```
   
 
