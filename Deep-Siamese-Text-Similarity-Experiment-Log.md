@@ -4396,12 +4396,24 @@ sys	0m1.236s
 
 ----------------
   
+## Training Only with Paraphrase, Validation and Testing with (Para + Non-Pra)
+  
+  
+### Manual-Word, word2vec
+  
+  
+### Syllable, word2vec
+  
+  
+### myWord, word2vec
+  
+  
 ## Thinking
 
 လက်ရှိ အချိန်ထိ run ခဲ့တဲ့ အခြေအနေပေါ်ကို မူတည်ပြီးတော့ ရလဒ်ပိုကောင်းလာနိုင်မယ့် သို့မဟုတ် လုပ်လို့ ရမယ့် training ကို စဉ်းစားကြည့်ရင်...  
   
 - တကယ်လို့ ရလဒ်က မကောင်းရင် training လုပ်တဲ့ ပုံစံကို ပထမဆုံး run ခဲ့တဲ့ char မှာလုပ်ခဲ့သလိုပဲ...  training ကို paraphrase စာကြောင်းတွေနဲ့ပဲ ပြင်ထားတဲ့ training data ကို သုံးပြီးတော့ validation, testing ကိုပဲ para+no-para ရောထားတဲ့ ဒေတာနဲ့ လုပ်သွားတဲ့ ပုံစံနဲ့ ဆိုရင်ကော... ?!
-- fasttext   (လောလောဆယ် run ကြည့်တော့ error တက်နေတယ်...)
+- fasttext   (လောလောဆယ် run ကြည့်တော့ error တက်နေတယ်... embedding အပိုင်းကို ပြင်ရေးရမယ်)
 - universal sentence ကို သုံးကြည့်ရမလား?!  
 - လက်ရှိ wordvec က မြန်မာစာ paraphrase ဒေတာနဲ့ပဲ ဆောက်ထားတာ အဲဒါကြောင့် word2vec အနေနဲ့ ကြည့်မယ်ဆိုရင် language model နဲ့ တူလို့ data များများနဲ့ ဆောက်ဖို့လိုအပ်တယ်။ myWord data ပါ ပေါင်းပြီး word2vec ဆောက်ပြီး run ရင်တော့ theory အရ ရလဒ်က ပိုကောင်းလာနိုင်တယ်...  
 
