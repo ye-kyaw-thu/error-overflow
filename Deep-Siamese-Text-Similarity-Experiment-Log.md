@@ -3939,8 +3939,8 @@ sys	0m1.261s
 ```
   
 <p float="left">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-accuracy.png" width="100" />
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-loss.png" width="100" /> 
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-accuracy.png" width="800" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-loss.png" width="800" /> 
 </p>
 <div align="center">
   Fig.1 Training and Evaluation Result with Manual-Word, word2vec, 200 epoch. Left: Accuracy, Right: Loss
