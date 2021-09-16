@@ -3962,6 +3962,95 @@ sys	0m1.261s
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.syl train.txt
 ```
 
+Training...  
+  
+```
+ (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --nois_char_based --word2vec_model ./w2v_fasttext/mypara-syl/all-para.word2vec --embedding_dim 500 --num_epochs 200 2>&1 | tee train-syl-epoch200-w2v.16sept2021.log1
+...
+...
+...
+ 0.02091654 0.9663267  0.90700865 0.04371732 0.8961842  0.00296073
+ 0.02215976 0.9899095  0.95406896 0.9793343 ] [0. 0. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 0. 1. 1. 0. 1. 0. 0. 1. 1. 1.
+ 0. 0. 0. 1. 1. 1. 0. 1. 0. 1. 1. 1. 0. 0. 0. 1. 0. 1. 0. 0. 1. 0. 0. 1.
+ 1. 0. 0. 1. 0. 0. 1. 0. 0. 1. 0. 1. 1. 0. 0. 0.]
+TRAIN 2021-09-16T16:52:31.345629: step 113597, loss 0.0152269, acc 0.96875
+(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1) [0.01455327 0.9870814  0.97746    0.89777565 0.98396546 0.79817986
+ 0.97968453 0.8180441  0.04095497 0.9475394  0.98304874 0.1846217
+ 0.98348427 0.9900868  0.99144804 0.7470401  0.96919894 0.69581765
+ 0.0300861  0.837663   0.9907724  0.93667954 0.00896425 0.00537071
+ 0.78860366 0.879115   0.24495238 0.9916818  0.98600805 0.99128544
+ 0.98098963 0.02455625 0.02071692 0.98255116 0.0159982  0.9348165
+ 0.9500329  0.9874977  0.98482704 0.9903666  0.04137152 0.05610597
+ 0.9798864  0.02006133 0.9931502  0.01306872 0.02230313 0.9845925
+ 0.01289491 0.10466327 0.98278373 0.98818314 0.9677835  0.8517117
+ 0.94684416 0.98614323 0.7966163  0.07903998 0.02673028 0.81548256
+ 0.08668354 0.00731071 0.06214686 0.01715842] [1. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1.
+ 0. 0. 1. 0. 0. 0. 0. 1. 1. 0. 1. 0. 0. 0. 0. 0. 1. 1. 0. 1. 0. 1. 1. 0.
+ 1. 1. 0. 0. 0. 0. 0. 0. 0. 1. 1. 0. 1. 1. 1. 1.]
+TRAIN 2021-09-16T16:52:31.378339: step 113598, loss 0.00246232, acc 1
+(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0) [0.9851777  0.9911565  0.00414244 0.9724044  0.9699916  0.85211194
+ 0.97888607 0.9501937  0.09561642 0.97362673 0.9806172  0.96781343
+ 0.90781885 0.00816202 0.9413196  0.99725777 0.21034437 0.01093046
+ 0.94182307 0.9494229  0.0994199  0.05172439 0.9798627  0.01242599
+ 0.01314907 0.98836374 0.98557526 0.07227623 0.9346365  0.8334887
+ 0.98978895 0.9114609  0.15247263 0.98825127 0.0172944  0.14457922
+ 0.98715407 0.9391851  0.0461673  0.9902375  0.98141754 0.8572563
+ 0.00651553 0.96711093 0.9926239  0.98899114 0.94974506 0.9800238
+ 0.8942215  0.95001954 0.9817894  0.9644184  0.05566928 0.8785487
+ 0.05999915 0.9694745  0.93233126 0.05348293 0.14041512 0.9896282
+ 0.96250725 0.06997442 0.09076206 0.96941084] [0. 0. 1. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 1. 1. 0. 0. 1. 1. 0. 1.
+ 1. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 1. 0. 0. 1. 0. 0. 0. 1. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 1. 0. 1. 0. 0. 1. 1. 0. 0. 1. 1. 0.]
+TRAIN 2021-09-16T16:52:31.412571: step 113599, loss 0.0106745, acc 0.984375
+(1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0) [0.07511511 0.00992862 0.09383474 0.9845103  0.42750978 0.9885962
+ 0.9737026  0.03921494 0.9897507  0.01142494 0.28653    0.99063355
+ 0.93259156 0.81163394 0.9111803  0.84107625 0.10002489 0.9631664
+ 0.00950325 0.03967316 0.8516903  0.9900489  0.02514343 0.11052439
+ 0.8007279  0.99114406 0.92940557 0.01485086 0.01612651 0.91075027
+ 0.98484623 0.9650639  0.01353214 0.00924495 0.98925036 0.9865781
+ 0.9861669  0.12311102 0.97243387 0.85635215 0.88017154 0.9690309
+ 0.98886216 0.01519664 0.02136359 0.95893246 0.91234    0.9921954
+ 0.04504061 0.9822806  0.03222006 0.9835961  0.99060905 0.04959264
+ 0.9323055  0.84680355 0.9873483  0.9832903  0.9295842  0.98844165
+ 0.01231659 0.16103679 0.97759914 0.99631435] [1. 1. 1. 0. 1. 0. 0. 1. 0. 1. 1. 0. 0. 0. 0. 0. 1. 0. 1. 1. 0. 0. 1. 1.
+ 0. 0. 0. 1. 1. 0. 0. 0. 1. 1. 0. 0. 0. 1. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0.
+ 1. 0. 1. 0. 0. 1. 0. 0. 0. 0. 0. 0. 1. 1. 0. 0.]/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+
+TRAIN 2021-09-16T16:52:31.447157: step 113600, loss 0.00366657, acc 1
+(0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0) [0.8490067  0.01250746 0.00801008 0.01475833 0.93831295 0.7886718
+ 0.9162655  0.01692229 0.9873203  0.9800165  0.9525264  0.97410685
+ 0.01648008 0.86701304 0.985644   0.9863476  0.793619   0.06214541
+ 0.97326267 0.03008804 0.96568096 0.0487156  0.9885504  0.98825496
+ 0.12289882 0.99012816 0.02196589 0.89089894 0.98969877 0.17093301
+ 0.0271644  0.9822771  0.8341764  0.99178284 0.01329917 0.01756735
+ 0.04102688 0.79551387 0.9314474  0.02096893 0.26229507 0.98347366
+ 0.85389024 0.01125636 0.97005534 0.15467514 0.92432976 0.9734198
+ 0.03029069 0.98420954 0.99407595 0.0479748  0.9730881  0.9876717
+ 0.89958215 0.05553504 0.88420814 0.00268378 0.86370724 0.01418513
+ 0.9902393  0.01337512 0.9036564  0.9709314 ] [0. 1. 1. 1. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0. 1. 0. 0.
+ 1. 0. 1. 0. 0. 1. 1. 0. 0. 0. 1. 1. 1. 0. 0. 1. 1. 0. 0. 1. 0. 1. 0. 0.
+ 1. 0. 0. 1. 0. 0. 0. 1. 0. 1. 0. 1. 0. 1. 0. 0.]
+
+real	64m32.060s
+user	300m59.195s
+sys	36m45.968s
+```
+
+
+
 
 ### with word2vec embedding
 ### with fasttext embedding
