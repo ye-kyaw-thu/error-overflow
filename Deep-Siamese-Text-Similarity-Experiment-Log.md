@@ -4107,7 +4107,7 @@ sys	0m1.251s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-manual-200epoch-w2v-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Evaluation Result with Manual-Word, word2vec, 200 epoch. Left: Accuracy, Right: Loss
+  Fig.1 Training and Evaluation Result with Syllable Unit, word2vec, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>
   
