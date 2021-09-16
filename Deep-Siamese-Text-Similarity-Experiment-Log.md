@@ -4386,6 +4386,16 @@ sys	0m1.236s
 ```
   
 
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-char-nosimu-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-char-nosimu-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+
+
 ----------------
   
 ## Thinking
