@@ -3742,6 +3742,8 @@ wc နဲ့ စာလုံးတွေကို ရေတွက်ကြည်
 ### with word2vec embedding
 ### with fasttext embedding
 
+Character က လုပ်ဖို့ လိုအပ်ချင်မှ လိုအပ်လိမ့်မယ်... ?!    
+  
 ## Training with character Unit, 200 Epoch
 
 ### with word2vec embedding
