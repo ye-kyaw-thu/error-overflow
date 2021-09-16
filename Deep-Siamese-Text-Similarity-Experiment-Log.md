@@ -4305,6 +4305,21 @@ Character က လုပ်ဖို့ လိုအပ်ချင်မှ လ�
 - fasttext   (လောလောဆယ် run ကြည့်တော့ error တက်နေတယ်...)
 - universal sentence ကို သုံးကြည့်ရမလား?!  
 - လက်ရှိ wordvec က မြန်မာစာ paraphrase ဒေတာနဲ့ပဲ ဆောက်ထားတာ အဲဒါကြောင့် word2vec အနေနဲ့ ကြည့်မယ်ဆိုရင် language model နဲ့ တူလို့ data များများနဲ့ ဆောက်ဖို့လိုအပ်တယ်။ myWord data ပါ ပေါင်းပြီး word2vec ဆောက်ပြီး run ရင်တော့ theory အရ ရလဒ်က ပိုကောင်းလာနိုင်တယ်...  
+
+## Note
+  
+Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run ရင် training data ကို label ထိုးထားတာက တမျိုးပဲ လို့ ယူဆပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို function တစ်ခုနဲ့ negative label ကို simulation လုပ်သွားတယ်။ အဲဒါကြောင့် အဲဒီတိုင်း run ရင် result က မကောင်းနိုင်ဘူး။ ဥပမာ အောက်က ပုံက myWord ကို character training default နဲ့ run နေစဉ်မှာ မြင်ရတဲ့ accuracy နဲ့ loss ရဲ့ အခြေအနေ... ဒီ အနေအထားကနေ Accuracy က 90 အထက် တက်လာဖို့က မလွယ်ကူဘူး...  
+  
+<p align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-default-char-accuracy-is-low.png" width="800" />
+</p>
+<div align="center">
+  Fig.1 Accuracy and Loss Status of Training and Validation  with "Word Unit Segmented with myWord", character, 200 epoch.
+</div>   
+  </br>
+  
+အဲဒါကြောင့် coding ကို ဝင်ပြင်ဖို့ လိုအပ်တယ်။  
+  
   
 ## Links
   - https://arxiv.org/pdf/1803.11175.pdf
