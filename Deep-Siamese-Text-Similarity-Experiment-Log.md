@@ -3570,8 +3570,61 @@ syl, manual-word, word ဖြတ်ထားတဲ့ ဖိုင်တွေ�
 
 ### wor2vec, fasttext creation for "manual-word"
   
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./Sherlock_Holmes_fasttext.py ./mypara-manual/mypara-all.manual 
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 0M words
+Number of words:  5589
+Number of labels: 0
+Progress: 100.0% words/sec/thread:  117601 lr:  0.000000 avg.loss:  2.214699 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('လမ်း', 0.9358484148979187), ('ပြေး', 0.9177197217941284), ('၉', 0.9083137512207031), ('သစ်ပင်', 0.9031364917755127), ('ပိုင်း', 0.8975261449813843), ('ကဗျာစာပေ', 0.8899070024490356), ('ရထား', 0.8897032737731934), ('ဦးဘ', 0.8862273097038269), ('၆', 0.8817196488380432), ('နေမင်း', 0.8805981278419495), ('အောက်', 0.880402684211731), ('လေဆိပ်', 0.879432201385498), ('မြို့', 0.8792335987091064), ('စသည်', 0.8785279393196106), ('တော', 0.8784735202789307), ('မနက်', 0.8765276670455933), ('ထောင်', 0.8763911128044128), ('၈', 0.8751877546310425), ('အလည်', 0.8742582201957703), ('စတိုး', 0.8731852769851685)] 
+
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.9173595309257507, 'ချောင်း'), (0.9170924425125122, 'ကျောင်းထွက်'), (0.914071798324585, 'ရွာဦးကျောင်း'), (0.9108685255050659, 'ကျောင်းဆရာ'), (0.9106876850128174, 'ယာဉ်မောင်း'), (0.9096049070358276, 'ကားမောင်း'), (0.9030694961547852, 'လည်ချောင်း'), (0.8952051997184753, 'ကြာညောင်း'), (0.8913081288337708, 'မောင်း'), (0.8908674716949463, 'ကျောင်းသူ'), (0.8906762003898621, 'ကျောင်းတက်'), (0.890514612197876, 'ဟောင်း'), (0.8890510201454163, 'ရောင်း'), (0.8887304067611694, 'ဘောင်းဘီ'), (0.8873381018638611, 'ညောင်း'), (0.8857645988464355, 'အုန်းမောင်း'), (0.8834129571914673, 'ကျောင်းအပ်'), (0.8831270933151245, 'ရေလောင်း'), (0.8785563111305237, 'ဖောင်း'), (0.8780372738838196, 'ရောင်ဆင်း')] 
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
+
+fasttext binary ဖိုင် ကနေ text vector ဖိုင်အဖြစ် အောက်ပါအတိုင်း convert လုပ်ခဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ python ./fasttext_bin-to-vec.py ./all-para.fasttext.bin all-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+```
+  
+output ထွက်လာတဲ့ word2vec နဲ့ fasttext ဖိုင်တွေက python ပရိုဂရမ် run တဲ့ folder အောက်မှာပဲ ရှိလို့ ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ll -h ./all-para.word2vec 
+-rw-rw-r-- 1 ye ye 158M စက်   16 11:00 ./all-para.word2vec
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ll -h ./all-para.fasttext.bin 
+-rw-rw-r-- 1 ye ye 3.8G စက်   16 11:00 ./all-para.fasttext.bin
+  
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ll -h ./all-para.fasttext.vector 
+-rw-rw-r-- 1 ye ye 32M စက်   16 11:03 ./all-para.fasttext.vector
+
+```
+ 
+move လုပ်ပေးခဲ့...   
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ mv ./all-para.{word2vec,fasttext.bin,fasttext.vector} ./mypara-manual/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ ls ./mypara-manual/
+all-para.fasttext.bin  all-para.fasttext.vector  all-para.word2vec  mypara-all.manual
+```
+  
 
 ### wor2vec, fasttext creation for "syllable"
+  
+
   
 ### wor2vec, fasttext creation for "word segmented with myWord"
   
