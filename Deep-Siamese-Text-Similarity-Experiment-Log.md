@@ -3535,11 +3535,40 @@ diff နဲ့ စစ်ကြည့်လို့ wc count က > 0 ဆို�
 
 word2vec နဲ့ fasttext ကို ပြောင်းဖို့အတွက်က မြန်မာစာ paraphrase corpus တစ်ခုလုံးကို စုထားတဲ့ (ဆိုလိုတာ့ 0,1, y,n စတဲ့ label မပါတဲ့) ဖိုင်တစ်ဖိုင်တည်းကို ပြောင်းရင် ရပြီ။   
 for manual word Unit:  
-                              
+
+ပြင်ထားတဲ့ paraphrase မြန်မာစာကြောင်းအားလုံးပါတဲ့ စုထားတဲ့ ဖိုင်တွေကို word2vec, fasttext ပြောင်းဖို့အလုပ်လုပ်မယ့် ပရိုဂရမ်ရှိတဲ့ဆီကို ကော်ပီကူးခဲ့တယ်...  
+  
 ```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp ./mypara-all.manual /home/ye/4github/syl-ngram/ref/playing_with_fasttext/mypara-manual/
+  
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/syl-my2$ cp mypara-all.manual.syl /home/ye/4github/syl-ngram/ref/playing_with_fasttext/mypara-syl/
+  
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$ cp ./mypara-all.manual.word /home/ye/4github/syl-ngram/ref/playing_with_fasttext/mypara-word/
 
 ```
                               
+ကော်ပီကူးပြီးသွားတဲ့အခါမှာ အမှားအယွင်းမရှိအောင် ဖိုင်တွေကို စစ်ကြည့်ခဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ tree ./mypara-{manual,syl,word}
+./mypara-manual
+└── mypara-all.manual
+./mypara-syl
+└── mypara-all.manual.syl
+./mypara-word
+└── mypara-all.manual.word
+
+0 directories, 3 files
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ wc ./mypara-{manual,syl,word}/*
+   84921   659489  8606282 ./mypara-manual/mypara-all.manual
+   84921   928148  8874942 ./mypara-syl/mypara-all.manual.syl
+   84921   753196  8699990 ./mypara-word/mypara-all.manual.word
+  254763  2340833 26181214 total
+```
+  
+syl, manual-word, word ဖြတ်ထားတဲ့ ဖိုင်တွေအကြား word-count ကွာတာကို လေ့လာခဲ့...  
+  
+
 ## Training with Manual Word Unit, 200 Epoch 
 
 ### word2vec embedding
