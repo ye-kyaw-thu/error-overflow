@@ -4311,7 +4311,7 @@ Character က လုပ်ဖို့ လိုအပ်ချင်မှ လ�
 Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run ရင် training data ကို label ထိုးထားတာက တမျိုးပဲ လို့ ယူဆပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို function တစ်ခုနဲ့ negative label ကို simulation လုပ်သွားတယ်။ အဲဒါကြောင့် အဲဒီတိုင်း run ရင် result က မကောင်းနိုင်ဘူး။ ဥပမာ အောက်က ပုံက myWord ကို character training default နဲ့ run နေစဉ်မှာ မြင်ရတဲ့ accuracy နဲ့ loss ရဲ့ အခြေအနေ... ဒီ အနေအထားကနေ Accuracy က 90 အထက် တက်လာဖို့က မလွယ်ကူဘူး...  
   
 <p align="center">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-default-char-accuracy-is-low.png" width="800" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-default-char-accuracy-is-low.png" width="600" />
 </p>
 <div align="center">
   Fig.1 Accuracy and Loss Status of Training and Validation  with "Word Unit Segmented with myWord", character, 200 epoch.
