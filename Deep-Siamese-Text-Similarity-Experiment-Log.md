@@ -3783,7 +3783,109 @@ wc နဲ့ စာလုံးတွေကို ရေတွက်ကြည်
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
 ```
 
+နောက်ပိုင်း ပြန်ကြည့်တဲ့အခါမှာ experiment လုပ်ခဲ့တဲ့ Deep Siamese folder အောက်မှာပဲ training/test ဒေတာရော, word2vec, fasttext တို့ရော အတူတူ ရှိနေစေချင်လို့ Deep Siamese NN experiment လုပ်နေတဲ့ folder အောက်ကိုလည်း ကော်ပီကူး သိမ်းထားခဲ့။ copy ကူးနေရင်းနဲ့ HDD မှာ space တွေက မကျန်တော့လို့ ... file/forder တွေအတွက် space ပါ ထွက်လာအောင် လုပ်ခဲ့ရ့...
+  
+word2vec, fasttext တွေက HDD space နေရာ တော်တော်ယူတယ်။ tensorflow နဲ့ မော်ဒယ်ဆောက်တဲ့အခါမှာလည်း မော်ဒယ်ဖိုင်က size ကြီးတယ်။ အထူးသဖြင့် bin ဖိုင်တွေက...  
+  
+```
+ (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity/w2v_fasttext$ ll -h ./mypara-{manual,syl,word}
+./mypara-manual:
+total 4.0G
+drwxrwxr-x 3 ye ye 4.0K စက်   16 12:12 ./
+drwxrwxr-x 7 ye ye 4.0K စက်   15 23:18 ../
+-rw-rw-r-- 1 ye ye 3.8G စက်   16 12:12 all-para.fasttext.bin
+-rw-rw-r-- 1 ye ye  32M စက်   16 12:12 all-para.fasttext.vector
+-rw-rw-r-- 1 ye ye 158M စက်   16 12:12 all-para.word2vec
+-rw-rw-r-- 1 ye ye 8.3M စက်   16 12:12 mypara-all.manual
+drwxrwxr-x 2 ye ye 4.0K စက်   16 12:10 tmp/
+
+./mypara-syl:
+total 3.8G
+drwxrwxr-x 2 ye ye 4.0K စက်   16 12:13 ./
+drwxrwxr-x 7 ye ye 4.0K စက်   15 23:18 ../
+-rw-rw-r-- 1 ye ye 3.8G စက်   16 12:13 all-para.fasttext.bin
+-rw-rw-r-- 1 ye ye 9.7M စက်   16 12:13 all-para.fasttext.vector
+-rw-rw-r-- 1 ye ye  14M စက်   16 12:13 all-para.word2vec
+-rwxr-xr-x 1 ye ye 8.5M စက်   16 12:13 mypara-all.manual.syl*
+
+./mypara-word:
+total 3.9G
+drwxrwxr-x 2 ye ye 4.0K စက်   16 12:14 ./
+drwxrwxr-x 7 ye ye 4.0K စက်   15 23:18 ../
+-rw-rw-r-- 1 ye ye 3.8G စက်   16 12:27 all-para.fasttext.bin
+-rw-rw-r-- 1 ye ye  23M စက်   16 12:27 all-para.fasttext.vector
+-rw-rw-r-- 1 ye ye  52M စက်   16 12:27 all-para.word2vec
+-rwxr-xr-x 1 ye ye 8.3M စက်   16 12:27 mypara-all.manual.word*
+```
+  
+Training မလုပ်ခင်မှာ training data ကို run မယ့် path အောက်ကို copy ကူးခဲ့...   
+ခု run မှာက manual word segmentation (i.e. original myPara Corpus data) နဲ့...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp train.txt /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp ./closed-test /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp ./open-test.final.manual /home/ye/exp/myPara2/deep-siamese-text-similarity/
+```
+  
+Start training ...  
+  
+```
+  (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --nois_char_based --word2vec_model ./w2v_fasttext/mypara-manual/all-para.word2vec --embedding_dim 500 --num_epochs 200 2>&1 | tee train-manual-epoch200-w2v.16sept2021.log1
+  ...
+  ...
+  ...
+TRAIN 2021-09-16T13:45:58.460771: step 113598, loss 0.0164377, acc 0.96875
+(0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1) [0.9419964  0.9909818  0.03355075 0.9520038  0.985154   0.98097736
+ 0.04736961 0.06299996 0.02146125 0.04941377 0.9315572  0.9936179
+ 0.98336387 0.01307698 0.19319095 0.9956813  0.03895702 0.00616257
+ 0.9859238  0.9874242  0.9878587  0.98022336 0.9877094  0.05571805
+ 0.97808695 0.0608202  0.99026346 0.90719754 0.1894708  0.9809522
+ 0.00761485 0.8945809  0.21627101 0.03647421 0.04645642 0.02929282
+ 0.9931745  0.85217273 0.02578556 0.9927515  0.1353821  0.02260694
+ 0.01082476 0.90786713 0.04211792 0.74116445 0.09564605 0.9941705
+ 0.26394233 0.83126986 0.00944646 0.02681115 0.11433662 0.9963453
+ 0.99385935 0.876727   0.05314198 0.99081814 0.8899707  0.03243851
+ 0.9952672  0.99259424 0.06914932 0.0164423 ] [0. 0. 1. 0. 0. 0. 1. 1. 1. 1. 0. 0. 0. 1. 1. 0. 1. 1. 0. 0. 0. 0. 0. 1.
+ 0. 1. 0. 0. 1. 0. 1. 0. 1. 1. 1. 1. 0. 0. 1. 0. 1. 1. 1. 0. 1. 0. 1. 0.
+ 1. 0. 1. 1. 1. 0. 0. 0. 1. 0. 0. 1. 0. 0. 1. 1.]
+TRAIN 2021-09-16T13:45:58.492594: step 113599, loss 0.0114836, acc 0.984375
+(0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0) [0.79993486 0.992949   0.06948991 0.05092521 0.03792386 0.91978157
+ 0.02029573 0.71337444 0.91844106 0.17576876 0.9746574  0.8667417
+ 0.9050173  0.9465583  0.99242526 0.9912101  0.93995774 0.04787563
+ 0.02709529 0.98775923 0.9947058  0.99531883 0.9826074  0.96631557
+ 0.95957094 0.9319243  0.03641484 0.9755334  0.00654725 0.02921274
+ 0.8235116  0.8792676  0.01477309 0.9838968  0.00803334 0.01066745
+ 0.99425125 0.98887813 0.24063577 0.31871438 0.81006485 0.0809553
+ 0.9903365  0.9939361  0.98814297 0.10051856 0.05503315 0.01802728
+ 0.98636484 0.0078872  0.02045328 0.05821494 0.87361485 0.09010669
+ 0.9739269  0.02070081 0.15535516 0.99492806 0.9641502  0.9930214
+ 0.9756709  0.9941101  0.99529564 0.9588737 ] [0. 0. 1. 1. 1. 0. 1. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0. 0. 0.
+ 0. 0. 1. 0. 1. 1. 0. 0. 1. 0. 1. 1. 0. 0. 1. 1. 0. 1. 0. 0. 0. 1. 1. 1.
+ 0. 1. 1. 1. 0. 1. 0. 1. 1. 0. 0. 0. 0. 0. 0. 0.]
+TRAIN 2021-09-16T13:45:58.525368: step 113600, loss 0.00698656, acc 0.984375
+(1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1) [0.02720496 0.9852954  0.98378694 0.9973933  0.91634786 0.06061707
+ 0.04017207 0.9767052  0.92036635 0.03009795 0.05432156 0.04535866
+ 0.79143333 0.9295048  0.9250981  0.03223426 0.0148273  0.9574951
+ 0.9031704  0.97588176 0.02884737 0.9878285  0.9943944  0.9934299
+ 0.99659365 0.1079848  0.98559237 0.8866228  0.9876645  0.99414647
+ 0.913203   0.9364064  0.9441828  0.03129002 0.96649086 0.99488336
+ 0.99453557 0.8283133  0.9891788  0.0415177  0.9855306  0.07026331
+ 0.04727738 0.0393959  0.01999033 0.18869656 0.07366163 0.8585527
+ 0.99243706 0.982875   0.9490559  0.03244815 0.0427594  0.9697372
+ 0.9604285  0.9625252  0.96492845 0.98167986 0.01314194 0.11413096
+ 0.9780259  0.08663671 0.9871331  0.78975767] [1. 0. 0. 0. 0. 1. 1. 0. 0. 1. 1. 1. 0. 0. 0. 1. 1. 0. 0. 0. 1. 0. 0. 0.
+ 0. 1. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 1. 0. 1. 1. 1. 1. 1. 1. 0.
+ 0. 0. 0. 1. 1. 0. 0. 0. 0. 0. 1. 1. 0. 1. 0. 0.]
+
+real	63m55.843s
+user	302m5.470s
+sys	35m5.831s
+```
+  
+  
 ### word2vec embedding
+  
+
 ### with fasttext embedding
 
 ## Training with Word Unit Segmented with myWord Segmentation Tool, 200 Epoch
