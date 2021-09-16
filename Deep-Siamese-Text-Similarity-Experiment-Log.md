@@ -4285,8 +4285,13 @@ Character က လုပ်ဖို့ လိုအပ်ချင်မှ လ�
   
 ## Training with character Unit, 200 Epoch
 
-### with word2vec embedding
-### with fasttext embedding
+### with Manual Segmented Word
+
+### with Syllable Unit  
+
+### with Word (segmented with myWord)
+
+
 
 ----------------
   
