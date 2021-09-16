@@ -4228,6 +4228,49 @@ user	300m46.858s
 sys	36m11.341s
 ```
   
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631802346/checkpoints/model-97000 --vocab_filepath ./runs/1631802346/checkpoints/vocab --eval_filepath ./open-test.final.manual.word 
+...
+...
+...
+0.46157094836235046
+0.9662734866142273
+0.9818298816680908
+0.9758252501487732
+0.9846404790878296
+0.9772659540176392
+0.9684680104255676
+0.9769710302352905
+0.982317328453064
+0.08774643391370773
+Accuracy: 0.444444
+
+real	0m6.427s
+user	0m7.003s
+sys	0m1.126s
+```
+  
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631802346/checkpoints/model-97000 --vocab_filepath ./runs/1631802346/checkpoints/vocab --eval_filepath ./closed-test.word 
+...
+...
+...
+0.8838050365447998
+0.8108258843421936
+0.017134888097643852
+0.9742394685745239
+0.9144530892372131
+0.8724464178085327
+0.14075440168380737
+0.060980163514614105
+0.025890707969665527
+Accuracy: 0.96
+
+real	0m6.303s
+user	0m6.980s
+sys	0m1.317s
+```
+  
 ### with fasttext embedding
 
 Character က လုပ်ဖို့ လိုအပ်ချင်မှ လိုအပ်လိမ့်မယ်... ?!    
