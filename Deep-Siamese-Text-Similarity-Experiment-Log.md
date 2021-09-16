@@ -3729,6 +3729,60 @@ wc နဲ့ စာလုံးတွေကို ရေတွက်ကြည်
   
 ## Training with Manual Word Unit, 200 Epoch 
 
+အထက်မှာ ပြင်ဆင်ထားခဲ့တဲ့ training, closed test, open test ဒေတာတွေက အောက်ပါအတိုင်းရှိ...  
+(syllable မဖြတ်ခင်၊ word မဖြတ်ခင်က original manual-word ဖိုင်တွေကိုလည်း ရှင်းပြီးသား အခြေအနေ...)  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ tree ./{manual,syl,word}-my2/
+./manual-my2/
+├── clean-space.pl
+├── closed-test
+├── mypara-all.manual
+├── open-test.final.manual
+└── train.txt
+./syl-my2/
+├── clean-space.pl
+├── closed-test.syl
+├── mypara-all.manual.syl
+├── open-test.final.manual.syl
+├── space-tab-space-to-tab.sh
+└── train.txt.syl
+./word-my2/
+├── clean-space.pl
+├── closed-test.word
+├── mypara-all.manual.word
+├── open-test.final.manual.word
+├── space-tab-space-to-tab.sh
+└── train.txt.word
+
+0 directories, 17 files
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ 
+```
+
+အထက်မှာ ပြင်ထားခဲ့တဲ့ word2vec, fasttext တွေက အောက်ပါအတိုင်းရှိ...  
+  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$ tree ./mypara-{manual,syl,word}/
+./mypara-manual/
+├── all-para.fasttext.bin
+├── all-para.fasttext.vector
+├── all-para.word2vec
+└── mypara-all.manual
+./mypara-syl/
+├── all-para.fasttext.bin
+├── all-para.fasttext.vector
+├── all-para.word2vec
+└── mypara-all.manual.syl
+./mypara-word/
+├── all-para.fasttext.bin
+├── all-para.fasttext.vector
+├── all-para.word2vec
+└── mypara-all.manual.word
+
+0 directories, 12 files
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/4github/syl-ngram/ref/playing_with_fasttext$
+```
+
 ### word2vec embedding
 ### with fasttext embedding
 
