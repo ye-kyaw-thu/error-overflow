@@ -4140,10 +4140,11 @@ clean-space.pl  closed-test.word  mypara-all.manual.word  open-test.final.manual
 train.py က ယူသုံးမှာက train.txt ဖိုင်မို့လို့ train.txt.word ကို train.txt အဖြစ် နာမည်ပြောင်းပေးခဲ့...  
 
 ```
-  (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.word train.txt
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ mv train.txt.word train.txt
 ```
   
 ### with word2vec embedding
+  
 Start training ...  
   
 ```
