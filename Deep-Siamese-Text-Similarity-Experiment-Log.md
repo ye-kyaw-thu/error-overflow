@@ -3505,10 +3505,41 @@ cleaning လုပ်စဉ်မှာ ခဏသုံးခဲ့တဲ့ dum
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/word-my2$
 ```
                               
-                              
+သတိရတာနဲ့ manual ဖြတ်ထားတဲ့ original corpus ကိုလည်း အောက်ပါအတိုင်း space cleaning လုပ်ခဲ့...  
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ ls
+clean-space.pl  closed-test  mypara-all.manual  open-test.final.manual  train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ perl ./clean-space.pl ./mypara-all.manual > ./mypara-all.manual.1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ rm ./mypara-all.manual
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ mv ./mypara-all.manual.1 ./mypara-all.manual
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ perl ./clean-space.pl ./closed-test > closed-test.1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ diff ./closed-test ./closed-test.1 | wc
+      0       0       0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ rm ./closed-test.1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ perl ./clean-space.pl ./train.txt > ./train.txt.1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ wc train.txt train.txt.1 | wc
+      3      12     109
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ rm ./train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ mv train.txt.1 train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ perl ./clean-space.pl ./open-test.final.manual > ./open-test.final.manual.1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ diff ./open-test.final.manual ./open-test.final.manual.1 | wc
+     92     548    6377
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ rm ./open-test.final.manual
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ mv ./open-test.final.manual.1 ./open-test.final.manual
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$                           
+```
 
+diff နဲ့ စစ်ကြည့်လို့ wc count က > 0 ဆိုရင် သေချာတယ် ပိုရိုက်ထားတဲ့ space တွေရှိနေခဲ့လို့...  
+  
 ## Preparing word2vec and fasttext
 
+word2vec နဲ့ fasttext ကို ပြောင်းဖို့အတွက်က မြန်မာစာ paraphrase corpus တစ်ခုလုံးကို စုထားတဲ့ (ဆိုလိုတာ့ 0,1, y,n စတဲ့ label မပါတဲ့) ဖိုင်တစ်ဖိုင်တည်းကို ပြောင်းရင် ရပြီ။   
+for manual word Unit:  
+                              
+```
+
+```
+                              
 ## Training with Manual Word Unit, 200 Epoch 
 
 ### word2vec embedding
