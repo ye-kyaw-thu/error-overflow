@@ -4903,7 +4903,7 @@ char model run တာကို ငါကြည့်ခဲ့စဉ်က တိ
 
 ပြန် confirm လုပ်ကြည့်ချင်တယ်။ ပြီးတော့ input or training data ကို y only နဲ့ both y,n နဲ့ ပါ စမ်းကြည့်ချင်တယ်။  
 
-ပထမဆုံး y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  
+ပထမဆုံး y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  (dumpValidation function ကို comment ပိတ်ထားခဲ့)
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --num_epochs 200 2>&1 | tee train-char-unit-both-yesno-label-17-char-embedding-sept2021.log1
@@ -5006,6 +5006,12 @@ sys	0m1.279s
 </div>   
   </br>  
   
+
+ပထမဆုံး y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  (dumpValidation function ကို သုံးခဲ့)
+
+```
+
+```
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp manual-my2 manual-m4 -r
