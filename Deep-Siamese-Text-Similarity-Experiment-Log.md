@@ -5118,17 +5118,9 @@ sys	0m1.298s
 </div>   
   </br>  
 
+### Only yes, char embedding
 
 
-
-
-
-### Manual-Word, char
-
-### Syllable, char
-  
-  
-### myWord-Word, char
   
   
 ## Thinking
