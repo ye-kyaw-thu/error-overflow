@@ -5147,6 +5147,124 @@ sys	0m1.298s
 - universal sentence ကို သုံးကြည့်ရမလား?!  
 - လက်ရှိ wordvec က မြန်မာစာ paraphrase ဒေတာနဲ့ပဲ ဆောက်ထားတာ အဲဒါကြောင့် word2vec အနေနဲ့ ကြည့်မယ်ဆိုရင် language model နဲ့ တူလို့ data များများနဲ့ ဆောက်ဖို့လိုအပ်တယ်။ myWord data ပါ ပေါင်းပြီး word2vec ဆောက်ပြီး run ရင်တော့ theory အရ ရလဒ်က ပိုကောင်းလာနိုင်တယ်...  
 
+## Embedding with FastText
+
+ပထမ စ run တော့ပေးနေတဲ့ error က အောက်ပါအတိုင်း...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --nois_char_based --word2vec_model ./w2v_fasttext/mypara-manual/all-para.fasttext.vector --embedding_dim 500 --num_epochs 200 2>&1 | tee train-manual-epoch200-fasttext.18sept2021.log1
+2021-09-18 03:18:40.025300: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-18 03:18:40.025320: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-18 03:18:40.025323: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-18 03:18:40.025325: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-09-18 03:18:40.025327: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:458: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:459: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:460: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:461: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:462: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ye/anaconda3/envs/paraphrase2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:465: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+
+Parameters:
+ALLOW_SOFT_PLACEMENT=True
+BATCH_SIZE=64
+CHECKPOINT_EVERY=1000
+DROPOUT_KEEP_PROB=1.0
+EMBEDDING_DIM=500
+EVALUATE_EVERY=1000
+HIDDEN_UNITS=50
+IS_CHAR_BASED=False
+L2_REG_LAMBDA=0.0
+LOG_DEVICE_PLACEMENT=False
+NUM_EPOCHS=200
+TRAINING_FILES=train.txt
+WORD2VEC_FORMAT=text
+WORD2VEC_MODEL=./w2v_fasttext/mypara-manual/all-para.fasttext.vector
+
+Loading training data from train.txt
+Building vocabulary
+Length of loaded vocabulary =1141
+dumping validation 0
+Train/Dev split for train.txt: 36414/4047
+Loading W2V data...
+loaded word2vec len  5590
+starting graph def
+started session
+Tensor("embedding/embedding_lookup:0", shape=(?, 15, 500), dtype=float32)
+initialized siameseModel object
+defined training_ops
+defined gradient summaries
+Writing to /home/ye/exp/myPara2/deep-siamese-text-similarity/runs/1631909923
+
+init all variables
+initializing initW with pre-trained word2vec embeddings
+Traceback (most recent call last):
+  File "./train.py", line 180, in <module>
+    arr=inpH.pre_emb["zero"]
+KeyError: 'zero'
+
+real	0m9.696s
+user	0m9.723s
+sys	0m1.212s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$
+```
+
+train.py ဖိုင်ကို ဝင်စစ်ပြီး print ထုတ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+Error ဖြစ်တာကိုတော့ တွေ့သွားပြီ...  
+
+w: apple
+s: apple
+w: အရည
+s: 
+w: အသ
+s: 
+w: covid
+s: covid
+w: 19
+s: 19
+Traceback (most recent call last):
+  File "./train.py", line 180, in <module>
+    arr=inpH.pre_emb["zero"]
+KeyError: 'zero'
+
+real	0m9.601s
+user	0m9.494s
+sys	0m1.273s
+```
+
+စာကြောင်းထဲမှာ နံပါတ်ပါရင် zero လုပ်ထားတာကိုတွေ့ရ...  
+အဲဒါကြောင့် အောက်ပါအတိုင်း coding ကို ဝင်ပြင်တော့ fasttext vector နဲ့ run လို့ သွားခဲ့...  
+
+```
+        for w in vocab_processor.vocabulary_._mapping:
+            arr=[]
+            #print("w:", w)
+            s = re.sub('[^0-9a-zA-Z]+', '', w)
+            #print("s:", s)            
+            #s = re.sub('[၊။]', '', w)
+            if w in inpH.pre_emb:
+                arr=inpH.pre_emb[w]
+            elif w.lower() in inpH.pre_emb:
+                arr=inpH.pre_emb[w.lower()]
+            elif s in inpH.pre_emb:
+                arr=inpH.pre_emb[s]
+#            elif s.isdigit():
+#                arr=inpH.pre_emb["zero"]
+```
+
+ပထမဆုံး manual word နဲ့ စ run ခဲ့...  
+
+```
+
+```
 ## Note
   
 Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run ရင် training data ကို label ထိုးထားတာက တမျိုးပဲ လို့ ယူဆပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို function တစ်ခုနဲ့ negative label ကို simulation လုပ်သွားတယ်။ အဲဒါကြောင့် အဲဒီတိုင်း run ရင် result က မကောင်းနိုင်ဘူး။ ဥပမာ အောက်က ပုံက myWord ကို character training default နဲ့ run နေစဉ်မှာ မြင်ရတဲ့ accuracy နဲ့ loss ရဲ့ အခြေအနေ... ဒီ အနေအထားကနေ Accuracy က 90 အထက် တက်လာဖို့က မလွယ်ကူဘူး...  
