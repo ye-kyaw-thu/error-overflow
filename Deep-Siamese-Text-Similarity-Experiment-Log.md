@@ -4287,8 +4287,34 @@ sys	0m1.317s
 
 ### with Manual Segmented Word
 
+```
+  (base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp train.txt /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp closed-test /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my2$ cp open-test.final.manual /home/ye/exp/myPara2/deep-siamese-text-similarity/
+```
+  
+Training...  
+  
+```
+  
+```
+
+Evaluation with Open Test...   
+  
+```
+  
+```
+  
+Evaluation with Closed Test...   
+  
+```
+  
+```
+
+
 ### with Syllable Unit  
 
+Syllable segmentation လုပ်ထားတဲ့ training ဖိုင်၊ open test data ဖိုင်၊ closed-test data ဖိုင်တွေကို Deep Siamese ပရိုဂရမ် run မယ့် ဖိုလ်ဒါအောက်ကို ကူးပြီးတော့...  
 Training...  
   
 ```
@@ -4394,6 +4420,7 @@ sys	0m1.272s
 
 ### with Word (segmented with myWord)
 
+myWord နဲ့ segmentation လုပ်ထားတဲ့ training ဖိုင်၊ open test data ဖိုင်၊ closed-test data ဖိုင်တွေကို Deep Siamese ပရိုဂရမ် run မယ့် ဖိုလ်ဒါအောက်ကို ကူးပြီးတော့...  
 Training...  
   
 ```
