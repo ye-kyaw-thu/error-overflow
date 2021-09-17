@@ -4887,7 +4887,7 @@ validation.txt0 ရဲ့ format က train.txt ထဲကနေပဲ ငါက �
 ဟင့်အင်း ၊ သူ မရှိဘူး ။	သူတို့လေးတွေ ချစ်စရာကောင်းတာ အမှန်ဘဲ ။	0
 ```
 
-တကယ် ရှိသင့်တာက label\<TAB\>string1\<TAB\>string2 ဆိုတဲ့ ပုံစံ ရှိရမယ်။ ဆိုလိုတာက test data နဲ့ format တူရမယ်။  
+တကယ် ရှိသင့်တာက label\<TAB\>string1\<TAB\>string2 ဆိုတဲ့ ပုံစံ ရှိရမယ်။ ဆိုလိုတာက test data နဲ့ format တူရမယ်။ မေ့သွားတာ...   
 validation.txt0 ရဲ့ format ကို ပြန်ပြောင်းပြီး ထပ် training လုပ်ကြည်မယ်...  
 
 
