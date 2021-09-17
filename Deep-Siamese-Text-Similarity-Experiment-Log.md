@@ -4743,8 +4743,29 @@ manual-word အတွက် ပြင်ပြီးသွားပြီမိ�
 
 
 ### Manual-Word, word2vec
-  
-  
+
+မ run ခင်မှာ လိုအပ်တဲ့ manual-word ဖိုင်တွေကို (ဒီတစ်ခါတော့ training က only positive label) experiment လုပ်မယ့် path အောက်ကို ကော်ပီကူးယူခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my3$ cp train.txt /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my3$ cp validation.txt0 /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my3$ cp open-test.final.manual /home/ye/exp/myPara2/deep-siamese-text-similarity/
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my3$ cp closed-test /home/ye/exp/myPara2/deep-siamese-text-similarity/
+```
+
+training မလုပ်ခင်မှာ validation.txt0 ရဲ့ time-stamp ကို ကြိုမှတ်ထားခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ ll validation.txt0 -h
+-rw-rw-r-- 1 ye ye 813K စက်   17 17:12 validation.txt0
+```
+
+training...  
+
+```
+
+```
+
 ### Syllable, word2vec
   
   
