@@ -4283,7 +4283,7 @@ sys	0m1.317s
 
   
  
-## Training with character Unit, 200 Epoch
+## Training with character Embedding, 200 Epoch
 
 ### with Manual Segmented Word
 
@@ -5007,7 +5007,7 @@ sys	0m1.279s
   </br>  
   
 
-ပထမဆုံး y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  (dumpValidation function ကို သုံးခဲ့)
+ဒုတိယ experiment အနေနဲ့ y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  (dumpValidation function ကို သုံးခဲ့)
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --num_epochs 200 2>&1 | tee train-char-unit-both-yesno-label-char-embedding-sampling-17sept2021.log
@@ -5118,8 +5118,23 @@ sys	0m1.298s
 </div>   
   </br>  
 
-### Only yes, char embedding
 
+## Summary of Experiments
+
+အထက်မှာ အမျိုးမျိုး Experiment လုပ်ခဲ့တာတွေထဲက သုံးလို့ ရနိုင်တဲ့ ရလဒ်တွေကို summary လုပ်ကြည့်ရင် အောက်ပါအတိုင်း ရခဲ့တယ်...  
+
+|:method|closed-test:|open test:|
+|manual (w2v)| 0.969| 0.447447|
+|syllable (w2v)| 0.964| 0.44044|
+|word (w2v)| 0.96| 0.444444|
+|manual (char-emb)| 0.941| 0.437437|
+|syllable(char-emb)| 0.922| 0.428428|
+|word (char-emb)| 0.932| 0.437437|
+
+
+
+### Only yes, char embedding
+စဉ်းစား...  
 
   
   
