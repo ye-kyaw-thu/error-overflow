@@ -4396,7 +4396,15 @@ real	0m7.319s
 user	0m7.852s
 sys	0m1.321s
 ```
-
+  
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/manualWord-200epoch-char-nosimu-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/manualWord-200epoch-char-nosimu-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "Syllable", char, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
 
 ### with Syllable Unit  
 
