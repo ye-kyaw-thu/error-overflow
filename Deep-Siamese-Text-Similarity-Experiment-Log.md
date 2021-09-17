@@ -4801,6 +4801,10 @@ user	103m25.454s
 sys	11m39.175s
 ```
 
+လက်ရှိ training, validation ရလဒ်ကို ကြည့်လိုက်ရင် char mode ရဲ့ run တဲ့ ပုံစံနဲ့ မတူဘူး... လို့ ယူဆတယ်။  
+
+
+
 ### Syllable, word2vec
   
   
