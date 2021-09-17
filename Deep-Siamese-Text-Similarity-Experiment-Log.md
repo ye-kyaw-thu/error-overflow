@@ -5132,7 +5132,9 @@ sys	0m1.298s
 |Syllable(char-embedding)| 0.922| 0.428428|  
 |Word (char-embedding)| 0.932| 0.437437|  
 
-
+အောက်ပါ အချက်တွေ တွေ့ရ  
+- word2vec က char-embedding ထက် ရလဒ် ပိုကောင်းတယ်
+- closed-test မှာ ရလဒ်တွေက 0.969 အထိ ရပေမဲ့၊ open test မှာတော့ 0.447 က အများဆုံးပဲ
 
 ### Only yes, char embedding
 စဉ်းစား...  
