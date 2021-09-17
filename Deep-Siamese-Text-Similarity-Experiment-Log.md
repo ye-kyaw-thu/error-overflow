@@ -5241,9 +5241,9 @@ sys	0m1.273s
 ```
 
 စာကြောင်းထဲမှာ နံပါတ်ပါရင် zero လုပ်ထားတာကိုတွေ့ရ...  
-အဲဒါကြောင့် အောက်ပါအတိုင်း coding ကို ဝင်ပြင်တော့ fasttext vector နဲ့ run လို့ သွားခဲ့...  
+အဲဒါကြောင့် အောက်ပါအတိုင်း train.py ဖိုင်ရဲ့ coding ကို ဝင်ပြင်တော့ fasttext vector နဲ့ run လို့ ရသွားခဲ့...  
 
-```
+```python
         for w in vocab_processor.vocabulary_._mapping:
             arr=[]
             #print("w:", w)
@@ -5260,11 +5260,66 @@ sys	0m1.273s
 #                arr=inpH.pre_emb["zero"]
 ```
 
+### with manual word
 ပထမဆုံး manual word နဲ့ စ run ခဲ့...  
 
 ```
 
 ```
+
+Evaluation with open test...  
+
+```
+
+```
+
+Evaluation with closed test...
+
+```
+
+```
+
+### with syllable
+
+training...  
+```
+
+```
+
+Evaluation with open test...  
+
+```
+
+```
+
+Evaluation with closed test...
+
+```
+
+```
+
+
+### with myWord-Word
+
+training...  
+```
+
+```
+
+Evaluation with open test...  
+
+```
+
+```
+
+Evaluation with closed test...
+
+```
+
+```
+
+
+
 ## Note
   
 Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run ရင် training data ကို label ထိုးထားတာက တမျိုးပဲ လို့ ယူဆပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို function တစ်ခုနဲ့ negative label ကို simulation လုပ်သွားတယ်။ အဲဒါကြောင့် အဲဒီတိုင်း run ရင် result က မကောင်းနိုင်ဘူး။ ဥပမာ အောက်က ပုံက myWord ကို character training default နဲ့ run နေစဉ်မှာ မြင်ရတဲ့ accuracy နဲ့ loss ရဲ့ အခြေအနေ... ဒီ အနေအထားကနေ Accuracy က 90 အထက် တက်လာဖို့က မလွယ်ကူဘူး...  
