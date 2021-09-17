@@ -5136,10 +5136,7 @@ sys	0m1.298s
 - word2vec က char-embedding ထက် ရလဒ် ပိုကောင်းတယ်
 - closed-test မှာ ရလဒ်တွေက 0.969 အထိ ရပေမဲ့၊ open test မှာတော့ 0.447 က အများဆုံးပဲ
 
-### Only yes, char embedding
-စဉ်းစား...  
-
-  
+ 
   
 ## Thinking
 
