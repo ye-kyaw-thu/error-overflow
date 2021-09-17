@@ -4801,7 +4801,32 @@ user	103m25.454s
 sys	11m39.175s
 ```
 
-လက်ရှိ training, validation ရလဒ်ကို ကြည့်လိုက်ရင် char mode ရဲ့ run တဲ့ ပုံစံနဲ့ မတူဘူး... လို့ ယူဆတယ်။  
+လက်ရှိ training, validation ရလဒ်ကို ကြည့်လိုက်ရင် char mode ရဲ့ run တဲ့ ပုံစံနဲ့ မတူဘူးလား?! ရလဒ်တွေက တအားကောင်းနေတယ်?!...   
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631873868/checkpoints/model-39000 --vocab_filepath ./runs/1631873868/checkpoints/vocab --eval_filepath ./open-test.final.manual
+...
+...
+...
+0.00016263683210127056
+0.0001614336360944435
+0.0001669142220634967
+0.00016816060815472156
+0.00016702391440048814
+0.00016422268527094275
+0.0001679160341154784
+0.000170883780810982
+0.0001652077044127509
+0.00016829701780807227
+0.00016728548507671803
+0.0001456546742701903
+Accuracy: 0.58959
+
+real	0m6.342s
+user	0m6.787s
+sys	0m1.299s
+```
+
 
 
 
