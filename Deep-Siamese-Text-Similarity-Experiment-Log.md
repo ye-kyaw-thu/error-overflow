@@ -4626,7 +4626,8 @@ sys	0m1.236s
 ပထမဆုံး run ခဲ့တဲ့ experiment နဲ့ အကြမ်းမျဉ်း တူသလိုလို ထင်ရပေမဲ့... တကယ်တမ်းက မတူဘူး။ ဘာကြောင့်လဲ ဆိုတော့ ပထမဆုံး run ခဲ့တဲ့ char approach မှာက training data က Para ကိုပဲ ပေးပေမဲ့ coding ထဲကနေ simulation လုပ်ပြီး nagetive label ပါ ပါတဲ့ validation ဖိုင်ကို auto ထုတ်တာမို့။   
 တကယ်က အဲဒီလို auto ထုတ်တဲ့ validation ဖိုင်ကို မသုံးစေချင်လို့ ကိုယ့်ဖာသာကိုယ် validation ဖိုင်ကို assignment လုပ်ပြီးတော့ run လို့ ရတဲ့ ပုံစံနဲ့ လိုချင်တာမို့....  
 
-Coding information:  
+
+Coding information of input_helpers.py:  
 
 ```python
     def dumpValidation(self,x1_text,x2_text,y,shuffled_index,dev_idx,i):
@@ -4647,8 +4648,82 @@ Coding information:
         del y_dev
 ```
 
-အထက်ပါ dumpValidation အထဲက statement တွေကို ပိတ်လိုက်ရင် အိုကေပြီလို့ ထင်တယ်။  
-validation.txt0 ဆိုတဲ့ ဖိုင်ကို ကိုယ့်ဖာသာကိုယ် ကြိုပြင်ထားပြီးတော့ run ရင် ရပြီလို့ ယူဆ...  
+အထက်ပါ input_helpers.py ဖိုင်ရဲ့ dumpValidation() function အထဲက statement တွေကို ပိတ်လိုက်ရင် အိုကေပြီလို့ ထင်တယ်။  
+training ဒေတာထဲမှာ positive label တွေချည်းပဲကို ပြင်ဆင်ထားပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို ကိုယ့်ဖာသာကိုယ် ကြိုပြင်ထားပြီးတော့ run ရင် ရပြီလို့ ယူဆ...  
+
+
+### Preprocessing
+
+လက်ရှိ path ```/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/``` က Deep Siamese NN အတွက် ပြင်ခဲ့တဲ့ training, validation, test ဒေတာတွေကို သိမ်းထားတဲ့ folder ပါ။
+အဲဒီအောက်မှာရှိတဲ့...  manual-my1, syl-1, word-1 က Deep Siamese ကို စစမ်းတုန်းက သုံးခဲ့တဲ့ ဒေတာတွေ...    
+
+တကယ် formal experiment က manual-my2, syl-my2 နဲ့ word-my2 ကို သုံးပြီး လုပ်ခဲ့တယ်။  
+စာတမ်းအတွက် အသုံးဝင်လိမ့်မယ်။  
+
+ပြီးတော့ training data ကို positive label (ဆိုလိုတာက paraphrase တွေချည်းပဲ) ထားပြီး validation နဲ့ testing ကျမှပဲ both positive and negative label တွေနဲ့ train လုပ်ဖို့အတွက်  
+အောက်ပါအတိုင်း manual-my2, syl-my2 နဲ့ word-my2 ဖိုလ်ဒါတွေကို ကော်ပီကူးခဲ့တယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp -r manual-my2 manual-my3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp -r syl-my2 syl-my3
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp -r word-my2 word-my3
+```
+
+ပြီးမှ နံပါတ် 3 ဖိုလ်ဒါတွေအထဲမှာ positive only training data ဖြစ်အောင်နဲ့ validation set တွေကို ဝင်ပြင်ခဲ့တယ်။  
+အောက်ပါအတိုင်း ...    
+
+ဖိုင်နာမည်တွေ နဲ့ file size ကို အရင်ဆုံး စစ်ဆေး...    
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-my3$ wc *
+      32       91      686 clean-space.pl
+    1000    16905   202235 closed-test
+   84921   659489  8606282 mypara-all.manual
+    1000    12674   138579 open-test.final.manual
+   40461   672370  8350480 train.txt
+  127414  1361529 17298262 total
+```
+
+train.txt ဖိုင်ကို shuffle လုပ်ခဲ့...  
+```
+$ shuf ./train.txt > train.txt.shuf
+```
+
+နဂို train.txt ဖိုင်ကိုလည်း train.txt.original ဆိုတဲ့ ဖိုင်နာမည်အဖြစ် နာမည်ပြောင်းသိမ်းခဲ့...  
+```
+$ mv train.txt train.txt.original
+```
+
+training ဖိုင် 
+```
+$ head -n 36415 ./train.txt.shuf > train.txt
+```
+validation or development ဖိုင်ကို ဆောက် (10%)
+```
+$ tail -n 4046 ./train.txt.shuf > validation.txt0
+```
+
+training ဖိုင်ကို ပြင်ဆင်...  
+```
+$ head -n 36415 ./train.txt.shuf > train.yn
+$ head ./train.yn
+ခင်ဗျား ဇနီး ဖြစ်မယ် ။	မင်း ရဲ့ ယောက်ျားလေး မိတ်ဆွေ က ဘယ်နှစ်ခါလောက် ဖုန်းဆက် တတ်သလဲ ။	0
+အားပေး နေ မယ် ။	စောင့်မျှော် နေ မယ် နော် ။	0
+ဒီထက်မက လှူနိုင်တန်းနိုင် ပါစေ	ဒီထက် လှူ နိုင် ဒီထက် ချမ်းသာ ပါစေ	1
+ခင်ဗျား တို့ သူ တို့ ကို ဘယ်မှာ စောင့် ခဲ့ တာ လဲ ။	ခင်ဗျား က ကျွန်တော် တို့ ကို ဘယ် နေရာ မှာ စောင့် နေ တာ လဲ ။	0
+သူ ပြော နေ တာ တွေ က အဲ လို လား ။	သူ ပြော နေ တာ တွေ ကြား မိ လား ။	0
+သန်းခေါင်ကျော် မှ အိမ် ကို ဘာ လာ လုပ် တာ လဲ ။	သန်းခေါင်သန်းလွဲ မှ အိမ် ကို ဘာ လာ လုပ် တာ လဲ ။	1
+ဒါဆို ဘာကြောင့် ခင်ဗျား ကိစ္စမပြတ် နိုင် သလဲ ဆိုတာ ကျွန်တော် နားမလည် နိုင်ဘူး ။	သူ ဒေါသတကြီး နဲ့ ကျွန်တော့် ကို မေးတယ် ။	0
+ကိုယ် အလုပ် များ လို့ သတိမရ လိုက် ဘူး ။	ကိုယ် အလုပ် များ လို့ ပင်ပန်း နေ တယ် ။	0
+ကောင်း လိုက် တဲ့ စာသား လေး	ကောင်း လိုက် တဲ့ စာသား တွေ ပါ လား	1
+ရှိခိုး ပါ ၏ ဘုရား	ရှိခိုး ဦးတိုက် ပါ တယ်	1
+```
+
+train.yn ဖိုင်ထဲကနေ 1 or y လေဘယ် ပါတဲ့ စာကြောင်းတွဲတွေကိုပဲ ဆွဲထုတ်ခဲ့...  
+
+```
+
+```
 
 ### Manual-Word, word2vec
   
