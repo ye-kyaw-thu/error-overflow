@@ -5125,7 +5125,7 @@ sys	0m1.298s
 
 |Method|Closed-test|open test|  
 |:-------|------------:|----------:|
-|Manual (word2vec)| 0.969| 0.447447|  
+|Manual (word2vec)| **0.969**| **0.447447**|  
 |Syllable (word2vec)| 0.964| 0.44044|  
 |Word (word2vec)| 0.96| 0.444444|  
 |Manual (char-embedding)| 0.941| 0.437437|  
