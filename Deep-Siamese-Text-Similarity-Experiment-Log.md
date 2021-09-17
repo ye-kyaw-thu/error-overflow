@@ -4629,9 +4629,26 @@ sys	0m1.236s
 Coding information:  
 
 ```python
-
+    def dumpValidation(self,x1_text,x2_text,y,shuffled_index,dev_idx,i):
+        print("dumping validation "+str(i))
+        x1_shuffled=x1_text[shuffled_index]
+        x2_shuffled=x2_text[shuffled_index]
+        y_shuffled=y[shuffled_index]
+        x1_dev=x1_shuffled[dev_idx:]
+        x2_dev=x2_shuffled[dev_idx:]
+        y_dev=y_shuffled[dev_idx:]
+        del x1_shuffled
+        del y_shuffled
+        with open('validation.txt'+str(i),'w') as f:
+            for text1,text2,label in zip(x1_dev,x2_dev,y_dev):
+                f.write(str(label)+"\t"+text1+"\t"+text2+"\n")
+            f.close()
+        del x1_dev
+        del y_dev
 ```
 
+အထက်ပါ dumpValidation အထဲက statement တွေကို ပိတ်လိုက်ရင် အိုကေပြီလို့ ထင်တယ်။  
+validation.txt0 ဆိုတဲ့ ဖိုင်ကို ကိုယ့်ဖာသာကိုယ် ကြိုပြင်ထားပြီးတော့ run ရင် ရပြီလို့ ယူဆ...  
 
 ### Manual-Word, word2vec
   
