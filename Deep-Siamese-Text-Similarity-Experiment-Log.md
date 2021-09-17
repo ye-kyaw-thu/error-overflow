@@ -4903,6 +4903,119 @@ char model run တာကို ငါကြည့်ခဲ့စဉ်က တိ
 
 ပြန် confirm လုပ်ကြည့်ချင်တယ်။ ပြီးတော့ input or training data ကို y only နဲ့ both y,n နဲ့ ပါ စမ်းကြည့်ချင်တယ်။  
 
+ပထမဆုံး y,n နှစ်မျိုးလုံးနဲ့ training လုပ်ခဲ့...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./train.py --num_epochs 200 2>&1 | tee train-char-unit-both-yesno-label-17-char-embedding-sept2021.log1
+...
+...
+...
+TRAIN 2021-09-17T22:22:18.248597: step 113599, loss 0.00928952, acc 0.984375
+(1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1) [0.01583512 0.06545042 0.37487823 0.07334331 0.98481566 0.9740973
+ 0.974744   0.9652304  0.09076369 0.9896482  0.12312228 0.02727517
+ 0.98638755 0.04705433 0.08167117 0.97999895 0.9898183  0.97636753
+ 0.95561546 0.05246364 0.98295873 0.8372066  0.98276806 0.9833687
+ 0.9777756  0.093307   0.97506404 0.8909358  0.9865072  0.9115684
+ 0.09104723 0.9962457  0.9865118  0.03514251 0.2996722  0.03784204
+ 0.02731801 0.07383046 0.97171247 0.1874643  0.9962971  0.982813
+ 0.05788892 0.9276825  0.01508454 0.03422804 0.9770363  0.1244453
+ 0.44767073 0.9860132  0.02653803 0.11011203 0.98442316 0.33210924
+ 0.12903947 0.9484946  0.99129593 0.97842336 0.8778358  0.9797766
+ 0.1262571  0.24051821 0.9791967  0.03347741] [1. 1. 1. 1. 0. 0. 0. 0. 1. 0. 1. 1. 0. 1. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0.
+ 0. 1. 0. 0. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1. 0. 1. 0. 0. 1. 0. 1. 1. 0. 1.
+ 1. 0. 1. 1. 0. 1. 1. 0. 0. 0. 0. 0. 1. 1. 0. 1.]
+TRAIN 2021-09-17T22:22:18.278195: step 113600, loss 0.00638196, acc 1
+(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0) [0.9676406  0.9735173  0.9864515  0.07358615 0.10179903 0.854159
+ 0.99009025 0.828539   0.9505731  0.9968247  0.19306809 0.87070763
+ 0.07031751 0.9572122  0.32572377 0.98357785 0.9852664  0.9476204
+ 0.08844588 0.6895189  0.9843316  0.07024514 0.2564101  0.15791814
+ 0.98962396 0.9902072  0.9165808  0.96080804 0.05438793 0.01829758
+ 0.97909534 0.9505146  0.9791351  0.81307983 0.01006282 0.03290852
+ 0.9836465  0.98008686 0.02286414 0.97633314 0.07824443 0.02048856
+ 0.05361512 0.9961693  0.01350765 0.2939456  0.9657806  0.14757979
+ 0.16511376 0.0479538  0.04747514 0.962947   0.98747456 0.8794633
+ 0.04419978 0.90134275 0.98610556 0.9122985  0.93501055 0.34254825
+ 0.02727869 0.9402128  0.9854962  0.8995379 ] [0. 0. 0. 1. 1. 0. 0. 0. 0. 0. 1. 0. 1. 0. 1. 0. 0. 0. 1. 0. 0. 1. 1. 1.
+ 0. 0. 0. 0. 1. 1. 0. 0. 0. 0. 1. 1. 0. 0. 1. 0. 1. 1. 1. 0. 1. 1. 0. 1.
+ 1. 1. 1. 0. 0. 0. 1. 0. 0. 0. 0. 1. 1. 0. 0. 0.]
+
+real	58m41.145s
+user	287m43.696s
+sys	34m48.652s
+```
+
+Evaluation with open test data
+
+```
+0.9655413031578064
+0.4054034650325775
+0.886533260345459
+0.9968680143356323
+0.9820180535316467
+0.8720901012420654
+0.97926926612854
+0.9793165922164917
+0.9786327481269836
+0.93329918384552
+0.9489979147911072
+0.6613661646842957
+0.9922716617584229
+0.9060789346694946
+Accuracy: 0.443443
+
+real	0m7.625s
+user	0m7.768s
+sys	0m1.366s
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631888626/checkpoints/model-75000 --vocab_filepath ./runs/1631888626/checkpoints/vocab --eval_filepath ./open-test.final.manual
+```
+
+Evaluation with closed-test...  
+
+```
+(paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631888626/checkpoints/model-75000 --vocab_filepath ./runs/1631888626/checkpoints/vocab --eval_filepath ./closed-test
+...
+...
+...
+0.030810397118330002
+0.9287165403366089
+0.0818067416548729
+0.10326208919286728
+0.05379047617316246
+0.9919763803482056
+0.06349574029445648
+0.44059285521507263
+0.9803009033203125
+0.8286778330802917
+0.981559693813324
+0.1632755994796753
+0.04561747610569
+0.02362591214478016
+Accuracy: 0.941
+
+real	0m7.306s
+user	0m7.886s
+sys	0m1.279s
+```
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-17Sept2021-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-17Sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "Manual-Word", char, training with both yes-no label, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp manual-my2 manual-m4 -r
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cd manual-m4
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-m4$ ls
+clean-space.pl  closed-test  mypara-all.manual  open-test.final.manual  train.txt
+```
+
+
+
 ### Manual-Word, char
 
 ### Syllable, char
