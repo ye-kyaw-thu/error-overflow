@@ -4620,7 +4620,10 @@ sys	0m1.236s
 ----------------
   
 ## Training Only with Paraphrase, Validation and Testing with (Para + Non-Pra)
-  
+
+traditional ML မှာ data နည်းတဲ့အခါ လုပ်ခဲ့တဲ့ နည်းလမ်းတစ်ခု... model အနေနဲ့ကတော့ intelligent မရှိဖြစ်သွားပေမဲ့....
+NN မှာ လည်း စမ်းကြည့်ချင်ခဲ့...  
+
 အဲဒီလို Run ဖို့အတွက်ဆိုရင် coding ကို ဝင်ပြင်ရလိမ့်မယ်။  
 
 ပထမဆုံး run ခဲ့တဲ့ experiment နဲ့ အကြမ်းမျဉ်း တူသလိုလို ထင်ရပေမဲ့... တကယ်တမ်းက မတူဘူး။ ဘာကြောင့်လဲ ဆိုတော့ ပထမဆုံး run ခဲ့တဲ့ char approach မှာက training data က Para ကိုပဲ ပေးပေမဲ့ coding ထဲကနေ simulation လုပ်ပြီး nagetive label ပါ ပါတဲ့ validation ဖိုင်ကို auto ထုတ်တာမို့။   
@@ -4890,12 +4893,22 @@ validation.txt0 ရဲ့ format က train.txt ထဲကနေပဲ ငါက �
 တကယ် ရှိသင့်တာက label\<TAB\>string1\<TAB\>string2 ဆိုတဲ့ ပုံစံ ရှိရမယ်။ ဆိုလိုတာက test data နဲ့ format တူရမယ်။ မေ့သွားတာ...   
 validation.txt0 ရဲ့ format ကို ပြန်ပြောင်းပြီး ထပ် training လုပ်ကြည်မယ်...  
 
+training ထပ်လုပ်ကြည့်ခဲ့... training/validation graph က မကောင်းဘူး။  
+char model run တာကို ငါကြည့်ခဲ့စဉ်က တိုက်တိုက်ဆိုင် head, tail က true တွေချည်းဖြစ်နေတာဖြစ်ရမယ်...  
+ပုံမှန် training data ကိုပဲ char နဲ့ အစအဆုံး ပြန် run ကြည့်ပြီး confirmation လုပ်မယ်။   
 
 
-### Syllable, word2vec
+
+## Experiment with Char Embedding  
+
+ပြန် confirm လုပ်ကြည့်ချင်တယ်။ ပြီးတော့ input or training data ကို y only နဲ့ both y,n နဲ့ ပါ စမ်းကြည့်ချင်တယ်။  
+
+### Manual-Word, char
+
+### Syllable, char
   
   
-### myWord, word2vec
+### myWord-Word, char
   
   
 ## Thinking
