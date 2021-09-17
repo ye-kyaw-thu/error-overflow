@@ -4858,7 +4858,17 @@ sys	0m1.306s
 
 တစ်ခုခုတော့ လွဲနေပြီလား ?!...  
 
+  
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-manual-only-positive-epoch200-w2v.17sept2021-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-manual-only-positive-epoch200-w2v.17sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
 
+ဒီ ဂရဖ်ကို ငါ သိပ်မကြိုက်ဘူး...  
 
 ### Syllable, word2vec
   
