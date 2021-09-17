@@ -5123,13 +5123,13 @@ sys	0m1.298s
 
 အထက်မှာ အမျိုးမျိုး Experiment လုပ်ခဲ့တာတွေထဲက သုံးလို့ ရနိုင်တဲ့ ရလဒ်တွေကို summary လုပ်ကြည့်ရင် အောက်ပါအတိုင်း ရခဲ့တယ်...  
 
-|:method|closed-test:|open test:|
-|manual (w2v)| 0.969| 0.447447|
-|syllable (w2v)| 0.964| 0.44044|
-|word (w2v)| 0.96| 0.444444|
-|manual (char-emb)| 0.941| 0.437437|
-|syllable(char-emb)| 0.922| 0.428428|
-|word (char-emb)| 0.932| 0.437437|
+|:method|closed-test:|open test:|  
+|manual (w2v)| 0.969| 0.447447|  
+|syllable (w2v)| 0.964| 0.44044|  
+|word (w2v)| 0.96| 0.444444|  
+|manual (char-emb)| 0.941| 0.437437|  
+|syllable(char-emb)| 0.922| 0.428428|  
+|word (char-emb)| 0.932| 0.437437|  
 
 
 
