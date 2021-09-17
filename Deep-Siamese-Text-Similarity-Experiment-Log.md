@@ -4621,7 +4621,18 @@ sys	0m1.236s
   
 ## Training Only with Paraphrase, Validation and Testing with (Para + Non-Pra)
   
-  
+အဲဒီလို Run ဖို့အတွက်ဆိုရင် coding ကို ဝင်ပြင်ရလိမ့်မယ်။  
+
+ပထမဆုံး run ခဲ့တဲ့ experiment နဲ့ အကြမ်းမျဉ်း တူသလိုလို ထင်ရပေမဲ့... တကယ်တမ်းက မတူဘူး။ ဘာကြောင့်လဲ ဆိုတော့ ပထမဆုံး run ခဲ့တဲ့ char approach မှာက training data က Para ကိုပဲ ပေးပေမဲ့ coding ထဲကနေ simulation လုပ်ပြီး nagetive label ပါ ပါတဲ့ validation ဖိုင်ကို auto ထုတ်တာမို့။   
+တကယ်က အဲဒီလို auto ထုတ်တဲ့ validation ဖိုင်ကို မသုံးစေချင်လို့ ကိုယ့်ဖာသာကိုယ် validation ဖိုင်ကို assignment လုပ်ပြီးတော့ run လို့ ရတဲ့ ပုံစံနဲ့ လိုချင်တာမို့....  
+
+Coding information:  
+
+```python
+
+```
+
+
 ### Manual-Word, word2vec
   
   
