@@ -5109,12 +5109,17 @@ user	0m7.803s
 sys	0m1.298s
 ```
 
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cp manual-my2 manual-m4 -r
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para$ cd manual-m4
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:/media/ye/SP PHD U3/test-myWord/myWord-main/my-para/manual-m4$ ls
-clean-space.pl  closed-test  mypara-all.manual  open-test.final.manual  train.txt
-```
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-sampling-17sept2021-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-sampling-17sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "Manual-Word", char, training with both yes-no label, allow sampling, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+
+
+
 
 
 
