@@ -5702,7 +5702,9 @@ sys	0m1.209s
 myWord-200epoch-fasttext-max_document_length30-accuracy.png
 myWord-200epoch-fasttext-max_document_length30-loss.png
 
-## Playing with Batch Size (32 and 16)  
+## Playing with Batch Size (32, 16, 8)  
+
+### Training and Evaluation with Batch Size 32
 
 ဒီ တစ်ခါ Batch Size ကို 32 ထားပြီး run ကြည့်မယ်...  
 default က 64 မို့လို့...  
@@ -5803,6 +5805,8 @@ sys	0m1.238s
 
 myWord-200epoch-fasttext-max_document_length15-batch32-accuracy.png
 myWord-200epoch-fasttext-max_document_length15-batch32-loss.png
+
+### Training and Evaluation with Batch Size 16
 
 ဒီ တစ်ခါ Batch Size ကို 16 ထားပြီး run ကြည့်မယ်...  
 (default က 64 မို့လို့)  
@@ -5920,15 +5924,17 @@ user	0m7.002s
 sys	0m1.308s
 ```
 
-Figures:
+Figures:  
 
-myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy
-myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png
+myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy  
+myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png  
 
-- ရလဒ်တွေက အပြောင်းအလဲ သိသိသာသာရှိရင်... လိုအပ်ရင် Batch Size ကို 8 ထားပြီးလည်း run ကြည့်မယ်။  
-- သိသိသာသာကြီးတော့ ပြောင်းလဲတာ မဟုတ်ပေမဲ့ open test မှာ top အထိတော့ ရောက်လာတယ်။  လုပ်လက်စနဲ့ batch size ကို လျှောတာ မဟုတ်ပဲ တိုးကြည့်မယ်။ 128 ထားပြီး run ကြည့်မယ်။ memory မနိုင်ရင်တော့ down သွားလိမ့်မယ်။ အချိန်ကတော့ ပိုမြန်လာမှာမို့...  
+### Training and Evaluation with Batch Size 128
 
-train
+- သိသိသာသာကြီးတော့ ပြောင်းလဲတာ မဟုတ်ပေမဲ့ open test မှာ top အထိတော့ ရောက်လာတယ်။  
+- လုပ်လက်စနဲ့ batch size ကို လျှောတာ မဟုတ်ပဲ တိုးကြည့်မယ်။ 128 ထားပြီး run ကြည့်မယ်။ memory မနိုင်ရင်တော့ down သွားလိမ့်မယ်။ အချိန်ကတော့ ပိုမြန်လာမှာမို့...  
+
+train  
 
 ```
 TRAIN 2021-09-18T20:34:56.437872: step 56800, loss 0.00715417, acc 0.992188
@@ -6013,8 +6019,10 @@ sys	0m1.246s
 
 ```
 
-myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-accuracy.png
-myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png
+myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-accuracy.png  
+myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png  
+
+### Training and Evaluation with Batch Size 8
 
 with batch 8
 
