@@ -6046,7 +6046,7 @@ sys	0m1.246s
   <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 128, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
@@ -6160,7 +6160,7 @@ sys	0m1.208s
   <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
