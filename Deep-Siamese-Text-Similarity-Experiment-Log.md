@@ -5567,8 +5567,14 @@ user	0m6.944s
 sys	0m1.237s
 ```
 
-myWord-200epoch-fasttext-accuracy.png
-myWord-200epoch-fasttext-loss.png
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
 
 --------------
 
@@ -5699,9 +5705,15 @@ user	0m11.129s
 sys	0m1.209s
 ```
 
-myWord-200epoch-fasttext-max_document_length30-accuracy.png
-myWord-200epoch-fasttext-max_document_length30-loss.png
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length30-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length30-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=30, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+  
 ## Playing with Batch Size (32, 16, 128, 8)  
 
 ### Training and Evaluation with Batch Size 32
@@ -5709,7 +5721,7 @@ myWord-200epoch-fasttext-max_document_length30-loss.png
 ဒီ တစ်ခါ Batch Size ကို 32 ထားပြီး run ကြည့်မယ်...  
 default က 64 မို့လို့...  
 
-```
+```python
   --batch_size BATCH_SIZE
                         Batch Size (default: 64)
 ```
@@ -5751,7 +5763,7 @@ user	408m55.347s
 sys	49m57.117s
 ```
 
-Evaluation with open test data...
+Evaluation with open test data...  
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631950958/checkpoints/model-74000 --vocab_filepath ./runs/1631950958/checkpoints/vocab --eval_filepath ./open-test.final.manual.word
@@ -5778,7 +5790,7 @@ user	0m7.027s
 sys	0m1.199s
 ```
 
-Evaluation with closed test data...  
+Evaluation with closed test data...   
 
 ```
 (paraphrase2) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara2/deep-siamese-text-similarity$ time python ./eval.py --model ./runs/1631950958/checkpoints/model-74000 --vocab_filepath ./runs/1631950958/checkpoints/vocab --eval_filepath ./closed-test.word 
@@ -5803,8 +5815,14 @@ user	0m7.119s
 sys	0m1.238s
 ```
 
-myWord-200epoch-fasttext-max_document_length15-batch32-accuracy.png
-myWord-200epoch-fasttext-max_document_length15-batch32-loss.png
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length15-batch32-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length15-batch32-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 32, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
 
 ### Training and Evaluation with Batch Size 16
 
@@ -5922,12 +5940,16 @@ Accuracy: 0.96
 real	0m6.545s
 user	0m7.002s
 sys	0m1.308s
-```
+```  
 
-Figures:  
-
-myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy  
-myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png  
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
 
 ### Training and Evaluation with Batch Size 128
 
@@ -6019,12 +6041,18 @@ sys	0m1.246s
 
 ```
 
-myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-accuracy.png  
-myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png  
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-accuracy.png" width="300" />
+  <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
+  
 ### Training and Evaluation with Batch Size 8
 
-with batch 8
+with batch 8  
 
 Training...  
 
@@ -6126,6 +6154,17 @@ real	0m6.398s
 user	0m6.943s
 sys	0m1.208s
 ```
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-accuracy.png" width="300" />
+  <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
+  
+  
 
 ## Playing Hidden Units (80, 100)
 
