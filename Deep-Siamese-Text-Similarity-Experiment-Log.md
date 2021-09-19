@@ -6340,9 +6340,15 @@ user	0m7.165s
 sys	0m1.245s
 ```
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units80-epoch200-accuracy.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units80-epoch200-loss.png
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units80-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units80-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 80**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+  
 Training with hidden_units 100 ...  
 
 ```
@@ -6462,9 +6468,15 @@ user	0m7.549s
 sys	0m1.304s
 ```
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units100-epoch200-accuracy.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units100-epoch200-loss.png
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units100-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units100-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 100**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+  
 ### Experiment with Hidden Units 200
 
 Hidden unit ကို တိုးကြည့်ခြင်းအားဖြင့် ရလဒ်မှာ ဘယ်လို သက်ရောက်မှုရှိသလဲ ဆိုတာကို ကြည့်ချင်တယ်...  
@@ -6589,16 +6601,28 @@ sys	0m1.350s
 Training time ကတော့ အရမ်းကြာသွားတယ်။ graph နဲ့ ကြည့်ရင် အောက်ပါအတိုင်း...  
 (ပုံမှန်အားဖြင့်က 1နာရီ ဝန်းကျင်နဲ့ ပြီးပေမဲ့ ဒီတစ်ခေါက်ကတော့ ...  )
 
-နာရီနဲ့ graph ပုံ ထည့်ရန်၊
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-accuracy.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss.png
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-accuracy-time.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss-time.png
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-accuracy-time.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss-time.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
 
 အခုချိန်ထိ လုပ်ခဲ့တဲ့ parameter tuning ရလဒ်တွေကို ဇယားဆောက်ကြည့်ရင် အောက်ပါအတိုင်း...   
+
+
 
 
 -----------
@@ -6807,9 +6831,15 @@ user	0m6.940s
 sys	0m1.247s
 ```
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.3-epoch200-accuracy.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.3-epoch200-loss.png
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.3-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.3-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.3**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br>  
+  
 Note: အခုချိန်ထိ လုပ်ခဲ့တဲ့ training နဲ့ validation နှစ်ခုအကြားရဲ့ learning rate မှာ ပြောင်းလဲမှု သိသိသာသာ ဖြစ်စေတာက dropout ပဲ  
 
 ### training/validation with dropout 0.6
@@ -6979,8 +7009,14 @@ user	0m6.961s
 sys	0m1.298s
 ```
 
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.6-epoch200-accuracy.png
-myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.6-epoch200-loss.png
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.6-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.6-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
   
 ### Validation.txt0
 
