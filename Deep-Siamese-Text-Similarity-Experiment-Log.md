@@ -5943,7 +5943,7 @@ sys	0m1.308s
 ```  
 
 <p float="left"  align="center">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-accuracy.png" width="300" />
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
