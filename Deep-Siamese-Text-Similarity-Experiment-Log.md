@@ -5578,7 +5578,20 @@ sys	0m1.237s
 
 --------------
 
-table ကို update လုပ်ရန်
+လက်ရှိအချိန်ထိ ရလဒ်တွေကို ပြန် သုံးသပ်နိုင်ဖို့ အထက်မှာ ဆောက်ခဲ့တဲ့ ရလဒ်ဇယားကို update လုပ်ခဲ့တယ်။  
+
+|Method|Closed-test|open test|  
+|:-------|------------:|----------:|
+|Manual (word2vec)| **0.969**| **0.447447**|  
+|Syllable (word2vec)| 0.964| 0.44044|  
+|Word (word2vec)| 0.96| 0.444444|  
+|Manual (char-embedding)| 0.941| 0.437437|  
+|Syllable(char-embedding)| 0.922| 0.428428|  
+|Word (char-embedding)| 0.932| 0.437437|  
+|Manual (fasttext embedding)| 0.439439 | 0.965|
+|Syllable (fasttext embedding)| 0.458458 | 0.935|
+|Word (fasttext embedding)| 0.488488 | 0.94|
+
 
 - open test နဲ့မှာ fasttext နဲ့ရတဲ့ Accuracy: 48 က အများဆုံးလို့ ထင်တယ်။
 - universal sentence နဲ့ run လိုရအောင် ပြင်ကြည့်ပြီး run ကြည့်ရန်
