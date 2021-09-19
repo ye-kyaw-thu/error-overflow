@@ -6218,13 +6218,15 @@ Evaluation with closed test data...
 
 ## Note
   
+### Validation.txt0
+
 Deep Siamese NN ပရိုဂရမ်မှာက default char နဲ့ run ရင် training data ကို label ထိုးထားတာက တမျိုးပဲ လို့ ယူဆပြီးတော့ validation.txt0 ဆိုတဲ့ ဖိုင်ကို function တစ်ခုနဲ့ negative label ကို simulation လုပ်သွားတယ်။ အဲဒါကြောင့် အဲဒီတိုင်း run ရင် result က မကောင်းနိုင်ဘူး။ ဥပမာ အောက်က ပုံက myWord ကို character training default နဲ့ run နေစဉ်မှာ မြင်ရတဲ့ accuracy နဲ့ loss ရဲ့ အခြေအနေ... ဒီ အနေအထားကနေ Accuracy က 90 အထက် တက်လာဖို့က မလွယ်ကူဘူး...  
   
 <p align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-default-char-accuracy-is-low.png" width="600" />
 </p>
 <div align="center">
-  Fig.1 Accuracy and Loss Status of Training and Validation  with "Word Unit Segmented with myWord", character, 200 epoch.
+  Fig. Accuracy and Loss Status of Training and Validation  with "Word Unit Segmented with myWord", character, 200 epoch.
 </div>   
   </br>
   
@@ -6241,6 +6243,18 @@ input_helpers.py ဖိုင်ကို အောက်ပါအတိုင�
             x1_text, x2_text, y=self.getTsvData(training_paths)
 ```
   
+### Check Your HDD Space
+
+အခု လက်ရှိ training လုပ်ပြီးရလာတဲ့ NN model တွေရဲ့ file size တွေက တအားကြီးပါတယ်။ အထူးသဖြင့် batch size ကို small no. ထားတဲ့အခါမျိုး၊ hidden units တွေကို တိုးတဲ့အခါမျိုးတွေမှာ...  
+ဥပမာ အနေနဲ့ word (segmented with myWord Segmentation Tool), fasttext embedding, batch size 8, epoch 200 (ထားထားပေမဲ့ early stop လုပ်ပါတယ်) နဲ့ ဆောက်ထားတဲ့ မော်ဒယ်တွေကို သိမ်းထားတဲ့ ဖိုလ်ဒါရဲ့ size က အောက်ပါပုံမှာ ပြထားတဲ့အတိုင်းပါပဲ... 41.8 GB ယူပါတယ်။ အဲဒါတွေကို ဖြေရှင်းတဲ့နည်းကတော့ ဖိုလ်ဒါအလိုက် external HDD မှာ ရွှေ့သိမ်းထားတာမျိုး၊ သို့မဟုတ် checkpoint လုပ်ထားတဲ့ တခြား မော်ဒယ်ဖိုင်တွေကို ဖျက်ပစ်ပြီးတော့ နောက်ဆုံးမော်ဒယ်ကိုပဲ သိမ်းထားတာမျိုးတွေ လုပ်ပါလို့ အကြံပေးချင်ပါတယ်။   
+
+<p align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/siameseNN-training-model-folder-with-batch8.png" width="600" />
+</p>
+<div align="center">
+  Fig. An Example HDD space usage of the Folder that Saved Trained Deep Siamese NN Models
+</div>   
+  </br>
   
 ## Links
   - https://arxiv.org/pdf/1803.11175.pdf
