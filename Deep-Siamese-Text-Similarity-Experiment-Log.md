@@ -6043,7 +6043,7 @@ sys	0m1.246s
 
 <p float="left"  align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-accuracy.png" width="300" />
-  <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png" width="300" /> 
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
   Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 128, 200 epoch. Left: Accuracy, Right: Loss
@@ -6157,7 +6157,7 @@ sys	0m1.208s
 
 <p float="left"  align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-accuracy.png" width="300" />
-  <img src="myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-loss.png" width="300" /> 
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
   Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, 200 epoch. Left: Accuracy, Right: Loss
