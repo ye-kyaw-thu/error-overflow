@@ -5702,7 +5702,7 @@ sys	0m1.209s
 myWord-200epoch-fasttext-max_document_length30-accuracy.png
 myWord-200epoch-fasttext-max_document_length30-loss.png
 
-## Playing with Batch Size (32, 16, 8)  
+## Playing with Batch Size (32, 16, 128, 8)  
 
 ### Training and Evaluation with Batch Size 32
 
