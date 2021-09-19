@@ -6249,7 +6249,7 @@ input_helpers.py ဖိုင်ကို အောက်ပါအတိုင�
 ဥပမာ အနေနဲ့ word (segmented with myWord Segmentation Tool), fasttext embedding, batch size 8, epoch 200 (ထားထားပေမဲ့ early stop လုပ်ပါတယ်) နဲ့ ဆောက်ထားတဲ့ မော်ဒယ်တွေကို သိမ်းထားတဲ့ ဖိုလ်ဒါရဲ့ size က အောက်ပါပုံမှာ ပြထားတဲ့အတိုင်းပါပဲ... 41.8 GB ယူပါတယ်။ အဲဒါတွေကို ဖြေရှင်းတဲ့နည်းကတော့ ဖိုလ်ဒါအလိုက် external HDD မှာ ရွှေ့သိမ်းထားတာမျိုး၊ သို့မဟုတ် checkpoint လုပ်ထားတဲ့ တခြား မော်ဒယ်ဖိုင်တွေကို ဖျက်ပစ်ပြီးတော့ နောက်ဆုံးမော်ဒယ်ကိုပဲ သိမ်းထားတာမျိုးတွေ လုပ်ပါလို့ အကြံပေးချင်ပါတယ်။   
 
 <p align="center">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/siameseNN-training-model-folder-with-batch8.png" width="600" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/siameseNN-training-model-folder-with-batch8.png" width="300" />
 </p>
 <div align="center">
   Fig. An Example HDD space usage of the Folder that Saved Trained Deep Siamese NN Models
