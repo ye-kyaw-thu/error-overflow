@@ -5588,9 +5588,9 @@ sys	0m1.237s
 |Manual (char-embedding)| 0.941| 0.437437|  
 |Syllable(char-embedding)| 0.922| 0.428428|  
 |Word (char-embedding)| 0.932| 0.437437|  
-|Manual (fasttext embedding)| 0.439439 | 0.965|
-|Syllable (fasttext embedding)| 0.458458 | 0.935|
-|Word (fasttext embedding)| 0.488488 | 0.94|
+|Manual (fasttext embedding)| 0.965 | 0.439439 |
+|Syllable (fasttext embedding)|0.935 | 0.458458 |
+|Word (fasttext embedding)|0.94 | 0.488488 |
 
 
 - open test နဲ့မှာ fasttext နဲ့ရတဲ့ Accuracy: 48 က အများဆုံးလို့ ထင်တယ်။
