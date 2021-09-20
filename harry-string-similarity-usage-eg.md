@@ -42,11 +42,11 @@ parallel-tests: installing './test-driver'
 
 # Insallation
 
-Linux/Unix OS မှာ installation လုပ်နေကြထုံးစံအတိုင်း, 
+Linux/Unix OS မှာ installation လုပ်နေကြထုံးစံအတိုင်း,   
 ./configure, make, make install နဲ့ သွားမယ်။   
 
 ပထမဦးဆုံး  
-run ./configure  
+run ./configure   
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ ./configure
@@ -225,7 +225,7 @@ install-info: warning: no info dir entry in `/usr/share/info/automake-history.in
 
 ## run ./configure again
 
-ဒီတစ်ခါ ./configure ကတော့ အဆင်ပြေရမယ် ...  
+ဒီတစ်ခါ ./configure ကတော့ အဆင်ပြေရမယ် ...   
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ ./configure
@@ -634,6 +634,8 @@ make[1]: Leaving directory '/home/ye/tool/harry/tests'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ 
 ```
 
+Installation ပြီးသွာပြီ။   
+
 ## Check the -D option
 
 harry က input, measure နဲ့ output အလုပ်တွေအတွက် configuration setting file နဲ့ အပြောင်းအလဲ လုပ်တာကို support လုပ်ပါတယ်။  
@@ -759,6 +761,8 @@ output = {
 
 ## Checking Support Measures
 
+harry က support လုပ်တဲ့ string similarity တိုင်းတာတဲ့ measure သို့မဟုတ် method တွေကို list လုပ်ကြည့်ရအောင်...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ harry -M
     dist_bag             Bag distance
@@ -827,12 +831,14 @@ PYTHONPATH မှာ harry.py ပရိုဂရမ်ရှိတဲ့ path �
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/python$ export PYTHONPATH=/home/ye/tool/harry/python
 ```
 
+```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ python
 Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import harry
 >>> print(help(harry))
+```
 
 Enter ခေါက်လိုက်ရင် အောက်ပါ harry ရဲ့ help screen ကို မြင်ရလိမ့်မယ် ...  
 
@@ -900,6 +906,10 @@ FUNCTIONS
 
 ## write a shell script
 
+အထက်မှာ ပြထားတဲ့ column သုံးခုရှိတဲ့ myPara (paraphrase corpus) ကနေ string similarity တွက်ထားတာတွေအားလုံးကို feature တွေ အနေနဲ့ ထားပြီး CSV ဖိုင် ထုတ်ကြည့်ချင်လို့ အောက်ပါ shell script ကို ရေးခဲ့တယ်။  
+အသေးစိတ်တော့ မရှင်းပြတော့ဘူး ကြိုးစားလေ့လာကြပါ။  
+
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ cat mk-distance-csv.sh 
 #!/bin/bash
@@ -948,6 +958,8 @@ rm ./para.tmp;
 
 ## make features CSV file
 
+shell script run တာကို ဥပမာ ပြရရင် အောက်ပါအတိုင်းပါ...  
+
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ bash ./mk-distance-csv.sh ./mypara-10lines.txt 
 wc all_distance.txt:
@@ -966,7 +978,8 @@ head all_distance.txt:
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$
 ```
 
-တကယ် run ဖို့အတွက်ကတော့ myPara corpus တစ်ခုလုံးနဲ့ ဆောက်ဖို့ လိုအပ်တယ်။
+တကယ် training လုပ်ဖို့အတွက် မော်ဒယ်ဆောက်ဖို့အတွက်ကတော့ ဒေတာများမှ ဖြစ်မှာမို့... myPara corpus တစ်ခုလုံးနဲ့ ဆောက်ဖို့ လိုအပ်ပါတယ်။  
+
 
 ## Paper of Harry Tool
 
