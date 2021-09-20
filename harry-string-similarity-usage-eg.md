@@ -909,9 +909,9 @@ FUNCTIONS
 အထက်မှာ ပြထားတဲ့ column သုံးခုရှိတဲ့ myPara (paraphrase corpus) ကနေ string similarity တွက်ထားတာတွေအားလုံးကို feature တွေ အနေနဲ့ ထားပြီး CSV ဖိုင် ထုတ်ကြည့်ချင်လို့ အောက်ပါ shell script ကို ရေးခဲ့တယ်။  
 အသေးစိတ်တော့ မရှင်းပြတော့ဘူး ကြိုးစားလေ့လာကြပါ။  
 
+mk-distance-csv.sh က အောက်ပါအတိုင်း...  
 
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ cat mk-distance-csv.sh 
+```bash
 #!/bin/bash
 
 # for getting all distances of "harry string similarity tool"
