@@ -76,4 +76,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 69. [fairseq-editor-test-run.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fairseq-editor-test-run.md)  
 70. [Extended-Edit-Distance-Testing.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Extended-Edit-Distance-Testing.md)  
 71. [Deep-Siamese-Text-Similarity-Experiment-Log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Deep-Siamese-Text-Similarity-Experiment-Log.md)  
+72. [harry-string-similarity-usage-eg.md](https://github.com/ye-kyaw-thu/error-overflow/edit/master/harry-string-similarity-usage-eg.md)  
 
