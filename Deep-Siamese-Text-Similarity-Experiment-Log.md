@@ -7616,6 +7616,66 @@ head all_distance.txt:
 
 ## Building String Similarity Feature File with the Whole Corpus
 
+အကြမ်းမျဉ်းအားဖြင့် အလုပ်လုပ်မလုပ် သိချင်တော့ training ဖိုင်နဲ့ open-test ဖိုင်နှစ်ခုကို ပေါင်းလိုက်ပြီး test run လုပ်ကြည့်မယ်။
+အဲဒီအတွက် myWord segmentation ဖြတ်ထားတဲ့ myPara corpus ဖိုင်တွေကို ပြင်ဆင်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ wc *
+   1000   18272  203625 closed-test.word
+   1000   13766  139640 open-test.final.manual.word
+  40461  764288 8442342 train.txt
+  42461  796326 8785607 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ head -3 *
+==> closed-test.word <==
+1	ကောင်း လိုက် တဲ့ သတင်း လေး ပါ	ကောင်း သော သတင်း ပါ ပဲ
+0	ခု ဒီ တံဆိပ် က ဈေး လိုက် နေ တယ် ။	ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။
+1	ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်	ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်
+
+==> open-test.final.manual.word <==
+0	၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။
+0	၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။
+0	၁၁:၃၀ ပြန် ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။
+
+==> train.txt <==
+ကျွန်တော် စီး ဖို့ ချစ် စရာ ဖိနပ် တစ် ရံ ကို ရှာ မ တွေ့ လို့ ပါ ။	တစ်ခါတစ်ခါ ကျွန်တော် က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲ များ တဲ့ လူ လို့ ထင် မိ တယ် ။	0
+ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မ လဲ ။	ကျေးဇူး နော် ၊ ဘယ် တော့ ပြန် တွေ့ ကြ မ လဲ ။	0
+ကျေးဇူး အများကြီး တင် ပါ တယ် ။	ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။	0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ 
+```
+
+open-test ဒေတာရဲ့ format ကို training data ရဲ့ format နဲ့ တူအောင်အောက်ပါအတိုင်း ညှိခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ cut -f1 open-test.final.manual.word > f1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ cut -f2,3 ./open-test.final.manual.word > f23
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ paste f23 f1 > open-test.formatted
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ rm f23 f1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ head open-test.formatted 
+၁၁ ဒေါ်လာ ကျ ပါ တယ် ။	၁၁ နာရီ လာ ခေါ် မယ် ။	0
+၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။	၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။	0
+၁၁:၃၀ ပြန် ရောက် မယ် လို့ ထင် သလား ။	၁၁:၃၀ အတိ မှာ ပြန် ရောက် လာ ခဲ့ တယ် ။	0
+၂ မိုင် ထက် ပို ရှည် တယ် ။	၂ မိုင် လောက် သွား ရ တယ် ။	0
+၄ ရက် အတွင်း အိမ် ပြန် မယ် ။	၄ ရက် လောက် နေ ရင် ပြန် လာ ပါ ။	0
+၅ ဒေါ်လာ ထက် ပို ပါ တယ် ။	၅ ဒေါ်လာ လောက် ကျ သင့် တယ် ။	0
+၅ ဒေါ်လာ ထက် နဲ ပါ တယ် ။	၅ ဒေါ်လာ ဆို နဲ ပါ တယ် ။	0
+၅ ဒေါ်လာ ပဲ ရှိ တယ် ။	၅ ဒေါ်လာ လောက် ရှိ လား ။	0
+၅ လမ်း က စားသောက်ဆိုင် မှာ စား ချင် တယ် ။	၅ လမ်း မှာ စားသောက်ဆိုင် ရှိ လား ။	0
+ကျေးဇူးပြုပြီး မီနူး ရ နိုင် မ လား ။	ကျေးဇူးပြုပြီး မီနူး ထဲ က အတိုင်း ရ နိုင် မ လား ။	0
+```
+
+all.txt ဆိုပြီးတော့ train.txt ဖိုင်နဲ့ format ညှိထားတဲ့ open-test ဒေတာဖိုင် နှစ်ဖိုင်ကို ပေါင်းခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ cat ./train.txt open-test.formatted > all.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ wc train.txt
+  40461  764288 8442342 train.txt
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ wc open-test.formatted 
+  1000  13766 139640 open-test.formatted
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/original$ wc all.txt 
+  41461  778054 8581982 all.txt
+```
+
+## Prepare a Python Script for Random Forest Classifier
 
 
 
