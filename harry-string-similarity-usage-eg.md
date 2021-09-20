@@ -1,5 +1,6 @@
+# Harry String Similarity Usage
 
-# git clone
+## git clone
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool$ git clone https://github.com/rieck/harry
@@ -16,7 +17,7 @@ bootstrap  build  configure.ac  COPYING  doc  examples  git2changes.py  harry.pn
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ 
 ```
 
-#  run bootstrap
+##  run bootstrap
 
 
 ```
@@ -40,7 +41,7 @@ parallel-tests: installing './test-driver'
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ 
 ```
 
-# Insallation
+## Insallation
 
 Linux/Unix OS မှာ installation လုပ်နေကြထုံးစံအတိုင်း,   
 ./configure, make, make install နဲ့ သွားမယ်။   
@@ -806,7 +807,6 @@ Testing လုပ်ဖို့အတွက်က ဒီ link ကို မှ�
 35,0
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$
 ```
-
 
 ## Testing Harry Python Module
 
