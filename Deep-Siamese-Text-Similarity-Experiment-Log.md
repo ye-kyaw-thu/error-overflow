@@ -7543,8 +7543,9 @@ paper ရေးဖို့လည်း ပိုကောင်းသွား�
 အဲဒီအတွက် harry string similarity တိုင်းတဲ့ tool ကို သုံးခဲ့တယ်။  
 ထုံးစံအတိုင်းပဲ preprocessing, formatting ကိစ္စတွေ လုပ်ဖို့ လိုအပ်လို့ bash script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
 
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ cat mk-distance-csv.sh 
+ဖိုင်နာမည်က "mk-distance-csv.sh"  
+
+```bash
 #!/bin/bash
 
 # for getting all distances of "harry string similarity tool"
