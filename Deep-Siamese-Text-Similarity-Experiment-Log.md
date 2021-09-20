@@ -7140,7 +7140,14 @@ user	0m6.795s
 sys	0m1.391s
 ```
 
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.8-epoch200-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.8-epoch200-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.8**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
 
 ## Playing Hidden Layer
 
@@ -7282,10 +7289,15 @@ user	0m11.061s
 sys	0m1.365s
 ```
 
-nlayers6-accuracy.png
-nlayers6-loss.png
-
-
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/nlayers6-accuracy.png" width="300" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/nlayers6-loss.png" width="300" /> 
+</p>
+<div align="center">
+  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
+</div>   
+  </br> 
+  
 ## Hack eval.py and Thinking
 
 model တွေကို training လုပ်ရင်း စဉ်းစားမိတာတွေကို ချရေးထားခဲ့...  
