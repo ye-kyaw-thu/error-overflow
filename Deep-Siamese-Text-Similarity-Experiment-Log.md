@@ -7537,6 +7537,87 @@ paper ရေးဖို့လည်း ပိုကောင်းသွား�
 
 -----------
 
+## write a shell script
+
+အထက်မှာ စဉ်းစားထားခဲ့တာကို အကောင်အထည်ဖော်တဲ့ အနေနဲ့ string similarity distance တွေနဲ့ပဲ ဖြည့်ထားပြီး forest tree နဲ့ classification လုပ်တာကို စမ်းကြည့်ပြီး ရလဒ်တွေကို ကြည့်ချင်တယ်။  
+အဲဒီအတွက် harry string similarity တိုင်းတဲ့ tool ကို သုံးခဲ့တယ်။  
+ထုံးစံအတိုင်းပဲ preprocessing, formatting ကိစ္စတွေ လုပ်ဖို့ လိုအပ်လို့ bash script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ cat mk-distance-csv.sh 
+#!/bin/bash
+
+# for getting all distances of "harry string similarity tool"
+# written by Ye, LST, NECTEC, Thailand
+# 20 Sept 2021
+
+cut -f3 $1 > label.txt
+
+cut -f1,2 $1 | sed -e 'y/\t/\n/' > ./para.tmp
+
+count=($(wc ./para.tmp));
+
+# clean previous calculated files
+rm {dist_,sim_,kern}*.txt;
+
+for distance in {dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,\
+dist_jarowinkler,dist_kernel,dist_lee,dist_levenshtein,dist_osa,\
+kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,\
+sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal}
+do
+    # bash ပုံမှန် တွန့်ကွင်းနဲ့ looping ပတ်တဲ့အခါမှာ eval တို့ seq တို့ကို သုံးရတာမို့ C style နဲ့ပဲ သုံးခဲ့
+    for (( i = 0; i < $count-1; i+=2 )) 
+    do 
+        # harry -x 0:1 -y 1:2
+        #echo "$i:$(( $i+1 )) -y $(( $i+1 )):$(( $i+2 )):";
+        harry -q -m $distance -x $i:$(( $i+1 )) -y $(( $i+1 )):$(( $i+2 )) ./para.tmp - | grep -v "#" >> $distance.txt
+    done
+done
+
+paste {dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,\
+dist_jarowinkler,dist_kernel,dist_lee,dist_levenshtein,dist_osa,\
+kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,\
+sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal}.txt ./label.txt -d "," > all_distance.txt
+
+echo "wc all_distance.txt:"
+wc all_distance.txt
+
+echo "head all_distance.txt:"
+head all_distance.txt
+
+rm ./label.txt;
+rm ./para.tmp;
+```
+
+## make features CSV file
+
+အထက်ပါ bash script နဲ့ labeled paraphrase စာကြောင်း ၁၀ ကြောင်းဖိုင်ကို သုံးပြီး feature CSV ဖိုင်တာကို run ကြည့်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ bash ./mk-distance-csv.sh ./mypara-10lines.txt 
+wc all_distance.txt:
+  10   10 1455 all_distance.txt
+head all_distance.txt:
+16,0.146341,16,89,0.166014,0.0996083,164.333,6000,16,16,11918.5,243,0.000263601,26.6667,0.956522,0.956522,0.916667,0.956522,0.956522,0.956522,0.846154,1
+23,0.506944,38,61,0.289805,0.231844,129.667,3508,38,38,7598,98,0.000111681,23,0.73913,0.755556,0.607143,0.755929,0.755742,0.772727,0.435897,0
+17,0.463918,43,115,0.216625,0.1733,255,7241,43,43,23726,387,0.000447501,26.3333,0.777778,0.807692,0.677419,0.808889,0.80829,0.84,0.512195,0
+17,0.188119,20,41,0.0711534,0.0426921,71.3333,3053,20,20,23607.5,509,0.000551857,117.667,0.892857,0.925926,0.862069,0.927198,0.926562,0.961538,0.757576,0
+9,0.288136,9,31,0.14945,0.0896699,62,2047,9,9,3563.5,77,8.4394e-05,28.3333,0.777778,0.848485,0.736842,0.855556,0.852013,0.933333,0.583333,1
+16,0.393617,16,26,0.218734,0.13124,44.3333,1799,16,16,1396.5,30,3.23094e-05,15.6667,0.785714,0.785714,0.647059,0.785714,0.785714,0.785714,0.478261,0
+11,0.230769,12,17,0.0807298,0.0484379,30.3333,1206,12,12,6189.5,157,0.000178442,63.1667,0.777778,0.823529,0.7,0.826389,0.824958,0.875,0.538462,1
+16,0.4375,18,46,0.240478,0.168335,80.3333,3365,18,18,1946,50,5.94379e-05,4.16667,0.769231,0.833333,0.714286,0.839161,0.836242,0.909091,0.555556,0
+44,0.346591,46,114,0.21214,0.127284,194.333,8106,46,46,16482.5,361,0.000420554,32.6667,0.857143,0.878049,0.782609,0.878571,0.87831,0.9,0.642857,1
+13,0.358824,37,81,0.161302,0.0967811,166,5205,37,37,12700.5,218,0.000258249,29.3333,0.8,0.869565,0.769231,0.87619,0.872872,0.952381,0.625,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$
+```
+
+တကယ် run ဖို့အတွက်ကတော့ myPara corpus တစ်ခုလုံးနဲ့ ဆောက်ဖို့ လိုအပ်တယ်။  
+
+## Building String Similarity Feature File with the Whole Corpus
+
+
+
+
 ## Building a Big Word2Vec and FastText Models
 
   
