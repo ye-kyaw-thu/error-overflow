@@ -8314,8 +8314,6 @@ sys	0m0.900s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ 
 ```
 
- -p ./feature_importance-with-feature_per-for-5dists-test3.png
-
 <p float="left"  align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists-test3.png" width="460" />
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-5dists-test3.png" width="460" /> 
