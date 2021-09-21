@@ -8239,6 +8239,94 @@ feature importance graph တွေက အောက်ပါအတိုင်း
 </div>   
   </br> 
   
+### Prepare test3.csv, train3.csv
+
+အထက်က ရလဒ်က မဟားတရားကောင်းနေလို့ သေချာအောင် ဒီတစ်ခါတော့ open test data ကို 4100 ထားခဲ့တယ်...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ shuf ./para.train.no_header.shuf > ./para.train.no_header.shuf.shuf
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ wc ./para.train.no_header.shuf.shuf 
+  41461   41461 1186045 ./para.train.no_header.shuf.shuf
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ wc train.csv 
+  40462   40462 1158303 train.csv
+
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head -n 37361 ./para.train.no_header.shuf.shuf > ./train3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ tail -n 4100 ./para.train.no_header.shuf.shuf > ./test3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ ls
+all.txt     original    para.train.no_header       para.train.no_header.shuf.shuf  para.train.no_header.shuf.tmp    test3.csv  train3.csv
+header.csv  para.train  para.train.no_header.shuf  para.train.no_header.shuf.test  para.train.no_header.shuf.train  test.csv   train.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ cat header.csv train3.csv > train3.csv1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ cat header.csv test3.csv > test3.csv1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ rm train3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ rm test3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ mv train3.csv1 train3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ mv test3.csv1 test3.csv
+
+```
+
+ဖိုင်size ကို အောက်ပါအတိုင်း confirmation လုပ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ wc {train3,test3}.csv
+  37362   37362 1068790 train3.csv
+   4101    4101  117391 test3.csv
+  41463   41463 1186181 total
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ 
+```
+
+Training and Evaluation with new Open Test Source:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_random-forest.py -t ./train3.csv -e test3.csv -m ./feature_importance-with-MDI-for-5dists-test3.png -p ./feature_importance-with-feature_per-for-5dists-test3.png 
+trainFILE:  ./train3.csv
+evalFILE: test3.csv
+mdiFILE: ./feature_importance-with-MDI-for-5dists-test3.png
+fpFILE: ./feature_importance-with-feature_per-for-5dists-test3.png
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0        31          0.478022            39            74   0.208229    0.0
+1        10          0.169811            10            18   0.103395    1.0
+2        30          0.555556            36            57   0.301413    0.0
+3        10          0.287879            12            25   0.079960    1.0
+4        51          0.602273            62           109   0.347655    0.0
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0         7          0.150794             7            16   0.070288      1
+1        21          0.518519            25            30   0.239340      0
+2        19          0.436508            24            51   0.218302      0
+3         9          0.291262            32            95   0.131955      1
+4         8          0.333333            18            40   0.131345      0
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro
+0         7          0.150794             7            16   0.070288
+1        21          0.518519            25            30   0.239340
+2        19          0.436508            24            51   0.218302
+3         9          0.291262            32            95   0.131955
+4         8          0.333333            18            40   0.131345
+Accuracy on the training: 0.9993576189074168
+Accuracy on the testing: 0.8236585365853658
+Elapsed time to compute the importances: 0.011 seconds
+Elapsed time to compute the importances: 1.865 seconds
+
+real	0m8.752s
+user	0m5.687s
+sys	0m0.900s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ 
+```
+
+ -p ./feature_importance-with-feature_per-for-5dists-test3.png
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists-test3.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-5dists-test3.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+  
+  
+
 ### Training/Testing Deep Siamese (with string similarity features)
 
 Deep Siamese ရဲ့ ရလဒ်အသစ်တွေကို Random-Forest ရဲ့ ရလဒ်တွေနဲ့ နှိုင်းယှဉ်ကြည့်ရမှာ very exicting ...  
