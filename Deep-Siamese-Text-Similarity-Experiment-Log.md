@@ -7675,7 +7675,199 @@ all.txt ဆိုပြီးတော့ train.txt ဖိုင်နဲ့ for
   41461  778054 8581982 all.txt
 ```
 
+အဲဒီ all.txt ဖိုင် (the whole paraphrase corpus) ကို harry string similarity tool ရှိတဲ့ ဖိုလ်ဒါအောက်ကို ရွှေ့ပြီးတော့ string similarity distance တွေ အားလုံးကို တိုင်းခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ time bash mk-distance-csv.sh ./all.txt 
+```
+
+ညဘက် run ထားခဲ့ပြီးတော့ နောက်နေ့ မနက်ရောက်တော့ စုစုပေါင်း လေးသောင်းကျော်ရှိတဲ့ (တကယ်ကတော့ နှစ်သောင်းကျော် para, no-para အတွဲ) corpus ကို distance တွက်တာက ၅မျိုးပြီးနေခဲ့... ကျန်တာတွေကတော့ ဆက်တွက်နေဆဲ...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ wc *.txt
+       2        9      111 2lines.txt
+      10       10     1455 all_distance.txt
+   41461   778054  8581982 all.txt
+   41461    41461   118314 dist_bag.txt
+   41461    41461   357386 dist_compression.txt
+   41461    41461   121785 dist_damerau.txt
+   41461    41461   132294 dist_hamming.txt
+   41461    41461   373345 dist_jaro.txt
+   30136    30136   278879 dist_jarowinkler.txt
+   41461    41460    82921 label.txt
+      11       19      396 matrix.txt
+      10      187     1985 mypara-10lines.txt
+  320396  1057180 10050853 total
+```
+
+အထက်ပါ wc ရလဒ်အရဆိုရင် လက်ရှိမှာ dist_jarowinkler ကို တွက်နေတယ်လို့ နားလည်တယ်။  
+အဲဒါကြောင့် distance အကုန်တွက်တာကို စောင့်မနေတော့ပဲ လက်ရှိ output ရလာတဲ့ distance ၅မျိုးကိုပဲ ယူလိုက်ပြီး လေဘယ်နဲ့ တွဲပေးလိုက်ပြီးရင် Random Forest နဲ့ training လုပ်ဖို့ ဆုံးဖြတ်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ paste -d"," ./dist_bag.txt ./dist_compression.txt ./dist_damerau.txt ./dist_hamming.txt ./dist_jaro.txt ./label.txt > ./5dist.para.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ head ./5dist.para.csv 
+66,0.541322,95,183,0.287804,0
+15,0.377907,35,88,0.217737,0
+20,0.448718,37,74,0.2494,0
+15,0.227723,18,100,0.196164,0
+45,0.425532,53,120,0.28428,0
+6,0.183673,11,44,0.216472,0
+93,0.639535,98,123,0.443955,0
+72,0.590909,90,142,0.303462,0
+50,0.5,57,108,0.322201,0
+16,0.574627,26,54,0.263832,0
+```
+
+တစ်ခုရှိတာက တကယ့် CSV format အမှန်က ထိပ်ဆုံးအကြောင်းက column header တပ်ထားရတယ်။ အဲဒါမှလည်း Python library တွေဖြစ်တဲ့ csv တို့ panda တို့နဲ့ တွဲအလုပ်လုပ်ရင် အဆင်ပြေမှာမို့ ထိပ်ဆုံး ကော်လံခေါင်းစဉ်ကိုလည်း အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+ဒီနေရာမှာ သုံးထားတဲ့ header.txt ဖိုင်ဆိုတာက column header တစ်ကြောင်းတည်းကိုပဲ ရိုက်ထည့်ထားတဲ့ ဖိုင်ပါ။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ cat header.txt 5dist.para.csv > para.train
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ head para.train 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+66,0.541322,95,183,0.287804,0
+15,0.377907,35,88,0.217737,0
+20,0.448718,37,74,0.2494,0
+15,0.227723,18,100,0.196164,0
+45,0.425532,53,120,0.28428,0
+6,0.183673,11,44,0.216472,0
+93,0.639535,98,123,0.443955,0
+72,0.590909,90,142,0.303462,0
+50,0.5,57,108,0.322201,0
+```
+
+para.train ဖိုင်ကို သုံးပြီးတော့ model ဆောက်မှာမို့ အဲဒီဖိုင်ကို paraphrase modeling with traditional ML approach လုပ်ဖို့ ရည်ရွယ်ထားတဲ့ ဖိုလ်ဒါအောက်ကို ကော်ပီကူးခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ cp para.train /home/ye/exp/myPara3/data/
+```
+
+
 ## Prepare a Python Script for Random Forest Classifier
+
+ပြင်ဆင်ခဲ့တဲ့ Python script က အောက်ပါအတိုင်း...  
+
+```python
+# for Myanmar language paraphrase experiment with Forest-tree 
+# We used our inhouse myPara corpus mainly develped by Myint Myint Htay (UTYCC)
+# Features were extracted with harry string similary tool
+# This code is written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Date: 21 Sept 2021
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import time
+import matplotlib.pyplot as plt
+
+para_data=pd.read_csv('/home/ye/exp/myPara3/data/para.train')
+print("head:")
+print(para_data.head())
+
+para_data.replace([np.inf, -np.inf], np.nan, inplace=True)
+para_data.fillna(999, inplace=True)
+
+y=para_data.label
+x=para_data.drop('label',axis=1)
+
+#x = x.values.astype(np.float)
+#y = y.values.astype(np.float)
+
+X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=0.2)
+print("X_train.head()")
+print(X_train.head())
+
+forest = RandomForestClassifier(n_estimators=50, random_state=0)
+forest.fit(X_train,y_train)
+
+print('Accuracy on the training:',format(forest.score(X_train,y_train)))
+print('Accuracy on the testing:',format(forest.score(X_test,y_test)))
+
+
+feature_names = x.columns
+
+start_time = time.time()
+importances = forest.feature_importances_
+std = np.std([
+    tree.feature_importances_ for tree in forest.estimators_], axis=0)
+elapsed_time = time.time() - start_time
+
+print(f"Elapsed time to compute the importances: "
+      f"{elapsed_time:.3f} seconds")
+      
+forest_importances = pd.Series(importances, index=feature_names)
+
+fig, ax = plt.subplots()
+forest_importances.plot.bar(yerr=std, ax=ax)
+ax.set_title("Feature importances using MDI")
+ax.set_ylabel("Mean decrease in impurity")
+fig.tight_layout()
+plt.show()
+
+from sklearn.inspection import permutation_importance
+
+start_time = time.time()
+result = permutation_importance(
+    forest, X_test, y_test, n_repeats=10, random_state=42, n_jobs=2)
+elapsed_time = time.time() - start_time
+print(f"Elapsed time to compute the importances: "
+      f"{elapsed_time:.3f} seconds")
+
+forest_importances = pd.Series(result.importances_mean, index=feature_names)
+
+
+fig, ax = plt.subplots()
+forest_importances.plot.bar(yerr=result.importances_std, ax=ax)
+ax.set_title("Feature importances using permutation on full model")
+ax.set_ylabel("Mean accuracy decrease")
+fig.tight_layout()
+plt.show()
+
+
+```
+
+coding က run လို့ အိုကေသွားပြီး နောက်ပိုင်း အချိန်ရတော့မှာ input ဖိုင်ကို argument နဲ့ ပေးတာမျိုး၊ train, test data ကို သတ်မှတ်ပြီး ဖိုင်အနေနဲ့ pass လုပ်တာမျိုး၊ graph တွေကိုလည်း ဖိုင်နာမည်ပေးသိမ်းတာမျိုး ဖြည့်ရေးဖို့ စိတ်ကူးထားတယ်။ လောလောဆယ်က အချိန်မရှိလို့ run ကြည့်ပြီး ရလဒ်ကို အမြန်ကြည့်ဖို့ ကြိုးစားနေတာမို့...  
+
+ပြီးတော့ အထက်ပါ python program ကို run မလုပ်ခင်မှာ လိုအပ်တဲ့ panda, time စတဲ့ library က ကြိုတင် installation လုပ်ခဲ့ပါတယ်။   
+
+### Training Paraphrase Classification with Random-Forest (used only 5 string similarity distance features)
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_foresttree.py 
+head:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0        66          0.541322            95           183   0.287804    0.0
+1        15          0.377907            35            88   0.217737    0.0
+2        20          0.448718            37            74   0.249400    0.0
+3        15          0.227723            18           100   0.196164    0.0
+4        45          0.425532            53           120   0.284280    0.0
+X_train.head()
+       dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro
+39938        32          0.549383            44            75   0.294668
+39205        28          0.359649            28            40   0.215399
+18687        11          0.367347            11            30   0.182359
+21622        26          0.477941            26            31   0.200418
+7835          7          0.166667             7            14   0.070937
+Accuracy on the training: 0.9994874577906416
+Accuracy on the testing: 0.818762812010129
+Elapsed time to compute the importances: 0.010 seconds
+Elapsed time to compute the importances: 2.987 seconds
+
+real	0m28.195s
+user	0m7.161s
+sys	0m1.217s
+```
+
+Run time က 28 Sec ပဲ ကြာတယ်။
+ရလဒ်ကလည်း ကောင်းတယ်။ training ဒေတာနဲ့က 0.99 Accuracy ရပြီးတော့၊ test data နဲ့က 0.82 ရတယ်။  
+အထက်မှာ ဆက်တိုက် လုပ်လာခဲ့တဲ့ distance တစ်ခုတည်းနဲ့ Siamese Network training result တွေနဲ့ ယှဉ်လိုက်ရင် လုံးဝ တခြားစီပါပဲ....  
+အဲဒါကြောင့် အထက်က Python code ကို ပြင်ဆင်ပြီးတော့ Siamese Network တုန်းက သုံးခဲ့တဲ့ training, test data နဲ့ ထပ်တူ လုပ်ကြည့်ပြီး result ထုတ်ကြည့်မယ်။
+ပြီးတော့ Siamese Network ကိုလည်း word2vec, fasttext တို့နဲ့ မဟုတ်ပဲ အခု python code နဲ့ random forest နဲ့ စမ်းခဲ့တဲ့ training, test ဒေတာ (i.e. features with 5 distances) တို့နဲ့ training/testing လုပ်ကြည့်ပြီး ရလဒ်တွေကို compare လုပ်ကြည့်မယ်။  
+
+## Checking the Feature Importance Graphs  
 
 
 
