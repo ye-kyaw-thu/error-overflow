@@ -7973,6 +7973,123 @@ open-test ဒေတာ အသစ် သို့မဟုတ် open-test2 က�
 - saving graphs with filenames
 
 ```python
+# for Myanmar language paraphrase experiment with Forest-tree 
+# We used our inhouse myPara corpus mainly develped by Myint Myint Htay (UTYCC)
+# Features were extracted with harry string similary tool
+# This code is written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Date: 21 Sept 2021
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import time
+import matplotlib.pyplot as plt
+from sklearn.inspection import permutation_importance
+import argparse
+
+
+def main (command_line=None):
+
+    # Initialize parser
+    parser = argparse.ArgumentParser(prog='para_random-forest.py', description='Random-Forest Model training and testing program')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.5', help="output version information and exit")   
+    parser.add_argument('-t', '--training_file', type=str, default='train.csv', help='input filename for training (default: train.csv)')
+    parser.add_argument('-e', '--evaluation_file', type=str, default='test.csv', help='input filename for open evaluation or testing (default: test.csv)')
+    parser.add_argument('-m', '--mdi_graph', type=str, default='mdi_graph.png', help='output graph filename for feature importance based on mean decrease in impurity (default: mdi_graph.png)')
+    parser.add_argument('-p', '--fp_graph', type=str, default='fp_graph.png', help='output graph filename for feature importance based on feature permutation (default: mdi_graph.png)')
+
+    # command line argument parsing
+    args = parser.parse_args(command_line)
+    trainFILE = args.training_file
+    evalFILE = args.evaluation_file
+    mdiFILE = args.mdi_graph
+    fpFILE = args.fp_graph
+    
+    print("trainFILE: ", trainFILE)
+    print("evalFILE:", evalFILE)
+    print("mdiFILE:", mdiFILE)
+    print("fpFILE:", fpFILE)
+    
+    # read training corpus data
+    # Python programming မှာက C တို့ C++ တို့လို မဟုတ်ပဲ ဖိုင်တွေကို ဖွင့်ပြီး ပြန်မပိတ်ပဲ ဒီအတိုင်းထားခဲ့ရင်လည်း
+    # အဲဒီ အလုပ်လုပ်နေတဲ့ function က ပြီးသွားရင် automatic closing လုပ်ပေးပါတယ်။  
+    train_data=pd.read_csv(trainFILE)
+
+    print("head of training corpus:")
+    print(train_data.head())
+
+    train_data.replace([np.inf, -np.inf], np.nan, inplace=True)
+    train_data.fillna(999, inplace=True)
+
+    y_train=train_data.label
+    X_train=train_data.drop('label',axis=1)
+
+    # read open evaluation or testing data file
+    eval_data=pd.read_csv(evalFILE)
+    print("head of open test data:")
+    print(eval_data.head())
+
+    eval_data.replace([np.inf, -np.inf], np.nan, inplace=True)
+    eval_data.fillna(999, inplace=True)
+
+    y_test=eval_data.label
+    X_test=eval_data.drop('label',axis=1)
+
+    print("X_test.head()")
+    print(X_test.head())
+
+    forest = RandomForestClassifier(n_estimators=50, random_state=0)
+    forest.fit(X_train,y_train)
+
+    print('Accuracy on the training:',format(forest.score(X_train,y_train)))
+    print('Accuracy on the testing:',format(forest.score(X_test,y_test)))
+
+
+    feature_names = X_train.columns
+
+    start_time = time.time()
+    importances = forest.feature_importances_
+    std = np.std([
+    tree.feature_importances_ for tree in forest.estimators_], axis=0)
+    elapsed_time = time.time() - start_time
+
+    print(f"Elapsed time to compute the importances: "
+        f"{elapsed_time:.3f} seconds")
+      
+    forest_importances = pd.Series(importances, index=feature_names)
+
+    fig, ax = plt.subplots()
+    forest_importances.plot.bar(yerr=std, ax=ax)
+    ax.set_title("Feature importances using MDI")
+    ax.set_ylabel("Mean decrease in impurity")
+    fig.tight_layout()
+    plt.savefig(mdiFILE)
+    plt.show()
+
+
+    start_time = time.time()
+    result = permutation_importance(
+        forest, X_test, y_test, n_repeats=10, random_state=42, n_jobs=2)
+    elapsed_time = time.time() - start_time
+    print(f"Elapsed time to compute the importances: "
+          f"{elapsed_time:.3f} seconds")
+
+    forest_importances = pd.Series(result.importances_mean, index=feature_names)
+
+    fig, ax = plt.subplots()
+    forest_importances.plot.bar(yerr=result.importances_std, ax=ax)
+    ax.set_title("Feature importances using permutation on full model")
+    ax.set_ylabel("Mean accuracy decrease")
+    fig.tight_layout()
+    plt.savefig(fpFILE)     
+    plt.show()
+   
+
+if __name__ == "__main__":
+    main ()
+
 
 ```
 
@@ -8066,13 +8183,62 @@ feature importance graph တွေက အောက်ပါအတိုင်း
 
 ### Training/Testing Random-Forest (with a new Open test data)  
 
-ဒီတစ်ခါတော့ အထက်မှာ လုပ်ပြထားတဲ့ open-test ကိုပါ ပေါင်းထည့်ပြီး အားလုံးကို shuffle လုပ်ပြီးတော့မှ နောက်ဆုံး အကြောင်း ၁၀၀၀ နဲ့ ပြင်ထားတဲ့ open-test data ပါ။  
+ဒီတစ်ခါတော့ အထက်မှာ လုပ်ပြထားတဲ့ open-test ကိုပါ ပေါင်းထည့်ပြီး အားလုံးကို shuffle လုပ်ပြီးတော့မှ နောက်ဆုံး အကြောင်း ၁၀၀၀ နဲ့ ပြင်ထားတဲ့ open-test data နဲ့ စမ်းထားတဲ့ experiment ပါ။  
+python code မှာလည်း input လုပ်ပေးလိုက်တဲ့ ဖိုင်နာမည်တွေပါ ပါအောင် ပြင်ခဲ့တယ်။  
 
 ```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_random-forest.py --training_file ./train2.csv --evaluation_file ./test2.csv --mdi_graph ./feature_importance-with-MDI-for-5dists-test2.png --fp_graph ./feature_importance-with-feature-permutation-for-5dists-test2.png
+trainFILE:  ./train2.csv
+evalFILE: ./test2.csv
+mdiFILE: ./feature_importance-with-MDI-for-5dists-test2.png
+fpFILE: ./feature_importance-with-feature-permutation-for-5dists-test2.png
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0        16          0.500000            60           143   0.207329    0.0
+1        22          0.420290            25            41   0.183053    0.0
+2        14          0.391026            20            33   0.156166    0.0
+3        11          0.258065            11            46   0.158483    1.0
+4       183          0.723485           189           220   0.473258    0.0
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0         3          0.172840             9            10   0.050265      1
+1        62          0.511364            71           106   0.370487      0
+2        12          0.492188            26            52   0.242467      0
+3        65          0.643617            73           134   0.341192      0
+4        22          0.588235            35            58   0.250492      0
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro
+0         3          0.172840             9            10   0.050265
+1        62          0.511364            71           106   0.370487
+2        12          0.492188            26            52   0.242467
+3        65          0.643617            73           134   0.341192
+4        22          0.588235            35            58   0.250492
+Accuracy on the training: 0.9993729046573888
+Accuracy on the testing: 1.0
+Elapsed time to compute the importances: 0.012 seconds
+Elapsed time to compute the importances: 1.345 seconds
 
+real	0m14.884s
+user	0m4.990s
+sys	0m0.973s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
 
+ရလဒ်က တအားကောင်းပါတယ်။  
+training အတွက်က 0.99 ရရှိပြီး... open-test data 2 အတွက်က 1.0 ဆိုတော့ အားလုံး မှန်တယ် ဆိုတဲ့ သဘောပါ။   
+ရလဒ်တွေကို သေချာ စစ်ကြည့်ချင်တယ်။ တကယ်သာဆိုရင် မြန်မာစာ paraphrasing R&D အတွက် အရေးကြီးတဲ့ mildstone တစ်ခုပါပဲ...   
 
+feature importance graph တွေက အောက်ပါအတိုင်းရတယ်။ လေ့လာကြည့်ရအောင်...  
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists-test2.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists-test2.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (eval with test1). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+  
 ### Training/Testing Deep Siamese (with string similarity features)
 
 Deep Siamese ရဲ့ ရလဒ်အသစ်တွေကို Random-Forest ရဲ့ ရလဒ်တွေနဲ့ နှိုင်းယှဉ်ကြည့်ရမှာ very exicting ...  
