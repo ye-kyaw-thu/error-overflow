@@ -7940,6 +7940,15 @@ dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
 
 ### Training/Testing Random-Forest (with Same Data-set That We Used for Deep Siamese)
 
+လက်ရှိ ရေးထားတဲ့ para_random-forest.py က သူ့ကို run တဲ့ path အောက်မှာ ရှိတဲ့ train.csv နဲ့ test.csv ကို ရှာမှာက default မို့လို့ run တဲ့အခါမှာ file not found error မပေးအောင်လို့ ကြိုပြီးတော့ copy ကူးထားခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ cp ./data/train.csv .
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ cp ./data/test.csv .
+```
+
+default ဖိုင်နာမည် path တွေနဲ့ပဲ အရင်ဆုံး Random-Forest model ကို training လုပ်ကြည့်ခဲ့...  
+
 ```
 
 ```
