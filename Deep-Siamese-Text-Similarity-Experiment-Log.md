@@ -7539,8 +7539,8 @@ paper ရေးဖို့လည်း ပိုကောင်းသွား�
 
 ## write a shell script
 
-အထက်မှာ စဉ်းစားထားခဲ့တာကို အကောင်အထည်ဖော်တဲ့ အနေနဲ့ string similarity distance တွေနဲ့ပဲ ဖြည့်ထားပြီး forest tree နဲ့ classification လုပ်တာကို စမ်းကြည့်ပြီး ရလဒ်တွေကို ကြည့်ချင်တယ်။  
-အဲဒီအတွက် harry string similarity တိုင်းတဲ့ tool ကို သုံးခဲ့တယ်။  
+အထက်မှာ စဉ်းစားထားခဲ့တာကို အကောင်အထည်ဖော်တဲ့ အနေနဲ့ string similarity distance တွေနဲ့ပဲ ဖြည့်ထားပြီး Random-Forest Model နဲ့ classification လုပ်တာကို စမ်းကြည့်ပြီး ရလဒ်တွေကို ကြည့်ချင်တယ်။  
+အဲဒီအတွက် [harry string similarity](https://github.com/rieck/harry) တိုင်းတဲ့ tool ကို သုံးခဲ့တယ်။  
 ထုံးစံအတိုင်းပဲ preprocessing, formatting ကိစ္စတွေ လုပ်ဖို့ လိုအပ်လို့ bash script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
 
 ဖိုင်နာမည်က "mk-distance-csv.sh"  
@@ -7701,7 +7701,7 @@ all.txt ဆိုပြီးတော့ train.txt ဖိုင်နဲ့ for
 ```
 
 အထက်ပါ wc ရလဒ်အရဆိုရင် လက်ရှိမှာ dist_jarowinkler ကို တွက်နေတယ်လို့ နားလည်တယ်။  
-အဲဒါကြောင့် distance အကုန်တွက်တာကို စောင့်မနေတော့ပဲ လက်ရှိ output ရလာတဲ့ distance ၅မျိုးကိုပဲ ယူလိုက်ပြီး လေဘယ်နဲ့ တွဲပေးလိုက်ပြီးရင် Random Forest နဲ့ training လုပ်ဖို့ ဆုံးဖြတ်ခဲ့...  
+အဲဒါကြောင့် distance အကုန်တွက်တာကို စောင့်မနေတော့ပဲ လက်ရှိ output ရလာတဲ့ distance ၅မျိုးကိုပဲ ယူလိုက်ပြီး လေဘယ်နဲ့ တွဲပေးလိုက်ပြီးရင် Random-Forest နဲ့ training လုပ်ဖို့ ဆုံးဖြတ်ခဲ့...  
 
 ```
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry/tmp$ paste -d"," ./dist_bag.txt ./dist_compression.txt ./dist_damerau.txt ./dist_hamming.txt ./dist_jaro.txt ./label.txt > ./5dist.para.csv
@@ -7836,7 +7836,7 @@ coding က run လို့ အိုကေသွားပြီး နောက
 ### Training Paraphrase Classification with Random-Forest (used only 5 string similarity distance features)
 
 ```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_foresttree.py 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_random-forest.py 
 head:
    dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
 0        66          0.541322            95           183   0.287804    0.0
@@ -7861,26 +7861,49 @@ user	0m7.161s
 sys	0m1.217s
 ```
 
-Run time က 28 Sec ပဲ ကြာတယ်။
-ရလဒ်ကလည်း ကောင်းတယ်။ training ဒေတာနဲ့က 0.99 Accuracy ရပြီးတော့၊ test data နဲ့က 0.82 ရတယ်။  
+Run time က 28 Sec ပဲ ကြာတယ်။  
+ရလဒ်ကလည်း ကောင်းတယ်။ training ဒေတာနဲ့က 0.99 Accuracy ရပြီးတော့၊ test data နဲ့က 0.82 ရတယ်။   
 အထက်မှာ ဆက်တိုက် လုပ်လာခဲ့တဲ့ distance တစ်ခုတည်းနဲ့ Siamese Network training result တွေနဲ့ ယှဉ်လိုက်ရင် လုံးဝ တခြားစီပါပဲ....  
-အဲဒါကြောင့် အထက်က Python code ကို ပြင်ဆင်ပြီးတော့ Siamese Network တုန်းက သုံးခဲ့တဲ့ training, test data နဲ့ ထပ်တူ လုပ်ကြည့်ပြီး result ထုတ်ကြည့်မယ်။
-ပြီးတော့ Siamese Network ကိုလည်း word2vec, fasttext တို့နဲ့ မဟုတ်ပဲ အခု python code နဲ့ random forest နဲ့ စမ်းခဲ့တဲ့ training, test ဒေတာ (i.e. features with 5 distances) တို့နဲ့ training/testing လုပ်ကြည့်ပြီး ရလဒ်တွေကို compare လုပ်ကြည့်မယ်။  
+အဲဒါကြောင့် အထက်က Python code ကို ပြင်ဆင်ပြီးတော့ Siamese Network တုန်းက သုံးခဲ့တဲ့ training, test data နဲ့ ထပ်တူ လုပ်ကြည့်ပြီး result ထုတ်ကြည့်မယ်။  
+ပြီးတော့ Siamese Network ကိုလည်း word2vec, fasttext တို့နဲ့ မဟုတ်ပဲ အခု python code နဲ့ Random Forest နဲ့ စမ်းခဲ့တဲ့ training, test ဒေတာ (i.e. features with 5 distances) တို့နဲ့ training/testing လုပ်ကြည့်ပြီး ရလဒ်တွေကို compare လုပ်ကြည့်မယ်။   
 
 ## Checking the Feature Importance Graphs  
 
-Tree, Forest-Tree နဲ့ training လုပ်ထားတဲ့ မော်ဒယ်မို့လို့ လွယ်လွယ်ကူကူ ဘယ် feature တွေက မြန်မာစာ paraphrase classification task အတွက် အလုပ်ကောင်းကောင်းလုပ်တယ်ဆိုတာကို feature importance graph ထုတ်ကြည့်လို့ ရပါတယ်။ Feature importance ကို ဆုံးဖြတ်တဲ့ approach နှစ်ခု ဖြစ်တဲ့ MDI (Mean Decrease in Impurity) နည်းလမ်းနဲ့ Feature Permutation နည်းလမ်းနှစ်မျိုးတို့ကို သုံးထားပါတယ်။  
+Tree, Random-Forest နဲ့ training လုပ်ထားတဲ့ မော်ဒယ်မို့လို့ လွယ်လွယ်ကူကူ ဘယ် feature တွေက မြန်မာစာ paraphrase classification task အတွက် အလုပ်ကောင်းကောင်းလုပ်တယ်ဆိုတာကို feature importance graph ထုတ်ကြည့်လို့ ရပါတယ်။ Feature importance ကို ဆုံးဖြတ်တဲ့ approach နှစ်ခု ဖြစ်တဲ့ MDI (Mean Decrease in Impurity) နည်းလမ်းနဲ့ Feature Permutation နည်းလမ်းနှစ်မျိုးတို့ကို သုံးထားပါတယ်။  
 
 <p float="left"  align="center">
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists.png" width="460" />
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists.png" width="460" /> 
 </p>
 <div align="center">
-  Fig. Important feature graph for five string similarity measures. Left: with MDI, Right: with Feature Permutation
+  Fig. Important feature graph of five string similarity measures for Random-Forest. Left: with MDI, Right: with Feature Permutation
 </div>   
   </br> 
   
-  
+## Updating the para_foresttree.py
+
+အထက်မှာ ရေးထားတဲ့ para_random-forest.py ပရိုဂရမ်ကို အောက်ပါ facility တွေ ထပ်ဖြည့်ရေးခဲ့တယ်  
+- allowing command line filename parsing for training and open test data
+- saving graphs with filenames
+
+```python
+
+```
+
+### Training/Testing Random-Forest (with Same Data-set That We Used for Deep Siamese)
+
+```
+
+```
+
+### Training/Testing Deep Siamese (with string similarity features)
+
+Deep Siamese ရဲ့ ရလဒ်အသစ်တွေကို Random-Forest ရဲ့ ရလဒ်တွေနဲ့ နှိုင်းယှဉ်ကြည့်ရမှာ very exicting ...  
+
+
+```
+
+```
 
 ## Building a Big Word2Vec and FastText Models
 
@@ -7927,5 +7950,7 @@ input_helpers.py ဖိုင်ကို အောက်ပါအတိုင�
   - https://arxiv.org/pdf/1803.11175.pdf
   - https://tfhub.dev/google/universal-sentence-encoder/4
   - https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/semantic_similarity_with_tf_hub_universal_encoder.ipynb#scrollTo=BnvjATdy64eR
+  - https://github.com/rieck/harry
+  
   
   
