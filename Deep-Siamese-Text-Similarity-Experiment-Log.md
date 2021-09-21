@@ -8324,6 +8324,9 @@ sys	0m0.900s
   </br> 
   
   
+## Train/Eval with Each Feature
+
+Feature တစ်ခုချင်းစီနဲ့ Myanmar Paraphraser
 
 ### Training/Testing Deep Siamese (with string similarity features)
 
