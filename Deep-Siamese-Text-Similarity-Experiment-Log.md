@@ -7880,6 +7880,54 @@ Tree, Random-Forest နဲ့ training လုပ်ထားတဲ့ မော�
 </div>   
   </br> 
   
+## Prepare Training/Testing Data Equivalent with Deep Siamese Experiment
+
+for training data:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head -n 40462 ./para.train > ./train.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head ./train.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+66,0.541322,95,183,0.287804,0
+15,0.377907,35,88,0.217737,0
+20,0.448718,37,74,0.2494,0
+15,0.227723,18,100,0.196164,0
+45,0.425532,53,120,0.28428,0
+6,0.183673,11,44,0.216472,0
+93,0.639535,98,123,0.443955,0
+72,0.590909,90,142,0.303462,0
+50,0.5,57,108,0.322201,0
+```
+
+for open evaluation or open testing data:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ tail -n 1000 ./para.train > ./test.csv1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head -n 1 ./para.train > header.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head -n 3 ./test.csv1
+6,0.348214,11,20,0.171216,0
+9,0.306452,14,20,0.115448,0
+8,0.371795,31,56,0.179526,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ cat header.csv test.csv1 > ./test.csv
+```
+
+check the file content of the test.csv:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head ./test.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+6,0.348214,11,20,0.171216,0
+9,0.306452,14,20,0.115448,0
+8,0.371795,31,56,0.179526,0
+7,0.370968,14,21,0.152628,0
+15,0.5,18,50,0.1865,0
+15,0.353846,16,38,0.171366,0
+3,0.153226,3,3,0.109357,0
+13,0.3,14,34,0.159676,0
+21,0.282051,32,61,0.181011,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$
+```
+
 ## Updating the para_foresttree.py
 
 အထက်မှာ ရေးထားတဲ့ para_random-forest.py ပရိုဂရမ်ကို အောက်ပါ facility တွေ ထပ်ဖြည့်ရေးခဲ့တယ်  
