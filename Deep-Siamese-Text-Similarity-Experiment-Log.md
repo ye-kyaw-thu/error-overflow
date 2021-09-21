@@ -7976,6 +7976,32 @@ open-test ဒေတာ အသစ် သို့မဟုတ် open-test2 က�
 
 ```
 
+### Check Help Screen of para_foresttree.py
+
+```
+$ python ./para_random-forest.py --help
+usage: para_random-forest.py [-h] [-v] [-t TRAINING_FILE] [-e EVALUATION_FILE]
+                             [-m MDI_GRAPH] [-p FP_GRAPH]
+
+Random-Forest Model training and testing program
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         output version information and exit
+  -t TRAINING_FILE, --training_file TRAINING_FILE
+                        input filename for training (default: train.csv)
+  -e EVALUATION_FILE, --evaluation_file EVALUATION_FILE
+                        input filename for open evaluation or testing
+                        (default: test.csv)
+  -m MDI_GRAPH, --mdi_graph MDI_GRAPH
+                        output graph filename for feature importance based on
+                        mean decrease in impurity (default: mdi_graph.png)
+  -p FP_GRAPH, --fp_graph FP_GRAPH
+                        output graph filename for feature importance based on
+                        feature permutation (default: mdi_graph.png)
+```
+
+
 ### Training/Testing Random-Forest (with Same Data-set That We Used for Deep Siamese)
 
 လက်ရှိ ရေးထားတဲ့ para_random-forest.py က သူ့ကို run တဲ့ path အောက်မှာ ရှိတဲ့ train.csv နဲ့ test.csv ကို ရှာမှာက default မို့လို့ run တဲ့အခါမှာ file not found error မပေးအောင်လို့ ကြိုပြီးတော့ copy ကူးထားခဲ့...  
