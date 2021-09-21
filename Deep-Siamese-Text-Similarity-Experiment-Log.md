@@ -7928,6 +7928,44 @@ dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$
 ```
 
+## Prepare One More Open Data-set or Open Test Data
+
+လက်ရှိ သုံးနေတဲ့ test.csv ဖိုင်က ငါတို့ လက်နဲ့ ပြင်ဆင်ထားတဲ့ open test data ဖိုင်။  
+အဲဒီဖိုင်ထဲမှာ ရှိတဲ့ စာလုံးတွေမှာက   
+ - string length က တူတာများတယ်
+ - ပြီးတော့ စာလုံးတွေကလည်း တူတာများတယ်
+ - တချို့စာကြောင်းတွေက မူရင်းစာကြောင်းကို အငြင်းပြောင်းထားတာတွေပါတယ်
+
+ပြောရရင် training data နဲ့ balance မှာက ပြဿနာ ရှိကောင်းရှိနိုင်တယ်။ ဆိုလိုတာက လက်နဲ့ စဉ်းစားပြီး သပ်သပ် ထပ်ပြင်ထားတဲ့ open test data မို့လို့ အကောင်းလွန်ပြီး မော်ဒယ်က predition လုပ်ရတာ ခက်ခဲ့တဲ့ အပိုင်း ရှိသလားလို့ သံသယရှိခဲ့တယ်။ ဘာကြောင့်လဲ ဆိုတော့ Random-Forest ကို ပထမပိုင်းမှာ training data တစ်ခုလုံး (i.e. including open test data) ကို python library ကို လွှဲလိုက်ပြီး X_train, X_test, y_train, y_test အဖြစ် ခွဲခဲ့တုန်းက ဘယ်နှစ်ခါ run လုပ်လုပ် open test နဲ့ evaluation ရလဒ်က 80 အထက်မှာ ရှိနေခဲ့တယ်။ သို့သော် Deep Siamese မှာ run တဲ့ ပုံစံအတိုင်း အတိအကျပြင်ဆင်ပြီးတော့ run တဲ့အခါကျတော့ Random-Forest မော်ဒယ်ရဲ့ ရလဒ်က အထက်မှာ ပြခဲ့တဲ့အတိုင်း 50 ကျော်အထိ ထိုးကျသွားလို့...  
+
+အဲဒါကြောင့် open-test နောက်တစ်ခုကို သပ်သပ် shuffle လုပ်ပြီး ပြင်ဆင်ဖို့ ဆုံးဖြတ်ခဲ့တယ်။    
+evaluation လုပ်တဲ့အခါမှာ open-test1, open-test2 ဆိုတဲ့ ပုံစံနဲ့ ရလဒ်တွေအားလုံးကို အသေအချာ confirmation လုပ်ချင်လို့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ shuf ./para.train.no_header > ./para.train.no_header.shuf
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ head -n 41461 ./para.train.no_header.shuf > para.train.no_header.shuf.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ cat header.csv ./para.train.no_header.shuf.tmp > ./para.train.no_header.shuf.train
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ wc ./para.train.no_header.shuf.train 
+  41462   41462 1186113 ./para.train.no_header.shuf.train
+```
+
+open-test ဒေတာ အသစ် သို့မဟုတ် open-test2 ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ tail -n 1000 ./para.train.no_header.shuf > para.train.no_header.shuf.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ cat ./header.csv ./para.train.no_header.shuf.tmp > ./para.train.no_header.shuf.test
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data$ wc ./para.train.no_header.shuf.test 
+ 1001  1001 28648 ./para.train.no_header.shuf.test
+```
+
+လုပ်ရပြုရတာ လွယ်ကူအောင် အသစ်ပြင်ဆင်ခဲ့တဲ့ ဖိုင်နှစ်ဖိုင်ကို အောက်ပါအတိုင်း နာမည်အတိုနဲ့ Random-Forest run မယ့် folder အောက်ကို ကော်ပီကူးသိမ်းခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ cp ./data/para.train.no_header.shuf.train ./train2.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ cp ./data/para.train.no_header.shuf.test ./test2.csv
+```
+
+
 ## Updating the para_foresttree.py
 
 အထက်မှာ ရေးထားတဲ့ para_random-forest.py ပရိုဂရမ်ကို အောက်ပါ facility တွေ ထပ်ဖြည့်ရေးခဲ့တယ်  
