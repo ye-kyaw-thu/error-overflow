@@ -3943,7 +3943,7 @@ sys	0m1.261s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/word-manual-200epoch-w2v-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with Manual-Word, word2vec, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with Manual-Word, word2vec, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>
   
@@ -4109,7 +4109,7 @@ sys	0m1.251s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syl-200epoch-w2v-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with Syllable Unit, word2vec, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with Syllable Unit, word2vec, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>
   
@@ -4275,7 +4275,7 @@ sys	0m1.317s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-w2v-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Word Unit Segmented with myWord", word2vec, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Word Unit Segmented with myWord", word2vec, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>
   
@@ -4402,7 +4402,7 @@ sys	0m1.321s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/manualWord-200epoch-char-nosimu-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Manual Word Segmentation", char, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Manual Word Segmentation", char, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -4508,7 +4508,7 @@ sys	0m1.272s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syllable-200epoch-char-nosimu-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Syllable", char, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Syllable", char, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -4612,7 +4612,7 @@ sys	0m1.236s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-char-nosimu-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -4867,7 +4867,7 @@ sys	0m1.306s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-manual-only-positive-epoch200-w2v.17sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Word Unit Segmented with myWord", char, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -5002,7 +5002,7 @@ sys	0m1.279s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-17Sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Manual-Word", char, training with both yes-no label, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Manual-Word", char, training with both yes-no label, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -5114,7 +5114,7 @@ sys	0m1.298s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/train-char-unit-both-yesno-label-char-embedding-sampling-17sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Manual-Word", char, training with both yes-no label, allow sampling, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Manual-Word", char, training with both yes-no label, allow sampling, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -5374,7 +5374,7 @@ sys	0m1.231s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/manual-word-200epoch-fasttext-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Manual-Word", fasttext, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Manual-Word", fasttext, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -5464,7 +5464,7 @@ sys	0m1.282s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/syllable-200epoch-fasttext-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "Syllable", fasttext, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "Syllable", fasttext, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -5572,7 +5572,7 @@ sys	0m1.237s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -5723,7 +5723,7 @@ sys	0m1.209s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length30-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=30, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=30, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -5833,7 +5833,7 @@ sys	0m1.238s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-200epoch-fasttext-max_document_length15-batch32-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 32, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 32, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
 
@@ -5960,7 +5960,7 @@ sys	0m1.308s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size16.18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 16, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
 
@@ -6059,7 +6059,7 @@ sys	0m1.246s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size128-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 128, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 128, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
@@ -6173,7 +6173,7 @@ sys	0m1.208s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-epoch200-fasttext-max-doc-length15-batch_size8-18sept2021-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
@@ -6345,7 +6345,7 @@ sys	0m1.245s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units80-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 80**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 80**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -6473,7 +6473,7 @@ sys	0m1.304s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units100-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 100**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 100**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -6607,7 +6607,7 @@ Training time ကတော့ အရမ်းကြာသွားတယ်။ g
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -6616,7 +6616,7 @@ Training time ကတော့ အရမ်းကြာသွားတယ်။ g
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-epoch200-loss-time.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **hidden_units = 200**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
 
@@ -6836,7 +6836,7 @@ sys	0m1.247s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.3-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.3**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.3**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br>  
   
@@ -7014,7 +7014,7 @@ sys	0m1.298s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.6-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
@@ -7145,7 +7145,7 @@ sys	0m1.391s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myWord-fasttext-max_doc-length15-batch_size128-hidden_units200-dropout0.8-epoch200-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.8**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.8**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
 
@@ -7294,7 +7294,7 @@ sys	0m1.365s
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/nlayers6-loss.png" width="300" /> 
 </p>
 <div align="center">
-  Fig.1 Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
+  Fig. Training and Validation Result with "myWord-word", fasttext, max_document_length=15, Batch Size = 8, **--dropout_keep_prob 0.6**, 200 epoch. Left: Accuracy, Right: Loss
 </div>   
   </br> 
   
@@ -7869,7 +7869,18 @@ Run time က 28 Sec ပဲ ကြာတယ်။
 
 ## Checking the Feature Importance Graphs  
 
+Tree, Forest-Tree နဲ့ training လုပ်ထားတဲ့ မော်ဒယ်မို့လို့ လွယ်လွယ်ကူကူ ဘယ် feature တွေက မြန်မာစာ paraphrase classification task အတွက် အလုပ်ကောင်းကောင်းလုပ်တယ်ဆိုတာကို feature importance graph ထုတ်ကြည့်လို့ ရပါတယ်။ Feature importance ကို ဆုံးဖြတ်တဲ့ approach နှစ်ခု ဖြစ်တဲ့ MDI (Mean Decrease in Impurity) နည်းလမ်းနဲ့ Feature Permutation နည်းလမ်းနှစ်မျိုးတို့ကို သုံးထားပါတယ်။  
 
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists.png" width="350" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists.png" width="350" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph for five string similarity measures. Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+  
+  
 
 ## Building a Big Word2Vec and FastText Models
 
