@@ -7991,6 +7991,15 @@ default ဖိုင်နာမည် path တွေနဲ့ပဲ အရင�
 
 ```
 
+### Training/Testing Random-Forest (with a new Open test data)  
+
+ဒီတစ်ခါတော့ အထက်မှာ လုပ်ပြထားတဲ့ open-test ကိုပါ ပေါင်းထည့်ပြီး အားလုံးကို shuffle လုပ်ပြီးတော့မှ နောက်ဆုံး အကြောင်း ၁၀၀၀ နဲ့ ပြင်ထားတဲ့ open-test data ပါ။  
+
+```
+
+```
+
+
 ### Training/Testing Deep Siamese (with string similarity features)
 
 Deep Siamese ရဲ့ ရလဒ်အသစ်တွေကို Random-Forest ရဲ့ ရလဒ်တွေနဲ့ နှိုင်းယှဉ်ကြည့်ရမှာ very exicting ...  
