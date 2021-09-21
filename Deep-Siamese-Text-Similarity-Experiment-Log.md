@@ -7872,8 +7872,8 @@ Run time က 28 Sec ပဲ ကြာတယ်။
 Tree, Forest-Tree နဲ့ training လုပ်ထားတဲ့ မော်ဒယ်မို့လို့ လွယ်လွယ်ကူကူ ဘယ် feature တွေက မြန်မာစာ paraphrase classification task အတွက် အလုပ်ကောင်းကောင်းလုပ်တယ်ဆိုတာကို feature importance graph ထုတ်ကြည့်လို့ ရပါတယ်။ Feature importance ကို ဆုံးဖြတ်တဲ့ approach နှစ်ခု ဖြစ်တဲ့ MDI (Mean Decrease in Impurity) နည်းလမ်းနဲ့ Feature Permutation နည်းလမ်းနှစ်မျိုးတို့ကို သုံးထားပါတယ်။  
 
 <p float="left"  align="center">
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists.png" width="550" />
-  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists.png" width="550" /> 
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists.png" width="460" /> 
 </p>
 <div align="center">
   Fig. Important feature graph for five string similarity measures. Left: with MDI, Right: with Feature Permutation
