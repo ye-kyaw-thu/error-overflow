@@ -8014,8 +8014,55 @@ optional arguments:
 default ဖိုင်နာမည် path တွေနဲ့ပဲ အရင်ဆုံး Random-Forest model ကို training လုပ်ကြည့်ခဲ့...  
 
 ```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_random-forest.py
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0        66          0.541322            95           183   0.287804      0
+1        15          0.377907            35            88   0.217737      0
+2        20          0.448718            37            74   0.249400      0
+3        15          0.227723            18           100   0.196164      0
+4        45          0.425532            53           120   0.284280      0
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  label
+0         6          0.348214            11            20   0.171216    0.0
+1         9          0.306452            14            20   0.115448    0.0
+2         8          0.371795            31            56   0.179526    0.0
+3         7          0.370968            14            21   0.152628    0.0
+4        15          0.500000            18            50   0.186500    0.0
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro
+0         6          0.348214            11            20   0.171216
+1         9          0.306452            14            20   0.115448
+2         8          0.371795            31            56   0.179526
+3         7          0.370968            14            21   0.152628
+4        15          0.500000            18            50   0.186500
+Accuracy on the training: 0.9994315513704555
+Accuracy on the testing: 0.565
+Elapsed time to compute the importances: 0.010 seconds
+Elapsed time to compute the importances: 2.375 seconds
 
+real	0m10.222s
+user	0m4.946s
+sys	0m1.357s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ training filename နဲ့ test filename ကို option နဲ့ မပေးခဲ့တာကြောင့် default assign လုပ်ထားတဲ့ ဖိုင်တွေကိုပဲ သုံးသွားပြီး training/evaluation လုပ်ခဲ့တယ်။ ဆိုလိုတာက training အတွက်က "" ဖိုင်နဲ့ open testing အတွက်က "" ကို သုံးခဲ့တယ်။  
+
+ရလဒ်က training data နဲ့က 0.99 ရတယ်။  
+open test data (manually prepared by Myint Myint Htay) က 0.57 ရတယ်။  
+
+feature importance graph တွေက အောက်ပါအတိုင်းရတယ်။ လေ့လာကြည့်ရအောင်...  
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-5dists-test1.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature-permutation-for-5dists-test1.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (eval with test1). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+  
 
 ### Training/Testing Random-Forest (with a new Open test data)  
 
