@@ -8438,9 +8438,27 @@ It looks, OK...
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$
 ```
 
-## Train/Eval with Each Feature
+## Train/Eval with 21 Features
 
-Feature တစ်ခုချင်းစီနဲ့ Myanmar Paraphraser
+Feature စုစုပေါင်း နှစ်ဆယ့်တစ်မျိုးထဲမှာ Myanmar Paraphrase Classification အတွက် ဘယ် feature တွေက အလုပ်ကောင်းကောင်းလုပ်ပေးသလဲ ဆိုတာကို လေ့လာနိုင်ဖို့ ဒီတစ်ခါတော့ Random-Forest မော်ဒယ်ကို feature နှစ်ဆယ့်တစ်မျိုးစလုံးနဲ့ training/evaluation လုပ်ကြည့်မယ်။  
+
+### Training/Evaluation with Manual Open Test Data
+
+```
+
+```
+
+### Training/Evaluation with Manual Open Test Data No. 2
+
+```
+
+```
+
+### Training/Evaluation with Manual Open Test Data No. 3
+
+```
+
+```
 
 ### Training/Testing Deep Siamese (with string similarity features)
 
