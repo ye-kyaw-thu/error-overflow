@@ -8527,19 +8527,19 @@ dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
 ```
 
-### Training/Evaluation with Manual Open Test Data
+### Random-Forest Training/Evaluation with Manual Open Test Data
 
 ```
 
 ```
 
-### Training/Evaluation with Manual Open Test Data No. 2
+### Random-Forest Training/Evaluation with Manual Open Test Data No. 2
 
 ```
 
 ```
 
-### Training/Evaluation with Manual Open Test Data No. 3
+### Random-Forest Training/Evaluation with Manual Open Test Data No. 3
 
 ```
 
