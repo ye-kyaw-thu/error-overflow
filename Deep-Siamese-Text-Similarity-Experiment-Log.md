@@ -8589,20 +8589,143 @@ dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,d
 ### Random-Forest Training/Evaluation with Manual Open Test Data
 
 ```
+ time python ./para_random-forest.py -t ./data/final/train1.csv -e ./data/final/test1.csv -m ./feature_importance-with-MDI-for-21dists-test1.png -p ./feature_importance-with-feature_per-for-21dists-test1.png
+trainFILE:  ./data/final/train1.csv
+evalFILE: ./data/final/test1.csv
+mdiFILE: ./feature_importance-with-MDI-for-21dists-test1.png
+fpFILE: ./feature_importance-with-feature_per-for-21dists-test1.png
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0        66          0.541322            95           183   0.287804  ...        0.789744    0.787726     0.846154   0.478261      0
+1        15          0.377907            35            88   0.217737  ...        0.916667    0.916667     0.916667   0.733333      0
+2        20          0.448718            37            74   0.249400  ...        0.769091    0.767523     0.818182   0.450000      0
+3        15          0.227723            18           100   0.196164  ...        0.902308    0.902134     0.920000   0.696970      0
+4        45          0.425532            53           120   0.284280  ...        0.826389    0.824958     0.875000   0.538462      0
 
+[5 rows x 22 columns]
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0         6          0.348214            11            20   0.171216  ...        0.733333    0.733333     0.733333   0.407407    0.0
+1         9          0.306452            14            20   0.115448  ...        0.800654    0.800327     0.823529   0.500000    0.0
+2         8          0.371795            31            56   0.179526  ...        0.808877    0.808694     0.826087   0.513514    0.0
+3         7          0.370968            14            21   0.152628  ...        0.738889    0.737865     0.777778   0.411765    0.0
+4        15          0.500000            18            50   0.186500  ...        0.672222    0.669439     0.733333   0.333333    0.0
+
+[5 rows x 22 columns]
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_jaccard  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal
+0         6          0.348214            11            20   0.171216  ...     0.578947        0.733333    0.733333     0.733333   0.407407
+1         9          0.306452            14            20   0.115448  ...     0.666667        0.800654    0.800327     0.823529   0.500000
+2         8          0.371795            31            56   0.179526  ...     0.678571        0.808877    0.808694     0.826087   0.513514
+3         7          0.370968            14            21   0.152628  ...     0.583333        0.738889    0.737865     0.777778   0.411765
+4        15          0.500000            18            50   0.186500  ...     0.500000        0.672222    0.669439     0.733333   0.333333
+
+[5 rows x 21 columns]
+Accuracy on the training: 0.9995304120016806
+Accuracy on the testing: 0.61
+Elapsed time to compute the importances: 0.009 seconds
+Elapsed time to compute the importances: 3.800 seconds
+
+real	0m25.623s
+user	0m9.774s
+sys	0m1.902s
 ```
+
+Feature importances graph တွေကို ကြည့်ရအောင်...  
 
 ### Random-Forest Training/Evaluation with Manual Open Test Data No. 2
 
 ```
+$ time python ./para_random-forest.py -t ./data/final/train2.csv -e ./data/final/test2.csv -m ./feature_importance-with-MDI-for-21dists-test2.png -p ./feature_importance-with-feature_per-for-21dists-test2.png
+trainFILE:  ./data/final/train2.csv
+evalFILE: ./data/final/test2.csv
+mdiFILE: ./feature_importance-with-MDI-for-21dists-test2.png
+fpFILE: ./feature_importance-with-feature_per-for-21dists-test2.png
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0        46          0.493056            47            63   0.297969  ...        0.835088    0.829288     0.933333   0.538462    0.0
+1        57          0.648352            68            99   0.324023  ...        0.703431    0.693103     0.823529   0.350000    0.0
+2        20          0.265957            20            95   0.179294  ...        0.920000    0.920000     0.920000   0.741935    0.0
+3        85          0.712500            86           101   0.477453  ...        0.498169    0.484182     0.615385   0.181818    0.0
+4        50          0.383333            57           118   0.143208  ...        0.861538    0.859338     0.923077   0.600000    0.0
 
+[5 rows x 22 columns]
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0        13          0.253521            16            33   0.126814  ...        0.889328    0.889108     0.909091   0.666667      1
+1        19          0.535714            35            65   0.239568  ...        0.667105    0.666886     0.684211   0.333333      0
+2        45          0.470238            46            98   0.323852  ...        0.819838    0.809858     0.947368   0.500000      0
+3        26          0.307143            26            54   0.202789  ...        0.880952    0.872872     1.000000   0.615385      1
+4        20          0.318841            20            45   0.165305  ...        0.857843    0.857493     0.882353   0.600000      0
+
+[5 rows x 22 columns]
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_jaccard  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal
+0        13          0.253521            16            33   0.126814  ...     0.800000        0.889328    0.889108     0.909091   0.666667
+1        19          0.535714            35            65   0.239568  ...     0.500000        0.667105    0.666886     0.684211   0.333333
+2        45          0.470238            46            98   0.323852  ...     0.666667        0.819838    0.809858     0.947368   0.500000
+3        26          0.307143            26            54   0.202789  ...     0.761905        0.880952    0.872872     1.000000   0.615385
+4        20          0.318841            20            45   0.165305  ...     0.750000        0.857843    0.857493     0.882353   0.600000
+
+[5 rows x 21 columns]
+Accuracy on the training: 0.999480981686068
+Accuracy on the testing: 0.851
+Elapsed time to compute the importances: 0.009 seconds
+Elapsed time to compute the importances: 2.932 seconds
+
+real	0m19.772s
+user	0m9.789s
+sys	0m1.792s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
 
 ### Random-Forest Training/Evaluation with Manual Open Test Data No. 3
 
 ```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$ time python ./para_random-forest.py -t ./data/final/train3.csv -e ./data/final/test3.csv -m ./feature_importance-with-MDI-for-21dists-test3.png -p ./feature_importance-with-feature_per-for-21dists-test3.png
+trainFILE:  ./data/final/train3.csv
+evalFILE: ./data/final/test3.csv
+mdiFILE: ./feature_importance-with-MDI-for-21dists-test3.png
+fpFILE: ./feature_importance-with-feature_per-for-21dists-test3.png
+head of training corpus:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0        16          0.214953            17            43   0.055456  ...        0.902308    0.902134     0.920000   0.696970    0.0
+1         9          0.262712             9            31   0.173094  ...        0.849265    0.848875     0.875000   0.583333    0.0
+2        12          0.244048            13            25   0.073207  ...        0.851449    0.851257     0.869565   0.588235    1.0
+3        29          0.190265            29            86   0.125761  ...        0.965517    0.964901     1.000000   0.870968    1.0
+4        18          0.276923            19            43   0.138581  ...        0.865497    0.865181     0.888889   0.615385    0.0
 
+[5 rows x 22 columns]
+head of open test data:
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal  label
+0       140          0.635593           152           181   0.337650  ...        0.852273    0.846114     0.954545   0.567568      0
+1        26          0.415493            36            55   0.251167  ...        0.847826    0.834058     1.000000   0.533333      1
+2        32          0.376147            68           153   0.211544  ...        0.932143    0.931589     0.964286   0.771429      0
+3        32          0.450000            40            84   0.219600  ...        0.729946    0.723923     0.823529   0.388889      1
+4        38          0.409091            38            46   0.210544  ...        0.868421    0.858395     1.000000   0.583333      1
+
+[5 rows x 22 columns]
+X_test.head()
+   dist_bag  dist_compression  dist_damerau  dist_hamming  dist_jaro  ...  sim_jaccard  sim_kulczynski  sim_otsuka  sim_simpson  sim_sokal
+0       140          0.635593           152           181   0.337650  ...     0.724138        0.852273    0.846114     0.954545   0.567568
+1        26          0.415493            36            55   0.251167  ...     0.695652        0.847826    0.834058     1.000000   0.533333
+2        32          0.376147            68           153   0.211544  ...     0.870968        0.932143    0.931589     0.964286   0.771429
+3        32          0.450000            40            84   0.219600  ...     0.560000        0.729946    0.723923     0.823529   0.388889
+4        38          0.409091            38            46   0.210544  ...     0.736842        0.868421    0.858395     1.000000   0.583333
+
+[5 rows x 21 columns]
+Accuracy on the training: 0.999653987790712
+Accuracy on the testing: 0.852
+Elapsed time to compute the importances: 0.009 seconds
+Elapsed time to compute the importances: 2.979 seconds
+
+real	0m17.548s
+user	0m9.811s
+sys	0m1.877s
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
+
+
 
 ### Training/Testing Deep Siamese (with string similarity features)
 
