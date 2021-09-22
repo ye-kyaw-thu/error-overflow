@@ -8451,80 +8451,139 @@ Feature စုစုပေါင်း နှစ်ဆယ့်တစ်မျ�
 training, test ဖိုင်တွေကို ပြင်ဆင်တဲ့အဆင့်တွေက အောက်ပါအတိုင်းပါ။ ပထမဦးဆုံး Manual Open Data အတွက် ပြင်ရလိမ့်မယ်။ အဲဒါကတော့ အပေါ်အောက် ဆင့်ထားတာမို့ လိုင်းအရေအတွက် အတိအကျနဲ့ ဖြတ်ယူယုံပါပဲ။  
 ဒီတစ်ခါတော့ မှတ်မိလွယ်အောင် နံပါတ်ကို အစဉ်လိုက် 1, 2, 3 ဆိုပြီး ပေးသွားမယ်။ နံပါတ် 1 နဲ့ စတဲ့ဖိုင်တွေကတော့ Deep Siamese Network နဲ့ စမ်းခဲ့တုန်းကအတိုင်းပဲ။ ပြီးတော့ test data ကလည်း လက်နဲ့ ပြင်ထားတဲ့ Open test နဲ့ သွားညီလိမ့်မယ်။  
 
+shell script ရေးခဲ့...  
+
+```bash
+#!/bin/bash
+
+# for final Myanmar Paraphrase Classification experiment with Random-Forest
+# Written by Ye, LST, NECTEC, Thailand
+# Date: 22 Sept 2021
+
+# for training1, test1
+head -n 40461 ./all_distance21.txt > train.csv.tmp
+tail -n 1000 ./all_distance21.txt > open-test.csv.tmp
+cat header.csv ./train.csv.tmp > train1.csv
+cat header.csv ./open-test.csv.tmp > test1.csv
+echo "finished for training1, test1:"
+wc train1.csv
+wc test1.csv
+
+# for training2, test2
+shuf ./all_distance21.txt > all_distance21.txt.shuf1
+
+head -n 40461 ./all_distance21.txt.shuf1 > train.csv.tmp
+tail -n 1000 ./all_distance21.txt.shuf1 > open-test.csv.tmp
+cat header.csv ./train.csv.tmp > train2.csv
+cat header.csv ./open-test.csv.tmp > test2.csv
+echo "finished for training2, test2:"
+wc train2.csv
+wc test2.csv
+
+# for training3, test3
+shuf ./all_distance21.txt.shuf1 > all_distance21.txt.shuf2
+
+head -n 40461 ./all_distance21.txt.shuf2 > train.csv.tmp
+tail -n 1000 ./all_distance21.txt.shuf2 > open-test.csv.tmp
+cat header.csv ./train.csv.tmp > train3.csv
+cat header.csv ./open-test.csv.tmp > test3.csv
+echo "finished for training3, test3:"
+wc train3.csv
+wc test3.csv
+
+
 ```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt > train.csv.tmp
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt > open-test.csv.tmp
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv 
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train1.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test1.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train1.csv
-  40462   40462 5662623 train1.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test1.csv
-  1001   1001 136013 test1.csv
+
+Run above shell script...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ chmod +x ./prepare-train-test.sh 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ ./prepare-train-test.sh 
+finished for training1, test1:
+  40462   40462 5662828 train1.csv
+  1001   1001 136218 test1.csv
+finished for training2, test2:
+  40462   40462 5658870 train2.csv
+  1001   1001 140176 test2.csv
+finished for training3, test3:
+  40462   40462 5658394 train3.csv
+  1001   1001 140652 test3.csv
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$
 ```
 
-Prepare Training Data No.2 and Open Test Data No. 2:  
-
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ shuf ./all_distance21.txt > all_distance21.txt.shuf1
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt.shuf1 > train.csv.tmp
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt.shuf1 > open-test.csv.tmp
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train2.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test2.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train2.csv
-  40462   40462 5658977 train2.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test2.csv
-  1001   1001 139659 test2.csv
-
-```
-
-Prepare Open Test Data No. 3:  
-
-```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ shuf ./all_distance21.txt.shuf1 > all_distance21.txt.shuf2
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt.shuf2 > train.csv.tmp 
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt.shuf2 > open-test.csv.tmp 
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train3.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test3.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train3.csv
-  40462   40462 5659166 train3.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test3.csv 
-  1001   1001 139470 test3.csv
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
-```
 
 file content တွေကိုလည်း တချက် print လုပ်ပြီး စစ်ခဲ့...  
 
 ```
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train1.csv 
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./train1.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
 66,0.541322,95,183,0.287804,0.230243,335.333,12447,95,95,35528.5,505,0.000595015,24.1667,0.733333,0.785714,0.647059,0.789744,0.787726,0.846154,0.478261,0
 15,0.377907,35,88,0.217737,0.217737,186,5656,35,35,12672.5,232,0.000266483,19.3333,0.916667,0.916667,0.846154,0.916667,0.916667,0.916667,0.733333,0
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test1.csv 
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+20,0.448718,37,74,0.2494,0.2494,149,4616,37,37,7949,126,0.000147462,14.8333,0.72,0.765957,0.62069,0.769091,0.767523,0.818182,0.45,0
+15,0.227723,18,100,0.196164,0.196164,240,5657,18,18,28127.5,519,0.000643301,47.3333,0.884615,0.901961,0.821429,0.902308,0.902134,0.92,0.69697,0
+45,0.425532,53,120,0.28428,0.28428,210.333,8444,53,53,13076.5,238,0.000281461,11.1667,0.777778,0.823529,0.7,0.826389,0.824958,0.875,0.538462,0
+6,0.183673,11,44,0.216472,0.216472,88.3333,3093,11,11,2287,61,6.70089e-05,3.16667,0.866667,0.866667,0.764706,0.866667,0.866667,0.866667,0.619048,0
+93,0.639535,98,123,0.443955,0.355164,176.667,9260,98,98,8675.5,113,0.000135616,17,0.545455,0.615385,0.444444,0.625668,0.620505,0.705882,0.285714,0
+72,0.590909,90,142,0.303462,0.182077,250.667,9630,90,90,25398.5,433,0.000506152,38.5,0.703704,0.703704,0.542857,0.703704,0.703704,0.703704,0.372549,0
+50,0.5,57,108,0.322201,0.257761,181.333,7666,57,57,8872.5,141,0.000160957,7.16667,0.714286,0.731707,0.576923,0.732143,0.731925,0.75,0.405405,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./test1.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
 6,0.348214,11,20,0.171216,0.10273,50.3333,1118,11,11,2791,51,5.71972e-05,27.1667,0.733333,0.733333,0.578947,0.733333,0.733333,0.733333,0.407407,0
 9,0.306452,14,20,0.115448,0.0692688,46,1188,14,14,4518,81,8.93553e-05,43.8333,0.777778,0.8,0.666667,0.800654,0.800327,0.823529,0.5,0
+8,0.371795,31,56,0.179526,0.107716,125.333,3707,31,31,8524.5,139,0.000156974,29.1667,0.791667,0.808511,0.678571,0.808877,0.808694,0.826087,0.513514,0
+7,0.370968,14,21,0.152628,0.0915768,49.6667,1353,14,14,4331.5,92,0.0001011,40.5,0.7,0.736842,0.583333,0.738889,0.737865,0.777778,0.411765,0
+15,0.5,18,50,0.1865,0.1119,101.667,3289,18,18,5444,122,0.000135859,23,0.611111,0.666667,0.5,0.672222,0.669439,0.733333,0.333333,0
+15,0.353846,16,38,0.171366,0.10282,73.3333,2725,16,16,4464,89,0.000101262,30.1667,0.777778,0.777778,0.636364,0.777778,0.777778,0.777778,0.466667,0
+3,0.153226,3,3,0.109357,0.065614,9.99999,67,3,3,3595.5,77,8.33234e-05,54.3333,0.85,0.894737,0.809524,0.897222,0.895979,0.944444,0.68,0
+13,0.3,14,34,0.159676,0.0958053,61.3333,2447,14,14,3242,64,6.99062e-05,26.1667,0.789474,0.857143,0.75,0.863487,0.860309,0.9375,0.6,0
+21,0.282051,32,61,0.181011,0.108606,123.333,3850,32,32,9554,180,0.000205674,36.1667,0.857143,0.9,0.818182,0.902256,0.901127,0.947368,0.692308,0
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train2.csv 
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
-19,0.37234,25,63,0.155767,0.0934603,130.333,4032,25,25,17662,308,0.000351285,67.6667,0.740741,0.8,0.666667,0.805153,0.802572,0.869565,0.5,0
-14,0.291139,20,54,0.12298,0.0737881,105,3786,20,20,11694.5,225,0.000268932,55.3333,0.869565,0.888889,0.8,0.889328,0.889108,0.909091,0.666667,1
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test2.csv
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
-4,0.175926,5,5,0.0533333,0.032,11.3333,239,5,5,2492,51,5.59496e-05,43.6667,0.875,0.875,0.777778,0.875,0.875,0.875,0.636364,1
-45,0.598837,59,111,0.336621,0.336621,210,7363,59,59,13424,138,0.000176266,13.8333,0.652174,0.652174,0.483871,0.652174,0.652174,0.652174,0.319149,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./train2.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
+46,0.493056,47,63,0.297969,0.178781,92,4615,47,47,4516.5,98,0.000108794,24.8333,0.736842,0.823529,0.7,0.835088,0.829288,0.933333,0.538462,0
+57,0.648352,68,99,0.324023,0.259219,183,6043,68,68,14151.5,181,0.000212731,31.8333,0.583333,0.682927,0.518519,0.703431,0.693103,0.823529,0.35,0
+20,0.265957,20,95,0.179294,0.107576,183.667,6384,20,20,15606.5,315,0.000349601,33,0.92,0.92,0.851852,0.92,0.92,0.92,0.741935,0
+85,0.7125,86,101,0.477453,0.381962,129.333,7766,86,86,3204,31,3.60089e-05,7.16667,0.380952,0.470588,0.307692,0.498169,0.484182,0.615385,0.181818,0
+50,0.383333,57,118,0.143208,0.0859246,200.667,8526,57,57,47634,894,0.00100839,119,0.8,0.857143,0.75,0.861538,0.859338,0.923077,0.6,0
+19,0.349206,29,39,0.23623,0.141738,78.6667,2462,29,29,4680,91,0.000111886,29.5,0.75,0.774194,0.631579,0.775,0.774597,0.8,0.461538,1
+14,0.5,19,40,0.265285,0.185699,73.3333,2746,19,19,1599,31,3.33349e-05,3.66667,0.666667,0.689655,0.526316,0.690476,0.690066,0.714286,0.357143,0
+49,0.606742,60,115,0.293476,0.234781,195.333,8011,60,60,10476.5,169,0.000191073,7.66667,0.642857,0.75,0.6,0.771429,0.760639,0.9,0.428571,0
+21,0.519231,38,75,0.217166,0.173733,161,4835,38,38,10413.5,161,0.00018403,21.8333,0.782609,0.8,0.666667,0.800395,0.800198,0.818182,0.5,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./test2.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
+13,0.253521,16,33,0.126814,0.0760882,66.6667,1975,16,16,6340.5,122,0.000131605,46,0.869565,0.888889,0.8,0.889328,0.889108,0.909091,0.666667,1
+19,0.535714,35,65,0.239568,0.191654,137,4220,35,35,8582,165,0.000185346,24.3333,0.65,0.666667,0.5,0.667105,0.666886,0.684211,0.333333,0
+45,0.470238,46,98,0.323852,0.259082,159.333,7073,46,46,7106,125,0.000144275,7.16667,0.692308,0.8,0.666667,0.819838,0.809858,0.947368,0.5,0
+26,0.307143,26,54,0.202789,0.121673,90,3755,26,26,6072,151,0.000171236,33.3333,0.761905,0.864865,0.761905,0.880952,0.872872,1,0.615385,1
+20,0.318841,20,45,0.165305,0.0991828,79.6667,2864,20,20,5657,139,0.000153749,35.5,0.833333,0.857143,0.75,0.857843,0.857493,0.882353,0.6,0
+24,0.409722,36,79,0.267684,0.214147,145,5298,36,36,6212,107,0.000125402,6.83333,0.809524,0.85,0.73913,0.85213,0.851065,0.894737,0.586207,0
+43,0.451807,52,107,0.226578,0.135947,182.667,7477,52,52,15820.5,346,0.000371583,36,0.809524,0.871795,0.772727,0.876984,0.874386,0.944444,0.62963,1
+35,0.416667,43,99,0.161298,0.0967786,178.333,6839,43,43,28274,496,0.000594085,79.6667,0.793103,0.851852,0.741935,0.856552,0.854199,0.92,0.589744,0
+108,0.633621,122,185,0.408824,0.327059,280.333,13423,122,122,20178,252,0.000303192,12.1667,0.642857,0.734694,0.580645,0.75,0.742307,0.857143,0.409091,0
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train3.csv
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
-10,0.36747,21,27,0.103471,0.0620826,71.3333,1534,21,21,15326,316,0.00037657,87.6667,0.869565,0.909091,0.833333,0.910973,0.910031,0.952381,0.714286,0
-49,0.567708,70,120,0.315352,0.252282,213,8137,70,70,15012,236,0.000273342,18.3333,0.73913,0.73913,0.586207,0.73913,0.73913,0.73913,0.414634,0
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test3.csv
-dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
-12,0.291667,12,15,0.0844611,0.0506766,21.3333,1042,12,12,3434,115,0.000129049,47.6667,0.769231,0.833333,0.714286,0.839161,0.836242,0.909091,0.555556,1
-12,0.139241,12,59,0.110251,0.0661507,108.333,4219,12,12,11628,249,0.000273144,53.1667,0.958333,0.978723,0.958333,0.979167,0.978945,1,0.92,1
-(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./train3.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
+16,0.214953,17,43,0.055456,0.0332736,75.6667,3079,17,17,32682,645,0.000746549,142.5,0.884615,0.901961,0.821429,0.902308,0.902134,0.92,0.69697,0
+9,0.262712,9,31,0.173094,0.103856,64,1983,9,9,3217.5,71,7.68835e-05,24.3333,0.823529,0.848485,0.736842,0.849265,0.848875,0.875,0.583333,0
+12,0.244048,13,25,0.0732065,0.0439239,46.3333,1631,13,13,13288.5,193,0.000230508,91.6667,0.833333,0.851064,0.740741,0.851449,0.851257,0.869565,0.588235,1
+29,0.190265,29,86,0.125761,0.0754566,150.333,6084,29,29,27664.5,451,0.000542387,91.1667,0.931035,0.964286,0.931035,0.965517,0.964901,1,0.870968,1
+18,0.276923,19,43,0.138581,0.0831485,73,2963,19,19,6448,132,0.000154922,43.8333,0.842105,0.864865,0.761905,0.865497,0.865181,0.888889,0.615385,0
+35,0.37931,36,59,0.170498,0.102299,106.333,3881,36,36,15915.5,291,0.000334993,74.1667,0.807692,0.84,0.724138,0.841346,0.840673,0.875,0.567568,0
+37,0.45625,44,92,0.296709,0.237367,160,6150,44,44,7008,115,0.00013063,5.83333,0.714286,0.731707,0.576923,0.732143,0.731925,0.75,0.405405,0
+17,0.295699,33,90,0.190291,0.114174,191.333,5995,33,33,17304.5,322,0.000389107,35.6667,0.884615,0.901961,0.821429,0.902308,0.902134,0.92,0.69697,1
+13,0.266667,20,37,0.142508,0.0855045,67.3333,2644,20,20,3718,85,9.5232e-05,27.1667,0.789474,0.833333,0.714286,0.835913,0.834622,0.882353,0.555556,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head ./test3.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,dist_jarowinkler,dist_kernel,dist_lee.txt,dist_levenshtein,dist_osa,kern_distance,kern_spectrum,kern_subsequence,kern_wdegree,sim_braun,sim_dice,sim_jaccard,sim_kulczynski,sim_otsuka,sim_simpson,sim_sokal,label
+140,0.635593,152,181,0.33765,0.27012,242.667,12915,152,152,21205,368,0.000419518,40,0.75,0.84,0.724138,0.852273,0.846114,0.954545,0.567568,0
+26,0.415493,36,55,0.251167,0.1507,94,3870,36,36,5135,109,0.000126238,25.3333,0.695652,0.820513,0.695652,0.847826,0.834058,1,0.533333,1
+32,0.376147,68,153,0.211544,0.126926,294.333,10320,68,68,29772.5,476,0.000539457,25.6667,0.9,0.931035,0.870968,0.932143,0.931589,0.964286,0.771429,0
+32,0.45,40,84,0.2196,0.13176,156,5735,40,40,12909,284,0.000336117,36.3333,0.636364,0.717949,0.56,0.729946,0.723923,0.823529,0.388889,1
+38,0.409091,38,46,0.210544,0.126326,54,3554,38,38,3239,68,7.51294e-05,32.3333,0.736842,0.848485,0.736842,0.868421,0.858395,1,0.583333,1
+12,0.172897,13,30,0.0622897,0.0373738,66.3333,1706,13,13,23196.5,371,0.000416237,118.667,0.931035,0.931035,0.870968,0.931035,0.931035,0.931035,0.771429,0
+26,0.491525,30,47,0.279407,0.167644,75.6667,3454,30,30,2592,47,5.28087e-05,14.5,0.588235,0.645161,0.47619,0.65126,0.648204,0.714286,0.3125,0
+34,0.594203,41,81,0.317269,0.253815,151.333,5767,41,41,6559,71,8.99523e-05,7.66667,0.55,0.578947,0.407407,0.580556,0.579751,0.611111,0.255814,0
+13,0.196721,13,43,0.164244,0.0985464,82.3333,2936,13,13,3990,112,0.000125404,21.6667,0.9375,0.967742,0.9375,0.96875,0.968246,1,0.882353,1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$
 ```
 
 ### Random-Forest Training/Evaluation with Manual Open Test Data
