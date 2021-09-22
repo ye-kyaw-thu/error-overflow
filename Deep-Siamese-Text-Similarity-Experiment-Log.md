@@ -8638,7 +8638,7 @@ Training1/Testing1 အတွက် feature importance graph တွေကို �
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test1.png" width="460" /> 
 </p>
 <div align="center">
-  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+  Fig. Important feature graph of 21 string similarity measures for Random-Forest (train: train1, eval with test1). Left: with MDI, Right: with Feature Permutation
 </div>   
   </br> 
   
@@ -8696,7 +8696,7 @@ graph တွေက အောက်ပါအတိုင်း...
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test2.png" width="460" /> 
 </p>
 <div align="center">
-  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+  Fig. Important feature graph of 21 string similarity measures for Random-Forest (train: train2, eval with test2). Left: with MDI, Right: with Feature Permutation
 </div>   
   </br> 
 
@@ -8753,7 +8753,7 @@ graph တွေက အောက်ပါအတိုင်း...
   <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test3.png" width="460" /> 
 </p>
 <div align="center">
-  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+  Fig. Important feature graph of 21 string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
 </div>   
   </br> 
 
