@@ -8631,7 +8631,17 @@ user	0m9.774s
 sys	0m1.902s
 ```
 
-Feature importances graph တွေကို ကြည့်ရအောင်...  
+Training1/Testing1 အတွက် feature importance graph တွေကို ကြည့်ရအောင်...  
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-21dists-test1.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test1.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+  
 
 ### Random-Forest Training/Evaluation with Manual Open Test Data No. 2
 
@@ -8679,6 +8689,17 @@ sys	0m1.792s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
 
+graph တွေက အောက်ပါအတိုင်း...  
+
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-21dists-test2.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test2.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
+
 ### Random-Forest Training/Evaluation with Manual Open Test Data No. 3
 
 ```
@@ -8725,7 +8746,16 @@ sys	0m1.877s
 (base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3$
 ```
 
+graph တွေက အောက်ပါအတိုင်း...  
 
+<p float="left"  align="center">
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-MDI-for-21dists-test3.png" width="460" />
+  <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/feature_importance-with-feature_per-for-21dists-test3.png" width="460" /> 
+</p>
+<div align="center">
+  Fig. Important feature graph of five string similarity measures for Random-Forest (train: train3, eval with test3). Left: with MDI, Right: with Feature Permutation
+</div>   
+  </br> 
 
 ### Training/Testing Deep Siamese (with string similarity features)
 
