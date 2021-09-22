@@ -8442,6 +8442,30 @@ It looks, OK...
 
 Feature စုစုပေါင်း နှစ်ဆယ့်တစ်မျိုးထဲမှာ Myanmar Paraphrase Classification အတွက် ဘယ် feature တွေက အလုပ်ကောင်းကောင်းလုပ်ပေးသလဲ ဆိုတာကို လေ့လာနိုင်ဖို့ ဒီတစ်ခါတော့ Random-Forest မော်ဒယ်ကို feature နှစ်ဆယ့်တစ်မျိုးစလုံးနဲ့ training/evaluation လုပ်ကြည့်မယ်။  
 
+အရင်ဆုံး feature ဖိုင်ကို Random-Forest run မယ့် folder အောက်ကို ကော်ပီကူးခဲ့...  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/tool/harry$ cp all_distance21.txt /home/ye/exp/myPara3/data/final/
+```
+
+training, test ဖိုင်တွေကို ပြင်ဆင်တဲ့အဆင့်တွေက အောက်ပါအတိုင်းပါ။ ပထမဦးဆုံး Manual Open Data အတွက် ပြင်ရလိမ့်မယ်။ အဲဒါကတော့ အပေါ်အောက် ဆင့်ထားတာမို့ လိုင်းအရေအတွက် အတိအကျနဲ့ ဖြတ်ယူယုံပါပဲ။  
+
+```
+
+```
+
+Prepare Open Test Data No. 1:  
+
+```
+
+```
+
+Prepare Open Test Data No. 2:  
+
+```
+
+```
+
 ### Training/Evaluation with Manual Open Test Data
 
 ```
