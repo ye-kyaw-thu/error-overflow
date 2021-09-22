@@ -8449,21 +8449,82 @@ Feature စုစုပေါင်း နှစ်ဆယ့်တစ်မျ�
 ```
 
 training, test ဖိုင်တွေကို ပြင်ဆင်တဲ့အဆင့်တွေက အောက်ပါအတိုင်းပါ။ ပထမဦးဆုံး Manual Open Data အတွက် ပြင်ရလိမ့်မယ်။ အဲဒါကတော့ အပေါ်အောက် ဆင့်ထားတာမို့ လိုင်းအရေအတွက် အတိအကျနဲ့ ဖြတ်ယူယုံပါပဲ။  
+ဒီတစ်ခါတော့ မှတ်မိလွယ်အောင် နံပါတ်ကို အစဉ်လိုက် 1, 2, 3 ဆိုပြီး ပေးသွားမယ်။ နံပါတ် 1 နဲ့ စတဲ့ဖိုင်တွေကတော့ Deep Siamese Network နဲ့ စမ်းခဲ့တုန်းကအတိုင်းပဲ။ ပြီးတော့ test data ကလည်း လက်နဲ့ ပြင်ထားတဲ့ Open test နဲ့ သွားညီလိမ့်မယ်။  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt > train.csv.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt > open-test.csv.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train1.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test1.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train1.csv
+  40462   40462 5662623 train1.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test1.csv
+  1001   1001 136013 test1.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$
+```
+
+Prepare Training Data No.2 and Open Test Data No. 2:  
+
+```
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ shuf ./all_distance21.txt > all_distance21.txt.shuf1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt.shuf1 > train.csv.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt.shuf1 > open-test.csv.tmp
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train2.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test2.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train2.csv
+  40462   40462 5658977 train2.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test2.csv
+  1001   1001 139659 test2.csv
 
 ```
 
-```
-
-Prepare Open Test Data No. 1:  
+Prepare Open Test Data No. 3:  
 
 ```
-
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ shuf ./all_distance21.txt.shuf1 > all_distance21.txt.shuf2
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 40461 ./all_distance21.txt.shuf2 > train.csv.tmp 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ tail -n 1000 ./all_distance21.txt.shuf2 > open-test.csv.tmp 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./train.csv.tmp > train3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ cat header.csv ./open-test.csv.tmp > test3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc train3.csv
+  40462   40462 5659166 train3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ wc test3.csv 
+  1001   1001 139470 test3.csv
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
 ```
 
-Prepare Open Test Data No. 2:  
+file content တွေကိုလည်း တချက် print လုပ်ပြီး စစ်ခဲ့...  
 
 ```
-
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train1.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+66,0.541322,95,183,0.287804,0.230243,335.333,12447,95,95,35528.5,505,0.000595015,24.1667,0.733333,0.785714,0.647059,0.789744,0.787726,0.846154,0.478261,0
+15,0.377907,35,88,0.217737,0.217737,186,5656,35,35,12672.5,232,0.000266483,19.3333,0.916667,0.916667,0.846154,0.916667,0.916667,0.916667,0.733333,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test1.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+6,0.348214,11,20,0.171216,0.10273,50.3333,1118,11,11,2791,51,5.71972e-05,27.1667,0.733333,0.733333,0.578947,0.733333,0.733333,0.733333,0.407407,0
+9,0.306452,14,20,0.115448,0.0692688,46,1188,14,14,4518,81,8.93553e-05,43.8333,0.777778,0.8,0.666667,0.800654,0.800327,0.823529,0.5,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train2.csv 
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+19,0.37234,25,63,0.155767,0.0934603,130.333,4032,25,25,17662,308,0.000351285,67.6667,0.740741,0.8,0.666667,0.805153,0.802572,0.869565,0.5,0
+14,0.291139,20,54,0.12298,0.0737881,105,3786,20,20,11694.5,225,0.000268932,55.3333,0.869565,0.888889,0.8,0.889328,0.889108,0.909091,0.666667,1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test2.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+4,0.175926,5,5,0.0533333,0.032,11.3333,239,5,5,2492,51,5.59496e-05,43.6667,0.875,0.875,0.777778,0.875,0.875,0.875,0.636364,1
+45,0.598837,59,111,0.336621,0.336621,210,7363,59,59,13424,138,0.000176266,13.8333,0.652174,0.652174,0.483871,0.652174,0.652174,0.652174,0.319149,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 train3.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+10,0.36747,21,27,0.103471,0.0620826,71.3333,1534,21,21,15326,316,0.00037657,87.6667,0.869565,0.909091,0.833333,0.910973,0.910031,0.952381,0.714286,0
+49,0.567708,70,120,0.315352,0.252282,213,8137,70,70,15012,236,0.000273342,18.3333,0.73913,0.73913,0.586207,0.73913,0.73913,0.73913,0.414634,0
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ head -n 3 test3.csv
+dist_bag,dist_compression,dist_damerau,dist_hamming,dist_jaro,label
+12,0.291667,12,15,0.0844611,0.0506766,21.3333,1042,12,12,3434,115,0.000129049,47.6667,0.769231,0.833333,0.714286,0.839161,0.836242,0.909091,0.555556,1
+12,0.139241,12,59,0.110251,0.0661507,108.333,4219,12,12,11628,249,0.000273144,53.1667,0.958333,0.978723,0.958333,0.979167,0.978945,1,0.92,1
+(base) ye@administrator-HP-Z2-Tower-G4-Workstation:~/exp/myPara3/data/final$ 
 ```
 
 ### Training/Evaluation with Manual Open Test Data
