@@ -2140,7 +2140,7 @@ sys	0m33.329s
 ### for Myanmar-Thai (word2vec)
 
 
-|Vector Size:| Window :| Min-Count:|  Retrieval:| Coverage:| Accuracy:|
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|----------:|---------:|---------:|
 | 300 | 5 | 3 | NN | 99.94% | 2.44% |
 | 300 | 5 | 3 | Inv-NN | 99.94% | 1.31% |
