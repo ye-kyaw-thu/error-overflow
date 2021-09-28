@@ -1559,6 +1559,7 @@ model = modelmap[args.model](size=args.size, window=args.window, min_count=args.
 ## Testing Updated train_embeddings.py
 
 argument အသစ်တွေထည့်ထားတဲ့ train_embeddings.py ကို စမ်းရင်း parameter တွေကို ပြောင်းပြီး word2vec မော်ဒယ်ကို မြန်မာစာအတွက်ကော၊ ထိုင်းစာအတွက်ကော ဆောက်ကြည့်ခဲ့...  
+--size 500 --window 4 --min_count 2 ထားကြည့်ခဲ့ --iteration ကိုတော့ ရှေ့က experiment နဲ့ အတူတူ 10 ပဲထားထားခဲ့...  
 
 ```
 (bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ ./mk-word2vec-fasttext.sh /media/ye/project2/exp/bilingual-induction/exp1/my/my_corpus.txt /media/ye/project2/exp/bilingual-induction/exp1/my/ /media/ye/project2/exp/bilingual-induction/exp1/th/th_corpus.txt /media/ye/project2/exp/bilingual-induction/exp1/th/ 500 4 2 10 2>&1 | tee my-th.exp1.log2
