@@ -1,6 +1,7 @@
 # Bi-lingual Induction Experiment Log
 
-Github Link:  https://github.com/cardiffnlp/en-cy-bilingual-embeddings  
+Github Link:  [https://github.com/cardiffnlp/en-cy-bilingual-embeddings](https://github.com/cardiffnlp/en-cy-bilingual-embeddings)  
+Last Updated: 28 Sept 2021  
 
 ## Check Dictionary Format
 
