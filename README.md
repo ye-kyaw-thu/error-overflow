@@ -77,4 +77,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 70. [Extended-Edit-Distance-Testing.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Extended-Edit-Distance-Testing.md)  
 71. [Deep-Siamese-Text-Similarity-Experiment-Log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Deep-Siamese-Text-Similarity-Experiment-Log.md)  
 72. [harry-string-similarity-usage-eg.md](https://github.com/ye-kyaw-thu/error-overflow/edit/master/harry-string-similarity-usage-eg.md)  
+73. [bi-lingual-induction-experiment.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/bi-lingual-induction-experiment.log.md)  
 
