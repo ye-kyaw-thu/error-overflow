@@ -2075,6 +2075,57 @@ word2vec
 (bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$
 ```
 
+## Write a Shell Script for Evaluation
+
+Evaluation ကို VecMap က ပြင်ဆင်ပေးထားတဲ့ python script ရှိလို့ အဲဒါကို တိုက်ရိုက်သုံးတာလည်း လုပ်လို့ ရလို့ အဲဒီအတွက် shell script တစ်ပုဒ်စမ်းရေးပြီး th-my အတွက် ပြီးနေတဲ့ မော်ဒယ်တွေနဲ့ test run လုပ်ခဲ့။  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Date: 28 Sept 2021
+# How to run:  ./eval-mapped-embedding.sh <SRC_MAPPED_EMBEDDING> <TRG_MAPPED_EMBEDDING> <TEST_DICT>
+# e.g. bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/src_super/word2vec_s300_mc3_w5.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/trg_super/word2vec_s300_mc3_w5.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/test_dict.csv
+
+for ret in {'nn','invnn','invsoftmax','csls'}
+do
+    echo "--retrieval $ret:";
+    time python3 ./vecmap/eval_translation.py $1 $2 -d $3 --retrieval $ret
+done
+```
+
+အဲဒီလိုလုပ်ရင် ဘာကောင်းသွားလဲ ဆိုတော့ ဖိုင်နာမည်ကို တစ်ခေါက် တစ်ခေါက် \_s, \_w, \_mc format တွေနဲ့ ပြောင်းပေးစရာ မလိုတော့ဘူးပေါ့။ အဲဒီအစား folder မတူတဲ့အထဲမှာပဲ ဖြစ်ဖြစ် ထားထားပြီး evaluation လေးမျိုးစလုံးကို လုပ်လို့ ရတာပေါ့...  
+
+```
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/src_super/word2vec_s300_mc3_w5.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/trg_super/word2vec_s300_mc3_w5.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/test_dict.csv
+--retrieval nn:
+Coverage: 99.94%  Accuracy:  2.44%
+
+real	0m2.851s
+user	0m3.775s
+sys	0m1.421s
+--retrieval invnn:
+Coverage: 99.94%  Accuracy:  1.31%
+
+real	3m19.791s
+user	3m39.415s
+sys	0m34.057s
+--retrieval invsoftmax:
+Coverage: 99.94%  Accuracy:  2.32%
+
+real	0m11.953s
+user	0m48.297s
+sys	0m26.611s
+--retrieval csls:
+Coverage: 99.94%  Accuracy:  2.50%
+
+real	0m19.903s
+user	0m42.891s
+sys	0m33.329s
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$
+```
+
+
 ## Reference
 
 https://github.com/marekrei/convertvec
