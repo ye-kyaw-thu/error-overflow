@@ -1,5 +1,368 @@
 # Bi-lingual Induction Experiment Log
 
+Github Link:  https://github.com/cardiffnlp/en-cy-bilingual-embeddings  
+
+## Check Dictionary Format
+
+```
+meatus	meatws
+mechanic	peiriannydd
+mechanical	mecanyddol
+mechanical	mecanyddol
+mechanical advantage	mantais fecanyddol
+```
+
+dictionary ကိုလည်း train, test ခွဲဖို့ လိုအပ်တယ် ဆိုတာကို တွေ့ရ   
+
+အင်္ဂလိပ်-မြန်မာ အဘိဓာန်တစ်ခုကို ပြင်ဆင်ခဲ့...  
+/media/ye/project1/data/Dictionary/ အောက်ကနေ copy ကူးခဲ့...   
+
+```
+(base)  ye@~/tool/en-cy-bilingual-embeddings/my-data$ wc en1.txt en2.txt
+  65535  117603  798109 en1.txt
+  44105   84037  568166 en2.txt
+ 109640  201640 1366275 total
+
+(base)  ye@~/tool/en-cy-bilingual-embeddings/my-data$ wc my1.txt my2.txt
+  65535  110553 3688544 my1.txt
+  44105   77240 2517953 my2.txt
+ 109640  187793 6206497 total
+```
+
+## Prepare a Big Corpus
+
+copy the corpus...   
+
+```
+(base)  ye@/media/ye/SP PHD U3/tool/word-seg-tool/python-wordsegment/wordsegment/y-test/ref/viterbi/dev4github/4release$ cp corpus2 /home/ye/tool/en-cy-bilingual-embeddings/my-data/
+```
+
+copy and check the data...   
+
+```
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/big-myanmar$ cp /media/ye/SP\ PHD\ U3/tool/word-seg-tool/python-wordsegment/wordsegment/y-test/ref/viterbi/dev4github/4release/corpus2 .
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/big-myanmar$ wc corpus2 
+   525626  12185589 159532418 corpus2
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/big-myanmar$ head corpus2
+လု သာ မောင်း ပြိုင် သာ ပြိုင် ကိုယ့် ကိုယ်ပိုင် ကား မ ဟုတ် ပြဿနာ ဖြစ် ရင် ထွက် ပြေး အေးအေးဆေးဆေး ဖြစ် သွား ရင် ပြန် မောင်း လု သာ မောင်း ။
+သမ္မတ ဦးထင်ကျော်
+အင်းလေး သူ ဆို လည်း ကောင်း တာ ပဲ ၊ ကစ်ကစ် က ဖြူဖြူ ဖွေးဖွေးလေး ဆို တော့ ၊ ရှမ်းမလေး တွေ တော့ ထိုင် ငို နေ တော့ မှာ ပဲ အင်းလေး ကို အရမ်း ချစ် တယ် အင်းလေး နဲ့ ကစ် နဲ့ လိုက် ပါ တယ် တသက်လုံး တကယ် လာ နေ ရင် အရမ်း ကောင်း မှာ ပဲ ချစ်﻿ တယ် မကစ် ဇင်ဇင် တို့ မွန် ပြည်နယ် လာလည် ပါ လား ဖိတ်ခေါ် ပါ တယ် ကျိုက်ထီးရိုး ဘုရား ဖူး ရင် မော်လမြိုင် မြို့ ကို လာလည် ပါ ရှမ်း က မဲ တာ လား အင်းသူမ က မဲ တာ လား မူကြို ကလေး မေး တောင် သိ တယ် အင်းသူမ က ဘယ်လောက် ပဲ ပိုက်ဆံ ရှိ ပါစေ အလောင်းစည်သူမင်း ကျိန်စာ တိုက် ခဲ့ လို့ ရေ ခြံ ရော ကုန်း ခြံ ရော ကုန်း နေ အောင် လုပ် ရ တာ ဖြူ နေ ဦး မယ် အသား က ကြည့် ပြော အင်းသူမ လုပ် ရင် ရေ ကူး တတ် ရ မယ် နော် ရေ မ ကူး တတ် ရင် အလောင်း တွေ ခု ချိန် ထိ ဆယ် မ ကုန် သေး ဘူး အသဲ 😍 😍 😍 😍 မမ ကစ် ချစ် လိုက် တာ ကောင်း တယ် လုပ် ပစ် လိုက် အမ 😁 😁 😁 😁 ကစ် သာ နေ ရင် ရှမ်း ပြည် အပြီး ပြန် လာ မယ် နေ နိုင် လား ဘဝ ကို ဖြတ်သန်း တဲ့ အခါ အရိုးဆုံး က အကောင်းဆုံး ပါ ပဲ မ လုပ် ပါ နဲ့ ကစ်လေး ရယ် ရန်ကုန် ကို အမြန် ပြန် လာ ပါ ကိုယ် အရမ်း သတိရ လို့ ပါ ကွာ ချစ် တာ 😍 😍 😘 😘 ချစ် စရာ လေး အရမ်း ကြိုက် မမ နေ ပါ ကစ်လေး ရယ် သာယာ လိုက် တာ အဲ့ နား မှာ အိမ် တစ် လုံး သွား ဝယ် လိုက် မှာ ပေါ့ ။
+အင်းသား ဖြစ် ချင် လို့ အင်းသူမ ပဲ လုပ် တော့ မကစ် คุณน่ารักเสมอ 💟 ကြည့် လို့ မ ရ တော့ ဘူး နော် ကိုကြီး နေ ဖို့ လည်း မ ကောင်း ပဲ ရေ ထဲ မှာ ငါ မ ကြိုက် ဘူး ကောင်း သား ပဲ အင်းသူမလေး ဆို တော့ အေးအေးချမ်းချမ်း လေး ပေါ့ နော် မကစ် ကို က အင်းသား ဖြစ် ပါရစေ ကောင်း တာ ပေါ့ ကစ် ရဲ့ အင်းသူလေး တွေ က ဖြူစင် တယ် အင်းသူမလေး ဖြစ် တော့ မယ် ရွှေ ကစ်လေး :- * ကောင်း သလိုလို တော့ ရှိ သား နော်
+ရွှေ ကစ်လေး ရဲ့ ကုသိုလ် ကြောင့် အစစအရာရာ ပြီးပြည့်စုံ မှာ ပါ ရွှေ ကစ်လေး ကို လည်း သေ တဲ့ ထိ အားပေး မှာ ပါ အရမ်း ချစ် တယ် သာဓု ပါ သာဓု ပါ သာဓု ပါ ဒီ ထက် မက လှူ နိုင် ပါစေ နော် 👏 👏 👏 👏 👏 👍 👍 👍 အခု လို ပြု ရ သော ကုသိုလ် ကောင်း မှု တွေ ကြောင့် ဘဝ မှာ တောင်းတ ခြင်း နဲ့ ကြောက် ရ ခြင်း ကင်းဝေး ပြီး တော့ မနက်ဖြန် တွေ တိုင်း မှာ ချစ် တဲ့ မိသားစု နဲ့ ပျော်ရွှင် စွာ ဖြတ်သန်း နိုင် ပါစေ မကစ် 😍 😍 😍 😍 😍
+အနိုင်ရ မည့် အသင်း = ပြင်သစ် ဂိုး ရလဒ် = ပြင်သစ် ၂ - ၀ ခရိုအေးရှား
+မွန် ရခိုင် ရခိုင် ရခိုင် ရခိုင်
+ည အရမ်း တိုးတက် လို့ ပါ လား ခြင်္သေ့ အက တွေ နဲ့ တော့ ပြန် ကြည့် ချင် တယ် ယား နေ ရော ပဲ ဝမ်းစာရေး က အဓိက ပါ လေ ပြန် တော့ ဘူး တော် ပါ ပေ တယ် ဗျာ လေးစား တယ် ဝိုး လီး ဘဲ့ စောက် တရုတ် ပွဲ ကျ ခမ်းခမ်းနားနား ကျင်းပ ပေး တယ် တရုတ် ပြည် လည်း ဝင် တိုက် လိုက် လေ ဆယ်ဆ ပေး ရင် နိုင် မယ် လာ ။
+အလုပ် လည်း လုပ် ပညာ လည်း ယူ ချမ်းသာ ရင် တရုတ် ပြည် သွား လည် ရင် မ ကောင်း ဘူး လား ။
+အဲ့ အတွေး ပဲ လူ ဖြစ် ရင် ထမင်း စား လည်း အလကား ပဲ ။
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/big-myanmar$
+```
+
+copy and check paraphrase data...    
+
+```
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/mypara-word$ cp mypara-all.manual.word ../big-myanmar/
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/mypara-word$ wc ./mypara-all.manual.word 
+  84921  753196 8699990 ./mypara-all.manual.word
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/mypara-word$ head ./mypara-all.manual.word 
+ကျွန်တော် စီး ဖို့ ချစ် စရာ ဖိနပ် တစ် ရံ ကို ရှာ မ တွေ့ လို့ ပါ ။
+ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မ လဲ ။
+ကျေးဇူး အများကြီး တင် ပါ တယ် ။
+ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။
+ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။
+ ကောင်း သော ည ပါ ။
+ကောင် လေး က လူ ကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။
+ခဏ အကြာ မှာ ကျွန်တော် ခင်ဗျား ကို ပြန် ဆက် ပါ ရ စေ ။
+ခေါင်မိုး ပေါ် မှာ ကြောင် တစ် ကောင် ရှိ တယ် ။
+ငါ ခိုင်း တာ မင်း လုပ် ခဲ့ လား ။
+```
+
+combine two corpora...   
+
+```
+(base)  ye@/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext/big-myanmar$ wc corpus2-and-para 
+   610547  12938785 168232408 corpus2-and-para
+```
+
+## make a Big word2vec and fasttext models  for Burmese
+
+```
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ time python ./Sherlock_Holmes_fasttext.py ./big-myanmar/corpus2-and-para
+[nltk_data] Downloading package punkt to /home/ye/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package vader_lexicon to /home/ye/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data] Downloading package stopwords to /home/ye/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/ye/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Read 13M words
+Number of words:  37457
+Number of labels: 0
+Progress: 100.0% words/sec/thread:   33021 lr:  0.000000 avg.loss:  1.704674 ETA:   0h 0m 0s
+print(w2v_model.wv.most_similar('ကျောင်း', topn = 20)):
+[('စာသင်', 0.6664983630180359), ('ကျူရှင်', 0.6439144015312195), ('သင်တန်း', 0.6167402267456055), ('အထက်တန်း', 0.6155328154563904), ('ကောလိပ်', 0.6092570424079895), ('မူလတန်း', 0.6051368713378906), ('တက္ကသိုလ်', 0.5800604820251465), ('စာသင်ကျောင်း', 0.5697867274284363), ('အထက်တန်းကျောင်း', 0.5548005104064941), ('စာကြည့်တိုက်', 0.5527700185775757), ('အတန်း', 0.5506138801574707), ('ဘုန်းကြီးကျောင်း', 0.5431583523750305), ('ဂေဟာ', 0.537689745426178), ('ရဟန်း၊', 0.5304527878761292), ('ပညာသင်', 0.5243661999702454), ('သိမ်၊', 0.5216583013534546), ('အလယ်တန်း', 0.5190342664718628), ('ကျောင်းဆရာ', 0.5150541067123413), ('သူငယ်တန်း', 0.5135067105293274), ('ကျောင်း၊', 0.5103265643119812)] 
+
+print(ft_model.get_nearest_neighbors('ကျောင်း', k = 20))
+[(0.8418470025062561, '\u200dကျောင်း'), (0.801422119140625, '\u200bကျောင်း'), (0.7977048754692078, 'ကျောင်းအပ်'), (0.7898997068405151, 'ကျောင်းတက်'), (0.7829453945159912, 'ကျောင်းနေ'), (0.7780985236167908, 'ကျောင်းဆင်း'), (0.7755478024482727, 'မြို့ကျောင်း'), (0.7677992582321167, 'ကျောင်းစု'), (0.7650551795959473, 'ကျောင်းကန်'), (0.7607253193855286, 'ကျောင်းဝင်း'), (0.758015513420105, 'ကျောင်းပျက်'), (0.7567769885063171, 'ကောလိပ်ကျောင်း'), (0.756318211555481, 'ကျွဲကျောင်း'), (0.7486361265182495, 'ကျောင်းတွင်း'), (0.7475395798683167, 'ကျောင်းထိုင်'), (0.7461807131767273, 'စာသင်ကျောင်း'), (0.7436200976371765, 'ကျောင်းပိုင်'), (0.7380182147026062, 'ကျောင်းစာ'), (0.7373899221420288, 'ကျောင်းပို့'), (0.7369712591171265, 'ကျောင်းခန်း')] 
+
+
+real	7m11.755s
+user	37m22.920s
+sys	0m8.094s
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$
+```
+
+check the output. OK!  
+
+```
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ ls
+all-para.fasttext.bin   mypara-all.word    mypara-syl.tmp   scandal_in_bohemia_sentences_no_stopwords.txt  word_embeddings_SVD.R
+all-para.word2vec       mypara-manual      mypara-word      scandal_in_bohemia_sentences.txt
+big-myanmar             mypara-manual.tmp  mypara-word.tmp  scandal_in_bohemia_tokens.csv
+fasttext_bin-to-vec.py  mypara-syl         old-bk           Sherlock_Holmes_fasttext.py
+```
+
+ဖိုင်နာမည်ပြောင်းခဲ့...   
+
+```
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ mv all-para.word2vec corpus2-para.word2vec
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ mv all-para.fasttext.bin corpus2-para.fasttext.bin
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ ll -h corpus2-para.word2vec 
+-rwxr-xr-x 1 ye ye 711M စက်   23 19:56 corpus2-para.word2vec*
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ ll -h corpus2-para.fasttext.bin 
+-rwxr-xr-x 1 ye ye 3.9G စက်   23 20:02 corpus2-para.fasttext.bin*
+```
+
+လိုအပ်ရင် သုံးလို့ ရအောင်လို့ fasttext.bin ကို vector text format အဖြစ် ပြောင်းထားခဲ့...   
+
+```
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ time python ./fasttext_bin-to-vec.py ./corpus2-para.fasttext.bin ./corpus2-para.fasttext.vector
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+
+real	0m12.874s
+user	0m11.201s
+sys	0m1.673s
+(base) ye@:/media/ye/SP PHD U3/4github/syl-ngram/ref/playing_with_fasttext$ wc ./corpus2-para.fasttext.vector 
+    37458  18765959 218718957 ./corpus2-para.fasttext.vector
+```
+
+-----------------
+
+## Prepare a New Python Environment
+
+```
+(base)  ye@~/tool/en-cy-bilingual-embeddings$ conda create -n bilingual-emb python=3
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/bilingual-emb
+
+  added / updated specs:
+    - python=3
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2021.5.30          |   py39h06a4308_0         139 KB
+    pip-21.2.4                 |   py37h06a4308_0         1.8 MB
+    python-3.9.7               |       h12debd9_1        18.6 MB
+    setuptools-58.0.4          |   py39h06a4308_0         790 KB
+    tzdata-2021a               |       h5d7bf9c_0         111 KB
+    ------------------------------------------------------------
+                                           Total:        21.4 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-4.5-1_gnu
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2021.7.5-h06a4308_1
+  certifi            pkgs/main/linux-64::certifi-2021.5.30-py39h06a4308_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.35.1-h7274673_9
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.3.0-h5101ec6_17
+  libgomp            pkgs/main/linux-64::libgomp-9.3.0-h5101ec6_17
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.3.0-hd4cf53a_17
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1l-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-21.2.4-py37h06a4308_0
+  python             pkgs/main/linux-64::python-3.9.7-h12debd9_1
+  readline           pkgs/main/linux-64::readline-8.1-h27cfd23_0
+  setuptools         pkgs/main/linux-64::setuptools-58.0.4-py39h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.36.0-hc218d9a_0
+  tk                 pkgs/main/linux-64::tk-8.6.10-hbc83047_0
+  tzdata             pkgs/main/noarch::tzdata-2021a-h5d7bf9c_0
+  wheel              pkgs/main/noarch::wheel-0.37.0-pyhd3eb1b0_1
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+python-3.9.7         | 18.6 MB   | ############################################################################################################# | 100% 
+pip-21.2.4           | 1.8 MB    | ############################################################################################################# | 100% 
+certifi-2021.5.30    | 139 KB    | ############################################################################################################# | 100% 
+tzdata-2021a         | 111 KB    | ############################################################################################################# | 100% 
+setuptools-58.0.4    | 790 KB    | ############################################################################################################# | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate bilingual-emb
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base)  ye@~/tool/en-cy-bilingual-embeddings$ conda activate bilingual-emb
+(bilingual-emb)  ye@~/tool/en-cy-bilingual-embeddings$ pip install -r requirements.txt
+Collecting absl-py==0.13.0
+  Using cached absl_py-0.13.0-py3-none-any.whl (132 kB)
+Collecting astunparse==1.6.3
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting cachetools==4.2.2
+  Using cached cachetools-4.2.2-py3-none-any.whl (11 kB)
+Requirement already satisfied: certifi==2021.5.30 in /home/ye/anaconda3/envs/bilingual-emb/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (2021.5.30)
+Collecting charset-normalizer==2.0.4
+  Using cached charset_normalizer-2.0.4-py3-none-any.whl (36 kB)
+Collecting clang==5.0
+  Using cached clang-5.0.tar.gz (30 kB)
+Collecting click==8.0.1
+  Using cached click-8.0.1-py3-none-any.whl (97 kB)
+Collecting flatbuffers==1.12
+  Using cached flatbuffers-1.12-py2.py3-none-any.whl (15 kB)
+Collecting gast==0.4.0
+  Using cached gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting gensim==3.8.3
+  Downloading gensim-3.8.3.tar.gz (23.4 MB)
+     |████████████████████████████████| 23.4 MB 1.7 MB/s 
+Collecting google-auth==1.35.0
+  Using cached google_auth-1.35.0-py2.py3-none-any.whl (152 kB)
+Collecting google-auth-oauthlib==0.4.6
+  Using cached google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting google-pasta==0.2.0
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting grpcio==1.40.0
+  Downloading grpcio-1.40.0-cp39-cp39-manylinux2014_x86_64.whl (4.3 MB)
+     |████████████████████████████████| 4.3 MB 102.6 MB/s 
+Collecting h5py==3.1.0
+  Downloading h5py-3.1.0-cp39-cp39-manylinux1_x86_64.whl (4.4 MB)
+     |████████████████████████████████| 4.4 MB 111.3 MB/s 
+Collecting idna==3.2
+  Using cached idna-3.2-py3-none-any.whl (59 kB)
+Collecting joblib==1.0.1
+  Using cached joblib-1.0.1-py3-none-any.whl (303 kB)
+Collecting keras==2.6.0
+  Using cached keras-2.6.0-py2.py3-none-any.whl (1.3 MB)
+Collecting Keras-Preprocessing==1.1.2
+  Using cached Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+Collecting Markdown==3.3.4
+  Using cached Markdown-3.3.4-py3-none-any.whl (97 kB)
+Collecting nltk==3.6.2
+  Using cached nltk-3.6.2-py3-none-any.whl (1.5 MB)
+Collecting numpy==1.19.5
+  Downloading numpy-1.19.5-cp39-cp39-manylinux2010_x86_64.whl (14.9 MB)
+     |████████████████████████████████| 14.9 MB 70.6 MB/s 
+Collecting oauthlib==3.1.1
+  Using cached oauthlib-3.1.1-py2.py3-none-any.whl (146 kB)
+Collecting opt-einsum==3.3.0
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting pandas==1.3.2
+  Downloading pandas-1.3.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.5 MB)
+     |████████████████████████████████| 11.5 MB 33.2 MB/s 
+Collecting protobuf==3.17.3
+  Downloading protobuf-3.17.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.0 MB)
+     |████████████████████████████████| 1.0 MB 111.2 MB/s 
+Collecting pyasn1==0.4.8
+  Using cached pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting pyasn1-modules==0.2.8
+  Using cached pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting python-dateutil==2.8.2
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting pytz==2021.1
+  Using cached pytz-2021.1-py2.py3-none-any.whl (510 kB)
+Collecting regex==2021.8.28
+  Downloading regex-2021.8.28-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (759 kB)
+     |████████████████████████████████| 759 kB 93.7 MB/s 
+Collecting requests==2.26.0
+  Using cached requests-2.26.0-py2.py3-none-any.whl (62 kB)
+Collecting requests-oauthlib==1.3.0
+  Using cached requests_oauthlib-1.3.0-py2.py3-none-any.whl (23 kB)
+Collecting rsa==4.7.2
+  Using cached rsa-4.7.2-py3-none-any.whl (34 kB)
+Collecting scikit-learn==0.24.2
+  Downloading scikit_learn-0.24.2-cp39-cp39-manylinux2010_x86_64.whl (23.8 MB)
+     |████████████████████████████████| 23.8 MB 21.2 MB/s 
+Collecting scipy==1.7.1
+  Downloading scipy-1.7.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (28.5 MB)
+     |████████████████████████████████| 28.5 MB 83.6 MB/s 
+Collecting six==1.15.0
+  Using cached six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting sklearn==0.0
+  Using cached sklearn-0.0.tar.gz (1.1 kB)
+Collecting smart-open==5.2.1
+  Using cached smart_open-5.2.1-py3-none-any.whl (58 kB)
+Collecting tensorboard==2.6.0
+  Using cached tensorboard-2.6.0-py3-none-any.whl (5.6 MB)
+Collecting tensorboard-data-server==0.6.1
+  Using cached tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting tensorboard-plugin-wit==1.8.0
+  Using cached tensorboard_plugin_wit-1.8.0-py3-none-any.whl (781 kB)
+Collecting tensorflow==2.6.0
+  Downloading tensorflow-2.6.0-cp39-cp39-manylinux2010_x86_64.whl (458.4 MB)
+     |████████████████████████████████| 458.4 MB 27 kB/s 
+Collecting tensorflow-estimator==2.6.0
+  Using cached tensorflow_estimator-2.6.0-py2.py3-none-any.whl (462 kB)
+Collecting termcolor==1.1.0
+  Using cached termcolor-1.1.0.tar.gz (3.9 kB)
+Collecting threadpoolctl==2.2.0
+  Using cached threadpoolctl-2.2.0-py3-none-any.whl (12 kB)
+Collecting tqdm==4.62.2
+  Using cached tqdm-4.62.2-py2.py3-none-any.whl (76 kB)
+Collecting typing-extensions==3.7.4.3
+  Using cached typing_extensions-3.7.4.3-py3-none-any.whl (22 kB)
+Collecting urllib3==1.26.6
+  Using cached urllib3-1.26.6-py2.py3-none-any.whl (138 kB)
+Collecting Werkzeug==2.0.1
+  Using cached Werkzeug-2.0.1-py3-none-any.whl (288 kB)
+Collecting wrapt==1.12.1
+  Using cached wrapt-1.12.1.tar.gz (27 kB)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /home/ye/anaconda3/envs/bilingual-emb/lib/python3.9/site-packages (from astunparse==1.6.3->-r requirements.txt (line 2)) (0.37.0)
+Requirement already satisfied: setuptools>=40.3.0 in /home/ye/anaconda3/envs/bilingual-emb/lib/python3.9/site-packages (from google-auth==1.35.0->-r requirements.txt (line 11)) (58.0.4)
+Building wheels for collected packages: clang, gensim, sklearn, termcolor, wrapt
+  Building wheel for clang (setup.py) ... done
+  Created wheel for clang: filename=clang-5.0-py3-none-any.whl size=30692 sha256=07fc6dee7f4e16cae0e5bdaed5d0971363c0ad02176de60629ffb0a1c717e990
+  Stored in directory: /home/ye/.cache/pip/wheels/3a/ce/7a/27094f689461801c934296d07078773603663dfcaca63bb064
+  Building wheel for gensim (setup.py) ... done
+  Created wheel for gensim: filename=gensim-3.8.3-cp39-cp39-linux_x86_64.whl size=24308043 sha256=6bb167185bb744a1cad2fb894c7fe0c73f0d4f045e83ac29f728c629fd8afd05
+  Stored in directory: /home/ye/.cache/pip/wheels/ca/5d/af/618594ec2f28608c1d6ee7d2b7e95a3e9b06551e3b80a491d6
+  Building wheel for sklearn (setup.py) ... done
+  Created wheel for sklearn: filename=sklearn-0.0-py2.py3-none-any.whl size=1309 sha256=e2eb5896644dcf86409353702cb44a96c833e9bf55bd420b4e3538ab97bc0360
+  Stored in directory: /home/ye/.cache/pip/wheels/e4/7b/98/b6466d71b8d738a0c547008b9eb39bf8676d1ff6ca4b22af1c
+  Building wheel for termcolor (setup.py) ... done
+  Created wheel for termcolor: filename=termcolor-1.1.0-py3-none-any.whl size=4847 sha256=3e246e50f0b7a6ef2974c76a0d95eaf91743c6a6e2bdac741862b089d191a449
+  Stored in directory: /home/ye/.cache/pip/wheels/b6/0d/90/0d1bbd99855f99cb2f6c2e5ff96f8023fad8ec367695f7d72d
+  Building wheel for wrapt (setup.py) ... done
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp39-cp39-linux_x86_64.whl size=37173 sha256=d6d59a5b844bf8ed654834cf0d676f922a7f3214a374841e39f43b18bab06fa1
+  Stored in directory: /home/ye/.cache/pip/wheels/98/23/68/efe259aaca055e93b08e74fbe512819c69a2155c11ba3c0f10
+Successfully built clang gensim sklearn termcolor wrapt
+Installing collected packages: urllib3, pyasn1, idna, charset-normalizer, six, rsa, requests, pyasn1-modules, oauthlib, cachetools, requests-oauthlib, numpy, google-auth, Werkzeug, threadpoolctl, tensorboard-plugin-wit, tensorboard-data-server, scipy, protobuf, Markdown, joblib, grpcio, google-auth-oauthlib, absl-py, wrapt, typing-extensions, tqdm, termcolor, tensorflow-estimator, tensorboard, smart-open, scikit-learn, regex, pytz, python-dateutil, opt-einsum, Keras-Preprocessing, keras, h5py, google-pasta, gast, flatbuffers, click, clang, astunparse, tensorflow, sklearn, pandas, nltk, gensim
+Successfully installed Keras-Preprocessing-1.1.2 Markdown-3.3.4 Werkzeug-2.0.1 absl-py-0.13.0 astunparse-1.6.3 cachetools-4.2.2 charset-normalizer-2.0.4 clang-5.0 click-8.0.1 flatbuffers-1.12 gast-0.4.0 gensim-3.8.3 google-auth-1.35.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.40.0 h5py-3.1.0 idna-3.2 joblib-1.0.1 keras-2.6.0 nltk-3.6.2 numpy-1.19.5 oauthlib-3.1.1 opt-einsum-3.3.0 pandas-1.3.2 protobuf-3.17.3 pyasn1-0.4.8 pyasn1-modules-0.2.8 python-dateutil-2.8.2 pytz-2021.1 regex-2021.8.28 requests-2.26.0 requests-oauthlib-1.3.0 rsa-4.7.2 scikit-learn-0.24.2 scipy-1.7.1 six-1.15.0 sklearn-0.0 smart-open-5.2.1 tensorboard-2.6.0 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.0 tensorflow-2.6.0 tensorflow-estimator-2.6.0 termcolor-1.1.0 threadpoolctl-2.2.0 tqdm-4.62.2 typing-extensions-3.7.4.3 urllib3-1.26.6 wrapt-1.12.1
+(bilingual-emb)  ye@~/tool/en-cy-bilingual-embeddings$
+```
+
+-------------------
+-------------------
+
+## Moved All Data to Portable USB HDD and Start a New Experiment
+
 အရင်ဆုံး ဒေတာ ပြင်ဆင်ခဲ့...  
 
 corpus အတွက်က ASEAN-MT ဒေတာရယ် (en, th, my), TALPCo ဒေတာရယ် (en, th, my), BEST thai corpus ရယ်, myword+para (for my),
