@@ -2135,6 +2135,82 @@ sys	0m33.329s
   172373  5213500 66285708 th_corpus.txt
 ```
 
+## Write a New Shell Script
+
+Experiment ကို ထပ်ခါထပ်ခါ run ဖို့အတွက်က အောက်ပါ shell script တစ်ခုချင်းစီကို  
+
+ - mk-word2vec-fasttext.sh
+ - mk-bilingual-dict-train-test.sh
+ - mk-vecmap.sh
+ - experiment1.sh
+
+run နေရတာက အရမ်းအဆင်အပြေကြီး မဟုတ်လို့ အားလုံးကို တစ်စုတည်းထားပြီး shell script တစ်ခုတည်းကနေပဲ run ဖို့ ပြင်ဆင်ခဲ့တယ်။   
+နာမည်က ./repeat-train-eval.sh 200 3 2 10 6  
+
+```bash
+#!/bin/bash
+
+# for repeated experiments...
+# Written by Ye, LST, NECTEC, Thailand
+# Date: 28 Sept 2021
+#
+# Important Note: run မလုပ်ခင်မှာ အောက်ပါ argument တွေကို စစ်တာ၊ update လုပ်တာ လုပ်ရမယ်။
+# ဒီနေရာမှာ အရေးကြီးတာက vector_size, window, min_count, iteration and folder#
+# e.g. ./repeat-train-eval.sh 200 3 2 10 4
+# e.g. ./repeat-train-eval.sh 100 3 2 10 4
+# e.g. ./repeat-train-eval.sh 100 3 2 10 5
+# folder အသစ်နာမည်တွေက ... (e.g. word2vec-output$5 နဲ့ vecmap-output$5 တို့အနေနဲ့ ဖြစ်လာလိမ့်မယ်)
+# နောက်ပြီးတော့ vecmap ကို run နေတဲ့အချိန်မှာ supervised ပဲ လက်ရှိမှာ ယူခဲ့တယ်။ တကယ်လို့ တခြား approach တွေပါ ယူချင်ရင် mk-vecmap.sh မှာ comment တွေကို ဝင်ဖြုတ်ပါ
+
+echo "build word2vec or fasttext model ...";
+./mk-word2vec-fasttext.sh /media/ye/project2/exp/bilingual-induction/exp1/my/my_corpus.txt /media/ye/project2/exp/bilingual-induction/exp1/my/ /media/ye/project2/exp/bilingual-induction/exp1/th/th_corpus.txt /media/ye/project2/exp/bilingual-induction/exp1/th/ $1 $2 $3 $4 2>&1 | tee my-th.exp1.log6
+
+#echo "mkdir word2vec-output$5/";
+#mkdir /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output$5/;
+echo "mkdir fasttext-output$5/";
+mkdir /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output$5/;
+# if you run for the 1st time, you need to run following statement:  
+#./mk-bilingual-dict-train-test.sh /media/ye/project2/exp/bilingual-induction/exp1/dict/my-th.raw1 /media/ye/project2/exp/bilingual-induction/exp1/my/fasttext/ /media/ye/project2/exp/bilingual-induction/exp1/th/fasttext/ /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output$5/
+
+echo "run get_vocab_from_vectors.py ..."
+#time python3 src/get_vocab_from_vectors.py --dict /media/ye/project2/exp/bilingual-induction/exp1/dict/my-th.raw1 --source-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my/word2vec/ --target-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/th/word2vec/ --output-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output$5/
+time python3 src/get_vocab_from_vectors.py --dict /media/ye/project2/exp/bilingual-induction/exp1/dict/my-th.raw1 --source-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my/fasttext/ --target-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/th/fasttext/ --output-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output$5/
+
+echo "mkdir vecmap-output$5/";
+mkdir /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/;
+
+echo "run mk-vecmap.sh ...";
+# အဘိဓာန်က ထပ်မဆောက်ချင်လို့ အရင် ရှိပြီးသား path ကိုပဲ fixed လုပ်ပြီးပေးတယ်...
+#./mk-vecmap.sh  /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my/my_corpus.txt_model=word2vec_vectors.vec /media/ye/project2/exp/bilingual-induction/exp1/th/th_corpus.txt_model=word2vec_vectors.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/ 2>&1 | tee my-th_vecmap.log4
+
+./mk-vecmap.sh  /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my/my_corpus.txt_model=fasttext_vectors.vec /media/ye/project2/exp/bilingual-induction/exp1/th/th_corpus.txt_model=fasttext_vectors.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/ 2>&1 | tee my-th_vecmap.log6
+
+#Ctrl+C နဲ့ ရပ်လိုက်ပြီး supervised output ပဲ ယူလိုက်...  တာကို မလုပ်ချင်လို့ mk-vecmap.sh ဖိုင်ထဲမှာပဲ comment ပိတ်ထားခဲ့...  
+
+echo "prepare folders and cp ... ";
+mkdir /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super;
+mkdir /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super;
+#cp /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_mapped_supervised.emb /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/word2vec_s$1_mc$3_w$2.vec
+#cp /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_mapped_supervised.emb /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/word2vec_s$1_mc$3_w$2.vec
+cp /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_mapped_supervised.emb /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/fasttext_s$1_mc$3_w$2.vec
+cp /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_mapped_supervised.emb /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/fasttext_s$1_mc$3_w$2.vec
+
+echo "run vecmap_launcher.py script ...";
+# အဘိဓာန်က ထပ်မဆောက်ချင်လို့ အရင် ရှိပြီးသား path ကိုပဲ fixed လုပ်ပြီးပေးတယ်...
+#python3 src/vecmap_launcher.py --traindict /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv --source-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/ --target-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/
+python3 src/vecmap_launcher.py --traindict /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5/train_dict.csv --source-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/ --target-vectors-folder /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/
+
+#output အနေနဲ့က အောက်ပါလိုမျိုး...   
+tree /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/
+
+## Evaluation
+echo "Evaluation ... "
+# အဘိဓာန်က ထပ်မဆောက်ချင်လို့ အရင် ရှိပြီးသား path ကိုပဲ fixed လုပ်ပြီးပေးတယ်...
+#bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/word2vec_s200_mc2_w3.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/word2vec_s200_mc2_w3.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/test_dict.csv
+bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/src_super/fasttext_s$1_mc$3_w$2.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output$5/trg_super/fasttext_s$1_mc$3_w$2.vec_mapped.vec /media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5/test_dict.csv
+
+```
+
 ## All Results
 
 ### for Myanmar-Thai (word2vec)
