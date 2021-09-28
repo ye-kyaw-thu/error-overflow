@@ -2150,6 +2150,9 @@ sys	0m33.329s
 
 ### for Myanmar-Thai (fasttext)
 
+### for Myanmar-English 
+### for English-Thai 
+
 
 
 ## Reference
