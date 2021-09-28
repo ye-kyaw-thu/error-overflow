@@ -1444,10 +1444,17 @@ python3 vecmap/eval_translation.py "/media/ye/project2/exp/bilingual-induction/e
 (base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/induction$ ls
 'model=word2vec_s__retrieval=csls__s=300_mc=3_w=5.txt'        'model=word2vec_s__retrieval=nn__s=300_mc=3_w=5.txt'
 'model=word2vec_s__retrieval=invsoftmax__s=300_mc=3_w=5.txt'
-(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/induction$ cat *
-Coverage: 99.94%  Accuracy:  2.50%
-Coverage: 99.94%  Accuracy:  2.32%
+```
+
+See the results:  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/induction$ cat model\=word2vec_s__retrieval\=nn__s\=300_mc\=3_w\=5.txt 
 Coverage: 99.94%  Accuracy:  2.44%
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/induction$ cat model\=word2vec_s__retrieval\=invsoftmax__s\=300_mc\=3_w\=5.txt
+Coverage: 99.94%  Accuracy:  2.32%
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/induction$ cat model\=word2vec_s__retrieval\=csls__s\=300_mc\=3_w\=5.txt 
+Coverage: 99.94%  Accuracy:  2.50%
 ```
 
 Running Process အစအဆုံးတော့ ရသွားပြီ။  
