@@ -2145,7 +2145,7 @@ Experiment ကို ထပ်ခါထပ်ခါ run ဖို့အတွက
  - experiment1.sh
 
 run နေရတာက အရမ်းအဆင်အပြေကြီး မဟုတ်လို့ အားလုံးကို တစ်စုတည်းထားပြီး shell script တစ်ခုတည်းကနေပဲ run ဖို့ ပြင်ဆင်ခဲ့တယ်။   
-နာမည်က ./repeat-train-eval.sh 200 3 2 10 6  
+နာမည်က ./repeat-train-eval.sh    
 
 ```bash
 #!/bin/bash
@@ -2211,10 +2211,11 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 ```
 
+run တဲ့အခါမှာတော့  ./repeat-train-eval.sh 200 3 2 10 6   
+
 ## All Results
 
 ### for Myanmar-Thai (word2vec)
-
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
