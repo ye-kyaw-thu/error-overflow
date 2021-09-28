@@ -916,6 +916,64 @@ sys	0m1.389s
 အဲဒါကြောင့် --cuda option ကို ဖြုတ်ပြီး run ခဲ့တယ်...  
 Running time က semi ကစပြီး ကြာလိမ့်မယ်။  
 
+## Running VecMap
+
+I wrote a shell script as follow:  
+
+```bash
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ cat mk-vecmap.sh 
+#!/bin/bash
+
+# STEP No. 3: Doing VecMap (cross-lingual word embedding mappings)
+#
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Date 28 Sept 2021
+# before you run this shell script, I do suggest to learn map_embeddings.py script with "python ./vecmap/map_embeddings.py --help"
+# Moreover, don't forget the filename suffixes for running with vecmap_launcher.py python script
+# model name - word2vec or fasttext -, and the mc, s and w parameters
+# here, mc = mincount, s = size, w - window
+
+# How to run: bash ./mk-vecmap.sh <bilingual-dictionary-filename> <source-embedding-filename> <target-embedding-filename> <output-folder>
+# e.g. bash ./mk-vecmap.sh  /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my/word2vec/'my_corpus.txt_model=word2vec_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/th/word2vec/'th_corpus.txt_model=word2vec_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/ 2>&1 | tee my-th_vecmap.log1
+#
+# e.g. bash ./mk-vecmap.sh  /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my/fasttext/'corpus2-and-para_model=fasttext_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/th/fasttext/'th_corpus.txt_model=fasttext_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-fasttext-output/ 2>&1 | tee my-th_vecmap.log2
+
+# supervised
+# Ref: python3 map_embeddings.py --supervised TRAIN.DICT SRC.EMB TRG.EMB SRC_MAPPED.EMB TRG_MAPPED.EMB
+time python3 ./vecmap/map_embeddings.py --supervised $1 $2 $3 $4/src_mapped_supervised.emb $4/trg_mapped_supervised.emb
+
+# semi-supervised
+# Ref: python3 map_embeddings.py --semi_supervised TRAIN.DICT SRC.EMB TRG.EMB SRC_MAPPED.EMB TRG_MAPPED.EMB
+time python3 ./vecmap/map_embeddings.py --semi_supervised $1 $2 $3 $4/src_mapped_semi-supervised.emb $4/trg_mapped_semi-supervised.emb
+
+# identical
+# Ref: python3 map_embeddings.py --identical SRC.EMB TRG.EMB SRC_MAPPED.EMB TRG_MAPPED.EMB
+time python3 ./vecmap/map_embeddings.py --identical $2 $3 $4/src_mapped_identical.emb $4/trg_mapped_identical.emb
+
+# unsupervised
+# Ref: python3 map_embeddings.py --unsupervised SRC.EMB TRG.EMB SRC_MAPPED.EMB TRG_MAPPED.EMB
+time python3 ./vecmap/map_embeddings.py --unsupervised $2 $3 $4/src_mapped_unsupervised.emb $4/trg_mapped_unsupervised.emb
+
+
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$
+```
+
+Running ...  
+
+```
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ bash ./mk-vecmap.sh  /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my/word2vec/'my_corpus.txt_model=word2vec_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/th/word2vec/'th_corpus.txt_model=word2vec_vectors.vec' /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/ 2>&1 | tee my-th_vecmap.log1
+WARNING: OOV dictionary entry (english - welsh)
+
+real	0m9.984s
+user	0m13.251s
+sys	0m2.689s
+WARNING: OOV dictionary entry (english - welsh)
+```
+
+အချိန်ကြာတယ် CPU ပေါ်မှာပဲမို့ ပိုကြာလိမ့်မယ်...  
+အဲဒါကြောင့် ဒီ shell script ကို run ထားရင်းနဲ့ပဲ နောက် လုပ်စရာရှိတဲ့ အလုပ်တွေကို ဆက်လုပ်ခဲ့...  
+
+
 ## word2vec filenaming
 
 လက်ရှိ word2vec ကို training လုပ်ထားတာက အောက်ပါ settting နဲ့  
@@ -934,6 +992,43 @@ Running time က semi ကစပြီး ကြာလိမ့်မယ်။
 ```
 
 ## Dictionary Induction and Evaluation
+
+ကျောင်းသားလည်း လိုက်လုပ်ရင် အဆင်ပြေအောင်လို့နဲ့ ကိုယ်တိုင်လည်း ထပ်ခါထပ်ခါ run ရအုံးမှာမို့...  experiment1.sh ဆိုတဲ့ shell script ကို ရေးခဲ့...   
+
+```bash
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ cat experiment1.sh 
+#!/bin/bash
+
+# STEP No. 4: bilingual embeddings (e.g. Myanmar-English, Myanmar-Thai)
+#
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Date 26 Sept 2021
+# How to run: ./experiment1.sh <training-dictionary> <mapped-SRC-folder> <mapped-TRG-folder> <test-dictionary> <result-folder>
+# e.g. ./experiment1.sh /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/train_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/src_super/ /media/ye/project2/exp/bilingual-induction/exp1/my-th/vecmap-output/trg_super/  /media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output/test_dict.csv /media/ye/project2/exp/bilingual-induction/exp1/my-th/induction/
+
+# Note: vecmap's repository in the home directory of this repo.
+# ဒီအဆင့်ကို မလုပ်ခင်မှာ ရှေ့က အဆင်နှစ်ဆင့်ကို (i.e. running mk-word2vec-fasttext.sh နဲ့ mk-bilingual-dict-test.sh) မှန်မှန်ကန်ကန်နဲ့ ကြိုလုပ်ထားမှ ရပါလိမ့်မယ်
+# ပြီးတော့ အခု bash script ကို မ run ခင်မှာ vecmap repository ကို လက်ရှိ en-cy-bilingual-embeddings/ ဆိုတဲ့ folder အောက်မှာ git clone လုပ်ထားရပါလိမ့်မယ်။  
+
+# Launch batch VecMap mappings
+# The below command will first scan MAPPED-SRC-FOLDER and MAPPED-TRG-FOLDER for embeddings of the same config 
+# (model name - word2vec or fasttext -, and the mc, s and w parameters), then apply the supervised variant of VecMap using the --traindict dictionary as supervision.
+# 
+#python3 src/vecmap_launcher.py --traindict data/resources/dictionaries/train_dict_freqsplit.csv --source-vectors-folder MAPPED-ENG-FOLDER --target-vectors-folder MAPPED-WEL-FOLDER
+
+echo "run vecmap_launcher.py ...";
+python3 src/vecmap_launcher.py --traindict $1 --source-vectors-folder $2 --target-vectors-folder $3
+
+# Launch batch dictionary induction evaluation
+# REF: python3 src/vecmap_eval_launcher.py --testdict TEST-DICT --source-vectors-folder MAPPED-ENG-FOLDER --target-vectors-folder MAPPED-WEL-FOLDER --results-folder RESULTS-FOLDER
+
+echo "run vecmap_eval_launcher.py ...";
+python3 src/vecmap_eval_launcher.py --testdict $4 --source-vectors-folder $2 --target-vectors-folder $3 --results-folder $5
+
+
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ 
+```
+
 
 ဒီ log မမှတ်ခင် ပထမဆုံး run ကြည့်တုန်းက ပေးတဲ့ error က ဖိုင်နာမည်ကို သူသတ်မှတ်ထားတဲ့အတိုင်း မပေးခဲ့လို့ဆိုတာ coding ဝင်ဖတ်ရင်း သိခဲ့ရလို့...   
 ဒီတစ်ခါတော့ ဖိုင်နာမည်တွေကို \_s, \_mc, \_w နောက်မှာ parameter တွေကို ထည့်ပေးတာလုပ်ခဲ့...  
