@@ -2125,6 +2125,32 @@ sys	0m33.329s
 (bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$
 ```
 
+## Corpus Info
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my$ wc my_corpus.txt
+   633956  13158666 170988793 my_corpus.txt
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my$ cd ../th
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/th$ wc th_corpus.txt
+  172373  5213500 66285708 th_corpus.txt
+```
+
+## All Results
+
+### for Myanmar-Thai (word2vec)
+
+
+|Vector Size:| Window :| Min-Count:|  Retrieval:| Coverage:| Accuracy:|
+|-----------:|----------:|--------:|----------:|---------:|---------:|
+| 300 | 5 | 3 | NN | 99.94% | 2.44% |
+| 300 | 5 | 3 | Inv-NN | 99.94% | 1.31% |
+| 300 | 5 | 3 | Inv-Softmax | 99.94% | 2.32% |
+| 300 | 5 | 3 | CSLS | 99.94% | 2.50% |
+
+
+### for Myanmar-Thai (fasttext)
+
+
 
 ## Reference
 
