@@ -1545,13 +1545,13 @@ Experiment လုပ်ခဲ့တဲ့ folder tree က အောက်ပါ�
 To Do မှာ ရေးထားတဲ့ အချက်တွေကို အကောင်အထည်ဖော်ဖို့အတွက် train_embeddings.py ကို အောက်ပါ argument အသစ်တွေ ထပ်ဖြည့်ခဲ့...  
 
 ```python
-	parser.add_argument('-s', '--size', type=int, default=300, help='Vector Size', required=True)
-	parser.add_argument('-w', '--window', type=int, default=5, help='Window Size', required=True)
-	parser.add_argument('-mc', '--min_count', type=int, default=3, help='Minimum Count', required=True)
-	parser.add_argument('-i', '--iteration', type=int, default=10, help='Iteration', required=True)	
-	...
-	...
-	model = modelmap[args.model](size=args.size, window=args.window, min_count=args.min_count, sentences=corpus, iter=args.iteration)
+parser.add_argument('-s', '--size', type=int, default=300, help='Vector Size', required=True)
+parser.add_argument('-w', '--window', type=int, default=5, help='Window Size', required=True)
+parser.add_argument('-mc', '--min_count', type=int, default=3, help='Minimum Count', required=True)
+parser.add_argument('-i', '--iteration', type=int, default=10, help='Iteration', required=True)	
+...
+...
+model = modelmap[args.model](size=args.size, window=args.window, min_count=args.min_count, sentences=corpus, iter=args.iteration)
 ```
 
 အဲဒါမှလည်း command line ကနေ သို့မဟုတ် shell script ကနေ size, window, min_count နဲ့ iteration တန်ဖိုးတွေကို argument အဖြစ် pass လုပ်လို့ ရမှာမို့...  
