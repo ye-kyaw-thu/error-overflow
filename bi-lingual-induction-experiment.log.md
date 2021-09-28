@@ -1459,6 +1459,81 @@ Coverage: 99.94%  Accuracy:  2.50%
 
 Running Process အစအဆုံးတော့ ရသွားပြီ။  
 
+## Current Tree of Myanmar-Thai Experiment Folder
+
+Experiment လုပ်ခဲ့တဲ့ folder tree က အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1$ tree
+.
+├── dict
+│   ├── bk
+│   │   └── en2my.google.txt.backup
+│   ├── en2my.google.txt
+│   ├── en-my.raw1
+│   ├── en-my.raw1.clean
+│   ├── en-th.dict
+│   ├── en-th.dict.f1
+│   ├── en-th.dict.f2
+│   ├── my-en_dict.txt
+│   ├── my-th.raw1
+│   ├── out
+│   ├── rm-same-column-and-uniq.sh
+│   ├── test.txt
+│   └── test.txt.clean
+├── en
+│   ├── 1_all.en.word
+│   └── data_eng.txt
+├── my
+│   ├── 3_all.my.word
+│   ├── corpus2-and-para
+│   ├── data_myn-token.txt.line.rm-lineno
+│   ├── fasttext
+│   │   └── corpus2-and-para_model=fasttext_vectors.vec
+│   ├── my_corpus.txt
+│   └── word2vec
+│       └── my_corpus.txt_model=word2vec_vectors.vec
+├── my-th
+│   ├── induction
+│   │   ├── model=word2vec_s__retrieval=csls__s=300_mc=3_w=5.txt
+│   │   ├── model=word2vec_s__retrieval=invsoftmax__s=300_mc=3_w=5.txt
+│   │   └── model=word2vec_s__retrieval=nn__s=300_mc=3_w=5.txt
+│   ├── vecmap-fasttext-output
+│   ├── vecmap-output
+│   │   ├── src_mapped_identical.emb
+│   │   ├── src_mapped_semi-supervised.emb
+│   │   ├── src_mapped_supervised.emb
+│   │   ├── src_super
+│   │   │   ├── word2vec_s300_mc3_w5.vec
+│   │   │   └── word2vec_s300_mc3_w5.vec_mapped.vec
+│   │   ├── trg_mapped_identical.emb
+│   │   ├── trg_mapped_semi-supervised.emb
+│   │   ├── trg_mapped_supervised.emb
+│   │   └── trg_super
+│   │       ├── word2vec_s300_mc3_w5.vec
+│   │       └── word2vec_s300_mc3_w5.vec_mapped.vec
+│   └── word2vec-output
+│       ├── model=word2vec_s__retrieval=csls__s=300_mc=3_w=5.txt
+│       ├── model=word2vec_s__retrieval=invsoftmax__s=300_mc=3_w=5.txt
+│       ├── model=word2vec_s__retrieval=nn__s=300_mc=3_w=5.txt
+│       ├── source_vocab.txt
+│       ├── target_vocab.txt
+│       ├── test_dict.csv
+│       └── train_dict.csv
+├── note.txt
+└── th
+    ├── 2_all.th.word
+    ├── best.clean.corpus
+    ├── data_tha-token.txt.line.rm-lineno
+    ├── fasttext
+    │   └── th_corpus.txt_model=fasttext_vectors.vec
+    ├── th_corpus.txt
+    └── word2vec
+        └── th_corpus.txt_model=word2vec_vectors.vec
+
+16 directories, 48 files
+```
+
 ## To Do
 
 - Word2Vec မော်ဒယ်ကို parameter အမျိုးမျိုး ထား model ဆောက်ပြီး evaluation လုပ်ကြည့်ရန်
