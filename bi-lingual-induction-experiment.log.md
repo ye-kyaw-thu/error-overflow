@@ -2258,10 +2258,47 @@ run တဲ့အခါမှာတော့  ./repeat-train-eval.sh 200 3 2 10 6
 | 500 | 4 | 2 | Inv-Softmax | 99.94% | 2.03% |
 | 500 | 4 | 2 | CSLS | 99.94% | 2.68% |
 
-### for Myanmar-English 
-### for English-Thai 
+### for Myanmar-English (word2vec)
 
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
+|-----------:|----------:|--------:|:----------:|---------:|---------:|
+| 100 | 3 | 2 | NN | % | % |
+| 100 | 3 | 2 | Inv-NN | % | % |
+| 100 | 3 | 2 | Inv-Softmax | % | % |
+| 100 | 3 | 2 | CSLS | % | % |
+| 200 | 3 | 2 | NN | % | % |
+| 200 | 3 | 2 | Inv-NN | % | % |
+| 200 | 3 | 2 | Inv-Softmax | % | % |
+| 200 | 3 | 2 | CSLS | % | % |
+| 300 | 5 | 3 | NN | % | % |
+| 300 | 5 | 3 | Inv-NN | % | % |
+| 300 | 5 | 3 | Inv-Softmax | % | % |
+| 300 | 5 | 3 | CSLS | % | % |
+| 500 | 4 | 2 | NN | % | % |
+| 500 | 4 | 2 | Inv-NN | % | % |
+| 500 | 4 | 2 | Inv-Softmax | % | % |
+| 500 | 4 | 2 | CSLS | % | % |
 
+### for English-Thai (word2vec)
+
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
+|-----------:|----------:|--------:|:----------:|---------:|---------:|
+| 100 | 3 | 2 | NN | % | % |
+| 100 | 3 | 2 | Inv-NN | % | % |
+| 100 | 3 | 2 | Inv-Softmax | % | % |
+| 100 | 3 | 2 | CSLS | % | % |
+| 200 | 3 | 2 | NN | % | % |
+| 200 | 3 | 2 | Inv-NN | % | % |
+| 200 | 3 | 2 | Inv-Softmax | % | % |
+| 200 | 3 | 2 | CSLS | % | % |
+| 300 | 5 | 3 | NN | % | % |
+| 300 | 5 | 3 | Inv-NN | % | % |
+| 300 | 5 | 3 | Inv-Softmax | % | % |
+| 300 | 5 | 3 | CSLS | % | % |
+| 500 | 4 | 2 | NN | % | % |
+| 500 | 4 | 2 | Inv-NN | % | % |
+| 500 | 4 | 2 | Inv-Softmax | % | % |
+| 500 | 4 | 2 | CSLS | % | % |
 
 ## Reference
 
