@@ -2361,6 +2361,27 @@ run တဲ့အခါမှာတော့  ./repeat-train-eval.sh 200 3 2 10 6
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
 | 100 | 3 | 2 | NN | 95.31% | 4.10% |
+| 100 | 3 | 2 | Inv-NN | 95.31% | 3.55% |
+| 100 | 3 | 2 | Inv-Softmax | 95.31% | 4.06% |
+| 100 | 3 | 2 | CSLS | 95.31% | % |
+| 200 | 3 | 2 | NN | % | % |
+| 200 | 3 | 2 | Inv-NN | % | % |
+| 200 | 3 | 2 | Inv-Softmax | % | % |
+| 200 | 3 | 2 | CSLS | % | % |
+| 300 | 5 | 3 | NN | % | % |
+| 300 | 5 | 3 | Inv-NN | % | % |
+| 300 | 5 | 3 | Inv-Softmax | % | % |
+| 300 | 5 | 3 | CSLS | % | % |
+| 500 | 4 | 2 | NN | % | % |
+| 500 | 4 | 2 | Inv-NN | % | % |
+| 500 | 4 | 2 | Inv-Softmax | % | % |
+| 500 | 4 | 2 | CSLS | % | % |
+
+### for Thai-English (word2vec)
+
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
+|-----------:|----------:|--------:|:----------:|---------:|---------:|
+| 100 | 3 | 2 | NN | % | % |
 | 100 | 3 | 2 | Inv-NN | % | % |
 | 100 | 3 | 2 | Inv-Softmax | % | % |
 | 100 | 3 | 2 | CSLS | % | % |
