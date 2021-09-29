@@ -2360,7 +2360,7 @@ run တဲ့အခါမှာတော့  ./repeat-train-eval.sh 200 3 2 10 6
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
-| 100 | 3 | 2 | NN | % | % |
+| 100 | 3 | 2 | NN | 95.31% | 4.10% |
 | 100 | 3 | 2 | Inv-NN | % | % |
 | 100 | 3 | 2 | Inv-Softmax | % | % |
 | 100 | 3 | 2 | CSLS | % | % |
