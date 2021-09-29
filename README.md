@@ -78,4 +78,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 71. [Deep-Siamese-Text-Similarity-Experiment-Log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Deep-Siamese-Text-Similarity-Experiment-Log.md)  
 72. [harry-string-similarity-usage-eg.md](https://github.com/ye-kyaw-thu/error-overflow/edit/master/harry-string-similarity-usage-eg.md)  
 73. [bi-lingual-induction-experiment.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/bi-lingual-induction-experiment.log.md)  
-
+74. [full-running-log-of-bi-lingual-embedding-for-my-en.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/full-running-log-of-bi-lingual-embedding-for-my-en.log.md)  
