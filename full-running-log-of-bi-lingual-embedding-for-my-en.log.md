@@ -5046,5 +5046,27 @@ real	0m11.332s
 user	0m15.702s
 sys	0m4.351s
 --retrieval invnn:
+Coverage: 92.64%  Accuracy:  2.28%
+
+real	72m38.271s
+user	77m56.142s
+sys	6m48.679s
+--retrieval invsoftmax:
+Coverage: 92.64%  Accuracy:  3.11%
+
+real	3m0.042s
+user	12m12.215s
+sys	2m27.641s
+--retrieval csls:
+Coverage: 92.64%  Accuracy:  3.50%
+
+real	5m59.977s
+user	12m12.305s
+sys	6m1.736s
+
+real	120m30.836s
+user	158m4.809s
+sys	15m56.210s
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$
 
 ```
