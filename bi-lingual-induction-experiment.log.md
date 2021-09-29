@@ -2127,6 +2127,8 @@ sys	0m33.329s
 
 ## Corpus Info
 
+မြန်မာစာနဲ့ ထိုင်း အတွက်က အောက်ပါအတိုင်း...  
+
 ```
 (base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my$ wc my_corpus.txt
    633956  13158666 170988793 my_corpus.txt
