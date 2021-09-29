@@ -2135,6 +2135,46 @@ sys	0m33.329s
   172373  5213500 66285708 th_corpus.txt
 ```
 
+အင်္ဂလိပ်စာအတွက်က အောက်ပါအတိုင်း...    
+
+UMBC ကနေ download လုပ်ယူခဲ့...  
+
+SOURCE: http://ebiquity.umbc.edu/blogger/2013/05/01/umbc-webbase-corpus-of-3b-english-words  
+DESCRIPTION: Data from the web, which includes blog posts, news stories, Wikipedia, etc.  
+EXTRACTION: Cleaned, tokenized and pre-processed.  
+
+```
+(base) ye@:/media/ye/project2/data/umbc-en$ wc ./UMBC_tokenized_full.txt 
+   40599164  3337113760 18786225225 ./UMBC_tokenized_full.txt
+```
+
+အကုန်လုံးကို သုံးရင် word2vec, fasttext မော်ဒယ်ဆောက်တာ ကြာတာနဲ့ မော်ဒယ်တွေရဲ့ ဖိုင်အရွယ်အစားက အရမ်းကြီးလို့ စာကြောင်းရေ တစ်သန်းကိုပဲ ယူခဲ့...   
+ပြီးတော့ experiment က သုံးနေတဲ့ data တွေသိမ်းထားတဲ့ PATH အောက်ကို ကော်ပီကူးယူခဲ့...  
+```
+(base) ye@:/media/ye/project2/data/umbc-en$ head -n 1000000 ./UMBC_tokenized_full.txt > ./UMBC_tokenized_1million.txt 
+(base) ye@:/media/ye/project2/data/umbc-en$ cp ./UMBC_tokenized_1million.txt /media/ye/project2/exp/bilingual-induction/exp1/en/
+```
+
+parallel အနည်းငယ်ဖြစ်အောင် ကိုယ်ဖာသာကို ကြိုပြင်ထားတဲ့ အင်္ဂလိပ်စာ ဒေတာက အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en$ wc data_eng.txt 
+ 1372 12042 60878 data_eng.txt
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en$ wc 1_all.en.word 
+ 22031 155519 812550 1_all.en.word
+```
+
+သုံးဖိုင်ပေါင်းပြီး ဖြစ်လာတဲ့ corpus size က အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en$ ls
+1_all.en.word  big-model  data_eng.txt  UMBC_tokenized_1million.txt  word2vec
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en$ cat ./UMBC_tokenized_1million.txt 1_all.en.word ./data_eng.txt > en_corpus.txt
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en$ wc ./en_corpus.txt 
+  1023403  95322951 529456595 ./en_corpus.txt
+(base) ye@:/media/ye/project2/exp/bilingual-induct
+```
+
 ## Dictionary Info
 
 Experiment လုပ်တဲ့ အခါမှာ word2vec မော်ဒယ်တွေနဲ့ fasttext မော်ဒယ်တွေကသာ အမျိုးမျိုး ပြောင်းသွားပေမဲ့ training/testing အတွက် သုံးခဲ့တဲ့ အဘိဓာန်က အတူတူပါပဲ။ အဲဒါကြောင့် no. of sentences, no. of words က အောက်ပါအတိုင်း ညီပါလိမ့်မယ်။  
