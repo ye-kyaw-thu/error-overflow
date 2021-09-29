@@ -1,5 +1,7 @@
 # Full Running Log of Bi-lingual Embedding for Myanmar-English
 
+Myanmar-English bi-lingual embedding experiment (Vector Size: 200, Window: 3, Min_Count: 2, Iteration: 10, Experiment Folder#:10) တစ်ခု run စဉ်က output example တစ်ခုရဲ့ log ပါ။  
+
 ```
 (bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ time ./repeat-train-eval-myen.sh 200 3 2 10 10 my en
 build word2vec or fasttext model ...
