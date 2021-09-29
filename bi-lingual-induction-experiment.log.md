@@ -2135,6 +2135,41 @@ sys	0m33.329s
   172373  5213500 66285708 th_corpus.txt
 ```
 
+## Dictionary Info
+
+Experiment လုပ်တဲ့ အခါမှာ word2vec မော်ဒယ်တွေနဲ့ fasttext မော်ဒယ်တွေကသာ အမျိုးမျိုး ပြောင်းသွားပေမဲ့ training/testing အတွက် သုံးခဲ့တဲ့ အဘိဓာန်က အတူတူပါပဲ။ အဲဒါကြောင့် no. of sentences, no. of words က အောက်ပါအတိုင်း ညီပါလိမ့်မယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output2$ wc *
+  56038   56038 1335612 source_vocab.txt
+  28721   28721  648843 target_vocab.txt
+   2360    4720   97988 test_dict.csv
+   9436   18872  390844 train_dict.csv
+  96555  108351 2473287 total
+```
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5$ wc *
+  24097   24097 6093336 source_vocab.txt
+  28721   28721  648842 target_vocab.txt
+   2360    4720   97988 test_dict.csv
+   9436   18872  390844 train_dict.csv
+  64614   76410 7231010 total
+ ```
+
+Format က အောက်ပါအတိုင်းပါ...  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5$ head -3 ./train_dict.csv 
+english welsh
+အလှဆင် ประดับ
+ယဲ့ယဲ့ แบบบาง
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/fasttext-output5$ head -3 test_dict.csv 
+english welsh
+သဘာဝ ธาตุแท้
+ထုပ်ပိုး ห่อหุ้ม
+```
+
 ## Write a New Shell Script
 
 Experiment ကို ထပ်ခါထပ်ခါ run ဖို့အတွက်က အောက်ပါ shell script တစ်ခုချင်းစီကို  
