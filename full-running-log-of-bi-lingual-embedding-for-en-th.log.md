@@ -1,7 +1,8 @@
-# 
+# Full Running Log of Bi-lingual Embedding for English-Thai
+
 
 ```
-(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ time ./repeat-train-eval-myen.sh 300 5 3 10 15 en th
+(bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ time ./repeat-train-eval.sh 300 5 3 10 15 en th
 build word2vec or fasttext model ...
 mkdir word2vec-output15/
 Processing /media/ye/project2/exp/bilingual-induction/exp1/en/word2vec/en_corpus.txt_model=word2vec_vectors.vec
