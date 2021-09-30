@@ -2428,8 +2428,6 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 ### for English-Thai (word2vec)
 
-The following results are re-confirming...  (for Vector_size: 500)  
-
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
 | 100 | 3 | 2 | NN | 95.31% | 4.10% |
@@ -2445,9 +2443,9 @@ The following results are re-confirming...  (for Vector_size: 500)
 | 300 | 5 | 3 | Inv-Softmax | 94.30% | 5.49% |
 | 300 | 5 | 3 | CSLS | 94.30% | 5.77% |
 | 500 | 4 | 2 | NN | 95.55% | 4.12% |
-| 500 | 4 | 2 | Inv-NN | 95.55% | % |
-| 500 | 4 | 2 | Inv-Softmax | 95.55% | % |
-| 500 | 4 | 2 | CSLS | 95.55% | % |
+| 500 | 4 | 2 | Inv-NN | 95.55% | 2.86% |
+| 500 | 4 | 2 | Inv-Softmax | 95.55% | 4.35% |
+| 500 | 4 | 2 | CSLS | 95.55% | 5.07% |
 
 ### for Thai-English (word2vec)
 
