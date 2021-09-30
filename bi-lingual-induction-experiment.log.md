@@ -2543,10 +2543,10 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 300 | 5 | 3 | Inv-NN | 97.59% | 1.29% |
 | 300 | 5 | 3 | Inv-Softmax | 97.59% | 1.89% |
 | 300 | 5 | 3 | CSLS | 97.59% | 1.83% |
-| 500 | 4 | 2 | NN | % | % |
-| 500 | 4 | 2 | Inv-NN | % | % |
-| 500 | 4 | 2 | Inv-Softmax | % | % |
-| 500 | 4 | 2 | CSLS | % | % |
+| 500 | 4 | 2 | NN | 97.68% | 2.34% |
+| 500 | 4 | 2 | Inv-NN | 97.68% | 1.83% |
+| 500 | 4 | 2 | Inv-Softmax | 97.68% | 2.24% |
+| 500 | 4 | 2 | CSLS | 97.68% | 2.31% |
 
 ## Reference
 
