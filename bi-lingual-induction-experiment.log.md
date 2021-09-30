@@ -2471,18 +2471,18 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 100 | 3 | 2 | Inv-NN | 99.94% | 1.94% |
 | 100 | 3 | 2 | Inv-Softmax | 99.94% | 2.25% |
 | 100 | 3 | 2 | CSLS | 99.94% | 3.28% |
-| 200 | 3 | 2 | NN | % | % |
-| 200 | 3 | 2 | Inv-NN | % | % |
-| 200 | 3 | 2 | Inv-Softmax | % | % |
-| 200 | 3 | 2 | CSLS | % | % |
-| 300 | 5 | 3 | NN | % | % |
-| 300 | 5 | 3 | Inv-NN | % | % |
-| 300 | 5 | 3 | Inv-Softmax | % | % |
-| 300 | 5 | 3 | CSLS | % | % |
-| 500 | 4 | 2 | NN | % | % |
-| 500 | 4 | 2 | Inv-NN | % | % |
-| 500 | 4 | 2 | Inv-Softmax | % | % |
-| 500 | 4 | 2 | CSLS | % | % |
+| 200 | 3 | 2 | NN | 99.94% | 2.74% |
+| 200 | 3 | 2 | Inv-NN | 99.94% | 1.52% |
+| 200 | 3 | 2 | Inv-Softmax | 99.94% | 3.17% |
+| 200 | 3 | 2 | CSLS | 99.94% | 3.17% |
+| 300 | 5 | 3 | NN | 99.94% | % |
+| 300 | 5 | 3 | Inv-NN | 99.94% | % |
+| 300 | 5 | 3 | Inv-Softmax | 99.94% | % |
+| 300 | 5 | 3 | CSLS | 99.94% | % |
+| 500 | 4 | 2 | NN | 99.94% | % |
+| 500 | 4 | 2 | Inv-NN | 99.94% | % |
+| 500 | 4 | 2 | Inv-Softmax | 99.94% | % |
+| 500 | 4 | 2 | CSLS | 99.94% | % |
 
 ### for Myanmar-Thai (fasttext), with a Clean Dictionary
 
