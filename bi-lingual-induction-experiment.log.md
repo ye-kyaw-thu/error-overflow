@@ -2444,10 +2444,10 @@ The following results are re-confirming...  (for Vector_size: 500)
 | 300 | 5 | 3 | Inv-NN | 94.30% | 4.25% |
 | 300 | 5 | 3 | Inv-Softmax | 94.30% | 5.49% |
 | 300 | 5 | 3 | CSLS | 94.30% | 5.77% |
-| 500 | 4 | 2 | NN | % | % |
-| 500 | 4 | 2 | Inv-NN | % | % |
-| 500 | 4 | 2 | Inv-Softmax | % | % |
-| 500 | 4 | 2 | CSLS | % | % |
+| 500 | 4 | 2 | NN | 95.55% | 4.12% |
+| 500 | 4 | 2 | Inv-NN | 95.55% | % |
+| 500 | 4 | 2 | Inv-Softmax | 95.55% | % |
+| 500 | 4 | 2 | CSLS | 95.55% | % |
 
 ### for Thai-English (word2vec)
 
