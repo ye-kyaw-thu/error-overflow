@@ -2442,7 +2442,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 ## All Results
 
-### for Myanmar-Thai (word2vec)
+### for Myanmar-Thai (word2vec), with a Clean Dictionary
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
@@ -2463,8 +2463,28 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 500 | 4 | 2 | Inv-Softmax | 99.94% | 1.49% |
 | 500 | 4 | 2 | CSLS | 99.94% | 1.61% |
 
+### for Myanmar-Thai (word2vec), with a Raw or Bigger Dictionary
 
-### for Myanmar-Thai (fasttext)
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
+|-----------:|----------:|--------:|:----------:|---------:|---------:|
+| 100 | 3 | 2 | NN | 99.94% | 3.10% |
+| 100 | 3 | 2 | Inv-NN | 99.94% | 1.94% |
+| 100 | 3 | 2 | Inv-Softmax | 99.94% | 2.25% |
+| 100 | 3 | 2 | CSLS | 99.94% | 3.28% |
+| 200 | 3 | 2 | NN | % | % |
+| 200 | 3 | 2 | Inv-NN | % | % |
+| 200 | 3 | 2 | Inv-Softmax | % | % |
+| 200 | 3 | 2 | CSLS | % | % |
+| 300 | 5 | 3 | NN | % | % |
+| 300 | 5 | 3 | Inv-NN | % | % |
+| 300 | 5 | 3 | Inv-Softmax | % | % |
+| 300 | 5 | 3 | CSLS | % | % |
+| 500 | 4 | 2 | NN | % | % |
+| 500 | 4 | 2 | Inv-NN | % | % |
+| 500 | 4 | 2 | Inv-Softmax | % | % |
+| 500 | 4 | 2 | CSLS | % | % |
+
+### for Myanmar-Thai (fasttext), with a Clean Dictionary
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
@@ -2484,6 +2504,27 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 500 | 4 | 2 | Inv-NN | 99.94% | 2.14% |
 | 500 | 4 | 2 | Inv-Softmax | 99.94% | 2.03% |
 | 500 | 4 | 2 | CSLS | 99.94% | **2.68%** |
+
+### for Myanmar-Thai (fasttext), with a Raw or Bigger Dictionary
+
+| Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
+|-----------:|----------:|--------:|:----------:|---------:|---------:|
+| 100 | 3 | 2 | NN | % | % |
+| 100 | 3 | 2 | Inv-NN | % | % |
+| 100 | 3 | 2 | Inv-Softmax | % | % |
+| 100 | 3 | 2 | CSLS | % | % |
+| 200 | 3 | 2 | NN | % | % |
+| 200 | 3 | 2 | Inv-NN | % | % |
+| 200 | 3 | 2 | Inv-Softmax | % | % |
+| 200 | 3 | 2 | CSLS | % | % |
+| 300 | 5 | 3 | NN | % | % |
+| 300 | 5 | 3 | Inv-NN | % | % |
+| 300 | 5 | 3 | Inv-Softmax | % | % |
+| 300 | 5 | 3 | CSLS | % | % |
+| 500 | 4 | 2 | NN | % | % |
+| 500 | 4 | 2 | Inv-NN | % | % |
+| 500 | 4 | 2 | Inv-Softmax | % | % |
+| 500 | 4 | 2 | CSLS | % | % |
 
 ### for Myanmar-English (word2vec)
 
