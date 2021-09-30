@@ -1,5 +1,6 @@
 # Full Running Log of Bi-lingual Embedding for English-Thai
 
+English-Thai bi-lingual embedding experiment (Vector Size: 300, Window: 5, Min_Count: 3, Iteration: 10, Experiment Folder#:15) တစ်ခု run စဉ်က log ပါ။  
 
 ```
 (bilingual-emb) ye@:~/tool/en-cy-bilingual-embeddings$ time ./repeat-train-eval.sh 300 5 3 10 15 en th
