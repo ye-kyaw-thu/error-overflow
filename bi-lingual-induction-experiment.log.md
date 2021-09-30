@@ -2428,6 +2428,8 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 ### for English-Thai (word2vec)
 
+The following results are re-confirming...  (for Vector_size: 200 to 500)  
+
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
 | 100 | 3 | 2 | NN | 95.31% | 4.10% |
