@@ -2519,7 +2519,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 200 | 3 | 2 | CSLS | 99.94% | 2.91% |
 | 300 | 5 | 3 | NN | 99.94% | 2.80% |
 | 300 | 5 | 3 | Inv-NN | 99.94% | 1.81% |
-| 300 | 5 | 3 | Inv-Softmax | 99.94% | 2.98% |
+| 300 | 5 | 3 | Inv-Softmax | 99.94% | **2.98%** |
 | 300 | 5 | 3 | CSLS | 99.94% | 2.92% |
 | 500 | 4 | 2 | NN | 99.94% | 2.43% |
 | 500 | 4 | 2 | Inv-NN | 99.94% | 1.54% |
@@ -2572,7 +2572,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
-| 100 | 3 | 2 | NN | 97.99% | 2.46% |
+| 100 | 3 | 2 | NN | 97.99% | **2.46%** |
 | 100 | 3 | 2 | Inv-NN | 97.99% | 1.57% |
 | 100 | 3 | 2 | Inv-Softmax | 97.99% | 1.78% |
 | 100 | 3 | 2 | CSLS | 97.99% | 2.15% |
