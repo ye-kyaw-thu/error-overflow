@@ -2373,7 +2373,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 200 | 3 | 2 | NN | 99.94% | 2.80% |
 | 200 | 3 | 2 | Inv-NN | 99.94% | 1.91% |
 | 200 | 3 | 2 | Inv-Softmax | 99.94% | 2.32% |
-| 200 | 3 | 2 | CSLS | 99.94% | 3.16% |
+| 200 | 3 | 2 | CSLS | 99.94% | **3.16%** |
 | 300 | 5 | 3 | NN | 99.94% | 2.44% |
 | 300 | 5 | 3 | Inv-NN | 99.94% | 1.31% |
 | 300 | 5 | 3 | Inv-Softmax | 99.94% | 2.32% |
@@ -2399,11 +2399,11 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 300 | 5 | 3 | NN | 99.94% | 2.14% |
 | 300 | 5 | 3 | Inv-NN | 99.94% | 2.14% |
 | 300 | 5 | 3 | Inv-Softmax | 99.94% | 2.03% |
-| 300 | 5 | 3 | CSLS | 99.94% | 2.68% |
+| 300 | 5 | 3 | CSLS | 99.94% | **2.68%** |
 | 500 | 4 | 2 | NN | 99.94% | 2.14% |
 | 500 | 4 | 2 | Inv-NN | 99.94% | 2.14% |
 | 500 | 4 | 2 | Inv-Softmax | 99.94% | 2.03% |
-| 500 | 4 | 2 | CSLS | 99.94% | 2.68% |
+| 500 | 4 | 2 | CSLS | 99.94% | **2.68%** |
 
 ### for Myanmar-English (word2vec)
 
@@ -2416,7 +2416,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 200 | 3 | 2 | NN | 92.64% | 3.28% |
 | 200 | 3 | 2 | Inv-NN | 92.64% | 2.28% |
 | 200 | 3 | 2 | Inv-Softmax | 92.64% | 3.11% |
-| 200 | 3 | 2 | CSLS | 92.64% | 3.50% |
+| 200 | 3 | 2 | CSLS | 92.64% | **3.50%** |
 | 300 | 5 | 3 | NN | 91.04% | 3.28% |
 | 300 | 5 | 3 | Inv-NN | 91.04% | 1.72% |
 | 300 | 5 | 3 | Inv-Softmax | 91.04% | 3.22% |
@@ -2441,7 +2441,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 300 | 5 | 3 | NN | 94.30% | 5.32% |
 | 300 | 5 | 3 | Inv-NN | 94.30% | 4.25% |
 | 300 | 5 | 3 | Inv-Softmax | 94.30% | 5.49% |
-| 300 | 5 | 3 | CSLS | 94.30% | 5.77% |
+| 300 | 5 | 3 | CSLS | 94.30% | **5.77%** |
 | 500 | 4 | 2 | NN | 95.55% | 4.12% |
 | 500 | 4 | 2 | Inv-NN | 95.55% | 2.86% |
 | 500 | 4 | 2 | Inv-Softmax | 95.55% | 4.35% |
