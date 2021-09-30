@@ -2509,10 +2509,10 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
-| 100 | 3 | 2 | NN | % | % |
-| 100 | 3 | 2 | Inv-NN | % | % |
-| 100 | 3 | 2 | Inv-Softmax | % | % |
-| 100 | 3 | 2 | CSLS | % | % |
+| 100 | 3 | 2 | NN | 99.94% | 2.62% |
+| 100 | 3 | 2 | Inv-NN | 99.94% | 1.19% |
+| 100 | 3 | 2 | Inv-Softmax | 99.94% | 2.80% |
+| 100 | 3 | 2 | CSLS | 99.94% | 2.68% |
 | 200 | 3 | 2 | NN | % | % |
 | 200 | 3 | 2 | Inv-NN | % | % |
 | 200 | 3 | 2 | Inv-Softmax | % | % |
