@@ -2212,6 +2212,79 @@ english welsh
 ထုပ်ပိုး ห่อหุ้ม
 ```
 
+## Deail Explanation about Train/Test Dictionary for Each Language Pair
+
+### original dictionaries
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/dict$ wc *.raw1
+  125530   326180  5231117 en-my.raw1
+  125530   329958  6113211 en-th.raw1
+  125530   326180  5231117 my-en.raw1
+  125530   276444  8764842 my-th.raw1
+  125530   329958  6113211 th-en.raw1
+```
+
+အထက်မှာလည်း ပြခဲ့သလိုပါပဲ experiment က word2vec, fasttext မော်ဒယ်တွေဆောက်တဲ့အခါမှာ Vector Size, Window, Minimum Count စတဲ့ parameter တွေကို ကစားပြီး လုပ်ပေမဲ့ language-pair တစ်ခုအောက်မှာ လုပ်တဲ့ experiment တွေအတွက် train/test အဖြစ် ခွဲထားတဲ့ အဘိဓာန်တွေရဲ့ size က အတူတူပါပဲ။ ဒါပေမဲ့ language-pair မတူရင်တော့ တနည်းအားဖြင့် language pair ပြောင်းသွားတဲ့အခါမှာတော့ အဲဒီ training dictionary, test dictionary တွေကို train-test-split ပရိုဂရမ်နဲ့ တစ်ခေါက် run ပြီးခွဲတာမျိုး လုပ်တာကြောင့် အရေအတွက်က အတိအကျတူတာတော့ မဟုတ်ပါဘူး...  
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output13$ wc *.csv
+  3813   7626  98984 test_dict.csv
+ 15245  30490 396557 train_dict.csv
+ 19058  38116 495541 total
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output13$ cd ../word2vec-output14
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output14$ wc *.csv
+  3813   7626  98103 test_dict.csv
+ 15245  30490 397438 train_dict.csv
+ 19058  38116 495541 total
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output14$ cd ../word2vec-output15
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output15$ wc *.csv
+  3813   7626  98984 test_dict.csv
+ 15245  30490 396557 train_dict.csv
+ 19058  38116 495541 total
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output15$ cd ../word2vec-output16
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output16$ wc *.csv
+  3813   7626  99668 test_dict.csv
+ 15245  30490 395873 train_dict.csv
+ 19058  38116 495541 total
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output16$
+```
+
+သို့သော် language pair မတူရင် training/testing အဘိဓာန်တွေရဲ့ size တွေက ကွဲသွားလိမ့်မယ်။  
+ဥပမာ။ ။ language pair အလိုက် experiment တွေအတွက် သုံးခဲ့တဲ့ training and test dictionary တွေက အောက်ပါအတိုင်းပါ...  
+
+### for en-th
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output15$ wc *.csv
+  3813   7626  98984 test_dict.csv
+ 15245  30490 396557 train_dict.csv
+```
+
+### for my-th
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output$ wc *.csv
+  2360   4720  97988 test_dict.csv
+  9436  18872 390844 train_dict.csv
+```
+
+### for my-th
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output2$ wc *.csv
+  2360   4720  97988 test_dict.csv
+  9436  18872 390844 train_dict.csv
+```
+
+### for th-en
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/th-en/word2vec-output18$ wc *.csv
+  3813   7626  98700 test_dict.csv
+ 15245  30490 396841 train_dict.csv
+```
+
 ## Write a New Shell Script
 
 Experiment ကို ထပ်ခါထပ်ခါ run ဖို့အတွက်က အောက်ပါ shell script တစ်ခုချင်းစီကို  
