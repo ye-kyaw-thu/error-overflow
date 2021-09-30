@@ -2428,7 +2428,7 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 
 ### for English-Thai (word2vec)
 
-The following results are re-confirming...  (for Vector_size: 200 to 500)  
+The following results are re-confirming...  (for Vector_size: 300 to 500)  
 
 | Vector Size | Window | Min-Count | Retrieval | Coverage | Accuracy |
 |-----------:|----------:|--------:|:----------:|---------:|---------:|
@@ -2436,10 +2436,10 @@ The following results are re-confirming...  (for Vector_size: 200 to 500)
 | 100 | 3 | 2 | Inv-NN | 95.31% | 3.55% |
 | 100 | 3 | 2 | Inv-Softmax | 95.31% | 4.06% |
 | 100 | 3 | 2 | CSLS | 95.31% | 4.37% |
-| 200 | 3 | 2 | NN | 95.37% | 3.86% |
-| 200 | 3 | 2 | Inv-NN | 95.37% | 3.25% |
-| 200 | 3 | 2 | Inv-Softmax | 95.37% | 3.66% |
-| 200 | 3 | 2 | CSLS | 95.37% | 3.90% |
+| 200 | 3 | 2 | NN | 95.37% | 3.83% |
+| 200 | 3 | 2 | Inv-NN | 95.37% | 3.42% |
+| 200 | 3 | 2 | Inv-Softmax | 95.37% | 3.89% |
+| 200 | 3 | 2 | CSLS | 95.37% | 4.44% |
 | 300 | 5 | 3 | NN | 95.27% | 3.61% |
 | 300 | 5 | 3 | Inv-NN | 95.27% | 2.86% |
 | 300 | 5 | 3 | Inv-Softmax | 95.27% | 3.88% |
