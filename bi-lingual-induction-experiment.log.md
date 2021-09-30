@@ -2442,10 +2442,10 @@ bash ./eval-mapped-embedding.sh /media/ye/project2/exp/bilingual-induction/exp1/
 | 300 | 5 | 3 | Inv-NN | 95.27% | 2.86% |
 | 300 | 5 | 3 | Inv-Softmax | 95.27% | 3.88% |
 | 300 | 5 | 3 | CSLS | 95.27% | 3.95% |
-| 500 | 4 | 2 | NN | % | % |
-| 500 | 4 | 2 | Inv-NN | % | % |
-| 500 | 4 | 2 | Inv-Softmax | % | % |
-| 500 | 4 | 2 | CSLS | % | % |
+| 500 | 4 | 2 | NN | 95.46% | 3.78% |
+| 500 | 4 | 2 | Inv-NN | 95.46% | % |
+| 500 | 4 | 2 | Inv-Softmax | 95.46% | % |
+| 500 | 4 | 2 | CSLS | 95.46% | % |
 
 ### for Thai-English (word2vec)
 
