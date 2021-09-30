@@ -2225,7 +2225,7 @@ english welsh
   125530   329958  6113211 th-en.raw1
 ```
 
-အထက်မှာလည်း ပြခဲ့သလိုပါပဲ experiment က word2vec, fasttext မော်ဒယ်တွေဆောက်တဲ့အခါမှာ Vector Size, Window, Minimum Count စတဲ့ parameter တွေကို ကစားပြီး လုပ်ပေမဲ့ language-pair တစ်ခုအောက်မှာ လုပ်တဲ့ experiment တွေအတွက် train/test အဖြစ် ခွဲထားတဲ့ အဘိဓာန်တွေရဲ့ size က အတူတူပါပဲ။ ဒါပေမဲ့ language-pair မတူရင်တော့ တနည်းအားဖြင့် language pair ပြောင်းသွားတဲ့အခါမှာတော့ အဲဒီ training dictionary, test dictionary တွေကို train-test-split ပရိုဂရမ်နဲ့ တစ်ခေါက် run ပြီးခွဲတာမျိုး လုပ်တာကြောင့် အရေအတွက်က အတိအကျတူတာတော့ မဟုတ်ပါဘူး...  
+အထက်မှာလည်း ပြခဲ့သလိုပါပဲ experiment က word2vec, fasttext မော်ဒယ်တွေဆောက်တဲ့အခါမှာ Vector Size, Window, Minimum Count စတဲ့ parameter တွေကို ကစားပြီး လုပ်ပေမဲ့ language-pair တစ်ခုအောက်မှာ လုပ်တဲ့ experiment တွေအတွက် train/test အဖြစ် ခွဲထားတဲ့ အဘိဓာန်တွေရဲ့ size က အတူတူပါပဲ။ 
 
 ```
 (base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output13$ wc *.csv
@@ -2250,7 +2250,6 @@ english welsh
 (base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/en-th/word2vec-output16$
 ```
 
-သို့သော် language pair မတူရင် training/testing အဘိဓာန်တွေရဲ့ size တွေက ကွဲသွားလိမ့်မယ်။  
 ဥပမာ။ ။ language pair အလိုက် experiment တွေအတွက် သုံးခဲ့တဲ့ training and test dictionary တွေက အောက်ပါအတိုင်းပါ...  
 
 ### for en-th
@@ -2261,6 +2260,14 @@ english welsh
  15245  30490 396557 train_dict.csv
 ```
 
+### for th-en
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/th-en/word2vec-output18$ wc *.csv
+  3813   7626  98700 test_dict.csv
+ 15245  30490 396841 train_dict.csv
+```
+
 ### for my-th
 
 ```
@@ -2268,21 +2275,21 @@ english welsh
   2360   4720  97988 test_dict.csv
   9436  18872 390844 train_dict.csv
 ```
-
-### for my-th
-
-```
-(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/my-th/word2vec-output2$ wc *.csv
-  2360   4720  97988 test_dict.csv
-  9436  18872 390844 train_dict.csv
-```
-
-### for th-en
+my-th အဘိဓာန်က clean လုပ်ပြီးသား ဗားရှင်းကို ယူခဲ့ပုံရတယ်...  
+အဲဒါကြောင့်... ပြန် run ဖို့ လိုအပ်လို့ အခု ထပ် run နေတယ်...  
 
 ```
-(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/th-en/word2vec-output18$ wc *.csv
-  3813   7626  98700 test_dict.csv
- 15245  30490 396841 train_dict.csv
+
+```
+
+
+
+### for th-my
+
+```
+(base) ye@:/media/ye/project2/exp/bilingual-induction/exp1/th-en/word2vec-output17$ wc *.csv
+  3813   7626  98606 test_dict.csv
+ 15245  30490 396935 train_dict.csv
 ```
 
 ## Write a New Shell Script
