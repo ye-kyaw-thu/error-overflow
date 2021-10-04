@@ -23,7 +23,7 @@ Love=လွမ်းတယ်
 
 အထက်ပါ အချက်တွေကြောင့် g++ နဲ့ lwan.cpp ကို compile လုပ်တဲ့အခါမှာ အောက်ပါလိုမျိုး error တွေ အများကြီး ထွက်လာပါလိမ့်မယ်။  
 
-```sh
+```shell
 (base) ye@:~/4github$ g++ ./lwan.cpp 
 ./lwan.cpp: In function ‘int main()’:
 ./lwan.cpp:6:4: error: ‘string’ was not declared in this scope
