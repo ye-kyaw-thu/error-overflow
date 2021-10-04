@@ -1,4 +1,4 @@
-# Debugging Lwan (Miss you) Program
+# Debugging Lwan (Miss you) Program Log
 
 ပရိုဂရမ်းမင်းကို တကယ် သိချင်လို့ မေးတာလား... တော့ မသိပါ။  
 အောက်ပါ C++ code နဲ့ တူသော coding ကို debug လုပ်ပေးပါဆိုတဲ့ request ကို လက်ခံရရှိ...  
@@ -9,6 +9,8 @@ for(l=0;l<1500;l++)
 Love=လွမ်းတယ်
 { cout<<Love;}
 ```
+
+## Debugging lwan-err.cpp program
 
 ကိုယ်တိုင်ကလည်း error ကိုတွေ့ရင် run လို့ရတဲ့အထိ debug လုပ်တဲ့ အကျင့်က ဖြစ်နေတော့... အမှားတွေကို ရှာကြည့်တဲ့အခါ အောက်ပါအတိုင်း တွေ့ရ...
 
@@ -132,6 +134,8 @@ Love=လွမ်းတယ်
 (base) ye@:~/4github$
 ```
 
+## The Correct "lwan.cpp" C++ Code
+                     
 တကယ်တမ်း လွမ်းတယ်ဆိုတဲ့ စာကြောင်းကို အခါ ၁၅၀၀ ပေါ်ချင်ရင် C++ မှာဆိုရင် အောက်ပါအတိုင်း coding လုပ်ရပါလိမ့်မယ်။  
                      
 ```cpp
