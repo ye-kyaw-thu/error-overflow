@@ -131,3 +131,21 @@ Love=လွမ်းတယ်
                 ^
 (base) ye@:~/4github$
 ```
+
+တကယ်တမ်း လွမ်းတယ်ဆိုတဲ့ စာကြောင်းကို အခါ ၁၅၀၀ ပေါ်ချင်ရင် C++ မှာဆိုရင် အောက်ပါအတိုင်း coding လုပ်ရပါလိမ့်မယ်။  
+                     
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   string Love="လွမ်းတယ်";
+   
+   for(int l=0; l<1500; l++) {
+      cout<<Love << endl;
+   }
+   return 0;
+   
+}                  
+```
