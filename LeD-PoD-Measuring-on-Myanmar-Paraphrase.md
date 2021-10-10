@@ -1,5 +1,9 @@
 # LePoD Measuring for Myanmar Paraphrases
 
+Lexical Difference (LeD) နဲ့ Positional Difference (PoD) score တွက်တာကို စိတ်ဝင်စားလို့ Myanmar Paraphrase စာကြောင်းတွေအပေါ်မှာ တွက်ကြည့်ဖို့ ပြင်ဆင်ခဲ့စဉ်က log ဖိုင်ပါ။    
+မြန်မာစာ NLP သမားတွေအတွက် အသုံးဝင်နိုင်ပါတယ်...  
+
+
 Link: [https://github.com/xingniu/multitask-ft-fsmt/tree/master/LePoD](https://github.com/xingniu/multitask-ft-fsmt/tree/master/LePoD)  
 အထက်ပါ ဖိုင်တွေကို တစ်ဖိုင်ချင်း ကိုယ့်စက်ထဲကို copy ကူးထည့်ပြီးသွားတဲ့အခါမှာ အောက်ပါအတိုင်း file တွေကို တွေ့ရလိမ့်မယ်။  
 
