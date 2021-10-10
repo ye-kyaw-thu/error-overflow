@@ -506,5 +506,7 @@ Lexical Difference (LeD) နဲ့ pairwise Positional Difference (PoD) score �
 
 ## Reference
 
-https://github.com/xingniu/multitask-ft-fsmt/tree/master/LePoD
-http://www.cs.cmu.edu/~alavie/METEOR/
+- https://github.com/xingniu/multitask-ft-fsmt/tree/master/LePoD  
+- http://www.cs.cmu.edu/~alavie/METEOR/  
+- paper: Xing Niu, and Marine Carpuat. "Controlling Neural Machine Translation Formality with Synthetic Supervision". AAAI 2020, Link: [http://xingniu.org/pub/syntheticfsmt_aaai20.pdf](http://xingniu.org/pub/syntheticfsmt_aaai20.pdf)  
+
