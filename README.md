@@ -81,3 +81,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 74. [full-running-log-of-bi-lingual-embedding-for-my-en.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/full-running-log-of-bi-lingual-embedding-for-my-en.log.md)  
 75. [full-running-log-of-bi-lingual-embedding-for-en-th.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/full-running-log-of-bi-lingual-embedding-for-en-th.log.md)  
 76. [debugging-lwan-program.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/debugging-lwan-program.md)  
+77. [LeD-PoD-Measuring-on-Myanmar-Paraphrase.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/LeD-PoD-Measuring-on-Myanmar-Paraphrase.md)  
