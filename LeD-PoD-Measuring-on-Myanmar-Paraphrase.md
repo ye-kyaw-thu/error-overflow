@@ -506,7 +506,7 @@ PoD=0.0399
 (base) ye@:~/exp/LePoD$ 
 ```
 
-Lexical Difference (LeD) နဲ့ pairwise Positional Difference (PoD) score တွေမှာတော့ -l, -d ကို ထည့် run လည်း လက်ရှိ para1, para2 ဖိုင်နှစ်ဖိုင်ပေါ်မှာတွက်ကြည့်တဲ့အခါမှာတော့ အပြာင်းအလဲ မရှိတာကို တွေ့ရ...  
+Lexical Difference (LeD) နဲ့ Positional Difference (PoD) score တွေမှာတော့ -l, -d ကို ထည့် run လည်း လက်ရှိ para1, para2 ဖိုင်နှစ်ဖိုင်ပေါ်မှာတွက်ကြည့်တဲ့အခါမှာတော့ အပြာင်းအလဲ မရှိတာကို တွေ့ရ...  
 
 ## Reference
 
