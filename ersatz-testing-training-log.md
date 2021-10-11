@@ -703,13 +703,343 @@ check the output model...
 ### Create a Training Data
 
 ```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python ./ersatz/dataset.py --sentencepiece_path ./ersatz.model  --left-size 3 --right-size 3 --output_path ./my-data/model/dataset.out --input_paths ./my-data/segmentation-data-updated2.txt 
 
+real	0m23.790s
+user	0m23.401s
+sys	0m0.353s
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$ wc dataset.out 
+  18693  168237 1536691 dataset.out
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$ head dataset.out 
+▁နိုင် ▁မှာ ▁? ||| ▁စိတ် မကောင်း ▁ဘူး ||| <eos>
+▁ပေး ▁ပါ ▁. ||| : - ▁) ||| <mos>
+▁ပါ ▁က ▁? ||| ▁ဖုန်း ▁ကို ▁အရမ်း ||| <eos>
+▁နော် ▁- ▁? ||| ▁ဦးကျော် ဟိန်း ▁လည်း ||| <mos>
+▁😂 ▁😂 . ||| ▁မေး ▁ထား ▁တာ ||| <eos>
+▁ကြောင်း ▁ပေါ့ ▁. ||| ▁အဆင်ပြေ ▁တယ် ▁မြန် ||| <eos>
+▁လိုက် ▁တာ ▁! ||| ▁မနေ့ ▁ည ▁က ||| <eos>
+▁ပါ ▁ရှင် ▁.... ||| ▁ရောင်းချ ▁တဲ့ ▁ဆိုင် ||| <mos>
+▁တယ် ▁နော် ▁... ||| ▁မင်္ဂလာ ▁အပေါင်း ▁နဲ့ ||| <eos>
+▁သင့် ▁ဘူး ▁... ||| ▁ဘယ်လို ▁ဆိုးကျိုး ▁ကို ||| <mos>
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$
+```
+
+output ထွက်လာတဲ့ ဖိုင်ကို shuffle လုပ်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$ shuf ./dataset.out > ./dataset.out.shuf
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$ head ./dataset.out.shuf 
+ကြည့် ▁ရင်း ▁... ||| ▁ရင် ▁တွေ ▁ခုန် ||| <mos>
+▁လဲ ▁ဟင် ▁? ||| ▁ချစ် ▁တဲ့ ▁သူ ||| <mos>
+▁ဩဝါဒ ▁အရ ▁... ||| ▁လူ ▁ဟာ ▁သူ့ ||| <mos>
+o o ! ||| ! ! ▁တော် ||| <mos>
+▁နှစ် ▁၂ . ||| ၅ ▁သန်း ▁ဝေး ||| <mos>
+▁.. ▁ဒါ ▁.. ||| ▁ခိုက လေး ▁က ||| <eos>
+▁... ▁ဪ ▁... ||| ▁ခင်ဗျား ▁ကို ▁... ||| <mos>
+▁ဆို ▁ရင် ▁... ||| ▁ငါ ▁သေ ▁မှာ ||| <mos>
+▁။ ▁ဟင် ... ||| ▁ဘာ ▁လဲ ▁ ||| <mos>
+▁နေ ▁သလား ▁... ||| ▁အင်နီ ▁။ ▁ဟုတ်ကဲ့ ||| <mos>
+(base) ye@:~/exp/sentence-seg/ersatz/my-data/model$
+```
+
+### Preparing Validation Dataset
+
+mypos data ကို download လုပ်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ wget https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-ver-3.0/corpus/mypos-ver.3.0.txt
+--2021-10-11 12:27:43--  https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-ver-3.0/corpus/mypos-ver.3.0.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9581543 (9.1M) [text/plain]
+Saving to: ‘mypos-ver.3.0.txt’
+
+mypos-ver.3.0.txt                     100%[=========================================================================>]   9.14M  17.3MB/s    in 0.5s    
+
+2021-10-11 12:27:47 (17.3 MB/s) - ‘mypos-ver.3.0.txt’ saved [9581543/9581543]
+```
+
+mypos (version 3) ဒေတာမှာက pos-tag တွေပါ ပါနေတော့ အဲဒါတွေကို ဖြုတ်ဖို့အတွက် ရေးထားတဲ့ perl script ကို download လုပ်ယူခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ wget https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-draft-ver-1.0/mk-wordtag.pl
+--2021-10-11 12:28:23--  https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-draft-ver-1.0/mk-wordtag.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3967 (3.9K) [text/plain]
+Saving to: ‘mk-wordtag.pl’
+
+mk-wordtag.pl                         100%[=========================================================================>]   3.87K  --.-KB/s    in 0s      
+
+2021-10-11 12:28:23 (120 MB/s) - ‘mk-wordtag.pl’ saved [3967/3967]
+```
+
+"word/pos word/pos" ဖြစ်နေတာကနေ "word word" ဖြစ်ဖို့ အောက်ပါအတိုင်း perl script ကို run ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ perl ./mk-wordtag.pl ./mypos-ver.3.0.txt "\/" w > mypos-ver3.validation-data
+```
+
+pos tag ဖြုတ်ထားပြီးသား output validation ဖိုင်ကို check လုပ်ခဲ့။   
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ head ./mypos-ver3.validation-data 
+ဒီ ဆေး က ၁၀၀ ရာခိုင်နှုန်း ဆေးဘက်ဝင် အပင် များ မှ ဖော်စပ် ထား တာ ဖြစ် တယ် ။
+အသစ် ဝယ် ထား တဲ့ ဆွယ်တာ က အသီး ထ နေ ပါ ပေါ့ ။
+မ ကျန်းမာ လျှင် နတ် ဆရာ ထံ မေးမြန်း ၍ သက်ဆိုင်ရာ နတ် တို့ အား ပူဇော်ပသ ရ သည် ။
+ပေဟိုင် ဥယျာဉ် ။
+နဝမ အိပ်မက် ကောသလ မင်း အိပ်မက် ၉ နက်ရှိုင်း ကျယ်ဝန်း သော ရေကန် ကြီး တစ် ခု တွင် သတ္တဝါ တို့ ဆင်း ၍ ရေသောက် ကြ ၏ ။
+အပြင်ပန်း ကြည့် ရင် ခက် သလို ထင် ရ ပေမယ့် တကယ့် လက်တွေ့ အခြေအနေ က တော့ အဲဒီ လို မ ဟုတ် ပါ ဘူး ။
+8 bit ပုံရိပ် တစ် ခု သည် 256 color သို့မဟုတ် gray scale များ ကို အထောက်အကူ ပြု သည် ။
+ကိုရီးယား ဝတ်စုံ မှာ ပန်း ဒီဇိုင်း နဲ့ အဝါရောင် က လိုက်ဖက် လိမ့် မယ် ထင် တယ် ။
+သို့နှင့် မဂ္ဂဇင်း မှ တစ်ဆင့် သတင်းစာ ကို ပါ တိုးချဲ့ လိုက် သောအခါ တွင် ဘက်ပတစ် ကျောင်း သို့ မ ပြန် တော့ ဘဲ ထို မဂ္ဂဇင်း ၊ သတင်းစာ နှစ် ခု စလုံး တွင် ပင် တည်းဖြတ် သည့် ဘက် မှ ဆက်လက် လုပ်ကိုင် လေ တော့ သည် ။
+တစ် ကျပ်သား ။
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$
+```
+
+sentencepiece လည်း ပြင်ရမှာမို့ ပြီးတော့ တကယ်က training ရော validation ရော နှစ်မျိုးစလုံးကို cover ဖြစ်ရမှာမို့ sentencepiece ကိုလည်း ပြန်ဆောက်ခဲ့...  
+ပထမဆုံး training ဒေတာနဲ့ validation ဒေတာကို ပေါင်းခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ cat ./segmentation-data-updated2.txt ./mypos-ver3.validation-data > train-valid.txt
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ wc ./train-valid.txt 
+  256300  5906871 76649248 ./train-valid.txt
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$
+```
+
+sentencepiece ပြန်ဆောက်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time spm_train --input ./my-data/train-valid.txt --model_prefix train-valid-sentencepiece --bos_piece "<mos>" --eos_piece "<eos>"
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with : 
+trainer_spec {
+  input: ./my-data/train-valid.txt
+  input_format: 
+  model_prefix: train-valid-sentencepiece
+  model_type: UNIGRAM
+  vocab_size: 8000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  required_chars: 
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <mos>
+  eos_piece: <eos>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+denormalizer_spec {}
+trainer_interface.cc(319) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(174) LOG(INFO) Loading corpus: ./my-data/train-valid.txt
+trainer_interface.cc(346) LOG(WARNING) Found too long line (9461 > 4192).
+trainer_interface.cc(348) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(349) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(375) LOG(INFO) Loaded all 255973 sentences
+trainer_interface.cc(381) LOG(INFO) Skipped 327 too long sentences.
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <mos>
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <eos>
+trainer_interface.cc(395) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(456) LOG(INFO) all chars count=28858856
+trainer_interface.cc(467) LOG(INFO) Done: 99.9503% characters are covered.
+trainer_interface.cc(477) LOG(INFO) Alphabet size=215
+trainer_interface.cc(478) LOG(INFO) Final character coverage=0.999503
+trainer_interface.cc(510) LOG(INFO) Done! preprocessed 255972 sentences.
+unigram_model_trainer.cc(138) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(142) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(193) LOG(INFO) Initialized 195958 seed sentencepieces
+trainer_interface.cc(516) LOG(INFO) Tokenizing input sentences with whitespace: 255972
+trainer_interface.cc(526) LOG(INFO) Done! 108356
+unigram_model_trainer.cc(488) LOG(INFO) Using 108356 sentences for EM training
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=70288 obj=9.36946 num_tokens=223783 num_tokens/piece=3.1838
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=53470 obj=7.6401 num_tokens=223447 num_tokens/piece=4.17892
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=40060 obj=7.59438 num_tokens=230651 num_tokens/piece=5.75764
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=39899 obj=7.58286 num_tokens=230666 num_tokens/piece=5.78125
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=29914 obj=7.60065 num_tokens=244527 num_tokens/piece=8.17433
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=29897 obj=7.59553 num_tokens=244553 num_tokens/piece=8.17985
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=22419 obj=7.62585 num_tokens=261120 num_tokens/piece=11.6473
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=22418 obj=7.62121 num_tokens=261131 num_tokens/piece=11.6483
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=16811 obj=7.66867 num_tokens=279106 num_tokens/piece=16.6026
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=16808 obj=7.66017 num_tokens=279107 num_tokens/piece=16.6056
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=12606 obj=7.72713 num_tokens=297311 num_tokens/piece=23.5849
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=12605 obj=7.71443 num_tokens=297311 num_tokens/piece=23.5868
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=9452 obj=7.80778 num_tokens=315959 num_tokens/piece=33.4277
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=9452 obj=7.79042 num_tokens=315961 num_tokens/piece=33.428
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=8800 obj=7.81591 num_tokens=320511 num_tokens/piece=36.4217
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=8800 obj=7.81119 num_tokens=320511 num_tokens/piece=36.4217
+trainer_interface.cc(604) LOG(INFO) Saving model: train-valid-sentencepiece.model
+trainer_interface.cc(615) LOG(INFO) Saving vocabs: train-valid-sentencepiece.vocab
+
+real	0m28.399s
+user	0m36.936s
+sys	0m0.229s
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
+
+ထွက်လာတဲ့ sentencepiece model နဲ့ vocab ဖိုင်တွေကို စစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ ls train-valid*
+train-valid-sentencepiece.model  train-valid-sentencepiece.vocab
+(base) ye@:~/exp/sentence-seg/ersatz$ wc train-valid*
+ 16585  11593 450855 train-valid-sentencepiece.model
+  8000  16000 220144 train-valid-sentencepiece.vocab
+ 24585  27593 670999 total
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ head ./train-valid-sentencepiece.vocab 
+<unk>	0
+<mos>	0
+<eos>	0
+▁။	-3.47204
+▁	-3.82072
+▁ပါ	-3.82271
+▁က	-3.92084
+▁ကို	-3.9694
+▁တယ်	-4.04095
+▁မ	-4.19039
+(base) ye@:~/exp/sentence-seg/ersatz$ tail ./train-valid-sentencepiece.vocab 
+‘	-16.257
+😗	-16.2571
+💦	-16.2571
+ဪ	-16.2571
+😭	-16.2571
+💙	-16.8566
+😬	-16.8567
+😚	-16.8568
+၎	-16.8569
+ဉ	-16.857
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
+
+validation data ကိုလည်း သတ်မှတ်ထားတဲ့ format အတိုင်း ရဖို့ ပြင်ဆင်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python ./ersatz/dataset.py --sentencepiece_path ./train-valid-sentencepiece.model  --left-size 3 --right-size 3 --output_path ./my-data/model/validation.out --input_paths ./my-data/mypos-ver3.validation-data
+
+real	0m3.091s
+user	0m2.867s
+sys	0m0.141s
+```
+
+validation နဲ့ ဆိုင်တဲ့ output ဖိုင်ကို စစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ wc ./my-data/model/validation.out 
+  291  2619 17991 ./my-data/model/validation.out
+(base) ye@:~/exp/sentence-seg/ersatz$ head ./my-data/model/validation.out 
+▁အဖေ ▁J . ||| W . M ||| <mos>
+. W . ||| M ax w ||| <mos>
+▁ ၆၆ . ||| ၇ ▁ ၊ ||| <mos>
+▁ ၇၆ . ||| ၇ ▁နှင့် ▁၄၀၀ ||| <mos>
+▁ ၈၆ . ||| ၂ ▁% ▁ကိုးကွယ် ||| <mos>
+▁ဘာသာ ▁၆ . ||| ၀ ▁% ▁ ||| <mos>
+▁ဘာသာ ▁၄ . ||| ၁ ▁% ▁ကိုးကွယ် ||| <mos>
+▁ဒေါ်လာ ▁၁ . ||| ၂ ▁သန်း ▁နီးပါး ||| <mos>
+▁ပါ ▁ရှင် ▁! ||| ▁၁ ▁နာရီ ▁ထိုး ||| <eos>
+▁ခရီးသည် ▁၃ . ||| ၅ ▁သန်း ▁ဝင် ||| <mos>
+(base) ye@:~/exp/sentence-seg/ersatz$ tail ./my-data/model/validation.out 
+▁နေ ▁၁ . ||| ၄ ▁မီတာ ▁ထိ ||| <mos>
+ငွေ ▁၇ . ||| ၅၀ ▁ဒေါ်လာ ▁ပါ ||| <mos>
+▁အရပ် ▁၁ . ||| ၄ ▁မီတာ ▁ထက် ||| <mos>
+▁ဟာ ▁၁ . ||| ၁ ▁မီတာ ▁ထက် ||| <mos>
+ပေါင်း ▁၁၇ . ||| ၉၅ ▁ဒေါ်လာ ▁ပါ ||| <mos>
+▁။ ▁N . ||| W . 5 ||| <mos>
+▁အရပ် ▁၁ . ||| ၁ ▁မီတာ ▁ထက် ||| <mos>
+▁အရပ် ▁၁ . ||| ၁ ▁မီတာ ▁ထက် ||| <mos>
+▁က ▁၁ . ||| ၁ ▁မီတာ ▁ထက် ||| <mos>
+▁က ▁၁ . ||| ၄ ▁မီတာ ▁ထက် ||| <mos>
+(base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
 ### Training
 
-```
+training လုပ်ဖို့အတွက် trainer.py ဖိုင်ကို ဘယ်လို parameter တွေပေး run ရမလဲ ဆိုတာကို --help ခေါ်ကြည့်ခဲ့...  
 
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ python ./ersatz/trainer.py --help
+usage: trainer.py [-h] [--train_path TRAIN_PATH] [--valid_path VALID_PATH]
+                  [--sentencepiece_path SENTENCEPIECE_PATH]
+                  [--determiner_type {en,multilingual,all}]
+                  [--left_size LEFT_SIZE] [--right_size RIGHT_SIZE]
+                  [--batch_size BATCH_SIZE] [--min-epochs MIN_EPOCHS]
+                  [--max-epochs MAX_EPOCHS] [--output_path OUTPUT_PATH]
+                  [--checkpoint_path CHECKPOINT_PATH] [--lr LR]
+                  [--dropout DROPOUT] [--embed_size EMBED_SIZE]
+                  [--source_factors] [--factor_embed_size FACTOR_EMBED_SIZE]
+                  [--transformer_nlayers TRANSFORMER_NLAYERS]
+                  [--linear_nlayers LINEAR_NLAYERS] [--activation_type {tanh}]
+                  [--nhead NHEAD] [--log_interval LOG_INTERVAL]
+                  [--validation_interval VALIDATION_INTERVAL]
+                  [--early_stopping EARLY_STOPPING] [--cpu]
+                  [--eos_weight EOS_WEIGHT] [--seed SEED] [--tb_dir TB_DIR]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --train_path TRAIN_PATH
+  --valid_path VALID_PATH
+  --sentencepiece_path SENTENCEPIECE_PATH
+  --determiner_type {en,multilingual,all}
+  --left_size LEFT_SIZE
+  --right_size RIGHT_SIZE
+  --batch_size BATCH_SIZE
+  --min-epochs MIN_EPOCHS
+  --max-epochs MAX_EPOCHS
+  --output_path OUTPUT_PATH
+  --checkpoint_path CHECKPOINT_PATH
+  --lr LR
+  --dropout DROPOUT
+  --embed_size EMBED_SIZE
+  --source_factors
+  --factor_embed_size FACTOR_EMBED_SIZE
+  --transformer_nlayers TRANSFORMER_NLAYERS
+  --linear_nlayers LINEAR_NLAYERS
+  --activation_type {tanh}
+  --nhead NHEAD
+  --log_interval LOG_INTERVAL
+  --validation_interval VALIDATION_INTERVAL
+  --early_stopping EARLY_STOPPING
+  --cpu
+  --eos_weight EOS_WEIGHT
+  --seed SEED
+  --tb_dir TB_DIR
+(base) ye@:~/exp/sentence-seg/ersatz$ 
 ```
 
 ### Sentence Segmentation
