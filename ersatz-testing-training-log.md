@@ -1109,6 +1109,40 @@ sys	0m0.028s
 (base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
+main() ကို call လုပ်ထားတဲ့ အပိုင်းကို trainer.py ဖိုင်ရဲ့ အောက်ဆုံးကို ရွှေ့ခဲ့...  
+
+```python
+if __name__ == '__main__':
+    main()
+```
+
+ထပ် run ကြည့်ခဲ့...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py         --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.vocab         --left_size=3         --right_size=3         --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/         --transformer_nlayers=2         --activation_type=tanh         --linear_nlayers=0         --min-epochs=25         --max-epochs=100         --lr=0.0001         --dropout=0.1         --embed_size=256         --factor_embed_size=8         --source_factors         --nhead=8         --log_interval=1000         --validation_interval=25000         --eos_weight=1.0         --early_stopping=25         --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf         --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
+Starting trainer...
+Traceback (most recent call last):
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 413, in <module>
+    main()
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 72, in main
+    trainer = ErsatzTrainer(args)
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 209, in __init__
+    right_context_size=args.right_size)
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/dataset.py", line 166, in __init__
+    self.tokenizer = SentencePiece(model_path=sentencepiece_path)
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/subword.py", line 91, in __init__
+    self.model.Load(model_path)
+  File "/home/ye/anaconda3/lib/python3.7/site-packages/sentencepiece-0.1.95-py3.7-linux-x86_64.egg/sentencepiece/__init__.py", line 367, in Load
+    return self.LoadFromFile(model_file)
+  File "/home/ye/anaconda3/lib/python3.7/site-packages/sentencepiece-0.1.95-py3.7-linux-x86_64.egg/sentencepiece/__init__.py", line 171, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+RuntimeError: Internal: /sentencepiece/python/bundled/sentencepiece/src/sentencepiece_processor.cc(848) [model_proto->ParseFromArray(serialized.data(), serialized.size())] 
+
+real	0m0.456s
+user	0m0.336s
+sys	0m0.057s
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
 
 ### Sentence Segmentation
 
