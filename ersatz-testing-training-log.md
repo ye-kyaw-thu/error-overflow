@@ -579,18 +579,125 @@ F1 85.71
 
 ## Training a New Model
 
-training data ကို myWord corpus ကိုပဲ သုံးခဲ့...  
+training data ကို myWord corpus ရဲ့ တစိတ်တပိုင်းကိုပဲ သုံးခဲ့...  
 
 ```
+(base) ye@:/media/ye/project1/exp/word-segmentation$ cp segmentation-data-updated2.txt /home/ye/exp/sentence-seg/ersatz/my-data/
+```
 
+```
+(base) ye@:~/exp/sentence-seg/ersatz/my-data$ wc ./segmentation-data-updated2.txt 
+  213104  5342354 69130416 ./segmentation-data-updated2.txt
 ```
 
 ### Building Sentencepiece Vocab
 
 မြန်မာစာ ဒေတာနဲ့ sentence segmentation ကို လုပ်ကြည့်ဖို့အတွက် အရင်ဆုံး sentencepiece vocab ဆောက်ရမယ်။  
 
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time spm_train --input ./my-data/segmentation-data-updated2.txt \
+>    --model_prefix ersatz \
+>    --bos_piece "<mos>" \
+>    --eos_piece "<eos>"
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with : 
+trainer_spec {
+  input: ./my-data/segmentation-data-updated2.txt
+  input_format: 
+  model_prefix: ersatz
+  model_type: UNIGRAM
+  vocab_size: 8000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  required_chars: 
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <mos>
+  eos_piece: <eos>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+denormalizer_spec {}
+trainer_interface.cc(319) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(174) LOG(INFO) Loading corpus: ./my-data/segmentation-data-updated2.txt
+trainer_interface.cc(346) LOG(WARNING) Found too long line (9461 > 4192).
+trainer_interface.cc(348) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(349) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(375) LOG(INFO) Loaded all 212778 sentences
+trainer_interface.cc(381) LOG(INFO) Skipped 326 too long sentences.
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <mos>
+trainer_interface.cc(390) LOG(INFO) Adding meta_piece: <eos>
+trainer_interface.cc(395) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(456) LOG(INFO) all chars count=25965548
+trainer_interface.cc(467) LOG(INFO) Done: 99.9504% characters are covered.
+trainer_interface.cc(477) LOG(INFO) Alphabet size=222
+trainer_interface.cc(478) LOG(INFO) Final character coverage=0.999504
+trainer_interface.cc(510) LOG(INFO) Done! preprocessed 212777 sentences.
+unigram_model_trainer.cc(138) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(142) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(193) LOG(INFO) Initialized 174811 seed sentencepieces
+trainer_interface.cc(516) LOG(INFO) Tokenizing input sentences with whitespace: 212777
+trainer_interface.cc(526) LOG(INFO) Done! 98011
+unigram_model_trainer.cc(488) LOG(INFO) Using 98011 sentences for EM training
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=63988 obj=9.37692 num_tokens=202253 num_tokens/piece=3.1608
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=48524 obj=7.66725 num_tokens=201920 num_tokens/piece=4.16124
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=36337 obj=7.62021 num_tokens=208142 num_tokens/piece=5.7281
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=36188 obj=7.60807 num_tokens=208173 num_tokens/piece=5.75254
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=27126 obj=7.62654 num_tokens=220854 num_tokens/piece=8.14178
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=27114 obj=7.62057 num_tokens=220866 num_tokens/piece=8.14583
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=20331 obj=7.65236 num_tokens=235889 num_tokens/piece=11.6024
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=20330 obj=7.64464 num_tokens=235899 num_tokens/piece=11.6035
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=15247 obj=7.69706 num_tokens=252323 num_tokens/piece=16.549
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=15247 obj=7.68693 num_tokens=252325 num_tokens/piece=16.5492
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=11435 obj=7.75846 num_tokens=269322 num_tokens/piece=23.5524
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=11432 obj=7.74631 num_tokens=269326 num_tokens/piece=23.559
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=0 size=8799 obj=7.83273 num_tokens=285463 num_tokens/piece=32.4427
+unigram_model_trainer.cc(504) LOG(INFO) EM sub_iter=1 size=8799 obj=7.81626 num_tokens=285465 num_tokens/piece=32.4429
+trainer_interface.cc(604) LOG(INFO) Saving model: ersatz.model
+trainer_interface.cc(615) LOG(INFO) Saving vocabs: ersatz.vocab
+
+real	0m26.343s
+user	0m33.230s
+sys	0m0.224s
+(base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
+check the output model...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ wc ./ersatz.model 
+ 16576  11485 449195 ./ersatz.model
+(base) ye@:~/exp/sentence-seg/ersatz$ file ./ersatz.model 
+./ersatz.model: data
 ```
 
 ### Create a Training Data
