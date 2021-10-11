@@ -1144,6 +1144,39 @@ sys	0m0.057s
 (base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
+Ref: https://github.com/google/sentencepiece/issues/296  
+Sentencepiece နဲ့ ပတ်သက်တဲ့ error ဆိုတာတော့ သိတယ်။ အထက်ပါ reference link ကို ဖတ်ကြည့်ခဲ့...  
+
+command line argument တွေကို အောက်ပါအတိုင်း update လုပ်ခဲ့...  
+
+```
+time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
+        --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.vocab \
+        --left_size=3 \
+        --right_size=3 \
+        --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
+        --transformer_nlayers=2 \
+        --activation_type=tanh \
+        --linear_nlayers=0 \
+        --min-epochs=25 \
+        --max-epochs=100 \
+        --lr=0.0001 \
+        --dropout=0.1 \
+        --embed_size=256 \
+        --factor_embed_size=8 \
+        --source_factors \
+        --nhead=8 \
+        --log_interval=1000 \
+        --validation_interval=25000 \
+        --eos_weight=1.0 \
+        --early_stopping=25 \
+        --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
+        --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
+```
+
+
+
+
 ### Sentence Segmentation
 
 ```
