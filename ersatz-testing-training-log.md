@@ -1059,7 +1059,7 @@ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
         --dropout=0.1 \
         --embed_size=256 \
         --factor_embed_size=8 \
-        --source_factors store_true\
+        --source_factors TRUE\
         --nhead=8 \
         --log_interval=1000 \
         --validation_interval=25000 \
