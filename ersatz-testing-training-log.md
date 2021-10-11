@@ -1151,7 +1151,7 @@ command line argument တွေကို အောက်ပါအတိုင်
 
 ```
 time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
-        --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.vocab \
+        --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/ersatz.vocab \
         --left_size=3 \
         --right_size=3 \
         --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
