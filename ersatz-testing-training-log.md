@@ -1042,6 +1042,7 @@ optional arguments:
 (base) ye@:~/exp/sentence-seg/ersatz$ 
 ```
 
+Example အနေနဲ့ training ဒါမျိုး command နဲ့ လုပ်တယ်ဆိုတဲ့ command ကတကယ် အကြမ်းပဲ ပြထားတာမို့... အသေးစိတ်သိနိုင်ဖို့ trainer.py ဖိုင်ကို ဝင်ကြည့်ဖို့လိုအပ်တယ်။  
 အောက်ပါ setting နဲ့ training လုပ်ခဲ့...  
 
 ```
@@ -1068,6 +1069,46 @@ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
         --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
         --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
 ```
+
+training လုပ်ကြည့်တော့ အောက်ပါအတိုင်း error ပေးတယ်...  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
+>         --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.vocab \
+>         --left_size=3 \
+>         --right_size=3 \
+>         --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
+>         --transformer_nlayers=2 \
+>         --activation_type=tanh \
+>         --linear_nlayers=0 \
+>         --min-epochs=25 \
+>         --max-epochs=100 \
+>         --lr=0.0001 \
+>         --dropout=0.1 \
+>         --embed_size=256 \
+>         --factor_embed_size=8 \
+>         --source_factors \
+>         --nhead=8 \
+>         --log_interval=1000 \
+>         --validation_interval=25000 \
+>         --eos_weight=1.0 \
+>         --early_stopping=25 \
+>         --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
+>         --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
+Starting trainer...
+Traceback (most recent call last):
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 100, in <module>
+    main()
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 72, in main
+    trainer = ErsatzTrainer(args)
+NameError: name 'ErsatzTrainer' is not defined
+
+real	0m0.427s
+user	0m0.347s
+sys	0m0.028s
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
+
 
 ### Sentence Segmentation
 
