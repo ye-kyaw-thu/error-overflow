@@ -362,6 +362,10 @@ additional options:
 (base) ye@:~/exp/sentence-seg/ersatz$ 
 ```
 
+## 1st Time Running
+
+ပထမဆုံး ဂျပန်စာကြောင်း တချို့ကို ပြင်ဆင်ပြီး pre-trained model နဲ့ sentence segmentation လုပ်ကြည့်တော့ အောက်ပါအတိုင်း error ပေးတယ်...  
+
 ```
 (base) ye@:~/exp/sentence-seg/ersatz$ ersatz --input ./jp.txt --output ./output.txt
 2021-10-11 00:33:18 | INFO | ersatz | Segmentation model: "default-multilingual"
@@ -384,6 +388,9 @@ Traceback (most recent call last):
 TypeError: __init__() got an unexpected keyword argument 'model_proto'
 (base) ye@:~/exp/sentence-seg/ersatz$
 ```
+
+မော်ဒယ်က မရှိသေးရင် ersatz က auto download လုပ်ပေးတယ်။  
+မော်ဒယ်ဖိုင်ရဲ့ path ကို ပေးကြည့်ပြီး run ရင်လည်း error ပေးနေတယ်။   
 
 ```
 (base) ye@:~/exp/sentence-seg/ersatz$ ersatz --input ./input.ja --output ./output.ja --model ./model/01.Jun.21.ja 
@@ -415,6 +422,9 @@ Required-by: torchtext, ersatz
 (base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
+sentencepiece နဲ့ vocab ဆောက်တဲ့အခါမှာ ပေးနေတဲ့ error လို့ နားလည်တယ်။   
+အဲဒါကြောင့် uninstall လုပ်ပြီး အသစ် install ပြန်လုပ်ခဲ့တယ်။  
+
 ```
 (base) ye@:~/exp/sentence-seg/ersatz$ pip uninstall sentencepiece
 Found existing installation: sentencepiece 0.1.8
@@ -429,7 +439,7 @@ Proceed (Y/n)? Y
 Requirement already satisfied: sentencepiece in /home/ye/anaconda3/lib/python3.7/site-packages/sentencepiece-0.1.95-py3.7-linux-x86_64.egg (0.1.95)
 ```
 
-ဒီတစ်ခါတော့ ရသွားပြီ...  
+ဒီတစ်ခါ run ကြည့်တော့ ရသွားပြီ...  
 
 ```
 (base) ye@:~/exp/sentence-seg/ersatz$ ersatz --input ./input.ja --output ./output.ja --model ./model/01.Jun.21.ja 
@@ -446,6 +456,8 @@ input ဂျပန်ဖိုင်က အောက်ပါလိုမျိ�
 (base) ye@:~/exp/sentence-seg/ersatz$ cat ./input.ja
 私の名前はイェです。現在は自然言語処理の研究を一所懸命行っています。具体的には機械翻訳、音声認識、音声合成などです。
 ```
+
+### Testing with English
 
 အင်္ဂလိပ်စာနဲ့ စမ်းကြည့်တော့လည်း အလုပ်လုပ်ပေးတယ်။  
 
