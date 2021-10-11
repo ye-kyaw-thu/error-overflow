@@ -1065,8 +1065,8 @@ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
         --validation_interval=25000 \
         --eos_weight=1.0 \
         --early_stopping=25 \
-        /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
-        /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
+        --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
+        --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
 ```
 
 ### Sentence Segmentation
