@@ -2,6 +2,8 @@
 
 ## git clone
 
+pip နဲ့ install လုပ်ပြီး သုံးတာမျိုးလည်း လုပ်လို့ ရပေမဲ့... source code ကိုပဲ git clone လုပ်ပြီး ကိုယ်စက်ထဲမှာပဲ setup run ဖို့ ဆုံးဖြတ်ခဲ့...  
+
 ```
 (base) ye@:~/exp/sentence-seg$ git clone https://github.com/rewicks/ersatz
 Cloning into 'ersatz'...
@@ -17,6 +19,8 @@ environment.yml  ersatz  LICENSE  README.md  scripts  setup.py  tapes
 ```
 
 ## Run setup.py
+
+python ပရိုဂရမ်တွေကို install လုပ်နေကျပုံစံအတိုင်း setup.py ကို run ပြီး အောက်ပါအတိုင်း installation လုပ်ခဲ့တယ်။  
 
 ```
 (base) ye@:~/exp/sentence-seg/ersatz$ python setup.py install
