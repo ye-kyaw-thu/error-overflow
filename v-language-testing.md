@@ -175,7 +175,7 @@ println('နေကောင်းလား။')
 ```
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/game-of-life-with-v.png" alt="game-of-life terminal screen" width="400"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/game-of-life-with-v.png" alt="game-of-life terminal screen" width="300"/>  
 </p>  
 <div align="center">
   Fig.1 Game of Life running with v  
@@ -188,7 +188,7 @@ println('နေကောင်းလား။')
 ```
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mandelbrot-with-v-language.png" alt="mandelbrot-with-v-language" width="400"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mandelbrot-with-v-language.png" alt="mandelbrot-with-v-language" width="500"/>  
 </p>  
 <div align="center">
   Fig.1 Mandelbrot with v language  
