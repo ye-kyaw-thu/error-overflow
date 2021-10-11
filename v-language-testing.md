@@ -174,9 +174,27 @@ println('နေကောင်းလား။')
 (base) ye@:~/tool/v/examples/game_of_life$ v run ./life.v 
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/game-of-life-with-v.png" alt="game-of-life terminal screen" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Game of Life running with v  
+</div> 
+
+<br />
+
 ```
 (base) ye@:~/tool/v/examples/gg$ v run ./mandelbrot.v
 ```
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mandelbrot-with-v-language.png" alt="mandelbrot-with-v-language" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Mandelbrot with v language  
+</div> 
+
+<br />
 
 ```
 (base) ye@:~/tool/v/examples/ttf_font$ cp /usr/share/fonts/truetype/padauk/Padauk-Regular.ttf .
@@ -206,6 +224,15 @@ Let's debug!!! :)
 ```
 (base) ye@:~/tool/v/examples/ttf_font$ v run ./myfont_ttf.v 
 ```
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/testing-with-myanmar-font.png" alt="Padauk-font-testing-with-v-language" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Myanmar font (Padauk) testing with v language  
+</div> 
+
+<br />
 
 ```
 (base) ye@:~/tool/v/examples/sokol/sounds$ v run ./wav_player.v 
