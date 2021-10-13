@@ -82,6 +82,8 @@ Accuracy:  0.8828
 (base) ye@:~/4github/4students/zero-shot-classification$
 ```
 
+အထက်ပါ testing ကို Running လုပ်နေတုန်းမှာ CPU နဲ့ memory usage ကို တိုင်းကြည့်တော့ CPU က ရှစ်လုံးစလုံးကို အပြည့်နီးပါးသုံးပြီးတော့ memory ကလည်း အများကြီးသုံးတာကို အောက်ပါပုံအတိုင်း တွေ့ခဲ့ရ့...  
+
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/cpu-and-memory-usage-of-zero-shot-testing.png" alt="cpu-and-memory-usage" width="1000"/>  
 </p>  
