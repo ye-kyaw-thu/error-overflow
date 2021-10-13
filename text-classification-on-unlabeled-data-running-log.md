@@ -83,7 +83,7 @@ Accuracy:  0.8828
 ```
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/cpu-and-memory-usage-of-zero-shot-testing.png" alt="cpu-and-memory-usage" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/cpu-and-memory-usage-of-zero-shot-testing.png" alt="cpu-and-memory-usage" width="1000"/>  
 </p>  
 <div align="center">
   Fig.2 CPU and memory usage of testing with testset
