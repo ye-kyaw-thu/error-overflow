@@ -490,6 +490,14 @@ title ကို အသစ် သတ်မှတ်ထားခဲ့တဲ့ \p
 
 xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်လာတဲ့ PDF ဖိုင်မှာ မြန်မာစာ စာကြောင်းတွေက font မှန်ကန်စွာနဲ့ typing order ကိုလည်း မှန်မှန်ကန်ကန် ရိုက်ထုတ်ပေးနိုင်ကြောင်းကို အောက်ပါအတိုင်း တွေ့ရတယ်။  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myanmar-fonts-testing.png" alt="compiled-pdf-with-Myanmar-fonts" width="1000"/>  
+</p>  
+<div align="center">
+  Fig.2 Compiled PDF file after adding Myanmar fonts: Myanmar3, Padauk and PyiDaungSu fonts 
+</div> 
+
+<br />
 
 
 ## Trying for Thai Font
@@ -501,7 +509,7 @@ xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်�
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Thai-fonts.png" alt="find installed Thai fonts" width="1200"/>  
 </p>  
 <div align="center">
-  Fig.1 grep output for "Thai" 
+  Fig.3 grep output for "Thai" 
 </div> 
 
 <br />
