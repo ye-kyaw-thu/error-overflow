@@ -460,6 +460,13 @@ Transcript written on mdpi-fnmt-2021.log.
 
 <br />
 
+တကယ်လို့ ကိုယ့်စက်ထဲမှာ install လုပ်ထားတဲ့ ttf font တွေကိုပဲရှာမယ်ဆိုရင်တော့ locate ဆိုတဲ့ command ကိုလည်း သုံးလို့ ရပါတယ်။  
+ဥပမာ။ ။  
+
+```
+$locate --regexp "\\.ttf$"
+```
+
 ## Preparing for Using Fontspec Package
 
 "fontspec" package ကို သုံးဖို့အတွက် အောက်ပါအတိုင်း \usepackage နဲ့ package ကို assign လုပ်ခဲ့ပြီး...  
