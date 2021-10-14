@@ -452,26 +452,14 @@ Transcript written on mdpi-fnmt-2021.log.
 ကျောင်းသူက ဘယ်မြန်မာစာ font ကို သုံးချင်တာမှန်းမသိတော့ ကိုယ့်စက်ထဲမှာ install လုပ်ထားတဲ့ မြန်မာစာဖောင့် တွေကို ရှာကြည့်ခဲ့တယ်။  
 အောက်ပါအတိုင်း Myanamr3, Padauk နဲ့ Pyidaungsu ဖောင့်တွေက ရှိနေတာကို confirm လုပ်ခဲ့တယ်။  
 
-```
-(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$ fc-list | grep "Myanmar\|Padauk\|Pyidaungsu"
-/usr/share/fonts/truetype/padauk/PadaukBook-Regular.ttf: Padauk Book:style=Regular
-/home/ye/.fonts/NotoSerifMyanmar-Bold.ttf: Noto Serif Myanmar:style=Bold
-/usr/share/fonts/truetype/noto/NotoSansMyanmar-Bold.ttf: Noto Sans Myanmar:style=Bold
-/usr/share/fonts/truetype/padauk/Padauk-Bold.ttf: Padauk:style=Bold
-/home/ye/.fonts/NotoSansMyanmar-Bold.ttf: Noto Sans Myanmar:style=Bold
-/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Numbers.ttf: Pyidaungsu Numbers:style=Regular
-/usr/share/fonts/truetype/noto/NotoSerifMyanmar-Bold.ttf: Noto Serif Myanmar:style=Bold
-/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Regular.ttf: Pyidaungsu:style=Regular
-/home/ye/.fonts/mm3_05-Jan-2011.ttf: Myanmar3:style=Regular,Standard,Normal,Standaard,Navadno
-/home/ye/.fonts/NotoSerifMyanmar-Regular.ttf: Noto Serif Myanmar:style=Regular
-/usr/share/fonts/truetype/noto/NotoSansMyanmar-Regular.ttf: Noto Sans Myanmar:style=Regular
-/usr/share/fonts/truetype/padauk/Padauk-Regular.ttf: Padauk:style=Regular
-/usr/share/fonts/truetype/noto/NotoSerifMyanmar-Regular.ttf: Noto Serif Myanmar:style=Regular
-/usr/share/fonts/truetype/padauk/PadaukBook-Bold.ttf: Padauk Book:style=Bold
-/home/ye/.local/share/fonts/mm3_05-Jan-2011.ttf: Myanmar3:style=Regular,Standard,Normal,Standaard,Navadno
-/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Bold.ttf: Pyidaungsu:style=Bold
-(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$
-```
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Myanmar-fonts.png" alt="find installed Myanmar fonts" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 grep output for "Myanmar" or "Padauk" and "Pyidaungsu" 
+</div> 
+
+<br />
 
 ## Preparing for Using Fontspec Package
 
@@ -509,12 +497,12 @@ xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်�
 လက်ရှိသုံးနေတဲ့ စက်ထဲမှာ ရှိတဲ့ ထိုင်းဖောင့်ကို ရှာကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
 (အခုလို ရှာတာက ဖောင့်နာမည်မှာ "Thai" ဆိုတဲ့ စာလုံးပါတဲ့ filename တွေကိုပဲ ရှာကြည့်တာပါ။)  
 
-```
-(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$ fc-list | grep "Thai"
-/usr/share/fonts/truetype/noto/NotoSansThai-Regular.ttf: Noto Sans Thai:style=Regular
-/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf: Noto Sans Thai:style=Bold
-/usr/share/fonts/truetype/noto/NotoSerifThai-Bold.ttf: Noto Serif Thai:style=Bold
-/usr/share/fonts/truetype/noto/NotoSerifThai-Regular.ttf: Noto Serif Thai:style=Regular
-(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$
-```
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Thai-fonts.png" alt="find installed Thai fonts" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 grep output for "Thai" 
+</div> 
+
+<br />
 
