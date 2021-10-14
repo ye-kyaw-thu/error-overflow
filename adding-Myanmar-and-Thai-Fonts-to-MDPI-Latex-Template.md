@@ -485,7 +485,9 @@ title ကို အသစ် သတ်မှတ်ထားခဲ့တဲ့ \p
 ပြီးတော့... abstract နေရာမှာ Myanmar3 ဖောင့်နဲ့ ပိတောက်ဖောင့် နှစ်မျိုးကို စမ်းသုံးကြည့်ခဲ့တယ်။  
 
 ```% Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Linguistic features such as part-of-speech (POS) tags
+\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} 
+Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} 
+Linguistic features such as part-of-speech (POS) tags
 ```
 
 xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်လာတဲ့ PDF ဖိုင်မှာ မြန်မာစာ စာကြောင်းတွေက font မှန်ကန်စွာနဲ့ typing order ကိုလည်း မှန်မှန်ကန်ကန် ရိုက်ထုတ်ပေးနိုင်ကြောင်းကို အောက်ပါအတိုင်း တွေ့ရတယ်။  
@@ -518,7 +520,10 @@ xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်�
 
 ```
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Thai font testing: {\thaitext ดีใจที่ได้พบคุณ ฉันเป็นคนพม่า} Linguistic features such as part-of-speech (POS) tags have been widely used in
+\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} 
+Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} 
+Thai font testing: {\thaitext ดีใจที่ได้พบคุณ ฉันเป็นคนพม่า} Linguistic features such as part-of-speech (POS) tags 
+have been widely used in
 ```
 
 xelatex နဲ့ compile လုပ်ခဲ့တယ်။  
