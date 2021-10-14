@@ -455,7 +455,7 @@ Transcript written on mdpi-fnmt-2021.log.
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Myanmar-fonts.png" alt="find installed Myanmar fonts" width="1400"/>  
 </p>  
 <div align="center">
-  Fig.1 grep output for "Myanmar" or "Padauk" and "Pyidaungsu" 
+  Fig.1 grep output for \"Myanmar\" or \"Padauk\" and \"Pyidaungsu\" 
 </div> 
 
 <br />
