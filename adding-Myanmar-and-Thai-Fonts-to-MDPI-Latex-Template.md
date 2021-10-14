@@ -1,0 +1,520 @@
+# Adding Myanmar and Thai Fonts to MDIP Journal Template
+
+ကျောင်းသူ တစ်ယောက်က ဂျာနယ်တစ်စောင်ရေးဖို့ ပြင်ဆင်တဲ့အခါမှာ သူတင်ချင်တဲ့ ဂျာနယ်ရဲ့ latex template မှာ မြန်မာစာ နဲ့ ထိုင်းစာ ဖောင့်တွေက ထည့်လို့မရဘူး။ အဲဒီ ဂျာနယ်ရဲ့ template က pdftex ကို သုံးထားတယ်၊ ဘယ်လိုလုပ်ရမလဲ ဆရာဆိုတဲ့ မေးခွန်းက တက်လာလို့ ကိုယ်တိုင် ဖြေရှင်းပေးခဲ့တဲ့ log file ပါ။  
+နောက်ပိုင်း ကျောင်းသားတွေအတွက် reference အဖြစ် အသုံးဝင်ပါလိမ့်မယ်။  
+
+y  
+14 Oct 2021  
+
+## Compile with Xelatex
+
+xelatex နဲ့ compile လုပ်လို့ ရသလား ပထမဆုံး MDPI Journal template tex ဖိုင်ကို စမ်းကြည့်ခဲ့တော့ color နဲ့ ပတ်သက်ပြီး error ပေးတာကို တွေ့ရတယ်။  
+နောက်ဆက်တွဲ error တွေကိုလည်း ENTER ခေါက်ပြီး ကျော်ပြီးသွားကြည့်ပေမဲ့ ရှင်းရမှာတွေ တော်တော်များများရှိသလို တွေ့ရတယ်။  
+
+```
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$ xelatex ./mdpi-fnmt-2021.tex 
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./mdpi-fnmt-2021.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-07-17> (./Definitions/mdpi.cls
+Document Class: Definitions/mdpi 26/08/2021 MDPI paper class
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tabto-ltx/tabto.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+! Undefined control sequence.
+\set@color ->\pdfcolorstack 
+                            \@pdfcolorstack push{\current@color }\aftergroup...
+l.1457 \color{black}
+                    
+?  
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1457 \color{black}
+                    
+? 
+) (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/soul/soul.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-xetex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ->\pdfobj 
+                                           reserveobjnum \edef \pgf@sys@pdf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
+                                                  } \pdfobj reserveobjnum \e...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! You can't use `end-group character }' after \the.
+\pgf@sys@setuppdfresources@plain ... \pdflastobj }
+                                                   \pdfobj reserveobjnum \ed...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...obj } \pdfobj 
+                                                  reserveobjnum \edef \pgf@s...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...attern@objnum 
+                                                  {\the \pdflastobj } \pdfob...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
+                                                  } \pdfobj reserveobjnum \e...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! You can't use `end-group character }' after \the.
+\pgf@sys@setuppdfresources@plain ... \pdflastobj }
+                                                   \pdfobj reserveobjnum \ed...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...obj } \pdfobj 
+                                                  reserveobjnum \edef \pgf@s...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...spaces@objnum 
+                                                  {\the \pdflastobj } \def \...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
+                                                  } \def \pgf@sys@pdf@possib...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! You can't use `end-group character }' after \the.
+\pgf@sys@setuppdfresources@plain ... \pdflastobj }
+                                                   \def \pgf@sys@pdf@possibl...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ble@resources 
+                                                  {/ColorSpace \pgf@sys@pdf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...spaces@objnum 
+                                                  \space 0 R /Pattern \pgf@s...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...attern@objnum 
+                                                  \space 0 R /ExtGState \pgf...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...@extgs@objnum 
+                                                  \space 0 R } \let \pgf@sys...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...eck@resources 
+                                                  =\relax \def \pgf@sys@pdf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...pageresources 
+                                                  { { \edef \temp { \pgf@sys...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...{ \edef \temp 
+                                                  { \pgf@sys@pdf@possible@re...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ble@resources 
+                                                  } \expandafter \global \ex...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...dafter {\temp 
+                                                  } } } \pgf@sys@pdf@install...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+<recently read> \pdfpageresources 
+                                  
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...pageresources 
+                                                  \expandafter \pgfutil@ever...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
+                                                  useobjnum \pgf@sys@pdf@ext...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...@extgs@objnum 
+                                                  {<<\pgf@sys@pgf@resource@l...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
+                                                  >>}\immediate \pdfobj useo...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
+                                                  useobjnum \pgf@sys@pdf@pat...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...attern@objnum 
+                                                  {<<\pgf@sys@pgf@resource@l...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...list@patterns 
+                                                  >>}\immediate \pdfobj useo...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
+                                                  useobjnum \pgf@sys@pdf@col...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...spaces@objnum 
+                                                  {<<\pgf@sys@pgf@resource@l...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...t@colorspaces 
+                                                  >>}} \let \pgf@sys@pgf@res...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
+                                                  =\pgfutil@empty \let \pgf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...list@patterns 
+                                                  =\pgfutil@empty \let \pgf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...t@colorspaces 
+                                                  =\pgfutil@empty \def \pgf@...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...e@extgs@plain 
+                                                  ##1{\xdef \pgf@sys@pgf@res...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
+                                                  {\pgf@sys@pgf@resource@lis...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
+                                                  \space ##1}} \def \pgf@sys...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...atterns@plain 
+                                                  ##1{\xdef \pgf@sys@pgf@res...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...list@patterns 
+                                                  {\pgf@sys@pgf@resource@lis...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...list@patterns 
+                                                  \space ##1}} \def \pgf@sys...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...rspaces@plain 
+                                                  ##1{\xdef \pgf@sys@pgf@res...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...t@colorspaces 
+                                                  {\pgf@sys@pgf@resource@lis...
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgf@sys@setuppdfresources@plain ...t@colorspaces 
+                                                  \space ##1}} 
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
+<to be read again> 
+                   1
+l.385 \pgfutil@setuppdfresources
+                                 % possibly call the above
+? 
+! Undefined control sequence.
+\pgfutil@addpdfresource@colorspaces ...aces@plain 
+                                                  {#1}
+l.387 ...rspaces{ /pgfprgb [/Pattern /DeviceRGB] }
+                                                  
+? 
+! Undefined control sequence.
+l.390     \pdfliteral
+                     {\csname\string\color@#1\endcsname}%
+? x
+No pages of output.
+Transcript written on mdpi-fnmt-2021.log.
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$
+```
+
+## Changed Defined Latex Engine of MDPI Journal Template
+
+သို့သော် MDPI Journal template tex ဖိုင်ကို ဝင်ဖတ်ကြည့်တော့ သူက documentclass ရဲ့ parameter အနေနဲ့ latex engine ကို passing လုပ်လို့ ရတာကို တွေ့ရတယ်။  
+အဲဒါနဲ့ အဲဒီ original parameter ဖြစ်တဲ့ pdftex ကို မသုံးပဲ အဲဒီနေရာမှာ xelatex ကို pass လုပ်ခဲ့တယ်။  
+အောက်ပါအတိုင်း...  
+
+```
+%=================================================================
+%\documentclass[journal,article,submit,moreauthors,pdftex]{Definitions/mdpi} 
+\documentclass[journal,article,submit,moreauthors,xelatex]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+```
+
+အဲဒီလို လုပ်ပြီး xelatex နဲ့ compile လုပ်ကြည့်ခဲ့တော့ အဆင်ပြေပြေနဲ့ (i.e. no error message) compile လုပ်ပေးပြီးတော့ output ဖြစ်တဲ့ PDF ဖိုင်ကိုလည်း ထုတ်ပေးနိုင်တာ တွေ့ရတယ်။ ထွက်လာတဲ့ PDF ဖိုင်ကိုလည်း ဖွင့်ကြည့်တော့ အဆင်ပြေတယ်။ ထူးထူးခြားခြား ပြောင်းလဲမှုကိုတော့ မတွေ့ရဘူး။  
+
+အဲဒါနဲ့  လုပ်နေကြအတိုင်း xelatex မှာ မြန်မာဖောင့်ကို သုံးဖို့ ကြိုးစားကြည့်ခဲ့တယ်...  
+
+## Check Installed Myanmar Fonts
+
+ကျောင်းသူက ဘယ်မြန်မာစာ font ကို သုံးချင်တာမှန်းမသိတော့ ကိုယ့်စက်ထဲမှာ install လုပ်ထားတဲ့ မြန်မာစာဖောင့် တွေကို ရှာကြည့်ခဲ့တယ်။  
+အောက်ပါအတိုင်း Myanamr3, Padauk နဲ့ Pyidaungsu ဖောင့်တွေက ရှိနေတာကို confirm လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$ fc-list | grep "Myanmar\|Padauk\|Pyidaungsu"
+/usr/share/fonts/truetype/padauk/PadaukBook-Regular.ttf: Padauk Book:style=Regular
+/home/ye/.fonts/NotoSerifMyanmar-Bold.ttf: Noto Serif Myanmar:style=Bold
+/usr/share/fonts/truetype/noto/NotoSansMyanmar-Bold.ttf: Noto Sans Myanmar:style=Bold
+/usr/share/fonts/truetype/padauk/Padauk-Bold.ttf: Padauk:style=Bold
+/home/ye/.fonts/NotoSansMyanmar-Bold.ttf: Noto Sans Myanmar:style=Bold
+/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Numbers.ttf: Pyidaungsu Numbers:style=Regular
+/usr/share/fonts/truetype/noto/NotoSerifMyanmar-Bold.ttf: Noto Serif Myanmar:style=Bold
+/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Regular.ttf: Pyidaungsu:style=Regular
+/home/ye/.fonts/mm3_05-Jan-2011.ttf: Myanmar3:style=Regular,Standard,Normal,Standaard,Navadno
+/home/ye/.fonts/NotoSerifMyanmar-Regular.ttf: Noto Serif Myanmar:style=Regular
+/usr/share/fonts/truetype/noto/NotoSansMyanmar-Regular.ttf: Noto Sans Myanmar:style=Regular
+/usr/share/fonts/truetype/padauk/Padauk-Regular.ttf: Padauk:style=Regular
+/usr/share/fonts/truetype/noto/NotoSerifMyanmar-Regular.ttf: Noto Serif Myanmar:style=Regular
+/usr/share/fonts/truetype/padauk/PadaukBook-Bold.ttf: Padauk Book:style=Bold
+/home/ye/.local/share/fonts/mm3_05-Jan-2011.ttf: Myanmar3:style=Regular,Standard,Normal,Standaard,Navadno
+/home/ye/.local/share/fonts/Pyidaungsu-1.8.3_Bold.ttf: Pyidaungsu:style=Bold
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$
+```
+
+## Preparing for Using Fontspec Package
+
+"fontspec" package ကို သုံးဖို့အတွက် အောက်ပါအတိုင်း \usepackage နဲ့ package ကို assign လုပ်ခဲ့ပြီး...  
+\newfontfamily ဆိုတဲ့ tag နဲ့ မြန်မာစာဖောင့် တစ်ခုချင်းစီအတွက် tag အသစ်တွေကို သတ်မှတ်ခဲ့တယ်။  
+
+```
+%added by Ye
+\usepackage{fontspec}
+%for typing Myanmar text, you can also used with Myanmar3 font
+\newfontfamily {\padauktext}[Script=Myanmar]{Padauk}
+\newfontfamily {\myanmartext}[Script=Myanmar]{Myanmar3}
+\newfontfamily {\pyidaungsutext}[Script=Myanmar]{Pyidaungsu}
+```
+
+title ကို အသစ် သတ်မှတ်ထားခဲ့တဲ့ \pyidaungsutext ဆိုတဲ့ tag ကို သုံးပြီးတော့ မြန်မာလိုခေါင်းစဉ် တစ်ခု စမ်းပေးကြည့်ခဲ့တယ်။  
+
+```
+% Full title of the paper (Capitalized)
+\Title{Title: {\pyidaungsutext မြန်မာလို ခေါင်းစဉ်တပ်ကြည့်ခြင်း}}
+```
+
+ပြီးတော့... abstract နေရာမှာ Myanmar3 ဖောင့်နဲ့ ပိတောက်ဖောင့် နှစ်မျိုးကို စမ်းသုံးကြည့်ခဲ့တယ်။  
+
+```% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Linguistic features such as part-of-speech (POS) tags
+```
+
+xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်လာတဲ့ PDF ဖိုင်မှာ မြန်မာစာ စာကြောင်းတွေက font မှန်ကန်စွာနဲ့ typing order ကိုလည်း မှန်မှန်ကန်ကန် ရိုက်ထုတ်ပေးနိုင်ကြောင်းကို အောက်ပါအတိုင်း တွေ့ရတယ်။  
+
+
+
+## Trying for Thai Font
+
+လက်ရှိသုံးနေတဲ့ စက်ထဲမှာ ရှိတဲ့ ထိုင်းဖောင့်ကို ရှာကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+(အခုလို ရှာတာက ဖောင့်နာမည်မှာ "Thai" ဆိုတဲ့ စာလုံးပါတဲ့ filename တွေကိုပဲ ရှာကြည့်တာပါ။)  
+
+```
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$ fc-list | grep "Thai"
+/usr/share/fonts/truetype/noto/NotoSansThai-Regular.ttf: Noto Sans Thai:style=Regular
+/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf: Noto Sans Thai:style=Bold
+/usr/share/fonts/truetype/noto/NotoSerifThai-Bold.ttf: Noto Serif Thai:style=Bold
+/usr/share/fonts/truetype/noto/NotoSerifThai-Regular.ttf: Noto Serif Thai:style=Regular
+(base) ye@:/media/ye/project1/paper/zzh-journal/11Oct2021/1_MDPI_template-xelatex$
+```
+
