@@ -453,7 +453,7 @@ Transcript written on mdpi-fnmt-2021.log.
 အောက်ပါအတိုင်း Myanamr3, Padauk နဲ့ Pyidaungsu ဖောင့်တွေက ရှိနေတာကို confirm လုပ်ခဲ့တယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Myanmar-fonts.png" alt="find installed Myanmar fonts" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Myanmar-fonts.png" alt="find installed Myanmar fonts" width="1200"/>  
 </p>  
 <div align="center">
   Fig.1 grep output for "Myanmar" or "Padauk" and "Pyidaungsu" 
@@ -498,7 +498,7 @@ xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်�
 (အခုလို ရှာတာက ဖောင့်နာမည်မှာ "Thai" ဆိုတဲ့ စာလုံးပါတဲ့ filename တွေကိုပဲ ရှာကြည့်တာပါ။)  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Thai-fonts.png" alt="find installed Thai fonts" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/find-installed-Thai-fonts.png" alt="find installed Thai fonts" width="1200"/>  
 </p>  
 <div align="center">
   Fig.1 grep output for "Thai" 
