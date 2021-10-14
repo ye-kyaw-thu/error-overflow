@@ -532,7 +532,7 @@ xelatex နဲ့ compile လုပ်ခဲ့တယ်။
 $ xelatex ./mdpi-fnmt-2021.tex
 ```
 
-ထွက်လာတဲ့ output မှာ ထိုင်းဖောင့်လည်း ပေါ်ပါတယ်။  
+ထွက်လာတဲ့ output မှာ ထိုင်းဖောင့်လည်း ပေါ်ပါတယ်။ အောက်ပါ ပုံမှာမြင်ရတဲ့အတိုင်းပါ...   
 
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myanmar-and-thai-fonts-testing.png" alt="compiled PDF with Thai fonts" width="1200"/>  
