@@ -541,3 +541,30 @@ $ xelatex ./mdpi-fnmt-2021.tex
 </div> 
 
 <br />
+
+## Testing Myanmar Font Adding With Overleaf Online Latex Editor
+
+ကျောင်းသား တချို့က online latex editor ဖြစ်တဲ့ OverLeaf ကိုလည်း သုံးကြတာမို့ အဲဒီ editor မှာလည်း xelatex engine ကိုရွေးပြီး compile လုပ်ခိုင်းလို့ ရတာမို့လို့ Myanmar3 ဖောင့်ဖိုင်ကို Definitions/ ဆိုတဲ့ ဖိုလ်ဒါအောက်ကို upload လုပ်လိုက်ပြီး၊ tex ဖိုင်မှာလည်း ```\usepackage{fontspec}``` ဆိုတဲ့ စာကြောင်းဝင်ဖြည့်တာ ```\newfontfamily {\myanmartext}[Script=Myanmar]{Myanmar3}``` စတဲ့ tag အသစ်ဆောက်တာတွေလုပ်ခဲ့ပြီး Title နေရာမှာ မြန်မာစာနဲ့ရေးထားတဲ့ ခေါင်းစဉ်ကို ဝင်ထည့်ပြီး compile လုပ်ကြည့်တော့ error တော့ မပေးပဲ compile လုပ်သွားတယ်။ သို့သော် အောက်ပါ ပုံမှာမြင်ရတဲ့အတိုင်း Title: ရဲ့ နောက်မှာ မြန်မာစာစာကြောင်းက ပေါ်မလာတဲ့ PDF ဖိုင်ကိုပဲ ထုတ်ပေးတာကို တွေ့ရတယ်။  
+
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/adding-Myanmar-font-testing-with-Overleaf.png" alt="Testing-with-Overleaf-editor" width="1200"/>  
+</p>  
+<div align="center">
+  Fig.4 Compiled output with online latex editor named "OverLeaf" 
+</div> 
+
+<br />
+
+- လုပ်လို့ ရနိုင်တာက pdftex က နားလည်တဲ့ metafont အဖြစ်ပြောင်းပြီး compile လုပ်ကြည့်တာမျိုး...  
+- သို့သော် မြန်မာစာ font တွေကို metafont ပြောင်းဖို့က လက်တော့ဝယ်မယ်လို့ ထင်တယ်။ map ဖိုင်တွေက သေသေချာချာ ထွက်မထွက် မပြောနိုင်...  
+
+## To Do
+
+- အချိန်ရတဲ့အခါမှာ pdflatex က သုံးတဲ့ metafont အဖြစ်ပြောင်းထားတဲ့ ဖိုင်တွေနဲ့ Overleaf မှာ စမ်းကြည့်ရန်
+
+## References
+
+- https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F
+- https://www.overleaf.com/project/6167c2cff78b6d07ac052ec3
+
