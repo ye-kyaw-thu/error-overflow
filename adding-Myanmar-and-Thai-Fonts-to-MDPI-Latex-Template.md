@@ -514,3 +514,26 @@ xelatex နဲ့ compile လုပ်ကြည့်ပြီး ထွက်�
 
 <br />
 
+စောစောက ရေးထားတဲ့ abstract ကို အောက်ပါအတိုင်း ထိုင်းဖောင့်ကို စမ်းထားတဲ့ စာကြောင်းပါ ဖြည့်ခဲ့တယ်။  
+
+```
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{Myanmar3 font testing: {\myanmartext မြန်မာ၃ ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Padauk font testing: {\padauktext ပိတောက် ဖောင့် နဲ့ ရေးထားတဲ့ စာကြောင်း} Thai font testing: {\thaitext ดีใจที่ได้พบคุณ ฉันเป็นคนพม่า} Linguistic features such as part-of-speech (POS) tags have been widely used in
+```
+
+xelatex နဲ့ compile လုပ်ခဲ့တယ်။  
+
+```
+$ xelatex ./mdpi-fnmt-2021.tex
+```
+
+ထွက်လာတဲ့ output မှာ ထိုင်းဖောင့်လည်း ပေါ်ပါတယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myanmar-and-thai-fonts-testing.png" alt="compiled PDF with Thai fonts" width="1200"/>  
+</p>  
+<div align="center">
+  Fig.4 Compiled PDF file output with Thai font 
+</div> 
+
+<br />
