@@ -432,8 +432,7 @@ Transcript written on mdpi-fnmt-2021.log.
 
 ## Changed Defined Latex Engine of MDPI Journal Template
 
-သို့သော် MDPI Journal template tex ဖိုင်ကို ဝင်ဖတ်ကြည့်တော့ သူက documentclass ရဲ့ parameter အနေနဲ့ latex engine ကို passing လုပ်လို့ ရတာကို တွေ့ရတယ်။  
-အဲဒါနဲ့ အဲဒီ original parameter ဖြစ်တဲ့ pdftex ကို မသုံးပဲ အဲဒီနေရာမှာ xelatex ကို pass လုပ်ခဲ့တယ်။  
+သို့သော် MDPI Journal template tex ဖိုင်ကို ဝင်ဖတ်ကြည့်တော့ သူက documentclass ရဲ့ parameter အနေနဲ့ latex engine ကို passing လုပ်လို့ ရတာကို တွေ့ရတယ်။ အဲဒါနဲ့ အဲဒီ original parameter ဖြစ်တဲ့ pdftex ကို မသုံးပဲ အဲဒီနေရာမှာ xelatex ကို pass လုပ်ခဲ့တယ်။  
 အောက်ပါအတိုင်း...  
 
 ```
