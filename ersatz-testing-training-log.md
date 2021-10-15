@@ -1467,6 +1467,31 @@ sys	1m27.408s
 time python ./ersatz/dataset.py --sentencepiece_path ./ersatz.model  --left-size 3 --right-size 3 --output_path ./my-data/model/dataset.out --input_paths ./my-data/segmentation-data-updated2.txt 
 ```
 
+dataset.py ရဲ့ တချို့ အရေးကြီးတဲ့ အပိုင်းတွေ...  
+
+```python
+                # potentially add a marker for truncated words in left context
+                if len(word) > 0:
+                    untok = ''.join(word).replace('\u2581', '')
+                    if untok.istitle():
+                        out = [self.codes['TITLE'] for w in word]
+                    elif untok.isupper():
+                        out = [self.codes['CAP'] for w in word]
+                    elif untok.islower():
+                        out = [self.codes['LOWER'] for w in word]
+                    elif untok in string.punctuation:
+                        out = [self.codes['PUNC'] for w in word]
+                    else:
+                        for w in untok:
+                            if w in string.digits:
+                                out = [self.codes['NUMBER'] for w in word]
+                                break
+                        if not out:
+                            out = [self.codes['UNMARK'] for w in word]
+                    output_stream += out
+                word = []
+```
+
 ## Data Preparation by Myself
 
 ```
