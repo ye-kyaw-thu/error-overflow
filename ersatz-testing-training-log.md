@@ -1513,6 +1513,7 @@ sentencepiece ကို သုံးပြီး segmentation ဖြတ်တာ
 ```
 
 ထွက်လာတဲ့ output ဖိုင်ကနေမှ ersatz ရဲ့ training format ကို ရအောင် လုပ်ပေးရမယ်။  
+<eos>, <mos> ကို confirmation လုပ်ရမယ်။  
 
 ```
 
