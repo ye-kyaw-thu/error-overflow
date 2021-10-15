@@ -1265,6 +1265,169 @@ sys	0m1.226s
 (base) ye@:~/exp/sentence-seg/ersatz$
 ```
 
+--cpu option နဲ့ပဲ run ကြည့်တော့ ရတယ်။  
+
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.model  --left_size=3  --right_size=3  --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ --transformer_nlayers=2 --activation_type=tanh --linear_nlayers=0   --min-epochs=25 --max-epochs=100 --lr=0.0001 --dropout=0.1  --embed_size=256 --factor_embed_size=8 --source_factors --nhead=8 --log_interval=1000 --validation_interval=25000 --eos_weight=1.0 --early_stopping=25 --train_path /home/ye/exp/sentence-seg/ersatz/my-data/model/dataset.out.shuf --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/model/validation.out --cpu
+Starting trainer...
+cpu
+Training with: 4780322
+ErsatzTransformer(
+  (fact_emb): Embedding(6, 8)
+  (encoder): TransformerEncoder(
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): _LinearWithBias(in_features=264, out_features=264, bias=True)
+        )
+        (linear1): Linear(in_features=264, out_features=2048, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=2048, out_features=264, bias=True)
+        (norm1): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): _LinearWithBias(in_features=264, out_features=264, bias=True)
+        )
+        (linear1): Linear(in_features=264, out_features=2048, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=2048, out_features=264, bias=True)
+        (norm1): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (pos_embed): PositionalEncoding(
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (src_emb): Embedding(8000, 256)
+  (embed_dropout): Dropout(p=0.1, inplace=False)
+  (generator): Generator(
+    (proj): Linear(in_features=1584, out_features=2, bias=True)
+  )
+)
+Namespace(activation_type='tanh', batch_size=256, checkpoint_path=None, cpu=True, determiner_type='multilingual', dropout=0.1, early_stopping=25, embed_size=256, eos_weight=1.0, factor_embed_size=8, left_size=3, linear_nlayers=0, log_interval=1000, lr=0.0001, max_epochs=100, min_epochs=25, nhead=8, output_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/', right_size=3, seed=14, sentencepiece_path='/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.model', source_factors=True, tb_dir=None, train_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/dataset.out.shuf', transformer_nlayers=2, valid_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/validation.out', validation_interval=25000)
+{"type": "TRAINING", "update_num": 0, "prec": 0.16447368421052633, "recall": 0.6756756756756757, "acc": 0.45703125, "f1": 0.2645502645502646, "lr": 0.0001, "total_loss": 0.7893432974815369, "average_loss": 0.0030833722557872534, "ppl_per_pred": 0.00860136654227972, "time_since_last_update": 0.21313953399658203, "predictions_per_second": 1201.0911124733213, "time_passed": 0.21314048767089844, "correct_eos": 25, "correct_mos": 92, "num_pred_eos": 152, "num_obs_eos": 37, "validations": 0, "num_pred": 256}
+{"num_obs_eos": 7, "num_pred_eos": 26, "correct_eos": 1, "correct_mos": 259, "total_loss": 0.8075444102287292, "ppl": 2.9950203895568848, "num_pred": 291, "inference_correct_eos": 1, "inference_incorrect_eos": 6, "inference_correct_mos": 259, "inference_incorrect_mos": 25, "average_loss": 0.002775066701816939, "ppl_per_pred": 0.01029216628713706, "inference_prec": 0.038461538461538464, "inference_recall": 0.14285714285714285, "inference_f1": 0.060606060606060615, "inference_acc": 0.8934707903780069, "type": "VALIDATION", "acc": 0.8934707903780069, "prec": 0.038461538461538464, "recall": 0.14285714285714285, "f1": 0.060606060606060615}
+SAVING MODEL: {"num_obs_eos": 7, "num_pred_eos": 26, "correct_eos": 1, "correct_mos": 259, "total_loss": 0.8075444102287292, "ppl": 2.9950203895568848, "num_pred": 291, "inference_correct_eos": 1, "inference_incorrect_eos": 6, "inference_correct_mos": 259, "inference_incorrect_mos": 25, "average_loss": 0.002775066701816939, "ppl_per_pred": 0.01029216628713706, "inference_prec": 0.038461538461538464, "inference_recall": 0.14285714285714285, "inference_f1": 0.060606060606060615, "inference_acc": 0.8934707903780069, "type": "VALIDATION", "acc": 0.8934707903780069, "prec": 0.038461538461538464, "recall": 0.14285714285714285, "f1": 0.060606060606060615}
+SAVING MODEL: End of epoch 0
+SAVING MODEL: End of epoch 1
+SAVING MODEL: End of epoch 2
+SAVING MODEL: End of epoch 3
+SAVING MODEL: End of epoch 4
+SAVING MODEL: End of epoch 5
+SAVING MODEL: End of epoch 6
+SAVING MODEL: End of epoch 7
+SAVING MODEL: End of epoch 8
+SAVING MODEL: End of epoch 9
+SAVING MODEL: End of epoch 10
+SAVING MODEL: End of epoch 11
+SAVING MODEL: End of epoch 12
+{"type": "TRAINING", "update_num": 1, "prec": 0.735791848822451, "recall": 0.3442644584474283, "acc": 0.9065312953781994, "f1": 0.4690625491650372, "lr": 5.133420832795048e-05, "total_loss": 227.69105940160807, "average_loss": 0.0009009011715799747, "ppl_per_pred": 0.0049782181140642446, "time_since_last_update": 203.44786977767944, "predictions_per_second": 1242.2690897485531, "time_passed": 203.66192054748535, "correct_eos": 10435, "correct_mos": 218679, "num_pred_eos": 14182, "num_obs_eos": 30311, "validations": 1, "num_pred": 252737}
+SAVING MODEL: End of epoch 13
+SAVING MODEL: End of epoch 14
+SAVING MODEL: End of epoch 15
+SAVING MODEL: End of epoch 16
+SAVING MODEL: End of epoch 17
+SAVING MODEL: End of epoch 18
+SAVING MODEL: End of epoch 19
+SAVING MODEL: End of epoch 20
+SAVING MODEL: End of epoch 21
+SAVING MODEL: End of epoch 22
+SAVING MODEL: End of epoch 23
+SAVING MODEL: End of epoch 24
+SAVING MODEL: End of epoch 25
+SAVING MODEL: End of epoch 26
+{"type": "TRAINING", "update_num": 2, "prec": 0.8645922659153089, "recall": 0.7002116542099345, "acc": 0.9509636177847485, "f1": 0.7737679755879181, "lr": 2.5034408974245492e-05, "total_loss": 123.45839448920742, "average_loss": 0.00048897124786803, "ppl_per_pred": 0.004484550061960205, "time_since_last_update": 197.5932583808899, "predictions_per_second": 1277.806753473827, "time_passed": 401.2557101249695, "correct_eos": 21173, "correct_mos": 218932, "num_pred_eos": 24489, "num_obs_eos": 30238, "validations": 1, "num_pred": 252486}
+SAVING MODEL: End of epoch 27
+SAVING MODEL: End of epoch 28
+SAVING MODEL: End of epoch 29
+SAVING MODEL: End of epoch 30
+SAVING MODEL: End of epoch 31
+SAVING MODEL: End of epoch 32
+SAVING MODEL: End of epoch 33
+SAVING MODEL: End of epoch 34
+SAVING MODEL: End of epoch 35
+SAVING MODEL: End of epoch 36
+SAVING MODEL: End of epoch 37
+SAVING MODEL: End of epoch 38
+SAVING MODEL: End of epoch 39
+{"type": "TRAINING", "update_num": 3, "prec": 0.9178402910348306, "recall": 0.8407681140292992, "acc": 0.9718798593003795, "f1": 0.8776153329544867, "lr": 1.2851215656510312e-05, "total_loss": 76.06256667077287, "average_loss": 0.0003009554068884764, "ppl_per_pred": 0.004271032437240253, "time_since_last_update": 198.81293416023254, "predictions_per_second": 1271.2301695437359, "time_passed": 600.069611787796, "correct_eos": 25482, "correct_mos": 220148, "num_pred_eos": 27763, "num_obs_eos": 30308, "validations": 1, "num_pred": 252737}
+SAVING MODEL: End of epoch 40
+SAVING MODEL: End of epoch 41
+SAVING MODEL: End of epoch 42
+SAVING MODEL: End of epoch 43
+SAVING MODEL: End of epoch 44
+SAVING MODEL: End of epoch 45
+SAVING MODEL: End of epoch 46
+SAVING MODEL: End of epoch 47
+SAVING MODEL: End of epoch 48
+SAVING MODEL: End of epoch 49
+SAVING MODEL: End of epoch 50
+SAVING MODEL: End of epoch 51
+SAVING MODEL: End of epoch 52
+SAVING MODEL: End of epoch 53
+{"type": "TRAINING", "update_num": 4, "prec": 0.9412898703119523, "recall": 0.8882677868554228, "acc": 0.979987009180707, "f1": 0.9140105168218097, "lr": 6.267216326897833e-06, "total_loss": 56.7133055922709, "average_loss": 0.00022461960501679658, "ppl_per_pred": 0.004192749144113263, "time_since_last_update": 198.6365065574646, "predictions_per_second": 1271.0956529380817, "time_passed": 798.7070555686951, "correct_eos": 26855, "correct_mos": 220578, "num_pred_eos": 28530, "num_obs_eos": 30233, "validations": 1, "num_pred": 252486}
+SAVING MODEL: End of epoch 54
+SAVING MODEL: End of epoch 55
+SAVING MODEL: End of epoch 56
+SAVING MODEL: End of epoch 57
+SAVING MODEL: End of epoch 58
+SAVING MODEL: End of epoch 59
+SAVING MODEL: End of epoch 60
+SAVING MODEL: End of epoch 61
+SAVING MODEL: End of epoch 62
+SAVING MODEL: End of epoch 63
+SAVING MODEL: End of epoch 64
+SAVING MODEL: End of epoch 65
+SAVING MODEL: End of epoch 66
+{"type": "TRAINING", "update_num": 5, "prec": 0.9467798716090288, "recall": 0.9046001648804617, "acc": 0.9824521142531565, "f1": 0.9252095313580331, "lr": 3.2172258856130596e-06, "total_loss": 49.61838071345255, "average_loss": 0.00019632416588569364, "ppl_per_pred": 0.004158772665752739, "time_since_last_update": 201.37443590164185, "predictions_per_second": 1255.0600023701388, "time_passed": 1000.0826570987701, "correct_eos": 27432, "correct_mos": 220870, "num_pred_eos": 28974, "num_obs_eos": 30325, "validations": 1, "num_pred": 252737}
+SAVING MODEL: End of epoch 67
+SAVING MODEL: End of epoch 68
+SAVING MODEL: End of epoch 69
+SAVING MODEL: End of epoch 70
+SAVING MODEL: End of epoch 71
+SAVING MODEL: End of epoch 72
+SAVING MODEL: End of epoch 73
+SAVING MODEL: End of epoch 74
+SAVING MODEL: End of epoch 75
+SAVING MODEL: End of epoch 76
+SAVING MODEL: End of epoch 77
+SAVING MODEL: End of epoch 78
+SAVING MODEL: End of epoch 79
+SAVING MODEL: End of epoch 80
+{"type": "TRAINING", "update_num": 6, "prec": 0.9506432587176215, "recall": 0.9123469049983449, "acc": 0.9838446488122113, "f1": 0.9311014644528148, "lr": 1.5689605665762901e-06, "total_loss": 45.94255206669641, "average_loss": 0.0001819607901693417, "ppl_per_pred": 0.004147615054591146, "time_since_last_update": 211.8176507949829, "predictions_per_second": 1191.996979724696, "time_passed": 1211.9008955955505, "correct_eos": 27562, "correct_mos": 220845, "num_pred_eos": 28993, "num_obs_eos": 30210, "validations": 1, "num_pred": 252486}
+SAVING MODEL: End of epoch 81
+SAVING MODEL: End of epoch 82
+SAVING MODEL: End of epoch 83
+SAVING MODEL: End of epoch 84
+SAVING MODEL: End of epoch 85
+SAVING MODEL: End of epoch 86
+SAVING MODEL: End of epoch 87
+SAVING MODEL: End of epoch 88
+SAVING MODEL: End of epoch 89
+SAVING MODEL: End of epoch 90
+SAVING MODEL: End of epoch 91
+SAVING MODEL: End of epoch 92
+SAVING MODEL: End of epoch 93
+{"type": "TRAINING", "update_num": 7, "prec": 0.95255562030784, "recall": 0.9159744198312236, "acc": 0.9844383687390449, "f1": 0.933906935318534, "lr": 8.054134858296649e-07, "total_loss": 44.246400838966, "average_loss": 0.00017506894850760274, "ppl_per_pred": 0.004136426016854199, "time_since_last_update": 210.94285202026367, "predictions_per_second": 1198.1301929857357, "time_passed": 1422.8446853160858, "correct_eos": 27787, "correct_mos": 221017, "num_pred_eos": 29171, "num_obs_eos": 30336, "validations": 1, "num_pred": 252737}
+SAVING MODEL: End of epoch 94
+SAVING MODEL: End of epoch 95
+SAVING MODEL: End of epoch 96
+SAVING MODEL: End of epoch 97
+SAVING MODEL: End of epoch 98
+SAVING MODEL: End of epoch 99
+
+real	25m2.066s
+user	190m9.729s
+sys	1m27.408s
+```
+
 
 ### Sentence Segmentation
 
