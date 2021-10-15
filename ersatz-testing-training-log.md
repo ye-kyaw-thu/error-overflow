@@ -1461,6 +1461,12 @@ sys	1m27.408s
 
 ```
 
+ဆိုလိုတာက အောက်ပါ အဆင့်ကို ကိုယ့်ဖာသာကိုယ် လုပ်ယူရလိမ့်မယ့်...  
+
+```
+time python ./ersatz/dataset.py --sentencepiece_path ./ersatz.model  --left-size 3 --right-size 3 --output_path ./my-data/model/dataset.out --input_paths ./my-data/segmentation-data-updated2.txt 
+```
+
 ## Data Preparation by Myself
 
 ```
