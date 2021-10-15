@@ -1151,30 +1151,119 @@ command line argument တွေကို အောက်ပါအတိုင်
 
 ```
 time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
-        --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/ersatz.vocab \
-        --left_size=3 \
-        --right_size=3 \
-        --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
-        --transformer_nlayers=2 \
-        --activation_type=tanh \
-        --linear_nlayers=0 \
-        --min-epochs=25 \
-        --max-epochs=100 \
-        --lr=0.0001 \
-        --dropout=0.1 \
-        --embed_size=256 \
-        --factor_embed_size=8 \
-        --source_factors \
-        --nhead=8 \
-        --log_interval=1000 \
-        --validation_interval=25000 \
-        --eos_weight=1.0 \
-        --early_stopping=25 \
-        --train_path /home/ye/exp/sentence-seg/ersatz/my-data/dataset.out.shuf \
-        --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/validation.out
+--sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.model  \
+--left_size=3  \
+--right_size=3  \
+--output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
+--transformer_nlayers=2 \
+--activation_type=tanh \
+--linear_nlayers=0   \
+--min-epochs=25 \
+--max-epochs=100 \
+--lr=0.0001 \
+--dropout=0.1  \
+--embed_size=256 \
+--factor_embed_size=8 \
+--source_factors \
+--nhead=8 \
+--log_interval=1000 \
+--validation_interval=25000 \
+--eos_weight=1.0 \
+--early_stopping=25 \
+--train_path /home/ye/exp/sentence-seg/ersatz/my-data/model/dataset.out.shuf \
+--valid_path /home/ye/exp/sentence-seg/ersatz/my-data/model/validation.out
 ```
 
+အောက်ပါအတိုင်း Error ရခဲ့...  
 
+```
+(base) ye@:~/exp/sentence-seg/ersatz$ time python /home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py \
+> --sentencepiece_path=/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.model  \
+> --left_size=3  \
+> --right_size=3  \
+> --output_path=/home/ye/exp/sentence-seg/ersatz/my-data/model/ \
+> --transformer_nlayers=2 \
+> --activation_type=tanh \
+> --linear_nlayers=0   \
+> --min-epochs=25 \
+> --max-epochs=100 \
+> --lr=0.0001 \
+> --dropout=0.1  \
+> --embed_size=256 \
+> --factor_embed_size=8 \
+> --source_factors \
+> --nhead=8 \
+> --log_interval=1000 \
+> --validation_interval=25000 \
+> --eos_weight=1.0 \
+> --early_stopping=25 \
+> --train_path /home/ye/exp/sentence-seg/ersatz/my-data/model/dataset.out.shuf \
+> --valid_path /home/ye/exp/sentence-seg/ersatz/my-data/model/validation.out
+Starting trainer...
+cuda:0
+Training with: 4780322
+Using 2 GPUSs for ET
+DataParallel(
+  (module): ErsatzTransformer(
+    (fact_emb): Embedding(6, 8)
+    (encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): _LinearWithBias(in_features=264, out_features=264, bias=True)
+          )
+          (linear1): Linear(in_features=264, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=264, bias=True)
+          (norm1): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): _LinearWithBias(in_features=264, out_features=264, bias=True)
+          )
+          (linear1): Linear(in_features=264, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=264, bias=True)
+          (norm1): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (pos_embed): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (src_emb): Embedding(8000, 256)
+    (embed_dropout): Dropout(p=0.1, inplace=False)
+    (generator): Generator(
+      (proj): Linear(in_features=1584, out_features=2, bias=True)
+    )
+  )
+)
+Namespace(activation_type='tanh', batch_size=256, checkpoint_path=None, cpu=False, determiner_type='multilingual', dropout=0.1, early_stopping=25, embed_size=256, eos_weight=1.0, factor_embed_size=8, left_size=3, linear_nlayers=0, log_interval=1000, lr=0.0001, max_epochs=100, min_epochs=25, nhead=8, output_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/', right_size=3, seed=14, sentencepiece_path='/home/ye/exp/sentence-seg/ersatz/train-valid-sentencepiece.model', source_factors=True, tb_dir=None, train_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/dataset.out.shuf', transformer_nlayers=2, valid_path='/home/ye/exp/sentence-seg/ersatz/my-data/model/validation.out', validation_interval=25000)
+{"type": "TRAINING", "update_num": 0, "prec": 0.15862068965517243, "recall": 0.6216216216216216, "acc": 0.46875, "f1": 0.2527472527472528, "lr": 0.0001, "total_loss": 0.7809608578681946, "average_loss": 0.003050628351047635, "ppl_per_pred": 0.008529567159712315, "time_since_last_update": 1.2554638385772705, "predictions_per_second": 203.908700620248, "time_passed": 1.2554645538330078, "correct_eos": 23, "correct_mos": 97, "num_pred_eos": 145, "num_obs_eos": 37, "validations": 0, "num_pred": 256}
+Traceback (most recent call last):
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 413, in <module>
+    main()
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 93, in main
+    determiner=determiner)
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 368, in run_epoch
+    stats = self.validate(batch_size, determiner, use_factors=use_factors)
+  File "/home/ye/exp/sentence-seg/ersatz/ersatz/trainer.py", line 289, in validate
+    left_context = self.model.tokenizer.merge(context_item[0])
+  File "/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 772, in __getattr__
+    type(self).__name__, name))
+torch.nn.modules.module.ModuleAttributeError: 'DataParallel' object has no attribute 'tokenizer'
+
+real	0m3.139s
+user	0m2.573s
+sys	0m1.226s
+(base) ye@:~/exp/sentence-seg/ersatz$
+```
 
 
 ### Sentence Segmentation
