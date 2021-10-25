@@ -295,3 +295,11 @@ sys	0m0.935s
 
 <br />
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/beautiful-hindi-wordcloud-kalimati-no-error.png" alt="beautiful-hindi-wordcloud-with-kalimati-font" width="640"/>  
+</p>  
+<div align="center">
+  Fig.5 a beautiful Hindi wordcloud with kalimati.ttf 
+</div> 
+
+<br />
