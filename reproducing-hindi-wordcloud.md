@@ -132,6 +132,26 @@ plt.savefig("error-graph-of-hindi-wordcloud.png")
 plt.show()
 ```
 
+## Graphs for Tweet Distribution
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label.png" alt="distribution-before-cleaning" width="940"/>  
+</p>  
+<div align="center">
+  Fig.1 Distribution of each tweet-length per Label  
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label-after-cleaning-data.png" alt="distribution-after-cleaning" width="940"/>  
+</p>  
+<div align="center">
+  Fig.2 Distribution of each tweet-length per Label after cleaning data 
+</div> 
+
+<br />
+
 ## Font Download
 
 Unicode font ကို download လုပ်ပြီး assign မလုပ်ပေးရင် Hindi စာလုံးတွေက wordcloud လုပ်တဲ့အခါမှာ မပြပေးနိုင်ဘူး...  
@@ -140,7 +160,7 @@ Unicode font ကို download လုပ်ပြီး assign မလုပ်�
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/error-graph-of-hindi-wordcloud.png" alt="error-graph-of-hindi-wordcloud" width="640"/>  
 </p>  
 <div align="center">
-  Fig.2 a graph with font error 
+  Fig.3 a graph with font error 
 </div> 
 
 <br />
@@ -270,7 +290,7 @@ sys	0m0.935s
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/beautiful-hindi-wordcloud.png" alt="beautiful-hindi-wordcloud" width="640"/>  
 </p>  
 <div align="center">
-  Fig.2 a beautiful Hindi wordcloud with gargi.ttf 
+  Fig.4 a beautiful Hindi wordcloud with gargi.ttf 
 </div> 
 
 <br />
