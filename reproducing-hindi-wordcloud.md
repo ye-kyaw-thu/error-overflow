@@ -258,6 +258,15 @@ user	0m36.036s
 sys	0m0.935s
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/beautiful-hindi-wordcloud.png" alt="beautiful-hindi-wordcloud" width="540"/>  
+</p>  
+<div align="center">
+  Fig.2 a beautiful Hindi wordcloud with gargi.ttf 
+</div> 
+
+<br />
+
 ## For Your Information
 
 ttf ဖိုင်ရှိတဲ့ path ကို assign လုပ်ပေးလိုက်ယုံပဲ မဟုတ်ဘူးလား။  
