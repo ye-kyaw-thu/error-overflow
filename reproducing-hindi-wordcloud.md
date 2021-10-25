@@ -136,7 +136,15 @@ plt.show()
 
 Unicode font ကို download လုပ်ပြီး assign မလုပ်ပေးရင် Hindi စာလုံးတွေက wordcloud လုပ်တဲ့အခါမှာ မပြပေးနိုင်ဘူး...  
 
-figure
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/error-graph-of-hindi-wordcloud.png" alt="error-graph-of-hindi-wordcloud" width="640"/>  
+</p>  
+<div align="center">
+  Fig.2 a graph with font error 
+</div> 
+
+<br />
+
 
 အဲဒါကြောင့် Hindi font တွေကို အောက်ပါ link ကနေ download လုပ်ယူခဲ့ပြီး python running လုပ်တဲ့ path အောက်မှာ save လုပ်ထားခဲ့...  
 
@@ -259,38 +267,11 @@ sys	0m0.935s
 ```
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/beautiful-hindi-wordcloud.png" alt="beautiful-hindi-wordcloud" width="540"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/beautiful-hindi-wordcloud.png" alt="beautiful-hindi-wordcloud" width="640"/>  
 </p>  
 <div align="center">
   Fig.2 a beautiful Hindi wordcloud with gargi.ttf 
 </div> 
 
 <br />
-
-## For Your Information
-
-ttf ဖိုင်ရှိတဲ့ path ကို assign လုပ်ပေးလိုက်ယုံပဲ မဟုတ်ဘူးလား။  
-font က installation လုပ်စရာ လိုလို့လားလို့ မေးလာရင်...  
-
-အဖြေက လုပ်ရပါတယ်။  
-မလုပ်ရင် ဘယ်လို ဖြစ်သလဲ ဆိုတာကို နောက်ထပ် ဖောင့် တစ်ခုနဲ့ test လုပ်ကြည့်ကြရအောင်...  
-
-font ကိုပဲ အောက်ပါအတိုင်း assign လုပ်ပြီး python code ကို run ကြည့်တဲ့အခါမှာ...  
-```
-font = "./Devanagari/kalimati.ttf"
-```
-
-ရလာတဲ့ graph က အောက်ပါအတိုင်းပါ။  
-အလုပ်တော့ လုပ်ပေးပါတယ်။   
-font ပြောင်းသွားပါတယ်။ သို့သော် အကြောင်း တစ်ခုခုကြောင့် rendering က ပုံမှန် မလုပ်သွားလို့ တချို့ စာလုံးတွေကို မပြပေးနိုင်တာကို မြင်ရပါလိမ့်မယ်...  
-(square တွေ အဖြစ် ပြပေးတဲ့ စာလုံးတွေကို မြင်အောင် ကြည့်ကြည့်ပါ)  
-
-အောက်ပါ command နှစ်ခုကို run ပြီးမှ (i.e. install kalimati.ttf)  
-
-```
-cp ./Devanagari/kalimati.ttf ~/.local/share/fonts/
-fc-cache -f -v
-```
-
-python code ကို run တဲ့အခါမှာတော့ အောက်ပါ graph ကို ရပါတယ်။  
 
