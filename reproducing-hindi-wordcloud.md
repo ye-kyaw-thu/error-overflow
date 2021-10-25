@@ -135,7 +135,7 @@ plt.show()
 ## Graphs for Tweet Distribution
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label.png" alt="distribution-before-cleaning" width="940"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label.png" alt="distribution-before-cleaning" width="750"/>  
 </p>  
 <div align="center">
   Fig.1 Distribution of each tweet-length per Label  
@@ -144,7 +144,7 @@ plt.show()
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label-after-cleaning-data.png" alt="distribution-after-cleaning" width="940"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/Distribution-of-each-tweet-length-per-Label-after-cleaning-data.png" alt="distribution-after-cleaning" width="750"/>  
 </p>  
 <div align="center">
   Fig.2 Distribution of each tweet-length per Label after cleaning data 
