@@ -2228,4 +2228,34 @@ həlo͡ʊ wɜːld
 (base) ye@:/media/ye/project1/exp/phonemizer$
 ```
 
+## testing for Myanmar (Burmese)
 
+```
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား" | phonemize -l my -b espeak
+[WARNING] words count mismatch on 100.0% of the lines (1/1)
+mŋ  neɜkau2ŋ lts neɜkau2ŋ lts 
+(base) ye@:/media/ye/project1/exp/phonemizer$
+```
+
+```
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား" | phonemize -l my -b espeak --tie
+[WARNING] words count mismatch on 100.0% of the lines (1/1)
+mŋ  neɜkau2ŋ lts neɜkau2ŋ lts 
+(base) ye@:/media/ye/project1/exp/phonemizer$ 
+```
+
+```
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား" | phonemize -l my -b festival
+fatal error: language "my" is not supported by the festival backend
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား" | phonemize -l mm -b festival
+fatal error: language "mm" is not supported by the festival backend
+(base) ye@:/media/ye/project1/exp/phonemizer$
+```
+
+```
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား" | phonemize -l mm --strip
+fatal error: language "mm" is not supported by the espeak backend
+(base) ye@:/media/ye/project1/exp/phonemizer$ echo "မင်း နေကောင်းလား ။" | phonemize -l mm --preserve-punctuation --strip
+fatal error: language "mm" is not supported by the espeak backend
+(base) ye@:/media/ye/project1/exp/phonemizer$
+```
