@@ -1569,8 +1569,8 @@ lap
 
 ## Reference
 
-http://www.idryman.org/blog/2016/03/10/autoconf-tutorial-1/
-http://www.idryman.org/blog/2016/03/14/autoconf-tutorial-2/
-http://www.idryman.org/blog/2016/03/15/autoconf-tutorial-part-3/
-https://github.com/dryman/autoconf-tutorials
+http://www.idryman.org/blog/2016/03/10/autoconf-tutorial-1/  
+http://www.idryman.org/blog/2016/03/14/autoconf-tutorial-2/  
+http://www.idryman.org/blog/2016/03/15/autoconf-tutorial-part-3/  
+https://github.com/dryman/autoconf-tutorials  
 
