@@ -87,5 +87,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 80. [adding-Myanmar-and-Thai-Fonts-to-MDPI-Latex-Template.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/adding-Myanmar-and-Thai-Fonts-to-MDPI-Latex-Template.md)  
 81. [reproducing-hindi-wordcloud.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/reproducing-hindi-wordcloud.md)  
 82. [phonemizer-tst.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/phonemizer-tst.md)  
+83. [liblouis-installation-testing-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/liblouis-installation-testing-log.md)  
 
 
