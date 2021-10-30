@@ -1388,6 +1388,66 @@ The quick brown fox
 (base) ye@:/media/ye/project1/exp/liblouis$
 ```
 
+### Check All Tables
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tests$ time perl ./check_all_tables.pl 2>&1 | tee check-all-tables-output.txt
+Use of uninitialized value $ENV{"LOUIS_TABLEPATH"} in concatenation (.) or string at ./check_all_tables.pl line 24.
+
+real	0m0.009s
+user	0m0.001s
+sys	0m0.011s
+(base) ye@:/media/ye/project1/exp/liblouis/tests$ 
+```
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tests$ export LOUIS_TABLEPATH=/media/ye/project1/exp/liblouis/
+(base) ye@:/media/ye/project1/exp/liblouis/tests$ echo $LOUIS_TABLEPATH 
+/media/ye/project1/exp/liblouis/
+```
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tests$ time perl ./check_all_tables.pl 2>&1 | tee check-all-tables-output.txt
+/media/ye/project1/exp/liblouis//tables/bg.utb:245: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/bg.utb:246: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/bg.utb:247: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/bg.utb:248: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/bg.utb:249: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/bg.utb:250: warning: class is deprecated, use attribute instead
+6 warnings issued
+/media/ye/project1/exp/liblouis//tables/km-g1.utb:363: warning: class is deprecated, use attribute instead
+1 warnings issued
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:653: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+Duplicate emphasis class: italic
+Duplicate emphasis class: underline
+Duplicate emphasis class: bold
+3 warnings issued
+Duplicate emphasis class: italic
+Duplicate emphasis class: underline
+Duplicate emphasis class: bold
+3 warnings issued
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:653: warning: class is deprecated, use attribute instead
+/media/ye/project1/exp/liblouis//tables/my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+
+real	0m10.230s
+user	0m5.531s
+sys	0m3.437s
+(base) ye@:/media/ye/project1/exp/liblouis/tests$
+```
+
 ## Reference
 
 http://www.idryman.org/blog/2016/03/10/autoconf-tutorial-1/
