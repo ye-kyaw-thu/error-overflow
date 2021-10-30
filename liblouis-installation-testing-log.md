@@ -1454,6 +1454,119 @@ sys	0m3.437s
 (base) ye@:/media/ye/project1/exp/liblouis/tests$
 ```
 
+## Translation with Myanmar Tables
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "နေကောင်းလား" | lou_translate --backward my-g1.ctb
+Cannot resolve table 'my-g1.ctb'
+1 errors found.
+my-g1.ctb could not be compiled
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "နေကောင်းလား" | lou_translate --backward my-g2.ctb
+my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:653: warning: class is deprecated, use attribute instead
+my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+nေkေa/';la;
+
+```
+
+README မှာလည်း information က အရမ်းနည်းတယ်...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ cat README 
+Most of the liblouis tables in this subdirectory were supplied by
+ViewPlus Technologies, Inc.
+
+The hyphenation tables are the ones used in TeX and OpenOffice.
+
+
+(base) ye@:/media/ye/project1/exp/liblouis/tables$
+```
+
+အထက် ပါ error က မြန်မာစာ input ကြောင့် ဖြစ်တာလား ဆိုတာကို သိချင်လို့ အောက်ပါအတိုင်း confirmation လုပ်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo ",! qk br{n fox" | lou_translate --backward en-us-g2.ctb
+The quick brown fox
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "နေကောင်းလား" | lou_translate --backward en-us-g2.ctb
+           
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ 
+```
+
+မြန်မာစာလုံးကို US Grade2 ctb table ကို translate လုပ်ခိုင်းလည်း အထက်ပါအတိုင်း ဘာ error မှ မပေးတာကို တွေ့ရလို့  
+compile မလုပ်ရသေးတာ လား သို့မဟုတ် running error လား ?!   
+
+အထဲက Makefile ကို run ကြည့်တော့လည်း လုပ်စရာမလိုဘူးလို့ ပြောတယ်...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ make
+make: Nothing to be done for 'all'.
+(base) ye@:/media/ye/project1/exp/liblouis/tables$
+```
+
+သဝေထိုးကို error ပေးနေတာ ဆိုတော့ ... typing order ကြောင့် ပေးတဲ့ error ပဲ ဖြစ်လိမ့်မယ်...  
+အထက်က g2 နဲ့ command ကို ပြန် run ကြည့်ရအောင်...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "နေကောင်းလား" | lou_translate --backward my-g2.ctb
+my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:653: warning: class is deprecated, use attribute instead
+my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+nေkေa/';la;
+(base) ye@:/media/ye/project1/exp/liblouis/tables$
+```
+
+```
+echo "နေကောင်းလား" | lou_translate --backward my-g2.ctb 
+``` 
+
+ကို
+
+```
+echo "ေနေကာင်းလား" | lou_translate --backward my-g2.ctb
+```
+
+အဖြစ် ပြောင်း run ကြည့်ခဲ့တယ်...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "ေနေကာင်းလား" | lou_translate --backward my-g2.ctb
+my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:653: warning: class is deprecated, use attribute instead
+my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+ေnေka/';la;
+(base) ye@:/media/ye/project1/exp/liblouis/tables$
+```
+
+သဝေထိုး မပါတဲ့ စာလုံးကို translate လုပ်ခိုင်းတော့ အောက်ပါအတိုင်း အိုကေတာကို တွေ့ရတယ်...  
+
+```
+(base) ye@:/media/ye/project1/exp/liblouis/tables$ echo "လာပါ" | lou_translate --backward my-g2.ctb
+my-g1.utb:625: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:626: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:627: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:628: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:629: warning: \Xhhhh (with a capital 'X') is deprecated.
+my-g1.utb:653: warning: class is deprecated, use attribute instead
+my-g1.utb:654: warning: class is deprecated, use attribute instead
+7 warnings issued
+lap 
+(base) ye@:/media/ye/project1/exp/liblouis/tables$
+```
+
 ## Reference
 
 http://www.idryman.org/blog/2016/03/10/autoconf-tutorial-1/
