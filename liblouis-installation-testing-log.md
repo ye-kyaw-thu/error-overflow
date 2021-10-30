@@ -1390,6 +1390,8 @@ The quick brown fox
 
 ### Check All Tables
 
+မြန်မာစာ mapping နဲ့ ပတ်သက်ပြီး အခြေအနေကို သိချင်လို့ check-all-tables.pl ကို သုံးပြီး run ကြည့်တော့ အောက်ပါအတိုင်း error ပေးတယ်။  
+
 ```
 (base) ye@:/media/ye/project1/exp/liblouis/tests$ time perl ./check_all_tables.pl 2>&1 | tee check-all-tables-output.txt
 Use of uninitialized value $ENV{"LOUIS_TABLEPATH"} in concatenation (.) or string at ./check_all_tables.pl line 24.
@@ -1400,11 +1402,15 @@ sys	0m0.011s
 (base) ye@:/media/ye/project1/exp/liblouis/tests$ 
 ```
 
+environment variable မရှိလို့ ပေးတဲ့ error မို့လို့ အောက်ပါအတိုင်း LOUIS_TABLEPATH ဆိုတဲ့ environment variable ကို ဆောက်ခဲ့တယ်။  
+
 ```
 (base) ye@:/media/ye/project1/exp/liblouis/tests$ export LOUIS_TABLEPATH=/media/ye/project1/exp/liblouis/
 (base) ye@:/media/ye/project1/exp/liblouis/tests$ echo $LOUIS_TABLEPATH 
 /media/ye/project1/exp/liblouis/
 ```
+
+ဒီတစ်ခါတော့ run လို့ ရသွားပြီ။  
 
 ```
 (base) ye@:/media/ye/project1/exp/liblouis/tests$ time perl ./check_all_tables.pl 2>&1 | tee check-all-tables-output.txt
