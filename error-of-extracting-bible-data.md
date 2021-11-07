@@ -148,7 +148,7 @@ XML ဖိုင်ရဲ့ format အမှားကြောင့် လာ�
 
 ## Updating the Python Code
 
-```
+```python
 """
 XML ဖိုင်ထဲကနေ သတ်မှတ်ထားတဲ့ tag ထဲက content တွေကိုပဲ extraction လုပ်ဖို့ ရေးခဲ့...  
 Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
