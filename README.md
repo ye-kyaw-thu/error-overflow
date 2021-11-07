@@ -88,5 +88,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 81. [reproducing-hindi-wordcloud.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/reproducing-hindi-wordcloud.md)  
 82. [phonemizer-tst.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/phonemizer-tst.md)  
 83. [liblouis-installation-testing-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/liblouis-installation-testing-log.md)  
+84. [error-of-extracting-bible-data.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/error-of-extracting-bible-data.md)  
 
 
