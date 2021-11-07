@@ -478,6 +478,11 @@ output ထွက်လာတဲ့ text ဖိုင်တွေကိုလည�
 (base) ye@:/media/ye/project2/data/bible-parallel-corpus/bible-corpus$
 ```
 
+```
+(base) ye@:/media/ye/project2/data/bible-parallel-corpus/bible-corpus$ wc ./bibles/Myanmar.xml.txt 
+   30928   299891 11688327 ./bibles/Myanmar.xml.txt
+```
+
 ## Reference
 
 https://github.com/christos-c/bible-corpus  
