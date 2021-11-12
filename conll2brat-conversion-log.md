@@ -202,19 +202,20 @@ sys	0m0.081s
 (base) ye@:~/tool/brat$
 ```
 
-brat ကို အောက်ပါအတိုင်း run ခေါ်ခဲ့...  
-http://0.0.0.0:8001 ကို Ctrl+Click လုပ်လိုက်ရင် default browser မှာ brat annotation editor က တက်လာလိမ့်မယ်...  
+brat ကို အောက်ပါအတိုင်း run ခေါ်ခဲ့...   
 
 ```
 (base) ye@:~/tool/brat$ python ./standalone.py 
 Serving brat at http://0.0.0.0:8001
 ```
 
+http://0.0.0.0:8001 ကို Ctrl+Click လုပ်လိုက်ရင် default browser မှာ brat annotation editor က တက်လာလိမ့်မယ်...  
+
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="shortest path" width="840"/>  
 </p>  
 <div align="center">
-  Fig.2 the shortest path for the input sentence "ဆရာက" 
+  Fig.1 Opening brat annotation editor
 </div> 
 
 <br />
@@ -231,29 +232,35 @@ test.ann  test.txt
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
+text ဖိုင်ကို ရွေးပြီး OK နှိပ်လိုက်ပါ  
+
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder2.png" alt="shortest path" width="340"/>  
 </p>  
 <div align="center">
-  Fig.2 the shortest path for the input sentence "ဆရာက" 
+  Fig.2 Select your converted output folder 
 </div> 
 
 <br />
+
+မြန်မာစာအတွက် လေဘယ်ထိုးထားတဲ့ dependency parsing tree တွေကို အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
 
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing1.png" alt="shortest path" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.2 the shortest path for the input sentence "ဆရာက" 
+  Fig.3 An example of Myanmar dependency tree  
 </div> 
 
 <br />
+
+အရမ်းရှည်တဲ့ စာကြောင်းတွေဆိုရင်တော့ အောက်ပါပုံထဲကလိုပဲ ကြည့်ရတာ အရမ်းအဆင်အပြေကြီးတော့ မဟုတ်ပါဘူး...  
 
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing2.png" alt="shortest path" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.2 the shortest path for the input sentence "ဆရာက" 
+  Fig.4 When you browse the longer annotated sentences
 </div> 
 
 <br />
