@@ -557,3 +557,268 @@ relationship arrow ကို ထောက်ကြည့်တာ၊ စာလ�
   
 
 <br />
+
+## Preparing One Line One Tree
+  
+brat annotation editor နဲ့ လိုင်း အများကြီးပါတဲ့ ဖိုင်ကို ဖွင့်ကြည့်ရင် လေးတယ်။ အဲဒါကြောင့် အများစုက လိုင်း ၁၀လိုင်းကို တစ်ဖိုင် သပ်သပ်စီ ခွဲသိမ်းကြတာမျိုး လုပ်ပြီး အလုပ်လုပ်လေ့ရှိတယ်။  
+မြန်မာစာကြောင်း တစ်ကြောင်းကို တစ်ဖိုင်စီ ဖြစ်အောင် အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။  
+
+
+Reference: https://stackoverflow.com/questions/33294986/splitting-large-text-file-on-every-blank-line  
+
+conversion လုပ်ပေးတဲ့ tool က ".conllu" ဆိုတဲ့ extension နဲ့ ဖိုင်တွေကို ရှာမှာမို့လို့ perl script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။    
+  
+```perl
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+local $/ = "\n\n"; 
+my $count = 0; 
+
+while ( my $chunk = <> ) {
+    open ( my $output, '>', "line_".$count++.".conllu" ) or die $!;
+    print {$output} $chunk;
+    close ( $output ); 
+}
+```
+  
+အောက်ပါအတိုင်း run ခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ perl ./split-with-blank-line.pl ./test.conllu
+```
+
+original ဖိုင်မှာက စုစုပေါင်း စာကြောင်းအရေအတွက် 802 ကြောင်းရှိတယ်။  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ grep sent_id ./test.conllu | tail
+# sent_id = 793
+# sent_id = 794
+# sent_id = 795
+# sent_id = 796
+# sent_id = 797
+# sent_id = 798
+# sent_id = 799
+# sent_id = 800
+# sent_id = 801
+# sent_id = 802
+```
+
+count လုပ်ရင် extension တူရင် တစ်ဖိုင်ပိုသွားမှာမို့ original ဖိုင်ကို နာမည်ပြောင်းခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ mv test.conllu test.conllu.original
+```
+
+split လုပ်ထားတဲ့ ဖိုင်အရေအတွက် စုစုပေါင်းကို အောက်ပါအတိုင်း confirm လုပ်ခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | wc
+    802     802   11920
+```
+
+perl script ထဲမှာက လိုင်းနံပါတ်က ၁ ကနေ စတာမို့ ပထမဆုံး စာကြောင်းက line_0 နဲ့ စလိမ့်မယ်။  
+အောက်ပါအတိုင်း...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | head
+line_0.conllu
+line_100.conllu
+line_101.conllu
+line_102.conllu
+line_103.conllu
+line_104.conllu
+line_105.conllu
+line_106.conllu
+line_107.conllu
+line_108.conllu
+```
+
+split လုပ်ထားတဲ့ ဖိုင်တွေရဲ့ အထဲကို ဝင်ကြည့်ပြီး confirmation လုပ်ခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ cat ./line_801.conllu 
+# sent_id = 802
+# text = ထို မှတစ်ပါး ငှက် တို့ သည် ဟင်းလျာ အတွက် လည်း အသုံးဝင် သည် ။
+1	ထို	ထို	PRON	PRON	_	9	obl	_	_
+2	မှတစ်ပါး	မှတစ်ပါး	SCONJ	CONJ	_	9	mark	_	_
+3	ငှက်	ငှက်	NOUN	N	_	9	obl	_	_
+4	တို့	တို့	PART	PART	_	3	case	_	_
+5	သည်	သည်	ADP	PPM	_	3	case	_	_
+6	ဟင်းလျာ	ဟင်းလျာ	NOUN	N	_	9	obl	_	_
+7	အတွက်	အတွက်	ADP	PPM	_	6	case	_	_
+8	လည်း	လည်း	PART	PART	_	6	case	_	_
+9	အသုံးဝင်	အသုံးဝင်	VERB	V	_	0	root	_	_
+10	သည်	သည်	ADP	PPM	_	9	case	_	SpaceAfter=No
+11	။	။	PUNCT	PUNC	_	9	punct	_	_
+
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$
+```
+
+conllu2brat ကို run ဖို့အတွက် python 2.7 environment ကို change ခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ conda activate py2.7env
+(py2.7env) ye@:~/tool/brat/data/tst-myDep/line_by_line$
+```
+
+conllu2brat နဲ့ ".ann" နဲ့ ".txt" ဖိုင်တွေကို ထုတ်ခဲ့...  
+  
+```
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ time conllu2brat -i ./line_by_line/
+...
+...
+...
+Info: Correctly processed ./line_by_line/line_627.conllu.
+
+Info: Correctly processed ./line_by_line/line_55.conllu.
+
+Info: Correctly processed ./line_by_line/line_36.conllu.
+Info: Converting the files  [##################################--]   97%
+Info: Correctly processed ./line_by_line/line_457.conllu.
+
+Info: Correctly processed ./line_by_line/line_638.conllu.
+Info: Converting the files  [###################################-]   97%
+Info: Correctly processed ./line_by_line/line_439.conllu.
+
+Info: Correctly processed ./line_by_line/line_237.conllu.
+
+Info: Correctly processed ./line_by_line/line_161.conllu.
+
+Info: Correctly processed ./line_by_line/line_614.conllu.
+
+Info: Correctly processed ./line_by_line/line_768.conllu.
+
+Info: Correctly processed ./line_by_line/line_430.conllu.
+Info: Converting the files  [###################################-]   98%
+Info: Correctly processed ./line_by_line/line_118.conllu.
+
+Info: Correctly processed ./line_by_line/line_233.conllu.
+
+Info: Correctly processed ./line_by_line/line_645.conllu.
+
+Info: Correctly processed ./line_by_line/line_135.conllu.
+
+Info: Correctly processed ./line_by_line/line_306.conllu.
+
+Info: Correctly processed ./line_by_line/line_99.conllu.
+
+Info: Correctly processed ./line_by_line/line_208.conllu.
+
+Info: Correctly processed ./line_by_line/line_628.conllu.
+Info: Converting the files  [###################################-]   99%
+Info: Correctly processed ./line_by_line/line_298.conllu.
+
+Info: Correctly processed ./line_by_line/line_651.conllu.
+
+Info: Correctly processed ./line_by_line/line_705.conllu.
+
+Info: Correctly processed ./line_by_line/line_142.conllu.
+
+Info: Correctly processed ./line_by_line/line_796.conllu.
+
+Info: Correctly processed ./line_by_line/line_778.conllu.
+
+Info: Correctly processed ./line_by_line/line_256.conllu.
+
+Info: Correctly processed ./line_by_line/line_252.conllu.
+Info: Converting the files  [####################################]  100%
+
+real	0m0.754s
+user	0m0.675s
+sys	0m0.077s
+```
+
+".ann", ".txt" ဖိုင်တွေကို output/ ဖိုလ်ဒါအောက်မှာ သိမ်းပေးတာကို အောက်ပါအတိုင်း တွေ့ရ...  
+  
+```
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ ls ./output/ | head -n 20
+line_0.ann
+line_0.txt
+line_100.ann
+line_100.txt
+line_101.ann
+line_101.txt
+line_102.ann
+line_102.txt
+line_103.ann
+line_103.txt
+line_104.ann
+line_104.txt
+line_105.ann
+line_105.txt
+line_106.ann
+line_106.txt
+line_107.ann
+line_107.txt
+line_108.ann
+line_108.txt
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$
+```
+
+brat annotation editor က ဖတ်လို့ရဖို့အတွက် သတ်မှတ်ထားတဲ့ format အတိုင်း ပြောင်းပေးထားတာကို confirmation လုပ်ခဲ့...   
+  
+```
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_4.txt 
+မည် သို့ စတင် ပေါ်ပေါက် ခဲ့ သည် ကို မူ ယခု ထက်တိုင် အတိအကျ မ သိ ရ သေး ပေ ။
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_4.ann
+T1.1	PRON 0 3	မည်
+R1.1-1	obl Arg1:T1.4 Arg2:T1.1
+#1.1	AnnotatorNotes T1.1	LEMMA=မည် POSTAG=PRON
+T1.2	PART 4 8	သို့
+R1.2-1	case Arg1:T1.1 Arg2:T1.2
+#1.2	AnnotatorNotes T1.2	LEMMA=သို့ POSTAG=PART
+T1.3	VERB 9 13	စတင်
+R1.3-1	acl Arg1:T1.4 Arg2:T1.3
+#1.3	AnnotatorNotes T1.3	LEMMA=စတင် POSTAG=V
+T1.4	VERB 14 23	ပေါ်ပေါက်
+R1.4-1	acl Arg1:T1.13 Arg2:T1.4
+#1.4	AnnotatorNotes T1.4	LEMMA=ပေါ်ပေါက် POSTAG=V
+T1.5	PART 24 27	ခဲ့
+R1.5-1	mark Arg1:T1.4 Arg2:T1.5
+#1.5	AnnotatorNotes T1.5	LEMMA=ခဲ့ POSTAG=PART
+T1.6	ADP 28 31	သည်
+R1.6-1	case Arg1:T1.4 Arg2:T1.6
+#1.6	AnnotatorNotes T1.6	LEMMA=သည် POSTAG=PPM
+T1.7	ADP 32 35	ကို
+R1.7-1	case Arg1:T1.4 Arg2:T1.7
+#1.7	AnnotatorNotes T1.7	LEMMA=ကို POSTAG=PPM
+T1.8	SCONJ 36 38	မူ
+R1.8-1	mark Arg1:T1.4 Arg2:T1.8
+#1.8	AnnotatorNotes T1.8	LEMMA=မူ POSTAG=CONJ
+T1.9	NOUN 39 42	ယခု
+R1.9-1	obl Arg1:T1.13 Arg2:T1.9
+#1.9	AnnotatorNotes T1.9	LEMMA=ယခု POSTAG=N
+T1.10	ADP 43 51	ထက်တိုင်
+R1.10-1	case Arg1:T1.9 Arg2:T1.10
+#1.10	AnnotatorNotes T1.10	LEMMA=ထက်တိုင် POSTAG=PPM
+T1.11	ADV 52 58	အတိအကျ
+R1.11-1	advmod Arg1:T1.13 Arg2:T1.11
+#1.11	AnnotatorNotes T1.11	LEMMA=အတိအကျ POSTAG=ADV
+T1.12	PART 59 60	မ
+R1.12-1	case Arg1:T1.13 Arg2:T1.12
+#1.12	AnnotatorNotes T1.12	LEMMA=မ POSTAG=PART
+T1.13	VERB 61 63	သိ
+#1.13	AnnotatorNotes T1.13	LEMMA=သိ POSTAG=V
+T1.14	PART 64 65	ရ
+R1.14-1	mark Arg1:T1.13 Arg2:T1.14
+#1.14	AnnotatorNotes T1.14	LEMMA=ရ POSTAG=PART
+T1.15	PART 66 69	သေး
+R1.15-1	case Arg1:T1.13 Arg2:T1.15
+#1.15	AnnotatorNotes T1.15	LEMMA=သေး POSTAG=PART
+T1.16	PART 70 72	ပေ
+R1.16-1	mark Arg1:T1.13 Arg2:T1.16
+#1.16	AnnotatorNotes T1.16	LEMMA=ပေ POSTAG=PART MISC=SpaceAfter=No
+T1.17	PUNCT 73 74	။
+R1.17-1	punct Arg1:T1.13 Arg2:T1.17
+#1.17	AnnotatorNotes T1.17	LEMMA=။ POSTAG=PUNC
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$
+```
+  
+## Opening with Brat
+  
+```
+(base) ye@:~/tool/brat$ cp ./data/tst-myDep/annotation.conf ./data/tst-myDep/output/
+```
+  
