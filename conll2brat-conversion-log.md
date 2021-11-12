@@ -211,15 +211,6 @@ Serving brat at http://0.0.0.0:8001
 
 http://0.0.0.0:8001 ကို Ctrl+Click လုပ်လိုက်ရင် default browser မှာ brat annotation editor က တက်လာလိမ့်မယ်...  
 
-<p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="shortest path" width="840"/>  
-</p>  
-<div align="center">
-  Fig.1 Opening brat annotation editor
-</div> 
-
-<br />
-
 brat က သူ့ root အောက်မှာ ရှိနေတဲ့ folder တွေထဲကနေပဲ ဖိုင်တွေကို ဖွင့်လို့ရတာလို့ ထင်တယ်။  
 အဲဒါကြောင့် data/ အောက်မှာ tst-myDep/ ဆိုတဲ့ folder အသစ်ကို ဆောက်လိုက်ပြီးတော့ စောစောက convert လုပ်ထားတဲ့ .ann နဲ့ .txt ဖိုင်နှစ်ဖိုင်ကို ကော်ပီကူးခဲ့  
 
@@ -232,7 +223,18 @@ test.ann  test.txt
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
-text ဖိုင်ကို ရွေးပြီး OK နှိပ်လိုက်ပါ  
+browser မှာ အောက်ပါအတိုင်း မြင်ရလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="shortest path" width="840"/>  
+</p>  
+<div align="center">
+  Fig.1 Opening brat annotation editor
+</div> 
+
+<br />
+
+convert လုပ်ခဲ့တာက test ဆိုတဲ့ ဖိုင်နာမည်မို့လို့ test ဖိုင်ကို ရွေးပေးလိုက်ပါတယ်။  
 
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder2.png" alt="shortest path" width="340"/>  
