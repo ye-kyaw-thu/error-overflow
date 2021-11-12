@@ -275,34 +275,22 @@ configuraton file အကြမ်းကို ပြင်ကြည့်ကြ�
 အရင်ဆုံး POS tag တွေ ဘယ်နှစ်ခု uniq ရှိသလဲ ရှာကြည့်ခဲ့...  
 
 ```
-(base) ye@:~/tool/brat/data/tst-myDep$ grep "POSTAG" ./test.ann | cut -f3 -d "=" | sort | uniq
+(base) ye@:~/tool/brat/data/tst-myDep$ grep "POSTAG" ./test.ann | cut -f3 -d "=" | grep -v "MISC" | sort | uniq
 ABB
 ADJ
-ADJ MISC
 ADV
-ADV MISC
 CONJ
-CONJ MISC
 FOR
-FOR MISC
 INT
-INT MISC
 N
-N MISC
 NUM
-NUM MISC
 PART
-PART MISC
 PPM
-PPM MISC
 PRON
 PUNC
-PUNC MISC
 SB
 TNUM
-TNUM MISC
 V
-V MISC
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
