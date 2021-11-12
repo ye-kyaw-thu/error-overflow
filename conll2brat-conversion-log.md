@@ -226,7 +226,7 @@ test.ann  test.txt
 browser မှာ အောက်ပါအတိုင်း မြင်ရလိမ့်မယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="shortest path" width="840"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="opening brat annotation editor" width="840"/>  
 </p>  
 <div align="center">
   Fig.1 Opening brat annotation editor
@@ -237,7 +237,7 @@ browser မှာ အောက်ပါအတိုင်း မြင်ရလ�
 convert လုပ်ခဲ့တာက test ဆိုတဲ့ ဖိုင်နာမည်မို့လို့ test ဖိုင်ကို ရွေးပေးလိုက်ပါတယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder2.png" alt="shortest path" width="340"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder2.png" alt="Select your converted output folder" width="340"/>  
 </p>  
 <div align="center">
   Fig.2 Select your converted output folder 
@@ -248,10 +248,10 @@ convert လုပ်ခဲ့တာက test ဆိုတဲ့ ဖိုင်�
 မြန်မာစာအတွက် လေဘယ်ထိုးထားတဲ့ dependency parsing tree တွေကို အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing1.png" alt="shortest path" width="1040"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing1.png" alt="some examples of Myanmar dependency trees" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.3 An example of Myanmar dependency tree  
+  Fig.3 Some example of Myanmar dependency trees  
 </div> 
 
 <br />
@@ -259,7 +259,7 @@ convert လုပ်ခဲ့တာက test ဆိုတဲ့ ဖိုင်�
 အရမ်းရှည်တဲ့ စာကြောင်းတွေဆိုရင်တော့ အောက်ပါပုံထဲကလိုပဲ ကြည့်ရတာ အရမ်းအဆင်အပြေကြီးတော့ မဟုတ်ပါဘူး...  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing2.png" alt="shortest path" width="1040"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-browsing2.png" alt="when you browse the longer sentences" width="1040"/>  
 </p>  
 <div align="center">
   Fig.4 When you browse the longer annotated sentences
@@ -508,3 +508,49 @@ punct Arg1:<TOKEN> Arg2:<TOKEN>
 # Features
 <TOKEN>=<ENTITY>
 ```
+
+## Checking with Updated Configuration File
+  
+ဒီတစ်ခါတော့ relationship တွေနေရာမှာ error မပြတော့ပါဘူး...  
+  
+ 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-correct-myDep-configuration-file1.png" alt="with correct configuration file" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.5 Opening with updated configuration file
+</div> 
+  
+PageUp, PageDown လုပ်ကြည့်ခဲ့...  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/with-correct-myDep-configuration-file1.png" alt="with correct configuration file" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.6 Opening with updated configuration file
+</div> 
+  
+
+<br />
+  
+relationship arrow ကို ထောက်ကြည့်တာ၊ စာလုံး တစ်လုံးချင်းစီကို ထောက်ကြည့်တာမျိုးလုပ်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+ 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info1.png" alt="detail information" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.7 Detail information
+</div> 
+  
+
+<br />
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info2.png" alt="detail information" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.7 Detail information
+</div> 
+  
+
+<br />
