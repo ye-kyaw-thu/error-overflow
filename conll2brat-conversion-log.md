@@ -241,7 +241,7 @@ test.ann  test.txt
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-tst-data-browsing.png" alt="shortest path" width="340"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-tst-data-browsing.png" alt="shortest path" width="1040"/>  
 </p>  
 <div align="center">
   Fig.2 the shortest path for the input sentence "ဆရာက" 
