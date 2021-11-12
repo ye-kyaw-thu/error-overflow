@@ -536,7 +536,7 @@ PageUp, PageDown လုပ်ကြည့်ခဲ့...
 relationship arrow ကို ထောက်ကြည့်တာ၊ စာလုံး တစ်လုံးချင်းစီကို ထောက်ကြည့်တာမျိုးလုပ်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
  
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info1.png" alt="detail information" width="840"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info1.png" alt="detail information" width="1040"/>  
 </p>  
 <div align="center">
   Fig.7 Detail information
@@ -546,7 +546,7 @@ relationship arrow ကို ထောက်ကြည့်တာ၊ စာလ�
 <br />
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info2.png" alt="detail information" width="840"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info2.png" alt="detail information" width="640"/>  
 </p>  
 <div align="center">
   Fig.7 Detail information
