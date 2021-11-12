@@ -1,5 +1,8 @@
 # conll2brat Conversion Log
 
+ကျောင်းသူ ဇာဇာလှိုင် (Ph.D. candidate, KMITL, Thailand) အတွက် စမ်းကြည့်ခဲ့တဲ့ log ဖိုင်ပါ။  
+သူ conversion အလုပ်အတွက် သုံးထားတဲ့ tool ကို installation လုပ်တဲ့အဆင့်ကနေ နောက်ဆုံး brat editor နဲ့ အဆင်ပြေပြေနဲ့ ဖွင့်ကြည့်လို့ ရဖို့အတွက် configuration ဖိုင်ကိုပါ ဆောက်ကြည့်ခဲ့တယ်။  
+
 ## CoNLL Format
 
 wc နဲ့ ကြည့်ရင် စာကြောင်းရေ 20358 (နှစ်သောင်းကျော်) ရှိသလို မြင်ရပေမဲ့ ...  
