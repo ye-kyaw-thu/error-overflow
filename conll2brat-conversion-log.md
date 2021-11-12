@@ -822,3 +822,7 @@ R1.17-1	punct Arg1:T1.13 Arg2:T1.17
 (base) ye@:~/tool/brat$ cp ./data/tst-myDep/annotation.conf ./data/tst-myDep/output/
 ```
   
+## Reference
+  
+[https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
+  
