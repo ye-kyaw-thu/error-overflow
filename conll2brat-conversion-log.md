@@ -267,15 +267,51 @@ convert လုပ်ခဲ့တာက test ဆိုတဲ့ ဖိုင်�
 
 <br />
 
-## Prepare Configuration File
+## Preparation for config file
 
-အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ configuration ဖိုင်ကို မပြင်ဆင်ရသေးတာကြောင့် relationship တွေကို မသိလို့ အနီရောင်တွေနဲ့ error ပေးနေတာပါ။  
-configuraton file အကြမ်းကို ပြင်ကြည့်ကြရအောင်...  
-
-အရင်ဆုံး POS tag တွေ ဘယ်နှစ်ခု uniq ရှိသလဲ ရှာကြည့်ခဲ့...  
+ငါတို့ရဲ့ converted output format က အောက်ပါအတိုင်း...  
 
 ```
-(base) ye@:~/tool/brat/data/tst-myDep$ grep "POSTAG" ./test.ann | cut -f3 -d "=" | grep -v "MISC" | sort | uniq
+(base) ye@:~/tool/brat/data/tst-myDep$ head ./test.ann
+T1.1	NOUN 0 10	ကိန်းဂဏန်း
+R1.1-1	obl Arg1:T1.4 Arg2:T1.1
+#1.1	AnnotatorNotes T1.1	LEMMA=ကိန်းဂဏန်း POSTAG=N
+T1.2	PART 11 14	တွေ
+R1.2-1	case Arg1:T1.1 Arg2:T1.2
+#1.2	AnnotatorNotes T1.2	LEMMA=တွေ POSTAG=PART
+T1.3	PART 15 18	နဲ့
+R1.3-1	case Arg1:T1.1 Arg2:T1.3
+#1.3	AnnotatorNotes T1.3	LEMMA=နဲ့ POSTAG=PART
+T1.4	NOUN 19 26	address
+(base) ye@:~/tool/brat/data/tst-myDep$ 
+```
+
+Universal POS-tag ကို ဆွဲထုတ်ကြည့်ရင် စုစုပေါင်း tag ၁၄ခု ရှိတာကို အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./test.conllu | grep -v "#" | sort | uniq
+
+ADJ
+ADP
+ADV
+CCONJ
+INTJ
+NOUN
+NUM
+PART
+PRON
+PROPN
+PUNCT
+SCONJ
+SYM
+VERB
+```
+
+myPOS POS-tag ကို ဆွဲထုတ်ကြည့်ရင် အောက်ပါအတိုင်း tag ၁၅ခု ရှိတာကို တွေ့ရ...  
+
+```
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f5 ./test.conllu | grep -v "#" | sort | uniq
+
 ABB
 ADJ
 ADV
@@ -291,30 +327,184 @@ PUNC
 SB
 TNUM
 V
-(base) ye@:~/tool/brat/data/tst-myDep$
-```
-
-original လေဘယ်ထိုးထားတဲ့ ဖိုင်ထဲကနေ relationship တွေကို အောက်ပါအတိုင်း ဆွဲထုတ်ခဲ့...  
-
-```
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f8 ./test.conllu | grep -v "#" | sort | uniq
-
-acl
-advmod
-amod
-case
-compound
-mark
-nmod
-nummod
-obl
-punct
-root
 (base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
 ```
 
-configuration ဖိုင် အကြမ်းကို အောက်ပါအတိုင်း ဆောက်ခဲ့...  
+training အတွက်ရော testing အတွက်ရော Tag အရေအတွက်ကို စစ်ကြည့်ခဲ့...  
 
 ```
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./train-1-to-10207.conllu | grep -v "#" | sort | uniq
 
+ADJ
+ADP
+ADV
+CCONJ
+INTJ
+NOUN
+NUM
+PART
+PRON
+PROPN
+PUNCT
+SCONJ
+SYM
+VERB
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./test.conllu | grep -v "#" | sort | uniq
+
+ADJ
+ADP
+ADV
+CCONJ
+INTJ
+NOUN
+NUM
+PART
+PRON
+PROPN
+PUNCT
+SCONJ
+SYM
+VERB
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./train-1-to-10207.conllu | grep -v "#" | sort | uniq | wc
+     15      14      70
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./test.conllu | grep -v "#" | sort | uniq | wc
+     15      14      70
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
+```
+
+Relationship ကို အောက်ပါအတိုင်း ဆွဲထုတ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:~/tool/brat/data/tst-myDep$ cat ./test.ann | egrep '^R' | cut -f 2 | head
+obl Arg1:T1.4 Arg2:T1.1
+case Arg1:T1.1 Arg2:T1.2
+case Arg1:T1.1 Arg2:T1.3
+compound Arg1:T1.6 Arg2:T1.4
+compound Arg1:T1.6 Arg2:T1.5
+obl Arg1:T1.9 Arg2:T1.6
+case Arg1:T1.6 Arg2:T1.7
+case Arg1:T1.6 Arg2:T1.8
+obl Arg1:T1.11 Arg2:T1.9
+case Arg1:T1.9 Arg2:T1.10
+```
+
+configuration ဖိုင်အတွက်က format ကို ပြောင်းဖို့ လိုအပ်တယ်။  
+T<number>+.<number>+ ကို အစားထိုးရမယ်။  
+
+```
+(base) ye@:~/tool/brat/data/tst-myDep$ cat ./test.ann | egrep '^R' | cut -f 2 | sed "s/T[[:digit:]]\+.[[:digit:]]\+/<TOKEN>/g" | sort | uniq
+acl Arg1:<TOKEN> Arg2:<TOKEN>
+advmod Arg1:<TOKEN> Arg2:<TOKEN>
+amod Arg1:<TOKEN> Arg2:<TOKEN>
+case Arg1:<TOKEN> Arg2:<TOKEN>
+compound Arg1:<TOKEN> Arg2:<TOKEN>
+mark Arg1:<TOKEN> Arg2:<TOKEN>
+nmod Arg1:<TOKEN> Arg2:<TOKEN>
+nummod Arg1:<TOKEN> Arg2:<TOKEN>
+obl Arg1:<TOKEN> Arg2:<TOKEN>
+punct Arg1:<TOKEN> Arg2:<TOKEN>
+(base) ye@:~/tool/brat/data/tst-myDep$
+```
+
+တကယ်က training ဒေတာကနေ ဆွဲထုတ်မှသာ ဖြစ်နိုင်တဲ့ relationship အကုန်အတွက် configuration file ဆောက်လို့ အဆင်ပြေမှာမို့ training ဖိုင်က နေ ဆွဲထုတ်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cat ./train-1-to-10207.ann | egrep '^R' | cut -f 2 | sed "s/T[[:digit:]]\+.[[:digit:]]\+/<TOKEN>/g" | sort | uniq
+acl Arg1:<TOKEN> Arg2:<TOKEN>
+aclk Arg1:<TOKEN> Arg2:<TOKEN>
+acll Arg1:<TOKEN> Arg2:<TOKEN>
+advmod Arg1:<TOKEN> Arg2:<TOKEN>
+amod Arg1:<TOKEN> Arg2:<TOKEN>
+ase Arg1:<TOKEN> Arg2:<TOKEN>
+aux Arg1:<TOKEN> Arg2:<TOKEN>
+caer Arg1:<TOKEN> Arg2:<TOKEN>
+case Arg1:<TOKEN> Arg2:<TOKEN>
+casw Arg1:<TOKEN> Arg2:<TOKEN>
+compoound Arg1:<TOKEN> Arg2:<TOKEN>
+compound Arg1:<TOKEN> Arg2:<TOKEN>
+dep Arg1:<TOKEN> Arg2:<TOKEN>
+fixed Arg1:<TOKEN> Arg2:<TOKEN>
+iobj Arg1:<TOKEN> Arg2:<TOKEN>
+mark Arg1:<TOKEN> Arg2:<TOKEN>
+markl Arg1:<TOKEN> Arg2:<TOKEN>
+nmod Arg1:<TOKEN> Arg2:<TOKEN>
+nsubj Arg1:<TOKEN> Arg2:<TOKEN>
+nummod Arg1:<TOKEN> Arg2:<TOKEN>
+nummodl Arg1:<TOKEN> Arg2:<TOKEN>
+obj Arg1:<TOKEN> Arg2:<TOKEN>
+obl Arg1:<TOKEN> Arg2:<TOKEN>
+onl Arg1:<TOKEN> Arg2:<TOKEN>
+punct Arg1:<TOKEN> Arg2:<TOKEN>
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
+```
+
+အထက်ပါအတိုင်း လိုချင်တဲ့ information တချို့ကို ဆွဲထုတ်ခဲ့ပြီး annotation.conf ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```
+# Simple text-based definitions of entity types for the CoNLL format
+# Task on dependency tree of Myanmar language (Burmese)
+
+
+[entities]
+
+ADJ
+ADP
+ADV
+CCONJ
+INTJ
+NOUN
+NUM
+PART
+PRON
+PROPN
+PUNCT
+SCONJ
+SYM
+VERB
+
+# (only entities defined, so the remaining sections are empty)
+
+[relations]
+
+# Macros
+<TOKEN>=<ENTITY>
+
+# Permitted forms of overlap between textbound annotations
+<OVERLAP> Arg1:<TOKEN>, Arg2:Multiword-token, <OVL-TYPE>:contain
+
+# Dependency relations
+
+acl Arg1:<TOKEN> Arg2:<TOKEN>
+aclk Arg1:<TOKEN> Arg2:<TOKEN>
+acll Arg1:<TOKEN> Arg2:<TOKEN>
+advmod Arg1:<TOKEN> Arg2:<TOKEN>
+amod Arg1:<TOKEN> Arg2:<TOKEN>
+ase Arg1:<TOKEN> Arg2:<TOKEN>
+aux Arg1:<TOKEN> Arg2:<TOKEN>
+caer Arg1:<TOKEN> Arg2:<TOKEN>
+case Arg1:<TOKEN> Arg2:<TOKEN>
+casw Arg1:<TOKEN> Arg2:<TOKEN>
+compoound Arg1:<TOKEN> Arg2:<TOKEN>
+compound Arg1:<TOKEN> Arg2:<TOKEN>
+dep Arg1:<TOKEN> Arg2:<TOKEN>
+fixed Arg1:<TOKEN> Arg2:<TOKEN>
+iobj Arg1:<TOKEN> Arg2:<TOKEN>
+mark Arg1:<TOKEN> Arg2:<TOKEN>
+markl Arg1:<TOKEN> Arg2:<TOKEN>
+nmod Arg1:<TOKEN> Arg2:<TOKEN>
+nsubj Arg1:<TOKEN> Arg2:<TOKEN>
+nummod Arg1:<TOKEN> Arg2:<TOKEN>
+nummodl Arg1:<TOKEN> Arg2:<TOKEN>
+obj Arg1:<TOKEN> Arg2:<TOKEN>
+obl Arg1:<TOKEN> Arg2:<TOKEN>
+onl Arg1:<TOKEN> Arg2:<TOKEN>
+punct Arg1:<TOKEN> Arg2:<TOKEN>
+
+[events]
+# not relevant to UD
+
+[attributes]
+
+# Features
+<TOKEN>=<ENTITY>
 ```
