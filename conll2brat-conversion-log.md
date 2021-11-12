@@ -294,5 +294,27 @@ V
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
-configuration ဖိုင်ကို အောက်ပါအတိုင်း ဆောက်ခဲ့...  
+original လေဘယ်ထိုးထားတဲ့ ဖိုင်ထဲကနေ relationship တွေကို အောက်ပါအတိုင်း ဆွဲထုတ်ခဲ့...  
 
+```
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f8 ./test.conllu | grep -v "#" | sort | uniq
+
+acl
+advmod
+amod
+case
+compound
+mark
+nmod
+nummod
+obl
+punct
+root
+(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
+```
+
+configuration ဖိုင် အကြမ်းကို အောက်ပါအတိုင်း ဆောက်ခဲ့...  
+
+```
+
+```
