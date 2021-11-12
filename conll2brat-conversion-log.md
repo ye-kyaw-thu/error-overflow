@@ -210,6 +210,15 @@ http://0.0.0.0:8001 ကို Ctrl+Click လုပ်လိုက်ရင် de
 Serving brat at http://0.0.0.0:8001
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder.png" alt="shortest path" width="840"/>  
+</p>  
+<div align="center">
+  Fig.2 the shortest path for the input sentence "ဆရာက" 
+</div> 
+
+<br />
+
 brat က သူ့ root အောက်မှာ ရှိနေတဲ့ folder တွေထဲကနေပဲ ဖိုင်တွေကို ဖွင့်လို့ရတာလို့ ထင်တယ်။  
 အဲဒါကြောင့် data/ အောက်မှာ tst-myDep/ ဆိုတဲ့ folder အသစ်ကို ဆောက်လိုက်ပြီးတော့ စောစောက convert လုပ်ထားတဲ့ .ann နဲ့ .txt ဖိုင်နှစ်ဖိုင်ကို ကော်ပီကူးခဲ့  
 
@@ -222,4 +231,20 @@ test.ann  test.txt
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-folder2.png" alt="shortest path" width="340"/>  
+</p>  
+<div align="center">
+  Fig.2 the shortest path for the input sentence "ဆရာက" 
+</div> 
 
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/myDep-tst-data-browsing.png" alt="shortest path" width="340"/>  
+</p>  
+<div align="center">
+  Fig.2 the shortest path for the input sentence "ဆရာက" 
+</div> 
+
+<br />
