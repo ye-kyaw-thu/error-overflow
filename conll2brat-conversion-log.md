@@ -549,7 +549,7 @@ relationship arrow ကို ထောက်ကြည့်တာ၊ စာလ�
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/detail-info2.png" alt="detail information" width="640"/>  
 </p>  
 <div align="center">
-  Fig.7 Detail information
+  Fig.8 Detail information
 </div> 
   
 
