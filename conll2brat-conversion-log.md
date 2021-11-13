@@ -777,6 +777,16 @@ R1.17-1	punct Arg1:T1.13 Arg2:T1.17
 (py2.7env) ye@:~/tool/brat/data/tst-myDep$ conda deactivate
 ```
   
+နောက်တစ်ခု အရေးကြီးတာက လက်ရှိ တစ်ကြောင်းချင်းစီ ဖြတ်သိမ်းထားတဲ့ "output/" ဆိုတဲ့ folder က tst-myDep/ ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာ ရှိနေတာမို့ "~/tool/brat/data/" အောက်ကိုရွှေ့ပေးဖို့လိုအပ်ပါတယ်။  
+ဘာကြောင့်လဲ ဆိုတော့ အဲဒီလို မရွှေ့ရင် brat annotation editor ထဲကနေ tst-myDep/ ဖိုလ်ဒါကို select လုပ်လိုက်တာနဲ့ tst-myDep/ အောက်က annotation.conf ကိုပဲ သုံးပြီးတော့ အထက်မှာဖွင့်ကြည့်ခဲ့သလိုမျိုး test.ann, test.txt ကိုပဲ ဖွင့်ပေးသွားမှာမို့လို့ပါ။  
+  
+```
+(base) ye@:~/tool/brat/data$ mv ./tst-myDep/output/ .
+(base) ye@:~/tool/brat/data$ ls */ -ad
+1_to_10/  bk/  examples/  mypos/  output/  tmptmp/  tst-myDep/  tutorials/
+(base) ye@:~/tool/brat/data$ 
+```
+  
 ပြီးမှ တစ်ကြောင်းချင်းစီ ဖြတ်ထုတ်ထားတဲ့ မြန်မာစာကြောင်း dependency tree တွေကို ဖွင့်ကြည့်ခဲ့တယ်။  
   
 ```
