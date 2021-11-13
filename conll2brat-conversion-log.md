@@ -1023,6 +1023,11 @@ TypeError: 'OSError' object is not subscriptable
 
 အဲဒီလိုမျိုး ဖြစ်တဲ့အခါမှာ run လက်စ terminal ကို သွားပြီး "Ctrl+C" နှိပ်ပြီး ရပ်ပေးလိုက်ရင် အဆင်ပြေသွားပါလိမ့်မယ်။ သို့မဟုတ် port number ကို ပြောင်းပေးပြီး run မှ ရပါလိမ့်မယ်။  
   
+## To Do or Homework for you
+  
+- To get all possible dependency relationships use your training data when you prepare a new config file  
+(အထက်မှာ annotation.config ဖိုင်ကို ဥပမာအဖြစ် ဆောက်ပြခဲ့တုန်းက Arg1 နဲ့ Arg2 အတွက် dependency relationship တွေကို လေဘယ်ထိုးထားတဲ့ test data ဖိုင်ကနေ ဆွဲထုတ်ပြထားပေမဲ့ ဒေတာအသစ်တွေကို ထပ်ဖြည့်ထိုးဖို့အတွက် မြန်မာစာအတွက် ဖြစ်နိုင်တဲ့ dependency relationship တွေအားလုံးကို cover ဖြစ်ဖို့အတွက် တကယ်ပြင်ဆင်ရမှာက training data ထဲမှာရှိသမျှ မြန်မာစာကြောင်းတွေနဲ့ပါ။ အဲဒါကတော့ ကိုယ်တိုင် လုပ်ကြည့်ပါ။)  
+  
 ## Reference
   
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
