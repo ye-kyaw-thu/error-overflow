@@ -849,3 +849,5 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
 - [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
 - [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
+- Hnin Thu Zar Aye, Win Pa Pa and Ye Kyaw Thu, "Unsupervised Dependency Corpus Annotation for Myanmar Language", In Proceedings of The 21st Conference of the Oriental Chapter of the International Coordinating Committee on Speech Databases and Speech I/O Systems and Assessment (Oriental COCOSDA 2018), May 7-8 2018, Miyazaki, Japan  
+- Hnin Thu Zar Aye, Win Pa Pa, Ye Kyaw Thu, "Unsupervised Dependency Parsing for Myanmar Language using Part-of-Speech Information", In Proceedings of ICCA2018, February 22-23, 2018, Yangon, Myanmar, pp. 209-216.  
