@@ -1035,15 +1035,6 @@ TypeError: 'OSError' object is not subscriptable
 - To get all possible dependency relationships use your training data when you prepare a new config file  
 (အထက်မှာ annotation.config ဖိုင်ကို ဥပမာအဖြစ် ဆောက်ပြခဲ့တုန်းက Arg1 နဲ့ Arg2 အတွက် dependency relationship တွေကို လေဘယ်ထိုးထားတဲ့ test data ဖိုင်ကနေ ဆွဲထုတ်ပြထားပေမဲ့ ဒေတာအသစ်တွေကို ထပ်ဖြည့်ထိုးဖို့အတွက် မြန်မာစာအတွက် ဖြစ်နိုင်တဲ့ dependency relationship တွေအားလုံးကို cover ဖြစ်ဖို့အတွက် တကယ်ပြင်ဆင်ရမှာက training data ထဲမှာရှိသမျှ မြန်မာစာကြောင်းတွေနဲ့ပါ။ အဲဒါကတော့ ကိုယ်တိုင် လုပ်ကြည့်ပါ။)  
   
-## Reference
-  
-- [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
-- [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
-- [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
-- [https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf](https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf)  
-- Hnin Thu Zar Aye, Win Pa Pa and Ye Kyaw Thu, "Unsupervised Dependency Corpus Annotation for Myanmar Language", In Proceedings of The 21st Conference of the Oriental Chapter of the International Coordinating Committee on Speech Databases and Speech I/O Systems and Assessment (Oriental COCOSDA 2018), May 7-8 2018, Miyazaki, Japan  
-- Hnin Thu Zar Aye, Win Pa Pa, Ye Kyaw Thu, "Unsupervised Dependency Parsing for Myanmar Language using Part-of-Speech Information", In Proceedings of ICCA2018, February 22-23, 2018, Yangon, Myanmar, pp. 209-216.  
-
 ## Citation for Brat Annotation Tool
 
 If you do make use of brat or components from brat for annotation purposes, please cite the following publication:  
@@ -1063,3 +1054,12 @@ If you do make use of brat or components from brat for annotation purposes, plea
     note        = {(to appear)},
 }
 ```
+
+## Reference
+  
+- [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
+- [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
+- [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
+- [https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf](https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf)  
+- Hnin Thu Zar Aye, Win Pa Pa and Ye Kyaw Thu, "Unsupervised Dependency Corpus Annotation for Myanmar Language", In Proceedings of The 21st Conference of the Oriental Chapter of the International Coordinating Committee on Speech Databases and Speech I/O Systems and Assessment (Oriental COCOSDA 2018), May 7-8 2018, Miyazaki, Japan  
+- Hnin Thu Zar Aye, Win Pa Pa, Ye Kyaw Thu, "Unsupervised Dependency Parsing for Myanmar Language using Part-of-Speech Information", In Proceedings of ICCA2018, February 22-23, 2018, Yangon, Myanmar, pp. 209-216.  
