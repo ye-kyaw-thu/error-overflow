@@ -1,7 +1,12 @@
 # conll2brat Conversion Log
 
 ကျောင်းသူ ဇာဇာလှိုင် (Ph.D. candidate, KMITL, Thailand) အတွက် စမ်းကြည့်ခဲ့တဲ့ log ဖိုင်ပါ။  
-သူ conversion အလုပ်အတွက် သုံးထားတဲ့ tool ကို installation လုပ်တဲ့အဆင့်ကနေ နောက်ဆုံး brat editor နဲ့ အဆင်ပြေပြေနဲ့ ဖွင့်ကြည့်လို့ ရဖို့အတွက် configuration ဖိုင်ကိုပါ ဆောက်ကြည့်ခဲ့တယ်။  
+သူ CoNLL format ကနေ brat annotation editor က သိတဲ့ format အဖြစ် ပြောင်းထားတာနဲ့ ပတ်သက်ပြီး report တင်ခဲ့ပေမဲ့... brat နဲ့ ဖွင့်စမ်းဖို့ အချိန်ယူနေရတယ်လို့ နားလည်လို့ dependency tree corpus extension အလုပ်ကို မြန်မြန် စလုပ်နိုင်ဖို့အတွက် conversion အတွက် သူသုံးထားခဲ့တဲ့ python program ကို ကိုယ့်စက်ထဲမှာ installation လုပ်တဲ့အဆင့်ကနေ conversion လုပ်ပြီးတော့ နောက်ဆုံး brat editor နဲ့ အဆင်ပြေပြေ ဖွင့်ကြည့်လို့ ရဖို့အတွက် configuration ဖိုင် အသစ်တွေကိုပါ အစကနေပြင်ဆင်ခဲ့ပြီး အဆင့်ဆင့်စမ်းကြည့်ခဲ့ပါတယ်။ အဲဒီအလုပ်နဲ့ ပတ်သက်တဲ့ log ပါ။ နောက်ပိုင်း ကျောင်းသားတွေအတွက် အသုံးဝင်မှာမို့ ရှဲလုပ်ပေးထားလိုက်တယ်။  
+
+Enjoy using brat annotation editor!!!  
+
+y@Lab  
+13 Nov 2021  
 
 ## CoNLL Format
 
