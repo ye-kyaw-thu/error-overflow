@@ -769,6 +769,15 @@ R1.17-1	punct Arg1:T1.13 Arg2:T1.17
 ```
   
 ## Opening with Brat
+
+လက်ရှိ output/ ဖိုလ်ဒါအောက်မှာက annotation.config ဖိုင်က မရှိသေးလို့ copy ကူးထည့်တာ၊ ပြီးတော့ python environment ကိုလည်း 2.7 environment ကနေ normal (python 3.x environment) ကို ပြန်ပြောင်းတာ အရင်ဆုံး လုပ်ခဲ့တယ်။
+  
+```
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cp ./annotation.conf ./output/
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ conda deactivate
+```
+  
+ပြီးမှ တစ်ကြောင်းချင်းစီ ဖြတ်ထုတ်ထားတဲ့ မြန်မာစာကြောင်း dependency tree တွေကို ဖွင့်ကြည့်ခဲ့တယ်။  
   
 ```
 (base) ye@:~/tool/brat$ cp ./data/tst-myDep/annotation.conf ./data/tst-myDep/output/
