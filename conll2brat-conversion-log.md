@@ -889,6 +889,28 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
   
 
 <br />  
+  
+## CoNLL-U Format
+
+ConLL-U ရဲ့ field တွေက Universal Dependencies website ကို အခြေခံပြီး ဆောက်ထားတာပါ။  
+field တွေက အောက်ပါအတိုင်းပါ။  
+  
+```
+ID | FORM | LEMMA | UPOSTAG | XPOSTAG | FEATS | HEAD | DEPREL | DEPS | MISC
+```
+  
+field တစ်ခုချင်းစီရဲ့ description က အောက်ပါအတိုင်းပါ။  
+  
+- ID: Word index, integer starting at 1 for each new sentence; may be a range for multi-word tokens; may be a decimal number for empty nodes.
+- FORM: Word form or punctuation symbol.
+- LEMMA: Lemma or stem of word form.
+- UPOSTAG: Universal Dependencies (UD) part-of-speech tag.
+- XPOSTAG: Language-specific part-of-speech tag; underscore if not available.
+- FEATS: List of morphological features from the universal feature inventory or from a defined language-specific extension; underscore if not available.
+- HEAD: Head of the current word, which is either a value of ID or zero (0).
+- DEPREL: Universal dependency relation to the HEAD (root if HEAD = 0) or a defined language-specific subtype of one.
+- DEPS: Enhanced dependency graph in the form of a list of HEAD-DEPREL pairs.
+- MISC: Any other annotation.
 
 ## Reference
   
