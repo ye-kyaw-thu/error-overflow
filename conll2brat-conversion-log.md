@@ -898,7 +898,7 @@ login menu က browser ရဲ့ ညာဘက်အပေါ်ဆုံးထ�
 အောက်ပါပုံလိုမျိုးပါ...  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-menu-brat.png" alt="login-menu of brat" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-menu-brat.png" alt="login-menu of brat" width="460"/>  
 </p>  
 <div align="center">
   Fig.14 Login menu of brat annotation editor
@@ -954,7 +954,7 @@ username နဲ့ password ကို login dialogue box မှာ မှန်�
 Login ဝင်ပြီးသွားရင်တော့ မြန်မာစာလုံးတွေကို တစ်လုံးချင်းစီ highlight လုပ်လိုက်ရင် အောက်ပါလိုမျိုး သတ်မှတ်ထားတဲ့ tag တွေကို ပြပေးတဲ့ dialogue box ကို မြင်ရမှာ ဖြစ်ပါတယ်။ editing လုပ်လို့ ရပါပြီ။  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-mode-eg1.png" alt="editing mode example 1" width="840"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-mode-eg1.png" alt="editing mode example 1" width="1040"/>  
 </p>  
 <div align="center">
   Fig.16 Entity type dialogue box for selected Myanmar word "လွယ်လွယ်ကူကူ"
