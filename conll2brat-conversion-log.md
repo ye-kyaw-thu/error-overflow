@@ -988,8 +988,16 @@ S	SYM
 V	VERB
 ```
 
-တစ်ခုရှိတာက စမ်းထားကြည့်သလောက် သိရတာက shortcut key တွေ assign လုပ်တဲ့အခါမှာ capital letter နဲ့ပဲ assign လုပ်ပေးရပါတယ်။ စာလုံးအသေးနဲ့ mapping လုပ်ရင် brat editor ထဲမှာ အလုပ်လုပ် မပေးတာကို တွေ့ရပါတယ်။ သို့သော် assign လုပ်တဲ့ format က capital letter နဲ့ လုပ်ရပေမဲ့ တကယ်တမ်း သုံးတဲ့အခါမှာတော့ small letter နဲ့ပဲ သွားရပါတယ်။  
+တစ်ခုရှိတာက စမ်းထားကြည့်သလောက် သိရတာက shortcut key တွေ assign လုပ်တဲ့အခါမှာ capital letter နဲ့ပဲ assign လုပ်ပေးရပါတယ်။ စာလုံးအသေးနဲ့ mapping လုပ်ရင် brat editor ထဲမှာ အလုပ်လုပ် မပေးတာကို တွေ့ရပါတယ်။ သို့သော် assign လုပ်တဲ့ format က capital letter နဲ့ လုပ်ရပေမဲ့ တကယ်တမ်း သုံးတဲ့အခါမှာတော့ small letter နဲ့ပဲ သွားရပါတယ်။ အထက်မှာ ဥပမာအဖြစ် ရေးပြထားတဲ့ kb_shortcuts.conf ကို data ပြင်ထားတဲ့ folder တစ်ခုခုအောက်မှာ ထည့်ထားရင် ပြီးတော့ annotation.conf မှာလည်း အဲဒီ entity or POS-tag တွေက ရှိနေတယ် ဆိုရင် စာလုံးတစ်လုံးကို highlight လုပ်လိုက်တာနဲ့ အောက်ပါလိုမျိုး shortcut တွေ assign လုပ်ပြီးသား dialogue box ကို မြင်ရမှာဖြစ်ပါတယ်။  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/keyboard_shortcuts-working-eg.png" alt="keyboard shortcuts example" width="640"/>  
+</p>  
+<div align="center">
+  Fig.18 Underlined characters are keyboard shortcuts for POS-tags
+</div> 
+
+<br />
   
 ## CoNLL-U Format
 
@@ -1056,7 +1064,7 @@ brat annotation editor မှာ မသေချာတဲ့အခါမျိ�
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/more-than-one-tag-eg.png" alt="tagging multiple POS-tags" width="640"/>  
 </p>  
 <div align="center">
-  Fig.17 An example of tagging multiple POS-tags on a word (see the word "based")
+  Fig.18 An example of tagging multiple POS-tags on a word (see the word "based")
 </div> 
   
 
