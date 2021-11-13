@@ -843,6 +843,43 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
   
 
 <br />
+  
+## Adding Some More Configuration Files
+  
+အထက်ပါ ပုံမှာ မြင်ရတဲ့အတိုင်း POS-tag တွေက အစိမ်းရောင်တစ်ခုတည်းနဲ့ ပြသတာကို တွေ့ရပါလိမ့်မယ်။ တကယ် labeling သို့မဟုတ် annotation လုပ်တဲ့အခါမှာ tag တစ်ခုစီကို အရောင်တစ်ခုစီ ခွဲထားတာက ပိုအဆင်ပြေပါတယ်။ အဲဒီအတွက် brat annotation editor မှာ visual.conf ဆိုတဲ့ configuration ဖိုင်ရှိပါတယ်။ တခြား example တွေကို ကြည့်ပြီး အဆင်ပြေနိုင်မဲ့အရောင်တချို့ကို အောက်ပါအတိုင်း သတ်မှတ်ခဲ့ပါတယ်။  
+  
+```
+# Visual configuration options for the CoNLL 2002 Shared Task on
+# Language-Independent Named Entity Recognition.
+
+[drawing]
+
+ADP	bgColor:#ccadf6
+ADJ	bgColor:#fffda8
+ADV	bgColor:#fffda8
+CCONJ	bgColor:white
+SCONJ	bgColor:#ccadf6
+PROPN	bgColor:#e3e3e3
+INTJ	bgColor:#ffe8be
+NOUN	bgColor:#a4bced
+NUM	bgColor:#ccdaf6
+PART	bgColor:#ffe8be
+ppm	bgColor:#ffe8be
+PRON	bgColor:#ccdaf6
+PUNCT	bgColor:#e3e3e3
+SYM	bgColor:#adf6a2
+VERB	bgColor:#adf6a2
+
+SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
+
+# (no abbreviations, so empty "labels" section)
+
+[labels]
+```
+  
+အထက်ပါ "visual.conf" ဖိုင်ကို output/ ဖိုလ်ဒါအောက်မှာ ထည့်ထားပြီး brat annotation editor ကို ထပ်ခေါ် run ကြည့်ရင်တော့ အောက်ပါအတိုင်း POS-tag တစ်ခုချင်းစီက သတ်မှတ်ထားတဲ့ အရောင်တွေအတိုင်း လှလှပပ ပြသပေးနိုင်တာကို တွေ့ကြရပါလိမ့်မယ်။ အရမ်းအဆင်ပြေပါတယ်။  
+
+  
 
 ## Reference
   
