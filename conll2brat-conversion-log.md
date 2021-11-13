@@ -1100,10 +1100,13 @@ brat annotation editor မှာ မသေချာတဲ့အခါမျိ�
 
 <br />  
 
-## To Do or Homework for you
+## To Do List or Homework for you
   
 - To get all possible dependency relationships use your training data when you prepare a new config file  
 (အထက်မှာ annotation.config ဖိုင်ကို ဥပမာအဖြစ် ဆောက်ပြခဲ့တုန်းက Arg1 နဲ့ Arg2 အတွက် dependency relationship တွေကို လေဘယ်ထိုးထားတဲ့ test data ဖိုင်ကနေ ဆွဲထုတ်ပြထားပေမဲ့ ဒေတာအသစ်တွေကို ထပ်ဖြည့်ထိုးဖို့အတွက် မြန်မာစာအတွက် ဖြစ်နိုင်တဲ့ dependency relationship တွေအားလုံးကို cover ဖြစ်ဖို့အတွက် တကယ်ပြင်ဆင်ရမှာက training data ထဲမှာရှိသမျှ မြန်မာစာကြောင်းတွေနဲ့ပါ။ အဲဒါကတော့ ကိုယ်တိုင် လုပ်ကြည့်ပါ။)  
+
+- Finding tagging/linking errors of existing dependency tree
+- Start working for myDtree corpus extension
   
 ## Citation for Brat Annotation Tool
 
