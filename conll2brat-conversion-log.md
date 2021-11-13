@@ -407,9 +407,20 @@ VERB
 <TOKEN>=<ENTITY>
 
 # Permitted forms of overlap between textbound annotations
-<OVERLAP> Arg1:<TOKEN>, Arg2:Multiword-token, <OVL-TYPE>:contain
+#<OVERLAP> Arg1:<TOKEN>, Arg2:<TOKEN>, <OVL-TYPE>:contain
 
 # Dependency relations
+
+acl Arg1:<TOKEN>, Arg2:<TOKEN>
+advmod Arg1:<TOKEN>, Arg2:<TOKEN>
+amod Arg1:<TOKEN>, Arg2:<TOKEN>
+case Arg1:<TOKEN>, Arg2:<TOKEN>
+compound Arg1:<TOKEN>, Arg2:<TOKEN>
+mark Arg1:<TOKEN>, Arg2:<TOKEN>
+nmod Arg1:<TOKEN>, Arg2:<TOKEN>
+nummod Arg1:<TOKEN>, Arg2:<TOKEN>
+obl Arg1:<TOKEN>, Arg2:<TOKEN>
+punct Arg1:<TOKEN>, Arg2:<TOKEN>
 
 
 [events]
@@ -417,8 +428,8 @@ VERB
 
 [attributes]
 
-# Features
-<TOKEN>=<ENTITY>
+# for Features followings did not work
+# <TOKEN>=<ENTITY>
 ```
 
 ## Checking with Updated Configuration File
