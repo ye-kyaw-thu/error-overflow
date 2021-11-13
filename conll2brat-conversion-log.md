@@ -794,6 +794,42 @@ R1.17-1	punct Arg1:T1.13 Arg2:T1.17
 Serving brat at http://0.0.0.0:8001
 ```
   
+http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-server ကလည်း အဆင်ပြေတယ်ဆိုရင် browser မှာ brat annotation editor က တက်လာပါလိမ့်မယ်။ အဲဒီအခါမှာ စာကြောင်း တစ်ကြောင်းစီ ဖြတ်သိမ်းထားခဲ့တဲ့ output/ ဖိုလ်ဒါကို ရွေးလိုက်ပါ။  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-output-folder.png" alt="select output folder" width="640"/>  
+</p>  
+<div align="center">
+  Fig.9 Select "output/" folder
+</div> 
+  
+
+<br />
+  
+ပြီးရင်တော့ ကိုယ်ဖွင့်စစ်ချင်တဲ့ လိုင်းနံပါတ်ကို highlight လုပ်ပြီး ရွေးဖွင့်ပါ။ ဥပမာအနေနဲ့ line_1 ဆိုတာကို selection မှတ်ပြီးတော့ ဖွင့်ကြည့်ကြရအောင်။  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-line_1.png" alt="select line_1" width="640"/>  
+</p>  
+<div align="center">
+  Fig.10 Select "line_1"
+</div> 
+  
+
+<br />
+  
+ခုတော့ loading time ကို အကြာကြီးစောင့်စရာ မလိုတော့ပဲနဲ့ လိုင်းတစ်လိုင်းချင်းစီကို ဖွင့်ကြည့်တာ ပြန်ပြင်တာ လုပ်လို့ ရသွားပါပြီ။   
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/line1-dtree.png" alt="dependency tree of line_1" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.11 Dependency tree of line_1
+</div> 
+  
+
+<br />
+
 ## Reference
   
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
