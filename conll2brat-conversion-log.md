@@ -911,7 +911,40 @@ field တစ်ခုချင်းစီရဲ့ description က အောက
 - DEPREL: Universal dependency relation to the HEAD (root if HEAD = 0) or a defined language-specific subtype of one.
 - DEPS: Enhanced dependency graph in the form of a list of HEAD-DEPREL pairs.
 - MISC: Any other annotation.
+  
+## FYI
+  
+ကိုယ်တိုင်လည်း terminal တွေအများကြီးဖွင့်ပြီး အလုပ်လုပ်လေ့ရှိတာမို့ ဖြစ်တတ်လို့ information အနေနဲ့ ထည့်ပေးထားတာပါ။  
+Browser ကနေ brat annotation editor ကို ပိတ်လိုက်ပေမဲ့ terminal ကနေ ပေးခဲ့တဲ့ command ကို "Ctrl+C" နဲ့ နှိပ်ပြီး မရပ်ရသေးပဲ နောက်ထပ် တခြား terminal တစ်ခုကနေ brat ကို ထပ် run မိရင် အောက်ပါ error မျိုးကို ပေးပါလိမ့်မယ်။   
+  
+```
+(base) ye@:~/tool/brat$ python ./standalone.py 
+Traceback (most recent call last):
+  File "./standalone.py", line 286, in main
+    server = BratServer((_DEFAULT_SERVER_ADDR, port))
+  File "./standalone.py", line 255, in __init__
+    HTTPServer.__init__(self, server_address, BratHTTPRequestHandler)
+  File "/home/ye/anaconda3/lib/python3.7/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/home/ye/anaconda3/lib/python3.7/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/home/ye/anaconda3/lib/python3.7/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
 
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./standalone.py", line 301, in <module>
+    sys.exit(main(sys.argv))
+  File "./standalone.py", line 293, in main
+    print("Error binding to port", port, ":", why[1], file=sys.stderr)
+TypeError: 'OSError' object is not subscriptable
+(base) ye@:~/tool/brat$
+```
+
+အဲဒီလိုမျိုး ဖြစ်တဲ့အခါမှာ run လက်စ terminal ကို သွားပြီး "Ctrl+C" နှိပ်ပြီး ရပ်ပေးလိုက်ရင် အဆင်ပြေသွားပါလိမ့်မယ်။ သို့မဟုတ် port number ကို ပြောင်းပေးပြီး run မှ ရပါလိမ့်မယ်။  
+  
 ## Reference
   
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
