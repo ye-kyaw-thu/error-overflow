@@ -478,6 +478,20 @@ relationship arrow ကို ထောက်ကြည့်တာ၊ စာလ�
 
 <br />
 
+## Long Loading Time 
+  
+ဒီနေရာမှာ practical problem အနေနဲ့ ရှင်းရမယ့် ပြဿနာ တစ်ခုကျန်ပါသေးတယ်။  
+အဲဒါက စာကြောင်း ၈၀၀ကျော်ကို တစ်ဖိုင်ထည်းမှာထားပြီးတော့ .ann, .txt ဆိုပြီး ပြင်ဆင်ထားတာမို့ loading time က တော်တော်လေးကြာတဲ့ ကိစ္စပါ။ အောက်ဖော်ပြပါ ပုံအတိုင်း "Loading..." ဆိုပြီး စောင့်နေရတာမျိုးပါ။ သေချာတာက လိုင်းအရေအတွက် နှစ်ထောင် သုံးထောက်လောက်ဆိုရင်တော့ ဖွင့်မပေးနိုင်တာမျိုးမှာ ဖြစ်လာနိုင်လို့ပါ။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/long-loading-time.png" alt="long loading time" width="540"/>  
+</p>  
+<div align="center">
+  Fig.10 Long loading time ... 
+</div>
+  
+အဲဒီ ပြဿနာကြောင့်လို့ ထင်ပါတယ်။ brat annotation editor ရဲ့ example annotation လုပ်ပြထားတဲ့ folder တွေမှာလည်း စာကြောင်းအရေအတွက် ၁၀ကြောင်းကို တစ်ဖိုင်စီသိမ်းထားပြီး လုပ်ထားတာတွေကိုပဲ တွေ့ကြရမှာ ဖြစ်ပါတယ်။ ကျွန်တော်ကတော့ တစ်ကြောင်းကို တစ်ဖိုင်ထားပြီး စမ်းကြည့်ချင်လို့ အောက်ပါအလုပ်တွေကို ဆက်လုပ်ခဲ့ပါတယ်။  
+  
 ## Preparing One Line One Tree
   
 brat annotation editor နဲ့ လိုင်း အများကြီးပါတဲ့ ဖိုင်ကို ဖွင့်ကြည့်ရင် လေးတယ်။ အဲဒါကြောင့် အများစုက လိုင်း ၁၀လိုင်းကို တစ်ဖိုင် သပ်သပ်စီ ခွဲသိမ်းကြတာမျိုး လုပ်ပြီး အလုပ်လုပ်လေ့ရှိတယ်။  
@@ -797,10 +811,10 @@ Serving brat at http://0.0.0.0:8001
 http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-server ကလည်း အဆင်ပြေတယ်ဆိုရင် browser မှာ brat annotation editor က တက်လာပါလိမ့်မယ်။ အဲဒီအခါမှာ စာကြောင်း တစ်ကြောင်းစီ ဖြတ်သိမ်းထားခဲ့တဲ့ output/ ဖိုလ်ဒါကို ရွေးလိုက်ပါ။  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-output-folder.png" alt="select output folder" width="640"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-output-folder.png" alt="select output folder" width="540"/>  
 </p>  
 <div align="center">
-  Fig.9 Select "output/" folder
+  Fig.10 Select "output/" folder
 </div> 
   
 
@@ -809,10 +823,10 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
 ပြီးရင်တော့ ကိုယ်ဖွင့်စစ်ချင်တဲ့ လိုင်းနံပါတ်ကို highlight လုပ်ပြီး ရွေးဖွင့်ပါ။ ဥပမာအနေနဲ့ line_1 ဆိုတာကို selection မှတ်ပြီးတော့ ဖွင့်ကြည့်ကြရအောင်။  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-line_1.png" alt="select line_1" width="640"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/select-line_1.png" alt="select line_1" width="540"/>  
 </p>  
 <div align="center">
-  Fig.10 Select "line_1"
+  Fig.11 Select "line_1"
 </div> 
   
 
@@ -824,7 +838,7 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/line1-dtree.png" alt="dependency tree of line_1" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.11 Dependency tree of line_1
+  Fig.12 Dependency tree of line_1
 </div> 
   
 
@@ -834,3 +848,4 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
   
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
 - [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
+- [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
