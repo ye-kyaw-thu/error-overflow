@@ -333,43 +333,9 @@ V
 (base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
 ```
 
-training အတွက်ရော testing အတွက်ရော Tag အရေအတွက်ကို စစ်ကြည့်ခဲ့...  
+Tag အရေအတွက်ကို စစ်ကြည့်ခဲ့...  
 
 ```
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./train-1-to-10207.conllu | grep -v "#" | sort | uniq
-
-ADJ
-ADP
-ADV
-CCONJ
-INTJ
-NOUN
-NUM
-PART
-PRON
-PROPN
-PUNCT
-SCONJ
-SYM
-VERB
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./test.conllu | grep -v "#" | sort | uniq
-
-ADJ
-ADP
-ADV
-CCONJ
-INTJ
-NOUN
-NUM
-PART
-PRON
-PROPN
-PUNCT
-SCONJ
-SYM
-VERB
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./train-1-to-10207.conllu | grep -v "#" | sort | uniq | wc
-     15      14      70
 (base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cut -f4 ./test.conllu | grep -v "#" | sort | uniq | wc
      15      14      70
 (base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
@@ -409,38 +375,6 @@ punct Arg1:<TOKEN> Arg2:<TOKEN>
 (base) ye@:~/tool/brat/data/tst-myDep$
 ```
 
-တကယ်က training ဒေတာကနေ ဆွဲထုတ်မှသာ ဖြစ်နိုင်တဲ့ relationship အကုန်အတွက် configuration file ဆောက်လို့ အဆင်ပြေမှာမို့ training ဖိုင်က နေ ဆွဲထုတ်ခဲ့...  
-
-```
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$ cat ./train-1-to-10207.ann | egrep '^R' | cut -f 2 | sed "s/T[[:digit:]]\+.[[:digit:]]\+/<TOKEN>/g" | sort | uniq
-acl Arg1:<TOKEN> Arg2:<TOKEN>
-aclk Arg1:<TOKEN> Arg2:<TOKEN>
-acll Arg1:<TOKEN> Arg2:<TOKEN>
-advmod Arg1:<TOKEN> Arg2:<TOKEN>
-amod Arg1:<TOKEN> Arg2:<TOKEN>
-ase Arg1:<TOKEN> Arg2:<TOKEN>
-aux Arg1:<TOKEN> Arg2:<TOKEN>
-caer Arg1:<TOKEN> Arg2:<TOKEN>
-case Arg1:<TOKEN> Arg2:<TOKEN>
-casw Arg1:<TOKEN> Arg2:<TOKEN>
-compoound Arg1:<TOKEN> Arg2:<TOKEN>
-compound Arg1:<TOKEN> Arg2:<TOKEN>
-dep Arg1:<TOKEN> Arg2:<TOKEN>
-fixed Arg1:<TOKEN> Arg2:<TOKEN>
-iobj Arg1:<TOKEN> Arg2:<TOKEN>
-mark Arg1:<TOKEN> Arg2:<TOKEN>
-markl Arg1:<TOKEN> Arg2:<TOKEN>
-nmod Arg1:<TOKEN> Arg2:<TOKEN>
-nsubj Arg1:<TOKEN> Arg2:<TOKEN>
-nummod Arg1:<TOKEN> Arg2:<TOKEN>
-nummodl Arg1:<TOKEN> Arg2:<TOKEN>
-obj Arg1:<TOKEN> Arg2:<TOKEN>
-obl Arg1:<TOKEN> Arg2:<TOKEN>
-onl Arg1:<TOKEN> Arg2:<TOKEN>
-punct Arg1:<TOKEN> Arg2:<TOKEN>
-(base) ye@:/media/ye/project2/data/myDep/from-zzh/Updated-ConllU-Data$
-```
-
 အထက်ပါအတိုင်း လိုချင်တဲ့ information တချို့ကို ဆွဲထုတ်ခဲ့ပြီး annotation.conf ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
 ```
@@ -477,31 +411,6 @@ VERB
 
 # Dependency relations
 
-acl Arg1:<TOKEN> Arg2:<TOKEN>
-aclk Arg1:<TOKEN> Arg2:<TOKEN>
-acll Arg1:<TOKEN> Arg2:<TOKEN>
-advmod Arg1:<TOKEN> Arg2:<TOKEN>
-amod Arg1:<TOKEN> Arg2:<TOKEN>
-ase Arg1:<TOKEN> Arg2:<TOKEN>
-aux Arg1:<TOKEN> Arg2:<TOKEN>
-caer Arg1:<TOKEN> Arg2:<TOKEN>
-case Arg1:<TOKEN> Arg2:<TOKEN>
-casw Arg1:<TOKEN> Arg2:<TOKEN>
-compoound Arg1:<TOKEN> Arg2:<TOKEN>
-compound Arg1:<TOKEN> Arg2:<TOKEN>
-dep Arg1:<TOKEN> Arg2:<TOKEN>
-fixed Arg1:<TOKEN> Arg2:<TOKEN>
-iobj Arg1:<TOKEN> Arg2:<TOKEN>
-mark Arg1:<TOKEN> Arg2:<TOKEN>
-markl Arg1:<TOKEN> Arg2:<TOKEN>
-nmod Arg1:<TOKEN> Arg2:<TOKEN>
-nsubj Arg1:<TOKEN> Arg2:<TOKEN>
-nummod Arg1:<TOKEN> Arg2:<TOKEN>
-nummodl Arg1:<TOKEN> Arg2:<TOKEN>
-obj Arg1:<TOKEN> Arg2:<TOKEN>
-obl Arg1:<TOKEN> Arg2:<TOKEN>
-onl Arg1:<TOKEN> Arg2:<TOKEN>
-punct Arg1:<TOKEN> Arg2:<TOKEN>
 
 [events]
 # not relevant to UD
