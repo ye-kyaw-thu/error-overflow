@@ -984,9 +984,19 @@ Login ဝင်ပြီးသွားရင်တော့ မြန်မာ�
 
 <br />  
 
-### Editing links
+### Editing/Deleting dependency links
 
+Dependency link တွေကို အသစ်ထည့်မယ် ဆိုရင် စာလုံး နှစ်လုံးအကြားကို mouse နဲ့ drag လုပ်ပေးရင် arrow link က ပေါ်လာပါလိမ့်မယ်။ ကိုယ်က ပထမဆုံး ထောက်တဲ့ စာလုံးကနေ ဒုတိယထောက်တဲ့ စာလုံး ဆီကို မြှားရဲ့ဦးခေါင်း (i.e. arrow head) က ဦးတည်ပါလိမ့်မယ်။ ပြီးမှ ကိုယ်က ချိတ်ပေးချင်တဲ့ dependency type ကို ရွေးပေးရမှာပါ။ ထိုနည်းလည်းကောင်း ရှိပြီးသား dependency link ကို ဖျက်ချင်တဲ့အခါမှာလည်း ဖျက်ချင်တဲ့ link ကို ရွေးပေး ကလစ်နှိပ်ပေး လိုက်ယုံပါပဲ။ အဲဒါဆိုရင် အောက်ပါလိုမျိုး စာလုံးနှစ်လုံးအကြား လက်ရှိ ချိတ်ထားတဲ့ type ကိုလည်း ပြပေးမှာ ဖြစ်ပြီး ဖျက်ချင်ရင်လည်း ဖျက်လို့ ရမှာ ဖြစ်ပါတယ်။ တကယ်တမ်း "Delete" ခလုပ်ကို နှိပ်လိုက်တဲ့အခါမှာတော့ ဖျက်ဖို့ကိစ္စက သေချာရဲ့လား ဆိုတာကိုတော့ confirmation လုပ်ပါပေးပါလိမ့်မယ်။  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-link-example.png" alt="editing/deleting link example" width="840"/>  
+</p>  
+<div align="center">
+  Fig.18 Editing/Deleting dependency link example
+</div> 
+  
+
+<br />  
   
 ## Adding kb_shortcuts.conf  
   
