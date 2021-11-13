@@ -780,7 +780,7 @@ R1.17-1	punct Arg1:T1.13 Arg2:T1.17
 ပြီးမှ တစ်ကြောင်းချင်းစီ ဖြတ်ထုတ်ထားတဲ့ မြန်မာစာကြောင်း dependency tree တွေကို ဖွင့်ကြည့်ခဲ့တယ်။  
   
 ```
-(base) ye@:~/tool/brat/data/tst-myDep$ python ../../standalone.py 
+(base) ye@:~/tool/brat$ python ./standalone.py 
 Serving brat at http://0.0.0.0:8001
 ```
   
