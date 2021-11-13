@@ -898,7 +898,9 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 ## Editing/Annotation Mode
   
 လက်ရှိအချိန်ထိ ပြသခဲ့တာက tag လုပ်ပြီးသား ဖိုင်ကို ဖွင့်ကြည့်တဲ့အပိုင်းချည်းပါပဲ။ တကယ်က annotation လုပ်ထားတဲ့ စာကြောင်းတွေကို အကြိမ်ကြိမ်အခါခါ ပြန်စစ်ရင်းပြင်စရာရှိတာကို ပြင်ကြရတာက တကယ့် annotation ရဲ့ အလုပ် corpus building ရဲ့ အလုပ်ပါ။ အဲဒီလို လုပ်ဖို့အတွက်က login ဝင်ထားမှသာလုပ်လို့ ရနိုင်ပါလိမ့်မယ်။  
-  
+
+### you must login for editing
+
 login menu က browser ရဲ့ ညာဘက်အပေါ်ဆုံးထောင့်ကို mouse cursor ကို ရွှေ့လိုက်ရင် option menu နဲ့အတူတွဲပြီး pop-up လုပ်ပေးပါလိမ့်မယ်။  
 အောက်ပါပုံလိုမျိုးပါ...  
   
@@ -956,6 +958,8 @@ username နဲ့ password ကို login dialogue box မှာ မှန်�
 
 <br />  
   
+### Editing words
+
 Login ဝင်ပြီးသွားရင်တော့ မြန်မာစာလုံးတွေကို တစ်လုံးချင်းစီ highlight လုပ်လိုက်ရင် အောက်ပါလိုမျိုး သတ်မှတ်ထားတဲ့ tag တွေကို ပြပေးတဲ့ dialogue box ကို မြင်ရမှာ ဖြစ်ပါတယ်။ editing လုပ်လို့ ရပါပြီ။  
   
 <p align="center">
@@ -967,6 +971,22 @@ Login ဝင်ပြီးသွားရင်တော့ မြန်မာ�
   
 
 <br />  
+
+ရှိပြီးသား tag ကို ဖျက်မယ် ဆိုရင်လည်း ဖျက်ချင်တဲ့ tag ကို selection မှတ်ပေးလိုက်ယုံပါပဲ။ အဲဒါဆိုရင် လက်ရှိ tag လုပ်ထားတဲ့ POS-tag ကို ပြောင်းချင်ရင်လည်း ပြောင်းလို့ ရသလို၊ ဖျက်ချင်ရင်လည်း "Delete" ခုလုပ်ကို ကလစ်နှိပ်ပေး လိုက်ယုံပါပဲ။ confirmation တော့ လုပ်ပါလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/deleting-an-existing-tag.png" alt="deleting an existing tag" width="840"/>  
+</p>  
+<div align="center">
+  Fig.17 Deleting an existing tag
+</div> 
+  
+
+<br />  
+
+### Editing links
+
+
   
 ## Adding kb_shortcuts.conf  
   
@@ -994,7 +1014,7 @@ V	VERB
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/keyboard_shortcuts-working-eg.png" alt="keyboard shortcuts example" width="340"/>  
 </p>  
 <div align="center">
-  Fig.18 Underlined characters are keyboard shortcuts for POS-tags
+  Fig.19 Underlined characters are keyboard shortcuts for POS-tags
 </div> 
 
 <br />
@@ -1064,7 +1084,7 @@ brat annotation editor မှာ မသေချာတဲ့အခါမျိ�
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/more-than-one-tag-eg.png" alt="tagging multiple POS-tags" width="640"/>  
 </p>  
 <div align="center">
-  Fig.18 An example of tagging multiple POS-tags on a word (see the word "based")
+  Fig.20 An example of tagging multiple POS-tags on a word (see the word "based")
 </div> 
   
 
