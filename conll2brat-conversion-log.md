@@ -1015,6 +1015,8 @@ field တစ်ခုချင်းစီရဲ့ description က အောက
   
 ## FYI
   
+### "Address already in use" error message
+
 ကိုယ်တိုင်လည်း terminal တွေအများကြီးဖွင့်ပြီး အလုပ်လုပ်လေ့ရှိတာမို့ ဖြစ်တတ်လို့ information အနေနဲ့ ထည့်ပေးထားတာပါ။  
 Browser ကနေ brat annotation editor ကို ပိတ်လိုက်ပေမဲ့ terminal ကနေ ပေးခဲ့တဲ့ command ကို "Ctrl+C" နဲ့ နှိပ်ပြီး မရပ်ရသေးပဲ နောက်ထပ် တခြား terminal တစ်ခုကနေ brat ကို ထပ် run မိရင် အောက်ပါ error မျိုးကို ပေးပါလိမ့်မယ်။   
   
@@ -1046,6 +1048,20 @@ TypeError: 'OSError' object is not subscriptable
 
 အဲဒီလိုမျိုး ဖြစ်တဲ့အခါမှာ run လက်စ terminal ကို သွားပြီး "Ctrl+C" နှိပ်ပြီး ရပ်ပေးလိုက်ရင် အဆင်ပြေသွားပါလိမ့်မယ်။ သို့မဟုတ် port number ကို ပြောင်းပေးပြီး run မှ ရပါလိမ့်မယ်။  
   
+### Tagging more than one POS-tag on a word
+
+brat annotation editor မှာ မသေချာတဲ့အခါမျိုးမှာ စာလုံးတစ်လုံးကို POS-tag တစ်ခုထက်မက အကြမ်း tag လုပ်ထားတာမျိုးလည်း ခွင့်ပြုပါတယ်။ ဥပမာ အောက်ပါ ပုံမှာ ဆိုရင် "based" ဆိုတဲ့ word ကို "NOUN" ရော "ADJ" ရော နှစ်မျိုး assign လုပ်ပြထားတာကို တွေ့ရပါလိမ့်မယ်။ ဒီ facility ကလည်း အသုံးဝင်ပါတယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/more-than-one-tag-eg.png" alt="tagging multiple POS-tags" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.16 An example of tagging multiple POS-tags on a word (see the word "based")
+</div> 
+  
+
+<br />  
+
 ## To Do or Homework for you
   
 - To get all possible dependency relationships use your training data when you prepare a new config file  
