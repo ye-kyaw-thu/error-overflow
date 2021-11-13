@@ -1043,3 +1043,23 @@ TypeError: 'OSError' object is not subscriptable
 - [https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf](https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf)  
 - Hnin Thu Zar Aye, Win Pa Pa and Ye Kyaw Thu, "Unsupervised Dependency Corpus Annotation for Myanmar Language", In Proceedings of The 21st Conference of the Oriental Chapter of the International Coordinating Committee on Speech Databases and Speech I/O Systems and Assessment (Oriental COCOSDA 2018), May 7-8 2018, Miyazaki, Japan  
 - Hnin Thu Zar Aye, Win Pa Pa, Ye Kyaw Thu, "Unsupervised Dependency Parsing for Myanmar Language using Part-of-Speech Information", In Proceedings of ICCA2018, February 22-23, 2018, Yangon, Myanmar, pp. 209-216.  
+
+## Citation for Brat Annotation Tool
+
+If you do make use of brat or components from brat for annotation purposes, please cite the following publication:  
+
+```
+@inproceedings{,
+    author      = {Stenetorp, Pontus and Pyysalo, Sampo and Topi\'{c}, Goran
+            and Ohta, Tomoko and Ananiadou, Sophia and Tsujii, Jun'ichi},
+    title       = {{brat}: a Web-based Tool
+            for {NLP}-Assisted Text Annotation},
+    booktitle   = {Proceedings of the Demonstrations Session
+            at {EACL} 2012},
+    month       = {April},
+    year        = {2012},
+    address     = {Avignon, France},
+    publisher   = {Association for Computational Linguistics},
+    note        = {(to appear)},
+}
+```
