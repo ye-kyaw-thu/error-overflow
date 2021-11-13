@@ -838,7 +838,7 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/line1-dtree.png" alt="dependency tree of line_1" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.12 Dependency tree of line_1
+  Fig.12 Dependency tree of "line_1"
 </div> 
   
 
@@ -884,7 +884,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/line_1-with-visual.conf.png" alt="colorful dependency tree of line_1" width="1040"/>  
 </p>  
 <div align="center">
-  Fig.13 Colorful dependency tree of line_1
+  Fig.13 Colorful dependency tree of "line_1"
 </div> 
   
 
