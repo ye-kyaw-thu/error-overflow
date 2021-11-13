@@ -363,7 +363,7 @@ case Arg1:T1.9 Arg2:T1.10
 ```
 
 configuration ဖိုင်အတွက်က format ကို ပြောင်းဖို့ လိုအပ်တယ်။  
-T<number>+.<number>+ ကို အစားထိုးရမယ်။  
+T\<number\>+.\<number\>+ ကို အစားထိုးရမယ်။  
 
 ```
 (base) ye@:~/tool/brat/data/tst-myDep$ cat ./test.ann | egrep '^R' | cut -f 2 | sed "s/T[[:digit:]]\+.[[:digit:]]\+/<TOKEN>/g" | sort | uniq
