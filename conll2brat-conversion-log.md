@@ -890,7 +890,7 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 
 <br />  
   
-## Editing Mode
+## Editing/Annotation Mode
   
 လက်ရှိအချိန်ထိ ပြသခဲ့တာက tag လုပ်ပြီးသား ဖိုင်ကို ဖွင့်ကြည့်တဲ့အပိုင်းချည်းပါပဲ။ တကယ်က annotation လုပ်ထားတဲ့ စာကြောင်းတွေကို အကြိမ်ကြိမ်အခါခါ ပြန်စစ်ရင်းပြင်စရာရှိတာကို ပြင်ကြရတာက တကယ့် annotation ရဲ့ အလုပ် corpus building ရဲ့ အလုပ်ပါ။ အဲဒီလို လုပ်ဖို့အတွက်က login ဝင်ထားမှသာလုပ်လို့ ရနိုင်ပါလိမ့်မယ်။  
   
@@ -898,7 +898,7 @@ login menu က browser ရဲ့ ညာဘက်အပေါ်ဆုံးထ�
 အောက်ပါပုံလိုမျိုးပါ...  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-menu-brat.png" alt="login-menu of brat" width="540"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-menu-brat.png" alt="login-menu of brat" width="500"/>  
 </p>  
 <div align="center">
   Fig.14 Login menu of brat annotation editor
@@ -954,10 +954,10 @@ username နဲ့ password ကို login dialogue box မှာ မှန်�
 Login ဝင်ပြီးသွားရင်တော့ မြန်မာစာလုံးတွေကို တစ်လုံးချင်းစီ highlight လုပ်လိုက်ရင် အောက်ပါလိုမျိုး သတ်မှတ်ထားတဲ့ tag တွေကို ပြပေးတဲ့ dialogue box ကို မြင်ရမှာ ဖြစ်ပါတယ်။ editing လုပ်လို့ ရပါပြီ။  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-mode-eg1.png" alt="editing mode example 1" width="1040"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-mode-eg1.png" alt="editing mode example 1" width="840"/>  
 </p>  
 <div align="center">
-  Fig.16 Colorful dependency tree of "line_1"
+  Fig.16 Entity type dialogue box for selected Myanmar word "လွယ်လွယ်ကူကူ"
 </div> 
   
 
