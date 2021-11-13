@@ -844,7 +844,7 @@ http://0.0.0.0:8001 link ကို Ctrl+Click လုပ်လို့ web-serve
 
 <br />
   
-## Adding visual.conf File
+## Adding "visual.conf" File
   
 အထက်ပါ ပုံမှာ မြင်ရတဲ့အတိုင်း POS-tag တွေက အစိမ်းရောင်တစ်ခုတည်းနဲ့ ပြသတာကို တွေ့ရပါလိမ့်မယ်။ တကယ် labeling သို့မဟုတ် annotation လုပ်တဲ့အခါမှာ tag တစ်ခုစီကို အရောင်တစ်ခုစီ ခွဲထားတာက ပိုအဆင်ပြေပါတယ်။ အဲဒီအတွက် brat annotation editor မှာ visual.conf ဆိုတဲ့ configuration ဖိုင်ရှိပါတယ်။ တခြား example တွေကို ကြည့်ပြီး အဆင်ပြေနိုင်မဲ့အရောင်တချို့ကို အောက်ပါအတိုင်း သတ်မှတ်ခဲ့ပါတယ်။  
   
