@@ -890,6 +890,79 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 
 <br />  
   
+## Editing Mode
+  
+လက်ရှိအချိန်ထိ ပြသခဲ့တာက tag လုပ်ပြီးသား ဖိုင်ကို ဖွင့်ကြည့်တဲ့အပိုင်းချည်းပါပဲ။ တကယ်က annotation လုပ်ထားတဲ့ စာကြောင်းတွေကို အကြိမ်ကြိမ်အခါခါ ပြန်စစ်ရင်းပြင်စရာရှိတာကို ပြင်ကြရတာက တကယ့် annotation ရဲ့ အလုပ် corpus building ရဲ့ အလုပ်ပါ။ အဲဒီလို လုပ်ဖို့အတွက်က login ဝင်ထားမှသာလုပ်လို့ ရနိုင်ပါလိမ့်မယ်။  
+  
+login menu က browser ရဲ့ ညာဘက်အပေါ်ဆုံးထောင့်ကို mouse cursor ကို ရွှေ့လိုက်ရင် option menu နဲ့အတူတွဲပြီး pop-up လုပ်ပေးပါလိမ့်မယ်။  
+အောက်ပါပုံလိုမျိုးပါ...  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-menu-brat.png" alt="login-menu of brat" width="540"/>  
+</p>  
+<div align="center">
+  Fig.14 Login menu of brat annotation editor
+</div> 
+  
+
+<br />  
+  
+standalone mode နဲ့ installation လုပ်ထားပြီး run နေတာဆိုရင်တော့ ကိုယ်တိုင် brat annotation editor ကို installation လုပ်ခဲ့စဉ်က ပေးထားခဲ့တဲ့ username နဲ့ password ကို ရိုက်ထည့်ပေးလိုက်ပါ။ တကယ်လို့ server မှာ တင်ထားပြီး annotation ကို annotator လေးယောက်၊ ငါးယောက် ဝိုင်းလုပ်နေကြတာဆိုရင်တော့ admin ကို ကိုယ့် user account နာမည်နဲ့ password ကို မေးကြည့်ပါ။ standalone mode နဲ့ ကိုယ့်စက်ထဲမှာ installation လုပ်ထားပြီးတော့ user account နာမည်တို့ password တို့ မေ့နေတာဆိုရင်တော့ brat ကို installation လုပ်ထားတဲ့ path အောက်ကိုသွားပြီးတော့ text editor တစ်ခုခုနဲ့ config.py ဖိုင်ကို ဖွင့်ဖတ်ပါ။ ဥပမာ ```vi ./config.py```   
+(accont နာမည်တစ်ခုနဲ့ password အတုတစ်ခုကိုဖြည့်ပြီး မြင်သာအောင် ပြရရင် အောက်ပါလိုမျိုး format နဲ့ ရှိနေပါလိမ့်မယ်။)  
+  
+```
+# If you have installed brat as suggested in the installation
+# instructions, you can set up BASE_DIR, DATA_DIR and WORK_DIR by
+# removing the three lines above and deleting the initial '#'
+# character from the following four lines:
+#from os.path import dirname, join
+#BASE_DIR = dirname(__file__)
+#DATA_DIR = path_join(BASE_DIR, 'data')
+#WORK_DIR = path_join(BASE_DIR, 'work')
+# To allow editing, include at least one USERNAME:PASSWORD pair below.
+# To allow anonymous editing, set `USER_PASSWORD = False`.
+# The format is the following:
+#
+#     'USERNAME': 'PASSWORD',
+#
+# For example, user `editor` and password `annotate`:
+#
+#     'editor': 'annotate',
+USER_PASSWORD = {
+            'ye': '12345',
+    #     (add USERNAME:PASSWORD pairs below this line.)
+}
+########## ADVANCED CONFIGURATION OPTIONS ##########
+# The following options control advanced aspects of the brat server
+# setup.  It is not necessary to edit these in a basic brat server
+# installation.
+# MAX_SEARCH_RESULT_NUMBER
+```
+
+username နဲ့ password ကို login dialogue box မှာ မှန်မှန်ကန်ကန် ရိုက်ထည့်ပြီး login ဝင်လို့ ရသွားခဲ့ရင် "Hello!" ဆိုတဲ့ message ကို browser ရဲ့ အောက်ပိုင်းမှာ ပြပေးပါလိမ့်မယ်။  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/login-dialogue-box-of-brat.png" alt="login dialogue box of brat" width="540"/>  
+</p>  
+<div align="center">
+  Fig.15 Login dialogue box of brat annotation editor
+</div> 
+  
+
+<br />  
+  
+Login ဝင်ပြီးသွားရင်တော့ မြန်မာစာလုံးတွေကို တစ်လုံးချင်းစီ highlight လုပ်လိုက်ရင် အောက်ပါလိုမျိုး သတ်မှတ်ထားတဲ့ tag တွေကို ပြပေးတဲ့ dialogue box ကို မြင်ရမှာ ဖြစ်ပါတယ်။ editing လုပ်လို့ ရပါပြီ။  
+  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/editing-mode-eg1.png" alt="editing mode example 1" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.16 Colorful dependency tree of "line_1"
+</div> 
+  
+
+<br />  
+  
 ## CoNLL-U Format
 
 ConLL-U ရဲ့ field တွေက Universal Dependencies website ကို အခြေခံပြီး ဆောက်ထားတာပါ။  
