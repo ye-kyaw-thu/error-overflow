@@ -880,6 +880,15 @@ SPAN_DEFAULT	fgColor:black, bgColor:lightgreen, borderColor:darken
 အထက်ပါ "visual.conf" ဖိုင်ကို output/ ဖိုလ်ဒါအောက်မှာ ထည့်ထားပြီး brat annotation editor ကို ထပ်ခေါ် run ကြည့်ရင်တော့ အောက်ပါအတိုင်း POS-tag တစ်ခုချင်းစီက သတ်မှတ်ထားတဲ့ အရောင်တွေအတိုင်း လှလှပပ ပြသပေးနိုင်တာကို တွေ့ကြရပါလိမ့်မယ်။ အရမ်းအဆင်ပြေပါတယ်။  
 
   
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/line_1-with-visual.conf.png" alt="colorful dependency tree of line_1" width="1040"/>  
+</p>  
+<div align="center">
+  Fig.13 Colorful dependency tree of line_1
+</div> 
+  
+
+<br />  
 
 ## Reference
   
