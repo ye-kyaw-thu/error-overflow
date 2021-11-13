@@ -494,13 +494,21 @@ use strict;
 use warnings;
 
 local $/ = "\n\n"; 
-my $count = 0; 
+my $count = 1; 
 
 while ( my $chunk = <> ) {
     open ( my $output, '>', "line_".$count++.".conllu" ) or die $!;
     print {$output} $chunk;
     close ( $output ); 
 }
+```
+  
+line_by_line/ ဆိုတဲ့ ဖိုလ်ဒါအသစ်တစ်ခုကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls
+split-with-blank-line.pl  test.conllu
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$
 ```
   
 အောက်ပါအတိုင်း run ခဲ့...  
@@ -535,30 +543,49 @@ split လုပ်ထားတဲ့ ဖိုင်အရေအတွက် စ
   
 ```
 (base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | wc
-    802     802   11920
+    802     802   12724
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$
 ```
 
-perl script ထဲမှာက လိုင်းနံပါတ်က ၁ ကနေ စတာမို့ ပထမဆုံး စာကြောင်းက line_0 နဲ့ စလိမ့်မယ်။  
+perl script ထဲမှာက လိုင်းနံပါတ်က ၁ ကနေ စတာမို့ ပထမဆုံး စာကြောင်းက line_1 နဲ့ စလိမ့်မယ်။  
 အောက်ပါအတိုင်း...  
   
 ```
-(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | head
-line_0.conllu
-line_100.conllu
-line_101.conllu
-line_102.conllu
-line_103.conllu
-line_104.conllu
-line_105.conllu
-line_106.conllu
-line_107.conllu
-line_108.conllu
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | sort -V | head
+line_1.conllu
+line_2.conllu
+line_3.conllu
+line_4.conllu
+line_5.conllu
+line_6.conllu
+line_7.conllu
+line_8.conllu
+line_9.conllu
+line_10.conllu
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$
+```
+
+line no. 802 မှာ ဆုံးသွားလိမ့်မယ်။  
+  
+```
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ ls *.conllu | sort -V | tail
+line_793.conllu
+line_794.conllu
+line_795.conllu
+line_796.conllu
+line_797.conllu
+line_798.conllu
+line_799.conllu
+line_800.conllu
+line_801.conllu
+line_802.conllu
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$
 ```
 
 split လုပ်ထားတဲ့ ဖိုင်တွေရဲ့ အထဲကို ဝင်ကြည့်ပြီး confirmation လုပ်ခဲ့...  
   
 ```
-(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ cat ./line_801.conllu 
+(base) ye@:~/tool/brat/data/tst-myDep/line_by_line$ cat ./line_802.conllu
 # sent_id = 802
 # text = ထို မှတစ်ပါး ငှက် တို့ သည် ဟင်းလျာ အတွက် လည်း အသုံးဝင် သည် ။
 1	ထို	ထို	PRON	PRON	_	9	obl	_	_
@@ -590,6 +617,10 @@ conllu2brat နဲ့ ".ann" နဲ့ ".txt" ဖိုင်တွေကို 
 ...
 ...
 ...
+Info: Correctly processed ./line_by_line/line_365.conllu.
+
+Info: Correctly processed ./line_by_line/line_132.conllu.
+
 Info: Correctly processed ./line_by_line/line_627.conllu.
 
 Info: Correctly processed ./line_by_line/line_55.conllu.
@@ -645,44 +676,45 @@ Info: Correctly processed ./line_by_line/line_256.conllu.
 Info: Correctly processed ./line_by_line/line_252.conllu.
 Info: Converting the files  [####################################]  100%
 
-real	0m0.754s
-user	0m0.675s
-sys	0m0.077s
+real	0m0.786s
+user	0m0.664s
+sys	0m0.105s
+
 ```
 
 ".ann", ".txt" ဖိုင်တွေကို output/ ဖိုလ်ဒါအောက်မှာ သိမ်းပေးတာကို အောက်ပါအတိုင်း တွေ့ရ...  
   
 ```
-(py2.7env) ye@:~/tool/brat/data/tst-myDep$ ls ./output/ | head -n 20
-line_0.ann
-line_0.txt
-line_100.ann
-line_100.txt
-line_101.ann
-line_101.txt
-line_102.ann
-line_102.txt
-line_103.ann
-line_103.txt
-line_104.ann
-line_104.txt
-line_105.ann
-line_105.txt
-line_106.ann
-line_106.txt
-line_107.ann
-line_107.txt
-line_108.ann
-line_108.txt
-(py2.7env) ye@:~/tool/brat/data/tst-myDep$
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ ls ./output/ | sort -V | head -n 20
+line_1.ann
+line_1.txt
+line_2.ann
+line_2.txt
+line_3.ann
+line_3.txt
+line_4.ann
+line_4.txt
+line_5.ann
+line_5.txt
+line_6.ann
+line_6.txt
+line_7.ann
+line_7.txt
+line_8.ann
+line_8.txt
+line_9.ann
+line_9.txt
+line_10.ann
+line_10.txt
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ 
 ```
 
 brat annotation editor က ဖတ်လို့ရဖို့အတွက် သတ်မှတ်ထားတဲ့ format အတိုင်း ပြောင်းပေးထားတာကို confirmation လုပ်ခဲ့...   
   
 ```
-(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_4.txt 
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_5.txt
 မည် သို့ စတင် ပေါ်ပေါက် ခဲ့ သည် ကို မူ ယခု ထက်တိုင် အတိအကျ မ သိ ရ သေး ပေ ။
-(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_4.ann
+(py2.7env) ye@:~/tool/brat/data/tst-myDep$ cat ./output/line_5.ann 
 T1.1	PRON 0 3	မည်
 R1.1-1	obl Arg1:T1.4 Arg2:T1.1
 #1.1	AnnotatorNotes T1.1	LEMMA=မည် POSTAG=PRON
