@@ -1131,5 +1131,8 @@ If you do make use of brat or components from brat for annotation purposes, plea
 - [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
 - [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
 - [https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf](https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf)  
+- [video demo with English caption](https://www.youtube.com/watch?v=whUrhJsTel4)  
+(video play လုပ်တဲ့အခါမှာ "CC" ခလုပ်ကို နှိပ်ထားမှ အင်္ဂလိပ်စာကြောင်းတွေကို မြင်ရလိမ့်မယ်)  
+
 - Hnin Thu Zar Aye, Win Pa Pa and Ye Kyaw Thu, "Unsupervised Dependency Corpus Annotation for Myanmar Language", In Proceedings of The 21st Conference of the Oriental Chapter of the International Coordinating Committee on Speech Databases and Speech I/O Systems and Assessment (Oriental COCOSDA 2018), May 7-8 2018, Miyazaki, Japan  
 - Hnin Thu Zar Aye, Win Pa Pa, Ye Kyaw Thu, "Unsupervised Dependency Parsing for Myanmar Language using Part-of-Speech Information", In Proceedings of ICCA2018, February 22-23, 2018, Yangon, Myanmar, pp. 209-216.  
