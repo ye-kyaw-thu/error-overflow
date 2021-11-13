@@ -970,10 +970,26 @@ Login ဝင်ပြီးသွားရင်တော့ မြန်မာ�
   
 ## Adding kb_shortcuts.conf  
   
+အသုံးများတဲ့ Tag တွေကို ကိုယ်ကြိုက်တဲ့ shortcut ပေးထားတာမျိုးလုပ်ထားလို့လည်း ရပါတယ်။ စာကြောင်းတွေ အများကြီးကို label ထိုးကြရတာမို့ mouse နဲ့လှည့်သုံးလိုက် တခါတလေ shortcut key နဲ့ သွားလိုက် လုပ်ရင် သက်သာတဲ့အပိုင်းလည်း ရှိလို့ kb_shortcuts.conf ဖိုင် example ကိုလည်း ရေးပြထားပါတယ်။ အဲဒီ kb_shortcuts.conf ဖိုင်ကိုလည်း ကိုယ်အလုပ်လုပ်မယ့် ဒေတာရှိတဲ့ folder အောက်မှာ ထည့်ထားပေးရပါမယ်။ 
+
 ```
-  
+D	ADJ
+A	ADV
+C	CCONJ
+I	INTJ
+N	NOUN
+M	NUM
+P	PART
+O	PRON
+R	PROPN
+U	PUNCT
+J	SCONJ
+S	SYM
+V	VERB
 ```
-  
+
+တစ်ခုရှိတာက စမ်းထားကြည့်သလောက် သိရတာက shortcut key တွေ assign လုပ်တဲ့အခါမှာ capital letter နဲ့ပဲ assign လုပ်ပေးရပါတယ်။ စာလုံးအသေးနဲ့ mapping လုပ်ရင် brat editor ထဲမှာ အလုပ်လုပ် မပေးတာကို တွေ့ရပါတယ်။ သို့သော် assign လုပ်တဲ့ format က capital letter နဲ့ လုပ်ရပေမဲ့ တကယ်တမ်း သုံးတဲ့အခါမှာတော့ small letter နဲ့ပဲ သွားရပါတယ်။  
+
   
 ## CoNLL-U Format
 
