@@ -1053,10 +1053,10 @@ TypeError: 'OSError' object is not subscriptable
 brat annotation editor မှာ မသေချာတဲ့အခါမျိုးမှာ စာလုံးတစ်လုံးကို POS-tag တစ်ခုထက်မက အကြမ်း tag လုပ်ထားတာမျိုးလည်း ခွင့်ပြုပါတယ်။ ဥပမာ အောက်ပါ ပုံမှာ ဆိုရင် "based" ဆိုတဲ့ word ကို "NOUN" ရော "ADJ" ရော နှစ်မျိုး assign လုပ်ပြထားတာကို တွေ့ရပါလိမ့်မယ်။ ဒီ facility ကလည်း အသုံးဝင်ပါတယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/more-than-one-tag-eg.png" alt="tagging multiple POS-tags" width="1040"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/more-than-one-tag-eg.png" alt="tagging multiple POS-tags" width="840"/>  
 </p>  
 <div align="center">
-  Fig.16 An example of tagging multiple POS-tags on a word (see the word "based")
+  Fig.17 An example of tagging multiple POS-tags on a word (see the word "based")
 </div> 
   
 
