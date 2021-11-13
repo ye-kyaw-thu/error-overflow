@@ -1130,7 +1130,7 @@ If you do make use of brat or components from brat for annotation purposes, plea
 - [https://brat.nlplab.org/configuration.html](https://brat.nlplab.org/configuration.html)  
 - [https://universaldependencies.org/u/feat/index.html](https://universaldependencies.org/u/feat/index.html)  
 - [UD config file example](https://github.com/nlplab/brat/blob/master/configurations/Universal-Dependencies/annotation.conf)    
-(ဖြစ်နိုင်ချေရှိတဲ့ link တွေအကုန်လုံးကို rule ရေးဖို့က အချိန်အများကြီး ယူရပါလိမ့်မယ်။ ပုံမှန်အားဖြင့်က corpus ဆောက်ရင်းနဲ့ rule ကို update လုပ်သွားကြရပါတယ်)  
+(ဖြစ်နိုင်ချေရှိတဲ့ dependency link တွေအကုန်လုံးကို rule ရေးဖို့က အချိန်အများကြီး ယူရပါလိမ့်မယ်။ ပုံမှန်အားဖြင့်က corpus ဆောက်သွားရင်းနဲ့ rule ကို update လုပ်သွားကြရပါတယ်)  
 - [https://cdli-gh.github.io/guides/guide_editing_brat_configs.html](https://cdli-gh.github.io/guides/guide_editing_brat_configs.html)  
 - [https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf](https://www.erudit.org/en/journals/renref/2019-v42-n2-renref04916/1065133ar.pdf)  
 - [video demo with English caption](https://www.youtube.com/watch?v=whUrhJsTel4)  
