@@ -2287,6 +2287,119 @@ spelling correction လုပ်ပြီး ပြန်ထွက်လာတ�
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$ 
 ```
    
+## Evaluation on Open-Test Data
+   
+evaluation လုပ်ဖို့အတွက် သုံးခဲ့တဲ့ eval-open-test.sh က အောက်ပါအတိုင်းပါ။  
+   
+```bash
+#!/bin/bash
+
+# evaluation on spelling correction with open-test data
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 21 Nov 2021
+
+echo "Checking with RE rules extracted from typo dictionary...";
+for re in *.RE;
+do
+   re_file=${re%.*.*.*}; echo $re_file;
+   
+   echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.chk";
+   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk-open-test/$re_file.err.syl.chk
+   #python2.7 ./evaluate.py ./$re_file.sug.syl ./chk/$re_file.err.syl.chk
+   paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk-open-test/$re_file.sug-chk
+   #paste ./$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk/$re_file.sug-chk
+   echo "==========";
+   echo "";   
+   
+done
+```
+   
+Automatic extracted rules တွေကို သုံးပြီး open-test ဒေတာကို spelling correction လုပ်ထားတဲ့ အပေါ်မှာ evaluation ကို လုပ်ကြည့်တော့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ ./eval-open-test.sh | tee evaluation-result-open-test.log
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.823909531502
+Tag recall: 0.810166799047
+F-Measure: 0.816980376452
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.774193548387
+Tag recall: 0.774193548387
+F-Measure: 0.774193548387
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.625
+Tag recall: 0.595238095238
+F-Measure: 0.609756097561
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.442789882842
+Tag recall: 0.361329521086
+F-Measure: 0.397933579336
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.870629370629
+Tag recall: 0.862337662338
+F-Measure: 0.866463679861
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.755555555556
+Tag recall: 0.618181818182
+F-Measure: 0.68
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.706077348066
+Tag recall: 0.694565217391
+F-Measure: 0.700273972603
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.588235294118
+Tag recall: 0.579710144928
+F-Measure: 0.583941605839
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.64325323475
+Tag recall: 0.678362573099
+F-Measure: 0.660341555977
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.78384279476
+Tag recall: 0.710891089109
+F-Measure: 0.745586708204
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.579352356525
+Tag recall: 0.538171349151
+F-Measure: 0.558003088008
+==========
+
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$  
+```
+   
+
 ## Manually Extracted Rules vs. Automatic Extracted Rules
      
 လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး လိုင်းက F-measure of original test input data, ဒုတိယလိုင်းက F-measure of manual rules နဲ့ တတိယလိုင်းက F-measure of automatic extracted rules တွေပါ။  
