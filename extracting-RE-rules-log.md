@@ -1012,7 +1012,7 @@ plt.show()
 အထက်ပါ python code ကို run လိုက်ရင် ရလာမယ့် histogram က အောက်ပါအတိုင်း...  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/prefix-suffix-pattern-distribution.png" alt="prefix, suffix distribution histogram" width="840"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/prefix-suffix-pattern-distribution.png" alt="prefix, suffix distribution histogram" width="540"/>  
 </p>  
 <div align="center">
   Fig. Histogram graph of prefix, suffix distributions on current typo dictionary
