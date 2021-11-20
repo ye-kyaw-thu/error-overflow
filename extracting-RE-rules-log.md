@@ -655,7 +655,7 @@ done
 အထက်ပါ shell ကို အောက်ပါအတိုင်း run ခဲ့တယ်။  
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ time ./print-prefix-error-correction-suffix.sh | tee print-rules.log
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./print-prefix-error-correction-suffix.sh | tee print-rules.log
 printing for con.wdiff ...
 printing for encode.wdiff ...
 printing for pho-typo.wdiff ...
@@ -671,13 +671,13 @@ printing for stack.wdiff ...
 real	0m4.558s
 user	0m1.768s
 sys	0m0.041s
-(base) ye@:/media/ye/project2/exp/errant/my-data$
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
 ထွက်လာတဲ့ unique rule ဖိုင်တွေကို head, tail command သုံးပြီးတော့ confirmation လုပ်ခဲ့၊ လေ့လာခဲ့...  
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ head *.rule.uniq
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ head *.rule.uniq
 ==> con.rule.uniq <==
 ၀ 	[-၀န်း-]	{+ဝန်း+}	 ကျင်	pecs
 [-၀က်-]	{+ဝက်+}	ec
@@ -809,13 +809,13 @@ sys	0m0.041s
 ၀ 	[-နှုန်ူ-]	{+နှုန်း+}	 လောက်	pecs
 ၀ 	[-နါ-]	{+နာ+}	 ရီ	pecs
 ၀ 	[-နိး-]	{+နီး+}	 ပါး	pecs
-(base) ye@:/media/ye/project2/exp/errant/my-data$ 
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ 
 ```
 
 tail command ကို သုံးပြီး rule pattern တွေကို လေ့လာခဲ့...  
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ tail *.rule.uniq
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ tail *.rule.uniq
 ==> con.rule.uniq <==
 ဦး 	[-ဥာ-]	{+ဉာ+}	 ဏိ	pecs
 ဦး 	[-ဥာဏ်-]	{+ဉာဏ်+}	 ထွန်း	pecs
@@ -947,7 +947,7 @@ tail command ကို သုံးပြီး rule pattern တွေကို 
 [-ေးာက်-]	{+စောက်+}	 ကျေး	ecs
 [-ဲ-]	{+အဲ့+}	 ဒါ	ecs
 [-္အား-]	{+အား+}	 တင်း	ecs
-(base) ye@:/media/ye/project2/exp/errant/my-data$
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
 ## Count Each Pattern
@@ -955,13 +955,13 @@ tail command ကို သုံးပြီး rule pattern တွေကို 
 လက်ရှိ ငါတို့ ပြင်ထားတဲ့ spelling typo dictionary မှာ rule တစ်ခုချင်းစီအတွက် အရေအတွက် ဘယ်လောက် ရှိသလဲ ဆိုတာကို အောက်ပါအတိုင်း check လုပ်ခဲ့...  
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "pecs" | wc
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat *.rule.uniq | grep -w "pecs" | wc
   29936  155490 1761390
-(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "pec" | wc
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat *.rule.uniq | grep -w "pec" | wc
    3999   21531  235692
-(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "ecs" | wc
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat *.rule.uniq | grep -w "ecs" | wc
    3624   15909  178012
-(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "ec" | wc
+(base) ye@:/media/ye/project2/exp/errant/my-data$/4github cat *.rule.uniq | grep -w "ec" | wc
     565    2714   29209
 ```
 
@@ -969,14 +969,14 @@ tail command ကို သုံးပြီး rule pattern တွေကို 
 rule.uniq ဖိုင် အားလုံးက လိုင်းအရေအတွက် 38124 ရှိတယ်။  
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | wc
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat *.rule.uniq | wc
   38124  195644 2204303
 ```
 
 ဆွဲထုတ်ထားတဲ့ rule pattern တစ်ခုချင်းကို ပြန်စစ်ကြည့်တော့ အောက်ပါအတိုင်း ညီတာကို တွေ့ရတယ်။ အဲဒါကြောင့် grep နဲ့ ဆွဲထုတ်တဲ့ နေရာမှာ error မရှိတာကို confirmation လုပ်နိုင်ခဲ့...    
 
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ echo "29936+3999+3624+565" | bc
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ echo "29936+3999+3624+565" | bc
 38124
 ```
 
@@ -1096,7 +1096,7 @@ done
 အထက်ပါ shell scrpt ကို သုံးပြီး search<TAB>replace ဖိုင်တွေကို အောက်ပါအတိုင်း ဆောက်ခဲ့တယ်။  
    
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ time ./uniq2RE-all.sh | tee making-uniq-to-RE-pattern.log
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./uniq2RE-all.sh | tee making-uniq-to-RE-pattern.log
 uniq2RE conversion for con.rule.uniq ...
 ၀ ၀န်း ကျင်	၀ ဝန်း ကျင်
 ၀က်	ဝက်
@@ -1233,13 +1233,13 @@ uniq2RE conversion for typo.rule.uniq ...
 real	0m0.719s
 user	0m0.248s
 sys	0m0.047s
-(base) ye@:/media/ye/project2/exp/errant/my-data$
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
 file size တွေကိုလည်း check လုပ်ခဲ့...  
    
 ```
-(base) ye@:/media/ye/project2/exp/errant/my-data$ wc *.RE
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ wc *.RE
    2479   14906  143585 con.rule.uniq.RE
      47     271    2497 dialect.rule.uniq.RE
     276    1763   18715 encode.rule.uniq.RE
@@ -1252,7 +1252,7 @@ file size တွေကိုလည်း check လုပ်ခဲ့...
     619    3908   42854 stack.rule.uniq.RE
   14097   82156  876435 typo.rule.uniq.RE
   38124  225015 2318035 total
-(base) ye@:/media/ye/project2/exp/errant/my-data$   
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$   
 ```
    
 ## Spelling Correction with Extracted Rules
