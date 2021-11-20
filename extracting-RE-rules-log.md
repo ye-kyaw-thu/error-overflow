@@ -1,6 +1,9 @@
 # Extracting RE Rules Log
 
-typo error-suggestion pair dictionary ကနေ correction rule ဆွဲထုတ်တဲ့ log ပါ။ ဒေါက်တာတန်း ကျောင်းသူ အိဖြူဖြူမွန် (Ph.D. candidate) နဲ့ အတူတွဲလုပ်နေတဲ့ spelling checking experiment တစ်ခုအတွက် စမ်းခဲ့တဲ့ log ပါ။
+typo error-suggestion pair dictionary ကနေ correction rule ဆွဲထုတ်တဲ့ log ပါ။ ဒေါက်တာတန်း ကျောင်းသူ အိဖြူဖြူမွန် (Ph.D. candidate) နဲ့ အတူတွဲလုပ်နေတဲ့ spelling checking experiment တစ်ခုအတွက် စမ်းခဲ့တဲ့ log ပါ။  
+
+y@Lab  
+21 Nov 2021  
 
 ## Syllable Breaking
 
