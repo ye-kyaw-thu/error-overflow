@@ -540,3 +540,100 @@ sys	0m0.039s
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
+အထက်ပါအတိုင်း typo-error စာလုံးနဲ့ အဲဒါကို correction လုပ်ရမယ့် စာလုံးတွေကို set အလိုက် မြင်ရတာမို့ အရမ်းအဆင်ပြေတယ်။   
+အဲဒါကြောင့် linux command တွေကို ချစ်တာ...  <3 
+
+## wdiff Pattern to Prefix-Error-Correction-Suffix Pattern Conversion
+
+လက်ရှိ ရှိနေတဲ့ wdiff pattern ကို လေ့လာကြည့်တော့ ငါတို့ manual ပြင်ဆင်ပြီး ဆွဲထုတ်ထားတဲ့ ဒေတာမှာက တချို့ မှာက prefix ပါတယ်၊ တချို့မှာက prefix ရော suffix ရော ပါတယ်။ တချို့မှာက suffix ပဲ ပါပြီးတော့ တချို့ စာလုံးတွဲတွေမှာက prefix ရော suffix ရော မပါပဲနဲ့ error နဲ့ correction ဆိုတဲ့ pattern မျိုးဖြစ်နေတာတွေကို တွေ့ရတယ်။ အဲဒါကြောင့် prefix syllable, suffix syllable တွေကို လိုအပ်တဲ့အခါမှာ ဆွဲထုတ်သုံးလို့ ရအောင် ပြီးတော့ pattern တွေရဲ့ distribution ကိုလည်း ကြည့်ချင်လို့ အောက်ပါ perl script ကို ရေးခဲ့တယ်။  
+
+```perl
+#!/usr/bin/env perl
+
+# making Regular Expression rules based on wdiff output
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+#
+# How to run: 
+# e.g. $ perl mk-re.pl <wdiff-output-filename>
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+# function for printing Regular Expression
+sub print_RE_old {
+    my ($sent) = @_;
+    my @words = split (" ", $sent);
+    # filtering @words
+    my @pattern = grep { $_ =~ /\[\-.*\-\]|\{\+.*\+\}/ } @words;
+    $pattern[0] =~ s/\[|\-|\]//g;
+    $pattern[1] =~  s/\{|\+|\}//g;
+    print("/$pattern[0]/$pattern[1]/\n");
+    exit();
+    #print("@pattern\n"); exit();
+}
+
+sub print_RE {
+    my ($sent) = @_;
+    #print("$sent\n");
+    if ($sent =~ m/([က-၏A-Za-z0-9]+\s){1,5}(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1,5}/ugm) {
+#    if ($sent =~ m/([က-၏A-Za-z0-9]+\s){1,}(\[\-[က-၏A-Za-z0-9\s]+\-\])\s(\{\+[က-၏A-Za-z0-9\s]+\+\})(\s[က-၏A-Za-z0-9]+){1,}/g) {
+    my ($prefix_syl, $error, $correction, $suffix_syl) = $sent =~ /([က-၏A-Za-z0-9]+\s){1}(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1}/;
+#    print("prefix_syl: $prefix_syl, error: $error, correction: $correction, suffix_syl: $suffix_syl\n");
+    print("$prefix_syl\t$error\t$correction\t$suffix_syl\tpecs\n");    
+    } elsif ($sent =~ m/([က-၏A-Za-z0-9]+\s){1,5}(\[\-.*\-\])\s(\{\+.*\+\})/ugm) {
+
+    my ($prefix_syl, $error, $correction) = $sent =~ /([က-၏A-Za-z0-9]+\s){1}(\[\-.*\-\])\s(\{\+.*\+\})/;
+#    print("prefix_syl: $prefix_syl, error: $error, correction: $correction\n");
+    print("$prefix_syl\t$error\t$correction\tpec\n");
+    
+    } elsif ($sent =~ m/(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1,5}/ugm) {
+
+    my ($error, $correction, $suffix_syl) = $sent =~ /(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1}/;
+#    print("error: $error, correction: $correction, suffix_syl: $suffix_syl\n");
+    print("$error\t$correction\t$suffix_syl\tecs\n");            
+    
+    } elsif ($sent =~ m/(\[\-.*\-\])\s(\{\+.*\+\})/ugm) {
+
+    my ($error, $correction) = $sent =~ /(\[\-.*\-\])\s(\{\+.*\+\})/;
+    #print("error: $error, correction: $correction\n");
+    print("$error\t$correction\tec\n");          
+    } else {
+        #print("ELSE: $sent\n");
+    
+    }
+}
+
+open (my $inputFILE,"<:encoding(UTF-8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+my $read_2nd_line=0; my $first_line="";
+
+while (!eof($inputFILE)) {
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        $line =~ s/^\s+|\s+$//g;
+        #$line =~ s/\t/ /g;
+        if ($read_2nd_line == 0) {
+            if ($line !~ m/^\[-.*-\]$/) {
+               #print("$line\n");
+               print_RE($line);
+            } else {
+                $read_2nd_line = 1;
+                $first_line = $line; 
+            }
+         } elsif ($read_2nd_line == 1) {
+             #print ($first_line." ".$line."\n");
+             print_RE($first_line." ".$line);
+             $read_2nd_line = 0; $first_line = "";
+         }
+    }
+}
+
+close ($inputFILE);
+```
+
