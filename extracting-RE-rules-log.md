@@ -1540,7 +1540,7 @@ sys	0m5.878s
 
 အထက်ပါအတိုင်း error ထွက်နေပေမဲ့ လက်ရှိ rule နဲ့ pass လုပ်ထားတာကိုပဲ evaluation လုပ်ကြည့်ပြီး အလုပ်ဘယ်လောက် လုပ်သလဲ ဆိုတာကို တိုင်းတာကြည့်ချင်တယ်...  
    
-## Evaluation 
+## Evaluation on Automatic Extracted Rules
    
 evaluation အတွက်က လောလောဆယ် F1-measure တွက်တဲ့ defecto script လိုဖြစ်နေတဲ့ အောက်ပါ python script ကိုပဲ သုံးထားတယ်။  
    
@@ -2048,6 +2048,57 @@ sys	0m0.060s
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
+## Manually Extracted Rules vs. Automatic Extracted Rules
+   
+လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး လိုင်းက F-measure of original test input data, ဒုတိယလိုင်းက F-measure of manual rules နဲ့ တတိယလိုင်းက F-measure of automatic extracted rules တွေပါ။  
+   
+```
+evaluation with error or input file: con.err.syl, F-Measure: 0.726195179771
+evaluation on manual Rule-based hyp: con.err.hyp.syl, F-Measure: 0.853697749196
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.964169381107
+
+evaluation with error or input file: dialect.err.syl, F-Measure: 0.709677419355
+evaluation on manual Rule-based hyp: dialect.err.hyp.syl, F-Measure: 0.838709677419
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.913140311804
+
+evaluation with error or input file: encode.err.syl, F-Measure: 0.599190283401
+evaluation on manual Rule-based hyp: encode.err.hyp.syl, F-Measure: 0.603305785124
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.900499168053
+
+evaluation with error or input file: pho.err.syl, F-Measure: 0.739413859217
+evaluation on manual Rule-based hyp: pho.err.hyp.syl, F-Measure: 0.775632635253
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.443588992194
+
+evaluation with error or input file: pho-typo.err.syl, F-Measure: 0.735783027122
+evaluation on manual Rule-based hyp: pho-typo.err.hyp.syl, F-Measure: 0.87993064586
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.94378642602
+
+evaluation with error or input file: sensitive.err.syl, F-Measure: 0.486956521739
+evaluation on manual Rule-based hyp: sensitive.err.hyp.syl, F-Measure: 0.850574712644
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.968831168831
+
+evaluation with error or input file: seq.err.syl, F-Measure: 0.687465790914
+evaluation on manual Rule-based hyp: seq.err.hyp.syl, F-Measure: 0.877270225647
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.940293491655
+
+evaluation with error or input file: short.err.syl, F-Measure: 0.69696969697
+evaluation on manual Rule-based hyp: short.err.hyp.syl, F-Measure: 0.721804511278
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.727678571429
+
+evaluation with error or input file: slang.err.syl, F-Measure: 0.624399615754
+evaluation on manual Rule-based hyp: slang.err.hyp.syl, F-Measure: 0.767097966728
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.931443506232
+
+evaluation with error or input file: stack.err.syl, F-Measure: 0.690010298661
+evaluation on manual Rule-based hyp: stack.err.hyp.syl, F-Measure: 0.712384851586
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.979190751445
+
+evaluation with error or input file: typo.err.syl, F-Measure: 0.723285912932
+evaluation on manual Rule-based hyp: typo.err.hyp.syl, F-Measure: 0.747112917023
+evaluation on automatic extracted Rule-based approach, F-Measure: 0.71142499764
+
+```
+   
 ## Debugging 
    
 အထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ သေချာအောင် debugging လုပ်ကြည့်ခဲ့တယ်။  
