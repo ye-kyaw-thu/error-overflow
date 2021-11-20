@@ -1020,4 +1020,61 @@ plt.show()
 
 <br />
 
+## Unique Rules to RE Search-Replace Pairs
 
+လက်ရှိ ဆွဲထုတ်ထားတဲ့ rule တွေကို perl script သုံးပြီး ပထမတော့ တိုက်ရိုက် RE rule ထုတ်ကြည့်ခဲ့တယ်။ သို့သော် အဲဒီ RE rules ကို ဖိုင်ထဲကနေ တိုက်ရိုက်ခေါ်ပြီး eval လုပ်တာက သိပ်အလွယ်ကြီးမဟုတ်တော့ (security ပြဿနာလည်း ရှိလို့) search လုပ်ရမယ့် စာလုံးနဲ့ replace လုပ်ရမယ့် စာလုံး တွဲ အဖြစ်ပဲ ပြင်ရေးခဲ့တယ်။ updated perl script က အောက်ပါအတိုင်းပါ။  
+
+```perl 
+#!/usr/bin/env perl
+
+# Conversion of unique rules to Regular Expression search-replace rules
+# dummy step for writing final perl script
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+#
+# How to run: 
+# e.g. $ perl uniq2RE.pl <uniq-rule-filename>
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+open (my $inputFILE,"<:encoding(UTF-8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+while (!eof($inputFILE)) {
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        my @fields = split(/\t/, $line);
+        my $pattern = $fields[-1];
+
+        if ($pattern eq "pecs") {
+            my ($prefix, $error, $correction, $suffix) = split ("\t", $line);
+            $error =~ s/[\[\-\]]//g;
+            $correction =~ s/[\{\+\}]//g;
+            print("$prefix$error$suffix\t$prefix$correction$suffix\n");
+        } elsif ($pattern eq "pec") {
+            my ($prefix, $error, $correction) = split ("\t", $line);
+            $error =~ s/[\[\-\]]//g;
+            $correction =~ s/[\{\+\}]//g;            
+            print("$prefix$error\t$prefix$correction\n");            
+        } elsif ($pattern eq "ecs") {
+            my ($error, $correction, $suffix) = split ("\t", $line);
+            $error =~ s/[\[\-\]]//g;
+            $correction =~ s/[\{\+\}]//g;
+            print("$error$suffix\t$correction$suffix\n");
+        } elsif ($pattern eq "ec") {
+            my ($error, $correction) = split ("\t", $line);
+            $error =~ s/[\[\-\]]//g;
+            $correction =~ s/[\{\+\}]//g;
+            print("$error\t$correction\n");
+        }    
+   }       
+}
+
+close ($inputFILE);
+
+```
