@@ -7,7 +7,7 @@ typo error-suggestion pair dictionary ကနေ correction rule ဆွဲထု�
 
 ".err" နဲ့ ".sug" ဖိုင်တွေကို syllable breaking လုပ်ဖို့အတွက် အောက်ပါ shell script ကို ရေးခဲ့တယ်။  
 
-```
+```bash
 #!/bin/bash
 
 # syllable breaking for all error types
