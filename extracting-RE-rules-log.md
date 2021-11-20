@@ -1307,3 +1307,203 @@ errror type တစ်မျိုးစီကို ဖိုင်တစ်ဖ�
 ```
 
 ```
+   
+Run တော့ အောက်ပါလိုမျိုး error message တွေကို တွေ့ရ...  
+   
+```
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1079.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1080.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1080.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1081.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1081.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1082.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1082.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1083.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1083.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1084.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1084.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1085.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1085.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1086.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1086.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1087.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1087.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1088.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1088.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1089.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1089.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1090.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1090.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1091.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1091.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1092.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1092.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1093.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1093.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1094.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1094.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1095.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1095.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1096.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1096.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1097.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1097.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1098.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1098.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1099.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1099.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1100.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1100.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1101.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1101.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1102.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1102.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1103.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1103.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1104.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1104.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1105.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1105.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1106.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1106.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1107.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1107.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1108.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1108.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1109.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1109.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1110.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1110.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1111.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1111.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1112.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1112.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1113.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1113.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1114.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1114.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1115.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1115.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1116.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1116.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1117.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1117.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1118.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1118.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1119.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1119.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1120.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1120.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1121.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1121.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1122.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1122.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1123.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1123.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1124.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1124.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1125.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1125.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1126.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1126.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1127.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1127.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1128.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1128.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1129.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1129.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1130.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1130.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1131.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1131.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1132.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1132.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1133.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1133.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1134.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1134.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1135.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1135.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1136.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1136.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1137.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1137.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1138.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1138.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1139.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1139.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1140.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1140.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1141.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1141.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1142.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1142.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1143.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1143.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1144.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1144.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1145.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1145.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1146.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1146.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1147.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1147.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1148.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1148.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1149.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1149.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1150.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1150.
+checked output:
+ အဲ့ တော့ ဘယ် လို ပြော ရ
+ သား ကို
+ ကြီး ကြောက် လိုက် တာ
+ ကျက် သ ရေ တုံး ကွန်
+ ရှေး ရှေး ဘု ရင် တွေ
+ လဲ ပါ တယ်
+ မို့ တူ တရ်
+ မုန့် ဟင်း ခါး တွေ ရ
+ ဖြစ် တိုင်း စောက် ပြစ် တင်
+ ကြား လောက် မုန့် ဟင်း ခါး ပွဲ များ
+stack
+start checking
+input: stack.err.syl
+RE file: stack.rule.uniq.RE
+ အ ခု ကု မ ဏီ ထဲ
+ ရေ ငုပ် သင် ဘော ပျောက် သွား
+ တွင်း ချင်း သ ဂြိုလ် လိုက် ရ
+ ဒီ နေ့ တ နင်း ဂ နွေ မင်း
+ အ တွက် စင် ကာ ပူ
+ ကျမ္မာ ပါ စေ
+ ဏာ ရူး သ မ တ ရူး
+ စိုး မင် ဂ လာ ပါ
+ ဓိ က သင် ချိုင်း က
+ နိုင် ငံ သစ် စာ ဖောက် အ
+checked output:
+ အ ခု ကုမ္ပ ဏီ ထဲ
+ ရေ ငုပ် သင်္ဘော ပျောက် သွား
+ တွင်း ချင်း သင်္ဂြိုဟ် လိုက် ရ
+ ဒီ နေ့ တ နင်္ဂ နွေ မင်း
+ အ တွက် စင်္ကာ ပူ
+ ကျန်း မာ ပါ စေ
+ ဏာ ရူး သမ္မ တ ရူး
+ စိုး မင်္ဂ လာ ပါ
+ ဓိ က သင်္ချိုင်း က
+ နိုင် ငံ သစ္စာ ဖောက် အ
+typo
+start checking
+input: typo.err.syl
+RE file: typo.rule.uniq.RE
+ သ မား က ဟာ အ
+ ကြီး ပါ ဟယ်လ်
+ တွေ ပါ ဟယ်လ်
+ က တော့ အ သိ ခဲ့
+ တောင်း ပန် စု တ
+ ကို လိုက် လော မယ် ဆို
+ ဆို ဂုဏ် ပြ တာ ခံ
+ လိုက် တာ ဈေူ ကွက် ထဲ
+က်ု အ ခြေ
+ ကျပ် ကိူ ဆို လို
+...
+...
+```
