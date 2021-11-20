@@ -1539,3 +1539,512 @@ user	20m52.972s
 sys	0m5.878s
 ```
 
+အထက်ပါအတိုင်း error ထွက်နေပေမဲ့ လက်ရှိ rule နဲ့ pass လုပ်ထားတာကိုပဲ evaluation လုပ်ကြည့်ပြီး အလုပ်ဘယ်လောက် လုပ်သလဲ ဆိုတာကို တိုင်းတာကြည့်ချင်တယ်...  
+   
+## Evaluation 
+   
+evaluation အတွက်က လောလောဆယ် F1-measure တွက်တဲ့ အောက်ပါ python script ကိုပဲ သုံးထားတယ်။  
+   
+```python
+#****************************************************************
+#
+# evaluate.py - the evaluation program.
+#
+# Author: Yue Zhang
+#
+# Computing lab, University of Oxford. 2006.11
+#
+#****************************************************************
+
+#================================================================
+#
+# Import modules.
+#
+#================================================================
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "libs")))
+import getopt
+
+#----------------------------------------------------------------
+#
+# addTuples - add two tuples element by element.
+#
+# Inputs:  tuple1 - operand1
+#          tuple2 - operand2
+#
+# Returns: tuple
+#
+#----------------------------------------------------------------
+
+def addTuples(tuple1, tuple2):
+   return tuple([tuple1[i]+tuple2[i] for i in xrange(len(tuple1))])
+
+#----------------------------------------------------------------
+#
+# addListToList - add the second list to the first list.
+#
+# Inputs:  list1 - operand1, the one modified list
+#          list2 - operand2, the list added 
+#
+#----------------------------------------------------------------
+
+def addListToList(list1, list2):
+   for i in xrange(len(list1)):
+      list1[i] += list2[i]
+
+#----------------------------------------------------------------
+#
+# subtractListFromList - subtract the second list from the first list.
+#
+# Inputs:  list1 - operand1, the one modified list
+#          list2 - operand2, the list added 
+#
+#----------------------------------------------------------------
+
+def subtractListFromList(list1, list2):
+   for i in xrange(len(list1)):
+      list1[i] -= list2[i]
+
+#----------------------------------------------------------------
+#
+# dotProduct - compute the dot-product for lists/tuples.
+#
+# Inputs:  list1 - operand1
+#          list2 - operand2
+#
+# Returns: int
+#
+#----------------------------------------------------------------
+
+def dotProduct(list1, list2):
+   nReturn = 0
+   for i in xrange(len(list1)):
+      nReturn += list1[i] * list2[i]
+   return nReturn
+
+#----------------------------------------------------------------
+#
+# addDictToDict - add a dictionary with int value to another dictionary
+#
+# Input: dict1 - operand1, the one that is added to
+#        dict2 - operand2, the one to add
+#
+# Example:
+# addDictToDict({'a':1,'b':2}, {'b':1,'c':2}) = {'a':1,'b':4,'c':2}
+#
+#----------------------------------------------------------------
+
+def addDictToDict(dict1, dict2):
+   for key in dict2:
+      if key in dict1:
+         dict1[key] += dict2[key]
+      else:
+         dict1[key] = dict2[key]
+
+#----------------------------------------------------------------
+#
+# subtractDictFromDict - subtract a dictionary with int value from another dictionary
+#
+# Input: dict1 - operand1, the one that is modified to 
+#        dict2 - operand2, the one to substract
+#
+# Example:
+# subtractDictFromDict({'a':1,'b':2}, {'b':1,'c':2}) = {'a':1,'b':1,'c':-2}
+#
+#----------------------------------------------------------------
+
+def subtractDictFromDict(dict1, dict2):
+   for key in dict2:
+      if key in dict1:
+         dict1[key] -= dict2[key]
+      else:
+         dict1[key] = -dict2[key]
+
+#================================================================
+#
+# CRawSentenceReader - the raw sentence reader
+#
+# This reader is aimed for Chinese. 
+#
+#================================================================
+
+class CRawSentenceReader(object):
+
+   #----------------------------------------------------------------
+   #
+   # __init__ - initialisation
+   #
+   # Inputs: sPath - the file for reading
+   #
+   #----------------------------------------------------------------
+
+   def __init__(self, sPath, sEncoding="utf-8"):
+      self.m_sPath = sPath
+      self.m_oFile = open(sPath)
+      self.m_sEncoding = sEncoding
+
+   #----------------------------------------------------------------
+   #
+   # __del__ - destruction
+   #
+   #----------------------------------------------------------------
+
+   def __del__(self):
+      self.m_oFile.close()
+
+   #----------------------------------------------------------------
+   #
+   # readNonEmptySentence - read the next sentence
+   #
+   # Returns: list of characters or None if the EOF symbol met.
+   #
+   #----------------------------------------------------------------
+
+   def readNonEmptySentence(self):
+      # 1. read one line
+      sLine = "\n"                              # use a pseudo \n to start
+      while sLine:                              # while there is a line
+         sLine = sLine.strip()                  # strip the line
+         if sLine:                              # if the line isn't empty
+            break                               # break
+         sLine = self.m_oFile.readline()        # read next line
+         if not sLine:                          # if eof symbol met
+            return None                         # return
+      # 2. analyse this line
+      uLine = sLine.decode(self.m_sEncoding)    # find unicode
+      lLine = [sCharacter.encode(self.m_sEncoding) for sCharacter in uLine]
+      return lLine
+
+   #----------------------------------------------------------------
+   #
+   # readSentence - read the next sentence
+   #
+   # Returns: list of characters or None if the EOF symbol met.
+   #
+   #----------------------------------------------------------------
+
+   def readSentence(self):
+      # 1. read one line
+      sLine = self.m_oFile.readline()           # read next line
+      if not sLine:                             # if eof symbol met
+         return None                            # return
+      # 2. analyse this line
+      uLine = sLine.strip().decode(self.m_sEncoding)    # find unicode
+      lLine = [sCharacter.encode(self.m_sEncoding) for sCharacter in uLine]
+      return lLine
+
+#================================================================
+#
+# CPennTaggedSentenceReader - the tagged sentence reader
+#
+#================================================================
+
+class CPennTaggedSentenceReader(object):
+
+   #----------------------------------------------------------------
+   #
+   # __init__ - initialisation
+   #
+   # Inputs: sPath - the file for reading
+   #
+   #----------------------------------------------------------------
+
+   def __init__(self, sPath):
+      self.m_sPath = sPath
+      self.m_oFile = open(sPath)
+
+   #----------------------------------------------------------------
+   #
+   # __del__ - destruction
+   #
+   #----------------------------------------------------------------
+
+   def __del__(self):
+      self.m_oFile.close()
+
+   #----------------------------------------------------------------
+   #
+   # readNonEmptySentence - read the next sentence
+   #
+   # Input: bIgnoreNoneTag - ignore _-NONE- tagged word?
+   #
+   # Returns: list of word, tag pairs or None if the EOF symbol met.
+   #
+   #----------------------------------------------------------------
+
+   def readNonEmptySentence(self, bIgnoreNoneTag):
+      # 1. read one line
+      sLine = "\n"                              # use a pseudo \n to start
+      while sLine:                              # while there is a line
+         sLine = sLine.strip()                  # strip the line
+         if sLine:                              # if the line isn't empty
+            break                               # break
+         sLine = self.m_oFile.readline()        # read next line
+         if not sLine:                          # if eof symbol met
+            return None                         # return
+      # 2. analyse this line
+      lLine = sLine.strip().split(" ")
+      lNewLine = []
+      for nIndex in xrange(len(lLine)):
+         tTagged = tuple(lLine[nIndex].split("/"))
+         if len(tTagged) >= 3:
+            tTagged = ('/'.join(tTagged[:-1]), tTagged[-1])
+         assert(len(tTagged)<3)
+         if len(tTagged)==1:
+            tTagged = (tTagged[0], "-NONE-")
+         if (bIgnoreNoneTag==False) or (tTagged[0]): # if we take -NONE- tag, or if we find that the tag is not -NONE-
+            lNewLine.append(tTagged)
+      return lNewLine
+
+   #----------------------------------------------------------------
+   #
+   # readNonEmptySentence - read the next sentence
+   #
+   # Input: bIgnoreNoneTag - ignore _-NONE- tagged word?
+   #
+   # Returns: list of word, tag pairs or None if the EOF symbol met.
+   #
+   #----------------------------------------------------------------
+
+   def readSentence(self, bIgnoreNoneTag):
+      # 1. read one line
+      sLine = self.m_oFile.readline()           # read next line
+      if not sLine:                             # if eof symbol met
+         return None                            # return
+      # 2. analyse this line
+      lLine = sLine.strip().split(" ")
+      lNewLine = []
+      for nIndex in xrange(len(lLine)):
+         tTagged = tuple(lLine[nIndex].split("/"))
+         assert(len(tTagged)<3)
+         if len(tTagged)==1:
+            tTagged = (tTagged[0], "-NONE-")
+         if (bIgnoreNoneTag==False) or (tTagged[0]): # if we take -NONE- tag, or if we find that the tag is not -NONE-
+            lNewLine.append(tTagged)
+      return lNewLine
+
+#================================================================
+#
+# Global.
+#
+#================================================================
+
+g_sInformation = "\nThe evaluation program for Chinese Tagger. \n\n\
+  Yue Zhang 2006\n\
+  Computing laboratory, Oxford\n\n\
+evaluate.py candidate_text reference_text\n\n\
+The candidate and reference text need to be files with tagged sentences. Each sentence takes one line, and each word is in the format of Word_Tag.\n\n\
+"
+
+#----------------------------------------------------------------
+#
+# evaluateSentence - evaluate one sentence
+#
+# Input: tCandidate - candidate sentence
+#        tReference
+#
+# Return: int for correct words
+#
+#----------------------------------------------------------------
+
+def evaluateSentence(lCandidate, lReference):
+   nCorrectWords = 0
+   nCorrectTags = 0
+   nChar = 0
+   indexCandidate = 0
+   indexReference = 0
+   while lCandidate and lReference:
+      if lCandidate[0][0] == lReference[0][0]:  # words right
+         nCorrectWords += 1
+         if lCandidate[0][1] == lReference[0][1]: # tags 
+            nCorrectTags += 1
+         indexCandidate += len(lCandidate[0][0]) # move
+         indexReference += len(lReference[0][0])
+         lCandidate.pop(0)
+         lReference.pop(0)
+      else:
+         if indexCandidate == indexReference:
+            indexCandidate += len(lCandidate[0][0]) # move
+            indexReference += len(lReference[0][0])
+            lCandidate.pop(0)
+            lReference.pop(0)
+         elif indexCandidate < indexReference:
+            indexCandidate += len(lCandidate[0][0])
+            lCandidate.pop(0)
+         elif indexCandidate > indexReference:
+            indexReference += len(lReference[0][0]) # move
+            lReference.pop(0)
+   return nCorrectWords, nCorrectTags            
+
+#================================================================
+#
+# Main.
+#
+#================================================================
+
+if __name__ == '__main__':
+   #
+   # Parse command ......
+   #
+   opts, args = getopt.getopt(sys.argv[1:], "")
+   for opt in opts:
+      print opt
+   if len(args) != 2:
+      print g_sInformation
+      sys.exit(1)
+   sCandidate = args[0]
+   sReference = args[1]
+   if not os.path.exists(sCandidate):
+      print "Candidate file %s does not exist." % sCandidate
+      sys.exit(1)
+   if not os.path.exists(sCandidate):
+      print "Reference file %s does not exist." % sReference
+      sys.exit(1)
+   #
+   # Compare candidate and reference
+   #
+   nTotalCorrectWords = 0
+   nTotalCorrectTags = 0
+   nCandidateWords = 0
+   nReferenceWords = 0
+   fReference = CPennTaggedSentenceReader(sReference); fCandidate = CPennTaggedSentenceReader(sCandidate)
+   lReference = fReference.readNonEmptySentence(bIgnoreNoneTag=True); lCandidate = fCandidate.readNonEmptySentence(bIgnoreNoneTag=True)
+   while lReference and lCandidate:
+      n=len(lCandidate)
+      nCandidateWords += len(lCandidate)
+      nReferenceWords += len(lReference)
+      nCorrectWords, nCorrectTags = evaluateSentence(lCandidate, lReference)
+      nTotalCorrectWords += nCorrectWords
+      nTotalCorrectTags += nCorrectTags
+      lReference = fReference.readNonEmptySentence(bIgnoreNoneTag=True); lCandidate = fCandidate.readNonEmptySentence(bIgnoreNoneTag=True)
+
+   if ( lReference and not lCandidate ) or ( lCandidate and not lReference ) : 
+      print "Warning: the reference and the candidate consists of different number of lines!"
+
+   word_precision = float(nTotalCorrectWords) / float(nCandidateWords)
+   word_recall = float(nTotalCorrectWords) / float(nReferenceWords)
+   tag_precision = float(nTotalCorrectTags) / float(nCandidateWords)
+   tag_recall = float(nTotalCorrectTags) / float(nReferenceWords)
+   word_fmeasure = (2*word_precision*word_recall)/(word_precision+word_recall)
+   if tag_precision+tag_recall==0:
+      tag_fmeasure = 0.0
+   else:
+      tag_fmeasure = (2*tag_precision*tag_recall)/(tag_precision+tag_recall)
+
+   print "Tag precision:", tag_precision
+   print "Tag recall:", tag_recall
+   print "F-Measure:", tag_fmeasure
+
+```
+   
+error type တစ်မျိုးစီအတွက် တွက်ကြည့်ဖို့ လိုအပ်တာကြောင့် eval.sh ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်...  
+   
+```
+#!/bin/bash
+
+echo "Checking with RE rules extracted from typo dictionary...";
+for re in *.RE;
+do
+   re_file=${re%.*.*.*}; echo $re_file;
+   
+   echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.chk";
+   #python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk
+   python2.7 ./evaluate.py ./$re_file.sug.syl ./chk/$re_file.err.syl.chk
+   #paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk/$re_file.sug-chk
+   paste ./$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk/$re_file.sug-chk
+   echo "==========";
+   echo "";   
+   
+done
+```
+   
+ရလဒ်က အောက်ပါအတိုင်း ရရှိတယ်။  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./eval.sh | tee evaluation1.log
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.965484521409
+Tag recall: 0.962857818784
+F-Measure: 0.964169381107
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.907079646018
+Tag recall: 0.919282511211
+F-Measure: 0.913140311804
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.897810218978
+Tag recall: 0.903204272363
+F-Measure: 0.900499168053
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.495717929125
+Tag recall: 0.401380440809
+F-Measure: 0.443588992194
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.94574227581
+Tag recall: 0.941838649156
+F-Measure: 0.94378642602
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.979002624672
+Tag recall: 0.958868894602
+F-Measure: 0.968831168831
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.939136272097
+Tag recall: 0.941453566622
+F-Measure: 0.940293491655
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.719117647059
+Tag recall: 0.736445783133
+F-Measure: 0.727678571429
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.928456913828
+Tag recall: 0.934449374748
+F-Measure: 0.931443506232
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.980607814761
+Tag recall: 0.977777777778
+F-Measure: 0.979190751445
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.739071272709
+Tag recall: 0.685772459449
+F-Measure: 0.71142499764
+==========
+
+
+real	0m2.213s
+user	0m0.856s
+sys	0m0.060s
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
+```
