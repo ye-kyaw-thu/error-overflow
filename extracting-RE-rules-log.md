@@ -949,3 +949,33 @@ tail command ကို သုံးပြီး rule pattern တွေကို 
 [-္အား-]	{+အား+}	 တင်း	ecs
 (base) ye@:/media/ye/project2/exp/errant/my-data$
 ```
+
+## Count Each Pattern
+
+လက်ရှိ ငါတို့ ပြင်ထားတဲ့ spelling typo dictionary မှာ rule တစ်ခုချင်းစီအတွက် အရေအတွက် ဘယ်လောက် ရှိသလဲ ဆိုတာကို အောက်ပါအတိုင်း check လုပ်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "pecs" | wc
+  29936  155490 1761390
+(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "pec" | wc
+   3999   21531  235692
+(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "ecs" | wc
+   3624   15909  178012
+(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | grep -w "ec" | wc
+    565    2714   29209
+```
+
+သေချာအောင် total လိုင်းအရေအတွက်နဲ့ ပြန်တိုက်စစ်ဆေးခဲ့...  
+rule.uniq ဖိုင် အားလုံးက လိုင်းအရေအတွက် 38124 ရှိတယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data$ cat *.rule.uniq | wc
+  38124  195644 2204303
+```
+
+ဆွဲထုတ်ထားတဲ့ rule pattern တစ်ခုချင်းကို ပြန်စစ်ကြည့်တော့ အောက်ပါအတိုင်း ညီတာကို တွေ့ရတယ်။ အဲဒါကြောင့် grep နဲ့ ဆွဲထုတ်တဲ့ နေရာမှာ error မရှိတာကို confirmation လုပ်နိုင်ခဲ့...    
+
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data$ echo "29936+3999+3624+565" | bc
+38124
+```
