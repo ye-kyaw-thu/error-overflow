@@ -2403,28 +2403,39 @@ F-Measure: 0.558003088008
 ## Manually Extracted Rules vs. Automatic Extracted Rules
 
 အိဖြူဖြူမွန်က အပင်ပန်းခံလက်နဲ့ ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး ရလာတဲ့ spelling correction ရလဒ်နဲ့ automatic ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး spelling correction လုပ်လို့ ရလာတဲ့ ရလဒ် နှစ်မျိုးကို အဓိက နှိုင်းယှဉ်ချင်တာမို့ အောက်ပါအတိုင်း evaluation shell script ကို ရေးခဲ့တယ်။  
-   
-```bash
+     
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat compare-spelling-correction.sh 
 #!/bin/bash
-
-# evaluation on spelling correction with open-test data
+   
+# evaluation on test-data, manual and auto
 # written by Ye Kyaw Thu, LST, NECTEC, Thailand
 # last updated: 21 Nov 2021
 
-echo "Checking with RE rules extracted from typo dictionary...";
-for re in *.RE;
+# ./chk-error-correction.sh > evaluate-on-rule-bashed.out
+# grep "evaluation\|F-Measure" ./evaluate-on-rule-bashed.out
+
+for program in {detect_con.pl,detect_encode.pl,detect_pho-typo.pl,detect_seq.pl,detect_slang.pl,detect_typo.pl,\
+detect_dialect.pl,detect_pho.pl,detect_sensitive.pl,detect_short.pl,detect_stack.pl}
 do
-   re_file=${re%.*.*.*}; echo $re_file;
+   err_file=${program##*_};
+   err_file=${err_file%.*};
    
-   echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.chk";
-   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk-open-test/$re_file.err.syl.chk
-   
-   paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk-open-test/$re_file.sug-chk
-   
+   echo "evaluation with error or input file: $err_file.err.syl";
+   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$err_file.sug.syl /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$err_file.err.syl;
+   echo "----------";
+   echo "";
+   echo "evaluation on manually extracted rule-based hyp: $err_file.err.hyp.syl";
+   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$err_file.sug.syl /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/report_RulebasedSpellingCheck/ruleBased/$err_file.err.hyp.syl;
+   echo "----------";
+   echo "";
+   echo "evaluation on automatic extracted rule-based hyp: $err_file.err.syl.chk";
+   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$err_file.sug.syl ./chk-open-test/$err_file.err.syl.chk;   
    echo "==========";
    echo "";   
    
 done
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
 လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး တွက်တာက F-measure of original test input data, ဒုတိယတွက်တာက F-measure of manual rules နဲ့ တတိယတွက်တာက F-measure of automatic extracted rules တွေပါ။   
