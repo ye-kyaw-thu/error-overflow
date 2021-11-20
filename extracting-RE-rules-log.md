@@ -1017,7 +1017,7 @@ plt.show()
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/prefix-suffix-pattern-distribution.png" alt="prefix, suffix distribution histogram" width="540"/>  
 </p>  
 <div align="center">
-  Fig. Histogram graph of prefix, suffix distributions on current typo dictionary  
+  Fig. Histogram graph of prefix, suffix distributions on current typo dictionary  <br />
    (here, p = prefix, e = error, c = correction and s = suffix)  
 </div> 
 
