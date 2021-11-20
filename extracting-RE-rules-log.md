@@ -2404,7 +2404,7 @@ F-Measure: 0.558003088008
 
 အိဖြူဖြူမွန်က အပင်ပန်းခံလက်နဲ့ ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး ရလာတဲ့ spelling correction ရလဒ်နဲ့ automatic ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး spelling correction လုပ်လို့ ရလာတဲ့ ရလဒ် နှစ်မျိုးကို အဓိက နှိုင်းယှဉ်ချင်တာမို့ အောက်ပါအတိုင်း evaluation shell script ကို ရေးခဲ့တယ်။  
      
-```
+```bash
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat compare-spelling-correction.sh 
 #!/bin/bash
    
