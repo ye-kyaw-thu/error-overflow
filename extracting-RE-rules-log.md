@@ -295,8 +295,7 @@ sudo apt-get install wdiff
 
 ".err.syl" နဲ့ ".sug.syl" နှစ်ဖိုင်တွဲကနေ word မတူတဲ့အပိုင်းတွေကိုပဲ (i.e. word difference) ဆွဲထုတ်တဲ့ အလုပ်ကို wdiff program ကို သုံးပြီး ဆွဲထုတ်ဖို့အတွက် bash shell script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
 
-```
-(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ cat ./mk-wdiff-chk.sh 
+```bash
 #!/bin/bash
 
 # running wdiff on error and suggestion parallel data
