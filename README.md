@@ -90,5 +90,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 83. [liblouis-installation-testing-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/liblouis-installation-testing-log.md)  
 84. [error-of-extracting-bible-data.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/error-of-extracting-bible-data.md)  
 85. [conll2brat-conversion-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/conll2brat-conversion-log.md)  
+86. [extracting-RE-rules-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/extracting-RE-rules-log.md)  
 
 
