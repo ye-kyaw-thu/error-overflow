@@ -2714,7 +2714,7 @@ evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.
    
 ရေးခဲ့တဲ့ bash script က အောက်ပါအတိုင်းပါ။  
    
-```
+```bash
 #!/bin/bash
 
 # paste error ||| reference ||| manual-rules ||| automatic-rules for error analysis
