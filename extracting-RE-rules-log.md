@@ -2052,9 +2052,63 @@ sys	0m0.060s
 
 အထက်ပါ ရလဒ်က automatic extracted rule based approach ကိုပဲ closed-test data နဲ့ evaluation လုပ်ထားတာပါ။ ရလဒ်က ကောင်းပါတယ်။  
    
+closed-test ဒေတာ ရဲ့ file size တွေက training data တွေရဲ့ ပမာဏနဲ့ အတူတူပါပဲ အောက်ပါအတိုင်းပါ။  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ wc ./*.err.syl
+   3797   17815  166161 ./con.err.syl
+     55     224    2139 ./dialect.err.syl
+    376    1524   15575 ./encode.err.syl
+  22789  101157 1004498 ./pho.err.syl
+   3097   13252  129887 ./pho-typo.err.syl
+     73     644    3293 ./sensitive.err.syl
+   2058    9266   95698 ./seq.err.syl
+    144     590    5370 ./short.err.syl
+   1150    4546   46684 ./slang.err.syl
+    789    3857   38102 ./stack.err.syl
+  18677   81661  858050 ./typo.err.syl
+  53005  234536 2365457 total
+```
+
+spelling correction လုပ်ခဲ့ပြီး သို့မဟုတ် spelling checked လုပ်ခဲ့ပြီး ပြန်ထွက်လာတဲ့ hyp ဖိုင်တွေရဲ့ ပမာဏကလည်း အထက်က intput လုပ်ခဲ့တဲ့ closed-test data အတိုင်းပဲ ပြန်ထွက်တာကို confirmation လုပ်ခဲ့တယ်။ အောက်ပါအတိုင်းပါ...  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ wc ./chk/*.chk
+   3797   16908  165843 ./chk/con.err.syl.chk
+     55     223    2150 ./chk/dialect.err.syl.chk
+    376    1498   16045 ./chk/encode.err.syl.chk
+  22789  124453 1506044 ./chk/pho.err.syl.chk
+   3097   13325  139158 ./chk/pho-typo.err.syl.chk
+     73     389    3587 ./chk/sensitive.err.syl.chk
+   2058    8916   95402 ./chk/seq.err.syl.chk
+    144     664    6530 ./chk/short.err.syl.chk
+   1150    4958   50597 ./chk/slang.err.syl.chk
+    789    3465   39603 ./chk/stack.err.syl.chk
+  18676   87915  959037 ./chk/typo.err.syl.chk
+  53004  262714 2983996 total
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
+```
+   
 ## Manually Extracted Rules vs. Automatic Extracted Rules
    
 ဒီတစ်ခါတော့ open-test data နဲ့ နှိုင်းယှဉ်ကြည့်ချင်တယ်။  
+အိဖြူဖြူမွန်က ပြင်ဆင်ထားတဲ့ open-test data ရဲ့ ပမာဏက အောက်ပါအတိုင်းပါ။  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ wc  /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/*.err.syl
+   282   1293  11726 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/con.err.syl
+     8     31    298 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/dialect.err.syl
+    32    127   1226 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/encode.err.syl
+  2096   9122  89403 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/pho.err.syl
+   270   1142  11207 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/pho-typo.err.syl
+    11     70    342 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/sensitive.err.syl
+   206    922   9489 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/seq.err.syl
+    16     64    580 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/short.err.syl
+   127    500   5066 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/slang.err.syl
+   109    513   4860 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/stack.err.syl
+  2205   9341  96377 /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/typo.err.syl
+  5362  23125 230574 total
+```
    
 လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး လိုင်းက F-measure of original test input data, ဒုတိယလိုင်းက F-measure of manual rules နဲ့ တတိယလိုင်းက F-measure of automatic extracted rules တွေပါ။  
    
