@@ -2401,8 +2401,239 @@ F-Measure: 0.558003088008
    
 
 ## Manually Extracted Rules vs. Automatic Extracted Rules
-     
-လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး လိုင်းက F-measure of original test input data, ဒုတိယလိုင်းက F-measure of manual rules နဲ့ တတိယလိုင်းက F-measure of automatic extracted rules တွေပါ။  
+
+အိဖြူဖြူမွန်က အပင်ပန်းခံလက်နဲ့ ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး ရလာတဲ့ spelling correction ရလဒ်နဲ့ automatic ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး spelling correction လုပ်လို့ ရလာတဲ့ ရလဒ် နှစ်မျိုးကို အဓိက နှိုင်းယှဉ်ချင်တာမို့ အောက်ပါအတိုင်း evaluation shell script ကို ရေးခဲ့တယ်။  
+   
+```bash
+#!/bin/bash
+
+# evaluation on spelling correction with open-test data
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 21 Nov 2021
+
+echo "Checking with RE rules extracted from typo dictionary...";
+for re in *.RE;
+do
+   re_file=${re%.*.*.*}; echo $re_file;
+   
+   echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.chk";
+   python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk-open-test/$re_file.err.syl.chk
+   
+   paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk-open-test/$re_file.sug-chk
+   
+   echo "==========";
+   echo "";   
+   
+done
+```
+
+လက်ရှိ experiment လုပ်လို့ ရထားတဲ့ ရလဒ်တွေကိုပဲ အခြေခံပြီး လက်နဲ့ဆောက်ထားတဲ့ spelling correction rules တွေနဲ့ အထက်မှာ လုပ်ပြခဲ့တဲ့အတိုင်း automatic extracted rules တွေအကြား ရလဒ်က ဘယ်လိုနေသလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ ပြီးတော့ relative score ကိုလည်း သိရအောင် reference data နဲ့ ဘာမှ correction မလုပ်ရသေးတဲ့ test data (i.e. error data) ကိုလည်း F-measure အရင်ဆုံး လုပ်ခဲ့။ အဲဒါကြောင့် အောက်ပါ ရလဒ်တွေမှာ ပထမဆုံး တွက်တာက F-measure of original test input data, ဒုတိယတွက်တာက F-measure of manual rules နဲ့ တတိယတွက်တာက F-measure of automatic extracted rules တွေပါ။   
+   
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ ./compare-spelling-correction.sh 
+evaluation with error or input file: con.err.syl
+Tag precision: 0.742326332795
+Tag recall: 0.710750193349
+F-Measure: 0.726195179771
+----------
+
+evaluation on manually extracted rule-based hyp: con.err.hyp.syl
+Tag precision: 0.857835218094
+Tag recall: 0.8496
+F-Measure: 0.853697749196
+----------
+
+evaluation on automatic extracted rule-based hyp: con.err.syl.chk
+Tag precision: 0.823909531502
+Tag recall: 0.810166799047
+F-Measure: 0.816980376452
+==========
+
+evaluation with error or input file: encode.err.syl
+Tag precision: 0.616666666667
+Tag recall: 0.582677165354
+F-Measure: 0.599190283401
+----------
+
+evaluation on manually extracted rule-based hyp: encode.err.hyp.syl
+Tag precision: 0.608333333333
+Tag recall: 0.598360655738
+F-Measure: 0.603305785124
+----------
+
+evaluation on automatic extracted rule-based hyp: encode.err.syl.chk
+Tag precision: 0.625
+Tag recall: 0.595238095238
+F-Measure: 0.609756097561
+==========
+
+evaluation with error or input file: pho-typo.err.syl
+Tag precision: 0.73513986014
+Tag recall: 0.73642732049
+F-Measure: 0.735783027122
+----------
+
+evaluation on manually extracted rule-based hyp: pho-typo.err.hyp.syl
+Tag precision: 0.887237762238
+Tag recall: 0.872742906277
+F-Measure: 0.87993064586
+----------
+
+evaluation on automatic extracted rule-based hyp: pho-typo.err.syl.chk
+Tag precision: 0.870629370629
+Tag recall: 0.862337662338
+F-Measure: 0.866463679861
+==========
+
+evaluation with error or input file: seq.err.syl
+Tag precision: 0.693922651934
+Tag recall: 0.681127982646
+F-Measure: 0.687465790914
+----------
+
+evaluation on manually extracted rule-based hyp: seq.err.hyp.syl
+Tag precision: 0.880662983425
+Tag recall: 0.873903508772
+F-Measure: 0.877270225647
+----------
+
+evaluation on automatic extracted rule-based hyp: seq.err.syl.chk
+Tag precision: 0.706077348066
+Tag recall: 0.694565217391
+F-Measure: 0.700273972603
+==========
+
+evaluation with error or input file: slang.err.syl
+Tag precision: 0.600739371534
+Tag recall: 0.65
+F-Measure: 0.624399615754
+----------
+
+evaluation on manually extracted rule-based hyp: slang.err.hyp.syl
+Tag precision: 0.767097966728
+Tag recall: 0.767097966728
+F-Measure: 0.767097966728
+----------
+
+evaluation on automatic extracted rule-based hyp: slang.err.syl.chk
+Tag precision: 0.64325323475
+Tag recall: 0.678362573099
+F-Measure: 0.660341555977
+==========
+
+evaluation with error or input file: typo.err.syl
+Tag precision: 0.722667521642
+Tag recall: 0.723905363451
+F-Measure: 0.723285912932
+----------
+
+evaluation on manually extracted rule-based hyp: typo.err.hyp.syl
+Tag precision: 0.746713690285
+Tag recall: 0.747512570878
+F-Measure: 0.747112917023
+----------
+
+evaluation on automatic extracted rule-based hyp: typo.err.syl.chk
+Tag precision: 0.579352356525
+Tag recall: 0.538171349151
+F-Measure: 0.558003088008
+==========
+
+evaluation with error or input file: dialect.err.syl
+Tag precision: 0.709677419355
+Tag recall: 0.709677419355
+F-Measure: 0.709677419355
+----------
+
+evaluation on manually extracted rule-based hyp: dialect.err.hyp.syl
+Tag precision: 0.838709677419
+Tag recall: 0.838709677419
+F-Measure: 0.838709677419
+----------
+
+evaluation on automatic extracted rule-based hyp: dialect.err.syl.chk
+Tag precision: 0.774193548387
+Tag recall: 0.774193548387
+F-Measure: 0.774193548387
+==========
+
+evaluation with error or input file: pho.err.syl
+Tag precision: 0.738968575495
+Tag recall: 0.739859679895
+F-Measure: 0.739413859217
+----------
+
+evaluation on manually extracted rule-based hyp: pho.err.hyp.syl
+Tag precision: 0.778605058579
+Tag recall: 0.772682820819
+F-Measure: 0.775632635253
+----------
+
+evaluation on automatic extracted rule-based hyp: pho.err.syl.chk
+Tag precision: 0.442789882842
+Tag recall: 0.361329521086
+F-Measure: 0.397933579336
+==========
+
+evaluation with error or input file: sensitive.err.syl
+Tag precision: 0.622222222222
+Tag recall: 0.4
+F-Measure: 0.486956521739
+----------
+
+evaluation on manually extracted rule-based hyp: sensitive.err.hyp.syl
+Tag precision: 0.822222222222
+Tag recall: 0.880952380952
+F-Measure: 0.850574712644
+----------
+
+evaluation on automatic extracted rule-based hyp: sensitive.err.syl.chk
+Tag precision: 0.755555555556
+Tag recall: 0.618181818182
+F-Measure: 0.68
+==========
+
+evaluation with error or input file: short.err.syl
+Tag precision: 0.676470588235
+Tag recall: 0.71875
+F-Measure: 0.69696969697
+----------
+
+evaluation on manually extracted rule-based hyp: short.err.hyp.syl
+Tag precision: 0.705882352941
+Tag recall: 0.738461538462
+F-Measure: 0.721804511278
+----------
+
+evaluation on automatic extracted rule-based hyp: short.err.syl.chk
+Tag precision: 0.588235294118
+Tag recall: 0.579710144928
+F-Measure: 0.583941605839
+==========
+
+evaluation with error or input file: stack.err.syl
+Tag precision: 0.731441048035
+Tag recall: 0.653021442495
+F-Measure: 0.690010298661
+----------
+
+evaluation on manually extracted rule-based hyp: stack.err.hyp.syl
+Tag precision: 0.759825327511
+Tag recall: 0.670520231214
+F-Measure: 0.712384851586
+----------
+
+evaluation on automatic extracted rule-based hyp: stack.err.syl.chk
+Tag precision: 0.78384279476
+Tag recall: 0.710891089109
+F-Measure: 0.745586708204
+==========
+
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
+```
+   
+အထက်ပါ ရလဒ်ကိုပဲ နှိုင်းယှဉ်ကြည့်ရတာ လွယ်ကူအောင်လို့ precision နဲ့ recall ရလဒ်တွေကို ဖြုတ်ထားလိုက်ပြီး F-score ပဲ နှိုင်းယှဉ်ကြည့်တော့ အောက်ပါအတိုင်းပါ။   
    
 ```
 evaluation with error or input file: con.err.syl, F-Measure: 0.726195179771
