@@ -637,3 +637,39 @@ while (!eof($inputFILE)) {
 close ($inputFILE);
 ```
 
+ငါတို့ ခွဲထားတဲ့ spelling error type အကုန်ကို run ဖို့အတွက် အောက်ပါ shell script ကို ရေးခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+do
+   echo "printing for $f.wdiff ...";
+   perl ./mk-re.pl ./$f.wdiff > $f.rule
+   sort ./$f.rule | uniq > $f.rule.uniq
+done
+```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်း rule ဖိုင်တွေကိုလည်း ထပ်နေတာတွေကို ဖယ်လိုက်ပြီး uniq rule ဘယ်နှစ်ခု ရလာမလဲ ဆိုတာကို သိချင်လို့၊ အဲဒီဖိုင်ကိုပဲ သုံးချင်လို့ uniq command ကို လည်း သုံးပြီး unique လုပ်ခဲ့တယ်။  
+
+အထက်ပါ shell ကို အောက်ပါအတိုင်း run ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data$ time ./print-prefix-error-correction-suffix.sh | tee print-rules.log
+printing for con.wdiff ...
+printing for encode.wdiff ...
+printing for pho-typo.wdiff ...
+printing for seq.wdiff ...
+printing for slang.wdiff ...
+printing for typo.wdiff ...
+printing for dialect.wdiff ...
+printing for pho.wdiff ...
+printing for sensitive.wdiff ...
+printing for short.wdiff ...
+printing for stack.wdiff ...
+
+real	0m4.558s
+user	0m1.768s
+sys	0m0.041s
+(base) ye@:/media/ye/project2/exp/errant/my-data$
+```
