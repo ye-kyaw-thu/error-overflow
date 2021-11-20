@@ -1257,5 +1257,53 @@ file size တွေကိုလည်း check လုပ်ခဲ့...
    
 ## Spelling Correction with Extracted Rules
 
-
+အထက်မှာ ဆွဲထုတ်ပြီး ရလာတဲ့ search-replace အတွဲတွေကို သုံးပြီး စာလုံးပေါင်း မှားနေတဲ့ ဖိုင်ကို RE ရဲ့ s/search/replace/g; ပုံစံနဲ့ spelling correction လုပ်ပေးတဲ့ perl script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
    
+```perl 
+#!/usr/bin/env perl
+
+# Spelling correction with Regular Expression rules
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+#
+# Last updated date: 18 Nov 2021
+# How to run: 
+# e.g. $ perl correction-with-RE.pl <RE-filename> <error-file>
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+# read RE file and puto into an array
+open (my $reFILE,"<:encoding(UTF-8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+chomp(my @rules = <$reFILE>);
+close ($reFILE);
+
+open (my $errorFILE,"<:encoding(UTF-8)", $ARGV[1]) or die "Couldn't open input file $ARGV[1]!, $!\n";
+while (!eof($errorFILE)) {
+    my $line = <$errorFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        #print("input: $line\n");
+        for my $rule (@rules) {
+            my ($regex, $replacement) = split('\t', $rule);
+            #print("regex: $regex, replacement: $replacement\n"); # for debugging
+            $line =~ s/$regex/$replacement/g;
+        }
+        print("$line\n");
+    }
+    
+}
+
+close ($errorFILE);
+
+```
+   
+errror type တစ်မျိုးစီကို ဖိုင်တစ်ဖိုင်စီ ခွဲသိမ်းထားတာမို့လို့ အဲဒီဖိုင်တွေအကုန်ကို run လို့ ရဖို့အတွက် အောက်ပါအတိုင်း shell script ကို ရေးခဲ့...  
+   
+```
+
+```
