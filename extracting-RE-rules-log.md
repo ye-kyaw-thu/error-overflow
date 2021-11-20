@@ -1306,7 +1306,7 @@ close ($errorFILE);
    
 errror type တစ်မျိုးစီကို ဖိုင်တစ်ဖိုင်စီ ခွဲသိမ်းထားတာမို့လို့ အဲဒီဖိုင်တွေအကုန်ကို run လို့ ရဖို့အတွက် အောက်ပါအတိုင်း shell script ကို ရေးခဲ့...  
    
-```
+```bash
 #!/bin/bash
 
 # written by Ye, LST, NECTEC, Thailand
@@ -1943,7 +1943,7 @@ if __name__ == '__main__':
    
 error type တစ်မျိုးစီအတွက် တွက်ကြည့်ဖို့ လိုအပ်တာကြောင့် eval.sh ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်...  
    
-```
+```bash
 #!/bin/bash
 
 echo "Checking with RE rules extracted from typo dictionary...";
