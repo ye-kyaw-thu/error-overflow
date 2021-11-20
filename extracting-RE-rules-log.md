@@ -979,3 +979,34 @@ rule.uniq ဖိုင် အားလုံးက လိုင်းအရေ�
 (base) ye@:/media/ye/project2/exp/errant/my-data$ echo "29936+3999+3624+565" | bc
 38124
 ```
+
+## Histogram of Prefix and Suffix
+
+လက်ရှိ ဒေတာမှာ prefix ပဲရှိတာ၊ suffix ပဲ ရှိတာ၊ prefix-suffix နှစ်ခုညှပ်ရှိတာ၊ prefix-suffix နှစ်ခုစလုံး မပါတာတွေက တကယ်က spelling error detection အတွက်ရော၊ spelling suggestion အတွက်ရော အရေးပါတယ်။ အဲဒါကြောင့် လက်ရှိ ရှိနေတဲ့ prefix, suffix distribution ကို histogram graph အကြမ်းထုတ်ထားပြီး နောက်ပိုင်း ဒေတာထပ်ဖြည့် ပြင်တဲ့အခါမှာ ဂရုစိုက်ရမယ့် အချက်တွေကို ဆွေးနွေးတဲ့အခါ ပြန်ကြည့်ရန်...  
+
+python code ကို အောက်ပါအတိုင်း ရေးခဲ့...  
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv('pattern-dist.csv', sep = '\t', index_col = 0)
+# if you want to change font size globally
+#plt.rcParams['font.size'] = '16'
+
+
+data.plot(kind = 'bar')
+plt.xlabel('Pattern', fontsize=16)
+plt.ylabel('Frequency', fontsize=16)
+plt.xticks(fontsize= 14)
+plt.title('Prefix, Suffix Distribution')
+#plt.margins(0.9)
+
+#plt.gca().axes.get_xaxis().set_visible(False) # label တွေကို ဖျောက်ချင်ရင် သုံးတာ
+#plt.gca().axes.get_yaxis().set_visible(False)
+plt.tight_layout() # မဟုတ်ရင် x-axis label က မပေါ်လို့...
+plt.savefig('prefix-suffix-pattern-distribution.png', dpi = 150)
+plt.show()
+```
+
+https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/prefix-suffix-pattern-distribution.png
