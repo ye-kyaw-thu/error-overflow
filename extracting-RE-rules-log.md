@@ -1542,7 +1542,7 @@ sys	0m5.878s
    
 ## Evaluation 
    
-evaluation အတွက်က လောလောဆယ် F1-measure တွက်တဲ့ အောက်ပါ python script ကိုပဲ သုံးထားတယ်။  
+evaluation အတွက်က လောလောဆယ် F1-measure တွက်တဲ့ defecto script လိုဖြစ်နေတဲ့ အောက်ပါ python script ကိုပဲ သုံးထားတယ်။  
    
 ```python
 #****************************************************************
