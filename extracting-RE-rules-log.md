@@ -2638,47 +2638,58 @@ F-Measure: 0.745586708204
 ```
 evaluation with error or input file: con.err.syl, F-Measure: 0.726195179771
 evaluation on manual Rule-based hyp: con.err.hyp.syl, F-Measure: 0.853697749196
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.816980376452
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.964169381107
 
 evaluation with error or input file: dialect.err.syl, F-Measure: 0.709677419355
 evaluation on manual Rule-based hyp: dialect.err.hyp.syl, F-Measure: 0.838709677419
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.774193548387
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.913140311804
 
 evaluation with error or input file: encode.err.syl, F-Measure: 0.599190283401
 evaluation on manual Rule-based hyp: encode.err.hyp.syl, F-Measure: 0.603305785124
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.609756097561
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.900499168053
 
 evaluation with error or input file: pho.err.syl, F-Measure: 0.739413859217
 evaluation on manual Rule-based hyp: pho.err.hyp.syl, F-Measure: 0.775632635253
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.397933579336
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.443588992194
 
 evaluation with error or input file: pho-typo.err.syl, F-Measure: 0.735783027122
 evaluation on manual Rule-based hyp: pho-typo.err.hyp.syl, F-Measure: 0.87993064586
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.866463679861
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.94378642602
 
 evaluation with error or input file: sensitive.err.syl, F-Measure: 0.486956521739
 evaluation on manual Rule-based hyp: sensitive.err.hyp.syl, F-Measure: 0.850574712644
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.68
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.968831168831
 
 evaluation with error or input file: seq.err.syl, F-Measure: 0.687465790914
 evaluation on manual Rule-based hyp: seq.err.hyp.syl, F-Measure: 0.877270225647
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.700273972603
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.940293491655
 
 evaluation with error or input file: short.err.syl, F-Measure: 0.69696969697
 evaluation on manual Rule-based hyp: short.err.hyp.syl, F-Measure: 0.721804511278
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.583941605839
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.727678571429
 
 evaluation with error or input file: slang.err.syl, F-Measure: 0.624399615754
 evaluation on manual Rule-based hyp: slang.err.hyp.syl, F-Measure: 0.767097966728
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.660341555977
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.931443506232
 
 evaluation with error or input file: stack.err.syl, F-Measure: 0.690010298661
 evaluation on manual Rule-based hyp: stack.err.hyp.syl, F-Measure: 0.712384851586
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.745586708204
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.979190751445
 
 evaluation with error or input file: typo.err.syl, F-Measure: 0.723285912932
 evaluation on manual Rule-based hyp: typo.err.hyp.syl, F-Measure: 0.747112917023
-evaluation on automatic extracted Rule-based approach, F-Measure: 
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.558003088008
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.71142499764
 
 ```
 ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တော့ automatic extracted rule-based approach က အများစုမှာ manually extracted rule-based approach ထက် ရလဒ်ကောင်း ပေးနိုင်တာကို တွေ့ရတယ်။ သို့သော် error type နှစ်မျိုးမှာတော့ (i.e. pho and typo) manual ဆွဲထုတ်ထားတဲ့ rule တွေက ပိုအားသာတာကို တွေ့ရတယ်။ အသေးစိတ် လေ့လာဖို့ လိုအပ်...  
