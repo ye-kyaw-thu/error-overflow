@@ -3070,3 +3070,9 @@ rule နဲ့လုပ်တာကြောင့် ဘယ် rule ကို �
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
    
+## Thinking
+   
+- F1-measure လုပ်တာထက် မှားနေတဲ့ စာလုံးကို မှန်မှန်ကန်ကန် ပြင်ပေးနိုင်ရင် အမှတ်ပေးတဲ့ ပုံစံမျိုးနဲ့ပဲ (e.g. accuracy) evaluation လုပ်ရင် ကောင်းမယ်လို့ ထင်တယ်။ ဘာကြောင့်လဲ ဆိုတော့ word segmentation ကို evaluation လုပ်သလို input လုပ်လိုက်တဲ့ စာကြောင်း တစ်ကြောင်းလုံးကို တွက်တာမို့ precision, recall နဲ့ F1-score တွေက original မြင့်နေတာကြောင့်မို့လို့... ခက်တာက accuracy နဲ့ တွက်မယ်ဆိုရင် မှားတဲ့ စာလုံးကိုပဲ အတိအကျ input လုပ်ရမယ် ဆိုတဲ့ ပုံစံမို့လို့ spelling checking လို ကိစ္စမျိုးမှာက context ကိုလည်း (e.g. prefix, suffix) ကြည့်ရတာမို့... 
+- တကယ်က manual rule တွေကိုလည်း အသေးစိတ် ပြန်စစ်ပြီး အစီအစဉ် (i.e. checking order) ကိုပါ ပြန်စဉ်းစား သုံးသပ်နိုင်ရင် ရလဒ်က တက်လာမှာ သေချာတယ်
+- auto extracted rule တွေနဲ့ run တဲ့အခါမှာ escape error ကြောင့်လို့ ယူဆထားပေမဲ့ ```error ||| reference ||| manual ||| auto``` ကို ကြည့်တော့ manual မှာလိုပဲ checking or parsing order ကိုလည်း ပြန်သုံးသပ်သင့်တယ်
+- auto မှာ လက်ရှိအတိုင်းမှာက error type ပေါ်ကို မူတည်ပြီး သူနဲ့ သက်ဆိုင်တဲ့ rule ကိုပဲ pass လုပ်ပြီးသွားနေတာ။ အခုလိုသာဆိုရင် လက်တွေ့ spelling checking မှာက ဝင်လာတဲ့ စာကြောင်းကို error detection လုပ်ရမယ့် အဆင့် (preprocessing) က လိုအပ်နေသေးတယ်။  
