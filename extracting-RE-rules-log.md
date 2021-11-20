@@ -3077,3 +3077,5 @@ Automatic extracted rule တွေကို pass လုပ်တဲ့အခါ�
 - တကယ်က manual rule တွေကိုလည်း အသေးစိတ် ပြန်စစ်ပြီး အစီအစဉ် (i.e. checking order) ကိုပါ ပြန်စဉ်းစား သုံးသပ်နိုင်ရင် ရလဒ်က တက်လာမှာ သေချာတယ်
 - auto extracted rule တွေနဲ့ run တဲ့အခါမှာ escape error ကြောင့်လို့ ယူဆထားပေမဲ့ ```error ||| reference ||| manual ||| auto``` ကို ကြည့်တော့ manual မှာလိုပဲ checking or parsing order ကိုလည်း ပြန်သုံးသပ်သင့်တယ်
 - auto မှာ လက်ရှိအတိုင်းမှာက error type ပေါ်ကို မူတည်ပြီး သူနဲ့ သက်ဆိုင်တဲ့ rule ကိုပဲ pass လုပ်ပြီးသွားနေတာ။ အခုလိုသာဆိုရင် လက်တွေ့ spelling checking မှာက ဝင်လာတဲ့ စာကြောင်းကို error detection လုပ်ရမယ့် အဆင့် (preprocessing) က လိုအပ်နေသေးတယ်။  
+- rule နဲ့ pass လုပ်ပြီးသွားတဲ့အခါမှာလည်း spacing ကိစ္စ ရှင်းဖို့လိုအပ်ရင် ရှင်းရလိမ့်မယ်။ မဟုတ်ရင် evaluation မှာ affect ဖြစ်မှာမို့...  
+   
