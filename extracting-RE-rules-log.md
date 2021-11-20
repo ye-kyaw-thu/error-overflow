@@ -2692,7 +2692,7 @@ evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.55
 evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.71142499764
 
 ```
-ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တော့ automatic extracted rule-based approach က အများစုမှာ manually extracted rule-based approach ထက် ရလဒ်ကောင်း ပေးနိုင်တာကို တွေ့ရတယ်။ သို့သော် error type နှစ်မျိုးမှာတော့ (i.e. pho and typo) manual ဆွဲထုတ်ထားတဲ့ rule တွေက ပိုအားသာတာကို တွေ့ရတယ်။ အသေးစိတ် လေ့လာဖို့ လိုအပ်...  
+ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တော့ manually extracted rule-based approach က automatic extracted rule-based approach ထက် အများစုမှ ရလဒ်ကောင်း ပေးနိုင်တာကို တွေ့ရတယ်။ Encoding error type မှာတော့ manual နဲ့ auto က comparable ဖြစ်တဲ့ ရလဒ်ကို ရရှိတယ်။ Stack error type မှာတော့ auto က manual ထက် သာတာကို တွေ့ရတယ်။ အသေးစိတ် လေ့လာဖို့ လိုအပ်...  
    
 ## Error Analysis
    
