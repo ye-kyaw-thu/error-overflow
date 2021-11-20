@@ -1305,12 +1305,30 @@ close ($errorFILE);
 errror type တစ်မျိုးစီကို ဖိုင်တစ်ဖိုင်စီ ခွဲသိမ်းထားတာမို့လို့ အဲဒီဖိုင်တွေအကုန်ကို run လို့ ရဖို့အတွက် အောက်ပါအတိုင်း shell script ကို ရေးခဲ့...  
    
 ```
+#!/bin/bash
 
+# written by Ye, LST, NECTEC, Thailand
+# testing 1
+
+for re in *.RE;
+do
+   re_file=${re%.*.*.*}; echo $re_file;
+    echo "start checking";
+    echo "input: $re_file.err.syl";
+    head /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$re_file.err.syl;
+    perl ./correction-with-RE.pl ./total.RE.uniq /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$re_file.err.syl > ./chk/$re_file.err.syl.chk
+    echo "checked output:";
+    head ./chk/$re_file.err.syl.chk; exit;
+done
 ```
    
 Run တော့ အောက်ပါလိုမျိုး error message တွေကို တွေ့ရ...  
    
 ```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./test-all-error-types.sh | tee test1.log
+...
+...
+...
 Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1079.
 Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/မျိုး သ { <-- HERE +သူ+} တောင်း လား လို/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1080.
 Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/လေ သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ./correction-with-RE.pl line 32, <$errorFILE> line 1080.
@@ -1504,6 +1522,20 @@ RE file: typo.rule.uniq.RE
  လိုက် တာ ဈေူ ကွက် ထဲ
 က်ု အ ခြေ
  ကျပ် ကိူ ဆို လို
-...
-...
+checked output:
+ သ မား က ဟာ အ
+ ကြီး ပါ့ ဟယ်လ်
+ တွေ ပါ့ ဟယ်လ်
+ က တော့ မ သိ ခဲ့
+ တောင်း ပန် အ စဉ်ု တ
+ ကို လိုက် လျော မယ် ဆို
+ ဆို ဂုဏ် ပြု ကိုယ် သာ ခံ
+ လိုက် တာ ဈေး ကွက် ထဲ
+ကို အ ခြေ
+ ကျပ် ကို ဆို လို
+
+real	21m43.270s
+user	20m52.972s
+sys	0m5.878s
 ```
+
