@@ -2098,6 +2098,13 @@ evaluation on manual Rule-based hyp: typo.err.hyp.syl, F-Measure: 0.747112917023
 evaluation on automatic extracted Rule-based approach, F-Measure: 0.71142499764
 
 ```
+ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တော့ automatic extracted rule-based approach က အများစုမှာ manually extracted rule-based approach ထက် ရလဒ်ကောင်း ပေးနိုင်တာကို တွေ့ရတယ်။ သို့သော် error type နှစ်မျိုးမှာတော့ (i.e. pho and typo) manual ဆွဲထုတ်ထားတဲ့ rule တွေက ပိုအားသာတာကို တွေ့ရတယ်။ အသေးစိတ် လေ့လာဖို့ လိုအပ်...  
+   
+## Error Analysis
+   
+တကယ်တမ်း manual rule-based နဲ့ automatic extracted rule-based နှစ်ခုအကြား spelling correction က ဘယ်လိုတွေဖြစ်နေတယ်၊ ဘယ်လိုတွေ ကွာခြားနေတာလဲ ဆိုတာကို သိရအောင် error|||manual|||automatic ဆိုတဲ့ format ချပြီး နှိုင်းယှဉ်ကြည့်ခဲ့တယ်။ စာကြောင်းရေတိုင်းကို ဒီနေရာမှာ ပြဖို့ခက်ပေမဲ့ Error Analysis လုပ်ခဲ့တာကို မြင်သာအောင်၊ လက်တွေ့ ဘယ်လိုတွေကွာနေတယ် ဆိုတာကို သိသာအောင် head နဲ့ပဲ ဖြစ်ဖြစ် ကြည့်ကြည့် ကြရအောင်။  
+   
+
    
 ## Debugging 
    
