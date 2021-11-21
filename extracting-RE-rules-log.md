@@ -3087,9 +3087,15 @@ rule နဲ့လုပ်တာကြောင့် ဘယ် rule ကို �
 င့် ဝာာ လား	င့် တာ လား ==> ဝာာ	တာ
 ```
 
-### Testing and Evaluation Again with Updated Rules
+## Testing and Evaluation Again with Updated Rules
    
+updated Rule တွေကို သုံးပြီး နောက်တစ်ခေါက် testing/evaluation ထပ်လုပ်ခဲ့တယ်။  
+
+## with Closed-Test Data
    
+## with Open-Test Data
+   
+
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
