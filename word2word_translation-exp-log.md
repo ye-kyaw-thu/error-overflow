@@ -521,7 +521,7 @@ output အနေနဲ့ က အောက်ပါအတိုင်း bidirec
 my-sk.pkl  sk-my.pkl
 ```
 
-## word-to-word translation between Myanmar and Sgaw Kayin
+## Word-to-Word translation between Myanmar and Sgaw Kayin
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ python
