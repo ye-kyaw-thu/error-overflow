@@ -588,3 +588,16 @@ vi editor ကို သုံးပြီး ကြည့်ခဲ့တယ်�
 - evaluation on word-to-word translation
 - error analysis on word-to-word translation and explore more ...  
 
+## Reference
+
+```
+@inproceedings{choe2020word2word,
+ author = {Yo Joong Choe and Kyubyong Park and Dongwoo Kim},
+ title = {word2word: A Collection of Bilingual Lexicons for 3,564 Language Pairs},
+ booktitle = {Proceedings of the 12th International Conference on Language Resources and Evaluation (LREC 2020)},
+ year = {2020}
+}
+```
+
+- [https://github.com/kakaobrain/word2word](https://github.com/kakaobrain/word2word)  
+
