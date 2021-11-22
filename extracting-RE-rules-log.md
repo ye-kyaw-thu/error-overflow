@@ -4528,7 +4528,7 @@ After updating rules:, for open-test F-Measure:, ec: 0.00545746388443, pecs: 0.5
    
 shell script ကို update လုပ်ခဲ့တယ်။  
    
-```
+```bash
 #!/bin/bash
 
 # spelling correction with closed-test data
