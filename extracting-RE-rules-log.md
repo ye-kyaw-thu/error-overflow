@@ -3945,11 +3945,501 @@ sys	0m0.089s
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
    
-## Testing and Evaluation Again with Updated Rules
+## Testing Again with Updated Rules on Open Test Data
    
-updated Rule တွေကို သုံးပြီး နောက်တစ်ခေါက် testing/evaluation ထပ်လုပ်ခဲ့တယ်။  
+Updating testing shelling script for open-test data:  
+   
+```
+#!/bin/bash
 
-## with Closed-Test Data
+# spelling correction with open-test data
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 23 Nov 2021
+
+#mkdir chk;
+# folder တွေခွဲဆောက်ပြီး test လုပ်ထားတဲ့ ရလဒ်တွေကိုသိမ်းရင် folder တွေများပြီး ဘယ်ဟာက ဘယ်ဟာမှန်းမသိမှမို့
+# ec, pecs, pec, ecs ဖိုလ်ဒါ လေးခုအောက်မှာပဲ closed-test, open-test ရလဒ်တွေကို ဖိုင်နာမည်ခွဲသိမ်းဖို့ ဆုံးဖြတ်ခဲ့...  
+
+for fd in {ec,pecs,pec,ecs};
+do
+    cd $fd;
+    echo "enter under $fd/:";
+    for re in *.RE;
+    do
+       re_file=${re%.*.*.*}; echo $re_file;
+        echo "start checking";
+        echo "input: $re_file.err.syl";
+        echo "RE file: $re";
+        
+        head /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$re_file.err.syl;        
+            perl ../correction-with-RE.pl ./$re /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$re_file.err.syl > ./$re_file.err.syl.open.chk
+
+        echo "checked output:";
+        head ./$re_file.err.syl.open.chk;
+    done
+    echo "==========";
+    cd ..;
+done
+```
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./test-all-error-types-open.sh | tee open-test2.log
+...
+...
+...
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 115.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 116.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 116.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 117.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 117.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 118.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 118.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 119.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 119.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 120.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 120.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 121.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 121.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 122.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 122.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 123.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 123.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 124.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 124.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 125.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 125.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 126.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 126.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 127.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 127.
+checked output:
+ဘာ တွေ ဖျင် နာ နေ
+ငါ နဲ့ မုန့် ဈေး
+လှ ပြီး ကို ရီး ယား ဆန်
+တွေ က စောက် ပေါ အ
+လိုက် အုံး ညီ ဆီ
+ပူ ပါ နက်
+ဟာ ဂယ် ရီး
+လား ဂယ် ကြီး
+သ နား ဈ ကိုယ်
+ဘွ
+stack
+start checking
+input: stack.err.syl
+RE file: stack.rule.uniq.RE
+လက် ခ ဏာ ထူး
+တွေ ကိတ် စ ဘယ် လို
+တာ နဲ့ မင် က လာ ပါ
+ကျမ္မာ ရေးဋ္ဌာ
+မ ယု ကိစ် စ က
+အ ကျီ် တွေ
+စ ရာ လ ကာ် ဒီ ပ
+ယ ခု ကိ စ ကို ထိ
+ယ ခု ကိ စ ကို အ
+ဟုတ် ကု ပ ဏီ က
+checked output:
+လက္ခ ဏာ ထူး
+တွေ ကိတ် စ ဘယ် လို
+တာ နဲ့ မင် က လာ ပါ
+ကျန်း မာ ရေးဋ္ဌာ
+မ ယု ပြီ ကိစ္စ က
+အင်္ကျီ တွေ
+စ ရာ လ ကာ် ဒီ ပ
+ယ ခု ကိ စ ကို ထိ
+ယ ခု ကိ စ ကို အ
+ဟုတ် ကု ပ ဏီ က
+typo
+start checking
+input: typo.err.syl
+RE file: typo.rule.uniq.RE
+လုံး ခင် ဗျာ ကို ယုံ
+က တော့ နိုင်
+ကြ တာ ခူ ထက် ထိ
+နဲ့ ကြည့်ရ် အောက် ပါ
+မ သိ တ ပါ ဆ
+နော က ၁ ၀
+မယ် လို့ ခန် မှန်း တာ
+တိုင် ယာ ခင် ထဲ ဆင်း
+ရိက္ခာ ထောက် ပံ ရေး ကော်
+ရှိ လို့ ကုန်း စျေး
+checked output:
+လုံး ခင် ဗျာ့ာ ကို ယုံ
+ကြ တော့ နိုင်
+ကျ တာ ခူ ထက် ထိ
+နဲ့့ ကြည့်ရ် အောက် ပါ့
+မ သိ တာ ပါ့ ဆ
+နေ့ာ က ၁ ၀
+မယ် လို့ ခန့် မှန် တာ
+တိုင် ယာ ခင် ထဲ ဆင်း
+ရိက္ခာ ထောက် ပုံ ရေ ကော်
+ရှိ လို့ ကုန်း အ စဉ်ျေး
+==========
+
+real	4m51.580s
+user	4m51.107s
+sys	0m0.267s
+
+```
+   
+## Evaluation with Updated Rules on Open Test Data
+   
+evaluation script for open-test data ကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။ အဓိက update လုပ်ခဲ့တာက folder တစ်ခုချင်းစီအထဲကို ဝင်ပြီး (i.e. ec, pecs, ecs, ec folders) evaluation လုပ်တဲ့ အဆင့်ပါ။  
+   
+```bash
+#!/bin/bash
+
+# evaluation on spelling correction with open-test data
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 23 Nov 2021
+
+for fd in {ec,pecs,pec,ecs};
+do
+    cd $fd;
+    echo "enter under $fd/:";
+    echo "Checking with RE rules extracted from typo dictionary...";
+    for re in *.RE;
+    do
+       re_file=${re%.*.*.*}; echo $re_file;
+   
+       echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.chk";
+       python2.7 ../evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./$re_file.err.syl.open.chk
+       paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./$re_file.err.syl.open.chk > ./$re_file.open.sug-chk
+       echo "==========";
+       echo "";      
+    done
+    echo "==========";
+    cd ..;
+done
+
+```
+   
+evaluation ထပ်လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ ./eval-open-test.sh | tee eval-with-updated-rules-for-open-test.log
+enter under ec/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.476575121163
+Tag recall: 0.473135525261
+F-Measure: 0.474849094567
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.741935483871
+Tag recall: 0.741935483871
+F-Measure: 0.741935483871
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.525
+Tag recall: 0.504
+F-Measure: 0.514285714286
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.00350377751013
+Tag recall: 0.00187320728209
+F-Measure: 0.00244125724748
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.0262237762238
+Tag recall: 0.025
+F-Measure: 0.0255972696246
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.622222222222
+Tag recall: 0.636363636364
+F-Measure: 0.629213483146
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.72817679558
+Tag recall: 0.730598669623
+F-Measure: 0.729385722191
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.426470588235
+Tag recall: 0.322222222222
+F-Measure: 0.367088607595
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.268022181146
+Tag recall: 0.254385964912
+F-Measure: 0.26102610261
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.853711790393
+Tag recall: 0.837259100642
+F-Measure: 0.845405405405
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.00545046489259
+Tag recall: 0.00546448087432
+F-Measure: 0.00545746388443
+==========
+
+==========
+enter under pecs/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.800484652666
+Tag recall: 0.786507936508
+F-Measure: 0.793434747798
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.774193548387
+Tag recall: 0.774193548387
+F-Measure: 0.774193548387
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.625
+Tag recall: 0.595238095238
+F-Measure: 0.609756097561
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.450563889193
+Tag recall: 0.370587175793
+F-Measure: 0.406680832139
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.881118881119
+Tag recall: 0.882661996497
+F-Measure: 0.88188976378
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.666666666667
+Tag recall: 0.461538461538
+F-Measure: 0.545454545455
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.699447513812
+Tag recall: 0.687296416938
+F-Measure: 0.693318729463
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.588235294118
+Tag recall: 0.579710144928
+F-Measure: 0.583941605839
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.604436229205
+Tag recall: 0.639921722114
+F-Measure: 0.621673003802
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.735807860262
+Tag recall: 0.658203125
+F-Measure: 0.694845360825
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.591322004916
+Tag recall: 0.55071165522
+F-Measure: 0.57029478458
+==========
+
+==========
+enter under pec/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.813408723748
+Tag recall: 0.808186195827
+F-Measure: 0.810789049919
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.774193548387
+Tag recall: 0.774193548387
+F-Measure: 0.774193548387
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.625
+Tag recall: 0.595238095238
+F-Measure: 0.609756097561
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.412569801818
+Tag recall: 0.338757529443
+F-Measure: 0.372037914692
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.837412587413
+Tag recall: 0.83887915937
+F-Measure: 0.838145231846
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.622222222222
+Tag recall: 0.459016393443
+F-Measure: 0.528301886792
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.71270718232
+Tag recall: 0.701086956522
+F-Measure: 0.706849315068
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.617647058824
+Tag recall: 0.591549295775
+F-Measure: 0.604316546763
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.632162661738
+Tag recall: 0.671905697446
+F-Measure: 0.651428571429
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.75327510917
+Tag recall: 0.681818181818
+F-Measure: 0.715767634855
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.524099604574
+Tag recall: 0.486894360604
+F-Measure: 0.504812393844
+==========
+
+==========
+enter under ecs/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.chk
+Tag precision: 0.849757673667
+Tag recall: 0.8416
+F-Measure: 0.845659163987
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.chk
+Tag precision: 0.774193548387
+Tag recall: 0.774193548387
+F-Measure: 0.774193548387
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.chk
+Tag precision: 0.633333333333
+Tag recall: 0.608
+F-Measure: 0.620408163265
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.chk
+Tag precision: 0.420562794263
+Tag recall: 0.343652142793
+F-Measure: 0.378237321516
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.chk
+Tag precision: 0.863636363636
+Tag recall: 0.85393258427
+F-Measure: 0.858757062147
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.chk
+Tag precision: 0.755555555556
+Tag recall: 0.618181818182
+F-Measure: 0.68
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.chk
+Tag precision: 0.718232044199
+Tag recall: 0.708061002179
+F-Measure: 0.713110257817
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.chk
+Tag precision: 0.588235294118
+Tag recall: 0.579710144928
+F-Measure: 0.583941605839
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.chk
+Tag precision: 0.68022181146
+Tag recall: 0.707692307692
+F-Measure: 0.693685202639
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.chk
+Tag precision: 0.805676855895
+Tag recall: 0.738
+F-Measure: 0.770354906054
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.chk
+Tag precision: 0.555840547184
+Tag recall: 0.516177054387
+F-Measure: 0.535275047599
+==========
+
+==========
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
+```
+
    
 ## with Open-Test Data
    
