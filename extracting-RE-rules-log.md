@@ -3086,6 +3086,127 @@ rule နဲ့လုပ်တာကြောင့် ဘယ် rule ကို �
 ကို ၀ ၀ ရှှု	ကို ဝ ဝ ရှူ ===> ၀ ၀ ရှှု	ဝ ဝ ရှူ
 င့် ဝာာ လား	င့် တာ လား ==> ဝာာ	တာ
 ```
+   
+Rule တွေကို manual ပြင်ရတာက အချိန်ပေးရတယ်။ ၄ နာရီလောက် ၅ နာရီလောက် လုပ်တာတောင် consonant တစ်ဖိုင်ကို မပြီးသေးဘူး....  
+အဲဒါကြောင့် mk-re.pl ကို update လုပ်လိုက်ပြီး prefix, suffix တွေကို ဖြုတ်/ထည့် လုပ်ပြီး rule ကို ဆွဲထုတ်တာက ပိုမြန်မယ်လို့ ယူဆတယ်။
+   
+## Updating "mk-re.pl" Perl Script
+   
+mk-re.pl ကို အောက်ပါအတိုင်း option လေးမျိုးနဲ့ run လို့ရအောင် ပြင်ခဲ့တယ်။  
+   
+```perl
+#!/usr/bin/env perl
+
+# making Regular Expression rules based on wdiff output
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+#
+# How to run: 
+# e.g. $ perl mk-re.pl <wdiff-output-filename> <pecs | pec | ecs | ec>
+# လက်ရှိ ဒေတာထဲမှာက pattern က ၄မျိုး ရှိနေတယ်။ 
+# 1. prefix-error-correction-suffix, 2. prefix-error-correction, 3. error-correction-suffix, 4. error-correction ဆိုပြီးတော့
+# prefix, suffix တွေကိုပါ RE search ထဲ ထည့်ထားရင် spelling correction မှာ သွား affect ဖြစ်တာမို့ ဆွဲထုတ်တဲ့အခါ ပုံစံအမျိုးမျိုးနဲ့ ဆွဲထုတ်လို့ ရအောင်
+# option လေးမျိုး နဲ့သွားနိုင်အောင် update လုပ်ခဲ့တယ်။ 
+# Here, pecs ("prefix-error-correction-suffix" and "error-correction") # prefix-suffix တွဲပါနေတဲ့ pattern ကိုတော့ လက်ခံမယ်
+# pec ("prefix-error-correction" and "error-correction") # prefix ကိုတော့ လက်ခံမယ်
+# ecs ("error-correction-suffix" and "error-correction") # suffix ကိုတော့ လက်ခံမယ်
+# ec (all "error-correction") # prefix, suffix တွေကို ဖြုတ်မယ်
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+# function for printing Regular Expression
+sub print_RE_old {
+    my ($sent) = @_;
+    my @words = split (" ", $sent);
+    # filtering @words
+    my @pattern = grep { $_ =~ /\[\-.*\-\]|\{\+.*\+\}/ } @words;
+    $pattern[0] =~ s/\[|\-|\]//g;
+    $pattern[1] =~  s/\{|\+|\}//g;
+    print("/$pattern[0]/$pattern[1]/\n");
+    exit();
+    #print("@pattern\n"); exit();
+}
+
+sub print_RE {
+    my ($sent, $pattern) = @_;
+    #print("$sent\n");
+    if ($sent =~ m/([က-၏A-Za-z0-9]+\s){1,5}(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1,5}/ugm) {
+    
+        my ($prefix_syl, $error, $correction, $suffix_syl) = $sent =~ /([က-၏A-Za-z0-9]+\s){1}(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1}/;
+        if ($pattern eq "pecs") {
+            print("$prefix_syl\t$error\t$correction\t$suffix_syl\tpecs\n");
+        } elsif ($pattern eq "pec") {
+            print("$prefix_syl\t$error\t$correction\tpec\n");
+        } elsif ($pattern eq "ecs") {
+            print("$error\t$correction\t$suffix_syl\tecs\n");
+        } elsif ($pattern eq "ec") {
+            print("$error\t$correction\tec\n");
+        }
+        
+    } elsif ($sent =~ m/([က-၏A-Za-z0-9]+\s){1,5}(\[\-.*\-\])\s(\{\+.*\+\})/ugm) {
+    
+        my ($prefix_syl, $error, $correction) = $sent =~ /([က-၏A-Za-z0-9]+\s){1}(\[\-.*\-\])\s(\{\+.*\+\})/;
+        if ($pattern eq "pec") {
+            print("$prefix_syl\t$error\t$correction\tpec\n");
+        } if ($pattern eq "ec") {
+            print("$error\t$correction\tec\n");
+        }
+        } elsif ($sent =~ m/(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1,5}/ugm) {
+        
+        my ($error, $correction, $suffix_syl) = $sent =~ /(\[\-.*\-\])\s(\{\+.*\+\})(\s[က-၏A-Za-z0-9]+){1}/;
+        if ($pattern eq "ecs") {
+            print("$error\t$correction\t$suffix_syl\tecs\n");            
+        } elsif ($pattern eq "ec") {
+            print("$error\t$correction\tec\n");        
+        }
+    
+        } elsif ($sent =~ m/(\[\-.*\-\])\s(\{\+.*\+\})/ugm) {
+
+        my ($error, $correction) = $sent =~ /(\[\-.*\-\])\s(\{\+.*\+\})/;
+        print("$error\t$correction\tec\n");          
+        } else {
+            #print("ELSE: $sent\n");
+        }
+}
+
+open (my $inputFILE,"<:encoding(UTF-8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+my $pattern   = $ARGV[1];
+
+my $read_2nd_line=0; my $first_line="";
+
+while (!eof($inputFILE)) {
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        $line =~ s/^\s+|\s+$//g;
+        #$line =~ s/\t/ /g;
+        if ($read_2nd_line == 0) {
+            if ($line !~ m/^\[-.*-\]$/) {
+               #print("$line\n");
+               print_RE($line, $pattern);
+            } else {
+                $read_2nd_line = 1;
+                $first_line = $line; 
+            }
+         } elsif ($read_2nd_line == 1) {
+             #print ($first_line." ".$line."\n");
+             print_RE($first_line." ".$line, $pattern);
+             $read_2nd_line = 0; $first_line = "";
+         }
+    }
+}
+
+close ($inputFILE);
+```
+   
+## Extraction with Updated "mk-re.pl"
+   
+
 
 ## Testing and Evaluation Again with Updated Rules
    
