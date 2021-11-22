@@ -3203,7 +3203,43 @@ while (!eof($inputFILE)) {
 
 close ($inputFILE);
 ```
+
+## Updating "print-prefix-error-correction-suffix.sh" Shell Script
    
+print-prefix-error-correction-suffix.sh ကိုလည်း အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။  
+option တွေနဲ့ rule တွေကို ဆွဲထုတ်ပြီးတော့ folder တွေခွဲပြီး သိမ်းအောင် ပြင်ခဲ့တယ်။  
+   
+```
+#!/bin/bash
+
+mkdir ec; mkdir pecs; mkdir pec; mkdir ecs; mkdir ec;
+for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+do
+   echo "printing for $f.wdiff ...";
+   echo "with ec option...";
+   perl ./mk-re.pl ./$f.wdiff ec > ./ec/$f.rule
+   sort ./ec/$f.rule | uniq > ./ec/$f.rule.uniq
+   
+   echo "with pecs option...";
+   perl ./mk-re.pl ./$f.wdiff pecs > ./pecs/$f.rule
+   sort ./pecs/$f.rule | uniq > ./pecs/$f.rule.uniq
+   
+   echo "with pec option...";
+   perl ./mk-re.pl ./$f.wdiff pec > ./pec/$f.rule
+   sort ./pec/$f.rule | uniq > ./pec/$f.rule.uniq
+   
+   echo "with ecs option...";
+   perl ./mk-re.pl ./$f.wdiff ecs > ./ecs/$f.rule
+   sort ./ecs/$f.rule | uniq > ./ecs/$f.rule.uniq
+
+   echo "with ec option...";
+   perl ./mk-re.pl ./$f.wdiff ec > ./ec/$f.rule
+   sort ./ec/$f.rule | uniq > ./ec/$f.rule.uniq
+
+done
+
+```
+
 ## Extraction with Updated "mk-re.pl"
    
 
