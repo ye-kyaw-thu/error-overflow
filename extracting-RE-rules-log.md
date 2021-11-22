@@ -4440,8 +4440,97 @@ F-Measure: 0.535275047599
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$
 ```
 
+အိဖြူဖြူမွန်က Manual ဆွဲထုတ်ထားတဲ့ rule တွေနဲ့ test လုပ်ထားတဲ့ ရလဒ်တွေနဲ့ပါ open-test အတွက် နှိုင်းယှဉ်ကြည့်တော့ အောက်ပါအတိုင်း ရရှိတယ်။  
    
-## with Open-Test Data
+```
+evaluation with error or input file: con.err.syl, F-Measure: 0.726195179771
+evaluation on manual Rule-based hyp: con.err.hyp.syl, F-Measure: 0.853697749196
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.816980376452
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.964169381107
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.474849094567, pecs: 0.793434747798, pec: 0.810789049919, ecs: 0.845659163987
+
+
+evaluation with error or input file: dialect.err.syl, F-Measure: 0.709677419355
+evaluation on manual Rule-based hyp: dialect.err.hyp.syl, F-Measure: 0.838709677419
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.774193548387
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.913140311804
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.741935483871, pecs: 0.774193548387, pec: 0.774193548387, ecs: 0.774193548387
+
+evaluation with error or input file: encode.err.syl, F-Measure: 0.599190283401
+evaluation on manual Rule-based hyp: encode.err.hyp.syl, F-Measure: 0.603305785124
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.609756097561
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.900499168053
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.514285714286, pecs: 0.609756097561, pec: 0.609756097561, ecs: 0.620408163265
+
+evaluation with error or input file: pho.err.syl, F-Measure: 0.739413859217
+evaluation on manual Rule-based hyp: pho.err.hyp.syl, F-Measure: 0.775632635253
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.397933579336
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.443588992194
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.00244125724748, pecs: 0.406680832139, pec: 0.372037914692, ecs: 0.378237321516
+
+evaluation with error or input file: pho-typo.err.syl, F-Measure: 0.735783027122
+evaluation on manual Rule-based hyp: pho-typo.err.hyp.syl, F-Measure: 0.87993064586
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.866463679861
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.94378642602
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.0255972696246, pecs: 0.88188976378, pec: 0.838145231846, ecs: 0.858757062147
+
+evaluation with error or input file: sensitive.err.syl, F-Measure: 0.486956521739
+evaluation on manual Rule-based hyp: sensitive.err.hyp.syl, F-Measure: 0.850574712644
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.68
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.968831168831
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.629213483146, pecs: 0.545454545455, pec: 0.528301886792, ecs: 0.68
+
+evaluation with error or input file: seq.err.syl, F-Measure: 0.687465790914
+evaluation on manual Rule-based hyp: seq.err.hyp.syl, F-Measure: 0.877270225647
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.700273972603
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.940293491655
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.729385722191, pecs: 0.693318729463, pec: 0.706849315068, ecs: 0.713110257817
+
+evaluation with error or input file: short.err.syl, F-Measure: 0.69696969697
+evaluation on manual Rule-based hyp: short.err.hyp.syl, F-Measure: 0.721804511278
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.583941605839
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.727678571429
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.367088607595, pecs: 0.583941605839, pec: 0.604316546763, ecs: 0.583941605839
+
+evaluation with error or input file: slang.err.syl, F-Measure: 0.624399615754
+evaluation on manual Rule-based hyp: slang.err.hyp.syl, F-Measure: 0.767097966728
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.660341555977
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.931443506232
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.26102610261, pecs: 0.621673003802, pec: 0.651428571429, ecs: 0.693685202639
+
+evaluation with error or input file: stack.err.syl, F-Measure: 0.690010298661
+evaluation on manual Rule-based hyp: stack.err.hyp.syl, F-Measure: 0.712384851586
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.745586708204
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.979190751445
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.845405405405, pecs: 0.694845360825, pec: 0.715767634855, ecs: 0.770354906054
+
+evaluation with error or input file: typo.err.syl, F-Measure: 0.723285912932
+evaluation on manual Rule-based hyp: typo.err.hyp.syl, F-Measure: 0.747112917023
+evaluation on automatic extracted Rule-based approach open-test, F-Measure: 0.558003088008
+evaluation on automatic extracted Rule-based approach closed-test, F-Measure: 0.71142499764
+-----
+After updating rules:, for open-test F-Measure:, ec: 0.00545746388443, pecs: 0.57029478458, pec: 0.504812393844, ecs: 0.535275047599
+
+```
+   
+
+## Testing Again with Closed-Test Data
+   
+Closed-test ဒေတာ (i.e. training data) နဲ့ run တာက စာကြောင်းရေ ပိုများလို့ အချိန်ကြာတယ်။  
+လက်ရှိမှာ run နေတုန်း...  
+   
+
+## Evaluation Again with Closed-Test Data
    
 
 ## Debugging 
