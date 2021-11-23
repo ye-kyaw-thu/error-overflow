@@ -200,5 +200,30 @@ Runtime Warning နဲ့ ပတ်သက်ပြီး လေ့လာရန�
 စာကြောင်းက အရမ်းတိုနေတာနဲ့ ဆိုင်မယ်လို့ ယူဆတယ်။  
 
 
+## Reference
 
-
+- https://github.com/cnap/gec-ranking
+- Paper relating to "GLEU matric"  
+```
+@InProceedings{napoles-EtAl:2015:ACL-IJCNLP,
+  author    = {Napoles, Courtney  and  Sakaguchi, Keisuke  and  Post, Matt  and  Tetreault, Joel},
+  title     = {Ground Truth for Grammatical Error Correction Metrics},
+  booktitle = {Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 2: Short Papers)},
+  month     = {July},
+  year      = {2015},
+  address   = {Beijing, China},
+  publisher = {Association for Computational Linguistics},
+  pages     = {588--593},
+  url       = {http://www.aclweb.org/anthology/P15-2097}
+}
+```
+- Paper relating to "GLEU update"  
+```
+@Article{napoles2016gleu,
+  author    = {Napoles, Courtney  and  Sakaguchi, Keisuke  and  Post, Matt  and  Tetreault, Joel},
+  title     = {{GLEU} Without Tuning},
+  journal   = {eprint arXiv:1605.02592 [cs.CL]},
+  year      = {2016},
+  url       = {http://arxiv.org/abs/1605.02592}
+}
+```
