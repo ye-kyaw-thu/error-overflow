@@ -5155,17 +5155,17 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
    
 | Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
 |:----------|--------:|------:|--------:|------:|
-| Consonant Error | 0. | 0. | 0. | 0. |
-| Dialect Error | 0. | 0. | 0. | 0. |
-| Encoding Error | 0. | 0. | 0. | 0. |
-| Phonetic Error | 0. | 0. | 0. | 0. |
-| Phonetic-Typo Error | 0. | 0. | 0. | 0. |
-| Sensitive Error | 0. | 0. | 0. | 0. |
-| Sequence Error | 0. | 0. | 0. | 0. |
-| short-Form Error | 0. | 0. | 0. | 0. |
-| Slang-Word Error | 0. | 0. | 0. | 0. |
-| Stack-Word Error | 0. | 0. | 0. | 0. |
-| Typo Error | 0. | 0. | 0. | 0. |
+| Consonant Error | 0.4748 | 0.7934 | 0.8108 | 0.8457 |
+| Dialect Error | 0.7973 | 0.8756 | 0.8998 | 0.8933 |
+| Encoding Error | 0.8034 | 0.7772 | 0.8238 | 0.8520 |
+| Phonetic Error | 0.0029 | 0.4469 | 0.3965 | 0.4105 |
+| Phonetic-Typo Error | 0.0329 | 0.9305 | 0.8965 | 0.9119 |
+| Sensitive Error | 0.8443 | 0.8756 | 0.8366 | 0.9385 |
+| Sequence Error | 0.8543 | 0.8583 | 0.8953 | 0.9025 |
+| short-Form Error | 0.4680 | 0.6787 | 0.7052 | 0.7082 |
+| Slang-Word Error | 0.3184 | 0.7969 | 0.8330 | 0.8736 |
+| Stack-Word Error | 0.9423 | 0.8912 | 0.9176 | 0.9511 |
+| Typo Error | 0.0052 | 0.7070 | 0.6069 | 0.6532 |
 </div>
  </p>
 <br />
