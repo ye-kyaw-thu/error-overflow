@@ -4666,9 +4666,373 @@ sys	0m1.754s
    
 
 ## Evaluation Again with Closed-Test Data
+  
+eval.sh ကိုလည်း အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။  
    
+```bash
+#!/bin/bash
 
+# evaluation on spelling correction with closed-test data
+## written by Ye Kyaw Thu, LSt, NECTEC, Thailand
+## last updated: 23 Nov 2021
+
+
+for fd in {ec,pecs,pec,ecs};
+do
+    cd $fd;
+    echo "enter under $fd/:";
+    echo "Checking with RE rules extracted from typo dictionary...";
+    for re in *.RE;
+    do
+       re_file=${re%.*.*.*}; echo $re_file;
    
+       echo "ref file: $re_file.sug.syl, hyp: $re_file.err.syl.closed.chk";
+       #python2.7 ./evaluate.py /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk
+       python2.7 ../evaluate.py ../$re_file.sug.syl ./$re_file.err.syl.closed.chk
+       #paste /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$re_file.sug.syl ./chk/$re_file.err.syl.chk > ./chk/$re_file.sug-chk
+       paste ../$re_file.sug.syl ./$re_file.err.syl.closed.chk > ./$re_file.closed.sug-chk
+       echo "==========";
+       echo "";   
+   
+    done
+    echo "==========";
+    cd ..;
+done
+
+```
+   
+closed-test data တွေကို auto ဆွဲထုတ်ထားတဲ့ rule တွေနဲ့ spelling correction လုပ်တဲ့အခါမှာ ရလာတဲ့ ရလဒ်တွေက အောက်ပါအတိုင်းပါ။  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ ./eval.sh | tee ./evaluation-result-closed-test.log 
+enter under ec/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.closed.chk
+Tag precision: 0.490096074013
+Tag recall: 0.486232054601
+F-Measure: 0.488156417981
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.closed.chk
+Tag precision: 0.79203539823
+Tag recall: 0.80269058296
+F-Measure: 0.797327394209
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.closed.chk
+Tag precision: 0.795620437956
+Tag recall: 0.811231393775
+F-Measure: 0.803350083752
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.closed.chk
+Tag precision: 0.00412825372883
+Tag recall: 0.0021882298483
+F-Measure: 0.00286031552856
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.closed.chk
+Tag precision: 0.0339110776187
+Tag recall: 0.0320170757737
+F-Measure: 0.0329368709973
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.closed.chk
+Tag precision: 0.811023622047
+Tag recall: 0.880341880342
+F-Measure: 0.844262295082
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.closed.chk
+Tag precision: 0.839225777579
+Tag recall: 0.869983762468
+F-Measure: 0.854328018223
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.closed.chk
+Tag precision: 0.522058823529
+Tag recall: 0.424133811231
+F-Measure: 0.468029004614
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.closed.chk
+Tag precision: 0.321843687375
+Tag recall: 0.315025500196
+F-Measure: 0.318398096749
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.closed.chk
+Tag precision: 0.936324167873
+Tag recall: 0.948402228086
+F-Measure: 0.942324497524
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.closed.chk
+Tag precision: 0.0052222521882
+Tag recall: 0.00522289245255
+F-Measure: 0.00522257230075
+==========
+
+==========
+enter under pecs/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.closed.chk
+Tag precision: 0.933459850552
+Tag recall: 0.928504011326
+F-Measure: 0.93097533566
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.closed.chk
+Tag precision: 0.871681415929
+Tag recall: 0.879464285714
+F-Measure: 0.875555555556
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.closed.chk
+Tag precision: 0.774386197744
+Tag recall: 0.780080213904
+F-Measure: 0.777222777223
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.closed.chk
+Tag precision: 0.497067550536
+Tag recall: 0.405815536183
+F-Measure: 0.446830243045
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.closed.chk
+Tag precision: 0.929389600603
+Tag recall: 0.931565828235
+F-Measure: 0.930476441963
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.closed.chk
+Tag precision: 0.923884514436
+Tag recall: 0.832151300236
+F-Measure: 0.875621890547
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.closed.chk
+Tag precision: 0.862385321101
+Tag recall: 0.854166666667
+F-Measure: 0.858256318895
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.closed.chk
+Tag precision: 0.661764705882
+Tag recall: 0.696594427245
+F-Measure: 0.678733031674
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.closed.chk
+Tag precision: 0.781963927856
+Tag recall: 0.812408911097
+F-Measure: 0.796895741856
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.closed.chk
+Tag precision: 0.906801736614
+Tag recall: 0.876118568233
+F-Measure: 0.891196131418
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.closed.chk
+Tag precision: 0.73367739721
+Tag recall: 0.682195372165
+F-Measure: 0.707000425271
+==========
+
+==========
+enter under pec/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.closed.chk
+Tag precision: 0.934408729688
+Tag recall: 0.931150641215
+F-Measure: 0.932776840423
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.closed.chk
+Tag precision: 0.893805309735
+Tag recall: 0.905829596413
+F-Measure: 0.899777282851
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.closed.chk
+Tag precision: 0.822163238222
+Tag recall: 0.8254497002
+F-Measure: 0.823803191489
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.closed.chk
+Tag precision: 0.441048338279
+Tag recall: 0.360062867605
+F-Measure: 0.396462134762
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.closed.chk
+Tag precision: 0.895327807084
+Tag recall: 0.89776333686
+F-Measure: 0.896543917899
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.closed.chk
+Tag precision: 0.853018372703
+Tag recall: 0.820707070707
+F-Measure: 0.836550836551
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.closed.chk
+Tag precision: 0.899418214366
+Tag recall: 0.891241685144
+F-Measure: 0.89531128188
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.closed.chk
+Tag precision: 0.691176470588
+Tag recall: 0.719754977029
+F-Measure: 0.705176294074
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.closed.chk
+Tag precision: 0.819438877756
+Tag recall: 0.846934548467
+F-Measure: 0.832959869627
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.closed.chk
+Tag precision: 0.928509406657
+Tag recall: 0.906983319197
+F-Measure: 0.9176201373
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.closed.chk
+Tag precision: 0.630911810136
+Tag recall: 0.584727950282
+F-Measure: 0.606942585397
+==========
+
+==========
+enter under ecs/:
+Checking with RE rules extracted from typo dictionary...
+con
+ref file: con.sug.syl, hyp: con.err.syl.closed.chk
+Tag precision: 0.947277902977
+Tag recall: 0.944365614284
+F-Measure: 0.945819516817
+==========
+
+dialect
+ref file: dialect.sug.syl, hyp: dialect.err.syl.closed.chk
+Tag precision: 0.889380530973
+Tag recall: 0.897321428571
+F-Measure: 0.893333333333
+==========
+
+encode
+ref file: encode.sug.syl, hyp: encode.err.syl.closed.chk
+Tag precision: 0.84804246848
+Tag recall: 0.855994641661
+F-Measure: 0.852
+==========
+
+pho
+ref file: pho.sug.syl, hyp: pho.err.syl.closed.chk
+Tag precision: 0.458176621779
+Tag recall: 0.37178103812
+F-Measure: 0.410482096419
+==========
+
+pho-typo
+ref file: pho-typo.sug.syl, hyp: pho-typo.err.syl.closed.chk
+Tag precision: 0.916126601356
+Tag recall: 0.907780764636
+F-Measure: 0.911934588553
+==========
+
+sensitive
+ref file: sensitive.sug.syl, hyp: sensitive.err.syl.closed.chk
+Tag precision: 0.96062992126
+Tag recall: 0.917293233083
+F-Measure: 0.938461538462
+==========
+
+seq
+ref file: seq.sug.syl, hyp: seq.err.syl.closed.chk
+Tag precision: 0.901432087715
+Tag recall: 0.903656348138
+F-Measure: 0.902542847541
+==========
+
+short
+ref file: short.sug.syl, hyp: short.err.syl.closed.chk
+Tag precision: 0.694117647059
+Tag recall: 0.722817764165
+F-Measure: 0.708177044261
+==========
+
+slang
+ref file: slang.sug.syl, hyp: slang.err.syl.closed.chk
+Tag precision: 0.870140280561
+Tag recall: 0.877171717172
+F-Measure: 0.873641851107
+==========
+
+stack
+ref file: stack.sug.syl, hyp: stack.err.syl.closed.chk
+Tag precision: 0.957163531114
+Tag recall: 0.945127179194
+F-Measure: 0.951107276388
+==========
+
+typo
+ref file: typo.sug.syl, hyp: typo.err.syl.closed.chk
+Tag precision: 0.678696643538
+Tag recall: 0.629622890415
+F-Measure: 0.653239413354
+==========
+
+==========
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$
+```
+
+အထက်မှာ run ခဲ့တဲ့ experiment တွေအားလုံးကို နှိုင်းယှဉ်ကြည့်ထားတဲ့ ရလဒ်တွေက အောက်ပါအတိုင်းပါ။  
+   
+```
+   
+```
    
 ## Debugging 
    
