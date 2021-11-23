@@ -149,7 +149,8 @@ user	0m0.530s
 sys	0m0.965s
 (py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$
 ```
-"RuntimeWarning: invalid value encountered in multiply" ဆိုတဲ့ error ပေးနေလို့ -n တန်ဖိုးကို အမျိုးမျိုး လျှော့တာ၊ တိုးတာ လုပ်ခဲ့ပေမဲ့ warning က တက်နေတုန်းပဲ...  
+"RuntimeWarning: invalid value encountered in multiply lower_bound = self.a * scale + loc" နဲ့ "RuntimeWarning: invalid value encountered in multiply
+  upper_bound = self.b * scale + loc" ဆိုတဲ့ runtime warning ပေးနေလို့ -n တန်ဖိုးကို အမျိုးမျိုး လျှော့တာ၊ တိုးတာ လုပ်ခဲ့ပေမဲ့ warning က တက်နေတုန်းပဲ...  
 
 ```
 (py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ time python2.7 ./compute_gleu -s /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.err.syl -r /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.sug -o /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.chk -n 4
@@ -199,6 +200,9 @@ sys	0m0.681s
 Runtime Warning နဲ့ ပတ်သက်ပြီး လေ့လာရန်...  
 စာကြောင်းက အရမ်းတိုနေတာနဲ့ ဆိုင်မယ်လို့ ယူဆတယ်။ စာတမ်းကို ဖတ်ရန်...   
 
+## To Do
+- Running Warning ကိစ္စကို လေ့လာရန်
+- စာတမ်း ဖတ်ရန်
 
 ## Reference
 
