@@ -5192,6 +5192,9 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
 </div>
  </p>
    
+Table.2 ရလဒ်တွေကနေ ဘာကိုသွားတွေ့ရသလဲ ဆိုတော့ closed-test မှာတော့ လာသမျှ pattern (တနည်းအားဖြင့်ပြောရရင် manul စုထားတုန်း ရှိနေတဲ့ raw data ကနေ ရှေ့ syllable တစ်လုံး၊ နောက် syllable တစ်လုံး range အတွင်းမှာ ပါလာသမျှ pattern) ကနေ ဆွဲထုတ်ထားတဲ့ rule ကို သုံးပြီး spelling correction လုပ်တာတွေက အကောင်းဆုံး score တွေ ရရှိတာ တွေ့ရ။  
+   
+
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
