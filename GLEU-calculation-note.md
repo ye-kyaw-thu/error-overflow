@@ -346,6 +346,15 @@ test, reference နဲ့ hyp ဖိုင်သုံးဖိုင်ကိ�
 (py2.7env) ye@:/media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs$
 ```
 
+အထက်ပါအတိုင်း file content တွေမှာက ပြဿနာမရှိတဲ့ပုံ အဖြစ် မြင်တွေ့ရတယ်။  
+file size ကို စစ်ကြည့်တော့လည်း အောက်ပါအတိုင်း လိုင်းအရေအတွက် တူတာကို confirmation လုပ်ခဲ့တယ်။  
+
+```
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs$ wc ./pho-typo.err.syl ./pho-typo.open.sug ./pho-typo.open.chk 
+  270  1142 11207 ./pho-typo.err.syl
+  270  1144 11845 ./pho-typo.open.sug
+  270  1142 11879 ./pho-typo.open.chk
+```
 
 
 ## To Do
