@@ -356,6 +356,24 @@ file size ကို စစ်ကြည့်တော့လည်း အော�
   270  1142 11879 ./pho-typo.open.chk
 ```
 
+compute_gleu ပရိုဂရမ်ဖိုင်ထဲမှာ အောက်ပါအတိုင်း runtime warning ကို ပိတ်ကြည့်ခဲ့...  
+```python
+import warnings
+
+warnings.simplefilter(action = "ignore", category = RuntimeWarning)
+```
+
+python script မှာ အထက်ပါအတိုင်း ပြင်ပြီး run ကြည့်တဲ့အခါမှာတော့ RuntimeWarning message ကိုတော့ မပေးတော့ပါဘူး...  
+
+```
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ time python2.7 ./compute_gleu -s /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.err.syl -r /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.sug -o /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.chk -n 4 
+pho-typo.open.chk 0.672853
+
+real	0m0.212s
+user	0m0.392s
+sys	0m0.663s
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ 
+```
 
 ## To Do
 - Running Warning ကိစ္စကို လေ့လာရန်
