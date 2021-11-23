@@ -5168,6 +5168,26 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 </div>
  </p>
    
+<p align="center">
+<div align="center">
+  Table. F1 Score of automatic rule extraction approach for open test data   <br />
+
+   
+| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
+|:----------|--------:|------:|--------:|------:|
+| Consonant Error | 0. | 0. | 0. | 0. |
+| Dialect Error | 0. | 0. | 0. | 0. |
+| Encoding Error | 0. | 0. | 0. | 0. |
+| Phonetic Error | 0. | 0. | 0. | 0. |
+| Phonetic-Typo Error | 0. | 0. | 0. | 0. |
+| Sensitive Error | 0. | 0. | 0. | 0. |
+| Sequence Error | 0. | 0. | 0. | 0. |
+| short-Form Error | 0. | 0. | 0. | 0. |
+| Slang-Word Error | 0. | 0. | 0. | 0. |
+| Stack-Word Error | 0. | 0. | 0. | 0. |
+| Typo Error | 0. | 0. | 0. | 0. |
+</div>
+ </p>
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
