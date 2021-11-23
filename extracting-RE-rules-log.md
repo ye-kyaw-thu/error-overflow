@@ -5153,19 +5153,19 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 Here, Error-Correction pattern is containing for all pattern group. <br />
    (e.g. Prefix-Error-Correction = Prefix-Error-Correction + Error-Correction) <br />
    
-| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
-|:----------|--------:|------:|--------:|------:|
-| Consonant Error | 0.4748 | 0.7934 | 0.8108 | 0.8457 |
-| Dialect Error | 0.7973 | 0.8756 | 0.8998 | 0.8933 |
-| Encoding Error | 0.8034 | 0.7772 | 0.8238 | 0.8520 |
-| Phonetic Error | 0.0029 | 0.4469 | 0.3965 | 0.4105 |
-| Phonetic-Typo Error | 0.0329 | 0.9305 | 0.8965 | 0.9119 |
-| Sensitive Error | 0.8443 | 0.8756 | 0.8366 | 0.9385 |
-| Sequence Error | 0.8543 | 0.8583 | 0.8953 | 0.9025 |
-| short-Form Error | 0.4680 | 0.6787 | 0.7052 | 0.7082 |
-| Slang-Word Error | 0.3184 | 0.7969 | 0.8330 | 0.8736 |
-| Stack-Word Error | 0.9423 | 0.8912 | 0.9176 | 0.9511 |
-| Typo Error | 0.0052 | 0.7070 | 0.6069 | 0.6532 |
+| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | All |
+|:----------|--------:|------:|--------:|------:|-----:|
+| Consonant Error | 0.4748 | 0.7934 | 0.8108 | **0.8457** | |
+| Dialect Error | 0.7973 | 0.8756 | **0.8998** | 0.8933 | |
+| Encoding Error | 0.8034 | 0.7772 | 0.8238 | 0.8520 | |
+| Phonetic Error | 0.0029 | 0.4469 | 0.3965 | 0.4105 | |
+| Phonetic-Typo Error | 0.0329 | 0.9305 | 0.8965 | 0.9119 | |
+| Sensitive Error | 0.8443 | 0.8756 | 0.8366 | 0.9385 | |
+| Sequence Error | 0.8543 | 0.8583 | 0.8953 | 0.9025 | |
+| short-Form Error | 0.4680 | 0.6787 | 0.7052 | 0.7082 | |
+| Slang-Word Error | 0.3184 | 0.7969 | 0.8330 | 0.8736 | |
+| Stack-Word Error | 0.9423 | 0.8912 | 0.9176 | 0.9511 | |
+| Typo Error | 0.0052 | 0.7070 | 0.6069 | 0.6532 | |
 </div>
  </p>
 <br />
@@ -5176,19 +5176,19 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
    (e.g. Prefix-Error-Correction-Suffix = Prefix-Error-Correction-Suffix + Error-Correction)  <br />
 
    
-| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
-|:----------|--------:|------:|--------:|------:|
-| Consonant Error | 0.4748 | 0.7934 | 0.8108 | 0.8457 |
-| Dialect Error | 0.7419 | 0.7742 | 0.7742 | 0.7742 |
-| Encoding Error | 0.5143 | 0.6098 | 0.6098 | 0.6204 |
-| Phonetic Error | 0.002 | 0.4067 | 0.3720 | 0.3782 |
-| Phonetic-Typo Error | 0.0256 | 0.8819 | 0.8381 | 0.8588 |
-| Sensitive Error | 0.6292 | 0.5455 | 0.5283 | 0.6800 |
-| Sequence Error | 0.7294 | 0.6933 | 0.7068 | 0.7131 |
-| short-Form Error | 0.3670 | 0.5839 | 0.6043 | 0.5839 |
-| Slang-Word Error | 0.2610 | 0.6217 | 0.6514 | 0.6937 |
-| Stack-Word Error | 0.8454 | 0.6948 | 0.7158 | 0.7703 |
-| Typo Error | 0.0055 | 0.5702 | 0.5048 | 0.5353 |
+| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | All |
+|:----------|--------:|------:|--------:|------:|-----:|
+| Consonant Error | 0.4748 | 0.7934 | 0.8108 | 0.8457 | |
+| Dialect Error | 0.7419 | 0.7742 | 0.7742 | 0.7742 | |
+| Encoding Error | 0.5143 | 0.6098 | 0.6098 | 0.6204 | |
+| Phonetic Error | 0.002 | 0.4067 | 0.3720 | 0.3782 | |
+| Phonetic-Typo Error | 0.0256 | 0.8819 | 0.8381 | 0.8588 | |
+| Sensitive Error | 0.6292 | 0.5455 | 0.5283 | 0.6800 | |
+| Sequence Error | 0.7294 | 0.6933 | 0.7068 | 0.7131 | |
+| short-Form Error | 0.3670 | 0.5839 | 0.6043 | 0.5839 | |
+| Slang-Word Error | 0.2610 | 0.6217 | 0.6514 | 0.6937 | |
+| Stack-Word Error | 0.8454 | 0.6948 | 0.7158 | 0.7703 | |
+| Typo Error | 0.0055 | 0.5702 | 0.5048 | 0.5353 | |
 </div>
  </p>
    
