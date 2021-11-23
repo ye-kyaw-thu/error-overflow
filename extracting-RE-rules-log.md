@@ -5130,7 +5130,7 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 <p align="center">
 <div align="center">
   Table. F1 Score for manual rule-based approach    <br />
-</div>
+
    
 | Type of Error   |      Spelling Errors (i.e. Do Nothing)      |  F1-Score for Open-test |
 |----------|:-------------:|------:|
@@ -5145,7 +5145,7 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 | Slang-Word Error | 0.6244 | 0.7671 |
 | Stack-Word Error | 0.6900 | 0.7124 |
 | Typo Error | 0.7233 | 0.7471 |
-
+</div>
  </p>
     
    
