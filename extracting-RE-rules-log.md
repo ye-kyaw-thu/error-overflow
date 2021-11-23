@@ -5130,7 +5130,6 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 <p align="center">
 <div align="center">
   Table. F1 Score for manual rule-based approach    <br />
-
    
 | Type of Error   |      Spelling Errors (i.e. Do Nothing)      |  F1-Score for Open-test |
 |:----------|-------------:|------:|
@@ -5147,7 +5146,27 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 | Typo Error | 0.7233 | 0.7471 |
 </div>
  </p>
-    
+
+<p align="center">
+<div align="center">
+  Table. F1 Score of automatic rule extraction approach for closed-test data   <br />
+
+   
+| Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
+|:----------|--------:|------:|--------:|------:|
+| Consonant Error | 0. | 0. | 0. | 0. |
+| Dialect Error | 0. | 0. | 0. | 0. |
+| Encoding Error | 0. | 0. | 0. | 0. |
+| Phonetic Error | 0. | 0. | 0. | 0. |
+| Phonetic-Typo Error | 0. | 0. | 0. | 0. |
+| Sensitive Error | 0. | 0. | 0. | 0. |
+| Sequence Error | 0. | 0. | 0. | 0. |
+| short-Form Error | 0. | 0. | 0. | 0. |
+| Slang-Word Error | 0. | 0. | 0. | 0. |
+| Stack-Word Error | 0. | 0. | 0. | 0. |
+| Typo Error | 0. | 0. | 0. | 0. |
+</div>
+ </p>
    
 ## Debugging 
    
