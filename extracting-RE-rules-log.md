@@ -5123,6 +5123,30 @@ After updating rules:, for closed-test F-Measure:, ec: 0.00522257230075, pecs: 0
 
 ```
    
+## Prepare Result Tables
+   
+Run ထားပြီးရလာတဲ့ ရလဒ်တွေက များလို့ နှိုင်းယှဉ်ကြည့်ရတာ လွယ်အောင်လို့ ဇယားတချို့ ဆောက်ပြီး ကြည့်ခဲ့တယ်။  
+   
+<div align="center">
+  Table. F1 Score for manual rule-based approach    <br />
+</div>
+   
+| Type of Error   |      Spelling Errors (i.e. Do Nothing)      |  F1-Score for Open-test |
+|----------|:-------------:|------:|
+| Consonant Error | 0.7262 | 0.8537 |
+| Dialect Error | 0.7097 | 0.8387 |
+| Encoding Error | 0.5992 | 0.6033 |
+| Phonetic Error | 0.7394 | 0.7756 |
+| Phonetic-Typo Error | 0.7358 | 0.8799 |
+| Sensitive Error | 0.4870 | 0.8506 |
+| Sequence Error | 0.6875 | 0.8772 |
+| short-Form Error | 0.6970 | 0.7218 |
+| Slang-Word Error | 0.6244 | 0.7671 |
+| Stack-Word Error | 0.6900 | 0.7124 |
+| Typo Error | 0.7233 | 0.7471 |
+
+    
+   
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
