@@ -5189,6 +5189,7 @@ Here, Error-Correction pattern is containing for all pattern group. (e.g. Prefix
 | Typo Error | 0.0055 | 0.5702 | 0.5048 | 0.5353 |
 </div>
  </p>
+   
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
