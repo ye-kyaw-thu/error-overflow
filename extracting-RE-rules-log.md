@@ -5192,6 +5192,8 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
 </div>
  </p>
    
+Table.1 ရလဒ်တွေက test data (i.e. test input file for spelling checking) ကိုလည်း F1-score တိုင်းတာကြည့်ဖြစ်ခဲ့ပါတယ်။ ပြီးတော့ အိဖြူဖြူမွန်က manual ဆွဲထုတ်ထားတဲ့ rule တွေကို သုံးပြီး spelling correction လုပ်ပြီး ရလာတဲ့ ရလဒ်တွေနဲ့ နှိုင်းယှဉ်ကြည့်ထားတာပါ။  
+   
 Table.2 ရလဒ်တွေကနေ ဘာကိုသွားတွေ့ရသလဲ ဆိုတော့ closed-test မှာတော့ လာသမျှ pattern (တနည်းအားဖြင့်ပြောရရင် manul စုထားတုန်း ရှိနေတဲ့ raw data ကနေ ရှေ့ syllable တစ်လုံး၊ နောက် syllable တစ်လုံး range အတွင်းမှာ ပါလာသမျှ pattern) ကနေ ဆွဲထုတ်ထားတဲ့ rule ကို သုံးပြီး spelling correction လုပ်တာတွေက အကောင်းဆုံး score တွေ ရရှိတာ တွေ့ရ။  
    
 Table. 3 ရလဒ်တွေကနေ နားလည်တာကတော့ open test မှာတော့ best-score ပေးတာက pattern မျိုးစုံကနေ ထွက်လာတာကို တွေ့ရတယ်။  
