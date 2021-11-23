@@ -5178,17 +5178,17 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
    
 | Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | All |
 |:----------|--------:|------:|--------:|------:|-----:|
-| Consonant Error | 0.4748 | 0.7934 | 0.8108 | 0.8457 | 0.8169 |
-| Dialect Error | 0.7419 | 0.7742 | 0.7742 | 0.7742 | 0.7742 |
-| Encoding Error | 0.5143 | 0.6098 | 0.6098 | 0.6204 | 0.6098 |
-| Phonetic Error | 0.002 | 0.4067 | 0.3720 | 0.3782 | 0.3979 |
-| Phonetic-Typo Error | 0.0256 | 0.8819 | 0.8381 | 0.8588 | 0.8665 |
-| Sensitive Error | 0.6292 | 0.5455 | 0.5283 | 0.6800 | 0.6800 |
-| Sequence Error | 0.7294 | 0.6933 | 0.7068 | 0.7131 | 0.7003 |
-| short-Form Error | 0.3670 | 0.5839 | 0.6043 | 0.5839 | 0.5839 |
-| Slang-Word Error | 0.2610 | 0.6217 | 0.6514 | 0.6937 | 0.6603 |
-| Stack-Word Error | 0.8454 | 0.6948 | 0.7158 | 0.7703 | 0.7456 |
-| Typo Error | 0.0055 | 0.5702 | 0.5048 | 0.5353 | 0.5580 |
+| Consonant Error | 0.4748 | 0.7934 | 0.8108 | **0.8457** | 0.8169 |
+| Dialect Error | 0.7419 | **0.7742** | **0.7742** | **0.7742** | **0.7742** |
+| Encoding Error | 0.5143 | 0.6098 | 0.6098 | **0.6204** | 0.6098 |
+| Phonetic Error | 0.002 | **0.4067** | 0.3720 | 0.3782 | 0.3979 |
+| Phonetic-Typo Error | 0.0256 | **0.8819** | 0.8381 | 0.8588 | 0.8665 |
+| Sensitive Error | 0.6292 | 0.5455 | 0.5283 | **0.6800** | **0.6800** |
+| Sequence Error | **0.7294** | 0.6933 | 0.7068 | 0.7131 | 0.7003 |
+| short-Form Error | 0.3670 | 0.5839 | **0.6043** | 0.5839 | 0.5839 |
+| Slang-Word Error | 0.2610 | 0.6217 | 0.6514 | **0.6937** | 0.6603 |
+| Stack-Word Error | **0.8454** | 0.6948 | 0.7158 | 0.7703 | 0.7456 |
+| Typo Error | 0.0055 | **0.5702** | 0.5048 | 0.5353 | 0.5580 |
 </div>
  </p>
    
