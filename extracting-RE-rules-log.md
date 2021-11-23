@@ -4569,8 +4569,37 @@ Closed-test ဒေတာ (i.e. training data) နဲ့ run တာက စာက�
    
 closed-test data နဲ့ run ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့။ ဖိုလ်ဒါ လေးခုအတွက် for loop ကို နှစ်ထပ် ပတ်ခဲ့တယ်။ path တွေ ပြောင်းတာ လုပ်ခဲ့တယ်။  
    
-```
-   
+```bash
+#!/bin/bash
+
+# spelling correction with closed-test data
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 23 Nov 2021
+
+#mkdir chk;
+# folder တွေခွဲဆောက်ပြီး test လုပ်ထားတဲ့ ရလဒ်တွေကိုသိမ်းရင် folder တွေများပြီး ဘယ်ဟာက ဘယ်ဟာမှန်းမသိမှမို့
+# ec, pecs, pec, ecs ဖိုလ်ဒါ လေးခုအောက်မှာပဲ closed-test, open-test ရလဒ်တွေကို ဖိုင်နာမည်ခွဲသိမ်းဖို့ ဆုံးဖြတ်ခဲ့...  
+
+for fd in {ec,pecs,pec,ecs};
+do
+    cd $fd;
+    echo "enter under $fd/:";
+    for re in *.RE;
+    do
+       re_file=${re%.*.*.*}; echo $re_file;
+        echo "start checking";
+        echo "input: $re_file.err.syl";
+        echo "RE file: $re";
+        head ../$re_file.err.syl;
+        #perl ./correction-with-RE.pl ./$re /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$re_file.err.syl > ./chk/$re_file.err.syl.chk
+        perl ../correction-with-RE.pl ./$re ../$re_file.err.syl > ./$re_file.err.syl.closed.chk
+
+        echo "checked output:";
+        head ./$re_file.err.syl.closed.chk;
+    done
+    echo "==========";
+    cd ..;
+done  
 ```
    
 testing with closed-test data...  
