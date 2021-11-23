@@ -4567,7 +4567,113 @@ Closed-test ဒေတာ (i.e. training data) နဲ့ run တာက စာက�
 
 ## Evaluation Again with Closed-Test Data
    
+closed-test data နဲ့ run ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့။ ဖိုလ်ဒါ လေးခုအတွက် for loop ကို နှစ်ထပ် ပတ်ခဲ့တယ်။ path တွေ ပြောင်းတာ လုပ်ခဲ့တယ်။  
+   
+```
+   
+```
+   
+testing with closed-test data...  
+   
+```
+(base) ye@:/media/ye/project2/exp/errant/my-data/4github$ time ./test-all-error-types.sh | tee testing2-closed-test-data.log
+...
+...
+...
+<$errorFILE> line 1138.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1139.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1139.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1140.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1140.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1141.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1141.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1142.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1142.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1143.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1143.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1144.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1144.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1145.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1145.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1146.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1146.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1147.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1147.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1148.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1148.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1149.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1149.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သ { <-- HERE +သူ+} တောင်း လား လို/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1150.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/သောက် { <-- HERE +စောက်+} ကျိုး နဲ ဆ/ at ../correction-with-RE.pl line 32, <$errorFILE> line 1150.
+checked output:
+ အဲ့ တော့ ဘယ် လို ပြော ရ
+ သား ကို
+ ကြီး ကြောက် လိုက် တာ
+ ကျက် သ ရေ တုံး ကွန်
+ ရှေး ရှေး ဘျင် ဒေ
+ လဲ ပါ တရ်
+ မို့ တူ တရ်
+ မုန့် ဟင်း ခါး တွေ ရ
+ ဖြစ် တိုင်း စောက် ပြစ် တင်
+ ကြား လောက် မုန့် ဟင်း ခါး ပွဲ များ
+stack
+start checking
+input: stack.err.syl
+RE file: stack.rule.uniq.RE
+ အ ခု ကု မ ဏီ ထဲ
+ ရေ ငုပ် သင် ဘော ပျောက် သွား
+ တွင်း ချင်း သ ဂြိုလ် လိုက် ရ
+ ဒီ နေ့ တ နင်း ဂ နွေ မင်း
+ အ တွက် စင် ကာ ပူ
+ ကျမ္မာ ပါ စေ
+ ဏာ ရူး သ မ တ ရူး
+ စိုး မင် ဂ လာ ပါ
+ ဓိ က သင် ချိုင်း က
+ နိုင် ငံ သစ် စာ ဖောက် အ
+checked output:
+ အ ခု ကုမ္ပ ဏီ ထဲ
+ ရေ ငုပ် သင်္ဘော ပျောက် သွား
+ တွင်း ချင်း သင်္ဂြိုဟ် လိုက် ရ
+ ဒီ နေ့ တ နင်္ဂ နွေ မင်း
+ အ တွက် စင်္ကာ ပူ
+ ကျန်း မာ ပါ စေ
+ ဏာ ရူး သမ္မ တ ရူး
+ စိုး မင်္ဂ လာ ပါ
+ ဓိ က သင်္ချိုင်း က
+ နိုင် ငံ သစ္စာ ဖောက် အ
+typo
+start checking
+input: typo.err.syl
+RE file: typo.rule.uniq.RE
+ သ မား က ဟာ အ
+ ကြီး ပါ ဟယ်လ်
+ တွေ ပါ ဟယ်လ်
+ က တော့ အ သိ ခဲ့
+ တောင်း ပန် စု တ
+ ကို လိုက် လော မယ် ဆို
+ ဆို ဂုဏ် ပြ တာ ခံ
+ လိုက် တာ ဈေူ ကွက် ထဲ
+က်ု အ ခြေ
+ ကျပ် ကိူ ဆို လို
+checked output:
+ သ မား က ဟာ အ
+ ကြီး ပါ့ ဟယ်လ်
+ တွေ ပါ့ ဟယ်လ်
+ ကြ တော့ မ သိ ခဲ့
+ တောင်း ပန် အ စဉ်ု တ
+ ကို လိုက် လျော မယ် ဆို
+ ဆို ဂုဏ် ပြ ကိုယ် သာ ခံ
+ လိုက် တာ ဈေး ကွက် ထဲ
+ကို အ ခြေ
+ ကျပ် ကို ဆို လို
+==========
 
+real	47m57.457s
+user	47m51.604s
+sys	0m1.754s
+
+```
+   
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
