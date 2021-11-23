@@ -200,6 +200,114 @@ sys	0m0.681s
 Runtime Warning နဲ့ ပတ်သက်ပြီး လေ့လာရန်...  
 စာကြောင်းက အရမ်းတိုနေတာနဲ့ ဆိုင်မယ်လို့ ယူဆတယ်။ စာတမ်းကို ဖတ်ရန်...   
 
+## Debugging
+
+Iteration ကို အပြောင်းအလဲ လုပ်ကြည့်ခဲ့...  
+ရလဒ်ကတော့ အောက်ပါအတိုင်း မပြောင်းလဲပါဘူး...  
+
+```
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ time python2.7 ./compute_gleu -s /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.err.syl -r /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.sug -o /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.chk -n 4 --iter 1
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1920: RuntimeWarning: invalid value encountered in multiply
+  lower_bound = self.a * scale + loc
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1921: RuntimeWarning: invalid value encountered in multiply
+  upper_bound = self.b * scale + loc
+pho-typo.open.chk 0.672853
+
+real	0m0.208s
+user	0m0.367s
+sys	0m0.721s
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ time python2.7 ./compute_gleu -s /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.err.syl -r /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.sug -o /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.chk -n 4
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1920: RuntimeWarning: invalid value encountered in multiply
+  lower_bound = self.a * scale + loc
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1921: RuntimeWarning: invalid value encountered in multiply
+  upper_bound = self.b * scale + loc
+pho-typo.open.chk 0.672853
+
+real	0m0.203s
+user	0m0.372s
+sys	0m0.705s
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$
+```
+
+ဖြစ်နိုင်တာက sentence length (i.e. number of words) မညီလို့ ပေးတဲ့ Warning လည်း ဖြစ်နိုင်တယ်။  
+error message နဲ့ Googling လုပ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+Reference: [https://stackoverflow.com/questions/34955158/what-might-be-the-cause-of-invalid-value-encountered-in-less-equal-in-numpy/34955622](https://stackoverflow.com/questions/34955158/what-might-be-the-cause-of-invalid-value-encountered-in-less-equal-in-numpy/34955622)  
+
+```
+That's most likely happening because of a np.nan somewhere in the inputs involved.
+```
+
+--debug option ထည့်ပြီး run ခဲ့တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+(py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ time python2.7 ./compute_gleu -s /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.err.syl -r /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.sug -o /media/ye/project2/tool/gec-ranking/rule-spellchk/open/pecs/pho-typo.open.chk -n 4 --debug | tee debug.log
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1920: RuntimeWarning: invalid value encountered in multiply
+  lower_bound = self.a * scale + loc
+/home/ye/anaconda3/envs/py2.7env/lib/python2.7/site-packages/scipy/stats/_distn_infrastructure.py:1921: RuntimeWarning: invalid value encountered in multiply
+  upper_bound = self.b * scale + loc
+
+===== Sentence-level scores =====
+SID Mean Stdev 95%CI GLEU
+0 1.000000 0.000000 (nan,nan)
+1 1.000000 0.000000 (nan,nan)
+2 1.000000 0.000000 (nan,nan)
+3 1.000000 0.000000 (nan,nan)
+4 1.000000 0.000000 (nan,nan)
+5 1.000000 0.000000 (nan,nan)
+6 1.000000 0.000000 (nan,nan)
+7 0.594604 0.000000 (nan,nan)
+8 0.638943 0.000000 (nan,nan)
+9 1.000000 0.000000 (nan,nan)
+10 1.000000 0.000000 (nan,nan)
+11 0.510029 0.000000 (nan,nan)
+12 0.594604 0.000000 (nan,nan)
+13 1.000000 0.000000 (nan,nan)
+14 1.000000 0.000000 (nan,nan)
+15 1.000000 0.000000 (nan,nan)
+16 1.000000 0.000000 (nan,nan)
+...
+...
+...
+...
+244 1.000000 0.000000 (nan,nan)
+245 1.000000 0.000000 (nan,nan)
+246 1.000000 0.000000 (nan,nan)
+247 1.000000 0.000000 (nan,nan)
+248 1.000000 0.000000 (nan,nan)
+249 1.000000 0.000000 (nan,nan)
+250 1.000000 0.000000 (nan,nan)
+251 1.000000 0.000000 (nan,nan)
+252 1.000000 0.000000 (nan,nan)
+253 1.000000 0.000000 (nan,nan)
+254 1.000000 0.000000 (nan,nan)
+255 1.000000 0.000000 (nan,nan)
+256 1.000000 0.000000 (nan,nan)
+257 1.000000 0.000000 (nan,nan)
+258 1.000000 0.000000 (nan,nan)
+259 1.000000 0.000000 (nan,nan)
+260 1.000000 0.000000 (nan,nan)
+261 1.000000 0.000000 (nan,nan)
+262 1.000000 0.000000 (nan,nan)
+263 1.000000 0.000000 (nan,nan)
+264 1.000000 0.000000 (nan,nan)
+265 1.000000 0.000000 (nan,nan)
+266 0.397635 0.000000 (nan,nan)
+267 0.397635 0.000000 (nan,nan)
+268 0.273012 0.000000 (nan,nan)
+269 0.638943 0.000000 (nan,nan)
+
+==== Overall score =====
+Mean Stdev 95%CI GLEU
+0.672853 0.000000 (nan,nan)
+
+real	0m0.251s
+user	0m0.426s
+sys	0m0.719s
+
+
+```
+
 ## To Do
 - Running Warning ကိစ္စကို လေ့လာရန်
 - စာတမ်း ဖတ်ရန်
