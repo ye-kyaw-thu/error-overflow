@@ -5150,7 +5150,8 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 <p align="center">
 <div align="center">
   Table. F1 Score of automatic rule extraction approach for closed-test data   <br />
-Here, Error-Correction pattern is containing for all pattern group. (e.g. Prefix-Error-Correction = Prefix-Error-Correction + Error-Correction) <br />
+Here, Error-Correction pattern is containing for all pattern group. <br />
+   (e.g. Prefix-Error-Correction = Prefix-Error-Correction + Error-Correction) <br />
    
 | Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
 |:----------|--------:|------:|--------:|------:|
@@ -5171,7 +5172,8 @@ Here, Error-Correction pattern is containing for all pattern group. (e.g. Prefix
 <p align="center">
 <div align="center">
   Table. F1 Score of automatic rule extraction approach for open test data   <br />
-   Here, Error-Correction pattern is containing for all pattern group. (e.g. Prefix-Error-Correction-Suffix = Prefix-Error-Correction-Suffix + Error-Correction)  <br />
+   Here, Error-Correction pattern is containing for all pattern group. <br />
+   (e.g. Prefix-Error-Correction-Suffix = Prefix-Error-Correction-Suffix + Error-Correction)  <br />
 
    
 | Type of Error   | Error-Correction | Prefix-Error-Correction-Suffix |  Prefix-Error-Correction | Error-Correction-Suffix | 
