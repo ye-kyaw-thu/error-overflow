@@ -5129,7 +5129,7 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
    
 <p align="center">
 <div align="center">
-  Table. F1 Score for manual rule-based approach    <br />
+  Table.1 F1 Score for manual rule-based approach    <br />
    
 | Type of Error   |      Spelling Errors (i.e. Do Nothing)      |  F1-Score for Open-test |
 |:----------|-------------:|------:|
@@ -5146,10 +5146,10 @@ Run ထားပြီးရလာတဲ့ ရလဒ်တွေက မျာ�
 | Typo Error | 0.7233 | 0.7471 |
 </div>
  </p>
-
+<br />
 <p align="center">
 <div align="center">
-  Table. F1 Score of automatic rule extraction approach for closed-test data   <br />
+  Table.2 F1 Score of automatic rule extraction approach for closed-test data   <br />
 Here, Error-Correction pattern is containing for all pattern group. <br />
    (e.g. Prefix-Error-Correction = Prefix-Error-Correction + Error-Correction) <br />
    
@@ -5168,10 +5168,10 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
 | Typo Error | 0. | 0. | 0. | 0. |
 </div>
  </p>
-   
+<br />
 <p align="center">
 <div align="center">
-  Table. F1 Score of automatic rule extraction approach for open test data   <br />
+  Table.3 F1 Score of automatic rule extraction approach for open test data   <br />
    Here, Error-Correction pattern is containing for all pattern group. <br />
    (e.g. Prefix-Error-Correction-Suffix = Prefix-Error-Correction-Suffix + Error-Correction)  <br />
 
