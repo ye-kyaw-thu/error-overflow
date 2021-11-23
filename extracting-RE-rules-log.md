@@ -5194,6 +5194,7 @@ Here, Error-Correction pattern is containing for all pattern group. <br />
    
 Table.2 ရလဒ်တွေကနေ ဘာကိုသွားတွေ့ရသလဲ ဆိုတော့ closed-test မှာတော့ လာသမျှ pattern (တနည်းအားဖြင့်ပြောရရင် manul စုထားတုန်း ရှိနေတဲ့ raw data ကနေ ရှေ့ syllable တစ်လုံး၊ နောက် syllable တစ်လုံး range အတွင်းမှာ ပါလာသမျှ pattern) ကနေ ဆွဲထုတ်ထားတဲ့ rule ကို သုံးပြီး spelling correction လုပ်တာတွေက အကောင်းဆုံး score တွေ ရရှိတာ တွေ့ရ။  
    
+Table. 3 ရလဒ်တွေကနေ နားလည်တာကတော့ open test မှာတော့ best-score ပေးတာက pattern မျိုးစုံကနေ ထွက်လာတာကို တွေ့ရတယ်။  
 
 ## Debugging 
    
