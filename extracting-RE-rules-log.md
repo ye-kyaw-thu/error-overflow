@@ -5582,6 +5582,328 @@ Pattern တွေကို မြင်အောင် ပြရရင်တေ�
 (base) ye@:/media/ye/project2/exp/errant/my-data/4github$                        
 ```
    
+## GLEU Score Calculation
+                      
+နောက်ပိုင်း spelling checking အတွက် GLEU score calculation ကိုလည်း ထည့်တွက်သွားဖို့ ရည်ရွယ်ပြီး ဒီတစ်ခေါက် လုပ်တဲ့ experiment ကနေ GLEU score ကို စတွက်ဖို့ ပြင်ခဲ့တယ်။  
+အခုချိန်ထိ လုပ်ခဲ့တဲ့ experiment ရလဒ်တွေအားလုံးကို GLEU score တွက်နိုင်ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+                      
+```bash
+#!/bin/bash
+
+# calculation for spelling checking experiment with extracted RE rules...
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 24 Nov 2021
+
+# for closed-test-data with "all pattern"
+echo "##### for closed-test data, with all pattern #####";
+echo "";
+for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+do
+    echo "compute GLEU score for error type: $f";
+    #echo "python2.7 ./compute_gleu -s /media/ye/project2/exp/errant/my-data/4github/$f.err.syl -r /media/ye/project2/exp/errant/my-data/4github/$f.sug.syl -o /media/ye/project2/exp/errant/my-data/4github/chk/$f.err.syl.chk -n 4";
+    python2.7 ./compute_gleu -s /media/ye/project2/exp/errant/my-data/4github/$f.err.syl -r /media/ye/project2/exp/errant/my-data/4github/$f.sug.syl -o /media/ye/project2/exp/errant/my-data/4github/chk/$f.err.syl.chk -n 4
+done
+
+echo "";
+
+# for open test-data with "all pattern"
+echo "##### for open test data, with all pattern #####";
+echo "";
+for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+do
+    echo "compute GLEU score for error type: $f";
+    #echo "python2.7 ./compute_gleu -s /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$f.err.syl -r /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$f.sug.syl  -o /media/ye/project2/exp/errant/my-data/4github/chk-open-test/$f.err.syl.chk -n 4";
+    python2.7 ./compute_gleu -s /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$f.err.syl -r /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$f.sug.syl  -o /media/ye/project2/exp/errant/my-data/4github/chk-open-test/$f.err.syl.chk -n 4
+done
+echo "==========";
+echo "";
+
+# calculation for ec, pecs, pec and ecs patterns
+echo "Calculation for ec, pecs, pec and ecs patterns ... ";
+for fd in {ec,pecs,pec,ecs};
+do
+    #echo "### Start working for /media/ye/project2/exp/errant/my-data/4github/$fd/:";
+    echo "##### for closed-test data with $fd pattern #####";
+
+    for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+    do
+        echo "compute GLEU score for errory type: $f";
+        #echo "python2.7 ./compute_gleu -s /media/ye/project2/exp/errant/my-data/4github/$f.err.syl -r /media/ye/project2/exp/errant/my-data/4github/$f.sug.syl  -o /media/ye/project2/exp/errant/my-data/4github/$fd/$f.err.syl.closed.chk -n 4 ";
+        python2.7 ./compute_gleu -s /media/ye/project2/exp/errant/my-data/4github/$f.err.syl -r /media/ye/project2/exp/errant/my-data/4github/$f.sug.syl  -o /media/ye/project2/exp/errant/my-data/4github/$fd/$f.err.syl.closed.chk -n 4 
+    done
+    echo "==========";
+    echo "";
+    
+        echo "##### for open test data with $fd pattern #####";   
+        for f in {con,encode,pho-typo,seq,slang,typo,dialect,pho,sensitive,short,stack}
+    do
+        echo "compute GLEU score for errory type: $f";
+        #echo "python2.7 ./compute_gleu -s /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$f.err.syl -r /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$f.sug.syl -o /media/ye/project2/exp/errant/my-data/4github/$fd/$f.err.syl.open.chk -n 4";
+        python2.7 ./compute_gleu -s /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/error/$f.err.syl -r /media/ye/project1/paper/ONA2021/ei-phyu-mon/report/Finaldata/bigramSyllablePair/test-data/suggestion/$f.sug.syl -o /media/ye/project2/exp/errant/my-data/4github/$fd/$f.err.syl.open.chk -n 4 
+    done
+    echo "==========";
+    echo "";
+done
+    
+```
+                      
+အထက်ပါ shell script ကို run ခဲ့တော့ အောက်ပါအတိုင်း GLEU score တွေ ရတယ်။  
+                      
+```
+##### for closed-test data, with all pattern #####
+
+compute GLEU score for error type: con
+con.err.syl.chk 0.927117
+compute GLEU score for error type: encode
+encode.err.syl.chk 0.882789
+compute GLEU score for error type: pho-typo
+pho-typo.err.syl.chk 0.891244
+compute GLEU score for error type: seq
+seq.err.syl.chk 0.924161
+compute GLEU score for error type: slang
+slang.err.syl.chk 0.916731
+compute GLEU score for error type: typo
+typo.err.syl.chk 0.411870
+compute GLEU score for error type: dialect
+dialect.err.syl.chk 0.867403
+compute GLEU score for error type: pho
+pho.err.syl.chk 0.247359
+compute GLEU score for error type: sensitive
+sensitive.err.syl.chk 0.937393
+compute GLEU score for error type: short
+short.err.syl.chk 0.597517
+compute GLEU score for error type: stack
+stack.err.syl.chk 0.971430
+
+##### for open test data, with all pattern #####
+
+compute GLEU score for error type: con
+con.err.syl.chk 0.491066
+compute GLEU score for error type: encode
+encode.err.syl.chk 0.105667
+compute GLEU score for error type: pho-typo
+pho-typo.err.syl.chk 0.644399
+compute GLEU score for error type: seq
+seq.err.syl.chk 0.083781
+compute GLEU score for error type: slang
+slang.err.syl.chk 0.288067
+compute GLEU score for error type: typo
+typo.err.syl.chk 0.116599
+compute GLEU score for error type: dialect
+dialect.err.syl.chk 0.359241
+compute GLEU score for error type: pho
+pho.err.syl.chk 0.131192
+compute GLEU score for error type: sensitive
+sensitive.err.syl.chk 0.425979
+compute GLEU score for error type: short
+short.err.syl.chk 0.131259
+compute GLEU score for error type: stack
+stack.err.syl.chk 0.229249
+==========
+
+Calculation for ec, pecs, pec and ecs patterns ... 
+##### for closed-test data with ec pattern #####
+compute GLEU score for errory type: con
+con.err.syl.closed.chk 0.126051
+compute GLEU score for errory type: encode
+encode.err.syl.closed.chk 0.677225
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.closed.chk 0.000000
+compute GLEU score for errory type: seq
+seq.err.syl.closed.chk 0.741877
+compute GLEU score for errory type: slang
+slang.err.syl.closed.chk 0.098978
+compute GLEU score for errory type: typo
+typo.err.syl.closed.chk 0.000940
+compute GLEU score for errory type: dialect
+dialect.err.syl.closed.chk 0.596875
+compute GLEU score for errory type: pho
+pho.err.syl.closed.chk 0.000000
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.closed.chk 0.689426
+compute GLEU score for errory type: short
+short.err.syl.closed.chk 0.208501
+compute GLEU score for errory type: stack
+stack.err.syl.closed.chk 0.891626
+==========
+
+##### for open test data with ec pattern #####
+compute GLEU score for errory type: con
+con.err.syl.open.chk 0.139139
+compute GLEU score for errory type: encode
+encode.err.syl.open.chk 0.105213
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.open.chk 0.000000
+compute GLEU score for errory type: seq
+seq.err.syl.open.chk 0.354917
+compute GLEU score for errory type: slang
+slang.err.syl.open.chk 0.044537
+compute GLEU score for errory type: typo
+typo.err.syl.open.chk 0.000000
+compute GLEU score for errory type: dialect
+dialect.err.syl.open.chk 0.273680
+compute GLEU score for errory type: pho
+pho.err.syl.open.chk 0.000000
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.open.chk 0.321345
+compute GLEU score for errory type: short
+short.err.syl.open.chk 0.109638
+compute GLEU score for errory type: stack
+stack.err.syl.open.chk 0.581742
+==========
+
+##### for closed-test data with pecs pattern #####
+compute GLEU score for errory type: con
+con.err.syl.closed.chk 0.876824
+compute GLEU score for errory type: encode
+encode.err.syl.closed.chk 0.699206
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.closed.chk 0.875851
+compute GLEU score for errory type: seq
+seq.err.syl.closed.chk 0.793217
+compute GLEU score for errory type: slang
+slang.err.syl.closed.chk 0.724753
+compute GLEU score for errory type: typo
+typo.err.syl.closed.chk 0.421401
+compute GLEU score for errory type: dialect
+dialect.err.syl.closed.chk 0.788838
+compute GLEU score for errory type: pho
+pho.err.syl.closed.chk 0.256154
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.closed.chk 0.760027
+compute GLEU score for errory type: short
+short.err.syl.closed.chk 0.535687
+compute GLEU score for errory type: stack
+stack.err.syl.closed.chk 0.802331
+==========
+
+##### for open test data with pecs pattern #####
+compute GLEU score for errory type: con
+con.err.syl.open.chk 0.393134
+compute GLEU score for errory type: encode
+encode.err.syl.open.chk 0.105667
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.open.chk 0.672853
+compute GLEU score for errory type: seq
+seq.err.syl.open.chk 0.054885
+compute GLEU score for errory type: slang
+slang.err.syl.open.chk 0.151074
+compute GLEU score for errory type: typo
+typo.err.syl.open.chk 0.092307
+compute GLEU score for errory type: dialect
+dialect.err.syl.open.chk 0.359241
+compute GLEU score for errory type: pho
+pho.err.syl.open.chk 0.134879
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.open.chk 0.191655
+compute GLEU score for errory type: short
+short.err.syl.open.chk 0.131259
+compute GLEU score for errory type: stack
+stack.err.syl.open.chk 0.044400
+==========
+
+##### for closed-test data with pec pattern #####
+compute GLEU score for errory type: con
+con.err.syl.closed.chk 0.866677
+compute GLEU score for errory type: encode
+encode.err.syl.closed.chk 0.763035
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.closed.chk 0.778265
+compute GLEU score for errory type: seq
+seq.err.syl.closed.chk 0.842354
+compute GLEU score for errory type: slang
+slang.err.syl.closed.chk 0.776559
+compute GLEU score for errory type: typo
+typo.err.syl.closed.chk 0.269323
+compute GLEU score for errory type: dialect
+dialect.err.syl.closed.chk 0.843189
+compute GLEU score for errory type: pho
+pho.err.syl.closed.chk 0.177593
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.closed.chk 0.709828
+compute GLEU score for errory type: short
+short.err.syl.closed.chk 0.576404
+compute GLEU score for errory type: stack
+stack.err.syl.closed.chk 0.852518
+==========
+
+##### for open test data with pec pattern #####
+compute GLEU score for errory type: con
+con.err.syl.open.chk 0.488573
+compute GLEU score for errory type: encode
+encode.err.syl.open.chk 0.113292
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.open.chk 0.552784
+compute GLEU score for errory type: seq
+seq.err.syl.open.chk 0.129151
+compute GLEU score for errory type: slang
+slang.err.syl.open.chk 0.238389
+compute GLEU score for errory type: typo
+typo.err.syl.open.chk 0.096224
+compute GLEU score for errory type: dialect
+dialect.err.syl.open.chk 0.359241
+compute GLEU score for errory type: pho
+pho.err.syl.open.chk 0.108251
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.open.chk 0.197515
+compute GLEU score for errory type: short
+short.err.syl.open.chk 0.210620
+compute GLEU score for errory type: stack
+stack.err.syl.open.chk 0.127023
+==========
+
+##### for closed-test data with ecs pattern #####
+compute GLEU score for errory type: con
+con.err.syl.closed.chk 0.896837
+compute GLEU score for errory type: encode
+encode.err.syl.closed.chk 0.815273
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.closed.chk 0.823292
+compute GLEU score for errory type: seq
+seq.err.syl.closed.chk 0.871536
+compute GLEU score for errory type: slang
+slang.err.syl.closed.chk 0.827221
+compute GLEU score for errory type: typo
+typo.err.syl.closed.chk 0.341498
+compute GLEU score for errory type: dialect
+dialect.err.syl.closed.chk 0.820288
+compute GLEU score for errory type: pho
+pho.err.syl.closed.chk 0.206734
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.closed.chk 0.873875
+compute GLEU score for errory type: short
+short.err.syl.closed.chk 0.567076
+compute GLEU score for errory type: stack
+stack.err.syl.closed.chk 0.914928
+==========
+
+##### for open test data with ecs pattern #####
+compute GLEU score for errory type: con
+con.err.syl.open.chk 0.584092
+compute GLEU score for errory type: encode
+encode.err.syl.open.chk 0.156560
+compute GLEU score for errory type: pho-typo
+pho-typo.err.syl.open.chk 0.643545
+compute GLEU score for errory type: seq
+seq.err.syl.open.chk 0.156815
+compute GLEU score for errory type: slang
+slang.err.syl.open.chk 0.390592
+compute GLEU score for errory type: typo
+typo.err.syl.open.chk 0.144572
+compute GLEU score for errory type: dialect
+dialect.err.syl.open.chk 0.359241
+compute GLEU score for errory type: pho
+pho.err.syl.open.chk 0.129017
+compute GLEU score for errory type: sensitive
+sensitive.err.syl.open.chk 0.425979
+compute GLEU score for errory type: short
+short.err.syl.open.chk 0.154289
+compute GLEU score for errory type: stack
+stack.err.syl.open.chk 0.295324
+==========
+                   
+```
+                      
 ## Debugging 
    
 Automatic extracted rule တွေကို pass လုပ်တဲ့အခါမှာ ဟိုးအထက်မှာ မြင်ခဲ့ရတဲ့ error တွေက escape လုပ်ဖို့ လိုအပ်တဲ့ စာလုံးတွေကို escape မလုပ်ပဲနဲ့ "s/search/replace/" ဆိုတဲ့ Regular Expression pattern ထဲကို တိုက်ရိုက် pass လုပ်လို့ ဖြစ်တဲ့ error တွေလားလို့...။ လက်ရှိထက် ရလဒ် ကောင်းအောင်ဆိုရင်တော့ escape ကြောင့် ဖြစ်နေတဲ့ error တွေရှိနေရင်တော့ အဲဒီကိစ္စကို debug လုပ်ရလိမ့်မယ်...   
