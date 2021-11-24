@@ -375,6 +375,12 @@ sys	0m0.663s
 (py2.7env) ye@:/media/ye/project2/tool/gec-ranking/scripts$ 
 ```
 
+file format နဲ့ပတ်သက်ပြီလည်း အောက်ပါအတိုင်း GitHub page မှာ ရေးထားတာတွေ့ရလို့ ပြဿနာမရှိလောက်ဘူးလို့ ယူဆခဲ့...  
+
+```
+where each file contains one sentence per line. GLEU can be run with multiple references.
+```
+
 ## To Do
 - Running Warning ကိစ္စကို လေ့လာရန်
 - စာတမ်း ဖတ်ရန်
