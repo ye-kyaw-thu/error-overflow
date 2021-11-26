@@ -825,6 +825,11 @@ tail လုပ်ကြည့်တော့...
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
 ```
 
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ wc ./my-sk.normal 
+ 118508  387601 6169180 ./my-sk.normal
+```
+
 လက်ရှိအချိန်အထိ အခု ထုတ်ပေးတဲ့ format က json, csv တို့ထက် အများကြီး human readable ဖြစ်တယ်။ :)  
 
 ## To Do
