@@ -715,7 +715,59 @@ number of word ကို နှစ်နဲ့စားရင် dictionary မ�
        2  1200909 14101378 total
 ```
 
+## pkl to csv file conversion
 
+Reference link: [https://github.com/helenacuesta/csv-pickle-transition/blob/master/pickle2csv.py](https://github.com/helenacuesta/csv-pickle-transition/blob/master/pickle2csv.py)  
+
+အထက်ပါ Github က python code ကို အောက်ပါအတိုင်း filename argument နဲ့ ပေးပြီး run လို့ရအောင် update လုပ်ခဲ့တယ်။  
+
+```python
+import csv
+from six.moves import cPickle as pickle
+import numpy as np
+from sys import argv
+
+
+def pkl_to_csv(path_pickle,path_csv):
+
+    x = []
+    with open(path_pickle,'rb') as f:
+        x = pickle.load(f)
+
+    with open(path_csv,'w') as f:
+        writer = csv.writer(f)
+        for line in x: writer.writerow(line)
+
+pkl_file = argv[1]
+pkl_to_csv(pkl_file, pkl_file + '.csv')
+```
+
+conversion ကို အောက်ပါအတိုင်း လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ python ./pkl2csv.py ./my-sk.pkl ./my-sk.csv
+```
+
+csv ဖိုင်အဖြစ် ပြောင်းထားတဲ့ ဖိုင်က line သုံးလိုင်း ရှိတာကို တွေ့ရတယ်။   
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ wc ./my-sk.csv
+      3       3 1167010 ./my-sk.csv
+```
+
+ပြောင်းထားပြီးသား ဖိုင်ကို ဝင်ကြည့်တော့ format က အောက်ပါအတိုင်း ...  
+
+```
+ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ head -c 1000 ./my-sk.csv
+ကို,မ,မင်း,ကျွန်တော်,၂,တယ်,၁,သူ,၃,၅,၄,မှာ,၉,၆,၇,က,၈,ပါ,၀,ခင်ဗျား,သူမ,နဲ့,ဘူး,တွေ,သူတို့,ရှိ,ဖို့,လဲ,ငါ,သွား,လို့,တို့,ဒီ,ရ,ဘာ,လား,တာ,တဲ့,သလဲ,လုပ်,ကျွန်တော့်,ပြော,တစ်,သူ့,ပဲ,ဘူးလား,မယ်,ကျွန်တော်တို့,ပြီး,နေ,သိ,ပါတယ်,အတွက်,လာ,အဲ့ဒါ,ရင်,ဖြစ်,ဘယ်သူ့,ခဲ့တယ်,ဘယ်လောက်,ကောင်း,သလား,ဘယ်,ပေး,ပြီ,ဟာ,ဆိုတာ,အဲဒါ,နေတယ်,တော့,တာလဲ,ရဲ့,နော်,ငါ့,စား,နှစ်,ဟုတ်,တွေ့,အလုပ်,သိပ်,နိုင်,အိမ်,လည်း,ဘယ်လို,ကြိုက်,လ(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
+```
+
+နံပါတ်တွေကို နောက်ဆုံး လိုင်းမှာ သွားသိမ်းတယ်။  
+
+```
+ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ tail -n 1 ./my-sk.csv | head -c 100
+2,57,0,111,988,159,166,41,77,582,1171,286,106,204,63,249,179,19,160,3132,127,2094,50,54,296,2633,124(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
+```
 
 ## To Do
 
