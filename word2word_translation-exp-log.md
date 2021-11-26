@@ -680,4 +680,5 @@ sys	0m5.065s
 ```
 
 - [https://github.com/kakaobrain/word2word](https://github.com/kakaobrain/word2word)  
+- [https://sites.pitt.edu/~naraehan/python3/pickling.html](https://sites.pitt.edu/~naraehan/python3/pickling.html)  
 
