@@ -781,7 +781,51 @@ ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ tail -n 1 ./my-s
 
 စာလုံးရေ count လုပ်လို့ မရဘူး...  
 
+## Trying with pickle command
 
+Googling လုပ်ရင်းနဲ့ အောက်ပါ link ကို သွားတွေ့တယ်။  
+[https://docs.python.org/3/library/pickletools.html#module-pickletools](https://docs.python.org/3/library/pickletools.html#module-pickletools)  
+
+အဲဒါနဲ့ အောက်ပါအတိုင်း run ကြည့်ပြီး output ကို .normal ဆိုတဲ့ နာမည်နဲ့ extension ပေးပြီး သိမ်းခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ python -m pickle ./my-sk.pkl > ./my-sk.normal
+```
+
+head လုပ်ကြည့်တော့...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ head ./my-sk.normal 
+({'*': 20855,
+  '+': 20854,
+  '-': 1443,
+  '.': 5373,
+  '.full': 20853,
+  '.point': 20852,
+  '/': 6623,
+  ':': 1442,
+  '=': 6622,
+  'acer': 16014,
+```
+
+tail လုပ်ကြည့်တော့...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ tail ./my-sk.normal 
+  20846: [49838, 76788, 24],
+  20847: [50648, 76789, 76758, 87, 803],
+  20848: [58575, 21356, 27598, 43561, 76753, 76790, 23532, 27817, 2060, 2864],
+  20849: [43817, 76791, 76779, 76787, 54228, 65267],
+  20850: [71509, 46551, 76776, 76792, 76757, 27167, 75610, 151, 31],
+  20851: [55077, 8673, 27165, 151, 555],
+  20852: [1812],
+  20853: [43209],
+  20854: [811, 14428, 897, 546, 274],
+  20855: [68810, 14428, 2175, 409, 274]})
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
+```
+
+လက်ရှိအချိန်အထိ အခု ထုတ်ပေးတဲ့ format က json, csv တို့ထက် အများကြီး human readable ဖြစ်တယ်။ :)  
 
 ## To Do
 
