@@ -694,7 +694,11 @@ print(data)
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ 
 ```
 
-လိုင်းကတော့ တစ်လိုင်းပဲ ရှိမှာပဲ ဒါပေမဲ့ "," နဲ့ ခြားထားတာမို့ word size ကို နှစ်နဲ့စားရင် dictionary မှာ ရှိတဲ့ စာလုံးအရေအတွက်ကို ရမယ်လို့ ထင်တယ်။   
+လိုင်းကတော့ တစ်လိုင်းပဲ ရှိမှာပဲ ဒါပေမဲ့ "," နဲ့ ခြားထားပြီးတော့ အောက်ပါ format နဲ့ သိမ်းထားတာမို့...  
+
+```{'ကို': 0, 'မ': 1, 'မင်း': 2, 'ကျွန်တော': 3,```   
+
+number of word ကို နှစ်နဲ့စားရင် dictionary မှာ ရှိတဲ့ စာလုံးအရေအတွက်ကို ရမယ်လို့ ထင်တယ်။   
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ wc ./lex/*.txt
