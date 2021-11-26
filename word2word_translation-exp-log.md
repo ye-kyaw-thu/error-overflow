@@ -662,6 +662,57 @@ sys	0m5.065s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
 ```
 
+## Converting co, pmi and cpe pickle files to text files
+
+pkl-print.py ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```python
+import sys
+import pickle
+
+# for printing pkl file as normal text
+# written by Ye, LST, NECTEC, Thailand
+
+filename = sys.argv[1]
+
+with open(filename, 'rb') as f:
+    data = pickle.load(f)
+f.close()
+
+print(data)
+```
+
+အထက်က python script ကို သုံးပြီးတော့ conversion ကို အောက်ပါအတိုင်း လုပ်ခဲ့တယ်။  
+
+``` 
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/my-sk.pkl > ./lex/my-sk.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/sk-my.pkl > ./lex/sk-my.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/co/my-sk.pkl > ./lex/co/my-sk.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/co/sk-my.pkl > ./lex/co/sk-my.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/pmi/my-sk.pkl > ./lex/pmi/my-sk.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ python ./pkl-print.py ./lex/pmi/sk-my.pkl > ./lex/pmi/sk-my.txt
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ 
+```
+
+လိုင်းကတော့ တစ်လိုင်းပဲ ရှိမှာပဲ ဒါပေမဲ့ "," နဲ့ ခြားထားတာမို့ word size ကို နှစ်နဲ့စားရင် dictionary မှာ ရှိတဲ့ စာလုံးအရေအတွက်ကို ရမယ်လို့ ထင်တယ်။   
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ wc ./lex/*.txt
+       1   387601  5932168 ./lex/my-sk.txt
+       1   813308  8049597 ./lex/sk-my.txt
+       2  1200909 13981765 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ wc ./lex/co/*.txt
+       1   387601  5818194 ./lex/co/my-sk.txt
+       1   813308  7951199 ./lex/co/sk-my.txt
+       2  1200909 13769393 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk$ wc ./lex/pmi/*.txt
+       1   387601  5967957 ./lex/pmi/my-sk.txt
+       1   813308  8133421 ./lex/pmi/sk-my.txt
+       2  1200909 14101378 total
+```
+
+
+
 ## To Do
 
 - lexical building and test word-to-word translation for all Myanmar parallel corpora
