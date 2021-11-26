@@ -847,4 +847,5 @@ tail လုပ်ကြည့်တော့...
 - [https://github.com/kakaobrain/word2word](https://github.com/kakaobrain/word2word)  
 - [https://sites.pitt.edu/~naraehan/python3/pickling.html](https://sites.pitt.edu/~naraehan/python3/pickling.html)  
 - [https://github.com/helenacuesta/csv-pickle-transition](https://github.com/helenacuesta/csv-pickle-transition)  
+- [https://docs.python.org/3/library/pickletools.html#module-pickletools](https://docs.python.org/3/library/pickletools.html#module-pickletools)  
 
