@@ -642,7 +642,25 @@ sys	0m5.065s
 2 directories, 6 files
 ```
 
+ဆွဲထုတ်ပြီး ရလာတဲ့ lexicon တွေရဲ့ size ကတော့ မတူဘူး...  
+မြန်မာ-စကောကရင်အတွက်က အောက်ပါအတိုင်း တွေ့ရတယ်။  
+နောက်တစ်ခုက မြန်မာ-စကောကရင် နဲ့ စကောကရင်-မြန်မာ direction မတူရင် ဆွဲထုတ်လို့ ရတဲ့ စာလုံးအရေအတွက်လည်း မတူဘူးလားလို့?!?!   
 
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ wc *.pkl
+    5063    31427  5677846 my-sk.pkl
+   13684    79284  7153823 sk-my.pkl
+   18747   110711 12831669 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ wc ./co/*.pkl
+    5383    32271  5635752 ./co/my-sk.pkl
+   12703    77095  7114725 ./co/sk-my.pkl
+   18086   109366 12750477 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ wc ./pmi/*.pkl
+    4458    29905  5704552 ./pmi/my-sk.pkl
+   13999    79868  7185483 ./pmi/sk-my.pkl
+   18457   109773 12890035 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
+```
 
 ## To Do
 
