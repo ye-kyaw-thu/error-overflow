@@ -786,6 +786,22 @@ ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ tail -n 1 ./my-s
 Googling လုပ်ရင်းနဲ့ အောက်ပါ link ကို သွားတွေ့တယ်။  
 [https://docs.python.org/3/library/pickletools.html#module-pickletools](https://docs.python.org/3/library/pickletools.html#module-pickletools)  
 
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ python -m pickle --help
+usage: pickle.py [-h] [-t] [-v] [pickle_file [pickle_file ...]]
+
+display contents of the pickle files
+
+positional arguments:
+  pickle_file  the pickle file
+
+optional arguments:
+  -h, --help   show this help message and exit
+  -t, --test   run self-test suite
+  -v           run verbosely; only affects self-test run
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$
+```
+
 အဲဒါနဲ့ အောက်ပါအတိုင်း run ကြည့်ပြီး output ကို .normal ဆိုတဲ့ နာမည်နဲ့ extension ပေးပြီး သိမ်းခဲ့တယ်။  
 
 ```
