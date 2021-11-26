@@ -802,4 +802,5 @@ ye@:/media/ye/project2/exp/word2word-tran/word2word/my-sgk/lex$ tail -n 1 ./my-s
 
 - [https://github.com/kakaobrain/word2word](https://github.com/kakaobrain/word2word)  
 - [https://sites.pitt.edu/~naraehan/python3/pickling.html](https://sites.pitt.edu/~naraehan/python3/pickling.html)  
+- [https://github.com/helenacuesta/csv-pickle-transition](https://github.com/helenacuesta/csv-pickle-transition)  
 
