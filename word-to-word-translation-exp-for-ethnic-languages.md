@@ -728,7 +728,440 @@ Folder structure ကို မြင်ရအောင် tree command နဲ့
 
 ## Lexical Building (i.e. word-to-word)
 
+shell script တစ်ပုဒ် ရေးခဲ့တယ်။  
 
+```bash
+#!/bin/bash
+
+# /media/ye/project2/exp/word2word-tran/word2word/my-x/ အောက်မှာ ရှိတဲ့ for loop နဲ့ looping ပတ်ထားတဲ့ src-trg ဖိုလ်ဒါတွေအောက်က
+# train.src, train.trg ဖိုင်တွေကို သုံးပြီးတော့ lexicon တွေ ဆောက်ပေးသွားမှာပါ
+# output folder ကတော့ w2w/lex/ အောက်မှာပါ
+# 
+# lexicon building between Myanmar (Burmese) and other ethnic languages
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 28 Nov 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; echo "src: $src";
+    trg=${fd#*-}; echo "trg: $trg";
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; echo "ref_path: $ref_path";
+    echo "time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 $src --lang2 $trg --datapref $ref_path/train --save_pmi --save_cooccurrence --savedir $ref_path/lex;";
+    time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 $src --lang2 $trg --datapref $ref_path/train --save_pmi --save_cooccurrence --savedir $ref_path/lex;
+    
+done
+```
+
+အောက်ပါအတိုင်း run ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./build-lexicon.sh 
+src: my
+trg: bk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 bk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.30s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 69825/69825 [00:00<00:00, 4284817.51it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9607/9607 [00:00<00:00, 3449886.86it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 69313/69313 [00:00<00:00, 4494948.64it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9444/9444 [00:00<00:00, 3262044.55it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10622/10622 [00:00<00:00, 26209.05it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=9606)
+Entering multiprocessing with 16 workers... (#words=9443)
+Time taken for step 5: 2.93s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9606/9606 [00:00<00:00, 24098.13it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9443/9443 [00:00<00:00, 26541.28it/s]
+Done!
+
+real	0m6.084s
+user	0m13.525s
+sys	0m2.449s
+src: my
+trg: ch
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 ch --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.38s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 137912/137912 [00:00<00:00, 4730455.70it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 5702/5702 [00:00<00:00, 3485777.79it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 101624/101624 [00:00<00:00, 4415230.63it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 14432/14432 [00:00<00:00, 3249178.49it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 14883/14883 [00:00<00:00, 17643.62it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=5702)
+Entering multiprocessing with 16 workers... (#words=14432)
+Time taken for step 5: 4.45s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5702/5702 [00:00<00:00, 14983.81it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 14432/14432 [00:00<00:00, 20486.91it/s]
+Done!
+
+real	0m7.740s
+user	0m22.570s
+sys	0m2.477s
+src: my
+trg: kc
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 kc --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.68s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 351258/351258 [00:00<00:00, 3284098.77it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 4673/4673 [00:00<00:00, 3553296.34it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 309287/309287 [00:00<00:00, 4621344.32it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 10726/10726 [00:00<00:00, 3414916.10it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 38073/38073 [00:02<00:00, 15496.26it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=4673)
+Entering multiprocessing with 16 workers... (#words=10726)
+Time taken for step 5: 7.41s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4673/4673 [00:00<00:00, 11661.24it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10726/10726 [00:00<00:00, 14977.72it/s]
+Done!
+
+real	0m12.818s
+user	0m40.522s
+sys	0m3.444s
+src: my
+trg: ky
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 ky --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.70s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 83988/83988 [00:00<00:00, 4221496.33it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 11387/11387 [00:00<00:00, 3120991.94it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 81431/81431 [00:00<00:00, 4455107.60it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9500/9500 [00:00<00:00, 3129094.39it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10131/10131 [00:00<00:00, 11543.18it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=11387)
+Entering multiprocessing with 16 workers... (#words=9500)
+Time taken for step 5: 5.07s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 11387/11387 [00:00<00:00, 19873.10it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9500/9500 [00:00<00:00, 18704.73it/s]
+Done!
+
+real	0m8.684s
+user	0m26.875s
+sys	0m3.037s
+src: my
+trg: mo
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 mo --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.29s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 50351/50351 [00:00<00:00, 2733074.51it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9667/9667 [00:00<00:00, 2690890.41it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 61880/61880 [00:00<00:00, 4233574.72it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9836/9836 [00:00<00:00, 3401927.45it/s]
+Step 4. Update count dictionaries
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8873/8873 [00:01<00:00, 5072.41it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=9657)
+Entering multiprocessing with 16 workers... (#words=9279)
+Time taken for step 5: 5.40s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9657/9657 [00:00<00:00, 27610.98it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9279/9279 [00:00<00:00, 30398.40it/s]
+Done!
+
+real	0m9.082s
+user	0m26.018s
+sys	0m3.606s
+src: my
+trg: pk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 pk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.63s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 110197/110197 [00:00<00:00, 3027006.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 16253/16253 [00:00<00:00, 2778140.96it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 111754/111754 [00:00<00:00, 4322006.50it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 19766/19766 [00:00<00:00, 2721842.90it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 19039/19039 [00:00<00:00, 27371.60it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=16253)
+Entering multiprocessing with 16 workers... (#words=19766)
+Time taken for step 5: 5.42s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 16253/16253 [00:00<00:00, 26082.32it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 19766/19766 [00:00<00:00, 28641.49it/s]
+Done!
+
+real	0m9.209s
+user	0m24.334s
+sys	0m3.434s
+src: my
+trg: po
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 po --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 1.01s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 105965/105965 [00:00<00:00, 2524448.89it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 16284/16284 [00:00<00:00, 3043131.63it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 82888/82888 [00:00<00:00, 4027962.48it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 26723/26723 [00:00<00:00, 2413063.48it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 18254/18254 [00:00<00:00, 31078.81it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=16284)
+Entering multiprocessing with 16 workers... (#words=26723)
+Time taken for step 5: 4.93s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 16284/16284 [00:00<00:00, 27544.21it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 26723/26723 [00:00<00:00, 38011.84it/s]
+Done!
+
+real	0m9.016s
+user	0m19.201s
+sys	0m3.025s
+src: my
+trg: rk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 rk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.52s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 124683/124683 [00:00<00:00, 4325759.80it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 16511/16511 [00:00<00:00, 2999876.69it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 122412/122412 [00:00<00:00, 4482253.21it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 17993/17993 [00:00<00:00, 3191310.55it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 18273/18273 [00:00<00:00, 21995.05it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=16507)
+Entering multiprocessing with 16 workers... (#words=17992)
+Time taken for step 5: 5.63s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 16507/16507 [00:00<00:00, 25283.35it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 17992/17992 [00:00<00:00, 25036.82it/s]
+Done!
+
+real	0m9.450s
+user	0m25.689s
+sys	0m3.717s
+src: my
+trg: rw
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 rw --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.29s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 42693/42693 [00:00<00:00, 2201468.17it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 3569/3569 [00:00<00:00, 2247668.31it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 43361/43361 [00:00<00:00, 3743705.55it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 4074/4074 [00:00<00:00, 3336769.09it/s]
+Step 4. Update count dictionaries
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5276/5276 [00:00<00:00, 17161.60it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=3569)
+Entering multiprocessing with 16 workers... (#words=4074)
+Time taken for step 5: 2.04s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3569/3569 [00:00<00:00, 18129.43it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4074/4074 [00:00<00:00, 20328.10it/s]
+Done!
+
+real	0m3.766s
+user	0m10.488s
+sys	0m2.275s
+src: my
+trg: sh
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 sh --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.27s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 112456/112456 [00:00<00:00, 4237753.26it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 15081/15081 [00:00<00:00, 3223970.37it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 91651/91651 [00:00<00:00, 4332722.70it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 24198/24198 [00:00<00:00, 2533164.48it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 16433/16433 [00:00<00:00, 25575.23it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=15081)
+Entering multiprocessing with 16 workers... (#words=24198)
+Time taken for step 5: 4.81s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 15081/15081 [00:00<00:00, 25525.38it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 24198/24198 [00:00<00:00, 34248.08it/s]
+Done!
+
+real	0m8.135s
+user	0m21.056s
+sys	0m3.273s
+src: my
+trg: sk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 sk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.94s
+Step 3. Compute vocabularies
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405869/405869 [00:00<00:00, 3761889.96it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 20906/20906 [00:00<00:00, 3043811.42it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 260296/260296 [00:00<00:00, 4098784.94it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 81659/81659 [00:00<00:00, 2368048.33it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 68471/68471 [00:01<00:00, 34449.46it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=20906)
+Entering multiprocessing with 16 workers... (#words=81659)
+Time taken for step 5: 12.42s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 20906/20906 [00:01<00:00, 17607.39it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 81659/81659 [00:02<00:00, 38100.20it/s]
+Done!
+
+real	0m20.639s
+user	0m52.105s
+sys	0m5.725s
+src: rk
+trg: bk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 rk --lang2 bk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.30s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 69825/69825 [00:00<00:00, 3126552.26it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9607/9607 [00:00<00:00, 3392664.69it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 68372/68372 [00:00<00:00, 4545314.03it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 9937/9937 [00:00<00:00, 3384118.13it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 10622/10622 [00:00<00:00, 26527.92it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=9607)
+Entering multiprocessing with 16 workers... (#words=9935)
+Time taken for step 5: 3.06s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9607/9607 [00:00<00:00, 25497.20it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9935/9935 [00:00<00:00, 26991.65it/s]
+Done!
+
+real	0m5.387s
+user	0m13.218s
+sys	0m2.610s
+src: rw
+trg: kc
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 rw --lang2 kc --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.29s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 86399/86399 [00:00<00:00, 2613940.72it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 2232/2232 [00:00<00:00, 3267604.37it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 80096/80096 [00:00<00:00, 4706062.44it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 4739/4739 [00:00<00:00, 3707667.72it/s]
+Step 4. Update count dictionaries
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9900/9900 [00:00<00:00, 18754.78it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=2232)
+Entering multiprocessing with 16 workers... (#words=4739)
+Time taken for step 5: 1.86s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2232/2232 [00:00<00:00, 12635.92it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4739/4739 [00:00<00:00, 19290.60it/s]
+Done!
+
+real	0m3.893s
+user	0m10.158s
+sys	0m1.700s
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
+```
 
 
 
