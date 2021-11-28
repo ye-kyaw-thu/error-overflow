@@ -674,6 +674,58 @@ YÀ MÉ NØ̀ NGÀ YÀ NĪTǾL ÍÈ .
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w$
 ```
 
+## Folder Structure for Data
+
+w2w ဆိုတဲ့ folder ထဲမှာ ရှိတဲ့ train.x နဲ့ test.x ဒေတာတွေကိုပဲ word-to-word lexicon building/translation experiment အတွက် သုံးသွားမှာပါ။  
+Folder structure ကို မြင်ရအောင် tree command နဲ့ရိုက်ပြရရင် အောက်ပါအတိုင်းပါ။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ tree -d -L 2 -P *w2w
+.
+├── my-bk
+│   ├── 1
+│   └── w2w
+├── my-ch
+│   └── w2w
+├── my-kc
+│   ├── one-file
+│   └── w2w
+├── my-ky
+│   └── w2w
+├── my-mo
+│   ├── 12Dec2020
+│   ├── 22Aug2021
+│   └── w2w
+├── my-pk
+│   ├── 18Jan2021
+│   └── w2w
+├── my-po
+│   ├── latest
+│   ├── old-ver
+│   └── w2w
+├── my-rk
+│   ├── data
+│   └── w2w
+├── my-rw
+│   ├── data
+│   └── w2w
+├── my-sh
+│   ├── data
+│   └── w2w
+├── my-sk
+│   ├── data
+│   └── w2w
+├── rk-bk
+│   ├── 1
+│   └── w2w
+└── rw-kc
+    ├── data
+    └── w2w
+
+39 directories
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
+```
+
 ## Lexical Building (i.e. word-to-word)
 
 
