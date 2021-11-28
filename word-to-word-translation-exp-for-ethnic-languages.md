@@ -1213,6 +1213,11 @@ sys	0m1.700s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w$
 ```
 
+ For these reasons, we consider
+approaches based on (monolingual and cross-lingual) cooccurrence counts: co-occurrences, pointwise mutual information (PMI), and co-occurrences with controlled predictive effects (CPE).
+
+ဒီနေရာမှာ "lex/" အောက်မှာ ရှိတဲ့ ".pkl" ဖိုင်တွေက CPE (Controlled Predictive Effects) approach နဲ့ ဆွဲထုတ်ထားတဲ့ lexicon ဖိုင်တွေပါ။ "co/" ဖိုလ်ဒါအောက်မှာ ရှိတဲ့ ".pkl" တွေက co-occurrence count approach နဲ့ ဆွဲထုတ်ထားတာ ဖြစ်ပြီးတော့ "pmi/" ဖိုလ်ဒါအောက် က ".pkl" ဖိုင်တွေကတော့ PMI (Pointwise Mutual Information) approach နဲ့ ဆွဲထုတ်ထားတာ ဖြစ်ပါတယ်။  
+
 
 
 ## Reference
