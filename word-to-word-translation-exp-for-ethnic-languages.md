@@ -734,4 +734,6 @@ Folder structure ကို မြင်ရအောင် tree command နဲ့
 
 ## Reference
 
+- [https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md)
+- [word2word](https://github.com/kakaobrain/word2word)
 - [https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash](https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash)
