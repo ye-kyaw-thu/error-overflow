@@ -1163,6 +1163,56 @@ sys	0m1.700s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
 ```
 
+ပြဿနာမရှိပဲ အဆင်ပြေပြေနဲ့ run လို့ ပြီးစီးသွားတယ် ဆိုရင် lexicon ဖိုင်တွေက source-target အသီးသီးအတွက် w2w/lex/ ဖိုလ်ဒါအောက်မှာ ရှိပါလိမ့်မယ်။  
+ဥပမာ "မြန်မာ-ဘိတ်" အတွဲအတွက်ဆိုရင် အောက်ပါ path အောက်မှာ pkl ဖိုင်တွေကို lexicon ouput အနေနဲ့ ရလာမှာ ဖြစ်ပါတယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w$ tree
+.
+├── all.bk
+├── all.my
+├── lex
+│   ├── bk-my.pkl
+│   ├── co
+│   │   ├── bk-my.pkl
+│   │   └── my-bk.pkl
+│   ├── my-bk.pkl
+│   └── pmi
+│       ├── bk-my.pkl
+│       └── my-bk.pkl
+├── test.bk
+├── test.my
+├── train.bk
+└── train.my
+
+3 directories, 12 files
+```
+
+ထိုနည်းလည်းကောင်း "မြန်မာ-စကောကရင်" အတွဲအတွက်ဆိုရင် အောက်ပါ my-sk/w2w/lex အောက်မှာ lexicon ဖိုင်တွေ (.pkl) ရလာပါလိမ့်မယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w$ tree
+.
+├── all.my
+├── all.sk
+├── lex
+│   ├── co
+│   │   ├── my-sk.pkl
+│   │   └── sk-my.pkl
+│   ├── my-sk.pkl
+│   ├── pmi
+│   │   ├── my-sk.pkl
+│   │   └── sk-my.pkl
+│   └── sk-my.pkl
+├── test.my
+├── test.sk
+├── train.my
+└── train.sk
+
+3 directories, 12 files
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w$
+```
+
 
 
 ## Reference
