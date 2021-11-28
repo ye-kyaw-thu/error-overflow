@@ -1,4 +1,4 @@
-# Word-to-Word Translation Experiment Note
+# Log File of Word-to-Word Translation Experiment for Myanmar Ethnic Languages
 
 ## Data Preparation
 
