@@ -726,7 +726,7 @@ Folder structure ကို မြင်ရအောင် tree command နဲ့
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
 ```
 
-## Lexical Building (i.e. word-to-word)
+## Lexicon Building (i.e. word-to-word)
 
 shell script တစ်ပုဒ် ရေးခဲ့တယ်။  
 
@@ -1218,6 +1218,100 @@ approaches based on (monolingual and cross-lingual) cooccurrence counts: co-occu
 
 ဒီနေရာမှာ "lex/" အောက်မှာ ရှိတဲ့ ".pkl" ဖိုင်တွေက CPE (Controlled Predictive Effects) approach နဲ့ ဆွဲထုတ်ထားတဲ့ lexicon ဖိုင်တွေပါ။ "co/" ဖိုလ်ဒါအောက်မှာ ရှိတဲ့ ".pkl" တွေက co-occurrence count approach နဲ့ ဆွဲထုတ်ထားတာ ဖြစ်ပြီးတော့ "pmi/" ဖိုလ်ဒါအောက် က ".pkl" ဖိုင်တွေကတော့ PMI (Pointwise Mutual Information) approach နဲ့ ဆွဲထုတ်ထားတာ ဖြစ်ပါတယ်။  
 
+## Prepare Some Running Scripts
+
+translation လုပ်ဖို့အတွက် python ပရိုဂရမ်ကို အောက်ပါအတိုင်း ရေခဲ့တယ်။  
+
+```python
+import sys
+from word2word import Word2word
+
+# word-to-word translation with lexicon
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 28 Nov 2021
+#
+# How to run: python ./translate.py <source> <target> <lexicon_path> <test-data_path> > <hyp-filename>
+# for Myanmar to Beik, python ./translate.py my bk ./my-x/my-bk/w2w/lex/ ./my-x/my-bk/w2w/test.my
+# for Beik to Myanmar, python ./translate.py bk my ./my-x/my-bk/w2w/lex/ ./my-x/my-bk/w2w/test.bk
+# for PMI approach, python ./translate.py bk my ./my-x/my-bk/w2w/lex/pmi/ ./my-x/my-bk/w2w/test.bk
+# for co-occurrence approach, python ./translate.py bk my ./my-x/my-bk/w2w/lex/co/ ./my-x/my-bk/w2w/test.bk
+
+src=sys.argv[1]
+trg=sys.argv[2]
+lexicon_path=sys.argv[3]
+test_file_path=sys.argv[4]
+#nbest=sys.argv[5] # nbest တန်ဖိုးပေးရင် စာလုံးတိုင်းကို OOV ဆိုပြီး ထွက်လာလို့ nbest တွက်တဲ့ module ကို ဝင်ပြင်မှရလိမ့်မယ်
+
+print('src: ', src, ', trg: ', trg, ', lexicon path:', lexicon_path)
+my2x = Word2word.load(src, trg, lexicon_path)
+
+def percentage(oov, total):
+  percentage = 100 * float(oov)/float(total)
+  return percentage
+  
+with open(test_file_path, 'r') as f:
+    count=0
+    oov=0
+    for line in f:
+        word_list=line.strip().split()
+        for word in word_list:
+            try:
+                target_word= my2x(word)
+                count=count+1
+            except:
+                target_word='OOV'
+                oov=oov+1
+            print(target_word)
+        print("\n")
+
+oov_percentage=percentage(oov, count)
+print(f'OOV percentage:  {oov_percentage:.2f}%')
+
+```
+
+အထက်ပါ python script ကို run ရင် အောက်ပါလိုမျိုး စာလုံးတစ်လုံးချင်းစီကို lexicon ကို သုံးပြီး ဘာသာပြန်ပေးသွားပါလိမ့်မယ်။
+test ဖိုင်မှာက စာကြောင်းအလိုက် ရှိပေမဲ့ အထက်ပါ python script မှာ ရေးထားတဲ့ အတိုင်းပဲ စာကြောင်းကို space နဲ့ split လုပ်ချလိုက်ပြီး list အနေနဲ့ သိမ်းပြီးမှ အဲဒီ list ကို looping ပတ်ပြီး စာလုံး တစ်လုံးချင်းစီ translate လုပ်သွားတာမို့.... စာကြောင်း တစ်ကြောင်းနဲ့ တစ်ကြောင်းအကြားမှာ space ခြားပြီး print ထုတ်ထားပါတယ်။ default nbest=5 မို့လို့ ဘာသာပြန်ခိုင်းတဲ့ စာလုံးတစ်လုံးစီအတွက် ဖြစ်နိုင်တဲ့ target language ရဲ့ စာလုံး ၅လုံးအဖြစ် ဘာသာပြန်ပေးပါလိမ့်မယ်။   
+
+အောက်ပါ ဥပမာက ဘိတ်ဘာသာကနေ မြန်မာ ဘာသာကို ဘာသာပြန်ပြီး ထွက်လာတဲ့ output တွေပါ။   
+ပေးထားတဲ့ lexicon path က pmi path မို့လို့... PMI approach နဲ့ ဆောက်ထားတဲ့ lexicon ကို သုံးထားပါတယ်။
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ python ./translate.py bk my ./my-x/my-bk/w2w/lex/pmi/ ./my-x/my-bk/w2w/test.bk
+
+['နင်', 'အဖြေ', 'ဘယ်သူ့ကို', 'ဘာတွေ', 'နေတာလဲ']
+['လူတွေက', 'ပေမယ့်', 'မနေ့', 'ကျပ်', 'က']
+['မို့လို့လဲ', 'လိုချင်လဲ', 'ချင်သလဲ', 'ဘာ', 'သိဘူး']
+['ကောင်းပုံ', 'ဒီအစားအစာတွေက', 'အကြောင်းကိစ္စနဲ့', 'အစားအစာက', 'ဝယ်']
+['ခက်ပါတယ်', 'အရေးကြီးတယ်', 'စိတ်ရှည်', 'အသင့်ဖြစ်', 'ဖြစ်နေပြီ']
+['ဒါ', '၊', 'ပါဘူး', 'ကျေးဇူးပြုပြီး', 'ဘယ်']
+
+
+['ကြပါနဲ့ခင်ဗျာ', 'ငေးမှိုင်', 'စာဖတ်ခန်း', 'ဆက်နေလို့', 'တိတ်ဆိတ်တဲ့']
+['ကျားလေးက', 'ချထား', 'တစ်မှေး', 'နေ့လည်ခင်းကြီး', 'နေ့လယ်ခင်း']
+['ခက်ပါတယ်', 'အရေးကြီးတယ်', 'စိတ်ရှည်', 'အသင့်ဖြစ်', 'ဖြစ်နေပြီ']
+['ဟုတ်ဘူး', 'သေးဘူးလား', 'ကြဘူးလား', 'တော့ဘူးလား', 'မ']
+['သင့်တော်', 'မေး', 'ပါဘူး', 'ဖို့', 'သူမ']
+['ဘယ်တော့မှ', 'ရှည်', 'ခဲ့ပါ', 'ခန်း', 'ဘယ်တုန်းကမှ']
+['ဒါ', '၊', 'ပါဘူး', 'ကျေးဇူးပြုပြီး', 'ဘယ်']
+
+
+['မိတ်ဆွေ', 'လွယ်လွယ်လေးပါ', 'အတွက်', 'အဲ့ဒါ', 'ကျွန်တော့်']
+['သူမဟာ', 'အံ့ဩ', 'သူမက', 'ပါလိမ့်မယ်', 'ထားဘူး']
+['ကျွန်တော်ရို့စာစီစာကုံး', 'လိုက်ဖက်မယ့်ဟာ', 'လိုက်မယ့်ဟာ', 'အရေးကြီးတယ်', 'လွယ်လွယ်လေးပါ']
+['ကူးချ', 'လွယ်လွယ်လေးပါ', 'မြစ်ကို', 'ပန်းချီ', 'ဖြတ်ပြီး']
+['ဒါ', '၊', 'ပါဘူး', 'ကျေးဇူးပြုပြီး', 'ဘယ်']
+
+
+OOV percentage:  9.71%
+
+```
+
+language pair တွေ အားလုံးကို run ဖို့အတွက်က အထက်ပါ python ကို shell script ထဲကနေ ခေါ်run ခဲ့ပါတယ်။  
+ရေးခဲ့တဲ့ shell script က အောက်ပါအတိုင်းပါ...  
+
+```bash
+
+```
 
 
 ## Reference
