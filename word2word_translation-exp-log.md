@@ -1138,15 +1138,12 @@ PageDown ဆက်လုပ်သွားရင်...
   20734: 'အဘၣ်တၢ်ကွၢမဲာ',
 ```
 
-## Building Lexicon 
-
-## Word-to-Word Translation Experiment
+Building Lexicon နဲ့ Word-to-Word Translation Experiment အသေးစိတ်ကို နောက်ထပ် link တစ်ခုမှာပဲ ခွဲတင်ပေးလိုက်မယ်။  
 
 ## Evaluation
 
 ဒီ evaluation ကို ဘယ်လိုလုပ်ရမလဲ ခေါင်းစားနေတယ်။ ငါတို့မှာ တိုက်စစ်လို့ ရတဲ့ အဘိဓာန်က လောလောဆယ် သုံးလို့ ရတာဆိုလို့ မြန်မာ-ရခိုင် ပဲ လက်ထဲမှာ ရှိလို့....   
 Human evaluation လုပ်ဖို့ ဆိုရင်လည်း language-pair အားလုံးအတွက် လုပ်ဖို့က အရမ်းအလွယ်ကြီး မဟုတ်ဘူး...  အချိန်က limitation ဖြစ်နေလို့ ...   
-
 
 
 ## To Do
