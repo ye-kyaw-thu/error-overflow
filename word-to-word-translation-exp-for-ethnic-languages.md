@@ -1310,9 +1310,169 @@ language pair တွေ အားလုံးကို run ဖို့အတွ
 ရေးခဲ့တဲ့ shell script က အောက်ပါအတိုင်းပါ...  
 
 ```bash
+#!/bin/bash
+
+# testing or word-to-word translation with lexicon between Myanmar (Burmese) and other ethnic languages
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 28 Nov 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; 
+    trg=${fd#*-}; 
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; echo "ref_path: $ref_path";
+
+    # run ရတဲ့ ပုံစံက အောက်ပါအတိုင်း
+    #python ./translate.py <source> <target> <lexicon_path> <test-data_path> > <hyp-filename>
+    
+    # for source-to-target translation
+    echo "$src-$trg word2word translation results: co, pmi and cpe order... ";
+    python ./translate.py $src $trg $ref_path/lex/co $ref_path/test.$src > $ref_path/lex/co/$src2$trg.co.hyp; tail -n 1 $ref_path/lex/co/$src2$trg.co.hyp;
+    python ./translate.py $src $trg $ref_path/lex/pmi $ref_path/test.$src > $ref_path/lex/pmi/$src2$trg.pmi.hyp; tail -n 1 $ref_path/lex/pmi/$src2$trg.pmi.hyp;
+    python ./translate.py $src $trg $ref_path/lex/ $ref_path/test.$src > $ref_path/lex/$src2$trg.cpe.hyp; tail -n 1 $ref_path/lex/$src2$trg.cpe.hyp;
+    
+    # for target-to-source translation
+    echo "$trg-$src word2word translation results: co, pmi and cpe order... ";
+    python ./translate.py $trg $src $ref_path/lex/co/ $ref_path/test.$trg > $ref_path/lex/co/$trg2$src.co.hyp; tail -n 1 $ref_path/lex/co/$trg2$src.co.hyp;
+    python ./translate.py $trg $src $ref_path/lex/pmi/ $ref_path/test.$trg > $ref_path/lex/pmi/$trg2$src.pmi.hyp; tail -n 1 $ref_path/lex/pmi/$trg2$src.pmi.hyp;
+    python ./translate.py $trg $src $ref_path/lex/ $ref_path/test.$trg > $ref_path/lex/$trg2$src.cpe.hyp; tail -n 1 $ref_path/lex/$trg2$src.cpe.hyp;
+    
+done
 
 ```
 
+## Word2Word Translation Experiment
+
+အထက်က shell script ကို သုံးပြီး ဆောက်ထားတဲ့ lexicon တွေနဲ့ ဘာသာပြန်ကြည့်တော့ ရလဒ်တွေက အောက်ပါအတိုင်း ရရှိပါတယ်။  
+OOV % ရလဒ်တွေကို source-target တစ်တွဲစီအတွက် co-occurrences, PMI နဲ့ CPE ဆိုတဲ့ အစီအစဉ်နဲ့ print လုပ်ပြထားပါတယ်။  
+test data က open test ပါ။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ time ./test-lexicon.sh 
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w
+my-bk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  6.92%
+OOV percentage:  6.92%
+OOV percentage:  6.92%
+bk-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  9.71%
+OOV percentage:  9.71%
+OOV percentage:  9.71%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w
+my-ch word2word translation results: co, pmi and cpe order... 
+OOV percentage:  7.53%
+OOV percentage:  7.53%
+OOV percentage:  7.53%
+ch-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  15.21%
+OOV percentage:  15.21%
+OOV percentage:  15.21%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w
+my-kc word2word translation results: co, pmi and cpe order... 
+OOV percentage:  2.12%
+OOV percentage:  2.12%
+OOV percentage:  2.12%
+kc-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  0.31%
+OOV percentage:  0.31%
+OOV percentage:  0.31%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w
+my-ky word2word translation results: co, pmi and cpe order... 
+OOV percentage:  9.96%
+OOV percentage:  9.96%
+OOV percentage:  9.96%
+ky-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  12.29%
+OOV percentage:  12.29%
+OOV percentage:  12.29%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w
+my-mo word2word translation results: co, pmi and cpe order... 
+OOV percentage:  4.40%
+OOV percentage:  4.40%
+OOV percentage:  4.40%
+mo-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  8.69%
+OOV percentage:  8.69%
+OOV percentage:  8.69%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+my-pk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  11.11%
+OOV percentage:  11.11%
+OOV percentage:  11.11%
+pk-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  24.06%
+OOV percentage:  24.06%
+OOV percentage:  24.06%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w
+my-po word2word translation results: co, pmi and cpe order... 
+OOV percentage:  12.65%
+OOV percentage:  12.65%
+OOV percentage:  12.65%
+po-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  61.57%
+OOV percentage:  61.57%
+OOV percentage:  61.57%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w
+my-rk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  10.26%
+OOV percentage:  10.26%
+OOV percentage:  10.26%
+rk-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  12.05%
+OOV percentage:  12.05%
+OOV percentage:  12.05%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w
+my-rw word2word translation results: co, pmi and cpe order... 
+OOV percentage:  3.71%
+OOV percentage:  3.71%
+OOV percentage:  3.71%
+rw-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  651.52%
+OOV percentage:  651.52%
+OOV percentage:  651.52%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w
+my-sh word2word translation results: co, pmi and cpe order... 
+OOV percentage:  7.10%
+OOV percentage:  7.10%
+OOV percentage:  7.10%
+sh-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  11.25%
+OOV percentage:  11.25%
+OOV percentage:  11.25%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w
+my-sk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  0.00%
+OOV percentage:  0.00%
+OOV percentage:  0.00%
+sk-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  9.52%
+OOV percentage:  9.52%
+OOV percentage:  9.52%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w
+rk-bk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  8.73%
+OOV percentage:  8.73%
+OOV percentage:  8.73%
+bk-rk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  9.71%
+OOV percentage:  9.71%
+OOV percentage:  9.71%
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w
+rw-kc word2word translation results: co, pmi and cpe order... 
+OOV percentage:  628.00%
+OOV percentage:  628.00%
+OOV percentage:  628.00%
+kc-rw word2word translation results: co, pmi and cpe order... 
+OOV percentage:  15.90%
+OOV percentage:  15.90%
+OOV percentage:  15.90%
+
+real	0m12.413s
+user	0m17.887s
+sys	0m31.915s
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
 
 ## Reference
 
