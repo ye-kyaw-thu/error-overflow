@@ -1512,23 +1512,24 @@ do
     # for source-to-target lexicon
     echo "converting for $src-$trg lexicons: co, pmi and cpe order... ";
     python -m pickle $ref_path/lex/co/$src-$trg.pkl > $ref_path/lex/co/$src-$trg.co.normal; 
-    echo "$ref_path/lex/co/$src-$trg.co.normal"; tail $ref_path/lex/co/$src-$trg.co.normal; 
+    echo "$ref_path/lex/co/$src-$trg.co.normal"; tail -n 3 $ref_path/lex/co/$src-$trg.co.normal; 
     python -m pickle $ref_path/lex/pmi/$src-$trg.pkl > $ref_path/lex/pmi/$src-$trg.pmi.normal;
-    echo "$ref_path/lex/pmi/$src-$trg.pmi.normal"; tail $ref_path/lex/pmi/$src-$trg.pmi.normal;
+    echo "$ref_path/lex/pmi/$src-$trg.pmi.normal"; tail -n 3 $ref_path/lex/pmi/$src-$trg.pmi.normal;
     python -m pickle $ref_path/lex/$src-$trg.pkl > $ref_path/lex/$src-$trg.cpe.normal;
-    echo "$ref_path/lex/$src-$trg.cpe.normal"; tail $ref_path/lex/$src-$trg.cpe.normal;
+    echo "$ref_path/lex/$src-$trg.cpe.normal"; tail -n 3 $ref_path/lex/$src-$trg.cpe.normal;
     
     # for target-to-source lexicon
     echo "converting for $trg-$src lexicons: co, pmi and cpe order... ";
     python -m pickle $ref_path/lex/co/$trg-$src.pkl > $ref_path/lex/co/$trg-$src.co.normal;
-    echo "$ref_path/lex/co/$trg-$src.co.normal"; tail $ref_path/lex/co/$trg-$src.co.normal;
+    echo "$ref_path/lex/co/$trg-$src.co.normal"; tail -n 3 $ref_path/lex/co/$trg-$src.co.normal;
     python -m pickle $ref_path/lex/pmi/$trg-$src.pkl > $ref_path/lex/pmi/$trg-$src.pmi.normal;
-    echo "$ref_path/lex/pmi/$trg-$src.pmi.normal"; tail $ref_path/lex/pmi/$trg-$src.pmi.normal;
+    echo "$ref_path/lex/pmi/$trg-$src.pmi.normal"; tail -n 3 $ref_path/lex/pmi/$trg-$src.pmi.normal;
     python -m pickle $ref_path/lex/$trg-$src.pkl > $ref_path/lex/$trg-$src.cpe.normal;
-    echo "$ref_path/lex/$trg-$src.cpe.normal"; tail $ref_path/lex/$trg-$src.cpe.normal;
+    echo "$ref_path/lex/$trg-$src.cpe.normal"; tail -n 3 $ref_path/lex/$trg-$src.cpe.normal;
     echo "=========="
     
 done
+
 
 ```
 
@@ -1639,6 +1640,7 @@ Shell script ကို အောက်ပါအတိုင်း run ခဲ့�
 Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း လေ့လာကြည့်ကြရအောင်...  
 
 ```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ time ./pkl-to-human-readable.sh | tee lexicon-counting.log
 
 ```
 
