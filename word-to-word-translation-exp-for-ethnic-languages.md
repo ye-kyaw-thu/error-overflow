@@ -1641,6 +1641,375 @@ Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ time ./pkl-to-human-readable.sh | tee lexicon-counting.log
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w
+converting for my-bk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my-bk.co.normal
+  9441: [9602, 2, 61, 246, 116, 6, 0],
+  9442: [9, 711, 9603, 0],
+  9443: [311, 239, 3943, 5438, 39, 2208, 14, 131, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my-bk.pmi.normal
+  9441: [9602, 246, 116, 61, 6, 2, 0],
+  9442: [9603, 711, 9, 0],
+  9443: [5438, 3943, 2208, 311, 239, 131, 39, 14, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my-bk.cpe.normal
+  9441: [9602, 246, 61, 2, 116, 6, 0],
+  9442: [9603, 711, 9, 0],
+  9443: [5438, 2208, 39, 3943, 131, 239, 311, 14, 0]})
+converting for bk-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk-my.co.normal
+  9604: [9, 31, 1, 3, 46, 403, 0],
+  9605: [316, 2201, 90, 5576, 237, 2388, 64, 9300, 0],
+  9606: [2, 60, 144, 195, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk-my.pmi.normal
+  9604: [403, 46, 31, 9, 3, 1, 0],
+  9605: [9300, 5576, 2388, 2201, 316, 237, 90, 64, 0],
+  9606: [195, 144, 60, 2, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk-my.cpe.normal
+  9604: [403, 46, 31, 1, 9, 3, 0],
+  9605: [5576, 9300, 2201, 237, 2388, 90, 316, 64, 0],
+  9606: [195, 144, 60, 2, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w
+converting for my-ch lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my-ch.co.normal
+  14429: [531, 2382, 2902, 16, 472, 27, 3818, 4509, 14, 50],
+  14430: [1, 115, 116, 33, 11, 650, 4341, 75, 9, 521],
+  14431: [3, 248, 11, 174, 27, 1, 276, 13, 68, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my-ch.pmi.normal
+  14429: [4509, 3818, 2902, 2382, 531, 472, 50, 27, 16, 14],
+  14430: [4375, 4341, 1878, 1098, 754, 650, 521, 414, 384, 345],
+  14431: [276, 248, 174, 68, 27, 13, 11, 3, 1, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my-ch.cpe.normal
+  14429: [531, 3818, 4509, 2382, 2902, 472, 27, 50, 16, 14],
+  14430: [1, 115, 4341, 1098, 4375, 1878, 384, 414, 228, 650],
+  14431: [3, 248, 11, 174, 27, 1, 276, 13, 68, 0]})
+converting for ch-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch-my.co.normal
+  5699: [856, 5, 8436, 12943, 300, 1489, 487, 0],
+  5700: [7113, 2640, 50, 0],
+  5701: [230, 5155, 689, 1572, 1078, 1571, 1, 752, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch-my.pmi.normal
+  5699: [12943, 8436, 856, 1489, 487, 300, 5, 0],
+  5700: [7113, 2640, 50, 0],
+  5701: [5155, 1572, 1571, 1078, 752, 689, 230, 1, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch-my.cpe.normal
+  5699: [856, 8436, 12943, 487, 300, 1489, 5, 0],
+  5700: [7113, 2640, 50, 0],
+  5701: [5155, 1572, 1571, 689, 752, 230, 1078, 1, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w
+converting for my-kc lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my-kc.co.normal
+  10723: [3, 4, 32, 6, 644, 340, 4004, 205, 1, 10],
+  10724: [355, 4669],
+  10725: [4647, 4670, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my-kc.pmi.normal
+  10723: [4004, 2559, 1079, 650, 644, 452, 451, 340, 205, 43],
+  10724: [4669, 355],
+  10725: [4670, 4647, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my-kc.cpe.normal
+  10723: [4004, 2559, 644, 1079, 205, 650, 340, 452, 451, 43],
+  10724: [4669, 355],
+  10725: [4647, 4670, 0]})
+converting for kc-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc-my.co.normal
+  4670: [407, 827, 2463, 10725, 0],
+  4671: [3, 5, 67, 32, 33, 4873, 1, 35, 826, 31],
+  4672: [9821, 1, 2, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc-my.pmi.normal
+  4670: [10725, 2463, 827, 407, 0],
+  4671: [9862, 9733, 4873, 3066, 2756, 2157, 2138, 1928, 1361, 1315],
+  4672: [9821, 2, 1, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc-my.cpe.normal
+  4670: [10725, 2463, 827, 407, 0],
+  4671: [4873, 9733, 9862, 2138, 2157, 1315, 1000, 3066, 459, 376],
+  4672: [9821, 1, 2, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w
+converting for my-ky lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my-ky.co.normal
+  9497: [755, 13, 11267, 15, 65, 1],
+  9498: [279, 12, 0, 11272, 4, 32, 65, 1],
+  9499: [2, 7977, 10540, 4185, 252, 595, 11072, 3726, 3133, 266]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my-ky.pmi.normal
+  9497: [11267, 755, 65, 15, 13, 1],
+  9498: [11272, 279, 65, 32, 12, 4, 1, 0],
+  9499: [11072, 10540, 7977, 4185, 3726, 3133, 1254, 1119, 595, 266]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my-ky.cpe.normal
+  9497: [11267, 755, 65, 15, 13, 1],
+  9498: [11272, 279, 32, 65, 12, 4, 1, 0],
+  9499: [7977, 10540, 4185, 11072, 3133, 1254, 266, 1119, 595, 3726]})
+converting for ky-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky-my.co.normal
+  11384: [4225],
+  11385: [36, 43, 21, 8, 48, 565, 0],
+  11386: [175, 3, 0, 1732, 5, 377, 2, 1226, 711, 143]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky-my.pmi.normal
+  11384: [4225],
+  11385: [565, 48, 43, 36, 21, 8, 0],
+  11386: [9389, 7322, 4033, 1732, 1226, 1472, 1433, 711, 377, 476]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky-my.cpe.normal
+  11384: [4225],
+  11385: [565, 43, 48, 21, 36, 8, 0],
+  11386: [4033, 7322, 9389, 1472, 1433, 476, 372, 104, 375, 287]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w
+converting for my-mo lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my-mo.co.normal
+  9830: [1, 25, 15, 1487, 2453, 14, 1886, 2565, 0],
+  9831: [1, 32, 20, 854, 1144, 444, 2810, 62, 0],
+  9835: [70, 2355, 2821, 6353, 3000, 1650, 7, 3095, 500, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my-mo.pmi.normal
+  9830: [2565, 2453, 1886, 1487, 25, 15, 14, 1, 0],
+  9831: [2810, 1144, 854, 444, 62, 32, 20, 1, 0],
+  9835: [6353, 3095, 3000, 2821, 2355, 1650, 500, 70, 7, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my-mo.cpe.normal
+  9830: [2453, 1886, 2565, 25, 1487, 14, 15, 1, 0],
+  9831: [2810, 444, 1144, 20, 32, 62, 854, 1, 0],
+  9835: [6353, 3000, 3095, 2821, 1650, 2355, 500, 70, 7, 0]})
+converting for mo-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo-my.co.normal
+  9664: [3, 8849, 564, 306, 181, 628, 0],
+  9665: [810, 3235, 222, 1466, 13, 0],
+  9666: [65, 1037, 286, 1634, 2483, 978, 689, 2085, 2050, 1234]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo-my.pmi.normal
+  9664: [8849, 628, 564, 306, 181, 3, 0],
+  9665: [3235, 1466, 810, 222, 13, 0],
+  9666: [2483, 2085, 2050, 1634, 1418, 1234, 1037, 978, 689, 286]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo-my.cpe.normal
+  9664: [8849, 306, 564, 628, 181, 3, 0],
+  9665: [810, 3235, 222, 1466, 13, 0],
+  9666: [978, 2050, 2085, 1234, 2483, 1634, 1037, 1418, 286, 65]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+converting for my-pk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my-pk.co.normal
+  16250: [1922, 8609, 3, 3235, 10665, 3409, 17157, 0],
+  16251: [2, 18, 29, 139, 3, 51],
+  16252: [7304, 18631, 15, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my-pk.pmi.normal
+  16250: [17157, 10665, 8609, 3409, 3235, 1922, 3, 0],
+  16251: [139, 51, 29, 18, 3, 2],
+  16252: [18631, 7304, 15, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my-pk.cpe.normal
+  16250: [1922, 8609, 3235, 10665, 3409, 17157, 3, 0],
+  16251: [139, 51, 29, 18, 3, 2],
+  16252: [7304, 18631, 15, 0]})
+converting for pk-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk-my.co.normal
+  19763: [12, 68, 26, 8703],
+  19764: [5, 8727, 43, 8472, 190, 18, 589, 775, 2201, 212],
+  19765: [33, 726, 158, 37]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk-my.pmi.normal
+  19763: [8703, 68, 26, 12],
+  19764: [8727, 8472, 2201, 775, 589, 518, 212, 190, 43, 18],
+  19765: [726, 158, 37, 33]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk-my.cpe.normal
+  19763: [8703, 68, 26, 12],
+  19764: [8727, 8472, 2201, 589, 775, 518, 190, 212, 18, 43],
+  19765: [726, 158, 37, 33]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w
+converting for my-po lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my-po.co.normal
+  16281: [50, 248, 289],
+  16282: [0, 3, 298, 13398, 26621, 349],
+  16283: [1773, 26717, 20115, 11816, 4838, 14]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my-po.pmi.normal
+  16281: [289, 248, 50],
+  16282: [26621, 13398, 349, 298, 3, 0],
+  16283: [26717, 20115, 11816, 4838, 1773, 14]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my-po.cpe.normal
+  16281: [289, 50, 248],
+  16282: [13398, 26621, 349, 298, 3, 0],
+  16283: [26717, 20115, 11816, 4838, 1773, 14]})
+converting for po-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po-my.co.normal
+  26720: [1111, 101, 852, 14, 11, 21, 565],
+  26721: [2, 8, 14, 1048, 15],
+  26722: [5075, 136, 581, 12133, 3025, 1834, 6237, 1436, 6, 3325]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po-my.pmi.normal
+  26720: [1111, 852, 565, 101, 21, 14, 11],
+  26721: [1048, 15, 14, 8, 2],
+  26722: [12133, 6237, 5075, 3325, 3025, 1834, 1436, 581, 136, 20]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po-my.cpe.normal
+  26720: [852, 565, 1111, 101, 21, 11, 14],
+  26721: [1048, 8, 15, 14, 2],
+  26722: [5075, 12133, 3025, 6237, 3325, 1834, 581, 6, 20, 136]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w
+converting for my-rk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my-rk.co.normal
+  16508: [1, 243, 4252],
+  16509: [1792, 17990, 184, 1406, 7, 0],
+  16510: [11, 10245, 17991, 17, 14164, 16, 17391, 20, 7, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my-rk.pmi.normal
+  16508: [4252, 243, 1],
+  16509: [17990, 1792, 1406, 184, 7, 0],
+  16510: [17991, 17391, 14164, 10245, 20, 17, 16, 11, 7, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my-rk.cpe.normal
+  16508: [4252, 243, 1],
+  16509: [17990, 1406, 184, 1792, 7, 0],
+  16510: [10245, 17991, 14164, 17391, 11, 16, 17, 7, 20, 0]})
+converting for rk-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk-my.co.normal
+  17990: [595, 16509, 12069, 0],
+  17991: [1416, 16510, 12, 13157, 15, 16039, 18, 10, 0],
+  17992: [6, 32, 1, 133, 6012, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk-my.pmi.normal
+  17990: [16509, 12069, 595, 0],
+  17991: [16510, 16039, 13157, 1416, 18, 15, 12, 10, 0],
+  17992: [6012, 133, 32, 6, 1, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk-my.cpe.normal
+  17990: [16509, 12069, 595, 0],
+  17991: [16510, 13157, 16039, 1416, 10, 15, 18, 12, 0],
+  17992: [6012, 133, 6, 32, 1, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w
+converting for my-rw lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my-rw.co.normal
+  3566: [60, 11, 1, 350, 5, 21, 79, 28, 141, 0],
+  3567: [500, 8, 28, 35, 210, 18, 328, 507, 20, 0],
+  3568: [4040, 4071]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my-rw.pmi.normal
+  3566: [350, 141, 79, 60, 28, 21, 11, 5, 1, 0],
+  3567: [507, 500, 328, 210, 35, 28, 20, 18, 8, 0],
+  3568: [4071, 4040]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my-rw.cpe.normal
+  3566: [350, 60, 141, 79, 28, 21, 1, 11, 5, 0],
+  3567: [500, 507, 35, 210, 28, 18, 8, 20, 328, 0],
+  3568: [4040, 4071]})
+converting for rw-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw-my.co.normal
+  4071: [298, 3568, 0],
+  4072: [9, 135, 113, 231, 54, 6, 112, 5, 44, 20],
+  4073: [2487, 474, 1164, 101, 370, 21, 6, 518, 69, 2368]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw-my.pmi.normal
+  4071: [3568, 298, 0],
+  4072: [135, 231, 113, 112, 54, 44, 9, 20, 6, 5],
+  4073: [2487, 2368, 1164, 714, 518, 474, 370, 101, 69, 29]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw-my.cpe.normal
+  4071: [298, 3568, 0],
+  4072: [231, 112, 54, 20, 44, 113, 135, 5, 6, 9],
+  4073: [2487, 2368, 1164, 714, 474, 518, 69, 370, 29, 101]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w
+converting for my-sh lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my-sh.co.normal
+  15078: [552, 1, 21, 983, 16, 1258, 0],
+  15079: [1, 1512, 3616, 0],
+  15080: [2704, 3784, 3381, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my-sh.pmi.normal
+  15078: [1258, 983, 552, 21, 16, 1, 0],
+  15079: [3616, 1512, 1, 0],
+  15080: [3784, 3381, 2704, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my-sh.cpe.normal
+  15078: [1258, 21, 552, 983, 16, 1, 0],
+  15079: [3616, 1512, 1, 0],
+  15080: [2704, 3784, 3381, 0]})
+converting for sh-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh-my.co.normal
+  24195: [665, 8528, 100, 1853, 1, 4495, 48, 1734, 11611, 32],
+  24196: [20, 1062, 127, 447, 3711, 8, 9074, 271, 0],
+  24197: [14, 36, 412, 3750, 513, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh-my.pmi.normal
+  24195: [11611, 8528, 4495, 1853, 1734, 665, 184, 100, 48, 32],
+  24196: [9074, 3711, 1062, 447, 271, 127, 20, 8, 0],
+  24197: [3750, 513, 412, 36, 14, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh-my.cpe.normal
+  24195: [8528, 11611, 4495, 1853, 1734, 665, 184, 100, 48, 32],
+  24196: [9074, 3711, 271, 447, 1062, 127, 8, 20, 0],
+  24197: [3750, 412, 513, 36, 14, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w
+converting for my-sk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my-sk.co.normal
+  20903: [46059],
+  20904: [1055, 703, 509, 15784, 261],
+  20905: [261, 73164, 386, 15784, 2208]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my-sk.pmi.normal
+  20903: [46059],
+  20904: [15784, 1055, 703, 509, 261],
+  20905: [73164, 15784, 2208, 386, 261]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my-sk.cpe.normal
+  20903: [46059],
+  20904: [703, 15784, 1055, 509, 261],
+  20905: [73164, 15784, 2208, 386, 261]})
+converting for sk-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk-my.co.normal
+  81656: [7350, 2989, 10315, 193, 7, 6, 1186, 11181],
+  81657: [5549, 1, 75, 37, 32, 701, 4],
+  81658: [34, 17, 4, 17216, 9, 61, 7, 27]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk-my.pmi.normal
+  81656: [11181, 10315, 7350, 2989, 1186, 193, 7, 6],
+  81657: [5549, 701, 75, 37, 32, 4, 1],
+  81658: [17216, 61, 34, 27, 17, 9, 7, 4]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk-my.cpe.normal
+  81656: [7350, 2989, 10315, 6, 1186, 11181, 7, 193],
+  81657: [5549, 1, 75, 37, 32, 701, 4],
+  81658: [17216, 27, 9, 61, 7, 34, 4, 17]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w
+converting for rk-bk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk-bk.co.normal
+  9934: [954, 1632, 6242, 3322, 495, 9099, 6577, 5495, 16, 0],
+  9935: [311, 239, 3943, 5438, 39, 2208, 14, 131, 0],
+  9936: [23, 75, 7, 94, 76, 130, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk-bk.pmi.normal
+  9934: [9099, 6577, 6242, 5495, 3322, 1632, 954, 495, 16, 0],
+  9935: [5438, 3943, 2208, 311, 239, 131, 39, 14, 0],
+  9936: [130, 94, 76, 75, 23, 7, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk-bk.cpe.normal
+  9934: [6242, 3322, 9099, 6577, 5495, 495, 954, 1632, 16, 0],
+  9935: [5438, 2208, 39, 3943, 131, 239, 311, 14, 0],
+  9936: [130, 76, 94, 75, 23, 7, 0]})
+converting for bk-rk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk-rk.co.normal
+  9604: [11, 28, 1, 3, 42, 199, 0],
+  9605: [216, 2172, 321, 4727, 219, 4504, 175, 354, 0],
+  9606: [2, 60, 142, 273, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk-rk.pmi.normal
+  9604: [199, 42, 28, 11, 3, 1, 0],
+  9605: [4727, 4504, 2172, 354, 321, 219, 216, 175, 0],
+  9606: [273, 142, 60, 2, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk-rk.cpe.normal
+  9604: [199, 28, 42, 11, 1, 3, 0],
+  9605: [4727, 4504, 2172, 354, 219, 321, 175, 216, 0],
+  9606: [273, 60, 142, 2, 0]})
+==========
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w
+converting for rw-kc lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw-kc.co.normal
+  4736: [1, 13, 782, 7, 222, 203, 42, 31, 157, 114],
+  4737: [1, 116, 22, 14, 817, 46, 9, 30, 4, 62],
+  4738: [2183]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw-kc.pmi.normal
+  4736: [782, 461, 222, 203, 157, 114, 91, 78, 51, 42],
+  4737: [817, 116, 62, 57, 46, 30, 22, 16, 14, 10],
+  4738: [2183]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw-kc.cpe.normal
+  4736: [782, 461, 114, 42, 157, 222, 203, 91, 51, 39],
+  4737: [817, 30, 116, 46, 57, 62, 22, 16, 10, 14],
+  4738: [2183]})
+converting for kc-rw lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc-rw.co.normal
+  2229: [707, 3030, 255, 614, 3664, 1825, 218, 3651, 48, 483],
+  2230: [617, 13, 1509, 652, 295, 84, 0],
+  2231: [93, 188, 2, 723, 0, 49, 3, 53, 13, 4641]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc-rw.pmi.normal
+  2229: [3664, 3651, 3030, 1825, 707, 614, 483, 255, 249, 218],
+  2230: [1509, 652, 617, 295, 84, 13, 0],
+  2231: [4641, 1383, 1232, 1160, 723, 497, 488, 474, 188, 93]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc-rw.cpe.normal
+  2229: [3030, 3664, 3651, 483, 1825, 707, 614, 249, 48, 218],
+  2230: [1509, 617, 652, 84, 295, 13, 0],
+  2231: [4641, 1383, 1160, 488, 1232, 53, 474, 497, 66, 20]})
+==========
+
+real	0m43.965s
+user	0m42.575s
+sys	0m1.406s
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 
 ```
 
