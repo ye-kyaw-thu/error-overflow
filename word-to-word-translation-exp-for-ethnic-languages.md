@@ -1511,15 +1511,21 @@ do
     
     # for source-to-target lexicon
     echo "converting for $src-$trg lexicons: co, pmi and cpe order... ";
-    python -m pickle $ref_path/lex/co/$src-$trg.pkl > $ref_path/lex/co/$src-$trg.co.normal; tail $ref_path/lex/co/$src-$trg.co.normal; 
-    python -m pickle $ref_path/lex/pmi/$src-$trg.pkl > $ref_path/lex/pmi/$src-$trg.pmi.normal; tail $ref_path/lex/pmi/$src-$trg.pmi.normal;
-    python -m pickle $ref_path/lex/$src-$trg.pkl > $ref_path/lex/$src-$trg.cpe.normal; tail $ref_path/lex/$src-$trg.cpe.normal;
+    python -m pickle $ref_path/lex/co/$src-$trg.pkl > $ref_path/lex/co/$src-$trg.co.normal; 
+    echo "$ref_path/lex/co/$src-$trg.co.normal"; tail $ref_path/lex/co/$src-$trg.co.normal; 
+    python -m pickle $ref_path/lex/pmi/$src-$trg.pkl > $ref_path/lex/pmi/$src-$trg.pmi.normal;
+    echo "$ref_path/lex/pmi/$src-$trg.pmi.normal"; tail $ref_path/lex/pmi/$src-$trg.pmi.normal;
+    python -m pickle $ref_path/lex/$src-$trg.pkl > $ref_path/lex/$src-$trg.cpe.normal;
+    echo "$ref_path/lex/$src-$trg.cpe.normal"; tail $ref_path/lex/$src-$trg.cpe.normal;
     
     # for target-to-source lexicon
     echo "converting for $trg-$src lexicons: co, pmi and cpe order... ";
-    python -m pickle $ref_path/lex/co/$trg-$src.pkl > $ref_path/lex/co/$trg-$src.co.normal; tail $ref_path/lex/co/$trg-$src.co.normal;
-    python -m pickle $ref_path/lex/pmi/$trg-$src.pkl > $ref_path/lex/pmi/$trg-$src.pmi.normal; tail $ref_path/lex/pmi/$trg-$src.pmi.normal;
-    python -m pickle $ref_path/lex/$trg-$src.pkl > $ref_path/lex/$trg-$src.cpe.normal; tail $ref_path/lex/$trg-$src.cpe.normal;
+    python -m pickle $ref_path/lex/co/$trg-$src.pkl > $ref_path/lex/co/$trg-$src.co.normal;
+    echo "$ref_path/lex/co/$trg-$src.co.normal"; tail $ref_path/lex/co/$trg-$src.co.normal;
+    python -m pickle $ref_path/lex/pmi/$trg-$src.pkl > $ref_path/lex/pmi/$trg-$src.pmi.normal;
+    echo "$ref_path/lex/pmi/$trg-$src.pmi.normal"; tail $ref_path/lex/pmi/$trg-$src.pmi.normal;
+    python -m pickle $ref_path/lex/$trg-$src.pkl > $ref_path/lex/$trg-$src.cpe.normal;
+    echo "$ref_path/lex/$trg-$src.cpe.normal"; tail $ref_path/lex/$trg-$src.cpe.normal;
     echo "=========="
     
 done
@@ -1597,7 +1603,7 @@ format က ပထမဆုံး အပိုင်းမှာ source word စ�
   10: [345, 1251, 296, 673, 1626, 1560, 632, 822, 587, 393],
 ```
 
-Format က အထက်ပါ ရှင်းပြထားတဲ့အတိုင်း သွားတာမို့ .normal ဖိုင်ကို tail လုပ်ကြည့်ရင် တွေ့ရတဲ့ နောက်ဆုံး စာကြောင်းမှာ ရှိနေတဲ့ ID နံပါတ်က "source-target word-to-word translation" အတွက် ဆောက်ထားတဲ့ dictionary size လို့ နားလည်လို့ ရပါလိမ့်မယ်။   
+Format က အထက်ပါ ရှင်းပြထားတဲ့အတိုင်း သွားတာမို့ .normal ဖိုင်ကို tail လုပ်ကြည့်ရင် တွေ့ရတဲ့ နောက်ဆုံး စာကြောင်းမှာ ရှိနေတဲ့ ID နံပါတ်က "source-target word-to-word translation" အတွက် ဆောက်ထားတဲ့ dictionary size လို့ နားလည်လို့ ရပါလိမ့်မယ်။ အခု ဥပမာအဖြစ် ပြနေတဲ့ ဗမာ-ပအို့ဝ့် အတွက်ဆိုရင် စုစုပေါင်း 16283 (တစ်သောင်း ခြောက်ထောင် နှစ်ရာရှစ်ဆယ့်သုံး) လုံး ရှိတာကို တွေ့ရပါလိမ့်မယ်။  
 
 ```
   16274: [1378, 247, 497, 492],
@@ -1612,6 +1618,29 @@ Format က အထက်ပါ ရှင်းပြထားတဲ့အတိ�
   16283: [26717, 20115, 11816, 4838, 1773, 14]})
 ```
 
+## Convert .pkl to .normal and Count the Lexicon Size
+
+ဒီနေရာမှာတော့ အထက်မှာ ရေးပြခဲ့တဲ့ shell script ကို run ပြီး lexicon size တစ်ခုချင်းစီကို ရေတွက် ကြည့်ကြရအောင်။  
+Experiment က approach သုံးမျိုးကို သုံးခဲ့တာမို့ language pair တစ်ခုစီအတွက် lexicon က စုစုပေါင်း အောက်ပါအတိုင်း ခြောက်ခု စီ ရှိပါလိမ့်မယ်။
+
+### Source-Target Lexicons
+
+1. Source-Target Co-occurrences Lexicon
+2. Source-Target PMI Lexicon
+3. Source-Target CPE Lexicon
+
+### Target-Source Lexicons
+
+4. Target-Source Co-occurrences Lexicon
+5. Target-Source PMI Lexicon
+6. Source-Target CPE Lexicon
+
+Shell script ကို အောက်ပါအတိုင်း run ခဲ့ပါတယ်။  
+Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း လေ့လာကြည့်ကြရအောင်...  
+
+```
+
+```
 
 
 ## Reference
