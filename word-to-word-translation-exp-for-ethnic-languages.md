@@ -1487,6 +1487,133 @@ sys	0m31.551s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
+## Shell Script for Pickle to Human Readable Conversion
+
+lexicon ဖိုင်တွေက .pkl နဲ့ သိမ်းထားပြီး လူကဖတ်နိုင်ဖို့အတွက်က conversion လုပ်ဖို့ လိုအပ်ပါတယ်။  
+အဲဒီအတွက် shell script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+# converting pkl files to human readable text files
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 1 Dec 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; 
+    trg=${fd#*-}; 
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; echo "ref_path: $ref_path";
+
+    # run ရတဲ့ ပုံစံက အောက်ပါအတိုင်း
+    #python -m pickle  <lexicon_path> > <converted-filename>
+    
+    # for source-to-target lexicon
+    echo "converting for $src-$trg lexicons: co, pmi and cpe order... ";
+    python -m pickle $ref_path/lex/co/$src-$trg.pkl > $ref_path/lex/co/$src-$trg.co.normal; tail $ref_path/lex/co/$src-$trg.co.normal; 
+    python -m pickle $ref_path/lex/pmi/$src-$trg.pkl > $ref_path/lex/pmi/$src-$trg.pmi.normal; tail $ref_path/lex/pmi/$src-$trg.pmi.normal;
+    python -m pickle $ref_path/lex/$src-$trg.pkl > $ref_path/lex/$src-$trg.cpe.normal; tail $ref_path/lex/$src-$trg.cpe.normal;
+    
+    # for target-to-source lexicon
+    echo "converting for $trg-$src lexicons: co, pmi and cpe order... ";
+    python -m pickle $ref_path/lex/co/$trg-$src.pkl > $ref_path/lex/co/$trg-$src.co.normal; tail $ref_path/lex/co/$trg-$src.co.normal;
+    python -m pickle $ref_path/lex/pmi/$trg-$src.pkl > $ref_path/lex/pmi/$trg-$src.pmi.normal; tail $ref_path/lex/pmi/$trg-$src.pmi.normal;
+    python -m pickle $ref_path/lex/$trg-$src.pkl > $ref_path/lex/$trg-$src.cpe.normal; tail $ref_path/lex/$trg-$src.cpe.normal;
+    echo "=========="
+    
+done
+
+```
+
+Conversion လုပ်ပြီးတဲ့အခါမှာ လူ့မျက်စိနဲ့ ဖိုင်တွေကို check လုပ်လို့ ရပါပြီ။  
+format က ပထမဆုံး အပိုင်းမှာ source word စာလုံး တစ်လုံးချင်းစီအတွက် ID သတ်မှတ်ထားတာတွေကို တွေ့ရပါလိမ့်မယ်။  
+ဥပမာ ဗမာ-ပအို့ဝ့် cpe lexicon ရဲ့ normal format ဆိုရင် ဗမာစာ စာလုံး တစ်လုံးစီအတွက် ID တွေကို အောက်ပါအတိုင်း မြင်တွေ့ရပါလိမ့်မယ်။    
+(ဒီနေရာမှာ word segmentation ကတော့ parallel corpus ထဲမှာ ဖြတ်ထားတဲ့အတိုင်းကိုပဲ ယူချလာမှာ ဖြစ်ပါတယ်။)  
+
+```
+({'"': 600,
+  '(': 1225,
+  ')': 1224,
+  ',': 6063,
+  ':': 1374,
+  'က': 9,
+  'ကကတစ်': 16283,
+  'ကကတစ်ကို': 16282,
+  'ကကော': 16281,
+  'ကကောင်း်ကို': 16280,
+  'ကချင်': 16279,
+  'ကချေသည်': 6062,
+  'ကင်': 3596,
+  'ကင်ဆာ': 6061,
+  'ကင်မရာ': 1028,
+```
+
+ဗမာ စာလုံးတွေ ကုန်သွားတဲ့အခါမှာတော့ ပအို့ဝ့်စာလုံးတွေကို ID သတ်မှတ်ထားတာကို တွေ့ရပါလိမ့်မယ်။  
+
+```
+  '\u200bအဲဒါ': 3598,
+  '\u200bအဲဒါက': 3597,
+  '\u200bဪ': 6065,
+  '…': 6064},
+ {0: 'ခွေ',
+  1: 'နာꩻ',
+  2: 'ဟောင်း',
+  3: 'နဝ်ꩻ',
+  4: 'ဝွေꩻ',
+  5: 'ဝွေꩻမူႏ',
+  6: 'ဝွေꩻသီး',
+  7: 'နီ',
+  8: 'နဝ်ꩻနဝ်ꩻ',
+  9: 'ဒျာႏ',
+  10: 'အီး',
+  11: 'တ',
+  12: 'တဝ်း',
+```
+
+ပအိုဝ့် စာလုံးတွေ ကို ID သတ်မှတ်တာ ကုန်သွားရင်တော့ အခုကြည့်နေတဲ့ direction က ဗမာ-ပအို့ဝ့်မို့လို့ ဗမာစာလုံး တစ်လုံးစီအတွက် ဖြစ်နိုင်တဲ့ ပအို့ဝ့်စာလုံး အများဆုံး ၁၀လုံးအထိ ကို list နဲ့ learn လုပ်ထားတဲ့ အပိုင်းကို စတွေ့ရပါလိမ့်မယ်။  
+
+```
+  26713: 'ကကုဲင်ထိုꩻအခိန်ႏနဝ်ꩻ',
+  26714: 'ကကုဲင်ထိုꩻဒါႏ',
+  26715: 'ကကားတဖူꩻခိန်ႏ',
+  26716: 'ကကာ',
+  26717: 'ကကတစ်',
+  26718: 'b',
+  26719: '_',
+  26720: '9',
+  26721: '5144.',
+  26722: '402'},
+ {0: [132, 151, 190, 188, 164, 140, 110, 142, 124, 104],
+  1: [230, 322, 315, 197, 176, 229, 209, 213, 195, 182],
+  2: [274, 203, 230, 254, 188, 128, 232, 160, 136, 113],
+  3: [424, 184, 387, 578, 385, 322, 315, 362, 364, 268],
+  4: [5, 639, 744, 355, 307, 177, 374, 339, 191, 147],
+  5: [840, 281, 390, 243, 333, 199, 215, 292, 171, 222],
+  6: [1058, 402, 535, 222, 792, 1517, 462, 207, 258, 811],
+  7: [8, 297, 205, 195, 809, 688, 1405, 279, 852, 562],
+  8: [6, 487, 595, 395, 1086, 540, 539, 902, 296, 233],
+  9: [474, 648, 296, 472, 503, 212, 255, 197, 177, 256],
+  10: [345, 1251, 296, 673, 1626, 1560, 632, 822, 587, 393],
+```
+
+Format က အထက်ပါ ရှင်းပြထားတဲ့အတိုင်း သွားတာမို့ .normal ဖိုင်ကို tail လုပ်ကြည့်ရင် တွေ့ရတဲ့ နောက်ဆုံး စာကြောင်းမှာ ရှိနေတဲ့ ID နံပါတ်က "source-target word-to-word translation" အတွက် ဆောက်ထားတဲ့ dictionary size လို့ နားလည်လို့ ရပါလိမ့်မယ်။   
+
+```
+  16274: [1378, 247, 497, 492],
+  16275: [9518, 24582, 13148, 388, 60, 527, 88, 26, 7, 3],
+  16276: [684, 609, 869, 497, 1888, 50, 25, 1116, 7, 0],
+  16277: [18509, 23638, 3375, 25352, 3655, 247, 190, 3],
+  16278: [25909, 19015, 1, 0],
+  16279: [24057, 25133, 9174, 199, 103, 172, 90, 9],
+  16280: [26658, 2910, 105, 3],
+  16281: [289, 50, 248],
+  16282: [13398, 26621, 349, 298, 3, 0],
+  16283: [26717, 20115, 11816, 4838, 1773, 14]})
+```
+
+
+
 ## Reference
 
 - [https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md)
