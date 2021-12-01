@@ -2023,3 +2023,4 @@ sys	0m1.406s
 - [word2word](https://github.com/kakaobrain/word2word)
 - [https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash](https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash)
 - [https://stackoverflow.com/questions/55126019/python3-to-find-number-of-features-in-pickle?noredirect=1&lq=1](https://stackoverflow.com/questions/55126019/python3-to-find-number-of-features-in-pickle?noredirect=1&lq=1)  
+- [https://www.unix.com/shell-programming-and-scripting/105887-sed-awk-concatenate-lines-until-blank-line.html](https://www.unix.com/shell-programming-and-scripting/105887-sed-awk-concatenate-lines-until-blank-line.html)  
