@@ -2586,7 +2586,414 @@ done
 
 ```
 
+အထက်ပါ script ကို run ခဲ့တယ်...  
 
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ time ./column-to-nbest-word-sentence-with-OOV.sh | tee ./column-to-line-with-OOV.log
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk.co.hyp ... 
+ 100  649 3514 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ OOV ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk.pmi.hyp ... 
+  100   649 13639 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk.pmi.hyp.line
+မင့် ကာလတွေကို တွေနိုင်တဲ့သစ်တောတစ်ခုရှိရယ် ကြည် လဲ
+မင့် ကြော် ကြော် နေ့ကျောင်း လဲ
+ဒါ့မှာ ကိုးကား OOV ဘာသာရေး ဟုတ်ရ ကျဒေါ်ရို့ ကြော်ငြာ တစ်စောင်လောက် လဲ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk.cpe.hyp ... 
+  100   649 13144 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk.cpe.hyp.line
+ခဲ့ရယ်လား မေ့ ထားတဲ့ ဖြေ ဘာဖြစ်ရိ
+ခဲ့ရယ်လား ကြော် ကြော် ရယ်လား ဘာဖြစ်ရိ
+ဒယ်မှာ ဘယ် OOV နေလဲ သူလို့ဝို ကျဒေါ်ဒို့ တွေ့ နိုင်ရယ်လား ဘာဖြစ်ရိ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my.co.hyp ... 
+ 100  633 3459 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ OOV ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   633 13875 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my.pmi.hyp.line
+နင် ကာလတွေကို ဘယ်တော့မှသစ္စာမဖောက် ဖြေပါ ဒါ
+ထမင်း ကြားရသလောက် ကြော် ကစားတာ ဒါ
+စဉ်းစားမိ မို့လို့လဲ OOV ငိုကြွေး ဟုတ်ဘူး ကြီးပွားဖြစ်ထွန်းမှု တွေ့ချင်ရင် ဖြစ်မလဲ ဒါ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my.cpe.hyp ... 
+  100   633 12345 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my.cpe.hyp.line
+နင် မေ့ စကားတွေကို အဖြေ နေတာလဲ
+ထမင်း ကြော် ကြော် တာလား နေတာလဲ
+ဖတ်ဖတ် ဘာ OOV ပြောရင်း ရမှာလား မွန်မြတ်တဲ့ တွေ့ နိုင်သလဲ နေတာလဲ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch.co.hyp ... 
+ 100  643 1756 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch.co.hyp.line
+i . . lo . lo .
+a .
+. ka nge engtik .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch.pmi.hyp ... 
+ 100  643 4026 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch.pmi.hyp.line
+result hma-ngaih ko suh 331-4060-ah mahin nang
+kensak nang
+car ka inngaihzawn pawimawh nang
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch.cpe.hyp ... 
+ 100  643 3507 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch.cpe.hyp.line
+result hma-ngaih ko engmah be tawng suh
+kensak suh
+chutah nain engtik pawimawh suh
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my.co.hyp ... 
+ 100  871 3811 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my.co.hyp.line
+OOV ။ ။ ။ ။ ။ ။ ။ ။
+OOV ။ ။
+OOV ။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my.pmi.hyp ... 
+  100   871 20050 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my.pmi.hyp.line
+OOV ဒါဟာ ငါ့ကို ပြန်ရောက် ကျွန်မတို့အနေနဲ့ ကြက်သွန် မဟုတ်ပါဘူး ဒီကျောင်း ဒါပေမဲ့
+OOV စားပါ ဒါပေမဲ့
+OOV လှလိုက်တဲ့ သူ့ကို ထွက်သလဲ ခြောက်သွား မဆို ပြန်ရောက်ပြီ ပါရဲ့ ဒါပေမဲ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my.cpe.hyp ... 
+  100   871 17320 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my.cpe.hyp.line
+OOV ဒါဟာ ကိုယ့်ကို ပြန်ရောက် စကား သိတာ ခဲ့ပါဘူး ဘူးလဲ ပါနဲ့
+OOV လိုက်ပါ ပါနဲ့
+OOV အဲဒီနေရာ ခဲ့ကြတယ် ဘယ်အချိန် စာသင်ချိန် ဘယ်မှာပဲ ရောက် ကြရအောင် ပါနဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc.co.hyp ... 
+ 121  795 2501 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc.co.hyp.line
+. na gaw OOV ai . yu ai ai .
+ai ai gawk .
+ai gaw ai langai ai . .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc.pmi.hyp ... 
+ 118  801 4468 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc.pmi.hyp.line
+telepo gaalw gaw OOV hpe mat yu mayu grai nten
+laning marai single nten
+shanhte gaw kabugaranga lani marai magang nten
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc.cpe.hyp ... 
+ 100  819 4594 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc.cpe.hyp.line
+yadapon thit kyaw OOV chying rung yu mayu chyeju hkyit
+lahkawng marai marai hkyit
+shanhte kyaw lakasha lani marai magang hkyit
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my.co.hyp ... 
+ 100  972 4044 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ပို့ ။ ။ ။ OOV ။ ။ ။ ။ ။
+။ ။ ။ ။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my.pmi.hyp ... 
+  100   972 19659 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my.pmi.hyp.line
+ယခု ထား နားရွက် မှတ်ပုံတင် အမျိုးသားပြတိုက် ကြိုးမဲ့ နားရွက် OOV မနက်ဖြန် ပို့ ချင် တဲ့ ဟုတ်ပါတယ်
+နှစ်ယောက် ဟုတ်ပါတယ် တဲ့ အမျိုးသားပြတိုက် ဟုတ်ပါတယ်
+သူ့ အရာ ယူ အစားအစာ ယာဉ် ဟုတ်ပါတယ် လေ ဟုတ်ပါတယ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my.cpe.hyp ... 
+  100   972 17580 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my.cpe.hyp.line
+ယခု ချိန်း နားရွက် ပို့ မျိုးရိုး အသစ် နားရွက် OOV ကြွ စို့ ချင် ကြိုက် ပါးစပ်
+နှစ် သနည်း ကြိုက် အခန်း ပါးစပ်
+ဦးချစ် အမည် ယူ အစားအစာ ရွက် တစ်ထည် မီမီ ပါးစပ်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky.co.hyp ... 
+ 100  872 3745 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky.co.hyp.line
+꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯
+OOV
+OOV
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky.pmi.hyp ... 
+  100   872 19729 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky.pmi.hyp.line
+ꤙꤤꤛꤢꤩ꤭ꤗꤢ꤬ ꤓꤝꤟꤥ꤭ꤓꤛꤢ꤬ꤚꤢꤪ ꤊꤢ꤬ꤚꤟꤢꤧꤠꤟꤤ꤭ ꤁꤂꤉꤂ ꤘꤢꤍꤟꤢꤦ꤬ ꤘꤢꤍꤟꤢꤦ꤬ ꤊꤟꤢꤩꤑꤢꤩ꤬ꤋꤢꤨ꤬ ꤏꤝꤢꤩ꤬ꤒꤢ꤬ꤊꤥ꤬ ꤙꤥ꤭ꤡꤤ꤬ ꤤ꤬ꤏꤢꤪ ”
+OOV
+OOV
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky.cpe.hyp ... 
+  100   872 19812 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky.cpe.hyp.line
+ꤙꤤꤛꤢꤩ꤭ꤗꤢ꤬ ꤒꤟꤢꤧ꤬ꤏꤝꤤꤒꤟꤢꤧ꤬ꤏꤢꤧ꤭ ꤢꤛꤢꤩ꤭ꤗꤢ꤬ ꤕꤢ꤬ꤡꤟꤢꤧ ꤊꤚꤟꤢ ꤙꤤꤛꤢꤩ꤭ ꤗꤟꤢꤩ꤬ꤒꤢꤩ꤭ ꤛꤢꤩ꤭ꤒꤣ꤬ꤟꤢꤩ꤬ ꤒꤣ꤬ꤕꤚꤟꤢꤧ꤬ ꤊꤥ꤭ꤜꤢꤩ꤬ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭
+OOV
+OOV
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my.co.hyp ... 
+ 100  859 4748 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ။ ။ ။ ။ ။ ။
+OOV ။
+။ OOV ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my.pmi.hyp ... 
+  100   859 19946 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my.pmi.hyp.line
+ခဏခဏ ခိုင်မဲ့ ကန်တော့ ခင်ဗျားဒီလိုလုပ်ရင်အထင်လွဲစရာဖြစ်သွားလိမ့်မယ်။ ခိုး တာက " ကလေးဆိုတာရောဂါကူးဖို့အလွယ်ဆုံးပဲ။ "
+OOV "
+လွယ် OOV အတိုးငွေ "
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my.cpe.hyp ... 
+  100   859 18482 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my.cpe.hyp.line
+ဆီချိုရောဂါ ဘဏ်စာရင်း ဒေါ်လာ မကောင်း အမြင်မရှင်း ဒိထက် အိမ် ကလေးတစ်ဝက်ခပါ။ ဟုတ်ကဲ့
+OOV ဟုတ်ကဲ့
+ဆရာဝန် OOV အတိုးရငွေ ဟုတ်ကဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo.co.hyp ... 
+  99  498 2259 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo.co.hyp.line
+OOV ။ ။ ။
+။ ။ ။ ။ ။
+။ ။ OOV ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo.pmi.hyp ... 
+   99   498 13818 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo.pmi.hyp.line
+OOV ကၠောန်တ္ၚဲ စၞစဖာသဝ်တ္ၚဲဂှ် သွက်ဂွံ
+ပလၚ်သ္ၚေက် ပလၚ်သ္ၚေက် ဟွံဍုဟ် ပလၚ်သ္ၚေက် သွက်ဂွံ
+ကၠိုဟ်လဝ် ပလၚ်သ္ၚေက် OOV မံၚ်သေၚ် သွက်ဂွံ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo.cpe.hyp ... 
+  99  498 8754 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo.cpe.hyp.line
+OOV ကၠောန်တ္ၚဲ သၠးဟာ ညိဟာ
+အထေၚ်သ္ၚေဲာ ရီုဗၚ်လဝ် ဍုဟ် လံယျဟာ ညိဟာ
+ဣဇှ် ရီုဗၚ်လဝ် OOV မုဟွံ ညိဟာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my.co.hyp ... 
+  99  488 2407 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my.co.hyp.line
+မင်း OOV ။ ။
+မုန်း ။ ။ ။
+။ ။ မ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my.pmi.hyp ... 
+  99  488 9501 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my.pmi.hyp.line
+ဖန်တီး OOV တာလား ပါနဲ့
+ကြောင်က ကိုယ် တာလား ပါနဲ့
+လု ။\x01ဍေံတံ နှစ်သက်ဘူး ထားဘူးလား ပါနဲ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my.cpe.hyp ... 
+  99  488 9380 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my.cpe.hyp.line
+ဖန်တီး OOV တာလား ပါနဲ့
+မုန်း ရမှာလား တာလား ပါနဲ့
+အဲ့ဒါ သဘောကျ နှစ်သက်ဘူး ခဲ့မိဘူးလား ပါနဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp ... 
+ 100  580 5200 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+လီၫ OOV အဝ့ၫ လီၫ လီၫ
+ဂဲၫထဲၩ့ဎွ့ၩန့ OOV လီၫ OOV
+လဲၪ ဧၪ ဧၪ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp ... 
+  100   580 13396 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp.line
+ယီၩနီၪ OOV ဖီၡီၪနီၪ အအီၪ ချီယၪနီၪ
+ဆဲၫ့ဖၭဒိၪ OOV ကဘၪထဲးလိၬၥၭ OOV
+ကစီၪ့စီၪ့တၭ ကဒိၪထၪ့ထီၫထၪ့ ကစီၪ့စီၪ့တၭ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp ... 
+  100   580 10537 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp.line
+ယီၩနီၪ OOV ဖီၡီၪ အအီၪ မွဲအ့ၬဧၪ
+ဂဲၫထဲၩ့ဎွ့ၩန့ OOV ကခိၪ OOV
+မပၩၥံၪ အၪ့ယၫ အၪ့စၪ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp ... 
+ 100  562 6565 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp.line
+ကျွန်တော့်မှာ မင်း မ မင်း ကို
+ကို OOV OOV မှာ ကို
+OOV OOV ငါတို့တော့ ကို
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   562 11986 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp.line
+တုန်းပဲ လိုက်ဖမ်းမယ် မင်းမှာ နေရတော့မယ် ချင်တယ်
+မှာလဲ OOV OOV ကြည့်ကောင်းတယ် ရမလား
+OOV OOV လွတ်တော့မှာပဲ ကျွန်တော်မှာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp ... 
+  100   562 10468 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp.line
+ကျွန်တော့်မှာ ပိုက်ဆံ မင်းမှာ အများကြီး ရတာ
+မင်းတို့ OOV OOV မဟုတ် ခဲ့တာလား
+OOV OOV ငါတို့တော့ ပေါ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po.co.hyp ... 
+ 100  561 7287 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po.co.hyp.line
+နဝ်ꩻ ဝွေꩻသီး OOV ခွေ OOV ခွေ ခွေ ခွေ ခွေ
+ယိုနဝ်ꩻ ခွေ နာꩻ တတိယ နဝ်ꩻ ဒျာႏ
+အတန်ꩻ OOV ၁၀ မိနစ် နဝ်ꩻ အတန်ꩻ ခွေ ခွေ နာꩻ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po.pmi.hyp ... 
+  100   561 17010 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po.pmi.hyp.line
+ခွေနဝ်ꩻတဒေါ်လာတဲ့တအဲဥ်ထဝ်းက ဝွေꩻသီးဟောင်း OOV ကဆွိုက်လွဉ်ဒါႏဖုန်း OOV ကော့ꩻမောင်ꩻဒျာႏ ခွေ တဲမ်ႏဗာႏလိတ်နဝ်ꩻ ထင်းနုဲင်းနဝ်ꩻ
+ခင်ႏခဲဥ်း လိတ်ယိုနဝ်ꩻ ကုဲင်းထဲ့ꩻဆုဲင်ꩻငါႏ ကတောင် ကတောင် ရွစ်ဒါႏကွို့ꩻ
+ကိုတဲင်ꩻ OOV ခွဲးအဝ်ႏ ကနွုမ်နဝ်ꩻ ၇ ကိုတဲင်ꩻ တသေငါꩻတဝ်း ကလွောင်ႏဗူႏဖေႏ ခါꩻလာႏ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po.cpe.hyp ... 
+  100   561 13227 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po.cpe.hyp.line
+ရုပ်မွန် ဝွေꩻသီး OOV ထာꩻ OOV ရို မွေးစွဉ်ႏ ထင်း ယိင်းဟဝ်
+ယိုနဝ်ꩻ ယို တပတ်ကို တတိယ \u200cယိုနဝ်ꩻ အွဗွော့ꩻ
+အတန်ꩻ OOV ၁၀ ဆီမိနစ် အီးသေငါꩻ အတန်ꩻ ပါꩻမုဲင်ꩻဟောင်း တွိုႏ ဗာႏဒျာႏ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my.co.hyp ... 
+ 100  391 4120 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my.co.hyp.line
+OOV ဆိုတာ သူတို့ မင်း OOV ငါ ထင်
+တွေ ပြီးခဲ့တဲ့ ဒါနဲ့ဆို
+OOV ၁၀ OOV OOV သူတို့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my.pmi.hyp ... 
+ 100  391 6802 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my.pmi.hyp.line
+OOV လုပ်နေခဲ့လဲလို့ သူတို့ရဲ့ စကားပြောနေတာ OOV ငါရဲ့ ခဲ့မလားလို့
+ကြက်မကို အခေါက် ဒါနဲ့ဆို
+OOV ကုန်မာဆိုင် OOV OOV ငြိမ်သက်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my.cpe.hyp ... 
+ 100  391 5293 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my.cpe.hyp.line
+OOV ဆိုတာ သူတို့ စကားပြောနေတာ OOV နိုင်ဘူး ထင်
+တွေ အခေါက် ဒါနဲ့ဆို
+OOV ၁၀ OOV OOV အတန်း
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk.co.hyp ... 
+ 100  666 6369 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk.co.hyp.line
+သူရို့ ။ OOV ကကောင်း OOV လို့ ငါ ထင် ။ ။
+။ ဒေ ။ တတိယ အကြိမ် ။ ။
+အတန်း OOV ၁၀ မိနစ် ။ အတန်း ကို ရောက် ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk.pmi.hyp ... 
+  100   666 14394 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk.pmi.hyp.line
+ဇာဖြစ်လို့ကေ ခကတ်ပါလား OOV ကကကောင်း OOV ကံကောင်းပါစီ ငါ ထောင်ချောက်ကို တေ။ သူက
+မျက်နှာကျက် ဒေ ကဒေ ကဒေ ကလေး ဖူးသမျှထဲမာ သူက
+ငြိမ်သက် OOV ကုန်မာဆိုင် ကြက်ဥတိစွာ မာ ငြိမ်သက် ကို ကောင်းမွန်စွာ ရဖို့။ သူက
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk.cpe.hyp ... 
+  100   666 11094 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk.cpe.hyp.line
+ဇာဖြစ်လို့လည်းဆိုကေ သူရို့ OOV ကကောင်း OOV လို့ ငါ ထင် တေ။ ဇာသူ
+ဒေချင့် ဒေ အပတ်မာ တတိယ ပြန်ဖတ် ယာ ဇာသူ
+အတန်း OOV ၁၀ အဖျစ်ခံရဖို့စွာက မဟုတ်ပါလား။ အတန်း လိုက်ပါ ရောက် ရဖို့ ဇာသူ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my.co.hyp ... 
+ 100  660 4977 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my.co.hyp.line
+OOV ။ OOV ။ ရထားကြီး ။ ။ ။ ။ ။
+။ ဒါ အပတ်မှာ တတိယ ။ ။ ။
+။ OOV ။ မိနစ် ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   660 14046 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my.pmi.hyp.line
+OOV သူရို့ OOV တော်တော်လေး မြန်တဲ့ လို့ ငါ စာရေးရတာ တောင်းပန်ထားတယ် နော်
+ကားပါလား အကြိမ်ပဲ တွေ့ကောင်းတွေ့ ခုန်စရာတောင် ကလဲ ပါ နော်
+ငြိမ်သက် OOV စက်တင်ဘာ ကြက်ဥတွေဟာ ဘဝ ငြိမ်သက် ကို ကြိုးစားရင်း ကန့်သတ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my.cpe.hyp ... 
+  100   660 11274 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my.cpe.hyp.line
+OOV သူတို့ OOV သိပ် ရထားကြီး လို့ ငါ ထင် ခက်ခဲတယ် တာလား
+ဒါ အကြိမ်ပဲ အပတ်မှာ တတိယ ပျက်တာ ပါ တာလား
+အတန်း OOV ရုံးချိန်းက မိနစ် ရှိနေတဲ့အတွက်ကြောင့် အတန်း ခဲ့ပါဘူး ရောက် ရမယ်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw.co.hyp ... 
+ 109  743 2222 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw.co.hyp.line
+yà nà OOV . . .
+yà . tìq tìq . .
+yàngōn yà . . ngà . má .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw.pmi.hyp ... 
+ 100  754 5109 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw.pmi.hyp.line
+yàgǿnø̀ bvnlīàngkàngshvlā OOV ídvng gvza shaq
+yàgǿnø̀ shvq ídvng bàngdāy óqà shaq
+cìrongtē toshī aníla nvng bikin pí íma shaq
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw.cpe.hyp ... 
+ 100  754 5217 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw.cpe.hyp.line
+yàmē bvnlīàngkàngshvlā OOV bøn vdūngrv́m nàrī
+yàmē ngā tìqní mg-tunshēn svpō nàrī
+zingvbi íma lvngcha shíní nvm pí pàmvrà nàrī
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my.co.hyp ... 
+ 100  744 2976 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my.co.hyp.line
+OOV OOV OOV OOV ။
+OOV OOV OOV OOV OOV OOV ။
+OOV OOV OOV OOV OOV OOV OOV OOV ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my.pmi.hyp ... 
+ 100  744 4308 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my.pmi.hyp.line
+OOV OOV OOV OOV ပြန်
+OOV OOV OOV OOV OOV OOV ပြန်
+OOV OOV OOV OOV OOV OOV OOV OOV ကုတ်အင်္ကျီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my.cpe.hyp ... 
+ 100  744 3273 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my.cpe.hyp.line
+OOV OOV OOV OOV ၏
+OOV OOV OOV OOV OOV OOV ၏
+OOV OOV OOV OOV OOV OOV OOV OOV ဒီအရာ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh.co.hyp ... 
+ 100  649 3292 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh.co.hyp.line
+။ ၊ ။ ။ ။
+။ ။ OOV ။ ။
+။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh.pmi.hyp ... 
+  100   649 21085 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh.pmi.hyp.line
+တင်းၼ်ႂးႄလႈ ၊ မၼ်းၶႅမ်ႉလႅပ်ႈယူႇ တင်းၼၢင်းယိင်း မိူဝ်ႈၽုၵ်ႈ
+မူတ်ႉ တေလႆႈၶိုၼ်းႄမးယႃႉဢိူဝ်ႈ OOV ဢၼ်ငၢႆႈ မိူဝ်ႈၽုၵ်ႈ
+ၵဝ်ထၢင်ႇႄတႉ ပၢင်ႇလၢႆ တူၵ်းၼႂ်း တီႈၼွင် ပွတ်းၵုင်းလိၼ် မိူဝ်ႈၽုၵ်ႈ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh.cpe.hyp ... 
+  100   649 13879 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh.cpe.hyp.line
+ယိၼ်းၸူမ်းၶႃႈ လီယူႇ တီႈၼႆႈ ငိုၼ်း ၼႆႉပဵၼ်
+ၶႃႈၶဝ်ႈ ဢၼ်ႁဝ်းလႆႈၶိၼ်းဝႆႉၼၼ်ႉ OOV မၼ်းတေ ၼႆႉပဵၼ်
+ၵဝ် ပႃလုၺ်းၼမ်ႉ တေသႂ်ႇ လုၺ်းၼမ်ႉ ယူႇၼႆႉ ၼႆႉပဵၼ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my.co.hyp ... 
+ 100  643 3247 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my.co.hyp.line
+OOV ၊ OOV ။ ။
+။ ။ OOV ။ ။ ။ ။
+။ ။ ။ OOV ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my.pmi.hyp ... 
+  100   643 14357 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my.pmi.hyp.line
+OOV ၊ OOV ငါးရာ မေး
+အဖြေ ကိုယ်တို့ OOV ပေးရမလား တံတားတွေကို အင်း မေး
+ငါက ကူးပါ ထွက်မှာ OOV နေတာလဲ မေး
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my.cpe.hyp ... 
+  100   643 11372 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my.cpe.hyp.line
+OOV ဟုတ်တယ် OOV ငွေ မှာလဲ
+ဘယ်ဟာကို ငါတို့ OOV ရမလဲ စေနဲ့ အင်း မှာလဲ
+ငါ ရေကူး ထဲမှာ OOV နေတာလဲ မှာလဲ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk.co.hyp ... 
+ 100  588 8775 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk.co.hyp.line
+အံၤ တၢ်ဆါဟံၣ် န့ၣ် ကသံၣ်သရၣ် လၢတၢ်ဆါဟံၣ် တၢ်မၤ မၤ န့ၣ်လီၤ
+တၢ်ဝဲန့ၣ် ကွဲးကွဲး တ ကွဲးကွဲး
+ဟ့ၣ်လီၤယၤ ဟ့ၣ်ခီဂာ် ဝံသးစူၤ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk.pmi.hyp ... 
+  100   588 20756 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk.pmi.hyp.line
+ဖဲအံၤဆူ ကဘၣ်အိၣ်ဖဲတၢ်ဆါဟံၣ် ဖဲဝ့ၢ်တကူၣ်န့ၣ် ဆဲးကသံၣ်သရၣ် ကသံၣ်သရၣ်သၢဂၤ တၢ်မၤဘၣ် ကမၤတၢ်မနုၤလဲၣ် နၢ်ဟူလၢ
+ကးတံာ်တံာ် မ့ၢ်ကွဲးဝဲတၢ်န့ၣ်မ့ၢ်ဂ့ၤ လၢၤဘၣ်ဧါ မ့ၢ်ကွဲးဝဲတၢ်န့ၣ်မ့ၢ်ဂ့ၤ
+လံာ်ဖိ ထိၣ်ဒံးဘိတက့ၢ် ကျဲမ့ၢ်ဖျိန့ၣ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk.cpe.hyp ... 
+  100   588 13503 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk.cpe.hyp.line
+အံၤ တၢ်ဆါဟံၣ် အဝဲတမ့ၢ် ကသံၣ်သရၣ် ကသံၣ်သရၣ်သၢဂၤ တၢ်မၤ မၤ န့ၣ်ကစီဒီ
+တၢ်ဝဲန့ၣ် ကွဲးကွဲး ဘၣ်လဲၣ် ကွဲးကွဲး
+ဟ့ၣ်လီၤယၤ ဟ့ၣ်ခီဂာ် မီၤ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp ... 
+ 100  575 7874 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp.line
+ဆေးရုံ ဒီ ကို ဆရာဝန် ယောက် လုပ် အလုပ်
+မ OOV မ OOV
+OOV စာအုပ်ကလေး နော်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   575 13280 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my.pmi.hyp.line
+ခဲ့ရလို့ပေါ့ ခဲ့ကြလဲ ဆိုတာ စိတ်ဖိစီးမှု ယောက်ရှိတယ် လုပ်နေ လုပ်ခဲ့သည်
+ခက်ခဲတယ် OOV ခဲ့ကြဘူးလား OOV
+OOV စာအုပ်ကလေး ဟောင်တာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my.cpe.hyp ... 
+ 100  575 9875 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my.cpe.hyp.line
+ဆေးရုံ ဒီ ဘယ်သူ ဆရာဝန် သုံး လုပ် အလုပ်
+အဲဒါ OOV ခဲ့ကြဘူးလား OOV
+OOV စာအုပ်ကလေး နော်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk.co.hyp ... 
+ 100  635 3518 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ OOV ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk.pmi.hyp ... 
+  100   635 13349 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk.pmi.hyp.line
+မင်း ကာလတွေကို ရမ်း ကြည် ဖြေ
+မင်း ကြော် ကြော် ကိုယ့်ဘက်ပါအောင် ဖြေ
+ဒါ့မှာ ထားရိ OOV အသီး ဟုတ်ရ ဒါလဲ ကြော်ငြာ တိုင်စီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk.cpe.hyp ... 
+  100   635 12155 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk.cpe.hyp.line
+ခဲ့ရယ်လား မေ့ သိပ် ဖြေ အယ့်ဒါ
+ခဲ့ရယ်လား ငါး ကြော် ဇာလား အယ့်ဒါ
+ဒယ်မှာ ဘာ OOV ဘာတွေ တာလဲ ကျွန်တော်ဝို့ တွေ့ တိုင်စီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk.co.hyp ... 
+ 100  633 4176 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk.co.hyp.line
+မင်း ။ ။ ။ ။
+မင်း ။ ငါး ။ ။
+။ ။ OOV ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk.pmi.hyp ... 
+  100   633 13597 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk.pmi.hyp.line
+မင်းဇာတိ ကာလတိကို ဆွဲယူ ဖြေပါ ၊
+ထမင်း ကျွန်တော်ကြားရစွာက ကြော် ကစားစွာ ၊
+စဉ်းစားမိ ချင်လေး OOV ငိုကြွေး တောင်းပန်ထား ကျွန်တော်ရို့တိုင်းပြည်ကို ဇာအချိန်မဆို ဖြစ်ဖို့လေး ၊
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk.cpe.hyp ... 
+  100   633 13252 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk.cpe.hyp.line
+မဟုတ်ပါလား။ မိန့် ကြိုက်ရေ အဖြေ နီစွာလေး
+ထမင်း ကြော် ကြော် စွာလား နီစွာလေး
+ယင်းချင့်ကို ဇာ OOV ငိုကြွေး တောင်းပန်ထား မွန်မြတ်ရေ တွိ နိုင်လေး နီစွာလေး
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc.co.hyp ... 
+ 100  728 2712 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc.co.hyp.line
+OOV OOV OOV OOV OOV OOV OOV .
+OOV OOV OOV OOV OOV OOV OOV .
+OOV OOV OOV OOV OOV OOV OOV .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc.pmi.hyp ... 
+ 100  728 3212 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc.pmi.hyp.line
+OOV OOV OOV OOV OOV OOV OOV chyeju
+OOV OOV OOV OOV OOV OOV OOV chyeju
+OOV OOV OOV OOV OOV OOV OOV chyeju
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc.cpe.hyp ... 
+ 100  728 3012 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc.cpe.hyp.line
+OOV OOV OOV OOV OOV OOV OOV nsam
+OOV OOV OOV OOV OOV OOV OOV nsam
+OOV OOV OOV OOV OOV OOV OOV nsam
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp ... 
+ 100  729 2273 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp.line
+OOV nø̀ ngà . . . .
+OOV nø̀ ngà . . . . .
+OOV nø̀ ngà . . . . . .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw.pmi.hyp ... 
+ 100  729 4485 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw.pmi.hyp.line
+OOV ídvng vpèq dvpvt būsmōdò ídvng shàm
+OOV ídvng vpèq dvpvt būsmōdò ídvng gø shàm
+OOV ídvng vpèq dvpvt būsmōdò ídvng ngā gø shàm
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw.cpe.hyp ... 
+ 100  729 4376 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw.cpe.hyp.line
+OOV tø̀ng ayē nī wāq lvgōlíng shàm
+OOV tø̀ng ayē nī wāq lvgōlíng mí shàm
+OOV tø̀ng ayē nī wāq lvgōlíng ngā mí shàm
+==========
+```
 
 ## Reference
 
