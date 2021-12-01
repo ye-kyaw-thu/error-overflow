@@ -2051,7 +2051,464 @@ BLEU score ရလဒ်က မကောင်းနိုင်ပေမဲ့ n
 column format ကနေ line format အဖြစ် ပြောင်းဖို့ အတွက် ရေးခဲ့တဲ့ shell script က အောက်ပါအတိုင်းပါ။  
 
 ```bash
+#!/bin/bash
 
+# converting hypothesis column files to line format
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 1 Dec 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; 
+    trg=${fd#*-}; 
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; #echo "ref_path: $ref_path";
+
+    # run ရတဲ့ ပုံစံက အောက်ပါအတိုင်း
+    #python -m pickle  <lexicon_path> > <converted-filename>
+    
+    # for source-to-target lexicon
+    echo "converting for $ref_path/lex/co/$trg.co.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/co/$trg.co.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/co/$trg.co.hyp.line;
+    wc $ref_path/lex/co/$trg.co.hyp.line; 
+    head -n 3 $ref_path/lex/co/$trg.co.hyp.line; 
+    echo "converting for $ref_path/lex/pmi/$trg.pmi.hyp ... ";   
+    cut -d "," -f1 $ref_path/lex/pmi/$trg.pmi.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    wc $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    head -n 3 $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    echo "converting for $ref_path/lex/$trg.cpe.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/$trg.cpe.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/$trg.cpe.hyp.line;
+    wc $ref_path/lex/$trg.cpe.hyp.line;
+    head -n 3 $ref_path/lex/$trg.cpe.hyp.line;
+
+    
+    # for target-to-source lexicon
+    echo "converting for $ref_path/lex/co/$src.co.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/co/$src.co.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/co/$src.co.hyp.line;
+    wc $ref_path/lex/co/$src.co.hyp.line;
+    head -n 3 $ref_path/lex/co/$src.co.hyp.line; 
+    echo "converting for $ref_path/lex/pmi/$src.pmi.hyp ... ";   
+    cut -d "," -f1 $ref_path/lex/pmi/$src.pmi.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/pmi/$src.pmi.hyp.line;
+    wc $ref_path/lex/pmi/$src.pmi.hyp.line;
+    head -n 3 $ref_path/lex/pmi/$src.pmi.hyp.line;
+    echo "converting for $ref_path/lex/$src.cpe.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/$src.cpe.hyp | tail -n +3 | sed '/OOV/d' | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' > $ref_path/lex/$src.cpe.hyp.line;
+    wc $ref_path/lex/$src.cpe.hyp.line;
+    head -n 3 $ref_path/lex/$src.cpe.hyp.line;
+    echo "=========="
+    
+done
+
+```
+
+လိုင်ပြောင်းကြည့်တဲ့အခါမှာ ဘာသွားတွေ့ရသလဲ ဆိုတော့ တချို့ word2word translation error ကြောင့်လို့ ယူဆတယ်၊ စာကြောင်းရေ ၁၀၀ မရှိတဲ့ line ဖိုင်တွေကို တွေ့ရတယ်။  
+test data (or) reference data က အကြောင်း ၁၀၀ စီနဲ့ word-to-word translation လုပ်ထားခဲ့တာမို့ hypothesis ဖိုင်ကို line အဖြစ်ပြောင်းတဲ့အခါမှာ တကယ်က အကြောင်း ၁၀၀ စီရှိရမယ်။ သို့သော် တချို့ language pair တွေအတွက်က လိုင်း ၁၀၀ မရှိတာကို အောက်ပါအတိုင်းတွေ့ရတယ်...  
+(line အဖြစ် ပြောင်းထားပြီးသား ဖိုင်တွေကို head -n3 နဲ့ ရိုက်မပြခင်မှာ အရင်ဆုံး wc command ကို run ထားတာမို့ converted line ဖိုင်တွေရဲ့ file size information ကို အရင်တွေ့ရမှာ ဖြစ်ပါတယ်)  
+
+```
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk.co.hyp ... 
+ 100  607 3346 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk.pmi.hyp ... 
+  100   607 13471 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk.pmi.hyp.line
+မင့် ကာလတွေကို တွေနိုင်တဲ့သစ်တောတစ်ခုရှိရယ် ကြည် လဲ
+မင့် ကြော် ကြော် နေ့ကျောင်း လဲ
+ဒါ့မှာ ကိုးကား ဘာသာရေး ဟုတ်ရ ကျဒေါ်ရို့ ကြော်ငြာ တစ်စောင်လောက် လဲ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk.cpe.hyp ... 
+  100   607 12976 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk.cpe.hyp.line
+ခဲ့ရယ်လား မေ့ ထားတဲ့ ဖြေ ဘာဖြစ်ရိ
+ခဲ့ရယ်လား ကြော် ကြော် ရယ်လား ဘာဖြစ်ရိ
+ဒယ်မှာ ဘယ် နေလဲ သူလို့ဝို ကျဒေါ်ဒို့ တွေ့ နိုင်ရယ်လား ဘာဖြစ်ရိ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my.co.hyp ... 
+ 100  577 3235 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   577 13651 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my.pmi.hyp.line
+နင် ကာလတွေကို ဘယ်တော့မှသစ္စာမဖောက် ဖြေပါ ဒါ
+ထမင်း ကြားရသလောက် ကြော် ကစားတာ ဒါ
+စဉ်းစားမိ မို့လို့လဲ ငိုကြွေး ဟုတ်ဘူး ကြီးပွားဖြစ်ထွန်းမှု တွေ့ချင်ရင် ဖြစ်မလဲ ဒါ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my.cpe.hyp ... 
+  100   577 12121 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my.cpe.hyp.line
+နင် မေ့ စကားတွေကို အဖြေ နေတာလဲ
+ထမင်း ကြော် ကြော် တာလား နေတာလဲ
+ဖတ်ဖတ် ဘာ ပြောရင်း ရမှာလား မွန်မြတ်တဲ့ တွေ့ နိုင်သလဲ နေတာလဲ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch.co.hyp ... 
+ 100  598 1576 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch.co.hyp.line
+i . . lo . lo .
+a .
+. ka nge engtik .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch.pmi.hyp ... 
+ 100  598 3846 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch.pmi.hyp.line
+result hma-ngaih ko suh 331-4060-ah mahin nang
+kensak nang
+car ka inngaihzawn pawimawh nang
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch.cpe.hyp ... 
+ 100  598 3327 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch.cpe.hyp.line
+result hma-ngaih ko engmah be tawng suh
+kensak suh
+chutah nain engtik pawimawh suh
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my.co.hyp ... 
+ 100  756 3351 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ။ ။ ။ ။ ။
+။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my.pmi.hyp ... 
+  100   756 19590 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my.pmi.hyp.line
+ဒါဟာ ငါ့ကို ပြန်ရောက် ကျွန်မတို့အနေနဲ့ ကြက်သွန် မဟုတ်ပါဘူး ဒီကျောင်း ဒါပေမဲ့
+စားပါ ဒါပေမဲ့
+လှလိုက်တဲ့ သူ့ကို ထွက်သလဲ ခြောက်သွား မဆို ပြန်ရောက်ပြီ ပါရဲ့ ဒါပေမဲ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my.cpe.hyp ... 
+  100   756 16860 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my.cpe.hyp.line
+ဒါဟာ ကိုယ့်ကို ပြန်ရောက် စကား သိတာ ခဲ့ပါဘူး ဘူးလဲ ပါနဲ့
+လိုက်ပါ ပါနဲ့
+အဲဒီနေရာ ခဲ့ကြတယ် ဘယ်အချိန် စာသင်ချိန် ဘယ်မှာပဲ ရောက် ကြရအောင် ပါနဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc.co.hyp ... 
+ 121  778 2433 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc.co.hyp.line
+. na gaw ai . yu ai ai .
+ai ai gawk .
+ai gaw ai langai ai . .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc.pmi.hyp ... 
+ 118  784 4400 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc.pmi.hyp.line
+telepo gaalw gaw hpe mat yu mayu grai nten
+laning marai single nten
+shanhte gaw kabugaranga lani marai magang nten
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc.cpe.hyp ... 
+ 100  802 4526 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc.cpe.hyp.line
+yadapon thit kyaw chying rung yu mayu chyeju hkyit
+lahkawng marai marai hkyit
+shanhte kyaw lakasha lani marai magang hkyit
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my.co.hyp ... 
+ 100  969 4032 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ပို့ ။ ။ ။ ။ ။ ။ ။ ။
+။ ။ ။ ။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my.pmi.hyp ... 
+  100   969 19647 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my.pmi.hyp.line
+ယခု ထား နားရွက် မှတ်ပုံတင် အမျိုးသားပြတိုက် ကြိုးမဲ့ နားရွက် မနက်ဖြန် ပို့ ချင် တဲ့ ဟုတ်ပါတယ်
+နှစ်ယောက် ဟုတ်ပါတယ် တဲ့ အမျိုးသားပြတိုက် ဟုတ်ပါတယ်
+သူ့ အရာ ယူ အစားအစာ ယာဉ် ဟုတ်ပါတယ် လေ ဟုတ်ပါတယ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my.cpe.hyp ... 
+  100   969 17568 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my.cpe.hyp.line
+ယခု ချိန်း နားရွက် ပို့ မျိုးရိုး အသစ် နားရွက် ကြွ စို့ ချင် ကြိုက် ပါးစပ်
+နှစ် သနည်း ကြိုက် အခန်း ပါးစပ်
+ဦးချစ် အမည် ယူ အစားအစာ ရွက် တစ်ထည် မီမီ ပါးစပ်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky.co.hyp ... 
+  74  793 3429 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky.co.hyp.line
+꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯
+꤯ ꤯ ꤯ ꤯ . ꤯ ꤔꤢ ꤯ ꤘꤣ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤘꤣ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ꤯ ( ꤯ ꤯
+꤯ ꤯ ꤯ ꤯ ꤯ ? ? ꤯ ꤯
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky.pmi.hyp ... 
+   74   793 19413 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky.pmi.hyp.line
+ꤙꤤꤛꤢꤩ꤭ꤗꤢ꤬ ꤓꤝꤟꤥ꤭ꤓꤛꤢ꤬ꤚꤢꤪ ꤊꤢ꤬ꤚꤟꤢꤧꤠꤟꤤ꤭ ꤁꤂꤉꤂ ꤘꤢꤍꤟꤢꤦ꤬ ꤘꤢꤍꤟꤢꤦ꤬ ꤊꤟꤢꤩꤑꤢꤩ꤬ꤋꤢꤨ꤬ ꤏꤝꤢꤩ꤬ꤒꤢ꤬ꤊꤥ꤬ ꤙꤥ꤭ꤡꤤ꤬ ꤤ꤬ꤏꤢꤪ ”
+pꤊꤚꤟꤋꤞꤙꤎ ꤒꤟꤢꤧ꤬ꤚꤛꤢꤙꤢꤧ꤬ ” ꤒꤟꤢꤧ꤬ꤥ꤬ꤊꤟꤢꤨꤘꤢꤨ꤬ ꤊꤢ꤬ꤒꤢꤪ꤬ꤡꤤ꤭ ꤘꤢꤍꤟꤢꤦ꤬ ꤒꤢ꤬ꤊꤝꤥꤑꤢꤩ꤭ ꤀꤉꤅꤀꤀꤃꤃꤃꤈ ꤃꤀꤂ ꤘꤢꤍꤟꤢꤦ꤬ ꤟꤤ꤬ꤗꤢꤪ꤬ꤊꤢ꤭ ꤒꤟꤢꤧ꤬ꤚꤛꤢꤙꤢꤧ꤬ ” “ꤛꤢ꤬ꤊꤢꤨ꤭ꤊꤟꤢꤩ “ꤓꤢ꤬ꤢ꤬ꤗꤢꤩ꤭ ꤊꤢ꤬ꤒꤟꤢ꤭ꤙꤤꤒꤢꤩ꤭ ꤋꤝꤤꤗꤟꤌꤣ ꤊꤜꤛꤢ꤬ ꤎꤢꤩꤊꤢꤨꤗꤢꤩ꤭ ꤒꤟꤢꤧ꤬ꤚꤛꤢꤙꤢꤧ꤬ ” ꤎꤢꤩꤊꤢꤨꤗꤢꤩ꤭ “ꤓꤢ꤬ꤢ꤬ꤗꤢꤩ꤭ ꤘꤢꤍꤟꤢꤦ꤬ ꤅.꤄ ꤔꤣ꤬ ꤔꤛꤢꤩ꤭ꤊꤜꤢꤧ ”
+ꤍꤟꤥꤋꤢꤍꤟꤥꤋꤥ꤬ ꤡꤤꤓꤥ꤭ ꤍꤟꤥꤋꤢ ꤊꤢ꤭ꤛꤢ꤭ꤚꤢꤦ꤬ꤘꤢꤦ꤭ ꤋꤥ ꤤ꤭ꤒꤢꤩ꤭ꤒꤢꤩ꤭꤮ ꤓꤢꤨ꤬ꤜꤟꤛꤢ꤬ꤚꤢꤦ꤭ ꤐꤟꤢꤑꤟꤢ ”
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky.cpe.hyp ... 
+   74   793 19496 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky.cpe.hyp.line
+ꤙꤤꤛꤢꤩ꤭ꤗꤢ꤬ ꤒꤟꤢꤧ꤬ꤏꤝꤤꤒꤟꤢꤧ꤬ꤏꤢꤧ꤭ ꤢꤛꤢꤩ꤭ꤗꤢ꤬ ꤕꤢ꤬ꤡꤟꤢꤧ ꤊꤚꤟꤢ ꤙꤤꤛꤢꤩ꤭ ꤗꤟꤢꤩ꤬ꤒꤢꤩ꤭ ꤛꤢꤩ꤭ꤒꤣ꤬ꤟꤢꤩ꤬ ꤒꤣ꤬ꤕꤚꤟꤢꤧ꤬ ꤊꤥ꤭ꤜꤢꤩ꤬ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭
+ꤋꤥ꤭ꤗꤟꤢꤧ꤭ ꤔꤌꤣꤢꤧ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭ ꤒꤟꤢꤧ꤬ꤏꤝꤤꤟꤤ꤬ꤘꤢꤨ꤬ ꤊꤢ꤬ꤒꤢꤪ꤬ꤡꤤ꤭ ꤙꤤꤛꤢꤩ꤭ ꤙꤢꤎꤢꤊꤢ꤭ ꤖꤥ꤭ꤘꤛꤢꤗꤢ ꤃꤀꤂ ꤔꤌꤣꤢꤧ ꤟꤤ꤬ꤗꤢꤪ꤬ꤊꤢ꤭ ꤔꤌꤣꤢꤧ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭ ꤛꤢ꤬ꤊꤢꤨ꤭ꤊꤟꤢꤩ ꤏꤛꤢꤩ꤬ꤒꤢ꤬ꤡꤥ꤬ ꤜꤟꤢꤩꤥ꤬ꤊꤟꤌꤣ ꤗꤥ ꤕꤢ꤭ꤒꤥ꤬ ꤔꤟꤢꤧ꤬ꤋꤢꤨ꤬ꤊꤜꤛꤢ ꤔꤌꤣꤢꤧ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭ ꤢ꤬ꤏꤢꤦ꤭ ꤏꤛꤢꤩ꤬ꤒꤢ꤬ꤡꤥ꤬ ꤔꤌꤣꤢꤧ ꤥ꤬ꤗꤛꤢꤩ꤭ꤊꤢ꤬ꤓꤢꤪ꤬ ꤟꤢꤋꤛꤢ꤬ ꤒꤣ꤬ꤊꤜꤢꤧ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭
+ꤜꤢꤩ ꤒꤢꤧ꤭ ꤍꤟꤥꤜꤟꤛꤢꤩ꤬ ꤢ꤬ꤟꤢꤩꤙꤢꤧ꤬ ꤊꤥ꤬ꤕꤢ꤬ꤔꤤ꤬ ꤤ꤬ꤒꤢꤩ꤭ ꤗꤢ꤬ꤒꤢꤩ꤭ ꤢ꤬ꤕꤜꤝꤥ꤭ ꤋꤛꤢꤞꤢꤧꤘꤥ꤭
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my.co.hyp ... 
+  99  765 4372 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my.co.hyp.line
+။ ။ ။ ။ ။ ။ ။ ။ ။
+။
+။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my.pmi.hyp ... 
+   99   765 19570 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my.pmi.hyp.line
+ခဏခဏ ခိုင်မဲ့ ကန်တော့ ခင်ဗျားဒီလိုလုပ်ရင်အထင်လွဲစရာဖြစ်သွားလိမ့်မယ်။ ခိုး တာက " ကလေးဆိုတာရောဂါကူးဖို့အလွယ်ဆုံးပဲ။ "
+"
+လွယ် အတိုးငွေ "
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my.cpe.hyp ... 
+   99   765 18106 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my.cpe.hyp.line
+ဆီချိုရောဂါ ဘဏ်စာရင်း ဒေါ်လာ မကောင်း အမြင်မရှင်း ဒိထက် အိမ် ကလေးတစ်ဝက်ခပါ။ ဟုတ်ကဲ့
+ဟုတ်ကဲ့
+ဆရာဝန် အတိုးရငွေ ဟုတ်ကဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo.co.hyp ... 
+  99  477 2175 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo.co.hyp.line
+။ ။ ။
+။ ။ ။ ။ ။
+။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo.pmi.hyp ... 
+   99   477 13734 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo.pmi.hyp.line
+ကၠောန်တ္ၚဲ စၞစဖာသဝ်တ္ၚဲဂှ် သွက်ဂွံ
+ပလၚ်သ္ၚေက် ပလၚ်သ္ၚေက် ဟွံဍုဟ် ပလၚ်သ္ၚေက် သွက်ဂွံ
+ကၠိုဟ်လဝ် ပလၚ်သ္ၚေက် မံၚ်သေၚ် သွက်ဂွံ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo.cpe.hyp ... 
+  99  477 8670 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo.cpe.hyp.line
+ကၠောန်တ္ၚဲ သၠးဟာ ညိဟာ
+အထေၚ်သ္ၚေဲာ ရီုဗၚ်လဝ် ဍုဟ် လံယျဟာ ညိဟာ
+ဣဇှ် ရီုဗၚ်လဝ် မုဟွံ ညိဟာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my.co.hyp ... 
+  99  449 2251 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my.co.hyp.line
+မင်း ။ ။
+မုန်း ။ ။ ။
+။ ။ မ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my.pmi.hyp ... 
+  99  449 9345 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my.pmi.hyp.line
+ဖန်တီး တာလား ပါနဲ့
+ကြောင်က ကိုယ် တာလား ပါနဲ့
+လု ။\x01ဍေံတံ နှစ်သက်ဘူး ထားဘူးလား ပါနဲ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my.cpe.hyp ... 
+  99  449 9224 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my.cpe.hyp.line
+ဖန်တီး တာလား ပါနဲ့
+မုန်း ရမှာလား တာလား ပါနဲ့
+အဲ့ဒါ သဘောကျ နှစ်သက်ဘူး ခဲ့မိဘူးလား ပါနဲ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp ... 
+ 100  522 4968 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+လီၫ အဝ့ၫ လီၫ လီၫ
+ဂဲၫထဲၩ့ဎွ့ၩန့ လီၫ
+လဲၪ ဧၪ ဧၪ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp ... 
+  100   522 13164 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp.line
+ယီၩနီၪ ဖီၡီၪနီၪ အအီၪ ချီယၪနီၪ
+ဆဲၫ့ဖၭဒိၪ ကဘၪထဲးလိၬၥၭ
+ကစီၪ့စီၪ့တၭ ကဒိၪထၪ့ထီၫထၪ့ ကစီၪ့စီၪ့တၭ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp ... 
+  100   522 10305 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp.line
+ယီၩနီၪ ဖီၡီၪ အအီၪ မွဲအ့ၬဧၪ
+ဂဲၫထဲၩ့ဎွ့ၩန့ ကခိၪ
+မပၩၥံၪ အၪ့ယၫ အၪ့စၪ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp ... 
+ 100  453 6129 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp.line
+ကျွန်တော့်မှာ မင်း မ မင်း ကို
+ကို မှာ ကို
+ငါတို့တော့ ကို
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   453 11550 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp.line
+တုန်းပဲ လိုက်ဖမ်းမယ် မင်းမှာ နေရတော့မယ် ချင်တယ်
+မှာလဲ ကြည့်ကောင်းတယ် ရမလား
+လွတ်တော့မှာပဲ ကျွန်တော်မှာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp ... 
+  100   453 10032 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp.line
+ကျွန်တော့်မှာ ပိုက်ဆံ မင်းမှာ အများကြီး ရတာ
+မင်းတို့ မဟုတ် ခဲ့တာလား
+ငါတို့တော့ ပေါ့
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po.co.hyp ... 
+  99  498 7035 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po.co.hyp.line
+နဝ်ꩻ ဝွေꩻသီး ခွေ ခွေ ခွေ ခွေ ခွေ
+ယိုနဝ်ꩻ ခွေ နာꩻ တတိယ နဝ်ꩻ ဒျာႏ
+အတန်ꩻ ၁၀ မိနစ် နဝ်ꩻ အတန်ꩻ ခွေ ခွေ နာꩻ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po.pmi.hyp ... 
+   99   498 16758 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po.pmi.hyp.line
+ခွေနဝ်ꩻတဒေါ်လာတဲ့တအဲဥ်ထဝ်းက ဝွေꩻသီးဟောင်း ကဆွိုက်လွဉ်ဒါႏဖုန်း ကော့ꩻမောင်ꩻဒျာႏ ခွေ တဲမ်ႏဗာႏလိတ်နဝ်ꩻ ထင်းနုဲင်းနဝ်ꩻ
+ခင်ႏခဲဥ်း လိတ်ယိုနဝ်ꩻ ကုဲင်းထဲ့ꩻဆုဲင်ꩻငါႏ ကတောင် ကတောင် ရွစ်ဒါႏကွို့ꩻ
+ကိုတဲင်ꩻ ခွဲးအဝ်ႏ ကနွုမ်နဝ်ꩻ ၇ ကိုတဲင်ꩻ တသေငါꩻတဝ်း ကလွောင်ႏဗူႏဖေႏ ခါꩻလာႏ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po.cpe.hyp ... 
+   99   498 12975 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po.cpe.hyp.line
+ရုပ်မွန် ဝွေꩻသီး ထာꩻ ရို မွေးစွဉ်ႏ ထင်း ယိင်းဟဝ်
+ယိုနဝ်ꩻ ယို တပတ်ကို တတိယ \u200cယိုနဝ်ꩻ အွဗွော့ꩻ
+အတန်ꩻ ၁၀ ဆီမိနစ် အီးသေငါꩻ အတန်ꩻ ပါꩻမုဲင်ꩻဟောင်း တွိုႏ ဗာႏဒျာႏ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my.co.hyp ... 
+  94  242 3524 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my.co.hyp.line
+ဆိုတာ သူတို့ မင်း ငါ ထင်
+တွေ ပြီးခဲ့တဲ့ ဒါနဲ့ဆို
+၁၀ သူတို့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my.pmi.hyp ... 
+  94  242 6206 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my.pmi.hyp.line
+လုပ်နေခဲ့လဲလို့ သူတို့ရဲ့ စကားပြောနေတာ ငါရဲ့ ခဲ့မလားလို့
+ကြက်မကို အခေါက် ဒါနဲ့ဆို
+ကုန်မာဆိုင် ငြိမ်သက်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my.cpe.hyp ... 
+  94  242 4697 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my.cpe.hyp.line
+ဆိုတာ သူတို့ စကားပြောနေတာ နိုင်ဘူး ထင်
+တွေ အခေါက် ဒါနဲ့ဆို
+၁၀ အတန်း
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk.co.hyp ... 
+ 100  604 6121 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk.co.hyp.line
+သူရို့ ။ ကကောင်း လို့ ငါ ထင် ။ ။
+။ ဒေ ။ တတိယ အကြိမ် ။ ။
+အတန်း ၁၀ မိနစ် ။ အတန်း ကို ရောက် ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk.pmi.hyp ... 
+  100   604 14146 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk.pmi.hyp.line
+ဇာဖြစ်လို့ကေ ခကတ်ပါလား ကကကောင်း ကံကောင်းပါစီ ငါ ထောင်ချောက်ကို တေ။ သူက
+မျက်နှာကျက် ဒေ ကဒေ ကဒေ ကလေး ဖူးသမျှထဲမာ သူက
+ငြိမ်သက် ကုန်မာဆိုင် ကြက်ဥတိစွာ မာ ငြိမ်သက် ကို ကောင်းမွန်စွာ ရဖို့။ သူက
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk.cpe.hyp ... 
+  100   604 10846 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk.cpe.hyp.line
+ဇာဖြစ်လို့လည်းဆိုကေ သူရို့ ကကောင်း လို့ ငါ ထင် တေ။ ဇာသူ
+ဒေချင့် ဒေ အပတ်မာ တတိယ ပြန်ဖတ် ယာ ဇာသူ
+အတန်း ၁၀ အဖျစ်ခံရဖို့စွာက မဟုတ်ပါလား။ အတန်း လိုက်ပါ ရောက် ရဖို့ ဇာသူ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my.co.hyp ... 
+ 100  589 4693 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my.co.hyp.line
+။ ။ ရထားကြီး ။ ။ ။ ။ ။
+။ ဒါ အပတ်မှာ တတိယ ။ ။ ။
+။ ။ မိနစ် ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   589 13762 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my.pmi.hyp.line
+သူရို့ တော်တော်လေး မြန်တဲ့ လို့ ငါ စာရေးရတာ တောင်းပန်ထားတယ် နော်
+ကားပါလား အကြိမ်ပဲ တွေ့ကောင်းတွေ့ ခုန်စရာတောင် ကလဲ ပါ နော်
+ငြိမ်သက် စက်တင်ဘာ ကြက်ဥတွေဟာ ဘဝ ငြိမ်သက် ကို ကြိုးစားရင်း ကန့်သတ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my.cpe.hyp ... 
+  100   589 10990 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my.cpe.hyp.line
+သူတို့ သိပ် ရထားကြီး လို့ ငါ ထင် ခက်ခဲတယ် တာလား
+ဒါ အကြိမ်ပဲ အပတ်မှာ တတိယ ပျက်တာ ပါ တာလား
+အတန်း ရုံးချိန်းက မိနစ် ရှိနေတဲ့အတွက်ကြောင့် အတန်း ခဲ့ပါဘူး ရောက် ရမယ်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw.co.hyp ... 
+ 108  716 2114 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw.co.hyp.line
+yà nà . . .
+yà . tìq tìq . .
+yàngōn yà . . ngà . má .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw.pmi.hyp ... 
+  99  727 5001 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw.pmi.hyp.line
+yàgǿnø̀ bvnlīàngkàngshvlā ídvng gvza shaq
+yàgǿnø̀ shvq ídvng bàngdāy óqà shaq
+cìrongtē toshī aníla nvng bikin pí íma shaq
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw.cpe.hyp ... 
+  99  727 5109 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw.cpe.hyp.line
+yàmē bvnlīàngkàngshvlā bøn vdūngrv́m nàrī
+yàmē ngā tìqní mg-tunshēn svpō nàrī
+zingvbi íma lvngcha shíní nvm pí pàmvrà nàrī
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my.co.hyp ... 
+ 94  99 396 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my.co.hyp.line
+။
+။
+။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my.pmi.hyp ... 
+  94   99 1728 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my.pmi.hyp.line
+ပြန်
+ပြန်
+ကုတ်အင်္ကျီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my.cpe.hyp ... 
+ 94  99 693 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my.cpe.hyp.line
+၏
+၏
+ဒီအရာ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh.co.hyp ... 
+ 100  606 3120 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh.co.hyp.line
+။ ၊ ။ ။ ။
+။ ။ ။ ။
+။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh.pmi.hyp ... 
+  100   606 20913 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh.pmi.hyp.line
+တင်းၼ်ႂးႄလႈ ၊ မၼ်းၶႅမ်ႉလႅပ်ႈယူႇ တင်းၼၢင်းယိင်း မိူဝ်ႈၽုၵ်ႈ
+မူတ်ႉ တေလႆႈၶိုၼ်းႄမးယႃႉဢိူဝ်ႈ ဢၼ်ငၢႆႈ မိူဝ်ႈၽုၵ်ႈ
+ၵဝ်ထၢင်ႇႄတႉ ပၢင်ႇလၢႆ တူၵ်းၼႂ်း တီႈၼွင် ပွတ်းၵုင်းလိၼ် မိူဝ်ႈၽုၵ်ႈ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh.cpe.hyp ... 
+  100   606 13707 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh.cpe.hyp.line
+ယိၼ်းၸူမ်းၶႃႈ လီယူႇ တီႈၼႆႈ ငိုၼ်း ၼႆႉပဵၼ်
+ၶႃႈၶဝ်ႈ ဢၼ်ႁဝ်းလႆႈၶိၼ်းဝႆႉၼၼ်ႉ မၼ်းတေ ၼႆႉပဵၼ်
+ၵဝ် ပႃလုၺ်းၼမ်ႉ တေသႂ်ႇ လုၺ်းၼမ်ႉ ယူႇၼႆႉ ၼႆႉပဵၼ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my.co.hyp ... 
+ 100  578 2987 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my.co.hyp.line
+၊ ။ ။
+။ ။ ။ ။ ။ ။
+။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my.pmi.hyp ... 
+  100   578 14097 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my.pmi.hyp.line
+၊ ငါးရာ မေး
+အဖြေ ကိုယ်တို့ ပေးရမလား တံတားတွေကို အင်း မေး
+ငါက ကူးပါ ထွက်မှာ နေတာလဲ မေး
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my.cpe.hyp ... 
+  100   578 11112 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my.cpe.hyp.line
+ဟုတ်တယ် ငွေ မှာလဲ
+ဘယ်ဟာကို ငါတို့ ရမလဲ စေနဲ့ အင်း မှာလဲ
+ငါ ရေကူး ထဲမှာ နေတာလဲ မှာလဲ
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk.co.hyp ... 
+ 100  588 8775 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk.co.hyp.line
+အံၤ တၢ်ဆါဟံၣ် န့ၣ် ကသံၣ်သရၣ် လၢတၢ်ဆါဟံၣ် တၢ်မၤ မၤ န့ၣ်လီၤ
+တၢ်ဝဲန့ၣ် ကွဲးကွဲး တ ကွဲးကွဲး
+ဟ့ၣ်လီၤယၤ ဟ့ၣ်ခီဂာ် ဝံသးစူၤ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk.pmi.hyp ... 
+  100   588 20756 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk.pmi.hyp.line
+ဖဲအံၤဆူ ကဘၣ်အိၣ်ဖဲတၢ်ဆါဟံၣ် ဖဲဝ့ၢ်တကူၣ်န့ၣ် ဆဲးကသံၣ်သရၣ် ကသံၣ်သရၣ်သၢဂၤ တၢ်မၤဘၣ် ကမၤတၢ်မနုၤလဲၣ် နၢ်ဟူလၢ
+ကးတံာ်တံာ် မ့ၢ်ကွဲးဝဲတၢ်န့ၣ်မ့ၢ်ဂ့ၤ လၢၤဘၣ်ဧါ မ့ၢ်ကွဲးဝဲတၢ်န့ၣ်မ့ၢ်ဂ့ၤ
+လံာ်ဖိ ထိၣ်ဒံးဘိတက့ၢ် ကျဲမ့ၢ်ဖျိန့ၣ်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk.cpe.hyp ... 
+  100   588 13503 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk.cpe.hyp.line
+အံၤ တၢ်ဆါဟံၣ် အဝဲတမ့ၢ် ကသံၣ်သရၣ် ကသံၣ်သရၣ်သၢဂၤ တၢ်မၤ မၤ န့ၣ်ကစီဒီ
+တၢ်ဝဲန့ၣ် ကွဲးကွဲး ဘၣ်လဲၣ် ကွဲးကွဲး
+ဟ့ၣ်လီၤယၤ ဟ့ၣ်ခီဂာ် မီၤ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp ... 
+ 100  525 7674 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp.line
+ဆေးရုံ ဒီ ကို ဆရာဝန် ယောက် လုပ် အလုပ်
+မ မ
+စာအုပ်ကလေး နော်
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   525 13080 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my.pmi.hyp.line
+ခဲ့ရလို့ပေါ့ ခဲ့ကြလဲ ဆိုတာ စိတ်ဖိစီးမှု ယောက်ရှိတယ် လုပ်နေ လုပ်ခဲ့သည်
+ခက်ခဲတယ် ခဲ့ကြဘူးလား
+စာအုပ်ကလေး ဟောင်တာ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my.cpe.hyp ... 
+ 100  525 9675 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my.cpe.hyp.line
+ဆေးရုံ ဒီ ဘယ်သူ ဆရာဝန် သုံး လုပ် အလုပ်
+အဲဒါ ခဲ့ကြဘူးလား
+စာအုပ်ကလေး နော်
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk.co.hyp ... 
+ 100  584 3314 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk.co.hyp.line
+။ ။ ။ ။ ။
+။ ။ ငါး ။ ။
+။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk.pmi.hyp ... 
+  100   584 13145 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk.pmi.hyp.line
+မင်း ကာလတွေကို ရမ်း ကြည် ဖြေ
+မင်း ကြော် ကြော် ကိုယ့်ဘက်ပါအောင် ဖြေ
+ဒါ့မှာ ထားရိ အသီး ဟုတ်ရ ဒါလဲ ကြော်ငြာ တိုင်စီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk.cpe.hyp ... 
+  100   584 11951 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk.cpe.hyp.line
+ခဲ့ရယ်လား မေ့ သိပ် ဖြေ အယ့်ဒါ
+ခဲ့ရယ်လား ငါး ကြော် ဇာလား အယ့်ဒါ
+ဒယ်မှာ ဘာ ဘာတွေ တာလဲ ကျွန်တော်ဝို့ တွေ့ တိုင်စီ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk.co.hyp ... 
+ 100  577 3952 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk.co.hyp.line
+မင်း ။ ။ ။ ။
+မင်း ။ ငါး ။ ။
+။ ။ ။ ။ ။ ။ ။ ။
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk.pmi.hyp ... 
+  100   577 13373 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk.pmi.hyp.line
+မင်းဇာတိ ကာလတိကို ဆွဲယူ ဖြေပါ ၊
+ထမင်း ကျွန်တော်ကြားရစွာက ကြော် ကစားစွာ ၊
+စဉ်းစားမိ ချင်လေး ငိုကြွေး တောင်းပန်ထား ကျွန်တော်ရို့တိုင်းပြည်ကို ဇာအချိန်မဆို ဖြစ်ဖို့လေး ၊
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk.cpe.hyp ... 
+  100   577 13028 /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk.cpe.hyp.line
+မဟုတ်ပါလား။ မိန့် ကြိုက်ရေ အဖြေ နီစွာလေး
+ထမင်း ကြော် ကြော် စွာလား နီစွာလေး
+ယင်းချင့်ကို ဇာ ငိုကြွေး တောင်းပန်ထား မွန်မြတ်ရေ တွိ နိုင်လေး နီစွာလေး
+==========
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc.co.hyp ... 
+100 100 200 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc.co.hyp.line
+.
+.
+.
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc.pmi.hyp ... 
+100 100 700 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc.pmi.hyp.line
+chyeju
+chyeju
+chyeju
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc.cpe.hyp ... 
+100 100 500 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc.cpe.hyp.line
+nsam
+nsam
+nsam
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp ... 
+ 100  629 1873 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp.line
+nø̀ ngà . . . .
+nø̀ ngà . . . . .
+nø̀ ngà . . . . . .
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw.pmi.hyp ... 
+ 100  629 4085 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw.pmi.hyp.line
+ídvng vpèq dvpvt būsmōdò ídvng shàm
+ídvng vpèq dvpvt būsmōdò ídvng gø shàm
+ídvng vpèq dvpvt būsmōdò ídvng ngā gø shàm
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw.cpe.hyp ... 
+ 100  629 3976 /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw.cpe.hyp.line
+tø̀ng ayē nī wāq lvgōlíng shàm
+tø̀ng ayē nī wāq lvgōlíng mí shàm
+tø̀ng ayē nī wāq lvgōlíng ngā mí shàm
+==========
 ```
 
 ## Reference
