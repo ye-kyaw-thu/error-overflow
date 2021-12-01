@@ -3497,6 +3497,21 @@ OOV မရှိဘူး ဘူးလား တာလား
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
+## Discussion-1
+
+လက်ရှိအချိန်ထိ လုပ်ခဲ့တဲ့ experiment နဲ့ ရလဒ်တွေကို ကြည့်ပြီး conclusion ချလို့ ရနိုင်တာက 
+
+- ငါတို့ monolingual ရော crosslingual or bilingual co-occurrences တွေကိုကော ထည့်သွင်းစဉ်းစားပြီး approaches သုံးမျိုး ဖြစ်တဲ့ co-occurrences, PMI (Pointwise Mutual Information) နဲ့ CPE (Controlled Predictived Effects) တို့နဲ့ lexicon တွေ ဆောက်ခဲ့တယ်
+- low-resourced ဒေတာနဲ့ word-to-word lexicon ဆောက်တာက word-to-word level translation အတွက် အတိုင်းအတာ တစ်ခုအထိ အထောက်အကူပြုတယ်
+- lexicon building လုပ်တဲ့ speed ကလည်း မြန်တယ်
+- Evaluation ကို နှစ်မျိုး လုပ်ကြည့်ခဲ့တယ် word-to-word translation လုပ်ကြည့်တော့ OOV ဘယ်နှစ်လုံးရှိသလဲ (ဆိုလိုတာက translation မလုပ်ပေးနိုင်တာက ဘယ်နှစ်လုံး ရှိသလဲ ဆိုတာကို count လုပ်တဲ့ ပုံစံနဲ့) ဆိုတာကို ရေတွက်တဲ့ OOV% နဲ့ နောက်တစ်မျိုးက စာလုံး တစ်လုံးစီအတွက် word-to-word translation လုပ်ထားတာတွေကို စာကြောင်းအဖြစ် (i.e. build as a sentence) ဆောက်လိုက်ပြီး BLEU score တွက်ကြည့်တာ
+- OOV% တွေကို ကြည့်ရင် ရလဒ်ကောင်းတယ် သို့သော် ထင်ထားတဲ့အတိုင်း (as we expected) sentence level BLEU score တွေက တအားနည်းတယ်
+- တချို့ parallel-data နည်းတာနဲ့ ဆောက်ထားတဲ့ corpus အပေါ်ကို မူတည်ပြီး အထူးသဖြင့် sentence level မှာတော့ သုံးလို့ မရနိုင်ဘူး
+- မြန်မာ-ရခိုင်လို language pair မှာတော့ BLEU score က 14, 15 ရတာကို တွေ့ရပေမဲ့ အဲဒီလို အရမ်းဆင်တူတဲ့ dialect က လက်ရှိ parallel corpus အရွယ်အစားနဲ့ပဲ SMT တို့ကို training လုပ်ရင် ရလဒ်တအားကောင်းတာမို့... အရမ်းကြီး ထူးဆန်းတာတော့ မဟုတ်ဘူး
+- လက်ရှိ word-to-word Evaluation က ထောက်ပြမယ်ဆိုရင် ထောက်ပြစရာတွေရှိတယ်။ OOV% ကိုတော့ တွက်ထားပေမဲ့ တကယ်တမ်း ဘာသာပြန်ထားတဲ့ စာလုံးတွေက မှန်တယ်/မှားတယ် ဆိုတာကို သေသေချာချာ analysis လုပ်မထားတဲ့ အချက်လိုမျိုး။ ခက်တာက ငါတို့မှာ သုံးဖို့ အဆင်သင့် ဖြစ်တဲ့ word-to-word အဘိဓာန်က လက်ထဲမှာ ရှိမနေတာနဲ့ human evaluation လုပ်မယ် ဆိုရင်လည်း ဘာသာစာကားတွဲ တစ်ခုချင်းစီအတွက် native speaker (ဥပမာ ကချင်စကား နားလည်တဲ့သူ၊ ရှမ်းစကား နားလည်တဲ့သူ၊ ရဝမ်စကား နားလည်တဲ့သူ ... ) တွေကို အကူအညီတောင်းဖို့အတွက်က research funds လိုအပ်တယ်။ အချိန်လည်း လိုအပ်တယ်
+- experiment ကို နောက်ထပ် extension လုပ်လို့ ရနိုင်တာက phrase-level alignment လုပ်ချပြီး ဗမာစာနဲ့ တိုင်းရင်းသား ဘာသာစကားတွေအကြားကို ဘယ်လောက် ဘာသာပြန်ပေးနိုင်သလဲ ဆိုတဲ့ experiment လိုမျိုး
+- လက်ရှိ parallel-corpus ရဲ့ size ကို တိုးနိုင်ရင်လည်း တကယ်တမ်း ပိုအသုံးဝင်တဲ့ အဘိဓာန် အကြီးကြီးတွေ အကြမ်းဆောက်တာမျိုးကို ကောင်းကောင်းလုပ်နိုင်တာမို့ future work အနေနဲ့က data extension လုပ်ကို လုပ်သင့်တယ်။ သိတဲ့အတိုင်းပဲ parallel corpus building က နှစ်နဲ့ချီ လုပ်ရလိမ့်မယ် ...  
+
 
 ## Reference
 
