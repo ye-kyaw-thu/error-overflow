@@ -2101,8 +2101,8 @@ done
 
 ```
 
-လိုင်ပြောင်းကြည့်တဲ့အခါမှာ ဘာသွားတွေ့ရသလဲ ဆိုတော့ တချို့ word2word translation error ကြောင့်လို့ ယူဆတယ်၊ စာကြောင်းရေ ၁၀၀ မရှိတဲ့ line ဖိုင်တွေကို တွေ့ရတယ်။  
-test data (or) reference data က အကြောင်း ၁၀၀ စီနဲ့ word-to-word translation လုပ်ထားခဲ့တာမို့ hypothesis ဖိုင်ကို line အဖြစ်ပြောင်းတဲ့အခါမှာ တကယ်က အကြောင်း ၁၀၀ စီရှိရမယ်။ သို့သော် တချို့ language pair တွေအတွက်က လိုင်း ၁၀၀ မရှိတာကို အောက်ပါအတိုင်းတွေ့ရတယ်...  
+လိုင်ပြောင်းကြည့်တဲ့အခါမှာ ဘာသွားတွေ့ရသလဲ ဆိုတော့ တချို့ word2word translation OOV ကြောင့်လို့ ယူဆတယ်၊ စာကြောင်းရေ ၁၀၀ မရှိတဲ့ line ဖိုင်တွေကို တွေ့ရတယ်။  
+test data (or) reference data က အကြောင်း ၁၀၀ စီနဲ့ word-to-word translation လုပ်ထားခဲ့တာမို့ hypothesis ဖိုင်ကို line အဖြစ်ပြောင်းတဲ့အခါမှာ တကယ်က အကြောင်း ၁၀၀ စီရှိရမယ်။ သို့သော် တချို့ language pair တွေအတွက်က လိုင်း ၁၀၀ မရှိတာကို အောက်ပါအတိုင်းတွေ့ရတယ်... အကြောင်းအရင်းက convert လုပ်တဲ့ shell script မှာက OOV တွေ့ရင် တစ်လိုင်းလုံးဖြုတ်ထားတာမို့လို့...   
 (line အဖြစ် ပြောင်းထားပြီးသား ဖိုင်တွေကို head -n3 နဲ့ ရိုက်မပြခင်မှာ အရင်ဆုံး wc command ကို run ထားတာမို့ converted line ဖိုင်တွေရဲ့ file size information ကို အရင်တွေ့ရမှာ ဖြစ်ပါတယ်)  
 
 ```
@@ -2510,6 +2510,16 @@ tø̀ng ayē nī wāq lvgōlíng mí shàm
 tø̀ng ayē nī wāq lvgōlíng ngā mí shàm
 ==========
 ```
+
+## Keep OOV and Make Conversion Again
+
+Updated shell script ...  
+
+```
+
+```
+
+
 
 ## Reference
 
