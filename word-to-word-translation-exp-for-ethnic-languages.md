@@ -2995,6 +2995,20 @@ OOV tø̀ng ayē nī wāq lvgōlíng ngā mí shàm
 ==========
 ```
 
+## Evaluation on Word-to-Word Translation as Sentence Level
+
+လက်ရှိ experiment က word-to-word lexicon ဆောက်တာ တနည်းအားဖြင့် word-to-word translation ဆိုပေမဲ့ sentence level evaluation လည်း လုပ်ကြည့်ချင်လို့ BLEU score တွက်ကြည့်ဖို့ အောက်ပါအတိုင်း shell script ကို ရေးခဲ့တယ်။  
+
+```bash
+
+```
+
+running as follows...  
+
+```
+
+```
+
 ## Reference
 
 - [https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word2word_translation-exp-log.md)
