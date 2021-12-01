@@ -2533,7 +2533,56 @@ cut -d "," -f1 $ref_path/lex/co/$trg.co.hyp | tail -n +3 | sed "s/^\\['\|'$//g" 
 
 Updated လုပ်ထားတဲ့ shell script တစ်ခုလုံးက အောက်ပါအတိုင်းပါ ...  
 
-```
+```bash
+#!/bin/bash
+
+# converting hypothesis column files to line format
+# for this script I keep OOV
+# (OOV ကို keep လုပ်ချင်းအားဖြင့် reference နဲ့ line အရေအတွက် တူအောင် ညှိလို့ ရမလား ဆိုတာကို သိချင်လို့ update လုပ်ခဲ့)
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 1 Dec 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; 
+    trg=${fd#*-}; 
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; #echo "ref_path: $ref_path";
+
+    # run ရတဲ့ ပုံစံက အောက်ပါအတိုင်း
+    #python -m pickle  <lexicon_path> > <converted-filename>
+    
+    # for source-to-target lexicon
+    echo "converting for $ref_path/lex/co/$trg.co.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/co/$trg.co.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/co/$trg.co.hyp.line;
+    wc $ref_path/lex/co/$trg.co.hyp.line; 
+    head -n 3 $ref_path/lex/co/$trg.co.hyp.line; 
+    echo "converting for $ref_path/lex/pmi/$trg.pmi.hyp ... ";   
+    cut -d "," -f1 $ref_path/lex/pmi/$trg.pmi.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    wc $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    head -n 3 $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    echo "converting for $ref_path/lex/$trg.cpe.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/$trg.cpe.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/$trg.cpe.hyp.line;
+    wc $ref_path/lex/$trg.cpe.hyp.line;
+    head -n 3 $ref_path/lex/$trg.cpe.hyp.line;
+
+    
+    # for target-to-source lexicon
+    echo "converting for $ref_path/lex/co/$src.co.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/co/$src.co.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/co/$src.co.hyp.line;
+    wc $ref_path/lex/co/$src.co.hyp.line;
+    head -n 3 $ref_path/lex/co/$src.co.hyp.line; 
+    echo "converting for $ref_path/lex/pmi/$src.pmi.hyp ... ";   
+    cut -d "," -f1 $ref_path/lex/pmi/$src.pmi.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/pmi/$src.pmi.hyp.line;
+    wc $ref_path/lex/pmi/$src.pmi.hyp.line;
+    head -n 3 $ref_path/lex/pmi/$src.pmi.hyp.line;
+    echo "converting for $ref_path/lex/$src.cpe.hyp ... ";
+    cut -d "," -f1 $ref_path/lex/$src.cpe.hyp | tail -n +3 | sed "s/^\\['\|'$//g" | awk  'BEGIN { RS = ""; OFS = " "} {$1 = $1; print }' | head -n -1 > $ref_path/lex/$src.cpe.hyp.line;
+    wc $ref_path/lex/$src.cpe.hyp.line;
+    head -n 3 $ref_path/lex/$src.cpe.hyp.line;
+    echo "=========="
+    
+done
 
 ```
 
