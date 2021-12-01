@@ -3000,14 +3000,431 @@ OOV tø̀ng ayē nī wāq lvgōlíng ngā mí shàm
 လက်ရှိ experiment က word-to-word lexicon ဆောက်တာ တနည်းအားဖြင့် word-to-word translation ဆိုပေမဲ့ sentence level evaluation လည်း လုပ်ကြည့်ချင်လို့ BLEU score တွက်ကြည့်ဖို့ အောက်ပါအတိုင်း shell script ကို ရေးခဲ့တယ်။  
 
 ```bash
+#!/bin/bash
+
+# Evaluation with BLEU Metric
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 1 Dec 2021
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+
+    src=${fd%%-*}; 
+    trg=${fd#*-}; 
+    ref_path=/media/ye/project2/exp/word2word-tran/word2word/my-x/$fd/w2w; #echo "ref_path: $ref_path";
+
+    # BLEU score တွက်ဖို့အတွက် perl script ကို run ရတဲ့ ပုံစံက အောက်ပါအတိုင်း
+    # usage: multi-bleu.pl [-lc] reference < hypothesis
+    # -lc ဆိုတာက lower-case အနေနဲ့ တွက်တဲ့ option မို့လို့ ဗမာစာနဲ့ တိုင်းရင်းသား ဘာသာစကားတွေအတွက်က မဆိုင်လို့ မသုံးခဲ့ဘူး
+    
+    # for source-to-target lexicon
+    echo "reference filename: $ref_path/test.$trg";
+    echo "BLEU calculation for $src-$trg word-to-word translation with co-occurrence:";
+    echo "hyp filename: $ref_path/lex/co/$trg.co.hyp.line"; 
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$trg < $ref_path/lex/co/$trg.co.hyp.line;
+    
+    echo "BLEU calculation for $src-$trg word-to-word translation with PMI:";
+    echo "hyp filename: $ref_path/lex/pmi/$trg.pmi.hyp.line";
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$trg < $ref_path/lex/pmi/$trg.pmi.hyp.line;
+    
+    echo "BLEU calculation for $src-$trg word-to-word translation with CPE:";
+    echo "hyp filename: $ref_path/lex/$trg.cpe.hyp.line";
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$trg < $ref_path/lex/$trg.cpe.hyp.line;
+    echo "----------------------------";
+    # for target-to-source lexicon
+    echo "reference filename: $ref_path/test.$src";
+    echo "BLEU calculation for $trg-$src word-to-word translation with co-occurrence:";
+    echo "hyp filename: $ref_path/lex/co/$src.co.hyp.line"; 
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$src < $ref_path/lex/co/$src.co.hyp.line;
+
+    echo "BLEU calculation for $trg-$src word-to-word translation with PMI:";
+    echo "hyp filename: $ref_path/lex/pmi/$src.pmi.hyp.line";
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$src < $ref_path/lex/pmi/$src.pmi.hyp.line;
+
+    echo "BLEU calculation for $src-$trg word-to-word translation with CPE:";
+    echo "hyp filename: $ref_path/lex/$src.cpe.hyp.line";
+    perl ~/tool/mosesdecoder/scripts/generic/multi-bleu.perl $ref_path/test.$src < $ref_path/lex/$src.cpe.hyp.line;
+    echo "==========";
+    echo "";
+done
 
 ```
 
 running as follows...  
 
 ```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./evaluation-with-BLEU.sh | tee bleu.log
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/test.bk
+BLEU calculation for my-bk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/bk.co.hyp.line
+BLEU = 0.00, 19.7/0.0/0.0/0.0 (BP=1.000, ratio=1.025, hyp_len=649, ref_len=633)
+BLEU calculation for my-bk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/bk.pmi.hyp.line
+BLEU = 0.00, 4.0/0.0/0.0/0.0 (BP=1.000, ratio=1.025, hyp_len=649, ref_len=633)
+BLEU calculation for my-bk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/bk.cpe.hyp.line
+BLEU = 0.00, 22.8/6.9/0.9/0.0 (BP=1.000, ratio=1.025, hyp_len=649, ref_len=633)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/test.my
+BLEU calculation for bk-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 21.8/0.6/0.0/0.0 (BP=0.975, ratio=0.975, hyp_len=633, ref_len=649)
+BLEU calculation for bk-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 4.7/0.0/0.0/0.0 (BP=0.975, ratio=0.975, hyp_len=633, ref_len=649)
+BLEU calculation for my-bk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/lex/my.cpe.hyp.line
+BLEU = 3.33, 26.4/8.3/2.1/0.3 (BP=0.975, ratio=0.975, hyp_len=633, ref_len=649)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/test.ch
+BLEU calculation for my-ch word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/ch.co.hyp.line
+BLEU = 0.00, 37.0/2.8/0.7/0.0 (BP=0.701, ratio=0.738, hyp_len=643, ref_len=871)
+BLEU calculation for my-ch word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/ch.pmi.hyp.line
+BLEU = 0.00, 4.2/0.6/0.0/0.0 (BP=0.701, ratio=0.738, hyp_len=643, ref_len=871)
+BLEU calculation for my-ch word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/ch.cpe.hyp.line
+BLEU = 0.00, 14.8/1.1/0.0/0.0 (BP=0.701, ratio=0.738, hyp_len=643, ref_len=871)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/test.my
+BLEU calculation for ch-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 11.9/0.0/0.0/0.0 (BP=1.000, ratio=1.355, hyp_len=871, ref_len=643)
+BLEU calculation for ch-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 0.8/0.0/0.0/0.0 (BP=1.000, ratio=1.355, hyp_len=871, ref_len=643)
+BLEU calculation for my-ch word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ch/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 7.3/0.3/0.0/0.0 (BP=1.000, ratio=1.355, hyp_len=871, ref_len=643)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/test.kc
+BLEU calculation for my-kc word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/kc.co.hyp.line
+BLEU = 0.00, 23.6/5.9/1.6/0.7 (BP=0.000, ratio=0.004, hyp_len=795, ref_len=210951)
+BLEU calculation for my-kc word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/kc.pmi.hyp.line
+BLEU = 0.00, 4.2/0.9/0.2/0.0 (BP=0.000, ratio=0.004, hyp_len=801, ref_len=180954)
+BLEU calculation for my-kc word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/kc.cpe.hyp.line
+BLEU = 0.00, 15.5/1.3/0.0/0.0 (BP=0.830, ratio=0.843, hyp_len=819, ref_len=972)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/test.my
+BLEU calculation for kc-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 13.6/0.3/0.0/0.0 (BP=1.000, ratio=1.187, hyp_len=972, ref_len=819)
+BLEU calculation for kc-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 6.3/0.5/0.0/0.0 (BP=1.000, ratio=1.187, hyp_len=972, ref_len=819)
+BLEU calculation for my-kc word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-kc/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 10.8/0.8/0.0/0.0 (BP=1.000, ratio=1.187, hyp_len=972, ref_len=819)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/test.ky
+BLEU calculation for my-ky word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/ky.co.hyp.line
+BLEU = 0.00, 14.4/0.3/0.0/0.0 (BP=1.000, ratio=1.015, hyp_len=872, ref_len=859)
+BLEU calculation for my-ky word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/ky.pmi.hyp.line
+BLEU = 0.00, 1.5/0.1/0.0/0.0 (BP=1.000, ratio=1.015, hyp_len=872, ref_len=859)
+BLEU calculation for my-ky word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/ky.cpe.hyp.line
+BLEU = 0.00, 4.4/0.1/0.0/0.0 (BP=1.000, ratio=1.015, hyp_len=872, ref_len=859)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/test.my
+BLEU calculation for ky-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 16.3/0.1/0.0/0.0 (BP=0.985, ratio=0.985, hyp_len=859, ref_len=872)
+BLEU calculation for ky-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 2.2/0.0/0.0/0.0 (BP=0.985, ratio=0.985, hyp_len=859, ref_len=872)
+BLEU calculation for my-ky word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 5.6/0.0/0.0/0.0 (BP=0.985, ratio=0.985, hyp_len=859, ref_len=872)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/test.mo
+BLEU calculation for my-mo word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/mo.co.hyp.line
+BLEU = 0.00, 20.3/0.5/0.0/0.0 (BP=1.000, ratio=1.031, hyp_len=498, ref_len=483)
+BLEU calculation for my-mo word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/mo.pmi.hyp.line
+BLEU = 0.00, 1.0/0.0/0.0/0.0 (BP=1.000, ratio=1.031, hyp_len=498, ref_len=483)
+BLEU calculation for my-mo word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/mo.cpe.hyp.line
+BLEU = 0.00, 8.8/0.0/0.0/0.0 (BP=1.000, ratio=1.031, hyp_len=498, ref_len=483)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/test.my
+BLEU calculation for mo-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 21.3/0.0/0.0/0.0 (BP=0.992, ratio=0.992, hyp_len=488, ref_len=492)
+BLEU calculation for mo-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 4.9/0.0/0.0/0.0 (BP=0.992, ratio=0.992, hyp_len=488, ref_len=492)
+BLEU calculation for my-mo word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-mo/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 11.7/0.3/0.0/0.0 (BP=0.992, ratio=0.992, hyp_len=488, ref_len=492)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.pk
+BLEU calculation for my-pk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+BLEU = 0.00, 7.6/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+BLEU calculation for my-pk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp.line
+BLEU = 0.00, 0.2/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+BLEU calculation for my-pk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.my
+BLEU calculation for pk-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 5.2/0.2/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+BLEU calculation for pk-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+BLEU calculation for my-pk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 0.4/0.0/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/test.po
+BLEU calculation for my-po word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/po.co.hyp.line
+BLEU = 0.00, 19.8/1.3/0.0/0.0 (BP=1.000, ratio=1.435, hyp_len=561, ref_len=391)
+BLEU calculation for my-po word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/po.pmi.hyp.line
+BLEU = 0.00, 3.2/0.0/0.0/0.0 (BP=1.000, ratio=1.435, hyp_len=561, ref_len=391)
+BLEU calculation for my-po word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/po.cpe.hyp.line
+BLEU = 0.00, 11.6/0.7/0.3/0.0 (BP=1.000, ratio=1.435, hyp_len=561, ref_len=391)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/test.my
+BLEU calculation for po-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 29.2/3.1/1.0/0.0 (BP=0.647, ratio=0.697, hyp_len=391, ref_len=561)
+BLEU calculation for po-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 1.5/0.0/0.0/0.0 (BP=0.647, ratio=0.697, hyp_len=391, ref_len=561)
+BLEU calculation for my-po word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 22.8/2.7/0.5/0.0 (BP=0.647, ratio=0.697, hyp_len=391, ref_len=561)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/test.rk
+BLEU calculation for my-rk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/rk.co.hyp.line
+BLEU = 14.28, 50.8/20.8/10.3/3.8 (BP=1.000, ratio=1.009, hyp_len=666, ref_len=660)
+BLEU calculation for my-rk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/rk.pmi.hyp.line
+BLEU = 1.44, 12.5/1.9/0.6/0.3 (BP=1.000, ratio=1.009, hyp_len=666, ref_len=660)
+BLEU calculation for my-rk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/rk.cpe.hyp.line
+BLEU = 15.21, 44.3/23.1/10.1/5.2 (BP=1.000, ratio=1.009, hyp_len=666, ref_len=660)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/test.my
+BLEU calculation for rk-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 29.4/1.8/0.4/0.0 (BP=0.991, ratio=0.991, hyp_len=660, ref_len=666)
+BLEU calculation for rk-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 17.6/4.3/0.9/0.0 (BP=0.991, ratio=0.991, hyp_len=660, ref_len=666)
+BLEU calculation for my-rk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rk/w2w/lex/my.cpe.hyp.line
+BLEU = 14.14, 44.1/22.7/9.3/4.4 (BP=0.991, ratio=0.991, hyp_len=660, ref_len=666)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/test.rw
+BLEU calculation for my-rw word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/rw.co.hyp.line
+BLEU = 0.00, 9.7/0.0/0.0/0.0 (BP=0.000, ratio=0.008, hyp_len=743, ref_len=90735)
+BLEU calculation for my-rw word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/rw.pmi.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.013, hyp_len=754, ref_len=744)
+BLEU calculation for my-rw word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/rw.cpe.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.013, hyp_len=754, ref_len=744)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/test.my
+BLEU calculation for rw-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 13.3/0.0/0.0/0.0 (BP=0.987, ratio=0.987, hyp_len=744, ref_len=754)
+BLEU calculation for rw-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 0.1/0.0/0.0/0.0 (BP=0.987, ratio=0.987, hyp_len=744, ref_len=754)
+BLEU calculation for my-rw word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-rw/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 0.3/0.0/0.0/0.0 (BP=0.987, ratio=0.987, hyp_len=744, ref_len=754)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/test.sh
+BLEU calculation for my-sh word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/sh.co.hyp.line
+BLEU = 0.00, 16.8/0.0/0.0/0.0 (BP=1.000, ratio=1.009, hyp_len=649, ref_len=643)
+BLEU calculation for my-sh word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/sh.pmi.hyp.line
+BLEU = 0.00, 1.5/0.0/0.0/0.0 (BP=1.000, ratio=1.009, hyp_len=649, ref_len=643)
+BLEU calculation for my-sh word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/sh.cpe.hyp.line
+BLEU = 0.00, 19.3/1.5/0.0/0.0 (BP=1.000, ratio=1.009, hyp_len=649, ref_len=643)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/test.my
+BLEU calculation for sh-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/co/my.co.hyp.line
+BLEU = 0.00, 18.8/0.4/0.0/0.0 (BP=0.991, ratio=0.991, hyp_len=643, ref_len=649)
+BLEU calculation for sh-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 2.5/0.0/0.0/0.0 (BP=0.991, ratio=0.991, hyp_len=643, ref_len=649)
+BLEU calculation for my-sh word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sh/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 21.3/1.1/0.0/0.0 (BP=0.991, ratio=0.991, hyp_len=643, ref_len=649)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/test.sk
+BLEU calculation for my-sk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/sk.co.hyp.line
+BLEU = 7.47, 42.7/10.2/4.1/1.7 (BP=1.000, ratio=1.023, hyp_len=588, ref_len=575)
+BLEU calculation for my-sk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/sk.pmi.hyp.line
+BLEU = 0.00, 2.0/0.0/0.0/0.0 (BP=1.000, ratio=1.023, hyp_len=588, ref_len=575)
+BLEU calculation for my-sk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/sk.cpe.hyp.line
+BLEU = 0.00, 25.9/3.5/0.5/0.0 (BP=1.000, ratio=1.023, hyp_len=588, ref_len=575)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/test.my
+BLEU calculation for sk-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp.line
+BLEU = 6.40, 43.8/9.1/3.2/1.4 (BP=0.978, ratio=0.978, hyp_len=575, ref_len=588)
+BLEU calculation for sk-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/pmi/my.pmi.hyp.line
+BLEU = 0.00, 8.9/0.2/0.0/0.0 (BP=0.978, ratio=0.978, hyp_len=575, ref_len=588)
+BLEU calculation for my-sk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/my.cpe.hyp.line
+BLEU = 0.00, 37.6/6.3/2.1/0.0 (BP=0.978, ratio=0.978, hyp_len=575, ref_len=588)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/test.bk
+BLEU calculation for rk-bk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/bk.co.hyp.line
+BLEU = 0.00, 20.8/0.4/0.2/0.0 (BP=1.000, ratio=1.003, hyp_len=635, ref_len=633)
+BLEU calculation for rk-bk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/bk.pmi.hyp.line
+BLEU = 0.00, 5.2/0.2/0.0/0.0 (BP=1.000, ratio=1.003, hyp_len=635, ref_len=633)
+BLEU calculation for rk-bk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/bk.cpe.hyp.line
+BLEU = 0.00, 20.8/5.4/1.1/0.0 (BP=1.000, ratio=1.003, hyp_len=635, ref_len=633)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/test.rk
+BLEU calculation for bk-rk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/co/rk.co.hyp.line
+BLEU = 0.00, 27.0/1.7/0.5/0.0 (BP=0.997, ratio=0.997, hyp_len=633, ref_len=635)
+BLEU calculation for bk-rk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/pmi/rk.pmi.hyp.line
+BLEU = 0.00, 5.1/0.0/0.0/0.0 (BP=0.997, ratio=0.997, hyp_len=633, ref_len=635)
+BLEU calculation for rk-bk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rk-bk/w2w/lex/rk.cpe.hyp.line
+BLEU = 2.91, 23.4/6.4/1.6/0.3 (BP=0.997, ratio=0.997, hyp_len=633, ref_len=635)
+==========
+
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/test.kc
+BLEU calculation for rw-kc word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/kc.co.hyp.line
+BLEU = 0.00, 13.7/0.0/0.0/0.0 (BP=0.999, ratio=0.999, hyp_len=728, ref_len=729)
+BLEU calculation for rw-kc word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/kc.pmi.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.999, ratio=0.999, hyp_len=728, ref_len=729)
+BLEU calculation for rw-kc word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/kc.cpe.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=0.999, ratio=0.999, hyp_len=728, ref_len=729)
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/test.rw
+BLEU calculation for kc-rw word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp.line
+BLEU = 0.00, 13.7/0.0/0.0/0.0 (BP=1.000, ratio=1.001, hyp_len=729, ref_len=728)
+BLEU calculation for kc-rw word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/pmi/rw.pmi.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.001, hyp_len=729, ref_len=728)
+BLEU calculation for rw-kc word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/rw.cpe.hyp.line
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.001, hyp_len=729, ref_len=728)
+==========
+```
+
+BLEU score တွေက အထက်ပါအတိုင်း သုညမကွဲတာတွေ များတယ်။ သို့သော် တချို့ရလဒ်တွေက BLEU score 14, 15 ထိ ရတာလည်း တွေ့ရတယ်။  
+
+သုညမကွဲတဲ့ ရလဒ်တွေထဲက ကချင်-ရဝမ် co-occurrence ရဲ့ ရလဒ်နဲ့ reference ကို head -n x လုပ်ပြီး ကြည့်ကြည့်ရအောင်။   
+Reference ကချင် က အောက်ပါအတိုင်း...  
 
 ```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/test.rw
+YÀ MÉ NØ̀ NGÀ YÀ SHÀ ÍÈ .
+YÀ MÉ NØ̀ NGÀ YÀ SHÀ ÍÈ .
+YÀ MÉ NØ̀ NGÀ YÀ SHÀ ÍÈ .
+YÀ MÉ NØ̀ NGÀ YÀ SHÀ LŌ .
+YÀ MÉ NØ̀ NGÀ NĪTǾL ÍÈ .
+YÀ MÉ NØ̀ NGÀ NĪTǾL ÍÈ .
+YÀ MÉ NØ̀ NGÀ NĪTǾL ÍÈ .
+YÀ MÉ NØ̀ NGÀ NĪTǾL LŌ .
+YÀ MÉ NØ̀ NGÀ YÀ NĪTǾL ÍÈ .
+YÀ MÉ NØ̀ NGÀ YÀ NĪTǾL ÍÈ .
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+word-to-word ရဝမ် translated output က အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/rw-kc/w2w/lex/co/rw.co.hyp.line
+OOV nø̀ ngà . . . .
+OOV nø̀ ngà . . . . .
+OOV nø̀ ngà . . . . . .
+OOV nø̀ ngà . . . .
+OOV nø̀ ngà . yà . .
+OOV nø̀ ngà . yà . . .
+OOV nø̀ ngà . yà . . . .
+OOV nø̀ ngà . yà . .
+OOV nø̀ ngà . yà . .
+OOV nø̀ ngà . yà . . .
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+စကောကရင် ကနေ ဗမာ ကို co-occurrence နဲ့ ဘာသာပြန်ပြီး ရလာတာကို စာကြောင်းအဖြစ်တွဲကြည့်ထားတာကို ကြည့်ကြရအောင်...  
+Reference ဗမာ က အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/test.my
+ဒီ ဆေးရုံ မှာ ဆရာဝန် သုံးဦး အလုပ် လုပ် တယ်
+အဲဒါကို ရေးရေး မ ရေးရေး
+စာအုပ်ကလေး လှမ်းပေး ပါလား
+သင်တန်း သွား တက်ပါ
+အနမ်းခံ လိုက်ရလို့ သူမ ရှက် သွားတယ်
+ဘယ်တော့ ဆင်း သလဲ
+သူ ဘယ် လမ်း မှာ နေ သလဲ
+ခဏလေး စောင့်ပါ
+သူ အဲ့ဒါ ကို မ ချိန် ခဲ့ဘူးလား
+အဲ့ဒါ ဘယ်လောက် ကျ သလဲ
+```
+
+Hypothesis output ဗမာ စာကြောင်းတချို့ကို လေ့လာ ကြည့်ရအောင်...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-po/w2w/lex$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-sk/w2w/lex/co/my.co.hyp.line
+ဆေးရုံ ဒီ ကို ဆရာဝန် ယောက် လုပ် အလုပ်
+မ OOV မ OOV
+OOV စာအုပ်ကလေး နော်
+သွား တက် သင်တန်း
+ဘယ်သူ လို့ သူ ရှက် ကျွန်တော်
+ဆင်း ဘယ်လောက် လဲ
+သူ ရှိ တဲ့ လမ်း မှာ လဲ
+စောင့် ပါရစေ
+သူ မ OOV ကို ကို အဲ့ဒါ
+မ ကျ ဘယ်လောက် လဲ
+```
+
+
 
 ## Reference
 
