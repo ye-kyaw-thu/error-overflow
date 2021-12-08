@@ -478,6 +478,61 @@ use utf8;
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w$
 ```
 
+## Testing nat-shell
+
+nat-shell command ကို လေ့လာကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ nat-shell 
+Welcome to NATools shell tool
+(nat)usage
+Gets help for a command. Use:
+	usage <command>
+You can get a list of available commands using
+	commands
+
+(nat)commands
+ Commands available:
+   align
+   codify
+   commands
+   encode
+   grep
+   help
+   index
+   init
+   mkdict
+   open
+   usage
+
+(nat)usage align
+Aligns all chunks or a specific one. Use:
+	align [<chunk_nr>|all]
+
+(nat)usage codify
+Codifies a parallel corpus. Use:
+	codify <corpus-1> <corpus-2>
+
+(nat)usage encode
+Codifies a parallel corpus. Use:
+	codify <corpus-1> <corpus-2>
+
+(nat)usage index
+Join all invertion indexes
+(nat)usage init
+Initializes a directory for a NATools corpus. Use:
+	init <dir> <name>
+
+(nat)usage mkdict
+
+(nat)usage open
+Open a NATools corpus. Use:
+	open <dir>
+
+(nat)
+
+```
+
 ## perldoc for All NATools Commands
 
 NATools က support လုပ်ထားတဲ့ command တွေက တော်တော်များများရှိလို့ သုံးပုံသုံးနည်း ကို perldoc နဲ့ ကြည့်ဖို့ အောက်ပါအတိုင်း command ပေးခဲ့...  
