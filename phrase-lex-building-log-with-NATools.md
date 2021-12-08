@@ -1,8 +1,12 @@
-
-
+# Phrase Level Lexicon Building Log with NATools
 
 NATools ကို အရင် install လုပ်ထားရလိမ့်မယ်...  
+Installation လုပ်ပုံလုပ်နည်းက အောက်ပါ link ကို ကြည့်ပါ။  
+[https://github.com/ye-kyaw-thu/error-overflow/blob/master/NATools-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/NATools-installation-log.md)  
 
+## Alignment with NATools
+
+အရင်ဆုံး parallel corpus ကို ပြင်ဆင်ထားရလိမ့်မယ်။  
 word-to-word lexicon ဆောက်တုန်းကလိုပဲ folder တွေကို အောက်ပါအတိုင်း ခွဲထားခဲ့တယ်...  
 
 ```
