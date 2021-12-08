@@ -1,3 +1,7 @@
+# NATools Installation Log 
+
+ဒီ tool က ငါသိတာကြာပြီ။ ဒါပေမဲ့ မသုံးဖြစ်သေးဘူး။ သူ့မှာက C programming coding ရော Perl ရော ပါတယ်။  
+perl နဲ့ပဲ သုံးကြည့်တာက မြန်မာစာ၊ တိုင်းရင်းသားစာတွေအတွက် ပိုအဆင်ပြေလိမ့်မယ်လို့ ယူဆ...  
 
 **ဒီ log ဖိုင်ကို ဖတ်ပြီး လိုက်လုပ်ကြည့်ကြမယ့် သူများအတွက် ကြိုတင် သတိပေးထားချင်တယ်**
 
@@ -5,9 +9,6 @@
 အဲဒါကြောင့် "Try NATools Updated Version of Perl Module" ဆိုတဲ့ အဆင့်ကို ကျော်ကြည့်ပါ။  
 
 ## Download/Unzip NATools
-
-ဒီ tool က ငါသိတာကြာပြီ။ ဒါပေမဲ့ မသုံးဖြစ်သေးဘူး။ သူ့မှာက C programming coding ရော Perl ရော ပါတယ်။  
-perl နဲ့ပဲ သုံးကြည့်တာက မြန်မာစာ၊ တိုင်းရင်းသားစာတွေအတွက် ပိုအဆင်ပြေလိမ့်မယ်လို့ ယူဆ...  
 
 Download NATools from the following link:  
 [http://linguateca.di.uminho.pt/natools/](http://linguateca.di.uminho.pt/natools/)  
