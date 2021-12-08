@@ -1624,5 +1624,6 @@ perl structure အဘိဓာန်ပဲ ရသေးတယ်။
 - [VisualLIHLA - Lexical alignment visualization](http://www.nilc.icmc.usp.br/nilc/tools/visuallihla/lihla.htm)  
 - [Portuguese-English word alignment: some experiments](http://www.lrec-conf.org/proceedings/lrec2008/pdf/760_paper.pdf)  
 - [Tools and Resources of Interinstitutional Center for Computational Linguistics](http://www.nilc.icmc.usp.br/nilc/index.php/tools-and-resources)  
+- [Presentation Slide of Original Developer Dr. Alberto Simões, mostly in Portuguese](https://ambs.zbr.pt/en/pres.html)  
 
 
