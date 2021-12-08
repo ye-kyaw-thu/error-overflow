@@ -465,6 +465,7 @@ No documentation found for "nat-ntd-dump".
 ```
 
 perldoc-out.txt ဖိုင်ထဲမှာ အောက်ပါအတိုင်း help screen output တွေကို ဖတ်လို့ ရလိမ့်မယ်...  
+(command တစ်ခုစီရဲ့ help screen အပြီးမှာ ====== နဲ့ ခြားထားတယ်)  
 
 ```
 NAME
