@@ -432,6 +432,907 @@ use utf8;
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
 ```
 
+## perldoc for All NATools Commands
+
+NATools က support လုပ်ထားတဲ့ command တွေက တော်တော်များများရှိလို့ သုံးပုံသုံးနည်း ကို perldoc နဲ့ ကြည့်ဖို့ အောက်ပါအတိုင်း command ပေးခဲ့...  
+(perldoc ဆိုတာက perl program တွေရဲ့ help screen documentation ကို print လုပ်ပေးတဲ့ command ပါ)  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ compgen -c nat- | xargs -I{} perldoc {} | sed '/Copyright (C)/a ==========' > perldoc-out.txt
+```
+
+အောက်ပါ command တွေအတွက်တော့ perldoc ပြင်ဆင်ထားတာ မရှိဘူး...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ compgen -c nat- | xargs -I{} perldoc {} | sed '/Copyright (C)/a ==========' > perldoc-out.txt
+No documentation found for "nat-mergeidx".
+No documentation found for "nat-server".
+No documentation found for "nat-css".
+No documentation found for "nat-samplea".
+No documentation found for "nat-pre".
+No documentation found for "nat-sentalign".
+No documentation found for "nat-mat2dic".
+No documentation found for "nat-grep".
+No documentation found for "nat-words2id".
+No documentation found for "nat-postbin".
+No documentation found for "nat-ngrams".
+No documentation found for "nat-ntd-add".
+No documentation found for "nat-sampleb".
+No documentation found for "nat-ipfp".
+No documentation found for "nat-mkntd".
+No documentation found for "nat-initmat".
+No documentation found for "nat-ntd-dump".
+```
+
+perldoc-out.txt ဖိုင်ထဲမှာ အောက်ပါအတိုင်း help screen output တွေကို ဖတ်လို့ ရလိမ့်မယ်...  
+
+```
+NAME
+    nat-rank - classifies each parallel corpus aligned sentence
+
+SYNOPSIS
+      nat-rank <ParallelCorpus>
+
+DESCRIPTION
+    This tool reads the "ParallelCorpus" configuration file and computes a
+    translation quality value for each aligned sentence. This quality value
+    is computed using the terminology dictionary obtained by the word
+    alignment process.
+
+SEE ALSO
+    NATools documentation;
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-lex2perl - dumps a lexicon file as Perl hash.
+
+SYNOPSIS
+       nat-lex2perl <file.lex>
+
+DESCRIPTION
+    This tool is used mainly for debug of lexicon files ("file.lex" files).
+    Pass one as parameter and it will output a Data::Dumper file with the
+    lexicon information.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-examplesExtractor: extracts translation examples and terminology
+    from a NATools corpus.
+
+SYNOPSIS
+       nat-examplesExtractor <offset> <length> <file1> <file2>
+       nat-examplesExtractor -local=cp -rules=f.rul 0 100 cp/source.001 cp/target.001
+
+DESCRIPTION
+    This command is the example and terminology extractor. In fact it still
+    needs a lot of work and for now I really suggest you to contact me for
+    more details.
+
+Options
+     -rules=file
+     -local=directory
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-pair2tmx - join two files in NATools input format into a TMX file.
+
+SYNOPSIS
+       nat-pair2tmx <file1> <lang1> <file2> <lang2>
+
+DESCRIPTION
+    This script is used to convert a pair of files in NATools input format
+    (translation units separated by a dollar sign) into a TMX file.
+
+    To use it supply two NATools input files (with same number of
+    translation units) and two language descriptors. For instance,
+
+      nat-pair2tmx corpus.pt pt corpus.en en  >  corpus-pt-en.tmx
+
+    Note that the TMX will be output to STDTOU.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-tmx2pair - splits a TMX file into several files, one for each
+    language
+
+SYNOPSIS
+     nat-tmx2pair f.tmx
+
+DESCRIPTION
+    This script takes a TMX file and outputs n different files, one for each
+    language with translation units separated by dollar signs (NATools
+    standard input format).
+
+    The files creates are based on the tmx filename, with the language tag
+    appended in the end.
+
+SEE ALSO
+    NATools documentation, perl(1).
+
+AUTHOR
+    Alberto Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-compareDicts - used to compare two PTDs in Perl dumper format.
+
+SYNOPSIS
+      print "\tnat-compareDicts [-stats] [-html] [-full] <dic1.dmp> <dic2.dmp>\n\n";
+
+DESCRIPTION
+    This program compares two Probabilistic Translation Dictionaries in Perl
+    Dumper format. It can be used in four different ways:
+
+    *   With no switches, a shell will be loaded. In this shell the user can
+        entry words, and those words entries in the dictionary willl be
+        shown.
+
+    *   With the "-html" switch, an HTML table will be printed to STDOUT.
+        This table tries to show entries will less or more differences
+        between the two dictionaries.
+
+    *   The "-full" switch prints to STDOUT all entries from the
+        dictionaries together with some comparison values.
+
+SEE ALSO
+    perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-codify - Command line tool to codify corpora
+
+SYNOPSIS
+       nat-codify <file1.nat> <file2.nat>
+
+       nat-codify -tmx <file.tmx>
+
+DESCRIPTION
+    The "-tokenize" flag can be used to force NATools to tokenize the texts.
+    Note that at the moment a Portuguese tokenizer is used for all
+    languages. This might change in the future.
+
+    The "-id=name" flag can be used to force NATools Corpora name. By
+    default the name is read interactively.
+
+    The "-q" flag can be used to force quite mode. In thic case, the name is
+    extracted from the file-names.
+
+    The "-lang=PT..EN" flag can be used to force languages.
+
+SEE ALSO
+    NATools documentation, perl(1), nat-create
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2002-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-shell - A shell interface to NATools corpora alignment
+
+SYNOPSIS
+      nat-shell
+
+DESCRIPTION
+    This is intended to be a shell for NATools main command. At the moment
+    is just supports the creation of parallel corpora. Details on the shell
+    commands usage are available inside the shell. Just issue a "usage"
+    command at the prompt.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-create - Command line tool to create NATools Corpora Objects
+
+SYNOPSIS
+       nat-create <file1.nat> <file2.nat>
+
+       nat-create -tmx <file.tmx>
+
+DESCRIPTION
+    This is the basic command used to create a NATools Corpora Object from
+    the command line.
+
+    A NATools Corpora Object is a ditectory with:
+
+    *   the configuration file ("nat.cnf" - metadata information)
+
+    *   the corpus
+
+    *   the corpus indexes
+
+    *   the probabilistic translation dictionaries ("source-target.dmp",
+        "target-source.dmp")
+
+    *   the (bi,tri,tetra)grams databases ("source.ngrams", "target.ngrams")
+
+  Known Switches
+    tokenize
+        The "-tokenize" flag can be used to force NATools to tokenize the
+        texts. Note that at the moment a Portuguese tokenizer is used for
+        all languages. This might change in the future.
+
+    id  The "-id=name" flag can be used to force NATools Corpora name. By
+        default the name is read interactively.
+
+    q   The "-q" flag can be used to force quiet mode. In thic case, the
+        name is extracted from the file-names.
+
+    lang
+        The "-lang=PT..EN" flag can be used to force languages.
+
+    ngrams
+        The "-ngrams" flag can be set to force NATools to create ngrams
+        indexes.
+
+    noEM
+        The "-noEM" flag is used to bypass the EM-Algorithm (useful for
+        debug purposes, mainly).
+
+    ipfp
+        The "-ipfp" flag is mutually exclusive with "-noEM", "-samplea" and
+        "-sampleb". It defines that the EM-Algorithm to be used is the IPFP
+        one. Optional numeric argument is the number of iterations. Defaults
+        to 5.
+
+    samplea
+        The "-samplea" flag is mutually exclusive with "-noEM", "-ipfp" and
+        "-sampleb". It defines that the EM-Algorithm to be used is the
+        Sample A one. Optional numeric argument is the number of iterations.
+        Defaults to 10.
+
+    sampleb
+        The "-sampleb" flag is mutually exclusive with "-noEM", "-ipfp" and
+        "-samplea". It defines that the EM-Algorithm to be used is the
+        Sample B one. Optional numeric argument is the number of iterations.
+        Defaults to 10.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2011 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-ngramsIdx - Indexes a ngrams SQLite file
+
+SYNOPSIS
+       nat-ngramsIdx source.2.ngrams
+
+DESCRIPTION
+    This is an utility tool to create indexes in ngrams SQLite files.
+    Normally you do not need to use it directly.
+
+SEE ALSO
+    NATools documentation
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2007-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-dumpDicts - Command line tool to dump NATools PTDs
+
+SYNOPSIS
+       nat-dumpDicts <natools-dir>
+
+       nat-dumpDicts -self <natools-dir>
+
+DESCRIPTION
+    This command is used to dump NATools Probabilistic Translation
+    Dictionaries in different formats. By default a Perl Data::Dumper format
+    is used, but other formats are also available, like SQLite database.
+
+  Data::Dumper
+    To dump a PTD in Perl can be performed in three different ways:
+
+    *   Use it directly with a NATools corpus directory path, and it will
+        create two files in the current directory with the dictionaries.
+        They will be named "source-target.dmp" and "target-source.dmp".
+
+        Note: this process will overwrite any files with those names.
+
+    *   Use it with the "-self" flag and a NATools corpus directory path.
+        The dictionaries will be created inside the NATools corpus directory
+        and will be named "source-target.dmp" and "target-source.dmp".
+
+        Note: this process will overwrite any files with those names.
+
+    *   Used mainly for debug purposes, you can also supply four arguments
+        to "nat-dumpDicts" (together with the "-full" flag). These arguments
+        are the source lexicon file, the source-target binary dictionary
+        file, the target lexicon file and finally the target-source binary
+        dictionary file. If this all seems strange to you, just do not use
+        it.
+
+           nat-dumpDicts -full <src.lex> <src-tgt.bin> <tgt.lex> <tgt-src.bin>
+
+  SQLite database
+    When running this command you can supply a "-sqlite=databasename"
+    option. In this case, instead of dumping in Perl Data::Dumper format, a
+    sqlite database will be created. You can use this option with or without
+    the "-full" flag, but there isn't a "-self" option as the output
+    filename is supplied in the command line.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-mkMakefile - generates a pmakefile to be used by Makefile::Parallel
+
+SYNOPSIS
+      nat-mkMakefile -id=<ID> <sourceCrp> <targetCrp>   >   pmakefile
+      nat-mkMakefile -id=<ID> <tmxfile>                 >   pmakefile
+
+DESCRIPTION
+    This script generates a parallel makefile to be used by
+    Makefile::Parallel to align and extract examples using a PBS based
+    cluster.
+
+    The "-id" switch is required and should contain the identifier of the
+    corpus to be created.
+
+OPTIONS
+    "-full"
+        Creates the full makefile, including n-grams and terminology
+        extraction.
+
+    "-ngrams"
+        Creates the makefile including n-grams computation.
+
+    "-terminology"
+        Creates the makefile including terminology extraction.
+
+SEE ALSO
+    NATools documentation, Makefile::Parallel, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-StarDict - Creates a StarDict from a NATools corpus.
+
+SYNOPSIS
+      nat-StarDict <NatCorpus>
+
+DESCRIPTION
+    This tool creates a StarDict (http://stardict.sourceforge.net)
+    dictionary with the probabilistic translation dictionary (source-target)
+    and translation examples for the translations with higher translation
+    probabilities.
+
+    Note that this script is *NOT* fully functional. It outputs a perl
+    structure that needs to be converted to StarDict format.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-ptd - concentrates a set of PTD commands in a common interface
+
+SYNOPSIS
+      nat-ptd [-v] <command> [command-args]
+
+DESCRIPTION
+    "nat-ptd" supports the following commands. Most places where a PTD needs
+    to be specified, you can use a bziped2 PTD as far as the filename ends
+    in bz2.
+
+  help
+    The method can be invoked without arguments, and a list of available
+    commands will be printed.
+
+    If an optional parameter with the name of a command is supplied, it
+    prints detailed help for it (from this man-page).
+
+        nat-ptd help [command-name]
+
+  intersect
+    Intersects domains from supplied PTDs. Keep lowerer counts and
+    translation probabilities.
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  toSQLite
+    This option can be used to convert a PTD to the SQLite format. First
+    argument is the PTD filename. Second, optional, argument can be
+    specified as the output filename.
+
+  toDmp
+    This option can be used to convert a PTD to the Dumper format. First
+    argument is the PTD filename. Second, optional, argument can be
+    specified as the output filename.
+
+  toDmpBz
+    This option can be used to convert a PTD to a Bzipped Dumper format.
+    First argument is the PTD filename. Second, optional, argument can be
+    specified as the output filename.
+
+  toDmpXz
+    This option can be used to convert a PTD to a XZipped Dumper format.
+    First argument is the PTD filename. Second, optional, argument can be
+    specified as the output filename.
+
+  toTSV
+    This option can be used to export a PTD to a plain text file using a Tab
+    Separated Format. The first column represent each term, the second
+    column the possible translation, and the third column the probability of
+    this possible translation. This file can be directly used as a glossary
+    in OmegaT.
+
+    Usage:
+
+      ptd-nat toTSV [-m=<p>] <ptd-filename> <dst-filename>
+
+    The following options can be used:
+
+    "-m=p"
+        Minimum probabilty for translation to be exported. "p" must be a
+        probability in the interval [0,1] (default: 0.5).
+
+  toStarDict
+    FIXME
+
+    Usage:
+
+      ptd-nat toStarDict [-m=<p>] [-d=<directory>] <ptd-filename> <dst-dict-name>
+
+    The following options can be used:
+
+    "-m=p"
+        Minimum probabilty for translation to be exported. "p" must be a
+        probability in the interval [0,1] (default: 0.4).
+
+    "-d=directory"
+        Destination directory for the created dictinary (default: .).
+
+  stats
+    Prints some basic statistics about a PTD.
+
+  compare
+    Given two PTD, print some basic statistics comparing their size,
+    domains, etc.
+
+  query
+    This command allows you to query interactively a PTD.
+
+  grep
+    Greps entries matching a specific pattern from a PTD. Supply a pattern
+    and a PTD file. By default it dumps a subset PTD with entries that
+    match. With the "-compact" option it will print a small table with the
+    entry's best translation.
+
+        nat-ptd grep [-compact] [-o=outfile] <pattern> <ptd-file>
+
+  compose
+    This method receives a two or more dictionaries.
+
+    When receiving a pair of dictionaries (first dictionary target language
+    should be the same as the second dictionary source language), composes
+    them, resulting a PTD from first dictionary source language to second
+    dictionary target language.
+
+    This method can be used with more than two dictionaries for a full
+    transitive dictionary computation.
+
+    You can specify the output filename with the "-o" switch.
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  filter
+    This method filters a dictionary (or dictionary pair) accordingly with
+    some default values (that can be adjusted).
+
+    If the supplied name is a directory, it is supposed to be of a NATools
+    object (a NATools alignment folder). In this case, files
+    "source-target.dmp" and "target-source.dmp" are searched inside it.
+
+    If the supplied name is not a directory, it is suppoed to be a name of a
+    PTD dump file. This command will check if it is alone (just a direction)
+    or if a second filename was supplied. If two were supplied, they are
+    considered bidirectional (source-target and target-source).
+
+    Therefore, three possible usages:
+
+        nat-ptd filter <natools-obj-dir>
+        nat-ptd filter <file.dmp>
+        nat-ptd filter <file-s-t.dmp> <file-t-s.dmp>
+
+    The following switchs can be used:
+
+    "-numbers"
+        By default the filtering will remove terms (entries and
+        translations) with numbers (only numbers, with possible digit
+        separators: space, comma, point, colon). Use this switch to force
+        them to be preserved.
+
+    "-symbols"
+        Any other term type that is not a standard word (with possible dash
+        or apostrophe) or a number (as described above), is considered to
+        include strange symbols, and will be ignored. Use this switch to
+        force them to be preserved.
+
+    "-none"
+        By default, the 'no translation', also known as 'none', is removed.
+        You can force it to be preserved with this switch.
+
+    "-occs=n"
+        Defines the minimum occurrence count for entries to be preserved. By
+        default the used value is 2 (that is, entries with 1 occurrence are
+        discarded). Use 0 to not discard any entry by occurrence count.
+
+    "-prob=p"
+        Defines the minimum probability for translations to be preserved. By
+        default the value is 1% (0.01). Define the value as 0 to preserve
+        all translations.
+
+    "-bidir"
+        Defines if the filtering should check for bidirectional
+        translations, that is, preserve only terms which translations'
+        translations' include that term. Mathematically, preserve t if
+
+            t   in   Translations ( Translations ( t ) )
+
+        Note that this is only available for NATool objects or dictionary
+        pairs. By default this switch is ON. Turn it OFF assigning a 0 to
+        the switch: "-bidir=0"
+
+    Also, the "-o" switch can be used to define an output filename. When
+    using a pair of dictionaries, specify the output filenames separated by
+    a comma: "-o=outputfile1,outputfile2".
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  lowercase
+    This method recompute the probabilities for a dictionary, lowercasing
+    all terms, and summing up occurrences, and recomputing probabilities.
+
+        nat-ptd lowercase [-o=outputfile] <ptd-filename>
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  reprob
+    This method recompute the probabilities from a dictionary. It sums up
+    all possible translations probabilities, consider that total to be 100%
+    (1), and recomputes each probability accordingly.
+
+    It takes a required argument, the name of the PTD dump file. Optionally,
+    you can supply an output file with the "-o" switch.
+
+        nat-ptd reprob [-o=outputfile] <ptd-filename>
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  add
+    Adds two or more PTD files into a single PTD file. They should have the
+    same source and target language. You can use the "-o" switch to specify
+    an output filename.
+
+    As of recent NATools versions, you can supply an option "-type" to
+    specify the type of output file ("dmp" or "sqlite" are supported, and
+    "dmp" is the default).
+
+  ucts
+    Create unambiguous-concept traslation sets.
+
+      ptd-nat ucts [-m=<number>] [-M=<number>] [-p=<probabilty>] [-P=<probability>] <ptd-filename> <ptd-filename>
+
+    The following options can be used:
+
+    "-m=n"
+        Mininum number of occurences of each token. "n" must be an integer
+        (default: 10).
+
+    "-M=n"
+        Manixum number of occurences of each token. "n" must be an integer
+        (default: 100).
+
+    "-p=p"
+        Minimum probabilty for translation. "p" must be a probability in the
+        interval [0,1] (default: 0.2).
+
+    "-P=p"
+        Minimum probabilty for the inverse translations. "p" must be a
+        probability in the interval [0,1] (default: 0.8).
+
+    "-r=0|1"
+        Print rank (default: 0).
+
+  bws
+    Create bi-words sets.
+
+      ptd-nat bws [-m=<number>] [-p=<probabilty>] <ptd-filename> <ptd-filename>
+
+    The following options are available:
+
+    "-m=n"
+        Mininum number of occurences of each token. "n" must be an integer
+        (default: 10).
+
+    "-p=p"
+        Minimum probabilty for translation. "p" must be a probability in the
+        interval [0,1] (default: 0.4).
+
+    "-r=0|1"
+        Print rank (default: 0).
+
+SEE ALSO
+    NATools, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+    Nuno Alexandre Carvalho, <smash@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2010-2014 by Natura Project
+==========
+
+NAME
+    nat-mkRealDict - used to create a dictionary similar to a PTD based on a
+    word aligned corpus.
+
+SYNOPSIS
+      nat-mkRealDict <aligned-corpus>
+
+DESCRIPTION
+    While not fully functional, this scripts reads from the supplied file an
+    word aligned corpus (two columns separated by a tab character). The
+    result printed to STDOUT is a dictionary similar to a PTD in structure)
+    with the real alignments used in the corpus.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-addDict: adds a dictionary in Perl Dumper format into a NATools
+    corpus.
+
+SYNOPSIS
+      nat-addDict <natDir> <dumperFile>
+
+      nat-addDict <natDir> <source-target.dmp> <target-source.dmp>
+
+DESCRIPTION
+    This command is used to add an external dictionary (in Perl Dumper
+    format) to a NATools corpus.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-dict - interface for binary PTDs operations.
+
+SYNOPSIS
+            nat-dict add <dic1.bin> <dic2.bin>
+
+DESCRIPTION
+    This tool is indented to be an interfce for binary PTDs algebra. At the
+    moment is just supports the following commands:
+
+    "add"
+        Used to add two binary PTDs. In fact, it accumulates the second
+        dictionary in the first one, so be careful using if in case you want
+        to preserve the original dictionaries.
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2012 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-makeCWB - Dumps a NATools corpus in a format suitable to be imported
+    in CWB
+
+SYNOPSIS
+      nat-makeCWB [-encode=<CWBName> -d=<CWBCrpDir> [-r=<CWBRegistry>]] <NatCrpDir>
+
+DESCRIPTION
+    This small scripts exports a NATools corpus directory to a pair of files
+    that can be easily imported in Corpus WorkBench (CWB).
+
+    By default nat-makeCWB processes a NATools corpora dir an creates a pair
+    of files, source.cqp and target.cqp that can be later imported into CWB
+    using cwb-align-import.
+
+    Flags:
+
+    -encode
+        If this option is used then nat-makeCWB will try to use cwb tools to
+        create the aligned corpus. This option should be follows by the
+        corpora name. The corpora creates will nem named "name_source" and
+        "name_target" respectively.
+
+        This option should be used in conjunction with option "-d".
+
+        The CWB registry directory will be guessed using "cwb-config" or
+        "CORPUS_REGISTRY" environment variable. To use other path, please
+        specify it with -r.
+
+    -d  This option is required when using "-encode". It specifies CWB
+        corpus directory (without the corpus name).
+
+    -r  Use this option to force a registry path other than the system
+        default.
+
+    -debug
+        Use this option if you need to debug the temporary files. If this
+        option is supplied they will not be deleted.
+
+SEE ALSO
+    NATools, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2010 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-sentenec-align - simple interface for Vanilla aligner.
+
+SYNOPSIS
+      nat-sentence-align [-tmx] [-single] [-d=.EOS] [-D=.EOP] <f1> <f2>
+
+DESCRIPTION
+    This command is a frontend for the Vanilla aligner supplied with
+    NATools. To use it you must supply two parallel files with soft and hard
+    delimiters for sincronization.
+
+    By default these delimiters are '.EOS' and '.EOP'. You can change them
+    using the "-d" and "-D" switches.
+
+    At the end it creates a pair of sentence-aligned files. You can supply a
+    "-tmx" option to force the creation of a TMX, or the "-single" option to
+    force the creation of a single file with the two languages (mainly used
+    for debugging).
+
+SEE ALSO
+    NATools Documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+NAME
+    nat-substDict: substitutes a dictionary in a NATools corpus by a Perl
+    Dumper format PTD.
+
+SYNOPSIS
+      nat-substDict <natDir> <dumperFile>
+      nat-substDict <natDir> <source-target.dmp> <target-source.dmp>
+
+DESCRIPTION
+    This tool is used to substitute a dictionary on a NATools corpus. Unless
+    you know what you are doing, this can be a bad option making the corpus
+    unusable.
+
+    To use it just pass as first parameter a NATools corpus directory and as
+    second argument a Perl Data::Dumper file with the two dictionaries (or a
+    pair of Data::Dumper files, one with each dictionary).
+
+SEE ALSO
+    NATools documentation, perl(1)
+
+AUTHOR
+    Alberto Manuel Brandão Simões, <ambs@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
+==========
+
+```
+
 ## Note for Me/Students
 
 NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectation maximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
