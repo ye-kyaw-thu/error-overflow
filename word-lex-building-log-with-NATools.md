@@ -435,5 +435,7 @@ perl structure အဘိဓာန်ပဲ ရသေးတယ်။
 - [StarDict Dictionary Format](https://en.wikipedia.org/wiki/StarDict)  
 - [Adding a New Dictionary to QStarDict](https://github.com/a-rodin/qstardict/wiki/Dictionaries-Installation)  
 - [StarDict Dictionaries](https://sites.google.com/site/gtonguedict/home/stardict-dictionaries)  
+- [NATools – A Statistical Word Aligner Workbench](https://rua.ua.es/dspace/bitstream/10045/1550/1/PLN_31_26.pdf)  
+- [LIHLA: A lexical aligner based on language-independent heuristics](http://www.nilc.icmc.usp.br/nilc/download/CaNuFoENIA05.pdf)  
 
 
