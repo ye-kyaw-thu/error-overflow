@@ -355,6 +355,12 @@ $DIC1 = {
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
 ```
 
+## Note
+
+NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectationmaximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
+
+Reference: A. M. Sim˜oes and J. J. Almeida. NATools – A statistical word aligner workbench. Processamiento del Lenguaje Natural, 31:217–224, 2003.  
+
 ## Relating to StarDict Building
 
 **experiment နဲ့ တိုက်ရိုက် မဆိုင်ပါ** 
