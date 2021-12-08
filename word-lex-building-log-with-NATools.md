@@ -357,9 +357,12 @@ $DIC1 = {
 
 ## Note
 
-NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectationmaximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
+NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectation maximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
 
-Reference: A. M. Sim˜oes and J. J. Almeida. NATools – A statistical word aligner workbench. Processamiento del Lenguaje Natural, 31:217–224, 2003.  
+Reference:  
+
+- A. M. Sim˜oes and J. J. Almeida. NATools – A statistical word aligner workbench. Processamiento del Lenguaje Natural, 31:217–224, 2003.   
+- Caseli, H.M., Gomes, F.T., Pardo, T.A.S. & Nunes, M.G.V. (2008), "VisualLIHLA: the visual online tool for lexical alignment", In Proceedings of the VI Workshop em Tecnologia da Informação e da Linguagem Humana (TIL). Vila Velha, ES. October 2008., pp. 1-3.  
 
 ## Relating to StarDict Building
 
