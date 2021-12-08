@@ -355,7 +355,7 @@ $DIC1 = {
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
 ```
 
-## Test lex2perl
+## Testing lex2perl Conversion
 
 ဆောက်ထားတဲ့ lexicon ကနေ perl hash format ကိုပြောင်းတဲ့ ပရိုဂရမ် ဖြစ်တဲ့ nat-lex2perl ကို စမ်းကြည့်ခဲ့...  
 
@@ -430,6 +430,52 @@ use utf8;
 	"ဇာတ်လမ်းတွဲတွေကို" => 1,
 }
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
+```
+
+## Testing nat-pair2tmx Command
+
+ဒီ nat-pair2tmx command က NATools file format corpus နှစ်ဖိုင်ကို သုံးပြီးတော့ TMX file format အဖြစ် ပြောင်းပေးတဲ့ command ပါ။  
+အသုံးဝင်တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w$ nat-pair2tmx ./corpus.MY MY ./corpus.BK BK  >  corpus-my-bk.tmx
+```
+
+```$ head -30 ./corpus-my-bk.tmx``` နဲ့ ကြည့်ရင် TMX format output ဖိုင်ကို အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+
+```xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "http://www.lisa.org/tmx/tmx14.dtd">
+<tmx>
+ <header creationtool="nat-pair2tmx" datatype="plaintext" srclang="MY" creationtoolversion="0.7.12" o-tmf="natcorpus" segtype="paragraph" adminlang="EN">
+ </header>
+ <body>
+  <tu>
+   <tuv xml:lang="MY">
+    <seg>တွင်း မ တူး ဘူးလား ။ </seg>
+   </tuv>
+   <tuv xml:lang="BK">
+    <seg>တွင်း မ တူး ရလား ။ </seg>
+   </tuv>
+  </tu>
+  <tu>
+   <tuv xml:lang="MY">
+    <seg>အမျိုးသား သန့်စင်ခန်း ဘယ် မှာလဲ ။ </seg>
+   </tuv>
+   <tuv xml:lang="BK">
+    <seg>အမျိုးသား သန့်စင်ခန်း ဘာမှာ ။ </seg>
+   </tuv>
+  </tu>
+  <tu>
+   <tuv xml:lang="MY">
+    <seg>သူမ ဘေးမှာ ရှိ တဲ့ စာအုပ် ။ </seg>
+   </tuv>
+   <tuv xml:lang="BK">
+    <seg>နင့် ဘေး မှာ ရှိတဲ့ စာအုပ် ။ </seg>
+   </tuv>
+  </tu>
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w$
 ```
 
 ## perldoc for All NATools Commands
