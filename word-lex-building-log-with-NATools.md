@@ -464,7 +464,7 @@ No documentation found for "nat-initmat".
 No documentation found for "nat-ntd-dump".
 ```
 
-perldoc-out.txt ဖိုင်ထဲမှာ အောက်ပါအတိုင်း help screen output တွေကို ဖတ်လို့ ရလိမ့်မယ်...  
+perldoc-out.txt ဖိုင်ထဲမှာ အောက်ပါအတိုင်း help screen output တွေကို offline ဖတ်လို့ ရလိမ့်မယ်...  
 (command တစ်ခုစီရဲ့ help screen အပြီးမှာ ====== နဲ့ ခြားထားတယ်)  
 
 ```
@@ -1332,6 +1332,99 @@ COPYRIGHT AND LICENSE
     Copyright (C) 2006-2009 by Alberto Manuel Brandão Simões
 ==========
 
+```
+
+## Reading NATools Perl Scripts
+
+Script or Command တစ်ခုချင်းစီရဲ့ source code တွေကို လေ့လာချင်ရင်တော့ အောက်ပါ link ကနေ သွားပြီး coding ဖတ်တာ လုပ်ပါ။  
+
+[https://metacpan.org/release/AMBS/Lingua-NATools-v0.7.12/source/scripts](https://metacpan.org/release/AMBS/Lingua-NATools-v0.7.12/source/scripts)  
+
+ဥပမာ nat-sentence-align  ဆိုတဲ့ command ကို perl script ဘယ်လိုရေးထားသလဲ ဆိုတာကို သိချင်ရင်၊ nat-sentence-align ဆိုတာကို click လုပ်ရင် အောက်ပါ link ကို jump လုပ်သွားပြီးတော့  
+
+[https://metacpan.org/release/AMBS/Lingua-NATools-v0.7.12/source/scripts/nat-sentence-align](https://metacpan.org/release/AMBS/Lingua-NATools-v0.7.12/source/scripts/nat-sentence-align)  
+
+browser မှာ source code ကို ဖတ်လို့ ရပါလိမ့်မယ်။  
+
+```perl
+#!/usr/bin/perl -s
+ 
+use Lingua::PT::PLNbase;
+use Lingua::NATools::ConfigData;
+use warnings;
+use strict;
+ 
+our ($h);
+our ($tmx,$single,$raw, $d, $D, $utf8);
+ 
+sub usage {
+    print "nat-sentence-align: simple interface for Vanilla aligner\n\n";
+    print "\tnat-sentence-align [-tmx] [-single] [-d=.EOS] [-D=.EOP] <f1> <f2>\n\n";
+    print "For more help, please run 'perldoc nat-sentence-align'\n";
+    exit;
+}
+ 
+usage() if ($h);
+ 
+my $BINPREFIX = Lingua::NATools::ConfigData->config('bindir');
+my $command = "";
+ 
+my $file1 = shift or die "I need two files to align\n";
+my $file2 = shift or die "I need two files to align\n";
+ 
+if ($tmx && $single) { undef $single }
+ 
+unless ($raw) {
+  $/ = "\n\n";
+  for my $file ($file1, $file2) {
+    open I, $utf8?"<:utf8":"<", $file or die "Cannot open file '$file': $!\n";
+    open O, $utf8?">:utf8":">", "$file.tok" or die "Cannot open file '$file.tok': $!\n";
+ 
+    while (<I>) {
+      next if m!^(\s\n)*$!;
+      s/\n/ /g;
+      s/\ +/ /g;
+ 
+      my @sentences = sentences($_);
+      for my $s (@sentences) {
+        my @atomos = atomiza($s);
+        print O join("\n",@atomos),"\n.EOS\n";
+      }
+ 
+      print O ".EOP\n";
+    }
+    close O;
+    close I;
+  }
+  $command .= " -d .EOS -D .EOP $file1.tok $file2.tok";
+} else {
+  die "Using 'raw', you must supply -d and -D" if ($raw && (!$d || !$D));
+  $command .= " -d $d -D $D $file1 $file2";
+}
+ 
+ 
+$command = " -s$command" if ($single);
+ 
+ 
+$command = "$BINPREFIX/nat-sentalign$command";
+system($command);
+die $@ if ($@);
+#print $command;
+ 
+if ($tmx) {
+  # files are $file1.tok.al e $file2.tok.al
+  # langs...
+  local $/ = "\n";
+  my ($lang1, $lang2);
+  print STDOUT "Please enter language code for '$file1': ";
+  chomp($lang1 = <STDIN>);
+ 
+  print STDOUT "Please enter language code for '$file2': ";
+  chomp($lang2 = <STDIN>);
+ 
+  print STDOUT "Producing TMX '$lang1-$lang2.tmx'...\n";
+  `nat-pair2tmx $file1.tok.al $lang1 $file2.tok.al $lang2 > $file1-$file2.tmx`;
+}
 ```
 
 ## Note for Me/Students
