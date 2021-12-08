@@ -437,5 +437,6 @@ perl structure အဘိဓာန်ပဲ ရသေးတယ်။
 - [StarDict Dictionaries](https://sites.google.com/site/gtonguedict/home/stardict-dictionaries)  
 - [NATools – A Statistical Word Aligner Workbench](https://rua.ua.es/dspace/bitstream/10045/1550/1/PLN_31_26.pdf)  
 - [LIHLA: A lexical aligner based on language-independent heuristics](http://www.nilc.icmc.usp.br/nilc/download/CaNuFoENIA05.pdf)  
+- [PANACEA Project, Platform for Automatic, Normalized Annotation and Cost-Effective Acquisition of Language Resources for Human Language Technologies](https://cordis.europa.eu/docs/projects/cnect/4/248064/080/deliverables/001-PANACEAD51.pdf)  
 
 
