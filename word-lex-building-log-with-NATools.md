@@ -395,6 +395,43 @@ use utf8;
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
 ```
 
+ဖိုင်ရဲ့နောက်ဆုံးပိုင်းကို tail နဲ့လည်း ကြည့်ကြည့်ရအောင်...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ tail -n 30  ./source.lex.lex2perl 
+	"ခရီးသည်" => 1,
+	"လုပ်ခဲ့မိတာ" => 1,
+	"နီမလေးဟာ" => 1,
+	"ကစားစရာ" => 1,
+	"ပိုးကောင်တွေကို" => 1,
+	"ထွက်သွားပြီ" => 1,
+	"မိတ္တူကူးစက်ထဲ" => 1,
+	"ထည့်ဖို့" => 1,
+	"ပိုက်ဆံအကြွေ" => 1,
+	"၇နာရီခွဲလေ" => 1,
+	"အခုကို" => 1,
+	"သွားမှ" => 1,
+	"ရတော့မှာ" => 1,
+	"ကြောင်လေးတွေ" => 1,
+	"ဟောပြော" => 1,
+	"ဖက်မထား" => 1,
+	"ငိုနေတဲ့" => 1,
+	"ဆူညံသံကို" => 1,
+	"နုတ်စ်" => 1,
+	"ကိုတောင်" => 1,
+	"ဆိုနိုင်ပါ့မလား" => 1,
+	"အစာစား" => 1,
+	"ကျွေး" => 1,
+	"ဇွန်းတွေကို" => 1,
+	"ဆေးပါ" => 1,
+	"ယောက်ခမ" => 1,
+	"သူနာပြုတွေ" => 1,
+	"ဖြတ်ဖြတ်" => 2,
+	"ဇာတ်လမ်းတွဲတွေကို" => 1,
+}
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
+```
+
 ## Note for Me/Students
 
 NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectation maximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
