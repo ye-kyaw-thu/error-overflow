@@ -527,5 +527,6 @@ perl structure အဘိဓာန်ပဲ ရသေးတယ်။
 - [PANACEA Project, Platform for Automatic, Normalized Annotation and Cost-Effective Acquisition of Language Resources for Human Language Technologies](https://cordis.europa.eu/docs/projects/cnect/4/248064/080/deliverables/001-PANACEAD51.pdf)  
 - [VisualLIHLA - Lexical alignment visualization](http://www.nilc.icmc.usp.br/nilc/tools/visuallihla/lihla.htm)  
 - [Portuguese-English word alignment: some experiments](http://www.lrec-conf.org/proceedings/lrec2008/pdf/760_paper.pdf)  
+- [Tools and Resources of Interinstitutional Center for Computational Linguistics](http://www.nilc.icmc.usp.br/nilc/index.php/tools-and-resources)  
 
 
