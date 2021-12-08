@@ -357,7 +357,9 @@ $DIC1 = {
 
 ## Relating to StarDict Building
 
-StarDict, QStarDict application တွေနဲ့ ကိုယ်ဆောက်ထားတဲ့ dictionary ကို တွဲသုံးလို့ ရမယ့် ပုံရှိတယ်။  
+**experiment နဲ့ တိုက်ရိုက် မဆိုင်ပါ** 
+
+StarDict, QStarDict GUI Dictionary application တွေနဲ့ ကိုယ်ဆောက်ထားတဲ့ dictionary ကို တွဲသုံးလို့ ရမယ့် ပုံရှိတယ်။  
 အချိန်ရတဲ့အခါမှာ ဆက်လုပ်ရန်...  
 
 StarDict dictionary format ဆောက်ချင်ရင် အောက်ပါ command နဲ့ ဆောက်လို့ရ...  
