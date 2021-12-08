@@ -434,5 +434,6 @@ perl structure အဘိဓာန်ပဲ ရသေးတယ်။
 - [https://en.wikipedia.org/wiki/Translation_Memory_eXchange](https://en.wikipedia.org/wiki/Translation_Memory_eXchange)  
 - [StarDict Dictionary Format](https://en.wikipedia.org/wiki/StarDict)  
 - [Adding a New Dictionary to QStarDict](https://github.com/a-rodin/qstardict/wiki/Dictionaries-Installation)  
+- [StarDict Dictionaries](https://sites.google.com/site/gtonguedict/home/stardict-dictionaries)  
 
 
