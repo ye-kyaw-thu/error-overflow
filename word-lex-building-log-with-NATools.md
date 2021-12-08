@@ -363,6 +363,7 @@ Reference:
 
 - A. M. Sim˜oes and J. J. Almeida. NATools – A statistical word aligner workbench. Processamiento del Lenguaje Natural, 31:217–224, 2003.   
 - Caseli, H.M., Gomes, F.T., Pardo, T.A.S. & Nunes, M.G.V. (2008), "VisualLIHLA: the visual online tool for lexical alignment", In Proceedings of the VI Workshop em Tecnologia da Informação e da Linguagem Humana (TIL). Vila Velha, ES. October 2008., pp. 1-3.  
+- Santos, Diana & Simões, Alberto. (2008). Portuguese-English Word Alignment: some Experiments. 
 
 ## Relating to StarDict Building
 
