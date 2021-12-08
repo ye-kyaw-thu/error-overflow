@@ -355,6 +355,46 @@ $DIC1 = {
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
 ```
 
+## Test lex2perl
+
+ဆောက်ထားတဲ့ lexicon ကနေ perl hash format ကိုပြောင်းတဲ့ ပရိုဂရမ် ဖြစ်တဲ့ nat-lex2perl ကို စမ်းကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ nat-lex2perl ./source.lex > source.lex.lex2perl
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$ head -n 30 ./source.lex.lex2perl 
+use utf8;
+{
+	"\(none\)" => 32736,
+	"တွင်း" => 3,
+	"မ" => 1807,
+	"တူး" => 4,
+	"ဘူးလား" => 397,
+	"။" => 10586,
+	"အမျိုးသား" => 7,
+	"သန့်စင်ခန်း" => 2,
+	"ဘယ်" => 93,
+	"မှာလဲ" => 144,
+	"သူမ" => 1026,
+	"ဘေးမှာ" => 5,
+	"ရှိ" => 293,
+	"တဲ့" => 282,
+	"စာအုပ်" => 95,
+	"ဘယ်သူ့" => 351,
+	"ကို" => 2249,
+	"နှိပ်စက်" => 7,
+	"ခဲ့သလဲ" => 64,
+	"သူ" => 871,
+	"မင်းကို" => 139,
+	"ဘာဖြစ်လို့" => 63,
+	"လက်ထပ်ခဲ့" => 1,
+	"သလဲ" => 362,
+	"ဆိုတာ" => 111,
+	"မင်း" => 1844,
+	"နားလည်" => 28,
+	"လား" => 179,
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/phrase/my-x/my-bk/w2w/my-bk-phrase-lex$
+```
+
 ## Note for Me/Students
 
 NATools counts the co-occurrences of words in all aligned sentence pairs and builds a sparse matrix of word-to-word probabilities using an iterative expectation maximization algorithm. Then, the two probabilistic bilingual dictionaries are composed by the elements with the highest probability values in the matrix.  
