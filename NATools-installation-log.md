@@ -2066,7 +2066,7 @@ installed လုပ်ထားရင်တော့ အောက်ပါအတ
 
 perl -V နဲ့ လည်း ကြည့်လို့ရတယ်...  
 
-## Test Alignment with NATools
+## Check NATools Commands
 
 အရင် ဗားရှင်းအဟောင်းရဲ့ NATools - Getting Started ဆိုတဲ့ link ကိုလည်း refer လုပ်ခဲ့တယ်။  
 [http://linguateca.di.uminho.pt/natools/htdocs/getting-started.html](http://linguateca.di.uminho.pt/natools/htdocs/getting-started.html)  
