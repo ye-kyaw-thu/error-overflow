@@ -96,3 +96,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 89. [word-to-word-translation-exp-for-ethnic-languages.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word-to-word-translation-exp-for-ethnic-languages.md)  
 90. [NATools-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/NATools-installation-log.md)  
 91. [word-lex-building-log-with-NATools.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word-lex-building-log-with-NATools.md)  
+92. [multi-task-NLP-log1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/multi-task-NLP-log1.md)  
+
