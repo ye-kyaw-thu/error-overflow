@@ -566,3 +566,7 @@ Aligning... (ctrl-c to interrupt)
 
 ```
 
+## Reference
+
+1. [https://github.com/alexhzhai/anymalign](https://github.com/alexhzhai/anymalign)  
+2. [https://anymalign.limsi.fr/#](https://anymalign.limsi.fr/#)  
