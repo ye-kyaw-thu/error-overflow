@@ -256,5 +256,36 @@ file content ကို အောက်ပါအတိုင်း ဝင်စ�
 
 အိုကေ run လို့တော့ ရသွားပြီး အချိန်တစ်ခု သတ်မှတ်ပြီးတော့ parallel corpus တစ်ခုပြီးတစ်ခု alignment လုပ်သွားဖို့ပဲ ကျန်တော့တယ်။  
 
+## Shell Script Writing
+
+language pair က စုစုပေါင်း ၁၃ ခုရှိပြီးတော့ bi-directional alignment လုပ်ချင်တာကြောင့် အောက်ပါအတိုင်း shell script တစ်ပုဒ် ရေးခဲ့တယ်။  
+ဒေတာပမာဏလည်း အများကြီး မဟုတ်တာကြောင့် ၁၅မိနစ် လောက်ဆိုရင် အတိုင်းအတာတစ်ခုအထိ phrase-pair တွေက ဆွဲထုတ်လို့ ရပြီလို့ ယူဆခဲ့ပြီး အရင်ဆုံး တစ်ခေါက် ပြီးအောင် run ကြည့်ဖို့ စိတ်ကူးခဲ့...  
+
+```bash
+#!/bin/bash
+
+# phrase alignment for 13 language pairs with Anymalign Tool
+# Last Updated: 30 Dec 2021
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+
+for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+do
+   src=${fd%-*}
+   tgt=${fd##*-}
+   mkdir -p $fd/w2w/anyma;
+   cd $fd/w2w/anyma;
+   echo "anymalign running for $src-$tgt...";
+   timeout --signal=SIGINT 15m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.$src ../train.$tgt > $src-$tgt.align;
+   head ./$src-$tgt.align;
+   echo "==========";
+   echo "anymalign running for $tgt-$src...";   
+   timeout --signal=SIGINT 15m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.$tgt ../train.$src > $tgt-$src.align;
+   head ./$tgt-$src.align;
+   echo "==========";    echo "==========";
+   cd ../../../;
+done
+
+```
+
 ## Phrase Pair Extraction 
 
