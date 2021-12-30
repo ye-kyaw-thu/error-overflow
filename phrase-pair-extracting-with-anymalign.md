@@ -887,3 +887,4 @@ tail command နဲ့လည်း ရိုက်ထုတ်ခိုင်း
 
 1. [https://github.com/alexhzhai/anymalign](https://github.com/alexhzhai/anymalign)  
 2. [https://anymalign.limsi.fr/#](https://anymalign.limsi.fr/#)  
+3. [Translation Alignment for Historical Language Learning: a Case Study, Chiara Palladino, Maryam Foradi and Tariq Yousef, DHQ: Digital Humanities Quarterly, 15(3).](http://www.digitalhumanities.org/dhq/vol/15/3/000563/000563.html)  
