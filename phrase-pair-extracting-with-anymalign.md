@@ -150,3 +150,10 @@ Aligning... (ctrl-c to interrupt)
 0 0 0 my-bk.align
 ```
 
+Control + C signal ကို anymalign ပရိုဂရမ်ကို ပို့ပေးချင်လို့ အောက်ပါအတိုင်း "--preserve-status" option ဖြည့်ပြီး run ကြည့်ခဲ့ပေမဲ့လည်း လိုချင်တဲ့ output ဖိုင်က ထွက်မလာဘူး...  
+
+```
+$ timeout --preserve-status 1m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.my ../train.bk > my-bk.align
+```
+
+
