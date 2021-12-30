@@ -305,11 +305,19 @@ Phrase pair extraction ကို "my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-r
 11. sh = Shan
 12. sk = Sagaw Kayin
 
-လက်ရှိမှာ run နေတုန်း ... ပြီးသလောက် log ကိုပဲ တင်ပေးထား...  
+အောက်ပါအတိုင်း command ပေးပြီးတော့ run ခဲ့တယ်...   
 
 ```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./run-anymalign.sh | tee anymalign-run1.log
 anymalign running for my-bk...
-။	။	-	0.983761 0.986597	38180554
+Input corpus: 2 languages, 10622 lines
+Aligning... (ctrl-c to interrupt)
+(4536622 subcorpora, avg=12.84) Alignment interrupted! Proceeding...
+279187 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.983761 0.986597	38180554
 မ	မ	-	0.970767 0.931926	752729
 သူ	သူ	-	0.974121 0.928685	351951
 သိ	သိ	-	0.965710 0.970085	258000
@@ -321,7 +329,14 @@ anymalign running for my-bk...
 ကူညီ	ကူညီ	-	0.960394 0.975704	124250
 ==========
 anymalign running for bk-my...
-။	။	-	0.986569 0.983817	38803872
+Input corpus: 2 languages, 10622 lines
+Aligning... (ctrl-c to interrupt)
+(4612366 subcorpora, avg=12.82) Alignment interrupted! Proceeding...
+280489 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.986569 0.983817	38803872
 မ	မ	-	0.931995 0.971002	764388
 သူ	သူ	-	0.928052 0.974387	355210
 သိ	သိ	-	0.970635 0.965926	260435
@@ -334,7 +349,14 @@ anymalign running for bk-my...
 ==========
 ==========
 anymalign running for my-ch...
-။	.	-	0.550800 0.962547	4898081
+Input corpus: 2 languages, 14883 lines
+Aligning... (ctrl-c to interrupt)
+(6270070 subcorpora, avg=13.42) Alignment interrupted! Proceeding...
+435715 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    .	-	0.550800 0.962547	4898081
 ။	a	-	0.073349 0.892812	652265
 ။	?	-	0.072672 0.888116	646250
 မ	lo	-	0.710870 0.648172	317058
@@ -346,7 +368,14 @@ anymalign running for my-ch...
 ။	i	-	0.013039 0.366792	115950
 ==========
 anymalign running for ch-my...
-.	။	-	0.962266 0.550989	4861713
+Input corpus: 2 languages, 14883 lines
+Aligning... (ctrl-c to interrupt)
+(6220787 subcorpora, avg=13.46) Alignment interrupted! Proceeding...
+434708 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+.00%    ။	-	0.962266 0.550989	4861713
 a	။	-	0.891451 0.073066	644707
 ?	။	-	0.887856 0.072699	641467
 lo	မ	-	0.645904 0.710082	313573
@@ -359,7 +388,14 @@ i	။	-	0.367907 0.013080	115409
 ==========
 ==========
 anymalign running for my-kc...
-။	.	-	0.678513 0.926764	7100622
+Input corpus: 2 languages, 38073 lines
+Aligning... (ctrl-c to interrupt)
+(5656282 subcorpora, avg=14.68) Alignment interrupted! Proceeding...
+725880 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    .	-	0.678513 0.926764	7100622
 ၊	,	-	0.978095 0.984578	1238437
 ။	ai	-	0.090114 0.681940	943039
 ။	ai .	-	0.081341 0.503383	851234
@@ -371,7 +407,14 @@ anymalign running for my-kc...
 ဆံပင်	kara	-	0.997243 0.904475	331388
 ==========
 anymalign running for kc-my...
-.	။	-	0.927059 0.678136	7021784
+Input corpus: 2 languages, 38073 lines
+Aligning... (ctrl-c to interrupt)
+(5592094 subcorpora, avg=14.91) Alignment interrupted! Proceeding...
+722973 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+.00%    ။	-	0.927059 0.678136	7021784
 ,	၊	-	0.984625 0.978469	1226997
 ai	။	-	0.682627 0.090448	936543
 ai .	။	-	0.503552 0.081171	840492
@@ -384,7 +427,14 @@ kara	ဆံပင်	-	0.904086 0.997155	328420
 ==========
 ==========
 anymalign running for my-ky...
-။	꤯	-	0.887237 0.826904	7263664
+Input corpus: 2 languages, 10131 lines
+Aligning... (ctrl-c to interrupt)
+(5981905 subcorpora, avg=12.79) Alignment interrupted! Proceeding...
+246967 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ꤯	-	0.887237 0.826904	7263664
 တယ် ။	꤯	-	0.893036 0.041908	368130
 ပါ ။	꤯	-	0.842750 0.034991	307367
 ပါ တယ် ။	꤯	-	0.819678 0.032072	281730
@@ -396,10 +446,29 @@ anymalign running for my-ky...
 ၊	.	-	0.410195 0.800333	83201
 ==========
 anymalign running for ky-my...
+Input corpus: 2 languages, 10131 lines
+Aligning... (ctrl-c to interrupt)
+(6033050 subcorpora, avg=12.74) 247489 alignments, 58 al/sTraceback (most recent call last):
+  File "/media/ye/project2/tool/anymalign/anymalign.py", line 1559, in <module>
+    main()
+  File "/media/ye/project2/tool/anymalign/anymalign.py", line 1540, in main
+    options.max_n, options.delim, options.index_n)
+  File "/media/ye/project2/tool/anymalign/anymalign.py", line 882, in __init__
+    self.run(timeout, nbNewAlignments)
+  File "/media/ye/project2/tool/anymalign/anymalign.py", line 1059, in run
+    tmpFile)
+KeyboardInterrupt
 ==========
 ==========
 anymalign running for my-mo...
-။	။	-	0.959450 0.966333	26541786
+Input corpus: 2 languages, 8873 lines
+Aligning... (ctrl-c to interrupt)
+(5639089 subcorpora, avg=12.51) Alignment interrupted! Proceeding...
+260566 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.959450 0.966333	26541786
 ၊	၊	-	0.991579 0.980987	346416
 သူတို့	ဍေံတံ	-	0.954971 0.948727	317484
 ။	ဟာ ။	-	0.010591 0.722557	292971
@@ -411,7 +480,14 @@ anymalign running for my-mo...
 တယ် ။	။	-	0.845905 0.005537	152087
 ==========
 anymalign running for mo-my...
-။	။	-	0.966264 0.959389	26777026
+Input corpus: 2 languages, 8873 lines
+Aligning... (ctrl-c to interrupt)
+(5687675 subcorpora, avg=12.52) Alignment interrupted! Proceeding...
+261294 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.966264 0.959389	26777026
 ၊	၊	-	0.980514 0.991639	348352
 ဍေံတံ	သူတို့	-	0.948731 0.955547	319359
 ဟာ ။	။	-	0.721593 0.010584	295398
@@ -424,6 +500,13 @@ anymalign running for mo-my...
 ==========
 ==========
 anymalign running for my-pk...
+Input corpus: 2 languages, 19039 lines
+Aligning... (ctrl-c to interrupt)
+(6710131 subcorpora, avg=13.59) Alignment interrupted! Proceeding...
+591772 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
 ကျွန်တော်	လီၫ	-	0.258474 0.095741	167350
 ကို	လီၫ	-	0.258300 0.095684	167250
 မင်း	န	-	0.270942 0.208413	158294
@@ -436,7 +519,14 @@ anymalign running for my-pk...
 တယ်	လီၫ	-	0.403118 0.039184	68491
 ==========
 anymalign running for pk-my...
-လီၫ	ကို	-	0.096434 0.259786	168649
+Input corpus: 2 languages, 19039 lines
+Aligning... (ctrl-c to interrupt)
+(6704732 subcorpora, avg=13.78) Alignment interrupted! Proceeding...
+592376 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+လီၫ0%    ကို	-	0.096434 0.259786	168649
 လီၫ	ကျွန်တော်	-	0.095306 0.258297	166676
 န	မင်း	-	0.208791 0.270995	158878
 ယ	ကျွန်တော်	-	0.242847 0.207523	133912
@@ -449,7 +539,14 @@ anymalign running for pk-my...
 ==========
 ==========
 anymalign running for my-po...
-ငါ	ခွေ	-	0.940065 0.817239	3470848
+Input corpus: 2 languages, 18254 lines
+Aligning... (ctrl-c to interrupt)
+(6235833 subcorpora, avg=13.69) Alignment interrupted! Proceeding...
+427122 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+ငါ0%    ခွေ	-	0.940065 0.817239	3470848
 မင်း	နာꩻ	-	0.927322 0.780573	2449266
 သူမ	ဝွေꩻမူႏ	-	0.972148 0.871537	1560828
 သူ	ဝွေꩻ	-	0.918356 0.648963	679938
@@ -461,7 +558,14 @@ anymalign running for my-po...
 လဲ	ဟောင်း	-	0.621889 0.242628	120073
 ==========
 anymalign running for po-my...
-ခွေ	ငါ	-	0.817655 0.940130	3554526
+Input corpus: 2 languages, 18254 lines
+Aligning... (ctrl-c to interrupt)
+(6379201 subcorpora, avg=13.52) Alignment interrupted! Proceeding...
+429637 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+ခွေ0%    ငါ	-	0.817655 0.940130	3554526
 နာꩻ	မင်း	-	0.781191 0.927023	2509907
 ဝွေꩻမူႏ	သူမ	-	0.871262 0.972353	1598933
 ဝွေꩻ	သူ	-	0.650389 0.918461	698967
@@ -474,7 +578,14 @@ anymalign running for po-my...
 ==========
 ==========
 anymalign running for my-rk...
-။	။	-	0.947494 0.979456	13939587
+Input corpus: 2 languages, 18273 lines
+Aligning... (ctrl-c to interrupt)
+(4277207 subcorpora, avg=13.73) Alignment interrupted! Proceeding...
+377416 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.947494 0.979456	13939587
 မ	မ	-	0.994976 0.992785	2134187
 ကို	ကို	-	0.985632 0.955503	1330767
 ကျွန်တော်	ကျွန်တော်	-	0.991009 0.989268	1205789
@@ -486,7 +597,14 @@ anymalign running for my-rk...
 က	က	-	0.990870 0.955710	364096
 ==========
 anymalign running for rk-my...
-။	။	-	0.979497 0.947564	14128610
+Input corpus: 2 languages, 18273 lines
+Aligning... (ctrl-c to interrupt)
+(4333252 subcorpora, avg=13.58) Alignment interrupted! Proceeding...
+378019 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.979497 0.947564	14128610
 မ	မ	-	0.992522 0.995109	2171746
 ကို	ကို	-	0.955835 0.985726	1341057
 ကျွန်တော်	ကျွန်တော်	-	0.989367 0.990776	1222079
@@ -499,7 +617,14 @@ anymalign running for rk-my...
 ==========
 ==========
 anymalign running for my-rw...
-။	.	-	0.905064 0.919042	15943633
+Input corpus: 2 languages, 5276 lines
+Aligning... (ctrl-c to interrupt)
+(5868034 subcorpora, avg=11.77) Alignment interrupted! Proceeding...
+203995 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    .	-	0.905064 0.919042	15943633
 ၊	,	-	0.986045 0.985729	2038084
 တစ်	TÌQ	-	0.928386 0.967337	1317023
 ခင်ဗျား	NÀ	-	0.938745 0.912528	741053
@@ -511,7 +636,14 @@ anymalign running for my-rw...
 က	NØ̀	-	0.655005 0.492713	244176
 ==========
 anymalign running for rw-my...
-.	။	-	0.919001 0.905315	15988619
+Input corpus: 2 languages, 5276 lines
+Aligning... (ctrl-c to interrupt)
+(5883932 subcorpora, avg=11.74) Alignment interrupted! Proceeding...
+204342 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+.00%    ။	-	0.919001 0.905315	15988619
 ,	၊	-	0.985762 0.986086	2052609
 TÌQ	တစ်	-	0.967306 0.927672	1318200
 NÀ	ခင်ဗျား	-	0.912771 0.939113	739298
@@ -524,7 +656,14 @@ NØ̀	က	-	0.489795 0.651908	243390
 ==========
 ==========
 anymalign running for my-sh...
-။	။	-	0.985369 0.976995	46154966
+Input corpus: 2 languages, 16433 lines
+Aligning... (ctrl-c to interrupt)
+(4150959 subcorpora, avg=13.50) Alignment interrupted! Proceeding...
+342828 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.985369 0.976995	46154966
 ၊	၊	-	0.984670 0.979815	361874
 သူမ	မၼ်းၼၢင်း	-	0.974736 0.953074	230299
 တယ် ။	။	-	0.843193 0.003062	144659
@@ -536,7 +675,14 @@ anymalign running for my-sh...
 ကျေးဇူးပြုပြီး	ၶႅၼ်းတေႃႈ	-	0.976965 0.978365	59377
 ==========
 anymalign running for sh-my...
-။	။	-	0.976843 0.985338	46553303
+Input corpus: 2 languages, 16433 lines
+Aligning... (ctrl-c to interrupt)
+(4193647 subcorpora, avg=13.62) Alignment interrupted! Proceeding...
+343729 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.976843 0.985338	46553303
 ၊	၊	-	0.980295 0.984253	365013
 မၼ်းၼၢင်း	သူမ	-	0.953325 0.974733	231311
 ။	တယ် ။	-	0.003043 0.842071	145029
@@ -549,7 +695,14 @@ anymalign running for sh-my...
 ==========
 ==========
 anymalign running for my-sk...
-မင်း	န	-	0.805203 0.577472	403954
+Input corpus: 2 languages, 68471 lines
+Aligning... (ctrl-c to interrupt)
+(6038395 subcorpora, avg=15.71) Alignment interrupted! Proceeding...
+1034365 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+မင်း%    န	-	0.805203 0.577472	403954
 သူတို့	အဝဲသ့ၣ်	-	0.946153 0.671863	401309
 သူ	အဝဲ	-	0.876276 0.469965	342070
 မ	တ	-	0.725453 0.727954	324181
@@ -561,7 +714,14 @@ anymalign running for my-sk...
 တယ်	လီၤ	-	0.471682 0.221792	58632
 ==========
 anymalign running for sk-my...
-န	မင်း	-	0.576174 0.803528	394563
+Input corpus: 2 languages, 68471 lines
+Aligning... (ctrl-c to interrupt)
+(5925507 subcorpora, avg=15.75) Alignment interrupted! Proceeding...
+1029303 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+န00%    မင်း	-	0.576174 0.803528	394563
 အဝဲသ့ၣ်	သူတို့	-	0.670801 0.945424	392820
 အဝဲ	သူ	-	0.469886 0.874956	335389
 တ	မ	-	0.727082 0.725397	318283
@@ -574,7 +734,14 @@ anymalign running for sk-my...
 ==========
 ==========
 anymalign running for rk-bk...
-။	။	-	0.965267 0.905120	15772618
+Input corpus: 2 languages, 10622 lines
+Aligning... (ctrl-c to interrupt)
+(5729035 subcorpora, avg=12.88) Alignment interrupted! Proceeding...
+322813 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.965267 0.905120	15772618
 မ	မ	-	0.933433 0.907938	892409
 သူ	သူ	-	0.897788 0.904668	345413
 သိ	သိ	-	0.955295 0.966693	278160
@@ -586,7 +753,14 @@ anymalign running for rk-bk...
 ငါ	ငါ	-	0.892730 0.667730	146514
 ==========
 anymalign running for bk-rk...
-။	။	-	0.905241 0.965305	16373174
+Input corpus: 2 languages, 10622 lines
+Aligning... (ctrl-c to interrupt)
+(5943780 subcorpora, avg=12.78) Alignment interrupted! Proceeding...
+326112 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+။00%    ။	-	0.905241 0.965305	16373174
 မ	မ	-	0.906898 0.933787	919403
 သူ	သူ	-	0.904146 0.897224	358266
 သိ	သိ	-	0.965515 0.953850	287454
@@ -599,7 +773,14 @@ anymalign running for bk-rk...
 ==========
 ==========
 anymalign running for rw-kc...
-TÌQ	langai	-	0.923122 0.924965	2706569
+Input corpus: 2 languages, 9900 lines
+Aligning... (ctrl-c to interrupt)
+(6814296 subcorpora, avg=12.71) Alignment interrupted! Proceeding...
+280030 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+TÌQ%    langai	-	0.923122 0.924965	2706569
 NØ̀	gaw	-	0.775381 0.764972	1153609
 MÁ ?	i?	-	0.836373 0.773770	1146564
 NGÀ	Ngai	-	0.683286 0.917749	925943
@@ -611,6 +792,13 @@ BØ̀NG	mying	-	0.980511 0.988387	490427
 ÍÈ	re	-	0.512700 0.492137	396384
 ==========
 anymalign running for kc-rw...
+Input corpus: 2 languages, 9900 lines
+Aligning... (ctrl-c to interrupt)
+(6807815 subcorpora, avg=12.76) Alignment interrupted! Proceeding...
+280388 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
 langai	TÌQ	-	0.924443 0.922383	2704338
 gaw	NØ̀	-	0.764303 0.775484	1152627
 i?	MÁ ?	-	0.775839 0.837224	1147868
@@ -623,9 +811,12 @@ mying	BØ̀NG	-	0.988359 0.980279	488280
 re	ÍÈ	-	0.493046 0.513121	396592
 ==========
 ==========
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x
 
 ```
 
+အထက်က 
+keyboard interrupt ဝင်
 ## Reference
 
 1. [https://github.com/alexhzhai/anymalign](https://github.com/alexhzhai/anymalign)  
