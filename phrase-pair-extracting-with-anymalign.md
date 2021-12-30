@@ -131,11 +131,22 @@ Options:
 ## for Myanmar-Beik
 
 
+anymalign က run ထားရင် တောက်လျှောက် alignment လုပ်နေမှာ သူ့ကို ရပ်ချင်ရင် Ctrl+C နဲ့ ရပ်ရတယ်။  
+အဲဒီလို ရပ်လိုက်ရင် alignment လုပ်ထားတဲ့ output ကို screen ပေါ်မှာ သို့မဟုတ် terminal ပေါ်မှာပဲ ရိုက်ထုတ်ပေးတယ် အဲဒါကြောင့် command ရဲ့ နောက်ဆုံးမှာ " > outputfile" ဆိုတဲ့ ပုံစံနဲ့ run မှပဲ ဖိုင်အနေနဲ့ သိမ်းပေးလိမ့်မယ်။  
+
+မလုပ်မဖြစ် မဟုတ်ပေမဲ့ language pair တစ်ခုချင်းစီကို သတ်မှတ်ထားတဲ့ အချိန်တစ်ခုအထိပဲ alignment training လုပ်ပြီး ရပ်လိုက်ချင်လို့ timeout command ကို အောက်ပါအတိုင်း သုံးကြည့်ခဲ့တယ်။ မိနစ် ၃၀ကြာရင် ရပ်ပါ ဆိုပြီးတော့ "30m" ဆိုတဲ့ setting နဲ့ timeout command ကို run ခဲ့တယ်။  
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ timeout 30m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.my ../train.bk > my-bk.align
 Input corpus: 2 languages, 10622 lines
 Aligning... (ctrl-c to interrupt)
 (8806284 subcorpora, avg=12.82) 318672 alignments, 47 al/s(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ 
+```
+
+သို့သော် အထက်ပါလိုမျိုး command ပေးပြီး run ရင် output ဖိုင်ကို သိမ်းမပေးဘူး။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ wc my-bk.align 
+0 0 0 my-bk.align
 ```
 
