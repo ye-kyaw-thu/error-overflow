@@ -128,8 +128,7 @@ Options:
 (base) ye@:/media/ye/project2/tool/anymalign$
 ```
 
-## for Myanmar-Beik
-
+## Testing timeout Command
 
 anymalign က run ထားရင် တောက်လျှောက် alignment လုပ်နေမှာ သူ့ကို ရပ်ချင်ရင် Ctrl+C နဲ့ ရပ်ရတယ်။  
 အဲဒီလို ရပ်လိုက်ရင် alignment လုပ်ထားတဲ့ output ကို screen ပေါ်မှာ သို့မဟုတ် terminal ပေါ်မှာပဲ ရိုက်ထုတ်ပေးတယ် အဲဒါကြောင့် command ရဲ့ နောက်ဆုံးမှာ " > outputfile" ဆိုတဲ့ ပုံစံနဲ့ run မှပဲ ဖိုင်အနေနဲ့ သိမ်းပေးလိမ့်မယ်။  
@@ -156,4 +155,106 @@ Control + C signal ကို anymalign ပရိုဂရမ်ကို ပိ�
 $ timeout --preserve-status 1m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.my ../train.bk > my-bk.align
 ```
 
+timeout command --help 
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ timeout --help
+Usage: timeout [OPTION] DURATION COMMAND [ARG]...
+  or:  timeout [OPTION]
+Start COMMAND, and kill it if still running after DURATION.
+
+Mandatory arguments to long options are mandatory for short options too.
+      --preserve-status
+                 exit with the same status as COMMAND, even when the
+                   command times out
+      --foreground
+                 when not running timeout directly from a shell prompt,
+                   allow COMMAND to read from the TTY and get TTY signals;
+                   in this mode, children of COMMAND will not be timed out
+  -k, --kill-after=DURATION
+                 also send a KILL signal if COMMAND is still running
+                   this long after the initial signal was sent
+  -s, --signal=SIGNAL
+                 specify the signal to be sent on timeout;
+                   SIGNAL may be a name like 'HUP' or a number;
+                   see 'kill -l' for a list of signals
+  -v, --verbose  diagnose to stderr any signal sent upon timeout
+      --help     display this help and exit
+      --version  output version information and exit
+
+DURATION is a floating point number with an optional suffix:
+'s' for seconds (the default), 'm' for minutes, 'h' for hours or 'd' for days.
+A duration of 0 disables the associated timeout.
+
+If the command times out, and --preserve-status is not set, then exit with
+status 124.  Otherwise, exit with the status of COMMAND.  If no signal
+is specified, send the TERM signal upon timeout.  The TERM signal kills
+any process that does not block or catch that signal.  It may be necessary
+to use the KILL (9) signal, since this signal cannot be caught, in which
+case the exit status is 128+9 rather than 124.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/timeout>
+or available locally via: info '(coreutils) timeout invocation'
+```
+
+အထက်က ```--signal``` option မှာ ပြောထားတဲ့အတိုင်းပဲ ပေးလို့ရတဲ့ signal နာမည်တွေကို ```kill -l``` command နဲ့ ရှာကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ kill -l
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8
+43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13
+48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12
+53) SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7
+58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
+63) SIGRTMAX-1	64) SIGRTMAX	
+```
+
+"Ctrl+C" ဆိုတာက "SIGINT" နဲ့ ညီတာမို့ timeout command ကို အောက်ပါအတိုင်း ```--signal=SIGINT``` option ပေးပြီး စမ်းrun ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ timeout --signal=SIGINT 1m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.my ../train.bk > my-bk.align
+Input corpus: 2 languages, 10622 lines
+Aligning... (ctrl-c to interrupt)
+(303293 subcorpora, avg=12.36) Alignment interrupted! Proceeding...
+129781 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+```
+
+ဖိုင်ရေးမရေးသိချင်လို့ wc command နဲ့ file size ကို စစ်ကြည့်တော့ ဖိုင်ရေးပေးသွားတယ် ဆိုတာကို confirmation ဖြစ်ပြီ။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ wc ./my-bk.align 
+  129781  1317112 16773343 ./my-bk.align
+```
+
+file content ကို အောက်ပါအတိုင်း ဝင်စစ်ခဲ့...   
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$ head ./my-bk.align 
+။	။	-	0.984014 0.986692	2570270
+မ	မ	-	0.969712 0.932919	50553
+သူ	သူ	-	0.974875 0.928916	23901
+သိ	သိ	-	0.967190 0.969474	17245
+။	ရယ် ။	-	0.005472 0.728134	14294
+ကို	ကို	-	0.650083 0.791271	12165
+မင်း	နင်	-	0.655438 0.842347	12102
+သူမ	ဒယ်ကောင်မငယ်	-	0.752473 0.929304	8518
+ကူညီ	ကူညီ	-	0.962621 0.975629	8447
+ငါ	ငါ	-	0.952424 0.688787	8428
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-bk/w2w/anyma$
+```
+
+အိုကေ run လို့တော့ ရသွားပြီး အချိန်တစ်ခု သတ်မှတ်ပြီးတော့ parallel corpus တစ်ခုပြီးတစ်ခု alignment လုပ်သွားဖို့ပဲ ကျန်တော့တယ်။  
+
+## Phrase Pair Extraction 
 
