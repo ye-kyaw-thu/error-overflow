@@ -836,6 +836,50 @@ ky-my.align  my-ky.align
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ timeout --signal=SIGINT 15m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.ky ../train.my > ky-my.align
 Input corpus: 2 languages, 10131 lines
 Aligning... (ctrl-c to interrupt)
+(5901166 subcorpora, avg=12.82) Alignment interrupted! Proceeding...
+245448 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+```
+
+၁၅ မိနစ်အကြာ run ပြီးသွားတဲ့အခါမှာ output ဖိုင်ဖြစ်တဲ့ ky-my.align ဖိုင်ရဲ့ size ကို wc command နဲ့ ကြည့်ကြည့်တော့ filesize zero မဟုတ်တာကို တွေ့ရတယ်။  
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ wc ky-my.align 
+  245448  2170661 26392484 ky-my.align
+```
+
+head command နဲ့ file content ကို ရိုက်ထုတ်ခိုင်းကြည့်ခဲ့တော့ အလုပ်လုပ်ပေးတာကို တွေ့ရတယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ head ./ky-my.align 
+꤯	။	-	0.826964 0.887299	7172954
+꤯	တယ် ။	-	0.041898 0.893656	363416
+꤯	ပါ ။	-	0.034943 0.842407	303094
+꤯	ပါ တယ် ။	-	0.031913 0.819243	276810
+?	။	-	0.577290 0.029697	240074
+ꤒꤟꤢꤧ꤬ꤙꤝꤤ	ကျေးဇူးတင်	-	0.804304 0.891287	174908
+ꤒꤟꤢꤧ꤬ꤚꤛꤢꤙꤢꤧ꤬	မင်္ဂလာ	-	0.943202 0.934235	117041
+ꤠꤢ꤭	ကျွန်တော်	-	0.543388 0.692007	100579
+ꤔꤟꤢꤧ꤬	ခင်ဗျား	-	0.631164 0.658766	91000
+.	၊	-	0.795636 0.405999	80773
+```
+
+tail command နဲ့လည်း ရိုက်ထုတ်ခိုင်းကြည့်ပြီး alignment လုပ်ထားတာတွေကို confirmation လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ tail ./ky-my.align 
+ꤔꤟꤢꤧ꤬ ꤥ꤬ꤗꤛꤢꤩ꤭ꤊꤢꤪ	ခင်ဗျား အိပ်ရေး	-	0.083333 0.041667	1
+ꤏꤢꤜꤟꤢꤩ ꤟꤟꤢꤧ꤭ ?	ဘယ်လို နေ လဲ ။	-	0.019608 0.000823	1
+ꤏꤢꤜꤟꤢꤩ ꤟꤟꤢꤧ꤭ ?	ဘယ်လို နေ လဲ	-	0.019608 0.006369	1
+ꤢ꤬ꤕꤟꤛꤢ	ကုန်ပစ္စည်း	-	0.000134 0.000073	1
+ꤔꤛꤢ꤬ꤡꤢꤪ	လွန်း တယ်	-	0.000026 0.045455	1
+ꤗꤢ꤬ꤔꤢꤩ꤬ꤡꤢ꤬ ꤟꤛꤢ꤭ꤒꤟꤌꤣ ꤙꤤꤋꤢꤧ꤭ ꤕꤢ꤭ ꤒꤢꤩ꤭	မန်နေဂျာ ဘယ်တော့	-	0.055556 0.001736	1
+ꤞꤢꤧꤐꤟꤢꤦ ꤓꤢꤨ꤬ꤜꤟꤛꤢ꤬	ရွှေ့ ချင်	-	0.052632 0.250000	1
+ꤒꤢ꤬ꤋꤢꤦ ꤗꤢ꤬ ꤒꤢ꤬ꤋꤢꤦꤋꤢꤦ	ချောင်း လည်း တော်တော် ဆိုး	-	0.250000 1.000000	1
+ꤠꤢ꤭ ꤜꤟꤢꤩꤔꤢꤪ꤭ꤢꤩ꤬ ꤕꤝꤟꤥ꤭ꤑꤢꤩ꤭ ꤒꤟꤢ꤭ꤤ꤭ꤒꤟꤢꤧ꤬ ꤕꤚꤢꤧ	နေ့စဉ် သုံး ပစ္စည်း	-	0.250000 0.018868	1
+ꤤ꤬ꤞꤝꤤ	အထူး ဟင်း	-	0.000065 0.000260	1
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$
 ```
 
 
