@@ -815,8 +815,30 @@ re	ÍÈ	-	0.493046 0.513121	396592
 
 ```
 
-အထက်က 
-keyboard interrupt ဝင်
+## Got Error and Re-align for "ky-my" Language Pair
+
+အထက်က ky-my (ကယား-မြန်မာ) အတွဲအတွက် alignment လုပ်တဲ့အခါမှာ keyboard interrupt ဝင်တယ်ဆိုတဲ့ error ပေးပြီး ပရိုဂရမ်က ထွက်သွားတာကြောင့် file size ကို wc command နဲ့ confirm လုပ်ကြည့်တော့ alignment ဖိုင် ဆောက်မပေးနိုင်ခဲ့တာကိုအောက်ပါအတိုင်း တွေ့ခဲ့ရ...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ cd my-ky/w2w/anyma/
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ ls
+ky-my.align  my-ky.align
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ wc *.align
+       0        0        0 ky-my.align
+  246967  2183434 26532697 my-ky.align
+  246967  2183434 26532697 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$
+```
+
+အဲဒါကြောင့် ky-my (ကယားနဲ့မြန်မာ) အတွဲကိုပဲ သတ်သတ် ထပ် run ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-ky/w2w/anyma$ timeout --signal=SIGINT 15m python2.7 /media/ye/project2/tool/anymalign/anymalign.py ../train.ky ../train.my > ky-my.align
+Input corpus: 2 languages, 10131 lines
+Aligning... (ctrl-c to interrupt)
+```
+
+
 ## Reference
 
 1. [https://github.com/alexhzhai/anymalign](https://github.com/alexhzhai/anymalign)  
