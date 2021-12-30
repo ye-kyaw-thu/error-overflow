@@ -561,5 +561,8 @@ anymalign running for my-sk...
 တယ်	လီၤ	-	0.471682 0.221792	58632
 ==========
 anymalign running for sk-my...
+nput corpus: 2 languages, 68471 lines
+Aligning... (ctrl-c to interrupt)
+
 ```
 
