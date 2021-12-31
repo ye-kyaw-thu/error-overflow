@@ -3175,8 +3175,9 @@ ValueError: When calculating buckets by label, label must be non-zero
 ဇာဇာလှိုင်က ငါ့ဆီကို ပို့ထားတဲ့ reference file တွေ word file တွေနဲ့ POS-tag ဖိုင်တွေအားလုံးကို wc command နဲ့ confirm လုပ်ကြည့်တော့ အောက်ပါအတိုင်း လွဲနေတာကို တွေ့ရတယ်။   
 **ERROR ဖြစ်ရဲ့ အကြောင်းအရင်းကိုတော့ ရှာတွေ့သွားပြီ။**   
 
-**ဘာကြောင့်မတူရတာလဲ၊ ဖိုင် attach လုပ်တာမှာ လွဲသွားတာလား?!**
-**သို့မဟုတ် NMT model ကနေ output ထွက်တဲ့အခါမှာ လွဲတာလား (သိပ်တော့ မဖြစ်နိုင်၊ မော်ဒယ်က OOV ဖြစ်သည့်တိုင်အောင် POS-tag တစ်ခုတော့ tag လုပ်ပေးလိုက်မယ်လို့ ယူဆ) ...**   
+**ဘာကြောင့်မတူရတာလဲ၊ ဖိုင် attach လုပ်တာမှာ လွဲသွားတာလား?!**  
+**သို့မဟုတ် NMT model ကနေ output ထွက်တဲ့အခါမှာ လွဲတာလား?!** 
+(သိပ်တော့ မဖြစ်နိုင်၊ မော်ဒယ်က OOV ဖြစ်သည့်တိုင်အောင် POS-tag တစ်ခုတော့ tag လုပ်ပေးလိုက်မယ်လို့ ယူဆ) ...   
 
 ```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/1_ref.my ./8_compare-mt-with-label/1_ref.my.word.upos.tag
