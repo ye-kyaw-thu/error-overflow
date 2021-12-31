@@ -2876,6 +2876,259 @@ RB IN PRP MD VB DT JJ NN IN DT NN NN , PRP VBP PRP VBZ DT JJ NN WDT VBZ TO VB .
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ 
 ```
 
+```
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ compare-mt 8_compare-mt-with-label/1_ref.my 8_compare-mt-with-label/2_trans.my 8_compare-mt-with-label/3_multiTrans.my 8_compare-mt-with-label/4_s-multiTrans.my --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=8_compare-mt-with-label/train.my bucket_type=label,ref_labels=8_compare-mt-with-label/1_ref.my.word.upos.tag,out_labels="8_compare-mt-with-label/2_trans.my.upos.tag;8_compare-mt-with-label/3_multiTrans.my.upos.tag;8_compare-mt-with-label/4_s-multiTrans.my.upos.tag",label_set=VERB+NOUN+PRON+ADJ+ADV+ADP+CONJ+DET+NUM+PRT+X --output_directory outputs-for-cmt-label --sys_names Trans MulTrans SMulTrans
+********************** Aggregate Scores ************************
+BLEU:
+Trans MulTrans SMulTrans
+BLEU 22.7889 24.8936 25.2540
+
+v s1 / s2 -> MulTrans SMulTrans
+Trans s2>s1 (p=0.0030) s2>s1 (p=0.0000)
+MulTrans - (p=0.2870)
+
+********************** Aggregate Scores ************************
+RIBES:
+Trans MulTrans SMulTrans
+RIBES 72.2036 73.6971 72.0465
+
+v s1 / s2 -> MulTrans SMulTrans
+Trans - (p=0.0940) - (p=0.4230)
+MulTrans s1>s2 (p=0.0490)
+
+********************** Aggregate Scores ************************
+length ratio:
+Trans MulTrans SMulTrans
+length ratio 0.7705 (ref=13470, out=10379) 0.7970 (ref=13470, out=10735) 0.8142 (ref=13470, out=10967)
+
+v s1 / s2 -> MulTrans SMulTrans
+Trans s2>s1 (p=0.0080) s2>s1 (p=0.0000)
+MulTrans s2>s1 (p=0.0360)
+
+Reading frequency from "8_compare-mt-with-label/train.my"
+********************** Word Accuracy Analysis ************************
+--- word fmeas by frequency bucket
+frequency Trans MulTrans SMulTrans
+<1 0.0000 0.0000 0.0000
+1 0.1000 0.3333 0.0000
+2 0.0952 0.0870 0.1000
+3 0.1429 0.1667 0.1429
+4 0.0000 0.0000 0.0000
+[5,10) 0.1905 0.2885 0.2991
+[10,100) 0.3062 0.3585 0.3492
+[100,1000) 0.3894 0.4354 0.4321
+>=1000 0.5898 0.6033 0.5974
+
+Traceback (most recent call last):
+  File "/home/ye/tool/anaconda3/envs/compare-mt/bin/compare-mt", line 8, in <module>
+    sys.exit(main())
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 643, in main
+    reports.append( (name, [func(ref, outs, **arg_utils.parse_profile(x)) for x in arg]) )
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 643, in <listcomp>
+    reports.append( (name, [func(ref, outs, **arg_utils.parse_profile(x)) for x in arg]) )
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 145, in generate_word_accuracy_report
+    statistics, my_ref_total_list, my_out_totals_list, my_out_matches_list = bucketer.calc_statistics(ref, outs, ref_labels=ref_labels, out_labels=out_labels)
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 185, in calc_statistics
+    [x[rsi] for x in out_labels] if out_labels else None)
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 74, in _calc_trg_buckets_and_matches
+    ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 74, in <listcomp>
+    ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 520, in calc_bucket
+    raise ValueError('When calculating buckets by label, label must be non-zero')
+ValueError: When calculating buckets by label, label must be non-zero
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ 
+
+-----------------
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/1_ref.my
+ ကျ သင့် ငွေ ဘယ် လောက် လဲ ။
+ ကျွန် တော် လက် ဆောင် အ နေ နဲ့ ပေး လို့ ရ တဲ့ ပစ္စည်း မျိုး ကြည့် ချင် လို့ ။
+ ရ ထား က ကြာ နေ တာ လား ။
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/2_trans.my
+ ယာဉ် စီး ခ ဘယ် လောက် လဲ ။
+ ကျွန် တော် အ သံ သွင်း ဆိုင် ရှာ နေ တာ ပါ ။
+ ရ ထား က အ ချိန် မှန် လား ။
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/3_multiTrans.my
+ ယာဉ် စီး ခ ဘယ် လောက် လဲ ။
+ ကျွန် တော် လက် ဆောင် ရှာ နေ တာ ။
+ ရ ထား က အ ချိန် မှန် လား ။
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/4_s-multiTrans.my
+ ယာဉ် စီး ခ ဘယ် လောက် လဲ ။
+ ကျွန် တော် လက် ဆောင် ရှာ နေ တာ ။
+ ရ ထား က အ ချိန် မှန် လား ။
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/train.my
+ ဟုတ် ကဲ့ ၊ ကျွန် တော် ထိုင်း စစ် တု ရင် က စား ရ တာ ကြိုက် တယ် ။
+ က လေး များ အ တွက် တစ် ခု ခု အ ကြံ ပြု ပေး နိုင် မ လား ။
+ အဲ ဒီ ကို ဘယ် လို ရောက် နိုင် မ လဲ ။
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+NOUN ADJ PRT .
+PRON NOUN NOUN ADP VERB PRT VERB PRT NOUN NOUN VERB PRT PRT .
+NOUN ADP VERB PRT PRT PRT .
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/2_trans.my.upos.tag
+NOUN ADJ PRT .
+PRON VERB NOUN VERB PRT PRT PRT .
+NOUN ADP ADJ PRT .
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+NOUN ADJ PRT .
+PRON NOUN VERB PRT PRT .
+NOUN ADP ADJ PRT .
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag NOUN ADJ PRT .
+PRON NOUN VERB PRT PRT .
+NOUN ADP ADJ PRT .
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+
+------------
+check file size:
+
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/1_ref.my
+  1000  13470 124765 ./8_compare-mt-with-label/1_ref.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/2_trans.my
+ 1000 10379 96006 ./8_compare-mt-with-label/2_trans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/3_multiTrans.my
+  1000  10735 100147 ./8_compare-mt-with-label/3_multiTrans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/4_s-multiTrans.my
+  1000  10967 103806 ./8_compare-mt-with-label/4_s-multiTrans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/train.my
+  20000  263499 2455740 ./8_compare-mt-with-label/train.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+ 1000  9579 39774 ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/2_trans.my.upos.tag
+ 1000  7673 31606 ./8_compare-mt-with-label/2_trans.my.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+ 1000  7836 32185 ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
+ 1000  7913 32720 ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+
+-----------------------------------
+
+check blank line exit or not
+
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/1_ref.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/2_trans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/3_multiTrans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/4_s-multiTrans.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/train.my
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/2_trans.my.upos.tag (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+
+------------------
+
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ gedit /home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py
+
+Line 520: မှာ ရှိတဲ့ function က ...  
+
+  def calc_bucket(self, word, label=None):
+    if not label:
+      raise ValueError('When calculating buckets by label, label must be non-zero')
+    return self.bucket_map[label]
+
+အထက်ပါ function ကနေ error ပေးတာ...   
+
+line no. 73 ခေါ်သုံးရာကနေ error တက်တာလို့ နားလည်တယ်
+
+Line 73:
+    # Process the reference, getting the bucket
+    ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+
+----------------
+
+Check the POS-tag labels
+
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ cat ./1_ref.my.word.upos.tag | sed "s/ /\n/g;" | sort | uniq -c
+   1127 .
+    285 ADJ
+   1377 ADP
+    204 ADV
+    165 CONJ
+   1669 NOUN
+    201 NUM
+    660 PRON
+   2433 PRT
+   1378 VERB
+     80 X
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ cat ./2_trans.my.upos.tag | sed "s/ /\n/g;" | sort | uniq -c
+   1029 .
+    241 ADJ
+    990 ADP
+    147 ADV
+    104 CONJ
+      5 n
+   1260 NOUN
+    126 NUM
+    501 PRON
+   2045 PRT
+   1189 VERB
+     36 X
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ cat ./3_multiTrans.my.upos.tag | sed "s/ /\n/g;" | sort | uniq -c
+   1042 .
+    236 ADJ
+   1146 ADP
+    248 ADV
+     84 CONJ
+      5 n
+   1265 NOUN
+    139 NUM
+    529 PRON
+   1956 PRT
+   1143 VERB
+     43 X
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ cat ./4_s-multiTrans.my.upos.tag | sed "s/ /\n/g;" | sort | uniq -c
+    947 .
+    259 ADJ
+   1176 ADP
+    249 ADV
+     91 CONJ
+      5 n
+   1405 NOUN
+    248 NUM
+    551 PRON
+   1973 PRT
+    981 VERB
+     28 X
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ 
+
+------------------
+
+DET မရှိပဲနဲ့ DET tag ကို command မှာ ပေးထားတာတွေ့ရ....  
+
+---------------------
+
+code မှာ print တစ်ကြောင်း ရိုက်ထည့်ပြီး debug လုပ်ခဲ့...  
+
+  def calc_bucket(self, word, label=None):
+    if not label:
+      print("word: ", word)
+      raise ValueError('When calculating buckets by label, label must be non-zero')
+    return self.bucket_map[label]
+
+run ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+word:  လောက်
+Traceback (most recent call last):
+  File "/home/ye/tool/anaconda3/envs/compare-mt/bin/compare-mt", line 8, in <module>
+    sys.exit(main())
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 643, in main
+    reports.append( (name, [func(ref, outs, **arg_utils.parse_profile(x)) for x in arg]) )
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 643, in <listcomp>
+    reports.append( (name, [func(ref, outs, **arg_utils.parse_profile(x)) for x in arg]) )
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/compare_mt_main.py", line 145, in generate_word_accuracy_report
+    statistics, my_ref_total_list, my_out_totals_list, my_out_matches_list = bucketer.calc_statistics(ref, outs, ref_labels=ref_labels, out_labels=out_labels)
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 185, in calc_statistics
+    [x[rsi] for x in out_labels] if out_labels else None)
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 74, in _calc_trg_buckets_and_matches
+    ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 74, in <listcomp>
+    ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+  File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 522, in calc_bucket
+    raise ValueError('When calculating buckets by label, label must be non-zero')
+ValueError: When calculating buckets by label, label must be non-zero
+
+------------------------------
+```
+
 ## Reference
 
 https://stackoverflow.com/questions/47571689/unable-to-use-matplotlib-functions-in-my-program
