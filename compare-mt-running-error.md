@@ -4,7 +4,7 @@ POS tag label တွေပါ သုံးပြီး evaluation လုပ်�
 ငါကိုယ်တိုင်လည်း bootstrap function ကို သုံးဖို့ စမ်းကြည့်တော့ error ပေးနေတယ်။ error နှစ်ခုက မတူပေမဲ့ python environment နဲ့ ဆိုင်တယ် သို့မဟုတ် library ကြောင့်လို့ ယူဆထားခဲ့...  
 ငါ့စက်ထဲမှာ ပေးတဲ့ error က အောက်ပါအတိုင်း...  
 
-**Solution က setup.py ကနေ installation လုပ်တာမျိုးမဟုတ်ပဲ pip install နဲ့ သွားတာ...**  
+**(Solution က setup.py ကနေ installation လုပ်တာမျိုးမဟုတ်ပဲ pip install နဲ့ သွားတာ...။ နောက်ဆုံး Section ကို ကျော်ပြီးတော့ ကြည့်ပါ။)**  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/exp/rk-bk-my-word-pivot/final-compare$ ./mk-compare-html-bootstrap.sh | tee run-all-bootstrap.log
