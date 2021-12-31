@@ -3150,6 +3150,56 @@ Traceback (most recent call last):
 ValueError: When calculating buckets by label, label must be non-zero
 ```
 
+## I Found the Reason
+
+အထက်ပါအတိုင်း တောက်လျှောက် Error ကို trace လိုက်လာရင်း တစ်ခုသွားသတိရတာက စာကြောင်း တစ်ကြောင်းမှာ ရှိတဲ့ စာလုံးအရေအတွက် (no. of words in a sentence) နဲ့ POS tagging လုပ်ထားတဲ့ အရေအတွက် (no. of POS tags) က တူညီနေမှ ဖြစ်မယ်ဆိုတဲ့ အချက်ကို....  
+သေချာအောင် compare-mt Github original ပါလာတဲ့ example folder ထဲက word file နဲ့ POS-tag file တွေရဲ့ စာလုံးရေအရေအတွက်ကို wc command ကို သုံးပြီးတော့ confirmation လုပ်ခဲ့တော့ reference မှာ အနည်းငယ်လွဲနေပေမဲ့ evaluation လုပ်တဲ့ system-1 နဲ့ system-2 ရဲ့ output file တွေမှာက no. of words = no. of POS-tags ဖြစ်နေတာကို အောက်ပါအတိုင်း တွေ့ရတယ်။  
+(reference မှာ မတူတာက space ပိုရိုက်ထားတာမျိုး ဖြစ်နိုင်တယ်။ အဲဒါမျိုးဆိုရင်တော့ ပြဿနာ မဟုတ်ဘူးလေ...)  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ wc ted.ref.eng ted.ref.eng.tag
+  2445  48181 231365 ted.ref.eng
+  2445  48183 154104 ted.ref.eng.tag
+  4890  96364 385469 total
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ wc ted.sys1.eng ted.sys1.eng.tag
+  2445  45672 217289 ted.sys1.eng
+  2445  45672 146376 ted.sys1.eng.tag
+  4890  91344 363665 total
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ wc ted.sys2.eng ted.sys2.eng.tag
+  2445  45207 212717 ted.sys2.eng
+  2445  45207 145629 ted.sys2.eng.tag
+  4890  90414 358346 total
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$
+```
+
+ဇာဇာလှိုင်က ငါ့ဆီကို ပို့ထားတဲ့ reference file တွေ word file တွေနဲ့ POS-tag ဖိုင်တွေအားလုံးကို wc command နဲ့ confirm လုပ်ကြည့်တော့ အောက်ပါအတိုင်း လွဲနေတာကို တွေ့ရတယ်။   
+ERROR ဖြစ်ရဲ့ အကြောင်းအရင်းကိုတော့ ရှာတွေ့သွားပြီ။ ဘာကြောင့်မတူရတာလဲ၊ ဖိုင် attach လုပ်တာမှာ လွဲသွားတာလား?! သို့မဟုတ် NMT model ကနေ output ထွက်တဲ့အခါမှာ လွဲတာလား (သိပ်တော့ မဖြစ်နိုင်၊ မော်ဒယ်က OOV ဖြစ်သည့်တိုင်အောင် POS-tag တစ်ခုတော့ tag လုပ်ပေးလိုက်မယ်လို့ ယူဆ) ...   
+
+```
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/1_ref.my ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+  1000  13470 124765 ./8_compare-mt-with-label/1_ref.my
+  1000   9579  39771 ./8_compare-mt-with-label/1_ref.my.word.upos.tag
+  2000  23049 164536 total
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/2_trans.my ./8_compare-mt-with-label/2_trans.my.upos.tag
+  1000  10379  96006 ./8_compare-mt-with-label/2_trans.my
+  1000   7673  31606 ./8_compare-mt-with-label/2_trans.my.upos.tag
+  2000  18052 127612 total
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/3_multiTrans.my ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+  1000  10735 100147 ./8_compare-mt-with-label/3_multiTrans.my
+  1000   7836  32185 ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
+  2000  18571 132332 total
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/4_s-multiTrans.my ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
+  1000  10967 103806 ./8_compare-mt-with-label/4_s-multiTrans.my
+  1000   7913  32720 ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
+  2000  18880 136526 total
+(compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+```
+
+## To Do  
+
+- ဘာကြောင့် hyp ဖိုင်တွေရဲ့ no. of words နဲ့ POS-tag အရေအတွက်က မတူရတာလဲ ဆိုတာကို ဇာဇာလှိုင်ကို ပြန် confim လုပ်ရန်
+- compare-mt ရဲ့ တခြား option တွေကို combine လုပ်ကြည့်တာ၊ လိုတဲ့ report တစ်ခုတည်းကိုပဲ သီးခြားထုတ်တာမျိုး လုပ်ကြည့်ရန်
+
 ## Reference
 
 https://stackoverflow.com/questions/47571689/unable-to-use-matplotlib-functions-in-my-program
