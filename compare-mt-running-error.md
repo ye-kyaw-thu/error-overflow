@@ -1,7 +1,10 @@
 # compare-mt running log
 
-bootstrap function ကို သုံးချင်တာမှာ error message ပေးနေတယ်။  
+POS tag label တွေပါ သုံးပြီး evaluation လုပ်ခိုင်းတော့ error တက်ပြီး ရှင်းလို့မရဆိုလို့ ကိုယ်တိုင် error ရှင်းခဲ့စဉ်က မှတ်ထားတဲ့ log ဖိုင်ပါ။  
+ငါကိုယ်တိုင်လည်း bootstrap function ကို သုံးဖို့ စမ်းကြည့်တော့ error ပေးနေတယ်။ error နှစ်ခုက မတူပေမဲ့ python environment နဲ့ ဆိုင်တယ် သို့မဟုတ် library ကြောင့်လို့ ယူဆထားခဲ့...  
+ငါ့စက်ထဲမှာ ပေးတဲ့ error က အောက်ပါအတိုင်း...  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/exp/rk-bk-my-word-pivot/final-compare$ ./mk-compare-html-bootstrap.sh | tee run-all-bootstrap.log
 ...
 ...
@@ -38,13 +41,12 @@ Traceback (most recent call last):
 ValueError: err must be a scalar or a 1D or (2, n) array-like
 ####################
 (base) ye@ykt-pro:/media/ye/project1/exp/rk-bk-my-word-pivot/final-compare$
+```
 
-==================
+ဇာဇာလှိုင်ရဲ့ စက်ထဲမှာလည်း အဲဒီလိုပဲ error ပေးနေတယ် ဆိုတော့ ဖြစ်ဖို့များတာက library version, python environment etc. တွေကြောင့်လားလို့....  
+python version နိမ့်တာက စက်ထဲမှာ ရှိနေလို့ အဲဒီ env ထဲဝင်ပြီး အရင်ဆုံး setup run ဖို့ ကြိုးစားကြည့်ခဲ့  
 
-ဇာဇာလှိုင်ရဲ့ စက်ထဲမှာလည်း အဲဒီလိုပဲ error ပေးနေတယ် ဆိုတော့ ဖြစ်ဖို့များတာက library version, python environment etc. တွေကြောင့်လားလို့....
-
-python version နိမ့်တာက စက်ထဲမှာ ရှိနေလို့ အဲဒီ env ထဲဝင်ပြီး အရင်ဆုံး setup run ဖို့ ကြိုးစားကြည့်ခဲ့
-
+```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ pip install -r requirements.txt 
 Collecting nltk>=3.2
   Downloading nltk-3.6.7-py3-none-any.whl (1.5 MB)
@@ -110,9 +112,11 @@ Successfully built langid
 Installing collected packages: regex, click, nltk, absl-py, colorama, portalocker, tabulate, sacrebleu, langid
 Successfully installed absl-py-1.0.0 click-8.0.3 colorama-0.4.4 langid-1.1.6 nltk-3.6.7 portalocker-2.3.2 regex-2021.11.10 sacrebleu-2.0.0 tabulate-0.8.9
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
+```
 
 setup ကို အောက်ပါအတိုင်း လုပ်ခဲ့...  
 
+```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ python setup.py install
 ...
 ...
@@ -391,9 +395,11 @@ Adding zipp 3.1.0 to easy-install.pth file
 Using /home/ye/tool/anaconda3/envs/conda3.6/lib/python3.6/site-packages
 Finished processing dependencies for compare-mt==0.2.4
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
+```
 
 ## Call --help
 
+```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt --help
 usage: compare-mt [-h] [--sys_names SYS_NAMES [SYS_NAMES ...]]
                   [--src_file SRC_FILE] [--fig_size FIG_SIZE]
@@ -483,6 +489,9 @@ optional arguments:
                         (the shorter the segment, the more unreliable the
                         analysis), default=5.
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
+```
+
+Help screen ကတော့ အထက်ပါအတိုင်း တက်လာတယ်။   
 
 ## run example command
 
@@ -820,7 +829,7 @@ ValueError: err must be a scalar or a 1D or (2, n) array-like
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ 
 ```
 
-အထက်ပါအတိုင်း error ပေးနေတာနဲ့ matplotlib ကြောင့်လားလို့ မသင်္ကာလို့ matplotlib ကို uninstall လုပ်ပြီးတော့ ပြန် အသစ် install လုပ်ခဲ့တယ်။  
+Googling လုပ်ကြည့်တော့ matplotlib ကြောင့်လားလို့ မသင်္ကာလို့ matplotlib ကို uninstall လုပ်ပြီးတော့ ပြန် အသစ် install လုပ်ခဲ့တယ်။  
 
 ```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ pip uninstall matplotlib
@@ -853,12 +862,10 @@ Successfully installed matplotlib-3.3.4
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ 
 ```
 
-Reference link:   
+multiple matplotlib ကို ကိုယ့် environment ထဲမှာ installation လုပ်ထားမိတဲ့ ပြဿနာ ဆိုပြီးတော့ တချို့ site တွေကလည်းပြောနေလို့.... အဲဒီမှာ အကြံပေးထားတဲ့အတိုင်း ...   
 
-အထက်ပါ link မှာ multiple matplotlib ကို ကိုယ့် environment ထဲမှာ installation လုပ်ထားမိတဲ့ ပြဿနာ ဆိုပြီးတော့ ပြောနေလို့.... အဲဒီမှာ အကြံပေးထားတဲ့အတိုင်း ... 
-
-matplotlib ကို  pip နဲ့ လည်း uninstall လုပ်ခဲ့
-ပြီးတော့ conda uninstall လုပ်ခဲ့
+matplotlib ကို  pip နဲ့ လည်း uninstall လုပ်ခဲ့  
+ပြီးတော့ conda uninstall လုပ်ခဲ့  
 
 ```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ pip uninstall matplotlib
@@ -1250,7 +1257,7 @@ Executing transaction: done
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
 
-ပြီးမှ conda နဲ့ matplotlib ကို ပြန် clean install လုပ်ခဲ့...  
+ပြီးမှ conda နဲ့ matplotlib ကို ပြန် clean install လုပ်ခဲ့...   
 
 ```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ conda install matplotlib
@@ -1436,8 +1443,8 @@ Executing transaction: done
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
 
-package inconsistance error တော့ ပေးနေတယ်.... 
-compare-mt ကို run လို့ ရမရ ပြန်ကြည့်ကြည့်မယ်....  
+package inconsistance error တော့ ပေးနေတယ်....  
+compare-mt ကို run လို့ ရမရ ပြန်ကြည့်ကြည့်မယ်....   
 
 ```
 (conda3.6) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ --output_directory outputs --sys_names PBMT NMT
@@ -1456,11 +1463,10 @@ compare-mt ကို run လို့ ရမရ ပြန်ကြည့်က�
 ValueError: yerr must be a scalar or a 1D or (2, n) array-like
 ```
 
-same error ပဲ ပေးနေတယ်....  
+same error ပဲ ပေးနေတယ်....   
+အဲဒါနဲ့ conda uninstall matplotlib လုပ်ပြီး၊ pip install matplotlib လုပ်ကြည့်ခဲ့ပြီး compare-mt ကို ထပ် run ကြည့်ခဲ့လည်း same error ပဲ ပေးနေတယ်...  :(  
 
-အဲဒါနဲ့ conda uninstall matplotlib လုပ်ပြီး၊ pip install matplotlib လုပ်ကြည့်ခဲ့ပြီး compare-mt ကို ထပ် run ကြည့်ခဲ့လည်း same error ပဲ ပေးနေတယ်...  :(
-
-အဲဒါနဲ့ ကိုယ့်စက်ထဲမှာ environment အသစ် တစ်ခုဆောက်ပြီးတော့ setup run ဖို့ ဆုံးဖြတ်ခဲ့..
+အဲဒါနဲ့ ကိုယ့်စက်ထဲမှာ environment အသစ် တစ်ခုဆောက်ပြီးတော့ setup run ဖို့ ဆုံးဖြတ်ခဲ့..  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ conda create -n "compare-mt" python=3.7
@@ -1534,7 +1540,7 @@ Executing transaction: done
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
 
-install required libaries ...  
+install required libaries ...   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ pip install -r requirements.txt 
@@ -1647,7 +1653,7 @@ Requirement already satisfied: typing-extensions>=3.6.4 in /home/ye/tool/anacond
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
 
-run setup.py ...  
+run setup.py ...   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ python setup.py install
@@ -1875,7 +1881,7 @@ Requirement already satisfied: Cython in /home/ye/tool/anaconda3/envs/compare-mt
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ 
 ```
 
-setup.py ကို ပြန် run ခဲ့...  
+setup.py ကို ပြန် run ခဲ့...   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ python setup.py install
@@ -2135,7 +2141,7 @@ Finished processing dependencies for compare-mt==0.2.4
 
 ```
 
-compare-mt ကို ထပ် run ခဲ့...  error ပေးနေဆဲ...  
+compare-mt ကို ထပ် run ခဲ့...  error ပေးနေဆဲ...   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ --output_directory outputs --sys_names PBMT NMT
@@ -2159,6 +2165,7 @@ ValueError: 'yerr' (shape: (1, 2)) must be a scalar or a 1D or (2, n) array-like
 
 အဆင်မပြေဘူး...  
 compare-mt ကို released လုပ်ခဲ့တာက 2018 လောက်က ဆိုတော့ အဲဒီတုန်းက ရှိတဲ့ python version ကိုပဲအခြေခံပြီး environment ပြင်ကြည့်ဖို့ စဉ်းစားခဲ့.... 
+အရင်ဆုံး လက်ရှိ compare-mt Python env ကို remove လုပ်ခဲ့တယ်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ conda env remove --name compare-mt
@@ -2167,6 +2174,8 @@ Remove all packages in environment /home/ye/tool/anaconda3/envs/compare-mt:
 
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
+
+compare-mt environment အသစ်ကို အောက်ပါအတိုင်း ဆောက်ခဲ့...  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ conda create --name compare-mt python=3.6.8
@@ -2238,7 +2247,7 @@ Executing transaction: done
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
 
-install requirements.txt  
+install requirements.txt   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ pip install -r requirements.txt 
@@ -2288,6 +2297,7 @@ Installing collected packages: zipp, typing-extensions, importlib-metadata, tqdm
 Successfully installed absl-py-1.0.0 click-8.0.3 colorama-0.4.4 cycler-0.11.0 importlib-metadata-4.8.3 kiwisolver-1.3.1 langid-1.1.6 matplotlib-3.3.4 nltk-3.6.7 numpy-1.19.5 pillow-8.4.0 portalocker-2.3.2 regex-2021.11.10 sacrebleu-2.0.0 tabulate-0.8.9 tqdm-4.62.3 typing-extensions-4.0.1 zipp-3.6.0
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$
 ```
+
 python setup.py install   
 pip install Cython  
 pip install cysignals  
@@ -2295,7 +2305,7 @@ pip install pyfasttext
 
 python setup.py install  
 
-လုပ်ခဲ့ပြီး compare-mt example command ကို run ကြည့်ခဲ့ပေမဲ့ error ပေးနေဆဲ...  
+လုပ်ခဲ့ပြီး compare-mt example command ကို run ကြည့်ခဲ့ပေမဲ့ error ပေးနေဆဲ...   
 
 ```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ --output_directory outputs --sys_names PBMT NMT
@@ -2313,6 +2323,9 @@ ValueError: yerr must be a scalar or a 1D or (2, n) array-like
 ဘာလဲကွာ?! ...  
 
 ## Installation of compare-mt Success
+
+environment အသစ်ကို python version 3.7 နဲ့ဆောက်ခဲ့...  
+setup.py ကို run တာမဟုတ်ပဲနဲ့ လက်ရှိ ရှိပြီးသား python env အပေါ်မှာပဲ pip install compare-mt ကိုသုံးပြီးလုပ်တဲ့ option လည်း ရှိလို့ ဒီတစ်ခေါက်တော့ အဲဒါနဲ့ သွားကြည့်မယ်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ conda create --name compare-mt python=3.7
@@ -2482,6 +2495,11 @@ Requirement already satisfied: cycler>=0.10 in /home/ye/tool/anaconda3/envs/comp
 Requirement already satisfied: colorama in /home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages (from sacrebleu->compare-mt) (0.4.4)
 Requirement already satisfied: tabulate>=0.8.9 in /home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages (from sacrebleu->compare-mt) (0.8.9)
 Requirement already satisfied: portalocker in /home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages (from sacrebleu->compare-mt) (2.3.2)
+```
+
+compare-mt ကို example command နဲ့ run ကြည့်ခဲ့...  
+
+```
 (compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ --output_directory outputs --sys_names PBMT NMT
 ********************** Aggregate Scores ************************
 BLEU:
