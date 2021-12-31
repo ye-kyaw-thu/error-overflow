@@ -98,4 +98,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 91. [word-lex-building-log-with-NATools.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word-lex-building-log-with-NATools.md)  
 92. [multi-task-NLP-log1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/multi-task-NLP-log1.md)  
 93. [phrase-pair-extracting-with-anymalign.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/phrase-pair-extracting-with-anymalign.md)  
-
+94. [compare-mt-running-error.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-running-error.md)  
