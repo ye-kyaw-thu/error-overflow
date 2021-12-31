@@ -2502,7 +2502,13 @@ Requirement already satisfied: portalocker in /home/ye/tool/anaconda3/envs/compa
 compare-mt ကို example command နဲ့ run ကြည့်ခဲ့...  
 
 ```
-(compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ --output_directory outputs --sys_names PBMT NMT
+(compare-mt) ye@ykt-pro:/media/ye/project1/tool/compare-mt$ compare-mt example/ted.ref.eng \
+example/ted.sys1.eng example/ted.sys2.eng --compare_scores score_type=bleu,bootstrap=1000 \
+score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000\
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=example/ted.train.eng\
+bucket_type=label,ref_labels=example/ted.ref.eng.tag,out_labels="example/ted.sys1.eng.tag;example/ted.sys2.eng.tag",\
+label_set=CC+DT+IN+JJ+NN+NNP+NNS+PRP+RB+TO+VB+VBP+VBZ \
+--output_directory outputs --sys_names PBMT NMT
 ********************** Aggregate Scores ************************
 BLEU:
 	PBMT	NMT	Win?
