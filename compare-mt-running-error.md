@@ -2876,6 +2876,11 @@ RB IN PRP MD VB DT JJ NN IN DT NN NN , PRP VBP PRP VBZ DT JJ NN WDT VBZ TO VB .
 (base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ 
 ```
 
+## Current Error That I Have to Solve
+
+လက်ရှိ ဇာဇာလှိုင်က run လို့ မရဖြစ်နေတာက အောက်ပါ command...   
+(label တွေပါသုံးပြီး evaluation လုပ်ချင်တာ... )  
+
 ```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ compare-mt 8_compare-mt-with-label/1_ref.my 8_compare-mt-with-label/2_trans.my 8_compare-mt-with-label/3_multiTrans.my 8_compare-mt-with-label/4_s-multiTrans.my --compare_scores score_type=bleu,bootstrap=1000 score_type=ribes,bootstrap=1000 score_type=length,bootstrap=1000 --compare_word_accuracies bucket_type=freq,freq_corpus_file=8_compare-mt-with-label/train.my bucket_type=label,ref_labels=8_compare-mt-with-label/1_ref.my.word.upos.tag,out_labels="8_compare-mt-with-label/2_trans.my.upos.tag;8_compare-mt-with-label/3_multiTrans.my.upos.tag;8_compare-mt-with-label/4_s-multiTrans.my.upos.tag",label_set=VERB+NOUN+PRON+ADJ+ADV+ADP+CONJ+DET+NUM+PRT+X --output_directory outputs-for-cmt-label --sys_names Trans MulTrans SMulTrans
 ********************** Aggregate Scores ************************
@@ -2938,8 +2943,13 @@ Traceback (most recent call last):
     raise ValueError('When calculating buckets by label, label must be non-zero')
 ValueError: When calculating buckets by label, label must be non-zero
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ 
+```
 
------------------
+"label must be non-zero" ဆိုတဲ့ error ကို ပေးနေတယ်...  
+
+အရင်ဆုံး reference ဖိုင်တွေ၊ output ဖိုင်တွေနဲ့ label ဖိုင်တွေရဲ့ content ကို အကြမ်းမျဉ်း print ထုတ်ပြီး confirmation လုပ်ခဲ့...  
+
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/1_ref.my
  ကျ သင့် ငွေ ဘယ် လောက် လဲ ။
  ကျွန် တော် လက် ဆောင် အ နေ နဲ့ ပေး လို့ ရ တဲ့ ပစ္စည်း မျိုး ကြည့် ချင် လို့ ။
@@ -2960,6 +2970,11 @@ ValueError: When calculating buckets by label, label must be non-zero
  ဟုတ် ကဲ့ ၊ ကျွန် တော် ထိုင်း စစ် တု ရင် က စား ရ တာ ကြိုက် တယ် ။
  က လေး များ အ တွက် တစ် ခု ခု အ ကြံ ပြု ပေး နိုင် မ လား ။
  အဲ ဒီ ကို ဘယ် လို ရောက် နိုင် မ လဲ ။
+```
+
+tag ဖိုင်တွေက အောက်ပါအတိုင်း အဆင်ပြေသလို မြင်ရ...  
+
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ head -3 ./8_compare-mt-with-label/1_ref.my.word.upos.tag
 NOUN ADJ PRT .
 PRON NOUN NOUN ADP VERB PRT VERB PRT NOUN NOUN VERB PRT PRT .
@@ -2976,10 +2991,11 @@ NOUN ADP ADJ PRT .
 PRON NOUN VERB PRT PRT .
 NOUN ADP ADJ PRT .
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+```
 
-------------
-check file size:
+check file size:  
 
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/1_ref.my
   1000  13470 124765 ./8_compare-mt-with-label/1_ref.my
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/2_trans.my
@@ -2999,11 +3015,11 @@ check file size:
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ wc ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
  1000  7913 32720 ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+```
 
------------------------------------
+blank line တွေများ ရှိနေသလား ဆိုတာကိုလည်း ရှာဖွကြည့်ခဲ့...  
 
-check blank line exit or not
-
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/1_ref.my
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/2_trans.my
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/3_multiTrans.my
@@ -3013,30 +3029,37 @@ check blank line exit or not
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/2_trans.my.upos.tag (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/3_multiTrans.my.upos.tag
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ sed -n '/^$/=' ./8_compare-mt-with-label/4_s-multiTrans.my.upos.tag
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
+```
 
-------------------
+Error ပေးနေတဲ့ python code ဖိုင်နာမည် ```bucketers.py``` ထဲကို ဝင်ကြည့်ခဲ့...  
 
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$ gedit /home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py
+```
 
 Line 520: မှာ ရှိတဲ့ function က ...  
 
+```python
   def calc_bucket(self, word, label=None):
     if not label:
       raise ValueError('When calculating buckets by label, label must be non-zero')
     return self.bucket_map[label]
+```
 
 အထက်ပါ function ကနေ error ပေးတာ...   
-
 line no. 73 ခေါ်သုံးရာကနေ error တက်တာလို့ နားလည်တယ်
 
-Line 73:
+Line 73:  
+
+```python
     # Process the reference, getting the bucket
     ref_buckets = [self.calc_bucket(w, label=l) for (w,l) in itertools.zip_longest(ref_sent, ref_label)]
+```
 
-----------------
 
-Check the POS-tag labels
+Check the POS-tag labels  
 
+```
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ cat ./1_ref.my.word.upos.tag | sed "s/ /\n/g;" | sort | uniq -c
    1127 .
     285 ADJ
@@ -3089,23 +3112,23 @@ Check the POS-tag labels
     981 VERB
      28 X
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label/8_compare-mt-with-label$ 
-
-------------------
+```
 
 DET မရှိပဲနဲ့ DET tag ကို command မှာ ပေးထားတာတွေ့ရ....  
 
----------------------
-
 code မှာ print တစ်ကြောင်း ရိုက်ထည့်ပြီး debug လုပ်ခဲ့...  
 
+```python
   def calc_bucket(self, word, label=None):
     if not label:
       print("word: ", word)
       raise ValueError('When calculating buckets by label, label must be non-zero')
     return self.bucket_map[label]
+```
 
 run ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
 
+```
 word:  လောက်
 Traceback (most recent call last):
   File "/home/ye/tool/anaconda3/envs/compare-mt/bin/compare-mt", line 8, in <module>
@@ -3125,8 +3148,6 @@ Traceback (most recent call last):
   File "/home/ye/tool/anaconda3/envs/compare-mt/lib/python3.7/site-packages/compare_mt/bucketers.py", line 522, in calc_bucket
     raise ValueError('When calculating buckets by label, label must be non-zero')
 ValueError: When calculating buckets by label, label must be non-zero
-
-------------------------------
 ```
 
 ## Reference
