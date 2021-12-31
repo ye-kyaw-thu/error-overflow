@@ -4,7 +4,7 @@ POS tag label တွေပါ သုံးပြီး evaluation လုပ်�
 ငါကိုယ်တိုင်လည်း bootstrap function ကို သုံးဖို့ စမ်းကြည့်တော့ error ပေးနေတယ်။ error နှစ်ခုက မတူပေမဲ့ python environment နဲ့ ဆိုင်တယ် သို့မဟုတ် library ကြောင့်လို့ ယူဆထားခဲ့...  
 ငါ့စက်ထဲမှာ ပေးတဲ့ error က အောက်ပါအတိုင်း...  
 
-**(Solution က setup.py ကနေ installation လုပ်တာမျိုးမဟုတ်ပဲ pip install နဲ့ သွားတာ...။ နောက်ဆုံး Section ကို ကျော်ပြီးတော့ ကြည့်ပါ။)**  
+**(Solution က setup.py ကနေ installation လုပ်တာမျိုးမဟုတ်ပဲ pip install နဲ့ သွားတာ...။ နောက်ဆုံးနားက "Section: Installation of compare-mt Success" ကို ကျော်ပြီးတော့ ကြည့်ပါ။)**  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/exp/rk-bk-my-word-pivot/final-compare$ ./mk-compare-html-bootstrap.sh | tee run-all-bootstrap.log
@@ -2823,6 +2823,58 @@ Opening in existing browser session.
 
 ဒီတစ်ခါတော့ html report ထွက်တယ်။  
 Easy Peasy Lemon Squeezy!!!  :P   
+
+## Study on Required Files for Running with Example Command
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ted.ref.eng
+By the end of this year , there 'll be nearly a billion people on this planet that actively use social networking sites .
+The one thing that all of them have in common is that they 're going to die .
+While that might be a somewhat morbid thought , I think it has some really profound implications that are worth exploring .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ted.sys1.eng
+By the end of this year will be on this planet about billion people to use active aspects of social networks .
+The only thing that they have in common is that all die .
+Even when it can be a bit of a morbidn thought , I think that there 's seriously impacts that it 's explore .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ted.sys2.eng
+The end of this year is going to be about billions of people actively use sites of social media .
+The only thing that everybody 's common is that they die .
+Even though it might be a little bit of a clamina thought , I think it 's a serious impact that tries to explore .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ted.train.eng
+But what I find really fascinating is what happens when architects and planners leave and these places become appropriated by people , like here in Chandigarh , India , the city which has been completely designed by the architect Le Corbusier .
+Now 60 years later , the city has been taken over by people in very different ways from whatever perhaps intended for , like here , where you have the people sitting in the windows of the assembly hall .
+But over the course of several years , I 've been documenting Rem Koolhaas 's CCTV building in Beijing and the olympic stadium in the same city by the architects Herzog and de Meuron .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ted.ref.eng.tag
+IN DT NN IN DT NN , EX MD VB RB DT CD NNS IN DT NN WDT RB VBP JJ NN NNS .
+DT CD NN IN DT IN PRP VBP IN JJ VBZ IN PRP VBP VBG TO VB .
+IN DT MD VB DT RB JJ NN , PRP VBP PRP VBZ DT RB JJ NNS WDT VBP JJ VBG .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ./ted.sys1.eng.tag 
+IN DT NN IN DT NN MD VB IN DT NN IN CD NNS TO VB JJ NNS IN JJ NNS .
+DT JJ NN IN PRP VBP IN JJ VBZ IN DT NN .
+RB WRB PRP MD VB DT NN IN DT NN NN , PRP VBP IN EX VBZ RB VBZ IN PRP VBZ RB .
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ head -3 ./ted.sys2.eng.tag 
+DT NN IN DT NN VBZ VBG TO VB IN NNS IN NNS RB VBP NNS IN JJ NNS .
+DT JJ NN IN NN POS JJ VBZ IN PRP VBP .
+RB IN PRP MD VB DT JJ NN IN DT NN NN , PRP VBP PRP VBZ DT JJ NN WDT VBZ TO VB .
+(base) ye@ykt-pro:/media/ye/project1/tool/compare-mt/example$ 
+```
 
 ## Reference
 
