@@ -164,6 +164,9 @@ echo "####################";
 
 ```
 
+Note: ကိုယ်စက်ထဲကို အထက်က shell script ကို copy/paste လုပ်ပြီးသုံးတဲ့အခါမှာ bash shell script မှာ command line အရှည်တွေကို readable ဖြစ်အောင် "\" နဲ့ line break လုပ်ထားတဲ့ နေရာတွေကို ဂရုစိုက်ပါ။ 
+"\"နောက်မှာ ကပ်လျက် Enter ခေါက်မှ run လို့ရပါလိမ့်မယ်။ space ဘာညာပါသွားရင် shell script ကို run တဲ့အခါမှာ error ပေးပါလိမ့်မယ်။  
+
 ## Reference
 
 1. [https://en.wikipedia.org/wiki/P-value](https://en.wikipedia.org/wiki/P-value)
