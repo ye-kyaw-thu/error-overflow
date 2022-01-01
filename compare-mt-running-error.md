@@ -3201,7 +3201,7 @@ ValueError: When calculating buckets by label, label must be non-zero
 
 ## Demo HTML Bootstrap Resampling Results with compare-mt
 
-[https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/README.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/README.md) မှာ compare-mt tool ကို သုံးပြီးတော့ Bootstrap Resampling လုပ်ပြီး machine translation system နှစ်ခု သို့မဟုတ် approach နှစ်ခုကို statistically sifnificant ဖြစ်မဖြစ် ဆိုတာကို ဘယ်လို တိုင်းတာလို့ ရသလဲ ဆိုတာကို ရှင်းပြထားပါတယ်။ HTML report နှစ်ခုကိုလည်း တင်ပေးထားပါတယ်။  
+[compare-mt Running Demo](https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/README.md) မှာ compare-mt tool ကို သုံးပြီးတော့ Bootstrap Resampling လုပ်ပြီး machine translation system နှစ်ခု သို့မဟုတ် approach နှစ်ခုကို statistically sifnificant ဖြစ်မဖြစ် ဆိုတာကို ဘယ်လို တိုင်းတာလို့ ရသလဲ ဆိုတာကို ရှင်းပြထားပါတယ်။ HTML report နှစ်ခုကိုလည်း တင်ပေးထားပါတယ်။  
 
 ## To Do  
 
