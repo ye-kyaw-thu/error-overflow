@@ -175,5 +175,6 @@ Note: ကိုယ်စက်ထဲကို အထက်က shell script က�
 4. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [[Paper]](https://aclanthology.org/W04-3250.pdf) 
 5. [Github link of moses SMT Decoder](https://github.com/moses-smt/mosesdecoder)
 6. [bootstrap-hypothesis-difference-significance.pl](https://github.com/moses-smt/mosesdecoder/blob/master/scripts/analysis/bootstrap-hypothesis-difference-significance.pl)
-7. [MultEval](https://github.com/jhclark/multeval)
+7. Jonathan H. Clark, Chris Dyer, Alon Lavie, Noah A. Smith, Better hypothesis testing for statistical machine translation: controlling for optimizer instability, ACL (Short Papers), pp.176-181, (2011)[[Paper]](https://www.cs.cmu.edu/~jhclark/pubs/significance.pdf)
+8. [MultEval](https://github.com/jhclark/multeval)
 
