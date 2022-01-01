@@ -3199,6 +3199,10 @@ ValueError: When calculating buckets by label, label must be non-zero
 (compare-mt) ye@ykt-pro:~/Downloads/Report-for-compare-mt-label$
 ```
 
+## Demo HTML Bootstrap Resampling Results with compare-mt
+
+(https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/README.md)[https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/README.md] မှာ compare-mt tool ကို သုံးပြီးတော့ Bootstrap Resampling လုပ်ပြီး machine translation system နှစ်ခု သို့မဟုတ် approach နှစ်ခုကို statistically sifnificant ဖြစ်မဖြစ် ဆိုတာကို ဘယ်လို တိုင်းတာလို့ ရသလဲ ဆိုတာကို ရှင်းပြထားပါတယ်။ HTML report နှစ်ခုကိုလည်း တင်ပေးထားပါတယ်။  
+
 ## To Do  
 
 - ဘာကြောင့် hyp ဖိုင်တွေရဲ့ no. of words နဲ့ POS-tag အရေအတွက်က မတူရတာလဲ ဆိုတာကို ဇာဇာလှိုင်ကို ပြန် confim လုပ်ရန်
