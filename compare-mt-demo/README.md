@@ -10,8 +10,8 @@ compare-mt ကို သုံးပြီးတော့ machine translation sy
 အဲဒီလို လုပ်ဖို့အတွက် ဆိုရင် moses (SMT tool) မှာဆိုရင် bootstrap-hypothesis-difference-significance.pl (moses/scripts/analysis) ဆိုတဲ့ perl program ရှိပါတယ်။ 
 ဒီနေရာမှာတော့ ပိုပြီးတော့ visualize လုပ်ပေးတဲ့ compare-mt ကို သုံးပြီး လုပ်ပြထားပါတယ်။ ယူသုံးထားတဲ့ experiment က ဒေါက်တာတန်း ကျောင်းသူ သဇင်မြင့်ဦး နဲ့အတူလေ့လာနေတဲ့ Pivot Machine Translation ကပါ။
 အဓိက အသစ်လုပ်ကြည့်ခဲ့တဲ့ approach က နှစ်မျိုးပါ Transfer Pivot နဲ့ Triangulation Pivot ပါ။ 
-Run ထားတာတွေ အများကြီးထဲကနေ Beik-Burmese-Rakhine (baseline vs triangulation) နဲ့ Beik-Burmese-Rakhine (Transfer vs Triangulation) အတွက် compare-mt ကို run ထားတဲ့ ရလဒ်တွေကို folder အလိုက် တင်ပေးထားပါတယ်။ 
-ဂျာနယ်စာတမ်း publish လုပ်ပြီးသွားရင် ဒီနေရာမှာလည်း အဲဒီ စာတမ်းရဲ့ link ကို ဖြည့်ပေးထားပါမယ်။  
+Run ထားတာတွေ အများကြီးထဲကနေ Beik-Burmese-Rakhine ဘာသာစကားအတွဲကနေပဲ ```Baseline vs Triangulation``` နဲ့ ```Transfer vs Triangulation``` အတွက် compare-mt ကို run ထားတဲ့ ရလဒ်တွေကို folder အလိုက် တင်ပေးထားပါတယ်။ 
+ဂျာနယ်စာတမ်း publish လုပ်ပြီးသွားရင် ဒီနေရာမှာလည်း အဲဒီ စာတမ်းရဲ့ link ကို အသေးစိတ်လေ့လာလို့ရအောင် ဖြည့်ပေးထားပါမယ်။  
 
 1 Jan 2022  
 y@Lab  
