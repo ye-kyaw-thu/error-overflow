@@ -62,31 +62,75 @@ echo "### Report between Transfer and Triangulation";
 echo "";
 # Report between Transfer and Triangulation
 #--compare_sentence_buckets score_measure=sentbleu
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk  --report_title "Comparison Result for Beik-Burmese-Rakhine (Transfer vs Triangulation)" --sys_names "Transfer-Pivot" "Triangulation-Pivot" --output_directory ./final/bk-my-rk-transfer-vs-triangulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 \
+score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk\
+--report_title "Comparison Result for Beik-Burmese-Rakhine (Transfer vs Triangulation)" \
+--sys_names "Transfer-Pivot" "Triangulation-Pivot" \
+--output_directory ./final/bk-my-rk-transfer-vs-triangulation
 echo "####################";
 
 # make a big report for Rakhine-Burmese-Beik (Transfer vs Triangulation)
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk  /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk --report_title "Comparison Result for Rakhine-Burmese-Beik (Transfer vs Triangulation)" --sys_names "Transfer-Pivot" "Triangulation-Pivot" --output_directory ./final/rk-my-bk-transfer-vs-traingulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 \
+score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk \
+--report_title "Comparison Result for Rakhine-Burmese-Beik (Transfer vs Triangulation)"\
+--sys_names "Transfer-Pivot" "Triangulation-Pivot" \
+--output_directory ./final/rk-my-bk-transfer-vs-traingulation
 echo "####################";
 
 ##########################
 #Report for Baseline vs Transfer
 echo "### Report for Baseline vs Transfer";
 echo "";
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk  --report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline vs transfer)" --sys_names "Direct-Translation" "Transfer-Pivot" --output_directory ./final/bk-my-rk-baseline-vs-transfer
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk \
+--report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline vs transfer)" \
+--sys_names "Direct-Translation" "Transfer-Pivot" \
+--output_directory ./final/bk-my-rk-baseline-vs-transfer
 echo "####################";
 
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk --report_title "Comparison Result for Rakhine-Burmese-Beik (baseline vs transfer)" --sys_names "Direct-Translation"  "Transfer-Pivot" --output_directory ./final/rk-my-bk-baseline-vs-transfer
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk \
+--report_title "Comparison Result for Rakhine-Burmese-Beik (baseline vs transfer)" \
+--sys_names "Direct-Translation"  "Transfer-Pivot" \
+--output_directory ./final/rk-my-bk-baseline-vs-transfer
 echo "####################";
 
 ############################
 # Report for Baseline vs Triangulation
 echo "### Report for Baseline vs Triangulation";
 echo "";
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk  --report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline vs triangulation)" --sys_names "Direct-Translation" "Triangulation-Pivot" --output_directory ./final/bk-my-rk-baseline-vs-triangulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk  \
+--report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline vs triangulation)" \
+--sys_names "Direct-Translation" "Triangulation-Pivot" \
+--output_directory ./final/bk-my-rk-baseline-vs-triangulation
 echo "####################";
 
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk --report_title "Comparison Result for Rakhine-Burmese-Beik (baseline vs triangulation)" --sys_names "Direct-Translation"  "Triangulation-Pivot" --output_directory ./final/rk-my-bk-baseline-vs-triangulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 \
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk \
+--report_title "Comparison Result for Rakhine-Burmese-Beik (baseline vs triangulation)" \
+--sys_names "Direct-Translation"  "Triangulation-Pivot" \
+--output_directory ./final/rk-my-bk-baseline-vs-triangulation
 echo "####################";
 
 ############################
@@ -94,10 +138,26 @@ echo "####################";
 # Report for Baseline, Transfer and Triangulation
 echo "### Report for Baseline, Transfer and Triangulation";
 echo "";
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk --report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline, Transfer and Triangulation)" --sys_names "Direct-Translation" "Transfer-Pivot" "Triangulation-Pivot" --output_directory ./final/bk-my-rk-baseline-transfer-triangulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/test.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/bk-rk/evaluation/test.cleaned.1 \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/bk-my-rk/10/hypo-sentence.myrk.rk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/bk-my-rk/hypo.rk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05  \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-my/10/train.rk \
+--report_title "Comparison Result for Beik-Burmese-Rakhine  (baseline, Transfer and Triangulation)" \
+--sys_names "Direct-Translation" "Transfer-Pivot" "Triangulation-Pivot" \
+--output_directory ./final/bk-my-rk-baseline-transfer-triangulation
 echo "####################";
 
-compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 /media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk /media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk --compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 --compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk --report_title "Comparison Result for Rakhine-Burmese-Beik (baseline, transfer and triangulation)" --sys_names "Direct-Translation" "Transfer-Pivot" "Triangulation-Pivot" --output_directory ./final/rk-my-bk-baseline-transfer-triangulation
+compare-mt /media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/test.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/rk-bk/10/baseline/rk-bk/evaluation/test.cleaned.1 \
+/media/ye/project1/exp/rk-bk-my-word-pivot/exp/ssentence/rk-my-bk/10/hypo-sentence.mybk.bk \
+/media/ye/project1/exp/rk-bk-my-word-pivot/triangulation-tz/demo/10/rk-my-bk/hypo.bk \
+--compare_scores score_type=bleu,bootstrap=1000,prob_thresh=0.05 score_type=chrf,bootstrap=1000,prob_thresh=0.05 score_type=wer,bootstrap=1000,prob_thresh=0.05 \
+--compare_word_accuracies bucket_type=freq,freq_corpus_file=/media/ye/project1/exp/rk-bk-my-word-pivot/exp/rk-bk-my/data/my-bk/10/train.bk \
+--report_title "Comparison Result for Rakhine-Burmese-Beik (baseline, transfer and triangulation)" \
+--sys_names "Direct-Translation" "Transfer-Pivot" "Triangulation-Pivot" \
+--output_directory ./final/rk-my-bk-baseline-transfer-triangulation
 echo "####################";
 
 ```
