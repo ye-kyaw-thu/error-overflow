@@ -26,7 +26,7 @@ y@Lab
 
 ## Bootstrap Resampling Results with compare-mt
 
-compare-mt-demo/ ဖိုလ်ဒါအောက်မှာ html report နှစ်ခုရဲ့ ဖိုလ်ဒါတွေကို upload လုပ်ပေးထားပါတယ်။ ပထမ ဖိုလ်ဒါက ဘိတ်ကနေ ရခိုင်ဘာသာကို SMT လုပ်တာကို pivot language အနေနဲ့ ဗမာစာကို ထားထားပြီး လုပ်ခဲ့တဲ့ Triangulation-Pivot experiment ပါ။ ဒီနေရာမှာ baseline (i.e. normal PBSMT translation) ထက် Triangulation-Pivot experiment ရဲ့ ရလဒ်တွေက statistically significance (p <= 0.05) ဖြစ်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။   
+[compare-mt-demo/](https://github.com/ye-kyaw-thu/error-overflow/tree/master/compare-mt-demo) ဖိုလ်ဒါအောက်မှာ html report နှစ်ခုရဲ့ ဖိုလ်ဒါတွေကို upload လုပ်ပေးထားပါတယ်။ ပထမ ဖိုလ်ဒါက ဘိတ်ကနေ ရခိုင်ဘာသာကို SMT လုပ်တာကို pivot language အနေနဲ့ ဗမာစာကို ထားထားပြီး လုပ်ခဲ့တဲ့ Triangulation-Pivot experiment ပါ။ ဒီနေရာမှာ baseline (i.e. normal PBSMT translation) ထက် Triangulation-Pivot experiment ရဲ့ ရလဒ်တွေက statistically significance (p <= 0.05) ဖြစ်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။   
 
 1. [Bootstrap Resampling for Baseline-vs-Triangulation, Beik-Myanmar-Rakhine](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-baseline-vs-triangulation/index.html)  
 
