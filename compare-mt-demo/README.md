@@ -22,10 +22,12 @@ y@Lab
 [compare-mt-demo/](https://github.com/ye-kyaw-thu/error-overflow/tree/master/compare-mt-demo) ဖိုလ်ဒါအောက်မှာ html report နှစ်ခုရဲ့ ဖိုလ်ဒါတွေကို upload လုပ်ပေးထားပါတယ်။ ပထမ ဖိုလ်ဒါက ဘိတ်ကနေ ရခိုင်ဘာသာကို SMT လုပ်တာကို pivot language အနေနဲ့ ဗမာစာကို ထားထားပြီး လုပ်ခဲ့တဲ့ Triangulation-Pivot experiment ပါ။ ဒီနေရာမှာ baseline (i.e. normal PBSMT translation) ထက် Triangulation-Pivot experiment ရဲ့ ရလဒ်တွေက statistically significance (p <= 0.05) ဖြစ်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။   
 
 1. [Bootstrap Resampling for Baseline-vs-Triangulation, Beik-Myanmar-Rakhine](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-baseline-vs-triangulation/index.html)  
+(Click above link to see the full HTML report) 
 
 Transfer-Pivot နဲ့ Triangulation-Pivot နည်းလမ်းနှစ်ခုအကြား bootstrap resampling လုပ်ထားတာကိုလည်း အောက်ပါ လင့်ကနေလေ့လာနိုင်ပါတယ်။ ဒီနေရာမှာ Triangulation-Pivot က Transfer-Pivot က statistically significance ဖြစ်တယ်ဆိုတာကို တွေ့ကြရပါလိမ့်မယ်။  
 
 2. [Beik-Burmese-Rakhine (Transfer vs Triangulation)](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-transfer-vs-triangulation/index.html)  
+(Click above link to see the full HTML report) 
 
 Note: HTML report နှစ်ခုမှာပါတဲ့ word fmeas by frequency bucket နဲ့ဆိုင်တဲ့ Examples တွေက local မှာပဲ ကြည့်လို့ ရပါလိမ့်မယ်။ ဒီ GitHub မှာ ခုန်လို့ ရမှာမဟုတ်ပါဘူး။  
 
