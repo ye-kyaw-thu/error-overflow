@@ -174,5 +174,6 @@ Note: ကိုယ်စက်ထဲကို အထက်က shell script က�
 3. [Introduction to Bootstrapping in Statistics with an Example](https://statisticsbyjim.com/hypothesis-testing/bootstrapping/)
 4. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [[Paper]](https://aclanthology.org/W04-3250.pdf) 
 5. [Github link of moses SMT Decoder](https://github.com/moses-smt/mosesdecoder)
-6. [MultEval](https://github.com/jhclark/multeval)
+6. [bootstrap-hypothesis-difference-significance.pl](https://github.com/moses-smt/mosesdecoder/blob/master/scripts/analysis/bootstrap-hypothesis-difference-significance.pl)
+7. [MultEval](https://github.com/jhclark/multeval)
 
