@@ -27,6 +27,8 @@ Transfer-Pivot နဲ့ Triangulation-Pivot နည်းလမ်းနှစ�
 
 2. [Beik-Burmese-Rakhine (Transfer vs Triangulation)](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-transfer-vs-triangulation/index.html)  
 
+Note: HTML report နှစ်ခုမှာပါတဲ့ word fmeas by frequency bucket နဲ့ဆိုင်တဲ့ Examples တွေက local မှာပဲ ကြည့်လို့ ရပါလိမ့်မယ်။ ဒီ GitHub မှာ ခုန်လို့ ရမှာမဟုတ်ပါဘူး။  
+
 ## Example Shell Script for Running compare-mt
 
 ဘိတ်-မြန်မာ-ရခိုင် နဲ့ ရခိုင်-မြန်မာ-ဘိတ် pivot machine translation ရလဒ်တွေအတွက် compare-mt ကို သုံးပြီး bootstrap resampling လုပ်ဖို့အတွက် ရေးထားတဲ့ shell script ပါ။ ဒီ script ကို run လိုက်ရင် final/ ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာ အောက်ပါ နာမည်တွေနဲ့ sub-folder ၈ခု ထွက်လာပြီးတော့ အဲဒီအောက်မှာ HTML report တစ်ခုချင်းစီကို output အနေနဲ့ ထုတ်ပေးမှာဖြစ်ပါတယ်။ ပုံတွေကိုလည်း png ဖိုင်အနေနဲ့ရော pdf ဖိုင်အနေနဲ့ရော သိမ်းပေးမှာ ဖြစ်ပါတယ်။ ပြီးတော့ HTML report မှာက latex script ပါ တွဲထုတ်ပေးတာမို့ သုတေသနစာတမ်းရေးတဲ့အခါမှာလည်း အသုံးဝင်ပါလိမ့်မယ်။  
