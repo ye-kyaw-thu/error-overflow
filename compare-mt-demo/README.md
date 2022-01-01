@@ -26,7 +26,7 @@ y@Lab
 
 Transfer-Pivot နဲ့ Triangulation-Pivot နည်းလမ်းနှစ်ခုအကြား bootstrap resampling လုပ်ထားတာကိုလည်း အောက်ပါ လင့်ကနေလေ့လာနိုင်ပါတယ်။ ဒီနေရာမှာ Triangulation-Pivot က Transfer-Pivot က statistically significance ဖြစ်တယ်ဆိုတာကို တွေ့ကြရပါလိမ့်မယ်။  
 
-2. [Beik-Burmese-Rakhine (Transfer vs Triangulation)](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-transfer-vs-triangulation/index.html)  
+2. [Bootstrap Resampling for Beik-Burmese-Rakhine (Transfer vs Triangulation)](https://htmlpreview.github.io/?https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-transfer-vs-triangulation/index.html)  
 (Click the above link to see the full HTML report) 
 
 Note: HTML report နှစ်ခုမှာပါတဲ့ word fmeas by frequency bucket နဲ့ဆိုင်တဲ့ Examples တွေက local မှာပဲ ကြည့်လို့ ရပါလိမ့်မယ်။ ဒီ GitHub မှာ ခုန်လို့ ရမှာမဟုတ်ပါဘူး။  
