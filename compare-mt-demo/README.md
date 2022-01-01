@@ -171,7 +171,8 @@ Note: ကိုယ်စက်ထဲကို အထက်က shell script က�
 
 1. [https://en.wikipedia.org/wiki/P-value](https://en.wikipedia.org/wiki/P-value)
 2. [https://en.wikipedia.org/wiki/Statistical_significance](https://en.wikipedia.org/wiki/Statistical_significance)
-3. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [[Paper]](https://aclanthology.org/W04-3250.pdf) 
-4. [Github link of moses SMT Decoder](https://github.com/moses-smt/mosesdecoder)
-5. [Introduction to Bootstrapping in Statistics with an Example](https://statisticsbyjim.com/hypothesis-testing/bootstrapping/)
+3. [Introduction to Bootstrapping in Statistics with an Example](https://statisticsbyjim.com/hypothesis-testing/bootstrapping/)
+4. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [[Paper]](https://aclanthology.org/W04-3250.pdf) 
+5. [Github link of moses SMT Decoder](https://github.com/moses-smt/mosesdecoder)
+6. [MultEval](https://github.com/jhclark/multeval)
 
