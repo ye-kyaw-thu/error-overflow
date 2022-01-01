@@ -5,7 +5,7 @@ compare-mt ကို သုံးပြီးတော့ machine translation sy
 
 လက်တွေ့မှာက parallel corpus ဒေတာကလည်း အထူးသဖြင့် ဗမာစာနဲ့ တိုင်းရင်းသား ဘာသာစကားတွေအတွက်ဆိုရင် ဒေတာက မရှိလို့ ကိုယ်ဖာသာကိုယ်ဆောက်ရတာနဲ့ Test-set တစ်ခုကိုပဲသုံးပြီး evaluation လုပ်ကြရပါတယ်။  
 
-အဲဒါကြောင့် ဘယ် approach က သာတယ်ဆိုတာကို prove လုပ်ဖို့ ဆိုရင် လုပ်လို့ ရတဲ့ နည်းလမ်းတစ်ခုက statistical test လုပ်တာ တနည်းအားဖြင့် bootstrap resampling method လုပ်တာပါ။ 
+အဲဒါကြောင့် ဘယ် approach က သာတယ်ဆိုတာကို prove လုပ်ဖို့ ဆိုရင် လုပ်လို့ ရတဲ့ နည်းလမ်းတစ်ခုက statistical test လုပ်တာ တနည်းအားဖြင့် bootstrap resampling လုပ်ပြီး machine translation evaluation တာပါ။ 
 အဲဒီလို လုပ်ရင် test-data က နည်းရင်တောင် system နှစ်ခုအကြားမှာ ဘယ် system က ပိုသာတယ်ဆိုတာကို confidence ရှိရှိနဲ့ evaluation လုပ်လို့ ရပါတယ်။ 
 အဲဒီလို လုပ်ဖို့အတွက် ဆိုရင် moses (SMT tool) မှာဆိုရင် bootstrap-hypothesis-difference-significance.pl ဆိုတဲ့ perl program ရှိပါတယ်။ 
 ဒီနေရာမှာတော့ ပိုပြီးတော့ visualize လုပ်ပေးတဲ့ compare-mt ကို သုံးပြီး လုပ်ပြထားပါတယ်။ ယူသုံးထားတဲ့ experiment က ဒေါက်တာတန်း ကျောင်းသူ သဇင်မြင့်ဦး နဲ့အတူလေ့လာနေတဲ့ Pivot Machine Translation ကပါ။
