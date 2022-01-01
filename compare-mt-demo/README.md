@@ -166,6 +166,6 @@ echo "####################";
 
 1. [https://en.wikipedia.org/wiki/P-value](https://en.wikipedia.org/wiki/P-value)
 2. [https://en.wikipedia.org/wiki/Statistical_significance](https://en.wikipedia.org/wiki/Statistical_significance)
-3. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [Paper](https://aclanthology.org/W04-3250.pdf) 
+3. Koehn, Philipp. “Statistical Significance Tests for Machine Translation Evaluation.” EMNLP (2004). [[Paper]](https://aclanthology.org/W04-3250.pdf) 
 4. [Github link of moses SMT Decoder](https://github.com/moses-smt/mosesdecoder)
 
