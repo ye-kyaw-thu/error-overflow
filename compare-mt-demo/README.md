@@ -25,3 +25,5 @@ y@Lab
 
 
 
+[Bootstrap Resampling for Baseline-vs-Triangulation, Beik-Myanmar-Rakhine](https://github.com/ye-kyaw-thu/error-overflow/blob/master/compare-mt-demo/bk-my-rk-baseline-vs-triangulation/index.html)  
+
