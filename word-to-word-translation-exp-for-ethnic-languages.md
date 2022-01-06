@@ -3509,7 +3509,7 @@ Pwo-19141\ folder is the latest updated data (I received on 4 Jan 2022 from MMMK
 ဒီ ဖိုလ်ဒါအောက်က ဒေတာကိုပဲ w2w နဲ့ anyma ကို ပြန် run ပြီးတော့ JIIST journal အတွက် သုံးရလိမ့်မယ်။  
 
 
-## Re-run experiment with updated data (i.e. data with Pwo-19141\)
+### Re-run experiment with updated data (i.e. data with Pwo-19141\)
 
 1st I did backup as follows:  
 
@@ -3590,7 +3590,7 @@ all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$
 ```
 
-## Run and Debug the Error
+### Run and Debug the Error
 
 build-lexicon.sh ကို ထပ် run ပြီး ပေးနေတဲ့ error ကို debug လုပ်ခဲ့တယ်။  
 
@@ -3621,7 +3621,7 @@ Error ကို သေချာ ကြည့်ကြည့်တော့ bash 
 အဲဒါကြောင့် shell script မှာ အောက်ပါအတိုင်း ပြင်ခဲ့...  
 for fd in {my-pk} ===>  for fd in my-pk  
 
-## Run for my-pk word-to-word lexicon building with updated "my-pk" data
+### Run for my-pk word-to-word lexicon building with updated "my-pk" data
 
 ဒီတစ်ခါ run တော့ အဆင်ပြေသွားပါတယ်။ error လည်း မပေးတော့ပါဘူး...  
 
@@ -3661,7 +3661,7 @@ sys	0m3.147s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
 ```
 
-## Check the "my-pk" folder
+### Check the "my-pk" folder
 
 folder structure ကို tree command နဲ့ စစ်ကြည့်ပြီး အဆင်ပြေမပြေကို confirm လုပ်ခဲ့တယ်...  
 
@@ -3681,7 +3681,7 @@ folder structure ကို tree command နဲ့ စစ်ကြည့်ပြ
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex$
 ```
 
-## update test-lexicon.sh for "my-pk" 
+### Update test-lexicon.sh for "my-pk" 
 
 test-lecicon.sh script ကို ဝင်ပြင်ခဲ့...  
 
@@ -3690,7 +3690,7 @@ test-lecicon.sh script ကို ဝင်ပြင်ခဲ့...
 for fd in my-pk
 ```
 
-## Run test-lexicon.sh only for "my-pk" language pair
+### Run test-lexicon.sh only for "my-pk" language pair
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./test-lexicon.sh
@@ -3708,7 +3708,7 @@ OOV percentage:  25.73%
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
-## update pkl-to-human-readable.sh for "my-pk"
+### update pkl-to-human-readable.sh for "my-pk"
 
 pkl-to-human-readable.sh shell script ကိုလည်း my-pk အတွဲ တစ်ခုတွဲအတွက် run ပေးအောင် အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
@@ -3717,7 +3717,7 @@ pkl-to-human-readable.sh shell script ကိုလည်း my-pk အတွဲ �
 for fd in my-pk
 ```
 
-## Convert pkl-to-human-readable for "my-pk"
+### Convert pkl-to-human-readable for "my-pk"
 
 my-pk language pair အတွက် pkl-to-human-readable ပြောင်းခဲ့တယ်။  
 Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း မြင်ရပါလိမ့်မယ်။   
@@ -3758,7 +3758,7 @@ converting for pk-my lexicons: co, pmi and cpe order...
 အထက်ပါအတိုင်း lexicon တွေကို count လုပ်ကြည့်တော့ approach သုံးမျိုးအကြားမှာ အဘိဓာန်ရဲ့ size စာလုံးအရေအတွက်က ကွဲပြားမှု မရှိတာကို တွေ့ရပါတယ်။   
 သို့သော် approach တစ်ခုချင်းစီပေါ်ကို မူတည်ပြီး ဆွဲထုတ်ထားပြီး word-to-word mapping လုပ်ထားတာတွေကတော့ တူမှာ မဟုတ်ပါဘူး...  
 
-## Update column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+### Update column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
 
 column-to-nbest-word-sentence-with-OOV.sh ကိုလည်း ဝင်ပြင်ခဲ့တယ်။  
 
@@ -3767,7 +3767,7 @@ column-to-nbest-word-sentence-with-OOV.sh ကိုလည်း ဝင်ပြ�
 for fd in my-pk
 ```
 
-## Run column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+### Run column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
 
 column-to-nbest-word-sentence-with-OOV.sh ကို အောက်ပါအတိုင်း run ခဲ့တယ်။  
 
@@ -3807,7 +3807,7 @@ OOV OOV ငါတို့တော့ တာပေါ့
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
-## Update evaluation-with-BLEU.sh for "my-pk"
+### Update evaluation-with-BLEU.sh for "my-pk"
 
 evaluation လုပ်တဲ့ shell script evaluation-with-BLEU.sh ကိုလည်း ဝင်ပြင်ခဲ့တယ်။  
 
@@ -3816,7 +3816,7 @@ evaluation လုပ်တဲ့ shell script evaluation-with-BLEU.sh ကို�
 for fd in my-pk
 ```
 
-## Run evaluation-with-BLEU.sh for "my-pk"
+### Run evaluation-with-BLEU.sh for "my-pk"
 
 sentence level BLEU score ကတော့ my-pk အတွဲအတွက်ကလည်း သုညမကွဲပါဘူး...  
 
@@ -3872,7 +3872,7 @@ It is not advisable to publish scores from multi-bleu.perl.  The scores depend o
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
-## Check the Translated Result
+### Check the Translated Result
 
 အရင်ဆုံး ပိုးကရင် Reference ဖိုင်ကို ကြည့်ရအောင်...   
 
