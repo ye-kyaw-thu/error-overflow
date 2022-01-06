@@ -2101,7 +2101,7 @@ done
 
 ```
 
-လိုင်ပြောင်းကြည့်တဲ့အခါမှာ ဘာသွားတွေ့ရသလဲ ဆိုတော့ တချို့ word2word translation OOV ကြောင့်လို့ ယူဆတယ်၊ စာကြောင်းရေ ၁၀၀ မရှိတဲ့ line ဖိုင်တွေကို တွေ့ရတယ်။  
+လိုင်းပြောင်းကြည့်တဲ့အခါမှာ ဘာသွားတွေ့ရသလဲ ဆိုတော့ တချို့ word2word translation OOV ကြောင့်လို့ ယူဆတယ်၊ စာကြောင်းရေ ၁၀၀ မရှိတဲ့ line ဖိုင်တွေကို တွေ့ရတယ်။  
 test data (or) reference data က အကြောင်း ၁၀၀ စီနဲ့ word-to-word translation လုပ်ထားခဲ့တာမို့ hypothesis ဖိုင်ကို line အဖြစ်ပြောင်းတဲ့အခါမှာ တကယ်က အကြောင်း ၁၀၀ စီရှိရမယ်။ သို့သော် တချို့ language pair တွေအတွက်က လိုင်း ၁၀၀ မရှိတာကို အောက်ပါအတိုင်းတွေ့ရတယ်... အကြောင်းအရင်းက convert လုပ်တဲ့ shell script မှာက OOV တွေ့ရင် တစ်လိုင်းလုံးဖြုတ်ထားတာမို့လို့...   
 (line အဖြစ် ပြောင်းထားပြီးသား ဖိုင်တွေကို head -n3 နဲ့ ရိုက်မပြခင်မှာ အရင်ဆုံး wc command ကို run ထားတာမို့ converted line ဖိုင်တွေရဲ့ file size information ကို အရင်တွေ့ရမှာ ဖြစ်ပါတယ်)  
 
@@ -3496,6 +3496,386 @@ OOV မရှိဘူး ဘူးလား တာလား
 အဲ့ဒါ တိ ခဲ့ပါဘူး အလွတ် OOV ပါ တာလား
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
+
+## Rerun Word-to-Word Translation for Myanmar-PoKayin Language Pair
+
+ကျောင်းသူ မေမြတ်မြတ်ခိုင်က ပိုးကရင် ဘာသာပြန်ထားတဲ့ စာကြောင်းတွေကို ပြန်စစ်ပြီး corpus ကို update လုပ်ခဲ့တာကြောင့် 6 Jan 2022 မှာ မြန်မာ-ပိုးကရင် အတွဲ တစ်ခုတည်းကို word-to-word translation ထပ်လုပ်ဖြစ်ခဲ့တယ်။ JIIST Journal ရေးတဲ့အခါမှာ update လုပ်နိုင်အောင်လို့... အောက်ပါ အကြောင်းအရာတွေက မြန်မာ-ပိုးကရင် အတွဲတစ်ခုတည်းကို run ခဲ့တဲ့ log နဲ့ ပတ်သက်ပြီးတော့ မှတ်သားထားတာပါ။  
+
+
+18Jan2021\ folder is the folder that I used for 1st w2w, anyma (shouldn't use for writing paper)
+ပိုးကရင်မှာက ဘာသာပြန်ထားတာတွေ alignment လုပ်ထားတာတွေက မညီဘူးလို့ မေမြတ်မြတ်ခိုင်က ပြောခဲ့တယ်။  
+
+Pwo-19141\ folder is the latest updated data (I received on 4 Jan 2022 from MMMK)
+ဒီ ဖိုလ်ဒါအောက်က ဒေတာကိုပဲ w2w နဲ့ anyma ကို ပြန် run ပြီးတော့ JIIST journal အတွက် သုံးရလိမ့်မယ်။
+
+
+## Re-run experiment with updated data (i.e. data with Pwo-19141\)
+
+1st I did backup as follows:
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ ls
+18Jan2021  note.txt  Pwo-19141  w2w
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ mkdir old-exp
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ cp -r ./w2w ./old-exp/
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ ls ./old-exp/
+w2w
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ 
+
+အရင် ရှိပြီးသား training, dev, test parallel data တွေကို ဝင်ဖျက်ခဲ့...  
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ ls
+all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm *.pk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm *.my
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ ls
+anyma  lex
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm -rf ./lex
+
+build-lexicon.sh ကို ဝင်ပြင်ခဲ့တယ်
+
+#for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+for fd in {my-pk}
+
+updated data နဲ့ အစားထိုးခဲ့... 
+ဖိုင်နာမည်ကို rename လုပ်တာတွေလည်း လုပ်ခဲ့... 
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ cat train.my dev.mya > train.m
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm train.my dev.mya
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ mv train.m train.my
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ 
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ cat train.pwk dev.pwk > train.pk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm train.pwk dev.pwk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ mv test.mya test.my
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ mv test.pwk test.pk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ 
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ wc *.my
+   1911   10843  206884 test.my
+  17230   99937 1883202 train.my
+  19141  110780 2090086 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ wc *.pk
+   1911   10078  185867 test.pk
+  17230  102315 1665507 train.pk
+  19141  112393 1851374 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$
+
+run the build-lexicon.sh script ... 
+
+Error ပေးတယ်။
+အကြောင်းအရင်းကိုရှာရင်းနဲ့ test data က အကြောင်း ၁၀၀ ပဲ ထားထားတာကို ပြန်သတိရလို့ test data ကို ပြန်ညှိခဲ့ အောက်ပါအတိုင်း ...
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ cp test.* ../../w2w/
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ ls
+all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ wc *.my
+  19139  110777 2090004 all.my
+    100     580   10882 test.my
+  19039  110197 2079122 train.my
+  38278  221554 4180008 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ wc *.pk
+  19139  112316 1850324 all.pk
+    100     562    9799 test.pk
+  19039  111754 1840525 train.pk
+  38278  224632 3700648 total
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$
+
+## Run and Debug Error
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./build-lexicon.sh 
+src: {my
+trg: pk}
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/{my-pk}/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 {my --lang2 pk} --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/{my-pk}/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/{my-pk}/w2w/lex;
+Step 0. Check files
+Traceback (most recent call last):
+  File "/media/ye/project2/exp/word2word-tran/word2word/make.py", line 65, in <module>
+    main()
+  File "/media/ye/project2/exp/word2word-tran/word2word/make.py", line 61, in main
+    Word2word.make(**vars(args))
+  File "/media/ye/project2/exp/word2word-tran/word2word/word2word/word2word.py", line 112, in make
+    f"custom parallel corpus file missing at {datapref}.{lang1}"
+AssertionError: custom parallel corpus file missing at /media/ye/project2/exp/word2word-tran/word2word/my-x/{my-pk}/w2w/train.pk}
+
+real	0m0.654s
+user	0m0.248s
+sys	0m0.546s
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
+
+Error ကို သေချာ ကြည့်ကြည့်တော့ bash script ရဲ့ syntax error လို့ ယူဆခဲ့...
+
+အဲဒါကြောင့် shell script မှာ အောက်ပါအတိုင်း ပြင်ခဲ့...
+for fd in {my-pk} ===>  for fd in my-pk
+
+## Run for my-pk word-to-word lexicon building with updated "my-pk" data
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./build-lexicon.sh 
+src: my
+trg: pk
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+time python /media/ye/project2/exp/word2word-tran/word2word/make.py --lang1 my --lang2 pk --datapref /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/train --save_pmi --save_cooccurrence --savedir /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex;
+Step 0. Check files
+Step 1. Load tokenizer
+Step 2. Constructing sentences
+Entering multiprocessing with 16 workers...
+Entering multiprocessing with 16 workers...
+Time taken for step 2: 0.28s
+Step 3. Compute vocabularies
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 99937/99937 [00:00<00:00, 4220955.02it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 15207/15207 [00:00<00:00, 3017446.35it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 102315/102315 [00:00<00:00, 4371309.68it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 17787/17787 [00:00<00:00, 2972984.99it/s]
+Step 4. Update count dictionaries
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 17230/17230 [00:00<00:00, 25780.57it/s]
+Step 5. Translation using CPE scores
+Entering multiprocessing with 16 workers... (#words=15207)
+Entering multiprocessing with 16 workers... (#words=17787)
+Time taken for step 5: 4.99s
+Saving...
+Step 5-1. Translation using co-occurrence counts
+Step 5-2. Translation using PMI scores
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 15207/15207 [00:00<00:00, 24747.98it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 17787/17787 [00:00<00:00, 30629.88it/s]
+Done!
+
+real	0m9.164s
+user	0m21.853s
+sys	0m3.147s
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
+```
+
+## Check the "my-pk" folder
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex$ tree
+.
+├── co
+│   ├── my-pk.pkl
+│   └── pk-my.pkl
+├── my-pk.pkl
+├── pk-my.pkl
+└── pmi
+    ├── my-pk.pkl
+    └── pk-my.pkl
+
+2 directories, 6 files
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex$
+
+## update test-lexicon.sh for "my-pk" 
+
+```bash
+%for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+for fd in my-pk
+```
+
+## Run test-lexicon.sh only for "my-pk" language pair
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./test-lexicon.sh
+./test-lexicon.sh: line 7: fg: no job control
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+my-pk word2word translation results: co, pmi and cpe order... 
+OOV percentage:  11.54%
+OOV percentage:  11.54%
+OOV percentage:  11.54%
+pk-my word2word translation results: co, pmi and cpe order... 
+OOV percentage:  25.73%
+OOV percentage:  25.73%
+OOV percentage:  25.73%
+==========
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+
+## update pkl-to-human-readable.sh for "my-pk"
+
+```bash
+#for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+for fd in my-pk
+```
+
+## Convert pkl-to-human-readable for "my-pk"
+
+my-pk language pair အတွက် pkl-to-human-readable ပြောင်းခဲ့တယ်။
+Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း မြင်ရပါလိမ့်မယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./pkl-to-human-readable.sh 
+ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
+converting for my-pk lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my-pk.co.normal
+  15204: [1, 12002, 11, 16579, 0],
+  15205: [2542, 9871, 9867, 38, 6459, 13, 0],
+  15206: [6720, 16749, 15, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my-pk.pmi.normal
+  15204: [16579, 12002, 11, 1, 0],
+  15205: [9871, 9867, 6459, 2542, 38, 13, 0],
+  15206: [16749, 6720, 15, 0]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my-pk.cpe.normal
+  15204: [12002, 16579, 1, 11, 0],
+  15205: [9871, 9867, 6459, 2542, 38, 13, 0],
+  15206: [6720, 16749, 0, 15]})
+converting for pk-my lexicons: co, pmi and cpe order... 
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk-my.co.normal
+  17784: [6134, 0, 196, 312, 309, 68],
+  17785: [86, 107, 309, 11, 55, 1455, 217],
+  17786: [5, 2132, 2449, 206, 1065, 11, 3389, 2402]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk-my.pmi.normal
+  17784: [6134, 312, 309, 196, 68, 0],
+  17785: [1455, 309, 217, 107, 86, 55, 11],
+  17786: [3389, 2449, 2402, 2132, 1065, 206, 11, 5]})
+/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk-my.cpe.normal
+  17784: [6134, 309, 196, 68, 0, 312],
+  17785: [309, 107, 1455, 217, 86, 55, 11],
+  17786: [2449, 1065, 2402, 206, 2132, 3389, 5, 11]})
+==========
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+အထက်ပါအတိုင်း lexicon တွေကို count လုပ်ကြည့်တော့ approach သုံးမျိုးအကြားမှာ အဘိဓာန်ရဲ့ size စာလုံးအရေအတွက်က ကွဲပြားမှု မရှိတာကို တွေ့ရပါတယ်။  
+သို့သော် approach တစ်ခုချင်းစီပေါ်ကို မူတည်ပြီး ဆွဲထုတ်ထားပြီး word-to-word mapping လုပ်ထားတာတွေကတော့ တူမှာ မဟုတ်ပါဘူး...  
+
+## Update column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+
+```bash
+#for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+for fd in my-pk
+```
+
+## Run column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./column-to-nbest-word-sentence-with-OOV.sh 
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp ... 
+ 100  580 6115 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+ယီၩ OOV အဝ့ၫၥံၪ နီၪ မွဲအ့ၬဧၪ
+ဘိၩ့နဲၪ့ယီၩနီၪ OOV ထူၭ OOV
+လဲၪ အၪ့ကံၩ့အၪ့ယၫ လဲၪ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp ... 
+  100   580 13582 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp.line
+ကဂၪ OOV ဖီၡီၪနီၪ မွဲအ့ၬဧၪ ကကၠူၭ
+အမိအဖါၥံၪ OOV ကဘၪထဲးလိၬၥၭ OOV
+ခိၭနၪဆၧအလူ ဂီၩ့ယူၭနဲၫ ချဲၩဒုၪဒွ့ၫဆၧ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp ... 
+  100   580 10096 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp.line
+ယီၩ OOV ဖီၡီၪနီၪ ကၥ့ၪယၫ မွဲအ့ၬဧၪ
+ဘိၩ့နဲၪ့ယီၩနီၪ OOV ထူၭ OOV
+မပၩၥံၪ အၪ့ကံၩ့အၪ့ယၫ မပၩလဲၪၥံၪ
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp ... 
+ 100  562 7639 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp.line
+ကျွန်တော့်မှာ ငွေ ရှိ အများကြီး ကျွန်တော်
+ကို OOV OOV မ ကို
+OOV OOV ငါတို့တော့ ပေါ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp ... 
+  100   562 12826 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp.line
+ကဒ်လည်း နေရပါတယ် ရှိပါဘူး ပြင်ဆင်ဖို့ ပြီးတော့
+ဖြစ်တဲ့အတွက်ကြောင့် OOV OOV တယ်မလား ရမလား
+OOV OOV လွတ်တော့မှာပဲ ကြိုးစားပေါ့
+converting for /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp ... 
+ 100  562 9406 /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp.line
+ကျွန်တော့်မှာ ငွေ ပါသလား အများကြီး သင့်တယ်
+မှာလဲ OOV OOV မဟုတ်ဘူးလား တာလား
+OOV OOV ငါတို့တော့ တာပေါ့
+==========
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+## Update evaluation-with-BLEU.sh for "my-pk"
+
+```bash
+#for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
+for fd in my-pk
+```
+
+## Run evaluation-with-BLEU.sh for "my-pk"
+
+sentence level BLEU score ကတော့ my-pk အတွဲအတွက်ကလည်း သုညမကွဲပါဘူး...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./evaluation-with-BLEU.sh 
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.pk
+BLEU calculation for my-pk word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 9.3/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+BLEU calculation for my-pk word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/pk.pmi.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 0.0/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+BLEU calculation for my-pk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pk.cpe.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 0.2/0.0/0.0/0.0 (BP=1.000, ratio=1.032, hyp_len=580, ref_len=562)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+----------------------------
+reference filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.my
+BLEU calculation for pk-my word-to-word translation with co-occurrence:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/my.co.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 4.4/0.2/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+BLEU calculation for pk-my word-to-word translation with PMI:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/pmi/my.pmi.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 0.2/0.0/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+BLEU calculation for my-pk word-to-word translation with CPE:
+hyp filename: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/my.cpe.hyp.line
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+Use of uninitialized value in division (/) at /home/ye/tool/mosesdecoder/scripts/generic/multi-bleu.perl line 139, <STDIN> line 100.
+BLEU = 0.00, 0.4/0.0/0.0/0.0 (BP=0.968, ratio=0.969, hyp_len=562, ref_len=580)
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+==========
+
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+## Check the Translated Result
+
+အရင်ဆုံး ပိုးကရင် Reference ဖိုင်ကို ကြည့်ရအောင်...  
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.pk
+ယအီၪနီၪ စ့ၩ အီၪ အၪလ့ၬ လီၫ
+က ဖီၡီၫ အဆၧၫ့ယီၩ မွဲအ့ၬ ဧၪ
+ထီယီၩအဘိၩ့ဘၭနီၪ ကဘၪထူၭဒၪ ဘၧၭစကၩလီၫ လၥၨၩ
+မွဲၦလဖၪ အၪ့ကံၩ့အၪ့ယၫဆၧ လဲၪ
+ယ ကဘၪ မၩန့အ့ၪ နၧၩ နးခွၭဒီၭ ဧၪ
+ယူၫရဲၭခၩ အယီၩ မွဲ ပ မၩ
+န ဘျံၭ ယၧၩ လဂ့ၩ
+ၦမုၪနီၪ ထဲၩ့ဘံၪ့ထ့ ယၧၩ အမ့ၬၥၪ လီၫ
+န ဂဲၫထဲၩ့ မၩဆၧမၩ ထနီၪ ဧၪ
+မွဲဘဲၫ ဆၧအဂဲးမွဲမွဲ အ့ၪ န ကအၪ့လဲၩထၪ့ နၥၭတၭ ဒုၭၥ့ၪယၫဘၪလါ ယၧၩ ဆံၭ
+```
+
+word-to-word ဘာသာပြန်ထားတာကို စာကြောင်းအဖြစ် (i.e. sentence level) နဲ့ တွဲထားတဲ့ output ကို ကြည့်ရင် အောက်ပါအတိုင်း OOV တွေ အများကြီး တွဲပါနေတာကို တွေ့ရလိမ့်မယ်။ sentence level translation က ခက်တယ်လေ... 
+
+```
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
+ယီၩ OOV အဝ့ၫၥံၪ နီၪ မွဲအ့ၬဧၪ
+ဘိၩ့နဲၪ့ယီၩနီၪ OOV ထူၭ OOV
+လဲၪ အၪ့ကံၩ့အၪ့ယၫ လဲၪ
+ယ နၧၩ လီၫ လီၫ ဧၪ ဧၪ
+OOV အယီၩ ပ မၩ လီၫ
+ယၧၩ အ့ၬ နီၪ လဂ့ၩ
+ၦမုၪ ယ နီၪ န လီၫ
+န လီၫ မၩဆၧမၩ ဧၪ
+န OOV န OOV န OOV နီၪ အ့ၪမွဲ OOV OOV
+န လဲၪ အီၪ လဲၪ
+(base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
+
+
 
 ## Discussion-1
 
