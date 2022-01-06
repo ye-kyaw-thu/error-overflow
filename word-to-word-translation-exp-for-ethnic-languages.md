@@ -3502,17 +3502,18 @@ OOV မရှိဘူး ဘူးလား တာလား
 ကျောင်းသူ မေမြတ်မြတ်ခိုင်က ပိုးကရင် ဘာသာပြန်ထားတဲ့ စာကြောင်းတွေကို ပြန်စစ်ပြီး corpus ကို update လုပ်ခဲ့တာကြောင့် 6 Jan 2022 မှာ မြန်မာ-ပိုးကရင် အတွဲ တစ်ခုတည်းကို word-to-word translation ထပ်လုပ်ဖြစ်ခဲ့တယ်။ JIIST Journal ရေးတဲ့အခါမှာ update လုပ်နိုင်အောင်လို့... အောက်ပါ အကြောင်းအရာတွေက မြန်မာ-ပိုးကရင် အတွဲတစ်ခုတည်းကို run ခဲ့တဲ့ log နဲ့ ပတ်သက်ပြီးတော့ မှတ်သားထားတာပါ။  
 
 
-18Jan2021\ folder is the folder that I used for 1st w2w, anyma (shouldn't use for writing paper)
+18Jan2021\ folder is the folder that I used for 1st w2w, anyma (shouldn't use for writing paper)  
 ပိုးကရင်မှာက ဘာသာပြန်ထားတာတွေ alignment လုပ်ထားတာတွေက မညီဘူးလို့ မေမြတ်မြတ်ခိုင်က ပြောခဲ့တယ်။  
 
-Pwo-19141\ folder is the latest updated data (I received on 4 Jan 2022 from MMMK)
-ဒီ ဖိုလ်ဒါအောက်က ဒေတာကိုပဲ w2w နဲ့ anyma ကို ပြန် run ပြီးတော့ JIIST journal အတွက် သုံးရလိမ့်မယ်။
+Pwo-19141\ folder is the latest updated data (I received on 4 Jan 2022 from MMMK)  
+ဒီ ဖိုလ်ဒါအောက်က ဒေတာကိုပဲ w2w နဲ့ anyma ကို ပြန် run ပြီးတော့ JIIST journal အတွက် သုံးရလိမ့်မယ်။  
 
 
 ## Re-run experiment with updated data (i.e. data with Pwo-19141\)
 
-1st I did backup as follows:
+1st I did backup as follows:  
 
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ ls
 18Jan2021  note.txt  Pwo-19141  w2w
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ mkdir old-exp
@@ -3520,9 +3521,11 @@ Pwo-19141\ folder is the latest updated data (I received on 4 Jan 2022 from MMMK
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ ls ./old-exp/
 w2w
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk$ 
+```
 
 အရင် ရှိပြီးသား training, dev, test parallel data တွေကို ဝင်ဖျက်ခဲ့...  
 
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ ls
 all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm *.pk
@@ -3532,15 +3535,19 @@ anyma  lex
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$
 
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm -rf ./lex
+```
 
-build-lexicon.sh ကို ဝင်ပြင်ခဲ့တယ်
+build-lexicon.sh ကို ဝင်ပြင်ခဲ့တယ်  
 
+```bash
 #for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
 for fd in {my-pk}
+```
 
-updated data နဲ့ အစားထိုးခဲ့... 
-ဖိုင်နာမည်ကို rename လုပ်တာတွေလည်း လုပ်ခဲ့... 
+updated data နဲ့ အစားထိုးခဲ့...  
+ဖိုင်နာမည်ကို rename လုပ်တာတွေလည်း လုပ်ခဲ့...  
 
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ cat train.my dev.mya > train.m
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ rm train.my dev.mya
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$ mv train.m train.my
@@ -3559,12 +3566,14 @@ updated data နဲ့ အစားထိုးခဲ့...
   17230  102315 1665507 train.pk
   19141  112393 1851374 total
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w$
+```
 
-run the build-lexicon.sh script ... 
+run the build-lexicon.sh script ...   
 
-Error ပေးတယ်။
-အကြောင်းအရင်းကိုရှာရင်းနဲ့ test data က အကြောင်း ၁၀၀ ပဲ ထားထားတာကို ပြန်သတိရလို့ test data ကို ပြန်ညှိခဲ့ အောက်ပါအတိုင်း ...
+Error ပေးတယ်။  
+အကြောင်းအရင်းကိုရှာရင်းနဲ့ test data က အကြောင်း ၁၀၀ ပဲ ထားထားတာကို ပြန်သတိရလို့ test data ကို ပြန်ညှိခဲ့ အောက်ပါအတိုင်း ...  
 
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ cp test.* ../../w2w/
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$ ls
 all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
@@ -3579,9 +3588,13 @@ all.my  all.pk  anyma  lex  test.my  test.pk  train.my  train.pk
   19039  111754 1840525 train.pk
   38278  224632 3700648 total
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/old-exp/w2w$
+```
 
-## Run and Debug Error
+## Run and Debug the Error
 
+build-lexicon.sh ကို ထပ် run ပြီး ပေးနေတဲ့ error ကို debug လုပ်ခဲ့တယ်။  
+
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./build-lexicon.sh 
 src: {my
 trg: pk}
@@ -3601,13 +3614,16 @@ real	0m0.654s
 user	0m0.248s
 sys	0m0.546s
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$
+```
 
-Error ကို သေချာ ကြည့်ကြည့်တော့ bash script ရဲ့ syntax error လို့ ယူဆခဲ့...
+Error ကို သေချာ ကြည့်ကြည့်တော့ bash script ရဲ့ syntax error လို့ ယူဆခဲ့...  
 
-အဲဒါကြောင့် shell script မှာ အောက်ပါအတိုင်း ပြင်ခဲ့...
-for fd in {my-pk} ===>  for fd in my-pk
+အဲဒါကြောင့် shell script မှာ အောက်ပါအတိုင်း ပြင်ခဲ့...  
+for fd in {my-pk} ===>  for fd in my-pk  
 
 ## Run for my-pk word-to-word lexicon building with updated "my-pk" data
+
+ဒီတစ်ခါ run တော့ အဆင်ပြေသွားပါတယ်။ error လည်း မပေးတော့ပါဘူး...  
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x$ ./build-lexicon.sh 
@@ -3647,6 +3663,9 @@ sys	0m3.147s
 
 ## Check the "my-pk" folder
 
+folder structure ကို tree command နဲ့ စစ်ကြည့်ပြီး အဆင်ပြေမပြေကို confirm လုပ်ခဲ့တယ်...  
+
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex$ tree
 .
 ├── co
@@ -3660,8 +3679,11 @@ sys	0m3.147s
 
 2 directories, 6 files
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex$
+```
 
 ## update test-lexicon.sh for "my-pk" 
+
+test-lecicon.sh script ကို ဝင်ပြင်ခဲ့...  
 
 ```bash
 %for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
@@ -3670,6 +3692,7 @@ for fd in my-pk
 
 ## Run test-lexicon.sh only for "my-pk" language pair
 
+```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./test-lexicon.sh
 ./test-lexicon.sh: line 7: fg: no job control
 ref_path: /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w
@@ -3683,8 +3706,11 @@ OOV percentage:  25.73%
 OOV percentage:  25.73%
 ==========
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
+```
 
 ## update pkl-to-human-readable.sh for "my-pk"
+
+pkl-to-human-readable.sh shell script ကိုလည်း my-pk အတွဲ တစ်ခုတွဲအတွက် run ပေးအောင် အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
 ```bash
 #for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
@@ -3693,8 +3719,8 @@ for fd in my-pk
 
 ## Convert pkl-to-human-readable for "my-pk"
 
-my-pk language pair အတွက် pkl-to-human-readable ပြောင်းခဲ့တယ်။
-Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း မြင်ရပါလိမ့်မယ်။  
+my-pk language pair အတွက် pkl-to-human-readable ပြောင်းခဲ့တယ်။  
+Lexicon တစ်ခုချင်းစီရဲ့ size ကိုလည်း မြင်ရပါလိမ့်မယ်။   
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./pkl-to-human-readable.sh 
@@ -3729,10 +3755,12 @@ converting for pk-my lexicons: co, pmi and cpe order...
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
 
-အထက်ပါအတိုင်း lexicon တွေကို count လုပ်ကြည့်တော့ approach သုံးမျိုးအကြားမှာ အဘိဓာန်ရဲ့ size စာလုံးအရေအတွက်က ကွဲပြားမှု မရှိတာကို တွေ့ရပါတယ်။  
+အထက်ပါအတိုင်း lexicon တွေကို count လုပ်ကြည့်တော့ approach သုံးမျိုးအကြားမှာ အဘိဓာန်ရဲ့ size စာလုံးအရေအတွက်က ကွဲပြားမှု မရှိတာကို တွေ့ရပါတယ်။   
 သို့သော် approach တစ်ခုချင်းစီပေါ်ကို မူတည်ပြီး ဆွဲထုတ်ထားပြီး word-to-word mapping လုပ်ထားတာတွေကတော့ တူမှာ မဟုတ်ပါဘူး...  
 
 ## Update column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+
+column-to-nbest-word-sentence-with-OOV.sh ကိုလည်း ဝင်ပြင်ခဲ့တယ်။  
 
 ```bash
 #for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
@@ -3740,6 +3768,8 @@ for fd in my-pk
 ```
 
 ## Run column-to-nbest-word-sentence-with-OOV.sh for "my-pk"
+
+column-to-nbest-word-sentence-with-OOV.sh ကို အောက်ပါအတိုင်း run ခဲ့တယ်။  
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ ./column-to-nbest-word-sentence-with-OOV.sh 
@@ -3778,6 +3808,8 @@ OOV OOV ငါတို့တော့ တာပေါ့
 ```
 
 ## Update evaluation-with-BLEU.sh for "my-pk"
+
+evaluation လုပ်တဲ့ shell script evaluation-with-BLEU.sh ကိုလည်း ဝင်ပြင်ခဲ့တယ်။  
 
 ```bash
 #for fd in {my-bk,my-ch,my-kc,my-ky,my-mo,my-pk,my-po,my-rk,my-rw,my-sh,my-sk,rk-bk,rw-kc}
@@ -3842,7 +3874,7 @@ It is not advisable to publish scores from multi-bleu.perl.  The scores depend o
 
 ## Check the Translated Result
 
-အရင်ဆုံး ပိုးကရင် Reference ဖိုင်ကို ကြည့်ရအောင်...  
+အရင်ဆုံး ပိုးကရင် Reference ဖိုင်ကို ကြည့်ရအောင်...   
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/test.pk
@@ -3858,7 +3890,7 @@ It is not advisable to publish scores from multi-bleu.perl.  The scores depend o
 မွဲဘဲၫ ဆၧအဂဲးမွဲမွဲ အ့ၪ န ကအၪ့လဲၩထၪ့ နၥၭတၭ ဒုၭၥ့ၪယၫဘၪလါ ယၧၩ ဆံၭ
 ```
 
-word-to-word ဘာသာပြန်ထားတာကို စာကြောင်းအဖြစ် (i.e. sentence level) နဲ့ တွဲထားတဲ့ output ကို ကြည့်ရင် အောက်ပါအတိုင်း OOV တွေ အများကြီး တွဲပါနေတာကို တွေ့ရလိမ့်မယ်။ sentence level translation က ခက်တယ်လေ... 
+word-to-word ဘာသာပြန်ထားတာကို စာကြောင်းအဖြစ် (i.e. sentence level) နဲ့ တွဲထားတဲ့ output ကို ကြည့်ရင် အောက်ပါအတိုင်း OOV တွေ အများကြီး တွဲပါနေတာကို တွေ့ရလိမ့်မယ်။ sentence level translation က ခက်တယ်လေ...   
 
 ```
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$ head /media/ye/project2/exp/word2word-tran/word2word/my-x/my-pk/w2w/lex/co/pk.co.hyp.line
@@ -3874,8 +3906,6 @@ OOV အယီၩ ပ မၩ လီၫ
 န လဲၪ အီၪ လဲၪ
 (base) ye@:/media/ye/project2/exp/word2word-tran/word2word$
 ```
-
-
 
 ## Discussion-1
 
