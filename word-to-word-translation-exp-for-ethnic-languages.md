@@ -1220,7 +1220,7 @@ approaches based on (monolingual and cross-lingual) cooccurrence counts: co-occu
 
 ## Prepare Some Running Scripts
 
-translation လုပ်ဖို့အတွက် python ပရိုဂရမ်ကို အောက်ပါအတိုင်း ရေခဲ့တယ်။  
+translation လုပ်ဖို့အတွက် python ပရိုဂရမ်ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
 
 ```python
 import sys
