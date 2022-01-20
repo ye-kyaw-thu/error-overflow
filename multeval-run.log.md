@@ -5079,6 +5079,18 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 
 <br />
 
+## Notes
+
+ဒီ error log မှာ ထည့် run မပြထားပေမဲ့... တကယ်က decoder ကနေ translation လုပ်တဲ့အခါမှာ n-best list ထုတ်ထားပြီးတော့ multeval tool ကိုသုံးပြီးတော့ evaluation metric နဲ့ top score တွေကိုပဲ sorting စီပြီး evaluation လုပ်တာမျိုးလည်း လုပ်လို့ ရသေးတယ်။ multeval ရဲ့ Readme မှာ ရှင်းပြထားတဲ့ "Using MultEval for Error Analysis and Oracle Scoring" ဆိုတဲ့ section ကို refer လုပ်ပါ။ အောက်ပါလိုမျိုး command ပေးပြီး run လို့ ရပါတယ်။  
+
+```
+./multeval.sh nbest --nbest example/cdec.kbest \
+                    --refs example/cdec.ref* \
+                    --meteor.language en \
+                    --rankDir rank \
+                    > kbest.scored
+```
+
 ## Meteor-1.5-Dbnary version
 
 - [http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/](http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/)   
