@@ -5020,7 +5020,7 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run1-dw-my-bk.png" alt="run1-dw-my-bk" width="500"/>
 </p>  
 <div align="center">
-  Fig.1 Left: bk-my-dw, Right: dw-my-bk  
+  Fig.1 RUN1 Results, Left: bk-my-dw, Right: dw-my-bk  
 </div> 
 
 <br />
@@ -5030,10 +5030,34 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run1-rk-my-bk.png" alt="run1-rk-my-bk" width="500"/>
 </p>  
 <div align="center">
-  Fig.1 Left: bk-my-rk, Right: rk-my-bk  
+  Fig.2 RUN1 Results, Left: bk-my-rk, Right: rk-my-bk  
 </div> 
 
 <br />
+
+---
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run2-bk-my-dw.png" alt="run2-bk-my-dw" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run2-dw-my-bk.png" alt="run2-dw-my-bk" width="500"/>
+</p>  
+<div align="center">
+  Fig.3 RUN2 Results, Left: bk-my-dw, Right: dw-my-bk  
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run2-bk-my-rk.png" alt="run2-bk-my-rk" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run2-rk-my-bk.png" alt="run2-rk-my-bk" width="500"/>
+</p>  
+<div align="center">
+  Fig.4 RUN2 Results, Left: bk-my-rk, Right: rk-my-bk  
+</div> 
+
+<br />
+
+---
 
 ## Meteor-1.5-Dbnary version
 
