@@ -5015,6 +5015,17 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 ## Analysis on Evaluation Results
 
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run1-bk-my-dw.png" alt="run1-bk-my-dw" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run1-dw-my-bk.png" alt="run1-dw-my-bk" width="800"/>
+</p>  
+<div align="center">
+  Fig.1 Left: bk-my-dw, Right: dw-my-bk  
+</div> 
+
+<br />
+
+
 ## Meteor-1.5-Dbnary version
 
 http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/  
