@@ -747,6 +747,7 @@ Ref: https://www.cs.cmu.edu/~alavie/METEOR/README.html
 --sentLevelDir sentLevel
 ```
 
+paraphrase ကိစ္စကိုပါ METEOR စဉ်းစားပေးတယ်။ ခက်တာက မြန်မာစာအတွက်က ကိုယ်တိုင် ဒေတာပြင်ပြီး meteor documentation ကိုဝင်ဖတ်ကြည့်ပြီး update လုပ်မှ ရလိမ့်မယ်။ အဲဒါနဲ့ ```--meteor.language en``` ဆိုတဲ့ option နဲ့ပဲ ထားပြီး run ခဲ့တယ်။  
 အထက်ပါ command နဲ့ option တွေနဲ့ ဆိုရင် run လို့တော့ ရသွားပြီ။ သို့သော် အောက်ပါအတိုင်း optimizer ကို တစ်ခုထက်မက ပိုသုံးဖို့ message ပေးတယ်။  
 
 ```
@@ -1073,10 +1074,10 @@ check with "wc" command ...
   26488  161747 2505980 total
 ```
 
-အထက်ပါအတိုင်း opt10 မှာက စာကြောင်းရေက 592 ပဲ ရှိလို့ ပေးနေတဲ့ error ...
+အထက်ပါအတိုင်း opt10 မှာက စာကြောင်းရေက 592 ပဲ ရှိလို့ ပေးနေတဲ့ error ...  
 အဲဒါကြောင့် 1 to 9 နဲ့ပဲ စမ်းဖို့ ဆုံးဖြတ်ခဲ့... အဲဒါနဲ့လည်း သီအိုရီအရဆိုရင် significant ဖြစ်မဖြစ်က measure လုပ်လို့ အိုကေတယ်။  
 
-folder အသစ်ဆောက်ပြီး အဲဒီ ဖိုလ်ဒါအောက်ကို 10/ ရဲ့ ဒေတာကို ခဏရွှေ့ထားခဲ့...  
+folder အသစ်ဆောက်ပြီး အဲဒီ ဖိုလ်ဒါအောက်ကို 10/ ရဲ့ ဒေတာကို ခဏရွှေ့ထားခဲ့...   
 
 ```
 (base) ye@:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw$ mv *10 ./for-10/
@@ -1085,7 +1086,7 @@ mv: cannot move 'for-10' to a subdirectory of itself, './for-10/for-10'
 baseline.opt10  bk-my-dw.ref10  transfer.opt10  triangulation.opt10
 ```
 
-ထပ် run ကြည့်ခဲ့တော့ run လို့တော့ ရသွားပြီ...  
+ထပ် run ကြည့်ခဲ့တော့ run လို့တော့ ရသွားပြီ...   
 
 ```
 (base) ye@:/media/ye/project2/tool/multeval$ time ./multeval.sh eval --refs /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref* --hyps-baseline /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt* --hyps-sys1 /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt* --hyps-sys2 /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt* --meteor.language en --latex table.tex --rankDir rank --sentLevelDir sentLevel
@@ -1335,7 +1336,7 @@ sys	0m0.590s
 
 ## Evaluation for dw-my-bk
 
-အရင်ဆုံး 10/ အတွက် ရထားတဲ့ အဖြေတွေနဲ့ ref ကို folder အသစ်ဆောက်ပြီး ရွှေ့ထားခဲ့...  
+အရင်ဆုံး 10/ (i.e. no. 10 folder of 10-fold cross validation MT experiment) အတွက် ရထားတဲ့ အဖြေတွေနဲ့ ref ကို folder အသစ်ဆောက်ပြီး ရွှေ့ထားခဲ့...   
 
 ```
 (base) ye@:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk$ mkdir for-10
@@ -2182,11 +2183,8 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 (base) ye@:/media/ye/project2/tool/multeval$ mv table.tex bk-my-rk.table.tex
 ```
 
-ရလဒ် ဇယားတွေကို လေ့လာကြည့်ရအောင်....  
 
-
-
-## Check rank/
+## Check "rank/" Folder
 
 ```
 (base) ye@:/media/ye/project2/tool/multeval/rank$ ls
@@ -2309,7 +2307,7 @@ sys1.opt2   sys1.opt5  sys1.opt8  sys2.opt10  sys2.opt4  sys2.opt7  sys3.opt1  s
 
 ## Calculation between Sys1 vs Sys2
 
-ဒီတစ်ခါတော့ System 1 နဲ့ System 2 အကြား နှိုင်းယှဉ်ကြည့်ချင်လို့ အထက်က ပထမဆုံး run ခဲ့တဲ့ shell script ကို အောက်ပါအတိုင်း ပြင်လိုက်တယ်။
+ဒီတစ်ခါတော့ System 1 နဲ့ System 2 အကြား နှိုင်းယှဉ်ကြည့်ချင်လို့ အထက်က ပထမဆုံး run ခဲ့တဲ့ shell script ကို အောက်ပါအတိုင်း ပြင်လိုက်တယ်။  
 
 ```bash
 #!/bin/bash
@@ -3161,7 +3159,7 @@ echo "==========";
 
 ```
 
-running output က အောက်ပါအတိုင်း
+running output က အောက်ပါအတိုင်း  
 
 ```
 (base) ye@:/media/ye/project2/tool/multeval$ time ./run3.sh | tee run3.log
