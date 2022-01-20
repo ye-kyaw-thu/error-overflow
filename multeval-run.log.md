@@ -5074,7 +5074,7 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multeval/run3-rk-my-bk.png" alt="run3-rk-my-bk" width="500"/>
 </p>  
 <div align="center">
-  Fig.5 RUN3 Results, Left: bk-my-rk, Right: rk-my-bk  
+  Fig.6 RUN3 Results, Left: bk-my-rk, Right: rk-my-bk  
 </div> 
 
 <br />
