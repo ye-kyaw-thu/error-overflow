@@ -45,6 +45,8 @@ ced_word_alignment/             mteval/                         sqlite-autoconf-
 
 ## Run Ant
 
+Ant ကို run ပေးဖို့ လိုအပ်နေတာကို တွေ့ရတယ်။  
+
 Ref: https://github.com/jhclark/multeval/issues/24  
 Ref: https://github.com/jhclark/multeval#building  
 
@@ -77,6 +79,8 @@ Total time: 1 second
 ```
 
 ## 1st Time Running Success
+
+Ant ကို run ပေးလိုက်တော့ အဆင်ပြေသွားတယ်။  
 
 ```
 (base) ye@:/media/ye/project2/tool/multeval$ ./multeval.sh eval --refs example/refs.test2010.lc.tok.en.*                    --hyps-baseline example/hyps.lc.tok.en.baseline.opt*                    --meteor.language en
