@@ -5104,3 +5104,4 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 4. Michael Denkowski and Alon Lavie, "Meteor 1.3: Automatic Metric for Reliable Optimization and Evaluation of Machine Translation Systems," Proceedings of the EMNLP 2011 Workshop on Statistical Machine Translation, 2011. (NOTE: MultEval uses Meteor 1.4; Meteor 1.4 is the same as Meteor 1.3, but just has support for more languages)
 5. Matthew Snover, Bonnie Dorr, Richard Schwartz, Linnea Micciulla, and John Makhoul, "A Study of Translation Edit Rate with Targeted Human Annotation," Proceedings of Association for Machine Translation in the Americas, 2006.
 6. [Automated MT Evaluation Metrics by Milica Panić, 22 Jul 2020](https://blog.taus.net/automated-mt-evaluation-metrics)
+7. Kreutzer, Julia et al. “QUality Estimation from ScraTCH (QUETCH): Deep Learning for Word-level Translation Quality Estimation.” WMT@EMNLP (2015). [Paper](https://aclanthology.org/W15-3037.pdf)
