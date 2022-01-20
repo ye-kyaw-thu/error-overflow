@@ -5096,4 +5096,10 @@ system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)
 - [http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/](http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/)   
 - [http://kaiko.getalp.org/about-dbnary/dataset/](http://kaiko.getalp.org/about-dbnary/dataset/)   
 
+## Reference
 
+1. [multeval](https://github.com/jhclark/multeval) 
+2. Jonathan Clark, Chris Dyer, Alon Lavie, and Noah Smith, "Better Hypothesis Testing for Statistical Machine Translation: Controlling for Optimizer Instability", Proceedings of the Association for Computational Lingustics, 2011.
+3. Kishore Papineni, Salim Roukos, Todd Ard, and Wei-Jing Zhu, "BLEU: a method for automatic evaluation of machine translation," Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics, 2002.
+4. Michael Denkowski and Alon Lavie, "Meteor 1.3: Automatic Metric for Reliable Optimization and Evaluation of Machine Translation Systems," Proceedings of the EMNLP 2011 Workshop on Statistical Machine Translation, 2011. (NOTE: MultEval uses Meteor 1.4; Meteor 1.4 is the same as Meteor 1.3, but just has support for more languages)
+5. Matthew Snover, Bonnie Dorr, Richard Schwartz, Linnea Micciulla, and John Makhoul, "A Study of Translation Edit Rate with Targeted Human Annotation," Proceedings of Association for Machine Translation in the Americas, 2006.
