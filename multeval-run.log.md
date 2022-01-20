@@ -4016,6 +4016,1005 @@ folder နဲ့ file တွေကို tree command နဲ့ စစ်ဆေ�
 (base) ye@:/media/ye/project2/tool/multeval$
 ```
 
+## re-run run1
+
+output folder တွေကို အာလုံး folder တစ်ခုအောက်မှာပဲ စုထားချင်လို့ run1 အတွက် shell script ကိုလည်း ပြင်ပြီး ထပ် run ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/tool/multeval$ time ./run1.sh | tee run1-2ndtime-run.log
+Found existing METEOR installation at ./lib/meteor-1.4
+MultEval V0.5.1
+By Jonathan Clark
+Using Libraries: METEOR (Michael Denkowski) and TER (Matthew Snover)
+
+Loading metric: bleu
+Loading metric: meteor
+Loading metric: ter
+Loading metric: length
+Found library jBLEU at file:/media/ye/project2/tool/multeval/multeval-0.5.1.jar
+Found library METEOR at file:/media/ye/project2/tool/multeval/lib/meteor-1.4/meteor-1.4.jar
+Using METEOR Version 1.4
+Loading METEOR paraphrase table...
+Loaded METEOR in 5.28 s
+Found library TER at file:/media/ye/project2/tool/multeval/lib/tercom-0.8.0.jar
+Using 8 threads
+Reading Hypotheses for system baseline opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt1
+Reading Hypotheses for system baseline opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt2
+Reading Hypotheses for system baseline opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt3
+Reading Hypotheses for system baseline opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt4
+Reading Hypotheses for system baseline opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt5
+Reading Hypotheses for system baseline opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt6
+Reading Hypotheses for system baseline opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt7
+Reading Hypotheses for system baseline opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt8
+Reading Hypotheses for system baseline opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/baseline.opt9
+Reading Hypotheses for system 1 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt1
+Reading Hypotheses for system 1 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt2
+Reading Hypotheses for system 1 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt3
+Reading Hypotheses for system 1 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt4
+Reading Hypotheses for system 1 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt5
+Reading Hypotheses for system 1 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt6
+Reading Hypotheses for system 1 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt7
+Reading Hypotheses for system 1 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt8
+Reading Hypotheses for system 1 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/transfer.opt9
+Reading Hypotheses for system 2 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt1
+Reading Hypotheses for system 2 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt2
+Reading Hypotheses for system 2 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt3
+Reading Hypotheses for system 2 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt4
+Reading Hypotheses for system 2 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt5
+Reading Hypotheses for system 2 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt6
+Reading Hypotheses for system 2 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt7
+Reading Hypotheses for system 2 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt8
+Reading Hypotheses for system 2 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/triangulation.opt9
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref1
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref2
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref3
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref4
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref5
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref6
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref7
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref8
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-dw/bk-my-dw.ref9
+Collecting sufficient statistics for metric: BLEU
+Finished collecting sufficient statistics for metric: BLEU
+Collecting sufficient statistics for metric: METEOR
+Finished collecting sufficient statistics for metric: METEOR
+Collecting sufficient statistics for metric: TER
+Finished collecting sufficient statistics for metric: TER
+Collecting sufficient statistics for metric: Length
+Finished collecting sufficient statistics for metric: Length
+Collected suff stats in 1.74 s
+Scoring with metric: BLEU
+RESULT: baseline: BLEU: AVG: 19.040364
+RESULT: baseline: BLEU: MEDIAN: 19.074694
+RESULT: baseline: BLEU: STDDEV: 0.891339
+RESULT: baseline: BLEU: MIN: 17.573734
+RESULT: baseline: BLEU: MAX: 20.229331
+RESULT: baseline: BLEU: MEDIAN_IDX: 1.000000
+RESULT: system 1: BLEU: AVG: 19.042434
+RESULT: system 1: BLEU: MEDIAN: 19.102299
+RESULT: system 1: BLEU: STDDEV: 1.048039
+RESULT: system 1: BLEU: MIN: 17.244120
+RESULT: system 1: BLEU: MAX: 20.292390
+RESULT: system 1: BLEU: MEDIAN_IDX: 7.000000
+RESULT: system 2: BLEU: AVG: 19.043974
+RESULT: system 2: BLEU: MEDIAN: 18.886349
+RESULT: system 2: BLEU: STDDEV: 0.905266
+RESULT: system 2: BLEU: MIN: 17.737365
+RESULT: system 2: BLEU: MAX: 20.552394
+RESULT: system 2: BLEU: MEDIAN_IDX: 8.000000
+Scoring with metric: METEOR
+RESULT: baseline: METEOR: AVG: 24.540353
+RESULT: baseline: METEOR: MEDIAN: 24.492708
+RESULT: baseline: METEOR: STDDEV: 0.455889
+RESULT: baseline: METEOR: MIN: 23.745844
+RESULT: baseline: METEOR: MAX: 25.412564
+RESULT: baseline: METEOR: MEDIAN_IDX: 1.000000
+RESULT: system 1: METEOR: AVG: 24.671590
+RESULT: system 1: METEOR: MEDIAN: 24.777206
+RESULT: system 1: METEOR: STDDEV: 0.437853
+RESULT: system 1: METEOR: MIN: 23.899297
+RESULT: system 1: METEOR: MAX: 25.182453
+RESULT: system 1: METEOR: MEDIAN_IDX: 1.000000
+RESULT: system 2: METEOR: AVG: 24.406830
+RESULT: system 2: METEOR: MEDIAN: 24.303646
+RESULT: system 2: METEOR: STDDEV: 0.406750
+RESULT: system 2: METEOR: MIN: 23.818734
+RESULT: system 2: METEOR: MAX: 25.041214
+RESULT: system 2: METEOR: MEDIAN_IDX: 8.000000
+Scoring with metric: TER
+RESULT: baseline: TER: AVG: 60.879318
+RESULT: baseline: TER: MEDIAN: 60.592194
+RESULT: baseline: TER: STDDEV: 1.344548
+RESULT: baseline: TER: MIN: 58.950202
+RESULT: baseline: TER: MAX: 63.176312
+RESULT: baseline: TER: MEDIAN_IDX: 1.000000
+RESULT: system 1: TER: AVG: 60.912218
+RESULT: system 1: TER: MEDIAN: 60.915209
+RESULT: system 1: TER: STDDEV: 1.159928
+RESULT: system 1: TER: MIN: 59.057873
+RESULT: system 1: TER: MAX: 63.230148
+RESULT: system 1: TER: MEDIAN_IDX: 1.000000
+RESULT: system 2: TER: AVG: 59.632122
+RESULT: system 2: TER: MEDIAN: 59.730821
+RESULT: system 2: TER: STDDEV: 0.740120
+RESULT: system 2: TER: MIN: 58.250336
+RESULT: system 2: TER: MAX: 60.699865
+RESULT: system 2: TER: MEDIAN_IDX: 3.000000
+Scoring with metric: Length
+RESULT: baseline: Length: AVG: 102.670294
+RESULT: baseline: Length: MEDIAN: 102.593516
+RESULT: baseline: Length: STDDEV: 0.480755
+RESULT: baseline: Length: MIN: 102.116142
+RESULT: baseline: Length: MAX: 103.599606
+RESULT: baseline: Length: MEDIAN_IDX: 4.000000
+RESULT: system 1: Length: AVG: 102.571126
+RESULT: system 1: Length: MEDIAN: 102.521632
+RESULT: system 1: Length: STDDEV: 0.369614
+RESULT: system 1: Length: MIN: 102.188716
+RESULT: system 1: Length: MAX: 103.390250
+RESULT: system 1: Length: MEDIAN_IDX: 6.000000
+RESULT: system 2: Length: AVG: 102.151654
+RESULT: system 2: Length: MEDIAN: 102.154848
+RESULT: system 2: Length: STDDEV: 0.393246
+RESULT: system 2: Length: MIN: 101.633576
+RESULT: system 2: Length: MAX: 102.794006
+RESULT: system 2: Length: MEDIAN_IDX: 4.000000
+Top unmatched hypothesis words accoring to METEOR: [ဟှို x 70, ဟှယ် x 37, သူ x 36, ဟှ x 34, နန် x 33, ဟှို့ x 30, နန့် x 28, မ x 24, နေဟှယ် x 23, ၊ x 20]
+Top unmatched reference words accoring to METEOR: [ဟှို x 30, ဟှယ် x 28, ကျွန်တော် x 27, နန် x 26, သူ x 24, ဟှ x 21, ငါ x 19, နူး x 17, ခံဗျား x 17, ဝို x 16]
+Top unmatched hypothesis words accoring to METEOR: [ဟှို x 82, ဟှယ် x 43, သူ x 42, နန် x 38, ဟှ x 34, ကျွန်တော် x 34, ဟှို့ x 32, မ x 28, လား x 27, နူး x 22]
+Top unmatched reference words accoring to METEOR: [ဟှို x 25, ဟှယ် x 23, နန် x 22, ဟှ x 20, ကျွန်တော် x 20, ငါ x 19, ခံဗျား x 19, ဝို x 16, သူ x 16, နူး x 15]
+Top unmatched hypothesis words accoring to METEOR: [ကျွန်တော် x 48, ဟှ x 47, ဟှို x 38, ဟှယ် x 34, သူ x 33, နန် x 26, လောက် x 20, မ x 19, သူးနို့ x 19, ငါ့ x 18]
+Top unmatched reference words accoring to METEOR: [ဟှို x 52, ဟှယ် x 29, ဟှ x 25, နန် x 23, မ x 22, နူး x 21, ငါ x 20, ဟှို့ x 16, ကျွန်တော် x 16, လေ x 14]
+Outputting sentence level scores to: /media/ye/project2/tool/multeval/run1/sentLevel/bk-my-dw
+Outputting ranked hypotheses to: /media/ye/project2/tool/multeval/run1/rank/bk-my-dw
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 9 of 9)
+RESULT: baseline: BLEU: RESAMPLED_MEAN_AVG: 19.030746
+RESULT: baseline: BLEU: RESAMPLED_STDDEV_AVG: 1.111489
+RESULT: baseline: BLEU: RESAMPLED_MIN: 13.284187
+RESULT: baseline: BLEU: RESAMPLED_MAX: 24.490555
+RESULT: baseline: METEOR: RESAMPLED_MEAN_AVG: 24.542667
+RESULT: baseline: METEOR: RESAMPLED_STDDEV_AVG: 0.473072
+RESULT: baseline: METEOR: RESAMPLED_MIN: 22.060804
+RESULT: baseline: METEOR: RESAMPLED_MAX: 27.305590
+RESULT: baseline: TER: RESAMPLED_MEAN_AVG: 60.878628
+RESULT: baseline: TER: RESAMPLED_STDDEV_AVG: 1.390512
+RESULT: baseline: TER: RESAMPLED_MIN: 53.026634
+RESULT: baseline: TER: RESAMPLED_MAX: 68.455285
+RESULT: baseline: Length: RESAMPLED_MEAN_AVG: 102.667985
+RESULT: baseline: Length: RESAMPLED_STDDEV_AVG: 0.379868
+RESULT: baseline: Length: RESAMPLED_MIN: 100.693241
+RESULT: baseline: Length: RESAMPLED_MAX: 105.239852
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 9 of 9)
+RESULT: system 1: BLEU: RESAMPLED_MEAN_AVG: 19.033485
+RESULT: system 1: BLEU: RESAMPLED_STDDEV_AVG: 1.102018
+RESULT: system 1: BLEU: RESAMPLED_MIN: 13.546268
+RESULT: system 1: BLEU: RESAMPLED_MAX: 24.954088
+RESULT: system 1: METEOR: RESAMPLED_MEAN_AVG: 24.674115
+RESULT: system 1: METEOR: RESAMPLED_STDDEV_AVG: 0.468006
+RESULT: system 1: METEOR: RESAMPLED_MIN: 22.083509
+RESULT: system 1: METEOR: RESAMPLED_MAX: 27.123179
+RESULT: system 1: TER: RESAMPLED_MEAN_AVG: 60.911779
+RESULT: system 1: TER: RESAMPLED_STDDEV_AVG: 1.388002
+RESULT: system 1: TER: RESAMPLED_MIN: 54.126214
+RESULT: system 1: TER: RESAMPLED_MAX: 69.245283
+RESULT: system 1: Length: RESAMPLED_MEAN_AVG: 102.571095
+RESULT: system 1: Length: RESAMPLED_STDDEV_AVG: 0.377036
+RESULT: system 1: Length: RESAMPLED_MIN: 100.634196
+RESULT: system 1: Length: RESAMPLED_MAX: 105.045089
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 9 of 9)
+RESULT: system 2: BLEU: RESAMPLED_MEAN_AVG: 19.039244
+RESULT: system 2: BLEU: RESAMPLED_STDDEV_AVG: 1.108439
+RESULT: system 2: BLEU: RESAMPLED_MIN: 13.767530
+RESULT: system 2: BLEU: RESAMPLED_MAX: 25.111530
+RESULT: system 2: METEOR: RESAMPLED_MEAN_AVG: 24.411262
+RESULT: system 2: METEOR: RESAMPLED_STDDEV_AVG: 0.468107
+RESULT: system 2: METEOR: RESAMPLED_MIN: 22.002873
+RESULT: system 2: METEOR: RESAMPLED_MAX: 26.963076
+RESULT: system 2: TER: RESAMPLED_MEAN_AVG: 59.631034
+RESULT: system 2: TER: RESAMPLED_STDDEV_AVG: 1.341990
+RESULT: system 2: TER: RESAMPLED_MIN: 53.353004
+RESULT: system 2: TER: RESAMPLED_MAX: 66.612598
+RESULT: system 2: Length: RESAMPLED_MEAN_AVG: 102.151426
+RESULT: system 2: Length: RESAMPLED_STDDEV_AVG: 0.360144
+RESULT: system 2: Length: RESAMPLED_MIN: 100.307377
+RESULT: system 2: Length: RESAMPLED_MAX: 104.533001
+Performed bootstrap resampling in 14.9 s
+Performing approximate randomization to estimate p-value between baseline system and system 2 (of 3)
+RESULT: system 1: BLEU: P_VALUE: 0.976602
+RESULT: system 1: METEOR: P_VALUE: 0.073493
+RESULT: system 1: TER: P_VALUE: 0.831817
+RESULT: system 1: Length: P_VALUE: 0.140886
+Performing approximate randomization to estimate p-value between baseline system and system 3 (of 3)
+RESULT: system 2: BLEU: P_VALUE: 0.957204
+RESULT: system 2: METEOR: P_VALUE: 0.063694
+RESULT: system 2: TER: P_VALUE: 0.000100
+RESULT: system 2: Length: P_VALUE: 0.000100
+Performed approximate randomization in 11.0 s
+Writing Latex table to /media/ye/project2/tool/multeval/run1/latex/bk-my-dw.table.tex
+n=9            BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       19.0 (1.1/0.9/-)       24.5 (0.5/0.5/-)       60.9 (1.4/1.3/-)       102.7 (0.4/0.5/-)      
+system 1       19.0 (1.1/1.0/0.98)    24.7 (0.5/0.4/0.07)    60.9 (1.4/1.2/0.83)    102.6 (0.4/0.4/0.14)   
+system 2       19.0 (1.1/0.9/0.96)    24.4 (0.5/0.4/0.06)    59.6 (1.3/0.7/0.00)    102.2 (0.4/0.4/0.00)   
+Found existing METEOR installation at ./lib/meteor-1.4
+MultEval V0.5.1
+By Jonathan Clark
+Using Libraries: METEOR (Michael Denkowski) and TER (Matthew Snover)
+
+Loading metric: bleu
+Loading metric: meteor
+Loading metric: ter
+Loading metric: length
+Found library jBLEU at file:/media/ye/project2/tool/multeval/multeval-0.5.1.jar
+Found library METEOR at file:/media/ye/project2/tool/multeval/lib/meteor-1.4/meteor-1.4.jar
+Using METEOR Version 1.4
+Loading METEOR paraphrase table...
+Loaded METEOR in 4.98 s
+Found library TER at file:/media/ye/project2/tool/multeval/lib/tercom-0.8.0.jar
+Using 8 threads
+Reading Hypotheses for system baseline opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt1
+Reading Hypotheses for system baseline opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt2
+Reading Hypotheses for system baseline opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt3
+Reading Hypotheses for system baseline opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt4
+Reading Hypotheses for system baseline opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt5
+Reading Hypotheses for system baseline opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt6
+Reading Hypotheses for system baseline opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt7
+Reading Hypotheses for system baseline opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt8
+Reading Hypotheses for system baseline opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/baseline.opt9
+Reading Hypotheses for system 1 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt1
+Reading Hypotheses for system 1 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt2
+Reading Hypotheses for system 1 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt3
+Reading Hypotheses for system 1 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt4
+Reading Hypotheses for system 1 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt5
+Reading Hypotheses for system 1 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt6
+Reading Hypotheses for system 1 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt7
+Reading Hypotheses for system 1 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt8
+Reading Hypotheses for system 1 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/transfer.opt9
+Reading Hypotheses for system 2 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt1
+Reading Hypotheses for system 2 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt2
+Reading Hypotheses for system 2 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt3
+Reading Hypotheses for system 2 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt4
+Reading Hypotheses for system 2 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt5
+Reading Hypotheses for system 2 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt6
+Reading Hypotheses for system 2 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt7
+Reading Hypotheses for system 2 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt8
+Reading Hypotheses for system 2 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/triangulation.opt9
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref1
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref2
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref3
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref4
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref5
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref6
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref7
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref8
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/dw-my-bk/dw-my-bk.ref9
+Collecting sufficient statistics for metric: BLEU
+Finished collecting sufficient statistics for metric: BLEU
+Collecting sufficient statistics for metric: METEOR
+Finished collecting sufficient statistics for metric: METEOR
+Collecting sufficient statistics for metric: TER
+Finished collecting sufficient statistics for metric: TER
+Collecting sufficient statistics for metric: Length
+Finished collecting sufficient statistics for metric: Length
+Collected suff stats in 2.39 s
+Scoring with metric: BLEU
+RESULT: baseline: BLEU: AVG: 22.013168
+RESULT: baseline: BLEU: MEDIAN: 22.177208
+RESULT: baseline: BLEU: STDDEV: 1.254035
+RESULT: baseline: BLEU: MIN: 20.289742
+RESULT: baseline: BLEU: MAX: 23.886464
+RESULT: baseline: BLEU: MEDIAN_IDX: 7.000000
+RESULT: system 1: BLEU: AVG: 21.497999
+RESULT: system 1: BLEU: MEDIAN: 21.541367
+RESULT: system 1: BLEU: STDDEV: 1.372429
+RESULT: system 1: BLEU: MIN: 19.399643
+RESULT: system 1: BLEU: MAX: 23.412333
+RESULT: system 1: BLEU: MEDIAN_IDX: 0.000000
+RESULT: system 2: BLEU: AVG: 22.045627
+RESULT: system 2: BLEU: MEDIAN: 22.301236
+RESULT: system 2: BLEU: STDDEV: 1.273386
+RESULT: system 2: BLEU: MIN: 20.035715
+RESULT: system 2: BLEU: MAX: 23.748817
+RESULT: system 2: BLEU: MEDIAN_IDX: 4.000000
+Scoring with metric: METEOR
+RESULT: baseline: METEOR: AVG: 25.121856
+RESULT: baseline: METEOR: MEDIAN: 25.073858
+RESULT: baseline: METEOR: STDDEV: 0.440194
+RESULT: baseline: METEOR: MIN: 24.635723
+RESULT: baseline: METEOR: MAX: 25.728305
+RESULT: baseline: METEOR: MEDIAN_IDX: 0.000000
+RESULT: system 1: METEOR: AVG: 24.623296
+RESULT: system 1: METEOR: MEDIAN: 24.589827
+RESULT: system 1: METEOR: STDDEV: 0.489732
+RESULT: system 1: METEOR: MIN: 24.020333
+RESULT: system 1: METEOR: MAX: 25.380568
+RESULT: system 1: METEOR: MEDIAN_IDX: 0.000000
+RESULT: system 2: METEOR: AVG: 25.056533
+RESULT: system 2: METEOR: MEDIAN: 25.227676
+RESULT: system 2: METEOR: STDDEV: 0.447235
+RESULT: system 2: METEOR: MIN: 24.440269
+RESULT: system 2: METEOR: MAX: 25.569590
+RESULT: system 2: METEOR: MEDIAN_IDX: 0.000000
+Scoring with metric: TER
+RESULT: baseline: TER: AVG: 56.523207
+RESULT: baseline: TER: MEDIAN: 56.405063
+RESULT: baseline: TER: STDDEV: 0.843650
+RESULT: baseline: TER: MIN: 55.265823
+RESULT: baseline: TER: MAX: 57.772152
+RESULT: baseline: TER: MEDIAN_IDX: 8.000000
+RESULT: system 1: TER: AVG: 56.534459
+RESULT: system 1: TER: MEDIAN: 56.481013
+RESULT: system 1: TER: STDDEV: 0.813920
+RESULT: system 1: TER: MIN: 55.291139
+RESULT: system 1: TER: MAX: 58.278481
+RESULT: system 1: TER: MEDIAN_IDX: 3.000000
+RESULT: system 2: TER: AVG: 56.140647
+RESULT: system 2: TER: MEDIAN: 55.873418
+RESULT: system 2: TER: STDDEV: 0.830163
+RESULT: system 2: TER: MIN: 55.316456
+RESULT: system 2: TER: MAX: 57.417722
+RESULT: system 2: TER: MEDIAN_IDX: 1.000000
+Scoring with metric: Length
+RESULT: baseline: Length: AVG: 101.709710
+RESULT: baseline: Length: MEDIAN: 101.733822
+RESULT: baseline: Length: STDDEV: 0.178932
+RESULT: baseline: Length: MIN: 101.414979
+RESULT: baseline: Length: MAX: 102.022694
+RESULT: baseline: Length: MEDIAN_IDX: 4.000000
+RESULT: system 1: Length: AVG: 101.383627
+RESULT: system 1: Length: MEDIAN: 101.377275
+RESULT: system 1: Length: STDDEV: 0.236002
+RESULT: system 1: Length: MIN: 101.013848
+RESULT: system 1: Length: MAX: 101.725838
+RESULT: system 1: Length: MEDIAN_IDX: 2.000000
+RESULT: system 2: Length: AVG: 101.644897
+RESULT: system 2: Length: MEDIAN: 101.577520
+RESULT: system 2: Length: STDDEV: 0.265569
+RESULT: system 2: Length: MIN: 101.344861
+RESULT: system 2: Length: MAX: 102.212829
+RESULT: system 2: Length: MEDIAN_IDX: 2.000000
+Top unmatched hypothesis words accoring to METEOR: [မ x 54, ကို x 53, နင် x 48, ငါ x 37, ရိ x 36, ဝို x 27, ရယ် x 22, သူ x 20, မှာ x 20, ပြော x 18]
+Top unmatched reference words accoring to METEOR: [မ x 41, မင်း x 33, ကို x 31, ဝို x 25, က x 24, ငါ x 19, ရယ် x 17, ဝ x 16, သူ x 15, လေ x 14]
+Top unmatched hypothesis words accoring to METEOR: [နင် x 63, ကို x 58, ငါ x 41, ရိ x 29, ရယ် x 24, မှာ x 23, ရ x 22, သူ x 22, ဒယ်ကောင်မငယ် x 19, က x 18]
+Top unmatched reference words accoring to METEOR: [မ x 43, ကို x 40, မင်း x 38, ဝို x 30, ငါ x 21, ဝ x 19, ကျွန်တော် x 19, သူ x 17, နေရယ် x 17, က x 16]
+Top unmatched hypothesis words accoring to METEOR: [နင် x 55, ကို x 52, ငါ x 48, မ x 29, ရိ x 28, သူ x 24, ရ x 22, ရယ် x 22, မှာ x 21, နေရယ် x 21]
+Top unmatched reference words accoring to METEOR: [မ x 38, ကို x 30, ဝို x 29, မင်း x 29, ရယ် x 19, ငါ x 18, ဝ x 17, သူ x 17, ကျွန်တော် x 17, က x 16]
+Outputting sentence level scores to: /media/ye/project2/tool/multeval/run1/sentLevel/dw-my-bk
+Outputting ranked hypotheses to: /media/ye/project2/tool/multeval/run1/rank/dw-my-bk
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 9 of 9)
+RESULT: baseline: BLEU: RESAMPLED_MEAN_AVG: 22.002268
+RESULT: baseline: BLEU: RESAMPLED_STDDEV_AVG: 1.168788
+RESULT: baseline: BLEU: RESAMPLED_MIN: 16.232686
+RESULT: baseline: BLEU: RESAMPLED_MAX: 29.071211
+RESULT: baseline: METEOR: RESAMPLED_MEAN_AVG: 25.123210
+RESULT: baseline: METEOR: RESAMPLED_STDDEV_AVG: 0.489544
+RESULT: baseline: METEOR: RESAMPLED_MIN: 22.727765
+RESULT: baseline: METEOR: RESAMPLED_MAX: 27.712024
+RESULT: baseline: TER: RESAMPLED_MEAN_AVG: 56.524016
+RESULT: baseline: TER: RESAMPLED_STDDEV_AVG: 1.282646
+RESULT: baseline: TER: RESAMPLED_MIN: 49.861216
+RESULT: baseline: TER: RESAMPLED_MAX: 62.925599
+RESULT: baseline: Length: RESAMPLED_MEAN_AVG: 101.708279
+RESULT: baseline: Length: RESAMPLED_STDDEV_AVG: 0.371033
+RESULT: baseline: Length: RESAMPLED_MIN: 100.049432
+RESULT: baseline: Length: RESAMPLED_MAX: 104.097951
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 9 of 9)
+RESULT: system 1: BLEU: RESAMPLED_MEAN_AVG: 21.482142
+RESULT: system 1: BLEU: RESAMPLED_STDDEV_AVG: 1.176623
+RESULT: system 1: BLEU: RESAMPLED_MIN: 15.177244
+RESULT: system 1: BLEU: RESAMPLED_MAX: 27.841547
+RESULT: system 1: METEOR: RESAMPLED_MEAN_AVG: 24.622951
+RESULT: system 1: METEOR: RESAMPLED_STDDEV_AVG: 0.480231
+RESULT: system 1: METEOR: RESAMPLED_MIN: 22.196329
+RESULT: system 1: METEOR: RESAMPLED_MAX: 27.404578
+RESULT: system 1: TER: RESAMPLED_MEAN_AVG: 56.536616
+RESULT: system 1: TER: RESAMPLED_STDDEV_AVG: 1.251185
+RESULT: system 1: TER: RESAMPLED_MIN: 50.528169
+RESULT: system 1: TER: RESAMPLED_MAX: 63.689567
+RESULT: system 1: Length: RESAMPLED_MEAN_AVG: 101.382303
+RESULT: system 1: Length: RESAMPLED_STDDEV_AVG: 0.355819
+RESULT: system 1: Length: RESAMPLED_MIN: 99.602583
+RESULT: system 1: Length: RESAMPLED_MAX: 103.586550
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 1 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 2 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 3 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 4 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 5 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 6 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 7 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 8 of 9)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 9 of 9)
+RESULT: system 2: BLEU: RESAMPLED_MEAN_AVG: 22.033684
+RESULT: system 2: BLEU: RESAMPLED_STDDEV_AVG: 1.158279
+RESULT: system 2: BLEU: RESAMPLED_MIN: 15.857199
+RESULT: system 2: BLEU: RESAMPLED_MAX: 28.668758
+RESULT: system 2: METEOR: RESAMPLED_MEAN_AVG: 25.057211
+RESULT: system 2: METEOR: RESAMPLED_STDDEV_AVG: 0.478523
+RESULT: system 2: METEOR: RESAMPLED_MIN: 22.448041
+RESULT: system 2: METEOR: RESAMPLED_MAX: 27.846232
+RESULT: system 2: TER: RESAMPLED_MEAN_AVG: 56.142654
+RESULT: system 2: TER: RESAMPLED_STDDEV_AVG: 1.243363
+RESULT: system 2: TER: RESAMPLED_MIN: 50.366996
+RESULT: system 2: TER: RESAMPLED_MAX: 62.245155
+RESULT: system 2: Length: RESAMPLED_MEAN_AVG: 101.645020
+RESULT: system 2: Length: RESAMPLED_STDDEV_AVG: 0.358928
+RESULT: system 2: Length: RESAMPLED_MIN: 99.901623
+RESULT: system 2: Length: RESAMPLED_MAX: 104.150391
+Performed bootstrap resampling in 15.4 s
+Performing approximate randomization to estimate p-value between baseline system and system 2 (of 3)
+RESULT: system 1: BLEU: P_VALUE: 0.007999
+RESULT: system 1: METEOR: P_VALUE: 0.000100
+RESULT: system 1: TER: P_VALUE: 0.938706
+RESULT: system 1: Length: P_VALUE: 0.000100
+Performing approximate randomization to estimate p-value between baseline system and system 3 (of 3)
+RESULT: system 2: BLEU: P_VALUE: 0.857714
+RESULT: system 2: METEOR: P_VALUE: 0.369163
+RESULT: system 2: TER: P_VALUE: 0.005299
+RESULT: system 2: Length: P_VALUE: 0.239176
+Performed approximate randomization in 12.2 s
+Writing Latex table to /media/ye/project2/tool/multeval/run1/latex/dw-my-bk.table.tex
+n=9            BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       22.0 (1.2/1.3/-)       25.1 (0.5/0.4/-)       56.5 (1.3/0.8/-)       101.7 (0.4/0.2/-)      
+system 1       21.5 (1.2/1.4/0.01)    24.6 (0.5/0.5/0.00)    56.5 (1.3/0.8/0.94)    101.4 (0.4/0.2/0.00)   
+system 2       22.0 (1.2/1.3/0.86)    25.1 (0.5/0.4/0.37)    56.1 (1.2/0.8/0.01)    101.6 (0.4/0.3/0.24)   
+Found existing METEOR installation at ./lib/meteor-1.4
+MultEval V0.5.1
+By Jonathan Clark
+Using Libraries: METEOR (Michael Denkowski) and TER (Matthew Snover)
+
+Loading metric: bleu
+Loading metric: meteor
+Loading metric: ter
+Loading metric: length
+Found library jBLEU at file:/media/ye/project2/tool/multeval/multeval-0.5.1.jar
+Found library METEOR at file:/media/ye/project2/tool/multeval/lib/meteor-1.4/meteor-1.4.jar
+Using METEOR Version 1.4
+Loading METEOR paraphrase table...
+Loaded METEOR in 5.07 s
+Found library TER at file:/media/ye/project2/tool/multeval/lib/tercom-0.8.0.jar
+Using 8 threads
+Reading Hypotheses for system baseline opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt1
+Reading Hypotheses for system baseline opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt10
+Reading Hypotheses for system baseline opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt2
+Reading Hypotheses for system baseline opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt3
+Reading Hypotheses for system baseline opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt4
+Reading Hypotheses for system baseline opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt5
+Reading Hypotheses for system baseline opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt6
+Reading Hypotheses for system baseline opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt7
+Reading Hypotheses for system baseline opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt8
+Reading Hypotheses for system baseline opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/baseline.opt9
+Reading Hypotheses for system 1 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt1
+Reading Hypotheses for system 1 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt10
+Reading Hypotheses for system 1 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt2
+Reading Hypotheses for system 1 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt3
+Reading Hypotheses for system 1 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt4
+Reading Hypotheses for system 1 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt5
+Reading Hypotheses for system 1 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt6
+Reading Hypotheses for system 1 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt7
+Reading Hypotheses for system 1 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt8
+Reading Hypotheses for system 1 opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/transfer.opt9
+Reading Hypotheses for system 2 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt1
+Reading Hypotheses for system 2 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt10
+Reading Hypotheses for system 2 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt2
+Reading Hypotheses for system 2 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt3
+Reading Hypotheses for system 2 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt4
+Reading Hypotheses for system 2 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt5
+Reading Hypotheses for system 2 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt6
+Reading Hypotheses for system 2 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt7
+Reading Hypotheses for system 2 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt8
+Reading Hypotheses for system 2 opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/triangulation.opt9
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref1
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref10
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref2
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref3
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref4
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref5
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref6
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref7
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref8
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/bk-my-rk/bk-my-rk.ref9
+Collecting sufficient statistics for metric: BLEU
+Finished collecting sufficient statistics for metric: BLEU
+Collecting sufficient statistics for metric: METEOR
+Finished collecting sufficient statistics for metric: METEOR
+Collecting sufficient statistics for metric: TER
+Finished collecting sufficient statistics for metric: TER
+Collecting sufficient statistics for metric: Length
+Finished collecting sufficient statistics for metric: Length
+Collected suff stats in 3.50 s
+Scoring with metric: BLEU
+RESULT: baseline: BLEU: AVG: 38.107317
+RESULT: baseline: BLEU: MEDIAN: 38.101657
+RESULT: baseline: BLEU: STDDEV: 1.096922
+RESULT: baseline: BLEU: MIN: 36.523549
+RESULT: baseline: BLEU: MAX: 39.562671
+RESULT: baseline: BLEU: MEDIAN_IDX: 0.000000
+RESULT: system 1: BLEU: AVG: 38.067441
+RESULT: system 1: BLEU: MEDIAN: 38.678206
+RESULT: system 1: BLEU: STDDEV: 1.081014
+RESULT: system 1: BLEU: MIN: 36.531621
+RESULT: system 1: BLEU: MAX: 39.524288
+RESULT: system 1: BLEU: MEDIAN_IDX: 8.000000
+RESULT: system 2: BLEU: AVG: 39.109911
+RESULT: system 2: BLEU: MEDIAN: 39.553497
+RESULT: system 2: BLEU: STDDEV: 1.140862
+RESULT: system 2: BLEU: MIN: 36.648374
+RESULT: system 2: BLEU: MAX: 40.495678
+RESULT: system 2: BLEU: MEDIAN_IDX: 5.000000
+Scoring with metric: METEOR
+RESULT: baseline: METEOR: AVG: 32.394086
+RESULT: baseline: METEOR: MEDIAN: 32.597018
+RESULT: baseline: METEOR: STDDEV: 0.421441
+RESULT: baseline: METEOR: MIN: 31.781338
+RESULT: baseline: METEOR: MAX: 32.914025
+RESULT: baseline: METEOR: MEDIAN_IDX: 8.000000
+RESULT: system 1: METEOR: AVG: 32.296889
+RESULT: system 1: METEOR: MEDIAN: 32.415859
+RESULT: system 1: METEOR: STDDEV: 0.362787
+RESULT: system 1: METEOR: MIN: 31.826429
+RESULT: system 1: METEOR: MAX: 32.763816
+RESULT: system 1: METEOR: MEDIAN_IDX: 2.000000
+RESULT: system 2: METEOR: AVG: 32.815977
+RESULT: system 2: METEOR: MEDIAN: 33.076160
+RESULT: system 2: METEOR: STDDEV: 0.541591
+RESULT: system 2: METEOR: MIN: 31.736482
+RESULT: system 2: METEOR: MAX: 33.362702
+RESULT: system 2: METEOR: MEDIAN_IDX: 2.000000
+Scoring with metric: TER
+RESULT: baseline: TER: AVG: 45.982587
+RESULT: baseline: TER: MEDIAN: 46.190920
+RESULT: baseline: TER: STDDEV: 1.072153
+RESULT: baseline: TER: MIN: 43.827736
+RESULT: baseline: TER: MAX: 47.496891
+RESULT: baseline: TER: MEDIAN_IDX: 8.000000
+RESULT: system 1: TER: AVG: 45.688744
+RESULT: system 1: TER: MEDIAN: 46.019900
+RESULT: system 1: TER: STDDEV: 1.097256
+RESULT: system 1: TER: MIN: 43.952114
+RESULT: system 1: TER: MAX: 47.030473
+RESULT: system 1: TER: MEDIAN_IDX: 8.000000
+RESULT: system 2: TER: AVG: 44.479167
+RESULT: system 2: TER: MEDIAN: 44.542910
+RESULT: system 2: TER: STDDEV: 1.185460
+RESULT: system 2: TER: MIN: 42.335199
+RESULT: system 2: TER: MAX: 46.128731
+RESULT: system 2: TER: MEDIAN_IDX: 2.000000
+Scoring with metric: Length
+RESULT: baseline: Length: AVG: 101.770679
+RESULT: baseline: Length: MEDIAN: 101.853203
+RESULT: baseline: Length: STDDEV: 0.277564
+RESULT: baseline: Length: MIN: 101.277084
+RESULT: baseline: Length: MAX: 102.175174
+RESULT: baseline: Length: MEDIAN_IDX: 5.000000
+RESULT: system 1: Length: AVG: 101.705263
+RESULT: system 1: Length: MEDIAN: 101.611949
+RESULT: system 1: Length: STDDEV: 0.260411
+RESULT: system 1: Length: MIN: 101.456019
+RESULT: system 1: Length: MAX: 102.097693
+RESULT: system 1: Length: MEDIAN_IDX: 5.000000
+RESULT: system 2: Length: AVG: 101.546450
+RESULT: system 2: Length: MEDIAN: 101.507902
+RESULT: system 2: Length: STDDEV: 0.206090
+RESULT: system 2: Length: MIN: 101.264128
+RESULT: system 2: Length: MAX: 101.943780
+RESULT: system 2: Length: MEDIAN_IDX: 2.000000
+Top unmatched hypothesis words accoring to METEOR: [။ x 105, ကို x 72, ရေ x 62, ပါ x 41, ဖို့ x 39, သူ x 33, မင်း x 32, က x 31, တိ x 29, မ x 26]
+Top unmatched reference words accoring to METEOR: [။ x 52, ကို x 47, လား x 35, ပါ x 30, မင်း x 30, ကျွန်တော် x 26, လေး x 26, က x 24, မ x 23, ထိုမချေ x 23]
+Top unmatched hypothesis words accoring to METEOR: [။ x 123, ကို x 64, ရေ x 56, ပါ x 52, သူ x 32, တိ x 29, မ x 28, နီရေ x 27, ငါ x 26, ကျွန်တော် x 26]
+Top unmatched reference words accoring to METEOR: [ကို x 59, ။ x 47, ရေ x 37, မင်း x 31, ကျွန်တော် x 30, ရို့ x 28, ထိုမချေ x 27, ယင်းချင့် x 26, သူ x 25, ငါ x 24]
+Top unmatched hypothesis words accoring to METEOR: [။ x 113, ကို x 65, ပါ x 52, ရေ x 49, သူ x 32, ပါလား x 28, တိ x 28, မ x 26, ငါ x 26, မင်း x 26]
+Top unmatched reference words accoring to METEOR: [ကို x 54, ။ x 34, ရေ x 34, မင်း x 32, သူ x 27, က x 24, ပါ x 24, ပါရေ x 24, လေး x 24, ငါ x 23]
+Outputting sentence level scores to: /media/ye/project2/tool/multeval/run1/sentLevel/bk-my-rk
+Outputting ranked hypotheses to: /media/ye/project2/tool/multeval/run1/rank/bk-my-rk
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 10 of 10)
+RESULT: baseline: BLEU: RESAMPLED_MEAN_AVG: 38.110018
+RESULT: baseline: BLEU: RESAMPLED_STDDEV_AVG: 1.074607
+RESULT: baseline: BLEU: RESAMPLED_MIN: 32.536756
+RESULT: baseline: BLEU: RESAMPLED_MAX: 43.617760
+RESULT: baseline: METEOR: RESAMPLED_MEAN_AVG: 32.398223
+RESULT: baseline: METEOR: RESAMPLED_STDDEV_AVG: 0.467678
+RESULT: baseline: METEOR: RESAMPLED_MIN: 29.876470
+RESULT: baseline: METEOR: RESAMPLED_MAX: 34.719919
+RESULT: baseline: TER: RESAMPLED_MEAN_AVG: 45.977629
+RESULT: baseline: TER: RESAMPLED_STDDEV_AVG: 1.066642
+RESULT: baseline: TER: RESAMPLED_MIN: 40.223811
+RESULT: baseline: TER: RESAMPLED_MAX: 52.070731
+RESULT: baseline: Length: RESAMPLED_MEAN_AVG: 101.769952
+RESULT: baseline: Length: RESAMPLED_STDDEV_AVG: 0.289945
+RESULT: baseline: Length: RESAMPLED_MIN: 100.257363
+RESULT: baseline: Length: RESAMPLED_MAX: 103.279649
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 10 of 10)
+RESULT: system 1: BLEU: RESAMPLED_MEAN_AVG: 38.069102
+RESULT: system 1: BLEU: RESAMPLED_STDDEV_AVG: 1.070446
+RESULT: system 1: BLEU: RESAMPLED_MIN: 32.315478
+RESULT: system 1: BLEU: RESAMPLED_MAX: 43.682407
+RESULT: system 1: METEOR: RESAMPLED_MEAN_AVG: 32.300801
+RESULT: system 1: METEOR: RESAMPLED_STDDEV_AVG: 0.462208
+RESULT: system 1: METEOR: RESAMPLED_MIN: 29.957563
+RESULT: system 1: METEOR: RESAMPLED_MAX: 34.751110
+RESULT: system 1: TER: RESAMPLED_MEAN_AVG: 45.685839
+RESULT: system 1: TER: RESAMPLED_STDDEV_AVG: 1.053402
+RESULT: system 1: TER: RESAMPLED_MIN: 40.203602
+RESULT: system 1: TER: RESAMPLED_MAX: 52.632399
+RESULT: system 1: Length: RESAMPLED_MEAN_AVG: 101.705823
+RESULT: system 1: Length: RESAMPLED_STDDEV_AVG: 0.287210
+RESULT: system 1: Length: RESAMPLED_MIN: 100.279124
+RESULT: system 1: Length: RESAMPLED_MAX: 103.267781
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 10 of 10)
+RESULT: system 2: BLEU: RESAMPLED_MEAN_AVG: 39.111322
+RESULT: system 2: BLEU: RESAMPLED_STDDEV_AVG: 1.086350
+RESULT: system 2: BLEU: RESAMPLED_MIN: 32.611596
+RESULT: system 2: BLEU: RESAMPLED_MAX: 44.510380
+RESULT: system 2: METEOR: RESAMPLED_MEAN_AVG: 32.819235
+RESULT: system 2: METEOR: RESAMPLED_STDDEV_AVG: 0.470011
+RESULT: system 2: METEOR: RESAMPLED_MIN: 29.836125
+RESULT: system 2: METEOR: RESAMPLED_MAX: 35.356057
+RESULT: system 2: TER: RESAMPLED_MEAN_AVG: 44.475845
+RESULT: system 2: TER: RESAMPLED_STDDEV_AVG: 1.047352
+RESULT: system 2: TER: RESAMPLED_MIN: 38.817440
+RESULT: system 2: TER: RESAMPLED_MAX: 50.546192
+RESULT: system 2: Length: RESAMPLED_MEAN_AVG: 101.546231
+RESULT: system 2: Length: RESAMPLED_STDDEV_AVG: 0.279000
+RESULT: system 2: Length: RESAMPLED_MIN: 100.102941
+RESULT: system 2: Length: RESAMPLED_MAX: 102.963743
+Performed bootstrap resampling in 26.9 s
+Performing approximate randomization to estimate p-value between baseline system and system 2 (of 3)
+RESULT: system 1: BLEU: P_VALUE: 0.707529
+RESULT: system 1: METEOR: P_VALUE: 0.078992
+RESULT: system 1: TER: P_VALUE: 0.004400
+RESULT: system 1: Length: P_VALUE: 0.098490
+Performing approximate randomization to estimate p-value between baseline system and system 3 (of 3)
+RESULT: system 2: BLEU: P_VALUE: 0.000100
+RESULT: system 2: METEOR: P_VALUE: 0.000100
+RESULT: system 2: TER: P_VALUE: 0.000100
+RESULT: system 2: Length: P_VALUE: 0.000100
+Performed approximate randomization in 25.6 s
+Writing Latex table to /media/ye/project2/tool/multeval/run1/latex/bk-my-rk.table.tex
+n=10           BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       38.1 (1.1/1.1/-)       32.4 (0.5/0.4/-)       46.0 (1.1/1.1/-)       101.8 (0.3/0.3/-)      
+system 1       38.1 (1.1/1.1/0.71)    32.3 (0.5/0.4/0.08)    45.7 (1.1/1.1/0.00)    101.7 (0.3/0.3/0.10)   
+system 2       39.1 (1.1/1.1/0.00)    32.8 (0.5/0.5/0.00)    44.5 (1.0/1.2/0.00)    101.5 (0.3/0.2/0.00)   
+Found existing METEOR installation at ./lib/meteor-1.4
+MultEval V0.5.1
+By Jonathan Clark
+Using Libraries: METEOR (Michael Denkowski) and TER (Matthew Snover)
+
+Loading metric: bleu
+Loading metric: meteor
+Loading metric: ter
+Loading metric: length
+Found library jBLEU at file:/media/ye/project2/tool/multeval/multeval-0.5.1.jar
+Found library METEOR at file:/media/ye/project2/tool/multeval/lib/meteor-1.4/meteor-1.4.jar
+Using METEOR Version 1.4
+Loading METEOR paraphrase table...
+Loaded METEOR in 5.37 s
+Found library TER at file:/media/ye/project2/tool/multeval/lib/tercom-0.8.0.jar
+Using 8 threads
+Reading Hypotheses for system baseline opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt1
+Reading Hypotheses for system baseline opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt10
+Reading Hypotheses for system baseline opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt2
+Reading Hypotheses for system baseline opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt3
+Reading Hypotheses for system baseline opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt4
+Reading Hypotheses for system baseline opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt5
+Reading Hypotheses for system baseline opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt6
+Reading Hypotheses for system baseline opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt7
+Reading Hypotheses for system baseline opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt8
+Reading Hypotheses for system baseline opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/baseline.opt9
+Reading Hypotheses for system 1 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt1
+Reading Hypotheses for system 1 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt10
+Reading Hypotheses for system 1 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt2
+Reading Hypotheses for system 1 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt3
+Reading Hypotheses for system 1 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt4
+Reading Hypotheses for system 1 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt5
+Reading Hypotheses for system 1 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt6
+Reading Hypotheses for system 1 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt7
+Reading Hypotheses for system 1 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt8
+Reading Hypotheses for system 1 opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/transfer.opt9
+Reading Hypotheses for system 2 opt run 1 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt1
+Reading Hypotheses for system 2 opt run 2 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt10
+Reading Hypotheses for system 2 opt run 3 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt2
+Reading Hypotheses for system 2 opt run 4 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt3
+Reading Hypotheses for system 2 opt run 5 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt4
+Reading Hypotheses for system 2 opt run 6 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt5
+Reading Hypotheses for system 2 opt run 7 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt6
+Reading Hypotheses for system 2 opt run 8 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt7
+Reading Hypotheses for system 2 opt run 9 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt8
+Reading Hypotheses for system 2 opt run 10 file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/triangulation.opt9
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref1
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref10
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref2
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref3
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref4
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref5
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref6
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref7
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref8
+Reading non-laced references file /media/ye/project2/thazin-journal/pivot-journal/18Oct2021/mdpi-latex/draft-ver1/mteval-running/data4eval-pivot-10fold/rk-my-bk/rk-my-bk.ref9
+Collecting sufficient statistics for metric: BLEU
+Finished collecting sufficient statistics for metric: BLEU
+Collecting sufficient statistics for metric: METEOR
+Finished collecting sufficient statistics for metric: METEOR
+Collecting sufficient statistics for metric: TER
+Finished collecting sufficient statistics for metric: TER
+Collecting sufficient statistics for metric: Length
+Finished collecting sufficient statistics for metric: Length
+Collected suff stats in 3.56 s
+Scoring with metric: BLEU
+RESULT: baseline: BLEU: AVG: 31.480908
+RESULT: baseline: BLEU: MEDIAN: 31.522166
+RESULT: baseline: BLEU: STDDEV: 0.715522
+RESULT: baseline: BLEU: MIN: 30.566390
+RESULT: baseline: BLEU: MAX: 32.873347
+RESULT: baseline: BLEU: MEDIAN_IDX: 4.000000
+RESULT: system 1: BLEU: AVG: 32.513436
+RESULT: system 1: BLEU: MEDIAN: 32.695810
+RESULT: system 1: BLEU: STDDEV: 0.630776
+RESULT: system 1: BLEU: MIN: 31.557934
+RESULT: system 1: BLEU: MAX: 33.614592
+RESULT: system 1: BLEU: MEDIAN_IDX: 9.000000
+RESULT: system 2: BLEU: AVG: 32.005802
+RESULT: system 2: BLEU: MEDIAN: 32.296170
+RESULT: system 2: BLEU: STDDEV: 0.971518
+RESULT: system 2: BLEU: MIN: 30.872371
+RESULT: system 2: BLEU: MAX: 33.392403
+RESULT: system 2: BLEU: MEDIAN_IDX: 7.000000
+Scoring with metric: METEOR
+RESULT: baseline: METEOR: AVG: 29.312269
+RESULT: baseline: METEOR: MEDIAN: 29.184757
+RESULT: baseline: METEOR: STDDEV: 0.488781
+RESULT: baseline: METEOR: MIN: 28.755664
+RESULT: baseline: METEOR: MAX: 30.277635
+RESULT: baseline: METEOR: MEDIAN_IDX: 4.000000
+RESULT: system 1: METEOR: AVG: 29.671726
+RESULT: system 1: METEOR: MEDIAN: 29.695654
+RESULT: system 1: METEOR: STDDEV: 0.362983
+RESULT: system 1: METEOR: MIN: 29.203431
+RESULT: system 1: METEOR: MAX: 30.262589
+RESULT: system 1: METEOR: MEDIAN_IDX: 2.000000
+RESULT: system 2: METEOR: AVG: 29.590991
+RESULT: system 2: METEOR: MEDIAN: 29.892847
+RESULT: system 2: METEOR: STDDEV: 0.506059
+RESULT: system 2: METEOR: MIN: 28.753944
+RESULT: system 2: METEOR: MAX: 30.169151
+RESULT: system 2: METEOR: MEDIAN_IDX: 7.000000
+Scoring with metric: TER
+RESULT: baseline: TER: AVG: 49.452097
+RESULT: baseline: TER: MEDIAN: 49.494949
+RESULT: baseline: TER: STDDEV: 1.076815
+RESULT: baseline: TER: MIN: 47.428834
+RESULT: baseline: TER: MAX: 51.438629
+RESULT: baseline: TER: MEDIAN_IDX: 2.000000
+RESULT: system 1: TER: AVG: 48.867463
+RESULT: system 1: TER: MEDIAN: 48.943985
+RESULT: system 1: TER: STDDEV: 0.927551
+RESULT: system 1: TER: MIN: 47.183961
+RESULT: system 1: TER: MAX: 50.520355
+RESULT: system 1: TER: MEDIAN_IDX: 7.000000
+RESULT: system 2: TER: AVG: 49.196511
+RESULT: system 2: TER: MEDIAN: 49.035813
+RESULT: system 2: TER: STDDEV: 1.047645
+RESULT: system 2: TER: MIN: 47.199265
+RESULT: system 2: TER: MAX: 50.811142
+RESULT: system 2: TER: MEDIAN_IDX: 2.000000
+Scoring with metric: Length
+RESULT: baseline: Length: AVG: 101.974573
+RESULT: baseline: Length: MEDIAN: 102.066233
+RESULT: baseline: Length: STDDEV: 0.394486
+RESULT: baseline: Length: MIN: 101.449485
+RESULT: baseline: Length: MAX: 102.460059
+RESULT: baseline: Length: MEDIAN_IDX: 3.000000
+RESULT: system 1: Length: AVG: 101.917451
+RESULT: system 1: Length: MEDIAN: 101.895173
+RESULT: system 1: Length: STDDEV: 0.380179
+RESULT: system 1: Length: MIN: 101.422351
+RESULT: system 1: Length: MAX: 102.507793
+RESULT: system 1: Length: MEDIAN_IDX: 0.000000
+RESULT: system 2: Length: AVG: 101.979082
+RESULT: system 2: Length: MEDIAN: 102.079528
+RESULT: system 2: Length: STDDEV: 0.281791
+RESULT: system 2: Length: MIN: 101.459538
+RESULT: system 2: Length: MAX: 102.309109
+RESULT: system 2: Length: MEDIAN_IDX: 3.000000
+Top unmatched hypothesis words accoring to METEOR: [ကို x 75, နင် x 69, မ x 46, ကျွန်တော် x 38, ရ x 37, ရယ် x 37, ဝို့ x 37, က x 36, ဝို x 36, ဒယ်ကောင်မငယ် x 31]
+Top unmatched reference words accoring to METEOR: [။ x 64, ကို x 58, ဝို x 41, မင်း x 40, ရယ် x 39, သူ x 28, က x 27, ငါ x 27, မ x 25, နင် x 24]
+Top unmatched hypothesis words accoring to METEOR: [ကို x 66, ဝို x 54, နင် x 53, ဒယ်ကောင်မငယ် x 43, ရယ် x 40, က x 27, ငါ x 26, ရ x 25, ဝို့ x 25, မ x 23]
+Top unmatched reference words accoring to METEOR: [ကို x 74, ဝို x 57, ။ x 43, မင်း x 40, မ x 33, သူ x 32, ငါ x 31, နေရယ် x 26, ရယ် x 24, နင့် x 23]
+Top unmatched hypothesis words accoring to METEOR: [ကို x 109, နင် x 70, ရယ် x 44, ရ x 42, မ x 39, ဝို x 38, ဒယ်ကောင်မငယ် x 35, က x 31, ကျွန်တော် x 29, ရလား x 28]
+Top unmatched reference words accoring to METEOR: [ဝို x 50, မင်း x 44, ကို x 43, ။ x 40, က x 33, ဝို့ x 31, သူ x 29, ငါ x 25, ရယ် x 22, နင် x 22]
+Outputting sentence level scores to: /media/ye/project2/tool/multeval/run1/sentLevel/rk-my-bk
+Outputting ranked hypotheses to: /media/ye/project2/tool/multeval/run1/rank/rk-my-bk
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 1 of 3; opt run 10 of 10)
+RESULT: baseline: BLEU: RESAMPLED_MEAN_AVG: 31.478937
+RESULT: baseline: BLEU: RESAMPLED_STDDEV_AVG: 1.006452
+RESULT: baseline: BLEU: RESAMPLED_MIN: 26.073959
+RESULT: baseline: BLEU: RESAMPLED_MAX: 37.094907
+RESULT: baseline: METEOR: RESAMPLED_MEAN_AVG: 29.314277
+RESULT: baseline: METEOR: RESAMPLED_STDDEV_AVG: 0.428154
+RESULT: baseline: METEOR: RESAMPLED_MIN: 27.001524
+RESULT: baseline: METEOR: RESAMPLED_MAX: 32.215640
+RESULT: baseline: TER: RESAMPLED_MEAN_AVG: 49.452883
+RESULT: baseline: TER: RESAMPLED_STDDEV_AVG: 1.086444
+RESULT: baseline: TER: RESAMPLED_MIN: 42.109303
+RESULT: baseline: TER: RESAMPLED_MAX: 55.778050
+RESULT: baseline: Length: RESAMPLED_MEAN_AVG: 101.973921
+RESULT: baseline: Length: RESAMPLED_STDDEV_AVG: 0.312506
+RESULT: baseline: Length: RESAMPLED_MIN: 100.422125
+RESULT: baseline: Length: RESAMPLED_MAX: 103.860627
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 2 of 3; opt run 10 of 10)
+RESULT: system 1: BLEU: RESAMPLED_MEAN_AVG: 32.504386
+RESULT: system 1: BLEU: RESAMPLED_STDDEV_AVG: 1.034134
+RESULT: system 1: BLEU: RESAMPLED_MIN: 27.191102
+RESULT: system 1: BLEU: RESAMPLED_MAX: 37.667803
+RESULT: system 1: METEOR: RESAMPLED_MEAN_AVG: 29.669901
+RESULT: system 1: METEOR: RESAMPLED_STDDEV_AVG: 0.443050
+RESULT: system 1: METEOR: RESAMPLED_MIN: 27.407722
+RESULT: system 1: METEOR: RESAMPLED_MAX: 32.093101
+RESULT: system 1: TER: RESAMPLED_MEAN_AVG: 48.869651
+RESULT: system 1: TER: RESAMPLED_STDDEV_AVG: 1.100976
+RESULT: system 1: TER: RESAMPLED_MIN: 43.459592
+RESULT: system 1: TER: RESAMPLED_MAX: 55.525197
+RESULT: system 1: Length: RESAMPLED_MEAN_AVG: 101.916584
+RESULT: system 1: Length: RESAMPLED_STDDEV_AVG: 0.307481
+RESULT: system 1: Length: RESAMPLED_MIN: 100.347725
+RESULT: system 1: Length: RESAMPLED_MAX: 104.124437
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 1 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 2 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 3 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 4 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 5 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 6 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 7 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 8 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 9 of 10)
+Performing bootstrap resampling to estimate stddev for test set selection (System 3 of 3; opt run 10 of 10)
+RESULT: system 2: BLEU: RESAMPLED_MEAN_AVG: 32.004139
+RESULT: system 2: BLEU: RESAMPLED_STDDEV_AVG: 1.023259
+RESULT: system 2: BLEU: RESAMPLED_MIN: 27.107958
+RESULT: system 2: BLEU: RESAMPLED_MAX: 37.735067
+RESULT: system 2: METEOR: RESAMPLED_MEAN_AVG: 29.592430
+RESULT: system 2: METEOR: RESAMPLED_STDDEV_AVG: 0.436654
+RESULT: system 2: METEOR: RESAMPLED_MIN: 27.254944
+RESULT: system 2: METEOR: RESAMPLED_MAX: 31.883297
+RESULT: system 2: TER: RESAMPLED_MEAN_AVG: 49.197074
+RESULT: system 2: TER: RESAMPLED_STDDEV_AVG: 1.094027
+RESULT: system 2: TER: RESAMPLED_MIN: 43.303230
+RESULT: system 2: TER: RESAMPLED_MAX: 55.535168
+RESULT: system 2: Length: RESAMPLED_MEAN_AVG: 101.978089
+RESULT: system 2: Length: RESAMPLED_STDDEV_AVG: 0.305108
+RESULT: system 2: Length: RESAMPLED_MIN: 100.464846
+RESULT: system 2: Length: RESAMPLED_MAX: 103.643198
+Performed bootstrap resampling in 25.7 s
+Performing approximate randomization to estimate p-value between baseline system and system 2 (of 3)
+RESULT: system 1: BLEU: P_VALUE: 0.000100
+RESULT: system 1: METEOR: P_VALUE: 0.000100
+RESULT: system 1: TER: P_VALUE: 0.000100
+RESULT: system 1: Length: P_VALUE: 0.151885
+Performing approximate randomization to estimate p-value between baseline system and system 3 (of 3)
+RESULT: system 2: BLEU: P_VALUE: 0.000100
+RESULT: system 2: METEOR: P_VALUE: 0.000100
+RESULT: system 2: TER: P_VALUE: 0.013999
+RESULT: system 2: Length: P_VALUE: 0.915308
+Performed approximate randomization in 26.2 s
+Writing Latex table to /media/ye/project2/tool/multeval/run1/latex/rk-my-bk.table.tex
+n=10           BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       31.5 (1.0/0.7/-)       29.3 (0.4/0.5/-)       49.5 (1.1/1.1/-)       102.0 (0.3/0.4/-)      
+system 1       32.5 (1.0/0.6/0.00)    29.7 (0.4/0.4/0.00)    48.9 (1.1/0.9/0.00)    101.9 (0.3/0.4/0.15)   
+system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)    102.0 (0.3/0.3/0.92)   
+
+real	3m17.241s
+user	21m49.701s
+sys	0m3.149s
+(base) ye@:/media/ye/project2/tool/multeval$
+```
+
+```
+(base) ye@:/media/ye/project2/tool/multeval$ cat ./run1-2ndtime-run.log 
+n=9            BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       19.0 (1.1/0.9/-)       24.5 (0.5/0.5/-)       60.9 (1.4/1.3/-)       102.7 (0.4/0.5/-)      
+system 1       19.0 (1.1/1.0/0.98)    24.7 (0.5/0.4/0.07)    60.9 (1.4/1.2/0.83)    102.6 (0.4/0.4/0.14)   
+system 2       19.0 (1.1/0.9/0.96)    24.4 (0.5/0.4/0.06)    59.6 (1.3/0.7/0.00)    102.2 (0.4/0.4/0.00)   
+n=9            BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       22.0 (1.2/1.3/-)       25.1 (0.5/0.4/-)       56.5 (1.3/0.8/-)       101.7 (0.4/0.2/-)      
+system 1       21.5 (1.2/1.4/0.01)    24.6 (0.5/0.5/0.00)    56.5 (1.3/0.8/0.94)    101.4 (0.4/0.2/0.00)   
+system 2       22.0 (1.2/1.3/0.86)    25.1 (0.5/0.4/0.37)    56.1 (1.2/0.8/0.01)    101.6 (0.4/0.3/0.24)   
+n=10           BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       38.1 (1.1/1.1/-)       32.4 (0.5/0.4/-)       46.0 (1.1/1.1/-)       101.8 (0.3/0.3/-)      
+system 1       38.1 (1.1/1.1/0.71)    32.3 (0.5/0.4/0.08)    45.7 (1.1/1.1/0.00)    101.7 (0.3/0.3/0.10)   
+system 2       39.1 (1.1/1.1/0.00)    32.8 (0.5/0.5/0.00)    44.5 (1.0/1.2/0.00)    101.5 (0.3/0.2/0.00)   
+n=10           BLEU (s_sel/s_opt/p)   METEOR (s_sel/s_opt/p) TER (s_sel/s_opt/p)    Length (s_sel/s_opt/p) 
+baseline       31.5 (1.0/0.7/-)       29.3 (0.4/0.5/-)       49.5 (1.1/1.1/-)       102.0 (0.3/0.4/-)      
+system 1       32.5 (1.0/0.6/0.00)    29.7 (0.4/0.4/0.00)    48.9 (1.1/0.9/0.00)    101.9 (0.3/0.4/0.15)   
+system 2       32.0 (1.0/1.0/0.00)    29.6 (0.4/0.5/0.00)    49.2 (1.1/1.0/0.01)    102.0 (0.3/0.3/0.92)   
+(base) ye@:/media/ye/project2/tool/multeval$
+```
+
+## Analysis on Evaluation Results
+
+
 ## Meteor-1.5-Dbnary version
 
 http://kaiko.getalp.org/about-dbnary/meteor-with-dbnary/  
