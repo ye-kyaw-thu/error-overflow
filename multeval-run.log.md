@@ -170,6 +170,8 @@ baseline       18.5 (0.3/0.1/-)       29.3 (0.1/0.0/-)       65.7 (0.4/0.2/-)   
 
 ## Comparing Several Systems
 
+ဒီတစ်ခါတော့ baseline, system-1, system-2 ကို နှိုင်းယှဉ်တဲ့ ပုံစံနဲ့သွားမယ်။ ဒီနေရာမှာ opt* ဆိုတာက optimizer က တစ်ဖိုင်ထက်မက ပိုတာကို ဆိုလိုတယ်။  
+
 ```
 (base) ye@:/media/ye/project2/tool/multeval$ ./multeval.sh eval --refs example/refs.test2010.lc.tok.en.* \
 >                    --hyps-baseline example/hyps.lc.tok.en.baseline.opt* \
@@ -370,6 +372,9 @@ system 2       18.5 (0.3/0.1/0.00)    29.3 (0.1/0.0/0.00)    65.7 (0.4/0.2/0.00)
 ```
 
 ## Option for Include Latex Table, Ranked and Sentence-Level Metric Score
+
+အသုံးဝင်တဲ့ option တစ်ခုက ```--latex``` ဆိုတဲ့ option ပါ။ evaluation ရလဒ်ကို latex table အနေနဲ့ပါ output ထုတ်ပေးတာမို့။  
+ပြီးတော့ ```--rankDir``` option နဲ့ ```--sentLevelDir``` option နှစ်ခုကိုလည်း သုံးကြည့်တဲ့ example running ပါ။  
 
 ```
 (base) ye@:/media/ye/project2/tool/multeval$ ./multeval.sh eval --refs example/refs.test2010.lc.tok.en.* \
@@ -623,6 +628,8 @@ table.tex ကို cat လုပ်ကြည့်ရင်...
 \end{table}
 (base) ye@:/media/ye/project2/tool/multeval$
 ```
+
+rank/ နဲ့ sentLevel/ ဆိုတဲ့ folder တွေလည်း output အနေနဲ့ ထုတ်ပေးပါလိမ့်မယ်။  
 
 ## Call Help
 
