@@ -118,6 +118,9 @@ Processing triggers for man-db (2.9.3-2) ...
 
 ## Conversion
 
+dos2unix command ကို သုံးပြီးတော့ Windows OS file format ကနေ Linux file format ကို ပြောင်းတာက အောက်ပါအတိုင်းပါ။  
+တစ်ခုရှိတာက အောက်ပါအတိုင်း command အတိုင်း ရိုက်ပြောင်းရင် ပေးလိုက်တဲ့ filename ရဲ့ ဖိုင်ကို ဝင်ရေးမှာ ဖြစ်တယ်။ အော်ရဂျင်နယ် မပြောင်းရသေးတဲ့ ဖိုင်ကတော့ ပျောက်သွားမှာ ဖြစ်တယ် ဆိုတာကို ဂရုပြုပါ။  
+
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/corpus_med_en-my$ dos2unix valid.utf8.th 
 dos2unix: converting file valid.utf8.th to Unix format...
@@ -217,10 +220,11 @@ Usage: dos2unix [options] [file ...] [-n infile outfile ...]
  -V, --version         display version number
  ```
  
+ 
  ```
-(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ dos2unix -b ./train.en
+(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ dos2unix ./train.en
 dos2unix: converting file ./train.en to Unix format...
-(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ dos2unix -b ./train.my 
+(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ dos2unix ./train.my 
 dos2unix: converting file ./train.my to Unix format...
 ```
 
