@@ -14,6 +14,8 @@ y
 
 ## Check the Files
 
+ကျောင်းသားဆီကနေ ပို့ပေးလိုက်တဲ့ ဖိုင်တွေကို စစ်ဆေးကြည့်တဲ့အခါမှာ အောက်ပါအတိုင်း လိုင်းအရေအတွက် မတူတာကို တွေ့ရပါတယ်။  
+
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/corpus_med_en-my$ wc *
    1000   13676   68916 test.en
@@ -40,6 +42,8 @@ valid.th: UTF-8 Unicode text, with CRLF line terminators
 
 ## Conversion with Perl
 
+Perl programming one liner program ရေးပြီးလည်း အလွယ်တကူ ပြောင်းလို့ ရပါတယ်။  
+
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/corpus_med_en-my$ perl -p -e 's/\r$//' < ./train.th > ./train.utf8.th
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/corpus_med_en-my$ perl -p -e 's/\r$//' < ./test.th > ./test.utf8.th
@@ -62,6 +66,10 @@ valid.utf8.th: UTF-8 Unicode text
 ```
 
 ## Install dos2unix program
+
+နောက်ပြီးတော့ dos2unix ဆိုတဲ့ ပရိုဂရမ်နဲ့လည်း Windows နဲ့ Linux အကြား file format တွေကို ပြောင်းလဲလို့ ရပါတယ်။  
+လက်ရှိ Linux OS စက်ထဲမှာက dos2unix ဆိုတဲ့ ပရိုဂရမ်က မရှိသေးရင် အောက်ပါအတိုင်း install လုပ်ယူလို့ ရပါတယ်။  
+
 
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/corpus_med_en-my$ sudo apt-get install dos2unix
