@@ -1,3 +1,17 @@
+# File Format Between Windows and Linux and Blank Line Error Example
+
+Machine Translation လုပ်ဖို့အတွက် parallel data ကို ပြင်ဆင်ရတဲ့အခါမှာ အတွေ့အကြုံမရှိတဲ့ ကျောင်းသားတွေအတွက်က သင်ပြရတဲ့ preprocessing ကိစ္စတွေက အများကြီးပါပဲ။  
+အခု ဒီ error ကတော့ ဘာနဲ့ ဆိုင်သလဲ ဆိုရင် Windows နဲ့ Linux ရဲ့ OS နှစ်ခုအကြားမှာ newline ကို သိမ်းတဲ့ ပုံစံက မတူတာကို မပြောင်းထားတာ (file format conversion) နဲ့ text ဖိုင်ထဲမှာ blank line တွေ ပါနေလို့ source နဲ့ target အကြားမှာ လိုင်းအရေအတွက် မတူတဲ့ ကိစ္စပါ။   
+
+တကယ်က training, validation နဲ့ test ဒေတာ ခွဲထားတာကလည်း shuffle မလုပ်ပဲ ခွဲထားလို့ အဲဒါကလည်း Machine Learning မှာ Machine Translation မှာ ပြဿနာပါပဲ။   
+
+အခု တင်ပေးထားတာက ကျောင်းသူ တစ်ယောက်ဆီကနေ ပို့ပေးတဲ့ ဒေတာကို ဆရာက ဘယ်လို စစ်ကြည့်ခဲ့တယ်၊ file conversion ကို ဘယ်လို လုပ်ခဲ့တယ် ဆိုတာနဲ့ နောက်ဆုံး blank line ရှိနေတာကို ရှာတွေ့သွားတဲ့အထိ ရိုက်ခဲ့တဲ့ command တွေကို log လုပ်ပေးထားတာပါ။  
+
+တကယ်က ဒီပြဿနာ သေးသေးလေးတွေက အစ NLP အလုပ်မှာ အရေးကြီးပါတယ်။ အကြိမ်ကြိမ်အခါခါ မေ့ကြ၊ မှားကြတယ် ဆိုတာကိုလည်း R&D လုပ်ရင်း တွေ့ရတာမို့ လေ့လာချင်သူတွေ လေ့လာလို့ ရအောင် error-overflow မှာ တင်ပေးထားလိုက်တာပါ။  
+
+y  
+5 Feb 2022  
+
 ## Check the Files
 
 ```
