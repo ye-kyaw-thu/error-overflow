@@ -241,7 +241,9 @@ valid.th: UTF-8 Unicode text
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ 
 ```
 
-## I Found Problem
+## I Found the Problem
+
+နောက်ဆုံးမှာတော့ အောက်ပါအတိုင်း manual translation လုပ်ရင်းနဲ့ training ဖိုင်တွေမှာ enter တွေ ဆက်တိုက် ခေါက်ထားတာကို သွားတွေ့ရပါတယ်။  
 
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ tail train.*
@@ -283,4 +285,48 @@ valid.th: UTF-8 Unicode text
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$
 ```
 
+## Shuffling is Important
 
+ပြီးတော့ ဖိုင်တွေကို တစ်ဖိုင်ချင်း ဖွင့်စစ်တဲ့အခါမှာ text book ထဲကအစီအစဉ်အတိုင်း တန်းစီပြီး ရှိနေတာကို တွေ့ရတဲ့ အတွက် သေချာတယ်။ training/valid/test ဒေတာတွေ မခွဲခင်မှာ ကျောင်းသားက shuffle မလုပ်ထားရသေးဘူး ဆိုတာကိုလည်း ဂရုပြုမိခဲ့ပါတယ်။  
+
+```
+(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ head train.{en,my,th}
+==> train.en <==
+Hello
+Are you Mr.Tun Tun ?
+Nice to meet you .
+My name is Dr.Aung .
+I am one of the junior doctors in the department .
+How would you like me to call you ?
+You can call me &quot; Ko Tun &quot; .
+From what you are telling me , most likely you have a condition called heart failure .
+Heart failure is a condition in which your heart is not functioning ( pumping ) properly .
+Have I made myself clear ?
+
+==> train.my <==
+မင်္ဂလာပါ ။
+ခင်ဗျား က မစ္စတာ ထွန်းထွန်း ဖြစ် ပါ သလား ။
+ခင်ဗျား ကို တွေ့ ရတာ ဝမ်းသာ ပါ တယ် ။
+ကျွန်တော့် နာမည် ဒေါက်တာ အောင် ဖြစ် ပါ တယ် ။
+ကျွန်တော် ဒီ ဌာန က ဆရာဝန် အငယ် တစ်ယောက် ဖြစ် ပါ တယ် ။
+ခင်ဗျား ကို ဘယ်လို ခေါ် ရ မလဲ ။
+ခင်ဗျား ကျွန်တော့် ကို " ကိုထွန်း " လို့ ခေါ် နိုင် ပါ တယ် ။
+ခင်ဗျား ပြောပုံ အရ ဆိုရင် ခင်ဗျား ရဲ့ နှလုံး မှာ ပြဿနာ နည်းနည်း ရှိ နေတယ် ။
+နှလုံး အားနည်း ခြင်း ဟာ ခင်ဗျား ရဲ့ နှလုံး က ကောင်းစွာ အလုပ် မ လုပ်ဆောင် တဲ့ အခြေအနေ တစ်ခု ဖြစ် တယ် ။
+ကျွန်တော် ပြော တာ နားလည် ပါ သလား ။
+
+==> train.th <==
+สวัสดี
+คุณคือนายตุน ตุน?
+ยินดีที่ได้พบคุณ.
+ฉันชื่อ หมออ๋อง
+ฉันเป็นหนึ่งในแพทย์รุ่นน้องในแผนก
+คุณต้องการให้ฉันโทรหาคุณอย่างไร
+เรียกผมว่า "โก ตุน" ก็ได้
+จากสิ่งที่คุณบอกฉัน เป็นไปได้มากว่าคุณมีอาการที่เรียกว่าภาวะหัวใจล้มเหลว
+ภาวะหัวใจล้มเหลวเป็นภาวะที่หัวใจของคุณทำงาน (สูบฉีด) ไม่ถูกต้อง
+ฉันได้ทำให้ตัวเองชัดเจน?
+(base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$
+```
+
+အရေးကြီးပါတယ်။ Machine Learning မော်ဒယ်တွေအတွက် အခုကိစ္စမှာတော့ Machine Translation အတွက်ပေါ့လေ.... ဒေတာတွေကို training, validation, testing အဖြစ် မခွဲခင်မှာ shuffle လုပ်ကြရအောင်။  
