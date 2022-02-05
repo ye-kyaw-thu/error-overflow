@@ -123,7 +123,7 @@ valid.utf8.th: UTF-8 Unicode text
 
 မရဘူး တစ်ခုခုတော့ လွဲနေတယ်...  
 
-## Check 2nd Time Sending From Mya Ei Sann
+## Check Files of 2nd Time Sending From My Student
 
 ```
 (base) ye@:/media/ye/project2/students/mya-ei-san/5Feb2022-translation/2nd-time/corpus_med_en-my$ ls
