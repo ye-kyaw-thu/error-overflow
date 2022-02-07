@@ -330,4 +330,4 @@ wer++.py ကို run တဲ့အခါမှာ reference ဖိုင်မ�
 
 ## Reference
 
-[WERpp](https://github.com/nsmartinez/WERpp)  
+[https://github.com/nsmartinez/WERpp](https://github.com/nsmartinez/WERpp)  
