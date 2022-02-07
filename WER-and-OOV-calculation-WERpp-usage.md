@@ -1,3 +1,12 @@
+# WER and OOV Calculation by Using WER++.py
+
+OOV dictionary ကို ပြင်ဆင်ပြီးတော့ WER နဲ့ OOV တွက်တာကို [WER++.py](https://github.com/nsmartinez/WERpp/blob/master/wer%2B%2B.py) ကို သုံးပြီးလုပ်ပြထားတာပါ။  
+ဒီနေရာမှာတော့ pivot machine translation experiment ရဲ့ hypothesis, တိုက်စစ်ဖို့အတွက် ပြင်ထားတဲ့ test data (i.e. reference), training data ထဲက စာလုံးတွေနဲ့ ဆောက်ထားတဲ့ dictionary ကို သုံးပြီး တွက်ပြထားတာပါ။  
+NLP/MT evaluation အလုပ်တွေအတွက် အသုံးဝင်ပါလိမ့်မယ်။  
+
+y  
+7 Feb 2022  
+
 ## Shell Script for 10-fold 
 
 ငါတို့မှာက 10-fold ခွဲပြီးတော့ run ထားတာမို့လို့ experiment တစ်မျိုးစီအတွက် ၁၀ ခါ တွက်ဖို့ လိုအပ်တယ်။  
