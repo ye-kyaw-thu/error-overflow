@@ -3,8 +3,8 @@
 Raku language (i.e. perl 6) ကို compile လုပ်ပေးတာက Rakudo ပါ။  
 Raku language နဲ့ Rakudo ကို program တစ်ပုဒ် စမ်းရေးဖို့အတွက် လေ့လာခဲ့စဉ်က မှတ်သားခဲ့တဲ့ note ဖိုင်ပါ။  
 
-y
-14 Feb 2022  
+y  
+14 Feb 2022   
 
 ## Installation
 
