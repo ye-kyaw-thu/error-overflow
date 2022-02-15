@@ -105,3 +105,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 98. [wer-calc-for-10fold-experiment-example.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/wer-calc-for-10fold-experiment-example.md)  
 99. [windows-vs-linux-and-blank-line-error-eg.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/windows-vs-linux-and-blank-line-error-eg.md)  
 100. [WER-and-OOV-calculation-WERpp-usage.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/WER-and-OOV-calculation-WERpp-usage.md)  
+101. [rakudo-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/rakudo-installation.md)  
