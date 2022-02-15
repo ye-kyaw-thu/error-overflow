@@ -1,5 +1,13 @@
 # Rakudo Installation and Testing
 
+Raku language (i.e. perl 6) ကို compile လုပ်ပေးတာက Rakudo ပါ။  
+Raku language နဲ့ Rakudo ကို program တစ်ပုဒ် စမ်းရေးဖို့အတွက် လေ့လာခဲ့စဉ်က မှတ်သားခဲ့တဲ့ note ဖိုင်ပါ။  
+
+y
+14 Feb 2022  
+
+## Installation
+
 ```
 (base) ye@:/media/ye/project2/exp$ sudo apt install rakudo
 [sudo] password for ye: 
@@ -1696,36 +1704,38 @@ Using it is lexically scoped:
 sub bye { say 'bye' } # ok
 ```
 
+```
 Conclusion
 
-- Making informal DSLs may involve
--- creative use of syntax (internal)
--- parsing (external)
--- modifying an existing language (variant)
-- Perl 6 offers new and exiciting techniques for each of these.
-
+- Making informal DSLs may involve  
+-- creative use of syntax (internal)  
+-- parsing (external)  
+-- modifying an existing language (variant)  
+- Perl 6 offers new and exiciting techniques for each of these.  
+```
 
 
 
 ## Reference
 
-https://examples.p6c.dev/categories/interpreters/brainfuck.html  
-https://github.com/raku-community-modules/Inline-Brainfuck  
+- https://examples.p6c.dev/categories/interpreters/brainfuck.html  
+- https://github.com/raku-community-modules/Inline-Brainfuck  
 
-Andrew Shitov. Perl 6 grammars for simple compilers (lightning talk):  
+- Andrew Shitov. Perl 6 grammars for simple compilers (lightning talk):  
 https://www.youtube.com/watch?v=rxaB6m_sQKk  
 
-https://www.youtube.com/watch?v=lwIXF25KJCo  
-https://github.com/ash/lingua  
+- https://www.youtube.com/watch?v=lwIXF25KJCo  
+- https://github.com/ash/lingua  
 
-https://edu.anarcho-copy.org/Programming%20Languages/Perl/perl-6-deep-dive.pdf
-https://github.com/drforr/perl6-Grammar-Common
-Perl6, https://perl6.org
-Regexes, https://docs.perl6.org/language/regexes
-MLCad, http://mlcad.lm-software.com/
-https://www.youtube.com/watch?v=yMybtZV_Uy4
-https://www.newthinktank.com/2019/01/perl-6-tutorial/
-https://perl6advent.wordpress.com/2015/12/07/day-7-unicode-perl-6-and-you/
+- https://edu.anarcho-copy.org/Programming%20Languages/Perl/perl-6-deep-dive.pdf  
+- https://github.com/drforr/perl6-Grammar-Common  
+
+- Perl6, https://perl6.org
+- Regexes, https://docs.perl6.org/language/regexes
+- MLCad, http://mlcad.lm-software.com/
+- https://www.youtube.com/watch?v=yMybtZV_Uy4
+- https://www.newthinktank.com/2019/01/perl-6-tutorial/
+- https://perl6advent.wordpress.com/2015/12/07/day-7-unicode-perl-6-and-you/
 
 
 
