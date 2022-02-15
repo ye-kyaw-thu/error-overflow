@@ -1,3 +1,6 @@
+# Rakudo Installation and Testing
+
+```
 (base) ye@:/media/ye/project2/exp$ sudo apt install rakudo
 [sudo] password for ye: 
 Reading package lists... Done
@@ -105,6 +108,7 @@ Processing triggers for man-db (2.9.3-2) ...
 This is Rakudo version 2019.11 built on MoarVM version 2019.11
 implementing Perl 6.d.
 (base) ye@:/media/ye/project2/exp$
+```
 
 ## Testing Rakudo
 
