@@ -441,7 +441,7 @@ shell ကို run ခဲ့...
 
 shell script တစ်ပုဒ် ရေးခဲ့တယ်...  
 
-```
+```bash
 (base) ye@:/media/ye/project2/exp/braille-nmt/data/for-nmt$ cat ./build-vocab.sh 
 #!/bin/bash
 
@@ -699,8 +699,10 @@ https://raw.githubusercontent.com/ye-kyaw-thu/MTRSS/master/WAT2021/scripts/nmt/Y
 check the reference script:  
 (ဒီ script က WAT 2021 အတွက် သုံးခဲ့တဲ့ script ပါ)  
 
-```
-(base) ye@:/media/ye/project2/exp/braille-nmt$ cat ./transformer.sh 
+
+(base) ye@:/media/ye/project2/exp/braille-nmt$ cat ./transformer.sh   
+
+```bash  
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -745,15 +747,13 @@ marian \
     
 time marian -c model.transformer/config.yml  2>&1 | tee transformer-enmy.log
 
-(base) ye@:/media/ye/project2/exp/braille-nmt$
 ```
 
 ## Editing the Script
 
 Myanmar-to-Braille ကို training လုပ်ဖို့အတွက် အရင် WAT2021 အတွက် သုံးခဲ့တဲ့ shell script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်...  
 
-```
-(base) ye@:/media/ye/project2/exp/braille-nmt$ cat ./transformer.sh 
+```bash
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -799,7 +799,6 @@ marian \
     
 time marian -c /media/ye/project2/exp/braille-nmt/model.transformer/config0.yml  2>&1 | tee transformer-mybr0.log
 
-(base) ye@:/media/ye/project2/exp/braille-nmt$
 ```
 
 ## Running or Training Transformer for Myanmar-to-Braille (for 0/)
@@ -1274,6 +1273,9 @@ Sat Feb 19 01:15:40 2022
 
 ## Retraining
 
+Restart လုပ်ပြီး ပြန် train ကြည့်ခဲ့...  
+ဒီတစ်ခါတော့ error မပေးတော့ဘူး...  
+
 ```
 
 ...
@@ -1319,8 +1321,9 @@ sys	1m18.182s
 
 ## Prepare Shell Script for Braille to Myanmar (for 0)
 
-```
-(base) ye@:/media/ye/project2/exp/braille-nmt$ cat ./transformer-brmy.sh 
+(base) ye@:/media/ye/project2/exp/braille-nmt$ cat ./transformer-brmy.sh  
+
+```bash 
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -1366,7 +1369,6 @@ marian \
     
 time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-brmy/config0.yml  2>&1 | tee transformer-brmy0.log
 
-(base) ye@:/media/ye/project2/exp/braille-nmt$
 ```
 
 ## Training Transformer Model for Braille to Myanmar (for 0)
@@ -1461,7 +1463,9 @@ sys	1m10.190s
 
 ## Checking Output Models Folder
 
-checking for Myanmar-Braille ...  
+checking for Myanmar-Braille models ...  
+translation လုပ်ဖို့အတွက် train လုပ်ခဲ့တဲ့ model တွေကို sorting လုပ်ပြီး iteration အစဉ်အလိုက် ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+iteration အစီအစဉ်တွေကို looping ပတ်ဖို့အတွက် သိချင်တာမို့ sort လုပ်တဲ့အခါမှာ -V option ကို သုံးထားတယ်။  
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ ls model0-mybr.*.npz | sort -V
@@ -1492,8 +1496,9 @@ model0-mybr.npz.orig.npz
 
 ## Prepared tran-eval Shell Script for Myanmar-to-Braille
 
-```
-(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ cat ./tran-eval-mybr.sh 
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ cat ./tran-eval-mybr.sh  
+
+```bash 
 #!/bin/bash
 
 ## Preparation for Myanmar-MuHaung, MuHaung-Myanmar
@@ -1507,10 +1512,12 @@ do
    echo "Evaluation with hyp.iter$i.br, Transformer Model:" >> test0-results.txt
    perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./hyp.iter$i.br  >> test0-results.txt
 done
-(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$
+
 ```
 
 ## Translation with Test Data (for 0/, my-br)
+
+test ဒေတာကို training လုပ်ခဲ့တဲ့ မော်ဒယ် တစ်ခုချင်းစီကို pass လုပ်ပြီး translation output တွေကို hyp ဖိုင်တွေအနေနဲ့ သိမ်းထားခဲ့...  
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ ./tran-eval-mybr.sh
@@ -1702,6 +1709,8 @@ BLEU = 86.64, 95.1/90.0/85.4/80.9 (BP=0.988, ratio=0.988, hyp_len=28458, ref_len
 
 ## Checking for Braille to Myanmar ...  
 
+Braille ကနေ မြန်မာစာဘက်ကို translation လုပ်ဖို့အတွက် train လုပ်ခဲ့တဲ့ model တွေကို sorting လုပ်ပြီး iteration အစဉ်အလိုက် ကြည့်ရင် အောက်ပါအတိုင်း မြင်ရပါလိမ့်မယ်။  
+
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ ls model0-brmy.iter*.npz | sort -V
 model0-brmy.iter5000.npz
@@ -1725,8 +1734,10 @@ model0-brmy.iter80000.npz
 
 ## Prepared tran-eval Shell Script for Braille-to-Myanmar
 
-```
+
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ cat ./tran-eval-brmy.sh 
+
+```bash
  #!/bin/bash
 
 ## Preparation for Myanmar-MuHaung, MuHaung-Myanmar
@@ -1740,10 +1751,11 @@ do
    echo "Evaluation with hyp.iter$i.my, Transformer Model:" >> test0-results.txt
    perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./hyp.iter$i.my  >> test0-results.txt
 done
-(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$
 ```
 
 ##  Translation with Test Data (for 0/, br-my)
+
+Braille (မူဟောင်း) ကနေ မြန်မာစာ ဘက်ကို translation လုပ်ပြီး ထွက်လာတဲ့ output hyp ဖိုင်တွေကို evaluation လုပ်ဖို့အတွက် အောက်ပါအတိုင်း run ခဲ့တယ်။  
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ time ./tran-eval-brmy.sh 
@@ -1873,6 +1885,9 @@ sys	0m47.298s
 ```
 
 ## Check the Results
+
+Braille to Myanmar Translation Results are as follows...  
+မူဟောင်းကနေ မြန်မာကို test ဒေတာ သုံးပြီး ဘာသာပြန်ထားတဲ့ ရလဒ်တွေကအောက်ပါအတိုင်း...  
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ cat test0-results.txt 
