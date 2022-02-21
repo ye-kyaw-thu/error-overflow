@@ -1,6 +1,7 @@
 # Experiment Log for Mu Haung Braille Translation
 
 မျက်မမြင်စာ မူဟောင်း ဒေတာက ပြင်ဆင်တာ ပြီးသွားလို့ NMT လုပ်ကြည့်ခဲ့တဲ့ Experiment log ပါ။  
+ဒေါက်တာတန်းကျောင်းသူ ဇွန်လှိုင်မိုး၊ သီတာစန်းတို့အတွက် ရည်ရွယ်ပြီး ပြင်ဆင်ခဲ့...  
 
 ## Information of Mu Haung Data
 
