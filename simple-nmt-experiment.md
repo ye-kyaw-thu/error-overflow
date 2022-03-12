@@ -5555,3 +5555,500 @@ development ဒေတာကို သုံးပြီးမှ RL fine-tuning 
 မြန်မာ-ရခိုင် မော်ဒယ်က ပြောရရင် baseline မော်ဒယ်ကိုက dialect translation မို့လို့ ရလဒ်က ကောင်းနေပြီးသား ဆိုတော့ RL fine-tuning က dev data နည်းနည်းနဲ့ ထပ်တိုးလုပ်ဖို့ ခက်နေတဲ့ အပိုင်းလည်း ပါတယ်။  
 နောက်ထပ် အရေးကြီးတာက ငါက baseline မော်ဒယ်ကို epoch 1000 နဲ့ လုပ်ချလိုက်တော့ baseline model တွေကလည်း strong ဖြစ်ပြီးသားမို့လို့ ... RL မှာက ရလဒ် မတက်တာ...  
 
+## Reduce Epoch of Baseline Models and RL Fine-Tuning
+
+### Seq2Seq
+
+epoch 100 ထားပြီး run ကြည့်ခဲ့...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt$ time python train.py --train /media/ye/project2/exp/myrk-transformer/data/syl/train --valid /media/ye/project2/exp/myrk-transformer/data/syl/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 100 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/100epoch/seq-model-myrk2.pth
+{   'batch_size': 64,
+    'dropout': 0.2,
+    'gpu_id': 0,
+    'hidden_size': 128,
+    'init_epoch': 1,
+    'iteration_per_update': 2,
+    'lang': 'myrk',
+    'lr': 0.001,
+    'lr_decay_start': 10,
+    'lr_gamma': 0.5,
+    'lr_step': 0,
+    'max_grad_norm': 100000000.0,
+    'max_length': 100,
+    'model_fn': './model/seq2seq/100epoch/seq-model-myrk2.pth',
+    'n_epochs': 100,
+    'n_layers': 4,
+    'n_splits': 8,
+    'off_autocast': False,
+    'rl_lr': 0.01,
+    'rl_n_epochs': 0,
+    'rl_n_gram': 6,
+    'rl_n_samples': 1,
+    'rl_reward': 'gleu',
+    'train': '/media/ye/project2/exp/myrk-transformer/data/syl/train',
+    'use_adam': True,
+    'use_radam': False,
+    'use_transformer': False,
+    'valid': '/media/ye/project2/exp/myrk-transformer/data/syl/dev',
+    'verbose': 2,
+    'word_vec_size': 128}
+Seq2Seq(
+  (emb_src): Embedding(1585, 128)
+  (emb_dec): Embedding(1695, 128)
+  (encoder): Encoder(
+    (rnn): LSTM(128, 64, num_layers=4, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (decoder): Decoder(
+    (rnn): LSTM(256, 128, num_layers=4, batch_first=True, dropout=0.2)
+  )
+  (attn): Attention(
+    (linear): Linear(in_features=128, out_features=128, bias=False)
+    (softmax): Softmax(dim=-1)
+  )
+  (concat): Linear(in_features=256, out_features=128, bias=True)
+  (tanh): Tanh()
+  (generator): Generator(
+    (output): Linear(in_features=128, out_features=1695, bias=True)
+    (softmax): LogSoftmax(dim=-1)
+  )
+)
+NLLLoss()
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+Epoch 1 - |param|=6.51e+02 |g_param|=1.93e+05 loss=4.2883e+00 ppl=72.85                                                 
+Validation - loss=3.6133e+00 ppl=37.09 best_loss=inf best_ppl=inf                                                       
+Epoch 2 - |param|=6.51e+02 |g_param|=1.71e+05 loss=4.0107e+00 ppl=55.19                                                 
+Validation - loss=3.4006e+00 ppl=29.98 best_loss=3.6133e+00 best_ppl=37.09                                              
+Epoch 3 - |param|=6.51e+02 |g_param|=1.62e+05 loss=3.9028e+00 ppl=49.54                                                 
+Validation - loss=3.2479e+00 ppl=25.74 best_loss=3.4006e+00 best_ppl=29.98                                              
+Epoch 4 - |param|=6.52e+02 |g_param|=1.85e+05 loss=3.7602e+00 ppl=42.96                                                 
+Validation - loss=3.0737e+00 ppl=21.62 best_loss=3.2479e+00 best_ppl=25.74                                              
+Epoch 5 - |param|=6.52e+02 |g_param|=1.75e+05 loss=3.5927e+00 ppl=36.33                                                 
+Validation - loss=2.9148e+00 ppl=18.44 best_loss=3.0737e+00 best_ppl=21.62                                              
+Epoch 6 - |param|=6.53e+02 |g_param|=2.05e+05 loss=3.3838e+00 ppl=29.48                                                 
+Validation - loss=2.7204e+00 ppl=15.19 best_loss=2.9148e+00 best_ppl=18.44                                              
+Epoch 7 - |param|=6.54e+02 |g_param|=1.76e+05 loss=3.2038e+00 ppl=24.63                                                 
+Validation - loss=2.4533e+00 ppl=11.63 best_loss=2.7204e+00 best_ppl=15.19                                              
+Epoch 8 - |param|=6.55e+02 |g_param|=1.56e+05 loss=2.8959e+00 ppl=18.10                                                 
+Validation - loss=2.1545e+00 ppl=8.62 best_loss=2.4533e+00 best_ppl=11.63                                               
+Epoch 9 - |param|=6.55e+02 |g_param|=8.43e+04 loss=2.5888e+00 ppl=13.31                                                 
+Validation - loss=1.9368e+00 ppl=6.94 best_loss=2.1545e+00 best_ppl=8.62                                                
+Epoch 10 - |param|=6.56e+02 |g_param|=9.75e+04 loss=2.3771e+00 ppl=10.77                                                
+Validation - loss=1.7919e+00 ppl=6.00 best_loss=1.9368e+00 best_ppl=6.94                                                
+Epoch 11 - |param|=6.57e+02 |g_param|=1.01e+05 loss=2.2111e+00 ppl=9.13                                                 
+Validation - loss=1.6101e+00 ppl=5.00 best_loss=1.7919e+00 best_ppl=6.00                                                
+Epoch 12 - |param|=6.58e+02 |g_param|=1.11e+05 loss=2.0396e+00 ppl=7.69                                                 
+Validation - loss=1.5761e+00 ppl=4.84 best_loss=1.6101e+00 best_ppl=5.00                                                
+Epoch 13 - |param|=6.58e+02 |g_param|=1.25e+05 loss=1.8752e+00 ppl=6.52                                                 
+Validation - loss=1.4459e+00 ppl=4.25 best_loss=1.5761e+00 best_ppl=4.84                                                
+Epoch 14 - |param|=6.59e+02 |g_param|=9.66e+04 loss=1.7209e+00 ppl=5.59                                                 
+Validation - loss=1.2683e+00 ppl=3.55 best_loss=1.4459e+00 best_ppl=4.25                                                
+Epoch 15 - |param|=6.60e+02 |g_param|=1.17e+05 loss=1.5519e+00 ppl=4.72                                                 
+Validation - loss=1.1859e+00 ppl=3.27 best_loss=1.2683e+00 best_ppl=3.55                                                
+Epoch 16 - |param|=6.60e+02 |g_param|=1.16e+05 loss=1.4668e+00 ppl=4.34                                                 
+Validation - loss=1.0892e+00 ppl=2.97 best_loss=1.1859e+00 best_ppl=3.27                                                
+Epoch 17 - |param|=6.61e+02 |g_param|=1.03e+05 loss=1.3386e+00 ppl=3.81                                                 
+Validation - loss=1.0047e+00 ppl=2.73 best_loss=1.0892e+00 best_ppl=2.97                                                
+Epoch 18 - |param|=6.61e+02 |g_param|=8.99e+04 loss=1.5135e+00 ppl=4.54                                                 
+Validation - loss=1.0991e+00 ppl=3.00 best_loss=1.0047e+00 best_ppl=2.73                                                
+Epoch 19 - |param|=6.62e+02 |g_param|=3.90e+04 loss=1.1910e+00 ppl=3.29                                                 
+Validation - loss=8.5998e-01 ppl=2.36 best_loss=1.0047e+00 best_ppl=2.73                                                
+Epoch 20 - |param|=6.63e+02 |g_param|=5.55e+04 loss=1.1311e+00 ppl=3.10                                                 
+Validation - loss=8.4805e-01 ppl=2.34 best_loss=8.5998e-01 best_ppl=2.36                                                
+Epoch 21 - |param|=6.63e+02 |g_param|=4.47e+04 loss=1.0445e+00 ppl=2.84                                                 
+Validation - loss=8.1017e-01 ppl=2.25 best_loss=8.4805e-01 best_ppl=2.34                                                
+Epoch 22 - |param|=6.63e+02 |g_param|=4.21e+04 loss=9.8562e-01 ppl=2.68                                                 
+Validation - loss=7.4788e-01 ppl=2.11 best_loss=8.1017e-01 best_ppl=2.25                                                
+Epoch 23 - |param|=6.64e+02 |g_param|=6.18e+04 loss=9.5746e-01 ppl=2.61                                                 
+Validation - loss=7.0029e-01 ppl=2.01 best_loss=7.4788e-01 best_ppl=2.11                                                
+Epoch 24 - |param|=6.65e+02 |g_param|=4.10e+04 loss=8.8312e-01 ppl=2.42                                                 
+Validation - loss=6.7933e-01 ppl=1.97 best_loss=7.0029e-01 best_ppl=2.01                                                
+Epoch 25 - |param|=6.65e+02 |g_param|=3.82e+04 loss=8.2577e-01 ppl=2.28                                                 
+Validation - loss=6.4235e-01 ppl=1.90 best_loss=6.7933e-01 best_ppl=1.97                                                
+Epoch 26 - |param|=6.65e+02 |g_param|=3.82e+04 loss=7.7273e-01 ppl=2.17                                                 
+Validation - loss=6.4135e-01 ppl=1.90 best_loss=6.4235e-01 best_ppl=1.90                                                
+Epoch 27 - |param|=6.66e+02 |g_param|=4.28e+04 loss=7.5613e-01 ppl=2.13                                                 
+Validation - loss=6.1947e-01 ppl=1.86 best_loss=6.4135e-01 best_ppl=1.90                                                
+Epoch 28 - |param|=6.66e+02 |g_param|=3.79e+04 loss=7.1737e-01 ppl=2.05                                                 
+Validation - loss=6.3823e-01 ppl=1.89 best_loss=6.1947e-01 best_ppl=1.86                                                
+Epoch 29 - |param|=6.67e+02 |g_param|=5.78e+04 loss=7.3170e-01 ppl=2.08                                                 
+Validation - loss=5.6623e-01 ppl=1.76 best_loss=6.1947e-01 best_ppl=1.86                                                
+Epoch 30 - |param|=6.67e+02 |g_param|=5.82e+04 loss=7.2222e-01 ppl=2.06                                                 
+Validation - loss=5.7493e-01 ppl=1.78 best_loss=5.6623e-01 best_ppl=1.76                                                
+Epoch 31 - |param|=6.68e+02 |g_param|=3.10e+04 loss=6.4521e-01 ppl=1.91                                                 
+Validation - loss=5.2398e-01 ppl=1.69 best_loss=5.6623e-01 best_ppl=1.76                                                
+Epoch 32 - |param|=6.68e+02 |g_param|=3.73e+04 loss=6.0376e-01 ppl=1.83                                                 
+Validation - loss=5.2334e-01 ppl=1.69 best_loss=5.2398e-01 best_ppl=1.69                                                
+Epoch 33 - |param|=6.69e+02 |g_param|=3.03e+04 loss=5.9386e-01 ppl=1.81                                                 
+Validation - loss=5.0725e-01 ppl=1.66 best_loss=5.2334e-01 best_ppl=1.69                                                
+Epoch 34 - |param|=6.69e+02 |g_param|=3.68e+04 loss=5.4881e-01 ppl=1.73                                                 
+Validation - loss=4.9682e-01 ppl=1.64 best_loss=5.0725e-01 best_ppl=1.66                                                
+Epoch 35 - |param|=6.69e+02 |g_param|=5.70e+04 loss=5.5283e-01 ppl=1.74                                                 
+Validation - loss=4.8131e-01 ppl=1.62 best_loss=4.9682e-01 best_ppl=1.64                                                
+Epoch 36 - |param|=6.70e+02 |g_param|=5.60e+04 loss=5.3007e-01 ppl=1.70                                                 
+Validation - loss=4.8445e-01 ppl=1.62 best_loss=4.8131e-01 best_ppl=1.62                                                
+Epoch 37 - |param|=6.70e+02 |g_param|=6.88e+04 loss=5.3235e-01 ppl=1.70                                                 
+Validation - loss=4.7779e-01 ppl=1.61 best_loss=4.8131e-01 best_ppl=1.62                                                
+Epoch 38 - |param|=6.71e+02 |g_param|=6.65e+04 loss=5.0653e-01 ppl=1.66                                                 
+Validation - loss=4.7339e-01 ppl=1.61 best_loss=4.7779e-01 best_ppl=1.61                                                
+Epoch 39 - |param|=6.71e+02 |g_param|=5.75e+04 loss=4.9246e-01 ppl=1.64                                                 
+Validation - loss=4.5714e-01 ppl=1.58 best_loss=4.7339e-01 best_ppl=1.61                                                
+Epoch 40 - |param|=6.71e+02 |g_param|=7.67e+04 loss=4.9639e-01 ppl=1.64                                                 
+Validation - loss=4.6287e-01 ppl=1.59 best_loss=4.5714e-01 best_ppl=1.58                                                
+Epoch 41 - |param|=6.72e+02 |g_param|=7.31e+04 loss=4.6976e-01 ppl=1.60                                                 
+Validation - loss=4.4148e-01 ppl=1.56 best_loss=4.5714e-01 best_ppl=1.58                                                
+Epoch 42 - |param|=6.72e+02 |g_param|=6.00e+04 loss=4.5135e-01 ppl=1.57                                                 
+Validation - loss=4.2340e-01 ppl=1.53 best_loss=4.4148e-01 best_ppl=1.56                                                
+Epoch 43 - |param|=6.73e+02 |g_param|=6.83e+04 loss=4.5650e-01 ppl=1.58                                                 
+Validation - loss=4.2797e-01 ppl=1.53 best_loss=4.2340e-01 best_ppl=1.53                                                
+Epoch 44 - |param|=6.73e+02 |g_param|=6.85e+04 loss=4.3076e-01 ppl=1.54                                                 
+Validation - loss=4.2009e-01 ppl=1.52 best_loss=4.2340e-01 best_ppl=1.53                                                
+Epoch 45 - |param|=6.73e+02 |g_param|=7.02e+04 loss=4.5483e-01 ppl=1.58                                                 
+Validation - loss=4.3897e-01 ppl=1.55 best_loss=4.2009e-01 best_ppl=1.52                                                
+Epoch 46 - |param|=6.74e+02 |g_param|=6.06e+04 loss=4.1373e-01 ppl=1.51                                                 
+Validation - loss=4.0048e-01 ppl=1.49 best_loss=4.2009e-01 best_ppl=1.52                                                
+Epoch 47 - |param|=6.74e+02 |g_param|=5.79e+04 loss=4.0875e-01 ppl=1.50                                                 
+Validation - loss=4.2250e-01 ppl=1.53 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 48 - |param|=6.75e+02 |g_param|=6.17e+04 loss=4.2601e-01 ppl=1.53                                                 
+Validation - loss=4.1746e-01 ppl=1.52 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 49 - |param|=6.75e+02 |g_param|=5.18e+04 loss=4.0194e-01 ppl=1.49                                                 
+Validation - loss=4.0072e-01 ppl=1.49 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 50 - |param|=6.75e+02 |g_param|=4.94e+04 loss=3.8194e-01 ppl=1.47                                                 
+Validation - loss=4.1243e-01 ppl=1.51 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 51 - |param|=6.76e+02 |g_param|=6.69e+04 loss=3.8970e-01 ppl=1.48                                                 
+Validation - loss=4.0103e-01 ppl=1.49 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 52 - |param|=6.76e+02 |g_param|=4.82e+04 loss=3.6700e-01 ppl=1.44                                                 
+Validation - loss=4.0942e-01 ppl=1.51 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 53 - |param|=6.76e+02 |g_param|=7.42e+04 loss=4.2817e-01 ppl=1.53                                                 
+Validation - loss=4.6602e-01 ppl=1.59 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 54 - |param|=6.77e+02 |g_param|=3.27e+04 loss=3.9045e-01 ppl=1.48                                                 
+Validation - loss=4.1519e-01 ppl=1.51 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 55 - |param|=6.77e+02 |g_param|=3.12e+04 loss=3.7782e-01 ppl=1.46                                                 
+Validation - loss=3.9714e-01 ppl=1.49 best_loss=4.0048e-01 best_ppl=1.49                                                
+Epoch 56 - |param|=6.78e+02 |g_param|=2.58e+04 loss=3.5306e-01 ppl=1.42                                                 
+Validation - loss=4.0031e-01 ppl=1.49 best_loss=3.9714e-01 best_ppl=1.49                                                
+Epoch 57 - |param|=6.78e+02 |g_param|=2.57e+04 loss=3.4566e-01 ppl=1.41                                                 
+Validation - loss=3.8802e-01 ppl=1.47 best_loss=3.9714e-01 best_ppl=1.49                                                
+Epoch 58 - |param|=6.78e+02 |g_param|=2.31e+04 loss=3.3496e-01 ppl=1.40                                                 
+Validation - loss=3.7350e-01 ppl=1.45 best_loss=3.8802e-01 best_ppl=1.47                                                
+Epoch 59 - |param|=6.79e+02 |g_param|=1.98e+04 loss=3.3694e-01 ppl=1.40                                                 
+Validation - loss=3.9001e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 60 - |param|=6.79e+02 |g_param|=2.51e+04 loss=3.3119e-01 ppl=1.39                                                 
+Validation - loss=3.7977e-01 ppl=1.46 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 61 - |param|=6.79e+02 |g_param|=2.34e+04 loss=3.2731e-01 ppl=1.39                                                 
+Validation - loss=3.9223e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 62 - |param|=6.80e+02 |g_param|=2.16e+04 loss=3.1518e-01 ppl=1.37                                                 
+Validation - loss=3.9538e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 63 - |param|=6.80e+02 |g_param|=2.11e+04 loss=3.0600e-01 ppl=1.36                                                 
+Validation - loss=3.8217e-01 ppl=1.47 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 64 - |param|=6.80e+02 |g_param|=2.17e+04 loss=3.1290e-01 ppl=1.37                                                 
+Validation - loss=3.9289e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 65 - |param|=6.81e+02 |g_param|=2.54e+04 loss=3.1407e-01 ppl=1.37                                                 
+Validation - loss=4.0602e-01 ppl=1.50 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 66 - |param|=6.81e+02 |g_param|=3.33e+04 loss=3.2770e-01 ppl=1.39                                                 
+Validation - loss=4.0829e-01 ppl=1.50 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 67 - |param|=6.82e+02 |g_param|=2.86e+04 loss=3.2763e-01 ppl=1.39                                                 
+Validation - loss=3.9105e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 68 - |param|=6.82e+02 |g_param|=2.36e+04 loss=3.0460e-01 ppl=1.36                                                 
+Validation - loss=3.8082e-01 ppl=1.46 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 69 - |param|=6.82e+02 |g_param|=2.44e+04 loss=3.0087e-01 ppl=1.35                                                 
+Validation - loss=3.8497e-01 ppl=1.47 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 70 - |param|=6.83e+02 |g_param|=3.73e+04 loss=2.8804e-01 ppl=1.33                                                 
+Validation - loss=3.8196e-01 ppl=1.47 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 71 - |param|=6.83e+02 |g_param|=4.10e+04 loss=2.8236e-01 ppl=1.33                                                 
+Validation - loss=3.7960e-01 ppl=1.46 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 72 - |param|=6.83e+02 |g_param|=4.25e+04 loss=2.6611e-01 ppl=1.30                                                 
+Validation - loss=3.9263e-01 ppl=1.48 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 73 - |param|=6.84e+02 |g_param|=3.84e+04 loss=2.7272e-01 ppl=1.31                                                 
+Validation - loss=3.8738e-01 ppl=1.47 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 74 - |param|=6.84e+02 |g_param|=4.17e+04 loss=2.8146e-01 ppl=1.33                                                 
+Validation - loss=3.8187e-01 ppl=1.47 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 75 - |param|=6.84e+02 |g_param|=4.19e+04 loss=2.6144e-01 ppl=1.30                                                 
+Validation - loss=4.0054e-01 ppl=1.49 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 76 - |param|=6.84e+02 |g_param|=4.31e+04 loss=2.6199e-01 ppl=1.30                                                 
+Validation - loss=4.0231e-01 ppl=1.50 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 77 - |param|=6.85e+02 |g_param|=4.10e+04 loss=2.5655e-01 ppl=1.29                                                 
+Validation - loss=3.7161e-01 ppl=1.45 best_loss=3.7350e-01 best_ppl=1.45                                                
+Epoch 78 - |param|=6.85e+02 |g_param|=4.73e+04 loss=2.5653e-01 ppl=1.29                                                 
+Validation - loss=3.7944e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 79 - |param|=6.86e+02 |g_param|=5.22e+04 loss=2.6877e-01 ppl=1.31                                                 
+Validation - loss=3.8442e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 80 - |param|=6.86e+02 |g_param|=4.28e+04 loss=2.9150e-01 ppl=1.34                                                 
+Validation - loss=3.7548e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 81 - |param|=6.86e+02 |g_param|=1.78e+04 loss=2.9965e-01 ppl=1.35                                                 
+Validation - loss=4.0371e-01 ppl=1.50 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 82 - |param|=6.87e+02 |g_param|=1.36e+04 loss=2.6832e-01 ppl=1.31                                                 
+Validation - loss=3.7356e-01 ppl=1.45 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 83 - |param|=6.87e+02 |g_param|=1.75e+04 loss=2.6876e-01 ppl=1.31                                                 
+Validation - loss=3.7727e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 84 - |param|=6.87e+02 |g_param|=1.03e+04 loss=2.6093e-01 ppl=1.30                                                 
+Validation - loss=3.8811e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 85 - |param|=6.88e+02 |g_param|=1.20e+04 loss=2.4974e-01 ppl=1.28                                                 
+Validation - loss=3.8795e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 86 - |param|=6.88e+02 |g_param|=1.01e+04 loss=2.4247e-01 ppl=1.27                                                 
+Validation - loss=3.9567e-01 ppl=1.49 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 87 - |param|=6.88e+02 |g_param|=8.64e+03 loss=2.3486e-01 ppl=1.26                                                 
+Validation - loss=3.8007e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 88 - |param|=6.89e+02 |g_param|=8.81e+03 loss=2.3664e-01 ppl=1.27                                                 
+Validation - loss=3.8466e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 89 - |param|=6.89e+02 |g_param|=8.21e+03 loss=2.2430e-01 ppl=1.25                                                 
+Validation - loss=3.7865e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 90 - |param|=6.89e+02 |g_param|=7.84e+03 loss=2.1879e-01 ppl=1.24                                                 
+Validation - loss=3.7377e-01 ppl=1.45 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 91 - |param|=6.90e+02 |g_param|=9.69e+03 loss=2.2068e-01 ppl=1.25                                                 
+Validation - loss=3.8253e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 92 - |param|=6.90e+02 |g_param|=1.17e+04 loss=2.3213e-01 ppl=1.26                                                 
+Validation - loss=3.8137e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 93 - |param|=6.90e+02 |g_param|=1.01e+04 loss=2.2442e-01 ppl=1.25                                                 
+Validation - loss=3.9340e-01 ppl=1.48 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 94 - |param|=6.91e+02 |g_param|=9.75e+03 loss=2.2221e-01 ppl=1.25                                                 
+Validation - loss=3.8862e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 95 - |param|=6.91e+02 |g_param|=9.67e+03 loss=2.1873e-01 ppl=1.24                                                 
+Validation - loss=3.9119e-01 ppl=1.48 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 96 - |param|=6.91e+02 |g_param|=1.09e+04 loss=2.1535e-01 ppl=1.24                                                 
+Validation - loss=3.8352e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 97 - |param|=6.92e+02 |g_param|=1.86e+04 loss=2.1338e-01 ppl=1.24                                                 
+Validation - loss=3.7967e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 98 - |param|=6.92e+02 |g_param|=1.87e+04 loss=2.1576e-01 ppl=1.24                                                 
+Validation - loss=3.8922e-01 ppl=1.48 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 99 - |param|=6.92e+02 |g_param|=2.56e+04 loss=2.1022e-01 ppl=1.23                                                 
+Validation - loss=3.8195e-01 ppl=1.47 best_loss=3.7161e-01 best_ppl=1.45                                                
+Epoch 100 - |param|=6.93e+02 |g_param|=1.77e+04 loss=2.0846e-01 ppl=1.23                                                
+Validation - loss=3.7815e-01 ppl=1.46 best_loss=3.7161e-01 best_ppl=1.45                                                
+
+real	21m8.160s
+user	20m51.694s
+sys	0m16.267s
+(simple-nmt) ye@:~/exp/simple-nmt$
+```
+
+seq2seq model 100 epoch မော်ဒယ်ကို testing/evaluation လုပ်...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/seq2seq/100epoch$ time ./test-eval-loop.sh 
+Evaluation result for the model: seq-model-myrk2.01.4.29-72.85.3.61-37.09.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 15.6/1.2/0.0/0.0 (BP=0.991, ratio=0.991, hyp_len=22952, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.02.4.01-55.19.3.40-29.98.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 20.1/1.7/0.0/0.0 (BP=1.000, ratio=1.028, hyp_len=23805, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.03.3.90-49.54.3.25-25.74.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 21.1/2.0/0.0/0.0 (BP=1.000, ratio=1.006, hyp_len=23305, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.04.3.76-42.96.3.07-21.62.pth
+BLEU = 0.53, 23.7/3.8/0.2/0.0 (BP=1.000, ratio=1.019, hyp_len=23590, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.05.3.59-36.33.2.91-18.44.pth
+BLEU = 1.19, 27.4/5.6/0.8/0.0 (BP=1.000, ratio=1.011, hyp_len=23417, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.06.3.38-29.48.2.72-15.19.pth
+BLEU = 2.66, 31.2/8.0/1.4/0.1 (BP=1.000, ratio=1.002, hyp_len=23206, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.07.3.20-24.63.2.45-11.63.pth
+BLEU = 5.57, 37.9/13.1/3.3/0.6 (BP=0.990, ratio=0.990, hyp_len=22931, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.08.2.90-18.10.2.15-8.62.pth
+BLEU = 10.72, 42.8/18.1/6.7/2.5 (BP=1.000, ratio=1.003, hyp_len=23222, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.09.2.59-13.31.1.94-6.94.pth
+BLEU = 14.55, 47.6/22.2/9.8/4.4 (BP=0.999, ratio=0.999, hyp_len=23142, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.100.0.21-1.23.0.38-1.46.pth
+BLEU = 74.07, 87.3/77.9/70.0/63.3 (BP=1.000, ratio=1.036, hyp_len=23986, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.10.2.38-10.77.1.79-6.00.pth
+BLEU = 16.81, 49.6/24.8/12.0/5.5 (BP=0.996, ratio=0.996, hyp_len=23074, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.11.2.21-9.13.1.61-5.00.pth
+BLEU = 22.96, 55.6/31.0/17.3/9.4 (BP=1.000, ratio=1.002, hyp_len=23201, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.12.2.04-7.69.1.58-4.84.pth
+BLEU = 22.93, 56.1/31.6/17.4/9.5 (BP=0.986, ratio=0.986, hyp_len=22831, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.13.1.88-6.52.1.45-4.25.pth
+BLEU = 26.78, 59.9/35.8/20.8/11.6 (BP=1.000, ratio=1.010, hyp_len=23388, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.14.1.72-5.59.1.27-3.55.pth
+BLEU = 32.83, 63.5/41.0/26.5/16.8 (BP=1.000, ratio=1.028, hyp_len=23812, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.15.1.55-4.72.1.19-3.27.pth
+BLEU = 36.29, 66.0/44.3/29.8/19.9 (BP=1.000, ratio=1.008, hyp_len=23350, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.16.1.47-4.34.1.09-2.97.pth
+BLEU = 40.55, 69.1/48.5/33.9/23.8 (BP=1.000, ratio=1.009, hyp_len=23375, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.17.1.34-3.81.1.00-2.73.pth
+BLEU = 44.46, 71.7/52.1/37.9/27.6 (BP=1.000, ratio=1.001, hyp_len=23188, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.18.1.51-4.54.1.10-3.00.pth
+BLEU = 40.31, 69.8/48.5/33.6/23.5 (BP=0.997, ratio=0.997, hyp_len=23097, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.19.1.19-3.29.0.86-2.36.pth
+BLEU = 52.54, 76.7/59.5/46.3/36.1 (BP=1.000, ratio=1.000, hyp_len=23153, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.20.1.13-3.10.0.85-2.34.pth
+BLEU = 52.69, 77.0/59.6/46.4/36.4 (BP=0.999, ratio=0.999, hyp_len=23128, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.21.1.04-2.84.0.81-2.25.pth
+BLEU = 55.38, 78.5/62.0/49.2/39.3 (BP=1.000, ratio=1.003, hyp_len=23221, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.22.0.99-2.68.0.75-2.11.pth
+BLEU = 57.61, 79.7/64.0/51.6/41.8 (BP=1.000, ratio=1.009, hyp_len=23357, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.23.0.96-2.61.0.70-2.01.pth
+BLEU = 59.44, 80.6/65.5/53.6/44.1 (BP=1.000, ratio=1.010, hyp_len=23388, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.24.0.88-2.42.0.68-1.97.pth
+BLEU = 61.35, 81.7/67.2/55.7/46.3 (BP=1.000, ratio=1.004, hyp_len=23261, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.25.0.83-2.28.0.64-1.90.pth
+BLEU = 63.21, 82.6/68.9/57.7/48.6 (BP=1.000, ratio=1.011, hyp_len=23421, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.26.0.77-2.17.0.64-1.90.pth
+BLEU = 64.02, 83.0/69.6/58.7/49.6 (BP=1.000, ratio=1.011, hyp_len=23425, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.27.0.76-2.13.0.62-1.86.pth
+BLEU = 63.86, 83.0/69.5/58.4/49.3 (BP=1.000, ratio=1.009, hyp_len=23376, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.28.0.72-2.05.0.64-1.89.pth
+BLEU = 61.74, 81.7/67.5/56.2/46.9 (BP=1.000, ratio=1.005, hyp_len=23276, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.29.0.73-2.08.0.57-1.76.pth
+BLEU = 67.27, 84.7/72.4/62.2/53.6 (BP=1.000, ratio=1.013, hyp_len=23462, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.30.0.72-2.06.0.57-1.78.pth
+BLEU = 68.22, 85.5/73.2/63.2/54.7 (BP=1.000, ratio=1.001, hyp_len=23177, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.31.0.65-1.91.0.52-1.69.pth
+BLEU = 68.88, 85.4/73.8/64.1/55.8 (BP=1.000, ratio=1.017, hyp_len=23560, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.32.0.60-1.83.0.52-1.69.pth
+BLEU = 68.92, 85.5/73.8/64.1/55.8 (BP=1.000, ratio=1.014, hyp_len=23479, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.33.0.59-1.81.0.51-1.66.pth
+BLEU = 69.26, 85.5/74.1/64.5/56.3 (BP=1.000, ratio=1.022, hyp_len=23659, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.34.0.55-1.73.0.50-1.64.pth
+BLEU = 69.05, 85.6/73.9/64.2/56.0 (BP=1.000, ratio=1.014, hyp_len=23479, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.35.0.55-1.74.0.48-1.62.pth
+BLEU = 71.20, 86.4/75.6/66.7/59.0 (BP=1.000, ratio=1.017, hyp_len=23555, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.36.0.53-1.70.0.48-1.62.pth
+BLEU = 71.51, 86.5/75.9/67.0/59.4 (BP=1.000, ratio=1.017, hyp_len=23545, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.37.0.53-1.70.0.48-1.61.pth
+BLEU = 70.03, 85.8/74.7/65.4/57.5 (BP=1.000, ratio=1.020, hyp_len=23629, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.38.0.51-1.66.0.47-1.61.pth
+BLEU = 71.98, 87.0/76.3/67.5/59.9 (BP=1.000, ratio=1.017, hyp_len=23552, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.39.0.49-1.64.0.46-1.58.pth
+BLEU = 72.99, 87.2/77.1/68.7/61.4 (BP=1.000, ratio=1.018, hyp_len=23568, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.40.0.50-1.64.0.46-1.59.pth
+BLEU = 71.60, 86.5/75.9/67.1/59.7 (BP=1.000, ratio=1.024, hyp_len=23712, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.41.0.47-1.60.0.44-1.56.pth
+BLEU = 70.98, 85.9/75.4/66.5/58.9 (BP=1.000, ratio=1.030, hyp_len=23861, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.42.0.45-1.57.0.42-1.53.pth
+BLEU = 72.18, 86.6/76.4/67.8/60.5 (BP=1.000, ratio=1.023, hyp_len=23692, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.43.0.46-1.58.0.43-1.53.pth
+BLEU = 72.88, 87.1/77.1/68.6/61.2 (BP=1.000, ratio=1.021, hyp_len=23645, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.44.0.43-1.54.0.42-1.52.pth
+BLEU = 73.95, 87.6/77.9/69.8/62.9 (BP=1.000, ratio=1.019, hyp_len=23609, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.45.0.45-1.58.0.44-1.55.pth
+BLEU = 72.41, 86.6/76.5/68.1/60.9 (BP=1.000, ratio=1.021, hyp_len=23657, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.46.0.41-1.51.0.40-1.49.pth
+BLEU = 73.51, 87.1/77.5/69.4/62.4 (BP=1.000, ratio=1.028, hyp_len=23803, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.47.0.41-1.50.0.42-1.53.pth
+BLEU = 73.24, 87.1/77.2/69.0/62.0 (BP=1.000, ratio=1.022, hyp_len=23660, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.48.0.43-1.53.0.42-1.52.pth
+BLEU = 72.64, 86.9/76.8/68.3/61.1 (BP=1.000, ratio=1.026, hyp_len=23752, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.49.0.40-1.49.0.40-1.49.pth
+BLEU = 73.65, 87.3/77.5/69.4/62.6 (BP=1.000, ratio=1.025, hyp_len=23738, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.50.0.38-1.47.0.41-1.51.pth
+BLEU = 72.86, 87.0/77.0/68.6/61.4 (BP=1.000, ratio=1.025, hyp_len=23737, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.51.0.39-1.48.0.40-1.49.pth
+BLEU = 73.88, 87.2/77.7/69.8/63.0 (BP=1.000, ratio=1.028, hyp_len=23808, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.52.0.37-1.44.0.41-1.51.pth
+BLEU = 73.26, 87.2/77.3/69.0/61.9 (BP=1.000, ratio=1.024, hyp_len=23720, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.53.0.43-1.53.0.47-1.59.pth
+BLEU = 71.17, 86.2/75.7/66.7/59.0 (BP=1.000, ratio=1.034, hyp_len=23944, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.54.0.39-1.48.0.42-1.51.pth
+BLEU = 73.97, 87.3/77.8/69.9/63.1 (BP=1.000, ratio=1.023, hyp_len=23683, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.55.0.38-1.46.0.40-1.49.pth
+BLEU = 73.85, 87.4/77.8/69.7/62.7 (BP=1.000, ratio=1.023, hyp_len=23701, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.56.0.35-1.42.0.40-1.49.pth
+BLEU = 74.58, 87.6/78.3/70.6/63.9 (BP=1.000, ratio=1.026, hyp_len=23757, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.57.0.35-1.41.0.39-1.47.pth
+BLEU = 74.18, 87.4/77.9/70.1/63.4 (BP=1.000, ratio=1.030, hyp_len=23854, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.58.0.33-1.40.0.37-1.45.pth
+BLEU = 74.57, 87.5/78.3/70.5/64.0 (BP=1.000, ratio=1.027, hyp_len=23795, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.59.0.34-1.40.0.39-1.48.pth
+BLEU = 74.93, 87.9/78.6/70.9/64.3 (BP=1.000, ratio=1.026, hyp_len=23771, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.60.0.33-1.39.0.38-1.46.pth
+BLEU = 74.40, 87.5/78.1/70.4/63.7 (BP=1.000, ratio=1.028, hyp_len=23819, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.61.0.33-1.39.0.39-1.48.pth
+BLEU = 73.97, 87.4/77.8/69.9/63.1 (BP=1.000, ratio=1.027, hyp_len=23786, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.62.0.32-1.37.0.40-1.48.pth
+BLEU = 74.78, 87.7/78.5/70.7/64.2 (BP=1.000, ratio=1.024, hyp_len=23715, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.63.0.31-1.36.0.38-1.47.pth
+BLEU = 74.62, 87.7/78.3/70.6/64.0 (BP=1.000, ratio=1.028, hyp_len=23807, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.64.0.31-1.37.0.39-1.48.pth
+BLEU = 73.49, 87.0/77.4/69.4/62.5 (BP=1.000, ratio=1.032, hyp_len=23906, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.65.0.31-1.37.0.41-1.50.pth
+BLEU = 73.53, 87.1/77.4/69.4/62.5 (BP=1.000, ratio=1.030, hyp_len=23851, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.66.0.33-1.39.0.41-1.50.pth
+BLEU = 72.92, 86.7/76.9/68.7/61.7 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.67.0.33-1.39.0.39-1.48.pth
+BLEU = 74.23, 87.4/77.9/70.2/63.5 (BP=1.000, ratio=1.028, hyp_len=23801, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.68.0.30-1.36.0.38-1.46.pth
+BLEU = 73.69, 87.2/77.5/69.5/62.8 (BP=1.000, ratio=1.027, hyp_len=23796, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.69.0.30-1.35.0.38-1.47.pth
+BLEU = 74.80, 87.8/78.4/70.8/64.3 (BP=1.000, ratio=1.026, hyp_len=23768, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.70.0.29-1.33.0.38-1.47.pth
+BLEU = 74.48, 87.4/78.1/70.5/63.9 (BP=1.000, ratio=1.030, hyp_len=23855, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.71.0.28-1.33.0.38-1.46.pth
+BLEU = 73.71, 87.0/77.4/69.6/62.9 (BP=1.000, ratio=1.031, hyp_len=23889, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.72.0.27-1.30.0.39-1.48.pth
+BLEU = 73.90, 87.2/77.7/69.8/63.1 (BP=1.000, ratio=1.034, hyp_len=23953, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.73.0.27-1.31.0.39-1.47.pth
+BLEU = 75.28, 88.1/78.9/71.3/64.8 (BP=1.000, ratio=1.025, hyp_len=23738, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.74.0.28-1.33.0.38-1.47.pth
+BLEU = 74.58, 87.5/78.3/70.6/64.0 (BP=1.000, ratio=1.031, hyp_len=23873, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.75.0.26-1.30.0.40-1.49.pth
+BLEU = 74.74, 87.6/78.4/70.8/64.2 (BP=1.000, ratio=1.029, hyp_len=23826, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.76.0.26-1.30.0.40-1.50.pth
+BLEU = 74.60, 87.6/78.3/70.6/64.0 (BP=1.000, ratio=1.028, hyp_len=23814, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.77.0.26-1.29.0.37-1.45.pth
+BLEU = 74.60, 87.3/78.2/70.7/64.2 (BP=1.000, ratio=1.033, hyp_len=23916, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.78.0.26-1.29.0.38-1.46.pth
+BLEU = 74.29, 87.3/77.9/70.2/63.8 (BP=1.000, ratio=1.034, hyp_len=23955, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.79.0.27-1.31.0.38-1.47.pth
+BLEU = 74.88, 87.8/78.5/70.9/64.3 (BP=1.000, ratio=1.025, hyp_len=23733, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.80.0.29-1.34.0.38-1.46.pth
+BLEU = 74.77, 87.7/78.5/70.8/64.2 (BP=1.000, ratio=1.028, hyp_len=23816, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.81.0.30-1.35.0.40-1.50.pth
+BLEU = 73.62, 87.3/77.5/69.4/62.6 (BP=1.000, ratio=1.027, hyp_len=23784, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.82.0.27-1.31.0.37-1.45.pth
+BLEU = 74.46, 87.4/78.1/70.4/63.9 (BP=1.000, ratio=1.030, hyp_len=23861, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.83.0.27-1.31.0.38-1.46.pth
+BLEU = 74.51, 87.4/78.3/70.6/63.9 (BP=1.000, ratio=1.031, hyp_len=23868, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.84.0.26-1.30.0.39-1.47.pth
+BLEU = 75.02, 87.9/78.7/71.1/64.5 (BP=1.000, ratio=1.027, hyp_len=23789, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.85.0.25-1.28.0.39-1.47.pth
+BLEU = 74.20, 87.4/77.9/70.1/63.5 (BP=1.000, ratio=1.030, hyp_len=23848, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.86.0.24-1.27.0.40-1.49.pth
+BLEU = 75.07, 88.0/78.7/71.1/64.5 (BP=1.000, ratio=1.024, hyp_len=23713, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.87.0.23-1.26.0.38-1.46.pth
+BLEU = 74.13, 87.4/77.9/70.0/63.4 (BP=1.000, ratio=1.036, hyp_len=24000, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.88.0.24-1.27.0.38-1.47.pth
+BLEU = 75.74, 88.1/79.3/71.9/65.5 (BP=1.000, ratio=1.026, hyp_len=23772, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.89.0.22-1.25.0.38-1.46.pth
+BLEU = 75.33, 88.1/79.0/71.4/64.9 (BP=1.000, ratio=1.030, hyp_len=23855, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.90.0.22-1.24.0.37-1.45.pth
+BLEU = 74.86, 87.7/78.5/70.9/64.4 (BP=1.000, ratio=1.033, hyp_len=23934, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.91.0.22-1.25.0.38-1.47.pth
+BLEU = 75.04, 87.7/78.6/71.1/64.6 (BP=1.000, ratio=1.031, hyp_len=23874, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.92.0.23-1.26.0.38-1.46.pth
+BLEU = 73.57, 86.9/77.5/69.5/62.6 (BP=1.000, ratio=1.035, hyp_len=23980, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.93.0.22-1.25.0.39-1.48.pth
+BLEU = 74.30, 87.3/78.0/70.3/63.7 (BP=1.000, ratio=1.031, hyp_len=23872, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.94.0.22-1.25.0.39-1.47.pth
+BLEU = 74.88, 87.7/78.6/70.9/64.3 (BP=1.000, ratio=1.031, hyp_len=23877, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.95.0.22-1.24.0.39-1.48.pth
+BLEU = 74.67, 87.6/78.3/70.7/64.1 (BP=1.000, ratio=1.033, hyp_len=23928, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.96.0.22-1.24.0.38-1.47.pth
+BLEU = 74.45, 87.4/78.1/70.5/63.9 (BP=1.000, ratio=1.033, hyp_len=23927, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.97.0.21-1.24.0.38-1.46.pth
+BLEU = 73.93, 87.1/77.8/69.9/63.2 (BP=1.000, ratio=1.040, hyp_len=24083, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.98.0.22-1.24.0.39-1.48.pth
+BLEU = 74.11, 87.3/77.8/70.1/63.4 (BP=1.000, ratio=1.033, hyp_len=23925, ref_len=23160)
+Evaluation result for the model: seq-model-myrk2.99.0.21-1.23.0.38-1.47.pth
+BLEU = 73.68, 87.0/77.6/69.6/62.7 (BP=1.000, ratio=1.036, hyp_len=23993, ref_len=23160)
+
+real	32m36.037s
+user	31m48.091s
+sys	1m51.475s
+(simple-nmt) ye@:~/exp/simple-nmt/model/seq2seq/100epoch$
+```
+
+Best score က  
+
+```
+Evaluation result for the model: seq-model-myrk2.88.0.24-1.27.0.38-1.47.pth
+BLEU = 75.74, 88.1/79.3/71.9/65.5 (BP=1.000, ratio=1.026, hyp_len=23772, ref_len=23160)
+```
+
