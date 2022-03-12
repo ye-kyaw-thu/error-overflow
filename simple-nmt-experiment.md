@@ -6052,3 +6052,6 @@ Evaluation result for the model: seq-model-myrk2.88.0.24-1.27.0.38-1.47.pth
 BLEU = 75.74, 88.1/79.3/71.9/65.5 (BP=1.000, ratio=1.026, hyp_len=23772, ref_len=23160)
 ```
 
+### RL Fine-Tuning for Seq2Seq
+
+
