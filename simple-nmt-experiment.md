@@ -5453,6 +5453,86 @@ BLEU = 72.85, 86.8/76.7/68.5/61.7 (BP=1.000, ratio=1.030, hyp_len=23865, ref_len
 (base) ye@:~/exp/simple-nmt/model/rl/transformer$ mv transformer-rl-model-myrk.1048.0.31-1.37.0.56-1.76.pth.* ./bk-max_grad_norm-1e12-1100epoch/
 ```
 
+ဒီတစ်ခါတော့ max_grad_norm 1e+10 --n_epochs 1106 ထားပြီး ထပ် RL fine-tuning လုပ်ကြည့်ခဲ့...  
+
+```
+Validation - loss=5.7122e-01 ppl=1.77 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1092 - |param|=3.98e+02 |g_param|=4.08e+04 loss=2.9246e-01 ppl=1.34                                               
+Validation - loss=5.8744e-01 ppl=1.80 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1093 - |param|=3.98e+02 |g_param|=3.48e+04 loss=3.2353e-01 ppl=1.38                                               
+Validation - loss=5.9728e-01 ppl=1.82 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1094 - |param|=3.98e+02 |g_param|=3.96e+04 loss=2.9609e-01 ppl=1.34                                               
+Validation - loss=6.0942e-01 ppl=1.84 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1095 - |param|=3.98e+02 |g_param|=6.22e+04 loss=3.0770e-01 ppl=1.36                                               
+Validation - loss=6.2016e-01 ppl=1.86 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1096 - |param|=3.98e+02 |g_param|=2.74e+04 loss=3.0940e-01 ppl=1.36                                               
+Validation - loss=5.7867e-01 ppl=1.78 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1097 - |param|=3.98e+02 |g_param|=3.73e+04 loss=3.2875e-01 ppl=1.39                                               
+Validation - loss=5.6743e-01 ppl=1.76 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1098 - |param|=3.98e+02 |g_param|=3.62e+04 loss=2.9882e-01 ppl=1.35                                               
+Validation - loss=5.9447e-01 ppl=1.81 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1099 - |param|=3.98e+02 |g_param|=2.57e+04 loss=3.0633e-01 ppl=1.36                                               
+Validation - loss=5.7953e-01 ppl=1.79 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1100 - |param|=3.98e+02 |g_param|=6.44e+04 loss=3.0906e-01 ppl=1.36                                               
+Validation - loss=5.7243e-01 ppl=1.77 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1101 - |param|=3.99e+02 |g_param|=5.58e+04 loss=3.1273e-01 ppl=1.37                                               
+Validation - loss=5.7011e-01 ppl=1.77 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1102 - |param|=3.99e+02 |g_param|=2.60e+04 loss=2.8758e-01 ppl=1.33                                               
+Validation - loss=5.8796e-01 ppl=1.80 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1103 - |param|=3.99e+02 |g_param|=2.84e+04 loss=2.7435e-01 ppl=1.32                                               
+Validation - loss=5.7241e-01 ppl=1.77 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1104 - |param|=3.99e+02 |g_param|=2.52e+04 loss=2.9018e-01 ppl=1.34                                               
+Validation - loss=5.8136e-01 ppl=1.79 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1105 - |param|=3.99e+02 |g_param|=2.30e+04 loss=2.9526e-01 ppl=1.34                                               
+Validation - loss=5.6066e-01 ppl=1.75 best_loss=5.5677e-01 best_ppl=1.75                                                
+Epoch 1106 - |param|=3.99e+02 |g_param|=3.49e+04 loss=2.9223e-01 ppl=1.34                                               
+Validation - loss=5.6771e-01 ppl=1.76 best_loss=5.5677e-01 best_ppl=1.75                                                
+
+real	91m56.734s
+user	91m39.869s
+sys	0m12.832s
+(simple-nmt) ye@:~/exp/simple-nmt$ time python continue_train.py --load_fn ./model/transformer/myrk-transformer-model.956.0.30-1.35.0.57-1.77.pth --model_fn ./model/rl/transformer/transformer-rl-model-myrk.pth --init_epoch 956 --iteration_per_update 32  --max_grad_norm 1e+10 --n_epochs 1106
+
+```
+
+max_grad_norm 1e+10 --n_epochs 1106 မော်ဒယ်ကို သုံးပြီးတော့ testing/evaluation လုပ်ခဲ့...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/rl/transformer$ time ./test-eval-loop.sh
+...
+...
+Evaluation result for the model: transformer-rl-model-myrk.991.0.32-1.37.0.57-1.76.pth
+BLEU = 71.84, 86.3/75.8/67.4/60.4 (BP=1.000, ratio=1.036, hyp_len=23996, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.992.0.33-1.38.0.56-1.76.pth
+BLEU = 72.42, 86.6/76.4/68.1/61.1 (BP=1.000, ratio=1.034, hyp_len=23951, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.993.0.32-1.38.0.56-1.76.pth
+BLEU = 71.68, 86.1/75.7/67.3/60.1 (BP=1.000, ratio=1.041, hyp_len=24116, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.994.0.33-1.39.0.58-1.79.pth
+BLEU = 72.76, 86.7/76.6/68.5/61.6 (BP=1.000, ratio=1.031, hyp_len=23868, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.995.0.32-1.37.0.58-1.78.pth
+BLEU = 71.50, 85.9/75.5/67.1/60.0 (BP=1.000, ratio=1.039, hyp_len=24061, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.996.0.30-1.34.0.57-1.77.pth
+BLEU = 72.38, 86.6/76.3/68.0/61.1 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.997.0.30-1.35.0.56-1.75.pth
+BLEU = 72.66, 86.8/76.5/68.3/61.4 (BP=1.000, ratio=1.032, hyp_len=23890, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.998.0.31-1.37.0.56-1.75.pth
+BLEU = 72.20, 86.3/76.2/67.8/60.9 (BP=1.000, ratio=1.037, hyp_len=24017, ref_len=23160)
+Evaluation result for the model: transformer-rl-model-myrk.999.0.30-1.35.0.57-1.76.pth
+BLEU = 71.77, 86.1/75.7/67.4/60.4 (BP=1.000, ratio=1.037, hyp_len=24009, ref_len=23160)
+
+real	81m16.647s
+user	79m43.052s
+sys	3m14.104s
+```
+
+The best score က ...  
+
+```
+Evaluation result for the model: transformer-rl-model-myrk.1062.0.32-1.38.0.57-1.76.pth
+BLEU = 73.14, 87.0/77.0/68.9/62.1 (BP=1.000, ratio=1.029, hyp_len=23835, ref_len=23160)
+```
+
+
 ## Thinking
 
 နောက်တစ်မျိုး RL fine-tuning က တကယ် အလုပ်လုပ် မလုပ်ကို စမ်းလို့ ရနိုင်တာက development data, test data ရဲ့ ပမာဏကို လက်ရှိထက် ကြီးပေးတာမျိုး လုပ်လို့ ရတယ်...  
