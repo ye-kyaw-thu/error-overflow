@@ -8145,3 +8145,9 @@ BLEU = 74.74, 87.6/78.6/70.6/64.3 (BP=1.000, ratio=1.033, hyp_len=24290, ref_len
 ```
 
 ## Training Transformer baseline
+
+
+## Reference
+
+- [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
+
