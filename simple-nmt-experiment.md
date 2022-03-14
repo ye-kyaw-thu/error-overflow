@@ -10924,6 +10924,11 @@ Evaluation result for the model: seq-model-rkmy.67.0.27-1.31.0.66-1.93.pth
 BLEU = 74.84, 87.8/78.8/70.6/64.3 (BP=1.000, ratio=1.031, hyp_len=24242, ref_len=23509)
 ```
 
+## Transformer (40, 50, 60, 70 Baselines)
+
+**for my-rk language pair**  
+
+
 
 ## Reference
 
