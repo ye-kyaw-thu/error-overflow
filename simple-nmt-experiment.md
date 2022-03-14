@@ -10843,6 +10843,88 @@ BLEU = 56.72, 78.4/63.2/50.8/41.2 (BP=1.000, ratio=1.030, hyp_len=24207, ref_len
 ```
 
 
+## seq2seq (40, 50, 60, 70 Baselines)
+
+Note: ./model/seq2seq/baseline/myrk-100epoch/ path က တကယ်တမ်းက 30 epoch for baseline + 70 epoch for RL fine-tuning  
+
+**for my-rk language pair:**   
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 40 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/myrk-40epoch/seq-model-myrk.pth;  
+
+Baseline model best BLEU:   
+
+```
+Evaluation result for the model: seq-model-myrk.40.0.55-1.74.0.89-2.44.pth
+BLEU = 70.40, 86.1/74.9/65.7/58.0 (BP=1.000, ratio=1.010, hyp_len=23388, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/myrk-50epoch/seq-model-myrk.pth;  
+
+Best core of seq2seq 50 model က ...  
+
+```
+Evaluation result for the model: seq-model-myrk.48.0.43-1.54.0.76-2.14.pth
+BLEU = 73.15, 87.2/77.1/68.9/61.8 (BP=1.000, ratio=1.018, hyp_len=23585, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/myrk-60epoch/seq-model-myrk.pth;  
+
+Best score of seq2seq 60 model က ...  
+
+```
+Evaluation result for the model: seq-model-myrk.55.0.29-1.33.0.65-1.91.pth
+BLEU = 75.30, 88.3/79.0/71.3/64.7 (BP=1.000, ratio=1.025, hyp_len=23732, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 70 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/myrk-70epoch/seq-model-myrk.pth;  
+
+my-rk seq2seq 70 epoch model ရဲ့ Best score က  
+
+```
+Evaluation result for the model: seq-model-myrk.61.0.33-1.40.0.77-2.17.pth
+BLEU = 74.36, 87.9/78.2/70.2/63.3 (BP=1.000, ratio=1.019, hyp_len=23602, ref_len=23160)
+```
+
+**for rk-my language pair:**   
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 40 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-40epoch/seq-model-rkmy.pth;  
+
+rk-my, seq2seq, 40 Best Score:  
+
+```
+Evaluation result for the model: seq-model-rkmy.39.0.59-1.81.0.83-2.30.pth
+BLEU = 69.39, 85.4/74.4/64.4/56.6 (BP=1.000, ratio=1.022, hyp_len=24037, ref_len=23509)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-50epoch/seq-model-rkmy.pth;  
+
+rk-my, seq2seq, 50 Best Score:  
+
+```
+BLEU = 74.04, 87.3/78.1/69.8/63.2 (BP=1.000, ratio=1.036, hyp_len=24361, ref_len=23509)
+Evaluation result for the model: seq-model-rkmy.50.0.34-1.40.0.63-1.88.pth
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-60epoch/seq-model-rkmy.pth;  
+
+rk-my, seq2seq, 60 Best Score:  
+
+```
+Evaluation result for the model: seq-model-rkmy.58.0.39-1.48.0.81-2.24.pth
+BLEU = 72.06, 86.3/76.5/67.5/60.5 (BP=1.000, ratio=1.032, hyp_len=24261, ref_len=23509)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 70 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-70epoch/seq-model-rkmy.pth;  
+
+
+rk-my, seq2seq, 70 Best Score:  
+
+```
+Evaluation result for the model: seq-model-rkmy.67.0.27-1.31.0.66-1.93.pth
+BLEU = 74.84, 87.8/78.8/70.6/64.3 (BP=1.000, ratio=1.031, hyp_len=24242, ref_len=23509)
+```
+
+
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
