@@ -10966,6 +10966,42 @@ BLEU = 50.51, 75.0/57.8/44.3/33.9 (BP=1.000, ratio=1.057, hyp_len=24476, ref_len
 
 **for rk-my language pair**  
 
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 16 --n_epochs 40 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/rkmy-40epoch/rkmy-transformer-model.pth  
+
+transformer, 40 epoch, rk-my မော်ဒယ်ရဲ့ အကောင်းဆုံး BLEU က  
+
+```
+Evaluation result for the model: rkmy-transformer-model.39.1.89-6.62.1.69-5.40.pth
+BLEU = 34.17, 63.5/42.3/27.8/18.3 (BP=1.000, ratio=1.046, hyp_len=24602, ref_len=23509)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 16 --n_epochs 50 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/rkmy-50epoch/rkmy-transformer-model.pth  
+
+Transformer, rk-my, 50 epoch model ရဲ့ အကောင်းဆုံး BLEU score က  
+
+```
+Evaluation result for the model: rkmy-transformer-model.46.1.62-5.07.1.51-4.53.pth
+BLEU = 40.40, 68.8/48.5/33.7/23.7 (BP=1.000, ratio=1.025, hyp_len=24088, ref_len=23509)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 16 --n_epochs 60 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/rkmy-60epoch/rkmy-transformer-model.pth  
+
+Transformer, rk-my, 60 epoch ရဲ့ အကောင်းဆုံး BLEU score က  
+
+```
+Evaluation result for the model: rkmy-transformer-model.56.1.44-4.22.1.35-3.84.pth
+BLEU = 45.70, 71.8/53.2/39.1/29.2 (BP=1.000, ratio=1.025, hyp_len=24102, ref_len=23509)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 16 --n_epochs 70 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/rkmy-70epoch/rkmy-transformer-model.pth  
+
+Transformer, rk-my, 70 epoch မော်ဒယ်ရဲ့ အကောင်းဆုံး ရလဒ်က  
+
+```
+Evaluation result for the model: rkmy-transformer-model.70.1.25-3.47.1.17-3.21.pth
+BLEU = 51.15, 75.4/58.2/44.7/34.9 (BP=1.000, ratio=1.027, hyp_len=24150, ref_len=23509)
+```
+
 
 
 ## Reference
