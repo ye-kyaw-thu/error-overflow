@@ -10928,6 +10928,44 @@ BLEU = 74.84, 87.8/78.8/70.6/64.3 (BP=1.000, ratio=1.031, hyp_len=24242, ref_len
 
 **for my-rk language pair**  
 
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 40 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-40epoch/myrk-transformer-model.pth  
+
+my-rk, transformer, 40 epoch ရဲ့ Best BLEU score:  
+
+```
+Evaluation result for the model: myrk-transformer-model.39.1.86-6.41.1.77-5.87.pth
+BLEU = 35.33, 65.7/43.6/28.8/18.9 (BP=1.000, ratio=1.026, hyp_len=23762, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 50 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-50epoch/myrk-transformer-model.pth  
+
+my-rk, transformer, 50 epoch ရဲ့ Best BLEU score:  
+
+```
+Evaluation result for the model: myrk-transformer-model.47.1.70-5.47.1.56-4.78.pth
+BLEU = 40.85, 69.4/48.7/34.3/24.0 (BP=1.000, ratio=1.028, hyp_len=23819, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 60 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-60epoch/myrk-transformer-model.pth  
+
+my-rk, transformer, 60 epoch ရဲ့ Best BLEU score:  
+
+```
+Evaluation result for the model: myrk-transformer-model.59.1.49-4.43.1.33-3.78.pth
+BLEU = 47.13, 73.5/54.8/40.7/30.1 (BP=1.000, ratio=1.039, hyp_len=24061, ref_len=23160)
+```
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 70 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-70epoch/myrk-transformer-model.pth  
+
+my-rk, transformer, 70 epoch ရဲ့ Best BLEU score:  
+
+```
+Evaluation result for the model: myrk-transformer-model.70.1.27-3.56.1.17-3.22.pth
+BLEU = 50.51, 75.0/57.8/44.3/33.9 (BP=1.000, ratio=1.057, hyp_len=24476, ref_len=23160)
+```
+
+**for rk-my language pair**  
+
 
 
 ## Reference
