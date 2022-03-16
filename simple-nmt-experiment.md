@@ -11049,7 +11049,7 @@ for 70-30 model:
 time python continue_train.py --load_fn ./model/seq2seq/baseline/myrk-70epoch/seq-model-myrk.61.0.33-1.40.0.77-2.17.pth --model_fn ./model/rl/seq2seq/myrk-70epoch/seq-rl-model-myrk.pth --init_epoch 61 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
 
 seq2seq, my-rk, 70 epoch model or Baseline က seq-model-myrk.61.0.33-1.40.0.77-2.17.pth, BLEU = 74.36  
-RL, my-rk, 30-70 ရဲ့ best score က  
+RL, my-rk, 70-30 ရဲ့ best score က  
 
 ```
 Evaluation result for the model: seq-rl-model-myrk.98.0.21-1.24.0.76-2.13.pth
