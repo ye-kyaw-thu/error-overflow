@@ -10901,8 +10901,8 @@ time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye
 rk-my, seq2seq, 50 Best Score:  
 
 ```
+Evaluation result for the model: seq-model-rkmy.49.0.33-1.39.0.64-1.90.pth
 BLEU = 74.04, 87.3/78.1/69.8/63.2 (BP=1.000, ratio=1.036, hyp_len=24361, ref_len=23509)
-Evaluation result for the model: seq-model-rkmy.50.0.34-1.40.0.63-1.88.pth
 ```
 
 time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-60epoch/seq-model-rkmy.pth;  
