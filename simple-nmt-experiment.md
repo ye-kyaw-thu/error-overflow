@@ -11058,6 +11058,56 @@ BLEU = 75.50, 88.2/79.1/71.6/65.1 (BP=1.000, ratio=1.023, hyp_len=23701, ref_len
 
 **for rk-my language pair**  
 
+time python continue_train.py --load_fn ./model/seq2seq/baseline/rkmy-40epoch/seq-model-rkmy.39.0.59-1.81.0.83-2.30.pth --model_fn ./model/rl/seq2seq/rkmy-40epoch/seq-rl-model-rkmy.pth --init_epoch 39 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: seq-model-rkmy.39.0.59-1.81.0.83-2.30.pth, BLEU = 69.39  
+RL, rk-my, 40-60 model Best Score:  
+
+```
+Evaluation result for the model: seq-rl-model-rkmy.74.0.29-1.33.0.75-2.11.pth
+BLEU = 74.98, 88.0/79.0/70.7/64.3 (BP=1.000, ratio=1.029, hyp_len=24188, ref_len=23509)
+```
+
+for 50-50 model:  
+
+time python continue_train.py --load_fn ./model/seq2seq/baseline/rkmy-50epoch/seq-model-rkmy.49.0.33-1.39.0.64-1.90.pth --model_fn ./model/rl/seq2seq/rkmy-50epoch/seq-rl-model-rkmy.pth --init_epoch 49 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: seq2seq, rk-my, 50 epoch, seq-model-rkmy.49.0.33-1.39.0.64-1.90.pth: BLEU = 74.04  
+RL, rk-my, 50-50 model Best score:  
+
+```
+Evaluation result for the model: seq-rl-model-rkmy.98.0.15-1.16.0.65-1.92.pth
+BLEU = 74.91, 87.7/78.8/70.8/64.4 (BP=1.000, ratio=1.039, hyp_len=24433, ref_len=23509)
+```
+
+for 60-40 model:  
+
+time python continue_train.py --load_fn ./model/seq2seq/baseline/rkmy-60epoch/seq-model-rkmy.58.0.39-1.48.0.81-2.24.pth --model_fn ./model/rl/seq2seq/rkmy-60epoch/seq-rl-model-rkmy.pth --init_epoch 58 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: seq-model-rkmy.58.0.39-1.48.0.81-2.24.pth, BLEU = 72.06  
+RL rk-my, 60-40 model ရဲ့ အကောင်းဆုံး BLEU score က ...  
+
+```
+Evaluation result for the model: seq-rl-model-rkmy.84.0.28-1.33.0.76-2.14.pth
+BLEU = 74.52, 87.6/78.5/70.2/63.9 (BP=1.000, ratio=1.029, hyp_len=24198, ref_len=23509)
+```
+
+for 70-30 model:  
+
+time python continue_train.py --load_fn ./model/seq2seq/baseline/rkmy-70epoch/seq-model-rkmy.67.0.27-1.31.0.66-1.93.pth --model_fn ./model/rl/seq2seq/rkmy-70epoch/seq-rl-model-rkmy.pth --init_epoch 67 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline က : BLEU = 74.84  
+RL 70-30, rk-my best score က အောက်ပါအတိုင်း...  
+
+```
+Evaluation result for the model: seq-rl-model-rkmy.93.0.19-1.21.0.69-2.00.pth
+BLEU = 74.48, 87.5/78.5/70.2/63.8 (BP=1.000, ratio=1.036, hyp_len=24351, ref_len=23509)
+```
+
+### transformer
+
+**for my-rk language pair**  
+
 
 ## Reference
 
