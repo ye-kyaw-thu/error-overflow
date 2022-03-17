@@ -11373,11 +11373,11 @@ for rk-my ...
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/100epoch/baseline/rkmy/eval-results-rkmy-transformer-30-100epoch-max_grad_norm-1e8.txt ./tran-rl30rkmy.txt
 ```
 
-`(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-40epoch/eval-results-rkmy-rl.txt ./tran-rl40rkmy.txt
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-40epoch/eval-results-rkmy-rl.txt ./tran-rl40rkmy.txt
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-50epoch/eval-results-rkmy-rl.txt ./tran-rl50rkmy.txt
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-60epoch/eval-results-rkmy-rl.txt ./tran-rl60rkmy.txt
-(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-70epoch/eval-results-rkmy-rl.txt ./tran-rl70rkmy.txt``
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-70epoch/eval-results-rkmy-rl.txt ./tran-rl70rkmy.txt
 ```
 
 ### Script for Graph Drawing
