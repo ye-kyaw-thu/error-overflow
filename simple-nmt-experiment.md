@@ -11341,10 +11341,14 @@ for my-rk ...
 for rk-my ...  
 
 ```
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/100epoch/baseline/rkmy/eval-results-rkmy-seq2seq-30epoch-max_grad_norm-1e8-rl-100epoch-test.txt ./seq-rl30rkmy.txt
 ```
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/rkmy-40epoch/eval-results-rkmy-rl.txt ./seq-rl40rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/rkmy-50epoch/eval-results-rkmy-rl.txt ./seq-rl50rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/rkmy-60epoch/eval-results-rkmy-rl.txt ./seq-rl60rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/rkmy-70epoch/eval-results-rkmy-rl.txt ./seq-rl70rkmy.txt
 
 ```
 
