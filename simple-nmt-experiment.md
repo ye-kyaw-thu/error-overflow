@@ -11230,3 +11230,8 @@ BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
 - [Luong et al., 2015, Effective Approaches to Attention-based Neural Machine Translation](https://aclanthology.org/D15-1166/)
+- [Shen et al., 2015, Minimum Risk Training for Neural Machine Translation](https://arxiv.org/abs/1512.02433)
+- [Sennrich et al., 2016, Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1512.02433)
+- [Wu et al, 2016, Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
+- [Vaswani et al., 2017, Attention is All You Need](https://arxiv.org/abs/1706.03762)
+- [Xia et al., 2017, Dual Supervised Learning](https://arxiv.org/abs/1707.00415)
