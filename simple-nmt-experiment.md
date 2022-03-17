@@ -11455,24 +11455,41 @@ for my-rk, seq2seq+RL
 for rk-my, seq2seq+RL  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq30rkmy.txt ./seq-rl30rkmy.txt 30
+  30   60  408 ./seq30rkmy.txt.bleu
+  71  142  994 ./seq-rl30rkmy.txt.bleu
+ 101  202 1402 total
+```
+
+``(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq40rkmy.txt ./seq-rl40rkmy.txt 39
+  40   80  548 ./seq40rkmy.txt.bleu
+  62  124  868 ./seq-rl40rkmy.txt.bleu
+ 102  204 1416 total`
 
 ```
 
 ```
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq50rkmy.txt ./seq-rl50rkmy.txt 49
+  50  100  687 ./seq50rkmy.txt.bleu
+  52  104  728 ./seq-rl50rkmy.txt.bleu
+ 102  204 1415 total
 ```
 
 ```
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq60rkmy.txt ./seq-rl60rkmy.txt 58
+  60  120  830 ./seq60rkmy.txt.bleu
+  43   86  602 ./seq-rl60rkmy.txt.bleu
+ 103  206 1432 total
 ```
 
 ```
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq70rkmy.txt ./seq-rl70rkmy.txt 67
+  70  140  967 ./seq70rkmy.txt.bleu
+  34   68  476 ./seq-rl70rkmy.txt.bleu
+ 104  208 1443 total
 ```
 
-```
-
-```
+***for my-rk, Transformer***
 
 ### Script for Graph Drawing
 
