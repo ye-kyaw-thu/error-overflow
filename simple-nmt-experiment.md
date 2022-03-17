@@ -11392,6 +11392,39 @@ for rk-my ...
 
 အိုကေတယ်...  
 
+### Script for Extracting BLEU scores
+
+```bash
+#!/bin/bash
+
+# $1 is for the filename of the baseline model results
+# $2 is for the filename of the RL model results
+# $3 is start line number for the RL model bleu
+# How to run: 
+# e.g. 
+
+# for baseline model
+grep "BLEU =" $1 | cut -f1 -d "," | cut -f2 -d "=" | cat -n > $1.bleu
+# for RL model
+grep "BLEU =" $2 | cut -f1 -d "," | cut -f2 -d "=" | nl -v $3 > $2.bleu
+
+# for confirmation
+wc {$1,$2}.bleu
+```
+
+### Extracting BLEU Scores
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq30.txt ./seq-rl30.txt 30
+  30   60  411 ./seq30.txt.bleu
+  71  142  994 ./seq-rl30.txt.bleu
+ 101  202 1405 total
+```
+
+```
+
+```
+
 ### Script for Graph Drawing
 
 ### Graphs
