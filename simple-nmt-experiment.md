@@ -11228,7 +11228,8 @@ BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len
 ## Results
 
 my-rk
-| epoch (seq2seq+RL) | seq2seq | RL (MRT) 
+| epoch (seq2seq+RL) | seq2seq | RL (MRT) |
+|-----|-----|-----|
 | (30+70) | 68.10 | 74.87 |
 | (40+60) | 70.40 | 74.53 |
 | (50+50) | 73.15 | 74.72 |
@@ -11236,7 +11237,8 @@ my-rk
 | (70+30) | 74.36 | 75.50 |
 
 rk-my
-| epoch (seq2seq+RL) | seq2seq | RL (MRT) 
+| epoch (seq2seq+RL) | seq2seq | RL (MRT) |
+|-----|-----|-----|
 | (30+70) | 59.48 | 74.74 |
 | (40+60) | 69.39 | 74.98 |
 | (50+50) | 74.04 | 74.91 |
@@ -11244,7 +11246,8 @@ rk-my
 | (70+30) | 74.84 | 74.48 |
 
 my-rk
-| epoch (Transformer+RL) | Transformer | RL (MRT) 
+| epoch (Transformer+RL) | Transformer | RL (MRT) |
+|-----|-----|-----|
 | (30+70) | 25.29 | 58.69 |
 | (40+60) | 35.33 | 59.13 |
 | (50+50) | 40.85 | 56.79 |
@@ -11252,7 +11255,8 @@ my-rk
 | (70+30) | 50.51 | 58.20 |
 
 rk-my
-| epoch (Transformer+RL) | Transformer | RL (MRT) 
+| epoch (Transformer+RL) | Transformer | RL (MRT) |
+|-----|-----|-----|
 | (30+70) | 25.23 | 56.72 |
 | (40+60) | 34.17 | 56.95 |
 | (50+50) | 40.40 | 56.43 |
