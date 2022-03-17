@@ -11526,6 +11526,43 @@ wc {$1,$2}.bleu
  101  202 1401 total
 ```
 
+***for rk-my, Transformer*** 
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ./extract-bleu-lines.sh ./tran30rkmy.txt ./tran-rl30rkmy.txt 30
+  30   60  406 ./tran30rkmy.txt.bleu
+  71  142  994 ./tran-rl30rkmy.txt.bleu
+ 101  202 1400 total
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ./extract-bleu-lines.sh ./tran40rkmy.txt ./tran-rl40rkmy.txt 39
+  40   80  547 ./tran40rkmy.txt.bleu
+  62  124  868 ./tran-rl40rkmy.txt.bleu
+ 102  204 1415 total
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ./extract-bleu-lines.sh ./tran50rkmy.txt ./tran-rl50rkmy.txt 46
+  50  100  688 ./tran50rkmy.txt.bleu
+  55  110  770 ./tran-rl50rkmy.txt.bleu
+ 105  210 1458 total
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ./extract-bleu-lines.sh ./tran60rkmy.txt ./tran-rl60rkmy.txt 56
+  60  120  827 ./tran60rkmy.txt.bleu
+  45   90  630 ./tran-rl60rkmy.txt.bleu
+ 105  210 1457 total
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ./extract-bleu-lines.sh ./tran70rkmy.txt ./tran-rl70rkmy.txt 70
+  70  140  967 ./tran70rkmy.txt.bleu
+  31   62  434 ./tran-rl70rkmy.txt.bleu
+ 101  202 1401 total
+```
+
 ### Script for Graph Drawing
 
 ### Draw Graphs
