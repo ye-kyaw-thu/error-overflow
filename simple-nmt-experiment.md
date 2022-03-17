@@ -11658,7 +11658,11 @@ plt.show()
 ***for Transformer+RL, rk-my***
 
 ```
-
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran30rkmy.txt.bleu tran-rl30rkmy.txt.bleu "Transformer 30 epochs + RL 70 epochs (rk-my)" Transformer_RL-30-70-rkmy
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran40rkmy.txt.bleu tran-rl40rkmy.txt.bleu "Transformer 40 epochs + RL 60 epochs (rk-my)" Transformer_RL-40-60-rkmy
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran50rkmy.txt.bleu tran-rl50rkmy.txt.bleu "Transformer 50 epochs + RL 50 epochs (rk-my)" Transformer_RL-50-50-rkmy
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran60rkmy.txt.bleu tran-rl60rkmy.txt.bleu "Transformer 60 epochs + RL 40 epochs (rk-my)" Transformer_RL-60-40-rkmy
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran70rkmy.txt.bleu tran-rl70rkmy.txt.bleu "Transformer 70 epochs + RL 30 epochs (rk-my)" Transformer_RL-70-30-rkmy
 ```
 
 ## Reference
