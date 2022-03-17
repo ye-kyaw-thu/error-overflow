@@ -11264,6 +11264,23 @@ rk-my
 | (70+30) | 51.15 | 57.20 |
 
 
+## Performance of Two Models Combination
+
+### Preparation
+
+evaluation result တွေကို ဖိုလ်ဒါတစ်ခုအောက်မှာ ကော်ပီကူးထည့်...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-40epoch/eval-results-myrk-seq2seq-40epoch.txt ./seq40.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-50epoch/eval-results-myrk-seq2seq-50epoch.txt ./seq50.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-60epoch/eval-results-myrk-seq2seq-60epoch.txt ./seq60.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-70epoch/eval-results-myrk-seq2seq-70epoch.txt ./seq70.txt
+
+```
+
+```
+
+```
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
