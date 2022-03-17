@@ -11493,7 +11493,24 @@ wc {$1,$2}.bleu
 
 ### Script for Graph Drawing
 
-### Graphs
+### Draw Graphs
+
+***for Seq2Seq+RL, my-rk***  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ python ./draw.py seq30.txt.bleu seq-rl30.txt.bleu "Seq2Seq 30 epochs + RL 70 epochs (my-rk)" seq2seq_RL-30-70-myrk
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ python ./draw.py seq40.txt.bleu seq-rl40.txt.bleu "Seq2Seq 40 epochs + RL 60 epochs (my-rk)" seq2seq_RL-40-60-myrk
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ python ./draw.py seq50.txt.bleu seq-rl50.txt.bleu "Seq2Seq 50 epochs + RL 50 epochs (my-rk)" seq2seq_RL-50-50-myrk
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ python ./draw.py seq60.txt.bleu seq-rl60.txt.bleu "Seq2Seq 60 epochs + RL 40 epochs (my-rk)" seq2seq_RL-60-40-myrk
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ python ./draw.py seq70.txt.bleu seq-rl30.txt.bleu "Seq2Seq 70 epochs + RL 30 epochs (my-rk)" seq2seq_RL-70-30-myrk
+```
+
+***for Seq2Seq+RL, rk-my***
+
+```
+
+```
+
 
 ## Reference
 
