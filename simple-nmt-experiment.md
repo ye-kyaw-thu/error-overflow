@@ -11268,6 +11268,7 @@ rk-my
 
 ### Preparation
 
+***for seq2seq, baseline model***  
 evaluation result တွေကို ဖိုလ်ဒါတစ်ခုအောက်မှာ ကော်ပီကူးထည့်...  
 
 seq2seq baseline my-rk အတွက်  
@@ -11308,6 +11309,26 @@ transformer baseline, my-rk အတွက်
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-50epoch/eval-results-myrk-transformer-50epoch.txt ./tran50.txt
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-60epoch/eval-results-myrk-transformer-60epoch.txt ./tran60.txt
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-70epoch/eval-results-myrk-transformer-70epoch.txt ./tran70.txt
+```
+
+transformer baseline, rk-my အတွက်  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/rkmy-100epoch/eval-results-rkmy-transformer-30epoch-max_grad_norm-1e8.txt ./tran30rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-40epoch/eval-results-myrk-transformer-40epoch.txt ./tran40.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-50epoch/eval-results-myrk-transformer-50epoch.txt ./tran50.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-60epoch/eval-results-myrk-transformer-60epoch.txt ./tran60.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-70epoch/eval-results-myrk-transformer-70epoch.txt ./tran70.txt
+```
+
+baseline model တွေရဲ့ ရလဒ်တွေအားလုံးကို my-rk အတွက်ရော၊ rk-my အတွက်ရော ကော်ပီကူးပြီးသွားပြီး။ ကျန်တာက နောက်ဆက်တွဲ RL မော်ဒယ်တွေရဲ့ ရလဒ်ဖိုင်တွေ...  
+
+***seq2seq RL အတွက်***
+
+for my-rk ...  
+
+```
+
 ```
 
 
