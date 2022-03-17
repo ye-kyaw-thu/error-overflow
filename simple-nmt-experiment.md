@@ -11007,6 +11007,12 @@ BLEU = 51.15, 75.4/58.2/44.7/34.9 (BP=1.000, ratio=1.027, hyp_len=24150, ref_len
 
 **for my-rk language pair**  
 
+myrk, Baseline model best score: BLEU = 68.10  
+myrk, RL Fine-tuning best score: BLEU = 74.87 (seq-rl-model-myrk.81.0.25-1.28.0.70-2.00.pth မော်ဒယ်ရဲ့)  
+
+Evaluation result for the model: seq-rl-model-myrk.81.0.25-1.28.0.70-2.00.pth  
+BLEU = 74.87, 87.6/78.5/70.9/64.5 (BP=1.000, ratio=1.028, hyp_len=23803, ref_len=23160)  
+
 baseline model က 40 epoch ဆိုရင် ဒီဘက် RL မော်ဒယ်ကိုလည်း 40 ဆိုတဲ့ ဖိုလ်ဒါအောက်မှာပဲ သိမ်းခဲ့တယ်။ တိုက်ကြည့်ရတာ လွယ်အောင်လို့...  
 တကယ်တမ်းက basline က 40 epoch မို့လို့ 100 epoch က total epoch မို့လို့... RL မော်ဒယ်က 60 epoch ပါ  
 
@@ -11049,7 +11055,7 @@ for 70-30 model:
 time python continue_train.py --load_fn ./model/seq2seq/baseline/myrk-70epoch/seq-model-myrk.61.0.33-1.40.0.77-2.17.pth --model_fn ./model/rl/seq2seq/myrk-70epoch/seq-rl-model-myrk.pth --init_epoch 61 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
 
 seq2seq, my-rk, 70 epoch model or Baseline က seq-model-myrk.61.0.33-1.40.0.77-2.17.pth, BLEU = 74.36  
-RL, my-rk, 70-30 ရဲ့ best score က  
+RL, my-rk, 30-70 ရဲ့ best score က  
 
 ```
 Evaluation result for the model: seq-rl-model-myrk.98.0.21-1.24.0.76-2.13.pth
@@ -11057,6 +11063,16 @@ BLEU = 75.50, 88.2/79.1/71.6/65.1 (BP=1.000, ratio=1.023, hyp_len=23701, ref_len
 ```
 
 **for rk-my language pair**  
+
+for 30-70 model:  
+
+Baseline Best Score က BLEU = 59.48  
+rk-my အတွက် RL fine-tuning 100epoch မော်ဒယ်ရဲ့ best score က BLEU = 74.74  
+
+Evaluation result for the model: seq-rl-model-rkmy.92.0.24-1.27.0.72-2.06.pth  
+BLEU = 74.74, 87.6/78.6/70.6/64.3 (BP=1.000, ratio=1.033, hyp_len=24290, ref_len=23509)  
+
+for 40-60 model:  
 
 time python continue_train.py --load_fn ./model/seq2seq/baseline/rkmy-40epoch/seq-model-rkmy.39.0.59-1.81.0.83-2.30.pth --model_fn ./model/rl/seq2seq/rkmy-40epoch/seq-rl-model-rkmy.pth --init_epoch 39 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100  
 
@@ -11104,9 +11120,16 @@ Evaluation result for the model: seq-rl-model-rkmy.93.0.19-1.21.0.69-2.00.pth
 BLEU = 74.48, 87.5/78.5/70.2/63.8 (BP=1.000, ratio=1.036, hyp_len=24351, ref_len=23509)
 ```
 
-### Transformer
+### transformer
 
 **for my-rk language pair**  
+
+30 epoch Transformer မော်ဒယ်ရဲ့ baseline က 25.29  
+BLEU = 25.29, 57.4/33.7/19.5/10.9 (BP=1.000, ratio=1.055, hyp_len=24426, ref_len=23160)  
+my-rk, 30-70 RL fine-tuning မော်ဒယ်ရဲ့ အကောင်းဆုံး ရလဒ်က 58.69 ရတယ်...  
+
+Evaluation result for the model: transformer-rl-30to100model-myrk.97.1.11-3.03.1.03-2.80.pth  
+BLEU = 58.69, 80.5/64.9/52.8/43.0 (BP=1.000, ratio=1.015, hyp_len=23498, ref_len=23160)  
 
 time python continue_train.py --load_fn ./model/transformer/baseline/myrk-40epoch/myrk-transformer-model.39.1.86-6.41.1.77-5.87.pth --model_fn ./model/rl/transformer/myrk-40epoch/transformer-rl-myrk.pth --init_epoch 39 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
 
@@ -11149,6 +11172,12 @@ BLEU = 58.20, 80.4/64.7/52.2/42.2 (BP=1.000, ratio=1.020, hyp_len=23617, ref_len
 ```
 
 **for rk-my language pair**  
+
+rk-my, Transformer Baseline က 25.23 ...  
+rk-my, RL fine-tuning 30-70 model ရဲ့ best score က အောက်ပါအတိုင်း...  
+
+Evaluation result for the model: transformer-rl-30to100model-rkmy.97.1.11-3.05.1.03-2.79.pth  
+BLEU = 56.72, 78.4/63.2/50.8/41.2 (BP=1.000, ratio=1.030, hyp_len=24207, ref_len=23509)  
 
 time python continue_train.py --load_fn ./model/transformer/baseline/rkmy-40epoch/rkmy-transformer-model.39.1.89-6.62.1.69-5.40.pth --model_fn ./model/rl/transformer/rkmy-40epoch/transformer-rl-myrk.pth --init_epoch 39 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
 
