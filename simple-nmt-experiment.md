@@ -11380,6 +11380,18 @@ for rk-my ...
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-70epoch/eval-results-rkmy-rl.txt ./tran-rl70rkmy.txt
 ```
 
+ဖိုင်အရေအတွက်ကို စစ်ဆေး...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ls | wc
+     20      20     270
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cd ../tran/
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ ls | wc
+     20      20     290
+```
+
+အိုကေတယ်...  
+
 ### Script for Graph Drawing
 
 ### Graphs
