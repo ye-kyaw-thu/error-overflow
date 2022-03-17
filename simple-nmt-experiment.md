@@ -11414,6 +11414,7 @@ wc {$1,$2}.bleu
 
 ### Extracting BLEU Scores
 
+for my-rk, seq2seq+RL
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq30.txt ./seq-rl30.txt 30
   30   60  411 ./seq30.txt.bleu
@@ -11422,9 +11423,30 @@ wc {$1,$2}.bleu
 ```
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq40.txt ./seq-rl40.txt 40
+  40   80  546 ./seq40.txt.bleu
+  61  122  854 ./seq-rl40.txt.bleu
+ 101  202 1400 total
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$
+```
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+for rk-my, seq2seq+RL  
+
+```
+
+```
 ### Script for Graph Drawing
 
 ### Graphs
