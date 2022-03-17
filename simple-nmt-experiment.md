@@ -11565,6 +11565,63 @@ wc {$1,$2}.bleu
 
 ### Script for Graph Drawing
 
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import os
+import sys
+
+# Ref:
+# https://www.quora.com/How-do-you-plot-one-line-with-two-different-colours-using-Python-matplotlib-Python-matplotlib-development
+# https://stackoverflow.com/questions/48425278/plotting-data-from-two-columns-in-a-txt-file-python
+# https://www.geeksforgeeks.org/how-to-plot-a-smooth-curve-in-matplotlib/
+# https://stackoverflow.com/questions/19023512/error-with-reading-float-from-two-column-text-file-into-an-array-in-python
+
+model1_result = sys.argv[1]
+model2_result = sys.argv[2]
+graph_title = sys.argv[3]
+output_filename = sys.argv[4]
+
+data1 = np.loadtxt(model1_result)
+
+x1 = data1[:,0]
+y1 = data1[:,1]
+
+X_Y_Spline1 = make_interp_spline(x1, y1)
+# Returns evenly spaced numbers
+# over a specified interval.
+X1 = np.linspace(x1.min(), x1.max(), 150)
+Y1 = X_Y_Spline1(X1)
+
+data2 = np.loadtxt(model2_result)
+
+x2 = data2[:,0]
+y2 = data2[:,1]
+
+X_Y_Spline2 = make_interp_spline(x2, y2)
+# Returns evenly spaced numbers
+# over a specified interval.
+X2 = np.linspace(x2.min(), x2.max(), 150)
+Y2 = X_Y_Spline2(X2)
+
+# Plotting the Graph
+plt.plot(X1, Y1)
+plt.plot(X2, Y2)
+plt.title(graph_title)
+plt.xlabel('epoch')
+plt.ylabel('BLEU')
+#plt.annotate(xy=[40,1], s='start RL here')
+plt.legend(['Transformer', 'RL'], loc=4)
+
+plt.savefig(output_filename + '.png')
+plt.savefig(output_filename + '.pdf')
+
+plt.show()
+
+```
+
+
 ### Draw Graphs
 
 ***for Seq2Seq+RL, my-rk***  
