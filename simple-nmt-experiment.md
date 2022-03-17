@@ -11328,10 +11328,39 @@ baseline model တွေရဲ့ ရလဒ်တွေအားလုံးက�
 for my-rk ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/100epoch/baseline/eval-results-myrk-seq2seq-30epoch-max_grad_norm-1e8-rl-100epoch-test.txt ./seq-rl30.txt
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/myrk-40epoch/eval-results-myrk-rl.txt ./seq-rl40.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/myrk-50epoch/eval-results-myrk-rl.txt ./seq-rl50.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/myrk-60epoch/eval-results-myrk-rl.txt ./seq-rl60.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../rl/seq2seq/myrk-70epoch/eval-results-myrk-rl.txt ./seq-rl70.txt
+```
+
+for rk-my ...  
 
 ```
 
+```
 
+```
+
+```
+
+***transformer RL အတွက်***  
+
+for my-rk ...  
+
+```
+
+```
+
+for rk-my ...  
+
+```
+
+```
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
