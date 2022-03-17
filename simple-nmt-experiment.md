@@ -11279,9 +11279,9 @@ seq2seq baseline my-rk အတွက်
 
 ```
 
-30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့ပြီးအဲဒီအထဲကနေမှ 30 epoch ကို ယူခဲ့တာမို့လို့ ကိုယ့်အတွက် မှတ်မိရလွယ်တာမို့ ဖိုင်နာမည်ကိုလည်း 100 ပဲ ထားထားတာ...  
+30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့လို့...  
 ```
-(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-100epoch/eval-results-myrk-seq2seq-30epoch.txt ./seq100.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-100epoch/eval-results-myrk-seq2seq-30epoch.txt ./seq30.txt
 ```
 
 seq2seq baseline rk-my အတွက်  
@@ -11294,10 +11294,20 @@ seq2seq baseline rk-my အတွက်
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-70epoch/eval-results-rkmy-seq2seq-70epoch.txt ./seq70rkmy.txt
 ```
 
-30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့ပြီးအဲဒီအထဲကနေမှ 30 epoch ကို ယူခဲ့တာမို့လို့ ကိုယ့်အတွက် မှတ်မိရလွယ်တာမို့ ဖိုင်နာမည်ကိုလည်း 100 ပဲ ထားထားတာ...  
+30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့လို့...  
 
 ```
-(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-100epoch/eval-results-rkmy-seq2seq-30epoch.txt ./seq100rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-100epoch/eval-results-rkmy-seq2seq-30epoch.txt ./seq30rkmy.txt
+```
+
+transformer baseline, my-rk အတွက်  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-100epoch/eval-results-myrk-transformer-30epoch-max_grad_norm-1e8-rl-100epoch-test.txt ./tran30.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-40epoch/eval-results-myrk-transformer-40epoch.txt ./tran40.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-50epoch/eval-results-myrk-transformer-50epoch.txt ./tran50.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-60epoch/eval-results-myrk-transformer-60epoch.txt ./tran60.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../transformer/baseline/myrk-70epoch/eval-results-myrk-transformer-70epoch.txt ./tran70.txt
 ```
 
 
