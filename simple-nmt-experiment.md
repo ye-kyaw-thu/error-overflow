@@ -11357,14 +11357,33 @@ for rk-my ...
 for my-rk ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/100epoch/baseline/myrk/eval-results-myrk-transformer-30-100epoch-max_grad_norm-1e8.txt ./tran-rl30.txt
+```
 
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/myrk-40epoch/eval-results-myrk-rl.txt ./tran-rl40.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/myrk-50epoch/eval-results-myrk-rl.txt ./tran-rl50.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/myrk-60epoch/eval-results-myrk-rl.txt ./tran-rl60.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/myrk-70epoch/eval-results-myrk-rl.txt ./tran-rl70.txt
 ```
 
 for rk-my ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/100epoch/baseline/rkmy/eval-results-rkmy-transformer-30-100epoch-max_grad_norm-1e8.txt ./tran-rl30rkmy.txt
+```
+
+`(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-40epoch/eval-results-rkmy-rl.txt ./tran-rl40rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-50epoch/eval-results-rkmy-rl.txt ./tran-rl50rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-60epoch/eval-results-rkmy-rl.txt ./tran-rl60rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ cp ../../../rl/transformer/rkmy-70epoch/eval-results-rkmy-rl.txt ./tran-rl70rkmy.txt``
 
 ```
+
+### Script for Graph Drawing
+
+### Graphs
+
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
