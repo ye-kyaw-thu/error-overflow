@@ -11270,6 +11270,7 @@ rk-my
 
 evaluation result တွေကို ဖိုလ်ဒါတစ်ခုအောက်မှာ ကော်ပီကူးထည့်...  
 
+seq2seq baseline my-rk အတွက်  
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-40epoch/eval-results-myrk-seq2seq-40epoch.txt ./seq40.txt
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-50epoch/eval-results-myrk-seq2seq-50epoch.txt ./seq50.txt
@@ -11278,9 +11279,28 @@ evaluation result တွေကို ဖိုလ်ဒါတစ်ခုအေ�
 
 ```
 
+30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့ပြီးအဲဒီအထဲကနေမှ 30 epoch ကို ယူခဲ့တာမို့လို့ ကိုယ့်အတွက် မှတ်မိရလွယ်တာမို့ ဖိုင်နာမည်ကိုလည်း 100 ပဲ ထားထားတာ...  
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-100epoch/eval-results-myrk-seq2seq-30epoch.txt ./seq100.txt
 ```
 
+seq2seq baseline rk-my အတွက်  
+
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/myrk-100epoch/eval-results-myrk-seq2seq-30epoch.txt ./seq100.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-40epoch/eval-results-rkmy-seq2seq-40epoch.txt ./seq40rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-50epoch/eval-results-rkmy-seq2seq-50epoch.txt ./seq50rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-60epoch/eval-results-rkmy-seq2seq-60epoch.txt ./seq60rkmy.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-70epoch/eval-results-rkmy-seq2seq-70epoch.txt ./seq70rkmy.txt
+```
+
+30 epoch အတွက်ကကျတော့ experiment စလုပ်စမှာ epoch 100 run ခဲ့ပြီးအဲဒီအထဲကနေမှ 30 epoch ကို ယူခဲ့တာမို့လို့ ကိုယ့်အတွက် မှတ်မိရလွယ်တာမို့ ဖိုင်နာမည်ကိုလည်း 100 ပဲ ထားထားတာ...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ cp ../../../seq2seq/baseline/rkmy-100epoch/eval-results-rkmy-seq2seq-30epoch.txt ./seq100rkmy.txt
+```
+
+
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
