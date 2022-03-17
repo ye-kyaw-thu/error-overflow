@@ -11222,6 +11222,9 @@ Evaluation result for the model: transformer-rl-myrk.99.1.04-2.84.0.98-2.66.pth
 BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len=23509)
 ```
 
+အထက်ပါ 40-60 ကနေ 70-30 အထိ run ခဲ့စဉ်က မှတ်ထားခဲ့တဲ့ running log ကိုတော့ နောက်ထပ် ဖိုင်တစ်ဖိုင် ခွဲပြီးသိမ်းခဲ့တယ်။ အောက်ပါ link ကို refer လုပ်ပါ။  
+- [simple-nmt-40-60-to-70-30-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/simple-nmt-40-60-to-70-30-log.md) 
+
 
 ## Reference
 
