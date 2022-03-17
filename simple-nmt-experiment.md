@@ -11414,7 +11414,7 @@ wc {$1,$2}.bleu
 
 ### Extracting BLEU Scores
 
-for my-rk, seq2seq+RL  
+***for my-rk, seq2seq+RL***  
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq30.txt ./seq-rl30.txt 30
@@ -11444,15 +11444,14 @@ for my-rk, seq2seq+RL
  106  212 1473 total
 ```
 
-```(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq70.txt ./seq-rl70.txt 61
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq70.txt ./seq-rl70.txt 61
   70  140  970 ./seq70.txt.bleu
   40   80  560 ./seq-rl70.txt.bleu
  110  220 1530 total
-(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$
-
 ```
 
-for rk-my, seq2seq+RL  
+***for rk-my, seq2seq+RL***  
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq30rkmy.txt ./seq-rl30rkmy.txt 30
@@ -11461,10 +11460,11 @@ for rk-my, seq2seq+RL
  101  202 1402 total
 ```
 
-``(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq40rkmy.txt ./seq-rl40rkmy.txt 39
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/seq$ ./extract-bleu-lines.sh ./seq40rkmy.txt ./seq-rl40rkmy.txt 39
   40   80  548 ./seq40rkmy.txt.bleu
   62  124  868 ./seq-rl40rkmy.txt.bleu
- 102  204 1416 total`
+ 102  204 1416 total
 
 ```
 
