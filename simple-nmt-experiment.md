@@ -11229,3 +11229,4 @@ BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len
 ## Reference
 
 - [https://github.com/kh-kim/simple-nmt](https://github.com/kh-kim/simple-nmt)  
+- [Luong et al., 2015, Effective Approaches to Attention-based Neural Machine Translation](https://aclanthology.org/D15-1166/)
