@@ -11150,6 +11150,46 @@ BLEU = 58.20, 80.4/64.7/52.2/42.2 (BP=1.000, ratio=1.020, hyp_len=23617, ref_len
 
 **for rk-my language pair**  
 
+time python continue_train.py --load_fn ./model/transformer/baseline/rkmy-40epoch/rkmy-transformer-model.39.1.89-6.62.1.69-5.40.pth --model_fn ./model/rl/transformer/rkmy-40epoch/transformer-rl-myrk.pth --init_epoch 39 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: rk-my, transformer, 40 epoch ရဲ့ Best BLEU Score = 34.17  
+RL, rk-my, 40-60 model ရဲ့ အကောင်းဆုံး BLEU score က   
+
+```
+Evaluation result for the model: transformer-rl-myrk.100.1.10-3.00.0.96-2.62.pth
+BLEU = 56.95, 78.4/63.4/51.0/41.5 (BP=1.000, ratio=1.038, hyp_len=24393, ref_len=23509)
+```
+
+time python continue_train.py --load_fn ./model/transformer/baseline/rkmy-50epoch/rkmy-transformer-model.46.1.62-5.07.1.51-4.53.pth --model_fn ./model/rl/transformer/rkmy-50epoch/transformer-rl-myrk.pth --init_epoch 46 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: rk-my, transformer, 50 epoch ရဲ့ Best BLEU Score = 40.40  
+RL, rk-my, 50-50 model ရဲ့ အကောင်းဆုံး ရလဒ်က  
+
+```
+Evaluation result for the model: transformer-rl-myrk.99.1.06-2.89.0.99-2.70.pth
+BLEU = 56.43, 78.5/63.1/50.4/40.6 (BP=1.000, ratio=1.034, hyp_len=24311, ref_len=23509)
+```
+
+time python continue_train.py --load_fn ./model/transformer/baseline/rkmy-60epoch/rkmy-transformer-model.56.1.44-4.22.1.35-3.84.pth --model_fn ./model/rl/transformer/rkmy-60epoch/transformer-rl-myrk.pth --init_epoch 56 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: rk-my, transformer, 60 epoch ရဲ့ Best BLEU Score = 45.70  
+RL, rk-my, 60-40 မော်ဒယ်ရဲ့ အကောင်းဆုံး ရလဒ်က အောက်ပါအတိုင်း...  
+
+```
+Evaluation result for the model: transformer-rl-myrk.97.1.05-2.87.1.00-2.72.pth
+BLEU = 58.26, 79.7/64.7/52.3/42.7 (BP=1.000, ratio=1.017, hyp_len=23909, ref_len=23509)
+```
+
+time python continue_train.py --load_fn ./model/transformer/baseline/rkmy-70epoch/rkmy-transformer-model.70.1.25-3.47.1.17-3.21.pth --model_fn ./model/rl/transformer/rkmy-70epoch/transformer-rl-myrk.pth --init_epoch 70 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100  
+
+Baseline: rk-my, transformer, 70 epoch ရဲ့ Best BLEU Score = 51.15  
+RL, rk-my, 70-30 model ရဲ့ အကောင်းဆုံး ရလဒ်က  
+
+```
+Evaluation result for the model: transformer-rl-myrk.99.1.04-2.84.0.98-2.66.pth
+BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len=23509)
+```
+
 
 ## Reference
 
