@@ -2306,3 +2306,357 @@ Steps: 5000	Loss: 3400.03296	PPL: 1.28335	bleu: 82.32466	LR: 0.00030000	*
 (joey) ye@:~/exp/joeynmt/models$ mv wmt_myrk_default/ wmt_myrk_default1
 ```
 
+Beam Size ကို တိုးကြည့်မယ်။   
+
+```
+testing:
+    beam_size: 10 # original setting is 5
+    
+        hidden_size: 1000 # encoder, decoder နှစ်မျိုးစလုံးအတွက်
+```
+
+
+run ကြည့်မယ်...  
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_myrk_default.yaml 
+2022-02-27 12:35:29,616 - INFO - root - Hello! This is Joey-NMT (version 1.5.1).
+2022-02-27 12:35:29,636 - INFO - joeynmt.data - Loading training data...
+2022-02-27 12:35:32,624 - INFO - joeynmt.data - Building vocabulary...
+2022-02-27 12:35:32,703 - INFO - joeynmt.data - Loading dev data...
+2022-02-27 12:35:32,726 - INFO - joeynmt.data - Loading test data...
+2022-02-27 12:35:32,747 - INFO - joeynmt.data - Data loaded.
+2022-02-27 12:35:32,747 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 12:35:33,505 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 12:35:33.773895: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2022-02-27 12:35:34,955 - INFO - joeynmt.training - Total params: 88247632
+2022-02-27 12:35:34,956 - WARNING - joeynmt.training - `keep_last_ckpts` option is outdated. Please use `keep_best_ckpts`, instead.
+2022-02-27 12:35:37,360 - INFO - joeynmt.helpers -                           cfg.name : wmt_myrk_default
+2022-02-27 12:35:37,360 - INFO - joeynmt.helpers -                       cfg.data.src : my
+2022-02-27 12:35:37,360 - INFO - joeynmt.helpers -                       cfg.data.trg : rk
+2022-02-27 12:35:37,360 - INFO - joeynmt.helpers -                     cfg.data.train : /media/ye/project2/exp/myrk-transformer/data/syl/train
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                       cfg.data.dev : /media/ye/project2/exp/myrk-transformer/data/syl/dev
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                      cfg.data.test : /media/ye/project2/exp/myrk-transformer/data/syl/test
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                     cfg.data.level : word
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                 cfg.data.lowercase : True
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -           cfg.data.max_sent_length : 50
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -          cfg.data.src_voc_min_freq : 0
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -             cfg.data.src_voc_limit : 100000
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -          cfg.data.trg_voc_min_freq : 0
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -             cfg.data.trg_voc_limit : 100000
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -              cfg.testing.beam_size : 10
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                  cfg.testing.alpha : 1.0
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.reset_best_ckpt : False
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.reset_scheduler : False
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.reset_optimizer : False
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -           cfg.training.random_seed : 42
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -             cfg.training.optimizer : adam
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -         cfg.training.learning_rate : 0.0003
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -     cfg.training.learning_rate_min : 5e-07
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -          cfg.training.weight_decay : 0.0
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -        cfg.training.clip_grad_norm : 1.0
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -            cfg.training.batch_size : 80
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -            cfg.training.scheduling : plateau
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -              cfg.training.patience : 10
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.decrease_factor : 0.5
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers - cfg.training.early_stopping_metric : eval_metric
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -                cfg.training.epochs : 30
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.validation_freq : 1000
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -          cfg.training.logging_freq : 100
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -           cfg.training.eval_metric : bleu
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -             cfg.training.model_dir : models/wmt_myrk_default
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -             cfg.training.overwrite : True
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -               cfg.training.shuffle : True
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -              cfg.training.use_cuda : True
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -     cfg.training.max_output_length : 100
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -     cfg.training.print_valid_sents : [0, 1, 2]
+2022-02-27 12:35:37,361 - INFO - joeynmt.helpers -       cfg.training.keep_last_ckpts : 5
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -         cfg.model.encoder.rnn_type : lstm
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.embedding_dim : 4096
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.scale : False
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -      cfg.model.encoder.hidden_size : 1000
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -    cfg.model.encoder.bidirectional : True
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -          cfg.model.encoder.dropout : 0.2
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -       cfg.model.encoder.num_layers : 1
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -         cfg.model.decoder.rnn_type : lstm
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.embedding_dim : 4096
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.scale : False
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -        cfg.model.decoder.emb_scale : False
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -      cfg.model.decoder.hidden_size : 1000
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -          cfg.model.decoder.dropout : 0.2
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -   cfg.model.decoder.hidden_dropout : 0.2
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -       cfg.model.decoder.num_layers : 1
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -    cfg.model.decoder.input_feeding : True
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -      cfg.model.decoder.init_hidden : bridge
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers -        cfg.model.decoder.attention : bahdanau
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - Data set sizes: 
+	train 15535,
+	valid 1000,
+	test 1811
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - First training example:
+	[SRC] မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
+	[TRG] မင်း ယင်း ချင့် ကို အ ခြား တစ် ခု နန့် မ ချိတ် ပါ လား ။
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - First 10 words (src): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) မ (6) အ (7) ကို (8) တယ် (9) သူ
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - First 10 words (trg): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) အ (6) ကို (7) ရေ (8) မ (9) ပါ
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - Number of Src words (types): 1580
+2022-02-27 12:35:37,362 - INFO - joeynmt.helpers - Number of Trg words (types): 1687
+2022-02-27 12:35:37,362 - INFO - joeynmt.training - Model(
+	encoder=RecurrentEncoder(LSTM(4096, 1000, batch_first=True, bidirectional=True)),
+	decoder=RecurrentDecoder(rnn=LSTM(5096, 1000, batch_first=True), attention=BahdanauAttention),
+	src_embed=Embeddings(embedding_dim=4096, vocab_size=1580),
+	trg_embed=Embeddings(embedding_dim=4096, vocab_size=1687))
+2022-02-27 12:35:37,363 - INFO - joeynmt.training - Train stats:
+	device: cuda
+	n_gpu: 2
+	16-bits training: False
+	gradient accumulation: 1
+	batch size per device: 40
+	total batch size (w. parallel & accumulation): 80
+2022-02-27 12:35:37,363 - INFO - joeynmt.training - EPOCH 1
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:694: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, batch_sizes, hx, self._flat_weights, self.bias,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:691: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 846, in train
+    trainer.train_and_validate(train_data=train_data, valid_data=dev_data)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 447, in train_and_validate
+    batch_loss += self._train_step(batch)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 539, in _train_step
+    batch_loss, _, _, _ = self.model(return_type="loss", **vars(batch))
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 168, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 178, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 86, in parallel_apply
+    output.reraise()
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
+    output = module(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 84, in forward
+    out, _, _, _ = self._encode_decode(**kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 132, in _encode_decode
+    return self._decode(encoder_output=encoder_output,
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 169, in _decode
+    return self.decoder(trg_embed=self.trg_embed(trg_input),
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 374, in forward
+    prev_att_vector, hidden, att_prob = self._forward_step(
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 249, in _forward_step
+    _, hidden = self.rnn(rnn_input, hidden)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 691, in forward
+    result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+RuntimeError: CUDA out of memory. Tried to allocate 98.00 MiB (GPU 1; 3.95 GiB total capacity; 3.00 GiB already allocated; 97.94 MiB free; 3.14 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+
+real	0m12.427s
+user	0m6.328s
+sys	0m2.620s
+(joey) ye@:~/exp/joeynmt$ 
+```
+
+အထက်ပါအတိုင်း out of memory error တက်တယ်။  
+အဲဒါကြောင့် hidden_size ကို 600 (100 ပဲ တိုးခဲ့) ပဲထားပြီး beam size ကိုတော့ 10 ပဲ ထားပြီး ထပ် training လုပ်ကြည့်ခဲ့...  
+
+```
+       hidden_size: 600
+       beam_size: 10 # original setting is 5       
+```
+
+training again ... 
+
+```
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
+    output = module(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 84, in forward
+    out, _, _, _ = self._encode_decode(**kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 132, in _encode_decode
+    return self._decode(encoder_output=encoder_output,
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 169, in _decode
+    return self.decoder(trg_embed=self.trg_embed(trg_input),
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 374, in forward
+    prev_att_vector, hidden, att_prob = self._forward_step(
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 249, in _forward_step
+    _, hidden = self.rnn(rnn_input, hidden)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 691, in forward
+    result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+RuntimeError: CUDA out of memory. Tried to allocate 52.00 MiB (GPU 1; 3.95 GiB total capacity; 2.94 GiB already allocated; 40.94 MiB free; 3.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+
+real	0m39.949s
+user	0m39.533s
+sys	0m8.476s
+(joey) ye@:~/exp/joeynmt$ 
+
+```
+
+အထက်ပါအတိုင်း error ပေးပြီး training ရပ်သွားလို့... beam size ကိုလျှော့ပြီး ပြန် train လုပ်ကြည့်ခဲ့...  
+
+```
+       hidden_size: 600
+       
+testing:
+    beam_size: 5 # original setting is 5
+```
+
+training လုပ်ခဲ့....  
+
+```
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 168, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 178, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 86, in parallel_apply
+    output.reraise()
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
+    output = module(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 84, in forward
+    out, _, _, _ = self._encode_decode(**kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 132, in _encode_decode
+    return self._decode(encoder_output=encoder_output,
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 169, in _decode
+    return self.decoder(trg_embed=self.trg_embed(trg_input),
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 374, in forward
+    prev_att_vector, hidden, att_prob = self._forward_step(
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 249, in _forward_step
+    _, hidden = self.rnn(rnn_input, hidden)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 691, in forward
+    result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+RuntimeError: CUDA out of memory. Tried to allocate 52.00 MiB (GPU 1; 3.95 GiB total capacity; 2.94 GiB already allocated; 40.94 MiB free; 3.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+
+real	0m38.592s
+user	0m40.241s
+sys	0m8.479s
+(joey) ye@:~/exp/joeynmt$ 
+```
+
+လက်ရှိ စက်နဲ့က မနိုင်ဘူး... 
+အဲဒါကြောင့် ... နောက်ထပ် အရေးကြီးတဲ့ parameter တစ်ခု ဖြစ်တဲ့ hidden layer ကိုပဲ တိုးကြည့်မယ်။  
+
+```
+        num_layers: 2 # 1 ကနေ 2 အထိ တင်ကြည့်ခဲ့...  
+```
+
+run ကြည့်ခဲ့...  
+
+```
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
+    output = module(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 84, in forward
+    out, _, _, _ = self._encode_decode(**kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 132, in _encode_decode
+    return self._decode(encoder_output=encoder_output,
+  File "/home/ye/exp/joeynmt/joeynmt/model.py", line 169, in _decode
+    return self.decoder(trg_embed=self.trg_embed(trg_input),
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 374, in forward
+    prev_att_vector, hidden, att_prob = self._forward_step(
+  File "/home/ye/exp/joeynmt/joeynmt/decoders.py", line 249, in _forward_step
+    _, hidden = self.rnn(rnn_input, hidden)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 691, in forward
+    result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+RuntimeError: CUDA out of memory. Tried to allocate 50.00 MiB (GPU 1; 3.95 GiB total capacity; 2.95 GiB already allocated; 16.94 MiB free; 3.21 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+
+real	0m38.850s
+user	0m40.468s
+sys	0m8.179s
+(joey) ye@:~/exp/joeynmt$ 
+
+```
+
+အထက်ပါအတိုင်း error ပေးတယ်။ ဒီတစ်ခါတော့ hidden layer ကို 2 ထားထားပြီး hidden_size ကို 300 ထားကြည့်မယ်...  
+
+```
+        num_layers: 2
+        hidden_size: 300 # for both encoder/decoder        
+```
+
+training လုပ်ကြည့်ခဲ့...  
+
+```
+2022-02-27 13:56:56,670 - INFO - joeynmt.training - EPOCH 28
+2022-02-27 13:57:16,583 - INFO - joeynmt.training - Epoch  28, Step:     5300, Batch Loss:     0.835923, Tokens per Sec:     1914, Lr: 0.000300
+2022-02-27 13:58:12,621 - INFO - joeynmt.training - Epoch  28, Step:     5400, Batch Loss:     1.400406, Tokens per Sec:     1929, Lr: 0.000300
+2022-02-27 13:58:45,413 - INFO - joeynmt.training - Epoch  28: total training loss 210.51
+2022-02-27 13:58:45,414 - INFO - joeynmt.training - EPOCH 29
+2022-02-27 13:59:07,497 - INFO - joeynmt.training - Epoch  29, Step:     5500, Batch Loss:     0.650256, Tokens per Sec:     1963, Lr: 0.000300
+2022-02-27 14:00:05,073 - INFO - joeynmt.training - Epoch  29, Step:     5600, Batch Loss:     1.080434, Tokens per Sec:     1886, Lr: 0.000300
+2022-02-27 14:00:34,237 - INFO - joeynmt.training - Epoch  29: total training loss 192.59
+2022-02-27 14:00:34,237 - INFO - joeynmt.training - EPOCH 30
+2022-02-27 14:00:59,486 - INFO - joeynmt.training - Epoch  30, Step:     5700, Batch Loss:     1.102342, Tokens per Sec:     1918, Lr: 0.000300
+2022-02-27 14:01:54,616 - INFO - joeynmt.training - Epoch  30, Step:     5800, Batch Loss:     0.951962, Tokens per Sec:     1966, Lr: 0.000300
+2022-02-27 14:02:22,152 - INFO - joeynmt.training - Epoch  30: total training loss 179.17
+2022-02-27 14:02:22,152 - INFO - joeynmt.training - Training ended after  30 epochs.
+2022-02-27 14:02:22,152 - INFO - joeynmt.training - Best validation result (greedy) at step     5000:  82.33 eval_metric.
+2022-02-27 14:02:22,170 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 14:02:22,171 - INFO - joeynmt.prediction - Loading model from models/wmt_myrk_default/5000.ckpt
+2022-02-27 14:02:22,576 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 14:02:22,862 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 14:02:22,917 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.rk)...
+2022-02-27 14:02:54,819 - INFO - joeynmt.prediction -  dev bleu[13a]:  82.53 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 14:02:54,821 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.dev
+2022-02-27 14:02:54,821 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.rk)...
+2022-02-27 14:03:51,285 - INFO - joeynmt.prediction - test bleu[13a]:  81.19 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 14:03:51,289 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.test
+
+real	58m25.911s
+user	71m45.595s
+sys	9m6.336s
+(joey) ye@:~/exp/joeynmt$ cat ./models/wmt_myrk_default/validations.txt 
+Steps: 1000	Loss: 19013.80859	PPL: 4.03538	bleu: 14.87704	LR: 0.00030000	*
+Steps: 2000	Loss: 7608.55371	PPL: 1.74763	bleu: 58.67979	LR: 0.00030000	*
+Steps: 3000	Loss: 3492.30786	PPL: 1.29206	bleu: 79.77457	LR: 0.00030000	*
+Steps: 4000	Loss: 3101.71558	PPL: 1.25556	bleu: 81.94242	LR: 0.00030000	*
+Steps: 5000	Loss: 3153.44263	PPL: 1.26033	bleu: 82.32911	LR: 0.00030000	*
+(joey) ye@:~/exp/joeynmt$ 
+
+```
+
+အထက်ပါ မော်ဒယ်လည်း သုံးလို့ ရလိမ့်မယ်။  
+backup ကူးထားခဲ့...  
+
