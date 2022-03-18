@@ -11700,7 +11700,7 @@ plt.show()
 <br />
 
 <p align="center">
-<img src="https://https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-60-40-myrk.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-60-40-myrk.png" alt="60-40 graph" width="500"/>  
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-70-30-myrk.png" alt="30-70 graph" width="500"/>
 </p>  
 <div align="center">
