@@ -11689,12 +11689,33 @@ plt.show()
 <br />
 
 <p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-rkmy.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-rkmy.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-50-50-rkmy.png" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.3 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Rakhine-Myanmar language pair, Left: 30-70, Middle: 40-60, Right: 50-50
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-60-40-rkmy.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-70-30-rkmy.png" alt="70-30 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.4 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Rakhine-Myanmar language pair, Left: 60-40, Right: 70-30
+</div> 
+
+<br />
+
+<p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-30-70-myrk.png" alt="30-70 graph" width="330"/>  
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-40-60-myrk.png" alt="40-60 graph" width="330"/>
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-50-50-myrk.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
-  Fig.1 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 30-70, Middle: 40-60, Right: 50-50
+  Fig.5 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 30-70, Middle: 40-60, Right: 50-50
 </div> 
 
 <br />
@@ -11704,10 +11725,32 @@ plt.show()
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-70-30-myrk.png" alt="30-70 graph" width="500"/>
 </p>  
 <div align="center">
-  Fig.2 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 60-40, Right: 30-70
+  Fig.6 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 60-40, Right: 30-70
 </div> 
 
 <br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-30-70-rkmy.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-40-60-rkmy.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-50-50-rkmy.png" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.7 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Rakhine-Myanmar language pair, Left: 30-70, Middle: 40-60, Right: 50-50
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-60-40-rkmy.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-70-30-rkmy.png" alt="30-70 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.8 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Rakhine-Myanmar language pair, Left: 60-40, Right: 30-70
+</div> 
+
+<br />
+
 
 ## Reference
 
