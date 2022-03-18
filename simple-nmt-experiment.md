@@ -11736,7 +11736,7 @@ plt.show()
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-50-50-rkmy.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
-  Fig.7 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Rakhine-Myanmar language pair  
+  Fig.7 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Rakhine-Myanmar language pair <br /> 
   (Left: 30-70, Middle: 40-60, Right: 50-50)
 </div> 
 
