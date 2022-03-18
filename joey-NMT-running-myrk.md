@@ -1412,7 +1412,7 @@ sys	8m33.931s
 (joey) ye@:~/exp/joeynmt$
 ```
 
-config ဖိုင်ရဲ့ ထိပ်ဆုံး နာမည်ကို original configuration အတိုင်း ထားမိတဲ့ error ကိုတော့ တွေ့ပြီ... အဲဒါကြောင်လား?!  
+config ဖိုင်ရဲ့ ထိပ်ဆုံး နာမည်ကို original configuration အတိုင်း ထားမိတဲ့ error ကိုတော့ တွေ့ပြီ... အဲဒါကြောင့်လား?!  
 
 ```
 name: "wmt_ende_default" ကို 
@@ -1420,3 +1420,732 @@ name: "wmt_myrk_default"
 ```
 
 Error အတူတူပဲ ပေးနေတယ်...  
+
+
+```
+    lowercase: True
+```
+
+lowercase ကို True လုပ်ပြီး ထပ် training လုပ်ကြည့်ခဲ့...  
+
+```
+2022-02-27 00:13:02,865 - INFO - joeynmt.training - EPOCH 20
+2022-02-27 00:14:59,146 - INFO - joeynmt.training - Epoch  20: total training loss 180.29
+2022-02-27 00:14:59,146 - INFO - joeynmt.training - Training ended after  20 epochs.
+2022-02-27 00:14:59,146 - INFO - joeynmt.training - Best validation result (greedy) at step        0:   -inf eval_metric.
+2022-02-27 00:14:59,154 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 00:14:59,154 - INFO - joeynmt.prediction - Loading model from /home/ye/exp/joeynmt/models/wmt_myrk_default/0.ckpt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 860, in train
+    test(cfg_file,
+  File "/home/ye/exp/joeynmt/joeynmt/prediction.py", line 321, in test
+    model_checkpoint = load_checkpoint(ckpt, use_cuda=use_cuda)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint
+    assert os.path.isfile(path), f"Checkpoint {path} not found"
+AssertionError: Checkpoint /home/ye/exp/joeynmt/models/wmt_myrk_default/0.ckpt not found
+
+real	39m11.235s
+user	43m42.326s
+sys	8m45.116s
+(joey) ye@:~/exp/joeynmt$ 
+
+```
+
+ဒီ error ပဲ ထပ်ပေးနေတယ်...  
+
+```
+    logging_freq: 100
+    keep_last_ckpts: 3              # keep this many of the latest checkpoints, if -1: all of them, default: 5
+```
+
+small_model_myrk/ ဖိုလ်ဒါအောက်ကို ကြည့်ကြည့်တော့...  
+best.ckpt၊ latest.ckpt  နှစ်ဖိုင်ကိုတော့ တွေ့ရတယ်။ training လုပ်နေတဲ့အချိန်မှာတော့ မပြောတတ်ဘူး...  
+
+ထပ် training လုပ်ကြည့်ခဲ့...  
+Same ERROR!!!  
+
+code ကို ဝင်ကြည့်တော့ ...  
+(File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint)  
+
+```python
+    # when checkpoint is not specified, take latest (best) from model dir
+    if ckpt is None:
+        ckpt = get_latest_checkpoint(model_dir)
+        try:
+            step = ckpt.split(model_dir+"/")[1].split(".ckpt")[0]
+        except IndexError:
+            step = "best"
+```
+
+path ကို အပြည့်မပေးပဲ run ကြည့်ခဲ့...  
+
+```
+#    model_dir: "/home/ye/exp/joeynmt/models/wmt_myrk_default"
+    model_dir: "wmt_myrk_default"
+```
+
+same error ပဲ ပေးနေ...  
+အောက်ပါ configuration parameter သုံးခုကို ပေးခဲ့...  
+
+```
+training:
+    #load_model: "models/small_model/60.ckpt" # if given, load a pre-trained model from this checkpoint
+    reset_best_ckpt: False          # if True, reset the tracking of the best checkpoint and scores. Use for domain adaptation or fine-tuning with new metrics or dev data.
+    reset_scheduler: False          # if True, overwrite scheduler in loaded checkpoint with parameters specified in this config. Use for domain adaptation or fine-tuning.
+    reset_optimizer: False          # if True, overwrite optimizer in loaded checkpoint with parameters specified in this config. Use for domain adaptation or fine-tuning.
+```
+
+debug လုပ်ရတာ မြန်အောင်လို့ epochs: 10 ထားပြီးတော့ ထပ် training လုပ်ကြည့်ခဲ့...  
+
+```
+2022-02-27 08:47:15,852 - INFO - joeynmt.training - Epoch  10: total training loss 788.03
+2022-02-27 08:47:15,852 - INFO - joeynmt.training - Training ended after  10 epochs.
+2022-02-27 08:47:15,852 - INFO - joeynmt.training - Best validation result (greedy) at step        0:   -inf eval_metric.
+2022-02-27 08:47:15,862 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 08:47:15,862 - INFO - joeynmt.prediction - Loading model from wmt_myrk_default/0.ckpt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 860, in train
+    test(cfg_file,
+  File "/home/ye/exp/joeynmt/joeynmt/prediction.py", line 321, in test
+    model_checkpoint = load_checkpoint(ckpt, use_cuda=use_cuda)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint
+    assert os.path.isfile(path), f"Checkpoint {path} not found"
+AssertionError: Checkpoint wmt_myrk_default/0.ckpt not found
+
+real	19m4.202s
+user	21m15.634s
+sys	4m19.876s
+(joey) ye@:~/exp/joeynmt$
+```
+
+ဒီတစ်ခါတော့ keep_last_ckpts ဆိုတဲ့ option ကို default value အဖြစ် setting ချိန်ထားခဲ့...  
+
+```
+    keep_last_ckpts: 5              # keep this many of the latest checkpoints, if -1: all of them, default: 5
+```
+
+model folder ကိုလည်း ဖျက်ခဲ့ပြီး...  
+
+```
+(joey) ye@:~/exp/joeynmt/models$ rm -rf wmt_myrk_default/ 
+```
+ထပ် run ကြည့်ခဲ့...  
+
+```
+2022-02-27 09:15:38,744 - INFO - joeynmt.training - Training ended after  10 epochs.
+2022-02-27 09:15:38,744 - INFO - joeynmt.training - Best validation result (greedy) at step        0:   -inf eval_metric.
+2022-02-27 09:15:38,754 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 09:15:38,755 - INFO - joeynmt.prediction - Loading model from wmt_myrk_default/0.ckpt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 860, in train
+    test(cfg_file,
+  File "/home/ye/exp/joeynmt/joeynmt/prediction.py", line 321, in test
+    model_checkpoint = load_checkpoint(ckpt, use_cuda=use_cuda)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint
+    assert os.path.isfile(path), f"Checkpoint {path} not found"
+AssertionError: Checkpoint wmt_myrk_default/0.ckpt not found
+
+real	19m4.514s
+user	21m17.273s
+sys	4m17.999s
+(joey) ye@:~/exp/joeynmt$ 
+```
+
+WTF! ...  
+မော်ဒယ်ကို မဆောက်ပေးနိုင်တာ လို့ ထင်တယ်။ memory မနိုင်တဲ့ error ဘာညာလည်း မပေးပေမဲ့ hidden_size ကို လျှော့ကြည့်ခဲ့...  
+
+```
+model:
+    encoder:
+        hidden_size: 500 ကို
+        hidden_size: 30
+        
+    decoder:
+        hidden_size: 30
+
+```
+
+ထပ် run ကြည့်ခဲ့...  
+Got ERROR!!!
+
+```
+    validation_freq: 7362 ကို
+    validation_freq: 1000 ပြောင်း
+    
+        embeddings:
+            embedding_dim: 16    
+```
+အထက်ပါအတိုင်း parameter တချို့ကို ပြင်ဆင်ပြီးတော့... ထပ် run ကြည့်ခဲ့
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_myrk_default.yaml 
+2022-02-27 10:28:50,418 - INFO - root - Hello! This is Joey-NMT (version 1.5.1).
+2022-02-27 10:28:50,435 - INFO - joeynmt.data - Loading training data...
+2022-02-27 10:28:50,630 - INFO - joeynmt.data - Building vocabulary...
+2022-02-27 10:28:50,706 - INFO - joeynmt.data - Loading dev data...
+2022-02-27 10:28:50,717 - INFO - joeynmt.data - Loading test data...
+2022-02-27 10:28:50,736 - INFO - joeynmt.data - Data loaded.
+2022-02-27 10:28:50,736 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 10:28:50,746 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 10:28:50.824941: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2022-02-27 10:28:51,467 - INFO - joeynmt.training - Total params: 1011932
+2022-02-27 10:28:51,469 - WARNING - joeynmt.training - `keep_last_ckpts` option is outdated. Please use `keep_best_ckpts`, instead.
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                           cfg.name : wmt_myrk_default
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                       cfg.data.src : my
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                       cfg.data.trg : rk
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                     cfg.data.train : /media/ye/project2/exp/myrk-transformer/data/syl/train
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                       cfg.data.dev : /media/ye/project2/exp/myrk-transformer/data/syl/dev
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                      cfg.data.test : /media/ye/project2/exp/myrk-transformer/data/syl/test
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                     cfg.data.level : word
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -                 cfg.data.lowercase : True
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -           cfg.data.max_sent_length : 50
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -          cfg.data.src_voc_min_freq : 0
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -             cfg.data.src_voc_limit : 100000
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -          cfg.data.trg_voc_min_freq : 0
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -             cfg.data.trg_voc_limit : 100000
+2022-02-27 10:28:53,019 - INFO - joeynmt.helpers -              cfg.testing.beam_size : 5
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -                  cfg.testing.alpha : 1.0
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.reset_best_ckpt : False
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.reset_scheduler : False
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.reset_optimizer : False
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -           cfg.training.random_seed : 42
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -             cfg.training.optimizer : adam
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -         cfg.training.learning_rate : 0.0003
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -     cfg.training.learning_rate_min : 5e-07
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -          cfg.training.weight_decay : 0.0
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -        cfg.training.clip_grad_norm : 1.0
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -            cfg.training.batch_size : 80
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -            cfg.training.scheduling : plateau
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -              cfg.training.patience : 10
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.decrease_factor : 0.5
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers - cfg.training.early_stopping_metric : eval_metric
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -                cfg.training.epochs : 10
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.validation_freq : 1000
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -          cfg.training.logging_freq : 100
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -           cfg.training.eval_metric : bleu
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -             cfg.training.model_dir : models/wmt_myrk_default
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -             cfg.training.overwrite : True
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -               cfg.training.shuffle : True
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -              cfg.training.use_cuda : True
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -     cfg.training.max_output_length : 100
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -     cfg.training.print_valid_sents : [0, 1, 2]
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.training.keep_last_ckpts : 5
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -         cfg.model.encoder.rnn_type : lstm
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.embedding_dim : 500
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.scale : False
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -      cfg.model.encoder.hidden_size : 30
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -    cfg.model.encoder.bidirectional : True
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -          cfg.model.encoder.dropout : 0.2
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -       cfg.model.encoder.num_layers : 1
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers -         cfg.model.decoder.rnn_type : lstm
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.embedding_dim : 16
+2022-02-27 10:28:53,020 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.scale : False
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -        cfg.model.decoder.emb_scale : False
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -      cfg.model.decoder.hidden_size : 30
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -          cfg.model.decoder.dropout : 0.2
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -   cfg.model.decoder.hidden_dropout : 0.2
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -       cfg.model.decoder.num_layers : 1
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -    cfg.model.decoder.input_feeding : True
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -      cfg.model.decoder.init_hidden : bridge
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers -        cfg.model.decoder.attention : bahdanau
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - Data set sizes: 
+	train 15535,
+	valid 1000,
+	test 1811
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - First training example:
+	[SRC] မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
+	[TRG] မင်း ယင်း ချင့် ကို အ ခြား တစ် ခု နန့် မ ချိတ် ပါ လား ။
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - First 10 words (src): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) မ (6) အ (7) ကို (8) တယ် (9) သူ
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - First 10 words (trg): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) အ (6) ကို (7) ရေ (8) မ (9) ပါ
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - Number of Src words (types): 1580
+2022-02-27 10:28:53,021 - INFO - joeynmt.helpers - Number of Trg words (types): 1687
+2022-02-27 10:28:53,021 - INFO - joeynmt.training - Model(
+	encoder=RecurrentEncoder(LSTM(500, 30, batch_first=True, bidirectional=True)),
+	decoder=RecurrentDecoder(rnn=LSTM(46, 30, batch_first=True), attention=BahdanauAttention),
+	src_embed=Embeddings(embedding_dim=500, vocab_size=1580),
+	trg_embed=Embeddings(embedding_dim=16, vocab_size=1687))
+2022-02-27 10:28:53,022 - INFO - joeynmt.training - Train stats:
+	device: cuda
+	n_gpu: 2
+	16-bits training: False
+	gradient accumulation: 1
+	batch size per device: 40
+	total batch size (w. parallel & accumulation): 80
+2022-02-27 10:28:53,022 - INFO - joeynmt.training - EPOCH 1
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:694: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, batch_sizes, hx, self._flat_weights, self.bias,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:691: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2022-02-27 10:29:00,311 - INFO - joeynmt.training - Epoch   1, Step:      100, Batch Loss:    41.147419, Tokens per Sec:    14867, Lr: 0.000300
+2022-02-27 10:29:05,484 - INFO - joeynmt.training - Epoch   1: total training loss 8464.12
+2022-02-27 10:29:05,484 - INFO - joeynmt.training - EPOCH 2
+2022-02-27 10:29:05,765 - INFO - joeynmt.training - Epoch   2, Step:      200, Batch Loss:    34.781780, Tokens per Sec:    19317, Lr: 0.000300
+2022-02-27 10:29:11,507 - INFO - joeynmt.training - Epoch   2, Step:      300, Batch Loss:    34.522808, Tokens per Sec:    18908, Lr: 0.000300
+2022-02-27 10:29:16,658 - INFO - joeynmt.training - Epoch   2: total training loss 6916.50
+2022-02-27 10:29:16,658 - INFO - joeynmt.training - EPOCH 3
+2022-02-27 10:29:17,303 - INFO - joeynmt.training - Epoch   3, Step:      400, Batch Loss:    34.547497, Tokens per Sec:    16497, Lr: 0.000300
+2022-02-27 10:29:23,244 - INFO - joeynmt.training - Epoch   3, Step:      500, Batch Loss:    34.913837, Tokens per Sec:    18193, Lr: 0.000300
+2022-02-27 10:29:28,105 - INFO - joeynmt.training - Epoch   3: total training loss 6710.48
+2022-02-27 10:29:28,105 - INFO - joeynmt.training - EPOCH 4
+2022-02-27 10:29:28,942 - INFO - joeynmt.training - Epoch   4, Step:      600, Batch Loss:    30.318647, Tokens per Sec:    18848, Lr: 0.000300
+2022-02-27 10:29:34,446 - INFO - joeynmt.training - Epoch   4, Step:      700, Batch Loss:    34.668171, Tokens per Sec:    19680, Lr: 0.000300
+2022-02-27 10:29:38,987 - INFO - joeynmt.training - Epoch   4: total training loss 6642.92
+2022-02-27 10:29:38,987 - INFO - joeynmt.training - EPOCH 5
+2022-02-27 10:29:40,095 - INFO - joeynmt.training - Epoch   5, Step:      800, Batch Loss:    35.233486, Tokens per Sec:    19366, Lr: 0.000300
+2022-02-27 10:29:45,682 - INFO - joeynmt.training - Epoch   5, Step:      900, Batch Loss:    30.308668, Tokens per Sec:    19306, Lr: 0.000300
+2022-02-27 10:29:49,885 - INFO - joeynmt.training - Epoch   5: total training loss 6459.74
+2022-02-27 10:29:49,885 - INFO - joeynmt.training - EPOCH 6
+2022-02-27 10:29:51,243 - INFO - joeynmt.training - Epoch   6, Step:     1000, Batch Loss:    35.419918, Tokens per Sec:    19812, Lr: 0.000300
+2022-02-27 10:29:52,436 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-02-27 10:29:52,453 - INFO - joeynmt.training - Example #0
+2022-02-27 10:29:52,453 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-02-27 10:29:52,453 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Hypothesis: ။ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - Example #1
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Source:     ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Hypothesis: ။ ။ ။ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - Example #2
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - 	Hypothesis: ။ ။
+2022-02-27 10:29:52,454 - INFO - joeynmt.training - Validation result (greedy) at epoch   6, step     1000: bleu:   0.01, loss: 33062.2891, ppl:  11.3122, duration: 1.2105s
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4100 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4102 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4150 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4146 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4100 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4102 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4150 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4146 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4100 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4102 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4150 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4146 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4100 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4102 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4150 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4146 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4096 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4155 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4116 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4142 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4119 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4106 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4096 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4155 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4116 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4142 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4119 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4106 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4096 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4155 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4116 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4142 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4119 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4106 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4096 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4155 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4116 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4142 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4119 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4156 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4106 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4101 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4117 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4125 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4126 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4101 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4117 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4125 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4126 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/_backend_pdf_ps.py:109: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=ft2font.LOAD_NO_HINTING)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4101 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4117 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4125 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4126 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4101 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4140 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4129 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4143 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4117 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4154 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4125 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4122 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4118 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4141 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4151 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4121 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4126 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:694: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, batch_sizes, hx, self._flat_weights, self.bias,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:691: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2022-02-27 10:29:58,533 - INFO - joeynmt.training - Epoch   6, Step:     1100, Batch Loss:    34.886578, Tokens per Sec:    17815, Lr: 0.000300
+2022-02-27 10:30:02,465 - INFO - joeynmt.training - Epoch   6: total training loss 6313.00
+2022-02-27 10:30:02,466 - INFO - joeynmt.training - EPOCH 7
+2022-02-27 10:30:04,122 - INFO - joeynmt.training - Epoch   7, Step:     1200, Batch Loss:    33.299118, Tokens per Sec:    19435, Lr: 0.000300
+2022-02-27 10:30:09,780 - INFO - joeynmt.training - Epoch   7, Step:     1300, Batch Loss:    33.795162, Tokens per Sec:    19147, Lr: 0.000300
+2022-02-27 10:30:13,262 - INFO - joeynmt.training - Epoch   7: total training loss 6190.45
+2022-02-27 10:30:13,262 - INFO - joeynmt.training - EPOCH 8
+2022-02-27 10:30:15,168 - INFO - joeynmt.training - Epoch   8, Step:     1400, Batch Loss:    32.178890, Tokens per Sec:    19892, Lr: 0.000300
+2022-02-27 10:30:20,875 - INFO - joeynmt.training - Epoch   8, Step:     1500, Batch Loss:    31.339453, Tokens per Sec:    18946, Lr: 0.000300
+2022-02-27 10:30:24,163 - INFO - joeynmt.training - Epoch   8: total training loss 6072.78
+2022-02-27 10:30:24,163 - INFO - joeynmt.training - EPOCH 9
+2022-02-27 10:30:26,403 - INFO - joeynmt.training - Epoch   9, Step:     1600, Batch Loss:    33.533947, Tokens per Sec:    19340, Lr: 0.000300
+2022-02-27 10:30:32,029 - INFO - joeynmt.training - Epoch   9, Step:     1700, Batch Loss:    31.088232, Tokens per Sec:    19315, Lr: 0.000300
+2022-02-27 10:30:35,060 - INFO - joeynmt.training - Epoch   9: total training loss 5961.14
+2022-02-27 10:30:35,060 - INFO - joeynmt.training - EPOCH 10
+2022-02-27 10:30:37,640 - INFO - joeynmt.training - Epoch  10, Step:     1800, Batch Loss:    32.837299, Tokens per Sec:    18733, Lr: 0.000300
+2022-02-27 10:30:43,311 - INFO - joeynmt.training - Epoch  10, Step:     1900, Batch Loss:    30.626780, Tokens per Sec:    19128, Lr: 0.000300
+2022-02-27 10:30:46,033 - INFO - joeynmt.training - Epoch  10: total training loss 5867.65
+2022-02-27 10:30:46,034 - INFO - joeynmt.training - Training ended after  10 epochs.
+2022-02-27 10:30:46,034 - INFO - joeynmt.training - Best validation result (greedy) at step     1000:   0.01 eval_metric.
+2022-02-27 10:30:46,042 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 10:30:46,042 - INFO - joeynmt.prediction - Loading model from models/wmt_myrk_default/1000.ckpt
+2022-02-27 10:30:46,051 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 10:30:46,061 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 10:30:46,065 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.rk)...
+2022-02-27 10:30:49,160 - INFO - joeynmt.prediction -  dev bleu[13a]:   0.00 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 10:30:49,160 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00001000.hyps.dev
+2022-02-27 10:30:49,160 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.rk)...
+2022-02-27 10:30:54,915 - INFO - joeynmt.prediction - test bleu[13a]:   0.00 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 10:30:54,916 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00001000.hyps.test
+
+real	2m6.122s
+user	3m14.651s
+sys	0m10.797s
+(joey) ye@:~/exp/joeynmt$ 
+
+
