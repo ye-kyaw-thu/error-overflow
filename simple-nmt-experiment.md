@@ -11622,7 +11622,7 @@ plt.show()
 ```
 
 
-### Draw Graphs
+### Drawing Graphs
 
 ***for Seq2Seq+RL, my-rk***  
 
@@ -11664,6 +11664,18 @@ plt.show()
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran60rkmy.txt.bleu tran-rl60rkmy.txt.bleu "Transformer 60 epochs + RL 40 epochs (rk-my)" Transformer_RL-60-40-rkmy
 (simple-nmt) ye@:~/exp/simple-nmt/model/graph/30-70exp/tran$ python ./draw.py tran70rkmy.txt.bleu tran-rl70rkmy.txt.bleu "Transformer 70 epochs + RL 30 epochs (rk-my)" Transformer_RL-70-30-rkmy
 ```
+
+## Graphs
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-myrk.png" alt="run3-bk-my-dw" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-myrk.png" alt="run3-dw-my-bk" width="500"/>
+</p>  
+<div align="center">
+  Fig.5 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 30-70, Right: 40-60
+</div> 
+
+<br />
 
 ## Reference
 
