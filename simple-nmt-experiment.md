@@ -11691,7 +11691,7 @@ plt.show()
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-rkmy.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-rk-my.png" alt="30-70 graph" width="330"/>  
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-rkmy.png" alt="40-60 graph" width="330"/>
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-50-50-rkmy.png" alt="50-50 graph" width="330"/>
 </p>  
