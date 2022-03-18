@@ -11227,7 +11227,8 @@ BLEU = 57.20, 78.5/63.5/51.3/41.8 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len
 
 ## Results
 
-my-rk
+Table 1. The highest BLEU Scores of the pretraining (Seq2Seq) and fine-tuning (reinforcement learning) model combinations for Myanmar to Rakhine translation  
+
 | epoch (seq2seq+RL) | seq2seq | RL (MRT) |
 |-----|-----|-----|
 | (30+70) | 68.10 | 74.87 |
@@ -11236,7 +11237,8 @@ my-rk
 | (60+40) | 75.30 | 75.11 |
 | (70+30) | 74.36 | 75.50 |
 
-rk-my
+Table 2. The highest BLEU Scores of the pretraining (Seq2Seq) and fine-tuning (reinforcement learning) model combinations for Rakhine to Myanmar translation  
+
 | epoch (seq2seq+RL) | seq2seq | RL (MRT) |
 |-----|-----|-----|
 | (30+70) | 59.48 | 74.74 |
@@ -11245,7 +11247,8 @@ rk-my
 | (60+40) | 72.06 | 74.52 |
 | (70+30) | 74.84 | 74.48 |
 
-my-rk
+Table 3. The highest BLEU Scores of the pretraining (Transformer) and fine-tuning (reinforcement learning) model combinations for Myanmar to Rakhine translation  
+
 | epoch (Transformer+RL) | Transformer | RL (MRT) |
 |-----|-----|-----|
 | (30+70) | 25.29 | 58.69 |
@@ -11254,7 +11257,8 @@ my-rk
 | (60+40) | 47.13 | 58.22 |
 | (70+30) | 50.51 | 58.20 |
 
-rk-my
+Table 4. The highest BLEU Scores of the pretraining (Transformer) and fine-tuning (reinforcement learning) model combinations for Rakhine to Myanmar translation 
+
 | epoch (Transformer+RL) | Transformer | RL (MRT) |
 |-----|-----|-----|
 | (30+70) | 25.23 | 56.72 |
