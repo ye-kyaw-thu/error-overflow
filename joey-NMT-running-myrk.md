@@ -2149,3 +2149,160 @@ sys	0m10.797s
 (joey) ye@:~/exp/joeynmt$ 
 
 
+```
+
+ဒီတစ်ခါတော့ အဆင်ပြေပြေနဲ့ training လုပ်လို့ ရသွားပြီ။ ပြဿနာက "embedding_dim: 16" ကြောင့် ဖြစ်နေတာလို့ ယူဆတယ်...  
+
+model ဖိုလ်ဒါထဲ ဝင်ကြည့်ခဲ့...  
+ပုံမှန် အခြေအနေလိုတော့ မြင်ရ  
+
+```
+(joey) ye@:~/exp/joeynmt/models/wmt_myrk_default$ ls
+00001000.hyps.dev   1000.ckpt  att.1000.0.pdf  att.1000.2.pdf  config.yaml  src_vocab.txt  train.log      validations.txt
+00001000.hyps.test  1000.hyps  att.1000.1.pdf  best.ckpt       latest.ckpt  tensorboard    trg_vocab.txt
+(joey) ye@:~/exp/joeynmt/models/wmt_myrk_default$ cat validations.txt 
+Steps: 1000	Loss: 33062.28906	PPL: 11.31215	bleu: 0.01426	LR: 0.00030000	*
+(joey) ye@:~/exp/joeynmt/models/wmt_myrk_default$ 
+```
+
+epoch ကို တိုးကြည့်မယ်။ embedding_dim ကိုလည်း တိုးကြည့်မယ်  
+
+```
+    epochs: 30
+     embedding_dim: 64 # for encoder
+      embedding_dim: 64 # for decoder
+```
+
+ထပ် run ကြည့်ခဲ့... validation မှာလည်း BLEU က ကောင်းမှ testing မှာလည်း ကောင်းမှာမို့...  
+
+```
+(joey) ye@:~/exp/joeynmt$ cat ./models/wmt_myrk_default/validations.txt 
+...
+...
+2022-02-27 10:45:47,871 - INFO - joeynmt.training - Epoch  28, Step:     5300, Batch Loss:    23.637800, Tokens per Sec:    19045, Lr: 0.000300
+2022-02-27 10:45:53,455 - INFO - joeynmt.training - Epoch  28, Step:     5400, Batch Loss:    26.368591, Tokens per Sec:    19360, Lr: 0.000300
+2022-02-27 10:45:56,743 - INFO - joeynmt.training - Epoch  28: total training loss 5256.34
+2022-02-27 10:45:56,743 - INFO - joeynmt.training - EPOCH 29
+2022-02-27 10:45:59,000 - INFO - joeynmt.training - Epoch  29, Step:     5500, Batch Loss:    26.696507, Tokens per Sec:    19202, Lr: 0.000300
+2022-02-27 10:46:04,673 - INFO - joeynmt.training - Epoch  29, Step:     5600, Batch Loss:    27.197027, Tokens per Sec:    19145, Lr: 0.000300
+2022-02-27 10:46:07,611 - INFO - joeynmt.training - Epoch  29: total training loss 5222.24
+2022-02-27 10:46:07,612 - INFO - joeynmt.training - EPOCH 30
+2022-02-27 10:46:10,097 - INFO - joeynmt.training - Epoch  30, Step:     5700, Batch Loss:    27.575397, Tokens per Sec:    19492, Lr: 0.000300
+2022-02-27 10:46:15,590 - INFO - joeynmt.training - Epoch  30, Step:     5800, Batch Loss:    27.157804, Tokens per Sec:    19731, Lr: 0.000300
+2022-02-27 10:46:18,336 - INFO - joeynmt.training - Epoch  30: total training loss 5177.38
+2022-02-27 10:46:18,336 - INFO - joeynmt.training - Training ended after  30 epochs.
+2022-02-27 10:46:18,336 - INFO - joeynmt.training - Best validation result (greedy) at step     5000:   0.35 eval_metric.
+2022-02-27 10:46:18,345 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 10:46:18,345 - INFO - joeynmt.prediction - Loading model from models/wmt_myrk_default/5000.ckpt
+2022-02-27 10:46:18,353 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 10:46:18,356 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 10:46:18,358 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.rk)...
+2022-02-27 10:46:24,824 - INFO - joeynmt.prediction -  dev bleu[13a]:   0.55 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 10:46:24,825 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.dev
+2022-02-27 10:46:24,825 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.rk)...
+2022-02-27 10:46:36,452 - INFO - joeynmt.prediction - test bleu[13a]:   0.76 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 10:46:36,453 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.test
+
+real	5m59.273s
+user	9m30.995s
+sys	0m30.790s
+(joey) ye@:~/exp/joeynmt$ cat ./models/wmt_myrk_default/validations.txt 
+Steps: 1000	Loss: 34432.85938	PPL: 12.50890	bleu: 0.01036	LR: 0.00030000	*
+Steps: 2000	Loss: 31097.80469	PPL: 9.79368	bleu: 0.01801	LR: 0.00030000	*
+Steps: 3000	Loss: 29530.17773	PPL: 8.72957	bleu: 0.10866	LR: 0.00030000	*
+Steps: 4000	Loss: 28522.73047	PPL: 8.10756	bleu: 0.27818	LR: 0.00030000	*
+Steps: 5000	Loss: 27801.08008	PPL: 7.68944	bleu: 0.35137	LR: 0.00030000	*
+```
+
+တိုးတက်မှုတော့ ရှိတယ် bleu က တအားနည်းနေသေးတယ်...  
+
+```
+        hidden_size: 500 ပြန်ထားတယ် encoder အတွက်ရော decoder အတွက်ရော
+        embedding_dim: 4096        ကိုလည်း encoder/decoder နှစ်ခုစလုံးအတွက် ထားခဲ့
+```
+
+train လုပ်ကြည့်...  
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_myrk_default.yaml 
+...
+...
+...
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4116 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4124 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4152 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4123 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4145 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4171 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4126 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4157 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 4112 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:694: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, batch_sizes, hx, self._flat_weights, self.bias,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py:691: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  result = _VF.lstm(input, hx, self._flat_weights, self.bias, self.num_layers,
+/home/ye/.local/lib/python3.8/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2022-02-27 11:57:03,712 - INFO - joeynmt.training - Epoch  26: total training loss 113.78
+2022-02-27 11:57:03,712 - INFO - joeynmt.training - EPOCH 27
+2022-02-27 11:57:27,124 - INFO - joeynmt.training - Epoch  27, Step:     5100, Batch Loss:     0.383438, Tokens per Sec:     1381, Lr: 0.000300
+2022-02-27 11:58:42,233 - INFO - joeynmt.training - Epoch  27, Step:     5200, Batch Loss:     0.622168, Tokens per Sec:     1434, Lr: 0.000300
+2022-02-27 11:59:31,602 - INFO - joeynmt.training - Epoch  27: total training loss 102.46
+2022-02-27 11:59:31,602 - INFO - joeynmt.training - EPOCH 28
+2022-02-27 11:59:58,982 - INFO - joeynmt.training - Epoch  28, Step:     5300, Batch Loss:     0.333518, Tokens per Sec:     1392, Lr: 0.000300
+2022-02-27 12:01:15,597 - INFO - joeynmt.training - Epoch  28, Step:     5400, Batch Loss:     0.601976, Tokens per Sec:     1411, Lr: 0.000300
+2022-02-27 12:02:00,380 - INFO - joeynmt.training - Epoch  28: total training loss 90.95
+2022-02-27 12:02:00,380 - INFO - joeynmt.training - EPOCH 29
+2022-02-27 12:02:30,506 - INFO - joeynmt.training - Epoch  29, Step:     5500, Batch Loss:     0.261766, Tokens per Sec:     1439, Lr: 0.000300
+2022-02-27 12:03:48,839 - INFO - joeynmt.training - Epoch  29, Step:     5600, Batch Loss:     0.489499, Tokens per Sec:     1387, Lr: 0.000300
+2022-02-27 12:04:29,301 - INFO - joeynmt.training - Epoch  29: total training loss 82.12
+2022-02-27 12:04:29,301 - INFO - joeynmt.training - EPOCH 30
+2022-02-27 12:05:03,715 - INFO - joeynmt.training - Epoch  30, Step:     5700, Batch Loss:     0.311833, Tokens per Sec:     1408, Lr: 0.000300
+2022-02-27 12:06:19,441 - INFO - joeynmt.training - Epoch  30, Step:     5800, Batch Loss:     0.417136, Tokens per Sec:     1431, Lr: 0.000300
+2022-02-27 12:06:56,702 - INFO - joeynmt.training - Epoch  30: total training loss 71.23
+2022-02-27 12:06:56,703 - INFO - joeynmt.training - Training ended after  30 epochs.
+2022-02-27 12:06:56,703 - INFO - joeynmt.training - Best validation result (greedy) at step     5000:  82.32 eval_metric.
+2022-02-27 12:06:56,731 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-27 12:06:56,731 - INFO - joeynmt.prediction - Loading model from models/wmt_myrk_default/5000.ckpt
+2022-02-27 12:06:57,278 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-27 12:06:57,671 - INFO - joeynmt.model - Enc-dec model built.
+2022-02-27 12:06:57,760 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.rk)...
+2022-02-27 12:07:40,696 - INFO - joeynmt.prediction -  dev bleu[13a]:  82.53 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 12:07:40,697 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.dev
+2022-02-27 12:07:40,697 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.rk)...
+2022-02-27 12:08:58,696 - INFO - joeynmt.prediction - test bleu[13a]:  81.63 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-02-27 12:08:58,697 - INFO - joeynmt.prediction - Translations saved to: models/wmt_myrk_default/00005000.hyps.test
+
+real	78m29.084s
+user	91m54.679s
+sys	15m15.880s
+```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်း... ဒီတစ်ခါတော့ RNN model က ငါတို့ရဲ့ မြန်မာ-ရခိုင် ဒေတာနဲ့ ကောင်းကောင်း အလုပ်လုပ်ပေးတယ်လို့ နားလည်တယ်။  
+validation log ဖိုင်ကို ဝင်ကြည့်မယ်...  
+
+```
+(joey) ye@:~/exp/joeynmt$ cat ./models/wmt_myrk_default/validations.txt 
+Steps: 1000	Loss: 5521.56543	PPL: 1.49950	bleu: 70.71308	LR: 0.00030000	*
+Steps: 2000	Loss: 3119.77002	PPL: 1.25722	bleu: 80.89377	LR: 0.00030000	*
+Steps: 3000	Loss: 2918.38110	PPL: 1.23878	bleu: 82.31551	LR: 0.00030000	*
+Steps: 4000	Loss: 3539.79443	PPL: 1.29657	bleu: 81.79033	LR: 0.00030000	
+Steps: 5000	Loss: 3400.03296	PPL: 1.28335	bleu: 82.32466	LR: 0.00030000	*
+(joey) ye@:~/exp/joeynmt$ 
+```
+
+လက်ရှိ ပထမဆုံး ရလဒ်ကောင်း၊ သုံးလို့ ရနိုင်လို့ backup ကူးထားခဲ့...  
+
+```
+(joey) ye@:~/exp/joeynmt/models$ mv wmt_myrk_default/ wmt_myrk_default1
+```
+
