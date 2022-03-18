@@ -11668,9 +11668,9 @@ plt.show()
 ## Graphs
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-myrk.png" alt="30-70 graph" width="335"/>  
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-myrk.png" alt="40-60 graph" width="335"/>
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-50-50-myrk.png" alt="50-50 graph" width="335"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-myrk.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-myrk.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-50-50-myrk.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
   Fig.1 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 30-70, Middle: 40-60, Right: 50-50
@@ -11679,8 +11679,8 @@ plt.show()
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-myrk.png" alt="run3-bk-my-dw" width="500"/>  
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-myrk.png" alt="run3-dw-my-bk" width="500"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-60-40-myrk.png" alt="run3-bk-my-dw" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-70-30-myrk.png" alt="run3-dw-my-bk" width="500"/>
 </p>  
 <div align="center">
   Fig.1 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Myanmar-Rakhine language pair, Left: 30-70, Right: 40-60
