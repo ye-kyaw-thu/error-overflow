@@ -1121,4 +1121,302 @@ sys	2m3.014s
 (joey) ye@:~/exp/joeynmt$ 
 ```
 
+## Testing with RNN Model My-RK (Syllable)
 
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt translate configs/small.myrk.yaml < /media/ye/project2/exp/myrk-transformer/data/syl/test.my > ./models/small_model_myrk/myrk.syl.out2
+2022-02-26 18:39:11,691 - INFO - root - Hello! This is Joey-NMT (version 1.5.1).
+2022-02-26 18:39:11,722 - INFO - joeynmt.prediction - Loading model from models/small_model_myrk/latest.ckpt
+2022-02-26 18:39:11,725 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-02-26 18:39:11,729 - INFO - joeynmt.model - Enc-dec model built.
+
+real	0m11.509s
+user	1m16.510s
+sys	0m0.846s
+(joey) ye@:~/exp/joeynmt$ head ./models/small_model_myrk/myrk.syl.out2
+သူ အ မှန် အ ခါး မ တိ ပီး ပါ လား ။
+ကျွန် တော် အ ယောက် လို ပီး ဖို့ ။
+ပြ ပြီး ရေ အ တွက် ကို သ င့် ရေ ။
+မင်း အ တွက် စိတ် မ ပြော ပါ ။
+ထို မ ချေ ကို ထို မ ချေ ဂ ရု မ ဟုတ် ခ ပါ ။
+ကိုယ် မင်း ကို လုပ် ခ ပါ ရေ ။
+ငါ အ လုပ် မ လုပ် ပါ ။
+ကျွန် တော် ဘတ်စ် ရာ ဟိ ရေ အ တွက် အ ထင် ကျွန် တော် ထင် ပါ ။
+ည အ ခါး က အ ချိန် မ သူ ရို့ ဇာ စား နီ စွာ လေး ။
+မင်း ကိုယ် တိ ကို တွိ နီ ပါ လား ။
+(joey) ye@:~/exp/joeynmt$ head /media/ye/project2/exp/myrk-transformer/data/syl/test.rk
+သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+ဆူ ပြီး ရီ ကို သောက် သ င့် ရေ ။
+မင်း မိန်း စ ရာ မ လို ပါ ။
+ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+ငါ အ လုပ် မ ပြီး သိ ပါ ။
+ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+မိုး ချက် ချင်း ရွာ ရေ အ ခါ သူ ရို့ ဇာ တိ လုပ် နီ စွာ ။
+မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+(joey) ye@:~/exp/joeynmt$ 
+
+```
+
+Validation ရလဒ်တွေကို ကြည့်တော့ ပထမဆုံး run တာထက်တော့ တိုးတက်လာတာကို တွေ့ရ...  
+
+```
+(joey) ye@:~/exp/joeynmt$ cat ./models/small_model_myrk/validations.txt 
+Steps: 1000	Loss: 57388.25000	PPL: 67.40676	bleu: 0.52890	LR: 0.00500000	*
+Steps: 2000	Loss: 53066.17188	PPL: 49.08836	bleu: 2.10495	LR: 0.00500000	*
+Steps: 3000	Loss: 51286.50000	PPL: 43.07927	bleu: 1.86128	LR: 0.00500000	*
+Steps: 4000	Loss: 49999.86719	PPL: 39.19848	bleu: 3.05241	LR: 0.00500000	*
+Steps: 5000	Loss: 48785.27344	PPL: 35.85632	bleu: 3.38970	LR: 0.00500000	*
+Steps: 6000	Loss: 48083.76953	PPL: 34.05743	bleu: 3.76580	LR: 0.00500000	*
+Steps: 7000	Loss: 47666.36328	PPL: 33.03019	bleu: 4.05210	LR: 0.00500000	*
+Steps: 8000	Loss: 46393.51562	PPL: 30.08508	bleu: 4.76296	LR: 0.00500000	*
+Steps: 9000	Loss: 45679.07812	PPL: 28.54863	bleu: 5.94355	LR: 0.00500000	*
+Steps: 10000	Loss: 44743.05078	PPL: 26.65375	bleu: 6.83491	LR: 0.00500000	*
+Steps: 11000	Loss: 43662.57422	PPL: 24.62229	bleu: 7.07079	LR: 0.00500000	*
+Steps: 12000	Loss: 43629.57031	PPL: 24.56274	bleu: 7.94861	LR: 0.00500000	*
+Steps: 13000	Loss: 43006.12500	PPL: 23.46445	bleu: 8.60597	LR: 0.00500000	*
+Steps: 14000	Loss: 42187.97266	PPL: 22.09731	bleu: 9.23368	LR: 0.00500000	*
+Steps: 15000	Loss: 40580.71094	PPL: 19.63918	bleu: 9.68358	LR: 0.00500000	*
+Steps: 16000	Loss: 39141.94531	PPL: 17.67162	bleu: 10.84861	LR: 0.00500000	*
+Steps: 17000	Loss: 38644.76172	PPL: 17.03859	bleu: 11.43360	LR: 0.00500000	*
+Steps: 18000	Loss: 38167.29297	PPL: 16.45200	bleu: 12.91926	LR: 0.00500000	*
+Steps: 19000	Loss: 37345.45703	PPL: 15.48926	bleu: 13.24043	LR: 0.00500000	*
+Steps: 20000	Loss: 37135.27344	PPL: 15.25222	bleu: 12.98069	LR: 0.00500000	*
+Steps: 21000	Loss: 36692.06641	PPL: 14.76420	bleu: 13.46621	LR: 0.00500000	*
+Steps: 22000	Loss: 36376.33984	PPL: 14.42611	bleu: 13.95958	LR: 0.00500000	*
+Steps: 23000	Loss: 36217.14062	PPL: 14.25858	bleu: 13.78189	LR: 0.00500000	*
+Steps: 24000	Loss: 36333.26172	PPL: 14.38058	bleu: 14.53253	LR: 0.00500000	
+Steps: 25000	Loss: 35629.09766	PPL: 13.65646	bleu: 14.67296	LR: 0.00500000	*
+Steps: 26000	Loss: 35683.49609	PPL: 13.71107	bleu: 14.58215	LR: 0.00500000	
+Steps: 27000	Loss: 35626.93750	PPL: 13.65429	bleu: 14.22184	LR: 0.00500000	*
+Steps: 28000	Loss: 35178.08594	PPL: 13.21193	bleu: 15.12416	LR: 0.00500000	*
+Steps: 29000	Loss: 35752.49219	PPL: 13.78066	bleu: 15.34604	LR: 0.00500000	
+Steps: 30000	Loss: 35008.98828	PPL: 13.04902	bleu: 15.54186	LR: 0.00500000	*
+Steps: 31000	Loss: 34669.69141	PPL: 12.72817	bleu: 15.22020	LR: 0.00500000	*
+Steps: 32000	Loss: 34336.41797	PPL: 12.42070	bleu: 15.56523	LR: 0.00500000	*
+Steps: 33000	Loss: 34719.87109	PPL: 12.77512	bleu: 16.37965	LR: 0.00500000	
+Steps: 34000	Loss: 35017.46875	PPL: 13.05714	bleu: 15.91264	LR: 0.00500000	
+Steps: 35000	Loss: 34258.24219	PPL: 12.34966	bleu: 16.28863	LR: 0.00500000	*
+Steps: 36000	Loss: 34083.28516	PPL: 12.19214	bleu: 17.78684	LR: 0.00500000	*
+Steps: 37000	Loss: 33634.72656	PPL: 11.79740	bleu: 17.82240	LR: 0.00500000	*
+Steps: 38000	Loss: 33990.19922	PPL: 12.10915	bleu: 17.05839	LR: 0.00500000	
+Steps: 39000	Loss: 34116.59766	PPL: 12.22198	bleu: 17.18198	LR: 0.00500000	
+Steps: 40000	Loss: 34182.85156	PPL: 12.28154	bleu: 17.61039	LR: 0.00500000	
+Steps: 41000	Loss: 38095.79688	PPL: 16.36592	bleu: 16.39524	LR: 0.00500000	
+Steps: 42000	Loss: 33579.71094	PPL: 11.74988	bleu: 17.89235	LR: 0.00500000	*
+Steps: 43000	Loss: 33397.05078	PPL: 11.59345	bleu: 18.63332	LR: 0.00500000	*
+Steps: 44000	Loss: 34700.21875	PPL: 12.75671	bleu: 17.97865	LR: 0.00500000	
+Steps: 45000	Loss: 33715.35156	PPL: 11.86740	bleu: 17.83172	LR: 0.00500000	
+(joey) ye@:~/exp/joeynmt$ 
+```
+
+## Training My-RK with wmt_myrk_default.yaml
+
+ဒီတစ်ခါ config ဖိုင်ကို တကယ့် WMT မှာ default အဖြစ် သုံးခဲ့တဲ့ ဖိုင်ကို မြန်မာ-ရခိုင်အတွက် ဝင်ပြင်ပြီး မော်ဒယ်ဆောက်ကြည့်မယ်...  
+
+```
+(joey) ye@:~/exp/joeynmt/configs$ cat ./wmt_myrk_default.yaml 
+name: "wmt_ende_default"
+
+data:
+    src: "my"
+    trg: "rk"
+    train: "/media/ye/project2/exp/myrk-transformer/data/syl/train"    # training data
+    dev: "/media/ye/project2/exp/myrk-transformer/data/syl/dev"        # development data for validation
+    test: "/media/ye/project2/exp/myrk-transformer/data/syl/test"      # test data for testing final model; optional    
+    level: "word"
+    lowercase: False
+    max_sent_length: 50
+    src_voc_min_freq: 0
+    src_voc_limit: 100000
+    trg_voc_min_freq: 0
+    trg_voc_limit: 100000
+
+testing:
+    beam_size: 5
+    alpha: 1.0
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    learning_rate: 0.0003
+    learning_rate_min: 0.0000005
+    weight_decay: 0.0
+    clip_grad_norm: 1.0
+    batch_size: 80
+    scheduling: "plateau"
+    patience: 10
+    decrease_factor: 0.5
+    early_stopping_metric: "eval_metric"
+    epochs: 20
+    validation_freq: 7362
+    logging_freq: 1000
+    eval_metric: "bleu"
+    model_dir: "models/wmt_myrk_default"
+    overwrite: False
+    shuffle: True
+    use_cuda: True
+    max_output_length: 100
+    print_valid_sents: [0, 1, 2]
+
+model:
+    encoder:
+        rnn_type: "lstm"
+        embeddings:
+            embedding_dim: 500
+            scale: False
+        hidden_size: 500
+        bidirectional: True
+        dropout: 0.2
+        num_layers: 1
+    decoder:
+        rnn_type: "lstm"
+        embeddings:
+            embedding_dim: 500
+            scale: False
+        emb_scale: False
+        hidden_size: 1000
+        dropout: 0.2
+        hidden_dropout: 0.2
+        num_layers: 1
+        input_feeding: True
+        init_hidden: "bridge"
+        attention: "bahdanau"
+(joey) ye@:~/exp/joeynmt/configs$ 
+```
+
+run ကြည့်တော့ အောက်ပါအတိုင်း error ပေးတယ်...  
+
+```
+2022-02-26 19:02:34,633 - INFO - joeynmt.training - Epoch   6, Step:     1000, Batch Loss:    15.628224, Tokens per Sec:     1821, Lr: 0.000300
+2022-02-26 19:04:16,461 - INFO - joeynmt.training - Epoch   6: total training loss 2426.79
+2022-02-26 19:04:16,461 - INFO - joeynmt.training - EPOCH 7
+2022-02-26 19:06:12,215 - INFO - joeynmt.training - Epoch   7: total training loss 1954.65
+2022-02-26 19:06:12,215 - INFO - joeynmt.training - EPOCH 8
+2022-02-26 19:08:09,133 - INFO - joeynmt.training - Epoch   8: total training loss 1500.09
+2022-02-26 19:08:09,133 - INFO - joeynmt.training - EPOCH 9
+2022-02-26 19:10:06,317 - INFO - joeynmt.training - Epoch   9: total training loss 1092.61
+2022-02-26 19:10:06,317 - INFO - joeynmt.training - EPOCH 10
+2022-02-26 19:12:03,155 - INFO - joeynmt.training - Epoch  10: total training loss 788.03
+2022-02-26 19:12:03,155 - INFO - joeynmt.training - EPOCH 11
+2022-02-26 19:12:33,894 - INFO - joeynmt.training - Epoch  11, Step:     2000, Batch Loss:     2.603220, Tokens per Sec:     1774, Lr: 0.000300
+2022-02-26 19:14:00,143 - INFO - joeynmt.training - Epoch  11: total training loss 618.69
+2022-02-26 19:14:00,143 - INFO - joeynmt.training - EPOCH 12
+2022-02-26 19:15:57,283 - INFO - joeynmt.training - Epoch  12: total training loss 514.09
+2022-02-26 19:15:57,284 - INFO - joeynmt.training - EPOCH 13
+2022-02-26 19:17:53,280 - INFO - joeynmt.training - Epoch  13: total training loss 439.72
+2022-02-26 19:17:53,280 - INFO - joeynmt.training - EPOCH 14
+2022-02-26 19:19:49,555 - INFO - joeynmt.training - Epoch  14: total training loss 381.92
+2022-02-26 19:19:49,555 - INFO - joeynmt.training - EPOCH 15
+2022-02-26 19:21:45,768 - INFO - joeynmt.training - Epoch  15: total training loss 338.48
+2022-02-26 19:21:45,768 - INFO - joeynmt.training - EPOCH 16
+2022-02-26 19:22:30,393 - INFO - joeynmt.training - Epoch  16, Step:     3000, Batch Loss:     2.129778, Tokens per Sec:     1824, Lr: 0.000300
+2022-02-26 19:23:41,149 - INFO - joeynmt.training - Epoch  16: total training loss 301.70
+2022-02-26 19:23:41,149 - INFO - joeynmt.training - EPOCH 17
+2022-02-26 19:25:37,394 - INFO - joeynmt.training - Epoch  17: total training loss 268.87
+2022-02-26 19:25:37,394 - INFO - joeynmt.training - EPOCH 18
+2022-02-26 19:27:34,094 - INFO - joeynmt.training - Epoch  18: total training loss 234.00
+2022-02-26 19:27:34,094 - INFO - joeynmt.training - EPOCH 19
+2022-02-26 19:29:29,690 - INFO - joeynmt.training - Epoch  19: total training loss 204.30
+2022-02-26 19:29:29,690 - INFO - joeynmt.training - EPOCH 20
+2022-02-26 19:31:24,889 - INFO - joeynmt.training - Epoch  20: total training loss 180.29
+2022-02-26 19:31:24,889 - INFO - joeynmt.training - Training ended after  20 epochs.
+2022-02-26 19:31:24,889 - INFO - joeynmt.training - Best validation result (greedy) at step        0:   -inf eval_metric.
+2022-02-26 19:31:24,897 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-26 19:31:24,898 - INFO - joeynmt.prediction - Loading model from models/wmt_myrk_default/0.ckpt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 860, in train
+    test(cfg_file,
+  File "/home/ye/exp/joeynmt/joeynmt/prediction.py", line 321, in test
+    model_checkpoint = load_checkpoint(ckpt, use_cuda=use_cuda)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint
+    assert os.path.isfile(path), f"Checkpoint {path} not found"
+AssertionError: Checkpoint models/wmt_myrk_default/0.ckpt not found
+
+real	38m57.669s
+user	43m24.300s
+sys	8m51.045s
+(joey) ye@:~/exp/joeynmt$
+```
+
+အဲဒါနဲ့ model_dir ရဲ့ path ကို full path ပေးပြီး ပြန် train ခဲ့...  
+
+```
+    model_dir: "/home/ye/exp/joeynmt/models/wmt_myrk_default"
+```
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_myrk_default.yaml 
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 806, in train
+    model_dir = make_model_dir(cfg["training"]["model_dir"],
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 44, in make_model_dir
+    raise FileExistsError(
+FileExistsError: Model directory exists and overwriting is disabled.
+
+real	0m1.694s
+user	0m1.063s
+sys	0m0.707s
+(joey) ye@:~/exp/joeynmt$
+```
+
+overwrite ကို True ထားပြီး train မှ ရလိမ့်မယ်...  
+
+```
+    overwrite: True
+```
+
+train လုပ်ကြည့်တော့ စောစောကလိုပဲ error တက်နေသေးတယ်...?!  
+
+```
+2022-02-26 20:34:09,992 - INFO - joeynmt.training - Best validation result (greedy) at step        0:   -inf eval_metric.
+2022-02-26 20:34:10,002 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-02-26 20:34:10,002 - INFO - joeynmt.prediction - Loading model from /home/ye/exp/joeynmt/models/wmt_myrk_default/0.ckpt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 860, in train
+    test(cfg_file,
+  File "/home/ye/exp/joeynmt/joeynmt/prediction.py", line 321, in test
+    model_checkpoint = load_checkpoint(ckpt, use_cuda=use_cuda)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 284, in load_checkpoint
+    assert os.path.isfile(path), f"Checkpoint {path} not found"
+AssertionError: Checkpoint /home/ye/exp/joeynmt/models/wmt_myrk_default/0.ckpt not found
+
+real	39m6.048s
+user	43m45.978s
+sys	8m33.931s
+(joey) ye@:~/exp/joeynmt$
+```
+
+config ဖိုင်ရဲ့ ထိပ်ဆုံး နာမည်ကို original configuration အတိုင်း ထားမိတဲ့ error ကိုတော့ တွေ့ပြီ... အဲဒါကြောင်လား?!  
+
+```
+name: "wmt_ende_default" ကို 
+name: "wmt_myrk_default"
+```
+
+Error အတူတူပဲ ပေးနေတယ်...  
