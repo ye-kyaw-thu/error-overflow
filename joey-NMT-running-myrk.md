@@ -3605,3 +3605,798 @@ sys	0m4.030s
 ```
 
 Memory error တက်တယ်။ အဲဒါကြောင့် စက်ကို restart လုပ်ပြီး ပြန် run ကြည့်ခဲ့...  
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/transformer_wmt17_rkmy.yaml
+...
+...
+...
+2022-03-03 22:51:07,988 - INFO - joeynmt.training - Epoch  97, Step:   282000, Batch Loss:     0.011108, Tokens per Sec:      321, Lr: 0.000000
+2022-03-03 22:56:54,462 - INFO - joeynmt.training - Example #0
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - Example #1
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - Example #2
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - Example #3
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 22:56:54,463 - INFO - joeynmt.training - Validation result (greedy) at epoch  97, step   282000: bleu:  83.33, loss: 3224.3008, ppl:   1.2627, duration: 346.4754s
+2022-03-03 22:57:18,344 - INFO - joeynmt.training - Epoch  97, Step:   282100, Batch Loss:     0.011235, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 22:57:42,036 - INFO - joeynmt.training - Epoch  97, Step:   282200, Batch Loss:     0.010020, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 22:58:05,466 - INFO - joeynmt.training - Epoch  97, Step:   282300, Batch Loss:     0.008603, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 22:58:29,305 - INFO - joeynmt.training - Epoch  97, Step:   282400, Batch Loss:     0.014830, Tokens per Sec:      302, Lr: 0.000000
+2022-03-03 22:58:33,545 - INFO - joeynmt.training - Epoch  97: total training loss 40.01
+2022-03-03 22:58:33,545 - INFO - joeynmt.training - EPOCH 98
+2022-03-03 22:58:52,873 - INFO - joeynmt.training - Epoch  98, Step:   282500, Batch Loss:     0.016550, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 22:59:17,141 - INFO - joeynmt.training - Epoch  98, Step:   282600, Batch Loss:     0.015864, Tokens per Sec:      299, Lr: 0.000000
+2022-03-03 22:59:41,072 - INFO - joeynmt.training - Epoch  98, Step:   282700, Batch Loss:     0.013337, Tokens per Sec:      307, Lr: 0.000000
+2022-03-03 23:00:04,924 - INFO - joeynmt.training - Epoch  98, Step:   282800, Batch Loss:     0.012280, Tokens per Sec:      313, Lr: 0.000000
+2022-03-03 23:00:28,753 - INFO - joeynmt.training - Epoch  98, Step:   282900, Batch Loss:     0.013568, Tokens per Sec:      304, Lr: 0.000000
+2022-03-03 23:00:52,616 - INFO - joeynmt.training - Epoch  98, Step:   283000, Batch Loss:     0.011171, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 23:06:39,560 - INFO - joeynmt.training - Example #0
+2022-03-03 23:06:39,560 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:06:39,560 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - Example #1
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - Example #2
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - Example #3
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:06:39,561 - INFO - joeynmt.training - Validation result (greedy) at epoch  98, step   283000: bleu:  83.31, loss: 3224.4309, ppl:   1.2627, duration: 346.9450s
+2022-03-03 23:07:02,973 - INFO - joeynmt.training - Epoch  98, Step:   283100, Batch Loss:     0.007211, Tokens per Sec:      300, Lr: 0.000000
+2022-03-03 23:07:26,711 - INFO - joeynmt.training - Epoch  98, Step:   283200, Batch Loss:     0.009576, Tokens per Sec:      306, Lr: 0.000000
+2022-03-03 23:07:50,068 - INFO - joeynmt.training - Epoch  98, Step:   283300, Batch Loss:     0.010851, Tokens per Sec:      330, Lr: 0.000000
+2022-03-03 23:08:13,499 - INFO - joeynmt.training - Epoch  98, Step:   283400, Batch Loss:     0.011089, Tokens per Sec:      309, Lr: 0.000000
+2022-03-03 23:08:37,212 - INFO - joeynmt.training - Epoch  98, Step:   283500, Batch Loss:     0.016185, Tokens per Sec:      301, Lr: 0.000000
+2022-03-03 23:09:00,694 - INFO - joeynmt.training - Epoch  98, Step:   283600, Batch Loss:     0.016525, Tokens per Sec:      321, Lr: 0.000000
+2022-03-03 23:09:24,448 - INFO - joeynmt.training - Epoch  98, Step:   283700, Batch Loss:     0.011360, Tokens per Sec:      302, Lr: 0.000000
+2022-03-03 23:09:47,667 - INFO - joeynmt.training - Epoch  98, Step:   283800, Batch Loss:     0.014276, Tokens per Sec:      314, Lr: 0.000000
+2022-03-03 23:10:11,370 - INFO - joeynmt.training - Epoch  98, Step:   283900, Batch Loss:     0.012344, Tokens per Sec:      309, Lr: 0.000000
+2022-03-03 23:10:34,827 - INFO - joeynmt.training - Epoch  98, Step:   284000, Batch Loss:     0.012735, Tokens per Sec:      314, Lr: 0.000000
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - Example #0
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - Example #1
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - Example #2
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - Example #3
+2022-03-03 23:16:19,781 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:16:19,782 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:16:19,782 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:16:19,782 - INFO - joeynmt.training - Validation result (greedy) at epoch  98, step   284000: bleu:  83.29, loss: 3224.5408, ppl:   1.2627, duration: 344.9547s
+2022-03-03 23:16:43,103 - INFO - joeynmt.training - Epoch  98, Step:   284100, Batch Loss:     0.028920, Tokens per Sec:      309, Lr: 0.000000
+2022-03-03 23:17:06,746 - INFO - joeynmt.training - Epoch  98, Step:   284200, Batch Loss:     0.013781, Tokens per Sec:      309, Lr: 0.000000
+2022-03-03 23:17:30,098 - INFO - joeynmt.training - Epoch  98, Step:   284300, Batch Loss:     0.010754, Tokens per Sec:      317, Lr: 0.000000
+2022-03-03 23:17:53,774 - INFO - joeynmt.training - Epoch  98, Step:   284400, Batch Loss:     0.010518, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 23:18:17,175 - INFO - joeynmt.training - Epoch  98, Step:   284500, Batch Loss:     0.009227, Tokens per Sec:      318, Lr: 0.000000
+2022-03-03 23:18:40,843 - INFO - joeynmt.training - Epoch  98, Step:   284600, Batch Loss:     0.014872, Tokens per Sec:      316, Lr: 0.000000
+2022-03-03 23:19:04,185 - INFO - joeynmt.training - Epoch  98, Step:   284700, Batch Loss:     0.015979, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 23:19:27,859 - INFO - joeynmt.training - Epoch  98, Step:   284800, Batch Loss:     0.011301, Tokens per Sec:      313, Lr: 0.000000
+2022-03-03 23:19:51,185 - INFO - joeynmt.training - Epoch  98, Step:   284900, Batch Loss:     0.012743, Tokens per Sec:      305, Lr: 0.000000
+2022-03-03 23:20:14,600 - INFO - joeynmt.training - Epoch  98, Step:   285000, Batch Loss:     0.012087, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 23:25:59,419 - INFO - joeynmt.training - Example #0
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - Example #1
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - Example #2
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - Example #3
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:25:59,420 - INFO - joeynmt.training - Validation result (greedy) at epoch  98, step   285000: bleu:  83.29, loss: 3224.4028, ppl:   1.2627, duration: 344.8198s
+2022-03-03 23:26:23,042 - INFO - joeynmt.training - Epoch  98, Step:   285100, Batch Loss:     0.012268, Tokens per Sec:      314, Lr: 0.000000
+2022-03-03 23:26:46,306 - INFO - joeynmt.training - Epoch  98, Step:   285200, Batch Loss:     0.012332, Tokens per Sec:      314, Lr: 0.000000
+2022-03-03 23:27:10,040 - INFO - joeynmt.training - Epoch  98, Step:   285300, Batch Loss:     0.009956, Tokens per Sec:      308, Lr: 0.000000
+2022-03-03 23:27:18,936 - INFO - joeynmt.training - Epoch  98: total training loss 40.13
+2022-03-03 23:27:18,936 - INFO - joeynmt.training - EPOCH 99
+2022-03-03 23:27:33,504 - INFO - joeynmt.training - Epoch  99, Step:   285400, Batch Loss:     0.011144, Tokens per Sec:      326, Lr: 0.000000
+2022-03-03 23:27:57,142 - INFO - joeynmt.training - Epoch  99, Step:   285500, Batch Loss:     0.013396, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 23:28:20,519 - INFO - joeynmt.training - Epoch  99, Step:   285600, Batch Loss:     0.007004, Tokens per Sec:      317, Lr: 0.000000
+2022-03-03 23:28:43,880 - INFO - joeynmt.training - Epoch  99, Step:   285700, Batch Loss:     0.025220, Tokens per Sec:      314, Lr: 0.000000
+2022-03-03 23:29:07,574 - INFO - joeynmt.training - Epoch  99, Step:   285800, Batch Loss:     0.012390, Tokens per Sec:      313, Lr: 0.000000
+2022-03-03 23:29:30,964 - INFO - joeynmt.training - Epoch  99, Step:   285900, Batch Loss:     0.009912, Tokens per Sec:      320, Lr: 0.000000
+2022-03-03 23:29:54,687 - INFO - joeynmt.training - Epoch  99, Step:   286000, Batch Loss:     0.011119, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 23:35:39,827 - INFO - joeynmt.training - Example #0
+2022-03-03 23:35:39,827 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - Example #1
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - Example #2
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - Example #3
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:35:39,828 - INFO - joeynmt.training - Validation result (greedy) at epoch  99, step   286000: bleu:  83.33, loss: 3224.3857, ppl:   1.2627, duration: 345.1411s
+2022-03-03 23:36:03,213 - INFO - joeynmt.training - Epoch  99, Step:   286100, Batch Loss:     0.049612, Tokens per Sec:      318, Lr: 0.000000
+2022-03-03 23:36:26,852 - INFO - joeynmt.training - Epoch  99, Step:   286200, Batch Loss:     0.014951, Tokens per Sec:      309, Lr: 0.000000
+2022-03-03 23:36:49,973 - INFO - joeynmt.training - Epoch  99, Step:   286300, Batch Loss:     0.009338, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 23:37:13,365 - INFO - joeynmt.training - Epoch  99, Step:   286400, Batch Loss:     0.008834, Tokens per Sec:      313, Lr: 0.000000
+2022-03-03 23:37:37,046 - INFO - joeynmt.training - Epoch  99, Step:   286500, Batch Loss:     0.013904, Tokens per Sec:      308, Lr: 0.000000
+2022-03-03 23:38:00,438 - INFO - joeynmt.training - Epoch  99, Step:   286600, Batch Loss:     0.008837, Tokens per Sec:      311, Lr: 0.000000
+2022-03-03 23:38:24,072 - INFO - joeynmt.training - Epoch  99, Step:   286700, Batch Loss:     0.008947, Tokens per Sec:      312, Lr: 0.000000
+2022-03-03 23:38:47,469 - INFO - joeynmt.training - Epoch  99, Step:   286800, Batch Loss:     0.017190, Tokens per Sec:      311, Lr: 0.000000
+2022-03-03 23:39:11,115 - INFO - joeynmt.training - Epoch  99, Step:   286900, Batch Loss:     0.011826, Tokens per Sec:      316, Lr: 0.000000
+2022-03-03 23:39:34,527 - INFO - joeynmt.training - Epoch  99, Step:   287000, Batch Loss:     0.014234, Tokens per Sec:      330, Lr: 0.000000
+2022-03-03 23:45:19,275 - INFO - joeynmt.training - Example #0
+2022-03-03 23:45:19,275 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - Example #1
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - Example #2
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - Example #3
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:45:19,276 - INFO - joeynmt.training - Validation result (greedy) at epoch  99, step   287000: bleu:  83.31, loss: 3224.3079, ppl:   1.2627, duration: 344.7493s
+2022-03-03 23:45:42,619 - INFO - joeynmt.training - Epoch  99, Step:   287100, Batch Loss:     0.014835, Tokens per Sec:      312, Lr: 0.000000
+2022-03-03 23:46:06,248 - INFO - joeynmt.training - Epoch  99, Step:   287200, Batch Loss:     0.008574, Tokens per Sec:      293, Lr: 0.000000
+2022-03-03 23:46:29,500 - INFO - joeynmt.training - Epoch  99, Step:   287300, Batch Loss:     0.009549, Tokens per Sec:      310, Lr: 0.000000
+2022-03-03 23:46:53,160 - INFO - joeynmt.training - Epoch  99, Step:   287400, Batch Loss:     0.007231, Tokens per Sec:      306, Lr: 0.000000
+2022-03-03 23:47:16,547 - INFO - joeynmt.training - Epoch  99, Step:   287500, Batch Loss:     0.008812, Tokens per Sec:      317, Lr: 0.000000
+2022-03-03 23:47:40,184 - INFO - joeynmt.training - Epoch  99, Step:   287600, Batch Loss:     0.009212, Tokens per Sec:      315, Lr: 0.000000
+2022-03-03 23:48:03,538 - INFO - joeynmt.training - Epoch  99, Step:   287700, Batch Loss:     0.016761, Tokens per Sec:      319, Lr: 0.000000
+2022-03-03 23:48:26,945 - INFO - joeynmt.training - Epoch  99, Step:   287800, Batch Loss:     0.014924, Tokens per Sec:      325, Lr: 0.000000
+2022-03-03 23:48:50,586 - INFO - joeynmt.training - Epoch  99, Step:   287900, Batch Loss:     0.011622, Tokens per Sec:      311, Lr: 0.000000
+2022-03-03 23:49:13,939 - INFO - joeynmt.training - Epoch  99, Step:   288000, Batch Loss:     0.011572, Tokens per Sec:      312, Lr: 0.000000
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - Example #0
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - Example #1
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - Example #2
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - Example #3
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-03 23:54:58,968 - INFO - joeynmt.training - Validation result (greedy) at epoch  99, step   288000: bleu:  83.32, loss: 3224.3921, ppl:   1.2627, duration: 345.0288s
+2022-03-03 23:55:22,593 - INFO - joeynmt.training - Epoch  99, Step:   288100, Batch Loss:     0.008801, Tokens per Sec:      299, Lr: 0.000000
+2022-03-03 23:55:45,875 - INFO - joeynmt.training - Epoch  99, Step:   288200, Batch Loss:     0.010277, Tokens per Sec:      322, Lr: 0.000000
+2022-03-03 23:55:56,870 - INFO - joeynmt.training - Epoch  99: total training loss 40.36
+2022-03-03 23:55:56,870 - INFO - joeynmt.training - EPOCH 100
+2022-03-03 23:56:09,541 - INFO - joeynmt.training - Epoch 100, Step:   288300, Batch Loss:     0.011057, Tokens per Sec:      313, Lr: 0.000000
+2022-03-03 23:56:32,910 - INFO - joeynmt.training - Epoch 100, Step:   288400, Batch Loss:     0.010570, Tokens per Sec:      320, Lr: 0.000000
+2022-03-03 23:56:56,261 - INFO - joeynmt.training - Epoch 100, Step:   288500, Batch Loss:     0.011732, Tokens per Sec:      316, Lr: 0.000000
+2022-03-03 23:57:19,891 - INFO - joeynmt.training - Epoch 100, Step:   288600, Batch Loss:     0.012741, Tokens per Sec:      307, Lr: 0.000000
+2022-03-03 23:57:43,258 - INFO - joeynmt.training - Epoch 100, Step:   288700, Batch Loss:     0.010621, Tokens per Sec:      311, Lr: 0.000000
+2022-03-03 23:58:06,917 - INFO - joeynmt.training - Epoch 100, Step:   288800, Batch Loss:     0.012121, Tokens per Sec:      305, Lr: 0.000000
+2022-03-03 23:58:30,298 - INFO - joeynmt.training - Epoch 100, Step:   288900, Batch Loss:     0.008988, Tokens per Sec:      319, Lr: 0.000000
+2022-03-03 23:58:53,905 - INFO - joeynmt.training - Epoch 100, Step:   289000, Batch Loss:     0.013079, Tokens per Sec:      307, Lr: 0.000000
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - Example #0
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - Example #1
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - Example #2
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - Example #3
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:04:38,967 - INFO - joeynmt.training - Validation result (greedy) at epoch 100, step   289000: bleu:  83.34, loss: 3224.5068, ppl:   1.2627, duration: 345.0618s
+2022-03-04 00:05:02,151 - INFO - joeynmt.training - Epoch 100, Step:   289100, Batch Loss:     0.009656, Tokens per Sec:      309, Lr: 0.000000
+2022-03-04 00:05:25,490 - INFO - joeynmt.training - Epoch 100, Step:   289200, Batch Loss:     0.017771, Tokens per Sec:      308, Lr: 0.000000
+2022-03-04 00:05:49,167 - INFO - joeynmt.training - Epoch 100, Step:   289300, Batch Loss:     0.011838, Tokens per Sec:      305, Lr: 0.000000
+2022-03-04 00:06:12,565 - INFO - joeynmt.training - Epoch 100, Step:   289400, Batch Loss:     0.012794, Tokens per Sec:      323, Lr: 0.000000
+2022-03-04 00:06:36,256 - INFO - joeynmt.training - Epoch 100, Step:   289500, Batch Loss:     0.013776, Tokens per Sec:      307, Lr: 0.000000
+2022-03-04 00:06:59,638 - INFO - joeynmt.training - Epoch 100, Step:   289600, Batch Loss:     0.039386, Tokens per Sec:      320, Lr: 0.000000
+2022-03-04 00:07:23,210 - INFO - joeynmt.training - Epoch 100, Step:   289700, Batch Loss:     0.007992, Tokens per Sec:      314, Lr: 0.000000
+2022-03-04 00:07:46,596 - INFO - joeynmt.training - Epoch 100, Step:   289800, Batch Loss:     0.011021, Tokens per Sec:      325, Lr: 0.000000
+2022-03-04 00:08:09,974 - INFO - joeynmt.training - Epoch 100, Step:   289900, Batch Loss:     0.010917, Tokens per Sec:      322, Lr: 0.000000
+2022-03-04 00:08:33,621 - INFO - joeynmt.training - Epoch 100, Step:   290000, Batch Loss:     0.016534, Tokens per Sec:      312, Lr: 0.000000
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - Example #0
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - Example #1
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - Example #2
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:14:18,796 - INFO - joeynmt.training - Example #3
+2022-03-04 00:14:18,797 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-04 00:14:18,797 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:14:18,797 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:14:18,797 - INFO - joeynmt.training - Validation result (greedy) at epoch 100, step   290000: bleu:  83.33, loss: 3224.5518, ppl:   1.2627, duration: 345.1756s
+2022-03-04 00:14:42,110 - INFO - joeynmt.training - Epoch 100, Step:   290100, Batch Loss:     0.025376, Tokens per Sec:      303, Lr: 0.000000
+2022-03-04 00:15:05,816 - INFO - joeynmt.training - Epoch 100, Step:   290200, Batch Loss:     0.014211, Tokens per Sec:      311, Lr: 0.000000
+2022-03-04 00:15:29,157 - INFO - joeynmt.training - Epoch 100, Step:   290300, Batch Loss:     0.012605, Tokens per Sec:      314, Lr: 0.000000
+2022-03-04 00:15:52,510 - INFO - joeynmt.training - Epoch 100, Step:   290400, Batch Loss:     0.012021, Tokens per Sec:      314, Lr: 0.000000
+2022-03-04 00:16:15,937 - INFO - joeynmt.training - Epoch 100, Step:   290500, Batch Loss:     0.011954, Tokens per Sec:      308, Lr: 0.000000
+2022-03-04 00:16:39,315 - INFO - joeynmt.training - Epoch 100, Step:   290600, Batch Loss:     0.015911, Tokens per Sec:      318, Lr: 0.000000
+2022-03-04 00:17:02,948 - INFO - joeynmt.training - Epoch 100, Step:   290700, Batch Loss:     0.011028, Tokens per Sec:      307, Lr: 0.000000
+2022-03-04 00:17:26,340 - INFO - joeynmt.training - Epoch 100, Step:   290800, Batch Loss:     0.012280, Tokens per Sec:      324, Lr: 0.000000
+2022-03-04 00:17:49,965 - INFO - joeynmt.training - Epoch 100, Step:   290900, Batch Loss:     0.013611, Tokens per Sec:      314, Lr: 0.000000
+2022-03-04 00:18:13,330 - INFO - joeynmt.training - Epoch 100, Step:   291000, Batch Loss:     0.008085, Tokens per Sec:      320, Lr: 0.000000
+2022-03-04 00:23:58,323 - INFO - joeynmt.training - Example #0
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - Example #1
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ ရ အောင် ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - Example #2
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - Example #3
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Source:     မင်း ဇာ တိ ပြန် စဉ်း စား နီ လေး ဆို စွာ ငါ့ ကို ပြော ပြ စမ်း ပါ ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Reference:  မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - 	Hypothesis: မင်း ဘာ တွေ ပြန် စဉ်း စား နေ သ လဲ ဆို တာ ငါ့ ကို ပြော ပြ စမ်း ပါ ဦး ။
+2022-03-04 00:23:58,324 - INFO - joeynmt.training - Validation result (greedy) at epoch 100, step   291000: bleu:  83.31, loss: 3224.5754, ppl:   1.2628, duration: 344.9939s
+2022-03-04 00:24:21,655 - INFO - joeynmt.training - Epoch 100, Step:   291100, Batch Loss:     0.009352, Tokens per Sec:      319, Lr: 0.000000
+2022-03-04 00:24:35,015 - INFO - joeynmt.training - Epoch 100: total training loss 39.91
+2022-03-04 00:24:35,015 - INFO - joeynmt.training - Training ended after 100 epochs.
+2022-03-04 00:24:35,015 - INFO - joeynmt.training - Best validation result (greedy) at step   131000:   1.26 ppl.
+2022-03-04 00:24:35,056 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 64
+2022-03-04 00:24:35,056 - INFO - joeynmt.prediction - Loading model from models/wmt17_rkmy_transformer1/131000.ckpt
+2022-03-04 00:24:35,770 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-03-04 00:24:36,180 - INFO - joeynmt.model - Enc-dec model built.
+2022-03-04 00:24:36,282 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.my)...
+2022-03-04 00:33:36,054 - INFO - joeynmt.prediction -  dev bleu[13a]:  83.23 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-03-04 00:33:36,055 - INFO - joeynmt.prediction - Translations saved to: models/wmt17_rkmy_transformer1/00131000.hyps.dev
+2022-03-04 00:33:36,055 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.my)...
+2022-03-04 00:50:01,805 - INFO - joeynmt.prediction - test bleu[13a]:  82.02 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-03-04 00:50:01,806 - INFO - joeynmt.prediction - Translations saved to: models/wmt17_rkmy_transformer1/00131000.hyps.test
+
+real	2851m58.811s
+user	4656m50.513s
+sys	71m53.268s
+```
+
+ဒီတစ်ခါတော့ Rakhine-Myanmar Transformer model (baseline) ရပြီ။  
+dev bleu[13a]:  83.23  
+test bleu[13a]:  82.02  
+
+training/tuning က တော်တော်ကြာတယ်။ 47 နာရီ (နှစ်ရက်နီးပါး) ကြာခဲ့...  
+
+## Running RNN Rakhine-Myanmar Side
+
+RNN model က ရခိုင်-မြန်မာ အတွက် run မလုပ်ရသေးလို့... config ဖိုင်ကို ပြင်ဖို့ပြင် ...  
+config ဖိုင်က နှစ်မျိုးနဲ့ စမ်းခဲ့တာမို့ အဲဒီ ရလဒ်တွေကို ပြန်ကြည့်ခဲ့...  
+
+wmt_myrk_default ရဲ့ ရလဒ်က အောက်ပါအတိုင်း...  
+dev bleu[13a]:  82.53
+test bleu[13a]:  81.19
+
+wmt_myrk_best ရဲ့ ရလဒ်က အောက်ပါအတိုင်း...  
+dev bleu[13a]:  83.00
+test bleu[13a]:  80.72
+
+default config ကိုပဲ သုံးပြီး run ဖို့ ပြင်ခဲ့...  
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_rkmy_default.yaml 
+2022-03-04 18:38:05,026 - INFO - root - Hello! This is Joey-NMT (version 1.5.1).
+2022-03-04 18:38:05,051 - INFO - joeynmt.data - Loading training data...
+2022-03-04 18:38:05,439 - INFO - joeynmt.data - Building vocabulary...
+2022-03-04 18:38:05,520 - INFO - joeynmt.data - Loading dev data...
+2022-03-04 18:38:05,595 - INFO - joeynmt.data - Loading test data...
+2022-03-04 18:38:05,620 - INFO - joeynmt.data - Data loaded.
+2022-03-04 18:38:05,620 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-03-04 18:38:05,901 - INFO - joeynmt.model - Enc-dec model built.
+2022-03-04 18:38:07,555 - INFO - joeynmt.training - Total params: 33656532
+2022-03-04 18:38:07,556 - WARNING - joeynmt.training - `keep_last_ckpts` option is outdated. Please use `keep_best_ckpts`, instead.
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                           cfg.name : wmt_rkmy_default
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                       cfg.data.src : rk
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                       cfg.data.trg : my
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                     cfg.data.train : /media/ye/project2/exp/myrk-transformer/data/syl/train
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                       cfg.data.dev : /media/ye/project2/exp/myrk-transformer/data/syl/dev
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                      cfg.data.test : /media/ye/project2/exp/myrk-transformer/data/syl/test
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                     cfg.data.level : word
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                 cfg.data.lowercase : True
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -           cfg.data.max_sent_length : 50
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -          cfg.data.src_voc_min_freq : 0
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -             cfg.data.src_voc_limit : 100000
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -          cfg.data.trg_voc_min_freq : 0
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -             cfg.data.trg_voc_limit : 100000
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -              cfg.testing.beam_size : 5
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -                  cfg.testing.alpha : 1.0
+2022-03-04 18:38:09,701 - INFO - joeynmt.helpers -       cfg.training.reset_best_ckpt : False
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.training.reset_scheduler : False
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.training.reset_optimizer : False
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -           cfg.training.random_seed : 42
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -             cfg.training.optimizer : adam
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -         cfg.training.learning_rate : 0.0003
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -     cfg.training.learning_rate_min : 5e-07
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -          cfg.training.weight_decay : 0.0
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -        cfg.training.clip_grad_norm : 1.0
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -            cfg.training.batch_size : 80
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -            cfg.training.scheduling : plateau
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -              cfg.training.patience : 10
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.training.decrease_factor : 0.5
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers - cfg.training.early_stopping_metric : eval_metric
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -                cfg.training.epochs : 30
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.training.validation_freq : 1000
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -          cfg.training.logging_freq : 100
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -           cfg.training.eval_metric : bleu
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -             cfg.training.model_dir : models/wmt_rkmy_default1
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -             cfg.training.overwrite : True
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -               cfg.training.shuffle : True
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -              cfg.training.use_cuda : True
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -     cfg.training.max_output_length : 100
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -     cfg.training.print_valid_sents : [0, 1, 2]
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.training.keep_last_ckpts : 5
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -         cfg.model.encoder.rnn_type : lstm
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.embedding_dim : 4096
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.scale : False
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -      cfg.model.encoder.hidden_size : 300
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -    cfg.model.encoder.bidirectional : True
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -          cfg.model.encoder.dropout : 0.2
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -       cfg.model.encoder.num_layers : 2
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -         cfg.model.decoder.rnn_type : lstm
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.embedding_dim : 4096
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.scale : False
+2022-03-04 18:38:09,702 - INFO - joeynmt.helpers -        cfg.model.decoder.emb_scale : False
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -      cfg.model.decoder.hidden_size : 300
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -          cfg.model.decoder.dropout : 0.2
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -   cfg.model.decoder.hidden_dropout : 0.2
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -       cfg.model.decoder.num_layers : 2
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -    cfg.model.decoder.input_feeding : True
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -      cfg.model.decoder.init_hidden : bridge
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers -        cfg.model.decoder.attention : bahdanau
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - Data set sizes: 
+	train 15535,
+	valid 1000,
+	test 1811
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - First training example:
+	[SRC] မင်း ယင်း ချင့် ကို အ ခြား တစ် ခု နန့် မ ချိတ် ပါ လား ။
+	[TRG] မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - First 10 words (src): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) အ (6) ကို (7) ရေ (8) မ (9) ပါ
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - First 10 words (trg): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) မ (6) အ (7) ကို (8) တယ် (9) သူ
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - Number of Src words (types): 1687
+2022-03-04 18:38:09,703 - INFO - joeynmt.helpers - Number of Trg words (types): 1580
+2022-03-04 18:38:09,703 - INFO - joeynmt.training - Model(
+	encoder=RecurrentEncoder(LSTM(4096, 300, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)),
+	decoder=RecurrentDecoder(rnn=LSTM(4396, 300, num_layers=2, batch_first=True, dropout=0.2), attention=BahdanauAttention),
+	src_embed=Embeddings(embedding_dim=4096, vocab_size=1687),
+	trg_embed=Embeddings(embedding_dim=4096, vocab_size=1580))
+2022-03-04 18:38:09,704 - INFO - joeynmt.training - Train stats:
+	device: cuda
+	n_gpu: 2
+	16-bits training: False
+	gradient accumulation: 1
+	batch size per device: 40
+	total batch size (w. parallel & accumulation): 80
+2022-03-04 18:38:09,704 - INFO - joeynmt.training - EPOCH 1
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/modules/rnn.py:695: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  self.num_layers, self.dropout, self.training, self.bidirectional)
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/modules/rnn.py:692: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  self.dropout, self.training, self.bidirectional, self.batch_first)
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2022-03-04 18:39:08,889 - INFO - joeynmt.training - Epoch   1, Step:      100, Batch Loss:    29.859762, Tokens per Sec:     1854, Lr: 0.000300
+2022-03-04 18:40:02,765 - INFO - joeynmt.training - Epoch   1: total training loss 6488.10
+2022-03-04 18:40:02,765 - INFO - joeynmt.training - EPOCH 2
+2022-03-04 18:40:05,535 - INFO - joeynmt.training - Epoch   2, Step:      200, Batch Loss:    27.505415, Tokens per Sec:     1984, Lr: 0.000300
+2022-03-04 18:41:03,427 - INFO - joeynmt.training - Epoch   2, Step:      300, Batch Loss:    27.464136, Tokens per Sec:     1900, Lr: 0.000300
+2022-03-04 18:41:52,361 - INFO - joeynmt.training - Epoch   2: total training loss 5461.54
+2022-03-04 18:41:52,362 - INFO - joeynmt.training - EPOCH 3
+2022-03-04 18:41:58,088 - INFO - joeynmt.training - Epoch   3, Step:      400, Batch Loss:    26.153049, Tokens per Sec:     1884, Lr: 0.000300
+2022-03-04 18:42:55,052 - INFO - joeynmt.training - Epoch   3, Step:      500, Batch Loss:    24.522879, Tokens per Sec:     1921, Lr: 0.000300
+2022-03-04 18:43:42,992 - INFO - joeynmt.training - Epoch   3: total training loss 4785.99
+2022-03-04 18:43:42,992 - INFO - joeynmt.training - EPOCH 4
+2022-03-04 18:43:51,257 - INFO - joeynmt.training - Epoch   4, Step:      600, Batch Loss:    20.060492, Tokens per Sec:     1937, Lr: 0.000300
+2022-03-04 18:44:46,811 - INFO - joeynmt.training - Epoch   4, Step:      700, Batch Loss:    21.656101, Tokens per Sec:     1973, Lr: 0.000300
+2022-03-04 18:45:32,521 - INFO - joeynmt.training - Epoch   4: total training loss 4199.91
+2022-03-04 18:45:32,521 - INFO - joeynmt.training - EPOCH 5
+2022-03-04 18:45:43,744 - INFO - joeynmt.training - Epoch   5, Step:      800, Batch Loss:    21.566446, Tokens per Sec:     1928, Lr: 0.000300
+2022-03-04 18:46:39,568 - INFO - joeynmt.training - Epoch   5, Step:      900, Batch Loss:    16.607058, Tokens per Sec:     1958, Lr: 0.000300
+2022-03-04 18:47:21,890 - INFO - joeynmt.training - Epoch   5: total training loss 3752.24
+2022-03-04 18:47:21,891 - INFO - joeynmt.training - EPOCH 6
+2022-03-04 18:47:35,833 - INFO - joeynmt.training - Epoch   6, Step:     1000, Batch Loss:    21.167942, Tokens per Sec:     1950, Lr: 0.000300
+2022-03-04 18:48:04,885 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - Example #0
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Hypothesis: မင်း အ လုပ် တဲ့ အ တွက် ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - Example #1
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် တို့ တွေ ကြ ကြ ကြ ကြ မယ် ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - Example #2
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - 	Hypothesis: စာ စာ ပေး ဖို့ မ ရှိ တယ် ။
+2022-03-04 18:48:05,330 - INFO - joeynmt.training - Validation result (greedy) at epoch   6, step     1000: bleu:  13.89, loss: 18634.8340, ppl:   3.8505, duration: 29.4967s
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/ye/anaconda3/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 48, in <module>
+    main()
+  File "/home/ye/exp/joeynmt/joeynmt/__main__.py", line 35, in main
+    train(cfg_file=args.config_path, skip_test=args.skip_test)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 846, in train
+    trainer.train_and_validate(train_data=train_data, valid_data=dev_data)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 497, in train_and_validate
+    valid_duration = self._validate(valid_data, epoch_no)
+  File "/home/ye/exp/joeynmt/joeynmt/training.py", line 663, in _validate
+    steps=self.stats.steps)
+  File "/home/ye/exp/joeynmt/joeynmt/helpers.py", line 227, in store_attention_plots
+    prop = fm.FontProperties(fname=fontPath, size=60)    
+NameError: name 'fm' is not defined
+
+real	10m5.406s
+user	12m17.450s
+sys	1m36.378s
+
+```
+
+အထက်ပါ error က ငါ attention ပုံမှာ မြန်မာစာ မပေါ်လို့ ဝင်ပြင်ထားတဲ့ အပိုင်းကနေ ပေးတဲ့ error လို့ နားလည်တယ်...  
+
+```
+(joey) ye@:~/exp/joeynmt$ time python3 -m joeynmt train configs/wmt_rkmy_default.yaml 
+2022-03-04 19:54:14,296 - INFO - root - Hello! This is Joey-NMT (version 1.5.1).
+2022-03-04 19:54:14,315 - INFO - joeynmt.data - Loading training data...
+2022-03-04 19:54:14,540 - INFO - joeynmt.data - Building vocabulary...
+2022-03-04 19:54:14,621 - INFO - joeynmt.data - Loading dev data...
+2022-03-04 19:54:14,681 - INFO - joeynmt.data - Loading test data...
+2022-03-04 19:54:14,704 - INFO - joeynmt.data - Data loaded.
+2022-03-04 19:54:14,704 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-03-04 19:54:14,986 - INFO - joeynmt.model - Enc-dec model built.
+2022-03-04 19:54:15,921 - INFO - joeynmt.training - Total params: 33656532
+2022-03-04 19:54:15,921 - WARNING - joeynmt.training - `keep_last_ckpts` option is outdated. Please use `keep_best_ckpts`, instead.
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                           cfg.name : wmt_rkmy_default
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                       cfg.data.src : rk
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                       cfg.data.trg : my
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                     cfg.data.train : /media/ye/project2/exp/myrk-transformer/data/syl/train
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                       cfg.data.dev : /media/ye/project2/exp/myrk-transformer/data/syl/dev
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                      cfg.data.test : /media/ye/project2/exp/myrk-transformer/data/syl/test
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                     cfg.data.level : word
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                 cfg.data.lowercase : True
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -           cfg.data.max_sent_length : 50
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -          cfg.data.src_voc_min_freq : 0
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -             cfg.data.src_voc_limit : 100000
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -          cfg.data.trg_voc_min_freq : 0
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -             cfg.data.trg_voc_limit : 100000
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -              cfg.testing.beam_size : 5
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -                  cfg.testing.alpha : 1.0
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -       cfg.training.reset_best_ckpt : False
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -       cfg.training.reset_scheduler : False
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -       cfg.training.reset_optimizer : False
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -           cfg.training.random_seed : 42
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -             cfg.training.optimizer : adam
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -         cfg.training.learning_rate : 0.0003
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -     cfg.training.learning_rate_min : 5e-07
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -          cfg.training.weight_decay : 0.0
+2022-03-04 19:54:17,430 - INFO - joeynmt.helpers -        cfg.training.clip_grad_norm : 1.0
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -            cfg.training.batch_size : 80
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -            cfg.training.scheduling : plateau
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -              cfg.training.patience : 10
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -       cfg.training.decrease_factor : 0.5
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers - cfg.training.early_stopping_metric : eval_metric
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -                cfg.training.epochs : 30
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -       cfg.training.validation_freq : 1000
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -          cfg.training.logging_freq : 100
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -           cfg.training.eval_metric : bleu
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -             cfg.training.model_dir : models/wmt_rkmy_default1
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -             cfg.training.overwrite : True
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -               cfg.training.shuffle : True
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -              cfg.training.use_cuda : True
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -     cfg.training.max_output_length : 100
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -     cfg.training.print_valid_sents : [0, 1, 2]
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -       cfg.training.keep_last_ckpts : 5
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -         cfg.model.encoder.rnn_type : lstm
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.embedding_dim : 4096
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.scale : False
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -      cfg.model.encoder.hidden_size : 300
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -    cfg.model.encoder.bidirectional : True
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -          cfg.model.encoder.dropout : 0.2
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -       cfg.model.encoder.num_layers : 2
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -         cfg.model.decoder.rnn_type : lstm
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.embedding_dim : 4096
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.scale : False
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -        cfg.model.decoder.emb_scale : False
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -      cfg.model.decoder.hidden_size : 300
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -          cfg.model.decoder.dropout : 0.2
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -   cfg.model.decoder.hidden_dropout : 0.2
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -       cfg.model.decoder.num_layers : 2
+2022-03-04 19:54:17,431 - INFO - joeynmt.helpers -    cfg.model.decoder.input_feeding : True
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers -      cfg.model.decoder.init_hidden : bridge
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers -        cfg.model.decoder.attention : bahdanau
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - Data set sizes: 
+	train 15535,
+	valid 1000,
+	test 1811
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - First training example:
+	[SRC] မင်း ယင်း ချင့် ကို အ ခြား တစ် ခု နန့် မ ချိတ် ပါ လား ။
+	[TRG] မင်း အဲ့ ဒါ ကို အ ခြား တစ် ခု နဲ့ မ ချိတ် ဘူး လား ။
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - First 10 words (src): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) အ (6) ကို (7) ရေ (8) မ (9) ပါ
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - First 10 words (trg): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) ။ (5) မ (6) အ (7) ကို (8) တယ် (9) သူ
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - Number of Src words (types): 1687
+2022-03-04 19:54:17,432 - INFO - joeynmt.helpers - Number of Trg words (types): 1580
+2022-03-04 19:54:17,432 - INFO - joeynmt.training - Model(
+	encoder=RecurrentEncoder(LSTM(4096, 300, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)),
+	decoder=RecurrentDecoder(rnn=LSTM(4396, 300, num_layers=2, batch_first=True, dropout=0.2), attention=BahdanauAttention),
+	src_embed=Embeddings(embedding_dim=4096, vocab_size=1687),
+	trg_embed=Embeddings(embedding_dim=4096, vocab_size=1580))
+2022-03-04 19:54:17,433 - INFO - joeynmt.training - Train stats:
+	device: cuda
+	n_gpu: 2
+	16-bits training: False
+	gradient accumulation: 1
+	batch size per device: 40
+	total batch size (w. parallel & accumulation): 80
+2022-03-04 19:54:17,433 - INFO - joeynmt.training - EPOCH 1
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/modules/rnn.py:695: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  self.num_layers, self.dropout, self.training, self.bidirectional)
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/modules/rnn.py:692: UserWarning: RNN module weights are not part of single contiguous chunk of memory. This means they need to be compacted at every call, possibly greatly increasing memory usage. To compact weights again call flatten_parameters(). (Triggered internally at  ../aten/src/ATen/native/cudnn/RNN.cpp:925.)
+  self.dropout, self.training, self.bidirectional, self.batch_first)
+/home/ye/anaconda3/lib/python3.7/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2022-03-04 19:55:16,037 - INFO - joeynmt.training - Epoch   1, Step:      100, Batch Loss:    29.859762, Tokens per Sec:     1872, Lr: 0.000300
+2022-03-04 19:56:09,084 - INFO - joeynmt.training - Epoch   1: total training loss 6488.10
+2022-03-04 19:56:09,084 - INFO - joeynmt.training - EPOCH 2
+2022-03-04 19:56:11,840 - INFO - joeynmt.training - Epoch   2, Step:      200, Batch Loss:    27.505415, Tokens per Sec:     1995, Lr: 0.000300
+2022-03-04 19:57:09,062 - INFO - joeynmt.training - Epoch   2, Step:      300, Batch Loss:    27.464136, Tokens per Sec:     1923, Lr: 0.000300
+2022-03-04 19:57:57,930 - INFO - joeynmt.training - Epoch   2: total training loss 5461.54
+2022-03-04 19:57:57,930 - INFO - joeynmt.training - EPOCH 3
+2022-03-04 19:58:03,448 - INFO - joeynmt.training - Epoch   3, Step:      400, Batch Loss:    26.153049, Tokens per Sec:     1955, Lr: 0.000300
+2022-03-04 19:58:59,462 - INFO - joeynmt.training - Epoch   3, Step:      500, Batch Loss:    24.522879, Tokens per Sec:     1953, Lr: 0.000300
+2022-03-04 19:59:46,890 - INFO - joeynmt.training - Epoch   3: total training loss 4785.99
+2022-03-04 19:59:46,890 - INFO - joeynmt.training - EPOCH 4
+2022-03-04 19:59:55,141 - INFO - joeynmt.training - Epoch   4, Step:      600, Batch Loss:    20.060492, Tokens per Sec:     1940, Lr: 0.000300
+2022-03-04 20:00:50,712 - INFO - joeynmt.training - Epoch   4, Step:      700, Batch Loss:    21.656101, Tokens per Sec:     1972, Lr: 0.000300
+2022-03-04 20:01:36,369 - INFO - joeynmt.training - Epoch   4: total training loss 4199.91
+2022-03-04 20:01:36,369 - INFO - joeynmt.training - EPOCH 5
+2022-03-04 20:01:47,548 - INFO - joeynmt.training - Epoch   5, Step:      800, Batch Loss:    21.566446, Tokens per Sec:     1936, Lr: 0.000300
+2022-03-04 20:02:43,604 - INFO - joeynmt.training - Epoch   5, Step:      900, Batch Loss:    16.607058, Tokens per Sec:     1950, Lr: 0.000300
+2022-03-04 20:03:25,943 - INFO - joeynmt.training - Epoch   5: total training loss 3752.24
+2022-03-04 20:03:25,944 - INFO - joeynmt.training - EPOCH 6
+2022-03-04 20:03:40,016 - INFO - joeynmt.training - Epoch   6, Step:     1000, Batch Loss:    21.167942, Tokens per Sec:     1932, Lr: 0.000300
+2022-03-04 20:04:09,500 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - Example #0
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - 	Hypothesis: မင်း အ လုပ် တဲ့ အ တွက် ။
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - Example #1
+2022-03-04 20:04:09,941 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် တို့ တွေ ကြ ကြ ကြ ကြ မယ် ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - Example #2
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - 	Hypothesis: စာ စာ ပေး ဖို့ မ ရှိ တယ် ။
+2022-03-04 20:04:09,942 - INFO - joeynmt.training - Validation result (greedy) at epoch   6, step     1000: bleu:  13.89, loss: 18634.8340, ppl:   3.8505, duration: 29.9256s
+Couldn't plot example 0: src len 7, trg len 7, attention scores shape (65, 47)
+Couldn't plot example 1: src len 10, trg len 10, attention scores shape (65, 47)
+Couldn't plot example 2: src len 8, trg len 8, attention scores shape (65, 47)
+2022-03-04 20:05:07,454 - INFO - joeynmt.training - Epoch   6, Step:     1100, Batch Loss:    18.450939, Tokens per Sec:     1907, Lr: 0.000300
+2022-03-04 20:05:46,452 - INFO - joeynmt.training - Epoch   6: total training loss 3318.73
+2022-03-04 20:05:46,452 - INFO - joeynmt.training - EPOCH 7
+2022-03-04 20:06:03,236 - INFO - joeynmt.training - Epoch   7, Step:     1200, Batch Loss:    16.119820, Tokens per Sec:     1947, Lr: 0.000300
+2022-03-04 20:07:00,739 - INFO - joeynmt.training - Epoch   7, Step:     1300, Batch Loss:    14.707964, Tokens per Sec:     1908, Lr: 0.000300
+2022-03-04 20:07:35,400 - INFO - joeynmt.training - Epoch   7: total training loss 2801.33
+2022-03-04 20:07:35,400 - INFO - joeynmt.training - EPOCH 8
+2022-03-04 20:07:54,738 - INFO - joeynmt.training - Epoch   8, Step:     1400, Batch Loss:    13.134383, Tokens per Sec:     1983, Lr: 0.000300
+2022-03-04 20:08:51,801 - INFO - joeynmt.training - Epoch   8, Step:     1500, Batch Loss:    11.341474, Tokens per Sec:     1921, Lr: 0.000300
+2022-03-04 20:09:25,480 - INFO - joeynmt.training - Epoch   8: total training loss 2224.35
+2022-03-04 20:09:25,480 - INFO - joeynmt.training - EPOCH 9
+2022-03-04 20:09:48,228 - INFO - joeynmt.training - Epoch   9, Step:     1600, Batch Loss:    11.293710, Tokens per Sec:     1932, Lr: 0.000300
+2022-03-04 20:10:45,485 - INFO - joeynmt.training - Epoch   9, Step:     1700, Batch Loss:     7.351262, Tokens per Sec:     1922, Lr: 0.000300
+2022-03-04 20:11:15,508 - INFO - joeynmt.training - Epoch   9: total training loss 1722.30
+2022-03-04 20:11:15,508 - INFO - joeynmt.training - EPOCH 10
+2022-03-04 20:11:41,302 - INFO - joeynmt.training - Epoch  10, Step:     1800, Batch Loss:     8.604100, Tokens per Sec:     1896, Lr: 0.000300
+2022-03-04 20:12:38,749 - INFO - joeynmt.training - Epoch  10, Step:     1900, Batch Loss:     6.468388, Tokens per Sec:     1913, Lr: 0.000300
+2022-03-04 20:13:05,980 - INFO - joeynmt.training - Epoch  10: total training loss 1314.15
+2022-03-04 20:13:05,980 - INFO - joeynmt.training - EPOCH 11
+2022-03-04 20:13:34,926 - INFO - joeynmt.training - Epoch  11, Step:     2000, Batch Loss:     4.489357, Tokens per Sec:     1907, Lr: 0.000300
+2022-03-04 20:14:05,072 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - Example #0
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - Example #1
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - Example #2
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:14:05,491 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:14:05,492 - INFO - joeynmt.training - Validation result (greedy) at epoch  11, step     2000: bleu:  69.05, loss: 5862.6216, ppl:   1.5283, duration: 30.5650s
+Couldn't plot example 0: src len 7, trg len 7, attention scores shape (65, 56)
+Couldn't plot example 1: src len 10, trg len 10, attention scores shape (65, 56)
+Couldn't plot example 2: src len 8, trg len 8, attention scores shape (65, 56)
+2022-03-04 20:15:01,544 - INFO - joeynmt.training - Epoch  11, Step:     2100, Batch Loss:     4.405503, Tokens per Sec:     1948, Lr: 0.000300
+2022-03-04 20:15:26,815 - INFO - joeynmt.training - Epoch  11: total training loss 1024.08
+2022-03-04 20:15:26,815 - INFO - joeynmt.training - EPOCH 12
+2022-03-04 20:15:59,106 - INFO - joeynmt.training - Epoch  12, Step:     2200, Batch Loss:     5.316597, Tokens per Sec:     1867, Lr: 0.000300
+2022-03-04 20:16:55,164 - INFO - joeynmt.training - Epoch  12, Step:     2300, Batch Loss:     3.786924, Tokens per Sec:     1952, Lr: 0.000300
+2022-03-04 20:17:18,399 - INFO - joeynmt.training - Epoch  12: total training loss 839.25
+2022-03-04 20:17:18,400 - INFO - joeynmt.training - EPOCH 13
+2022-03-04 20:17:52,828 - INFO - joeynmt.training - Epoch  13, Step:     2400, Batch Loss:     4.028513, Tokens per Sec:     1914, Lr: 0.000300
+2022-03-04 20:18:49,697 - INFO - joeynmt.training - Epoch  13, Step:     2500, Batch Loss:     2.709564, Tokens per Sec:     1926, Lr: 0.000300
+2022-03-04 20:19:08,134 - INFO - joeynmt.training - Epoch  13: total training loss 707.46
+2022-03-04 20:19:08,135 - INFO - joeynmt.training - EPOCH 14
+2022-03-04 20:19:44,785 - INFO - joeynmt.training - Epoch  14, Step:     2600, Batch Loss:     2.692243, Tokens per Sec:     1929, Lr: 0.000300
+2022-03-04 20:20:42,241 - INFO - joeynmt.training - Epoch  14, Step:     2700, Batch Loss:     2.778459, Tokens per Sec:     1917, Lr: 0.000300
+2022-03-04 20:20:58,186 - INFO - joeynmt.training - Epoch  14: total training loss 620.26
+2022-03-04 20:20:58,187 - INFO - joeynmt.training - EPOCH 15
+2022-03-04 20:21:37,683 - INFO - joeynmt.training - Epoch  15, Step:     2800, Batch Loss:     2.496166, Tokens per Sec:     1946, Lr: 0.000300
+2022-03-04 20:22:34,400 - INFO - joeynmt.training - Epoch  15, Step:     2900, Batch Loss:     2.871384, Tokens per Sec:     1931, Lr: 0.000300
+2022-03-04 20:22:48,529 - INFO - joeynmt.training - Epoch  15: total training loss 547.05
+2022-03-04 20:22:48,529 - INFO - joeynmt.training - EPOCH 16
+2022-03-04 20:23:30,593 - INFO - joeynmt.training - Epoch  16, Step:     3000, Batch Loss:     2.711870, Tokens per Sec:     1960, Lr: 0.000300
+2022-03-04 20:24:00,477 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - Example #0
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - Example #1
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:24:00,898 - INFO - joeynmt.training - Example #2
+2022-03-04 20:24:00,899 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 20:24:00,899 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:24:00,899 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:24:00,899 - INFO - joeynmt.training - Validation result (greedy) at epoch  16, step     3000: bleu:  81.71, loss: 3786.7500, ppl:   1.3152, duration: 30.3055s
+Couldn't plot example 0: src len 7, trg len 7, attention scores shape (65, 57)
+Couldn't plot example 1: src len 10, trg len 10, attention scores shape (65, 57)
+Couldn't plot example 2: src len 8, trg len 8, attention scores shape (65, 57)
+2022-03-04 20:24:58,049 - INFO - joeynmt.training - Epoch  16, Step:     3100, Batch Loss:     2.228643, Tokens per Sec:     1917, Lr: 0.000300
+2022-03-04 20:25:08,385 - INFO - joeynmt.training - Epoch  16: total training loss 495.84
+2022-03-04 20:25:08,385 - INFO - joeynmt.training - EPOCH 17
+2022-03-04 20:25:52,669 - INFO - joeynmt.training - Epoch  17, Step:     3200, Batch Loss:     2.063628, Tokens per Sec:     1969, Lr: 0.000300
+2022-03-04 20:26:50,963 - INFO - joeynmt.training - Epoch  17, Step:     3300, Batch Loss:     3.230722, Tokens per Sec:     1888, Lr: 0.000300
+2022-03-04 20:26:58,885 - INFO - joeynmt.training - Epoch  17: total training loss 452.85
+2022-03-04 20:26:58,885 - INFO - joeynmt.training - EPOCH 18
+2022-03-04 20:27:47,833 - INFO - joeynmt.training - Epoch  18, Step:     3400, Batch Loss:     2.400322, Tokens per Sec:     1907, Lr: 0.000300
+2022-03-04 20:28:43,693 - INFO - joeynmt.training - Epoch  18, Step:     3500, Batch Loss:     2.129171, Tokens per Sec:     1954, Lr: 0.000300
+2022-03-04 20:28:48,987 - INFO - joeynmt.training - Epoch  18: total training loss 417.79
+2022-03-04 20:28:48,987 - INFO - joeynmt.training - EPOCH 19
+2022-03-04 20:29:39,284 - INFO - joeynmt.training - Epoch  19, Step:     3600, Batch Loss:     2.062290, Tokens per Sec:     1947, Lr: 0.000300
+2022-03-04 20:30:36,583 - INFO - joeynmt.training - Epoch  19, Step:     3700, Batch Loss:     3.359775, Tokens per Sec:     1922, Lr: 0.000300
+2022-03-04 20:30:38,854 - INFO - joeynmt.training - Epoch  19: total training loss 388.11
+2022-03-04 20:30:38,854 - INFO - joeynmt.training - EPOCH 20
+2022-03-04 20:31:30,686 - INFO - joeynmt.training - Epoch  20, Step:     3800, Batch Loss:     1.880900, Tokens per Sec:     2001, Lr: 0.000300
+2022-03-04 20:32:26,901 - INFO - joeynmt.training - Epoch  20, Step:     3900, Batch Loss:     0.810029, Tokens per Sec:     1938, Lr: 0.000300
+2022-03-04 20:32:26,902 - INFO - joeynmt.training - Epoch  20: total training loss 354.32
+2022-03-04 20:32:26,902 - INFO - joeynmt.training - EPOCH 21
+2022-03-04 20:33:23,096 - INFO - joeynmt.training - Epoch  21, Step:     4000, Batch Loss:     1.578245, Tokens per Sec:     1943, Lr: 0.000300
+2022-03-04 20:33:52,848 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - Example #0
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - Example #1
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - Example #2
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:33:53,263 - INFO - joeynmt.training - Validation result (greedy) at epoch  21, step     4000: bleu:  83.37, loss: 3117.8455, ppl:   1.2530, duration: 30.1669s
+Couldn't plot example 0: src len 7, trg len 7, attention scores shape (65, 59)
+Couldn't plot example 1: src len 10, trg len 10, attention scores shape (65, 59)
+Couldn't plot example 2: src len 8, trg len 8, attention scores shape (65, 59)
+2022-03-04 20:34:46,481 - INFO - joeynmt.training - Epoch  21: total training loss 328.74
+2022-03-04 20:34:46,481 - INFO - joeynmt.training - EPOCH 22
+2022-03-04 20:34:49,395 - INFO - joeynmt.training - Epoch  22, Step:     4100, Batch Loss:     1.930705, Tokens per Sec:     1853, Lr: 0.000300
+2022-03-04 20:35:44,740 - INFO - joeynmt.training - Epoch  22, Step:     4200, Batch Loss:     1.320970, Tokens per Sec:     1986, Lr: 0.000300
+2022-03-04 20:36:34,689 - INFO - joeynmt.training - Epoch  22: total training loss 304.61
+2022-03-04 20:36:34,689 - INFO - joeynmt.training - EPOCH 23
+2022-03-04 20:36:40,167 - INFO - joeynmt.training - Epoch  23, Step:     4300, Batch Loss:     0.941026, Tokens per Sec:     1963, Lr: 0.000300
+2022-03-04 20:37:37,841 - INFO - joeynmt.training - Epoch  23, Step:     4400, Batch Loss:     2.043832, Tokens per Sec:     1903, Lr: 0.000300
+2022-03-04 20:38:24,341 - INFO - joeynmt.training - Epoch  23: total training loss 280.47
+2022-03-04 20:38:24,341 - INFO - joeynmt.training - EPOCH 24
+2022-03-04 20:38:33,216 - INFO - joeynmt.training - Epoch  24, Step:     4500, Batch Loss:     1.100508, Tokens per Sec:     1871, Lr: 0.000300
+2022-03-04 20:39:27,970 - INFO - joeynmt.training - Epoch  24, Step:     4600, Batch Loss:     0.981466, Tokens per Sec:     1995, Lr: 0.000300
+2022-03-04 20:40:14,368 - INFO - joeynmt.training - Epoch  24: total training loss 262.97
+2022-03-04 20:40:14,368 - INFO - joeynmt.training - EPOCH 25
+2022-03-04 20:40:25,116 - INFO - joeynmt.training - Epoch  25, Step:     4700, Batch Loss:     1.045990, Tokens per Sec:     2030, Lr: 0.000300
+2022-03-04 20:41:21,731 - INFO - joeynmt.training - Epoch  25, Step:     4800, Batch Loss:     1.190937, Tokens per Sec:     1936, Lr: 0.000300
+2022-03-04 20:42:03,100 - INFO - joeynmt.training - Epoch  25: total training loss 241.33
+2022-03-04 20:42:03,100 - INFO - joeynmt.training - EPOCH 26
+2022-03-04 20:42:16,733 - INFO - joeynmt.training - Epoch  26, Step:     4900, Batch Loss:     1.135594, Tokens per Sec:     1985, Lr: 0.000300
+2022-03-04 20:43:13,705 - INFO - joeynmt.training - Epoch  26, Step:     5000, Batch Loss:     1.374539, Tokens per Sec:     1917, Lr: 0.000300
+2022-03-04 20:43:44,705 - INFO - joeynmt.training - Hooray! New best validation result [eval_metric]!
+2022-03-04 20:43:45,123 - INFO - joeynmt.training - Example #0
+2022-03-04 20:43:45,123 - INFO - joeynmt.training - 	Source:     မင်း ဆုံး ဖြတ် ရေ အ ဖြေ ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Reference:  မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Hypothesis: မင်း ဆုံး ဖြတ် တဲ့ အ ဖြေ ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - Example #1
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Source:     ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကတ် မေ ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Reference:  ကျွန် တော် တို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Hypothesis: ကျွန် တော် ရို့ တီ ဗွီ ကြ ည့် ကြ မယ် ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - Example #2
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Source:     စာ အုပ် ဝယ် ဖို့ မိန့် လား ရေ ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Reference:  စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - 	Hypothesis: စာ အုပ် ဝယ် ဖို့ မေ့ သွား တယ် ။
+2022-03-04 20:43:45,124 - INFO - joeynmt.training - Validation result (greedy) at epoch  26, step     5000: bleu:  84.32, loss: 2946.9211, ppl:   1.2376, duration: 31.4192s
+Couldn't plot example 0: src len 7, trg len 7, attention scores shape (65, 55)
+Couldn't plot example 1: src len 10, trg len 10, attention scores shape (65, 55)
+Couldn't plot example 2: src len 8, trg len 8, attention scores shape (65, 55)
+2022-03-04 20:44:24,858 - INFO - joeynmt.training - Epoch  26: total training loss 223.04
+2022-03-04 20:44:24,858 - INFO - joeynmt.training - EPOCH 27
+2022-03-04 20:44:42,049 - INFO - joeynmt.training - Epoch  27, Step:     5100, Batch Loss:     0.945470, Tokens per Sec:     1911, Lr: 0.000300
+2022-03-04 20:45:37,709 - INFO - joeynmt.training - Epoch  27, Step:     5200, Batch Loss:     1.007765, Tokens per Sec:     1958, Lr: 0.000300
+2022-03-04 20:46:14,685 - INFO - joeynmt.training - Epoch  27: total training loss 207.34
+2022-03-04 20:46:14,686 - INFO - joeynmt.training - EPOCH 28
+2022-03-04 20:46:34,752 - INFO - joeynmt.training - Epoch  28, Step:     5300, Batch Loss:     0.645086, Tokens per Sec:     1926, Lr: 0.000300
+2022-03-04 20:47:31,195 - INFO - joeynmt.training - Epoch  28, Step:     5400, Batch Loss:     1.583674, Tokens per Sec:     1939, Lr: 0.000300
+2022-03-04 20:48:04,640 - INFO - joeynmt.training - Epoch  28: total training loss 191.73
+2022-03-04 20:48:04,640 - INFO - joeynmt.training - EPOCH 29
+2022-03-04 20:48:26,809 - INFO - joeynmt.training - Epoch  29, Step:     5500, Batch Loss:     0.762961, Tokens per Sec:     1977, Lr: 0.000300
+2022-03-04 20:49:24,627 - INFO - joeynmt.training - Epoch  29, Step:     5600, Batch Loss:     0.965720, Tokens per Sec:     1902, Lr: 0.000300
+2022-03-04 20:49:53,962 - INFO - joeynmt.training - Epoch  29: total training loss 174.38
+2022-03-04 20:49:53,962 - INFO - joeynmt.training - EPOCH 30
+2022-03-04 20:50:19,303 - INFO - joeynmt.training - Epoch  30, Step:     5700, Batch Loss:     0.895654, Tokens per Sec:     1937, Lr: 0.000300
+2022-03-04 20:51:14,437 - INFO - joeynmt.training - Epoch  30, Step:     5800, Batch Loss:     0.927814, Tokens per Sec:     1990, Lr: 0.000300
+2022-03-04 20:51:42,124 - INFO - joeynmt.training - Epoch  30: total training loss 159.98
+2022-03-04 20:51:42,124 - INFO - joeynmt.training - Training ended after  30 epochs.
+2022-03-04 20:51:42,124 - INFO - joeynmt.training - Best validation result (greedy) at step     5000:  84.32 eval_metric.
+2022-03-04 20:51:42,136 - INFO - joeynmt.prediction - Process device: cuda, n_gpu: 2, batch_size per device: 40
+2022-03-04 20:51:42,137 - INFO - joeynmt.prediction - Loading model from models/wmt_rkmy_default1/5000.ckpt
+2022-03-04 20:51:42,327 - INFO - joeynmt.model - Building an encoder-decoder model...
+2022-03-04 20:51:42,604 - INFO - joeynmt.model - Enc-dec model built.
+2022-03-04 20:51:42,654 - INFO - joeynmt.prediction - Decoding on dev set (/media/ye/project2/exp/myrk-transformer/data/syl/dev.my)...
+2022-03-04 20:52:15,594 - INFO - joeynmt.prediction -  dev bleu[13a]:  84.38 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-03-04 20:52:15,594 - INFO - joeynmt.prediction - Translations saved to: models/wmt_rkmy_default1/00005000.hyps.dev
+2022-03-04 20:52:15,595 - INFO - joeynmt.prediction - Decoding on test set (/media/ye/project2/exp/myrk-transformer/data/syl/test.my)...
+2022-03-04 20:53:14,259 - INFO - joeynmt.prediction - test bleu[13a]:  83.21 [Beam search decoding with beam size = 5 and alpha = 1.0]
+2022-03-04 20:53:14,260 - INFO - joeynmt.prediction - Translations saved to: models/wmt_rkmy_default1/00005000.hyps.test
+
+real	59m1.607s
+user	72m20.256s
+sys	9m19.706s
+(joey) ye@:~/exp/joeynmt$
+```
