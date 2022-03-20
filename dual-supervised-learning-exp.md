@@ -774,6 +774,31 @@ time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home
 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
 --model_fn ./model/lm/lm-150epoch.pth | tee ./model/lm/lm-150epoch-training.log  
 
+time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 160 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-160epoch.pth | tee ./model/lm/lm-160epoch-training.log  
+
+time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 170 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-170epoch.pth | tee ./model/lm/lm-170epoch-training.log  
+
+time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 180 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-180epoch.pth | tee ./model/lm/lm-180epoch-training.log  
+
+time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 190 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-190epoch.pth | tee ./model/lm/lm-190epoch-training.log  
+
+time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 200 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-200epoch.pth | tee ./model/lm/lm-200epoch-training.log  
+
 ## Check ppl of LMs
 
 ```
