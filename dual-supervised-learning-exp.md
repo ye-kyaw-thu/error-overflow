@@ -720,9 +720,9 @@ time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home
 --model_fn ./model/lm/lm-40epoch.pth | tee ./model/lm/lm-40epoch-training.log  
 
 time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
-> --gpu_id 1 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 \
-> --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
-> --model_fn ./model/lm/lm-50epoch.pth | tee ./model/lm/lm-50epoch-training.log  
+--gpu_id 1 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+--model_fn ./model/lm/lm-50epoch.pth | tee ./model/lm/lm-50epoch-training.log  
 
 time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
 --gpu_id 1 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 \
