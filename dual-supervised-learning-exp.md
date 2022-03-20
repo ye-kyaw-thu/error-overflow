@@ -810,7 +810,10 @@ Validation - loss=3.1154e+00 ppl=22.54 best_loss=2.9187e+00 best_ppl=18.52
 print and save training ppl values...  
 
 ```
-(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; \
+for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
+tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 |\
+sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
     30	15.96                                                
     40	13.84
     50	10.55
@@ -830,7 +833,10 @@ print and save training ppl values...
 print and save validation ppl values...  
 
 ```
-(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; \
+for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
+tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | \
+sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
     30	20.54                                              
     40	20.56
     50	17.45
