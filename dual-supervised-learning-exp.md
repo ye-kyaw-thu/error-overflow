@@ -806,3 +806,43 @@ Epoch 150 - |param|=6.44e+02 |g_param|=1.77e+05 loss=1.9434e+00 ppl=6.98
 Validation - loss=3.1154e+00 ppl=22.54 best_loss=2.9187e+00 best_ppl=18.52
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$
 ```
+
+print and save training ppl values...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
+    30	15.96                                                
+    40	13.84
+    50	10.55
+    60	11.18
+    70	9.04
+    80	9.86
+    90	9.87
+   100	8.40
+   110	7.55
+   120	8.10
+   130	7.31
+   140	7.61
+   150	6.98
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$
+```
+
+print and save validation ppl values...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
+    30	20.54                                              
+    40	20.56
+    50	17.45
+    60	19.17
+    70	17.75
+    80	18.28
+    90	19.72
+   100	18.73
+   110	17.65
+   120	19.39
+   130	19.16
+   140	19.67
+   150	18.52
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$
+```
