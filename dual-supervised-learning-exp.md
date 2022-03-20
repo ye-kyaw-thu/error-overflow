@@ -774,3 +774,35 @@ time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home
 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
 --model_fn ./model/lm/lm-150epoch.pth | tee ./model/lm/lm-150epoch-training.log  
 
+## Check ppl of LMs
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ for logFile in `ls lm*.log | sort -V`; do tail "$logFile" | head -n 7 | tail -n 2; done
+Epoch 30 - |param|=4.77e+02 |g_param|=2.17e+05 loss=2.7703e+00 ppl=15.96                                                
+Validation - loss=2.9959e+00 ppl=20.00 best_loss=3.0223e+00 best_ppl=20.54                                              
+Epoch 40 - |param|=4.86e+02 |g_param|=2.37e+05 loss=2.6275e+00 ppl=13.84
+Validation - loss=3.0482e+00 ppl=21.08 best_loss=3.0233e+00 best_ppl=20.56
+Epoch 50 - |param|=5.04e+02 |g_param|=2.35e+05 loss=2.3557e+00 ppl=10.55
+Validation - loss=2.8444e+00 ppl=17.19 best_loss=2.8591e+00 best_ppl=17.45
+Epoch 60 - |param|=5.09e+02 |g_param|=2.50e+05 loss=2.4141e+00 ppl=11.18
+Validation - loss=2.9472e+00 ppl=19.05 best_loss=2.9533e+00 best_ppl=19.17
+Epoch 70 - |param|=5.28e+02 |g_param|=1.41e+05 loss=2.2017e+00 ppl=9.04
+Validation - loss=2.9186e+00 ppl=18.52 best_loss=2.8766e+00 best_ppl=17.75
+Epoch 80 - |param|=5.46e+02 |g_param|=2.75e+05 loss=2.2887e+00 ppl=9.86
+Validation - loss=2.9465e+00 ppl=19.04 best_loss=2.9058e+00 best_ppl=18.28
+Epoch 90 - |param|=5.72e+02 |g_param|=3.02e+05 loss=2.2898e+00 ppl=9.87
+Validation - loss=3.0333e+00 ppl=20.76 best_loss=2.9816e+00 best_ppl=19.72
+Epoch 100 - |param|=5.77e+02 |g_param|=2.94e+05 loss=2.1287e+00 ppl=8.40
+Validation - loss=3.0035e+00 ppl=20.16 best_loss=2.9302e+00 best_ppl=18.73
+Epoch 110 - |param|=5.90e+02 |g_param|=3.14e+05 loss=2.0215e+00 ppl=7.55
+Validation - loss=2.9826e+00 ppl=19.74 best_loss=2.8707e+00 best_ppl=17.65
+Epoch 120 - |param|=6.32e+02 |g_param|=3.18e+05 loss=2.0920e+00 ppl=8.10
+Validation - loss=3.0870e+00 ppl=21.91 best_loss=2.9648e+00 best_ppl=19.39
+Epoch 130 - |param|=6.20e+02 |g_param|=2.76e+05 loss=1.9894e+00 ppl=7.31
+Validation - loss=3.1016e+00 ppl=22.23 best_loss=2.9528e+00 best_ppl=19.16
+Epoch 140 - |param|=6.69e+02 |g_param|=3.13e+05 loss=2.0294e+00 ppl=7.61
+Validation - loss=3.1058e+00 ppl=22.33 best_loss=2.9790e+00 best_ppl=19.67
+Epoch 150 - |param|=6.44e+02 |g_param|=1.77e+05 loss=1.9434e+00 ppl=6.98
+Validation - loss=3.1154e+00 ppl=22.54 best_loss=2.9187e+00 best_ppl=18.52
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$
+```
