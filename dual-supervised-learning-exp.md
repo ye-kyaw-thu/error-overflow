@@ -948,6 +948,19 @@ plt.show()
 
 ## PPL vs Epochs Graph
 
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
+```
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-60-40-rkmy.png" alt="60-40 graph" width="500"/> 
+</p>  
+<div align="center">
+  Fig.1 PPL vs epochs for neural language model of Rakhine language
+</div> 
+
+<br />
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
