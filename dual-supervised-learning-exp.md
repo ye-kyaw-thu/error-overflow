@@ -907,6 +907,8 @@ from scipy.interpolate import make_interp_spline
 import os
 import sys
 
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last Updated: 21 Mar 2022 @Lab
 # How to Run: python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
 # Ref:
 # https://www.quora.com/How-do-you-plot-one-line-with-two-different-colours-using-Python-matplotlib-Python-matplotlib-development
