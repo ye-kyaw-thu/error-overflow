@@ -1037,6 +1037,61 @@ log file output က အောက်ပါအတိုင်း...
 
 ## PPL vs Epochs Graph for Rakhine
 
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ export no=20; for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); tail -n 2 "$logFile" | cut -d"=" -f5 |sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
+    30	19.46
+    40	13.69
+    50	11.99
+    60	11.11
+    70	10.14
+    80	10.03
+    90	8.72
+   100	9.12
+   110	8.14
+   120	8.38
+   130	7.90
+   140	7.26
+   150	7.07
+   160	7.07
+   170	7.01
+   180	6.49
+   190	6.10
+   200	6.11
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$
+```
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ export no=20; \
+> for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
+> tail -n 2 "$logFile" | cut -d"=" -f5 | \
+> sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
+    30	25.28
+    40	21.20
+    50	20.75
+    60	20.87
+    70	20.73
+    80	21.24
+    90	19.89
+   100	20.99
+   110	20.98
+   120	21.94
+   130	21.35
+   140	20.51
+   150	20.61
+   160	20.74
+   170	21.01
+   180	19.93
+   190	19.87
+   200	19.73
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$
+```
+
+python script ကို run ခဲ့...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
+```
+
 
 
 ## Reference
