@@ -1089,12 +1089,9 @@ log file output က အောက်ပါအတိုင်း...
 python script ကို run ခဲ့...  
 
 ```
-(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs-raw-my
 ```
 
-```
-(simple-nmt) ye@:~/exp/simple-nmt/model/lm$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
-```
 
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/DSL-exp/ppl-vs-epochs-raw-my.png" alt="ppl vs epoch graph for Myanmar" width="500"/> 
