@@ -1108,55 +1108,67 @@ python script ကို run ခဲ့...
 
 #### Warmup-Epoch 20, Total Epoch 30
 
-**rk-my**
-
-
 **my-rk**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 30 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm2.pth \
+--model_fn ./model/dsl/dsl-model-myrk1.pth
+
+
+**rk-my**
 
 
 
 #### Warmup-Epoch 20, Total Epoch 40
 
-**rk-my**
-
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 50
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 60
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 70
 
-**rk-my**
-
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 80
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 90
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
+
 
 #### Warmup-Epoch 20, Total Epoch 100
 
-**rk-my**
 
 **my-rk**
 
+**rk-my**
 
 ## DSL with Transformer
 
@@ -1164,51 +1176,60 @@ python script ကို run ခဲ့...
 
 #### Warmup-Epoch 20, Total Epoch 30
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 40
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 50
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
+
 
 #### Warmup-Epoch 20, Total Epoch 60
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 70
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 80
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 90
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 #### Warmup-Epoch 20, Total Epoch 100
 
-**rk-my**
 
 **my-rk**
+
+**rk-my**
 
 
 
