@@ -1154,7 +1154,7 @@ Validation Y2X - loss=9.4207e-01 ppl=2.57 best_loss=1.0226e+00 best_ppl=2.78
 
 testing/evaluaion ...  
 
-40 epoch Best score:  
+30 epoch (Best score):  
 ```
 Evaluation result for the model: dsl-model-rkmy.30.0.88-2.42.0.81-2.24.0.98-2.67.0.94-2.57.pth
 BLEU = 64.38, 83.0/69.8/59.1/50.2 (BP=1.000, ratio=1.020, hyp_len=23623, ref_len=23160)
@@ -1171,6 +1171,18 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
 --lm_fn ./model/lm/lm-200epoch.pth \
 --model_fn ./model/dsl/myrk-40epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-40epoch/training.log
+
+```
+Epoch 40 - |param|=9.34e+02 |g_param|=2.86e+04 loss_x2y=5.9847e-01 ppl_x2y=1.82 loss_y2x=5.6397e-01 ppl_y2x=1.76 dual_loss=7.1126e-01
+Validation X2Y - loss=8.2739e-01 ppl=2.29 best_loss=8.5217e-01 best_ppl=2.34
+Validation Y2X - loss=7.5925e-01 ppl=2.14 best_loss=7.7146e-01 best_ppl=2.16
+```
+
+testing/evaluation ...  
+40 epoch (Best score):
+```
+
+```
 
 **rk-my**
 
