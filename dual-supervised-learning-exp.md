@@ -1130,8 +1130,11 @@ testing/evaluation...
 (simple-nmt) ye@:~/exp/simple-nmt/model/dsl/myrk-30epoch$ ./test-eval-loop.sh | tee eval.log  
 ```
 
-30epoch-score:  
-Best-score (): 
+30epoch-score (Best Score):  
+```
+Evaluation result for the model: dsl-model-myrk.30.0.83-2.30.0.95-2.58.0.96-2.61.0.94-2.57.pth
+BLEU = 64.85, 83.5/70.3/59.5/50.7 (BP=1.000, ratio=1.014, hyp_len=23485, ref_len=23160)
+```
 
 **rk-my**
 
