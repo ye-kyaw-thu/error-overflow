@@ -1109,7 +1109,10 @@ DSL မော်ဒယ်က X-Y, Y-X (ဆိုလိုတာက source-to-tar
 ```bash
 #!/bin/bash
 
-# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last Updated: 21 Mar 2022
+# find all trained models and parse source/target to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# *** trained models are Dual Supervised Learning models and thus it support source-to-target and target-to-source testing or translation
 
 for i in *.pth; do
    MODEL=$i;
