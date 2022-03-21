@@ -1152,49 +1152,163 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 40 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-40epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-40epoch/training.log
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 40 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-40epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-40epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 50
 
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-50epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-50epoch/training.log
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 50 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-50epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-50epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 60
 
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-60epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-60epoch/training.log
+
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 60 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-60epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-60epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 70
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 70 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-70epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-70epoch/training.log
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 70 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-70epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-70epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 80
 
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 80 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-80epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-80epoch/training.log
+
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 80 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-80epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-80epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 90
 
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 90 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk90epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-90epoch/training.log
+
 **rk-my**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 90 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-90epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-90epoch/training.log
 
 #### Warmup-Epoch 20, Total Epoch 100
 
 
 **my-rk**
 
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
+--gpu_id 1 --batch_size 64 --n_epochs 100 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-100epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-100epoch/training.log
+
+
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 100 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/rkmy-100epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-100epoch/training.log
 
 ## DSL with Transformer
 
