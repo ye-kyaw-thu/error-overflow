@@ -1130,6 +1130,12 @@ for i in *.pth; do
 done
 ```
 
+## Thinking
+
+အဲဒါဆိုရင် LM ကလည်း source, target သပ်သပ်ခွဲစရာ မလိုဘူးလို့ ယူဆတယ်။ bi-directional သွားထားတာလို့ ယူဆတယ်။  
+စာတမ်းကို ဖတ်ရန်၊ code ကို ကြည့်ရန်...    
+
+
 ## DSL with Seq2Seq
 
 ### with LM 200 Epoch
