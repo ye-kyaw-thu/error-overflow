@@ -829,6 +829,16 @@ Epoch 140 - |param|=6.69e+02 |g_param|=3.13e+05 loss=2.0294e+00 ppl=7.61
 Validation - loss=3.1058e+00 ppl=22.33 best_loss=2.9790e+00 best_ppl=19.67
 Epoch 150 - |param|=6.44e+02 |g_param|=1.77e+05 loss=1.9434e+00 ppl=6.98
 Validation - loss=3.1154e+00 ppl=22.54 best_loss=2.9187e+00 best_ppl=18.52
+Epoch 160 - |param|=6.83e+02 |g_param|=1.61e+05 loss=1.9917e+00 ppl=7.33
+Validation - loss=3.1295e+00 ppl=22.86 best_loss=2.9526e+00 best_ppl=19.16
+Epoch 170 - |param|=6.62e+02 |g_param|=1.83e+05 loss=1.8888e+00 ppl=6.61
+Validation - loss=3.1223e+00 ppl=22.70 best_loss=2.9304e+00 best_ppl=18.74
+Epoch 180 - |param|=6.96e+02 |g_param|=3.59e+05 loss=1.8745e+00 ppl=6.52
+Validation - loss=3.1463e+00 ppl=23.25 best_loss=2.9091e+00 best_ppl=18.34
+Epoch 190 - |param|=6.96e+02 |g_param|=1.77e+05 loss=1.8491e+00 ppl=6.35
+Validation - loss=3.1808e+00 ppl=24.07 best_loss=2.9306e+00 best_ppl=18.74
+Epoch 200 - |param|=7.15e+02 |g_param|=3.41e+05 loss=1.8571e+00 ppl=6.41
+Validation - loss=3.1301e+00 ppl=22.88 best_loss=2.9116e+00 best_ppl=18.39
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$
 ```
 
