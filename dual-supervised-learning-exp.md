@@ -953,7 +953,7 @@ plt.show()
 ```
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/Transformer_RL-60-40-rkmy.png" alt="60-40 graph" width="500"/> 
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/DSL-exp/ppl-vs-epochs-raw.png" alt="ppl vs epoch graph for Rakhine" width="500"/> 
 </p>  
 <div align="center">
   Fig.1 PPL vs epochs for neural language model of Rakhine language
