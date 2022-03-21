@@ -986,10 +986,53 @@ do
 done
 ```
 
-အထက်ပါ shell ကို run ခဲ့ပြီး ရလာတဲ့ language model တွေနဲ့ log ဖိုင်တွေက အောက်ပါအတိုင်း...  
+အထက်ပါ shell ကို run ခဲ့ပြီး ရလာတဲ့ language model တွေက အောက်ပါအတိုင်း...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ ll -h *.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 09:25 lm-100epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 09:38 lm-110epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 09:53 lm-120epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 10:08 lm-130epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 10:25 lm-140epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 10:44 lm-150epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 11:03 lm-160epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 11:24 lm-170epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 11:46 lm-180epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 12:09 lm-190epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 12:37 lm-200epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 08:25 lm-30epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 08:30 lm-40epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 08:36 lm-50epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 08:44 lm-60epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 08:52 lm-70epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 09:02 lm-80epoch-my.pth
+-rw-rw-r-- 1 ye ye 7.3M မတ်   21 09:12 lm-90epoch-my.pth
+```
 
+log file output က အောက်ပါအတိုင်း...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$ ll -h *.log
+-rw-rw-r-- 1 ye ye  30K မတ်   21 09:25 lm-100epoch-training-my.log
+-rw-rw-r-- 1 ye ye  33K မတ်   21 09:38 lm-110epoch-training-my.log
+-rw-rw-r-- 1 ye ye  36K မတ်   21 09:53 lm-120epoch-training-my.log
+-rw-rw-r-- 1 ye ye  39K မတ်   21 10:08 lm-130epoch-training-my.log
+-rw-rw-r-- 1 ye ye  42K မတ်   21 10:25 lm-140epoch-training-my.log
+-rw-rw-r-- 1 ye ye  45K မတ်   21 10:44 lm-150epoch-training-my.log
+-rw-rw-r-- 1 ye ye  48K မတ်   21 11:03 lm-160epoch-training-my.log
+-rw-rw-r-- 1 ye ye  50K မတ်   21 11:24 lm-170epoch-training-my.log
+-rw-rw-r-- 1 ye ye  53K မတ်   21 11:46 lm-180epoch-training-my.log
+-rw-rw-r-- 1 ye ye  56K မတ်   21 12:09 lm-190epoch-training-my.log
+-rw-rw-r-- 1 ye ye  59K မတ်   21 12:37 lm-200epoch-training-my.log
+-rw-rw-r-- 1 ye ye 9.6K မတ်   21 08:25 lm-30epoch-training-my.log
+-rw-rw-r-- 1 ye ye  13K မတ်   21 08:30 lm-40epoch-training-my.log
+-rw-rw-r-- 1 ye ye  16K မတ်   21 08:36 lm-50epoch-training-my.log
+-rw-rw-r-- 1 ye ye  19K မတ်   21 08:44 lm-60epoch-training-my.log
+-rw-rw-r-- 1 ye ye  22K မတ်   21 08:52 lm-70epoch-training-my.log
+-rw-rw-r-- 1 ye ye  24K မတ်   21 09:02 lm-80epoch-training-my.log
+-rw-rw-r-- 1 ye ye  27K မတ်   21 09:12 lm-90epoch-training-my.log
+(simple-nmt) ye@:~/exp/simple-nmt/model/lm/my$
 ```
 
 ## PPL vs Epochs Graph for Rakhine
