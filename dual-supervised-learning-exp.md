@@ -1116,7 +1116,7 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
 --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
 --lm_fn ./model/lm/lm-200epoch.pth \
---model_fn ./model/dsl/myrk-30epoch/dsl-model-myrk.pth
+--model_fn ./model/dsl/myrk-30epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-30epoch/training.log
 
 
 **rk-my**
@@ -1127,7 +1127,7 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
 --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
 --lm_fn ./model/lm/my/lm-200epoch-my.pth \
---model_fn ./model/dsl/myrk-30epoch/dsl-model-rkmy.pth
+--model_fn ./model/dsl/rkmy-30epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-30epoch/training.log
 
 
 
