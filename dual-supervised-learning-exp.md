@@ -946,7 +946,7 @@ plt.savefig(output_filename + '.pdf')
 plt.show()
 ```
 
-## PPL vs Epochs Graph
+## PPL vs Epochs Graph for Rakhine
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$ python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
@@ -962,6 +962,37 @@ plt.show()
 <br />
 
 ## Language Model Building for Myanmar Language
+
+ဒီတစ်ခါတော့ bash shell script တစ်ပုဒ်ကို အောက်ပါအတိုင်း ရေးခဲ့...   
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LST, NECTEC, Thailand
+## Last updated: 21 Mar 2022
+## for Neural LM building
+
+for i in {30..200..10}
+do
+
+   echo "LM building with ${i} epochs ...";
+   time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy \
+   --gpu_id 1 --batch_size 64 --n_epochs ${i} --max_length 100 --dropout .2 \
+   --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 \
+   --model_fn ./model/lm/my/lm-${i}epoch-my.pth | tee ./model/lm/my/lm-${i}epoch-training-my.log  
+
+   ls ./model/lm/my/lm-${i}epoch-my.pth 
+   tail ./model/lm/lm-${i}epoch-training-my.log 
+done
+```
+
+အထက်ပါ shell ကို run ခဲ့ပြီး ရလာတဲ့ language model တွေနဲ့ log ဖိုင်တွေက အောက်ပါအတိုင်း...  
+
+```
+
+```
+
+## PPL vs Epochs Graph for Rakhine
 
 
 
