@@ -1118,6 +1118,20 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --lm_fn ./model/lm/lm-200epoch.pth \
 --model_fn ./model/dsl/myrk-30epoch/dsl-model-myrk.pth | tee ./model/dsl/myrk-30epoch/training.log
 
+```
+Epoch 30 - |param|=9.28e+02 |g_param|=1.00e+05 loss_x2y=8.3242e-01 ppl_x2y=2.30 loss_y2x=9.4779e-01 ppl_y2x=2.58 dual_loss=1.5505e+00
+Validation X2Y - loss=9.6003e-01 ppl=2.61 best_loss=9.9560e-01 best_ppl=2.71                                            
+Validation Y2X - loss=9.4432e-01 ppl=2.57 best_loss=9.8890e-01 best_ppl=2.69
+```
+
+testing/evaluation...  
+
+```
+(simple-nmt) ye@:~/exp/simple-nmt/model/dsl/myrk-30epoch$ ./test-eval-loop.sh | tee eval.log  
+```
+
+30epoch-score:  
+Best-score (): 
 
 **rk-my**
 
