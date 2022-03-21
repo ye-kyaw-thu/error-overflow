@@ -846,9 +846,9 @@ print and save training ppl values...
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; \
-for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
-tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 |\
-sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
+> for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
+> tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 |\
+> sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
     30	15.96                                                
     40	13.84
     50	10.55
@@ -862,6 +862,11 @@ sed -n 'p;n' | nl -v $no ; done | tee  train-ppl.txt
    130	7.31
    140	7.61
    150	6.98
+   160	7.33
+   170	6.61
+   180	6.52
+   190	6.35
+   200	6.41
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$
 ```
 
@@ -869,9 +874,9 @@ print and save validation ppl values...
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$ export no=20; \
-for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
-tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | \
-sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
+> for logFile in `ls lm*.log | sort -V`; do no=$((no+10)); \
+> tail "$logFile" | head -n 7 | tail -n 2| cut -d"=" -f5 | \
+> sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
     30	20.54                                              
     40	20.56
     50	17.45
@@ -885,5 +890,10 @@ sed -n 'n;p' | nl -v $no ; done | tee  validation-ppl.txt
    130	19.16
    140	19.67
    150	18.52
+   160	19.16
+   170	18.74
+   180	18.34
+   190	18.74
+   200	18.39
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$
 ```
