@@ -1146,7 +1146,19 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --lm_fn ./model/lm/my/lm-200epoch-my.pth \
 --model_fn ./model/dsl/rkmy-30epoch/dsl-model-rkmy.pth | tee ./model/dsl/rkmy-30epoch/training.log
 
+```
+Epoch 30 - |param|=9.27e+02 |g_param|=4.03e+04 loss_x2y=8.8421e-01 ppl_x2y=2.42 loss_y2x=8.0544e-01 ppl_y2x=2.24 dual_loss=5.2626e-01
+Validation X2Y - loss=9.8028e-01 ppl=2.67 best_loss=1.0001e+00 best_ppl=2.72                                            
+Validation Y2X - loss=9.4207e-01 ppl=2.57 best_loss=1.0226e+00 best_ppl=2.78
+```
 
+testing/evaluaion ...  
+
+40 epoch Best score:  
+```
+Evaluation result for the model: dsl-model-rkmy.30.0.88-2.42.0.81-2.24.0.98-2.67.0.94-2.57.pth
+BLEU = 64.38, 83.0/69.8/59.1/50.2 (BP=1.000, ratio=1.020, hyp_len=23623, ref_len=23160)
+```
 
 #### Warmup-Epoch 20, Total Epoch 40
 
