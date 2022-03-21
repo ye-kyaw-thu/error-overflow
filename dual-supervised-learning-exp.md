@@ -946,3 +946,9 @@ plt.savefig(output_filename + '.pdf')
 plt.show()
 ```
 
+## PPL vs Epochs Graph
+
+## Reference
+
+- [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
+- [(Yingce Xia et. al, 2017)](https://arxiv.org/pdf/1707.00415.pdf)  
