@@ -1110,15 +1110,24 @@ python script ကို run ခဲ့...
 
 **my-rk**
 
-time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang myrk \
 --gpu_id 1 --batch_size 64 --n_epochs 30 --max_length 100 --dropout .2 \
 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
 --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
---lm_fn ./model/lm/lm2.pth \
---model_fn ./model/dsl/dsl-model-myrk1.pth
+--lm_fn ./model/lm/lm-200epoch.pth \
+--model_fn ./model/dsl/myrk-30epoch/dsl-model-myrk.pth
 
 
 **rk-my**
+
+time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+--lang rkmy \
+--gpu_id 1 --batch_size 64 --n_epochs 30 --max_length 100 --dropout .2 \
+--word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+--dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+--lm_fn ./model/lm/my/lm-200epoch-my.pth \
+--model_fn ./model/dsl/myrk-30epoch/dsl-model-rkmy.pth
 
 
 
