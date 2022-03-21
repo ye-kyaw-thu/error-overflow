@@ -897,3 +897,50 @@ print and save validation ppl values...
    200	18.39
 (simple-nmt) ye@:~/exp/simple-nmt/model/lm$
 ```
+
+## Prepare a Python Script for Drawing a Graph
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import os
+import sys
+
+# How to Run: python ./draw-raw.py ./train-ppl.txt ./validation-ppl.txt "Perplexity vs Number of Epochs" ppl-vs-epochs
+# Ref:
+# https://www.quora.com/How-do-you-plot-one-line-with-two-different-colours-using-Python-matplotlib-Python-matplotlib-development
+# https://stackoverflow.com/questions/48425278/plotting-data-from-two-columns-in-a-txt-file-python
+# https://www.geeksforgeeks.org/how-to-plot-a-smooth-curve-in-matplotlib/
+# https://stackoverflow.com/questions/19023512/error-with-reading-float-from-two-column-text-file-into-an-array-in-python
+
+model1_result = sys.argv[1]
+model2_result = sys.argv[2]
+graph_title = sys.argv[3]
+output_filename = sys.argv[4]
+
+data1 = np.loadtxt(model1_result)
+
+x1 = data1[:,0]
+y1 = data1[:,1]
+
+data2 = np.loadtxt(model2_result)
+
+x2 = data2[:,0]
+y2 = data2[:,1]
+
+# Plotting the Graph
+plt.plot(x1, y1)
+plt.plot(x2, y2)
+plt.title(graph_title)
+plt.xlabel('epoch')
+plt.ylabel('ppl (perplexity)')
+#plt.annotate(xy=[40,1], s='start RL here')
+plt.legend(['training', 'validation'], loc=3)
+
+plt.savefig(output_filename + '.png')
+plt.savefig(output_filename + '.pdf')
+
+plt.show()
+```
+
