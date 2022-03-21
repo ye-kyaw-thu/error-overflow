@@ -1102,6 +1102,116 @@ python script ကို run ခဲ့...
 
 <br />
 
+## DSL with Seq2Seq
+
+### with LM 200 Epoch
+
+#### Warmup-Epoch 20, Total Epoch 30
+
+**rk-my**
+
+
+**my-rk**
+
+
+
+#### Warmup-Epoch 20, Total Epoch 40
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 50
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 60
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 70
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 80
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 90
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 100
+
+**rk-my**
+
+**my-rk**
+
+
+## DSL with Transformer
+
+### with LM 200 Epoch
+
+#### Warmup-Epoch 20, Total Epoch 30
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 40
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 50
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 60
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 70
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 80
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 90
+
+**rk-my**
+
+**my-rk**
+
+#### Warmup-Epoch 20, Total Epoch 100
+
+**rk-my**
+
+**my-rk**
+
+
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
