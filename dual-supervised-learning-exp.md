@@ -4013,13 +4013,597 @@ sys	0m36.888s
 #### Warmup-Epoch 20, Total Epoch 90
 
 ```
+Epoch 1 - |param|=9.10e+02 |g_param|=1.68e+05 loss_x2y=3.5104e+00 ppl_x2y=33.46 loss_y2x=3.5526e+00 ppl_y2x=34.90 dual_loss=0.0000e+00
+Validation X2Y - loss=2.9182e+00 ppl=18.51 best_loss=inf best_ppl=inf                                                   
+Validation Y2X - loss=2.9934e+00 ppl=19.95 best_loss=inf best_ppl=inf
+Epoch 2 - |param|=9.11e+02 |g_param|=1.87e+05 loss_x2y=2.3667e+00 ppl_x2y=10.66 loss_y2x=2.3843e+00 ppl_y2x=10.85 dual_loss=0.0000e+00
+Validation X2Y - loss=1.9821e+00 ppl=7.26 best_loss=2.9182e+00 best_ppl=18.51                                           
+Validation Y2X - loss=1.9935e+00 ppl=7.34 best_loss=2.9934e+00 best_ppl=19.95
+Epoch 3 - |param|=9.11e+02 |g_param|=2.45e+05 loss_x2y=1.8094e+00 ppl_x2y=6.11 loss_y2x=1.7731e+00 ppl_y2x=5.89 dual_loss=0.0000e+00
+Validation X2Y - loss=1.5168e+00 ppl=4.56 best_loss=1.9821e+00 best_ppl=7.26                                            
+Validation Y2X - loss=1.4703e+00 ppl=4.35 best_loss=1.9935e+00 best_ppl=7.34
+Epoch 4 - |param|=9.12e+02 |g_param|=2.31e+05 loss_x2y=1.3836e+00 ppl_x2y=3.99 loss_y2x=1.3909e+00 ppl_y2x=4.02 dual_loss=0.0000e+00
+Validation X2Y - loss=1.1176e+00 ppl=3.06 best_loss=1.5168e+00 best_ppl=4.56                                            
+Validation Y2X - loss=1.1739e+00 ppl=3.23 best_loss=1.4703e+00 best_ppl=4.35
+Epoch 5 - |param|=9.12e+02 |g_param|=2.39e+05 loss_x2y=1.1285e+00 ppl_x2y=3.09 loss_y2x=1.0917e+00 ppl_y2x=2.98 dual_loss=0.0000e+00
+Validation X2Y - loss=9.7086e-01 ppl=2.64 best_loss=1.1176e+00 best_ppl=3.06                                            
+Validation Y2X - loss=9.5889e-01 ppl=2.61 best_loss=1.1739e+00 best_ppl=3.23
+Epoch 6 - |param|=9.12e+02 |g_param|=2.58e+05 loss_x2y=9.6399e-01 ppl_x2y=2.62 loss_y2x=9.7142e-01 ppl_y2x=2.64 dual_loss=0.0000e+00
+Validation X2Y - loss=8.6937e-01 ppl=2.39 best_loss=9.7086e-01 best_ppl=2.64                                            
+Validation Y2X - loss=8.7943e-01 ppl=2.41 best_loss=9.5889e-01 best_ppl=2.61
+Epoch 7 - |param|=9.13e+02 |g_param|=2.34e+05 loss_x2y=8.5893e-01 ppl_x2y=2.36 loss_y2x=8.6068e-01 ppl_y2x=2.36 dual_loss=0.0000e+00
+Validation X2Y - loss=7.9646e-01 ppl=2.22 best_loss=8.6937e-01 best_ppl=2.39                                            
+Validation Y2X - loss=7.9564e-01 ppl=2.22 best_loss=8.7943e-01 best_ppl=2.41
+Epoch 8 - |param|=9.13e+02 |g_param|=2.29e+05 loss_x2y=7.5583e-01 ppl_x2y=2.13 loss_y2x=7.5806e-01 ppl_y2x=2.13 dual_loss=0.0000e+00
+Validation X2Y - loss=7.4017e-01 ppl=2.10 best_loss=7.9646e-01 best_ppl=2.22                                            
+Validation Y2X - loss=7.4884e-01 ppl=2.11 best_loss=7.9564e-01 best_ppl=2.22
+Epoch 9 - |param|=9.13e+02 |g_param|=2.17e+05 loss_x2y=6.7373e-01 ppl_x2y=1.96 loss_y2x=6.6708e-01 ppl_y2x=1.95 dual_loss=0.0000e+00
+Validation X2Y - loss=7.2565e-01 ppl=2.07 best_loss=7.4017e-01 best_ppl=2.10                                            
+Validation Y2X - loss=7.1439e-01 ppl=2.04 best_loss=7.4884e-01 best_ppl=2.11
+Epoch 10 - |param|=9.13e+02 |g_param|=2.42e+05 loss_x2y=6.5393e-01 ppl_x2y=1.92 loss_y2x=6.3853e-01 ppl_y2x=1.89 dual_loss=0.0000e+00
+Validation X2Y - loss=7.1289e-01 ppl=2.04 best_loss=7.2565e-01 best_ppl=2.07                                            
+Validation Y2X - loss=6.8324e-01 ppl=1.98 best_loss=7.1439e-01 best_ppl=2.04
+Epoch 11 - |param|=9.14e+02 |g_param|=2.13e+05 loss_x2y=5.5539e-01 ppl_x2y=1.74 loss_y2x=5.5112e-01 ppl_y2x=1.74 dual_loss=0.0000e+00
+Validation X2Y - loss=7.0917e-01 ppl=2.03 best_loss=7.1289e-01 best_ppl=2.04                                            
+Validation Y2X - loss=7.5833e-01 ppl=2.13 best_loss=6.8324e-01 best_ppl=1.98
+Epoch 12 - |param|=9.14e+02 |g_param|=2.30e+05 loss_x2y=5.3571e-01 ppl_x2y=1.71 loss_y2x=5.3913e-01 ppl_y2x=1.71 dual_loss=0.0000e+00
+Validation X2Y - loss=6.9634e-01 ppl=2.01 best_loss=7.0917e-01 best_ppl=2.03                                            
+Validation Y2X - loss=6.8405e-01 ppl=1.98 best_loss=6.8324e-01 best_ppl=1.98
+Epoch 13 - |param|=9.14e+02 |g_param|=2.24e+05 loss_x2y=4.9857e-01 ppl_x2y=1.65 loss_y2x=4.8909e-01 ppl_y2x=1.63 dual_loss=0.0000e+00
+Validation X2Y - loss=6.5640e-01 ppl=1.93 best_loss=6.9634e-01 best_ppl=2.01                                            
+Validation Y2X - loss=6.4193e-01 ppl=1.90 best_loss=6.8324e-01 best_ppl=1.98
+Epoch 14 - |param|=9.15e+02 |g_param|=1.99e+05 loss_x2y=4.4217e-01 ppl_x2y=1.56 loss_y2x=4.4314e-01 ppl_y2x=1.56 dual_loss=0.0000e+00
+Validation X2Y - loss=6.7546e-01 ppl=1.96 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.2155e-01 ppl=1.86 best_loss=6.4193e-01 best_ppl=1.90
+Epoch 15 - |param|=9.15e+02 |g_param|=2.10e+05 loss_x2y=4.3357e-01 ppl_x2y=1.54 loss_y2x=4.3322e-01 ppl_y2x=1.54 dual_loss=0.0000e+00
+Validation X2Y - loss=6.7365e-01 ppl=1.96 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.1662e-01 ppl=1.85 best_loss=6.2155e-01 best_ppl=1.86
+Epoch 16 - |param|=9.15e+02 |g_param|=1.63e+05 loss_x2y=4.2363e-01 ppl_x2y=1.53 loss_y2x=4.2577e-01 ppl_y2x=1.53 dual_loss=0.0000e+00
+Validation X2Y - loss=6.6396e-01 ppl=1.94 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.0970e-01 ppl=1.84 best_loss=6.1662e-01 best_ppl=1.85
+Epoch 17 - |param|=9.16e+02 |g_param|=1.48e+05 loss_x2y=3.9427e-01 ppl_x2y=1.48 loss_y2x=3.9830e-01 ppl_y2x=1.49 dual_loss=0.0000e+00
+Validation X2Y - loss=6.5877e-01 ppl=1.93 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=5.9655e-01 ppl=1.82 best_loss=6.0970e-01 best_ppl=1.84
+Epoch 18 - |param|=9.16e+02 |g_param|=1.45e+05 loss_x2y=3.6916e-01 ppl_x2y=1.45 loss_y2x=3.7280e-01 ppl_y2x=1.45 dual_loss=0.0000e+00
+Validation X2Y - loss=6.6728e-01 ppl=1.95 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.0635e-01 ppl=1.83 best_loss=5.9655e-01 best_ppl=1.82
+Epoch 19 - |param|=9.16e+02 |g_param|=1.54e+05 loss_x2y=3.5949e-01 ppl_x2y=1.43 loss_y2x=3.4371e-01 ppl_y2x=1.41 dual_loss=0.0000e+00
+Validation X2Y - loss=6.6357e-01 ppl=1.94 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=5.9234e-01 ppl=1.81 best_loss=5.9655e-01 best_ppl=1.82
+Epoch 20 - |param|=9.17e+02 |g_param|=1.45e+05 loss_x2y=3.4129e-01 ppl_x2y=1.41 loss_y2x=3.3829e-01 ppl_y2x=1.40 dual_loss=0.0000e+00
+Validation X2Y - loss=6.7553e-01 ppl=1.97 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=5.7130e-01 ppl=1.77 best_loss=5.9234e-01 best_ppl=1.81
+Epoch 21 - |param|=9.17e+02 |g_param|=2.12e+05 loss_x2y=3.7422e-01 ppl_x2y=1.45 loss_y2x=3.6236e-01 ppl_y2x=1.44 dual_loss=4.8727e-01
+Validation X2Y - loss=6.5621e-01 ppl=1.93 best_loss=6.5640e-01 best_ppl=1.93                                            
+Validation Y2X - loss=5.7755e-01 ppl=1.78 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 22 - |param|=9.18e+02 |g_param|=2.49e+05 loss_x2y=3.4745e-01 ppl_x2y=1.42 loss_y2x=3.5612e-01 ppl_y2x=1.43 dual_loss=6.2044e-01
+Validation X2Y - loss=6.5102e-01 ppl=1.92 best_loss=6.5621e-01 best_ppl=1.93                                            
+Validation Y2X - loss=5.9566e-01 ppl=1.81 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 23 - |param|=9.18e+02 |g_param|=2.53e+05 loss_x2y=3.3343e-01 ppl_x2y=1.40 loss_y2x=3.3074e-01 ppl_y2x=1.39 dual_loss=4.2742e-01
+Validation X2Y - loss=6.5787e-01 ppl=1.93 best_loss=6.5102e-01 best_ppl=1.92                                            
+Validation Y2X - loss=5.7263e-01 ppl=1.77 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 24 - |param|=9.18e+02 |g_param|=2.50e+05 loss_x2y=3.1468e-01 ppl_x2y=1.37 loss_y2x=3.1191e-01 ppl_y2x=1.37 dual_loss=3.4720e-01
+Validation X2Y - loss=6.5762e-01 ppl=1.93 best_loss=6.5102e-01 best_ppl=1.92                                            
+Validation Y2X - loss=5.8932e-01 ppl=1.80 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 25 - |param|=9.19e+02 |g_param|=2.29e+05 loss_x2y=3.1110e-01 ppl_x2y=1.36 loss_y2x=3.1300e-01 ppl_y2x=1.37 dual_loss=4.2950e-01
+Validation X2Y - loss=6.3695e-01 ppl=1.89 best_loss=6.5102e-01 best_ppl=1.92                                            
+Validation Y2X - loss=5.7653e-01 ppl=1.78 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 26 - |param|=9.19e+02 |g_param|=2.53e+05 loss_x2y=3.0855e-01 ppl_x2y=1.36 loss_y2x=2.9095e-01 ppl_y2x=1.34 dual_loss=3.3653e-01
+Validation X2Y - loss=6.4586e-01 ppl=1.91 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.7204e-01 ppl=1.77 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 27 - |param|=9.20e+02 |g_param|=2.44e+05 loss_x2y=2.9202e-01 ppl_x2y=1.34 loss_y2x=2.8550e-01 ppl_y2x=1.33 dual_loss=3.8423e-01
+Validation X2Y - loss=6.3932e-01 ppl=1.90 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9149e-01 ppl=1.81 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 28 - |param|=9.20e+02 |g_param|=2.48e+05 loss_x2y=2.9284e-01 ppl_x2y=1.34 loss_y2x=2.8438e-01 ppl_y2x=1.33 dual_loss=3.5607e-01
+Validation X2Y - loss=6.7035e-01 ppl=1.95 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9217e-01 ppl=1.81 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 29 - |param|=9.20e+02 |g_param|=2.28e+05 loss_x2y=2.7230e-01 ppl_x2y=1.31 loss_y2x=2.6629e-01 ppl_y2x=1.31 dual_loss=3.4998e-01
+Validation X2Y - loss=6.4102e-01 ppl=1.90 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.5905e-01 ppl=1.75 best_loss=5.7130e-01 best_ppl=1.77
+Epoch 30 - |param|=9.21e+02 |g_param|=2.46e+05 loss_x2y=2.6658e-01 ppl_x2y=1.31 loss_y2x=2.5481e-01 ppl_y2x=1.29 dual_loss=3.4488e-01
+Validation X2Y - loss=6.5266e-01 ppl=1.92 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.6710e-01 ppl=1.76 best_loss=5.5905e-01 best_ppl=1.75
+Epoch 31 - |param|=9.21e+02 |g_param|=2.15e+05 loss_x2y=2.5147e-01 ppl_x2y=1.29 loss_y2x=2.5653e-01 ppl_y2x=1.29 dual_loss=3.4755e-01
+Validation X2Y - loss=6.6004e-01 ppl=1.93 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.6658e-01 ppl=1.76 best_loss=5.5905e-01 best_ppl=1.75
+Epoch 32 - |param|=9.22e+02 |g_param|=2.34e+05 loss_x2y=2.5461e-01 ppl_x2y=1.29 loss_y2x=2.5636e-01 ppl_y2x=1.29 dual_loss=3.9583e-01
+Validation X2Y - loss=6.5434e-01 ppl=1.92 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.6060e-01 ppl=1.75 best_loss=5.5905e-01 best_ppl=1.75
+Epoch 33 - |param|=9.22e+02 |g_param|=2.21e+05 loss_x2y=2.4428e-01 ppl_x2y=1.28 loss_y2x=2.4513e-01 ppl_y2x=1.28 dual_loss=4.0657e-01
+Validation X2Y - loss=6.5953e-01 ppl=1.93 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.6678e-01 ppl=1.76 best_loss=5.5905e-01 best_ppl=1.75
+Epoch 34 - |param|=9.22e+02 |g_param|=2.30e+05 loss_x2y=2.4014e-01 ppl_x2y=1.27 loss_y2x=2.3306e-01 ppl_y2x=1.26 dual_loss=3.4566e-01
+Validation X2Y - loss=6.6138e-01 ppl=1.94 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.5478e-01 ppl=1.74 best_loss=5.5905e-01 best_ppl=1.75
+Epoch 35 - |param|=9.23e+02 |g_param|=2.25e+05 loss_x2y=2.2581e-01 ppl_x2y=1.25 loss_y2x=2.2055e-01 ppl_y2x=1.25 dual_loss=3.3991e-01
+Validation X2Y - loss=6.6313e-01 ppl=1.94 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.1372e-01 ppl=1.85 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 36 - |param|=9.23e+02 |g_param|=2.56e+05 loss_x2y=2.3140e-01 ppl_x2y=1.26 loss_y2x=2.2752e-01 ppl_y2x=1.26 dual_loss=3.4876e-01
+Validation X2Y - loss=6.5302e-01 ppl=1.92 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.7572e-01 ppl=1.78 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 37 - |param|=9.24e+02 |g_param|=2.53e+05 loss_x2y=2.2141e-01 ppl_x2y=1.25 loss_y2x=2.1359e-01 ppl_y2x=1.24 dual_loss=3.7897e-01
+Validation X2Y - loss=6.4852e-01 ppl=1.91 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9217e-01 ppl=1.81 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 38 - |param|=9.24e+02 |g_param|=2.57e+05 loss_x2y=2.2568e-01 ppl_x2y=1.25 loss_y2x=2.1534e-01 ppl_y2x=1.24 dual_loss=3.4097e-01
+Validation X2Y - loss=6.7091e-01 ppl=1.96 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.8384e-01 ppl=1.79 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 39 - |param|=9.24e+02 |g_param|=2.47e+05 loss_x2y=2.1491e-01 ppl_x2y=1.24 loss_y2x=2.1435e-01 ppl_y2x=1.24 dual_loss=4.1041e-01
+Validation X2Y - loss=6.7022e-01 ppl=1.95 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.1846e-01 ppl=1.86 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 40 - |param|=9.25e+02 |g_param|=2.55e+05 loss_x2y=2.0696e-01 ppl_x2y=1.23 loss_y2x=2.0117e-01 ppl_y2x=1.22 dual_loss=3.4259e-01
+Validation X2Y - loss=6.6973e-01 ppl=1.95 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9693e-01 ppl=1.82 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 41 - |param|=9.25e+02 |g_param|=2.54e+05 loss_x2y=1.9998e-01 ppl_x2y=1.22 loss_y2x=1.9408e-01 ppl_y2x=1.21 dual_loss=4.1056e-01
+Validation X2Y - loss=6.5736e-01 ppl=1.93 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9315e-01 ppl=1.81 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 42 - |param|=9.26e+02 |g_param|=4.21e+05 loss_x2y=1.8931e-01 ppl_x2y=1.21 loss_y2x=1.8787e-01 ppl_y2x=1.21 dual_loss=3.6210e-01
+Validation X2Y - loss=7.0830e-01 ppl=2.03 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9919e-01 ppl=1.82 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 43 - |param|=9.26e+02 |g_param|=4.08e+05 loss_x2y=1.8978e-01 ppl_x2y=1.21 loss_y2x=1.8997e-01 ppl_y2x=1.21 dual_loss=3.4400e-01
+Validation X2Y - loss=6.7759e-01 ppl=1.97 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.2431e-01 ppl=1.87 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 44 - |param|=9.26e+02 |g_param|=2.45e+05 loss_x2y=1.7733e-01 ppl_x2y=1.19 loss_y2x=1.8095e-01 ppl_y2x=1.20 dual_loss=3.1516e-01
+Validation X2Y - loss=6.6227e-01 ppl=1.94 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.2225e-01 ppl=1.86 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 45 - |param|=9.27e+02 |g_param|=2.28e+05 loss_x2y=1.7951e-01 ppl_x2y=1.20 loss_y2x=1.7965e-01 ppl_y2x=1.20 dual_loss=3.0851e-01
+Validation X2Y - loss=6.6622e-01 ppl=1.95 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=5.9952e-01 ppl=1.82 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 46 - |param|=9.27e+02 |g_param|=2.44e+05 loss_x2y=1.8147e-01 ppl_x2y=1.20 loss_y2x=1.7411e-01 ppl_y2x=1.19 dual_loss=2.9899e-01
+Validation X2Y - loss=6.9591e-01 ppl=2.01 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.1402e-01 ppl=1.85 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 47 - |param|=9.28e+02 |g_param|=1.57e+05 loss_x2y=1.7849e-01 ppl_x2y=1.20 loss_y2x=1.6998e-01 ppl_y2x=1.19 dual_loss=3.1205e-01
+Validation X2Y - loss=6.9862e-01 ppl=2.01 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.1288e-01 ppl=1.85 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 48 - |param|=9.28e+02 |g_param|=1.46e+05 loss_x2y=1.7127e-01 ppl_x2y=1.19 loss_y2x=1.7011e-01 ppl_y2x=1.19 dual_loss=3.1933e-01
+Validation X2Y - loss=6.7767e-01 ppl=1.97 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.1085e-01 ppl=1.84 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 49 - |param|=9.28e+02 |g_param|=1.53e+05 loss_x2y=1.6997e-01 ppl_x2y=1.19 loss_y2x=1.7261e-01 ppl_y2x=1.19 dual_loss=3.9138e-01
+Validation X2Y - loss=7.1832e-01 ppl=2.05 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5648e-01 ppl=1.93 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 50 - |param|=9.29e+02 |g_param|=1.66e+05 loss_x2y=1.7278e-01 ppl_x2y=1.19 loss_y2x=1.7204e-01 ppl_y2x=1.19 dual_loss=3.5807e-01
+Validation X2Y - loss=6.8921e-01 ppl=1.99 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.3179e-01 ppl=1.88 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 51 - |param|=9.29e+02 |g_param|=1.48e+05 loss_x2y=1.6058e-01 ppl_x2y=1.17 loss_y2x=1.6210e-01 ppl_y2x=1.18 dual_loss=3.1382e-01
+Validation X2Y - loss=7.0506e-01 ppl=2.02 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5208e-01 ppl=1.92 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 52 - |param|=9.30e+02 |g_param|=1.62e+05 loss_x2y=1.6357e-01 ppl_x2y=1.18 loss_y2x=1.5681e-01 ppl_y2x=1.17 dual_loss=3.5511e-01
+Validation X2Y - loss=6.9150e-01 ppl=2.00 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.2481e-01 ppl=1.87 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 53 - |param|=9.30e+02 |g_param|=1.53e+05 loss_x2y=1.6285e-01 ppl_x2y=1.18 loss_y2x=1.6324e-01 ppl_y2x=1.18 dual_loss=3.3756e-01
+Validation X2Y - loss=6.9567e-01 ppl=2.01 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7396e-01 ppl=1.96 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 54 - |param|=9.30e+02 |g_param|=1.59e+05 loss_x2y=1.6002e-01 ppl_x2y=1.17 loss_y2x=1.6304e-01 ppl_y2x=1.18 dual_loss=3.7061e-01
+Validation X2Y - loss=6.9347e-01 ppl=2.00 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.4418e-01 ppl=1.90 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 55 - |param|=9.31e+02 |g_param|=1.37e+05 loss_x2y=1.4866e-01 ppl_x2y=1.16 loss_y2x=1.5157e-01 ppl_y2x=1.16 dual_loss=3.3362e-01
+Validation X2Y - loss=6.9997e-01 ppl=2.01 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.3851e-01 ppl=1.89 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 56 - |param|=9.31e+02 |g_param|=2.02e+05 loss_x2y=1.5821e-01 ppl_x2y=1.17 loss_y2x=1.5786e-01 ppl_y2x=1.17 dual_loss=3.6770e-01
+Validation X2Y - loss=7.0805e-01 ppl=2.03 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.4721e-01 ppl=1.91 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 57 - |param|=9.32e+02 |g_param|=2.31e+05 loss_x2y=1.4515e-01 ppl_x2y=1.16 loss_y2x=1.4637e-01 ppl_y2x=1.16 dual_loss=3.2993e-01
+Validation X2Y - loss=7.0543e-01 ppl=2.02 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.3682e-01 ppl=1.89 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 58 - |param|=9.32e+02 |g_param|=2.58e+05 loss_x2y=1.5163e-01 ppl_x2y=1.16 loss_y2x=1.5004e-01 ppl_y2x=1.16 dual_loss=3.7608e-01
+Validation X2Y - loss=7.2273e-01 ppl=2.06 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.4444e-01 ppl=1.90 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 59 - |param|=9.32e+02 |g_param|=2.51e+05 loss_x2y=1.4940e-01 ppl_x2y=1.16 loss_y2x=1.5153e-01 ppl_y2x=1.16 dual_loss=3.7370e-01
+Validation X2Y - loss=7.2032e-01 ppl=2.06 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5121e-01 ppl=1.92 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 60 - |param|=9.33e+02 |g_param|=2.30e+05 loss_x2y=1.4335e-01 ppl_x2y=1.15 loss_y2x=1.4185e-01 ppl_y2x=1.15 dual_loss=3.5408e-01
+Validation X2Y - loss=7.1594e-01 ppl=2.05 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5191e-01 ppl=1.92 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 61 - |param|=9.33e+02 |g_param|=2.34e+05 loss_x2y=1.3990e-01 ppl_x2y=1.15 loss_y2x=1.3813e-01 ppl_y2x=1.15 dual_loss=3.4316e-01
+Validation X2Y - loss=7.1624e-01 ppl=2.05 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6442e-01 ppl=1.94 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 62 - |param|=9.34e+02 |g_param|=2.47e+05 loss_x2y=1.3901e-01 ppl_x2y=1.15 loss_y2x=1.4089e-01 ppl_y2x=1.15 dual_loss=3.5442e-01
+Validation X2Y - loss=7.4111e-01 ppl=2.10 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6949e-01 ppl=1.95 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 63 - |param|=9.34e+02 |g_param|=2.39e+05 loss_x2y=1.3657e-01 ppl_x2y=1.15 loss_y2x=1.3402e-01 ppl_y2x=1.14 dual_loss=3.6802e-01
+Validation X2Y - loss=7.1727e-01 ppl=2.05 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5902e-01 ppl=1.93 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 64 - |param|=9.34e+02 |g_param|=2.51e+05 loss_x2y=1.4492e-01 ppl_x2y=1.16 loss_y2x=1.4167e-01 ppl_y2x=1.15 dual_loss=4.3443e-01
+Validation X2Y - loss=7.0719e-01 ppl=2.03 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6392e-01 ppl=1.94 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 65 - |param|=9.35e+02 |g_param|=2.33e+05 loss_x2y=1.3350e-01 ppl_x2y=1.14 loss_y2x=1.3827e-01 ppl_y2x=1.15 dual_loss=3.7875e-01
+Validation X2Y - loss=7.3661e-01 ppl=2.09 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5531e-01 ppl=1.93 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 66 - |param|=9.35e+02 |g_param|=2.56e+05 loss_x2y=1.3401e-01 ppl_x2y=1.14 loss_y2x=1.3690e-01 ppl_y2x=1.15 dual_loss=4.0540e-01
+Validation X2Y - loss=7.1420e-01 ppl=2.04 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5613e-01 ppl=1.93 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 67 - |param|=9.36e+02 |g_param|=2.63e+05 loss_x2y=1.2954e-01 ppl_x2y=1.14 loss_y2x=1.3293e-01 ppl_y2x=1.14 dual_loss=3.7201e-01
+Validation X2Y - loss=7.5318e-01 ppl=2.12 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6573e-01 ppl=1.95 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 68 - |param|=9.36e+02 |g_param|=2.83e+05 loss_x2y=1.2523e-01 ppl_x2y=1.13 loss_y2x=1.2734e-01 ppl_y2x=1.14 dual_loss=3.6784e-01
+Validation X2Y - loss=7.4203e-01 ppl=2.10 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6894e-01 ppl=1.95 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 69 - |param|=9.36e+02 |g_param|=2.82e+05 loss_x2y=1.2701e-01 ppl_x2y=1.14 loss_y2x=1.2444e-01 ppl_y2x=1.13 dual_loss=3.5506e-01
+Validation X2Y - loss=7.7097e-01 ppl=2.16 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6122e-01 ppl=1.94 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 70 - |param|=9.37e+02 |g_param|=2.80e+05 loss_x2y=1.2585e-01 ppl_x2y=1.13 loss_y2x=1.2507e-01 ppl_y2x=1.13 dual_loss=4.1799e-01
+Validation X2Y - loss=7.5269e-01 ppl=2.12 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7684e-01 ppl=1.97 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 71 - |param|=9.37e+02 |g_param|=2.93e+05 loss_x2y=1.2245e-01 ppl_x2y=1.13 loss_y2x=1.2266e-01 ppl_y2x=1.13 dual_loss=4.1905e-01
+Validation X2Y - loss=7.5907e-01 ppl=2.14 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6909e-01 ppl=1.95 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 72 - |param|=9.37e+02 |g_param|=2.83e+05 loss_x2y=1.2821e-01 ppl_x2y=1.14 loss_y2x=1.2639e-01 ppl_y2x=1.13 dual_loss=4.0748e-01
+Validation X2Y - loss=7.4096e-01 ppl=2.10 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5997e-01 ppl=1.93 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 73 - |param|=9.38e+02 |g_param|=2.80e+05 loss_x2y=1.2177e-01 ppl_x2y=1.13 loss_y2x=1.2750e-01 ppl_y2x=1.14 dual_loss=3.8031e-01
+Validation X2Y - loss=7.5115e-01 ppl=2.12 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8885e-01 ppl=1.99 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 74 - |param|=9.38e+02 |g_param|=2.76e+05 loss_x2y=1.2080e-01 ppl_x2y=1.13 loss_y2x=1.2197e-01 ppl_y2x=1.13 dual_loss=3.7944e-01
+Validation X2Y - loss=7.3843e-01 ppl=2.09 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.5170e-01 ppl=1.92 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 75 - |param|=9.39e+02 |g_param|=2.89e+05 loss_x2y=1.2292e-01 ppl_x2y=1.13 loss_y2x=1.2333e-01 ppl_y2x=1.13 dual_loss=3.7834e-01
+Validation X2Y - loss=7.5715e-01 ppl=2.13 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8540e-01 ppl=1.98 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 76 - |param|=9.39e+02 |g_param|=2.83e+05 loss_x2y=1.1869e-01 ppl_x2y=1.13 loss_y2x=1.2277e-01 ppl_y2x=1.13 dual_loss=3.6940e-01
+Validation X2Y - loss=7.6644e-01 ppl=2.15 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6831e-01 ppl=1.95 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 77 - |param|=9.39e+02 |g_param|=4.57e+05 loss_x2y=1.1396e-01 ppl_x2y=1.12 loss_y2x=1.1953e-01 ppl_y2x=1.13 dual_loss=3.5833e-01
+Validation X2Y - loss=7.7999e-01 ppl=2.18 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.4017e-01 ppl=1.90 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 78 - |param|=9.40e+02 |g_param|=4.60e+05 loss_x2y=1.1666e-01 ppl_x2y=1.12 loss_y2x=1.1491e-01 ppl_y2x=1.12 dual_loss=4.1075e-01
+Validation X2Y - loss=8.0460e-01 ppl=2.24 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6106e-01 ppl=1.94 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 79 - |param|=9.40e+02 |g_param|=4.81e+05 loss_x2y=1.1409e-01 ppl_x2y=1.12 loss_y2x=1.1790e-01 ppl_y2x=1.13 dual_loss=4.2749e-01
+Validation X2Y - loss=7.7595e-01 ppl=2.17 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8729e-01 ppl=1.99 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 80 - |param|=9.41e+02 |g_param|=4.85e+05 loss_x2y=1.1630e-01 ppl_x2y=1.12 loss_y2x=1.1968e-01 ppl_y2x=1.13 dual_loss=4.3097e-01
+Validation X2Y - loss=7.6295e-01 ppl=2.14 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7824e-01 ppl=1.97 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 81 - |param|=9.41e+02 |g_param|=4.36e+05 loss_x2y=1.0991e-01 ppl_x2y=1.12 loss_y2x=1.0995e-01 ppl_y2x=1.12 dual_loss=3.8260e-01
+Validation X2Y - loss=7.8845e-01 ppl=2.20 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.6492e-01 ppl=1.94 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 82 - |param|=9.41e+02 |g_param|=4.71e+05 loss_x2y=1.1176e-01 ppl_x2y=1.12 loss_y2x=1.1699e-01 ppl_y2x=1.12 dual_loss=4.0924e-01
+Validation X2Y - loss=7.8382e-01 ppl=2.19 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8082e-01 ppl=1.98 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 83 - |param|=9.42e+02 |g_param|=4.35e+05 loss_x2y=1.1348e-01 ppl_x2y=1.12 loss_y2x=1.1707e-01 ppl_y2x=1.12 dual_loss=3.8998e-01
+Validation X2Y - loss=7.9241e-01 ppl=2.21 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=7.0257e-01 ppl=2.02 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 84 - |param|=9.42e+02 |g_param|=4.29e+05 loss_x2y=1.0614e-01 ppl_x2y=1.11 loss_y2x=1.1033e-01 ppl_y2x=1.12 dual_loss=3.8193e-01
+Validation X2Y - loss=7.9945e-01 ppl=2.22 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7761e-01 ppl=1.97 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 85 - |param|=9.42e+02 |g_param|=4.40e+05 loss_x2y=1.0854e-01 ppl_x2y=1.11 loss_y2x=1.0757e-01 ppl_y2x=1.11 dual_loss=4.5252e-01
+Validation X2Y - loss=7.8131e-01 ppl=2.18 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=7.1132e-01 ppl=2.04 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 86 - |param|=9.43e+02 |g_param|=4.84e+05 loss_x2y=1.0471e-01 ppl_x2y=1.11 loss_y2x=1.1030e-01 ppl_y2x=1.12 dual_loss=4.1095e-01
+Validation X2Y - loss=7.8070e-01 ppl=2.18 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7754e-01 ppl=1.97 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 87 - |param|=9.43e+02 |g_param|=4.46e+05 loss_x2y=1.0185e-01 ppl_x2y=1.11 loss_y2x=1.1153e-01 ppl_y2x=1.12 dual_loss=3.7668e-01
+Validation X2Y - loss=7.8842e-01 ppl=2.20 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8732e-01 ppl=1.99 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 88 - |param|=9.44e+02 |g_param|=5.49e+05 loss_x2y=1.0697e-01 ppl_x2y=1.11 loss_y2x=1.0599e-01 ppl_y2x=1.11 dual_loss=3.9522e-01
+Validation X2Y - loss=7.8681e-01 ppl=2.20 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.8965e-01 ppl=1.99 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 89 - |param|=9.44e+02 |g_param|=5.01e+05 loss_x2y=1.0560e-01 ppl_x2y=1.11 loss_y2x=1.0602e-01 ppl_y2x=1.11 dual_loss=3.7936e-01
+Validation X2Y - loss=7.9233e-01 ppl=2.21 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.9003e-01 ppl=1.99 best_loss=5.5478e-01 best_ppl=1.74
+Epoch 90 - |param|=9.44e+02 |g_param|=4.21e+05 loss_x2y=1.0133e-01 ppl_x2y=1.11 loss_y2x=1.0377e-01 ppl_y2x=1.11 dual_loss=4.1435e-01
+Validation X2Y - loss=8.1738e-01 ppl=2.26 best_loss=6.3695e-01 best_ppl=1.89                                            
+Validation Y2X - loss=6.7073e-01 ppl=1.96 best_loss=5.5478e-01 best_ppl=1.74
 
+real	47m11.221s
+user	46m30.235s
+sys	0m40.844s
 ```
 
 #### Warmup-Epoch 20, Total Epoch 100
 
 ```
+Epoch 1 - |param|=9.11e+02 |g_param|=2.71e+05 loss_x2y=3.6256e+00 ppl_x2y=37.55 loss_y2x=3.6205e+00 ppl_y2x=37.36 dual_loss=0.0000e+00
+Validation X2Y - loss=3.0995e+00 ppl=22.19 best_loss=inf best_ppl=inf                                                   
+Validation Y2X - loss=3.0143e+00 ppl=20.37 best_loss=inf best_ppl=inf
+Epoch 2 - |param|=9.12e+02 |g_param|=2.57e+05 loss_x2y=2.5081e+00 ppl_x2y=12.28 loss_y2x=2.4567e+00 ppl_y2x=11.67 dual_loss=0.0000e+00
+Validation X2Y - loss=2.0832e+00 ppl=8.03 best_loss=3.0995e+00 best_ppl=22.19                                           
+Validation Y2X - loss=2.0368e+00 ppl=7.67 best_loss=3.0143e+00 best_ppl=20.37
+Epoch 3 - |param|=9.13e+02 |g_param|=2.26e+05 loss_x2y=1.8233e+00 ppl_x2y=6.19 loss_y2x=1.7749e+00 ppl_y2x=5.90 dual_loss=0.0000e+00
+Validation X2Y - loss=1.5857e+00 ppl=4.88 best_loss=2.0832e+00 best_ppl=8.03                                            
+Validation Y2X - loss=1.4724e+00 ppl=4.36 best_loss=2.0368e+00 best_ppl=7.67
+Epoch 4 - |param|=9.13e+02 |g_param|=2.24e+05 loss_x2y=1.3753e+00 ppl_x2y=3.96 loss_y2x=1.3485e+00 ppl_y2x=3.85 dual_loss=0.0000e+00
+Validation X2Y - loss=1.1858e+00 ppl=3.27 best_loss=1.5857e+00 best_ppl=4.88                                            
+Validation Y2X - loss=1.1555e+00 ppl=3.18 best_loss=1.4724e+00 best_ppl=4.36
+Epoch 5 - |param|=9.14e+02 |g_param|=2.44e+05 loss_x2y=1.1014e+00 ppl_x2y=3.01 loss_y2x=1.0894e+00 ppl_y2x=2.97 dual_loss=0.0000e+00
+Validation X2Y - loss=1.0204e+00 ppl=2.77 best_loss=1.1858e+00 best_ppl=3.27                                            
+Validation Y2X - loss=9.7090e-01 ppl=2.64 best_loss=1.1555e+00 best_ppl=3.18
+Epoch 6 - |param|=9.14e+02 |g_param|=2.30e+05 loss_x2y=9.9357e-01 ppl_x2y=2.70 loss_y2x=9.8998e-01 ppl_y2x=2.69 dual_loss=0.0000e+00
+Validation X2Y - loss=9.1710e-01 ppl=2.50 best_loss=1.0204e+00 best_ppl=2.77                                            
+Validation Y2X - loss=8.8176e-01 ppl=2.42 best_loss=9.7090e-01 best_ppl=2.64
+Epoch 7 - |param|=9.14e+02 |g_param|=1.82e+05 loss_x2y=7.9643e-01 ppl_x2y=2.22 loss_y2x=7.9461e-01 ppl_y2x=2.21 dual_loss=0.0000e+00
+Validation X2Y - loss=8.5002e-01 ppl=2.34 best_loss=9.1710e-01 best_ppl=2.50                                            
+Validation Y2X - loss=8.3775e-01 ppl=2.31 best_loss=8.8176e-01 best_ppl=2.42
+Epoch 8 - |param|=9.14e+02 |g_param|=1.86e+05 loss_x2y=7.5457e-01 ppl_x2y=2.13 loss_y2x=7.6254e-01 ppl_y2x=2.14 dual_loss=0.0000e+00
+Validation X2Y - loss=8.1493e-01 ppl=2.26 best_loss=8.5002e-01 best_ppl=2.34                                            
+Validation Y2X - loss=7.3596e-01 ppl=2.09 best_loss=8.3775e-01 best_ppl=2.31
+Epoch 9 - |param|=9.15e+02 |g_param|=2.03e+05 loss_x2y=6.9319e-01 ppl_x2y=2.00 loss_y2x=6.8959e-01 ppl_y2x=1.99 dual_loss=0.0000e+00
+Validation X2Y - loss=7.2318e-01 ppl=2.06 best_loss=8.1493e-01 best_ppl=2.26                                            
+Validation Y2X - loss=6.9032e-01 ppl=1.99 best_loss=7.3596e-01 best_ppl=2.09
+Epoch 10 - |param|=9.15e+02 |g_param|=1.82e+05 loss_x2y=6.2171e-01 ppl_x2y=1.86 loss_y2x=6.2270e-01 ppl_y2x=1.86 dual_loss=0.0000e+00
+Validation X2Y - loss=7.2507e-01 ppl=2.06 best_loss=7.2318e-01 best_ppl=2.06                                            
+Validation Y2X - loss=6.9309e-01 ppl=2.00 best_loss=6.9032e-01 best_ppl=1.99
+Epoch 11 - |param|=9.15e+02 |g_param|=1.75e+05 loss_x2y=5.6484e-01 ppl_x2y=1.76 loss_y2x=5.7503e-01 ppl_y2x=1.78 dual_loss=0.0000e+00
+Validation X2Y - loss=6.9468e-01 ppl=2.00 best_loss=7.2318e-01 best_ppl=2.06                                            
+Validation Y2X - loss=6.7795e-01 ppl=1.97 best_loss=6.9032e-01 best_ppl=1.99
+Epoch 12 - |param|=9.16e+02 |g_param|=1.83e+05 loss_x2y=5.4867e-01 ppl_x2y=1.73 loss_y2x=5.5383e-01 ppl_y2x=1.74 dual_loss=0.0000e+00
+Validation X2Y - loss=6.7735e-01 ppl=1.97 best_loss=6.9468e-01 best_ppl=2.00                                            
+Validation Y2X - loss=6.4444e-01 ppl=1.90 best_loss=6.7795e-01 best_ppl=1.97
+Epoch 13 - |param|=9.16e+02 |g_param|=1.58e+05 loss_x2y=4.8556e-01 ppl_x2y=1.63 loss_y2x=4.7355e-01 ppl_y2x=1.61 dual_loss=0.0000e+00
+Validation X2Y - loss=6.5920e-01 ppl=1.93 best_loss=6.7735e-01 best_ppl=1.97                                            
+Validation Y2X - loss=6.3515e-01 ppl=1.89 best_loss=6.4444e-01 best_ppl=1.90
+Epoch 14 - |param|=9.16e+02 |g_param|=1.84e+05 loss_x2y=4.9724e-01 ppl_x2y=1.64 loss_y2x=4.9100e-01 ppl_y2x=1.63 dual_loss=0.0000e+00
+Validation X2Y - loss=7.0612e-01 ppl=2.03 best_loss=6.5920e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.5290e-01 ppl=1.92 best_loss=6.3515e-01 best_ppl=1.89
+Epoch 15 - |param|=9.17e+02 |g_param|=1.51e+05 loss_x2y=4.2116e-01 ppl_x2y=1.52 loss_y2x=4.1798e-01 ppl_y2x=1.52 dual_loss=0.0000e+00
+Validation X2Y - loss=6.4412e-01 ppl=1.90 best_loss=6.5920e-01 best_ppl=1.93                                            
+Validation Y2X - loss=6.2905e-01 ppl=1.88 best_loss=6.3515e-01 best_ppl=1.89
+Epoch 16 - |param|=9.17e+02 |g_param|=1.66e+05 loss_x2y=4.2649e-01 ppl_x2y=1.53 loss_y2x=4.2721e-01 ppl_y2x=1.53 dual_loss=0.0000e+00
+Validation X2Y - loss=6.6464e-01 ppl=1.94 best_loss=6.4412e-01 best_ppl=1.90                                            
+Validation Y2X - loss=6.2756e-01 ppl=1.87 best_loss=6.2905e-01 best_ppl=1.88
+Epoch 17 - |param|=9.17e+02 |g_param|=1.56e+05 loss_x2y=4.0338e-01 ppl_x2y=1.50 loss_y2x=4.1397e-01 ppl_y2x=1.51 dual_loss=0.0000e+00
+Validation X2Y - loss=6.2961e-01 ppl=1.88 best_loss=6.4412e-01 best_ppl=1.90                                            
+Validation Y2X - loss=6.1023e-01 ppl=1.84 best_loss=6.2756e-01 best_ppl=1.87
+Epoch 18 - |param|=9.18e+02 |g_param|=1.65e+05 loss_x2y=3.8096e-01 ppl_x2y=1.46 loss_y2x=3.8903e-01 ppl_y2x=1.48 dual_loss=0.0000e+00
+Validation X2Y - loss=6.4217e-01 ppl=1.90 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.1100e-01 ppl=1.84 best_loss=6.1023e-01 best_ppl=1.84
+Epoch 19 - |param|=9.18e+02 |g_param|=1.48e+05 loss_x2y=3.5668e-01 ppl_x2y=1.43 loss_y2x=3.5501e-01 ppl_y2x=1.43 dual_loss=0.0000e+00
+Validation X2Y - loss=6.5551e-01 ppl=1.93 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.1518e-01 ppl=1.85 best_loss=6.1023e-01 best_ppl=1.84
+Epoch 20 - |param|=9.19e+02 |g_param|=1.58e+05 loss_x2y=3.6416e-01 ppl_x2y=1.44 loss_y2x=3.6537e-01 ppl_y2x=1.44 dual_loss=0.0000e+00
+Validation X2Y - loss=6.4501e-01 ppl=1.91 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.1705e-01 ppl=1.85 best_loss=6.1023e-01 best_ppl=1.84
+Epoch 21 - |param|=9.19e+02 |g_param|=1.58e+05 loss_x2y=3.4051e-01 ppl_x2y=1.41 loss_y2x=3.5617e-01 ppl_y2x=1.43 dual_loss=4.5806e-01
+Validation X2Y - loss=6.6129e-01 ppl=1.94 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=5.8595e-01 ppl=1.80 best_loss=6.1023e-01 best_ppl=1.84
+Epoch 22 - |param|=9.19e+02 |g_param|=3.59e+05 loss_x2y=3.4024e-01 ppl_x2y=1.41 loss_y2x=3.5051e-01 ppl_y2x=1.42 dual_loss=5.6279e-01
+Validation X2Y - loss=6.5333e-01 ppl=1.92 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.1435e-01 ppl=1.85 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 23 - |param|=9.20e+02 |g_param|=3.07e+05 loss_x2y=3.2454e-01 ppl_x2y=1.38 loss_y2x=3.2530e-01 ppl_y2x=1.38 dual_loss=4.0144e-01
+Validation X2Y - loss=6.5533e-01 ppl=1.93 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.0168e-01 ppl=1.83 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 24 - |param|=9.20e+02 |g_param|=2.83e+05 loss_x2y=3.2905e-01 ppl_x2y=1.39 loss_y2x=3.1360e-01 ppl_y2x=1.37 dual_loss=3.8478e-01
+Validation X2Y - loss=6.3653e-01 ppl=1.89 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=5.9567e-01 ppl=1.81 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 25 - |param|=9.21e+02 |g_param|=3.02e+05 loss_x2y=2.9812e-01 ppl_x2y=1.35 loss_y2x=3.1942e-01 ppl_y2x=1.38 dual_loss=4.6645e-01
+Validation X2Y - loss=6.3956e-01 ppl=1.90 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=5.9896e-01 ppl=1.82 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 26 - |param|=9.21e+02 |g_param|=2.91e+05 loss_x2y=2.8681e-01 ppl_x2y=1.33 loss_y2x=2.8781e-01 ppl_y2x=1.33 dual_loss=3.8394e-01
+Validation X2Y - loss=6.1961e-01 ppl=1.86 best_loss=6.2961e-01 best_ppl=1.88                                            
+Validation Y2X - loss=6.2106e-01 ppl=1.86 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 27 - |param|=9.21e+02 |g_param|=1.95e+05 loss_x2y=2.9314e-01 ppl_x2y=1.34 loss_y2x=2.8710e-01 ppl_y2x=1.33 dual_loss=3.7074e-01
+Validation X2Y - loss=6.3039e-01 ppl=1.88 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.8662e-01 ppl=1.80 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 28 - |param|=9.22e+02 |g_param|=2.07e+05 loss_x2y=2.8293e-01 ppl_x2y=1.33 loss_y2x=2.8786e-01 ppl_y2x=1.33 dual_loss=4.3505e-01
+Validation X2Y - loss=6.4614e-01 ppl=1.91 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.8536e-01 ppl=1.80 best_loss=5.8595e-01 best_ppl=1.80
+Epoch 29 - |param|=9.22e+02 |g_param|=1.88e+05 loss_x2y=2.7635e-01 ppl_x2y=1.32 loss_y2x=2.8076e-01 ppl_y2x=1.32 dual_loss=4.0774e-01
+Validation X2Y - loss=6.3890e-01 ppl=1.89 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0193e-01 ppl=1.83 best_loss=5.8536e-01 best_ppl=1.80
+Epoch 30 - |param|=9.23e+02 |g_param|=1.73e+05 loss_x2y=2.5588e-01 ppl_x2y=1.29 loss_y2x=2.5318e-01 ppl_y2x=1.29 dual_loss=3.4143e-01
+Validation X2Y - loss=6.6557e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.1861e-01 ppl=1.86 best_loss=5.8536e-01 best_ppl=1.80
+Epoch 31 - |param|=9.23e+02 |g_param|=1.74e+05 loss_x2y=2.5285e-01 ppl_x2y=1.29 loss_y2x=2.4462e-01 ppl_y2x=1.28 dual_loss=3.8853e-01
+Validation X2Y - loss=6.5407e-01 ppl=1.92 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.7073e-01 ppl=1.77 best_loss=5.8536e-01 best_ppl=1.80
+Epoch 32 - |param|=9.24e+02 |g_param|=1.84e+05 loss_x2y=2.4831e-01 ppl_x2y=1.28 loss_y2x=2.5099e-01 ppl_y2x=1.29 dual_loss=3.9039e-01
+Validation X2Y - loss=6.6084e-01 ppl=1.94 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.9018e-01 ppl=1.80 best_loss=5.7073e-01 best_ppl=1.77
+Epoch 33 - |param|=9.24e+02 |g_param|=1.66e+05 loss_x2y=2.2752e-01 ppl_x2y=1.26 loss_y2x=2.3771e-01 ppl_y2x=1.27 dual_loss=3.2321e-01
+Validation X2Y - loss=6.6597e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.9416e-01 ppl=1.81 best_loss=5.7073e-01 best_ppl=1.77
+Epoch 34 - |param|=9.24e+02 |g_param|=1.66e+05 loss_x2y=2.3268e-01 ppl_x2y=1.26 loss_y2x=2.3193e-01 ppl_y2x=1.26 dual_loss=3.3118e-01
+Validation X2Y - loss=6.6235e-01 ppl=1.94 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.7202e-01 ppl=1.77 best_loss=5.7073e-01 best_ppl=1.77
+Epoch 35 - |param|=9.25e+02 |g_param|=1.64e+05 loss_x2y=2.2854e-01 ppl_x2y=1.26 loss_y2x=2.2711e-01 ppl_y2x=1.25 dual_loss=3.5537e-01
+Validation X2Y - loss=6.5937e-01 ppl=1.93 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.6645e-01 ppl=1.76 best_loss=5.7073e-01 best_ppl=1.77
+Epoch 36 - |param|=9.25e+02 |g_param|=1.72e+05 loss_x2y=2.2523e-01 ppl_x2y=1.25 loss_y2x=2.2953e-01 ppl_y2x=1.26 dual_loss=4.0405e-01
+Validation X2Y - loss=6.6581e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.9499e-01 ppl=1.81 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 37 - |param|=9.26e+02 |g_param|=1.72e+05 loss_x2y=2.1541e-01 ppl_x2y=1.24 loss_y2x=2.1272e-01 ppl_y2x=1.24 dual_loss=3.6347e-01
+Validation X2Y - loss=6.6891e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.9174e-01 ppl=1.81 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 38 - |param|=9.26e+02 |g_param|=1.71e+05 loss_x2y=2.1360e-01 ppl_x2y=1.24 loss_y2x=2.0881e-01 ppl_y2x=1.23 dual_loss=3.8648e-01
+Validation X2Y - loss=6.7100e-01 ppl=1.96 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0262e-01 ppl=1.83 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 39 - |param|=9.26e+02 |g_param|=1.54e+05 loss_x2y=2.0187e-01 ppl_x2y=1.22 loss_y2x=2.0706e-01 ppl_y2x=1.23 dual_loss=3.4191e-01
+Validation X2Y - loss=6.6694e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=5.9236e-01 ppl=1.81 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 40 - |param|=9.27e+02 |g_param|=1.68e+05 loss_x2y=2.0362e-01 ppl_x2y=1.23 loss_y2x=2.0699e-01 ppl_y2x=1.23 dual_loss=3.6844e-01
+Validation X2Y - loss=6.7628e-01 ppl=1.97 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.1877e-01 ppl=1.86 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 41 - |param|=9.27e+02 |g_param|=1.53e+05 loss_x2y=1.9417e-01 ppl_x2y=1.21 loss_y2x=1.9622e-01 ppl_y2x=1.22 dual_loss=3.2605e-01
+Validation X2Y - loss=6.7077e-01 ppl=1.96 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2148e-01 ppl=1.86 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 42 - |param|=9.28e+02 |g_param|=1.52e+05 loss_x2y=1.9160e-01 ppl_x2y=1.21 loss_y2x=1.9273e-01 ppl_y2x=1.21 dual_loss=3.1639e-01
+Validation X2Y - loss=7.0908e-01 ppl=2.03 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0006e-01 ppl=1.82 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 43 - |param|=9.28e+02 |g_param|=1.68e+05 loss_x2y=1.9593e-01 ppl_x2y=1.22 loss_y2x=1.9381e-01 ppl_y2x=1.21 dual_loss=3.7958e-01
+Validation X2Y - loss=6.6663e-01 ppl=1.95 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.3653e-01 ppl=1.89 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 44 - |param|=9.28e+02 |g_param|=1.81e+05 loss_x2y=1.8837e-01 ppl_x2y=1.21 loss_y2x=1.8953e-01 ppl_y2x=1.21 dual_loss=3.7096e-01
+Validation X2Y - loss=6.8364e-01 ppl=1.98 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0798e-01 ppl=1.84 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 45 - |param|=9.29e+02 |g_param|=1.60e+05 loss_x2y=1.8900e-01 ppl_x2y=1.21 loss_y2x=1.8741e-01 ppl_y2x=1.21 dual_loss=3.7945e-01
+Validation X2Y - loss=6.9950e-01 ppl=2.01 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4409e-01 ppl=1.90 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 46 - |param|=9.29e+02 |g_param|=1.54e+05 loss_x2y=1.7649e-01 ppl_x2y=1.19 loss_y2x=1.7494e-01 ppl_y2x=1.19 dual_loss=3.7480e-01
+Validation X2Y - loss=7.0759e-01 ppl=2.03 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2254e-01 ppl=1.86 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 47 - |param|=9.30e+02 |g_param|=2.52e+05 loss_x2y=1.7986e-01 ppl_x2y=1.20 loss_y2x=1.7692e-01 ppl_y2x=1.19 dual_loss=3.5600e-01
+Validation X2Y - loss=7.0140e-01 ppl=2.02 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0241e-01 ppl=1.83 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 48 - |param|=9.30e+02 |g_param|=3.10e+05 loss_x2y=1.7733e-01 ppl_x2y=1.19 loss_y2x=1.7461e-01 ppl_y2x=1.19 dual_loss=3.9191e-01
+Validation X2Y - loss=7.0475e-01 ppl=2.02 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.0205e-01 ppl=1.83 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 49 - |param|=9.30e+02 |g_param|=3.34e+05 loss_x2y=1.7459e-01 ppl_x2y=1.19 loss_y2x=1.6757e-01 ppl_y2x=1.18 dual_loss=3.6185e-01
+Validation X2Y - loss=7.1338e-01 ppl=2.04 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.1833e-01 ppl=1.86 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 50 - |param|=9.31e+02 |g_param|=3.11e+05 loss_x2y=1.6674e-01 ppl_x2y=1.18 loss_y2x=1.6802e-01 ppl_y2x=1.18 dual_loss=3.5403e-01
+Validation X2Y - loss=7.3560e-01 ppl=2.09 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2955e-01 ppl=1.88 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 51 - |param|=9.31e+02 |g_param|=3.41e+05 loss_x2y=1.6588e-01 ppl_x2y=1.18 loss_y2x=1.6785e-01 ppl_y2x=1.18 dual_loss=3.9181e-01
+Validation X2Y - loss=7.1757e-01 ppl=2.05 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2100e-01 ppl=1.86 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 52 - |param|=9.32e+02 |g_param|=3.37e+05 loss_x2y=1.6648e-01 ppl_x2y=1.18 loss_y2x=1.6659e-01 ppl_y2x=1.18 dual_loss=4.3886e-01
+Validation X2Y - loss=6.9157e-01 ppl=2.00 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.3695e-01 ppl=1.89 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 53 - |param|=9.32e+02 |g_param|=3.01e+05 loss_x2y=1.5997e-01 ppl_x2y=1.17 loss_y2x=1.6506e-01 ppl_y2x=1.18 dual_loss=3.3904e-01
+Validation X2Y - loss=7.2214e-01 ppl=2.06 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2727e-01 ppl=1.87 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 54 - |param|=9.32e+02 |g_param|=3.05e+05 loss_x2y=1.5828e-01 ppl_x2y=1.17 loss_y2x=1.6041e-01 ppl_y2x=1.17 dual_loss=3.6407e-01
+Validation X2Y - loss=6.8791e-01 ppl=1.99 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.3787e-01 ppl=1.89 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 55 - |param|=9.33e+02 |g_param|=3.15e+05 loss_x2y=1.5731e-01 ppl_x2y=1.17 loss_y2x=1.5548e-01 ppl_y2x=1.17 dual_loss=4.7847e-01
+Validation X2Y - loss=7.1496e-01 ppl=2.04 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.3557e-01 ppl=1.89 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 56 - |param|=9.33e+02 |g_param|=3.18e+05 loss_x2y=1.5628e-01 ppl_x2y=1.17 loss_y2x=1.5195e-01 ppl_y2x=1.16 dual_loss=3.3082e-01
+Validation X2Y - loss=7.3074e-01 ppl=2.08 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.2330e-01 ppl=1.87 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 57 - |param|=9.34e+02 |g_param|=3.03e+05 loss_x2y=1.5550e-01 ppl_x2y=1.17 loss_y2x=1.5225e-01 ppl_y2x=1.16 dual_loss=3.4544e-01
+Validation X2Y - loss=7.3307e-01 ppl=2.08 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4809e-01 ppl=1.91 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 58 - |param|=9.34e+02 |g_param|=3.36e+05 loss_x2y=1.5445e-01 ppl_x2y=1.17 loss_y2x=1.5541e-01 ppl_y2x=1.17 dual_loss=3.9716e-01
+Validation X2Y - loss=7.3799e-01 ppl=2.09 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4413e-01 ppl=1.90 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 59 - |param|=9.34e+02 |g_param|=3.02e+05 loss_x2y=1.5177e-01 ppl_x2y=1.16 loss_y2x=1.4850e-01 ppl_y2x=1.16 dual_loss=3.9314e-01
+Validation X2Y - loss=7.2812e-01 ppl=2.07 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.3940e-01 ppl=1.90 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 60 - |param|=9.35e+02 |g_param|=2.98e+05 loss_x2y=1.4477e-01 ppl_x2y=1.16 loss_y2x=1.4647e-01 ppl_y2x=1.16 dual_loss=3.5314e-01
+Validation X2Y - loss=7.1842e-01 ppl=2.05 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4789e-01 ppl=1.91 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 61 - |param|=9.35e+02 |g_param|=2.94e+05 loss_x2y=1.4362e-01 ppl_x2y=1.15 loss_y2x=1.4656e-01 ppl_y2x=1.16 dual_loss=3.5568e-01
+Validation X2Y - loss=7.3565e-01 ppl=2.09 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4670e-01 ppl=1.91 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 62 - |param|=9.36e+02 |g_param|=3.00e+05 loss_x2y=1.4577e-01 ppl_x2y=1.16 loss_y2x=1.4229e-01 ppl_y2x=1.15 dual_loss=3.6262e-01
+Validation X2Y - loss=7.3468e-01 ppl=2.08 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.5749e-01 ppl=1.93 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 63 - |param|=9.36e+02 |g_param|=2.75e+05 loss_x2y=1.3493e-01 ppl_x2y=1.14 loss_y2x=1.3512e-01 ppl_y2x=1.14 dual_loss=3.6236e-01
+Validation X2Y - loss=7.3133e-01 ppl=2.08 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4225e-01 ppl=1.90 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 64 - |param|=9.36e+02 |g_param|=3.05e+05 loss_x2y=1.3804e-01 ppl_x2y=1.15 loss_y2x=1.3708e-01 ppl_y2x=1.15 dual_loss=3.7784e-01
+Validation X2Y - loss=7.4045e-01 ppl=2.10 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7728e-01 ppl=1.97 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 65 - |param|=9.37e+02 |g_param|=2.77e+05 loss_x2y=1.3159e-01 ppl_x2y=1.14 loss_y2x=1.3361e-01 ppl_y2x=1.14 dual_loss=3.5068e-01
+Validation X2Y - loss=7.4666e-01 ppl=2.11 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.9910e-01 ppl=2.01 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 66 - |param|=9.37e+02 |g_param|=3.26e+05 loss_x2y=1.3396e-01 ppl_x2y=1.14 loss_y2x=1.4425e-01 ppl_y2x=1.16 dual_loss=4.2732e-01
+Validation X2Y - loss=7.4607e-01 ppl=2.11 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.5753e-01 ppl=1.93 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 67 - |param|=9.37e+02 |g_param|=3.84e+05 loss_x2y=1.3826e-01 ppl_x2y=1.15 loss_y2x=1.3396e-01 ppl_y2x=1.14 dual_loss=3.5591e-01
+Validation X2Y - loss=7.6427e-01 ppl=2.15 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.5809e-01 ppl=1.93 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 68 - |param|=9.38e+02 |g_param|=5.53e+05 loss_x2y=1.3033e-01 ppl_x2y=1.14 loss_y2x=1.2222e-01 ppl_y2x=1.13 dual_loss=3.6634e-01
+Validation X2Y - loss=7.5973e-01 ppl=2.14 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7308e-01 ppl=1.96 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 69 - |param|=9.38e+02 |g_param|=5.75e+05 loss_x2y=1.3788e-01 ppl_x2y=1.15 loss_y2x=1.3340e-01 ppl_y2x=1.14 dual_loss=3.4544e-01
+Validation X2Y - loss=7.5458e-01 ppl=2.13 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.5594e-01 ppl=1.93 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 70 - |param|=9.39e+02 |g_param|=4.50e+05 loss_x2y=1.2887e-01 ppl_x2y=1.14 loss_y2x=1.3300e-01 ppl_y2x=1.14 dual_loss=4.1552e-01
+Validation X2Y - loss=7.6207e-01 ppl=2.14 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.6679e-01 ppl=1.95 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 71 - |param|=9.39e+02 |g_param|=4.19e+05 loss_x2y=1.2824e-01 ppl_x2y=1.14 loss_y2x=1.2986e-01 ppl_y2x=1.14 dual_loss=3.6957e-01
+Validation X2Y - loss=7.5881e-01 ppl=2.14 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4358e-01 ppl=1.90 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 72 - |param|=9.39e+02 |g_param|=4.36e+05 loss_x2y=1.2818e-01 ppl_x2y=1.14 loss_y2x=1.2450e-01 ppl_y2x=1.13 dual_loss=4.0336e-01
+Validation X2Y - loss=7.6373e-01 ppl=2.15 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.4735e-01 ppl=1.91 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 73 - |param|=9.40e+02 |g_param|=4.17e+05 loss_x2y=1.2072e-01 ppl_x2y=1.13 loss_y2x=1.2336e-01 ppl_y2x=1.13 dual_loss=3.4952e-01
+Validation X2Y - loss=7.4547e-01 ppl=2.11 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7692e-01 ppl=1.97 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 74 - |param|=9.40e+02 |g_param|=4.15e+05 loss_x2y=1.2104e-01 ppl_x2y=1.13 loss_y2x=1.1938e-01 ppl_y2x=1.13 dual_loss=3.6550e-01
+Validation X2Y - loss=7.7613e-01 ppl=2.17 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.6472e-01 ppl=1.94 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 75 - |param|=9.41e+02 |g_param|=4.03e+05 loss_x2y=1.1707e-01 ppl_x2y=1.12 loss_y2x=1.1553e-01 ppl_y2x=1.12 dual_loss=3.4902e-01
+Validation X2Y - loss=7.6863e-01 ppl=2.16 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.0270e-01 ppl=2.02 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 76 - |param|=9.41e+02 |g_param|=4.45e+05 loss_x2y=1.2358e-01 ppl_x2y=1.13 loss_y2x=1.1951e-01 ppl_y2x=1.13 dual_loss=4.3262e-01
+Validation X2Y - loss=7.7043e-01 ppl=2.16 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7025e-01 ppl=1.95 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 77 - |param|=9.41e+02 |g_param|=4.20e+05 loss_x2y=1.1968e-01 ppl_x2y=1.13 loss_y2x=1.2106e-01 ppl_y2x=1.13 dual_loss=4.2679e-01
+Validation X2Y - loss=7.8319e-01 ppl=2.19 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.8979e-01 ppl=1.99 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 78 - |param|=9.42e+02 |g_param|=4.33e+05 loss_x2y=1.1529e-01 ppl_x2y=1.12 loss_y2x=1.1368e-01 ppl_y2x=1.12 dual_loss=4.0604e-01
+Validation X2Y - loss=7.5957e-01 ppl=2.14 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.8119e-01 ppl=1.98 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 79 - |param|=9.42e+02 |g_param|=3.91e+05 loss_x2y=1.1713e-01 ppl_x2y=1.12 loss_y2x=1.1203e-01 ppl_y2x=1.12 dual_loss=3.7902e-01
+Validation X2Y - loss=7.7741e-01 ppl=2.18 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.8744e-01 ppl=1.99 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 80 - |param|=9.43e+02 |g_param|=3.96e+05 loss_x2y=1.1212e-01 ppl_x2y=1.12 loss_y2x=1.1505e-01 ppl_y2x=1.12 dual_loss=3.9992e-01
+Validation X2Y - loss=7.7125e-01 ppl=2.16 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7407e-01 ppl=1.96 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 81 - |param|=9.43e+02 |g_param|=3.97e+05 loss_x2y=1.1009e-01 ppl_x2y=1.12 loss_y2x=1.1048e-01 ppl_y2x=1.12 dual_loss=3.8937e-01
+Validation X2Y - loss=7.8044e-01 ppl=2.18 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.8091e-01 ppl=1.98 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 82 - |param|=9.43e+02 |g_param|=3.97e+05 loss_x2y=1.1068e-01 ppl_x2y=1.12 loss_y2x=1.1172e-01 ppl_y2x=1.12 dual_loss=3.7410e-01
+Validation X2Y - loss=7.7866e-01 ppl=2.18 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.8539e-01 ppl=1.98 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 83 - |param|=9.44e+02 |g_param|=3.82e+05 loss_x2y=1.1145e-01 ppl_x2y=1.12 loss_y2x=1.1025e-01 ppl_y2x=1.12 dual_loss=3.6869e-01
+Validation X2Y - loss=7.9945e-01 ppl=2.22 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.7941e-01 ppl=1.97 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 84 - |param|=9.44e+02 |g_param|=3.93e+05 loss_x2y=1.0928e-01 ppl_x2y=1.12 loss_y2x=1.0790e-01 ppl_y2x=1.11 dual_loss=3.6010e-01
+Validation X2Y - loss=7.8661e-01 ppl=2.20 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.0524e-01 ppl=2.02 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 85 - |param|=9.44e+02 |g_param|=4.14e+05 loss_x2y=1.1462e-01 ppl_x2y=1.12 loss_y2x=1.1262e-01 ppl_y2x=1.12 dual_loss=3.9151e-01
+Validation X2Y - loss=7.8688e-01 ppl=2.20 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.0654e-01 ppl=2.03 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 86 - |param|=9.45e+02 |g_param|=4.26e+05 loss_x2y=1.1271e-01 ppl_x2y=1.12 loss_y2x=1.0757e-01 ppl_y2x=1.11 dual_loss=4.1863e-01
+Validation X2Y - loss=8.0420e-01 ppl=2.23 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.0105e-01 ppl=2.02 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 87 - |param|=9.45e+02 |g_param|=4.39e+05 loss_x2y=1.0710e-01 ppl_x2y=1.11 loss_y2x=1.0877e-01 ppl_y2x=1.11 dual_loss=4.3017e-01
+Validation X2Y - loss=7.8947e-01 ppl=2.20 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.0410e-01 ppl=2.02 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 88 - |param|=9.46e+02 |g_param|=4.15e+05 loss_x2y=1.1053e-01 ppl_x2y=1.12 loss_y2x=1.0573e-01 ppl_y2x=1.11 dual_loss=3.7041e-01
+Validation X2Y - loss=7.9797e-01 ppl=2.22 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=6.9888e-01 ppl=2.01 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 89 - |param|=9.46e+02 |g_param|=3.89e+05 loss_x2y=1.0584e-01 ppl_x2y=1.11 loss_y2x=1.0329e-01 ppl_y2x=1.11 dual_loss=3.4810e-01
+Validation X2Y - loss=7.8601e-01 ppl=2.19 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2858e-01 ppl=2.07 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 90 - |param|=9.46e+02 |g_param|=3.79e+05 loss_x2y=1.0386e-01 ppl_x2y=1.11 loss_y2x=1.0668e-01 ppl_y2x=1.11 dual_loss=4.1767e-01
+Validation X2Y - loss=7.7672e-01 ppl=2.17 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2064e-01 ppl=2.06 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 91 - |param|=9.47e+02 |g_param|=5.12e+05 loss_x2y=1.0384e-01 ppl_x2y=1.11 loss_y2x=1.0126e-01 ppl_y2x=1.11 dual_loss=3.8636e-01
+Validation X2Y - loss=7.8160e-01 ppl=2.18 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2736e-01 ppl=2.07 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 92 - |param|=9.47e+02 |g_param|=5.21e+05 loss_x2y=1.0235e-01 ppl_x2y=1.11 loss_y2x=1.0031e-01 ppl_y2x=1.11 dual_loss=3.7173e-01
+Validation X2Y - loss=7.9885e-01 ppl=2.22 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2743e-01 ppl=2.07 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 93 - |param|=9.47e+02 |g_param|=4.77e+05 loss_x2y=1.0256e-01 ppl_x2y=1.11 loss_y2x=9.8924e-02 ppl_y2x=1.10 dual_loss=3.7136e-01
+Validation X2Y - loss=8.0730e-01 ppl=2.24 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2317e-01 ppl=2.06 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 94 - |param|=9.48e+02 |g_param|=5.58e+05 loss_x2y=1.0512e-01 ppl_x2y=1.11 loss_y2x=1.0364e-01 ppl_y2x=1.11 dual_loss=4.2433e-01
+Validation X2Y - loss=7.9425e-01 ppl=2.21 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.4291e-01 ppl=2.10 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 95 - |param|=9.48e+02 |g_param|=5.05e+05 loss_x2y=9.8852e-02 ppl_x2y=1.10 loss_y2x=9.8554e-02 ppl_y2x=1.10 dual_loss=3.7164e-01
+Validation X2Y - loss=8.1874e-01 ppl=2.27 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.1911e-01 ppl=2.05 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 96 - |param|=9.49e+02 |g_param|=5.29e+05 loss_x2y=9.9637e-02 ppl_x2y=1.10 loss_y2x=9.6725e-02 ppl_y2x=1.10 dual_loss=4.2107e-01
+Validation X2Y - loss=8.3717e-01 ppl=2.31 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.1691e-01 ppl=2.05 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 97 - |param|=9.49e+02 |g_param|=5.45e+05 loss_x2y=1.0393e-01 ppl_x2y=1.11 loss_y2x=1.0494e-01 ppl_y2x=1.11 dual_loss=5.2039e-01
+Validation X2Y - loss=8.1930e-01 ppl=2.27 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.2479e-01 ppl=2.06 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 98 - |param|=9.49e+02 |g_param|=5.71e+05 loss_x2y=9.5628e-02 ppl_x2y=1.10 loss_y2x=9.7395e-02 ppl_y2x=1.10 dual_loss=4.3659e-01
+Validation X2Y - loss=8.1272e-01 ppl=2.25 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.4980e-01 ppl=2.12 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 99 - |param|=9.50e+02 |g_param|=4.87e+05 loss_x2y=9.6527e-02 ppl_x2y=1.10 loss_y2x=9.5071e-02 ppl_y2x=1.10 dual_loss=3.8987e-01
+Validation X2Y - loss=8.5181e-01 ppl=2.34 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.4743e-01 ppl=2.11 best_loss=5.6645e-01 best_ppl=1.76
+Epoch 100 - |param|=9.50e+02 |g_param|=4.87e+05 loss_x2y=9.4238e-02 ppl_x2y=1.10 loss_y2x=9.2016e-02 ppl_y2x=1.10 dual_loss=3.7492e-01
+Validation X2Y - loss=8.4460e-01 ppl=2.33 best_loss=6.1961e-01 best_ppl=1.86                                            
+Validation Y2X - loss=7.3812e-01 ppl=2.09 best_loss=5.6645e-01 best_ppl=1.76
 
+real	52m24.521s
+user	51m39.832s
+sys	0m45.334s
+```
+
+epoch 30 ကနေ 100 အထိ အထက်ပါ training အားလုံးရဲ့ စုစုပေါင်းကြာချိန်က အောက်ပါအတိုင်း...  
+
+```
+real	271m25.280s
+user	267m0.357s
+sys	4m20.127s
 ```
 
 ## DSL-NMT Performance for My-RK 
