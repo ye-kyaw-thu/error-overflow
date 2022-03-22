@@ -2934,6 +2934,35 @@ sys	0m27.635s
 
 ## DSL with Transformer
 
+### Prepare Shell Script
+
+```bash
+#!/bin/bash
+
+# Written by Ye, LST, NECTEC, Thailand
+# Last Updated: 22 Mar 2022
+# for training Dual Supervised Learning models
+
+#Reference of Transformer Command
+#time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 40 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-40epoch/myrk-transformer-model.pth
+# အထက်ပါ command ကို အခြေခံပြီး run ပေမဲ့ အောက်ပါ error ပေးတယ်။ တချို့ parameter တွေကို မသိဘူး
+# dual_train.py: error: unrecognized arguments: --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0
+
+for i in {30,40,50,60,70,80,90,100}
+do
+   echo "training start for ${i} epochs...";
+   time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
+   --lang myrk \
+   --gpu_id 1 --batch_size 64 --n_epochs ${i} --max_length 100 --dropout .2 \
+   --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
+   --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
+   --lm_fn ./model/lm/lm-200epoch.pth \
+   --use_transformer --init_epoch 1\
+   --model_fn ./model/dsl/transformer/myrk-${i}epoch/dsl-model-myrk.pth | tee ./model/dsl/transformer/myrk-${i}epoch/training.log;
+done
+
+```
+
 ### with LM 200 Epoch
 
 #### Warmup-Epoch 20, Total Epoch 30
