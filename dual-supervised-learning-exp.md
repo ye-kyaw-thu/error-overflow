@@ -2934,7 +2934,7 @@ sys	0m27.635s
 
 ## DSL with Transformer
 
-### Prepare Shell Script
+### Preparing a Shell Script
 
 ```bash
 #!/bin/bash
