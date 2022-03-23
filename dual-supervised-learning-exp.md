@@ -1537,6 +1537,7 @@ done
 # used for seq2seq-DSL evaluation
 
 #for folder in {myrk-30epoch,myrk-40epoch,myrk-50epoch,myrk-60epoch,myrk-70epoch,myrk-80epoch,myrk-90epoch,myrk-100epoch};
+# 30epoch, 40epoch က ပထမဆုံး စမ်း run ရင်းနဲ့ testing/evaluation ပါ လုပ်ထားပြီးပြီမို့...  
 for folder in {myrk-50epoch,myrk-60epoch,myrk-70epoch,myrk-80epoch,myrk-90epoch,myrk-100epoch};
 do
    cd ./model/dsl/${folder};
