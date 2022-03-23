@@ -3169,7 +3169,344 @@ sys	0m22.361s
 testing/evaluation ...  
 
 ```
-
+/home/ye/exp/simple-nmt/model/dsl/myrk-80epoch
+Evaluation result for the model: dsl-model-myrk.01.4.42-83.22.4.44-85.19.4.06-57.81.4.08-58.89.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 13.0/0.3/0.0/0.0 (BP=1.000, ratio=1.012, hyp_len=23431, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.01.4.42-83.22.4.44-85.19.4.06-57.81.4.08-58.89.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 17.3/0.1/0.0/0.0 (BP=0.955, ratio=0.956, hyp_len=22464, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.02.4.18-65.07.4.20-66.37.3.90-49.16.3.92-50.21.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 17.2/1.9/0.0/0.0 (BP=1.000, ratio=1.040, hyp_len=24094, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.02.4.18-65.07.4.20-66.37.3.90-49.16.3.92-50.21.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 19.2/2.4/0.0/0.0 (BP=0.986, ratio=0.986, hyp_len=23191, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.03.4.01-55.02.4.04-57.02.3.87-47.91.3.84-46.73.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 22.2/1.7/0.0/0.0 (BP=1.000, ratio=1.012, hyp_len=23443, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.03.4.01-55.02.4.04-57.02.3.87-47.91.3.84-46.73.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 20.7/2.5/0.0/0.0 (BP=0.979, ratio=0.979, hyp_len=23025, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.04.3.97-52.85.4.01-55.20.3.72-41.38.3.78-43.61.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.5/2.0/0.0/0.0 (BP=1.000, ratio=1.003, hyp_len=23220, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.04.3.97-52.85.4.01-55.20.3.72-41.38.3.78-43.61.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 22.0/4.1/0.4/0.0 (BP=0.982, ratio=0.982, hyp_len=23090, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.05.3.89-48.94.3.96-52.36.3.61-36.93.3.70-40.49.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.4/2.5/0.0/0.0 (BP=1.000, ratio=1.003, hyp_len=23237, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.05.3.89-48.94.3.96-52.36.3.61-36.93.3.70-40.49.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 22.5/2.6/0.0/0.0 (BP=0.978, ratio=0.979, hyp_len=23006, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.06.3.80-44.85.3.87-48.17.3.56-35.00.3.62-37.31.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.4/3.6/0.4/0.0 (BP=1.000, ratio=1.032, hyp_len=23911, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.06.3.80-44.85.3.87-48.17.3.56-35.00.3.62-37.31.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.0/3.6/0.3/0.0 (BP=0.991, ratio=0.992, hyp_len=23310, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.07.3.69-40.12.3.81-45.04.3.39-29.72.3.59-36.18.pth, myrk
+BLEU = 1.17, 25.8/4.9/0.7/0.0 (BP=0.985, ratio=0.985, hyp_len=22817, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.07.3.69-40.12.3.81-45.04.3.39-29.72.3.59-36.18.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 22.9/4.3/0.2/0.0 (BP=1.000, ratio=1.012, hyp_len=23795, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.08.3.45-31.44.3.64-38.09.3.26-25.94.3.43-30.86.pth, myrk
+BLEU = 2.80, 27.5/7.3/1.4/0.2 (BP=1.000, ratio=1.011, hyp_len=23426, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.08.3.45-31.44.3.64-38.09.3.26-25.94.3.43-30.86.pth, rkmy
+BLEU = 1.62, 26.4/6.2/0.9/0.1 (BP=0.993, ratio=0.993, hyp_len=23351, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.09.3.27-26.29.3.39-29.68.3.12-22.71.3.22-24.98.pth, myrk
+BLEU = 3.38, 29.9/8.9/1.8/0.3 (BP=1.000, ratio=1.000, hyp_len=23156, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.09.3.27-26.29.3.39-29.68.3.12-22.71.3.22-24.98.pth, rkmy
+BLEU = 1.93, 28.8/8.0/1.2/0.1 (BP=0.996, ratio=0.996, hyp_len=23418, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.10.3.23-25.38.3.33-28.04.3.08-21.65.3.11-22.40.pth, myrk
+BLEU = 4.44, 30.3/9.5/2.4/0.6 (BP=1.000, ratio=1.013, hyp_len=23458, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.10.3.23-25.38.3.33-28.04.3.08-21.65.3.11-22.40.pth, rkmy
+BLEU = 2.89, 32.2/9.7/1.7/0.1 (BP=0.992, ratio=0.992, hyp_len=23311, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.11.3.10-22.26.3.14-23.21.2.90-18.16.2.92-18.60.pth, myrk
+BLEU = 6.21, 34.5/12.2/3.5/1.0 (BP=1.000, ratio=1.012, hyp_len=23440, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.11.3.10-22.26.3.14-23.21.2.90-18.16.2.92-18.60.pth, rkmy
+BLEU = 4.46, 33.7/11.0/2.2/0.5 (BP=1.000, ratio=1.005, hyp_len=23630, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.12.2.95-19.10.2.94-18.93.2.77-15.98.2.77-15.95.pth, myrk
+BLEU = 8.03, 37.6/14.2/4.9/1.6 (BP=1.000, ratio=1.007, hyp_len=23333, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.12.2.95-19.10.2.94-18.93.2.77-15.98.2.77-15.95.pth, rkmy
+BLEU = 7.27, 37.0/14.1/4.1/1.3 (BP=1.000, ratio=1.018, hyp_len=23937, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.13.2.77-15.99.2.84-17.10.2.62-13.72.2.62-13.67.pth, myrk
+BLEU = 10.69, 42.2/17.8/6.7/2.6 (BP=1.000, ratio=1.003, hyp_len=23231, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.13.2.77-15.99.2.84-17.10.2.62-13.72.2.62-13.67.pth, rkmy
+BLEU = 8.45, 39.2/15.6/5.1/1.6 (BP=1.000, ratio=1.019, hyp_len=23959, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.14.2.60-13.43.2.58-13.16.2.47-11.80.2.46-11.75.pth, myrk
+BLEU = 13.22, 44.6/20.3/8.8/3.9 (BP=1.000, ratio=1.029, hyp_len=23824, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.14.2.60-13.43.2.58-13.16.2.47-11.80.2.46-11.75.pth, rkmy
+BLEU = 11.12, 43.5/19.2/7.1/2.6 (BP=1.000, ratio=1.000, hyp_len=23504, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.15.2.41-11.11.2.49-12.10.2.24-9.41.2.33-10.31.pth, myrk
+BLEU = 17.36, 49.6/24.8/12.2/6.0 (BP=1.000, ratio=1.000, hyp_len=23170, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.15.2.41-11.11.2.49-12.10.2.24-9.41.2.33-10.31.pth, rkmy
+BLEU = 12.87, 45.6/21.2/8.5/3.3 (BP=1.000, ratio=1.012, hyp_len=23787, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.16.2.21-9.09.2.38-10.85.2.09-8.05.2.23-9.26.pth, myrk
+BLEU = 21.32, 53.5/29.5/15.9/8.2 (BP=1.000, ratio=1.013, hyp_len=23457, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.16.2.21-9.09.2.38-10.85.2.09-8.05.2.23-9.26.pth, rkmy
+BLEU = 14.96, 47.5/23.4/10.2/4.4 (BP=1.000, ratio=1.007, hyp_len=23665, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.17.2.02-7.57.2.21-9.08.1.89-6.63.2.11-8.26.pth, myrk
+BLEU = 26.28, 58.1/34.7/20.3/11.7 (BP=1.000, ratio=1.009, hyp_len=23371, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.17.2.02-7.57.2.21-9.08.1.89-6.63.2.11-8.26.pth, rkmy
+BLEU = 18.87, 51.5/27.4/13.6/6.6 (BP=1.000, ratio=1.015, hyp_len=23852, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.18.1.83-6.26.2.07-7.93.1.86-6.42.2.05-7.76.pth, myrk
+BLEU = 28.86, 60.9/37.5/22.8/13.6 (BP=0.995, ratio=0.995, hyp_len=23041, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.18.1.83-6.26.2.07-7.93.1.86-6.42.2.05-7.76.pth, rkmy
+BLEU = 21.66, 54.3/30.3/16.0/8.4 (BP=1.000, ratio=1.000, hyp_len=23516, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.19.1.67-5.31.1.93-6.91.1.70-5.48.1.93-6.90.pth, myrk
+BLEU = 33.37, 64.3/41.8/26.9/17.1 (BP=1.000, ratio=1.010, hyp_len=23393, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.19.1.67-5.31.1.93-6.91.1.70-5.48.1.93-6.90.pth, rkmy
+BLEU = 23.23, 55.8/32.3/17.5/9.2 (BP=1.000, ratio=1.009, hyp_len=23724, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.20.1.50-4.50.1.78-5.91.1.48-4.39.1.75-5.73.pth, myrk
+BLEU = 41.62, 69.5/49.4/35.1/24.8 (BP=1.000, ratio=1.012, hyp_len=23432, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.20.1.50-4.50.1.78-5.91.1.48-4.39.1.75-5.73.pth, rkmy
+BLEU = 29.98, 61.1/38.6/23.6/14.5 (BP=1.000, ratio=1.010, hyp_len=23743, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.21.1.46-4.30.1.79-5.98.1.41-4.08.1.65-5.18.pth, myrk
+BLEU = 45.40, 71.8/52.8/39.0/28.7 (BP=1.000, ratio=1.017, hyp_len=23561, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.21.1.46-4.30.1.79-5.98.1.41-4.08.1.65-5.18.pth, rkmy
+BLEU = 33.05, 63.4/41.7/26.6/17.0 (BP=1.000, ratio=1.019, hyp_len=23966, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.22.1.31-3.72.1.66-5.24.1.32-3.74.1.72-5.59.pth, myrk
+BLEU = 49.66, 74.6/56.7/43.3/33.2 (BP=1.000, ratio=1.006, hyp_len=23305, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.22.1.31-3.72.1.66-5.24.1.32-3.74.1.72-5.59.pth, rkmy
+BLEU = 32.62, 63.5/42.0/26.1/16.3 (BP=1.000, ratio=1.041, hyp_len=24466, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.23.1.24-3.46.1.67-5.30.1.26-3.54.1.58-4.86.pth, myrk
+BLEU = 51.55, 75.7/58.4/45.4/35.2 (BP=1.000, ratio=1.020, hyp_len=23619, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.23.1.24-3.46.1.67-5.30.1.26-3.54.1.58-4.86.pth, rkmy
+BLEU = 36.40, 65.6/44.9/29.8/20.0 (BP=1.000, ratio=1.016, hyp_len=23880, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.24.1.23-3.41.1.51-4.55.1.21-3.36.1.47-4.35.pth, myrk
+BLEU = 53.24, 76.8/60.0/47.1/37.0 (BP=1.000, ratio=1.017, hyp_len=23562, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.24.1.23-3.41.1.51-4.55.1.21-3.36.1.47-4.35.pth, rkmy
+BLEU = 42.02, 69.5/50.1/35.5/25.2 (BP=1.000, ratio=1.017, hyp_len=23898, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.25.1.10-3.00.1.41-4.08.1.18-3.24.1.48-4.40.pth, myrk
+BLEU = 56.55, 78.9/62.8/50.5/40.8 (BP=1.000, ratio=1.001, hyp_len=23176, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.25.1.10-3.00.1.41-4.08.1.18-3.24.1.48-4.40.pth, rkmy
+BLEU = 42.22, 70.8/51.1/35.8/25.3 (BP=0.993, ratio=0.993, hyp_len=23334, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.26.1.22-3.38.1.28-3.60.1.33-3.79.1.33-3.80.pth, myrk
+BLEU = 49.08, 74.1/56.4/42.8/32.5 (BP=1.000, ratio=1.022, hyp_len=23680, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.26.1.22-3.38.1.28-3.60.1.33-3.79.1.33-3.80.pth, rkmy
+BLEU = 46.57, 72.7/54.5/40.0/29.7 (BP=1.000, ratio=1.020, hyp_len=23975, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.27.1.15-3.15.1.19-3.30.1.18-3.24.1.27-3.55.pth, myrk
+BLEU = 51.91, 75.6/59.0/45.8/35.5 (BP=1.000, ratio=1.034, hyp_len=23942, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.27.1.15-3.15.1.19-3.30.1.18-3.24.1.27-3.55.pth, rkmy
+BLEU = 50.04, 74.7/57.5/43.6/33.5 (BP=1.000, ratio=1.018, hyp_len=23930, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.28.0.94-2.56.1.18-3.27.1.03-2.79.1.26-3.52.pth, myrk
+BLEU = 60.64, 81.1/66.5/55.0/45.6 (BP=1.000, ratio=1.017, hyp_len=23550, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.28.0.94-2.56.1.18-3.27.1.03-2.79.1.26-3.52.pth, rkmy
+BLEU = 51.46, 75.6/58.6/45.1/35.1 (BP=1.000, ratio=1.005, hyp_len=23623, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.29.0.91-2.48.1.08-2.96.1.03-2.80.1.22-3.40.pth, myrk
+BLEU = 60.65, 81.2/66.6/55.0/45.5 (BP=1.000, ratio=1.020, hyp_len=23619, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.29.0.91-2.48.1.08-2.96.1.03-2.80.1.22-3.40.pth, rkmy
+BLEU = 52.22, 76.2/59.6/45.8/35.8 (BP=1.000, ratio=1.018, hyp_len=23938, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.30.1.02-2.78.1.50-4.48.0.97-2.65.1.36-3.89.pth, myrk
+BLEU = 62.66, 82.2/68.2/57.2/48.1 (BP=1.000, ratio=1.014, hyp_len=23495, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.30.1.02-2.78.1.50-4.48.0.97-2.65.1.36-3.89.pth, rkmy
+BLEU = 46.44, 72.8/54.4/39.8/29.5 (BP=1.000, ratio=1.023, hyp_len=24044, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.31.0.88-2.41.1.13-3.08.0.95-2.59.1.15-3.17.pth, myrk
+BLEU = 63.64, 82.7/69.1/58.2/49.3 (BP=1.000, ratio=1.016, hyp_len=23531, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.31.0.88-2.41.1.13-3.08.0.95-2.59.1.15-3.17.pth, rkmy
+BLEU = 56.67, 79.0/63.4/50.5/40.8 (BP=1.000, ratio=1.007, hyp_len=23671, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.32.0.75-2.11.0.94-2.57.0.94-2.55.1.12-3.06.pth, myrk
+BLEU = 65.61, 83.6/70.8/60.4/51.8 (BP=1.000, ratio=1.014, hyp_len=23483, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.32.0.75-2.11.0.94-2.57.0.94-2.55.1.12-3.06.pth, rkmy
+BLEU = 57.58, 79.1/64.3/51.5/41.9 (BP=1.000, ratio=1.027, hyp_len=24132, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.33.0.71-2.04.0.91-2.48.0.89-2.43.1.08-2.95.pth, myrk
+BLEU = 66.98, 84.4/72.0/62.0/53.4 (BP=1.000, ratio=1.015, hyp_len=23517, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.33.0.71-2.04.0.91-2.48.0.89-2.43.1.08-2.95.pth, rkmy
+BLEU = 59.62, 80.3/66.1/53.7/44.3 (BP=1.000, ratio=1.020, hyp_len=23973, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.34.0.72-2.05.0.92-2.50.0.88-2.41.1.07-2.93.pth, myrk
+BLEU = 67.27, 84.6/72.3/62.3/53.8 (BP=1.000, ratio=1.013, hyp_len=23458, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.34.0.72-2.05.0.92-2.50.0.88-2.41.1.07-2.93.pth, rkmy
+BLEU = 61.04, 81.2/67.3/55.2/46.0 (BP=1.000, ratio=1.016, hyp_len=23874, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.35.0.70-2.02.0.88-2.42.0.88-2.41.1.06-2.87.pth, myrk
+BLEU = 67.27, 84.3/72.2/62.4/54.0 (BP=1.000, ratio=1.022, hyp_len=23664, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.35.0.70-2.02.0.88-2.42.0.88-2.41.1.06-2.87.pth, rkmy
+BLEU = 62.39, 81.8/68.4/56.7/47.7 (BP=1.000, ratio=1.010, hyp_len=23750, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.36.0.68-1.97.0.87-2.38.0.90-2.47.1.07-2.92.pth, myrk
+BLEU = 66.35, 84.0/71.6/61.3/52.6 (BP=1.000, ratio=1.020, hyp_len=23620, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.36.0.68-1.97.0.87-2.38.0.90-2.47.1.07-2.92.pth, rkmy
+BLEU = 62.51, 82.1/68.7/56.8/47.7 (BP=1.000, ratio=1.007, hyp_len=23672, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.37.0.74-2.09.0.84-2.32.0.88-2.41.0.99-2.69.pth, myrk
+BLEU = 68.44, 85.0/73.2/63.6/55.4 (BP=1.000, ratio=1.012, hyp_len=23448, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.37.0.74-2.09.0.84-2.32.0.88-2.41.0.99-2.69.pth, rkmy
+BLEU = 64.55, 83.0/70.3/59.1/50.3 (BP=1.000, ratio=1.017, hyp_len=23902, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.38.0.61-1.84.0.76-2.13.0.82-2.28.0.97-2.63.pth, myrk
+BLEU = 69.74, 85.6/74.3/65.0/57.1 (BP=1.000, ratio=1.018, hyp_len=23569, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.38.0.61-1.84.0.76-2.13.0.82-2.28.0.97-2.63.pth, rkmy
+BLEU = 65.16, 83.3/70.8/59.8/51.1 (BP=1.000, ratio=1.018, hyp_len=23941, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.39.0.61-1.85.0.76-2.14.0.83-2.30.0.98-2.68.pth, myrk
+BLEU = 69.46, 85.4/74.1/64.8/56.7 (BP=1.000, ratio=1.022, hyp_len=23660, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.39.0.61-1.85.0.76-2.14.0.83-2.30.0.98-2.68.pth, rkmy
+BLEU = 65.41, 83.4/71.0/60.0/51.5 (BP=1.000, ratio=1.022, hyp_len=24019, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.40.0.57-1.77.0.72-2.05.0.81-2.25.0.98-2.67.pth, myrk
+BLEU = 69.93, 85.5/74.5/65.4/57.4 (BP=1.000, ratio=1.022, hyp_len=23681, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.40.0.57-1.77.0.72-2.05.0.81-2.25.0.98-2.67.pth, rkmy
+BLEU = 65.35, 83.3/71.0/60.0/51.4 (BP=1.000, ratio=1.023, hyp_len=24046, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.41.0.65-1.92.0.92-2.50.0.83-2.30.0.99-2.70.pth, myrk
+BLEU = 69.29, 85.5/74.1/64.5/56.4 (BP=1.000, ratio=1.019, hyp_len=23607, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.41.0.65-1.92.0.92-2.50.0.83-2.30.0.99-2.70.pth, rkmy
+BLEU = 62.44, 81.3/68.5/56.9/48.0 (BP=1.000, ratio=1.030, hyp_len=24217, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.42.0.67-1.96.0.76-2.13.0.85-2.34.0.97-2.65.pth, myrk
+BLEU = 68.22, 84.7/73.0/63.4/55.3 (BP=1.000, ratio=1.017, hyp_len=23558, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.42.0.67-1.96.0.76-2.13.0.85-2.34.0.97-2.65.pth, rkmy
+BLEU = 65.49, 83.4/71.1/60.1/51.6 (BP=1.000, ratio=1.020, hyp_len=23976, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.43.0.57-1.77.0.69-2.00.0.77-2.15.0.92-2.50.pth, myrk
+BLEU = 70.79, 86.1/75.3/66.3/58.5 (BP=1.000, ratio=1.019, hyp_len=23609, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.43.0.57-1.77.0.69-2.00.0.77-2.15.0.92-2.50.pth, rkmy
+BLEU = 67.89, 84.5/73.1/62.8/54.7 (BP=1.000, ratio=1.020, hyp_len=23974, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.44.0.55-1.73.0.67-1.96.0.79-2.20.0.91-2.47.pth, myrk
+BLEU = 70.86, 86.0/75.3/66.3/58.7 (BP=1.000, ratio=1.026, hyp_len=23765, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.44.0.55-1.73.0.67-1.96.0.79-2.20.0.91-2.47.pth, rkmy
+BLEU = 68.66, 85.0/73.8/63.6/55.7 (BP=1.000, ratio=1.015, hyp_len=23870, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.45.0.51-1.66.0.64-1.89.0.77-2.17.0.88-2.42.pth, myrk
+BLEU = 71.72, 86.4/76.0/67.3/59.9 (BP=1.000, ratio=1.021, hyp_len=23637, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.45.0.51-1.66.0.64-1.89.0.77-2.17.0.88-2.42.pth, rkmy
+BLEU = 68.16, 84.6/73.3/63.1/55.1 (BP=1.000, ratio=1.026, hyp_len=24121, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.46.0.51-1.67.0.63-1.88.0.77-2.16.0.89-2.44.pth, myrk
+BLEU = 72.46, 87.1/76.7/68.1/60.6 (BP=1.000, ratio=1.016, hyp_len=23538, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.46.0.51-1.67.0.63-1.88.0.77-2.16.0.89-2.44.pth, rkmy
+BLEU = 68.66, 84.9/73.8/63.7/55.7 (BP=1.000, ratio=1.022, hyp_len=24015, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.47.0.51-1.66.0.62-1.87.0.76-2.14.0.87-2.39.pth, myrk
+BLEU = 72.22, 86.8/76.5/67.9/60.4 (BP=1.000, ratio=1.021, hyp_len=23655, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.47.0.51-1.66.0.62-1.87.0.76-2.14.0.87-2.39.pth, rkmy
+BLEU = 69.58, 85.4/74.6/64.7/56.9 (BP=1.000, ratio=1.021, hyp_len=23999, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.48.0.47-1.61.0.62-1.87.0.76-2.14.0.86-2.36.pth, myrk
+BLEU = 71.69, 86.2/75.9/67.4/60.0 (BP=1.000, ratio=1.025, hyp_len=23748, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.48.0.47-1.61.0.62-1.87.0.76-2.14.0.86-2.36.pth, rkmy
+BLEU = 69.23, 85.1/74.2/64.2/56.6 (BP=1.000, ratio=1.024, hyp_len=24079, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.49.0.47-1.60.0.60-1.82.0.75-2.12.0.86-2.37.pth, myrk
+BLEU = 71.50, 86.3/75.9/67.1/59.5 (BP=1.000, ratio=1.026, hyp_len=23767, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.49.0.47-1.60.0.60-1.82.0.75-2.12.0.86-2.37.pth, rkmy
+BLEU = 69.48, 85.4/74.6/64.5/56.7 (BP=1.000, ratio=1.025, hyp_len=24104, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.50.0.45-1.58.0.60-1.81.0.74-2.09.0.86-2.36.pth, myrk
+BLEU = 72.07, 86.6/76.3/67.8/60.2 (BP=1.000, ratio=1.026, hyp_len=23756, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.50.0.45-1.58.0.60-1.81.0.74-2.09.0.86-2.36.pth, rkmy
+BLEU = 69.32, 85.2/74.3/64.4/56.6 (BP=1.000, ratio=1.030, hyp_len=24206, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.51.0.45-1.57.0.56-1.75.0.74-2.09.0.85-2.35.pth, myrk
+BLEU = 72.21, 86.6/76.4/67.9/60.6 (BP=1.000, ratio=1.023, hyp_len=23682, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.51.0.45-1.57.0.56-1.75.0.74-2.09.0.85-2.35.pth, rkmy
+BLEU = 69.51, 85.3/74.4/64.6/56.9 (BP=1.000, ratio=1.023, hyp_len=24056, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.52.0.47-1.60.0.55-1.73.0.73-2.08.0.82-2.27.pth, myrk
+BLEU = 71.97, 86.3/76.1/67.6/60.4 (BP=1.000, ratio=1.026, hyp_len=23762, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.52.0.47-1.60.0.55-1.73.0.73-2.08.0.82-2.27.pth, rkmy
+BLEU = 70.92, 86.1/75.7/66.1/58.7 (BP=1.000, ratio=1.025, hyp_len=24093, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.53.0.42-1.53.0.52-1.69.0.73-2.07.0.83-2.29.pth, myrk
+BLEU = 72.24, 86.6/76.4/68.0/60.5 (BP=1.000, ratio=1.025, hyp_len=23747, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.53.0.42-1.53.0.52-1.69.0.73-2.07.0.83-2.29.pth, rkmy
+BLEU = 71.82, 86.5/76.4/67.2/60.0 (BP=1.000, ratio=1.021, hyp_len=23996, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.54.0.43-1.54.0.53-1.70.0.73-2.07.0.83-2.28.pth, myrk
+BLEU = 72.79, 87.0/77.0/68.5/61.2 (BP=1.000, ratio=1.023, hyp_len=23687, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.54.0.43-1.54.0.53-1.70.0.73-2.07.0.83-2.28.pth, rkmy
+BLEU = 71.21, 86.1/75.9/66.6/59.1 (BP=1.000, ratio=1.023, hyp_len=24057, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.55.0.43-1.54.0.53-1.70.0.73-2.07.0.81-2.25.pth, myrk
+BLEU = 73.52, 87.4/77.5/69.3/62.2 (BP=1.000, ratio=1.021, hyp_len=23635, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.55.0.43-1.54.0.53-1.70.0.73-2.07.0.81-2.25.pth, rkmy
+BLEU = 71.28, 86.0/75.9/66.7/59.4 (BP=1.000, ratio=1.029, hyp_len=24199, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.56.0.40-1.50.0.49-1.64.0.71-2.04.0.81-2.26.pth, myrk
+BLEU = 73.48, 87.2/77.4/69.3/62.3 (BP=1.000, ratio=1.024, hyp_len=23725, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.56.0.40-1.50.0.49-1.64.0.71-2.04.0.81-2.26.pth, rkmy
+BLEU = 71.87, 86.4/76.4/67.3/60.1 (BP=1.000, ratio=1.028, hyp_len=24166, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.57.0.40-1.50.0.49-1.64.0.73-2.07.0.80-2.22.pth, myrk
+BLEU = 73.21, 87.3/77.3/69.0/61.8 (BP=1.000, ratio=1.023, hyp_len=23697, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.57.0.40-1.50.0.49-1.64.0.73-2.07.0.80-2.22.pth, rkmy
+BLEU = 70.63, 85.7/75.4/65.9/58.5 (BP=1.000, ratio=1.033, hyp_len=24286, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.58.0.44-1.55.0.47-1.60.0.72-2.06.0.81-2.24.pth, myrk
+BLEU = 73.60, 87.4/77.6/69.4/62.3 (BP=1.000, ratio=1.021, hyp_len=23635, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.58.0.44-1.55.0.47-1.60.0.72-2.06.0.81-2.24.pth, rkmy
+BLEU = 71.13, 85.9/75.7/66.5/59.2 (BP=1.000, ratio=1.035, hyp_len=24323, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.59.0.39-1.48.0.46-1.58.0.74-2.09.0.84-2.32.pth, myrk
+BLEU = 72.21, 86.6/76.4/67.9/60.6 (BP=1.000, ratio=1.033, hyp_len=23929, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.59.0.39-1.48.0.46-1.58.0.74-2.09.0.84-2.32.pth, rkmy
+BLEU = 71.27, 86.2/75.9/66.6/59.2 (BP=1.000, ratio=1.022, hyp_len=24022, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.60.0.39-1.48.0.55-1.73.0.72-2.05.0.83-2.30.pth, myrk
+BLEU = 73.70, 87.4/77.7/69.5/62.5 (BP=1.000, ratio=1.026, hyp_len=23766, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.60.0.39-1.48.0.55-1.73.0.72-2.05.0.83-2.30.pth, rkmy
+BLEU = 71.53, 86.4/76.1/66.9/59.5 (BP=1.000, ratio=1.020, hyp_len=23989, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.61.0.39-1.47.0.51-1.66.0.73-2.07.0.78-2.18.pth, myrk
+BLEU = 73.46, 87.1/77.4/69.3/62.3 (BP=1.000, ratio=1.027, hyp_len=23789, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.61.0.39-1.47.0.51-1.66.0.73-2.07.0.78-2.18.pth, rkmy
+BLEU = 71.65, 86.2/76.1/67.1/59.9 (BP=1.000, ratio=1.032, hyp_len=24263, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.62.0.36-1.44.0.47-1.60.0.72-2.06.0.80-2.24.pth, myrk
+BLEU = 73.95, 87.6/77.9/69.8/62.8 (BP=1.000, ratio=1.026, hyp_len=23768, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.62.0.36-1.44.0.47-1.60.0.72-2.06.0.80-2.24.pth, rkmy
+BLEU = 71.49, 86.2/76.0/66.8/59.6 (BP=1.000, ratio=1.029, hyp_len=24183, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.63.0.40-1.50.0.56-1.75.0.75-2.12.0.88-2.42.pth, myrk
+BLEU = 72.35, 86.6/76.6/68.1/60.6 (BP=1.000, ratio=1.035, hyp_len=23977, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.63.0.40-1.50.0.56-1.75.0.75-2.12.0.88-2.42.pth, rkmy
+BLEU = 68.46, 84.4/73.7/63.6/55.5 (BP=1.000, ratio=1.044, hyp_len=24539, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.64.0.36-1.43.0.45-1.57.0.74-2.10.0.78-2.18.pth, myrk
+BLEU = 74.58, 88.1/78.4/70.5/63.6 (BP=1.000, ratio=1.020, hyp_len=23624, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.64.0.36-1.43.0.45-1.57.0.74-2.10.0.78-2.18.pth, rkmy
+BLEU = 71.90, 86.4/76.4/67.3/60.2 (BP=1.000, ratio=1.028, hyp_len=24171, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.65.0.37-1.45.0.46-1.59.0.73-2.08.0.78-2.19.pth, myrk
+BLEU = 73.97, 87.5/77.9/69.9/62.9 (BP=1.000, ratio=1.023, hyp_len=23703, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.65.0.37-1.45.0.46-1.59.0.73-2.08.0.78-2.19.pth, rkmy
+BLEU = 70.75, 85.7/75.3/66.0/58.8 (BP=1.000, ratio=1.035, hyp_len=24328, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.66.0.35-1.42.0.47-1.60.0.73-2.08.0.88-2.41.pth, myrk
+BLEU = 73.09, 86.9/77.1/68.9/61.9 (BP=1.000, ratio=1.031, hyp_len=23867, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.66.0.35-1.42.0.47-1.60.0.73-2.08.0.88-2.41.pth, rkmy
+BLEU = 72.53, 87.1/77.1/67.9/60.7 (BP=1.000, ratio=1.013, hyp_len=23817, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.67.0.35-1.41.0.45-1.57.0.72-2.05.0.79-2.20.pth, myrk
+BLEU = 73.40, 87.1/77.4/69.2/62.2 (BP=1.000, ratio=1.031, hyp_len=23872, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.67.0.35-1.41.0.45-1.57.0.72-2.05.0.79-2.20.pth, rkmy
+BLEU = 71.05, 85.8/75.7/66.4/59.1 (BP=1.000, ratio=1.033, hyp_len=24285, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.68.0.33-1.40.0.44-1.56.0.72-2.06.0.78-2.19.pth, myrk
+BLEU = 73.82, 87.4/77.8/69.7/62.8 (BP=1.000, ratio=1.028, hyp_len=23799, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.68.0.33-1.40.0.44-1.56.0.72-2.06.0.78-2.19.pth, rkmy
+BLEU = 71.95, 86.4/76.5/67.4/60.2 (BP=1.000, ratio=1.033, hyp_len=24291, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.69.0.35-1.41.0.44-1.55.0.71-2.04.0.76-2.14.pth, myrk
+BLEU = 73.82, 87.3/77.7/69.7/62.7 (BP=1.000, ratio=1.029, hyp_len=23828, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.69.0.35-1.41.0.44-1.55.0.71-2.04.0.76-2.14.pth, rkmy
+BLEU = 72.98, 87.0/77.4/68.5/61.5 (BP=1.000, ratio=1.030, hyp_len=24225, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.70.0.32-1.38.0.40-1.50.0.71-2.03.0.76-2.14.pth, myrk
+BLEU = 73.82, 87.3/77.6/69.7/62.9 (BP=1.000, ratio=1.030, hyp_len=23849, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.70.0.32-1.38.0.40-1.50.0.71-2.03.0.76-2.14.pth, rkmy
+BLEU = 72.99, 86.9/77.3/68.6/61.6 (BP=1.000, ratio=1.032, hyp_len=24271, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.71.0.36-1.44.0.40-1.49.0.74-2.10.0.76-2.14.pth, myrk
+BLEU = 72.57, 86.8/76.8/68.2/61.0 (BP=1.000, ratio=1.037, hyp_len=24007, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.71.0.36-1.44.0.40-1.49.0.74-2.10.0.76-2.14.pth, rkmy
+BLEU = 73.20, 87.0/77.5/68.8/61.9 (BP=1.000, ratio=1.031, hyp_len=24233, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.72.0.42-1.52.0.38-1.46.0.78-2.17.0.76-2.13.pth, myrk
+BLEU = 68.20, 84.0/72.7/63.5/55.8 (BP=1.000, ratio=1.042, hyp_len=24129, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.72.0.42-1.52.0.38-1.46.0.78-2.17.0.76-2.13.pth, rkmy
+BLEU = 72.61, 86.5/76.9/68.1/61.3 (BP=1.000, ratio=1.037, hyp_len=24385, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.73.0.48-1.62.0.38-1.46.0.74-2.10.0.76-2.14.pth, myrk
+BLEU = 71.36, 85.7/75.6/67.1/59.7 (BP=1.000, ratio=1.034, hyp_len=23952, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.73.0.48-1.62.0.38-1.46.0.74-2.10.0.76-2.14.pth, rkmy
+BLEU = 72.30, 86.4/76.7/67.8/60.8 (BP=1.000, ratio=1.039, hyp_len=24415, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.74.0.40-1.49.0.38-1.46.0.69-2.00.0.74-2.09.pth, myrk
+BLEU = 74.13, 87.7/78.1/70.0/62.9 (BP=1.000, ratio=1.019, hyp_len=23610, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.74.0.40-1.49.0.38-1.46.0.69-2.00.0.74-2.09.pth, rkmy
+BLEU = 72.53, 86.5/76.8/68.1/61.2 (BP=1.000, ratio=1.038, hyp_len=24403, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.75.0.33-1.40.0.36-1.44.0.69-1.99.0.75-2.12.pth, myrk
+BLEU = 73.87, 87.3/77.8/69.8/62.8 (BP=1.000, ratio=1.026, hyp_len=23771, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.75.0.33-1.40.0.36-1.44.0.69-1.99.0.75-2.12.pth, rkmy
+BLEU = 73.49, 87.2/77.7/69.1/62.3 (BP=1.000, ratio=1.033, hyp_len=24284, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.76.0.32-1.38.0.39-1.47.0.68-1.98.0.78-2.17.pth, myrk
+BLEU = 74.03, 87.3/77.9/70.0/63.1 (BP=1.000, ratio=1.028, hyp_len=23817, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.76.0.32-1.38.0.39-1.47.0.68-1.98.0.78-2.17.pth, rkmy
+BLEU = 73.31, 87.1/77.4/68.8/62.2 (BP=1.000, ratio=1.028, hyp_len=24172, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.77.0.47-1.59.0.81-2.25.0.70-2.01.0.79-2.21.pth, myrk
+BLEU = 73.56, 87.4/77.6/69.4/62.2 (BP=1.000, ratio=1.029, hyp_len=23827, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.77.0.47-1.59.0.81-2.25.0.70-2.01.0.79-2.21.pth, rkmy
+BLEU = 70.81, 85.7/75.5/66.2/58.8 (BP=1.000, ratio=1.028, hyp_len=24173, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.78.0.35-1.42.0.48-1.62.0.72-2.05.0.76-2.13.pth, myrk
+BLEU = 73.04, 87.0/77.0/68.8/61.7 (BP=1.000, ratio=1.027, hyp_len=23778, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.78.0.35-1.42.0.48-1.62.0.72-2.05.0.76-2.13.pth, rkmy
+BLEU = 71.28, 86.0/75.7/66.6/59.5 (BP=1.000, ratio=1.034, hyp_len=24303, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.79.0.32-1.38.0.44-1.55.0.70-2.00.0.74-2.09.pth, myrk
+BLEU = 74.06, 87.4/77.9/70.0/63.1 (BP=1.000, ratio=1.029, hyp_len=23838, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.79.0.32-1.38.0.44-1.55.0.70-2.00.0.74-2.09.pth, rkmy
+BLEU = 71.89, 86.2/76.4/67.3/60.2 (BP=1.000, ratio=1.038, hyp_len=24405, ref_len=23509)
+Evaluation result for the model: dsl-model-myrk.80.0.30-1.34.0.39-1.47.0.69-2.00.0.74-2.10.pth, myrk
+BLEU = 73.74, 87.1/77.6/69.6/62.9 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len=23160)
+Evaluation result for the model: dsl-model-myrk.80.0.30-1.34.0.39-1.47.0.69-2.00.0.74-2.10.pth, rkmy
+BLEU = 74.43, 87.7/78.6/70.1/63.5 (BP=1.000, ratio=1.022, hyp_len=24034, ref_len=23509)
 ```
 
 #### Warmup-Epoch 20, Total Epoch 90
