@@ -1503,7 +1503,7 @@ sys	1m24.701s
 (base) ye@:~/exp/simple-nmt/model/dsl/myrk-40epoch$
 ```
 
-## Write a Shell Script for DSL Training Loop
+## Write a Shell Script for Seq2Seq-DSL Training Loop
 
 ```bash
 #!/bin/bash
@@ -1526,6 +1526,44 @@ do
 done
 ```
 
+## Write a Shell Script for Seq2Seq-DSL Testing/Evaluation Loop
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last Updated: 23 Mar 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# used for seq2seq-DSL evaluation
+
+#for folder in {myrk-30epoch,myrk-40epoch,myrk-50epoch,myrk-60epoch,myrk-70epoch,myrk-80epoch,myrk-90epoch,myrk-100epoch};
+for folder in {myrk-50epoch,myrk-60epoch,myrk-70epoch,myrk-80epoch,myrk-90epoch,myrk-100epoch};
+do
+   cd ./model/dsl/${folder};
+   pwd;
+   for i in *.pth;
+   do
+      MODEL=$i;
+
+      # Testing X-Y
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang myrk < /home/ye/exp/simple-nmt/data/test.my > $MODEL.myrk.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, myrk" | tee -a eval-results-xy-seq2seq.txt;
+      cat $MODEL.myrk.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/test.rk | tee  -a eval-results-xy-seq2seq.txt;
+
+      # Testing Y-X
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang rkmy < /home/ye/exp/simple-nmt/data/test.rk > $MODEL.rkmy.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, rkmy" | tee -a eval-results-yx-seq2seq.txt;
+      cat $MODEL.rkmy.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/test.my | tee  -a eval-results-yx-seq2seq.txt;
+   done
+   cd ~/exp/simple-nmt/;
+   echo "==========";
+done
+
+```
 
 #### Warmup-Epoch 20, Total Epoch 50
 
@@ -1686,6 +1724,11 @@ user	21m2.147s
 sys	0m15.050s
 ```
 
+testing/evaluation ...  
+
+```
+
+```
 
 #### Warmup-Epoch 20, Total Epoch 60
 
@@ -1874,6 +1917,12 @@ Validation Y2X - loss=6.7878e-01 ppl=1.97 best_loss=6.7988e-01 best_ppl=1.97
 real	25m15.328s
 user	24m59.098s
 sys	0m16.652s
+```
+
+testing/evaluation ...  
+
+```
+
 ```
 
 #### Warmup-Epoch 20, Total Epoch 70
@@ -2093,6 +2142,12 @@ Validation Y2X - loss=6.9793e-01 ppl=2.01 best_loss=6.6307e-01 best_ppl=1.94
 real	29m18.105s
 user	28m59.898s
 sys	0m19.032s
+```
+
+testing/evaluation ...  
+
+```
+
 ```
 
 #### Warmup-Epoch 20, Total Epoch 80
@@ -2342,6 +2397,12 @@ Validation Y2X - loss=7.4378e-01 ppl=2.10 best_loss=7.3877e-01 best_ppl=2.09
 real	33m27.653s
 user	33m6.188s
 sys	0m22.361s
+```
+
+testing/evaluation ...  
+
+```
+
 ```
 
 #### Warmup-Epoch 20, Total Epoch 90
@@ -2621,6 +2682,12 @@ Validation Y2X - loss=7.1364e-01 ppl=2.04 best_loss=6.7712e-01 best_ppl=1.97
 real	38m1.475s
 user	37m37.993s
 sys	0m24.177s
+```
+
+testing/evaluation ...  
+
+```
+
 ```
 
 #### Warmup-Epoch 20, Total Epoch 100
@@ -2930,6 +2997,12 @@ Validation Y2X - loss=6.6946e-01 ppl=1.95 best_loss=6.4428e-01 best_ppl=1.90
 real	42m0.940s
 user	41m34.245s
 sys	0m27.635s
+```
+
+testing/evaluation ...  
+
+```
+
 ```
 
 ## DSL with Transformer
