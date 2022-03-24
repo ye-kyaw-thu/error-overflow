@@ -9637,6 +9637,34 @@ sys	0m4.512s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+## Seq2Seq-DSL, my-bk, 30epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 40epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
    
 ## Reference
 
