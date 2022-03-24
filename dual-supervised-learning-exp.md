@@ -9665,7 +9665,90 @@ testing/evaluation ...
 
 ```
 
-   
+## Seq2Seq-DSL, my-bk, 50epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 60epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 70epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 80epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 90epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Seq2Seq-DSL, my-bk, 100epoch
+
+training
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
