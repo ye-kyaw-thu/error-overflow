@@ -4900,6 +4900,14 @@ Evaluation result for the model: dsl-model-myrk.99.0.26-1.30.0.30-1.35.0.71-2.03
 BLEU = 73.48, 86.9/77.7/69.2/62.4 (BP=1.000, ratio=1.034, hyp_len=24313, ref_len=23509)
 ```
 
+seq2seq-DSL ကို training အကုန်လုပ်တာ (i.e. 30 epoch, 40 epoch, ... , 100 epoch) ကြာခဲ့တဲ့ အချိန်က အောက်ပါအတိုင်း...  
+
+```
+real	305m9.036s
+user	297m36.164s
+sys	17m3.436s
+```
+
 ## DSL with Transformer
 
 ### Preparing a Shell Script
