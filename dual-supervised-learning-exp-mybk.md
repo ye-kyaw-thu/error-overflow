@@ -1590,7 +1590,8 @@ Evaluation result for the model: dsl-model-mybk.40.2.60-13.45.2.39-10.94.2.62-13
 BLEU = 7.61, 25.9/11.4/5.1/2.2 (BP=1.000, ratio=1.583, hyp_len=19357, ref_len=12231)
 ```
 
-Max BLEU Score for 40 epoch: 8.52  
+Best BLEU Score for my-bk, 38 epoch: 8.52 
+Best BLEU Score for bk-my, 38 epoch: 7.98  
 
 ## Seq2Seq-DSL, my-bk, 50epoch
 
@@ -1989,8 +1990,8 @@ Evaluation result for the model: dsl-model-mybk.50.2.22-9.18.2.03-7.61.2.58-13.2
 BLEU = 10.79, 38.0/16.0/7.0/3.2 (BP=1.000, ratio=1.061, hyp_len=12980, ref_len=12231)
 ```
 
-Max BLEU Score of 50 epoch for my-bk:   
-Max BLEU Score of 50 epoch for bk-my: 10.79  
+Best BLEU Score for my-bk, 50 epoch: 9.65  
+Best BLEU Score for bk-my, 50 epoch: 10.79  
 
 ## Seq2Seq-DSL, my-bk, 60epoch
 
@@ -2454,8 +2455,8 @@ Evaluation result for the model: dsl-model-mybk.60.1.99-7.31.1.85-6.39.2.65-14.1
 BLEU = 10.88, 37.2/15.8/7.2/3.3 (BP=1.000, ratio=1.099, hyp_len=13441, ref_len=12231)
 ```
 
-Best BLEU Score of my-bk: 9.84  
-Best BLEU Score of bk-my: 10.88  
+Best BLEU Score of my-bk, 60 epoch: 9.84  
+Best BLEU Score of bk-my, 60 epoch: 10.88  
 
 ## Seq2Seq-DSL, my-bk, 70epoch
 
@@ -2997,8 +2998,8 @@ Evaluation result for the model: dsl-model-mybk.70.1.80-6.04.1.67-5.34.2.58-13.2
 BLEU = 16.74, 44.6/22.6/11.9/6.5 (BP=1.000, ratio=1.074, hyp_len=13141, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk: 10.89  
-Best BLEU Score for bk-my: 16.86  
+Best BLEU Score for my-bk, 69 epoch: 10.89  
+Best BLEU Score for bk-my, 67 epoch: 16.86  
 
 ## Seq2Seq-DSL, my-bk, 80epoch
 
@@ -3900,8 +3901,8 @@ Evaluation result for the model: dsl-model-mybk.80.1.72-5.61.1.53-4.63.2.38-10.8
 BLEU = 11.91, 39.6/17.0/7.9/3.8 (BP=1.000, ratio=1.059, hyp_len=12953, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk:  
-Best BLEU Score for bk-my:  
+Best BLEU Score for my-bk, 68 epoch: 14.22 
+Best BLEU Score for bk-my, 57 epoch: 12.31  
 
 ## Seq2Seq-DSL, my-bk, 90epoch
 
@@ -4600,8 +4601,8 @@ Evaluation result for the model: dsl-model-mybk.90.1.48-4.39.1.22-3.40.2.81-16.6
 BLEU = 21.20, 48.6/26.9/15.8/9.8 (BP=1.000, ratio=1.086, hyp_len=13283, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk:  
-Best BLEU Score for bk-my:  
+Best BLEU Score for my-bk, 80 epoch: 11.18  
+Best BLEU Score for bk-my, 83 epoch and 87 epoch: 21.89  
 
 
 ## Seq2Seq-DSL, my-bk, 100epoch
@@ -5386,6 +5387,9 @@ real	326m39.893s
 user	316m30.512s
 sys	22m20.539s
 ```
+
+Best BLEU Score for mybk, 100 epoch: 11.36  
+Best BLEU Score for bkmy,94 epoch: 14.96  
 
 ## Reference
 
