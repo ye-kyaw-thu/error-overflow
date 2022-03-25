@@ -2180,7 +2180,276 @@ Validation Y2X - loss=2.3429e+00 ppl=10.41 best_loss=2.3200e+00 best_ppl=10.18
 testing/evaluation ...  
 
 ```
-
+/home/ye/exp/simple-nmt/model/dsl/mybk-60epoch
+Evaluation result for the model: dsl-model-mybk.01.4.91-135.90.4.69-108.39.4.05-57.53.4.14-62.79.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 21.9/0.0/0.0/0.0 (BP=0.646, ratio=0.696, hyp_len=7956, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.01.4.91-135.90.4.69-108.39.4.05-57.53.4.14-62.79.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 18.4/0.5/0.0/0.0 (BP=0.999, ratio=0.999, hyp_len=12216, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.02.4.44-84.98.4.23-68.39.3.89-48.85.3.87-47.81.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 16.1/0.1/0.0/0.0 (BP=0.982, ratio=0.982, hyp_len=11231, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.02.4.44-84.98.4.23-68.39.3.89-48.85.3.87-47.81.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 19.7/1.0/0.1/0.0 (BP=1.000, ratio=1.004, hyp_len=12281, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.03.4.38-79.71.4.17-64.81.3.83-46.04.3.74-42.19.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 18.4/0.3/0.0/0.0 (BP=0.959, ratio=0.960, hyp_len=10978, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.03.4.38-79.71.4.17-64.81.3.83-46.04.3.74-42.19.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.9/2.2/0.4/0.0 (BP=0.928, ratio=0.931, hyp_len=11384, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.04.4.37-79.06.4.15-63.45.3.80-44.80.3.74-42.12.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 18.0/0.1/0.0/0.0 (BP=0.916, ratio=0.919, hyp_len=10510, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.04.4.37-79.06.4.15-63.45.3.80-44.80.3.74-42.12.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.3/2.1/0.4/0.0 (BP=0.961, ratio=0.961, hyp_len=11758, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.05.4.27-71.72.4.08-59.24.3.80-44.85.3.76-42.92.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 18.0/0.3/0.0/0.0 (BP=1.000, ratio=1.000, hyp_len=11434, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.05.4.27-71.72.4.08-59.24.3.80-44.85.3.76-42.92.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 19.8/0.5/0.0/0.0 (BP=0.996, ratio=0.996, hyp_len=12177, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.06.4.32-75.29.4.10-60.17.3.79-44.27.3.72-41.22.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 18.5/0.2/0.0/0.0 (BP=1.000, ratio=1.008, hyp_len=11522, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.06.4.32-75.29.4.10-60.17.3.79-44.27.3.72-41.22.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 19.4/2.0/0.3/0.0 (BP=1.000, ratio=1.008, hyp_len=12330, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.07.4.30-73.47.4.10-60.20.3.79-44.27.3.70-40.38.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 19.0/0.3/0.0/0.0 (BP=0.985, ratio=0.985, hyp_len=11257, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.07.4.30-73.47.4.10-60.20.3.79-44.27.3.70-40.38.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.6/0.9/0.0/0.0 (BP=1.000, ratio=1.009, hyp_len=12345, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.08.4.22-68.02.4.00-54.43.3.75-42.54.3.61-37.00.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 17.5/0.9/0.0/0.0 (BP=1.000, ratio=1.052, hyp_len=12032, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.08.4.22-68.02.4.00-54.43.3.75-42.54.3.61-37.00.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 21.0/1.2/0.0/0.0 (BP=1.000, ratio=1.000, hyp_len=12231, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.09.4.17-64.43.3.91-49.70.3.66-38.90.3.48-32.35.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.4/0.6/0.0/0.0 (BP=0.884, ratio=0.890, hyp_len=10174, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.09.4.17-64.43.3.91-49.70.3.66-38.90.3.48-32.35.pth, bkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 22.3/2.3/0.1/0.0 (BP=0.979, ratio=0.979, hyp_len=11973, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.10.4.06-57.90.3.81-44.94.3.48-32.47.3.33-27.80.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 26.1/2.5/0.3/0.0 (BP=0.732, ratio=0.762, hyp_len=8710, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.10.4.06-57.90.3.81-44.94.3.48-32.47.3.33-27.80.pth, bkmy
+BLEU = 1.13, 23.9/4.4/0.5/0.0 (BP=0.981, ratio=0.981, hyp_len=11996, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.11.3.89-48.81.3.63-37.71.3.39-29.78.3.19-24.36.pth, mybk
+BLEU = 0.78, 23.0/3.8/0.4/0.0 (BP=1.000, ratio=1.030, hyp_len=11775, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.11.3.89-48.81.3.63-37.71.3.39-29.78.3.19-24.36.pth, bkmy
+BLEU = 0.05, 1.5/0.3/0.0/0.0 (BP=1.000, ratio=12.053, hyp_len=147426, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.12.3.74-42.25.3.50-32.96.3.29-26.98.3.08-21.74.pth, mybk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.6/3.7/0.4/0.0 (BP=1.000, ratio=1.131, hyp_len=12925, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.12.3.74-42.25.3.50-32.96.3.29-26.98.3.08-21.74.pth, bkmy
+BLEU = 0.10, 1.8/0.3/0.0/0.0 (BP=1.000, ratio=10.865, hyp_len=132892, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.13.3.77-43.31.3.51-33.48.3.24-25.64.3.01-20.29.pth, mybk
+BLEU = 1.89, 22.7/5.6/1.0/0.1 (BP=1.000, ratio=1.072, hyp_len=12253, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.13.3.77-43.31.3.51-33.48.3.24-25.64.3.01-20.29.pth, bkmy
+BLEU = 0.31, 4.9/0.9/0.1/0.0 (BP=1.000, ratio=5.182, hyp_len=63387, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.14.3.57-35.51.3.29-26.96.3.18-24.07.2.95-19.15.pth, mybk
+BLEU = 3.88, 23.8/6.5/2.0/0.7 (BP=1.000, ratio=1.047, hyp_len=11965, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.14.3.57-35.51.3.29-26.96.3.18-24.07.2.95-19.15.pth, bkmy
+BLEU = 0.10, 1.6/0.4/0.0/0.0 (BP=1.000, ratio=12.100, hyp_len=148000, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.15.3.60-36.67.3.30-27.10.3.14-23.10.2.95-19.16.pth, mybk
+BLEU = 3.91, 22.6/6.2/2.0/0.8 (BP=1.000, ratio=1.149, hyp_len=13139, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.15.3.60-36.67.3.30-27.10.3.14-23.10.2.95-19.16.pth, bkmy
+BLEU = 0.09, 0.8/0.2/0.0/0.0 (BP=1.000, ratio=20.927, hyp_len=255960, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.16.3.47-32.15.3.22-24.93.3.09-21.88.2.88-17.89.pth, mybk
+BLEU = 3.62, 21.2/5.8/1.9/0.7 (BP=1.000, ratio=1.254, hyp_len=14336, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.16.3.47-32.15.3.22-24.93.3.09-21.88.2.88-17.89.pth, bkmy
+BLEU = 0.90, 6.1/2.0/0.5/0.1 (BP=1.000, ratio=4.905, hyp_len=59996, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.17.3.45-31.36.3.20-24.54.3.06-21.41.2.84-17.12.pth, mybk
+BLEU = 3.14, 18.1/5.0/1.7/0.6 (BP=1.000, ratio=1.459, hyp_len=16682, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.17.3.45-31.36.3.20-24.54.3.06-21.41.2.84-17.12.pth, bkmy
+BLEU = 0.68, 3.9/1.4/0.4/0.1 (BP=1.000, ratio=7.537, hyp_len=92190, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.18.3.42-30.56.3.13-22.76.3.04-20.82.2.81-16.62.pth, mybk
+BLEU = 3.65, 19.5/5.6/2.1/0.8 (BP=1.000, ratio=1.378, hyp_len=15748, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.18.3.42-30.56.3.13-22.76.3.04-20.82.2.81-16.62.pth, bkmy
+BLEU = 4.62, 26.7/9.6/2.8/0.6 (BP=1.000, ratio=1.225, hyp_len=14986, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.19.3.25-25.83.3.03-20.68.2.98-19.60.2.76-15.86.pth, mybk
+BLEU = 4.24, 23.0/6.8/2.4/0.9 (BP=1.000, ratio=1.194, hyp_len=13645, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.19.3.25-25.83.3.03-20.68.2.98-19.60.2.76-15.86.pth, bkmy
+BLEU = 5.85, 31.3/11.5/3.5/0.9 (BP=1.000, ratio=1.062, hyp_len=12991, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.20.3.26-26.08.3.02-20.54.2.96-19.37.2.74-15.44.pth, mybk
+BLEU = 3.58, 20.0/5.7/2.0/0.7 (BP=1.000, ratio=1.349, hyp_len=15420, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.20.3.26-26.08.3.02-20.54.2.96-19.37.2.74-15.44.pth, bkmy
+BLEU = 5.71, 31.1/11.1/3.4/0.9 (BP=1.000, ratio=1.089, hyp_len=13321, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.21.3.26-26.11.3.05-21.17.2.96-19.33.2.76-15.85.pth, mybk
+BLEU = 2.33, 12.5/3.7/1.4/0.5 (BP=1.000, ratio=2.139, hyp_len=24458, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.21.3.26-26.11.3.05-21.17.2.96-19.33.2.76-15.85.pth, bkmy
+BLEU = 3.03, 17.3/6.0/1.7/0.5 (BP=1.000, ratio=1.938, hyp_len=23701, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.22.3.19-24.36.2.98-19.76.2.87-17.63.2.67-14.49.pth, mybk
+BLEU = 4.97, 24.3/7.6/2.9/1.1 (BP=1.000, ratio=1.152, hyp_len=13168, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.22.3.19-24.36.2.98-19.76.2.87-17.63.2.67-14.49.pth, bkmy
+BLEU = 6.31, 31.3/11.4/3.7/1.2 (BP=1.000, ratio=1.094, hyp_len=13377, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.23.3.11-22.48.2.92-18.51.2.87-17.71.2.65-14.19.pth, mybk
+BLEU = 2.53, 13.2/4.0/1.5/0.5 (BP=1.000, ratio=2.135, hyp_len=24405, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.23.3.11-22.48.2.92-18.51.2.87-17.71.2.65-14.19.pth, bkmy
+BLEU = 6.88, 33.7/12.5/4.2/1.3 (BP=1.000, ratio=1.025, hyp_len=12537, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.24.3.08-21.81.2.89-17.98.2.86-17.50.2.65-14.10.pth, mybk
+BLEU = 2.56, 12.4/4.0/1.5/0.6 (BP=1.000, ratio=2.282, hyp_len=26083, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.24.3.08-21.81.2.89-17.98.2.86-17.50.2.65-14.10.pth, bkmy
+BLEU = 6.67, 32.4/11.9/4.0/1.3 (BP=1.000, ratio=1.092, hyp_len=13360, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.25.3.04-20.89.2.83-16.94.2.82-16.76.2.62-13.69.pth, mybk
+BLEU = 3.40, 16.4/5.3/2.0/0.8 (BP=1.000, ratio=1.728, hyp_len=19751, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.25.3.04-20.89.2.83-16.94.2.82-16.76.2.62-13.69.pth, bkmy
+BLEU = 5.17, 24.2/8.8/3.0/1.1 (BP=1.000, ratio=1.439, hyp_len=17602, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.26.3.07-21.63.2.90-18.21.2.80-16.49.2.61-13.61.pth, mybk
+BLEU = 5.02, 23.2/7.5/3.0/1.2 (BP=1.000, ratio=1.280, hyp_len=14628, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.26.3.07-21.63.2.90-18.21.2.80-16.49.2.61-13.61.pth, bkmy
+BLEU = 4.63, 21.2/7.9/2.8/1.0 (BP=1.000, ratio=1.693, hyp_len=20704, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.27.2.97-19.40.2.77-15.98.2.75-15.70.2.55-12.86.pth, mybk
+BLEU = 6.07, 27.0/9.1/3.8/1.5 (BP=1.000, ratio=1.106, hyp_len=12642, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.27.2.97-19.40.2.77-15.98.2.75-15.70.2.55-12.86.pth, bkmy
+BLEU = 5.27, 23.3/8.8/3.2/1.2 (BP=1.000, ratio=1.522, hyp_len=18619, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.28.2.88-17.86.2.68-14.63.2.78-16.17.2.52-12.48.pth, mybk
+BLEU = 4.81, 22.1/7.1/2.9/1.2 (BP=1.000, ratio=1.383, hyp_len=15806, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.28.2.88-17.86.2.68-14.63.2.78-16.17.2.52-12.48.pth, bkmy
+BLEU = 7.12, 30.1/11.8/4.4/1.7 (BP=1.000, ratio=1.203, hyp_len=14715, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.29.2.97-19.48.2.72-15.23.2.72-15.14.2.51-12.27.pth, mybk
+BLEU = 4.31, 19.6/6.5/2.6/1.0 (BP=1.000, ratio=1.552, hyp_len=17741, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.29.2.97-19.48.2.72-15.23.2.72-15.14.2.51-12.27.pth, bkmy
+BLEU = 8.38, 35.0/13.6/5.2/2.0 (BP=1.000, ratio=1.024, hyp_len=12528, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.30.2.84-17.19.2.68-14.52.2.75-15.58.2.50-12.24.pth, mybk
+BLEU = 4.45, 20.9/6.7/2.7/1.0 (BP=1.000, ratio=1.487, hyp_len=17002, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.30.2.84-17.19.2.68-14.52.2.75-15.58.2.50-12.24.pth, bkmy
+BLEU = 6.07, 26.5/9.9/3.7/1.4 (BP=1.000, ratio=1.348, hyp_len=16489, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.31.2.76-15.84.2.57-13.10.2.70-14.85.2.47-11.86.pth, mybk
+BLEU = 6.70, 28.6/9.9/4.2/1.7 (BP=1.000, ratio=1.125, hyp_len=12860, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.31.2.76-15.84.2.57-13.10.2.70-14.85.2.47-11.86.pth, bkmy
+BLEU = 5.78, 24.3/9.4/3.5/1.4 (BP=1.000, ratio=1.508, hyp_len=18450, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.32.2.80-16.40.2.59-13.33.2.69-14.67.2.46-11.69.pth, mybk
+BLEU = 6.84, 28.4/9.7/4.3/1.9 (BP=1.000, ratio=1.112, hyp_len=12707, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.32.2.80-16.40.2.59-13.33.2.69-14.67.2.46-11.69.pth, bkmy
+BLEU = 8.44, 34.4/13.5/5.3/2.1 (BP=1.000, ratio=1.059, hyp_len=12958, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.33.2.75-15.70.2.58-13.16.2.67-14.48.2.45-11.59.pth, mybk
+BLEU = 6.88, 28.8/10.0/4.2/1.8 (BP=1.000, ratio=1.114, hyp_len=12730, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.33.2.75-15.70.2.58-13.16.2.67-14.48.2.45-11.59.pth, bkmy
+BLEU = 4.67, 19.5/7.6/2.9/1.1 (BP=1.000, ratio=1.870, hyp_len=22868, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.34.2.72-15.11.2.54-12.63.2.68-14.58.2.45-11.60.pth, mybk
+BLEU = 6.96, 29.4/10.4/4.3/1.8 (BP=1.000, ratio=1.132, hyp_len=12945, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.34.2.72-15.11.2.54-12.63.2.68-14.58.2.45-11.60.pth, bkmy
+BLEU = 5.74, 24.6/9.5/3.6/1.3 (BP=1.000, ratio=1.481, hyp_len=18119, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.35.2.70-14.89.2.56-12.92.2.67-14.38.2.43-11.42.pth, mybk
+BLEU = 7.33, 29.6/10.6/4.5/2.1 (BP=1.000, ratio=1.107, hyp_len=12654, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.35.2.70-14.89.2.56-12.92.2.67-14.38.2.43-11.42.pth, bkmy
+BLEU = 8.00, 32.0/12.6/5.0/2.0 (BP=1.000, ratio=1.152, hyp_len=14084, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.36.2.64-13.98.2.46-11.75.2.64-14.02.2.41-11.17.pth, mybk
+BLEU = 7.46, 29.9/10.8/4.6/2.1 (BP=1.000, ratio=1.119, hyp_len=12791, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.36.2.64-13.98.2.46-11.75.2.64-14.02.2.41-11.17.pth, bkmy
+BLEU = 8.44, 34.3/13.2/5.2/2.2 (BP=1.000, ratio=1.090, hyp_len=13333, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.37.2.57-13.13.2.39-10.96.2.64-14.03.2.44-11.44.pth, mybk
+BLEU = 7.92, 30.8/11.3/4.9/2.3 (BP=1.000, ratio=1.094, hyp_len=12501, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.37.2.57-13.13.2.39-10.96.2.64-14.03.2.44-11.44.pth, bkmy
+BLEU = 8.44, 34.6/13.5/5.3/2.1 (BP=1.000, ratio=1.089, hyp_len=13323, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.38.2.65-14.16.2.41-11.16.2.65-14.12.2.43-11.39.pth, mybk
+BLEU = 7.69, 30.2/10.9/4.8/2.2 (BP=1.000, ratio=1.104, hyp_len=12623, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.38.2.65-14.16.2.41-11.16.2.65-14.12.2.43-11.39.pth, bkmy
+BLEU = 8.73, 34.7/13.7/5.5/2.2 (BP=1.000, ratio=1.087, hyp_len=13297, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.39.2.64-14.00.2.50-12.24.2.62-13.79.2.39-10.95.pth, mybk
+BLEU = 8.07, 31.9/11.8/5.1/2.2 (BP=1.000, ratio=1.088, hyp_len=12433, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.39.2.64-14.00.2.50-12.24.2.62-13.79.2.39-10.95.pth, bkmy
+BLEU = 9.24, 36.3/14.5/5.8/2.4 (BP=1.000, ratio=1.052, hyp_len=12871, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.40.2.48-11.97.2.33-10.31.2.63-13.81.2.38-10.84.pth, mybk
+BLEU = 8.47, 31.7/12.0/5.3/2.5 (BP=1.000, ratio=1.078, hyp_len=12320, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.40.2.48-11.97.2.33-10.31.2.63-13.81.2.38-10.84.pth, bkmy
+BLEU = 9.33, 35.5/14.7/6.0/2.4 (BP=1.000, ratio=1.092, hyp_len=13354, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.41.2.46-11.69.2.30-10.02.2.63-13.93.2.40-11.06.pth, mybk
+BLEU = 8.27, 30.6/11.7/5.3/2.5 (BP=1.000, ratio=1.126, hyp_len=12870, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.41.2.46-11.69.2.30-10.02.2.63-13.93.2.40-11.06.pth, bkmy
+BLEU = 8.89, 33.7/13.8/5.7/2.4 (BP=1.000, ratio=1.149, hyp_len=14054, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.42.2.44-11.51.2.31-10.05.2.62-13.76.2.37-10.74.pth, mybk
+BLEU = 8.32, 31.6/12.0/5.2/2.4 (BP=1.000, ratio=1.121, hyp_len=12812, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.42.2.44-11.51.2.31-10.05.2.62-13.76.2.37-10.74.pth, bkmy
+BLEU = 9.59, 35.4/14.4/6.1/2.7 (BP=1.000, ratio=1.079, hyp_len=13202, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.43.2.44-11.50.2.28-9.74.2.62-13.72.2.38-10.86.pth, mybk
+BLEU = 8.74, 33.0/12.3/5.5/2.6 (BP=1.000, ratio=1.080, hyp_len=12343, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.43.2.44-11.50.2.28-9.74.2.62-13.72.2.38-10.86.pth, bkmy
+BLEU = 9.06, 35.9/14.2/5.7/2.3 (BP=1.000, ratio=1.087, hyp_len=13298, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.44.2.46-11.65.2.26-9.58.2.60-13.49.2.38-10.77.pth, mybk
+BLEU = 9.18, 33.4/12.9/5.8/2.8 (BP=1.000, ratio=1.044, hyp_len=11939, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.44.2.46-11.65.2.26-9.58.2.60-13.49.2.38-10.77.pth, bkmy
+BLEU = 8.39, 32.6/12.9/5.3/2.2 (BP=1.000, ratio=1.192, hyp_len=14584, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.45.2.40-11.05.2.23-9.28.2.63-13.94.2.38-10.78.pth, mybk
+BLEU = 9.17, 33.1/13.0/5.9/2.8 (BP=1.000, ratio=1.090, hyp_len=12464, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.45.2.40-11.05.2.23-9.28.2.63-13.94.2.38-10.78.pth, bkmy
+BLEU = 9.61, 36.2/15.0/6.2/2.5 (BP=1.000, ratio=1.080, hyp_len=13206, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.46.2.33-10.33.2.19-8.90.2.61-13.58.2.35-10.49.pth, mybk
+BLEU = 9.29, 32.8/12.9/6.0/2.9 (BP=1.000, ratio=1.086, hyp_len=12420, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.46.2.33-10.33.2.19-8.90.2.61-13.58.2.35-10.49.pth, bkmy
+BLEU = 9.47, 36.3/14.7/6.1/2.5 (BP=1.000, ratio=1.084, hyp_len=13256, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.47.2.37-10.74.2.19-8.93.2.64-14.07.2.35-10.51.pth, mybk
+BLEU = 8.71, 32.8/12.3/5.5/2.6 (BP=1.000, ratio=1.085, hyp_len=12399, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.47.2.37-10.74.2.19-8.93.2.64-14.07.2.35-10.51.pth, bkmy
+BLEU = 9.96, 36.6/14.8/6.3/2.9 (BP=1.000, ratio=1.078, hyp_len=13191, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.48.2.26-9.56.2.13-8.37.2.59-13.34.2.35-10.50.pth, mybk
+BLEU = 8.87, 32.3/12.6/5.6/2.7 (BP=1.000, ratio=1.103, hyp_len=12610, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.48.2.26-9.56.2.13-8.37.2.59-13.34.2.35-10.50.pth, bkmy
+BLEU = 9.61, 36.6/15.1/6.2/2.5 (BP=1.000, ratio=1.083, hyp_len=13241, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.49.2.24-9.38.2.08-8.04.2.63-13.84.2.37-10.69.pth, mybk
+BLEU = 8.76, 32.6/12.7/5.6/2.6 (BP=1.000, ratio=1.115, hyp_len=12749, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.49.2.24-9.38.2.08-8.04.2.63-13.84.2.37-10.69.pth, bkmy
+BLEU = 9.22, 34.9/14.2/5.9/2.5 (BP=1.000, ratio=1.108, hyp_len=13546, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.50.2.25-9.45.2.10-8.13.2.64-14.07.2.34-10.42.pth, mybk
+BLEU = 8.94, 32.6/12.7/5.8/2.7 (BP=1.000, ratio=1.107, hyp_len=12659, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.50.2.25-9.45.2.10-8.13.2.64-14.07.2.34-10.42.pth, bkmy
+BLEU = 10.08, 36.7/15.4/6.5/2.8 (BP=1.000, ratio=1.083, hyp_len=13251, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.51.2.26-9.63.2.11-8.29.2.65-14.09.2.35-10.53.pth, mybk
+BLEU = 8.87, 32.5/12.4/5.7/2.7 (BP=1.000, ratio=1.117, hyp_len=12767, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.51.2.26-9.63.2.11-8.29.2.65-14.09.2.35-10.53.pth, bkmy
+BLEU = 8.63, 32.1/13.2/5.6/2.4 (BP=1.000, ratio=1.238, hyp_len=15147, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.52.2.21-9.15.2.09-8.06.2.64-14.04.2.32-10.18.pth, mybk
+BLEU = 9.39, 33.4/13.0/5.9/3.0 (BP=1.000, ratio=1.095, hyp_len=12517, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.52.2.21-9.15.2.09-8.06.2.64-14.04.2.32-10.18.pth, bkmy
+BLEU = 9.86, 36.1/15.1/6.5/2.7 (BP=1.000, ratio=1.110, hyp_len=13573, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.53.2.16-8.68.2.02-7.51.2.62-13.75.2.35-10.50.pth, mybk
+BLEU = 9.49, 34.1/13.4/6.2/2.8 (BP=1.000, ratio=1.068, hyp_len=12215, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.53.2.16-8.68.2.02-7.51.2.62-13.75.2.35-10.50.pth, bkmy
+BLEU = 9.85, 35.7/14.8/6.3/2.8 (BP=1.000, ratio=1.101, hyp_len=13470, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.54.2.10-8.17.1.96-7.12.2.65-14.18.2.36-10.60.pth, mybk
+BLEU = 9.62, 34.1/13.6/6.2/3.0 (BP=1.000, ratio=1.084, hyp_len=12394, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.54.2.10-8.17.1.96-7.12.2.65-14.18.2.36-10.60.pth, bkmy
+BLEU = 9.41, 33.9/14.0/6.1/2.7 (BP=1.000, ratio=1.183, hyp_len=14469, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.55.2.17-8.76.2.02-7.53.2.64-14.00.2.35-10.46.pth, mybk
+BLEU = 9.19, 33.0/13.0/5.9/2.8 (BP=1.000, ratio=1.108, hyp_len=12671, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.55.2.17-8.76.2.02-7.53.2.64-14.00.2.35-10.46.pth, bkmy
+BLEU = 10.21, 36.4/15.2/6.7/3.0 (BP=1.000, ratio=1.119, hyp_len=13683, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.56.2.09-8.12.1.96-7.13.2.63-13.91.2.34-10.36.pth, mybk
+BLEU = 9.71, 34.8/13.7/6.3/3.0 (BP=1.000, ratio=1.073, hyp_len=12268, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.56.2.09-8.12.1.96-7.13.2.63-13.91.2.34-10.36.pth, bkmy
+BLEU = 10.78, 38.5/16.1/7.1/3.1 (BP=1.000, ratio=1.057, hyp_len=12925, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.57.2.10-8.19.1.95-7.02.2.66-14.30.2.34-10.37.pth, mybk
+BLEU = 9.59, 33.8/13.0/6.2/3.1 (BP=1.000, ratio=1.067, hyp_len=12196, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.57.2.10-8.19.1.95-7.02.2.66-14.30.2.34-10.37.pth, bkmy
+BLEU = 10.36, 37.1/15.3/6.8/3.0 (BP=1.000, ratio=1.067, hyp_len=13047, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.58.2.04-7.68.1.89-6.61.2.64-14.07.2.34-10.34.pth, mybk
+BLEU = 9.45, 33.8/13.3/6.1/2.9 (BP=1.000, ratio=1.088, hyp_len=12435, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.58.2.04-7.68.1.89-6.61.2.64-14.07.2.34-10.34.pth, bkmy
+BLEU = 10.52, 37.3/15.7/6.9/3.0 (BP=1.000, ratio=1.087, hyp_len=13294, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.59.2.01-7.49.1.86-6.42.2.65-14.13.2.33-10.29.pth, mybk
+BLEU = 9.71, 34.3/13.8/6.2/3.0 (BP=1.000, ratio=1.084, hyp_len=12392, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.59.2.01-7.49.1.86-6.42.2.65-14.13.2.33-10.29.pth, bkmy
+BLEU = 10.71, 37.7/15.8/7.0/3.1 (BP=1.000, ratio=1.076, hyp_len=13157, ref_len=12231)
+Evaluation result for the model: dsl-model-mybk.60.1.99-7.31.1.85-6.39.2.65-14.17.2.34-10.41.pth, mybk
+BLEU = 9.84, 34.5/13.8/6.3/3.1 (BP=1.000, ratio=1.091, hyp_len=12469, ref_len=11432)
+Evaluation result for the model: dsl-model-mybk.60.1.99-7.31.1.85-6.39.2.65-14.17.2.34-10.41.pth, bkmy
+BLEU = 10.88, 37.2/15.8/7.2/3.3 (BP=1.000, ratio=1.099, hyp_len=13441, ref_len=12231)
 ```
 
 ## Seq2Seq-DSL, my-bk, 70epoch
