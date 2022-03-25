@@ -1,5 +1,7 @@
 # Dual Supervised Learning Experiment
 
+အရင်ဆုံး Myanmar dialect အနေနဲ့ experiment လုပ်လို့ အကောင်းဆုံးဖြစ်တဲ့ မြန်မာ-ရခိုင် အတွဲကို DSL experiment စလုပ်ဖြစ်ခဲ့တယ်...  
+
 ## Language Model Building
 
 time python lm_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk \
@@ -8720,7 +8722,48 @@ sys	22m30.684s
 
 ```
 
+## DSL-NMT Performance for My-RK 
 
+## Update the test-eval shell script
+
+အထက်မှာ ဖော်ပြထားတဲ့ transformer-DSL BLEU Score တွေကို ရဖို့အတွက် သုံးခဲ့တဲ့ bash shell script ပါ။  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last Updated: 23 Mar 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# used for transformer-DSL evaluation
+
+for folder in {myrk-30epoch,myrk-40epoch,myrk-50epoch,myrk-60epoch,myrk-70epoch,myrk-80epoch,myrk-90epoch,myrk-100epoch};
+do
+   cd ./model/dsl/transformer/${folder};
+   pwd;
+   for i in *.pth;
+   do
+      MODEL=$i;
+
+      # Testing X-Y
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang myrk < /home/ye/exp/simple-nmt/data/test.my > $MODEL.myrk.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, myrk" | tee -a eval-results-xy.txt;
+      cat $MODEL.myrk.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/test.rk | tee  -a eval-results-xy.txt;
+
+      # Testing Y-X
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang rkmy < /home/ye/exp/simple-nmt/data/test.rk > $MODEL.rkmy.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, rkmy" | tee -a eval-results-yx.txt;
+      cat $MODEL.rkmy.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/test.my | tee  -a eval-results-yx.txt;
+   done
+   cd ~/exp/simple-nmt/;
+   echo "==========";
+done
+```
+
+ဇယားနဲ့ ပြမယ်လို့ စိတ်ကူးထား ...  
 
 ## Reference
 
