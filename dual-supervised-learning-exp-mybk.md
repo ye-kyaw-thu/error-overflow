@@ -876,6 +876,43 @@ sys	0m4.512s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+## Script for Testing/Evaluation (my-bk)
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last Updated: 25 Mar 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# used for seq2seq-DSL evaluation for Myanmar-Beik pair
+
+for folder in {mybk-30epoch,mybk-40epoch,mybk-50epoch,mybk-60epoch,mybk-70epoch,mybk-80epoch,mybk-90epoch,mybk-100epoch};
+do
+   cd ./model/dsl/${folder};
+   pwd;
+   for i in *.pth;
+   do
+      MODEL=$i;
+
+      # Testing X-Y
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybk < /home/ye/exp/simple-nmt/data/my-bk/syl/test.my > $MODEL.mybk.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, mybk" | tee -a eval-results-xy-seq2seq.txt;
+      cat $MODEL.mybk.hyp | perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-xy-seq2seq.txt;
+
+      # Testing Y-X
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > $MODEL.bkmy.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL, bkmy" | tee -a eval-results-yx-seq2seq.txt;
+      cat $MODEL.bkmy.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.my | tee  -a eval-results-yx-seq2seq.txt;
+   done
+   cd ~/exp/simple-nmt/;
+   echo "==========";
+done
+```
+
 ## Seq2Seq-DSL, my-bk, 30epoch
 
 training
