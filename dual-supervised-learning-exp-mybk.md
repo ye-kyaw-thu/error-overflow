@@ -1259,7 +1259,8 @@ Evaluation result for the model: dsl-model-mybk.30.2.95-19.05.2.68-14.62.2.75-15
 BLEU = 6.88, 28.2/10.8/4.3/1.7 (BP=1.000, ratio=1.298, hyp_len=15875, ref_len=12231)
 ```
 
-Max BLEU Score for 30 epoch:  6.88  
+Best BLEU Score for my-bk, 27epoch: 4.79  
+Best BLEU Score for bk-my, 30 epoch:  6.88  
 
 ## Seq2Seq-DSL, my-bk, 40epoch
 
