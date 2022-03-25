@@ -899,7 +899,7 @@ do
 
       # Evaluation with BLEU Score
       echo "Evaluation result for the model: $MODEL, mybk" | tee -a eval-results-xy-seq2seq.txt;
-      cat $MODEL.mybk.hyp | perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-xy-seq2seq.txt;
+      cat $MODEL.mybk.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-xy-seq2seq.txt;
 
       # Testing Y-X
       python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > $MODEL.bkmy.hyp
