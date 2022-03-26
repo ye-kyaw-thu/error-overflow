@@ -915,7 +915,8 @@ done
 
 ## Seq2Seq-DSL, my-bk, 30epoch
 
-training
+မြန်မာ-ရခိုင်၊ ရခိုင်-မြန်မာ ကို training လုပ်တုန်းကနဲ့ အတူတူပဲ warmup ကို 20 epoch, "--dsl_n_warmup_epochs 20" ထားခဲ့တယ်။   
+training စလုပ်ပြီ...  
 
 ```
 {   'batch_size': 64,
