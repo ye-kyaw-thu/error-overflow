@@ -6154,6 +6154,9 @@ Evaluation result for the model: dsl-model-mybk.30.1.17-3.21.0.98-2.65.1.26-3.51
 BLEU = 39.48, 65.5/45.5/32.8/24.8 (BP=1.000, ratio=1.046, hyp_len=12793, ref_len=12231)
 ```
 
+Best BLEU Score for my-bk ကို dsl-model-mybk.28.1.22-3.40.1.03-2.80.1.27-3.57.1.09-2.98.pth မော်ဒယ်က ပေးတယ်။ Score ကတော့ : 34.40   
+Best BLEU Score for bk-my ကို dsl-model-mybk.29.1.21-3.35.1.00-2.72.1.30-3.67.1.09-2.97.pth မော်ဒယ်က ပေးတယ်။ Score ကတော့ : 41.34 
+
 ## Transformer-DSL, 40 epoch
 
 ```
