@@ -9732,6 +9732,32 @@ sys	21m41.819s
 Best model for my-bk က epoch 25 မော်ဒယ် ဖြစ်ပြီးတော့၊ Best BLEU Score က : 34.86   
 Best model for bk-my က epoch 22 မော်ဒယ် ဖြစ်ပြီးတော့၊ Best BLEU Score က : 43.23    
 
+## Preparing Seq2Seq Baseline for my-bk
+
+```
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+--valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+--lang mybk --gpu_id 0 --batch_size 64 --n_epochs 100 \
+--max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 \
+--n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+--use_adam --rl_n_epochs 0 \
+--model_fn ./model/seq2seq/baseline/mybk-100epoch/seq-model-mybk.pth | tee ./model/seq2seq/baseline/mybk-100epoch/mybk-seq2seq-baseline-train.log;
+```
+
+## Preparing Seq2Seq Baseline for bk-my
+
+
+```
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+--valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+--lang bkmy --gpu_id 0 --batch_size 64 --n_epochs 100 \
+--max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 \
+--n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+--use_adam --rl_n_epochs 0 \
+--model_fn ./model/seq2seq/baseline/bkmy-100epoch/seq-model-bkmy.pth | tee ./model/seq2seq/baseline/bkmy-100epoch/bkmy-seq2seq-baseline-train.log;
+```
+
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
