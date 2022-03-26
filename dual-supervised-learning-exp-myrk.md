@@ -1305,6 +1305,8 @@ sys	1m3.628s
 (base) ye@:~/exp/simple-nmt/model/dsl/myrk-30epoch$
 ```
 
+my-rk အတွက် Best BLEU Score ပေးတာက 30 epoch မော်ဒယ် ဖြစ်ပြီးတော့၊ Score က 64.85  
+rk-my အတွက် Best BLEU Score ပေးတာက 29 epoch မော်ဒယ် ဖြစ်ပြီးတော့၊ Score က 60.20  
 
 #### Warmup-Epoch 20, Total Epoch 40
 
@@ -1504,6 +1506,9 @@ user	26m9.109s
 sys	1m24.701s
 (base) ye@:~/exp/simple-nmt/model/dsl/myrk-40epoch$
 ```
+
+my-rk, Best model က 40 epoch model, Best Score က 69.86  
+rk-my, Best model က 39 epoch model, Best Score က 71.25   
 
 ## Write a Shell Script for Seq2Seq-DSL Training Loop
 
@@ -1950,6 +1955,9 @@ BLEU = 71.93, 86.4/76.1/67.6/60.2 (BP=1.000, ratio=1.026, hyp_len=23754, ref_len
 Evaluation result for the model: dsl-model-myrk.50.0.46-1.59.0.60-1.83.0.76-2.13.0.79-2.20.pth, rkmy
 BLEU = 71.72, 86.3/76.2/67.1/60.0 (BP=1.000, ratio=1.019, hyp_len=23966, ref_len=23509)
 ```
+
+my-rk, Best model က 49 epoch, Best Score က 73.02  
+rk-my, Best model က 47 epoch, Best Score က 73.21  
 
 #### Warmup-Epoch 20, Total Epoch 60
 
@@ -2399,6 +2407,9 @@ BLEU = 71.40, 86.4/75.7/66.9/59.4 (BP=1.000, ratio=1.019, hyp_len=23608, ref_len
 Evaluation result for the model: dsl-model-myrk.60.0.50-1.65.0.36-1.44.0.85-2.33.0.68-1.97.pth, rkmy
 BLEU = 73.70, 87.1/77.8/69.4/62.8 (BP=1.000, ratio=1.036, hyp_len=24346, ref_len=23509)
 ```
+
+my-rk, Best model က 60 epoch model, Best Score: 71.40  
+rk-my, Best model က 59 epoch model, Best Score: 74.06  
 
 #### Warmup-Epoch 20, Total Epoch 70
 
