@@ -5190,8 +5190,8 @@ Evaluation result for the model: dsl-model-myrk.30.0.28-1.33.0.28-1.32.0.65-1.91
 BLEU = 66.55, 82.9/71.7/61.7/53.5 (BP=1.000, ratio=1.080, hyp_len=25387, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 19 epoch, Best BLEU Score: 70.35  
+rk-my, Best model 25, Best BLEU Score: 69.26  
 
 #### Warmup-Epoch 20, Total Epoch 40
 
@@ -5489,8 +5489,8 @@ Evaluation result for the model: dsl-model-myrk.40.0.20-1.22.0.21-1.23.0.65-1.92
 BLEU = 66.76, 83.4/72.0/61.7/53.6 (BP=1.000, ratio=1.068, hyp_len=25117, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 31, Best BLEU Score: 71.09  
+rk-my, Best model 37, Best BLEU Score: 70.49  
 
 #### Warmup-Epoch 20, Total Epoch 50
 
@@ -5857,8 +5857,8 @@ Evaluation result for the model: dsl-model-myrk.50.0.17-1.18.0.17-1.18.0.72-2.05
 BLEU = 69.38, 85.1/74.2/64.5/56.8 (BP=1.000, ratio=1.053, hyp_len=24762, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 31 epoch, Best BLEU Score: 70.22  
+rk-my, Best model 48 epoch, Best BLEU Score: 71.04  
 
 #### Warmup-Epoch 20, Total Epoch 60
 
@@ -6296,8 +6296,8 @@ BLEU = 69.45, 85.2/74.4/64.7/56.7 (BP=1.000, ratio=1.053, hyp_len=24748, ref_len
 
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 57 epoch, Best BLEU Score: 70.53   
+rk-my, Best model 48 epoch, Best BLEU Score: 70.96  
 
 
 #### Warmup-Epoch 20, Total Epoch 70
@@ -6805,8 +6805,8 @@ Evaluation result for the model: dsl-model-myrk.70.0.13-1.14.0.13-1.14.0.80-2.22
 BLEU = 69.21, 84.8/74.1/64.6/56.5 (BP=1.000, ratio=1.065, hyp_len=25035, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 45 epoch, Best BLEU Score: 71.08  
+rk-my, Best model 66 epoch, Best BLEU Score: 71.57  
 
 
 #### Warmup-Epoch 20, Total Epoch 80
@@ -7384,8 +7384,8 @@ Evaluation result for the model: dsl-model-myrk.80.0.11-1.12.0.11-1.12.0.79-2.19
 BLEU = 69.91, 85.4/74.7/65.1/57.5 (BP=1.000, ratio=1.055, hyp_len=24792, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 62 epoch, Best BLEU Score: 71.15  
+rk-my, Best model 76 epoch, Best BLEU Score: 71.07  
 
 
 #### Warmup-Epoch 20, Total Epoch 90
@@ -8033,8 +8033,8 @@ Evaluation result for the model: dsl-model-myrk.90.0.10-1.11.0.10-1.11.0.82-2.26
 BLEU = 69.78, 85.3/74.6/65.1/57.2 (BP=1.000, ratio=1.053, hyp_len=24758, ref_len=23509)
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 76 epoch, Best BLEU Score: 71.70  
+rk-my, Best model 51 epoch, Best BLEU Score: 71.52  
 
 #### Warmup-Epoch 20, Total Epoch 100
 
@@ -8769,8 +8769,8 @@ sys	22m30.684s
 
 ```
 
-my-rk, Best model , Best BLEU Score:  
-rk-my, Best model , Best BLEU Score:  
+my-rk, Best model 63 epoch, Best BLEU Score:  71.27   
+rk-my, Best model 98 epoch, Best BLEU Score: 71.50  
 
 
 ## DSL-NMT Performance for My-RK 
