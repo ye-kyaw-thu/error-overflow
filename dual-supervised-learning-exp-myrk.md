@@ -2930,6 +2930,9 @@ Evaluation result for the model: dsl-model-myrk.70.0.32-1.38.0.35-1.43.0.69-1.99
 BLEU = 73.81, 87.1/77.8/69.5/63.0 (BP=1.000, ratio=1.034, hyp_len=24297, ref_len=23509)
 ```
 
+my-rk, Best model က 70 epoch model, Best Score: 74.85  
+rk-my, Best model က 67 epoch model, Best Score: 74.77  
+
 #### Warmup-Epoch 20, Total Epoch 80
 
 ```
@@ -3521,6 +3524,9 @@ BLEU = 73.74, 87.1/77.6/69.6/62.9 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len
 Evaluation result for the model: dsl-model-myrk.80.0.30-1.34.0.39-1.47.0.69-2.00.0.74-2.10.pth, rkmy
 BLEU = 74.43, 87.7/78.6/70.1/63.5 (BP=1.000, ratio=1.022, hyp_len=24034, ref_len=23509)
 ```
+
+my-rk, Best model က 64 epoch model, Best Score: 74.58  
+rk-my, Best model က 80 epoch model, Best Score: 74.43  
 
 #### Warmup-Epoch 20, Total Epoch 90
 
@@ -4182,6 +4188,9 @@ BLEU = 73.75, 86.9/77.6/69.7/62.9 (BP=1.000, ratio=1.031, hyp_len=23883, ref_len
 Evaluation result for the model: dsl-model-myrk.90.0.28-1.32.0.28-1.32.0.74-2.09.0.71-2.04.pth, rkmy
 BLEU = 74.64, 87.5/78.5/70.4/64.1 (BP=1.000, ratio=1.035, hyp_len=24326, ref_len=23509)
 ```
+
+my-rk, Best model က 88 epoch model, Best Score: 74.31  
+rk-my, Best model က 90 epoch model, Best Score: 74.64   
 
 #### Warmup-Epoch 20, Total Epoch 100
 
@@ -4920,6 +4929,9 @@ real	305m9.036s
 user	297m36.164s
 sys	17m3.436s
 ```
+
+my-rk, Best model က 100 epoch model, Best Score: 74.87  
+rk-my, Best model က 97 epoch model, Best Score: 74.56  
 
 ## DSL with Transformer
 
