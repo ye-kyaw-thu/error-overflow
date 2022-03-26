@@ -1591,7 +1591,7 @@ Evaluation result for the model: dsl-model-mybk.40.2.60-13.45.2.39-10.94.2.62-13
 BLEU = 7.61, 25.9/11.4/5.1/2.2 (BP=1.000, ratio=1.583, hyp_len=19357, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk, 38 epoch: 8.52 
+Best BLEU Score for my-bk, 38 epoch: 8.52  
 Best BLEU Score for bk-my, 38 epoch: 7.98  
 
 ## Seq2Seq-DSL, my-bk, 50epoch
@@ -3902,8 +3902,8 @@ Evaluation result for the model: dsl-model-mybk.80.1.72-5.61.1.53-4.63.2.38-10.8
 BLEU = 11.91, 39.6/17.0/7.9/3.8 (BP=1.000, ratio=1.059, hyp_len=12953, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk, 68 epoch: 14.22 
-Best BLEU Score for bk-my, 57 epoch: 12.31  
+Best BLEU Score for my-bk, 68 epoch: 14.22   
+Best BLEU Score for bk-my, 57 epoch: 12.31   
 
 ## Seq2Seq-DSL, my-bk, 90epoch
 
@@ -4602,8 +4602,8 @@ Evaluation result for the model: dsl-model-mybk.90.1.48-4.39.1.22-3.40.2.81-16.6
 BLEU = 21.20, 48.6/26.9/15.8/9.8 (BP=1.000, ratio=1.086, hyp_len=13283, ref_len=12231)
 ```
 
-Best BLEU Score for my-bk, 80 epoch: 11.18  
-Best BLEU Score for bk-my, 83 epoch and 87 epoch: 21.89  
+Best BLEU Score for my-bk, 80 epoch: 11.18   
+Best BLEU Score for bk-my, 83 epoch and 87 epoch: 21.89   
 
 
 ## Seq2Seq-DSL, my-bk, 100epoch
