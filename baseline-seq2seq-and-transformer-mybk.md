@@ -1913,6 +1913,8 @@ sys	2m25.748s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+Best model က 98 epoch model ဖြစ်ပြီးတော့ Best BLEU Score က 15.80  
+
 ## Preparing Transformer Baseline for Beik-Myanmar
 
 Training ...  
