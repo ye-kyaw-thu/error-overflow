@@ -10251,6 +10251,9 @@ sys	2m17.389s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+Best model is 81 epoch model (seq-model-mybk.81.1.49-4.42.2.16-8.63.pth) and Best BLEU Score: 18.99  
+
+
 ## Preparing Seq2Seq Baseline for bk-my
 
 
