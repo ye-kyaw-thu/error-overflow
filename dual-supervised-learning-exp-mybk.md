@@ -10770,6 +10770,9 @@ user	32m52.493s
 sys	3m53.019s
 ```
 
+Best model is 95 epoch model and Best Score: 22.62 
+
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
