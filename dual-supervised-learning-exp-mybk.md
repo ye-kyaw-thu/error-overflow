@@ -9822,7 +9822,22 @@ Table 2. Sequence-to-Sequence and Transformer Dual Supervised Learnings results 
 </div>  
 </br>
 
-Table 3. 
+<div align="center">   
+Table 3. Sequence-to-Sequence and Transformer Dual Supervised Learnings results for Beik-Myanmar  
+
+
+| Training No. of Epoch | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|  
+| 30 | 6.88 BLEU (30 epoch) | 41.34 BLEU (29 epoch) |  
+| 40 | 7.98 BLEU (38 epoch) | 42.49 BLEU (28 epoch) |  
+| 50 | 10.79 BLEU (50 epoch) | 41.50 BLEU (19 epoch) |  
+| 60 | 10.88 BLEU (60 epoch) | 40.94 BLEU (25 epoch) |  
+| 70 | 16.86 BLEU (67 epoch) | 42.10 BLEU (24 epoch) |  
+| 80 | 12.31 BLEU (57 epoch) | 41.55 BLEU (29 epoch) |  
+| 90 | 21.89 BLEU (83 epoch) | 41.79 BLEU (27 epoch) |  
+| 100 | 14.96 BLEU (94 epoch) | 43.23 BLEU (22 epoch) |  
+</div>  
+</br>
 
 ## Reference
 
