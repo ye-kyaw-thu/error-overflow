@@ -9768,6 +9768,31 @@ Transformer Baseline bk-my, epoch 100 training,  99 epoch model: 17.58
 100 epoch, my-bk, Best: 100 epoch model, 11.36 BLEU  
 100 epoch, bk-my, Best: 94 epoch model, 14.96 BLEU  
 
+### Transformer-DSL
+ 
+30 epoch, my-bk, Best: 28 epoch model, 34.40 BLEU  
+30 epoch, bk-my, Best: 29 epoch model, 41.34 BLEU  
+  
+40 epoch, my-bk, Best: 23 epoch model, 34.20 BLEU   
+40 epoch, bk-my, Best: 28 epoch model, 42.49 BLEU  
+  
+50 epoch, my-bk, Best: 32 epoch model, 34.95 BLEU  
+50 epoch, bk-my, Best: 19 epoch model, 41.50 BLEU  
+  
+60 epoch, my-bk, Best: 28 epoch model, 34.62 BLEU  
+60 epoch, bk-my, Best: 25 epoch model, 40.94 BLEU  
+
+70 epoch, my-bk, Best: 20 epoch model, 34.91 BLEU  
+70 epoch, bk-my, Best: 24 epoch model, 42.10 BLEU  
+  
+80 epoch, my-bk, Best: 27 epoch model, 35.08 BLEU  
+80 epoch, bk-my, Best: 29 epoch model, 41.55 BLEU  
+
+90 epoch, my-bk, Best: 26 epoch model, 34.77 BLEU  
+90 epoch, bk-my, Best: 27 epoch model, 41.79 BLEU  
+  
+100 epoch, my-bk, Best: 25 epoch model, 34.86 BLEU  
+100 epoch, bk-my, Best: 22 epoch model, 43.23 BLEU  
 
 ## Reference
 
