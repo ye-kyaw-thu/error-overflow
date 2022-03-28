@@ -9794,6 +9794,16 @@ Transformer Baseline bk-my, epoch 100 training,  99 epoch model: 17.58
 100 epoch, my-bk, Best: 25 epoch model, 34.86 BLEU  
 100 epoch, bk-my, Best: 22 epoch model, 43.23 BLEU  
 
+## Table of Results
+
+Table 1. Baseline of sequence-to-sequence and transformer models  
+
+| Source-Target | Seq2Seq | Transformer |
+|:------------:|:------------:|:------------:|:------------:|
+| my-bk | 18.99 BLEU (81 epoch) | 15.80 BLEU (98 epoch) |
+| bk-my | 22.62 BLEU (95 epoch) | 17.58 BLEU (99 epoch) |
+
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
