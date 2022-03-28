@@ -9798,10 +9798,10 @@ Transformer Baseline bk-my, epoch 100 training,  99 epoch model: 17.58
 
 Table 1. Baseline of sequence-to-sequence and transformer models  
 
-| Source-Target | Seq2Seq | Transformer |
-|:------------:|:------------:|:------------:|:------------:|
-| my-bk | 18.99 BLEU (81 epoch) | 15.80 BLEU (98 epoch) |
-| bk-my | 22.62 BLEU (95 epoch) | 17.58 BLEU (99 epoch) |
+| Source-Target | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|:------------:|  
+| my-bk | 18.99 BLEU (81 epoch) | 15.80 BLEU (98 epoch) |  
+| bk-my | 22.62 BLEU (95 epoch) | 17.58 BLEU (99 epoch) |  
 
 
 ## Reference
