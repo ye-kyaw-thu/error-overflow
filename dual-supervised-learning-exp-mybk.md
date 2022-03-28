@@ -9736,37 +9736,37 @@ Best model for bk-my က epoch 22 မော်ဒယ် ဖြစ်ပြီး
 
 ### Baseline
 
-Seq2Seq Baseline my-bk, epoch 100 training, 81 epoch model: 18.99
-Seq2Seq Baseline bk-my, epoch 100 training, 95 epoch model: 22.62
+Seq2Seq Baseline my-bk, epoch 100 training, 81 epoch model: 18.99  
+Seq2Seq Baseline bk-my, epoch 100 training, 95 epoch model: 22.62  
 
-Transformer Baseline my-bk, epoch 100 training, 98 epoch model: 15.80
-Transformer Baseline bk-my, epoch 100 training,  99 epoch model: 17.58
+Transformer Baseline my-bk, epoch 100 training, 98 epoch model: 15.80  
+Transformer Baseline bk-my, epoch 100 training,  99 epoch model: 17.58  
 
 ### Seq2Seq-DSL
 
-30 epoch, my-bk, Best: 27 epoch model, 4.79 BLEU
-30 epoch, bk-my, Best: 30 epoch model, 6.88 BLEU
+30 epoch, my-bk, Best: 27 epoch model, 4.79 BLEU  
+30 epoch, bk-my, Best: 30 epoch model, 6.88 BLEU  
 
-40 epoch, my-bk, Best: 38 epoch model,  8.52 BLEU
-40 epoch, bk-my, Best: 38 epoch model,  7.98 BLEU
+40 epoch, my-bk, Best: 38 epoch model,  8.52 BLEU  
+40 epoch, bk-my, Best: 38 epoch model,  7.98 BLEU  
 
-50 epoch, my-bk, Best: 50 epoch model, 9.65 BLEU
-50 epoch, bk-my, Best: 50 epoch model, 10.79 BLEU
+50 epoch, my-bk, Best: 50 epoch model, 9.65 BLEU  
+50 epoch, bk-my, Best: 50 epoch model, 10.79 BLEU  
 
-60 epoch, my-bk, Best: 60 epoch model, 9.84 BLEU
-60 epoch, bk-my, Best: 60 epoch model, 10.88 BLEU
+60 epoch, my-bk, Best: 60 epoch model, 9.84 BLEU  
+60 epoch, bk-my, Best: 60 epoch model, 10.88 BLEU  
 
-70 epoch, my-bk, Best: 69 epoch model, 10.89 BLEU
-70 epoch, bk-my, Best: 67 epoch model, 16.86 BLEU
+70 epoch, my-bk, Best: 69 epoch model, 10.89 BLEU  
+70 epoch, bk-my, Best: 67 epoch model, 16.86 BLEU  
 
-80 epoch, my-bk, Best: 68 epoch model, 14.22 BLEU
-80 epoch, bk-my, Best: 57 epoch model, 12.31 BLEU
+80 epoch, my-bk, Best: 68 epoch model, 14.22 BLEU  
+80 epoch, bk-my, Best: 57 epoch model, 12.31 BLEU  
 
-90 epoch, my-bk, Best: 80 epoch model, 11.18 BLEU
-90 epoch, bk-my, Best: 83 epoch model, 21.89 BLEU
+90 epoch, my-bk, Best: 80 epoch model, 11.18 BLEU  
+90 epoch, bk-my, Best: 83 epoch model, 21.89 BLEU  
 
-100 epoch, my-bk, Best: 100 epoch model, 11.36 BLEU
-100 epoch, bk-my, Best: 94 epoch model, 14.96 BLEU
+100 epoch, my-bk, Best: 100 epoch model, 11.36 BLEU  
+100 epoch, bk-my, Best: 94 epoch model, 14.96 BLEU  
 
 
 ## Reference
