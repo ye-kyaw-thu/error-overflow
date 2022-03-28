@@ -9803,6 +9803,20 @@ Table 1. Baseline of sequence-to-sequence and transformer models
 | my-bk | 18.99 BLEU (81 epoch) | 15.80 BLEU (98 epoch) |  
 | bk-my | 22.62 BLEU (95 epoch) | 17.58 BLEU (99 epoch) |  
 
+Table 2. Sequence-to-Sequence and Transformer Dual Supervised Learnings results for Myanmar-Beik  
+
+| Training No. of Epoch | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|  
+| 30 | 4.79 BLEU (27 epoch) | 34.40 BLEU (28 epoch) |  
+| 40 | 8.52 BLEU (38 epoch) | 34.20 BLEU (23 epoch) |  
+| 50 | 9.65 BLEU (50 epoch) | 34.95 BLEU (32 epoch) |  
+| 60 | 9.84 BLEU (60 epoch) | 34.62 BLEU (28 epoch) |  
+| 70 | 10.89 BLEU (69 epoch) | 34.91 BLEU (20 epoch) |  
+| 80 | 14.22 BLEU (68 epoch) | 35.08 BLEU (27 epoch) |  
+| 90 | 11.18 BLEU (80 epoch) | 34.77 BLEU (26 epoch) |  
+| 100 | 11.36 BLEU (100 epoch) | 34.86 BLEU (25 epoch) |  
+
+Table 3. 
 
 ## Reference
 
