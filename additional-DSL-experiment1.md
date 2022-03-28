@@ -3653,8 +3653,8 @@ sys	21m3.800s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-my-bk အတွက် Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
-bk-my အတွက် Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
+my-bk အတွက် Best model က 134 epoch model ဖြစ်ပြီးတော့ Best Score က 10.55 BLEU ပါ။  
+bk-my အတွက် Best model က 125 epoch model ဖြစ်ပြီးတော့ Best Score က 12.49 BLEU ပါ။   
 
 ## Transformer-DSL Training for 500 Epochs
 
