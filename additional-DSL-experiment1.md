@@ -5668,6 +5668,34 @@ my-bk အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပ
 bk-my အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
 
 
+## Seq2Seq-DSL Training for 500 Epochs (my-rk, rk-my)
 
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+my-rk အတွက် Seq2Seq-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
+rk-my အတွက် Seq2Seq-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
+
+## Transformer-DSL Training for 500 Epochs (my-rk, rk-my)
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+my-rk အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
+rk-my အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
 
 
