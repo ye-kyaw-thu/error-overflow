@@ -8816,6 +8816,51 @@ done
 
 ဇယားနဲ့ ပြမယ်လို့ စိတ်ကူးထား ...  
 
+## Table of Results
+
+<div align="center">  
+Table 1. Baseline of sequence-to-sequence and transformer models  
+
+| Source-Target | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|  
+| my-rk |  BLEU ( epoch) |  BLEU ( epoch) |  
+| rk-my |  BLEU ( epoch) |  BLEU ( epoch) |  
+</div>  
+</br>  
+
+<div align="center">  
+Table 2. Sequence-to-Sequence and Transformer Dual Supervised Learnings results for Myanmar-Rakhine  
+
+| Training No. of Epoch | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|  
+| 30 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 40 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 50 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 60 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 70 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 80 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 90 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 100 |  BLEU ( epoch) |  BLEU ( epoch) |  
+</div>  
+</br>
+
+<div align="center">   
+Table 3. Sequence-to-Sequence and Transformer Dual Supervised Learnings results for Rakhine-Myanmar  
+
+
+| Training No. of Epoch | Seq2Seq | Transformer |  
+|:------------:|:------------:|:------------:|  
+| 30 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 40 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 50 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 60 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 70 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 80 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 90 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 100 |  BLEU ( epoch) |  BLEU ( epoch) |  
+</div>  
+</br>
+
 ## Reference
 
 - [https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
