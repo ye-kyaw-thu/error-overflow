@@ -8850,14 +8850,14 @@ Table 3. Sequence-to-Sequence and Transformer Dual Supervised Learnings results 
 
 | Training No. of Epoch | Seq2Seq | Transformer |  
 |:------------:|:------------:|:------------:|  
-| 30 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 40 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 50 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 60 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 70 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 80 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 90 |  BLEU ( epoch) |  BLEU ( epoch) |  
-| 100 |  BLEU ( epoch) |  BLEU ( epoch) |  
+| 30 | 60.20 BLEU (29 epoch) | 69.26 BLEU (25 epoch) |  
+| 40 | 71.25 BLEU (39 epoch) | 70.49 BLEU (37 epoch) |  
+| 50 | 73.21 BLEU (47 epoch) | 71.04 BLEU (48 epoch) |  
+| 60 | 74.06 BLEU (59 epoch) | 70.96 BLEU (48 epoch) |  
+| 70 | 74.77 BLEU (67 epoch) | 71.57 BLEU (66 epoch) |  
+| 80 | 74.43 BLEU (80 epoch) | 71.07 BLEU (76 epoch) |  
+| 90 | 74.64 BLEU (90 epoch) | 71.52 BLEU (51 epoch) |  
+| 100 | 74.56 BLEU (97 epoch) | 71.50 BLEU (98 epoch) |  
 </div>  
 </br>
 
