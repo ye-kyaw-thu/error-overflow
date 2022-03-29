@@ -2,7 +2,7 @@
 
 ရှေ့မှာ လုပ်ခဲ့တဲ့ Epoch-100 experiment မှာ Seq2Seq-DSL ရဲ့ ရလဒ်က Transformer-DSL နဲ့ ရလဒ်နဲ့ အများကြီးကွာနေတာကို တွေ့ရတယ်။ အဲဒါကြောင့် epoch ကို ၅၀၀ ထိ တိုးကြည့်ရင်ကော Seq2Seq-DSL နဲ့ Transformer-DSL ရဲ့အကြားမှာ ဘယ်လိုနေမလဲ ဆိုတာကို သိရအောင်လို့ additional experiment အနေနဲ့ ထပ် run ခဲ့တယ်။ ဒီ markdown ဖိုင်က အဲဒီ run ခဲ့တဲ့ log ဖိုင်ဖြစ်တယ်။  
 
-## Seq2Seq-DSL Training for 500 Epochs
+## Seq2Seq-DSL Training for 500 Epochs (my-bk, bk-my)  
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt$ time python dual_train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
@@ -3656,7 +3656,7 @@ sys	21m3.800s
 my-bk အတွက် Best model က 134 epoch model ဖြစ်ပြီးတော့ Best Score က 10.55 BLEU ပါ။  
 bk-my အတွက် Best model က 125 epoch model ဖြစ်ပြီးတော့ Best Score က 12.49 BLEU ပါ။   
 
-## Transformer-DSL Training for 500 Epochs
+## Transformer-DSL Training for 500 Epochs (my-bk, bk-my)  
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt$ time python dual_train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
@@ -5658,7 +5658,7 @@ sys	3m1.726s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-## Testing/Evaluation for Seq2Seq-DSL 500 Models 
+## Testing/Evaluation for Seq2Seq-DSL 500 Models (my-bk, bk-my)
 
 ```
 
