@@ -520,6 +520,8 @@ sys	1m54.285s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+my-rk, 100 epoch training မှာ Best model က 96 epoch ဖြစ်ပြီးတော့ Best Score က 74.92   
+
 ## Seq2Seq Baseline (rk-my)
 
 ```
@@ -1007,6 +1009,8 @@ user	33m40.211s
 sys	1m54.405s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
+
+rk-my, 100 epoch training မှာ Best model က 66 epoch model ဖြစ်ပြီးတော့ Best score က 75.01   
 
 
 ## Transformer Baseline (my-rk)
