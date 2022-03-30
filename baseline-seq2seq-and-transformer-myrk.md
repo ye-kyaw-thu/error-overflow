@@ -1016,7 +1016,571 @@ rk-my, 100 epoch training မှာ Best model က 66 epoch model ဖြစ်�
 ## Transformer Baseline (my-rk)
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 100 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-100epoch/myrk-transformer-model.pth
+{   'batch_size': 16,
+    'dropout': 0.2,
+    'gpu_id': 0,
+    'hidden_size': 32,
+    'init_epoch': 1,
+    'iteration_per_update': 32,
+    'lang': 'myrk',
+    'lr': 0.001,
+    'lr_decay_start': 10,
+    'lr_gamma': 0.5,
+    'lr_step': 0,
+    'max_grad_norm': 100000000.0,
+    'max_length': 100,
+    'model_fn': './model/transformer/baseline/myrk-100epoch/myrk-transformer-model.pth',
+    'n_epochs': 100,
+    'n_layers': 6,
+    'n_splits': 8,
+    'off_autocast': False,
+    'rl_lr': 0.01,
+    'rl_n_epochs': 0,
+    'rl_n_gram': 6,
+    'rl_n_samples': 1,
+    'rl_reward': 'gleu',
+    'train': '/home/ye/exp/simple-nmt/data/train',
+    'use_adam': True,
+    'use_radam': False,
+    'use_transformer': True,
+    'valid': '/home/ye/exp/simple-nmt/data/dev',
+    'verbose': 2,
+    'word_vec_size': 512}
+Transformer(
+  (emb_enc): Embedding(1539, 32)
+  (emb_dec): Embedding(1642, 32)
+  (emb_dropout): Dropout(p=0.2, inplace=False)
+  (encoder): MySequential(
+    (0): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (1): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (2): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (3): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (4): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (5): EncoderBlock(
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+  )
+  (decoder): MySequential(
+    (0): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (1): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (2): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (3): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (4): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+    (5): DecoderBlock(
+      (masked_attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (masked_attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (masked_attn_dropout): Dropout(p=0.2, inplace=False)
+      (attn): MultiHead(
+        (Q_linear): Linear(in_features=32, out_features=32, bias=False)
+        (K_linear): Linear(in_features=32, out_features=32, bias=False)
+        (V_linear): Linear(in_features=32, out_features=32, bias=False)
+        (linear): Linear(in_features=32, out_features=32, bias=False)
+        (attn): Attention(
+          (softmax): Softmax(dim=-1)
+        )
+      )
+      (attn_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (attn_dropout): Dropout(p=0.2, inplace=False)
+      (fc): Sequential(
+        (0): Linear(in_features=32, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=32, bias=True)
+      )
+      (fc_norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (fc_dropout): Dropout(p=0.2, inplace=False)
+    )
+  )
+  (generator): Sequential(
+    (0): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+    (1): Linear(in_features=32, out_features=1642, bias=True)
+    (2): LogSoftmax(dim=-1)
+  )
+)
+NLLLoss()
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.98)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+Epoch 1 - |param|=3.23e+02 |g_param|=3.59e+05 loss=5.8161e+00 ppl=335.66                                                
+Validation - loss=5.8523e+00 ppl=348.02 best_loss=inf best_ppl=inf                                                      
+Epoch 2 - |param|=3.24e+02 |g_param|=3.37e+05 loss=5.0398e+00 ppl=154.44                                                
+Validation - loss=5.0518e+00 ppl=156.31 best_loss=5.8523e+00 best_ppl=348.02                                            
+Epoch 3 - |param|=3.24e+02 |g_param|=2.38e+05 loss=4.5175e+00 ppl=91.61                                                 
+Validation - loss=4.5995e+00 ppl=99.43 best_loss=5.0518e+00 best_ppl=156.31                                             
+Epoch 4 - |param|=3.24e+02 |g_param|=1.85e+05 loss=4.2012e+00 ppl=66.76                                                 
+Validation - loss=4.3084e+00 ppl=74.32 best_loss=4.5995e+00 best_ppl=99.43                                              
+Epoch 5 - |param|=3.24e+02 |g_param|=1.68e+05 loss=3.9832e+00 ppl=53.69                                                 
+Validation - loss=4.0866e+00 ppl=59.54 best_loss=4.3084e+00 best_ppl=74.32                                              
+Epoch 6 - |param|=3.24e+02 |g_param|=1.71e+05 loss=3.7342e+00 ppl=41.86                                                 
+Validation - loss=3.8842e+00 ppl=48.63 best_loss=4.0866e+00 best_ppl=59.54                                              
+Epoch 7 - |param|=3.24e+02 |g_param|=2.18e+05 loss=3.6190e+00 ppl=37.30                                                 
+Validation - loss=3.7290e+00 ppl=41.64 best_loss=3.8842e+00 best_ppl=48.63                                              
+Epoch 8 - |param|=3.24e+02 |g_param|=1.44e+05 loss=3.4594e+00 ppl=31.80                                                 
+Validation - loss=3.5774e+00 ppl=35.78 best_loss=3.7290e+00 best_ppl=41.64                                              
+Epoch 9 - |param|=3.24e+02 |g_param|=1.95e+05 loss=3.3204e+00 ppl=27.67                                                 
+Validation - loss=3.4382e+00 ppl=31.13 best_loss=3.5774e+00 best_ppl=35.78                                              
+Epoch 10 - |param|=3.24e+02 |g_param|=1.74e+05 loss=3.1556e+00 ppl=23.47                                                
+Validation - loss=3.3183e+00 ppl=27.61 best_loss=3.4382e+00 best_ppl=31.13                                              
+Epoch 11 - |param|=3.24e+02 |g_param|=1.99e+05 loss=3.1534e+00 ppl=23.42                                                
+Validation - loss=3.2046e+00 ppl=24.65 best_loss=3.3183e+00 best_ppl=27.61                                              
+Epoch 12 - |param|=3.24e+02 |g_param|=2.44e+05 loss=3.0590e+00 ppl=21.31                                                
+Validation - loss=3.1120e+00 ppl=22.47 best_loss=3.2046e+00 best_ppl=24.65                                              
+Epoch 13 - |param|=3.25e+02 |g_param|=2.34e+05 loss=2.9457e+00 ppl=19.02                                                
+Validation - loss=3.0091e+00 ppl=20.27 best_loss=3.1120e+00 best_ppl=22.47                                              
+Epoch 14 - |param|=3.25e+02 |g_param|=2.57e+05 loss=2.8864e+00 ppl=17.93                                                
+Validation - loss=2.9291e+00 ppl=18.71 best_loss=3.0091e+00 best_ppl=20.27                                              
+Epoch 15 - |param|=3.25e+02 |g_param|=2.65e+05 loss=2.7800e+00 ppl=16.12                                                
+Validation - loss=2.8329e+00 ppl=16.99 best_loss=2.9291e+00 best_ppl=18.71                                              
+Epoch 16 - |param|=3.25e+02 |g_param|=3.70e+05 loss=2.7531e+00 ppl=15.69                                                
+Validation - loss=2.7678e+00 ppl=15.92 best_loss=2.8329e+00 best_ppl=16.99                                              
+Epoch 17 - |param|=3.25e+02 |g_param|=2.58e+05 loss=2.6467e+00 ppl=14.11                                                
+Validation - loss=2.6962e+00 ppl=14.82 best_loss=2.7678e+00 best_ppl=15.92                                              
+Epoch 18 - |param|=3.25e+02 |g_param|=3.98e+05 loss=2.6598e+00 ppl=14.29                                                
+Validation - loss=2.6244e+00 ppl=13.80 best_loss=2.6962e+00 best_ppl=14.82                                              
+Epoch 19 - |param|=3.25e+02 |g_param|=3.05e+05 loss=2.5181e+00 ppl=12.40                                                
+Validation - loss=2.5601e+00 ppl=12.94 best_loss=2.6244e+00 best_ppl=13.80                                              
+Epoch 20 - |param|=3.25e+02 |g_param|=2.51e+05 loss=2.5340e+00 ppl=12.60                                                
+Validation - loss=2.5061e+00 ppl=12.26 best_loss=2.5601e+00 best_ppl=12.94                                              
+Epoch 21 - |param|=3.25e+02 |g_param|=3.19e+05 loss=2.4687e+00 ppl=11.81                                                
+Validation - loss=2.4518e+00 ppl=11.61 best_loss=2.5061e+00 best_ppl=12.26                                              
+Epoch 22 - |param|=3.25e+02 |g_param|=2.24e+05 loss=2.4046e+00 ppl=11.07                                                
+Validation - loss=2.3908e+00 ppl=10.92 best_loss=2.4518e+00 best_ppl=11.61                                              
+Epoch 23 - |param|=3.25e+02 |g_param|=3.83e+05 loss=2.3901e+00 ppl=10.91                                                
+Validation - loss=2.3358e+00 ppl=10.34 best_loss=2.3908e+00 best_ppl=10.92                                              
+Epoch 24 - |param|=3.25e+02 |g_param|=3.34e+05 loss=2.3502e+00 ppl=10.49                                                
+Validation - loss=2.2810e+00 ppl=9.79 best_loss=2.3358e+00 best_ppl=10.34                                               
+Epoch 25 - |param|=3.25e+02 |g_param|=2.75e+05 loss=2.2331e+00 ppl=9.33                                                 
+Validation - loss=2.2361e+00 ppl=9.36 best_loss=2.2810e+00 best_ppl=9.79                                                
+Epoch 26 - |param|=3.25e+02 |g_param|=5.51e+05 loss=2.2425e+00 ppl=9.42                                                 
+Validation - loss=2.2308e+00 ppl=9.31 best_loss=2.2361e+00 best_ppl=9.36                                                
+Epoch 27 - |param|=3.25e+02 |g_param|=3.39e+05 loss=2.2013e+00 ppl=9.04                                                 
+Validation - loss=2.1410e+00 ppl=8.51 best_loss=2.2308e+00 best_ppl=9.31                                                
+Epoch 28 - |param|=3.25e+02 |g_param|=4.18e+05 loss=2.1986e+00 ppl=9.01                                                 
+Validation - loss=2.1120e+00 ppl=8.27 best_loss=2.1410e+00 best_ppl=8.51                                                
+Epoch 29 - |param|=3.25e+02 |g_param|=3.89e+05 loss=2.1622e+00 ppl=8.69                                                 
+Validation - loss=2.0575e+00 ppl=7.83 best_loss=2.1120e+00 best_ppl=8.27                                                
+Epoch 30 - |param|=3.25e+02 |g_param|=3.74e+05 loss=2.1092e+00 ppl=8.24                                                 
+Validation - loss=2.0237e+00 ppl=7.57 best_loss=2.0575e+00 best_ppl=7.83                                                
+Epoch 31 - |param|=3.25e+02 |g_param|=4.18e+05 loss=2.1000e+00 ppl=8.17                                                 
+Validation - loss=1.9734e+00 ppl=7.20 best_loss=2.0237e+00 best_ppl=7.57                                                
+Epoch 32 - |param|=3.25e+02 |g_param|=5.68e+05 loss=2.0321e+00 ppl=7.63                                                 
+Validation - loss=1.9313e+00 ppl=6.90 best_loss=1.9734e+00 best_ppl=7.20                                                
+Epoch 33 - |param|=3.25e+02 |g_param|=5.81e+05 loss=2.0193e+00 ppl=7.53                                                 
+Validation - loss=1.8953e+00 ppl=6.65 best_loss=1.9313e+00 best_ppl=6.90                                                
+Epoch 34 - |param|=3.25e+02 |g_param|=4.36e+05 loss=1.8988e+00 ppl=6.68                                                 
+Validation - loss=1.8527e+00 ppl=6.38 best_loss=1.8953e+00 best_ppl=6.65                                                
+Epoch 35 - |param|=3.25e+02 |g_param|=3.94e+05 loss=1.9562e+00 ppl=7.07                                                 
+Validation - loss=1.8271e+00 ppl=6.22 best_loss=1.8527e+00 best_ppl=6.38                                                
+Epoch 36 - |param|=3.25e+02 |g_param|=3.82e+05 loss=1.9552e+00 ppl=7.07                                                 
+Validation - loss=1.7955e+00 ppl=6.02 best_loss=1.8271e+00 best_ppl=6.22                                                
+Epoch 37 - |param|=3.25e+02 |g_param|=6.32e+05 loss=1.8556e+00 ppl=6.40                                                 
+Validation - loss=1.7554e+00 ppl=5.79 best_loss=1.7955e+00 best_ppl=6.02                                                
+Epoch 38 - |param|=3.25e+02 |g_param|=3.58e+05 loss=1.9063e+00 ppl=6.73                                                 
+Validation - loss=1.7289e+00 ppl=5.63 best_loss=1.7554e+00 best_ppl=5.79                                                
+Epoch 39 - |param|=3.25e+02 |g_param|=4.96e+05 loss=1.7919e+00 ppl=6.00                                                 
+Validation - loss=1.6962e+00 ppl=5.45 best_loss=1.7289e+00 best_ppl=5.63                                                
+Epoch 40 - |param|=3.25e+02 |g_param|=4.08e+05 loss=1.8293e+00 ppl=6.23                                                 
+Validation - loss=1.6903e+00 ppl=5.42 best_loss=1.6962e+00 best_ppl=5.45                                                
+Epoch 41 - |param|=3.25e+02 |g_param|=4.55e+05 loss=1.7270e+00 ppl=5.62                                                 
+Validation - loss=1.6318e+00 ppl=5.11 best_loss=1.6903e+00 best_ppl=5.42                                                
+Epoch 42 - |param|=3.25e+02 |g_param|=6.79e+05 loss=1.7900e+00 ppl=5.99                                                 
+Validation - loss=1.6294e+00 ppl=5.10 best_loss=1.6318e+00 best_ppl=5.11                                                
+Epoch 43 - |param|=3.25e+02 |g_param|=5.11e+05 loss=1.7157e+00 ppl=5.56                                                 
+Validation - loss=1.6008e+00 ppl=4.96 best_loss=1.6294e+00 best_ppl=5.10                                                
+Epoch 44 - |param|=3.25e+02 |g_param|=5.18e+05 loss=1.5915e+00 ppl=4.91                                                 
+Validation - loss=1.5535e+00 ppl=4.73 best_loss=1.6008e+00 best_ppl=4.96                                                
+Epoch 45 - |param|=3.25e+02 |g_param|=4.15e+05 loss=1.6673e+00 ppl=5.30                                                 
+Validation - loss=1.5315e+00 ppl=4.63 best_loss=1.5535e+00 best_ppl=4.73                                                
+Epoch 46 - |param|=3.25e+02 |g_param|=5.11e+05 loss=1.6786e+00 ppl=5.36                                                 
+Validation - loss=1.5063e+00 ppl=4.51 best_loss=1.5315e+00 best_ppl=4.63                                                
+Epoch 47 - |param|=3.25e+02 |g_param|=6.43e+05 loss=1.6508e+00 ppl=5.21                                                 
+Validation - loss=1.4839e+00 ppl=4.41 best_loss=1.5063e+00 best_ppl=4.51                                                
+Epoch 48 - |param|=3.25e+02 |g_param|=5.59e+05 loss=1.5920e+00 ppl=4.91                                                 
+Validation - loss=1.4659e+00 ppl=4.33 best_loss=1.4839e+00 best_ppl=4.41                                                
+Epoch 49 - |param|=3.25e+02 |g_param|=5.07e+05 loss=1.5523e+00 ppl=4.72                                                 
+Validation - loss=1.4538e+00 ppl=4.28 best_loss=1.4659e+00 best_ppl=4.33                                                
+Epoch 50 - |param|=3.25e+02 |g_param|=6.86e+05 loss=1.5727e+00 ppl=4.82                                                 
+Validation - loss=1.4322e+00 ppl=4.19 best_loss=1.4538e+00 best_ppl=4.28                                                
+Epoch 51 - |param|=3.25e+02 |g_param|=5.25e+05 loss=1.5918e+00 ppl=4.91                                                 
+Validation - loss=1.4145e+00 ppl=4.11 best_loss=1.4322e+00 best_ppl=4.19                                                
+Epoch 52 - |param|=3.25e+02 |g_param|=6.64e+05 loss=1.5369e+00 ppl=4.65                                                 
+Validation - loss=1.3807e+00 ppl=3.98 best_loss=1.4145e+00 best_ppl=4.11                                                
+Epoch 53 - |param|=3.25e+02 |g_param|=6.29e+05 loss=1.4797e+00 ppl=4.39                                                 
+Validation - loss=1.3732e+00 ppl=3.95 best_loss=1.3807e+00 best_ppl=3.98                                                
+Epoch 54 - |param|=3.25e+02 |g_param|=5.96e+05 loss=1.5475e+00 ppl=4.70                                                 
+Validation - loss=1.3559e+00 ppl=3.88 best_loss=1.3732e+00 best_ppl=3.95                                                
+Epoch 55 - |param|=3.25e+02 |g_param|=7.89e+05 loss=1.5028e+00 ppl=4.49                                                 
+Validation - loss=1.3645e+00 ppl=3.91 best_loss=1.3559e+00 best_ppl=3.88                                                
+Epoch 56 - |param|=3.25e+02 |g_param|=7.34e+05 loss=1.4254e+00 ppl=4.16                                                 
+Validation - loss=1.3380e+00 ppl=3.81 best_loss=1.3559e+00 best_ppl=3.88                                                
+Epoch 57 - |param|=3.25e+02 |g_param|=7.19e+05 loss=1.4431e+00 ppl=4.23                                                 
+Validation - loss=1.3427e+00 ppl=3.83 best_loss=1.3380e+00 best_ppl=3.81                                                
+Epoch 58 - |param|=3.25e+02 |g_param|=7.80e+05 loss=1.4275e+00 ppl=4.17                                                 
+Validation - loss=1.2925e+00 ppl=3.64 best_loss=1.3380e+00 best_ppl=3.81                                                
+Epoch 59 - |param|=3.25e+02 |g_param|=5.00e+05 loss=1.5003e+00 ppl=4.48                                                 
+Validation - loss=1.2786e+00 ppl=3.59 best_loss=1.2925e+00 best_ppl=3.64                                                
+Epoch 60 - |param|=3.25e+02 |g_param|=5.67e+05 loss=1.3914e+00 ppl=4.02                                                 
+Validation - loss=1.2810e+00 ppl=3.60 best_loss=1.2786e+00 best_ppl=3.59                                                
+Epoch 61 - |param|=3.25e+02 |g_param|=5.74e+05 loss=1.4224e+00 ppl=4.15                                                 
+Validation - loss=1.2486e+00 ppl=3.49 best_loss=1.2786e+00 best_ppl=3.59                                                
+Epoch 62 - |param|=3.25e+02 |g_param|=1.07e+06 loss=1.4208e+00 ppl=4.14                                                 
+Validation - loss=1.2958e+00 ppl=3.65 best_loss=1.2486e+00 best_ppl=3.49                                                
+Epoch 63 - |param|=3.25e+02 |g_param|=6.14e+05 loss=1.3768e+00 ppl=3.96                                                 
+Validation - loss=1.2372e+00 ppl=3.45 best_loss=1.2486e+00 best_ppl=3.49                                                
+Epoch 64 - |param|=3.25e+02 |g_param|=3.57e+05 loss=1.3536e+00 ppl=3.87                                                 
+Validation - loss=1.2181e+00 ppl=3.38 best_loss=1.2372e+00 best_ppl=3.45                                                
+Epoch 65 - |param|=3.25e+02 |g_param|=3.73e+05 loss=1.3559e+00 ppl=3.88                                                 
+Validation - loss=1.2067e+00 ppl=3.34 best_loss=1.2181e+00 best_ppl=3.38                                                
+Epoch 66 - |param|=3.25e+02 |g_param|=2.77e+05 loss=1.3232e+00 ppl=3.76                                                 
+Validation - loss=1.1985e+00 ppl=3.32 best_loss=1.2067e+00 best_ppl=3.34                                                
+Epoch 67 - |param|=3.25e+02 |g_param|=5.17e+05 loss=1.3341e+00 ppl=3.80                                                 
+Validation - loss=1.2415e+00 ppl=3.46 best_loss=1.1985e+00 best_ppl=3.32                                                
+Epoch 68 - |param|=3.25e+02 |g_param|=2.43e+05 loss=1.3069e+00 ppl=3.69                                                 
+Validation - loss=1.1763e+00 ppl=3.24 best_loss=1.1985e+00 best_ppl=3.32                                                
+Epoch 69 - |param|=3.25e+02 |g_param|=3.55e+05 loss=1.2795e+00 ppl=3.59                                                 
+Validation - loss=1.1612e+00 ppl=3.19 best_loss=1.1763e+00 best_ppl=3.24                                                
+Epoch 70 - |param|=3.25e+02 |g_param|=3.01e+05 loss=1.3052e+00 ppl=3.69                                                 
+Validation - loss=1.1659e+00 ppl=3.21 best_loss=1.1612e+00 best_ppl=3.19                                                
+Epoch 71 - |param|=3.25e+02 |g_param|=3.86e+05 loss=1.2540e+00 ppl=3.50                                                 
+Validation - loss=1.1735e+00 ppl=3.23 best_loss=1.1612e+00 best_ppl=3.19                                                
+Epoch 72 - |param|=3.25e+02 |g_param|=4.36e+05 loss=1.3437e+00 ppl=3.83                                                 
+Validation - loss=1.1477e+00 ppl=3.15 best_loss=1.1612e+00 best_ppl=3.19                                                
+Epoch 73 - |param|=3.25e+02 |g_param|=2.90e+05 loss=1.2927e+00 ppl=3.64                                                 
+Validation - loss=1.1342e+00 ppl=3.11 best_loss=1.1477e+00 best_ppl=3.15                                                
+Epoch 74 - |param|=3.25e+02 |g_param|=3.34e+05 loss=1.2578e+00 ppl=3.52                                                 
+Validation - loss=1.1536e+00 ppl=3.17 best_loss=1.1342e+00 best_ppl=3.11                                                
+Epoch 75 - |param|=3.25e+02 |g_param|=4.10e+05 loss=1.2539e+00 ppl=3.50                                                 
+Validation - loss=1.1278e+00 ppl=3.09 best_loss=1.1342e+00 best_ppl=3.11                                                
+Epoch 76 - |param|=3.25e+02 |g_param|=3.68e+05 loss=1.1950e+00 ppl=3.30                                                 
+Validation - loss=1.1045e+00 ppl=3.02 best_loss=1.1278e+00 best_ppl=3.09                                                
+Epoch 77 - |param|=3.25e+02 |g_param|=3.85e+05 loss=1.2359e+00 ppl=3.44                                                 
+Validation - loss=1.0967e+00 ppl=2.99 best_loss=1.1045e+00 best_ppl=3.02                                                
+Epoch 78 - |param|=3.25e+02 |g_param|=5.61e+05 loss=1.2783e+00 ppl=3.59                                                 
+Validation - loss=1.1258e+00 ppl=3.08 best_loss=1.0967e+00 best_ppl=2.99                                                
+Epoch 79 - |param|=3.25e+02 |g_param|=3.27e+05 loss=1.2424e+00 ppl=3.46                                                 
+Validation - loss=1.0809e+00 ppl=2.95 best_loss=1.0967e+00 best_ppl=2.99                                                
+Epoch 80 - |param|=3.25e+02 |g_param|=5.16e+05 loss=1.2225e+00 ppl=3.40                                                 
+Validation - loss=1.0822e+00 ppl=2.95 best_loss=1.0809e+00 best_ppl=2.95                                                
+Epoch 81 - |param|=3.25e+02 |g_param|=3.59e+05 loss=1.1969e+00 ppl=3.31                                                 
+Validation - loss=1.1021e+00 ppl=3.01 best_loss=1.0809e+00 best_ppl=2.95                                                
+Epoch 82 - |param|=3.25e+02 |g_param|=5.72e+05 loss=1.2191e+00 ppl=3.38                                                 
+Validation - loss=1.0618e+00 ppl=2.89 best_loss=1.0809e+00 best_ppl=2.95                                                
+Epoch 83 - |param|=3.25e+02 |g_param|=4.48e+05 loss=1.1349e+00 ppl=3.11                                                 
+Validation - loss=1.1121e+00 ppl=3.04 best_loss=1.0618e+00 best_ppl=2.89                                                
+Epoch 84 - |param|=3.25e+02 |g_param|=4.31e+05 loss=1.1540e+00 ppl=3.17                                                 
+Validation - loss=1.0574e+00 ppl=2.88 best_loss=1.0618e+00 best_ppl=2.89                                                
+Epoch 85 - |param|=3.25e+02 |g_param|=3.56e+05 loss=1.1543e+00 ppl=3.17                                                 
+Validation - loss=1.0440e+00 ppl=2.84 best_loss=1.0574e+00 best_ppl=2.88                                                
+Epoch 86 - |param|=3.25e+02 |g_param|=4.15e+05 loss=1.1612e+00 ppl=3.19                                                 
+Validation - loss=1.0465e+00 ppl=2.85 best_loss=1.0440e+00 best_ppl=2.84                                                
+Epoch 87 - |param|=3.25e+02 |g_param|=4.46e+05 loss=1.1561e+00 ppl=3.18                                                 
+Validation - loss=1.0671e+00 ppl=2.91 best_loss=1.0440e+00 best_ppl=2.84                                                
+Epoch 88 - |param|=3.25e+02 |g_param|=5.16e+05 loss=1.1595e+00 ppl=3.19                                                 
+Validation - loss=1.0363e+00 ppl=2.82 best_loss=1.0440e+00 best_ppl=2.84                                                
+Epoch 89 - |param|=3.25e+02 |g_param|=4.08e+05 loss=1.1004e+00 ppl=3.01                                                 
+Validation - loss=1.0260e+00 ppl=2.79 best_loss=1.0363e+00 best_ppl=2.82                                                
+Epoch 90 - |param|=3.25e+02 |g_param|=5.16e+05 loss=1.0945e+00 ppl=2.99                                                 
+Validation - loss=1.0264e+00 ppl=2.79 best_loss=1.0260e+00 best_ppl=2.79                                                
+Epoch 91 - |param|=3.25e+02 |g_param|=3.96e+05 loss=1.0735e+00 ppl=2.93                                                 
+Validation - loss=1.0145e+00 ppl=2.76 best_loss=1.0260e+00 best_ppl=2.79                                                
+Epoch 92 - |param|=3.25e+02 |g_param|=4.21e+05 loss=1.1339e+00 ppl=3.11                                                 
+Validation - loss=1.0038e+00 ppl=2.73 best_loss=1.0145e+00 best_ppl=2.76                                                
+Epoch 93 - |param|=3.25e+02 |g_param|=4.30e+05 loss=1.1057e+00 ppl=3.02                                                 
+Validation - loss=1.0124e+00 ppl=2.75 best_loss=1.0038e+00 best_ppl=2.73                                                
+Epoch 94 - |param|=3.25e+02 |g_param|=4.59e+05 loss=1.0707e+00 ppl=2.92                                                 
+Validation - loss=9.9822e-01 ppl=2.71 best_loss=1.0038e+00 best_ppl=2.73                                                
+Epoch 95 - |param|=3.26e+02 |g_param|=2.72e+05 loss=1.0272e+00 ppl=2.79                                                 
+Validation - loss=1.0038e+00 ppl=2.73 best_loss=9.9822e-01 best_ppl=2.71                                                
+Epoch 96 - |param|=3.26e+02 |g_param|=4.65e+05 loss=1.1242e+00 ppl=3.08                                                 
+Validation - loss=9.9094e-01 ppl=2.69 best_loss=9.9822e-01 best_ppl=2.71                                                
+Epoch 97 - |param|=3.26e+02 |g_param|=5.57e+05 loss=1.1387e+00 ppl=3.12                                                 
+Validation - loss=9.9752e-01 ppl=2.71 best_loss=9.9094e-01 best_ppl=2.69                                                
+Epoch 98 - |param|=3.26e+02 |g_param|=3.74e+05 loss=1.0639e+00 ppl=2.90                                                 
+Validation - loss=9.8740e-01 ppl=2.68 best_loss=9.9094e-01 best_ppl=2.69                                                
+Epoch 99 - |param|=3.26e+02 |g_param|=4.62e+05 loss=1.0391e+00 ppl=2.83                                                 
+Validation - loss=9.9123e-01 ppl=2.69 best_loss=9.8740e-01 best_ppl=2.68                                                
+Epoch 100 - |param|=3.26e+02 |g_param|=5.01e+05 loss=1.0429e+00 ppl=2.84                                                
+Validation - loss=9.7015e-01 ppl=2.64 best_loss=9.8740e-01 best_ppl=2.68                                                
 
+real	55m13.726s
+user	52m29.214s
+sys	0m44.539s
+(simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
 testing/evaluation... 
