@@ -3653,8 +3653,8 @@ sys	21m3.800s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-my-bk အတွက် Best model က 134 epoch model ဖြစ်ပြီးတော့ Best Score က 10.55 BLEU ပါ။  
-bk-my အတွက် Best model က 125 epoch model ဖြစ်ပြီးတော့ Best Score က 12.49 BLEU ပါ။   
+my-bk, 500 epoch seq2seq-DSL training အတွက် Best model က 134 epoch model ဖြစ်ပြီးတော့ Best Score က 10.55 BLEU ပါ။  
+bk-my 500 epoch seq2seq-DSL training အတွက် Best model က 125 epoch model ဖြစ်ပြီးတော့ Best Score က 12.49 BLEU ပါ။   
 
 ## Transformer-DSL Training for 500 Epochs (my-bk, bk-my)  
 
@@ -7671,8 +7671,8 @@ sys	20m29.511s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-my-bk အတွက် Transformer-DSL Best model က 36 epoch model ဖြစ်ပြီးတော့ Best Score က 33.23 BLEU ပါ။  
-bk-my အတွက် Transformer-DSL Best model က 22 epoch model ဖြစ်ပြီးတော့ Best Score က 42.45 BLEU ပါ။   
+my-bk, 500 epoch training အတွက် Transformer-DSL Best model က 36 epoch model ဖြစ်ပြီးတော့ Best Score က 33.23 BLEU ပါ။  
+bk-my, 500 epoch training အတွက် Transformer-DSL Best model က 22 epoch model ဖြစ်ပြီးတော့ Best Score က 42.45 BLEU ပါ။   
 
 
 ## Seq2Seq-DSL Training for 500 Epochs (my-rk, rk-my)
