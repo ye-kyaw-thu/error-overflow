@@ -111,4 +111,9 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 104. [simple-nmt-experiment.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/simple-nmt-experiment.md) 
 105. [simple-nmt-40-60-to-70-30-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/simple-nmt-40-60-to-70-30-log.md) 
 106. [joey-NMT-running-myrk.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/joey-NMT-running-myrk.md)  
+107. [baseline-seq2seq-and-transformer-myrk.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/baseline-seq2seq-and-transformer-myrk.md)  
+108. [baseline-seq2seq-and-transformer-mybk.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/baseline-seq2seq-and-transformer-mybk.md)  
+109. [dual-supervised-learning-exp-myrk.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/dual-supervised-learning-exp-myrk.md)
+110. [dual-supervised-learning-exp-mybk.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/dual-supervised-learning-exp-mybk.md)
+111. [additional-DSL-experiment1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/additional-DSL-experiment1.md)
 
