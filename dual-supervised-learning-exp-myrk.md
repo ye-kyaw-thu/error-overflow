@@ -8823,8 +8823,8 @@ Table 1. Baseline of sequence-to-sequence and transformer models
 
 | Source-Target | Seq2Seq | Transformer |  
 |:------------:|:------------:|:------------:|  
-| my-rk |  BLEU ( epoch) |  BLEU ( epoch) |  
-| rk-my |  BLEU ( epoch) |  BLEU ( epoch) |  
+| my-rk | 74.92 BLEU (96 epoch) | 59.35 BLEU (100 epoch) |  
+| rk-my | 75.01 BLEU (66 epoch) | 55.68 BLEU (98 epoch) |  
 </div>  
 </br>  
 
