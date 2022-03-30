@@ -7677,7 +7677,7 @@ bk-my, 500 epoch training အတွက် Transformer-DSL Best model က 22 epoc
 
 ## Seq2Seq-DSL Training for 500 Epochs (my-rk, rk-my)
 
-
+```
 time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev \
 --lang myrk \
 --gpu_id 0 --batch_size 64 --n_epochs 500 --max_length 100 --dropout .2 \
@@ -7685,6 +7685,7 @@ time python dual_train.py --train /home/ye/exp/simple-nmt/data/train --valid /ho
 --dsl_n_warmup_epochs 20 --dsl_lambda 1e-2 \
 --lm_fn  ./model/lm/lm-200epoch.pth \
 --model_fn ./model/dsl/seq2seq/myrk-500epoch/seq2seq-dsl-500epoch-model-myrk.pth | tee ./model/dsl/seq2seq/myrk-500epoch/training.log;  
+```
 
 ```
 
