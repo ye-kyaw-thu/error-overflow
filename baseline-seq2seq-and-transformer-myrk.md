@@ -1798,6 +1798,8 @@ sys	2m10.106s
 (simple-nmt) ye@:~/exp/simple-nmt$ 
 ```
 
+my-rk baseline transformer ကို 100 epoch training လုပ်တာမှာ Best model က 100 epoch model, Best Score က 59.35  
+
 ## Transformer Baseline (rk-my)
 
 ```
@@ -2583,3 +2585,5 @@ user	58m49.229s
 sys	2m9.547s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
+
+rk-my, baseline transformer ကို 100 epoch training လုပ်တာမှာ Best model က 98 epoch model, Best Score က 55.68  
