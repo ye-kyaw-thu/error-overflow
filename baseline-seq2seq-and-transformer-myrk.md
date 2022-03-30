@@ -1586,7 +1586,216 @@ sys	0m44.539s
 testing/evaluation... 
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./test-eval-loop-baseline-transformer-myrk.sh 
+Evaluation result for the model: myrk-transformer-model.01.5.82-335.66.5.85-348.02.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 97.1/0.0/0.0/0.0 (BP=0.000, ratio=0.081, hyp_len=1873, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.02.5.04-154.44.5.05-156.31.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 78.8/14.1/0.0/0.0 (BP=0.001, ratio=0.122, hyp_len=2827, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.03.4.52-91.61.4.60-99.43.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 54.8/18.2/0.3/0.0 (BP=0.057, ratio=0.259, hyp_len=5998, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.04.4.20-66.76.4.31-74.32.pth
+BLEU = 1.48, 38.1/10.2/1.4/0.1 (BP=0.564, ratio=0.636, hyp_len=14725, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.05.3.98-53.69.4.09-59.54.pth
+BLEU = 2.99, 40.2/11.7/2.2/0.2 (BP=0.757, ratio=0.782, hyp_len=18122, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.06.3.73-41.86.3.88-48.63.pth
+BLEU = 4.42, 37.5/12.3/2.9/0.4 (BP=0.893, ratio=0.898, hyp_len=20806, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.07.3.62-37.30.3.73-41.64.pth
+BLEU = 5.26, 31.0/11.3/3.1/0.7 (BP=1.000, ratio=1.164, hyp_len=26964, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.08.3.46-31.80.3.58-35.78.pth
+BLEU = 5.91, 32.3/12.3/3.6/0.9 (BP=1.000, ratio=1.144, hyp_len=26490, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.09.3.32-27.67.3.44-31.13.pth
+BLEU = 6.47, 33.5/13.2/4.0/1.0 (BP=1.000, ratio=1.131, hyp_len=26205, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.100.1.04-2.84.0.97-2.64.pth
+BLEU = 59.35, 80.6/65.4/53.5/44.0 (BP=1.000, ratio=1.024, hyp_len=23718, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.10.3.16-23.47.3.32-27.61.pth
+BLEU = 7.19, 35.2/14.1/4.4/1.2 (BP=1.000, ratio=1.128, hyp_len=26114, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.11.3.15-23.42.3.20-24.65.pth
+BLEU = 8.60, 38.6/16.0/5.5/1.6 (BP=1.000, ratio=1.066, hyp_len=24698, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.12.3.06-21.31.3.11-22.47.pth
+BLEU = 9.71, 39.9/17.2/6.3/2.1 (BP=1.000, ratio=1.085, hyp_len=25125, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.13.2.95-19.02.3.01-20.27.pth
+BLEU = 11.78, 45.7/20.3/8.0/2.8 (BP=0.980, ratio=0.981, hyp_len=22709, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.14.2.89-17.93.2.93-18.71.pth
+BLEU = 11.42, 41.7/18.7/7.6/2.9 (BP=1.000, ratio=1.117, hyp_len=25878, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.15.2.78-16.12.2.83-16.99.pth
+BLEU = 13.43, 45.1/21.0/9.2/3.7 (BP=1.000, ratio=1.067, hyp_len=24713, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.16.2.75-15.69.2.77-15.92.pth
+BLEU = 14.67, 46.2/22.2/10.1/4.5 (BP=1.000, ratio=1.076, hyp_len=24930, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.17.2.65-14.11.2.70-14.82.pth
+BLEU = 16.59, 50.2/24.9/11.6/5.2 (BP=1.000, ratio=1.013, hyp_len=23453, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.18.2.66-14.29.2.62-13.80.pth
+BLEU = 16.86, 48.9/24.9/12.0/5.5 (BP=1.000, ratio=1.066, hyp_len=24680, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.19.2.52-12.40.2.56-12.94.pth
+BLEU = 17.55, 49.6/25.7/12.6/5.9 (BP=1.000, ratio=1.066, hyp_len=24691, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.20.2.53-12.60.2.51-12.26.pth
+BLEU = 20.10, 54.5/28.9/14.9/7.3 (BP=0.986, ratio=0.986, hyp_len=22847, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.21.2.47-11.81.2.45-11.61.pth
+BLEU = 19.31, 51.4/27.3/14.1/7.0 (BP=1.000, ratio=1.073, hyp_len=24856, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.22.2.40-11.07.2.39-10.92.pth
+BLEU = 20.33, 52.4/28.6/15.0/7.6 (BP=1.000, ratio=1.068, hyp_len=24727, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.23.2.39-10.91.2.34-10.34.pth
+BLEU = 21.48, 53.7/29.7/15.9/8.4 (BP=1.000, ratio=1.061, hyp_len=24563, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.24.2.35-10.49.2.28-9.79.pth
+BLEU = 24.02, 57.4/32.6/18.1/9.9 (BP=1.000, ratio=1.005, hyp_len=23281, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.25.2.23-9.33.2.24-9.36.pth
+BLEU = 23.05, 54.5/31.1/17.3/9.6 (BP=1.000, ratio=1.081, hyp_len=25043, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.26.2.24-9.42.2.23-9.31.pth
+BLEU = 22.25, 52.9/30.3/16.8/9.1 (BP=1.000, ratio=1.142, hyp_len=26457, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.27.2.20-9.04.2.14-8.51.pth
+BLEU = 26.55, 59.3/35.0/20.3/11.8 (BP=1.000, ratio=1.014, hyp_len=23483, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.28.2.20-9.01.2.11-8.27.pth
+BLEU = 25.37, 56.3/33.4/19.5/11.3 (BP=1.000, ratio=1.099, hyp_len=25461, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.29.2.16-8.69.2.06-7.83.pth
+BLEU = 27.80, 59.7/36.1/21.6/12.8 (BP=1.000, ratio=1.041, hyp_len=24101, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.30.2.11-8.24.2.02-7.57.pth
+BLEU = 27.59, 58.3/35.7/21.6/12.9 (BP=1.000, ratio=1.090, hyp_len=25240, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.31.2.10-8.17.1.97-7.20.pth
+BLEU = 29.91, 61.3/38.3/23.6/14.5 (BP=1.000, ratio=1.049, hyp_len=24298, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.32.2.03-7.63.1.93-6.90.pth
+BLEU = 31.58, 62.9/39.9/25.1/15.7 (BP=1.000, ratio=1.026, hyp_len=23755, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.33.2.02-7.53.1.90-6.65.pth
+BLEU = 31.19, 62.1/39.4/24.8/15.6 (BP=1.000, ratio=1.061, hyp_len=24573, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.34.1.90-6.68.1.85-6.38.pth
+BLEU = 33.96, 65.0/42.1/27.3/17.8 (BP=1.000, ratio=1.014, hyp_len=23483, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.35.1.96-7.07.1.83-6.22.pth
+BLEU = 33.00, 63.7/41.5/26.6/16.8 (BP=1.000, ratio=1.054, hyp_len=24422, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.36.1.96-7.07.1.80-6.02.pth
+BLEU = 33.55, 63.8/42.0/27.2/17.4 (BP=1.000, ratio=1.064, hyp_len=24639, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.37.1.86-6.40.1.76-5.79.pth
+BLEU = 35.38, 65.9/43.6/28.8/18.9 (BP=1.000, ratio=1.028, hyp_len=23809, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.38.1.91-6.73.1.73-5.63.pth
+BLEU = 35.28, 65.3/43.5/28.8/18.9 (BP=1.000, ratio=1.053, hyp_len=24397, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.39.1.79-6.00.1.70-5.45.pth
+BLEU = 36.53, 66.3/44.7/30.0/20.0 (BP=1.000, ratio=1.050, hyp_len=24312, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.40.1.83-6.23.1.69-5.42.pth
+BLEU = 35.26, 64.5/43.5/29.0/19.0 (BP=1.000, ratio=1.091, hyp_len=25261, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.41.1.73-5.62.1.63-5.11.pth
+BLEU = 38.60, 67.7/46.7/32.1/21.9 (BP=1.000, ratio=1.041, hyp_len=24117, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.42.1.79-5.99.1.63-5.10.pth
+BLEU = 37.22, 66.2/45.4/30.8/20.7 (BP=1.000, ratio=1.073, hyp_len=24850, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.43.1.72-5.56.1.60-4.96.pth
+BLEU = 37.85, 66.1/45.7/31.5/21.6 (BP=1.000, ratio=1.091, hyp_len=25268, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.44.1.59-4.91.1.55-4.73.pth
+BLEU = 40.58, 69.3/48.5/33.9/23.8 (BP=1.000, ratio=1.034, hyp_len=23938, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.45.1.67-5.30.1.53-4.63.pth
+BLEU = 39.81, 68.2/47.8/33.3/23.1 (BP=1.000, ratio=1.061, hyp_len=24565, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.46.1.68-5.36.1.51-4.51.pth
+BLEU = 42.02, 69.7/49.6/35.5/25.4 (BP=1.000, ratio=1.044, hyp_len=24180, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.47.1.65-5.21.1.48-4.41.pth
+BLEU = 41.28, 69.3/49.3/34.8/24.4 (BP=1.000, ratio=1.054, hyp_len=24412, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.48.1.59-4.91.1.47-4.33.pth
+BLEU = 42.42, 70.1/50.3/35.9/25.6 (BP=1.000, ratio=1.053, hyp_len=24384, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.49.1.55-4.72.1.45-4.28.pth
+BLEU = 42.55, 70.3/50.5/36.1/25.6 (BP=1.000, ratio=1.053, hyp_len=24394, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.50.1.57-4.82.1.43-4.19.pth
+BLEU = 45.05, 72.4/52.5/38.3/28.3 (BP=1.000, ratio=1.019, hyp_len=23600, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.51.1.59-4.91.1.41-4.11.pth
+BLEU = 43.54, 70.9/51.4/37.1/26.6 (BP=1.000, ratio=1.055, hyp_len=24423, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.52.1.54-4.65.1.38-3.98.pth
+BLEU = 46.12, 73.2/53.8/39.5/29.1 (BP=1.000, ratio=1.022, hyp_len=23660, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.53.1.48-4.39.1.37-3.95.pth
+BLEU = 46.45, 73.2/53.9/39.8/29.6 (BP=1.000, ratio=1.021, hyp_len=23646, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.54.1.55-4.70.1.36-3.88.pth
+BLEU = 45.52, 72.3/53.3/39.0/28.5 (BP=1.000, ratio=1.046, hyp_len=24235, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.55.1.50-4.49.1.36-3.91.pth
+BLEU = 44.69, 71.6/52.7/38.4/27.6 (BP=1.000, ratio=1.061, hyp_len=24575, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.56.1.43-4.16.1.34-3.81.pth
+BLEU = 46.06, 72.3/53.7/39.7/29.2 (BP=1.000, ratio=1.056, hyp_len=24462, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.57.1.44-4.23.1.34-3.83.pth
+BLEU = 45.62, 71.9/53.3/39.4/28.7 (BP=1.000, ratio=1.069, hyp_len=24767, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.58.1.43-4.17.1.29-3.64.pth
+BLEU = 50.16, 75.8/57.2/43.5/33.5 (BP=1.000, ratio=1.008, hyp_len=23337, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.59.1.50-4.48.1.28-3.59.pth
+BLEU = 47.79, 73.6/55.3/41.5/30.9 (BP=1.000, ratio=1.051, hyp_len=24347, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.60.1.39-4.02.1.28-3.60.pth
+BLEU = 46.85, 72.7/54.4/40.6/30.0 (BP=1.000, ratio=1.064, hyp_len=24652, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.61.1.42-4.15.1.25-3.49.pth
+BLEU = 49.84, 75.4/57.2/43.4/33.0 (BP=1.000, ratio=1.024, hyp_len=23713, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.62.1.42-4.14.1.30-3.65.pth
+BLEU = 46.43, 72.5/54.5/40.3/29.2 (BP=1.000, ratio=1.076, hyp_len=24920, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.63.1.38-3.96.1.24-3.45.pth
+BLEU = 50.86, 76.4/58.0/44.3/34.1 (BP=1.000, ratio=1.015, hyp_len=23501, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.64.1.35-3.87.1.22-3.38.pth
+BLEU = 50.02, 75.2/57.4/43.7/33.2 (BP=1.000, ratio=1.040, hyp_len=24082, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.65.1.36-3.88.1.21-3.34.pth
+BLEU = 51.26, 76.5/58.6/44.8/34.3 (BP=1.000, ratio=1.022, hyp_len=23674, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.66.1.32-3.76.1.20-3.32.pth
+BLEU = 50.61, 75.7/58.1/44.4/33.7 (BP=1.000, ratio=1.038, hyp_len=24031, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.67.1.33-3.80.1.24-3.46.pth
+BLEU = 48.07, 73.0/55.7/42.1/31.2 (BP=1.000, ratio=1.085, hyp_len=25128, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.68.1.31-3.69.1.18-3.24.pth
+BLEU = 51.96, 76.9/59.2/45.6/35.1 (BP=1.000, ratio=1.028, hyp_len=23819, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.69.1.28-3.59.1.16-3.19.pth
+BLEU = 52.03, 76.5/59.0/45.7/35.5 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.70.1.31-3.69.1.17-3.21.pth
+BLEU = 53.71, 78.2/60.7/47.3/37.0 (BP=1.000, ratio=1.007, hyp_len=23321, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.71.1.25-3.50.1.17-3.23.pth
+BLEU = 50.73, 75.4/58.2/44.6/33.8 (BP=1.000, ratio=1.060, hyp_len=24558, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.72.1.34-3.83.1.15-3.15.pth
+BLEU = 51.56, 75.9/58.7/45.4/34.9 (BP=1.000, ratio=1.054, hyp_len=24416, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.73.1.29-3.64.1.13-3.11.pth
+BLEU = 52.79, 77.1/60.0/46.6/36.0 (BP=1.000, ratio=1.037, hyp_len=24023, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.74.1.26-3.52.1.15-3.17.pth
+BLEU = 51.55, 76.2/59.2/45.5/34.4 (BP=1.000, ratio=1.055, hyp_len=24425, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.75.1.25-3.50.1.13-3.09.pth
+BLEU = 55.15, 78.8/61.9/48.8/38.8 (BP=1.000, ratio=1.013, hyp_len=23457, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.76.1.19-3.30.1.10-3.02.pth
+BLEU = 54.13, 77.8/61.0/47.9/37.7 (BP=1.000, ratio=1.032, hyp_len=23899, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.77.1.24-3.44.1.10-2.99.pth
+BLEU = 55.15, 78.5/61.8/49.0/38.9 (BP=1.000, ratio=1.024, hyp_len=23714, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.78.1.28-3.59.1.13-3.08.pth
+BLEU = 52.02, 76.0/59.5/46.0/35.2 (BP=1.000, ratio=1.063, hyp_len=24620, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.79.1.24-3.46.1.08-2.95.pth
+BLEU = 56.56, 79.7/63.1/50.3/40.5 (BP=1.000, ratio=1.011, hyp_len=23422, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.80.1.22-3.40.1.08-2.95.pth
+BLEU = 55.19, 78.5/61.8/49.0/39.0 (BP=1.000, ratio=1.027, hyp_len=23779, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.81.1.20-3.31.1.10-3.01.pth
+BLEU = 52.31, 76.0/59.7/46.4/35.6 (BP=1.000, ratio=1.074, hyp_len=24876, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.82.1.22-3.38.1.06-2.89.pth
+BLEU = 54.63, 77.7/61.4/48.6/38.5 (BP=1.000, ratio=1.045, hyp_len=24202, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.83.1.13-3.11.1.11-3.04.pth
+BLEU = 51.36, 75.4/59.0/45.5/34.4 (BP=1.000, ratio=1.081, hyp_len=25041, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.84.1.15-3.17.1.06-2.88.pth
+BLEU = 55.32, 78.2/61.9/49.2/39.3 (BP=1.000, ratio=1.039, hyp_len=24052, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.85.1.15-3.17.1.04-2.84.pth
+BLEU = 55.97, 78.8/62.7/49.9/39.8 (BP=1.000, ratio=1.038, hyp_len=24043, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.86.1.16-3.19.1.05-2.85.pth
+BLEU = 56.14, 78.9/62.8/50.1/40.0 (BP=1.000, ratio=1.030, hyp_len=23856, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.87.1.16-3.18.1.07-2.91.pth
+BLEU = 53.12, 76.4/60.4/47.2/36.6 (BP=1.000, ratio=1.070, hyp_len=24790, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.88.1.16-3.19.1.04-2.82.pth
+BLEU = 56.01, 78.6/62.5/50.0/40.1 (BP=1.000, ratio=1.035, hyp_len=23980, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.89.1.10-3.01.1.03-2.79.pth
+BLEU = 56.28, 79.0/63.2/50.4/39.9 (BP=1.000, ratio=1.036, hyp_len=23996, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.90.1.09-2.99.1.03-2.79.pth
+BLEU = 57.37, 79.9/63.9/51.3/41.4 (BP=1.000, ratio=1.023, hyp_len=23687, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.91.1.07-2.93.1.01-2.76.pth
+BLEU = 56.63, 79.2/63.4/50.7/40.5 (BP=1.000, ratio=1.036, hyp_len=23995, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.92.1.13-3.11.1.00-2.73.pth
+BLEU = 56.67, 78.5/62.9/50.8/41.1 (BP=1.000, ratio=1.046, hyp_len=24234, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.93.1.11-3.02.1.01-2.75.pth
+BLEU = 58.07, 80.1/64.7/52.2/42.1 (BP=1.000, ratio=1.022, hyp_len=23672, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.94.1.07-2.92.1.00-2.71.pth
+BLEU = 56.73, 78.9/63.3/50.8/40.8 (BP=1.000, ratio=1.044, hyp_len=24178, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.95.1.03-2.79.1.00-2.73.pth
+BLEU = 56.41, 78.5/63.1/50.6/40.4 (BP=1.000, ratio=1.052, hyp_len=24359, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.96.1.12-3.08.0.99-2.69.pth
+BLEU = 58.16, 79.9/64.3/52.2/42.7 (BP=1.000, ratio=1.029, hyp_len=23841, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.97.1.14-3.12.1.00-2.71.pth
+BLEU = 56.42, 78.6/63.2/50.6/40.3 (BP=1.000, ratio=1.052, hyp_len=24359, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.98.1.06-2.90.0.99-2.68.pth
+BLEU = 56.75, 79.1/63.5/50.9/40.6 (BP=1.000, ratio=1.047, hyp_len=24239, ref_len=23160)
+Evaluation result for the model: myrk-transformer-model.99.1.04-2.83.0.99-2.69.pth
+BLEU = 55.75, 77.7/62.5/50.0/39.8 (BP=1.000, ratio=1.069, hyp_len=24747, ref_len=23160)
+/home/ye/exp/simple-nmt
 
+real	54m13.535s
+user	53m10.438s
+sys	2m10.106s
+(simple-nmt) ye@:~/exp/simple-nmt$ 
 ```
 
 ## Transformer Baseline (rk-my)
