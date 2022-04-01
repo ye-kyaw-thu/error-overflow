@@ -3637,8 +3637,8 @@ sys	17m43.384s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-my-rk အတွက် Seq2Seq-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
-rk-my အတွက် Seq2Seq-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
+my-rk အတွက် Seq2Seq-DSL Best model က 107 epoch model ဖြစ်ပြီးတော့ Best Score က 75.59 BLEU ပါ။  
+rk-my အတွက် Seq2Seq-DSL Best model က 459 epoch model ဖြစ်ပြီးတော့ Best Score က 75.30 BLEU ပါ။   
 
 ## Transformer-DSL Training for 500 Epochs (my-rk, rk-my)
 
