@@ -9293,7 +9293,2025 @@ sys	2m15.535s
 testing/evaluation ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./test-eval-loop-xy-seq2seq-500epoch-myrk.sh
+/home/ye/exp/simple-nmt/model/dsl/seq2seq/myrk-500epoch
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.01.4.41-82.49.4.44-84.71.4.04-56.88.4.07-58.51.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 19.2/0.6/0.0/0.0 (BP=0.978, ratio=0.978, hyp_len=22662, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.01.4.41-82.49.4.44-84.71.4.04-56.88.4.07-58.51.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 13.7/0.7/0.0/0.0 (BP=0.982, ratio=0.982, hyp_len=23084, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.02.4.14-62.54.4.16-63.92.3.89-49.13.3.92-50.36.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 17.1/1.6/0.0/0.0 (BP=1.000, ratio=1.035, hyp_len=23972, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.02.4.14-62.54.4.16-63.92.3.89-49.13.3.92-50.36.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 17.6/0.1/0.0/0.0 (BP=0.962, ratio=0.963, hyp_len=22643, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.03.4.03-56.47.4.06-58.20.3.80-44.64.3.82-45.82.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 20.5/1.8/0.0/0.0 (BP=1.000, ratio=1.029, hyp_len=23835, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.03.4.03-56.47.4.06-58.20.3.80-44.64.3.82-45.82.pth, rkmy
+BLEU = 0.25, 19.0/1.2/0.0/0.0 (BP=0.983, ratio=0.983, hyp_len=23112, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.04.3.93-51.03.3.96-52.26.3.68-39.84.3.73-41.67.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 22.0/1.9/0.0/0.0 (BP=1.000, ratio=1.003, hyp_len=23219, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.04.3.93-51.03.3.96-52.26.3.68-39.84.3.73-41.67.pth, rkmy
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.8/3.6/0.1/0.0 (BP=0.982, ratio=0.982, hyp_len=23085, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.05.3.81-45.13.3.84-46.47.3.58-35.71.3.61-36.79.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 23.7/2.2/0.0/0.0 (BP=0.995, ratio=0.995, hyp_len=23041, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.05.3.81-45.13.3.84-46.47.3.58-35.71.3.61-36.79.pth, rkmy
+BLEU = 0.96, 24.6/3.9/0.4/0.0 (BP=0.998, ratio=0.998, hyp_len=23454, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.06.3.71-40.69.3.71-40.92.3.51-33.55.3.51-33.31.pth, myrk
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1811.
+BLEU = 0.00, 24.6/3.4/0.1/0.0 (BP=1.000, ratio=1.011, hyp_len=23404, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.06.3.71-40.69.3.71-40.92.3.51-33.55.3.51-33.31.pth, rkmy
+BLEU = 0.66, 24.4/4.2/0.3/0.0 (BP=1.000, ratio=1.010, hyp_len=23749, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.07.3.62-37.43.3.55-34.77.3.40-30.08.3.30-27.03.pth, myrk
+BLEU = 1.85, 28.0/5.7/0.9/0.1 (BP=0.996, ratio=0.996, hyp_len=23076, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.07.3.62-37.43.3.55-34.77.3.40-30.08.3.30-27.03.pth, rkmy
+BLEU = 1.82, 29.2/7.4/0.9/0.1 (BP=1.000, ratio=1.011, hyp_len=23761, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.08.3.52-33.93.3.37-29.07.3.30-26.99.3.09-21.95.pth, myrk
+BLEU = 1.89, 28.4/6.5/0.9/0.1 (BP=1.000, ratio=1.006, hyp_len=23305, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.08.3.52-33.93.3.37-29.07.3.30-26.99.3.09-21.95.pth, rkmy
+BLEU = 3.06, 33.3/9.5/1.5/0.2 (BP=0.991, ratio=0.991, hyp_len=23302, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.09.3.33-28.03.3.02-20.46.3.09-21.99.2.75-15.72.pth, myrk
+BLEU = 4.36, 31.6/9.1/2.3/0.5 (BP=1.000, ratio=1.006, hyp_len=23310, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.09.3.33-28.03.3.02-20.46.3.09-21.99.2.75-15.72.pth, rkmy
+BLEU = 6.63, 38.5/14.2/3.8/0.9 (BP=1.000, ratio=1.006, hyp_len=23649, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.100.0.24-1.27.0.27-1.32.0.69-2.00.0.66-1.94.pth, myrk
+BLEU = 74.46, 87.5/78.2/70.4/63.8 (BP=1.000, ratio=1.027, hyp_len=23792, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.100.0.24-1.27.0.27-1.32.0.69-2.00.0.66-1.94.pth, rkmy
+BLEU = 74.65, 87.6/78.6/70.4/64.0 (BP=1.000, ratio=1.031, hyp_len=24249, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.101.0.23-1.26.0.28-1.33.0.69-1.99.0.69-1.99.pth, myrk
+BLEU = 74.75, 87.6/78.4/70.8/64.2 (BP=1.000, ratio=1.030, hyp_len=23849, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.101.0.23-1.26.0.28-1.33.0.69-1.99.0.69-1.99.pth, rkmy
+BLEU = 74.00, 87.3/78.0/69.7/63.2 (BP=1.000, ratio=1.039, hyp_len=24418, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.102.0.22-1.25.0.27-1.31.0.69-1.99.0.67-1.96.pth, myrk
+BLEU = 74.15, 87.3/77.9/70.1/63.4 (BP=1.000, ratio=1.032, hyp_len=23895, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.102.0.22-1.25.0.27-1.31.0.69-1.99.0.67-1.96.pth, rkmy
+BLEU = 73.02, 86.6/77.2/68.6/62.0 (BP=1.000, ratio=1.045, hyp_len=24558, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.103.0.23-1.26.0.26-1.30.0.69-1.99.0.67-1.95.pth, myrk
+BLEU = 73.53, 86.9/77.5/69.4/62.6 (BP=1.000, ratio=1.036, hyp_len=23998, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.103.0.23-1.26.0.26-1.30.0.69-1.99.0.67-1.95.pth, rkmy
+BLEU = 74.02, 87.2/78.0/69.7/63.3 (BP=1.000, ratio=1.041, hyp_len=24463, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.10.3.15-23.44.2.78-16.12.2.97-19.51.2.56-12.96.pth, myrk
+BLEU = 6.15, 35.1/11.3/3.5/1.1 (BP=0.983, ratio=0.983, hyp_len=22760, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.10.3.15-23.44.2.78-16.12.2.97-19.51.2.56-12.96.pth, rkmy
+BLEU = 10.26, 42.2/18.1/6.2/2.3 (BP=1.000, ratio=1.016, hyp_len=23882, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.104.0.22-1.25.0.26-1.30.0.69-1.99.0.68-1.97.pth, myrk
+BLEU = 74.62, 87.7/78.4/70.6/63.9 (BP=1.000, ratio=1.030, hyp_len=23858, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.104.0.22-1.25.0.26-1.30.0.69-1.99.0.68-1.97.pth, rkmy
+BLEU = 74.25, 87.3/78.2/70.0/63.6 (BP=1.000, ratio=1.038, hyp_len=24413, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.105.0.23-1.26.0.26-1.30.0.68-1.98.0.68-1.98.pth, myrk
+BLEU = 74.42, 87.4/78.2/70.4/63.8 (BP=1.000, ratio=1.032, hyp_len=23912, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.105.0.23-1.26.0.26-1.30.0.68-1.98.0.68-1.98.pth, rkmy
+BLEU = 74.51, 87.5/78.4/70.2/64.0 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.106.0.22-1.25.0.26-1.29.0.71-2.03.0.68-1.97.pth, myrk
+BLEU = 74.24, 87.3/78.0/70.2/63.6 (BP=1.000, ratio=1.034, hyp_len=23950, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.106.0.22-1.25.0.26-1.29.0.71-2.03.0.68-1.97.pth, rkmy
+BLEU = 73.64, 87.0/77.7/69.3/62.8 (BP=1.000, ratio=1.042, hyp_len=24491, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.107.0.22-1.24.0.25-1.28.0.69-1.99.0.68-1.97.pth, myrk
+BLEU = 75.59, 88.1/79.1/71.7/65.3 (BP=1.000, ratio=1.027, hyp_len=23784, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.107.0.22-1.24.0.25-1.28.0.69-1.99.0.68-1.97.pth, rkmy
+BLEU = 74.96, 87.9/78.8/70.8/64.5 (BP=1.000, ratio=1.034, hyp_len=24314, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.108.0.22-1.24.0.26-1.29.0.70-2.01.0.66-1.94.pth, myrk
+BLEU = 73.10, 86.4/76.9/69.0/62.3 (BP=1.000, ratio=1.036, hyp_len=24002, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.108.0.22-1.24.0.26-1.29.0.70-2.01.0.66-1.94.pth, rkmy
+BLEU = 73.52, 87.0/77.6/69.1/62.6 (BP=1.000, ratio=1.043, hyp_len=24525, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.109.0.22-1.25.0.29-1.34.0.71-2.02.0.70-2.01.pth, myrk
+BLEU = 73.92, 87.3/77.8/69.8/63.0 (BP=1.000, ratio=1.033, hyp_len=23916, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.109.0.22-1.25.0.29-1.34.0.71-2.02.0.70-2.01.pth, rkmy
+BLEU = 72.86, 86.6/77.2/68.5/61.5 (BP=1.000, ratio=1.042, hyp_len=24494, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.110.0.21-1.24.0.27-1.31.0.71-2.03.0.66-1.94.pth, myrk
+BLEU = 74.53, 87.4/78.2/70.5/64.0 (BP=1.000, ratio=1.034, hyp_len=23944, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.110.0.21-1.24.0.27-1.31.0.71-2.03.0.66-1.94.pth, rkmy
+BLEU = 73.72, 87.1/77.8/69.4/62.8 (BP=1.000, ratio=1.037, hyp_len=24376, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.111.0.21-1.24.0.27-1.31.0.71-2.03.0.67-1.95.pth, myrk
+BLEU = 73.91, 87.1/77.6/69.8/63.2 (BP=1.000, ratio=1.029, hyp_len=23823, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.111.0.21-1.24.0.27-1.31.0.71-2.03.0.67-1.95.pth, rkmy
+BLEU = 74.07, 87.3/78.1/69.8/63.3 (BP=1.000, ratio=1.036, hyp_len=24365, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.112.0.21-1.23.0.26-1.30.0.69-2.00.0.65-1.92.pth, myrk
+BLEU = 74.58, 87.7/78.3/70.5/63.9 (BP=1.000, ratio=1.028, hyp_len=23804, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.112.0.21-1.23.0.26-1.30.0.69-2.00.0.65-1.92.pth, rkmy
+BLEU = 73.39, 86.8/77.3/69.0/62.6 (BP=1.000, ratio=1.043, hyp_len=24513, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.11.2.91-18.37.2.49-12.05.2.75-15.71.2.34-10.41.pth, myrk
+BLEU = 8.17, 38.7/14.0/4.9/1.7 (BP=1.000, ratio=1.013, hyp_len=23462, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.11.2.91-18.37.2.49-12.05.2.75-15.71.2.34-10.41.pth, rkmy
+BLEU = 12.58, 45.6/20.8/8.3/3.2 (BP=1.000, ratio=1.012, hyp_len=23781, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.113.0.21-1.24.0.25-1.28.0.70-2.02.0.66-1.94.pth, myrk
+BLEU = 74.72, 87.6/78.4/70.7/64.2 (BP=1.000, ratio=1.031, hyp_len=23875, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.113.0.21-1.24.0.25-1.28.0.70-2.02.0.66-1.94.pth, rkmy
+BLEU = 74.08, 87.3/78.0/69.8/63.4 (BP=1.000, ratio=1.038, hyp_len=24397, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.114.0.24-1.27.0.25-1.29.0.70-2.02.0.67-1.95.pth, myrk
+BLEU = 73.56, 86.9/77.4/69.5/62.7 (BP=1.000, ratio=1.034, hyp_len=23955, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.114.0.24-1.27.0.25-1.29.0.70-2.02.0.67-1.95.pth, rkmy
+BLEU = 72.86, 86.4/76.9/68.5/62.0 (BP=1.000, ratio=1.045, hyp_len=24578, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.115.0.24-1.28.0.24-1.28.0.72-2.05.0.67-1.95.pth, myrk
+BLEU = 73.72, 87.0/77.5/69.6/62.9 (BP=1.000, ratio=1.031, hyp_len=23888, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.115.0.24-1.28.0.24-1.28.0.72-2.05.0.67-1.95.pth, rkmy
+BLEU = 73.77, 87.1/77.7/69.5/63.0 (BP=1.000, ratio=1.040, hyp_len=24443, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.116.0.23-1.26.0.24-1.27.0.71-2.04.0.65-1.92.pth, myrk
+BLEU = 74.67, 87.6/78.3/70.7/64.1 (BP=1.000, ratio=1.029, hyp_len=23827, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.116.0.23-1.26.0.24-1.27.0.71-2.04.0.65-1.92.pth, rkmy
+BLEU = 74.18, 87.4/78.2/69.8/63.5 (BP=1.000, ratio=1.039, hyp_len=24437, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.117.0.22-1.25.0.23-1.26.0.73-2.08.0.66-1.93.pth, myrk
+BLEU = 73.50, 87.1/77.3/69.4/62.5 (BP=1.000, ratio=1.031, hyp_len=23880, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.117.0.22-1.25.0.23-1.26.0.73-2.08.0.66-1.93.pth, rkmy
+BLEU = 74.13, 87.2/78.1/69.9/63.4 (BP=1.000, ratio=1.039, hyp_len=24437, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.118.0.22-1.25.0.24-1.27.0.70-2.02.0.66-1.94.pth, myrk
+BLEU = 73.72, 87.0/77.5/69.6/62.9 (BP=1.000, ratio=1.035, hyp_len=23968, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.118.0.22-1.25.0.24-1.27.0.70-2.02.0.66-1.94.pth, rkmy
+BLEU = 73.16, 86.7/77.3/68.8/62.2 (BP=1.000, ratio=1.043, hyp_len=24530, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.119.0.20-1.23.0.24-1.27.0.70-2.02.0.67-1.96.pth, myrk
+BLEU = 74.60, 87.5/78.3/70.6/64.0 (BP=1.000, ratio=1.029, hyp_len=23827, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.119.0.20-1.23.0.24-1.27.0.70-2.02.0.67-1.96.pth, rkmy
+BLEU = 73.50, 86.9/77.6/69.1/62.6 (BP=1.000, ratio=1.043, hyp_len=24513, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.120.0.19-1.21.0.23-1.25.0.71-2.03.0.68-1.97.pth, myrk
+BLEU = 74.89, 87.9/78.6/70.8/64.3 (BP=1.000, ratio=1.033, hyp_len=23916, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.120.0.19-1.21.0.23-1.25.0.71-2.03.0.68-1.97.pth, rkmy
+BLEU = 73.95, 87.3/78.0/69.7/63.1 (BP=1.000, ratio=1.037, hyp_len=24368, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.121.0.19-1.21.0.23-1.26.0.72-2.05.0.67-1.95.pth, myrk
+BLEU = 74.32, 87.4/78.0/70.3/63.7 (BP=1.000, ratio=1.033, hyp_len=23934, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.121.0.19-1.21.0.23-1.26.0.72-2.05.0.67-1.95.pth, rkmy
+BLEU = 74.26, 87.4/78.2/70.0/63.6 (BP=1.000, ratio=1.038, hyp_len=24395, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.122.0.20-1.22.0.30-1.35.0.71-2.04.0.72-2.06.pth, myrk
+BLEU = 74.21, 87.4/78.0/70.1/63.4 (BP=1.000, ratio=1.035, hyp_len=23979, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.122.0.20-1.22.0.30-1.35.0.71-2.04.0.72-2.06.pth, rkmy
+BLEU = 72.25, 86.2/76.4/67.8/61.0 (BP=1.000, ratio=1.043, hyp_len=24510, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.12.2.78-16.09.2.41-11.18.2.77-15.89.2.19-8.93.pth, myrk
+BLEU = 7.60, 35.9/14.1/4.6/1.5 (BP=0.993, ratio=0.993, hyp_len=23005, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.12.2.78-16.09.2.41-11.18.2.77-15.89.2.19-8.93.pth, rkmy
+BLEU = 15.56, 49.6/24.2/10.7/4.8 (BP=0.989, ratio=0.989, hyp_len=23243, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.123.0.20-1.22.0.28-1.33.0.73-2.07.0.72-2.05.pth, myrk
+BLEU = 74.29, 87.7/78.1/70.2/63.4 (BP=1.000, ratio=1.025, hyp_len=23740, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.123.0.20-1.22.0.28-1.33.0.73-2.07.0.72-2.05.pth, rkmy
+BLEU = 73.25, 86.9/77.3/68.9/62.2 (BP=1.000, ratio=1.043, hyp_len=24511, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.124.0.39-1.48.0.27-1.31.0.91-2.49.0.68-1.97.pth, myrk
+BLEU = 67.70, 84.6/72.6/62.7/54.5 (BP=1.000, ratio=1.011, hyp_len=23413, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.124.0.39-1.48.0.27-1.31.0.91-2.49.0.68-1.97.pth, rkmy
+BLEU = 73.96, 87.2/78.0/69.7/63.2 (BP=1.000, ratio=1.040, hyp_len=24438, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.125.0.33-1.39.0.24-1.27.0.76-2.14.0.68-1.97.pth, myrk
+BLEU = 71.25, 86.1/75.6/66.8/59.3 (BP=1.000, ratio=1.030, hyp_len=23847, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.125.0.33-1.39.0.24-1.27.0.76-2.14.0.68-1.97.pth, rkmy
+BLEU = 73.92, 87.2/77.9/69.6/63.1 (BP=1.000, ratio=1.041, hyp_len=24481, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.126.0.30-1.35.0.25-1.28.0.70-2.02.0.66-1.94.pth, myrk
+BLEU = 73.45, 87.0/77.4/69.3/62.4 (BP=1.000, ratio=1.031, hyp_len=23884, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.126.0.30-1.35.0.25-1.28.0.70-2.02.0.66-1.94.pth, rkmy
+BLEU = 72.70, 86.5/76.8/68.2/61.7 (BP=1.000, ratio=1.043, hyp_len=24528, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.127.0.24-1.28.0.27-1.31.0.71-2.03.0.67-1.95.pth, myrk
+BLEU = 73.57, 87.0/77.5/69.5/62.5 (BP=1.000, ratio=1.034, hyp_len=23938, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.127.0.24-1.28.0.27-1.31.0.71-2.03.0.67-1.95.pth, rkmy
+BLEU = 74.00, 87.2/78.0/69.7/63.3 (BP=1.000, ratio=1.039, hyp_len=24425, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.128.0.24-1.27.0.28-1.33.0.72-2.05.0.67-1.95.pth, myrk
+BLEU = 73.48, 86.9/77.3/69.4/62.5 (BP=1.000, ratio=1.036, hyp_len=23987, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.128.0.24-1.27.0.28-1.33.0.72-2.05.0.67-1.95.pth, rkmy
+BLEU = 73.97, 87.1/77.9/69.6/63.3 (BP=1.000, ratio=1.037, hyp_len=24374, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.129.0.20-1.23.0.23-1.26.0.72-2.05.0.66-1.94.pth, myrk
+BLEU = 73.93, 87.2/77.8/69.9/63.1 (BP=1.000, ratio=1.033, hyp_len=23933, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.129.0.20-1.23.0.23-1.26.0.72-2.05.0.66-1.94.pth, rkmy
+BLEU = 73.77, 87.0/77.7/69.5/63.0 (BP=1.000, ratio=1.041, hyp_len=24472, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.130.0.20-1.22.0.22-1.24.0.72-2.05.0.66-1.93.pth, myrk
+BLEU = 74.13, 87.5/78.0/70.0/63.2 (BP=1.000, ratio=1.029, hyp_len=23840, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.130.0.20-1.22.0.22-1.24.0.72-2.05.0.66-1.93.pth, rkmy
+BLEU = 73.26, 86.8/77.3/68.9/62.4 (BP=1.000, ratio=1.042, hyp_len=24506, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.131.0.19-1.21.0.23-1.26.0.72-2.05.0.67-1.95.pth, myrk
+BLEU = 74.17, 87.4/77.9/70.0/63.4 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.131.0.19-1.21.0.23-1.26.0.72-2.05.0.67-1.95.pth, rkmy
+BLEU = 73.80, 87.3/78.0/69.4/62.8 (BP=1.000, ratio=1.041, hyp_len=24471, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.132.0.19-1.21.0.22-1.25.0.72-2.05.0.68-1.97.pth, myrk
+BLEU = 73.89, 87.1/77.7/69.8/63.1 (BP=1.000, ratio=1.035, hyp_len=23978, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.132.0.19-1.21.0.22-1.25.0.72-2.05.0.68-1.97.pth, rkmy
+BLEU = 73.37, 86.9/77.4/69.0/62.4 (BP=1.000, ratio=1.041, hyp_len=24473, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.13.2.61-13.57.2.21-9.13.2.40-11.05.2.03-7.58.pth, myrk
+BLEU = 13.95, 45.7/21.2/9.4/4.1 (BP=1.000, ratio=1.012, hyp_len=23446, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.13.2.61-13.57.2.21-9.13.2.40-11.05.2.03-7.58.pth, rkmy
+BLEU = 21.42, 54.7/30.3/15.9/8.1 (BP=0.998, ratio=0.998, hyp_len=23453, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.133.0.23-1.26.0.43-1.54.0.73-2.07.0.68-1.98.pth, myrk
+BLEU = 74.38, 87.4/78.1/70.4/63.8 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.133.0.23-1.26.0.43-1.54.0.73-2.07.0.68-1.98.pth, rkmy
+BLEU = 71.67, 85.8/76.0/67.2/60.2 (BP=1.000, ratio=1.047, hyp_len=24604, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.134.0.17-1.19.0.23-1.26.0.73-2.08.0.66-1.94.pth, myrk
+BLEU = 74.84, 87.7/78.5/70.8/64.3 (BP=1.000, ratio=1.032, hyp_len=23903, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.134.0.17-1.19.0.23-1.26.0.73-2.08.0.66-1.94.pth, rkmy
+BLEU = 73.67, 87.1/77.7/69.3/62.8 (BP=1.000, ratio=1.042, hyp_len=24496, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.135.0.17-1.19.0.22-1.25.0.74-2.09.0.66-1.94.pth, myrk
+BLEU = 74.65, 87.6/78.3/70.6/64.1 (BP=1.000, ratio=1.032, hyp_len=23896, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.135.0.17-1.19.0.22-1.25.0.74-2.09.0.66-1.94.pth, rkmy
+BLEU = 73.67, 87.0/77.6/69.3/62.9 (BP=1.000, ratio=1.044, hyp_len=24537, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.136.0.17-1.18.0.21-1.23.0.73-2.07.0.65-1.91.pth, myrk
+BLEU = 74.60, 87.5/78.3/70.6/64.0 (BP=1.000, ratio=1.034, hyp_len=23936, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.136.0.17-1.18.0.21-1.23.0.73-2.07.0.65-1.91.pth, rkmy
+BLEU = 73.24, 86.8/77.3/68.8/62.3 (BP=1.000, ratio=1.045, hyp_len=24578, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.137.0.17-1.18.0.21-1.23.0.73-2.08.0.66-1.93.pth, myrk
+BLEU = 75.01, 87.8/78.6/71.0/64.6 (BP=1.000, ratio=1.030, hyp_len=23865, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.137.0.17-1.18.0.21-1.23.0.73-2.08.0.66-1.93.pth, rkmy
+BLEU = 73.61, 87.0/77.6/69.2/62.8 (BP=1.000, ratio=1.044, hyp_len=24548, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.138.0.17-1.18.0.19-1.21.0.73-2.07.0.65-1.92.pth, myrk
+BLEU = 74.34, 87.4/78.1/70.3/63.6 (BP=1.000, ratio=1.030, hyp_len=23862, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.138.0.17-1.18.0.19-1.21.0.73-2.07.0.65-1.92.pth, rkmy
+BLEU = 73.37, 86.8/77.4/69.0/62.5 (BP=1.000, ratio=1.046, hyp_len=24588, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.139.0.17-1.18.0.19-1.21.0.74-2.09.0.67-1.95.pth, myrk
+BLEU = 74.52, 87.5/78.3/70.5/63.8 (BP=1.000, ratio=1.032, hyp_len=23906, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.139.0.17-1.18.0.19-1.21.0.74-2.09.0.67-1.95.pth, rkmy
+BLEU = 73.57, 87.0/77.6/69.3/62.7 (BP=1.000, ratio=1.044, hyp_len=24550, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.140.0.16-1.18.0.19-1.20.0.74-2.10.0.66-1.93.pth, myrk
+BLEU = 74.18, 87.3/78.0/70.1/63.4 (BP=1.000, ratio=1.034, hyp_len=23954, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.140.0.16-1.18.0.19-1.20.0.74-2.10.0.66-1.93.pth, rkmy
+BLEU = 74.19, 87.3/78.2/69.9/63.5 (BP=1.000, ratio=1.041, hyp_len=24465, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.141.0.16-1.18.0.19-1.21.0.74-2.10.0.67-1.95.pth, myrk
+BLEU = 74.76, 87.9/78.5/70.7/64.1 (BP=1.000, ratio=1.028, hyp_len=23805, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.141.0.16-1.18.0.19-1.21.0.74-2.10.0.67-1.95.pth, rkmy
+BLEU = 73.70, 87.1/77.8/69.4/62.7 (BP=1.000, ratio=1.041, hyp_len=24479, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.142.0.15-1.17.0.18-1.20.0.74-2.11.0.66-1.94.pth, myrk
+BLEU = 74.30, 87.5/78.0/70.2/63.6 (BP=1.000, ratio=1.035, hyp_len=23966, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.142.0.15-1.17.0.18-1.20.0.74-2.11.0.66-1.94.pth, rkmy
+BLEU = 74.07, 87.2/78.0/69.7/63.4 (BP=1.000, ratio=1.042, hyp_len=24507, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.14.2.40-10.99.2.16-8.64.2.25-9.52.2.07-7.89.pth, myrk
+BLEU = 17.58, 50.3/25.6/12.5/5.9 (BP=1.000, ratio=1.005, hyp_len=23269, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.14.2.40-10.99.2.16-8.64.2.25-9.52.2.07-7.89.pth, rkmy
+BLEU = 19.12, 53.2/28.1/13.6/6.6 (BP=1.000, ratio=1.001, hyp_len=23538, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.143.0.16-1.17.0.18-1.20.0.75-2.12.0.68-1.98.pth, myrk
+BLEU = 73.83, 87.0/77.6/69.8/63.1 (BP=1.000, ratio=1.036, hyp_len=23998, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.143.0.16-1.17.0.18-1.20.0.75-2.12.0.68-1.98.pth, rkmy
+BLEU = 74.38, 87.5/78.3/70.1/63.7 (BP=1.000, ratio=1.038, hyp_len=24399, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.144.0.17-1.18.0.19-1.21.0.76-2.14.0.67-1.96.pth, myrk
+BLEU = 73.68, 87.2/77.6/69.5/62.7 (BP=1.000, ratio=1.037, hyp_len=24006, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.144.0.17-1.18.0.19-1.21.0.76-2.14.0.67-1.96.pth, rkmy
+BLEU = 73.51, 87.0/77.5/69.1/62.7 (BP=1.000, ratio=1.046, hyp_len=24591, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.145.0.16-1.17.0.18-1.19.0.75-2.13.0.68-1.98.pth, myrk
+BLEU = 74.69, 87.7/78.3/70.7/64.1 (BP=1.000, ratio=1.030, hyp_len=23858, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.145.0.16-1.17.0.18-1.19.0.75-2.13.0.68-1.98.pth, rkmy
+BLEU = 73.38, 86.8/77.4/69.0/62.5 (BP=1.000, ratio=1.043, hyp_len=24530, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.146.0.16-1.17.0.18-1.20.0.76-2.13.0.68-1.97.pth, myrk
+BLEU = 74.23, 87.2/78.0/70.2/63.6 (BP=1.000, ratio=1.035, hyp_len=23970, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.146.0.16-1.17.0.18-1.20.0.76-2.13.0.68-1.97.pth, rkmy
+BLEU = 73.75, 87.2/77.8/69.4/62.9 (BP=1.000, ratio=1.042, hyp_len=24493, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.147.0.16-1.17.0.18-1.20.0.76-2.13.0.70-2.01.pth, myrk
+BLEU = 74.80, 87.6/78.5/70.8/64.2 (BP=1.000, ratio=1.029, hyp_len=23832, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.147.0.16-1.17.0.18-1.20.0.76-2.13.0.70-2.01.pth, rkmy
+BLEU = 73.84, 87.3/77.8/69.5/63.0 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.148.0.15-1.17.0.18-1.19.0.77-2.15.0.71-2.03.pth, myrk
+BLEU = 74.86, 87.7/78.5/70.8/64.4 (BP=1.000, ratio=1.032, hyp_len=23890, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.148.0.15-1.17.0.18-1.19.0.77-2.15.0.71-2.03.pth, rkmy
+BLEU = 73.00, 86.7/77.1/68.6/61.9 (BP=1.000, ratio=1.046, hyp_len=24597, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.149.0.15-1.16.0.19-1.21.0.76-2.13.0.69-1.99.pth, myrk
+BLEU = 73.68, 87.0/77.5/69.5/62.8 (BP=1.000, ratio=1.036, hyp_len=23993, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.149.0.15-1.16.0.19-1.21.0.76-2.13.0.69-1.99.pth, rkmy
+BLEU = 73.91, 87.2/77.9/69.6/63.2 (BP=1.000, ratio=1.041, hyp_len=24471, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.150.0.16-1.18.0.18-1.19.0.74-2.10.0.70-2.01.pth, myrk
+BLEU = 73.71, 87.1/77.6/69.6/62.8 (BP=1.000, ratio=1.036, hyp_len=23989, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.150.0.16-1.18.0.18-1.19.0.74-2.10.0.70-2.01.pth, rkmy
+BLEU = 74.01, 87.2/78.0/69.7/63.3 (BP=1.000, ratio=1.040, hyp_len=24449, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.151.0.16-1.18.0.18-1.20.0.75-2.13.0.69-2.00.pth, myrk
+BLEU = 74.16, 87.6/78.0/70.0/63.2 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.151.0.16-1.18.0.18-1.20.0.75-2.13.0.69-2.00.pth, rkmy
+BLEU = 73.66, 86.9/77.6/69.4/62.9 (BP=1.000, ratio=1.042, hyp_len=24508, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.152.0.15-1.17.0.17-1.19.0.77-2.17.0.70-2.02.pth, myrk
+BLEU = 74.08, 87.5/78.0/69.9/63.2 (BP=1.000, ratio=1.033, hyp_len=23926, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.152.0.15-1.17.0.17-1.19.0.77-2.17.0.70-2.02.pth, rkmy
+BLEU = 73.94, 87.2/77.9/69.6/63.1 (BP=1.000, ratio=1.040, hyp_len=24455, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.15.2.12-8.33.1.84-6.30.2.06-7.88.1.81-6.11.pth, myrk
+BLEU = 21.88, 54.2/29.9/16.2/8.7 (BP=1.000, ratio=1.019, hyp_len=23592, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.15.2.12-8.33.1.84-6.30.2.06-7.88.1.81-6.11.pth, rkmy
+BLEU = 28.92, 61.2/37.7/22.7/13.6 (BP=0.996, ratio=0.996, hyp_len=23416, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.153.0.16-1.17.0.19-1.21.0.77-2.15.0.69-2.00.pth, myrk
+BLEU = 73.42, 86.7/77.2/69.3/62.6 (BP=1.000, ratio=1.037, hyp_len=24027, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.153.0.16-1.17.0.19-1.21.0.77-2.15.0.69-2.00.pth, rkmy
+BLEU = 73.48, 87.0/77.5/69.1/62.6 (BP=1.000, ratio=1.044, hyp_len=24541, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.154.0.16-1.17.0.19-1.21.0.77-2.15.0.69-2.00.pth, myrk
+BLEU = 74.51, 87.7/78.3/70.4/63.8 (BP=1.000, ratio=1.031, hyp_len=23880, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.154.0.16-1.17.0.19-1.21.0.77-2.15.0.69-2.00.pth, rkmy
+BLEU = 72.57, 86.5/76.8/68.1/61.3 (BP=1.000, ratio=1.050, hyp_len=24678, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.155.0.15-1.16.0.18-1.19.0.77-2.16.0.68-1.98.pth, myrk
+BLEU = 74.29, 87.5/78.1/70.2/63.5 (BP=1.000, ratio=1.034, hyp_len=23950, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.155.0.15-1.16.0.18-1.19.0.77-2.16.0.68-1.98.pth, rkmy
+BLEU = 74.18, 87.5/78.2/69.9/63.4 (BP=1.000, ratio=1.039, hyp_len=24429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.156.0.17-1.18.0.18-1.20.0.78-2.17.0.68-1.97.pth, myrk
+BLEU = 72.91, 86.7/76.9/68.7/61.7 (BP=1.000, ratio=1.040, hyp_len=24075, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.156.0.17-1.18.0.18-1.20.0.78-2.17.0.68-1.97.pth, rkmy
+BLEU = 73.66, 87.1/77.7/69.3/62.8 (BP=1.000, ratio=1.042, hyp_len=24501, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.157.0.16-1.18.0.18-1.19.0.78-2.19.0.69-1.98.pth, myrk
+BLEU = 73.89, 87.4/77.7/69.7/63.0 (BP=1.000, ratio=1.033, hyp_len=23923, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.157.0.16-1.18.0.18-1.19.0.78-2.19.0.69-1.98.pth, rkmy
+BLEU = 73.11, 86.7/77.2/68.7/62.1 (BP=1.000, ratio=1.044, hyp_len=24550, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.158.0.16-1.18.0.18-1.19.0.77-2.16.0.70-2.02.pth, myrk
+BLEU = 73.49, 87.0/77.4/69.4/62.5 (BP=1.000, ratio=1.037, hyp_len=24008, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.158.0.16-1.18.0.18-1.19.0.77-2.16.0.70-2.02.pth, rkmy
+BLEU = 73.75, 87.0/77.7/69.5/63.0 (BP=1.000, ratio=1.042, hyp_len=24491, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.159.0.16-1.17.0.17-1.18.0.78-2.18.0.71-2.03.pth, myrk
+BLEU = 73.67, 87.1/77.5/69.5/62.7 (BP=1.000, ratio=1.035, hyp_len=23965, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.159.0.16-1.17.0.17-1.18.0.78-2.18.0.71-2.03.pth, rkmy
+BLEU = 74.23, 87.4/78.2/69.9/63.6 (BP=1.000, ratio=1.039, hyp_len=24434, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.160.0.16-1.18.0.17-1.18.0.78-2.19.0.70-2.01.pth, myrk
+BLEU = 74.05, 87.3/77.9/70.0/63.2 (BP=1.000, ratio=1.031, hyp_len=23868, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.160.0.16-1.18.0.17-1.18.0.78-2.19.0.70-2.01.pth, rkmy
+BLEU = 73.24, 86.9/77.3/68.8/62.3 (BP=1.000, ratio=1.044, hyp_len=24546, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.161.0.16-1.17.0.18-1.20.0.78-2.17.0.70-2.02.pth, myrk
+BLEU = 73.48, 87.0/77.4/69.3/62.5 (BP=1.000, ratio=1.036, hyp_len=23990, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.161.0.16-1.17.0.18-1.20.0.78-2.17.0.70-2.02.pth, rkmy
+BLEU = 73.85, 87.2/77.7/69.5/63.2 (BP=1.000, ratio=1.040, hyp_len=24450, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.162.0.14-1.15.0.17-1.18.0.76-2.15.0.72-2.05.pth, myrk
+BLEU = 74.48, 87.6/78.3/70.4/63.7 (BP=1.000, ratio=1.030, hyp_len=23861, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.162.0.14-1.15.0.17-1.18.0.76-2.15.0.72-2.05.pth, rkmy
+BLEU = 73.60, 87.0/77.6/69.3/62.7 (BP=1.000, ratio=1.044, hyp_len=24549, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.16.2.15-8.56.1.80-6.04.2.00-7.42.1.73-5.64.pth, myrk
+BLEU = 22.95, 55.5/31.2/17.2/9.3 (BP=1.000, ratio=1.004, hyp_len=23252, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.16.2.15-8.56.1.80-6.04.2.00-7.42.1.73-5.64.pth, rkmy
+BLEU = 32.63, 63.4/41.2/26.1/16.7 (BP=1.000, ratio=1.002, hyp_len=23550, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.163.0.14-1.15.0.16-1.18.0.77-2.15.0.70-2.02.pth, myrk
+BLEU = 74.38, 87.8/78.2/70.2/63.5 (BP=1.000, ratio=1.030, hyp_len=23848, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.163.0.14-1.15.0.16-1.18.0.77-2.15.0.70-2.02.pth, rkmy
+BLEU = 73.57, 87.0/77.5/69.2/62.7 (BP=1.000, ratio=1.044, hyp_len=24535, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.164.0.14-1.15.0.17-1.19.0.77-2.17.0.73-2.07.pth, myrk
+BLEU = 74.04, 87.3/77.9/69.9/63.2 (BP=1.000, ratio=1.034, hyp_len=23942, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.164.0.14-1.15.0.17-1.19.0.77-2.17.0.73-2.07.pth, rkmy
+BLEU = 74.49, 87.5/78.4/70.3/63.8 (BP=1.000, ratio=1.034, hyp_len=24307, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.165.0.14-1.16.0.17-1.19.0.81-2.24.0.72-2.05.pth, myrk
+BLEU = 73.55, 87.1/77.5/69.4/62.5 (BP=1.000, ratio=1.037, hyp_len=24007, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.165.0.14-1.16.0.17-1.19.0.81-2.24.0.72-2.05.pth, rkmy
+BLEU = 73.96, 87.1/77.9/69.7/63.2 (BP=1.000, ratio=1.039, hyp_len=24434, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.166.0.14-1.15.0.19-1.21.0.77-2.16.0.70-2.02.pth, myrk
+BLEU = 74.49, 87.4/78.2/70.4/64.0 (BP=1.000, ratio=1.033, hyp_len=23926, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.166.0.14-1.15.0.19-1.21.0.77-2.16.0.70-2.02.pth, rkmy
+BLEU = 73.51, 86.9/77.5/69.2/62.6 (BP=1.000, ratio=1.036, hyp_len=24349, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.167.0.13-1.14.0.17-1.19.0.79-2.19.0.70-2.01.pth, myrk
+BLEU = 74.34, 87.4/78.0/70.3/63.8 (BP=1.000, ratio=1.032, hyp_len=23890, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.167.0.13-1.14.0.17-1.19.0.79-2.19.0.70-2.01.pth, rkmy
+BLEU = 73.42, 86.9/77.6/69.1/62.4 (BP=1.000, ratio=1.043, hyp_len=24511, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.168.0.13-1.14.0.18-1.19.0.79-2.20.0.70-2.01.pth, myrk
+BLEU = 73.77, 87.1/77.6/69.6/62.9 (BP=1.000, ratio=1.036, hyp_len=24002, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.168.0.13-1.14.0.18-1.19.0.79-2.20.0.70-2.01.pth, rkmy
+BLEU = 73.57, 86.9/77.6/69.3/62.7 (BP=1.000, ratio=1.042, hyp_len=24494, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.169.0.13-1.14.0.17-1.19.0.79-2.20.0.73-2.07.pth, myrk
+BLEU = 74.55, 87.7/78.3/70.4/63.8 (BP=1.000, ratio=1.030, hyp_len=23866, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.169.0.13-1.14.0.17-1.19.0.79-2.20.0.73-2.07.pth, rkmy
+BLEU = 73.54, 86.8/77.5/69.2/62.8 (BP=1.000, ratio=1.043, hyp_len=24525, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.170.0.14-1.15.0.16-1.17.0.80-2.22.0.71-2.04.pth, myrk
+BLEU = 73.20, 86.9/77.1/69.0/62.0 (BP=1.000, ratio=1.034, hyp_len=23955, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.170.0.14-1.15.0.16-1.17.0.80-2.22.0.71-2.04.pth, rkmy
+BLEU = 73.65, 87.0/77.7/69.3/62.8 (BP=1.000, ratio=1.042, hyp_len=24485, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.171.0.15-1.16.0.16-1.17.0.80-2.23.0.70-2.02.pth, myrk
+BLEU = 73.61, 87.2/77.5/69.4/62.5 (BP=1.000, ratio=1.032, hyp_len=23902, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.171.0.15-1.16.0.16-1.17.0.80-2.23.0.70-2.02.pth, rkmy
+BLEU = 73.62, 87.0/77.5/69.3/62.9 (BP=1.000, ratio=1.042, hyp_len=24495, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.17.1.86-6.39.1.63-5.12.1.82-6.17.1.58-4.87.pth, myrk
+BLEU = 29.71, 60.4/38.0/23.5/14.4 (BP=1.000, ratio=1.015, hyp_len=23504, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.17.1.86-6.39.1.63-5.12.1.82-6.17.1.58-4.87.pth, rkmy
+BLEU = 35.68, 66.2/44.3/28.9/19.1 (BP=1.000, ratio=1.007, hyp_len=23669, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.172.0.15-1.16.0.16-1.17.0.80-2.22.0.71-2.04.pth, myrk
+BLEU = 73.95, 87.4/77.8/69.8/63.0 (BP=1.000, ratio=1.035, hyp_len=23960, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.172.0.15-1.16.0.16-1.17.0.80-2.22.0.71-2.04.pth, rkmy
+BLEU = 73.00, 86.7/77.1/68.6/61.9 (BP=1.000, ratio=1.045, hyp_len=24576, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.173.0.14-1.15.0.15-1.16.0.82-2.27.0.71-2.04.pth, myrk
+BLEU = 73.41, 87.1/77.4/69.3/62.2 (BP=1.000, ratio=1.038, hyp_len=24033, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.173.0.14-1.15.0.15-1.16.0.82-2.27.0.71-2.04.pth, rkmy
+BLEU = 73.70, 87.0/77.6/69.4/62.9 (BP=1.000, ratio=1.041, hyp_len=24472, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.174.0.13-1.14.0.14-1.15.0.80-2.23.0.70-2.02.pth, myrk
+BLEU = 74.43, 87.8/78.3/70.4/63.5 (BP=1.000, ratio=1.031, hyp_len=23876, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.174.0.13-1.14.0.14-1.15.0.80-2.23.0.70-2.02.pth, rkmy
+BLEU = 73.68, 87.1/77.6/69.4/62.9 (BP=1.000, ratio=1.043, hyp_len=24510, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.175.0.13-1.14.0.15-1.16.0.81-2.25.0.72-2.05.pth, myrk
+BLEU = 74.21, 87.4/78.0/70.2/63.4 (BP=1.000, ratio=1.036, hyp_len=23994, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.175.0.13-1.14.0.15-1.16.0.81-2.25.0.72-2.05.pth, rkmy
+BLEU = 73.44, 86.9/77.5/69.1/62.5 (BP=1.000, ratio=1.041, hyp_len=24468, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.176.0.13-1.14.0.15-1.16.0.83-2.30.0.72-2.05.pth, myrk
+BLEU = 74.01, 87.3/77.8/69.9/63.2 (BP=1.000, ratio=1.033, hyp_len=23926, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.176.0.13-1.14.0.15-1.16.0.83-2.30.0.72-2.05.pth, rkmy
+BLEU = 73.13, 86.8/77.2/68.7/62.1 (BP=1.000, ratio=1.045, hyp_len=24556, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.177.0.12-1.13.0.14-1.15.0.83-2.30.0.72-2.06.pth, myrk
+BLEU = 73.96, 87.4/77.8/69.9/63.0 (BP=1.000, ratio=1.033, hyp_len=23926, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.177.0.12-1.13.0.14-1.15.0.83-2.30.0.72-2.06.pth, rkmy
+BLEU = 73.36, 86.9/77.3/69.0/62.4 (BP=1.000, ratio=1.043, hyp_len=24528, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.178.0.12-1.13.0.14-1.16.0.83-2.28.0.72-2.05.pth, myrk
+BLEU = 74.13, 87.3/77.9/70.1/63.4 (BP=1.000, ratio=1.034, hyp_len=23955, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.178.0.12-1.13.0.14-1.16.0.83-2.28.0.72-2.05.pth, rkmy
+BLEU = 74.28, 87.5/78.2/70.0/63.5 (BP=1.000, ratio=1.037, hyp_len=24383, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.179.0.12-1.12.0.14-1.15.0.82-2.27.0.74-2.09.pth, myrk
+BLEU = 74.73, 87.6/78.3/70.7/64.2 (BP=1.000, ratio=1.031, hyp_len=23867, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.179.0.12-1.12.0.14-1.15.0.82-2.27.0.74-2.09.pth, rkmy
+BLEU = 73.36, 86.9/77.3/69.0/62.5 (BP=1.000, ratio=1.043, hyp_len=24528, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.180.0.13-1.13.0.15-1.16.0.82-2.27.0.72-2.06.pth, myrk
+BLEU = 73.99, 87.4/77.9/69.9/63.0 (BP=1.000, ratio=1.034, hyp_len=23952, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.180.0.13-1.13.0.15-1.16.0.82-2.27.0.72-2.06.pth, rkmy
+BLEU = 73.38, 87.0/77.3/69.0/62.5 (BP=1.000, ratio=1.043, hyp_len=24525, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.181.0.12-1.13.0.14-1.15.0.82-2.27.0.72-2.05.pth, myrk
+BLEU = 74.56, 87.7/78.3/70.5/63.8 (BP=1.000, ratio=1.029, hyp_len=23821, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.181.0.12-1.13.0.14-1.15.0.82-2.27.0.72-2.05.pth, rkmy
+BLEU = 74.18, 87.3/78.0/69.9/63.6 (BP=1.000, ratio=1.040, hyp_len=24456, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.18.1.68-5.38.1.62-5.05.1.72-5.56.1.52-4.56.pth, myrk
+BLEU = 33.49, 63.6/41.7/27.1/17.5 (BP=1.000, ratio=1.019, hyp_len=23600, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.18.1.68-5.38.1.62-5.05.1.72-5.56.1.52-4.56.pth, rkmy
+BLEU = 36.90, 66.7/45.5/30.2/20.2 (BP=1.000, ratio=1.014, hyp_len=23840, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.182.0.15-1.16.0.30-1.35.0.82-2.27.0.79-2.20.pth, myrk
+BLEU = 74.15, 87.4/78.0/70.1/63.3 (BP=1.000, ratio=1.034, hyp_len=23948, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.182.0.15-1.16.0.30-1.35.0.82-2.27.0.79-2.20.pth, rkmy
+BLEU = 71.04, 85.6/75.4/66.4/59.4 (BP=1.000, ratio=1.052, hyp_len=24742, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.183.0.12-1.13.0.18-1.20.0.84-2.32.0.72-2.06.pth, myrk
+BLEU = 73.46, 87.0/77.3/69.3/62.4 (BP=1.000, ratio=1.037, hyp_len=24006, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.183.0.12-1.13.0.18-1.20.0.84-2.32.0.72-2.06.pth, rkmy
+BLEU = 72.73, 86.6/76.9/68.3/61.6 (BP=1.000, ratio=1.047, hyp_len=24607, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.184.0.12-1.13.0.16-1.17.0.84-2.32.0.71-2.03.pth, myrk
+BLEU = 73.97, 87.4/77.8/69.8/63.1 (BP=1.000, ratio=1.032, hyp_len=23912, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.184.0.12-1.13.0.16-1.17.0.84-2.32.0.71-2.03.pth, rkmy
+BLEU = 74.06, 87.5/78.1/69.8/63.1 (BP=1.000, ratio=1.037, hyp_len=24386, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.185.0.11-1.12.0.14-1.16.0.83-2.30.0.71-2.04.pth, myrk
+BLEU = 73.67, 87.3/77.6/69.5/62.6 (BP=1.000, ratio=1.035, hyp_len=23972, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.185.0.11-1.12.0.14-1.16.0.83-2.30.0.71-2.04.pth, rkmy
+BLEU = 74.48, 87.6/78.4/70.2/63.8 (BP=1.000, ratio=1.037, hyp_len=24369, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.186.0.12-1.13.0.15-1.16.0.84-2.32.0.71-2.04.pth, myrk
+BLEU = 73.63, 87.1/77.5/69.4/62.7 (BP=1.000, ratio=1.036, hyp_len=24005, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.186.0.12-1.13.0.15-1.16.0.84-2.32.0.71-2.04.pth, rkmy
+BLEU = 73.71, 87.1/77.7/69.4/62.9 (BP=1.000, ratio=1.044, hyp_len=24533, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.187.0.12-1.12.0.13-1.14.0.85-2.34.0.73-2.07.pth, myrk
+BLEU = 74.00, 87.4/77.8/69.9/63.1 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.187.0.12-1.12.0.13-1.14.0.85-2.34.0.73-2.07.pth, rkmy
+BLEU = 74.04, 87.3/77.9/69.7/63.4 (BP=1.000, ratio=1.041, hyp_len=24470, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.188.0.12-1.13.0.14-1.15.0.86-2.35.0.75-2.12.pth, myrk
+BLEU = 72.74, 86.7/76.8/68.5/61.4 (BP=1.000, ratio=1.036, hyp_len=23996, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.188.0.12-1.13.0.14-1.15.0.86-2.35.0.75-2.12.pth, rkmy
+BLEU = 73.48, 87.1/77.6/69.1/62.4 (BP=1.000, ratio=1.041, hyp_len=24466, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.189.0.12-1.13.0.13-1.14.0.86-2.36.0.74-2.09.pth, myrk
+BLEU = 73.35, 86.8/77.2/69.2/62.3 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.189.0.12-1.13.0.13-1.14.0.86-2.36.0.74-2.09.pth, rkmy
+BLEU = 74.07, 87.4/78.1/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24398, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.190.0.12-1.13.0.14-1.15.0.85-2.33.0.72-2.06.pth, myrk
+BLEU = 73.80, 87.2/77.7/69.7/62.8 (BP=1.000, ratio=1.035, hyp_len=23961, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.190.0.12-1.13.0.14-1.15.0.85-2.33.0.72-2.06.pth, rkmy
+BLEU = 73.63, 87.1/77.7/69.3/62.7 (BP=1.000, ratio=1.041, hyp_len=24476, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.191.0.11-1.12.0.14-1.15.0.83-2.30.0.75-2.11.pth, myrk
+BLEU = 73.86, 87.1/77.7/69.8/63.0 (BP=1.000, ratio=1.034, hyp_len=23941, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.191.0.11-1.12.0.14-1.15.0.83-2.30.0.75-2.11.pth, rkmy
+BLEU = 73.45, 87.0/77.5/69.1/62.5 (BP=1.000, ratio=1.044, hyp_len=24555, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.19.1.62-5.06.1.44-4.20.1.61-4.99.1.42-4.13.pth, myrk
+BLEU = 36.64, 66.7/45.1/30.1/19.9 (BP=1.000, ratio=1.004, hyp_len=23262, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.19.1.62-5.06.1.44-4.20.1.61-4.99.1.42-4.13.pth, rkmy
+BLEU = 43.19, 71.0/51.4/36.5/26.2 (BP=1.000, ratio=1.005, hyp_len=23626, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.192.0.11-1.12.0.15-1.16.0.85-2.35.0.74-2.09.pth, myrk
+BLEU = 73.67, 87.2/77.5/69.5/62.7 (BP=1.000, ratio=1.035, hyp_len=23965, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.192.0.11-1.12.0.15-1.16.0.85-2.35.0.74-2.09.pth, rkmy
+BLEU = 73.68, 87.1/77.6/69.4/62.9 (BP=1.000, ratio=1.041, hyp_len=24471, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.193.0.10-1.11.0.13-1.14.0.85-2.33.0.74-2.09.pth, myrk
+BLEU = 74.51, 87.7/78.2/70.4/63.8 (BP=1.000, ratio=1.031, hyp_len=23871, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.193.0.10-1.11.0.13-1.14.0.85-2.33.0.74-2.09.pth, rkmy
+BLEU = 73.62, 87.0/77.6/69.4/62.7 (BP=1.000, ratio=1.042, hyp_len=24508, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.194.0.10-1.11.0.12-1.13.0.87-2.39.0.75-2.13.pth, myrk
+BLEU = 73.87, 87.3/77.7/69.8/62.9 (BP=1.000, ratio=1.033, hyp_len=23923, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.194.0.10-1.11.0.12-1.13.0.87-2.39.0.75-2.13.pth, rkmy
+BLEU = 74.25, 87.5/78.3/70.0/63.5 (BP=1.000, ratio=1.038, hyp_len=24410, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.195.0.12-1.12.0.13-1.14.0.87-2.38.0.76-2.13.pth, myrk
+BLEU = 73.43, 86.9/77.3/69.3/62.4 (BP=1.000, ratio=1.035, hyp_len=23968, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.195.0.12-1.12.0.13-1.14.0.87-2.38.0.76-2.13.pth, rkmy
+BLEU = 73.70, 87.1/77.7/69.4/62.9 (BP=1.000, ratio=1.043, hyp_len=24516, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.196.0.12-1.13.0.13-1.14.0.85-2.34.0.74-2.09.pth, myrk
+BLEU = 73.84, 87.2/77.6/69.8/63.0 (BP=1.000, ratio=1.033, hyp_len=23920, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.196.0.12-1.13.0.13-1.14.0.85-2.34.0.74-2.09.pth, rkmy
+BLEU = 73.60, 87.0/77.5/69.3/62.8 (BP=1.000, ratio=1.042, hyp_len=24502, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.197.0.11-1.12.0.12-1.13.0.88-2.40.0.76-2.15.pth, myrk
+BLEU = 73.57, 87.1/77.4/69.4/62.6 (BP=1.000, ratio=1.038, hyp_len=24032, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.197.0.11-1.12.0.12-1.13.0.88-2.40.0.76-2.15.pth, rkmy
+BLEU = 73.02, 86.7/77.1/68.6/62.0 (BP=1.000, ratio=1.046, hyp_len=24596, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.198.0.11-1.11.0.12-1.13.0.88-2.42.0.75-2.12.pth, myrk
+BLEU = 74.14, 87.6/77.9/70.0/63.2 (BP=1.000, ratio=1.031, hyp_len=23889, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.198.0.11-1.11.0.12-1.13.0.88-2.42.0.75-2.12.pth, rkmy
+BLEU = 73.29, 86.8/77.2/69.0/62.4 (BP=1.000, ratio=1.044, hyp_len=24542, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.199.0.11-1.12.0.12-1.13.0.87-2.38.0.74-2.10.pth, myrk
+BLEU = 74.33, 87.6/78.2/70.3/63.4 (BP=1.000, ratio=1.030, hyp_len=23844, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.199.0.11-1.12.0.12-1.13.0.87-2.38.0.74-2.10.pth, rkmy
+BLEU = 73.46, 87.0/77.4/69.1/62.6 (BP=1.000, ratio=1.044, hyp_len=24533, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.200.0.11-1.12.0.12-1.13.0.86-2.37.0.76-2.14.pth, myrk
+BLEU = 74.53, 87.8/78.4/70.5/63.6 (BP=1.000, ratio=1.028, hyp_len=23810, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.200.0.11-1.12.0.12-1.13.0.86-2.37.0.76-2.14.pth, rkmy
+BLEU = 72.51, 86.6/76.7/68.0/61.3 (BP=1.000, ratio=1.049, hyp_len=24664, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.201.0.11-1.12.0.12-1.13.0.86-2.35.0.77-2.15.pth, myrk
+BLEU = 74.23, 87.5/78.0/70.2/63.4 (BP=1.000, ratio=1.029, hyp_len=23829, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.201.0.11-1.12.0.12-1.13.0.86-2.35.0.77-2.15.pth, rkmy
+BLEU = 73.50, 87.0/77.6/69.2/62.5 (BP=1.000, ratio=1.044, hyp_len=24533, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.20.1.48-4.41.1.40-4.04.1.54-4.66.1.43-4.18.pth, myrk
+BLEU = 39.84, 68.0/47.6/33.4/23.3 (BP=1.000, ratio=1.015, hyp_len=23518, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.20.1.48-4.41.1.40-4.04.1.54-4.66.1.43-4.18.pth, rkmy
+BLEU = 43.16, 71.1/51.5/36.4/26.0 (BP=1.000, ratio=1.006, hyp_len=23647, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.202.0.11-1.12.0.14-1.15.0.87-2.39.0.76-2.14.pth, myrk
+BLEU = 74.42, 87.8/78.2/70.3/63.5 (BP=1.000, ratio=1.031, hyp_len=23879, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.202.0.11-1.12.0.14-1.15.0.87-2.39.0.76-2.14.pth, rkmy
+BLEU = 72.99, 86.7/77.1/68.6/61.8 (BP=1.000, ratio=1.045, hyp_len=24557, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.203.0.12-1.12.0.12-1.13.0.86-2.37.0.76-2.14.pth, myrk
+BLEU = 74.23, 87.6/78.0/70.2/63.3 (BP=1.000, ratio=1.030, hyp_len=23857, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.203.0.12-1.12.0.12-1.13.0.86-2.37.0.76-2.14.pth, rkmy
+BLEU = 73.82, 87.2/77.6/69.5/63.1 (BP=1.000, ratio=1.041, hyp_len=24463, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.204.0.12-1.12.0.12-1.12.0.85-2.34.0.79-2.21.pth, myrk
+BLEU = 73.33, 86.9/77.2/69.2/62.3 (BP=1.000, ratio=1.035, hyp_len=23971, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.204.0.12-1.12.0.12-1.12.0.85-2.34.0.79-2.21.pth, rkmy
+BLEU = 74.31, 87.5/78.2/70.1/63.6 (BP=1.000, ratio=1.039, hyp_len=24430, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.205.0.10-1.11.0.12-1.13.0.86-2.36.0.77-2.16.pth, myrk
+BLEU = 74.03, 87.5/77.9/69.9/63.0 (BP=1.000, ratio=1.030, hyp_len=23854, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.205.0.10-1.11.0.12-1.13.0.86-2.36.0.77-2.16.pth, rkmy
+BLEU = 74.37, 87.7/78.3/70.0/63.6 (BP=1.000, ratio=1.034, hyp_len=24303, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.206.0.10-1.10.0.12-1.13.0.87-2.38.0.77-2.15.pth, myrk
+BLEU = 73.85, 87.1/77.6/69.7/63.0 (BP=1.000, ratio=1.035, hyp_len=23975, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.206.0.10-1.10.0.12-1.13.0.87-2.38.0.77-2.15.pth, rkmy
+BLEU = 73.98, 87.3/77.9/69.7/63.2 (BP=1.000, ratio=1.038, hyp_len=24394, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.207.0.10-1.11.0.12-1.13.0.86-2.37.0.81-2.26.pth, myrk
+BLEU = 74.14, 87.4/77.9/70.1/63.3 (BP=1.000, ratio=1.033, hyp_len=23929, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.207.0.10-1.11.0.12-1.13.0.86-2.37.0.81-2.26.pth, rkmy
+BLEU = 73.75, 87.3/77.8/69.4/62.8 (BP=1.000, ratio=1.039, hyp_len=24415, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.208.0.10-1.10.0.13-1.14.0.89-2.43.0.78-2.19.pth, myrk
+BLEU = 73.97, 87.3/77.8/69.9/63.1 (BP=1.000, ratio=1.035, hyp_len=23971, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.208.0.10-1.10.0.13-1.14.0.89-2.43.0.78-2.19.pth, rkmy
+BLEU = 73.22, 86.9/77.3/68.9/62.1 (BP=1.000, ratio=1.043, hyp_len=24530, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.209.0.10-1.11.0.15-1.17.0.87-2.39.0.76-2.15.pth, myrk
+BLEU = 74.15, 87.4/77.9/70.0/63.4 (BP=1.000, ratio=1.035, hyp_len=23964, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.209.0.10-1.11.0.15-1.17.0.87-2.39.0.76-2.15.pth, rkmy
+BLEU = 73.65, 86.9/77.6/69.4/62.8 (BP=1.000, ratio=1.040, hyp_len=24449, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.210.0.09-1.10.0.13-1.14.0.89-2.44.0.75-2.11.pth, myrk
+BLEU = 73.91, 87.3/77.8/69.8/62.9 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.210.0.09-1.10.0.13-1.14.0.89-2.44.0.75-2.11.pth, rkmy
+BLEU = 73.17, 86.8/77.1/68.8/62.3 (BP=1.000, ratio=1.045, hyp_len=24569, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.211.0.10-1.10.0.13-1.13.0.88-2.41.0.76-2.14.pth, myrk
+BLEU = 74.22, 87.5/78.1/70.1/63.4 (BP=1.000, ratio=1.032, hyp_len=23909, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.211.0.10-1.10.0.13-1.13.0.88-2.41.0.76-2.14.pth, rkmy
+BLEU = 73.22, 86.8/77.1/68.8/62.4 (BP=1.000, ratio=1.047, hyp_len=24613, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.21.1.36-3.91.1.36-3.91.1.43-4.18.1.61-5.00.pth, myrk
+BLEU = 44.63, 71.4/52.0/38.2/27.9 (BP=1.000, ratio=1.010, hyp_len=23382, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.21.1.36-3.91.1.36-3.91.1.43-4.18.1.61-5.00.pth, rkmy
+BLEU = 37.70, 67.8/46.6/31.0/20.9 (BP=0.997, ratio=0.997, hyp_len=23429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.212.0.10-1.10.0.12-1.13.0.90-2.47.0.79-2.21.pth, myrk
+BLEU = 73.91, 87.3/77.8/69.8/63.0 (BP=1.000, ratio=1.036, hyp_len=24001, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.212.0.10-1.10.0.12-1.13.0.90-2.47.0.79-2.21.pth, rkmy
+BLEU = 72.51, 86.5/76.6/68.0/61.3 (BP=1.000, ratio=1.047, hyp_len=24622, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.213.0.10-1.10.0.13-1.13.0.90-2.46.0.79-2.20.pth, myrk
+BLEU = 74.06, 87.5/77.9/69.9/63.1 (BP=1.000, ratio=1.032, hyp_len=23891, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.213.0.10-1.10.0.13-1.13.0.90-2.46.0.79-2.20.pth, rkmy
+BLEU = 72.81, 86.6/77.0/68.5/61.5 (BP=1.000, ratio=1.039, hyp_len=24437, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.214.0.12-1.13.0.25-1.28.0.91-2.48.0.83-2.30.pth, myrk
+BLEU = 73.08, 87.0/77.2/68.8/61.7 (BP=1.000, ratio=1.035, hyp_len=23981, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.214.0.12-1.13.0.25-1.28.0.91-2.48.0.83-2.30.pth, rkmy
+BLEU = 71.03, 85.8/75.3/66.5/59.2 (BP=1.000, ratio=1.050, hyp_len=24673, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.215.0.11-1.12.0.18-1.19.0.92-2.50.0.77-2.15.pth, myrk
+BLEU = 73.89, 87.2/77.7/69.8/63.0 (BP=1.000, ratio=1.034, hyp_len=23937, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.215.0.11-1.12.0.18-1.19.0.92-2.50.0.77-2.15.pth, rkmy
+BLEU = 72.48, 86.4/76.6/68.0/61.3 (BP=1.000, ratio=1.048, hyp_len=24642, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.216.0.10-1.11.0.15-1.16.0.91-2.49.0.80-2.23.pth, myrk
+BLEU = 73.36, 87.0/77.3/69.2/62.3 (BP=1.000, ratio=1.034, hyp_len=23940, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.216.0.10-1.11.0.15-1.16.0.91-2.49.0.80-2.23.pth, rkmy
+BLEU = 74.27, 87.5/78.1/70.0/63.5 (BP=1.000, ratio=1.036, hyp_len=24348, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.217.0.10-1.11.0.13-1.14.0.90-2.47.0.77-2.16.pth, myrk
+BLEU = 73.84, 87.3/77.8/69.8/62.8 (BP=1.000, ratio=1.033, hyp_len=23918, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.217.0.10-1.11.0.13-1.14.0.90-2.47.0.77-2.16.pth, rkmy
+BLEU = 73.85, 87.3/77.8/69.5/63.0 (BP=1.000, ratio=1.041, hyp_len=24482, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.218.0.10-1.10.0.12-1.13.0.91-2.49.0.77-2.16.pth, myrk
+BLEU = 73.55, 87.2/77.6/69.4/62.3 (BP=1.000, ratio=1.031, hyp_len=23876, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.218.0.10-1.10.0.12-1.13.0.91-2.49.0.77-2.16.pth, rkmy
+BLEU = 73.74, 87.2/77.6/69.4/62.9 (BP=1.000, ratio=1.040, hyp_len=24461, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.219.0.10-1.11.0.11-1.12.0.93-2.54.0.78-2.18.pth, myrk
+BLEU = 73.23, 87.0/77.2/69.0/62.0 (BP=1.000, ratio=1.035, hyp_len=23975, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.219.0.10-1.11.0.11-1.12.0.93-2.54.0.78-2.18.pth, rkmy
+BLEU = 73.96, 87.4/78.0/69.7/63.1 (BP=1.000, ratio=1.039, hyp_len=24420, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.220.0.12-1.13.0.12-1.12.0.93-2.53.0.81-2.25.pth, myrk
+BLEU = 72.77, 87.0/76.9/68.5/61.2 (BP=1.000, ratio=1.030, hyp_len=23860, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.220.0.12-1.13.0.12-1.12.0.93-2.53.0.81-2.25.pth, rkmy
+BLEU = 73.33, 87.0/77.4/68.9/62.3 (BP=1.000, ratio=1.044, hyp_len=24549, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.221.0.13-1.13.0.11-1.12.0.92-2.51.0.79-2.20.pth, myrk
+BLEU = 71.48, 86.3/75.9/67.1/59.4 (BP=1.000, ratio=1.037, hyp_len=24015, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.221.0.13-1.13.0.11-1.12.0.92-2.51.0.79-2.20.pth, rkmy
+BLEU = 74.08, 87.3/78.0/69.8/63.4 (BP=1.000, ratio=1.040, hyp_len=24452, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.22.1.48-4.39.1.43-4.17.1.50-4.49.1.29-3.63.pth, myrk
+BLEU = 40.80, 68.6/48.6/34.3/24.2 (BP=1.000, ratio=1.043, hyp_len=24154, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.22.1.48-4.39.1.43-4.17.1.50-4.49.1.29-3.63.pth, rkmy
+BLEU = 47.52, 73.8/55.4/40.9/30.5 (BP=1.000, ratio=1.005, hyp_len=23637, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.222.0.12-1.12.0.11-1.11.0.92-2.52.0.80-2.23.pth, myrk
+BLEU = 72.84, 86.8/76.9/68.6/61.4 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.222.0.12-1.12.0.11-1.11.0.92-2.52.0.80-2.23.pth, rkmy
+BLEU = 73.69, 87.0/77.6/69.4/62.9 (BP=1.000, ratio=1.043, hyp_len=24526, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.223.0.10-1.10.0.10-1.11.0.92-2.50.0.78-2.18.pth, myrk
+BLEU = 73.80, 87.3/77.7/69.6/62.8 (BP=1.000, ratio=1.031, hyp_len=23881, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.223.0.10-1.10.0.10-1.11.0.92-2.50.0.78-2.18.pth, rkmy
+BLEU = 73.80, 87.3/77.7/69.5/62.9 (BP=1.000, ratio=1.042, hyp_len=24487, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.224.0.10-1.10.0.10-1.11.0.92-2.52.0.76-2.13.pth, myrk
+BLEU = 72.91, 86.7/76.9/68.7/61.7 (BP=1.000, ratio=1.039, hyp_len=24066, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.224.0.10-1.10.0.10-1.11.0.92-2.52.0.76-2.13.pth, rkmy
+BLEU = 73.44, 87.0/77.4/69.1/62.5 (BP=1.000, ratio=1.044, hyp_len=24550, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.225.0.10-1.10.0.10-1.11.0.92-2.52.0.76-2.14.pth, myrk
+BLEU = 73.10, 86.9/77.1/68.9/61.8 (BP=1.000, ratio=1.037, hyp_len=24021, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.225.0.10-1.10.0.10-1.11.0.92-2.52.0.76-2.14.pth, rkmy
+BLEU = 73.90, 87.4/78.0/69.6/62.9 (BP=1.000, ratio=1.041, hyp_len=24480, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.226.0.11-1.12.0.11-1.11.0.92-2.51.0.78-2.18.pth, myrk
+BLEU = 71.92, 86.3/76.1/67.6/60.3 (BP=1.000, ratio=1.044, hyp_len=24182, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.226.0.11-1.12.0.11-1.11.0.92-2.51.0.78-2.18.pth, rkmy
+BLEU = 73.36, 87.0/77.5/69.0/62.3 (BP=1.000, ratio=1.044, hyp_len=24548, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.227.0.11-1.11.0.11-1.11.0.92-2.50.0.78-2.19.pth, myrk
+BLEU = 72.24, 86.3/76.3/68.0/60.9 (BP=1.000, ratio=1.039, hyp_len=24073, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.227.0.11-1.11.0.11-1.11.0.92-2.50.0.78-2.19.pth, rkmy
+BLEU = 74.11, 87.4/78.1/69.8/63.3 (BP=1.000, ratio=1.039, hyp_len=24435, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.228.0.10-1.10.0.10-1.10.0.93-2.54.0.78-2.18.pth, myrk
+BLEU = 74.30, 87.8/78.2/70.2/63.3 (BP=1.000, ratio=1.027, hyp_len=23780, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.228.0.10-1.10.0.10-1.10.0.93-2.54.0.78-2.18.pth, rkmy
+BLEU = 73.52, 87.1/77.5/69.2/62.6 (BP=1.000, ratio=1.043, hyp_len=24524, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.229.0.09-1.09.0.09-1.10.0.92-2.52.0.80-2.22.pth, myrk
+BLEU = 73.91, 87.4/77.8/69.8/62.8 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.229.0.09-1.09.0.09-1.10.0.92-2.52.0.80-2.22.pth, rkmy
+BLEU = 74.01, 87.3/78.0/69.7/63.2 (BP=1.000, ratio=1.041, hyp_len=24464, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.230.0.09-1.09.0.10-1.10.0.93-2.54.0.79-2.19.pth, myrk
+BLEU = 74.21, 87.5/78.0/70.1/63.4 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.230.0.09-1.09.0.10-1.10.0.93-2.54.0.79-2.19.pth, rkmy
+BLEU = 73.87, 87.3/77.9/69.5/63.0 (BP=1.000, ratio=1.039, hyp_len=24427, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.231.0.08-1.09.0.10-1.11.0.93-2.53.0.78-2.18.pth, myrk
+BLEU = 74.03, 87.5/77.9/69.9/63.1 (BP=1.000, ratio=1.033, hyp_len=23915, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.231.0.08-1.09.0.10-1.11.0.93-2.53.0.78-2.18.pth, rkmy
+BLEU = 73.95, 87.5/78.0/69.6/63.0 (BP=1.000, ratio=1.039, hyp_len=24426, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.23.1.25-3.49.1.17-3.24.1.30-3.68.1.20-3.33.pth, myrk
+BLEU = 50.62, 75.1/57.5/44.3/34.3 (BP=1.000, ratio=1.010, hyp_len=23388, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.23.1.25-3.49.1.17-3.24.1.30-3.68.1.20-3.33.pth, rkmy
+BLEU = 52.55, 76.5/59.7/46.2/36.1 (BP=1.000, ratio=1.011, hyp_len=23757, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.232.0.09-1.09.0.10-1.11.0.91-2.48.0.80-2.23.pth, myrk
+BLEU = 73.79, 87.3/77.6/69.6/62.8 (BP=1.000, ratio=1.033, hyp_len=23924, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.232.0.09-1.09.0.10-1.11.0.91-2.48.0.80-2.23.pth, rkmy
+BLEU = 74.02, 87.4/78.1/69.7/63.1 (BP=1.000, ratio=1.039, hyp_len=24429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.233.0.08-1.08.0.10-1.10.0.92-2.51.0.79-2.20.pth, myrk
+BLEU = 74.00, 87.5/77.9/69.9/63.0 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.233.0.08-1.08.0.10-1.10.0.92-2.51.0.79-2.20.pth, rkmy
+BLEU = 73.85, 87.3/77.8/69.6/63.0 (BP=1.000, ratio=1.039, hyp_len=24429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.234.0.08-1.09.0.10-1.10.0.94-2.56.0.80-2.23.pth, myrk
+BLEU = 74.19, 87.5/78.0/70.1/63.3 (BP=1.000, ratio=1.034, hyp_len=23937, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.234.0.08-1.09.0.10-1.10.0.94-2.56.0.80-2.23.pth, rkmy
+BLEU = 73.15, 86.7/77.2/68.8/62.1 (BP=1.000, ratio=1.045, hyp_len=24564, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.235.0.08-1.09.0.10-1.10.0.92-2.52.0.81-2.24.pth, myrk
+BLEU = 73.73, 87.4/77.7/69.5/62.6 (BP=1.000, ratio=1.035, hyp_len=23972, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.235.0.08-1.09.0.10-1.10.0.92-2.52.0.81-2.24.pth, rkmy
+BLEU = 74.36, 87.5/78.3/70.1/63.6 (BP=1.000, ratio=1.037, hyp_len=24372, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.236.0.08-1.08.0.10-1.11.0.92-2.51.0.81-2.24.pth, myrk
+BLEU = 73.98, 87.6/78.0/69.8/62.8 (BP=1.000, ratio=1.033, hyp_len=23922, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.236.0.08-1.08.0.10-1.11.0.92-2.51.0.81-2.24.pth, rkmy
+BLEU = 73.59, 87.1/77.6/69.3/62.7 (BP=1.000, ratio=1.042, hyp_len=24490, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.237.0.08-1.08.0.09-1.10.0.94-2.56.0.83-2.30.pth, myrk
+BLEU = 73.67, 87.3/77.6/69.5/62.5 (BP=1.000, ratio=1.036, hyp_len=23989, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.237.0.08-1.08.0.09-1.10.0.94-2.56.0.83-2.30.pth, rkmy
+BLEU = 74.27, 87.6/78.3/70.0/63.4 (BP=1.000, ratio=1.037, hyp_len=24372, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.238.0.08-1.08.0.10-1.11.0.93-2.55.0.80-2.23.pth, myrk
+BLEU = 74.03, 87.5/77.9/69.9/63.1 (BP=1.000, ratio=1.034, hyp_len=23947, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.238.0.08-1.08.0.10-1.11.0.93-2.55.0.80-2.23.pth, rkmy
+BLEU = 73.50, 87.0/77.5/69.2/62.5 (BP=1.000, ratio=1.043, hyp_len=24529, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.239.0.08-1.08.0.10-1.11.0.96-2.62.0.80-2.23.pth, myrk
+BLEU = 73.62, 87.3/77.5/69.4/62.5 (BP=1.000, ratio=1.037, hyp_len=24011, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.239.0.08-1.08.0.10-1.11.0.96-2.62.0.80-2.23.pth, rkmy
+BLEU = 73.72, 87.2/77.7/69.4/62.8 (BP=1.000, ratio=1.038, hyp_len=24399, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.240.0.08-1.08.0.11-1.11.0.95-2.58.0.82-2.28.pth, myrk
+BLEU = 74.43, 87.6/78.2/70.4/63.7 (BP=1.000, ratio=1.031, hyp_len=23884, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.240.0.08-1.08.0.11-1.11.0.95-2.58.0.82-2.28.pth, rkmy
+BLEU = 73.92, 87.2/78.0/69.7/63.0 (BP=1.000, ratio=1.039, hyp_len=24437, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.241.0.08-1.09.0.10-1.11.0.93-2.54.0.79-2.20.pth, myrk
+BLEU = 73.82, 87.3/77.7/69.7/62.9 (BP=1.000, ratio=1.033, hyp_len=23927, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.241.0.08-1.09.0.10-1.11.0.93-2.54.0.79-2.20.pth, rkmy
+BLEU = 73.73, 87.1/77.7/69.4/62.9 (BP=1.000, ratio=1.041, hyp_len=24484, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.24.1.19-3.29.1.32-3.76.1.25-3.48.1.22-3.37.pth, myrk
+BLEU = 53.20, 76.5/59.8/47.1/37.1 (BP=1.000, ratio=1.008, hyp_len=23336, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.24.1.19-3.29.1.32-3.76.1.25-3.48.1.22-3.37.pth, rkmy
+BLEU = 50.26, 75.1/57.7/43.8/33.6 (BP=1.000, ratio=1.013, hyp_len=23805, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.242.0.08-1.09.0.10-1.11.0.94-2.57.0.82-2.26.pth, myrk
+BLEU = 73.83, 87.4/77.7/69.6/62.8 (BP=1.000, ratio=1.033, hyp_len=23927, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.242.0.08-1.09.0.10-1.11.0.94-2.57.0.82-2.26.pth, rkmy
+BLEU = 74.00, 87.4/77.9/69.8/63.1 (BP=1.000, ratio=1.038, hyp_len=24396, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.243.0.08-1.09.0.10-1.11.0.93-2.53.0.80-2.22.pth, myrk
+BLEU = 73.81, 87.4/77.8/69.7/62.7 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.243.0.08-1.09.0.10-1.11.0.93-2.53.0.80-2.22.pth, rkmy
+BLEU = 74.56, 87.6/78.4/70.4/63.9 (BP=1.000, ratio=1.034, hyp_len=24309, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.244.0.08-1.08.0.10-1.10.0.93-2.54.0.81-2.25.pth, myrk
+BLEU = 73.58, 87.4/77.6/69.4/62.3 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.244.0.08-1.08.0.10-1.10.0.93-2.54.0.81-2.25.pth, rkmy
+BLEU = 73.54, 87.1/77.6/69.2/62.5 (BP=1.000, ratio=1.041, hyp_len=24468, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.245.0.09-1.09.0.10-1.10.0.94-2.56.0.82-2.26.pth, myrk
+BLEU = 73.91, 87.3/77.8/69.8/62.9 (BP=1.000, ratio=1.032, hyp_len=23892, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.245.0.09-1.09.0.10-1.10.0.94-2.56.0.82-2.26.pth, rkmy
+BLEU = 73.68, 87.2/77.7/69.3/62.7 (BP=1.000, ratio=1.038, hyp_len=24396, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.246.0.10-1.11.0.10-1.10.0.93-2.54.0.86-2.36.pth, myrk
+BLEU = 73.42, 87.1/77.3/69.3/62.3 (BP=1.000, ratio=1.028, hyp_len=23801, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.246.0.10-1.11.0.10-1.10.0.93-2.54.0.86-2.36.pth, rkmy
+BLEU = 73.24, 86.9/77.3/68.8/62.2 (BP=1.000, ratio=1.043, hyp_len=24525, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.247.0.13-1.14.0.09-1.09.0.96-2.61.0.85-2.33.pth, myrk
+BLEU = 73.66, 87.2/77.5/69.5/62.6 (BP=1.000, ratio=1.029, hyp_len=23835, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.247.0.13-1.14.0.09-1.09.0.96-2.61.0.85-2.33.pth, rkmy
+BLEU = 73.55, 87.0/77.6/69.2/62.6 (BP=1.000, ratio=1.044, hyp_len=24555, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.248.0.10-1.11.0.09-1.09.0.97-2.63.0.82-2.26.pth, myrk
+BLEU = 73.03, 87.0/77.0/68.8/61.7 (BP=1.000, ratio=1.036, hyp_len=24005, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.248.0.10-1.11.0.09-1.09.0.97-2.63.0.82-2.26.pth, rkmy
+BLEU = 73.81, 87.3/77.7/69.5/62.9 (BP=1.000, ratio=1.040, hyp_len=24446, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.249.0.09-1.09.0.09-1.10.0.94-2.57.0.80-2.22.pth, myrk
+BLEU = 73.15, 87.0/77.2/68.9/61.8 (BP=1.000, ratio=1.037, hyp_len=24014, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.249.0.09-1.09.0.09-1.10.0.94-2.57.0.80-2.22.pth, rkmy
+BLEU = 73.71, 87.2/77.7/69.4/62.8 (BP=1.000, ratio=1.040, hyp_len=24459, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.250.0.09-1.09.0.09-1.10.0.96-2.60.0.81-2.25.pth, myrk
+BLEU = 73.36, 87.2/77.3/69.1/62.2 (BP=1.000, ratio=1.035, hyp_len=23971, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.250.0.09-1.09.0.09-1.10.0.96-2.60.0.81-2.25.pth, rkmy
+BLEU = 73.31, 87.0/77.3/69.0/62.3 (BP=1.000, ratio=1.043, hyp_len=24521, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.251.0.08-1.08.0.09-1.09.0.96-2.61.0.84-2.32.pth, myrk
+BLEU = 74.18, 87.6/78.1/70.1/63.2 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.251.0.08-1.08.0.09-1.09.0.96-2.61.0.84-2.32.pth, rkmy
+BLEU = 73.98, 87.2/77.9/69.7/63.2 (BP=1.000, ratio=1.042, hyp_len=24507, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.25.1.05-2.86.1.04-2.84.1.17-3.23.1.10-3.00.pth, myrk
+BLEU = 56.80, 78.7/63.0/50.9/41.2 (BP=1.000, ratio=1.005, hyp_len=23281, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.25.1.05-2.86.1.04-2.84.1.17-3.23.1.10-3.00.pth, rkmy
+BLEU = 56.40, 78.7/63.2/50.2/40.5 (BP=1.000, ratio=1.019, hyp_len=23967, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.252.0.08-1.08.0.10-1.10.0.96-2.61.0.84-2.30.pth, myrk
+BLEU = 73.36, 87.2/77.3/69.1/62.1 (BP=1.000, ratio=1.036, hyp_len=23993, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.252.0.08-1.08.0.10-1.10.0.96-2.61.0.84-2.30.pth, rkmy
+BLEU = 74.37, 87.8/78.3/70.1/63.6 (BP=1.000, ratio=1.033, hyp_len=24287, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.253.0.08-1.08.0.09-1.10.0.96-2.61.0.82-2.27.pth, myrk
+BLEU = 73.70, 87.4/77.5/69.5/62.7 (BP=1.000, ratio=1.034, hyp_len=23939, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.253.0.08-1.08.0.09-1.10.0.96-2.61.0.82-2.27.pth, rkmy
+BLEU = 74.86, 87.9/78.7/70.6/64.2 (BP=1.000, ratio=1.033, hyp_len=24293, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.254.0.08-1.08.0.09-1.10.0.95-2.60.0.86-2.37.pth, myrk
+BLEU = 73.81, 87.5/77.8/69.7/62.6 (BP=1.000, ratio=1.035, hyp_len=23972, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.254.0.08-1.08.0.09-1.10.0.95-2.60.0.86-2.37.pth, rkmy
+BLEU = 73.99, 87.4/77.9/69.7/63.2 (BP=1.000, ratio=1.038, hyp_len=24408, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.255.0.08-1.08.0.09-1.09.0.97-2.64.0.86-2.37.pth, myrk
+BLEU = 73.66, 87.3/77.6/69.5/62.5 (BP=1.000, ratio=1.034, hyp_len=23939, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.255.0.08-1.08.0.09-1.09.0.97-2.64.0.86-2.37.pth, rkmy
+BLEU = 73.71, 87.3/77.7/69.4/62.8 (BP=1.000, ratio=1.040, hyp_len=24445, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.256.0.08-1.08.0.09-1.09.0.97-2.64.0.83-2.29.pth, myrk
+BLEU = 74.04, 87.4/78.0/70.0/63.0 (BP=1.000, ratio=1.034, hyp_len=23941, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.256.0.08-1.08.0.09-1.09.0.97-2.64.0.83-2.29.pth, rkmy
+BLEU = 73.65, 87.3/77.7/69.3/62.6 (BP=1.000, ratio=1.038, hyp_len=24411, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.257.0.08-1.08.0.10-1.11.0.95-2.59.0.84-2.32.pth, myrk
+BLEU = 73.99, 87.5/77.9/69.8/63.0 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.257.0.08-1.08.0.10-1.11.0.95-2.59.0.84-2.32.pth, rkmy
+BLEU = 73.71, 87.2/77.7/69.4/62.7 (BP=1.000, ratio=1.038, hyp_len=24393, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.258.0.07-1.07.0.10-1.11.0.96-2.62.0.82-2.27.pth, myrk
+BLEU = 73.91, 87.5/77.9/69.8/62.8 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.258.0.07-1.07.0.10-1.11.0.96-2.62.0.82-2.27.pth, rkmy
+BLEU = 73.31, 87.0/77.3/68.9/62.3 (BP=1.000, ratio=1.042, hyp_len=24485, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.259.0.08-1.08.0.09-1.10.0.98-2.65.0.84-2.31.pth, myrk
+BLEU = 72.81, 86.8/76.9/68.6/61.4 (BP=1.000, ratio=1.037, hyp_len=24006, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.259.0.08-1.08.0.09-1.10.0.98-2.65.0.84-2.31.pth, rkmy
+BLEU = 74.53, 87.6/78.4/70.3/63.9 (BP=1.000, ratio=1.035, hyp_len=24343, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.260.0.08-1.08.0.10-1.10.0.99-2.69.0.83-2.30.pth, myrk
+BLEU = 73.35, 87.0/77.3/69.2/62.2 (BP=1.000, ratio=1.036, hyp_len=24003, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.260.0.08-1.08.0.10-1.10.0.99-2.69.0.83-2.30.pth, rkmy
+BLEU = 74.11, 87.5/78.1/69.8/63.3 (BP=1.000, ratio=1.039, hyp_len=24428, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.261.0.07-1.08.0.09-1.09.0.96-2.61.0.83-2.30.pth, myrk
+BLEU = 74.30, 87.7/78.2/70.2/63.3 (BP=1.000, ratio=1.029, hyp_len=23826, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.261.0.07-1.08.0.09-1.09.0.96-2.61.0.83-2.30.pth, rkmy
+BLEU = 73.72, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.042, hyp_len=24485, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.26.1.02-2.77.1.03-2.81.1.16-3.18.1.07-2.93.pth, myrk
+BLEU = 57.62, 79.3/63.9/51.7/42.1 (BP=1.000, ratio=1.017, hyp_len=23547, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.26.1.02-2.77.1.03-2.81.1.16-3.18.1.07-2.93.pth, rkmy
+BLEU = 57.26, 79.2/64.0/51.2/41.4 (BP=1.000, ratio=1.015, hyp_len=23854, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.262.0.08-1.08.0.09-1.09.1.00-2.71.0.82-2.28.pth, myrk
+BLEU = 72.78, 86.9/77.0/68.5/61.3 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.262.0.08-1.08.0.09-1.09.1.00-2.71.0.82-2.28.pth, rkmy
+BLEU = 73.51, 87.2/77.6/69.1/62.5 (BP=1.000, ratio=1.041, hyp_len=24471, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.263.0.07-1.08.0.09-1.09.0.97-2.63.0.83-2.29.pth, myrk
+BLEU = 73.59, 87.4/77.6/69.4/62.4 (BP=1.000, ratio=1.035, hyp_len=23961, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.263.0.07-1.08.0.09-1.09.0.97-2.63.0.83-2.29.pth, rkmy
+BLEU = 74.37, 87.5/78.3/70.1/63.7 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.264.0.07-1.08.0.09-1.09.0.96-2.60.0.84-2.31.pth, myrk
+BLEU = 73.80, 87.5/77.8/69.6/62.6 (BP=1.000, ratio=1.031, hyp_len=23869, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.264.0.07-1.08.0.09-1.09.0.96-2.60.0.84-2.31.pth, rkmy
+BLEU = 73.47, 87.1/77.5/69.1/62.4 (BP=1.000, ratio=1.043, hyp_len=24520, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.265.0.07-1.07.0.08-1.09.0.96-2.60.0.85-2.33.pth, myrk
+BLEU = 73.77, 87.3/77.6/69.7/62.7 (BP=1.000, ratio=1.034, hyp_len=23937, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.265.0.07-1.07.0.08-1.09.0.96-2.60.0.85-2.33.pth, rkmy
+BLEU = 74.07, 87.4/78.0/69.8/63.3 (BP=1.000, ratio=1.043, hyp_len=24509, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.266.0.08-1.08.0.08-1.09.0.97-2.65.0.83-2.29.pth, myrk
+BLEU = 73.99, 87.5/77.8/69.9/63.0 (BP=1.000, ratio=1.034, hyp_len=23938, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.266.0.08-1.08.0.08-1.09.0.97-2.65.0.83-2.29.pth, rkmy
+BLEU = 73.94, 87.4/77.9/69.6/63.0 (BP=1.000, ratio=1.040, hyp_len=24452, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.267.0.07-1.07.0.08-1.08.0.96-2.62.0.83-2.30.pth, myrk
+BLEU = 73.73, 87.3/77.6/69.5/62.8 (BP=1.000, ratio=1.034, hyp_len=23936, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.267.0.07-1.07.0.08-1.08.0.96-2.62.0.83-2.30.pth, rkmy
+BLEU = 74.01, 87.4/78.0/69.7/63.1 (BP=1.000, ratio=1.039, hyp_len=24415, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.268.0.07-1.07.0.08-1.08.0.96-2.62.0.84-2.32.pth, myrk
+BLEU = 74.00, 87.4/77.8/69.9/63.1 (BP=1.000, ratio=1.033, hyp_len=23922, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.268.0.07-1.07.0.08-1.08.0.96-2.62.0.84-2.32.pth, rkmy
+BLEU = 73.58, 87.2/77.6/69.2/62.6 (BP=1.000, ratio=1.040, hyp_len=24451, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.269.0.07-1.07.0.08-1.08.0.99-2.68.0.86-2.35.pth, myrk
+BLEU = 73.67, 87.0/77.5/69.6/62.8 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.269.0.07-1.07.0.08-1.08.0.99-2.68.0.86-2.35.pth, rkmy
+BLEU = 74.51, 87.7/78.4/70.3/63.8 (BP=1.000, ratio=1.036, hyp_len=24367, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.270.0.07-1.07.0.08-1.08.0.99-2.68.0.84-2.32.pth, myrk
+BLEU = 73.75, 87.5/77.7/69.5/62.6 (BP=1.000, ratio=1.031, hyp_len=23880, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.270.0.07-1.07.0.08-1.08.0.99-2.68.0.84-2.32.pth, rkmy
+BLEU = 72.91, 86.7/77.0/68.5/61.8 (BP=1.000, ratio=1.048, hyp_len=24632, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.27.0.95-2.60.0.94-2.55.1.11-3.04.1.03-2.80.pth, myrk
+BLEU = 58.97, 79.9/65.0/53.3/43.8 (BP=1.000, ratio=1.020, hyp_len=23633, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.27.0.95-2.60.0.94-2.55.1.11-3.04.1.03-2.80.pth, rkmy
+BLEU = 58.59, 79.9/65.2/52.6/43.0 (BP=1.000, ratio=1.024, hyp_len=24081, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.271.0.07-1.07.0.07-1.08.0.97-2.65.0.85-2.34.pth, myrk
+BLEU = 73.38, 87.2/77.4/69.2/62.2 (BP=1.000, ratio=1.032, hyp_len=23892, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.271.0.07-1.07.0.07-1.08.0.97-2.65.0.85-2.34.pth, rkmy
+BLEU = 74.24, 87.6/78.2/69.9/63.4 (BP=1.000, ratio=1.036, hyp_len=24364, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.272.0.07-1.07.0.09-1.09.0.99-2.68.0.84-2.31.pth, myrk
+BLEU = 73.28, 87.1/77.3/69.0/62.1 (BP=1.000, ratio=1.034, hyp_len=23958, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.272.0.07-1.07.0.09-1.09.0.99-2.68.0.84-2.31.pth, rkmy
+BLEU = 73.68, 87.3/77.7/69.3/62.6 (BP=1.000, ratio=1.039, hyp_len=24420, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.273.0.08-1.08.0.09-1.09.0.98-2.66.0.87-2.39.pth, myrk
+BLEU = 73.92, 87.4/77.8/69.8/62.9 (BP=1.000, ratio=1.032, hyp_len=23892, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.273.0.08-1.08.0.09-1.09.0.98-2.66.0.87-2.39.pth, rkmy
+BLEU = 73.68, 87.4/77.7/69.3/62.6 (BP=1.000, ratio=1.036, hyp_len=24350, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.274.0.09-1.09.0.12-1.12.0.98-2.66.0.84-2.32.pth, myrk
+BLEU = 73.36, 87.3/77.5/69.1/62.0 (BP=1.000, ratio=1.033, hyp_len=23922, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.274.0.09-1.09.0.12-1.12.0.98-2.66.0.84-2.32.pth, rkmy
+BLEU = 73.45, 87.2/77.6/69.0/62.3 (BP=1.000, ratio=1.037, hyp_len=24371, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.275.0.08-1.08.0.11-1.11.0.98-2.65.0.85-2.35.pth, myrk
+BLEU = 72.70, 86.9/76.9/68.4/61.1 (BP=1.000, ratio=1.037, hyp_len=24006, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.275.0.08-1.08.0.11-1.11.0.98-2.65.0.85-2.35.pth, rkmy
+BLEU = 73.50, 87.2/77.6/69.1/62.4 (BP=1.000, ratio=1.037, hyp_len=24374, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.276.0.07-1.08.0.10-1.11.0.99-2.69.0.85-2.33.pth, myrk
+BLEU = 73.49, 87.2/77.5/69.3/62.3 (BP=1.000, ratio=1.035, hyp_len=23978, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.276.0.07-1.08.0.10-1.11.0.99-2.69.0.85-2.33.pth, rkmy
+BLEU = 74.65, 87.7/78.5/70.4/64.0 (BP=1.000, ratio=1.034, hyp_len=24317, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.277.0.07-1.07.0.09-1.10.0.97-2.64.0.85-2.33.pth, myrk
+BLEU = 73.88, 87.6/77.9/69.7/62.6 (BP=1.000, ratio=1.031, hyp_len=23869, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.277.0.07-1.07.0.09-1.10.0.97-2.64.0.85-2.33.pth, rkmy
+BLEU = 73.28, 86.9/77.3/68.9/62.3 (BP=1.000, ratio=1.044, hyp_len=24552, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.278.0.07-1.07.0.09-1.09.0.99-2.70.0.84-2.32.pth, myrk
+BLEU = 73.79, 87.5/77.8/69.6/62.6 (BP=1.000, ratio=1.031, hyp_len=23885, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.278.0.07-1.07.0.09-1.09.0.99-2.70.0.84-2.32.pth, rkmy
+BLEU = 73.95, 87.4/77.9/69.6/63.1 (BP=1.000, ratio=1.037, hyp_len=24368, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.279.0.07-1.07.0.08-1.08.1.01-2.74.0.83-2.30.pth, myrk
+BLEU = 73.42, 87.1/77.3/69.3/62.3 (BP=1.000, ratio=1.031, hyp_len=23879, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.279.0.07-1.07.0.08-1.08.1.01-2.74.0.83-2.30.pth, rkmy
+BLEU = 74.14, 87.5/78.1/69.8/63.3 (BP=1.000, ratio=1.040, hyp_len=24444, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.280.0.07-1.07.0.08-1.08.1.02-2.77.0.83-2.29.pth, myrk
+BLEU = 73.37, 87.2/77.3/69.2/62.2 (BP=1.000, ratio=1.034, hyp_len=23941, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.280.0.07-1.07.0.08-1.08.1.02-2.77.0.83-2.29.pth, rkmy
+BLEU = 73.17, 86.9/77.2/68.8/62.1 (BP=1.000, ratio=1.044, hyp_len=24542, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.28.0.89-2.43.0.90-2.45.1.08-2.95.1.04-2.82.pth, myrk
+BLEU = 61.49, 81.5/67.2/55.9/46.7 (BP=1.000, ratio=1.006, hyp_len=23306, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.28.0.89-2.43.0.90-2.45.1.08-2.95.1.04-2.82.pth, rkmy
+BLEU = 58.65, 79.7/65.3/52.7/43.1 (BP=1.000, ratio=1.034, hyp_len=24312, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.281.0.06-1.07.0.08-1.08.1.00-2.73.0.84-2.31.pth, myrk
+BLEU = 73.46, 87.2/77.5/69.2/62.2 (BP=1.000, ratio=1.037, hyp_len=24016, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.281.0.06-1.07.0.08-1.08.1.00-2.73.0.84-2.31.pth, rkmy
+BLEU = 74.48, 87.7/78.4/70.2/63.7 (BP=1.000, ratio=1.036, hyp_len=24359, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.282.0.07-1.07.0.07-1.08.1.01-2.75.0.84-2.31.pth, myrk
+BLEU = 73.42, 87.2/77.3/69.2/62.2 (BP=1.000, ratio=1.031, hyp_len=23882, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.282.0.07-1.07.0.07-1.08.1.01-2.75.0.84-2.31.pth, rkmy
+BLEU = 73.78, 87.4/77.8/69.5/62.7 (BP=1.000, ratio=1.040, hyp_len=24449, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.283.0.07-1.07.0.07-1.08.1.01-2.75.0.85-2.33.pth, myrk
+BLEU = 73.80, 87.5/77.8/69.6/62.6 (BP=1.000, ratio=1.031, hyp_len=23886, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.283.0.07-1.07.0.07-1.08.1.01-2.75.0.85-2.33.pth, rkmy
+BLEU = 72.96, 86.9/77.0/68.5/61.8 (BP=1.000, ratio=1.044, hyp_len=24549, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.284.0.06-1.07.0.07-1.07.1.00-2.71.0.86-2.35.pth, myrk
+BLEU = 73.63, 87.3/77.6/69.5/62.4 (BP=1.000, ratio=1.031, hyp_len=23889, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.284.0.06-1.07.0.07-1.07.1.00-2.71.0.86-2.35.pth, rkmy
+BLEU = 73.89, 87.4/77.8/69.5/63.1 (BP=1.000, ratio=1.041, hyp_len=24466, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.285.0.07-1.07.0.08-1.08.1.02-2.77.0.86-2.36.pth, myrk
+BLEU = 73.49, 87.2/77.4/69.3/62.4 (BP=1.000, ratio=1.034, hyp_len=23941, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.285.0.07-1.07.0.08-1.08.1.02-2.77.0.86-2.36.pth, rkmy
+BLEU = 73.76, 87.4/77.8/69.4/62.7 (BP=1.000, ratio=1.036, hyp_len=24356, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.286.0.07-1.07.0.09-1.09.1.03-2.79.0.90-2.45.pth, myrk
+BLEU = 73.08, 87.0/77.1/68.8/61.8 (BP=1.000, ratio=1.036, hyp_len=24005, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.286.0.07-1.07.0.09-1.09.1.03-2.79.0.90-2.45.pth, rkmy
+BLEU = 72.46, 86.7/76.9/68.0/60.8 (BP=1.000, ratio=1.045, hyp_len=24567, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.287.0.10-1.10.0.19-1.20.1.02-2.78.1.02-2.77.pth, myrk
+BLEU = 72.99, 86.9/77.0/68.8/61.7 (BP=1.000, ratio=1.034, hyp_len=23944, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.287.0.10-1.10.0.19-1.20.1.02-2.78.1.02-2.77.pth, rkmy
+BLEU = 71.39, 86.4/75.9/66.8/59.3 (BP=1.000, ratio=1.022, hyp_len=24037, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.288.0.15-1.16.0.17-1.18.1.06-2.88.0.82-2.26.pth, myrk
+BLEU = 72.53, 87.0/76.7/68.2/60.8 (BP=1.000, ratio=1.021, hyp_len=23657, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.288.0.15-1.16.0.17-1.18.1.06-2.88.0.82-2.26.pth, rkmy
+BLEU = 73.56, 87.2/77.6/69.2/62.5 (BP=1.000, ratio=1.038, hyp_len=24400, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.289.0.12-1.12.0.11-1.12.1.01-2.74.0.84-2.31.pth, myrk
+BLEU = 72.40, 86.9/76.6/68.0/60.7 (BP=1.000, ratio=1.029, hyp_len=23835, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.289.0.12-1.12.0.11-1.12.1.01-2.74.0.84-2.31.pth, rkmy
+BLEU = 72.26, 86.5/76.4/67.7/60.9 (BP=1.000, ratio=1.044, hyp_len=24542, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.290.0.12-1.13.0.09-1.10.1.00-2.71.0.83-2.30.pth, myrk
+BLEU = 71.56, 86.1/75.9/67.2/59.7 (BP=1.000, ratio=1.042, hyp_len=24136, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.290.0.12-1.13.0.09-1.10.1.00-2.71.0.83-2.30.pth, rkmy
+BLEU = 74.40, 87.8/78.2/70.1/63.6 (BP=1.000, ratio=1.037, hyp_len=24373, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.29.0.89-2.43.0.87-2.39.1.04-2.83.0.95-2.59.pth, myrk
+BLEU = 61.55, 81.4/67.4/56.0/46.8 (BP=1.000, ratio=1.020, hyp_len=23616, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.29.0.89-2.43.0.87-2.39.1.04-2.83.0.95-2.59.pth, rkmy
+BLEU = 62.09, 81.7/68.3/56.4/47.2 (BP=1.000, ratio=1.019, hyp_len=23960, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.291.0.15-1.16.0.08-1.09.0.96-2.62.0.84-2.31.pth, myrk
+BLEU = 73.21, 87.1/77.2/69.0/61.9 (BP=1.000, ratio=1.031, hyp_len=23870, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.291.0.15-1.16.0.08-1.09.0.96-2.62.0.84-2.31.pth, rkmy
+BLEU = 73.47, 87.1/77.4/69.1/62.6 (BP=1.000, ratio=1.042, hyp_len=24493, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.292.0.12-1.13.0.08-1.08.0.97-2.63.0.83-2.29.pth, myrk
+BLEU = 72.78, 87.2/76.9/68.4/61.2 (BP=1.000, ratio=1.026, hyp_len=23768, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.292.0.12-1.13.0.08-1.08.0.97-2.63.0.83-2.29.pth, rkmy
+BLEU = 73.60, 87.2/77.4/69.2/62.8 (BP=1.000, ratio=1.040, hyp_len=24444, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.293.0.18-1.20.0.08-1.08.0.98-2.65.0.84-2.31.pth, myrk
+BLEU = 70.81, 85.7/75.1/66.4/58.9 (BP=1.000, ratio=1.040, hyp_len=24091, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.293.0.18-1.20.0.08-1.08.0.98-2.65.0.84-2.31.pth, rkmy
+BLEU = 73.73, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24440, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.294.0.11-1.12.0.07-1.07.0.93-2.54.0.83-2.30.pth, myrk
+BLEU = 73.11, 87.0/77.1/68.9/61.9 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.294.0.11-1.12.0.07-1.07.0.93-2.54.0.83-2.30.pth, rkmy
+BLEU = 73.93, 87.4/77.8/69.7/63.1 (BP=1.000, ratio=1.040, hyp_len=24439, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.295.0.09-1.10.0.07-1.07.0.94-2.57.0.84-2.32.pth, myrk
+BLEU = 73.61, 87.4/77.6/69.4/62.4 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.295.0.09-1.10.0.07-1.07.0.94-2.57.0.84-2.32.pth, rkmy
+BLEU = 73.23, 87.0/77.2/68.8/62.2 (BP=1.000, ratio=1.044, hyp_len=24537, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.296.0.07-1.08.0.06-1.07.0.95-2.59.0.87-2.39.pth, myrk
+BLEU = 73.00, 87.0/77.1/68.8/61.6 (BP=1.000, ratio=1.034, hyp_len=23952, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.296.0.07-1.08.0.06-1.07.0.95-2.59.0.87-2.39.pth, rkmy
+BLEU = 74.19, 87.6/78.2/69.9/63.2 (BP=1.000, ratio=1.036, hyp_len=24363, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.297.0.08-1.08.0.07-1.07.0.96-2.60.0.86-2.36.pth, myrk
+BLEU = 73.24, 87.1/77.2/69.0/61.9 (BP=1.000, ratio=1.034, hyp_len=23954, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.297.0.08-1.08.0.07-1.07.0.96-2.60.0.86-2.36.pth, rkmy
+BLEU = 74.33, 87.6/78.3/70.1/63.5 (BP=1.000, ratio=1.036, hyp_len=24356, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.298.0.07-1.07.0.06-1.07.0.96-2.60.0.86-2.36.pth, myrk
+BLEU = 73.99, 87.5/77.9/69.9/62.9 (BP=1.000, ratio=1.031, hyp_len=23879, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.298.0.07-1.07.0.06-1.07.0.96-2.60.0.86-2.36.pth, rkmy
+BLEU = 74.10, 87.5/77.9/69.8/63.3 (BP=1.000, ratio=1.040, hyp_len=24445, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.299.0.07-1.07.0.06-1.07.0.94-2.57.0.86-2.37.pth, myrk
+BLEU = 73.57, 87.2/77.5/69.4/62.4 (BP=1.000, ratio=1.033, hyp_len=23930, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.299.0.07-1.07.0.06-1.07.0.94-2.57.0.86-2.37.pth, rkmy
+BLEU = 73.77, 87.2/77.7/69.4/62.9 (BP=1.000, ratio=1.041, hyp_len=24462, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.300.0.07-1.07.0.06-1.07.0.98-2.67.0.86-2.37.pth, myrk
+BLEU = 73.58, 87.4/77.5/69.4/62.4 (BP=1.000, ratio=1.031, hyp_len=23888, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.300.0.07-1.07.0.06-1.07.0.98-2.67.0.86-2.37.pth, rkmy
+BLEU = 74.29, 87.7/78.3/70.0/63.4 (BP=1.000, ratio=1.036, hyp_len=24366, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.30.0.85-2.34.0.84-2.33.1.05-2.85.0.95-2.59.pth, myrk
+BLEU = 62.28, 81.6/67.8/56.8/47.9 (BP=1.000, ratio=1.019, hyp_len=23589, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.30.0.85-2.34.0.84-2.33.1.05-2.85.0.95-2.59.pth, rkmy
+BLEU = 62.15, 81.8/68.3/56.5/47.3 (BP=1.000, ratio=1.024, hyp_len=24084, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.301.0.06-1.06.0.06-1.06.0.96-2.60.0.86-2.37.pth, myrk
+BLEU = 73.66, 87.5/77.7/69.5/62.3 (BP=1.000, ratio=1.032, hyp_len=23894, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.301.0.06-1.06.0.06-1.06.0.96-2.60.0.86-2.37.pth, rkmy
+BLEU = 74.21, 87.7/78.2/69.9/63.3 (BP=1.000, ratio=1.037, hyp_len=24370, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.302.0.06-1.07.0.06-1.06.0.97-2.63.0.87-2.38.pth, myrk
+BLEU = 73.38, 87.2/77.3/69.2/62.1 (BP=1.000, ratio=1.035, hyp_len=23968, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.302.0.06-1.07.0.06-1.06.0.97-2.63.0.87-2.38.pth, rkmy
+BLEU = 73.99, 87.4/77.9/69.7/63.2 (BP=1.000, ratio=1.039, hyp_len=24429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.303.0.06-1.07.0.06-1.07.0.97-2.64.0.87-2.38.pth, myrk
+BLEU = 73.87, 87.5/77.8/69.7/62.7 (BP=1.000, ratio=1.032, hyp_len=23891, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.303.0.06-1.07.0.06-1.07.0.97-2.64.0.87-2.38.pth, rkmy
+BLEU = 74.34, 87.6/78.2/70.1/63.6 (BP=1.000, ratio=1.037, hyp_len=24380, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.304.0.06-1.06.0.06-1.07.0.98-2.65.0.88-2.40.pth, myrk
+BLEU = 73.64, 87.3/77.5/69.5/62.5 (BP=1.000, ratio=1.034, hyp_len=23946, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.304.0.06-1.06.0.06-1.07.0.98-2.65.0.88-2.40.pth, rkmy
+BLEU = 73.74, 87.4/77.9/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24460, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.305.0.06-1.06.0.06-1.07.0.98-2.68.0.90-2.45.pth, myrk
+BLEU = 73.47, 87.3/77.5/69.3/62.2 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.305.0.06-1.06.0.06-1.07.0.98-2.68.0.90-2.45.pth, rkmy
+BLEU = 74.04, 87.5/78.1/69.7/63.1 (BP=1.000, ratio=1.039, hyp_len=24424, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.306.0.06-1.06.0.06-1.06.0.98-2.68.0.90-2.47.pth, myrk
+BLEU = 73.51, 87.3/77.5/69.3/62.3 (BP=1.000, ratio=1.033, hyp_len=23933, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.306.0.06-1.06.0.06-1.06.0.98-2.68.0.90-2.47.pth, rkmy
+BLEU = 74.01, 87.5/78.0/69.7/63.1 (BP=1.000, ratio=1.040, hyp_len=24456, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.307.0.06-1.06.0.06-1.06.1.00-2.71.0.89-2.44.pth, myrk
+BLEU = 73.75, 87.4/77.7/69.6/62.6 (BP=1.000, ratio=1.033, hyp_len=23930, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.307.0.06-1.06.0.06-1.06.1.00-2.71.0.89-2.44.pth, rkmy
+BLEU = 73.86, 87.4/77.9/69.5/62.8 (BP=1.000, ratio=1.040, hyp_len=24455, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.308.0.06-1.06.0.06-1.06.1.00-2.72.0.89-2.44.pth, myrk
+BLEU = 73.92, 87.5/77.8/69.8/62.9 (BP=1.000, ratio=1.032, hyp_len=23902, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.308.0.06-1.06.0.06-1.06.1.00-2.72.0.89-2.44.pth, rkmy
+BLEU = 73.96, 87.4/77.9/69.7/63.1 (BP=1.000, ratio=1.039, hyp_len=24437, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.309.0.06-1.06.0.07-1.07.1.00-2.72.0.92-2.51.pth, myrk
+BLEU = 73.11, 87.0/77.1/68.9/61.8 (BP=1.000, ratio=1.037, hyp_len=24010, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.309.0.06-1.06.0.07-1.07.1.00-2.72.0.92-2.51.pth, rkmy
+BLEU = 73.93, 87.3/77.9/69.6/63.1 (BP=1.000, ratio=1.035, hyp_len=24343, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.310.0.07-1.07.0.12-1.13.1.00-2.71.0.91-2.48.pth, myrk
+BLEU = 73.01, 87.0/77.0/68.8/61.7 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.310.0.07-1.07.0.12-1.13.1.00-2.71.0.91-2.48.pth, rkmy
+BLEU = 73.44, 87.1/77.5/69.1/62.4 (BP=1.000, ratio=1.039, hyp_len=24427, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.31.0.81-2.26.0.84-2.31.0.99-2.68.0.94-2.56.pth, myrk
+BLEU = 64.68, 83.3/70.0/59.4/50.6 (BP=1.000, ratio=1.012, hyp_len=23438, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.31.0.81-2.26.0.84-2.31.0.99-2.68.0.94-2.56.pth, rkmy
+BLEU = 63.64, 82.7/69.6/58.0/49.1 (BP=1.000, ratio=1.018, hyp_len=23938, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.311.0.07-1.07.0.13-1.14.1.02-2.76.0.88-2.42.pth, myrk
+BLEU = 73.52, 87.1/77.4/69.4/62.4 (BP=1.000, ratio=1.032, hyp_len=23900, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.311.0.07-1.07.0.13-1.14.1.02-2.76.0.88-2.42.pth, rkmy
+BLEU = 73.42, 87.2/77.5/69.1/62.3 (BP=1.000, ratio=1.037, hyp_len=24386, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.312.0.06-1.06.0.11-1.12.1.00-2.72.0.88-2.42.pth, myrk
+BLEU = 73.55, 87.4/77.5/69.3/62.3 (BP=1.000, ratio=1.035, hyp_len=23961, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.312.0.06-1.06.0.11-1.12.1.00-2.72.0.88-2.42.pth, rkmy
+BLEU = 73.37, 87.1/77.4/69.0/62.3 (BP=1.000, ratio=1.034, hyp_len=24303, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.313.0.06-1.06.0.09-1.09.1.01-2.75.0.88-2.41.pth, myrk
+BLEU = 73.57, 87.5/77.6/69.3/62.2 (BP=1.000, ratio=1.030, hyp_len=23855, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.313.0.06-1.06.0.09-1.09.1.01-2.75.0.88-2.41.pth, rkmy
+BLEU = 73.34, 87.1/77.4/68.9/62.2 (BP=1.000, ratio=1.038, hyp_len=24403, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.314.0.06-1.06.0.08-1.09.1.00-2.72.0.87-2.39.pth, myrk
+BLEU = 73.31, 87.2/77.3/69.1/62.1 (BP=1.000, ratio=1.032, hyp_len=23906, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.314.0.06-1.06.0.08-1.09.1.00-2.72.0.87-2.39.pth, rkmy
+BLEU = 73.96, 87.4/78.0/69.6/63.0 (BP=1.000, ratio=1.036, hyp_len=24352, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.315.0.06-1.06.0.08-1.08.1.00-2.73.0.87-2.39.pth, myrk
+BLEU = 73.06, 87.0/77.1/68.8/61.7 (BP=1.000, ratio=1.036, hyp_len=23997, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.315.0.06-1.06.0.08-1.08.1.00-2.73.0.87-2.39.pth, rkmy
+BLEU = 73.28, 87.1/77.4/68.9/62.2 (BP=1.000, ratio=1.040, hyp_len=24455, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.316.0.06-1.06.0.07-1.08.1.00-2.73.0.90-2.46.pth, myrk
+BLEU = 73.40, 87.4/77.4/69.1/62.1 (BP=1.000, ratio=1.033, hyp_len=23917, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.316.0.06-1.06.0.07-1.08.1.00-2.73.0.90-2.46.pth, rkmy
+BLEU = 74.20, 87.6/78.2/69.9/63.3 (BP=1.000, ratio=1.037, hyp_len=24381, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.317.0.06-1.06.0.07-1.07.1.02-2.78.0.89-2.43.pth, myrk
+BLEU = 73.13, 87.0/77.1/68.9/61.8 (BP=1.000, ratio=1.035, hyp_len=23964, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.317.0.06-1.06.0.07-1.07.1.02-2.78.0.89-2.43.pth, rkmy
+BLEU = 73.80, 87.4/77.9/69.5/62.7 (BP=1.000, ratio=1.040, hyp_len=24454, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.318.0.06-1.06.0.06-1.07.1.02-2.78.0.91-2.47.pth, myrk
+BLEU = 74.11, 87.6/77.9/70.0/63.1 (BP=1.000, ratio=1.031, hyp_len=23871, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.318.0.06-1.06.0.06-1.07.1.02-2.78.0.91-2.47.pth, rkmy
+BLEU = 74.43, 87.6/78.4/70.2/63.7 (BP=1.000, ratio=1.037, hyp_len=24375, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.319.0.06-1.06.0.06-1.07.1.02-2.78.0.90-2.45.pth, myrk
+BLEU = 73.59, 87.2/77.5/69.4/62.5 (BP=1.000, ratio=1.032, hyp_len=23899, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.319.0.06-1.06.0.06-1.07.1.02-2.78.0.90-2.45.pth, rkmy
+BLEU = 74.15, 87.7/78.1/69.8/63.3 (BP=1.000, ratio=1.037, hyp_len=24383, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.320.0.05-1.06.0.06-1.06.1.03-2.81.0.88-2.41.pth, myrk
+BLEU = 73.12, 87.2/77.2/68.9/61.6 (BP=1.000, ratio=1.032, hyp_len=23905, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.320.0.05-1.06.0.06-1.06.1.03-2.81.0.88-2.41.pth, rkmy
+BLEU = 74.82, 88.1/78.7/70.5/64.1 (BP=1.000, ratio=1.032, hyp_len=24269, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.32.0.80-2.22.0.78-2.18.1.06-2.90.0.93-2.54.pth, myrk
+BLEU = 62.43, 81.9/67.9/56.9/48.0 (BP=1.000, ratio=1.006, hyp_len=23303, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.32.0.80-2.22.0.78-2.18.1.06-2.90.0.93-2.54.pth, rkmy
+BLEU = 65.49, 83.7/71.1/60.1/51.4 (BP=1.000, ratio=1.009, hyp_len=23723, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.321.0.06-1.06.0.06-1.06.1.01-2.75.0.89-2.44.pth, myrk
+BLEU = 73.25, 87.2/77.3/69.0/61.9 (BP=1.000, ratio=1.033, hyp_len=23913, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.321.0.06-1.06.0.06-1.06.1.01-2.75.0.89-2.44.pth, rkmy
+BLEU = 74.06, 87.4/78.0/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24413, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.322.0.06-1.06.0.06-1.07.1.04-2.84.0.91-2.49.pth, myrk
+BLEU = 73.51, 87.3/77.5/69.3/62.2 (BP=1.000, ratio=1.034, hyp_len=23950, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.322.0.06-1.06.0.06-1.07.1.04-2.84.0.91-2.49.pth, rkmy
+BLEU = 73.86, 87.3/77.8/69.5/62.9 (BP=1.000, ratio=1.038, hyp_len=24409, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.323.0.06-1.07.0.07-1.07.1.04-2.83.0.90-2.47.pth, myrk
+BLEU = 73.06, 87.1/77.1/68.8/61.7 (BP=1.000, ratio=1.035, hyp_len=23973, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.323.0.06-1.07.0.07-1.07.1.04-2.83.0.90-2.47.pth, rkmy
+BLEU = 74.10, 87.6/78.1/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24412, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.324.0.06-1.06.0.06-1.06.1.05-2.85.0.90-2.47.pth, myrk
+BLEU = 73.30, 87.3/77.4/69.1/61.9 (BP=1.000, ratio=1.035, hyp_len=23970, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.324.0.06-1.06.0.06-1.06.1.05-2.85.0.90-2.47.pth, rkmy
+BLEU = 73.87, 87.5/78.0/69.5/62.8 (BP=1.000, ratio=1.038, hyp_len=24407, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.325.0.06-1.06.0.06-1.06.1.05-2.86.0.90-2.46.pth, myrk
+BLEU = 73.18, 87.3/77.3/68.9/61.7 (BP=1.000, ratio=1.032, hyp_len=23909, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.325.0.06-1.06.0.06-1.06.1.05-2.86.0.90-2.46.pth, rkmy
+BLEU = 73.79, 87.4/77.8/69.5/62.8 (BP=1.000, ratio=1.040, hyp_len=24456, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.326.0.06-1.06.0.06-1.06.1.04-2.83.0.93-2.52.pth, myrk
+BLEU = 73.07, 87.1/77.1/68.8/61.6 (BP=1.000, ratio=1.033, hyp_len=23920, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.326.0.06-1.06.0.06-1.06.1.04-2.83.0.93-2.52.pth, rkmy
+BLEU = 73.25, 87.0/77.4/68.9/62.0 (BP=1.000, ratio=1.043, hyp_len=24530, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.327.0.06-1.06.0.06-1.06.1.05-2.86.0.91-2.47.pth, myrk
+BLEU = 73.37, 87.4/77.4/69.1/61.9 (BP=1.000, ratio=1.032, hyp_len=23909, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.327.0.06-1.06.0.06-1.06.1.05-2.86.0.91-2.47.pth, rkmy
+BLEU = 73.81, 87.3/77.8/69.5/62.9 (BP=1.000, ratio=1.039, hyp_len=24434, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.328.0.07-1.07.0.06-1.07.1.05-2.85.0.92-2.50.pth, myrk
+BLEU = 72.93, 87.0/77.0/68.7/61.5 (BP=1.000, ratio=1.036, hyp_len=23985, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.328.0.07-1.07.0.06-1.07.1.05-2.85.0.92-2.50.pth, rkmy
+BLEU = 73.86, 87.4/77.8/69.5/62.9 (BP=1.000, ratio=1.038, hyp_len=24403, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.329.0.07-1.07.0.06-1.07.1.06-2.90.0.92-2.51.pth, myrk
+BLEU = 72.93, 87.0/77.1/68.7/61.5 (BP=1.000, ratio=1.037, hyp_len=24009, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.329.0.07-1.07.0.06-1.07.1.06-2.90.0.92-2.51.pth, rkmy
+BLEU = 74.53, 87.8/78.4/70.2/63.8 (BP=1.000, ratio=1.034, hyp_len=24299, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.330.0.07-1.07.0.06-1.06.1.04-2.82.0.93-2.53.pth, myrk
+BLEU = 73.24, 87.3/77.2/69.0/61.9 (BP=1.000, ratio=1.034, hyp_len=23937, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.330.0.07-1.07.0.06-1.06.1.04-2.82.0.93-2.53.pth, rkmy
+BLEU = 73.82, 87.4/77.8/69.5/62.9 (BP=1.000, ratio=1.038, hyp_len=24398, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.33.0.92-2.51.0.81-2.24.0.96-2.62.0.91-2.49.pth, myrk
+BLEU = 64.36, 82.9/69.8/59.1/50.1 (BP=1.000, ratio=1.019, hyp_len=23591, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.33.0.92-2.51.0.81-2.24.0.96-2.62.0.91-2.49.pth, rkmy
+BLEU = 65.34, 83.4/71.0/60.0/51.4 (BP=1.000, ratio=1.022, hyp_len=24017, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.331.0.06-1.06.0.06-1.06.1.07-2.92.0.91-2.47.pth, myrk
+BLEU = 73.52, 87.2/77.4/69.3/62.4 (BP=1.000, ratio=1.032, hyp_len=23911, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.331.0.06-1.06.0.06-1.06.1.07-2.92.0.91-2.47.pth, rkmy
+BLEU = 73.56, 87.1/77.4/69.2/62.7 (BP=1.000, ratio=1.041, hyp_len=24465, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.332.0.06-1.06.0.06-1.06.1.08-2.94.0.93-2.54.pth, myrk
+BLEU = 73.21, 87.2/77.2/69.0/61.8 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.332.0.06-1.06.0.06-1.06.1.08-2.94.0.93-2.54.pth, rkmy
+BLEU = 73.21, 87.1/77.4/68.8/62.0 (BP=1.000, ratio=1.042, hyp_len=24488, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.333.0.06-1.07.0.06-1.06.1.06-2.88.0.91-2.48.pth, myrk
+BLEU = 73.11, 87.2/77.1/68.8/61.7 (BP=1.000, ratio=1.030, hyp_len=23853, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.333.0.06-1.07.0.06-1.06.1.06-2.88.0.91-2.48.pth, rkmy
+BLEU = 74.34, 87.6/78.3/70.1/63.5 (BP=1.000, ratio=1.037, hyp_len=24379, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.334.0.07-1.08.0.06-1.06.1.09-2.97.0.92-2.52.pth, myrk
+BLEU = 72.56, 86.8/76.8/68.3/61.0 (BP=1.000, ratio=1.038, hyp_len=24032, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.334.0.07-1.08.0.06-1.06.1.09-2.97.0.92-2.52.pth, rkmy
+BLEU = 73.91, 87.4/77.9/69.6/63.0 (BP=1.000, ratio=1.037, hyp_len=24388, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.335.0.08-1.08.0.06-1.06.1.05-2.87.0.94-2.56.pth, myrk
+BLEU = 72.41, 86.8/76.6/68.1/60.7 (BP=1.000, ratio=1.033, hyp_len=23917, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.335.0.08-1.08.0.06-1.06.1.05-2.87.0.94-2.56.pth, rkmy
+BLEU = 74.49, 87.7/78.4/70.2/63.7 (BP=1.000, ratio=1.036, hyp_len=24349, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.336.0.08-1.08.0.06-1.06.1.07-2.91.0.96-2.60.pth, myrk
+BLEU = 73.46, 87.3/77.5/69.2/62.2 (BP=1.000, ratio=1.032, hyp_len=23909, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.336.0.08-1.08.0.06-1.06.1.07-2.91.0.96-2.60.pth, rkmy
+BLEU = 74.49, 87.8/78.4/70.2/63.7 (BP=1.000, ratio=1.034, hyp_len=24312, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.337.0.07-1.07.0.06-1.06.1.05-2.85.0.95-2.58.pth, myrk
+BLEU = 73.20, 87.2/77.3/68.9/61.8 (BP=1.000, ratio=1.034, hyp_len=23943, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.337.0.07-1.07.0.06-1.06.1.05-2.85.0.95-2.58.pth, rkmy
+BLEU = 74.42, 87.8/78.4/70.1/63.6 (BP=1.000, ratio=1.034, hyp_len=24303, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.338.0.07-1.07.0.07-1.07.1.07-2.93.0.95-2.58.pth, myrk
+BLEU = 73.27, 87.3/77.4/69.0/61.8 (BP=1.000, ratio=1.034, hyp_len=23945, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.338.0.07-1.07.0.07-1.07.1.07-2.93.0.95-2.58.pth, rkmy
+BLEU = 73.54, 87.2/77.6/69.2/62.5 (BP=1.000, ratio=1.040, hyp_len=24461, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.339.0.06-1.06.0.06-1.06.1.06-2.88.0.94-2.56.pth, myrk
+BLEU = 73.90, 87.6/77.9/69.7/62.7 (BP=1.000, ratio=1.031, hyp_len=23889, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.339.0.06-1.06.0.06-1.06.1.06-2.88.0.94-2.56.pth, rkmy
+BLEU = 74.39, 87.8/78.4/70.1/63.4 (BP=1.000, ratio=1.035, hyp_len=24334, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.340.0.06-1.06.0.06-1.06.1.08-2.95.0.93-2.53.pth, myrk
+BLEU = 73.39, 87.3/77.4/69.2/62.1 (BP=1.000, ratio=1.035, hyp_len=23969, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.340.0.06-1.06.0.06-1.06.1.08-2.95.0.93-2.53.pth, rkmy
+BLEU = 74.13, 87.7/78.1/69.8/63.2 (BP=1.000, ratio=1.036, hyp_len=24353, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.34.0.73-2.07.0.73-2.08.0.92-2.50.0.87-2.38.pth, myrk
+BLEU = 66.29, 83.8/71.3/61.2/52.8 (BP=1.000, ratio=1.014, hyp_len=23482, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.34.0.73-2.07.0.73-2.08.0.92-2.50.0.87-2.38.pth, rkmy
+BLEU = 65.42, 83.4/71.1/60.0/51.5 (BP=1.000, ratio=1.024, hyp_len=24072, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.341.0.06-1.06.0.06-1.06.1.05-2.85.0.93-2.54.pth, myrk
+BLEU = 73.59, 87.4/77.6/69.4/62.3 (BP=1.000, ratio=1.033, hyp_len=23916, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.341.0.06-1.06.0.06-1.06.1.05-2.85.0.93-2.54.pth, rkmy
+BLEU = 72.70, 86.8/77.0/68.2/61.3 (BP=1.000, ratio=1.043, hyp_len=24527, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.342.0.06-1.06.0.10-1.10.1.05-2.87.0.93-2.54.pth, myrk
+BLEU = 73.35, 87.4/77.4/69.1/61.9 (BP=1.000, ratio=1.034, hyp_len=23947, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.342.0.06-1.06.0.10-1.10.1.05-2.87.0.93-2.54.pth, rkmy
+BLEU = 73.12, 87.0/77.3/68.8/61.8 (BP=1.000, ratio=1.039, hyp_len=24416, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.343.0.06-1.06.0.09-1.09.1.07-2.91.0.93-2.54.pth, myrk
+BLEU = 73.58, 87.5/77.6/69.4/62.3 (BP=1.000, ratio=1.032, hyp_len=23896, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.343.0.06-1.06.0.09-1.09.1.07-2.91.0.93-2.54.pth, rkmy
+BLEU = 74.04, 87.5/78.0/69.8/63.1 (BP=1.000, ratio=1.034, hyp_len=24305, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.344.0.10-1.10.0.16-1.17.1.10-3.02.0.99-2.69.pth, myrk
+BLEU = 72.39, 86.7/76.5/68.0/60.9 (BP=1.000, ratio=1.030, hyp_len=23847, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.344.0.10-1.10.0.16-1.17.1.10-3.02.0.99-2.69.pth, rkmy
+BLEU = 74.20, 87.9/78.3/69.8/63.1 (BP=1.000, ratio=1.019, hyp_len=23948, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.345.0.09-1.10.0.13-1.14.1.11-3.02.0.93-2.52.pth, myrk
+BLEU = 72.53, 86.8/76.6/68.3/61.0 (BP=1.000, ratio=1.038, hyp_len=24034, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.345.0.09-1.10.0.13-1.14.1.11-3.02.0.93-2.52.pth, rkmy
+BLEU = 73.21, 87.0/77.2/68.8/62.1 (BP=1.000, ratio=1.039, hyp_len=24420, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.346.0.09-1.09.0.09-1.09.1.09-2.97.0.91-2.47.pth, myrk
+BLEU = 72.58, 86.9/76.7/68.3/61.0 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.346.0.09-1.09.0.09-1.09.1.09-2.97.0.91-2.47.pth, rkmy
+BLEU = 73.62, 87.3/77.6/69.3/62.6 (BP=1.000, ratio=1.039, hyp_len=24430, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.347.0.12-1.13.0.09-1.10.1.10-3.00.0.91-2.50.pth, myrk
+BLEU = 70.71, 85.9/75.2/66.2/58.5 (BP=1.000, ratio=1.038, hyp_len=24041, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.347.0.12-1.13.0.09-1.10.1.10-3.00.0.91-2.50.pth, rkmy
+BLEU = 72.57, 86.8/76.8/68.1/61.2 (BP=1.000, ratio=1.039, hyp_len=24422, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.348.0.11-1.12.0.10-1.11.1.04-2.83.0.97-2.64.pth, myrk
+BLEU = 72.36, 86.7/76.5/68.0/60.8 (BP=1.000, ratio=1.033, hyp_len=23931, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.348.0.11-1.12.0.10-1.11.1.04-2.83.0.97-2.64.pth, rkmy
+BLEU = 73.06, 87.1/77.1/68.6/61.8 (BP=1.000, ratio=1.035, hyp_len=24340, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.349.0.10-1.11.0.13-1.14.1.03-2.80.0.94-2.57.pth, myrk
+BLEU = 71.95, 86.6/76.2/67.5/60.1 (BP=1.000, ratio=1.032, hyp_len=23896, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.349.0.10-1.11.0.13-1.14.1.03-2.80.0.94-2.57.pth, rkmy
+BLEU = 73.03, 87.1/77.3/68.6/61.6 (BP=1.000, ratio=1.035, hyp_len=24323, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.350.0.11-1.12.0.10-1.11.1.04-2.82.0.91-2.49.pth, myrk
+BLEU = 71.20, 86.2/75.6/66.7/59.1 (BP=1.000, ratio=1.033, hyp_len=23934, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.350.0.11-1.12.0.10-1.11.1.04-2.82.0.91-2.49.pth, rkmy
+BLEU = 73.50, 87.3/77.6/69.1/62.4 (BP=1.000, ratio=1.036, hyp_len=24344, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.35.0.72-2.05.0.77-2.16.0.88-2.42.0.87-2.40.pth, myrk
+BLEU = 68.11, 84.8/73.0/63.2/54.9 (BP=1.000, ratio=1.015, hyp_len=23502, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.35.0.72-2.05.0.77-2.16.0.88-2.42.0.87-2.40.pth, rkmy
+BLEU = 65.58, 83.4/71.1/60.2/51.8 (BP=1.000, ratio=1.028, hyp_len=24166, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.351.0.11-1.12.0.10-1.10.1.04-2.83.0.93-2.53.pth, myrk
+BLEU = 72.60, 87.0/76.7/68.2/61.0 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.351.0.11-1.12.0.10-1.10.1.04-2.83.0.93-2.53.pth, rkmy
+BLEU = 72.72, 86.7/76.9/68.3/61.4 (BP=1.000, ratio=1.040, hyp_len=24441, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.352.0.10-1.10.0.08-1.09.1.05-2.86.0.90-2.47.pth, myrk
+BLEU = 72.34, 86.8/76.5/67.9/60.7 (BP=1.000, ratio=1.033, hyp_len=23922, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.352.0.10-1.10.0.08-1.09.1.05-2.86.0.90-2.47.pth, rkmy
+BLEU = 73.57, 87.2/77.6/69.2/62.6 (BP=1.000, ratio=1.038, hyp_len=24395, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.353.0.08-1.08.0.08-1.09.1.03-2.80.0.95-2.58.pth, myrk
+BLEU = 73.05, 87.1/77.1/68.8/61.6 (BP=1.000, ratio=1.031, hyp_len=23870, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.353.0.08-1.08.0.08-1.09.1.03-2.80.0.95-2.58.pth, rkmy
+BLEU = 71.36, 86.0/75.8/66.8/59.6 (BP=1.000, ratio=1.048, hyp_len=24635, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.354.0.09-1.09.0.10-1.11.1.03-2.81.0.92-2.52.pth, myrk
+BLEU = 73.94, 87.6/77.9/69.8/62.8 (BP=1.000, ratio=1.030, hyp_len=23846, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.354.0.09-1.09.0.10-1.11.1.03-2.81.0.92-2.52.pth, rkmy
+BLEU = 73.60, 87.2/77.6/69.2/62.6 (BP=1.000, ratio=1.038, hyp_len=24414, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.355.0.07-1.07.0.08-1.08.1.03-2.81.0.92-2.51.pth, myrk
+BLEU = 73.30, 87.3/77.3/69.0/62.0 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.355.0.07-1.07.0.08-1.08.1.03-2.81.0.92-2.51.pth, rkmy
+BLEU = 73.73, 87.3/77.8/69.4/62.6 (BP=1.000, ratio=1.038, hyp_len=24404, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.356.0.06-1.07.0.07-1.07.1.04-2.83.0.92-2.50.pth, myrk
+BLEU = 73.18, 87.1/77.2/68.9/61.9 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.356.0.06-1.07.0.07-1.07.1.04-2.83.0.92-2.50.pth, rkmy
+BLEU = 74.29, 87.8/78.3/70.0/63.3 (BP=1.000, ratio=1.036, hyp_len=24346, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.357.0.06-1.06.0.06-1.06.1.03-2.80.0.91-2.49.pth, myrk
+BLEU = 73.24, 87.2/77.3/69.0/61.9 (BP=1.000, ratio=1.033, hyp_len=23934, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.357.0.06-1.06.0.06-1.06.1.03-2.80.0.91-2.49.pth, rkmy
+BLEU = 74.48, 87.7/78.4/70.2/63.7 (BP=1.000, ratio=1.035, hyp_len=24328, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.358.0.06-1.06.0.06-1.06.1.03-2.80.0.92-2.51.pth, myrk
+BLEU = 73.88, 87.6/77.9/69.7/62.6 (BP=1.000, ratio=1.031, hyp_len=23875, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.358.0.06-1.06.0.06-1.06.1.03-2.80.0.92-2.51.pth, rkmy
+BLEU = 73.69, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24451, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.359.0.05-1.06.0.06-1.06.1.05-2.86.0.91-2.49.pth, myrk
+BLEU = 73.53, 87.4/77.6/69.3/62.2 (BP=1.000, ratio=1.033, hyp_len=23926, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.359.0.05-1.06.0.06-1.06.1.05-2.86.0.91-2.49.pth, rkmy
+BLEU = 73.64, 87.3/77.6/69.3/62.7 (BP=1.000, ratio=1.040, hyp_len=24442, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.360.0.05-1.06.0.06-1.06.1.04-2.83.0.92-2.52.pth, myrk
+BLEU = 73.22, 87.2/77.3/69.0/61.8 (BP=1.000, ratio=1.035, hyp_len=23973, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.360.0.05-1.06.0.06-1.06.1.04-2.83.0.92-2.52.pth, rkmy
+BLEU = 74.08, 87.6/78.1/69.8/63.1 (BP=1.000, ratio=1.038, hyp_len=24402, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.36.0.66-1.94.0.70-2.00.0.87-2.39.0.84-2.32.pth, myrk
+BLEU = 68.49, 84.9/73.3/63.7/55.6 (BP=1.000, ratio=1.018, hyp_len=23585, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.36.0.66-1.94.0.70-2.00.0.87-2.39.0.84-2.32.pth, rkmy
+BLEU = 68.32, 84.9/73.5/63.2/55.2 (BP=1.000, ratio=1.020, hyp_len=23972, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.361.0.06-1.06.0.06-1.06.1.03-2.79.0.93-2.54.pth, myrk
+BLEU = 73.45, 87.2/77.4/69.2/62.2 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.361.0.06-1.06.0.06-1.06.1.03-2.79.0.93-2.54.pth, rkmy
+BLEU = 74.46, 87.7/78.4/70.2/63.6 (BP=1.000, ratio=1.035, hyp_len=24321, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.362.0.06-1.06.0.06-1.06.1.02-2.79.0.94-2.55.pth, myrk
+BLEU = 73.56, 87.3/77.6/69.4/62.4 (BP=1.000, ratio=1.034, hyp_len=23953, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.362.0.06-1.06.0.06-1.06.1.02-2.79.0.94-2.55.pth, rkmy
+BLEU = 73.05, 87.1/77.2/68.6/61.8 (BP=1.000, ratio=1.042, hyp_len=24491, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.363.0.06-1.06.0.06-1.06.1.04-2.83.0.92-2.50.pth, myrk
+BLEU = 73.73, 87.5/77.7/69.5/62.6 (BP=1.000, ratio=1.031, hyp_len=23887, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.363.0.06-1.06.0.06-1.06.1.04-2.83.0.92-2.50.pth, rkmy
+BLEU = 74.06, 87.4/78.1/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24392, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.364.0.05-1.05.0.06-1.06.1.06-2.88.0.93-2.52.pth, myrk
+BLEU = 73.78, 87.4/77.7/69.6/62.7 (BP=1.000, ratio=1.033, hyp_len=23929, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.364.0.05-1.05.0.06-1.06.1.06-2.88.0.93-2.52.pth, rkmy
+BLEU = 73.91, 87.4/77.9/69.6/62.9 (BP=1.000, ratio=1.040, hyp_len=24441, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.365.0.05-1.06.0.06-1.06.1.05-2.85.0.93-2.53.pth, myrk
+BLEU = 73.86, 87.5/77.8/69.7/62.8 (BP=1.000, ratio=1.033, hyp_len=23927, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.365.0.05-1.06.0.06-1.06.1.05-2.85.0.93-2.53.pth, rkmy
+BLEU = 74.05, 87.5/78.0/69.8/63.1 (BP=1.000, ratio=1.039, hyp_len=24425, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.366.0.05-1.05.0.06-1.06.1.04-2.82.0.93-2.54.pth, myrk
+BLEU = 73.30, 87.3/77.3/69.0/62.0 (BP=1.000, ratio=1.033, hyp_len=23925, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.366.0.05-1.05.0.06-1.06.1.04-2.82.0.93-2.54.pth, rkmy
+BLEU = 74.68, 87.9/78.6/70.5/63.9 (BP=1.000, ratio=1.035, hyp_len=24323, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.367.0.05-1.05.0.05-1.05.1.04-2.82.0.94-2.57.pth, myrk
+BLEU = 73.88, 87.5/77.8/69.7/62.8 (BP=1.000, ratio=1.032, hyp_len=23897, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.367.0.05-1.05.0.05-1.05.1.04-2.82.0.94-2.57.pth, rkmy
+BLEU = 74.30, 87.6/78.2/70.1/63.5 (BP=1.000, ratio=1.035, hyp_len=24336, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.368.0.05-1.05.0.06-1.06.1.04-2.84.0.95-2.58.pth, myrk
+BLEU = 73.72, 87.5/77.7/69.5/62.5 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.368.0.05-1.05.0.06-1.06.1.04-2.84.0.95-2.58.pth, rkmy
+BLEU = 73.13, 86.9/77.2/68.8/62.0 (BP=1.000, ratio=1.042, hyp_len=24490, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.369.0.05-1.05.0.06-1.07.1.04-2.82.0.92-2.52.pth, myrk
+BLEU = 73.89, 87.6/77.9/69.7/62.7 (BP=1.000, ratio=1.034, hyp_len=23942, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.369.0.05-1.05.0.06-1.07.1.04-2.82.0.92-2.52.pth, rkmy
+BLEU = 74.56, 87.8/78.6/70.3/63.7 (BP=1.000, ratio=1.033, hyp_len=24286, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.370.0.05-1.05.0.06-1.06.1.05-2.87.0.94-2.56.pth, myrk
+BLEU = 73.73, 87.6/77.7/69.5/62.5 (BP=1.000, ratio=1.030, hyp_len=23848, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.370.0.05-1.05.0.06-1.06.1.05-2.87.0.94-2.56.pth, rkmy
+BLEU = 73.74, 87.3/77.8/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24460, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.37.0.67-1.95.0.70-2.02.0.85-2.35.0.88-2.42.pth, myrk
+BLEU = 69.47, 85.8/74.2/64.7/56.6 (BP=1.000, ratio=1.010, hyp_len=23382, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.37.0.67-1.95.0.70-2.02.0.85-2.35.0.88-2.42.pth, rkmy
+BLEU = 65.98, 83.5/71.4/60.7/52.3 (BP=1.000, ratio=1.034, hyp_len=24317, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.371.0.05-1.05.0.05-1.05.1.05-2.86.0.95-2.58.pth, myrk
+BLEU = 73.69, 87.5/77.6/69.5/62.5 (BP=1.000, ratio=1.029, hyp_len=23840, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.371.0.05-1.05.0.05-1.05.1.05-2.86.0.95-2.58.pth, rkmy
+BLEU = 74.09, 87.5/78.1/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24394, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.372.0.05-1.05.0.05-1.05.1.07-2.90.0.95-2.58.pth, myrk
+BLEU = 73.52, 87.3/77.5/69.3/62.2 (BP=1.000, ratio=1.032, hyp_len=23912, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.372.0.05-1.05.0.05-1.05.1.07-2.90.0.95-2.58.pth, rkmy
+BLEU = 74.39, 87.7/78.3/70.1/63.6 (BP=1.000, ratio=1.035, hyp_len=24326, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.373.0.05-1.05.0.05-1.05.1.05-2.85.0.95-2.57.pth, myrk
+BLEU = 73.44, 87.3/77.5/69.2/62.1 (BP=1.000, ratio=1.033, hyp_len=23931, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.373.0.05-1.05.0.05-1.05.1.05-2.85.0.95-2.57.pth, rkmy
+BLEU = 73.81, 87.5/77.9/69.5/62.7 (BP=1.000, ratio=1.038, hyp_len=24398, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.374.0.05-1.05.0.06-1.06.1.06-2.89.0.95-2.58.pth, myrk
+BLEU = 73.59, 87.4/77.6/69.4/62.4 (BP=1.000, ratio=1.033, hyp_len=23928, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.374.0.05-1.05.0.06-1.06.1.06-2.89.0.95-2.58.pth, rkmy
+BLEU = 74.29, 87.6/78.2/70.0/63.5 (BP=1.000, ratio=1.038, hyp_len=24402, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.375.0.05-1.05.0.05-1.06.1.07-2.93.0.97-2.63.pth, myrk
+BLEU = 73.47, 87.3/77.5/69.3/62.1 (BP=1.000, ratio=1.035, hyp_len=23968, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.375.0.05-1.05.0.05-1.06.1.07-2.93.0.97-2.63.pth, rkmy
+BLEU = 73.64, 87.2/77.7/69.3/62.6 (BP=1.000, ratio=1.040, hyp_len=24459, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.376.0.05-1.05.0.05-1.05.1.08-2.95.0.95-2.59.pth, myrk
+BLEU = 73.39, 87.2/77.3/69.2/62.2 (BP=1.000, ratio=1.034, hyp_len=23946, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.376.0.05-1.05.0.05-1.05.1.08-2.95.0.95-2.59.pth, rkmy
+BLEU = 73.94, 87.4/77.9/69.6/63.0 (BP=1.000, ratio=1.037, hyp_len=24374, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.377.0.05-1.05.0.05-1.05.1.08-2.93.0.97-2.63.pth, myrk
+BLEU = 73.83, 87.6/77.8/69.6/62.6 (BP=1.000, ratio=1.031, hyp_len=23881, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.377.0.05-1.05.0.05-1.05.1.08-2.93.0.97-2.63.pth, rkmy
+BLEU = 74.10, 87.5/78.1/69.8/63.2 (BP=1.000, ratio=1.039, hyp_len=24415, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.378.0.06-1.06.0.06-1.06.1.06-2.88.0.97-2.63.pth, myrk
+BLEU = 73.61, 87.5/77.6/69.4/62.3 (BP=1.000, ratio=1.030, hyp_len=23857, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.378.0.06-1.06.0.06-1.06.1.06-2.88.0.97-2.63.pth, rkmy
+BLEU = 73.98, 87.5/78.0/69.7/63.0 (BP=1.000, ratio=1.037, hyp_len=24370, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.379.0.06-1.07.0.11-1.12.1.06-2.89.0.98-2.67.pth, myrk
+BLEU = 73.53, 87.3/77.5/69.3/62.4 (BP=1.000, ratio=1.033, hyp_len=23931, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.379.0.06-1.07.0.11-1.12.1.06-2.89.0.98-2.67.pth, rkmy
+BLEU = 74.30, 87.8/78.3/69.9/63.4 (BP=1.000, ratio=1.027, hyp_len=24148, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.380.0.07-1.08.0.13-1.14.1.05-2.85.0.98-2.67.pth, myrk
+BLEU = 73.71, 87.5/77.6/69.5/62.6 (BP=1.000, ratio=1.030, hyp_len=23855, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.380.0.07-1.08.0.13-1.14.1.05-2.85.0.98-2.67.pth, rkmy
+BLEU = 72.44, 86.9/76.8/67.9/60.7 (BP=1.000, ratio=1.024, hyp_len=24069, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.38.0.60-1.83.0.61-1.85.0.86-2.35.0.85-2.34.pth, myrk
+BLEU = 68.63, 85.1/73.5/63.8/55.6 (BP=1.000, ratio=1.020, hyp_len=23614, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.38.0.60-1.83.0.61-1.85.0.86-2.35.0.85-2.34.pth, rkmy
+BLEU = 67.94, 84.9/73.2/62.8/54.6 (BP=1.000, ratio=1.018, hyp_len=23937, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.381.0.07-1.07.0.15-1.16.1.09-2.98.0.97-2.64.pth, myrk
+BLEU = 73.27, 87.2/77.3/69.0/62.0 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.381.0.07-1.07.0.15-1.16.1.09-2.98.0.97-2.64.pth, rkmy
+BLEU = 73.48, 87.3/77.5/69.1/62.4 (BP=1.000, ratio=1.029, hyp_len=24193, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.382.0.06-1.07.0.09-1.09.1.08-2.95.0.98-2.67.pth, myrk
+BLEU = 73.39, 87.2/77.4/69.2/62.1 (BP=1.000, ratio=1.031, hyp_len=23868, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.382.0.06-1.07.0.09-1.09.1.08-2.95.0.98-2.67.pth, rkmy
+BLEU = 73.26, 87.0/77.2/68.9/62.2 (BP=1.000, ratio=1.041, hyp_len=24474, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.383.0.06-1.06.0.08-1.08.1.06-2.89.0.93-2.54.pth, myrk
+BLEU = 73.68, 87.5/77.6/69.4/62.6 (BP=1.000, ratio=1.028, hyp_len=23809, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.383.0.06-1.06.0.08-1.08.1.06-2.89.0.93-2.54.pth, rkmy
+BLEU = 73.09, 86.9/77.1/68.7/62.0 (BP=1.000, ratio=1.042, hyp_len=24492, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.384.0.06-1.07.0.07-1.07.1.07-2.93.0.95-2.58.pth, myrk
+BLEU = 73.77, 87.5/77.7/69.5/62.7 (BP=1.000, ratio=1.030, hyp_len=23854, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.384.0.06-1.07.0.07-1.07.1.07-2.93.0.95-2.58.pth, rkmy
+BLEU = 73.68, 87.3/77.7/69.4/62.6 (BP=1.000, ratio=1.040, hyp_len=24444, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.385.0.08-1.08.0.06-1.06.1.05-2.86.0.93-2.54.pth, myrk
+BLEU = 72.67, 86.9/76.7/68.3/61.2 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.385.0.08-1.08.0.06-1.06.1.05-2.86.0.93-2.54.pth, rkmy
+BLEU = 73.92, 87.4/77.9/69.6/63.0 (BP=1.000, ratio=1.038, hyp_len=24405, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.386.0.07-1.07.0.06-1.06.1.09-2.97.0.93-2.55.pth, myrk
+BLEU = 72.42, 86.8/76.6/68.0/60.8 (BP=1.000, ratio=1.037, hyp_len=24023, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.386.0.07-1.07.0.06-1.06.1.09-2.97.0.93-2.55.pth, rkmy
+BLEU = 74.06, 87.5/78.0/69.8/63.1 (BP=1.000, ratio=1.037, hyp_len=24385, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.387.0.06-1.07.0.05-1.06.1.10-3.00.0.94-2.55.pth, myrk
+BLEU = 73.16, 87.1/77.1/68.9/61.9 (BP=1.000, ratio=1.032, hyp_len=23893, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.387.0.06-1.07.0.05-1.06.1.10-3.00.0.94-2.55.pth, rkmy
+BLEU = 74.03, 87.6/78.0/69.7/63.0 (BP=1.000, ratio=1.037, hyp_len=24383, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.388.0.06-1.06.0.05-1.05.1.07-2.90.0.93-2.53.pth, myrk
+BLEU = 73.80, 87.5/77.7/69.6/62.6 (BP=1.000, ratio=1.030, hyp_len=23851, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.388.0.06-1.06.0.05-1.05.1.07-2.90.0.93-2.53.pth, rkmy
+BLEU = 73.95, 87.5/78.0/69.6/63.0 (BP=1.000, ratio=1.037, hyp_len=24389, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.389.0.06-1.06.0.05-1.05.1.09-2.98.0.93-2.54.pth, myrk
+BLEU = 73.77, 87.5/77.6/69.6/62.7 (BP=1.000, ratio=1.029, hyp_len=23829, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.389.0.06-1.06.0.05-1.05.1.09-2.98.0.93-2.54.pth, rkmy
+BLEU = 74.12, 87.6/78.2/69.8/63.1 (BP=1.000, ratio=1.036, hyp_len=24363, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.390.0.05-1.06.0.05-1.05.1.08-2.95.0.94-2.55.pth, myrk
+BLEU = 73.13, 87.2/77.2/68.9/61.7 (BP=1.000, ratio=1.033, hyp_len=23918, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.390.0.05-1.06.0.05-1.05.1.08-2.95.0.94-2.55.pth, rkmy
+BLEU = 73.71, 87.3/77.8/69.4/62.6 (BP=1.000, ratio=1.040, hyp_len=24438, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.39.0.63-1.87.0.64-1.90.0.85-2.33.0.82-2.27.pth, myrk
+BLEU = 67.73, 84.4/72.6/62.9/54.6 (BP=1.000, ratio=1.018, hyp_len=23578, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.39.0.63-1.87.0.64-1.90.0.85-2.33.0.82-2.27.pth, rkmy
+BLEU = 67.97, 84.6/73.3/62.9/54.7 (BP=1.000, ratio=1.031, hyp_len=24230, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.391.0.06-1.06.0.05-1.05.1.06-2.88.0.94-2.55.pth, myrk
+BLEU = 73.53, 87.2/77.4/69.3/62.4 (BP=1.000, ratio=1.032, hyp_len=23891, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.391.0.06-1.06.0.05-1.05.1.06-2.88.0.94-2.55.pth, rkmy
+BLEU = 73.73, 87.3/77.7/69.4/62.8 (BP=1.000, ratio=1.038, hyp_len=24407, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.392.0.06-1.06.0.05-1.05.1.10-2.99.0.95-2.58.pth, myrk
+BLEU = 73.57, 87.4/77.6/69.3/62.3 (BP=1.000, ratio=1.029, hyp_len=23822, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.392.0.06-1.06.0.05-1.05.1.10-2.99.0.95-2.58.pth, rkmy
+BLEU = 74.10, 87.6/78.0/69.8/63.2 (BP=1.000, ratio=1.036, hyp_len=24356, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.393.0.06-1.06.0.05-1.05.1.08-2.95.0.95-2.58.pth, myrk
+BLEU = 73.83, 87.5/77.7/69.6/62.8 (BP=1.000, ratio=1.031, hyp_len=23881, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.393.0.06-1.06.0.05-1.05.1.08-2.95.0.95-2.58.pth, rkmy
+BLEU = 73.74, 87.3/77.7/69.4/62.8 (BP=1.000, ratio=1.040, hyp_len=24445, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.394.0.05-1.05.0.05-1.05.1.10-2.99.0.96-2.61.pth, myrk
+BLEU = 73.04, 87.1/77.1/68.8/61.6 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.394.0.05-1.05.0.05-1.05.1.10-2.99.0.96-2.61.pth, rkmy
+BLEU = 74.00, 87.4/77.9/69.7/63.2 (BP=1.000, ratio=1.038, hyp_len=24397, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.395.0.06-1.06.0.05-1.05.1.09-2.97.0.95-2.59.pth, myrk
+BLEU = 74.15, 87.6/78.1/70.0/63.1 (BP=1.000, ratio=1.031, hyp_len=23870, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.395.0.06-1.06.0.05-1.05.1.09-2.97.0.95-2.59.pth, rkmy
+BLEU = 73.88, 87.4/77.8/69.6/62.9 (BP=1.000, ratio=1.037, hyp_len=24369, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.396.0.06-1.06.0.05-1.05.1.14-3.12.0.94-2.56.pth, myrk
+BLEU = 73.09, 87.0/77.2/68.8/61.7 (BP=1.000, ratio=1.036, hyp_len=23986, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.396.0.06-1.06.0.05-1.05.1.14-3.12.0.94-2.56.pth, rkmy
+BLEU = 74.28, 87.6/78.1/70.0/63.6 (BP=1.000, ratio=1.037, hyp_len=24370, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.397.0.05-1.05.0.05-1.05.1.11-3.03.0.94-2.57.pth, myrk
+BLEU = 74.17, 87.7/78.0/70.0/63.2 (BP=1.000, ratio=1.030, hyp_len=23866, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.397.0.05-1.05.0.05-1.05.1.11-3.03.0.94-2.57.pth, rkmy
+BLEU = 73.81, 87.3/77.8/69.5/62.9 (BP=1.000, ratio=1.039, hyp_len=24428, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.398.0.05-1.05.0.05-1.05.1.10-3.01.0.97-2.64.pth, myrk
+BLEU = 73.56, 87.4/77.5/69.4/62.3 (BP=1.000, ratio=1.033, hyp_len=23919, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.398.0.05-1.05.0.05-1.05.1.10-3.01.0.97-2.64.pth, rkmy
+BLEU = 74.31, 87.7/78.3/70.1/63.4 (BP=1.000, ratio=1.036, hyp_len=24345, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.399.0.05-1.05.0.05-1.05.1.09-2.98.0.95-2.59.pth, myrk
+BLEU = 73.96, 87.7/77.9/69.7/62.8 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.399.0.05-1.05.0.05-1.05.1.09-2.98.0.95-2.59.pth, rkmy
+BLEU = 73.74, 87.4/77.7/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24450, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.400.0.05-1.05.0.05-1.05.1.10-3.01.0.95-2.58.pth, myrk
+BLEU = 73.64, 87.3/77.6/69.4/62.5 (BP=1.000, ratio=1.034, hyp_len=23943, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.400.0.05-1.05.0.05-1.05.1.10-3.01.0.95-2.58.pth, rkmy
+BLEU = 73.67, 87.2/77.7/69.4/62.6 (BP=1.000, ratio=1.039, hyp_len=24435, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.40.0.59-1.80.0.68-1.98.0.81-2.25.0.86-2.36.pth, myrk
+BLEU = 69.87, 85.6/74.5/65.2/57.3 (BP=1.000, ratio=1.019, hyp_len=23603, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.40.0.59-1.80.0.68-1.98.0.81-2.25.0.86-2.36.pth, rkmy
+BLEU = 66.14, 83.5/71.6/60.8/52.6 (BP=1.000, ratio=1.032, hyp_len=24250, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.401.0.05-1.05.0.06-1.06.1.10-2.99.0.96-2.60.pth, myrk
+BLEU = 73.27, 87.2/77.2/69.0/62.1 (BP=1.000, ratio=1.035, hyp_len=23967, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.401.0.05-1.05.0.06-1.06.1.10-2.99.0.96-2.60.pth, rkmy
+BLEU = 73.28, 87.2/77.4/68.9/62.0 (BP=1.000, ratio=1.040, hyp_len=24449, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.402.0.05-1.05.0.05-1.06.1.12-3.06.0.97-2.63.pth, myrk
+BLEU = 74.14, 87.7/78.0/69.9/63.2 (BP=1.000, ratio=1.031, hyp_len=23875, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.402.0.05-1.05.0.05-1.06.1.12-3.06.0.97-2.63.pth, rkmy
+BLEU = 73.20, 87.1/77.4/68.8/61.9 (BP=1.000, ratio=1.040, hyp_len=24450, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.403.0.05-1.05.0.07-1.07.1.12-3.08.0.95-2.60.pth, myrk
+BLEU = 73.86, 87.6/77.9/69.6/62.6 (BP=1.000, ratio=1.032, hyp_len=23904, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.403.0.05-1.05.0.07-1.07.1.12-3.08.0.95-2.60.pth, rkmy
+BLEU = 73.84, 87.4/77.8/69.5/62.9 (BP=1.000, ratio=1.038, hyp_len=24392, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.404.0.07-1.07.0.06-1.06.1.16-3.19.0.96-2.60.pth, myrk
+BLEU = 70.58, 85.8/75.0/66.0/58.4 (BP=1.000, ratio=1.040, hyp_len=24078, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.404.0.07-1.07.0.06-1.06.1.16-3.19.0.96-2.60.pth, rkmy
+BLEU = 74.04, 87.6/78.0/69.7/63.1 (BP=1.000, ratio=1.036, hyp_len=24346, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.405.0.11-1.11.0.05-1.05.1.09-2.97.0.96-2.61.pth, myrk
+BLEU = 72.05, 86.7/76.3/67.6/60.3 (BP=1.000, ratio=1.034, hyp_len=23943, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.405.0.11-1.11.0.05-1.05.1.09-2.97.0.96-2.61.pth, rkmy
+BLEU = 73.99, 87.5/78.0/69.7/63.0 (BP=1.000, ratio=1.036, hyp_len=24351, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.406.0.09-1.09.0.05-1.05.1.11-3.02.0.97-2.65.pth, myrk
+BLEU = 72.35, 86.7/76.5/68.0/60.8 (BP=1.000, ratio=1.032, hyp_len=23909, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.406.0.09-1.09.0.05-1.05.1.11-3.02.0.97-2.65.pth, rkmy
+BLEU = 74.48, 87.8/78.5/70.3/63.6 (BP=1.000, ratio=1.035, hyp_len=24326, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.407.0.11-1.11.0.05-1.05.1.08-2.93.0.96-2.62.pth, myrk
+BLEU = 72.21, 86.6/76.3/67.9/60.6 (BP=1.000, ratio=1.035, hyp_len=23960, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.407.0.11-1.11.0.05-1.05.1.08-2.93.0.96-2.62.pth, rkmy
+BLEU = 73.87, 87.4/77.9/69.6/62.9 (BP=1.000, ratio=1.036, hyp_len=24356, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.408.0.13-1.14.0.06-1.06.1.08-2.94.0.97-2.64.pth, myrk
+BLEU = 72.57, 86.7/76.7/68.2/61.2 (BP=1.000, ratio=1.033, hyp_len=23930, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.408.0.13-1.14.0.06-1.06.1.08-2.94.0.97-2.64.pth, rkmy
+BLEU = 74.32, 87.6/78.2/70.1/63.5 (BP=1.000, ratio=1.036, hyp_len=24362, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.409.0.09-1.10.0.05-1.05.1.08-2.95.0.97-2.63.pth, myrk
+BLEU = 72.57, 86.7/76.7/68.3/61.1 (BP=1.000, ratio=1.035, hyp_len=23962, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.409.0.09-1.10.0.05-1.05.1.08-2.95.0.97-2.63.pth, rkmy
+BLEU = 74.16, 87.5/78.1/69.9/63.3 (BP=1.000, ratio=1.039, hyp_len=24415, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.410.0.07-1.07.0.05-1.05.1.07-2.93.0.99-2.68.pth, myrk
+BLEU = 73.19, 87.1/77.2/69.0/61.9 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.410.0.07-1.07.0.05-1.05.1.07-2.93.0.99-2.68.pth, rkmy
+BLEU = 73.90, 87.4/78.0/69.6/62.9 (BP=1.000, ratio=1.037, hyp_len=24387, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.41.0.56-1.76.0.64-1.90.0.83-2.28.0.86-2.35.pth, myrk
+BLEU = 68.90, 85.0/73.7/64.1/56.0 (BP=1.000, ratio=1.030, hyp_len=23845, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.41.0.56-1.76.0.64-1.90.0.83-2.28.0.86-2.35.pth, rkmy
+BLEU = 67.64, 84.7/73.0/62.5/54.2 (BP=1.000, ratio=1.023, hyp_len=24045, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.411.0.06-1.06.0.05-1.05.1.07-2.93.0.97-2.64.pth, myrk
+BLEU = 73.93, 87.5/77.8/69.7/62.9 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.411.0.06-1.06.0.05-1.05.1.07-2.93.0.97-2.64.pth, rkmy
+BLEU = 73.78, 87.3/77.8/69.5/62.8 (BP=1.000, ratio=1.039, hyp_len=24419, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.412.0.06-1.06.0.05-1.05.1.07-2.91.0.98-2.66.pth, myrk
+BLEU = 74.07, 87.6/77.9/69.9/63.0 (BP=1.000, ratio=1.031, hyp_len=23881, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.412.0.06-1.06.0.05-1.05.1.07-2.91.0.98-2.66.pth, rkmy
+BLEU = 74.67, 87.8/78.5/70.5/64.0 (BP=1.000, ratio=1.034, hyp_len=24298, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.413.0.05-1.05.0.05-1.05.1.09-2.96.0.96-2.61.pth, myrk
+BLEU = 73.73, 87.4/77.7/69.6/62.6 (BP=1.000, ratio=1.034, hyp_len=23936, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.413.0.05-1.05.0.05-1.05.1.09-2.96.0.96-2.61.pth, rkmy
+BLEU = 74.44, 87.7/78.4/70.2/63.6 (BP=1.000, ratio=1.033, hyp_len=24289, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.414.0.05-1.06.0.06-1.06.1.10-2.99.0.98-2.66.pth, myrk
+BLEU = 73.32, 87.3/77.4/69.1/61.9 (BP=1.000, ratio=1.034, hyp_len=23959, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.414.0.05-1.06.0.06-1.06.1.10-2.99.0.98-2.66.pth, rkmy
+BLEU = 75.10, 88.0/78.9/71.0/64.6 (BP=1.000, ratio=1.030, hyp_len=24205, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.415.0.06-1.06.0.09-1.10.1.08-2.96.0.97-2.65.pth, myrk
+BLEU = 73.28, 87.3/77.3/69.0/61.9 (BP=1.000, ratio=1.034, hyp_len=23958, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.415.0.06-1.06.0.09-1.10.1.08-2.96.0.97-2.65.pth, rkmy
+BLEU = 72.94, 86.9/77.1/68.5/61.7 (BP=1.000, ratio=1.041, hyp_len=24476, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.416.0.06-1.06.0.09-1.10.1.13-3.11.0.96-2.60.pth, myrk
+BLEU = 73.50, 87.3/77.5/69.3/62.2 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.416.0.06-1.06.0.09-1.10.1.13-3.11.0.96-2.60.pth, rkmy
+BLEU = 72.78, 86.6/76.9/68.4/61.6 (BP=1.000, ratio=1.043, hyp_len=24528, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.417.0.05-1.05.0.07-1.07.1.09-2.98.0.97-2.64.pth, myrk
+BLEU = 73.67, 87.4/77.6/69.5/62.5 (BP=1.000, ratio=1.033, hyp_len=23930, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.417.0.05-1.05.0.07-1.07.1.09-2.98.0.97-2.64.pth, rkmy
+BLEU = 73.85, 87.4/77.9/69.5/62.9 (BP=1.000, ratio=1.036, hyp_len=24363, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.418.0.05-1.05.0.07-1.07.1.09-2.98.0.97-2.64.pth, myrk
+BLEU = 73.96, 87.6/77.9/69.8/62.8 (BP=1.000, ratio=1.031, hyp_len=23880, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.418.0.05-1.05.0.07-1.07.1.09-2.98.0.97-2.64.pth, rkmy
+BLEU = 74.50, 87.9/78.4/70.2/63.7 (BP=1.000, ratio=1.034, hyp_len=24302, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.419.0.05-1.05.0.06-1.06.1.10-3.01.0.98-2.66.pth, myrk
+BLEU = 73.65, 87.4/77.6/69.5/62.4 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.419.0.05-1.05.0.06-1.06.1.10-3.01.0.98-2.66.pth, rkmy
+BLEU = 74.11, 87.6/78.0/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24413, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.420.0.05-1.05.0.06-1.06.1.09-2.98.0.99-2.69.pth, myrk
+BLEU = 73.74, 87.4/77.7/69.6/62.6 (BP=1.000, ratio=1.033, hyp_len=23921, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.420.0.05-1.05.0.06-1.06.1.09-2.98.0.99-2.69.pth, rkmy
+BLEU = 73.51, 87.2/77.6/69.1/62.5 (BP=1.000, ratio=1.040, hyp_len=24456, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.42.0.55-1.73.0.60-1.82.0.79-2.19.0.80-2.22.pth, myrk
+BLEU = 71.17, 86.3/75.6/66.7/59.0 (BP=1.000, ratio=1.016, hyp_len=23535, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.42.0.55-1.73.0.60-1.82.0.79-2.19.0.80-2.22.pth, rkmy
+BLEU = 69.49, 85.5/74.4/64.5/56.8 (BP=1.000, ratio=1.020, hyp_len=23974, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.421.0.05-1.05.0.06-1.06.1.10-2.99.0.98-2.66.pth, myrk
+BLEU = 73.71, 87.4/77.7/69.5/62.5 (BP=1.000, ratio=1.034, hyp_len=23941, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.421.0.05-1.05.0.06-1.06.1.10-2.99.0.98-2.66.pth, rkmy
+BLEU = 74.29, 87.7/78.2/70.0/63.5 (BP=1.000, ratio=1.036, hyp_len=24358, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.422.0.05-1.05.0.06-1.06.1.11-3.04.0.99-2.70.pth, myrk
+BLEU = 73.45, 87.3/77.5/69.2/62.2 (BP=1.000, ratio=1.034, hyp_len=23936, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.422.0.05-1.05.0.06-1.06.1.11-3.04.0.99-2.70.pth, rkmy
+BLEU = 74.74, 87.9/78.6/70.5/64.1 (BP=1.000, ratio=1.033, hyp_len=24280, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.423.0.05-1.05.0.05-1.06.1.09-2.99.0.99-2.69.pth, myrk
+BLEU = 73.45, 87.2/77.4/69.2/62.3 (BP=1.000, ratio=1.035, hyp_len=23962, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.423.0.05-1.05.0.05-1.06.1.09-2.99.0.99-2.69.pth, rkmy
+BLEU = 74.16, 87.6/78.2/69.8/63.2 (BP=1.000, ratio=1.036, hyp_len=24364, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.424.0.05-1.05.0.05-1.05.1.09-2.97.0.98-2.65.pth, myrk
+BLEU = 73.61, 87.4/77.5/69.4/62.5 (BP=1.000, ratio=1.032, hyp_len=23905, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.424.0.05-1.05.0.05-1.05.1.09-2.97.0.98-2.65.pth, rkmy
+BLEU = 73.08, 87.0/77.2/68.7/61.9 (BP=1.000, ratio=1.040, hyp_len=24457, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.425.0.05-1.05.0.06-1.06.1.11-3.04.0.99-2.68.pth, myrk
+BLEU = 73.19, 87.1/77.2/69.0/61.9 (BP=1.000, ratio=1.036, hyp_len=23987, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.425.0.05-1.05.0.06-1.06.1.11-3.04.0.99-2.68.pth, rkmy
+BLEU = 73.41, 87.3/77.5/68.9/62.2 (BP=1.000, ratio=1.039, hyp_len=24417, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.426.0.05-1.05.0.06-1.06.1.11-3.05.0.99-2.68.pth, myrk
+BLEU = 73.23, 87.1/77.2/69.0/61.9 (BP=1.000, ratio=1.035, hyp_len=23969, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.426.0.05-1.05.0.06-1.06.1.11-3.05.0.99-2.68.pth, rkmy
+BLEU = 73.98, 87.4/78.0/69.7/63.0 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.427.0.05-1.05.0.06-1.06.1.11-3.03.1.00-2.72.pth, myrk
+BLEU = 73.41, 87.2/77.4/69.2/62.1 (BP=1.000, ratio=1.036, hyp_len=23983, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.427.0.05-1.05.0.06-1.06.1.11-3.03.1.00-2.72.pth, rkmy
+BLEU = 73.86, 87.4/77.8/69.5/62.9 (BP=1.000, ratio=1.038, hyp_len=24410, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.428.0.04-1.05.0.05-1.05.1.12-3.07.0.99-2.70.pth, myrk
+BLEU = 73.43, 87.3/77.4/69.2/62.2 (BP=1.000, ratio=1.035, hyp_len=23967, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.428.0.04-1.05.0.05-1.05.1.12-3.07.0.99-2.70.pth, rkmy
+BLEU = 74.41, 87.7/78.3/70.1/63.6 (BP=1.000, ratio=1.035, hyp_len=24330, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.429.0.05-1.05.0.05-1.05.1.14-3.13.0.96-2.61.pth, myrk
+BLEU = 73.45, 87.4/77.5/69.2/62.1 (BP=1.000, ratio=1.033, hyp_len=23933, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.429.0.05-1.05.0.05-1.05.1.14-3.13.0.96-2.61.pth, rkmy
+BLEU = 74.91, 88.1/78.9/70.7/64.1 (BP=1.000, ratio=1.032, hyp_len=24267, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.430.0.05-1.05.0.05-1.06.1.13-3.10.0.97-2.65.pth, myrk
+BLEU = 73.43, 87.3/77.5/69.2/62.1 (BP=1.000, ratio=1.032, hyp_len=23899, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.430.0.05-1.05.0.05-1.06.1.13-3.10.0.97-2.65.pth, rkmy
+BLEU = 73.63, 87.4/77.8/69.3/62.4 (BP=1.000, ratio=1.039, hyp_len=24426, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.43.0.55-1.73.0.60-1.83.0.78-2.19.0.78-2.17.pth, myrk
+BLEU = 71.13, 86.3/75.6/66.6/58.9 (BP=1.000, ratio=1.020, hyp_len=23632, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.43.0.55-1.73.0.60-1.83.0.78-2.19.0.78-2.17.pth, rkmy
+BLEU = 70.66, 86.0/75.4/65.9/58.3 (BP=1.000, ratio=1.023, hyp_len=24039, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.431.0.05-1.05.0.06-1.06.1.13-3.09.0.98-2.67.pth, myrk
+BLEU = 73.18, 87.1/77.2/68.9/61.9 (BP=1.000, ratio=1.034, hyp_len=23958, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.431.0.05-1.05.0.06-1.06.1.13-3.09.0.98-2.67.pth, rkmy
+BLEU = 74.09, 87.6/78.0/69.8/63.2 (BP=1.000, ratio=1.038, hyp_len=24414, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.432.0.05-1.05.0.05-1.06.1.11-3.04.0.99-2.70.pth, myrk
+BLEU = 73.15, 87.2/77.2/68.8/61.7 (BP=1.000, ratio=1.034, hyp_len=23957, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.432.0.05-1.05.0.05-1.06.1.11-3.04.0.99-2.70.pth, rkmy
+BLEU = 74.51, 87.9/78.5/70.2/63.7 (BP=1.000, ratio=1.033, hyp_len=24295, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.433.0.05-1.06.0.05-1.06.1.12-3.06.1.00-2.72.pth, myrk
+BLEU = 73.90, 87.6/77.8/69.7/62.8 (BP=1.000, ratio=1.030, hyp_len=23846, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.433.0.05-1.06.0.05-1.06.1.12-3.06.1.00-2.72.pth, rkmy
+BLEU = 74.05, 87.5/78.0/69.8/63.1 (BP=1.000, ratio=1.040, hyp_len=24451, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.434.0.06-1.06.0.05-1.06.1.12-3.07.0.98-2.67.pth, myrk
+BLEU = 73.81, 87.5/77.8/69.6/62.7 (BP=1.000, ratio=1.032, hyp_len=23903, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.434.0.06-1.06.0.05-1.06.1.12-3.07.0.98-2.67.pth, rkmy
+BLEU = 73.28, 87.0/77.4/68.9/62.2 (BP=1.000, ratio=1.041, hyp_len=24479, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.435.0.05-1.06.0.05-1.05.1.09-2.97.1.01-2.74.pth, myrk
+BLEU = 73.80, 87.4/77.7/69.6/62.7 (BP=1.000, ratio=1.033, hyp_len=23929, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.435.0.05-1.06.0.05-1.05.1.09-2.97.1.01-2.74.pth, rkmy
+BLEU = 75.00, 88.0/78.8/70.8/64.4 (BP=1.000, ratio=1.033, hyp_len=24295, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.436.0.06-1.06.0.05-1.06.1.10-3.00.1.02-2.76.pth, myrk
+BLEU = 73.62, 87.3/77.6/69.4/62.5 (BP=1.000, ratio=1.035, hyp_len=23979, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.436.0.06-1.06.0.05-1.06.1.10-3.00.1.02-2.76.pth, rkmy
+BLEU = 74.09, 87.6/78.1/69.7/63.1 (BP=1.000, ratio=1.035, hyp_len=24325, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.437.0.05-1.05.0.06-1.06.1.11-3.04.1.02-2.78.pth, myrk
+BLEU = 73.24, 87.2/77.3/68.9/61.9 (BP=1.000, ratio=1.034, hyp_len=23948, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.437.0.05-1.05.0.06-1.06.1.11-3.04.1.02-2.78.pth, rkmy
+BLEU = 73.49, 87.3/77.6/69.1/62.3 (BP=1.000, ratio=1.040, hyp_len=24459, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.438.0.05-1.05.0.05-1.05.1.14-3.14.1.00-2.71.pth, myrk
+BLEU = 73.54, 87.3/77.5/69.3/62.4 (BP=1.000, ratio=1.033, hyp_len=23927, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.438.0.05-1.05.0.05-1.05.1.14-3.14.1.00-2.71.pth, rkmy
+BLEU = 75.14, 88.1/79.0/71.0/64.5 (BP=1.000, ratio=1.030, hyp_len=24212, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.439.0.05-1.05.0.06-1.06.1.12-3.07.1.00-2.71.pth, myrk
+BLEU = 73.66, 87.4/77.6/69.4/62.5 (BP=1.000, ratio=1.031, hyp_len=23879, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.439.0.05-1.05.0.06-1.06.1.12-3.07.1.00-2.71.pth, rkmy
+BLEU = 74.20, 87.6/78.3/69.9/63.3 (BP=1.000, ratio=1.038, hyp_len=24409, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.440.0.05-1.05.0.06-1.06.1.10-3.01.1.02-2.78.pth, myrk
+BLEU = 73.61, 87.3/77.6/69.4/62.4 (BP=1.000, ratio=1.034, hyp_len=23945, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.440.0.05-1.05.0.06-1.06.1.10-3.01.1.02-2.78.pth, rkmy
+BLEU = 75.23, 88.1/79.0/71.1/64.8 (BP=1.000, ratio=1.033, hyp_len=24284, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.44.0.57-1.77.0.79-2.21.0.77-2.16.0.82-2.28.pth, myrk
+BLEU = 71.43, 86.5/75.8/66.9/59.3 (BP=1.000, ratio=1.022, hyp_len=23670, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.44.0.57-1.77.0.79-2.21.0.77-2.16.0.82-2.28.pth, rkmy
+BLEU = 67.44, 84.3/72.6/62.3/54.2 (BP=1.000, ratio=1.029, hyp_len=24198, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.441.0.05-1.05.0.07-1.07.1.12-3.05.1.02-2.77.pth, myrk
+BLEU = 74.06, 87.6/78.0/69.9/63.0 (BP=1.000, ratio=1.031, hyp_len=23875, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.441.0.05-1.05.0.07-1.07.1.12-3.05.1.02-2.77.pth, rkmy
+BLEU = 74.81, 87.9/78.7/70.6/64.1 (BP=1.000, ratio=1.030, hyp_len=24219, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.442.0.08-1.08.0.07-1.08.1.07-2.92.1.01-2.74.pth, myrk
+BLEU = 73.61, 87.4/77.6/69.4/62.4 (BP=1.000, ratio=1.030, hyp_len=23851, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.442.0.08-1.08.0.07-1.08.1.07-2.92.1.01-2.74.pth, rkmy
+BLEU = 74.25, 87.6/78.1/70.0/63.4 (BP=1.000, ratio=1.035, hyp_len=24321, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.443.0.06-1.07.0.07-1.07.1.13-3.09.1.01-2.73.pth, myrk
+BLEU = 74.01, 87.6/77.9/69.8/63.0 (BP=1.000, ratio=1.030, hyp_len=23865, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.443.0.06-1.07.0.07-1.07.1.13-3.09.1.01-2.73.pth, rkmy
+BLEU = 73.82, 87.4/77.9/69.4/62.8 (BP=1.000, ratio=1.038, hyp_len=24396, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.444.0.06-1.06.0.06-1.06.1.12-3.06.0.99-2.70.pth, myrk
+BLEU = 73.38, 87.3/77.4/69.1/62.1 (BP=1.000, ratio=1.033, hyp_len=23918, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.444.0.06-1.06.0.06-1.06.1.12-3.06.0.99-2.70.pth, rkmy
+BLEU = 73.90, 87.4/77.9/69.6/63.0 (BP=1.000, ratio=1.039, hyp_len=24422, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.445.0.06-1.06.0.05-1.05.1.14-3.11.1.00-2.72.pth, myrk
+BLEU = 73.60, 87.4/77.6/69.4/62.4 (BP=1.000, ratio=1.033, hyp_len=23933, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.445.0.06-1.06.0.05-1.05.1.14-3.11.1.00-2.72.pth, rkmy
+BLEU = 74.06, 87.4/78.0/69.8/63.2 (BP=1.000, ratio=1.040, hyp_len=24450, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.446.0.05-1.06.0.05-1.05.1.14-3.12.0.98-2.67.pth, myrk
+BLEU = 74.37, 87.9/78.2/70.2/63.4 (BP=1.000, ratio=1.029, hyp_len=23823, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.446.0.05-1.06.0.05-1.05.1.14-3.12.0.98-2.67.pth, rkmy
+BLEU = 74.83, 88.0/78.8/70.6/64.1 (BP=1.000, ratio=1.033, hyp_len=24293, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.447.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.72.pth, myrk
+BLEU = 73.57, 87.4/77.6/69.3/62.3 (BP=1.000, ratio=1.033, hyp_len=23925, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.447.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.72.pth, rkmy
+BLEU = 73.99, 87.4/78.0/69.7/63.1 (BP=1.000, ratio=1.040, hyp_len=24441, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.448.0.05-1.05.0.04-1.04.1.14-3.13.1.03-2.81.pth, myrk
+BLEU = 73.74, 87.5/77.7/69.6/62.5 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.448.0.05-1.05.0.04-1.04.1.14-3.13.1.03-2.81.pth, rkmy
+BLEU = 74.17, 87.6/78.2/69.9/63.2 (BP=1.000, ratio=1.039, hyp_len=24429, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.449.0.05-1.05.0.04-1.04.1.11-3.03.1.01-2.75.pth, myrk
+BLEU = 73.57, 87.4/77.5/69.4/62.3 (BP=1.000, ratio=1.035, hyp_len=23981, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.449.0.05-1.05.0.04-1.04.1.11-3.03.1.01-2.75.pth, rkmy
+BLEU = 74.84, 87.9/78.7/70.7/64.2 (BP=1.000, ratio=1.035, hyp_len=24324, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.450.0.04-1.05.0.04-1.05.1.13-3.10.1.01-2.74.pth, myrk
+BLEU = 73.35, 87.2/77.3/69.1/62.1 (BP=1.000, ratio=1.034, hyp_len=23939, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.450.0.04-1.05.0.04-1.05.1.13-3.10.1.01-2.74.pth, rkmy
+BLEU = 74.47, 87.7/78.5/70.3/63.6 (BP=1.000, ratio=1.038, hyp_len=24403, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.45.0.55-1.73.0.64-1.90.0.76-2.14.0.77-2.17.pth, myrk
+BLEU = 71.63, 86.5/76.0/67.2/59.6 (BP=1.000, ratio=1.018, hyp_len=23574, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.45.0.55-1.73.0.64-1.90.0.76-2.14.0.77-2.17.pth, rkmy
+BLEU = 69.44, 85.3/74.4/64.5/56.8 (BP=1.000, ratio=1.028, hyp_len=24160, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.451.0.04-1.04.0.05-1.05.1.15-3.16.1.02-2.79.pth, myrk
+BLEU = 73.88, 87.4/77.8/69.7/62.8 (BP=1.000, ratio=1.033, hyp_len=23928, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.451.0.04-1.04.0.05-1.05.1.15-3.16.1.02-2.79.pth, rkmy
+BLEU = 74.51, 87.7/78.3/70.3/63.8 (BP=1.000, ratio=1.035, hyp_len=24338, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.452.0.04-1.04.0.04-1.05.1.13-3.10.1.02-2.76.pth, myrk
+BLEU = 73.82, 87.5/77.8/69.6/62.7 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.452.0.04-1.04.0.04-1.05.1.13-3.10.1.02-2.76.pth, rkmy
+BLEU = 74.72, 87.8/78.5/70.5/64.1 (BP=1.000, ratio=1.035, hyp_len=24332, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.453.0.05-1.05.0.05-1.05.1.12-3.07.1.01-2.74.pth, myrk
+BLEU = 73.96, 87.6/77.8/69.8/62.9 (BP=1.000, ratio=1.033, hyp_len=23914, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.453.0.05-1.05.0.05-1.05.1.12-3.07.1.01-2.74.pth, rkmy
+BLEU = 74.24, 87.5/78.1/70.0/63.5 (BP=1.000, ratio=1.037, hyp_len=24383, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.454.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.73.pth, myrk
+BLEU = 74.06, 87.7/78.0/69.9/62.9 (BP=1.000, ratio=1.032, hyp_len=23901, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.454.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.73.pth, rkmy
+BLEU = 74.24, 87.7/78.2/69.9/63.3 (BP=1.000, ratio=1.034, hyp_len=24316, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.455.0.05-1.05.0.05-1.05.1.11-3.03.1.02-2.78.pth, myrk
+BLEU = 73.80, 87.6/77.8/69.6/62.6 (BP=1.000, ratio=1.031, hyp_len=23874, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.455.0.05-1.05.0.05-1.05.1.11-3.03.1.02-2.78.pth, rkmy
+BLEU = 74.90, 88.1/78.8/70.6/64.2 (BP=1.000, ratio=1.032, hyp_len=24254, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.456.0.05-1.05.0.05-1.05.1.14-3.12.1.00-2.72.pth, myrk
+BLEU = 73.11, 87.1/77.2/68.8/61.8 (BP=1.000, ratio=1.035, hyp_len=23972, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.456.0.05-1.05.0.05-1.05.1.14-3.12.1.00-2.72.pth, rkmy
+BLEU = 74.19, 87.5/78.1/69.9/63.3 (BP=1.000, ratio=1.039, hyp_len=24419, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.457.0.05-1.05.0.05-1.05.1.13-3.09.1.00-2.71.pth, myrk
+BLEU = 72.95, 86.9/76.9/68.6/61.7 (BP=1.000, ratio=1.037, hyp_len=24017, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.457.0.05-1.05.0.05-1.05.1.13-3.09.1.00-2.71.pth, rkmy
+BLEU = 75.14, 88.3/79.0/70.9/64.5 (BP=1.000, ratio=1.030, hyp_len=24216, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.458.0.05-1.05.0.05-1.05.1.12-3.08.1.03-2.81.pth, myrk
+BLEU = 73.36, 87.3/77.4/69.1/62.0 (BP=1.000, ratio=1.033, hyp_len=23929, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.458.0.05-1.05.0.05-1.05.1.12-3.08.1.03-2.81.pth, rkmy
+BLEU = 73.71, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.042, hyp_len=24496, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.459.0.05-1.05.0.05-1.05.1.14-3.12.1.03-2.79.pth, myrk
+BLEU = 72.96, 87.0/77.1/68.7/61.5 (BP=1.000, ratio=1.036, hyp_len=24002, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.459.0.05-1.05.0.05-1.05.1.14-3.12.1.03-2.79.pth, rkmy
+BLEU = 75.30, 88.4/79.1/71.1/64.7 (BP=1.000, ratio=1.025, hyp_len=24090, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.460.0.05-1.05.0.05-1.05.1.13-3.10.1.02-2.79.pth, myrk
+BLEU = 73.41, 87.2/77.3/69.2/62.3 (BP=1.000, ratio=1.033, hyp_len=23917, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.460.0.05-1.05.0.05-1.05.1.13-3.10.1.02-2.79.pth, rkmy
+BLEU = 73.54, 87.3/77.5/69.1/62.5 (BP=1.000, ratio=1.040, hyp_len=24450, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.46.0.57-1.77.0.57-1.76.0.94-2.57.0.75-2.13.pth, myrk
+BLEU = 63.43, 81.7/69.2/58.2/49.2 (BP=1.000, ratio=1.054, hyp_len=24411, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.46.0.57-1.77.0.57-1.76.0.94-2.57.0.75-2.13.pth, rkmy
+BLEU = 69.70, 85.4/74.5/64.8/57.2 (BP=1.000, ratio=1.031, hyp_len=24247, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.461.0.05-1.06.0.05-1.05.1.15-3.17.1.00-2.73.pth, myrk
+BLEU = 72.88, 87.0/77.0/68.5/61.4 (BP=1.000, ratio=1.037, hyp_len=24013, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.461.0.05-1.06.0.05-1.05.1.15-3.17.1.00-2.73.pth, rkmy
+BLEU = 74.04, 87.5/78.0/69.8/63.1 (BP=1.000, ratio=1.039, hyp_len=24419, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.462.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.72.pth, myrk
+BLEU = 73.58, 87.3/77.5/69.4/62.4 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.462.0.05-1.05.0.05-1.05.1.13-3.10.1.00-2.72.pth, rkmy
+BLEU = 74.17, 87.5/78.0/69.9/63.4 (BP=1.000, ratio=1.039, hyp_len=24431, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.463.0.05-1.05.0.05-1.05.1.12-3.08.1.01-2.76.pth, myrk
+BLEU = 73.80, 87.4/77.8/69.7/62.6 (BP=1.000, ratio=1.033, hyp_len=23918, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.463.0.05-1.05.0.05-1.05.1.12-3.08.1.01-2.76.pth, rkmy
+BLEU = 74.22, 87.5/78.3/70.0/63.3 (BP=1.000, ratio=1.039, hyp_len=24421, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.464.0.05-1.06.0.05-1.05.1.14-3.14.1.01-2.74.pth, myrk
+BLEU = 73.13, 87.1/77.2/68.8/61.8 (BP=1.000, ratio=1.036, hyp_len=23987, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.464.0.05-1.06.0.05-1.05.1.14-3.14.1.01-2.74.pth, rkmy
+BLEU = 74.63, 87.9/78.6/70.4/63.8 (BP=1.000, ratio=1.035, hyp_len=24324, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.465.0.06-1.06.0.05-1.05.1.16-3.17.1.01-2.75.pth, myrk
+BLEU = 72.84, 87.0/77.0/68.5/61.3 (BP=1.000, ratio=1.035, hyp_len=23967, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.465.0.06-1.06.0.05-1.05.1.16-3.17.1.01-2.75.pth, rkmy
+BLEU = 73.68, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.040, hyp_len=24461, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.466.0.08-1.09.0.05-1.05.1.18-3.25.1.02-2.78.pth, myrk
+BLEU = 73.40, 87.3/77.5/69.2/62.0 (BP=1.000, ratio=1.024, hyp_len=23725, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.466.0.08-1.09.0.05-1.05.1.18-3.25.1.02-2.78.pth, rkmy
+BLEU = 74.07, 87.6/78.0/69.7/63.1 (BP=1.000, ratio=1.037, hyp_len=24382, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.467.0.07-1.08.0.05-1.05.1.16-3.19.1.03-2.79.pth, myrk
+BLEU = 72.71, 87.0/77.0/68.4/61.0 (BP=1.000, ratio=1.036, hyp_len=23990, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.467.0.07-1.08.0.05-1.05.1.16-3.19.1.03-2.79.pth, rkmy
+BLEU = 74.65, 87.9/78.6/70.4/63.9 (BP=1.000, ratio=1.034, hyp_len=24312, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.468.0.06-1.06.0.05-1.05.1.14-3.13.1.03-2.80.pth, myrk
+BLEU = 73.37, 87.3/77.4/69.1/62.0 (BP=1.000, ratio=1.033, hyp_len=23935, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.468.0.06-1.06.0.05-1.05.1.14-3.13.1.03-2.80.pth, rkmy
+BLEU = 74.47, 88.0/78.4/70.1/63.6 (BP=1.000, ratio=1.033, hyp_len=24283, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.469.0.06-1.06.0.05-1.06.1.13-3.10.1.01-2.75.pth, myrk
+BLEU = 74.36, 88.0/78.3/70.2/63.2 (BP=1.000, ratio=1.028, hyp_len=23819, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.469.0.06-1.06.0.05-1.06.1.13-3.10.1.01-2.75.pth, rkmy
+BLEU = 74.54, 87.8/78.4/70.3/63.8 (BP=1.000, ratio=1.032, hyp_len=24254, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.470.0.05-1.05.0.06-1.06.1.14-3.12.1.03-2.79.pth, myrk
+BLEU = 73.08, 87.2/77.3/68.7/61.5 (BP=1.000, ratio=1.035, hyp_len=23976, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.470.0.05-1.05.0.06-1.06.1.14-3.12.1.03-2.79.pth, rkmy
+BLEU = 74.27, 87.6/78.1/70.0/63.5 (BP=1.000, ratio=1.037, hyp_len=24370, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.47.0.56-1.75.0.54-1.71.0.79-2.19.0.74-2.09.pth, myrk
+BLEU = 69.97, 85.4/74.7/65.5/57.4 (BP=1.000, ratio=1.037, hyp_len=24008, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.47.0.56-1.75.0.54-1.71.0.79-2.19.0.74-2.09.pth, rkmy
+BLEU = 70.88, 85.9/75.5/66.1/58.9 (BP=1.000, ratio=1.031, hyp_len=24238, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.471.0.05-1.05.0.06-1.06.1.12-3.06.1.05-2.86.pth, myrk
+BLEU = 74.09, 87.7/78.1/69.9/63.0 (BP=1.000, ratio=1.028, hyp_len=23812, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.471.0.05-1.05.0.06-1.06.1.12-3.06.1.05-2.86.pth, rkmy
+BLEU = 73.89, 87.5/77.8/69.5/62.9 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.472.0.05-1.05.0.05-1.06.1.14-3.12.1.02-2.77.pth, myrk
+BLEU = 73.34, 87.3/77.5/69.1/61.9 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.472.0.05-1.05.0.05-1.06.1.14-3.12.1.02-2.77.pth, rkmy
+BLEU = 74.17, 87.7/78.2/69.8/63.2 (BP=1.000, ratio=1.035, hyp_len=24324, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.473.0.05-1.05.0.06-1.07.1.14-3.11.1.04-2.84.pth, myrk
+BLEU = 74.12, 87.8/78.1/69.9/63.0 (BP=1.000, ratio=1.030, hyp_len=23859, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.473.0.05-1.05.0.06-1.07.1.14-3.11.1.04-2.84.pth, rkmy
+BLEU = 73.80, 87.3/77.8/69.5/62.8 (BP=1.000, ratio=1.036, hyp_len=24363, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.474.0.05-1.05.0.06-1.07.1.12-3.06.1.04-2.84.pth, myrk
+BLEU = 73.74, 87.5/77.7/69.5/62.6 (BP=1.000, ratio=1.032, hyp_len=23897, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.474.0.05-1.05.0.06-1.07.1.12-3.06.1.04-2.84.pth, rkmy
+BLEU = 74.05, 87.6/78.1/69.8/63.1 (BP=1.000, ratio=1.037, hyp_len=24373, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.475.0.05-1.05.0.05-1.06.1.12-3.05.1.03-2.81.pth, myrk
+BLEU = 73.39, 87.3/77.4/69.1/62.1 (BP=1.000, ratio=1.033, hyp_len=23915, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.475.0.05-1.05.0.05-1.06.1.12-3.05.1.03-2.81.pth, rkmy
+BLEU = 74.71, 88.0/78.5/70.4/64.0 (BP=1.000, ratio=1.035, hyp_len=24331, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.476.0.04-1.05.0.05-1.05.1.13-3.08.1.06-2.89.pth, myrk
+BLEU = 72.90, 87.0/77.0/68.6/61.4 (BP=1.000, ratio=1.035, hyp_len=23973, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.476.0.04-1.05.0.05-1.05.1.13-3.08.1.06-2.89.pth, rkmy
+BLEU = 74.28, 87.7/78.2/70.0/63.4 (BP=1.000, ratio=1.035, hyp_len=24326, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.477.0.05-1.05.0.05-1.05.1.13-3.08.1.03-2.81.pth, myrk
+BLEU = 73.54, 87.3/77.6/69.3/62.3 (BP=1.000, ratio=1.034, hyp_len=23943, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.477.0.05-1.05.0.05-1.05.1.13-3.08.1.03-2.81.pth, rkmy
+BLEU = 73.53, 87.2/77.4/69.2/62.6 (BP=1.000, ratio=1.042, hyp_len=24503, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.478.0.05-1.05.0.05-1.05.1.12-3.08.1.04-2.83.pth, myrk
+BLEU = 73.76, 87.4/77.7/69.6/62.6 (BP=1.000, ratio=1.033, hyp_len=23923, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.478.0.05-1.05.0.05-1.05.1.12-3.08.1.04-2.83.pth, rkmy
+BLEU = 74.29, 87.6/78.3/70.0/63.4 (BP=1.000, ratio=1.037, hyp_len=24379, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.479.0.05-1.05.0.06-1.06.1.14-3.11.1.03-2.80.pth, myrk
+BLEU = 73.46, 87.4/77.5/69.2/62.0 (BP=1.000, ratio=1.034, hyp_len=23947, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.479.0.05-1.05.0.06-1.06.1.14-3.11.1.03-2.80.pth, rkmy
+BLEU = 73.44, 87.2/77.5/69.0/62.3 (BP=1.000, ratio=1.038, hyp_len=24413, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.480.0.05-1.05.0.06-1.07.1.14-3.13.1.04-2.82.pth, myrk
+BLEU = 73.92, 87.7/78.0/69.7/62.6 (BP=1.000, ratio=1.032, hyp_len=23910, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.480.0.05-1.05.0.06-1.07.1.14-3.13.1.04-2.82.pth, rkmy
+BLEU = 74.61, 87.9/78.6/70.3/63.8 (BP=1.000, ratio=1.033, hyp_len=24281, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.48.0.54-1.72.0.52-1.69.0.78-2.17.0.74-2.09.pth, myrk
+BLEU = 69.54, 85.1/74.2/64.9/57.1 (BP=1.000, ratio=1.034, hyp_len=23956, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.48.0.54-1.72.0.52-1.69.0.78-2.17.0.74-2.09.pth, rkmy
+BLEU = 71.71, 86.4/76.3/67.0/59.9 (BP=1.000, ratio=1.027, hyp_len=24153, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.481.0.05-1.05.0.06-1.06.1.13-3.11.1.04-2.84.pth, myrk
+BLEU = 73.42, 87.4/77.5/69.1/62.0 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.481.0.05-1.05.0.06-1.06.1.13-3.11.1.04-2.84.pth, rkmy
+BLEU = 72.30, 86.7/76.6/67.8/60.7 (BP=1.000, ratio=1.044, hyp_len=24551, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.482.0.05-1.05.0.05-1.05.1.14-3.13.1.03-2.81.pth, myrk
+BLEU = 73.53, 87.4/77.5/69.3/62.2 (BP=1.000, ratio=1.035, hyp_len=23974, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.482.0.05-1.05.0.05-1.05.1.14-3.13.1.03-2.81.pth, rkmy
+BLEU = 73.87, 87.6/77.9/69.6/62.8 (BP=1.000, ratio=1.038, hyp_len=24398, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.483.0.05-1.05.0.08-1.08.1.12-3.07.1.04-2.82.pth, myrk
+BLEU = 73.71, 87.4/77.7/69.5/62.5 (BP=1.000, ratio=1.033, hyp_len=23932, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.483.0.05-1.05.0.08-1.08.1.12-3.07.1.04-2.82.pth, rkmy
+BLEU = 74.03, 87.5/78.1/69.8/63.0 (BP=1.000, ratio=1.033, hyp_len=24295, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.484.0.05-1.06.0.08-1.08.1.14-3.12.1.04-2.82.pth, myrk
+BLEU = 73.70, 87.5/77.7/69.5/62.5 (BP=1.000, ratio=1.032, hyp_len=23900, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.484.0.05-1.06.0.08-1.08.1.14-3.12.1.04-2.82.pth, rkmy
+BLEU = 73.70, 87.3/77.7/69.4/62.7 (BP=1.000, ratio=1.037, hyp_len=24379, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.485.0.05-1.06.0.06-1.07.1.13-3.09.1.01-2.76.pth, myrk
+BLEU = 72.79, 87.0/77.0/68.5/61.2 (BP=1.000, ratio=1.034, hyp_len=23952, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.485.0.05-1.06.0.06-1.07.1.13-3.09.1.01-2.76.pth, rkmy
+BLEU = 73.50, 87.2/77.6/69.1/62.4 (BP=1.000, ratio=1.038, hyp_len=24404, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.486.0.06-1.06.0.05-1.05.1.13-3.11.1.05-2.86.pth, myrk
+BLEU = 72.79, 87.1/76.9/68.5/61.2 (BP=1.000, ratio=1.034, hyp_len=23950, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.486.0.06-1.06.0.05-1.05.1.13-3.11.1.05-2.86.pth, rkmy
+BLEU = 74.22, 87.5/78.1/70.0/63.4 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.487.0.06-1.06.0.05-1.05.1.15-3.16.1.02-2.78.pth, myrk
+BLEU = 74.18, 87.7/78.0/70.0/63.1 (BP=1.000, ratio=1.030, hyp_len=23850, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.487.0.06-1.06.0.05-1.05.1.15-3.16.1.02-2.78.pth, rkmy
+BLEU = 73.76, 87.2/77.7/69.5/62.8 (BP=1.000, ratio=1.039, hyp_len=24433, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.488.0.06-1.06.0.05-1.05.1.16-3.19.1.02-2.76.pth, myrk
+BLEU = 73.82, 87.6/77.9/69.6/62.5 (BP=1.000, ratio=1.031, hyp_len=23878, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.488.0.06-1.06.0.05-1.05.1.16-3.19.1.02-2.76.pth, rkmy
+BLEU = 74.31, 87.7/78.3/70.1/63.3 (BP=1.000, ratio=1.035, hyp_len=24332, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.489.0.06-1.06.0.05-1.05.1.17-3.21.1.02-2.78.pth, myrk
+BLEU = 72.74, 86.9/76.8/68.4/61.3 (BP=1.000, ratio=1.038, hyp_len=24051, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.489.0.06-1.06.0.05-1.05.1.17-3.21.1.02-2.78.pth, rkmy
+BLEU = 74.87, 87.9/78.7/70.7/64.2 (BP=1.000, ratio=1.034, hyp_len=24317, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.490.0.05-1.05.0.04-1.04.1.17-3.22.1.03-2.80.pth, myrk
+BLEU = 73.02, 87.2/77.2/68.7/61.5 (BP=1.000, ratio=1.036, hyp_len=23987, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.490.0.05-1.05.0.04-1.04.1.17-3.22.1.03-2.80.pth, rkmy
+BLEU = 74.44, 87.7/78.3/70.2/63.7 (BP=1.000, ratio=1.039, hyp_len=24424, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.49.0.48-1.62.0.50-1.65.0.73-2.08.0.74-2.10.pth, myrk
+BLEU = 73.15, 87.1/77.2/69.0/61.8 (BP=1.000, ratio=1.021, hyp_len=23649, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.49.0.48-1.62.0.50-1.65.0.73-2.08.0.74-2.10.pth, rkmy
+BLEU = 71.40, 86.2/75.9/66.7/59.6 (BP=1.000, ratio=1.029, hyp_len=24188, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.491.0.05-1.05.0.04-1.04.1.17-3.22.1.03-2.80.pth, myrk
+BLEU = 73.41, 87.2/77.5/69.2/62.1 (BP=1.000, ratio=1.035, hyp_len=23965, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.491.0.05-1.05.0.04-1.04.1.17-3.22.1.03-2.80.pth, rkmy
+BLEU = 74.58, 87.8/78.5/70.3/63.8 (BP=1.000, ratio=1.036, hyp_len=24349, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.492.0.05-1.05.0.04-1.05.1.16-3.19.1.03-2.81.pth, myrk
+BLEU = 73.30, 87.4/77.5/69.0/61.7 (BP=1.000, ratio=1.034, hyp_len=23939, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.492.0.05-1.05.0.04-1.05.1.16-3.19.1.03-2.81.pth, rkmy
+BLEU = 74.64, 87.8/78.4/70.4/64.0 (BP=1.000, ratio=1.036, hyp_len=24366, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.493.0.05-1.05.0.04-1.04.1.16-3.18.1.03-2.79.pth, myrk
+BLEU = 73.73, 87.5/77.7/69.5/62.4 (BP=1.000, ratio=1.032, hyp_len=23903, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.493.0.05-1.05.0.04-1.04.1.16-3.18.1.03-2.79.pth, rkmy
+BLEU = 74.17, 87.5/78.1/69.9/63.3 (BP=1.000, ratio=1.039, hyp_len=24432, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.494.0.05-1.05.0.04-1.04.1.16-3.18.1.04-2.83.pth, myrk
+BLEU = 73.57, 87.3/77.6/69.4/62.3 (BP=1.000, ratio=1.033, hyp_len=23934, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.494.0.05-1.05.0.04-1.04.1.16-3.18.1.04-2.83.pth, rkmy
+BLEU = 74.40, 87.6/78.3/70.2/63.6 (BP=1.000, ratio=1.038, hyp_len=24397, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.495.0.05-1.05.0.04-1.04.1.15-3.14.1.04-2.82.pth, myrk
+BLEU = 72.86, 87.1/77.1/68.5/61.2 (BP=1.000, ratio=1.035, hyp_len=23963, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.495.0.05-1.05.0.04-1.04.1.15-3.14.1.04-2.82.pth, rkmy
+BLEU = 74.54, 87.6/78.4/70.4/63.9 (BP=1.000, ratio=1.038, hyp_len=24394, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.496.0.05-1.05.0.04-1.04.1.14-3.12.1.03-2.80.pth, myrk
+BLEU = 73.27, 87.2/77.4/69.0/61.9 (BP=1.000, ratio=1.032, hyp_len=23912, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.496.0.05-1.05.0.04-1.04.1.14-3.12.1.03-2.80.pth, rkmy
+BLEU = 74.19, 87.6/78.2/70.0/63.2 (BP=1.000, ratio=1.037, hyp_len=24385, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.497.0.05-1.05.0.04-1.05.1.15-3.15.1.04-2.84.pth, myrk
+BLEU = 74.11, 87.6/78.0/69.9/63.1 (BP=1.000, ratio=1.031, hyp_len=23881, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.497.0.05-1.05.0.04-1.05.1.15-3.15.1.04-2.84.pth, rkmy
+BLEU = 74.37, 87.6/78.2/70.2/63.7 (BP=1.000, ratio=1.039, hyp_len=24417, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.498.0.04-1.04.0.04-1.04.1.14-3.12.1.04-2.84.pth, myrk
+BLEU = 73.28, 87.3/77.4/69.0/61.9 (BP=1.000, ratio=1.035, hyp_len=23982, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.498.0.04-1.04.0.04-1.04.1.14-3.12.1.04-2.84.pth, rkmy
+BLEU = 74.03, 87.5/78.0/69.7/63.1 (BP=1.000, ratio=1.040, hyp_len=24453, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.499.0.05-1.05.0.05-1.05.1.16-3.18.1.04-2.82.pth, myrk
+BLEU = 73.64, 87.4/77.7/69.4/62.4 (BP=1.000, ratio=1.034, hyp_len=23937, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.499.0.05-1.05.0.05-1.05.1.16-3.18.1.04-2.82.pth, rkmy
+BLEU = 74.94, 88.0/78.8/70.8/64.3 (BP=1.000, ratio=1.033, hyp_len=24283, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.500.0.04-1.04.0.05-1.05.1.18-3.24.1.02-2.76.pth, myrk
+BLEU = 73.20, 87.2/77.3/68.9/61.7 (BP=1.000, ratio=1.036, hyp_len=23992, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.500.0.04-1.04.0.05-1.05.1.18-3.24.1.02-2.76.pth, rkmy
+BLEU = 74.39, 87.7/78.3/70.1/63.6 (BP=1.000, ratio=1.035, hyp_len=24342, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.50.0.45-1.57.0.48-1.62.0.74-2.10.0.73-2.07.pth, myrk
+BLEU = 72.72, 86.7/76.8/68.5/61.3 (BP=1.000, ratio=1.021, hyp_len=23650, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.50.0.45-1.57.0.48-1.62.0.74-2.10.0.73-2.07.pth, rkmy
+BLEU = 72.20, 86.6/76.6/67.6/60.6 (BP=1.000, ratio=1.027, hyp_len=24150, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.51.0.45-1.57.0.48-1.62.0.73-2.07.0.73-2.09.pth, myrk
+BLEU = 72.91, 86.8/77.0/68.7/61.5 (BP=1.000, ratio=1.024, hyp_len=23717, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.51.0.45-1.57.0.48-1.62.0.73-2.07.0.73-2.09.pth, rkmy
+BLEU = 72.30, 86.7/76.7/67.7/60.7 (BP=1.000, ratio=1.025, hyp_len=24092, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.52.0.46-1.58.0.48-1.61.0.72-2.06.0.72-2.06.pth, myrk
+BLEU = 72.28, 86.6/76.5/67.9/60.7 (BP=1.000, ratio=1.029, hyp_len=23822, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.52.0.46-1.58.0.48-1.61.0.72-2.06.0.72-2.06.pth, rkmy
+BLEU = 72.45, 86.8/76.8/67.8/60.9 (BP=1.000, ratio=1.029, hyp_len=24196, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.53.0.42-1.52.0.45-1.56.0.73-2.08.0.73-2.07.pth, myrk
+BLEU = 72.91, 86.9/76.9/68.7/61.6 (BP=1.000, ratio=1.021, hyp_len=23635, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.53.0.42-1.52.0.45-1.56.0.73-2.08.0.73-2.07.pth, rkmy
+BLEU = 71.65, 86.4/76.1/66.9/59.9 (BP=1.000, ratio=1.031, hyp_len=24249, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.54.0.43-1.54.0.44-1.55.0.73-2.08.0.72-2.05.pth, myrk
+BLEU = 73.02, 87.0/77.0/68.8/61.7 (BP=1.000, ratio=1.022, hyp_len=23676, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.54.0.43-1.54.0.44-1.55.0.73-2.08.0.72-2.05.pth, rkmy
+BLEU = 73.05, 87.1/77.3/68.5/61.7 (BP=1.000, ratio=1.023, hyp_len=24048, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.55.0.39-1.48.0.42-1.53.0.72-2.05.0.73-2.07.pth, myrk
+BLEU = 73.73, 87.3/77.7/69.6/62.6 (BP=1.000, ratio=1.023, hyp_len=23683, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.55.0.39-1.48.0.42-1.53.0.72-2.05.0.73-2.07.pth, rkmy
+BLEU = 72.50, 86.7/76.8/68.0/61.0 (BP=1.000, ratio=1.025, hyp_len=24105, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.56.0.42-1.52.0.53-1.70.0.70-2.02.0.82-2.28.pth, myrk
+BLEU = 73.35, 86.9/77.2/69.2/62.3 (BP=1.000, ratio=1.024, hyp_len=23706, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.56.0.42-1.52.0.53-1.70.0.70-2.02.0.82-2.28.pth, rkmy
+BLEU = 67.33, 84.2/72.5/62.2/54.2 (BP=1.000, ratio=1.034, hyp_len=24316, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.57.0.49-1.63.0.79-2.20.0.72-2.05.0.83-2.30.pth, myrk
+BLEU = 72.31, 86.5/76.4/68.0/60.8 (BP=1.000, ratio=1.026, hyp_len=23769, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.57.0.49-1.63.0.79-2.20.0.72-2.05.0.83-2.30.pth, rkmy
+BLEU = 65.77, 83.0/71.3/60.6/52.2 (BP=1.000, ratio=1.043, hyp_len=24529, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.58.0.48-1.61.0.57-1.78.0.74-2.09.0.75-2.11.pth, myrk
+BLEU = 71.19, 85.9/75.6/66.7/59.3 (BP=1.000, ratio=1.024, hyp_len=23727, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.58.0.48-1.61.0.57-1.78.0.74-2.09.0.75-2.11.pth, rkmy
+BLEU = 69.28, 85.1/74.4/64.4/56.5 (BP=1.000, ratio=1.042, hyp_len=24485, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.59.0.42-1.53.0.48-1.62.0.70-2.01.0.71-2.03.pth, myrk
+BLEU = 72.82, 86.7/76.8/68.6/61.6 (BP=1.000, ratio=1.024, hyp_len=23718, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.59.0.42-1.53.0.48-1.62.0.70-2.01.0.71-2.03.pth, rkmy
+BLEU = 71.56, 86.1/76.1/66.9/59.8 (BP=1.000, ratio=1.034, hyp_len=24315, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.60.0.39-1.48.0.44-1.56.0.70-2.02.0.68-1.98.pth, myrk
+BLEU = 73.32, 86.9/77.2/69.1/62.4 (BP=1.000, ratio=1.026, hyp_len=23770, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.60.0.39-1.48.0.44-1.56.0.70-2.02.0.68-1.98.pth, rkmy
+BLEU = 73.17, 87.0/77.4/68.7/61.9 (BP=1.000, ratio=1.030, hyp_len=24215, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.61.0.37-1.45.0.42-1.53.0.69-1.99.0.68-1.97.pth, myrk
+BLEU = 73.86, 87.2/77.7/69.8/63.0 (BP=1.000, ratio=1.024, hyp_len=23705, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.61.0.37-1.45.0.42-1.53.0.69-1.99.0.68-1.97.pth, rkmy
+BLEU = 72.62, 86.8/77.0/68.1/61.1 (BP=1.000, ratio=1.032, hyp_len=24256, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.62.0.38-1.47.0.43-1.54.0.69-2.00.0.67-1.96.pth, myrk
+BLEU = 73.92, 87.2/77.6/69.9/63.1 (BP=1.000, ratio=1.025, hyp_len=23743, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.62.0.38-1.47.0.43-1.54.0.69-2.00.0.67-1.96.pth, rkmy
+BLEU = 72.66, 86.9/77.0/68.1/61.2 (BP=1.000, ratio=1.033, hyp_len=24295, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.63.0.35-1.43.0.39-1.47.0.70-2.02.0.67-1.95.pth, myrk
+BLEU = 74.01, 87.4/77.8/69.9/63.2 (BP=1.000, ratio=1.024, hyp_len=23711, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.63.0.35-1.43.0.39-1.47.0.70-2.02.0.67-1.95.pth, rkmy
+BLEU = 73.34, 87.1/77.5/68.9/62.2 (BP=1.000, ratio=1.031, hyp_len=24229, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.64.0.37-1.44.0.41-1.51.0.69-1.99.0.69-1.99.pth, myrk
+BLEU = 73.77, 87.0/77.5/69.7/63.0 (BP=1.000, ratio=1.028, hyp_len=23798, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.64.0.37-1.44.0.41-1.51.0.69-1.99.0.69-1.99.pth, rkmy
+BLEU = 72.34, 86.4/76.6/67.8/61.0 (BP=1.000, ratio=1.038, hyp_len=24412, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.65.0.35-1.42.0.39-1.48.0.69-1.98.0.69-2.00.pth, myrk
+BLEU = 73.36, 86.8/77.2/69.2/62.5 (BP=1.000, ratio=1.031, hyp_len=23882, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.65.0.35-1.42.0.39-1.48.0.69-1.98.0.69-2.00.pth, rkmy
+BLEU = 73.58, 87.2/77.7/69.1/62.5 (BP=1.000, ratio=1.032, hyp_len=24260, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.66.0.35-1.42.0.39-1.48.0.69-2.00.0.67-1.95.pth, myrk
+BLEU = 73.85, 87.2/77.7/69.7/62.9 (BP=1.000, ratio=1.026, hyp_len=23768, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.66.0.35-1.42.0.39-1.48.0.69-2.00.0.67-1.95.pth, rkmy
+BLEU = 72.59, 86.6/76.8/68.1/61.3 (BP=1.000, ratio=1.039, hyp_len=24432, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.67.0.33-1.39.0.38-1.46.0.68-1.97.0.68-1.97.pth, myrk
+BLEU = 73.71, 87.1/77.5/69.6/62.9 (BP=1.000, ratio=1.030, hyp_len=23850, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.67.0.33-1.39.0.38-1.46.0.68-1.97.0.68-1.97.pth, rkmy
+BLEU = 73.15, 86.9/77.4/68.7/61.9 (BP=1.000, ratio=1.037, hyp_len=24375, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.68.0.33-1.39.0.37-1.44.0.67-1.95.0.68-1.98.pth, myrk
+BLEU = 74.45, 87.7/78.2/70.4/63.7 (BP=1.000, ratio=1.026, hyp_len=23759, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.68.0.33-1.39.0.37-1.44.0.67-1.95.0.68-1.98.pth, rkmy
+BLEU = 73.17, 87.0/77.4/68.7/61.9 (BP=1.000, ratio=1.038, hyp_len=24403, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.69.0.34-1.41.0.37-1.45.0.69-2.00.0.68-1.97.pth, myrk
+BLEU = 74.28, 87.4/78.1/70.2/63.5 (BP=1.000, ratio=1.027, hyp_len=23779, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.69.0.34-1.41.0.37-1.45.0.69-2.00.0.68-1.97.pth, rkmy
+BLEU = 73.55, 87.2/77.7/69.2/62.4 (BP=1.000, ratio=1.033, hyp_len=24295, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.70.0.32-1.38.0.36-1.44.0.69-1.99.0.69-1.99.pth, myrk
+BLEU = 73.70, 87.0/77.4/69.6/62.9 (BP=1.000, ratio=1.033, hyp_len=23928, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.70.0.32-1.38.0.36-1.44.0.69-1.99.0.69-1.99.pth, rkmy
+BLEU = 74.52, 87.6/78.5/70.3/63.8 (BP=1.000, ratio=1.025, hyp_len=24102, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.71.0.33-1.39.0.39-1.48.0.67-1.96.0.68-1.98.pth, myrk
+BLEU = 74.05, 87.1/77.7/70.0/63.4 (BP=1.000, ratio=1.029, hyp_len=23836, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.71.0.33-1.39.0.39-1.48.0.67-1.96.0.68-1.98.pth, rkmy
+BLEU = 73.21, 86.9/77.4/68.8/62.0 (BP=1.000, ratio=1.037, hyp_len=24368, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.72.0.32-1.38.0.37-1.44.0.68-1.97.0.68-1.98.pth, myrk
+BLEU = 73.42, 86.7/77.2/69.3/62.7 (BP=1.000, ratio=1.035, hyp_len=23971, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.72.0.32-1.38.0.37-1.44.0.68-1.97.0.68-1.98.pth, rkmy
+BLEU = 73.40, 87.0/77.5/69.0/62.3 (BP=1.000, ratio=1.033, hyp_len=24291, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.73.0.32-1.38.0.36-1.43.0.69-1.99.0.68-1.97.pth, myrk
+BLEU = 74.24, 87.4/78.0/70.2/63.5 (BP=1.000, ratio=1.025, hyp_len=23735, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.73.0.32-1.38.0.36-1.43.0.69-1.99.0.68-1.97.pth, rkmy
+BLEU = 74.77, 87.7/78.6/70.6/64.2 (BP=1.000, ratio=1.026, hyp_len=24129, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.74.0.32-1.38.0.35-1.42.0.69-2.00.0.67-1.95.pth, myrk
+BLEU = 73.65, 86.9/77.5/69.6/62.8 (BP=1.000, ratio=1.031, hyp_len=23867, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.74.0.32-1.38.0.35-1.42.0.69-2.00.0.67-1.95.pth, rkmy
+BLEU = 73.04, 86.8/77.2/68.6/61.9 (BP=1.000, ratio=1.041, hyp_len=24463, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.75.0.32-1.38.0.34-1.40.0.69-2.00.0.68-1.97.pth, myrk
+BLEU = 73.60, 86.9/77.4/69.5/62.7 (BP=1.000, ratio=1.029, hyp_len=23824, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.75.0.32-1.38.0.34-1.40.0.69-2.00.0.68-1.97.pth, rkmy
+BLEU = 74.36, 87.4/78.3/70.1/63.7 (BP=1.000, ratio=1.035, hyp_len=24322, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.76.0.32-1.38.0.32-1.38.0.70-2.01.0.67-1.96.pth, myrk
+BLEU = 73.79, 87.2/77.6/69.7/62.8 (BP=1.000, ratio=1.026, hyp_len=23762, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.76.0.32-1.38.0.32-1.38.0.70-2.01.0.67-1.96.pth, rkmy
+BLEU = 74.24, 87.5/78.3/69.9/63.4 (BP=1.000, ratio=1.033, hyp_len=24296, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.77.0.46-1.59.0.34-1.41.0.74-2.09.0.67-1.96.pth, myrk
+BLEU = 72.10, 86.5/76.3/67.7/60.5 (BP=1.000, ratio=1.028, hyp_len=23816, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.77.0.46-1.59.0.34-1.41.0.74-2.09.0.67-1.96.pth, rkmy
+BLEU = 73.59, 87.2/77.7/69.2/62.6 (BP=1.000, ratio=1.036, hyp_len=24346, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.78.0.38-1.46.0.33-1.39.0.69-1.99.0.66-1.94.pth, myrk
+BLEU = 73.58, 87.2/77.5/69.4/62.5 (BP=1.000, ratio=1.027, hyp_len=23791, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.78.0.38-1.46.0.33-1.39.0.69-1.99.0.66-1.94.pth, rkmy
+BLEU = 74.73, 87.7/78.7/70.5/64.1 (BP=1.000, ratio=1.031, hyp_len=24249, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.79.0.32-1.38.0.33-1.39.0.67-1.96.0.67-1.96.pth, myrk
+BLEU = 74.06, 87.2/77.9/70.0/63.3 (BP=1.000, ratio=1.031, hyp_len=23874, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.79.0.32-1.38.0.33-1.39.0.67-1.96.0.67-1.96.pth, rkmy
+BLEU = 74.18, 87.5/78.3/69.9/63.3 (BP=1.000, ratio=1.031, hyp_len=24240, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.80.0.31-1.37.0.37-1.44.0.66-1.93.0.70-2.01.pth, myrk
+BLEU = 74.28, 87.3/78.0/70.3/63.6 (BP=1.000, ratio=1.027, hyp_len=23783, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.80.0.31-1.37.0.37-1.44.0.66-1.93.0.70-2.01.pth, rkmy
+BLEU = 71.78, 86.2/76.3/67.2/60.1 (BP=1.000, ratio=1.047, hyp_len=24609, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.81.0.32-1.38.0.39-1.48.0.66-1.94.0.72-2.05.pth, myrk
+BLEU = 73.65, 86.9/77.4/69.6/62.8 (BP=1.000, ratio=1.034, hyp_len=23949, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.81.0.32-1.38.0.39-1.48.0.66-1.94.0.72-2.05.pth, rkmy
+BLEU = 70.17, 85.3/75.0/65.4/58.0 (BP=1.000, ratio=1.047, hyp_len=24606, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.82.0.35-1.42.0.53-1.71.0.69-1.99.0.85-2.35.pth, myrk
+BLEU = 72.75, 86.7/76.8/68.5/61.3 (BP=1.000, ratio=1.029, hyp_len=23831, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.82.0.35-1.42.0.53-1.71.0.69-1.99.0.85-2.35.pth, rkmy
+BLEU = 64.27, 82.4/69.9/59.0/50.2 (BP=1.000, ratio=1.024, hyp_len=24072, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.83.0.37-1.45.0.56-1.74.0.70-2.01.0.82-2.28.pth, myrk
+BLEU = 72.37, 86.4/76.5/68.1/60.9 (BP=1.000, ratio=1.031, hyp_len=23868, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.83.0.37-1.45.0.56-1.74.0.70-2.01.0.82-2.28.pth, rkmy
+BLEU = 67.39, 83.3/72.3/62.6/54.7 (BP=1.000, ratio=1.040, hyp_len=24443, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.84.0.34-1.41.0.42-1.53.0.68-1.98.0.67-1.96.pth, myrk
+BLEU = 73.88, 87.1/77.7/69.8/63.0 (BP=1.000, ratio=1.027, hyp_len=23791, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.84.0.34-1.41.0.42-1.53.0.68-1.98.0.67-1.96.pth, rkmy
+BLEU = 72.95, 86.8/77.4/68.6/61.5 (BP=1.000, ratio=1.038, hyp_len=24398, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.85.0.29-1.34.0.35-1.42.0.66-1.94.0.64-1.90.pth, myrk
+BLEU = 73.58, 86.8/77.4/69.5/62.8 (BP=1.000, ratio=1.032, hyp_len=23898, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.85.0.29-1.34.0.35-1.42.0.66-1.94.0.64-1.90.pth, rkmy
+BLEU = 73.99, 87.3/78.0/69.7/63.1 (BP=1.000, ratio=1.033, hyp_len=24284, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.86.0.28-1.32.0.34-1.40.0.67-1.96.0.64-1.90.pth, myrk
+BLEU = 73.49, 86.8/77.3/69.4/62.6 (BP=1.000, ratio=1.035, hyp_len=23976, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.86.0.28-1.32.0.34-1.40.0.67-1.96.0.64-1.90.pth, rkmy
+BLEU = 73.08, 86.8/77.2/68.6/62.0 (BP=1.000, ratio=1.040, hyp_len=24446, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.87.0.28-1.32.0.33-1.39.0.66-1.94.0.65-1.92.pth, myrk
+BLEU = 74.45, 87.3/78.1/70.5/63.9 (BP=1.000, ratio=1.029, hyp_len=23831, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.87.0.28-1.32.0.33-1.39.0.66-1.94.0.65-1.92.pth, rkmy
+BLEU = 73.87, 87.3/78.0/69.5/63.0 (BP=1.000, ratio=1.037, hyp_len=24377, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.88.0.28-1.33.0.33-1.39.0.66-1.94.0.67-1.95.pth, myrk
+BLEU = 73.82, 87.0/77.7/69.7/63.0 (BP=1.000, ratio=1.031, hyp_len=23883, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.88.0.28-1.33.0.33-1.39.0.66-1.94.0.67-1.95.pth, rkmy
+BLEU = 73.90, 87.3/78.0/69.6/62.9 (BP=1.000, ratio=1.037, hyp_len=24388, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.89.0.27-1.31.0.31-1.37.0.65-1.92.0.67-1.95.pth, myrk
+BLEU = 74.84, 87.7/78.5/70.9/64.2 (BP=1.000, ratio=1.030, hyp_len=23847, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.89.0.27-1.31.0.31-1.37.0.65-1.92.0.67-1.95.pth, rkmy
+BLEU = 74.61, 87.6/78.5/70.4/64.0 (BP=1.000, ratio=1.034, hyp_len=24317, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.90.0.26-1.30.0.31-1.36.0.66-1.94.0.66-1.93.pth, myrk
+BLEU = 74.77, 87.6/78.5/70.8/64.2 (BP=1.000, ratio=1.024, hyp_len=23722, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.90.0.26-1.30.0.31-1.36.0.66-1.94.0.66-1.93.pth, rkmy
+BLEU = 73.59, 87.1/77.7/69.2/62.6 (BP=1.000, ratio=1.039, hyp_len=24433, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.91.0.27-1.31.0.31-1.37.0.66-1.94.0.65-1.92.pth, myrk
+BLEU = 74.07, 87.2/77.8/70.0/63.4 (BP=1.000, ratio=1.031, hyp_len=23867, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.91.0.27-1.31.0.31-1.37.0.66-1.94.0.65-1.92.pth, rkmy
+BLEU = 74.62, 87.7/78.6/70.3/63.9 (BP=1.000, ratio=1.034, hyp_len=24313, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.92.0.26-1.30.0.29-1.34.0.69-1.99.0.66-1.93.pth, myrk
+BLEU = 74.26, 87.3/78.0/70.2/63.6 (BP=1.000, ratio=1.028, hyp_len=23818, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.92.0.26-1.30.0.29-1.34.0.69-1.99.0.66-1.93.pth, rkmy
+BLEU = 73.83, 87.1/77.8/69.5/63.0 (BP=1.000, ratio=1.040, hyp_len=24454, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.93.0.26-1.30.0.29-1.34.0.68-1.98.0.66-1.93.pth, myrk
+BLEU = 74.69, 87.7/78.4/70.7/64.0 (BP=1.000, ratio=1.024, hyp_len=23727, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.93.0.26-1.30.0.29-1.34.0.68-1.98.0.66-1.93.pth, rkmy
+BLEU = 73.86, 87.1/77.9/69.6/63.0 (BP=1.000, ratio=1.040, hyp_len=24452, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.94.0.25-1.28.0.28-1.32.0.69-1.99.0.66-1.93.pth, myrk
+BLEU = 73.66, 86.9/77.5/69.6/62.8 (BP=1.000, ratio=1.033, hyp_len=23917, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.94.0.25-1.28.0.28-1.32.0.69-1.99.0.66-1.93.pth, rkmy
+BLEU = 73.97, 87.2/78.0/69.7/63.2 (BP=1.000, ratio=1.040, hyp_len=24442, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.95.0.26-1.29.0.29-1.34.0.69-1.99.0.65-1.91.pth, myrk
+BLEU = 74.96, 88.1/78.7/71.0/64.2 (BP=1.000, ratio=1.024, hyp_len=23716, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.95.0.26-1.29.0.29-1.34.0.69-1.99.0.65-1.91.pth, rkmy
+BLEU = 73.48, 86.9/77.6/69.1/62.5 (BP=1.000, ratio=1.040, hyp_len=24453, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.96.0.25-1.29.0.28-1.33.0.70-2.01.0.65-1.91.pth, myrk
+BLEU = 73.64, 87.1/77.5/69.5/62.7 (BP=1.000, ratio=1.032, hyp_len=23897, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.96.0.25-1.29.0.28-1.33.0.70-2.01.0.65-1.91.pth, rkmy
+BLEU = 74.70, 87.6/78.6/70.5/64.2 (BP=1.000, ratio=1.035, hyp_len=24333, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.97.0.25-1.28.0.28-1.32.0.69-1.98.0.67-1.96.pth, myrk
+BLEU = 74.11, 87.2/77.9/70.1/63.4 (BP=1.000, ratio=1.031, hyp_len=23889, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.97.0.25-1.28.0.28-1.32.0.69-1.98.0.67-1.96.pth, rkmy
+BLEU = 73.73, 87.0/77.7/69.4/62.9 (BP=1.000, ratio=1.041, hyp_len=24474, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.98.0.26-1.29.0.29-1.33.0.69-2.00.0.67-1.95.pth, myrk
+BLEU = 74.37, 87.4/78.2/70.3/63.6 (BP=1.000, ratio=1.029, hyp_len=23836, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.98.0.26-1.29.0.29-1.33.0.69-2.00.0.67-1.95.pth, rkmy
+BLEU = 74.02, 87.3/78.1/69.7/63.2 (BP=1.000, ratio=1.037, hyp_len=24383, ref_len=23509)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.99.0.26-1.29.0.28-1.33.0.68-1.98.0.66-1.94.pth, myrk
+BLEU = 73.50, 87.0/77.4/69.3/62.5 (BP=1.000, ratio=1.031, hyp_len=23888, ref_len=23160)
+Evaluation result for the model: seq2seq-dsl-500epoch-model-myrk.99.0.26-1.29.0.28-1.33.0.68-1.98.0.66-1.94.pth, rkmy
+BLEU = 73.95, 87.1/77.9/69.7/63.2 (BP=1.000, ratio=1.040, hyp_len=24448, ref_len=23509)
+==========
 
+real	306m25.761s
+user	299m52.735s
+sys	17m43.384s
+(simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
 my-rk အတွက် Seq2Seq-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
