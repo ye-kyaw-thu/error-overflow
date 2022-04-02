@@ -7648,7 +7648,7 @@ sys	20m56.803s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-my-rk အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။  
-rk-my အတွက် Transformer-DSL Best model က epoch model ဖြစ်ပြီးတော့ Best Score က  BLEU ပါ။   
+my-rk အတွက် Transformer-DSL Best model က 406 epoch model ဖြစ်ပြီးတော့ Best Score က 72.09 BLEU ပါ။  
+rk-my အတွက် Transformer-DSL Best model က 475 epoch model ဖြစ်ပြီးတော့ Best Score က 73.83 BLEU ပါ။   
 
 
