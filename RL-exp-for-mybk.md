@@ -347,8 +347,55 @@ sys	1m35.128s
 ## Testing/Evaluation for Seq2Seq Baseline
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 3 April 2022
+# A part of Seq2Seq-Reinforcement Learning exp
+# this script is for testing/evaluation of baseline seq2seq for both Myanmar-Beik and Beik-Myanmar
+
+# testing/evaluation baseline for my-bk
+
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/baseline/seq2seq/mybk-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybk < /home/ye/exp/simple-nmt/data/my-bk/syl/test.my > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybk-seq2seq-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-mybk-seq2seq-baseline-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
+
+# testing/evaluation baseline for bk-my
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/baseline/seq2seq/bkmy-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-bkmy-seq2seq-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.my | tee  -a eval-results-bkmy-seq2seq-baseline-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
 
 ```
+
+testing/evaluation ....   
 
 ```
 (simple-nmt) ye@:~/exp/simple-nmt$ time ./test-eval-rl2-seq2seq-baseline-mybk-bkmy.sh | tee test-eval-rl2-seq2seq-baseline-mybk-bkmy.log
