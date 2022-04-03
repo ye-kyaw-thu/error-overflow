@@ -9,36 +9,60 @@
 
 ## Folder Preparation
 
-training မလုပ်ခင်မှာ အရင်ဆုံး အောက်ပါ folder-structure အတိုင်း ဖိုလ်ဒါတွေကိုဆောက်ထားလိုက်ပါတယ်။  
+training မလုပ်ခင်မှာ အရင်ဆုံး အောက်ပါ folder-structure အတိုင်း ဖိုလ်ဒါတွေကိုဆောက်ထားလိုက်ပါတယ်။ ရှေ့က run ခဲ့တဲ့ မြန်မာ-ရခိုင်အတွဲရဲ့ folder-structure နဲ့တော့ အတိအကျမတူပါဘူး။ ဒီနေရာမှာ baseline/ က baseline model တွေကိုသိမ်းဖို့ ဖြစ်ပြီး၊ rl/ အောက်မှာကက reinforcement learning model တွေကို သိမ်းဖို့အတွက် ဖြစ်ပါတယ်။  
 
 ```
 (base) ye@:~/exp/simple-nmt/model/rl2$ tree
 .
-├── seq2seq
-│   ├── bkmy-30epoch
-│   ├── bkmy-40epoch
-│   ├── bkmy-50epoch
-│   ├── bkmy-60epoch
-│   ├── bkmy-70epoch
-│   ├── mybk-30epoch
-│   ├── mybk-40epoch
-│   ├── mybk-50epoch
-│   ├── mybk-60epoch
-│   └── mybk-70epoch
-└── transformer
-    ├── bkmy-30epoch
-    ├── bkmy-40epoch
-    ├── bkmy-50epoch
-    ├── bkmy-60epoch
-    ├── bkmy-70epoch
-    ├── mybk-30epoch
-    ├── mybk-40epoch
-    ├── mybk-50epoch
-    ├── mybk-60epoch
-    └── mybk-70epoch
+├── baseline
+│   ├── seq2seq
+│   │   ├── bkmy-30epoch
+│   │   ├── bkmy-40epoch
+│   │   ├── bkmy-50epoch
+│   │   ├── bkmy-60epoch
+│   │   ├── bkmy-70epoch
+│   │   ├── mybk-30epoch
+│   │   ├── mybk-40epoch
+│   │   ├── mybk-50epoch
+│   │   ├── mybk-60epoch
+│   │   └── mybk-70epoch
+│   └── transformer
+│       ├── bkmy-30epoch
+│       ├── bkmy-40epoch
+│       ├── bkmy-50epoch
+│       ├── bkmy-60epoch
+│       ├── bkmy-70epoch
+│       ├── mybk-30epoch
+│       ├── mybk-40epoch
+│       ├── mybk-50epoch
+│       ├── mybk-60epoch
+│       └── mybk-70epoch
+└── rl
+    ├── seq2seq
+    │   ├── bkmy-30epoch
+    │   ├── bkmy-40epoch
+    │   ├── bkmy-50epoch
+    │   ├── bkmy-60epoch
+    │   ├── bkmy-70epoch
+    │   ├── mybk-30epoch
+    │   ├── mybk-40epoch
+    │   ├── mybk-50epoch
+    │   ├── mybk-60epoch
+    │   └── mybk-70epoch
+    └── transformer
+        ├── bkmy-30epoch
+        ├── bkmy-40epoch
+        ├── bkmy-50epoch
+        ├── bkmy-60epoch
+        ├── bkmy-70epoch
+        ├── mybk-30epoch
+        ├── mybk-40epoch
+        ├── mybk-50epoch
+        ├── mybk-60epoch
+        └── mybk-70epoch
 
-22 directories, 0 files
-(base) ye@:~/exp/simple-nmt/model/rl2$
+46 directories, 0 files
+
 ```
 
 ## for Seq2Seq
@@ -51,6 +75,8 @@ training မလုပ်ခင်မှာ အရင်ဆုံး အောက
 ```
 
 ## Seq2Seq-RL
+
+နောက်ဆက်တွဲ continuous-training တွေရဲ့ model တွေကိုလည်း ရှေ့မှာ training လုပ်ခဲ့တဲ့ ဖိုလ်ဒါထဲမှာပဲအတူတူ သိမ်းခဲ့တယ်။ အဲဒါကြောင့် 30-epoch ရဲ့ RL model တွေက 30-epoch/ အောက်မှာပဲ ဆက်ရှိမယ်။   
 
 
 ## for Transformer
