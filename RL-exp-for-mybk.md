@@ -71,7 +71,42 @@ training မလုပ်ခင်မှာ အရင်ဆုံး အောက
 အရင်ဆုံး 30 epoch ကနေ 70 epoch အထိ seq2seq training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...  
 
 ```bash
+#!/bin/bash
 
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 3 April 2022
+# Seq2Seq-Reinforcement Learning exp for Myanmar-Beik, Beik-Myanmar
+
+# training baseline for my-bk
+
+for i in {30,40,50,60,70}
+do
+      echo "mybk, seq2seq-baseline training start for ${i} epochs...";
+   time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+   --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+   --lang mybk \
+   --gpu_id 0 --batch_size 64 --n_epochs ${i} \
+   --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 \
+   --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+   --use_adam --rl_n_epochs 0 \
+   --model_fn ./model/rl2/baseline/seq2seq/mybk-${i}epoch/seq-model-mybk.pth  | tee ./model/rl2/baseline/seq2seq/mybk-${i}epoch/mybk-training.log;
+done
+
+echo "####################";
+
+# training baseline for bk-my
+for i in {30,40,50,60,70}
+do
+      echo "bkmy, seq2seq-baseline training start for ${i} epochs...";
+   time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+   --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+   --lang bkmy \
+   --gpu_id 1 --batch_size 64 --n_epochs ${i} \
+   --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 \
+   --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+   --use_adam --rl_n_epochs 0 \
+   --model_fn ./model/rl2/baseline/seq2seq/bkmy-${i}epoch/seq-model-bkmy.pth | tee ./model/rl2/baseline/seq2seq/bkmy-${i}epoch/bkmy-training.log;
+done
 ```
 
 ## Seq2Seq-RL
