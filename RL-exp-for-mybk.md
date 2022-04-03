@@ -65,7 +65,7 @@ training မလုပ်ခင်မှာ အရင်ဆုံး အောက
 
 ```
 
-## for Seq2Seq
+## for Seq2Seq Baseline
 ### Bash Script Writing
 
 အရင်ဆုံး 30 epoch ကနေ 70 epoch အထိ seq2seq training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...  
@@ -79,7 +79,7 @@ training မလုပ်ခင်မှာ အရင်ဆုံး အောက
 နောက်ဆက်တွဲ continuous-training တွေရဲ့ model တွေကိုလည်း ရှေ့မှာ training လုပ်ခဲ့တဲ့ ဖိုလ်ဒါထဲမှာပဲအတူတူ သိမ်းခဲ့တယ်။ အဲဒါကြောင့် 30-epoch ရဲ့ RL model တွေက 30-epoch/ အောက်မှာပဲ ဆက်ရှိမယ်။   
 
 
-## for Transformer
+## for Transformer Baseline
 ### Bash Script Writing
 
 30 epoch ကနေ 70 epoch အထိ transformer training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...   
