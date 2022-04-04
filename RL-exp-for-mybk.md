@@ -1940,7 +1940,1098 @@ done
 testing/evaluation ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./test-eval-rl2-seq2seq-RL-mybk-bkmy.sh | tee ./test-eval-rl2-seq2seq-RL-mybk-bkmy.log
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/mybk-30epoch
+Evaluation result for the model: seq-rl-model-mybk.100.1.24-3.45.2.10-8.14.pth
+BLEU = 22.21, 48.7/27.3/16.8/10.9 (BP=1.000, ratio=1.084, hyp_len=12388, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.31.2.70-14.92.2.37-10.68.pth
+BLEU = 10.56, 36.0/14.7/6.9/3.4 (BP=1.000, ratio=1.088, hyp_len=12437, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.32.2.67-14.41.2.32-10.21.pth
+BLEU = 10.69, 35.5/14.8/7.1/3.5 (BP=1.000, ratio=1.090, hyp_len=12465, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.33.2.57-13.07.2.31-10.06.pth
+BLEU = 10.61, 35.3/14.7/7.1/3.4 (BP=1.000, ratio=1.136, hyp_len=12989, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.34.2.62-13.75.2.29-9.86.pth
+BLEU = 11.36, 36.3/15.4/7.6/3.9 (BP=1.000, ratio=1.108, hyp_len=12669, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.35.2.49-12.12.2.25-9.50.pth
+BLEU = 12.58, 38.6/16.8/8.5/4.5 (BP=1.000, ratio=1.068, hyp_len=12207, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.36.2.45-11.63.2.24-9.36.pth
+BLEU = 12.60, 38.3/16.9/8.6/4.6 (BP=1.000, ratio=1.060, hyp_len=12121, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.37.2.40-11.05.2.22-9.18.pth
+BLEU = 12.88, 38.1/17.2/8.9/4.7 (BP=1.000, ratio=1.111, hyp_len=12697, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.38.2.50-12.22.2.22-9.17.pth
+BLEU = 13.74, 40.5/18.4/9.5/5.1 (BP=1.000, ratio=1.045, hyp_len=11950, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.39.2.37-10.68.2.18-8.89.pth
+BLEU = 13.87, 39.6/18.1/9.6/5.4 (BP=1.000, ratio=1.110, hyp_len=12691, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.40.2.35-10.51.2.16-8.68.pth
+BLEU = 14.61, 40.9/19.1/10.1/5.7 (BP=1.000, ratio=1.095, hyp_len=12513, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.41.2.31-10.03.2.15-8.58.pth
+BLEU = 13.92, 40.1/18.6/9.7/5.2 (BP=1.000, ratio=1.082, hyp_len=12374, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.42.2.26-9.63.2.15-8.56.pth
+BLEU = 14.37, 39.9/18.5/10.0/5.8 (BP=1.000, ratio=1.081, hyp_len=12355, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.43.2.16-8.69.2.14-8.50.pth
+BLEU = 15.49, 41.7/20.0/11.0/6.3 (BP=1.000, ratio=1.075, hyp_len=12293, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.44.2.15-8.61.2.11-8.29.pth
+BLEU = 15.78, 42.7/20.5/11.2/6.3 (BP=1.000, ratio=1.054, hyp_len=12048, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.45.2.09-8.07.2.11-8.21.pth
+BLEU = 15.54, 41.2/20.2/11.1/6.3 (BP=1.000, ratio=1.092, hyp_len=12487, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.46.2.11-8.21.2.10-8.21.pth
+BLEU = 16.71, 44.1/21.7/11.9/6.9 (BP=1.000, ratio=1.032, hyp_len=11799, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.47.2.14-8.53.2.09-8.12.pth
+BLEU = 16.16, 42.2/20.8/11.6/6.7 (BP=1.000, ratio=1.081, hyp_len=12353, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.48.2.02-7.50.2.06-7.85.pth
+BLEU = 17.69, 44.2/22.6/12.8/7.6 (BP=1.000, ratio=1.065, hyp_len=12171, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.49.2.15-8.59.2.07-7.91.pth
+BLEU = 17.64, 44.6/22.7/12.8/7.5 (BP=1.000, ratio=1.081, hyp_len=12355, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.50.1.98-7.27.2.08-7.99.pth
+BLEU = 17.76, 45.1/22.8/12.8/7.6 (BP=1.000, ratio=1.062, hyp_len=12143, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.51.2.06-7.82.2.06-7.81.pth
+BLEU = 16.94, 43.0/21.6/12.2/7.3 (BP=1.000, ratio=1.116, hyp_len=12760, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.52.1.94-6.97.2.05-7.79.pth
+BLEU = 17.75, 43.9/22.5/12.9/7.8 (BP=1.000, ratio=1.075, hyp_len=12291, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.53.1.98-7.21.2.03-7.59.pth
+BLEU = 19.13, 46.0/24.0/14.1/8.6 (BP=1.000, ratio=1.051, hyp_len=12010, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.54.1.98-7.24.2.04-7.65.pth
+BLEU = 18.00, 45.0/23.0/13.1/7.8 (BP=1.000, ratio=1.072, hyp_len=12251, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.55.1.91-6.78.2.01-7.44.pth
+BLEU = 19.39, 47.4/24.7/14.1/8.5 (BP=1.000, ratio=1.034, hyp_len=11817, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.56.1.86-6.39.2.05-7.74.pth
+BLEU = 19.01, 46.2/24.1/14.0/8.4 (BP=1.000, ratio=1.070, hyp_len=12228, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.57.1.84-6.28.2.04-7.66.pth
+BLEU = 19.21, 46.6/24.1/14.0/8.7 (BP=1.000, ratio=1.046, hyp_len=11961, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.58.1.82-6.16.2.03-7.63.pth
+BLEU = 18.73, 45.1/23.6/13.9/8.3 (BP=1.000, ratio=1.090, hyp_len=12463, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.59.1.84-6.30.2.06-7.84.pth
+BLEU = 19.59, 46.3/24.4/14.4/9.0 (BP=1.000, ratio=1.085, hyp_len=12409, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.60.1.80-6.04.2.02-7.53.pth
+BLEU = 19.98, 46.6/25.0/14.9/9.2 (BP=1.000, ratio=1.099, hyp_len=12567, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.61.1.80-6.07.2.03-7.62.pth
+BLEU = 20.45, 47.9/25.7/15.2/9.4 (BP=1.000, ratio=1.053, hyp_len=12034, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.62.1.78-5.95.2.06-7.87.pth
+BLEU = 19.13, 45.1/24.0/14.2/8.7 (BP=1.000, ratio=1.105, hyp_len=12634, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.63.1.81-6.13.2.00-7.41.pth
+BLEU = 20.65, 48.1/25.8/15.3/9.6 (BP=1.000, ratio=1.050, hyp_len=12005, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.64.1.70-5.50.2.00-7.39.pth
+BLEU = 21.44, 48.9/26.6/16.1/10.1 (BP=1.000, ratio=1.045, hyp_len=11944, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.65.1.64-5.13.2.04-7.66.pth
+BLEU = 20.17, 47.2/25.1/14.9/9.4 (BP=1.000, ratio=1.073, hyp_len=12267, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.66.1.67-5.29.2.02-7.51.pth
+BLEU = 20.78, 47.6/25.7/15.4/9.9 (BP=1.000, ratio=1.085, hyp_len=12405, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.67.1.71-5.55.2.02-7.53.pth
+BLEU = 20.89, 47.9/25.9/15.6/9.9 (BP=1.000, ratio=1.050, hyp_len=11998, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.68.1.60-4.94.2.00-7.35.pth
+BLEU = 21.13, 48.1/26.3/16.0/9.9 (BP=1.000, ratio=1.070, hyp_len=12229, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.69.1.65-5.21.2.02-7.52.pth
+BLEU = 21.29, 48.4/26.5/16.1/10.0 (BP=1.000, ratio=1.070, hyp_len=12228, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.70.1.60-4.95.2.02-7.53.pth
+BLEU = 21.81, 48.6/26.8/16.5/10.5 (BP=1.000, ratio=1.063, hyp_len=12148, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.71.1.55-4.73.2.05-7.77.pth
+BLEU = 20.73, 47.1/25.7/15.6/9.8 (BP=1.000, ratio=1.074, hyp_len=12281, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.72.1.55-4.70.2.02-7.54.pth
+BLEU = 21.85, 47.8/26.7/16.6/10.8 (BP=1.000, ratio=1.094, hyp_len=12509, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.73.1.54-4.69.2.02-7.55.pth
+BLEU = 21.13, 47.5/26.1/16.0/10.0 (BP=1.000, ratio=1.082, hyp_len=12367, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.74.1.50-4.49.2.01-7.43.pth
+BLEU = 21.53, 48.2/26.4/16.2/10.4 (BP=1.000, ratio=1.065, hyp_len=12176, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.75.1.53-4.64.2.02-7.55.pth
+BLEU = 21.05, 47.5/26.0/15.8/10.0 (BP=1.000, ratio=1.106, hyp_len=12649, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.76.1.50-4.50.2.01-7.48.pth
+BLEU = 22.14, 49.0/27.2/16.8/10.7 (BP=1.000, ratio=1.066, hyp_len=12185, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.77.1.60-4.95.2.03-7.61.pth
+BLEU = 22.39, 49.8/27.6/16.9/10.8 (BP=1.000, ratio=1.053, hyp_len=12035, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.78.1.59-4.92.2.03-7.59.pth
+BLEU = 21.41, 48.3/26.5/16.1/10.2 (BP=1.000, ratio=1.059, hyp_len=12108, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.79.1.45-4.27.2.07-7.95.pth
+BLEU = 21.00, 47.5/25.8/15.7/10.1 (BP=1.000, ratio=1.078, hyp_len=12321, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.80.1.50-4.47.2.05-7.75.pth
+BLEU = 20.35, 46.9/25.1/15.2/9.6 (BP=1.000, ratio=1.094, hyp_len=12507, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.81.1.40-4.05.2.00-7.38.pth
+BLEU = 22.61, 49.5/27.8/17.1/11.1 (BP=1.000, ratio=1.098, hyp_len=12550, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.82.1.40-4.07.2.00-7.38.pth
+BLEU = 22.82, 49.5/27.8/17.5/11.2 (BP=1.000, ratio=1.074, hyp_len=12283, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.83.1.45-4.26.2.05-7.74.pth
+BLEU = 21.45, 47.5/26.3/16.2/10.5 (BP=1.000, ratio=1.073, hyp_len=12266, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.84.1.38-3.97.2.08-7.97.pth
+BLEU = 22.21, 48.5/27.0/16.9/11.0 (BP=1.000, ratio=1.062, hyp_len=12141, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.85.1.40-4.06.2.05-7.80.pth
+BLEU = 22.04, 48.5/27.0/16.7/10.8 (BP=1.000, ratio=1.078, hyp_len=12322, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.86.1.37-3.92.2.02-7.53.pth
+BLEU = 22.64, 49.8/28.0/17.3/10.9 (BP=1.000, ratio=1.060, hyp_len=12113, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.87.1.38-3.98.2.04-7.66.pth
+BLEU = 22.14, 48.8/27.3/16.8/10.7 (BP=1.000, ratio=1.068, hyp_len=12207, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.88.1.33-3.76.2.03-7.59.pth
+BLEU = 22.63, 49.5/27.7/17.2/11.1 (BP=1.000, ratio=1.080, hyp_len=12349, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.89.1.35-3.87.2.06-7.87.pth
+BLEU = 22.26, 48.9/27.2/16.9/10.9 (BP=1.000, ratio=1.068, hyp_len=12207, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.90.1.25-3.50.2.02-7.54.pth
+BLEU = 22.24, 49.5/27.5/16.9/10.6 (BP=1.000, ratio=1.080, hyp_len=12350, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.91.1.39-4.01.2.08-8.04.pth
+BLEU = 22.17, 48.7/27.0/16.8/10.9 (BP=1.000, ratio=1.078, hyp_len=12327, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.92.1.31-3.70.2.08-7.98.pth
+BLEU = 21.66, 47.8/26.5/16.4/10.6 (BP=1.000, ratio=1.088, hyp_len=12437, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.93.1.28-3.58.2.05-7.78.pth
+BLEU = 21.58, 48.1/26.6/16.3/10.4 (BP=1.000, ratio=1.093, hyp_len=12497, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.94.1.21-3.35.2.04-7.66.pth
+BLEU = 21.99, 48.4/26.9/16.7/10.8 (BP=1.000, ratio=1.074, hyp_len=12283, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.95.1.28-3.58.2.06-7.82.pth
+BLEU = 22.48, 49.4/27.5/17.0/11.1 (BP=1.000, ratio=1.076, hyp_len=12303, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.96.1.21-3.35.2.05-7.79.pth
+BLEU = 22.57, 49.4/27.5/17.1/11.2 (BP=1.000, ratio=1.059, hyp_len=12104, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.97.1.24-3.44.2.09-8.10.pth
+BLEU = 22.82, 48.9/27.5/17.6/11.5 (BP=1.000, ratio=1.077, hyp_len=12315, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.98.1.18-3.26.2.12-8.32.pth
+BLEU = 22.02, 48.2/26.8/16.8/10.8 (BP=1.000, ratio=1.073, hyp_len=12268, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.99.1.19-3.30.2.06-7.83.pth
+BLEU = 22.38, 48.7/27.2/17.1/11.1 (BP=1.000, ratio=1.084, hyp_len=12395, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/mybk-40epoch
+Evaluation result for the model: seq-rl-model-mybk.100.1.22-3.38.2.12-8.34.pth
+BLEU = 22.22, 48.6/27.1/16.8/11.1 (BP=1.000, ratio=1.097, hyp_len=12540, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.41.2.40-11.03.2.22-9.21.pth
+BLEU = 14.28, 40.1/18.3/10.0/5.7 (BP=1.000, ratio=1.096, hyp_len=12526, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.42.2.37-10.69.2.15-8.56.pth
+BLEU = 15.26, 41.8/19.9/10.7/6.1 (BP=1.000, ratio=1.071, hyp_len=12245, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.43.2.25-9.50.2.15-8.59.pth
+BLEU = 15.79, 42.3/20.1/11.3/6.5 (BP=1.000, ratio=1.062, hyp_len=12141, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.44.2.15-8.58.2.11-8.22.pth
+BLEU = 16.00, 41.4/20.4/11.5/6.7 (BP=1.000, ratio=1.104, hyp_len=12617, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.45.2.22-9.20.2.09-8.09.pth
+BLEU = 16.63, 42.6/21.2/12.0/7.1 (BP=1.000, ratio=1.073, hyp_len=12272, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.46.2.12-8.34.2.08-7.98.pth
+BLEU = 17.91, 45.1/22.9/13.1/7.6 (BP=1.000, ratio=1.057, hyp_len=12082, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.47.2.12-8.31.2.10-8.13.pth
+BLEU = 16.88, 43.4/22.0/12.2/7.0 (BP=1.000, ratio=1.094, hyp_len=12507, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.48.2.07-7.89.2.04-7.70.pth
+BLEU = 18.65, 45.8/23.4/13.6/8.3 (BP=1.000, ratio=1.050, hyp_len=12006, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.49.2.05-7.76.2.06-7.81.pth
+BLEU = 18.35, 45.0/23.0/13.4/8.2 (BP=1.000, ratio=1.072, hyp_len=12251, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.50.2.03-7.60.2.05-7.81.pth
+BLEU = 18.16, 44.7/22.7/13.2/8.1 (BP=1.000, ratio=1.080, hyp_len=12347, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.51.2.00-7.42.2.01-7.50.pth
+BLEU = 19.04, 45.9/24.2/14.0/8.4 (BP=1.000, ratio=1.076, hyp_len=12305, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.52.2.00-7.41.2.02-7.57.pth
+BLEU = 19.70, 47.1/24.8/14.5/8.9 (BP=1.000, ratio=1.074, hyp_len=12273, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.53.2.10-8.17.2.01-7.45.pth
+BLEU = 18.79, 45.3/23.8/13.8/8.3 (BP=1.000, ratio=1.095, hyp_len=12521, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.54.1.94-6.98.2.03-7.64.pth
+BLEU = 19.64, 46.1/24.5/14.6/9.0 (BP=1.000, ratio=1.094, hyp_len=12506, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.55.1.95-7.00.2.03-7.64.pth
+BLEU = 19.85, 46.7/24.8/14.7/9.1 (BP=1.000, ratio=1.078, hyp_len=12327, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.56.1.91-6.73.1.99-7.32.pth
+BLEU = 20.45, 47.9/25.8/15.2/9.3 (BP=1.000, ratio=1.068, hyp_len=12213, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.57.1.98-7.26.2.05-7.75.pth
+BLEU = 20.03, 46.3/24.8/15.0/9.4 (BP=1.000, ratio=1.088, hyp_len=12436, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.58.1.91-6.76.2.03-7.59.pth
+BLEU = 20.12, 46.7/25.1/15.0/9.3 (BP=1.000, ratio=1.084, hyp_len=12391, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.59.1.83-6.25.2.02-7.56.pth
+BLEU = 20.70, 47.6/26.1/15.5/9.5 (BP=1.000, ratio=1.076, hyp_len=12304, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.60.1.77-5.87.2.02-7.54.pth
+BLEU = 20.49, 46.9/25.3/15.2/9.7 (BP=1.000, ratio=1.065, hyp_len=12174, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.61.1.89-6.65.2.00-7.37.pth
+BLEU = 21.52, 48.8/26.9/16.1/10.1 (BP=1.000, ratio=1.056, hyp_len=12075, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.62.1.78-5.93.1.98-7.27.pth
+BLEU = 20.69, 47.2/25.5/15.4/9.9 (BP=1.000, ratio=1.085, hyp_len=12401, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.63.1.70-5.50.1.98-7.21.pth
+BLEU = 22.25, 48.7/27.1/16.9/11.0 (BP=1.000, ratio=1.075, hyp_len=12293, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.64.1.70-5.48.2.04-7.70.pth
+BLEU = 20.29, 46.3/25.4/15.2/9.5 (BP=1.000, ratio=1.105, hyp_len=12638, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.65.1.74-5.67.2.00-7.39.pth
+BLEU = 21.61, 48.4/26.8/16.3/10.3 (BP=1.000, ratio=1.087, hyp_len=12432, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.66.1.69-5.43.2.01-7.50.pth
+BLEU = 21.21, 47.7/26.3/15.9/10.1 (BP=1.000, ratio=1.097, hyp_len=12539, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.67.1.71-5.53.2.01-7.43.pth
+BLEU = 21.87, 48.5/26.9/16.4/10.7 (BP=1.000, ratio=1.081, hyp_len=12354, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.68.1.60-4.94.2.02-7.57.pth
+BLEU = 21.22, 47.2/26.2/16.0/10.2 (BP=1.000, ratio=1.092, hyp_len=12489, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.69.1.64-5.17.2.00-7.42.pth
+BLEU = 21.77, 47.7/26.7/16.5/10.7 (BP=1.000, ratio=1.093, hyp_len=12497, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.70.1.60-4.95.2.00-7.38.pth
+BLEU = 22.08, 48.7/27.1/16.6/10.9 (BP=1.000, ratio=1.093, hyp_len=12495, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.71.1.60-4.95.2.00-7.42.pth
+BLEU = 22.55, 49.4/27.9/17.1/10.9 (BP=1.000, ratio=1.077, hyp_len=12314, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.72.1.55-4.69.2.01-7.50.pth
+BLEU = 22.74, 49.8/28.2/17.3/11.0 (BP=1.000, ratio=1.083, hyp_len=12377, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.73.1.56-4.76.2.00-7.38.pth
+BLEU = 22.46, 48.8/27.4/17.1/11.1 (BP=1.000, ratio=1.092, hyp_len=12481, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.74.1.50-4.50.2.02-7.57.pth
+BLEU = 22.89, 49.6/27.8/17.3/11.5 (BP=1.000, ratio=1.093, hyp_len=12499, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.75.1.48-4.40.2.00-7.42.pth
+BLEU = 23.09, 49.2/28.1/17.7/11.6 (BP=1.000, ratio=1.081, hyp_len=12354, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.76.1.50-4.46.2.05-7.73.pth
+BLEU = 21.54, 48.0/26.4/16.2/10.5 (BP=1.000, ratio=1.100, hyp_len=12571, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.77.1.56-4.77.2.01-7.43.pth
+BLEU = 23.16, 50.1/28.5/17.6/11.4 (BP=1.000, ratio=1.091, hyp_len=12467, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.78.1.50-4.49.1.99-7.30.pth
+BLEU = 23.42, 50.1/28.5/17.9/11.8 (BP=1.000, ratio=1.082, hyp_len=12368, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.79.1.44-4.21.2.04-7.66.pth
+BLEU = 23.16, 50.3/28.4/17.6/11.4 (BP=1.000, ratio=1.075, hyp_len=12287, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.80.1.47-4.34.2.03-7.63.pth
+BLEU = 23.10, 49.2/28.1/17.7/11.6 (BP=1.000, ratio=1.080, hyp_len=12342, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.81.1.44-4.22.2.00-7.38.pth
+BLEU = 22.85, 49.5/28.1/17.4/11.2 (BP=1.000, ratio=1.087, hyp_len=12427, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.82.1.43-4.20.2.04-7.66.pth
+BLEU = 23.16, 49.4/28.0/17.7/11.8 (BP=1.000, ratio=1.085, hyp_len=12403, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.83.1.37-3.94.2.04-7.73.pth
+BLEU = 22.55, 48.9/27.5/17.1/11.3 (BP=1.000, ratio=1.084, hyp_len=12390, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.84.1.44-4.23.2.05-7.74.pth
+BLEU = 22.85, 49.3/28.0/17.5/11.3 (BP=1.000, ratio=1.085, hyp_len=12400, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.85.1.40-4.05.2.02-7.52.pth
+BLEU = 22.69, 49.5/27.8/17.2/11.2 (BP=1.000, ratio=1.085, hyp_len=12403, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.86.1.33-3.79.2.06-7.82.pth
+BLEU = 23.34, 50.0/28.4/17.8/11.8 (BP=1.000, ratio=1.073, hyp_len=12262, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.87.1.30-3.68.2.04-7.66.pth
+BLEU = 23.16, 49.2/28.0/17.8/11.8 (BP=1.000, ratio=1.088, hyp_len=12441, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.88.1.36-3.90.2.04-7.66.pth
+BLEU = 23.32, 49.9/28.4/17.8/11.7 (BP=1.000, ratio=1.081, hyp_len=12354, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.89.1.37-3.95.2.09-8.10.pth
+BLEU = 22.76, 49.5/27.9/17.3/11.3 (BP=1.000, ratio=1.096, hyp_len=12535, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.90.1.34-3.82.2.09-8.06.pth
+BLEU = 22.48, 48.4/27.4/17.1/11.3 (BP=1.000, ratio=1.116, hyp_len=12756, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.91.1.32-3.76.2.05-7.74.pth
+BLEU = 21.60, 47.6/26.6/16.2/10.6 (BP=1.000, ratio=1.121, hyp_len=12819, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.92.1.28-3.60.2.03-7.63.pth
+BLEU = 22.60, 49.2/27.7/17.1/11.2 (BP=1.000, ratio=1.090, hyp_len=12459, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.93.1.34-3.81.2.06-7.85.pth
+BLEU = 22.26, 48.5/27.2/16.8/11.1 (BP=1.000, ratio=1.089, hyp_len=12452, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.94.1.24-3.47.2.12-8.30.pth
+BLEU = 22.03, 48.1/26.8/16.6/11.0 (BP=1.000, ratio=1.116, hyp_len=12755, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.95.1.25-3.49.2.03-7.59.pth
+BLEU = 23.23, 49.4/28.0/17.7/11.9 (BP=1.000, ratio=1.084, hyp_len=12388, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.96.1.27-3.55.2.03-7.65.pth
+BLEU = 23.37, 49.4/28.1/17.9/12.0 (BP=1.000, ratio=1.094, hyp_len=12510, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.97.1.22-3.40.2.08-8.00.pth
+BLEU = 22.66, 48.6/27.6/17.3/11.3 (BP=1.000, ratio=1.085, hyp_len=12405, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.98.1.19-3.29.2.09-8.05.pth
+BLEU = 23.61, 49.6/28.5/18.0/12.2 (BP=1.000, ratio=1.083, hyp_len=12377, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.99.1.23-3.43.2.05-7.77.pth
+BLEU = 23.72, 50.4/28.7/18.1/12.1 (BP=1.000, ratio=1.067, hyp_len=12198, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/mybk-50epoch
+Evaluation result for the model: seq-rl-model-mybk.100.1.39-4.00.2.63-13.93.pth
+BLEU = 12.28, 38.3/16.3/8.1/4.5 (BP=1.000, ratio=1.107, hyp_len=12656, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.51.2.22-9.16.2.45-11.59.pth
+BLEU = 11.27, 37.1/15.5/7.6/3.7 (BP=1.000, ratio=1.068, hyp_len=12215, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.52.2.11-8.28.2.48-11.99.pth
+BLEU = 11.44, 37.2/15.5/7.7/3.9 (BP=1.000, ratio=1.079, hyp_len=12338, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.53.2.14-8.53.2.49-12.11.pth
+BLEU = 11.24, 36.9/15.4/7.5/3.7 (BP=1.000, ratio=1.090, hyp_len=12458, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.54.2.18-8.85.2.48-11.98.pth
+BLEU = 11.70, 37.5/15.9/7.8/4.0 (BP=1.000, ratio=1.067, hyp_len=12201, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.55.2.15-8.55.2.52-12.44.pth
+BLEU = 11.91, 37.2/15.9/7.9/4.3 (BP=1.000, ratio=1.091, hyp_len=12474, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.56.2.04-7.69.2.53-12.60.pth
+BLEU = 11.70, 37.7/15.7/7.8/4.1 (BP=1.000, ratio=1.064, hyp_len=12159, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.57.2.03-7.59.2.51-12.36.pth
+BLEU = 12.30, 38.1/16.3/8.3/4.4 (BP=1.000, ratio=1.060, hyp_len=12121, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.58.2.07-7.96.2.51-12.25.pth
+BLEU = 11.84, 37.5/15.8/7.9/4.2 (BP=1.000, ratio=1.091, hyp_len=12472, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.59.2.01-7.43.2.49-12.09.pth
+BLEU = 12.49, 38.5/16.6/8.3/4.6 (BP=1.000, ratio=1.076, hyp_len=12305, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.60.1.99-7.33.2.47-11.82.pth
+BLEU = 12.04, 38.2/16.2/8.1/4.2 (BP=1.000, ratio=1.057, hyp_len=12082, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.61.1.95-7.06.2.49-12.01.pth
+BLEU = 12.24, 38.4/16.4/8.3/4.3 (BP=1.000, ratio=1.077, hyp_len=12307, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.62.1.92-6.80.2.50-12.17.pth
+BLEU = 12.07, 38.1/16.2/8.1/4.3 (BP=1.000, ratio=1.065, hyp_len=12179, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.63.1.90-6.71.2.50-12.12.pth
+BLEU = 11.74, 37.3/15.8/7.9/4.1 (BP=1.000, ratio=1.104, hyp_len=12620, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.64.1.94-6.97.2.49-12.09.pth
+BLEU = 11.98, 37.2/15.8/8.1/4.4 (BP=1.000, ratio=1.114, hyp_len=12740, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.65.1.85-6.37.2.50-12.16.pth
+BLEU = 12.53, 39.0/16.5/8.3/4.6 (BP=1.000, ratio=1.075, hyp_len=12287, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.66.1.94-6.95.2.48-11.95.pth
+BLEU = 12.64, 38.9/16.8/8.5/4.6 (BP=1.000, ratio=1.078, hyp_len=12318, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.67.1.83-6.25.2.50-12.17.pth
+BLEU = 12.76, 38.6/16.9/8.6/4.7 (BP=1.000, ratio=1.087, hyp_len=12430, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.68.1.81-6.10.2.49-12.09.pth
+BLEU = 12.69, 39.1/17.1/8.5/4.5 (BP=1.000, ratio=1.071, hyp_len=12243, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.69.1.78-5.94.2.48-11.98.pth
+BLEU = 12.50, 38.0/16.6/8.4/4.6 (BP=1.000, ratio=1.099, hyp_len=12566, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.70.1.80-6.06.2.53-12.52.pth
+BLEU = 12.70, 38.6/17.0/8.5/4.6 (BP=1.000, ratio=1.097, hyp_len=12539, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.71.1.75-5.75.2.53-12.52.pth
+BLEU = 12.41, 38.0/16.2/8.3/4.6 (BP=1.000, ratio=1.098, hyp_len=12548, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.72.1.69-5.40.2.50-12.15.pth
+BLEU = 13.15, 39.2/17.1/8.9/5.0 (BP=1.000, ratio=1.082, hyp_len=12367, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.73.1.70-5.50.2.51-12.34.pth
+BLEU = 12.31, 38.8/16.7/8.3/4.3 (BP=1.000, ratio=1.103, hyp_len=12610, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.74.1.68-5.37.2.53-12.55.pth
+BLEU = 12.37, 38.2/16.6/8.4/4.4 (BP=1.000, ratio=1.124, hyp_len=12851, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.75.1.73-5.62.2.55-12.80.pth
+BLEU = 12.09, 38.1/16.6/8.2/4.1 (BP=1.000, ratio=1.100, hyp_len=12574, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.76.1.65-5.19.2.52-12.42.pth
+BLEU = 12.49, 38.4/16.7/8.4/4.5 (BP=1.000, ratio=1.096, hyp_len=12534, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.77.1.70-5.50.2.54-12.66.pth
+BLEU = 12.50, 38.2/16.7/8.4/4.5 (BP=1.000, ratio=1.116, hyp_len=12757, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.78.1.59-4.91.2.50-12.23.pth
+BLEU = 12.76, 38.9/16.8/8.6/4.7 (BP=1.000, ratio=1.083, hyp_len=12380, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.79.1.64-5.16.2.54-12.63.pth
+BLEU = 12.49, 38.0/16.4/8.3/4.7 (BP=1.000, ratio=1.115, hyp_len=12747, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.80.1.60-4.96.2.54-12.71.pth
+BLEU = 13.04, 39.0/17.1/8.8/4.9 (BP=1.000, ratio=1.099, hyp_len=12566, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.81.1.57-4.79.2.54-12.64.pth
+BLEU = 12.43, 38.0/16.2/8.3/4.7 (BP=1.000, ratio=1.125, hyp_len=12859, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.82.1.57-4.83.2.55-12.86.pth
+BLEU = 12.34, 37.9/16.3/8.4/4.5 (BP=1.000, ratio=1.105, hyp_len=12632, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.83.1.53-4.63.2.56-12.95.pth
+BLEU = 12.38, 38.7/16.6/8.2/4.4 (BP=1.000, ratio=1.106, hyp_len=12648, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.84.1.51-4.55.2.57-13.00.pth
+BLEU = 12.87, 39.2/17.1/8.6/4.7 (BP=1.000, ratio=1.096, hyp_len=12527, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.85.1.52-4.55.2.54-12.74.pth
+BLEU = 13.50, 39.1/17.5/9.1/5.3 (BP=1.000, ratio=1.082, hyp_len=12364, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.86.1.48-4.41.2.58-13.23.pth
+BLEU = 12.86, 38.5/16.8/8.7/4.9 (BP=1.000, ratio=1.095, hyp_len=12516, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.87.1.49-4.44.2.56-12.91.pth
+BLEU = 13.38, 40.0/17.5/9.0/5.1 (BP=1.000, ratio=1.063, hyp_len=12147, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.88.1.59-4.90.2.59-13.30.pth
+BLEU = 13.08, 39.6/17.4/8.8/4.8 (BP=1.000, ratio=1.089, hyp_len=12446, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.89.1.45-4.25.2.61-13.58.pth
+BLEU = 13.18, 39.3/17.3/9.0/4.9 (BP=1.000, ratio=1.092, hyp_len=12486, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.90.1.45-4.26.2.57-13.06.pth
+BLEU = 13.46, 39.7/17.7/9.1/5.1 (BP=1.000, ratio=1.077, hyp_len=12309, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.91.1.49-4.44.2.60-13.41.pth
+BLEU = 13.05, 39.4/17.0/8.8/4.9 (BP=1.000, ratio=1.094, hyp_len=12503, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.92.1.42-4.14.2.63-13.88.pth
+BLEU = 12.64, 38.5/16.7/8.5/4.7 (BP=1.000, ratio=1.109, hyp_len=12675, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.93.1.48-4.38.2.60-13.50.pth
+BLEU = 13.01, 39.3/17.1/8.8/4.9 (BP=1.000, ratio=1.095, hyp_len=12519, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.94.1.40-4.07.2.61-13.64.pth
+BLEU = 12.09, 38.0/16.1/8.0/4.4 (BP=1.000, ratio=1.122, hyp_len=12831, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.95.1.45-4.26.2.62-13.69.pth
+BLEU = 12.74, 38.5/16.6/8.5/4.8 (BP=1.000, ratio=1.103, hyp_len=12614, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.96.1.36-3.90.2.64-13.96.pth
+BLEU = 12.48, 38.3/16.5/8.3/4.7 (BP=1.000, ratio=1.124, hyp_len=12850, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.97.1.33-3.79.2.65-14.11.pth
+BLEU = 13.17, 38.9/17.1/8.8/5.1 (BP=1.000, ratio=1.103, hyp_len=12607, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.98.1.35-3.88.2.61-13.54.pth
+BLEU = 12.47, 38.3/16.4/8.4/4.6 (BP=1.000, ratio=1.097, hyp_len=12537, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.99.1.37-3.93.2.62-13.70.pth
+BLEU = 12.94, 38.6/16.7/8.7/5.0 (BP=1.000, ratio=1.110, hyp_len=12690, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/mybk-60epoch
+Evaluation result for the model: seq-rl-model-mybk.100.1.38-3.97.2.78-16.17.pth
+BLEU = 11.28, 36.4/15.3/7.5/3.9 (BP=1.000, ratio=1.092, hyp_len=12489, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.58.2.05-7.73.2.59-13.35.pth
+BLEU = 10.26, 34.5/13.9/6.7/3.5 (BP=1.000, ratio=1.075, hyp_len=12289, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.59.2.10-8.18.2.60-13.47.pth
+BLEU = 10.16, 33.7/13.7/6.7/3.5 (BP=1.000, ratio=1.116, hyp_len=12763, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.60.1.98-7.27.2.58-13.21.pth
+BLEU = 10.13, 33.9/14.0/6.7/3.3 (BP=1.000, ratio=1.111, hyp_len=12705, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.61.2.02-7.55.2.58-13.24.pth
+BLEU = 10.60, 35.0/14.3/7.1/3.6 (BP=1.000, ratio=1.067, hyp_len=12194, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.62.1.96-7.11.2.58-13.21.pth
+BLEU = 10.45, 35.1/14.3/6.9/3.5 (BP=1.000, ratio=1.068, hyp_len=12204, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.63.1.98-7.23.2.59-13.35.pth
+BLEU = 10.24, 34.5/13.9/6.7/3.4 (BP=1.000, ratio=1.102, hyp_len=12593, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.64.1.91-6.74.2.58-13.16.pth
+BLEU = 9.94, 33.7/13.8/6.5/3.2 (BP=1.000, ratio=1.100, hyp_len=12580, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.65.1.92-6.81.2.61-13.56.pth
+BLEU = 9.98, 34.3/13.7/6.5/3.2 (BP=1.000, ratio=1.101, hyp_len=12591, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.66.1.92-6.85.2.62-13.74.pth
+BLEU = 10.22, 34.2/13.8/6.7/3.4 (BP=1.000, ratio=1.087, hyp_len=12425, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.67.1.85-6.37.2.61-13.55.pth
+BLEU = 10.64, 34.7/14.4/7.2/3.6 (BP=1.000, ratio=1.104, hyp_len=12617, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.68.1.83-6.21.2.64-14.06.pth
+BLEU = 10.55, 34.4/14.1/6.9/3.7 (BP=1.000, ratio=1.087, hyp_len=12426, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.69.1.82-6.18.2.62-13.80.pth
+BLEU = 10.36, 34.5/14.2/6.9/3.4 (BP=1.000, ratio=1.108, hyp_len=12665, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.70.1.89-6.59.2.62-13.80.pth
+BLEU = 10.51, 35.1/14.3/6.8/3.5 (BP=1.000, ratio=1.086, hyp_len=12410, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.71.1.78-5.94.2.62-13.73.pth
+BLEU = 10.32, 35.1/14.2/6.8/3.3 (BP=1.000, ratio=1.082, hyp_len=12375, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.72.1.77-5.86.2.62-13.70.pth
+BLEU = 10.32, 35.2/14.1/6.7/3.4 (BP=1.000, ratio=1.084, hyp_len=12393, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.73.1.81-6.11.2.63-13.86.pth
+BLEU = 10.59, 34.4/14.1/6.9/3.8 (BP=1.000, ratio=1.096, hyp_len=12530, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.74.1.73-5.66.2.64-13.97.pth
+BLEU = 10.86, 35.4/14.6/7.1/3.8 (BP=1.000, ratio=1.087, hyp_len=12429, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.75.1.70-5.47.2.66-14.23.pth
+BLEU = 10.50, 35.1/14.3/6.8/3.5 (BP=1.000, ratio=1.078, hyp_len=12323, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.76.1.71-5.55.2.64-14.00.pth
+BLEU = 11.12, 35.8/14.8/7.3/3.9 (BP=1.000, ratio=1.062, hyp_len=12138, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.77.1.72-5.59.2.67-14.51.pth
+BLEU = 10.58, 34.5/14.3/7.0/3.6 (BP=1.000, ratio=1.109, hyp_len=12680, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.78.1.72-5.58.2.67-14.51.pth
+BLEU = 10.75, 35.6/14.7/7.0/3.6 (BP=1.000, ratio=1.087, hyp_len=12427, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.79.1.67-5.30.2.67-14.49.pth
+BLEU = 10.94, 35.1/14.5/7.2/3.9 (BP=1.000, ratio=1.077, hyp_len=12316, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.80.1.66-5.26.2.71-15.01.pth
+BLEU = 11.06, 35.4/14.7/7.4/3.9 (BP=1.000, ratio=1.091, hyp_len=12469, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.81.1.60-4.98.2.66-14.35.pth
+BLEU = 11.16, 35.6/14.9/7.4/3.9 (BP=1.000, ratio=1.094, hyp_len=12501, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.82.1.68-5.38.2.69-14.76.pth
+BLEU = 11.50, 36.2/15.3/7.7/4.1 (BP=1.000, ratio=1.083, hyp_len=12384, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.83.1.59-4.91.2.71-14.98.pth
+BLEU = 10.83, 35.7/14.5/7.1/3.8 (BP=1.000, ratio=1.076, hyp_len=12303, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.84.1.65-5.23.2.73-15.37.pth
+BLEU = 10.82, 34.7/14.4/7.2/3.8 (BP=1.000, ratio=1.110, hyp_len=12687, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.85.1.62-5.06.2.70-14.85.pth
+BLEU = 11.06, 35.7/14.9/7.3/3.9 (BP=1.000, ratio=1.092, hyp_len=12481, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.86.1.61-5.03.2.71-14.99.pth
+BLEU = 10.62, 35.7/14.5/7.0/3.5 (BP=1.000, ratio=1.074, hyp_len=12275, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.87.1.60-4.94.2.71-14.98.pth
+BLEU = 10.40, 34.4/14.0/6.8/3.6 (BP=1.000, ratio=1.095, hyp_len=12517, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.88.1.58-4.87.2.74-15.50.pth
+BLEU = 10.97, 36.0/15.1/7.2/3.7 (BP=1.000, ratio=1.080, hyp_len=12352, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.89.1.52-4.58.2.76-15.78.pth
+BLEU = 10.88, 35.7/14.7/7.3/3.7 (BP=1.000, ratio=1.086, hyp_len=12410, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.90.1.59-4.91.2.76-15.76.pth
+BLEU = 10.67, 35.7/14.4/7.0/3.6 (BP=1.000, ratio=1.108, hyp_len=12668, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.91.1.58-4.85.2.76-15.73.pth
+BLEU = 10.96, 35.3/14.7/7.3/3.8 (BP=1.000, ratio=1.096, hyp_len=12534, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.92.1.51-4.53.2.78-16.10.pth
+BLEU = 11.09, 35.6/14.9/7.4/3.9 (BP=1.000, ratio=1.095, hyp_len=12523, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.93.1.49-4.45.2.76-15.85.pth
+BLEU = 11.17, 35.8/14.9/7.4/4.0 (BP=1.000, ratio=1.091, hyp_len=12467, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.94.1.47-4.33.2.78-16.17.pth
+BLEU = 10.92, 35.2/14.8/7.3/3.7 (BP=1.000, ratio=1.091, hyp_len=12474, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.95.1.53-4.64.2.78-16.17.pth
+BLEU = 11.09, 35.9/15.0/7.4/3.8 (BP=1.000, ratio=1.093, hyp_len=12492, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.96.1.45-4.27.2.79-16.34.pth
+BLEU = 11.20, 35.8/14.9/7.5/3.9 (BP=1.000, ratio=1.092, hyp_len=12482, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.97.1.41-4.08.2.79-16.24.pth
+BLEU = 11.32, 36.0/15.1/7.5/4.0 (BP=1.000, ratio=1.079, hyp_len=12333, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.98.1.43-4.18.2.82-16.74.pth
+BLEU = 11.36, 36.0/15.1/7.6/4.0 (BP=1.000, ratio=1.083, hyp_len=12376, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.99.1.49-4.44.2.84-17.14.pth
+BLEU = 11.28, 36.4/15.4/7.6/3.8 (BP=1.000, ratio=1.088, hyp_len=12442, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/mybk-70epoch
+Evaluation result for the model: seq-rl-model-mybk.100.1.18-3.26.2.50-12.24.pth
+BLEU = 14.89, 41.1/19.2/10.4/6.0 (BP=1.000, ratio=1.101, hyp_len=12592, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.69.1.66-5.27.2.37-10.70.pth
+BLEU = 13.63, 40.0/17.8/9.4/5.2 (BP=1.000, ratio=1.090, hyp_len=12466, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.70.1.60-4.94.2.36-10.58.pth
+BLEU = 13.84, 40.5/18.5/9.6/5.1 (BP=1.000, ratio=1.098, hyp_len=12556, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.71.1.62-5.05.2.40-11.06.pth
+BLEU = 13.09, 39.4/17.6/9.0/4.7 (BP=1.000, ratio=1.127, hyp_len=12889, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.72.1.58-4.86.2.38-10.78.pth
+BLEU = 13.98, 41.0/18.5/9.6/5.2 (BP=1.000, ratio=1.095, hyp_len=12513, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.73.1.65-5.19.2.43-11.31.pth
+BLEU = 14.29, 40.4/18.5/10.0/5.6 (BP=1.000, ratio=1.078, hyp_len=12319, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.74.1.53-4.60.2.39-10.95.pth
+BLEU = 12.89, 39.2/17.4/8.8/4.6 (BP=1.000, ratio=1.123, hyp_len=12837, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.75.1.56-4.74.2.39-10.93.pth
+BLEU = 13.35, 38.9/17.6/9.2/5.0 (BP=1.000, ratio=1.121, hyp_len=12815, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.76.1.53-4.63.2.42-11.23.pth
+BLEU = 13.60, 40.0/18.2/9.3/5.1 (BP=1.000, ratio=1.098, hyp_len=12552, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.77.1.59-4.93.2.43-11.34.pth
+BLEU = 13.31, 39.6/17.8/9.1/4.9 (BP=1.000, ratio=1.107, hyp_len=12659, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.78.1.51-4.51.2.39-10.96.pth
+BLEU = 13.80, 40.7/18.3/9.4/5.2 (BP=1.000, ratio=1.086, hyp_len=12415, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.79.1.47-4.34.2.41-11.17.pth
+BLEU = 14.13, 40.7/18.7/9.7/5.4 (BP=1.000, ratio=1.096, hyp_len=12534, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.80.1.56-4.78.2.41-11.19.pth
+BLEU = 14.21, 41.0/18.7/9.9/5.4 (BP=1.000, ratio=1.089, hyp_len=12447, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.81.1.48-4.38.2.43-11.35.pth
+BLEU = 13.51, 39.9/17.8/9.3/5.1 (BP=1.000, ratio=1.110, hyp_len=12692, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.82.1.38-3.99.2.41-11.19.pth
+BLEU = 14.28, 40.3/18.3/9.9/5.7 (BP=1.000, ratio=1.099, hyp_len=12559, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.83.1.40-4.06.2.45-11.57.pth
+BLEU = 13.89, 40.2/18.1/9.6/5.3 (BP=1.000, ratio=1.109, hyp_len=12677, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.84.1.43-4.19.2.40-11.07.pth
+BLEU = 14.32, 40.6/18.6/9.9/5.6 (BP=1.000, ratio=1.105, hyp_len=12637, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.85.1.39-4.01.2.43-11.34.pth
+BLEU = 14.82, 41.7/19.4/10.4/5.7 (BP=1.000, ratio=1.081, hyp_len=12353, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.86.1.39-4.02.2.45-11.55.pth
+BLEU = 14.20, 40.3/18.4/9.8/5.6 (BP=1.000, ratio=1.119, hyp_len=12788, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.87.1.36-3.90.2.45-11.58.pth
+BLEU = 14.99, 41.4/19.4/10.4/6.0 (BP=1.000, ratio=1.108, hyp_len=12670, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.88.1.33-3.78.2.44-11.43.pth
+BLEU = 14.79, 41.3/19.2/10.3/5.9 (BP=1.000, ratio=1.102, hyp_len=12595, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.89.1.31-3.70.2.43-11.38.pth
+BLEU = 14.73, 41.4/19.1/10.2/5.8 (BP=1.000, ratio=1.098, hyp_len=12556, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.90.1.33-3.79.2.45-11.58.pth
+BLEU = 14.66, 40.9/18.9/10.2/5.8 (BP=1.000, ratio=1.123, hyp_len=12842, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.91.1.32-3.75.2.41-11.17.pth
+BLEU = 14.37, 41.4/18.9/9.9/5.5 (BP=1.000, ratio=1.091, hyp_len=12474, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.92.1.30-3.68.2.44-11.51.pth
+BLEU = 15.72, 42.3/19.9/11.0/6.6 (BP=1.000, ratio=1.083, hyp_len=12377, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.93.1.26-3.54.2.46-11.71.pth
+BLEU = 14.87, 41.3/19.1/10.4/6.0 (BP=1.000, ratio=1.097, hyp_len=12543, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.94.1.35-3.86.2.49-12.01.pth
+BLEU = 14.74, 40.8/18.9/10.3/5.9 (BP=1.000, ratio=1.121, hyp_len=12818, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.95.1.26-3.53.2.49-12.07.pth
+BLEU = 14.42, 40.7/18.7/10.0/5.7 (BP=1.000, ratio=1.110, hyp_len=12686, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.96.1.28-3.60.2.51-12.29.pth
+BLEU = 15.11, 41.6/19.4/10.6/6.1 (BP=1.000, ratio=1.095, hyp_len=12522, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.97.1.25-3.50.2.47-11.86.pth
+BLEU = 15.41, 41.9/19.6/10.9/6.3 (BP=1.000, ratio=1.093, hyp_len=12490, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.98.1.21-3.36.2.51-12.35.pth
+BLEU = 15.15, 41.6/19.4/10.7/6.1 (BP=1.000, ratio=1.098, hyp_len=12552, ref_len=11432)
+Evaluation result for the model: seq-rl-model-mybk.99.1.20-3.31.2.50-12.16.pth
+BLEU = 14.43, 41.0/18.7/10.0/5.7 (BP=1.000, ratio=1.115, hyp_len=12751, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/bkmy-30epoch
+Evaluation result for the model: seq-rl-model-bkmy.100.1.30-3.68.2.52-12.37.pth
+BLEU = 13.29, 41.0/18.5/9.0/4.6 (BP=1.000, ratio=1.065, hyp_len=13021, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.31.2.62-13.71.2.50-12.20.pth
+BLEU = 9.88, 36.5/15.3/6.3/2.7 (BP=1.000, ratio=1.034, hyp_len=12650, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.32.2.64-14.04.2.49-12.06.pth
+BLEU = 9.81, 36.0/15.1/6.4/2.7 (BP=1.000, ratio=1.058, hyp_len=12939, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.33.2.64-14.02.2.48-11.96.pth
+BLEU = 9.17, 33.7/14.1/5.9/2.5 (BP=1.000, ratio=1.132, hyp_len=13844, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.34.2.56-12.90.2.46-11.72.pth
+BLEU = 7.90, 29.6/12.4/5.1/2.1 (BP=1.000, ratio=1.316, hyp_len=16093, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.35.2.56-12.97.2.47-11.77.pth
+BLEU = 8.85, 32.4/13.8/5.8/2.4 (BP=1.000, ratio=1.201, hyp_len=14695, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.36.2.45-11.57.2.44-11.44.pth
+BLEU = 6.85, 26.1/10.8/4.4/1.8 (BP=1.000, ratio=1.469, hyp_len=17968, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.37.2.43-11.42.2.43-11.41.pth
+BLEU = 8.27, 30.4/12.6/5.2/2.3 (BP=1.000, ratio=1.287, hyp_len=15746, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.38.2.36-10.64.2.41-11.10.pth
+BLEU = 9.67, 34.8/14.9/6.3/2.7 (BP=1.000, ratio=1.147, hyp_len=14033, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.39.2.35-10.52.2.40-11.04.pth
+BLEU = 10.10, 35.5/15.4/6.7/2.8 (BP=1.000, ratio=1.137, hyp_len=13908, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.40.2.31-10.08.2.41-11.18.pth
+BLEU = 10.09, 37.0/15.7/6.6/2.7 (BP=1.000, ratio=1.100, hyp_len=13457, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.41.2.26-9.62.2.39-10.91.pth
+BLEU = 10.39, 36.2/15.6/6.9/3.0 (BP=1.000, ratio=1.144, hyp_len=13994, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.42.2.33-10.31.2.41-11.18.pth
+BLEU = 10.61, 37.4/16.1/6.9/3.0 (BP=1.000, ratio=1.080, hyp_len=13207, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.43.2.27-9.68.2.37-10.70.pth
+BLEU = 11.08, 38.3/16.8/7.3/3.2 (BP=1.000, ratio=1.076, hyp_len=13165, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.44.2.29-9.88.2.36-10.63.pth
+BLEU = 10.68, 37.5/16.1/7.0/3.1 (BP=1.000, ratio=1.097, hyp_len=13417, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.45.2.33-10.31.2.36-10.62.pth
+BLEU = 11.18, 37.9/16.4/7.3/3.4 (BP=1.000, ratio=1.090, hyp_len=13337, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.46.2.16-8.64.2.35-10.46.pth
+BLEU = 11.06, 38.3/16.6/7.4/3.2 (BP=1.000, ratio=1.098, hyp_len=13425, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.47.2.20-9.02.2.36-10.62.pth
+BLEU = 12.50, 40.2/18.2/8.4/4.0 (BP=1.000, ratio=1.060, hyp_len=12969, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.48.2.10-8.15.2.37-10.70.pth
+BLEU = 10.99, 38.0/16.2/7.1/3.3 (BP=1.000, ratio=1.103, hyp_len=13495, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.49.2.15-8.56.2.35-10.45.pth
+BLEU = 11.93, 39.7/17.4/7.9/3.7 (BP=1.000, ratio=1.058, hyp_len=12941, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.50.2.01-7.47.2.33-10.28.pth
+BLEU = 11.76, 39.9/17.4/7.9/3.5 (BP=1.000, ratio=1.058, hyp_len=12946, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.51.2.02-7.55.2.33-10.31.pth
+BLEU = 11.92, 39.2/17.4/7.9/3.7 (BP=1.000, ratio=1.082, hyp_len=13229, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.52.2.06-7.87.2.34-10.34.pth
+BLEU = 10.26, 35.8/15.5/6.8/3.0 (BP=1.000, ratio=1.181, hyp_len=14441, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.53.2.01-7.49.2.32-10.19.pth
+BLEU = 12.24, 40.2/18.0/8.1/3.8 (BP=1.000, ratio=1.068, hyp_len=13062, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.54.1.95-7.06.2.33-10.26.pth
+BLEU = 11.73, 39.4/17.3/7.7/3.6 (BP=1.000, ratio=1.072, hyp_len=13109, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.55.1.95-7.01.2.31-10.08.pth
+BLEU = 11.96, 40.0/17.5/7.9/3.7 (BP=1.000, ratio=1.064, hyp_len=13012, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.56.1.92-6.80.2.36-10.59.pth
+BLEU = 11.31, 37.7/16.7/7.5/3.5 (BP=1.000, ratio=1.118, hyp_len=13678, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.57.1.92-6.85.2.31-10.10.pth
+BLEU = 12.67, 40.7/18.2/8.6/4.1 (BP=1.000, ratio=1.061, hyp_len=12980, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.58.1.90-6.66.2.35-10.53.pth
+BLEU = 10.72, 36.2/15.6/7.1/3.3 (BP=1.000, ratio=1.183, hyp_len=14471, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.59.1.85-6.37.2.34-10.41.pth
+BLEU = 12.08, 39.2/17.5/8.1/3.8 (BP=1.000, ratio=1.103, hyp_len=13493, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.60.1.86-6.40.2.34-10.36.pth
+BLEU = 12.68, 40.2/18.3/8.6/4.1 (BP=1.000, ratio=1.077, hyp_len=13178, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.61.1.77-5.86.2.35-10.51.pth
+BLEU = 12.57, 40.0/18.0/8.4/4.1 (BP=1.000, ratio=1.090, hyp_len=13327, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.62.1.78-5.95.2.33-10.29.pth
+BLEU = 12.68, 41.0/18.5/8.5/4.0 (BP=1.000, ratio=1.068, hyp_len=13058, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.63.1.80-6.08.2.35-10.45.pth
+BLEU = 12.82, 39.8/18.3/8.6/4.3 (BP=1.000, ratio=1.094, hyp_len=13380, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.64.1.73-5.62.2.35-10.46.pth
+BLEU = 12.54, 40.3/18.1/8.3/4.1 (BP=1.000, ratio=1.071, hyp_len=13103, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.65.1.79-5.98.2.34-10.36.pth
+BLEU = 13.43, 41.8/19.1/9.0/4.6 (BP=1.000, ratio=1.054, hyp_len=12890, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.66.1.76-5.82.2.37-10.65.pth
+BLEU = 12.81, 40.3/18.1/8.5/4.3 (BP=1.000, ratio=1.096, hyp_len=13401, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.67.1.69-5.39.2.35-10.51.pth
+BLEU = 13.40, 41.2/18.8/9.1/4.6 (BP=1.000, ratio=1.059, hyp_len=12951, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.68.1.74-5.68.2.36-10.60.pth
+BLEU = 13.07, 41.6/18.5/8.8/4.3 (BP=1.000, ratio=1.060, hyp_len=12969, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.69.1.69-5.42.2.34-10.37.pth
+BLEU = 13.42, 41.8/19.2/9.1/4.4 (BP=1.000, ratio=1.024, hyp_len=12529, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.70.1.64-5.14.2.35-10.54.pth
+BLEU = 13.06, 41.3/18.7/8.8/4.3 (BP=1.000, ratio=1.054, hyp_len=12892, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.71.1.70-5.48.2.36-10.58.pth
+BLEU = 12.60, 40.6/18.1/8.5/4.0 (BP=1.000, ratio=1.072, hyp_len=13110, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.72.1.61-5.00.2.36-10.57.pth
+BLEU = 13.04, 41.2/18.5/8.8/4.3 (BP=1.000, ratio=1.055, hyp_len=12907, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.73.1.56-4.77.2.36-10.63.pth
+BLEU = 13.04, 41.3/18.6/8.8/4.3 (BP=1.000, ratio=1.061, hyp_len=12973, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.74.1.56-4.77.2.40-11.02.pth
+BLEU = 13.19, 41.2/18.5/8.9/4.4 (BP=1.000, ratio=1.063, hyp_len=13007, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.75.1.60-4.94.2.39-10.89.pth
+BLEU = 12.90, 40.4/18.4/8.8/4.3 (BP=1.000, ratio=1.072, hyp_len=13109, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.76.1.51-4.53.2.40-11.06.pth
+BLEU = 13.31, 41.2/18.7/9.0/4.5 (BP=1.000, ratio=1.062, hyp_len=12985, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.77.1.59-4.92.2.39-10.92.pth
+BLEU = 12.49, 40.8/18.0/8.3/4.0 (BP=1.000, ratio=1.066, hyp_len=13043, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.78.1.53-4.64.2.42-11.21.pth
+BLEU = 13.40, 41.3/18.9/9.0/4.6 (BP=1.000, ratio=1.067, hyp_len=13047, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.79.1.50-4.47.2.42-11.23.pth
+BLEU = 12.60, 40.3/18.2/8.6/4.0 (BP=1.000, ratio=1.090, hyp_len=13332, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.80.1.48-4.38.2.43-11.40.pth
+BLEU = 12.65, 40.8/18.1/8.4/4.1 (BP=1.000, ratio=1.070, hyp_len=13089, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.81.1.56-4.74.2.41-11.14.pth
+BLEU = 13.04, 40.1/18.3/8.8/4.5 (BP=1.000, ratio=1.094, hyp_len=13375, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.82.1.46-4.30.2.46-11.68.pth
+BLEU = 13.14, 41.5/18.8/8.9/4.3 (BP=1.000, ratio=1.062, hyp_len=12988, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.83.1.54-4.67.2.47-11.83.pth
+BLEU = 12.76, 40.2/18.2/8.6/4.2 (BP=1.000, ratio=1.094, hyp_len=13377, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.84.1.48-4.39.2.42-11.20.pth
+BLEU = 13.15, 41.3/18.7/8.8/4.4 (BP=1.000, ratio=1.062, hyp_len=12989, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.85.1.43-4.17.2.40-11.06.pth
+BLEU = 13.18, 42.1/19.0/8.9/4.3 (BP=1.000, ratio=1.043, hyp_len=12754, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.86.1.45-4.25.2.43-11.40.pth
+BLEU = 12.59, 40.2/17.7/8.4/4.2 (BP=1.000, ratio=1.074, hyp_len=13136, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.87.1.36-3.91.2.46-11.76.pth
+BLEU = 13.37, 41.2/18.5/9.0/4.6 (BP=1.000, ratio=1.061, hyp_len=12981, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.88.1.46-4.31.2.50-12.19.pth
+BLEU = 12.40, 39.8/17.6/8.2/4.1 (BP=1.000, ratio=1.079, hyp_len=13201, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.89.1.41-4.08.2.50-12.22.pth
+BLEU = 12.72, 40.7/18.0/8.6/4.2 (BP=1.000, ratio=1.063, hyp_len=13000, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.90.1.35-3.87.2.47-11.85.pth
+BLEU = 12.83, 41.0/18.2/8.5/4.2 (BP=1.000, ratio=1.057, hyp_len=12930, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.91.1.41-4.10.2.49-12.10.pth
+BLEU = 13.13, 41.2/18.5/8.9/4.4 (BP=1.000, ratio=1.070, hyp_len=13086, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.92.1.36-3.91.2.47-11.86.pth
+BLEU = 12.86, 40.9/18.1/8.6/4.3 (BP=1.000, ratio=1.063, hyp_len=12998, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.93.1.33-3.79.2.50-12.15.pth
+BLEU = 12.70, 40.6/18.1/8.5/4.2 (BP=1.000, ratio=1.062, hyp_len=12985, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.94.1.28-3.60.2.50-12.17.pth
+BLEU = 12.97, 41.1/18.4/8.7/4.3 (BP=1.000, ratio=1.054, hyp_len=12897, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.95.1.26-3.53.2.48-11.98.pth
+BLEU = 13.26, 41.6/18.6/8.9/4.5 (BP=1.000, ratio=1.061, hyp_len=12975, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.96.1.26-3.52.2.50-12.15.pth
+BLEU = 13.09, 41.4/18.2/8.8/4.4 (BP=1.000, ratio=1.060, hyp_len=12965, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.97.1.30-3.68.2.52-12.40.pth
+BLEU = 13.17, 41.2/18.5/8.8/4.5 (BP=1.000, ratio=1.066, hyp_len=13044, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.98.1.23-3.41.2.54-12.70.pth
+BLEU = 12.71, 40.8/18.0/8.5/4.2 (BP=1.000, ratio=1.075, hyp_len=13149, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.99.1.23-3.41.2.51-12.35.pth
+BLEU = 13.30, 41.7/18.7/8.9/4.5 (BP=1.000, ratio=1.050, hyp_len=12841, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/bkmy-40epoch
+Evaluation result for the model: seq-rl-model-bkmy.100.1.34-3.81.2.68-14.52.pth
+BLEU = 12.45, 39.2/17.4/8.4/4.2 (BP=1.000, ratio=1.089, hyp_len=13321, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.30.2.62-13.74.2.57-13.02.pth
+BLEU = 5.95, 23.8/9.5/3.7/1.5 (BP=1.000, ratio=1.567, hyp_len=19162, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.31.2.63-13.94.2.56-12.96.pth
+BLEU = 6.70, 26.3/10.5/4.2/1.7 (BP=1.000, ratio=1.436, hyp_len=17566, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.32.2.55-12.76.2.58-13.21.pth
+BLEU = 6.99, 27.8/10.9/4.4/1.8 (BP=1.000, ratio=1.345, hyp_len=16454, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.33.2.57-13.09.2.54-12.73.pth
+BLEU = 5.41, 21.7/8.5/3.4/1.4 (BP=1.000, ratio=1.750, hyp_len=21405, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.34.2.49-12.07.2.54-12.64.pth
+BLEU = 6.28, 24.6/9.8/4.0/1.6 (BP=1.000, ratio=1.541, hyp_len=18850, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.35.2.49-12.09.2.54-12.73.pth
+BLEU = 4.39, 17.6/6.9/2.8/1.1 (BP=1.000, ratio=2.128, hyp_len=26025, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.36.2.45-11.53.2.51-12.28.pth
+BLEU = 7.75, 29.3/12.1/5.0/2.0 (BP=1.000, ratio=1.313, hyp_len=16055, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.37.2.42-11.25.2.51-12.27.pth
+BLEU = 7.76, 28.6/11.8/5.1/2.1 (BP=1.000, ratio=1.367, hyp_len=16714, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.38.2.37-10.70.2.52-12.40.pth
+BLEU = 7.27, 28.2/11.4/4.6/1.9 (BP=1.000, ratio=1.380, hyp_len=16878, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.39.2.33-10.25.2.52-12.37.pth
+BLEU = 7.24, 27.4/11.3/4.7/1.9 (BP=1.000, ratio=1.437, hyp_len=17580, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.40.2.30-9.99.2.51-12.28.pth
+BLEU = 8.45, 32.2/13.2/5.4/2.2 (BP=1.000, ratio=1.210, hyp_len=14805, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.41.2.27-9.72.2.50-12.21.pth
+BLEU = 8.43, 32.9/13.4/5.4/2.1 (BP=1.000, ratio=1.199, hyp_len=14667, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.42.2.25-9.52.2.51-12.32.pth
+BLEU = 9.77, 35.9/15.0/6.3/2.7 (BP=1.000, ratio=1.109, hyp_len=13565, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.43.2.26-9.56.2.49-12.10.pth
+BLEU = 8.68, 33.5/13.7/5.5/2.3 (BP=1.000, ratio=1.168, hyp_len=14286, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.44.2.23-9.34.2.47-11.81.pth
+BLEU = 9.54, 34.6/14.6/6.1/2.7 (BP=1.000, ratio=1.155, hyp_len=14125, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.45.2.22-9.25.2.51-12.25.pth
+BLEU = 10.59, 36.7/15.7/7.0/3.1 (BP=1.000, ratio=1.087, hyp_len=13298, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.46.2.18-8.89.2.49-12.01.pth
+BLEU = 10.27, 36.0/15.3/6.7/3.0 (BP=1.000, ratio=1.134, hyp_len=13870, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.47.2.20-9.04.2.45-11.60.pth
+BLEU = 10.31, 37.3/15.7/6.8/2.8 (BP=1.000, ratio=1.069, hyp_len=13073, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.48.2.12-8.29.2.47-11.83.pth
+BLEU = 10.09, 36.7/15.2/6.6/2.8 (BP=1.000, ratio=1.109, hyp_len=13563, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.49.2.09-8.08.2.46-11.69.pth
+BLEU = 10.67, 38.2/16.1/6.9/3.1 (BP=1.000, ratio=1.053, hyp_len=12885, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.50.2.12-8.30.2.47-11.82.pth
+BLEU = 10.17, 36.7/15.5/6.6/2.9 (BP=1.000, ratio=1.089, hyp_len=13314, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.51.2.03-7.64.2.47-11.86.pth
+BLEU = 10.76, 38.1/16.0/7.0/3.1 (BP=1.000, ratio=1.080, hyp_len=13213, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.52.2.02-7.51.2.46-11.69.pth
+BLEU = 11.14, 38.5/16.6/7.3/3.3 (BP=1.000, ratio=1.067, hyp_len=13046, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.53.1.99-7.33.2.46-11.67.pth
+BLEU = 11.33, 38.0/16.6/7.5/3.5 (BP=1.000, ratio=1.077, hyp_len=13177, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.54.2.04-7.69.2.47-11.80.pth
+BLEU = 10.93, 38.1/16.3/7.2/3.2 (BP=1.000, ratio=1.071, hyp_len=13104, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.55.1.93-6.88.2.44-11.48.pth
+BLEU = 10.74, 38.0/16.1/7.0/3.1 (BP=1.000, ratio=1.068, hyp_len=13066, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.56.1.92-6.84.2.45-11.58.pth
+BLEU = 11.17, 38.8/16.6/7.3/3.3 (BP=1.000, ratio=1.046, hyp_len=12789, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.57.1.95-7.04.2.46-11.72.pth
+BLEU = 11.09, 38.1/16.4/7.3/3.3 (BP=1.000, ratio=1.077, hyp_len=13178, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.58.1.93-6.91.2.48-11.99.pth
+BLEU = 11.02, 38.3/16.1/7.2/3.3 (BP=1.000, ratio=1.080, hyp_len=13208, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.59.1.86-6.41.2.48-11.93.pth
+BLEU = 11.31, 38.1/16.2/7.5/3.6 (BP=1.000, ratio=1.081, hyp_len=13222, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.60.1.90-6.68.2.48-11.93.pth
+BLEU = 11.29, 38.3/16.5/7.4/3.5 (BP=1.000, ratio=1.065, hyp_len=13030, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.61.1.86-6.41.2.50-12.18.pth
+BLEU = 11.36, 39.0/16.7/7.5/3.4 (BP=1.000, ratio=1.060, hyp_len=12967, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.62.1.80-6.04.2.48-11.99.pth
+BLEU = 11.41, 38.4/16.8/7.6/3.5 (BP=1.000, ratio=1.077, hyp_len=13171, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.63.1.81-6.12.2.50-12.22.pth
+BLEU = 11.15, 37.7/16.2/7.4/3.4 (BP=1.000, ratio=1.088, hyp_len=13309, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.64.1.80-6.04.2.51-12.34.pth
+BLEU = 11.64, 38.8/16.9/7.7/3.6 (BP=1.000, ratio=1.071, hyp_len=13099, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.65.1.74-5.68.2.50-12.20.pth
+BLEU = 11.68, 39.4/17.2/7.7/3.6 (BP=1.000, ratio=1.059, hyp_len=12948, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.66.1.77-5.86.2.54-12.72.pth
+BLEU = 10.93, 37.2/16.0/7.2/3.3 (BP=1.000, ratio=1.115, hyp_len=13635, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.67.1.82-6.15.2.54-12.62.pth
+BLEU = 10.78, 37.8/16.1/7.1/3.1 (BP=1.000, ratio=1.110, hyp_len=13571, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.68.1.73-5.61.2.53-12.52.pth
+BLEU = 11.73, 39.8/17.3/7.7/3.5 (BP=1.000, ratio=1.057, hyp_len=12929, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.69.1.68-5.39.2.50-12.22.pth
+BLEU = 11.37, 38.6/16.6/7.5/3.5 (BP=1.000, ratio=1.075, hyp_len=13152, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.70.1.65-5.22.2.55-12.76.pth
+BLEU = 11.64, 39.0/16.7/7.7/3.6 (BP=1.000, ratio=1.067, hyp_len=13055, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.71.1.64-5.18.2.50-12.24.pth
+BLEU = 11.01, 38.3/16.4/7.2/3.3 (BP=1.000, ratio=1.087, hyp_len=13297, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.72.1.62-5.04.2.52-12.39.pth
+BLEU = 11.52, 38.7/16.6/7.6/3.6 (BP=1.000, ratio=1.087, hyp_len=13292, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.73.1.60-4.94.2.51-12.24.pth
+BLEU = 12.10, 39.5/17.3/8.1/3.9 (BP=1.000, ratio=1.059, hyp_len=12947, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.74.1.60-4.94.2.57-13.10.pth
+BLEU = 11.61, 38.4/16.6/7.6/3.7 (BP=1.000, ratio=1.085, hyp_len=13267, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.75.1.62-5.05.2.55-12.81.pth
+BLEU = 11.80, 38.8/16.9/7.8/3.8 (BP=1.000, ratio=1.065, hyp_len=13024, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.76.1.58-4.84.2.53-12.59.pth
+BLEU = 11.80, 39.2/17.1/7.9/3.7 (BP=1.000, ratio=1.057, hyp_len=12924, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.77.1.58-4.86.2.57-13.01.pth
+BLEU = 11.80, 38.8/16.9/7.8/3.8 (BP=1.000, ratio=1.085, hyp_len=13266, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.78.1.57-4.82.2.56-12.90.pth
+BLEU = 12.11, 39.7/17.5/8.0/3.9 (BP=1.000, ratio=1.068, hyp_len=13067, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.79.1.56-4.76.2.56-12.96.pth
+BLEU = 11.28, 38.7/16.4/7.4/3.5 (BP=1.000, ratio=1.079, hyp_len=13203, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.80.1.52-4.59.2.53-12.56.pth
+BLEU = 11.47, 38.4/16.7/7.6/3.5 (BP=1.000, ratio=1.084, hyp_len=13262, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.81.1.53-4.63.2.57-13.10.pth
+BLEU = 11.99, 39.2/16.9/8.0/3.9 (BP=1.000, ratio=1.081, hyp_len=13216, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.82.1.54-4.66.2.58-13.21.pth
+BLEU = 11.95, 38.8/16.9/7.8/4.0 (BP=1.000, ratio=1.057, hyp_len=12932, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.83.1.48-4.41.2.61-13.61.pth
+BLEU = 11.53, 38.1/16.6/7.6/3.7 (BP=1.000, ratio=1.095, hyp_len=13391, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.84.1.44-4.24.2.57-13.09.pth
+BLEU = 12.01, 38.8/17.3/8.0/3.9 (BP=1.000, ratio=1.087, hyp_len=13299, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.85.1.45-4.26.2.61-13.54.pth
+BLEU = 11.72, 38.5/16.8/7.8/3.7 (BP=1.000, ratio=1.076, hyp_len=13155, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.86.1.55-4.69.2.62-13.78.pth
+BLEU = 12.08, 38.5/17.3/8.2/3.9 (BP=1.000, ratio=1.088, hyp_len=13307, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.87.1.49-4.46.2.63-13.86.pth
+BLEU = 11.83, 38.6/17.0/8.0/3.7 (BP=1.000, ratio=1.097, hyp_len=13421, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.88.1.50-4.46.2.61-13.56.pth
+BLEU = 11.62, 38.6/16.5/7.7/3.7 (BP=1.000, ratio=1.103, hyp_len=13494, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.89.1.49-4.43.2.64-13.99.pth
+BLEU = 11.95, 39.0/17.2/8.0/3.8 (BP=1.000, ratio=1.081, hyp_len=13227, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.90.1.40-4.04.2.63-13.85.pth
+BLEU = 11.95, 38.7/16.8/7.9/3.9 (BP=1.000, ratio=1.084, hyp_len=13264, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.91.1.39-4.03.2.65-14.21.pth
+BLEU = 12.46, 40.0/17.9/8.3/4.0 (BP=1.000, ratio=1.067, hyp_len=13048, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.92.1.37-3.92.2.67-14.41.pth
+BLEU = 12.22, 39.3/17.2/8.0/4.1 (BP=1.000, ratio=1.079, hyp_len=13195, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.93.1.35-3.86.2.70-14.82.pth
+BLEU = 11.97, 39.1/17.1/8.0/3.8 (BP=1.000, ratio=1.082, hyp_len=13230, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.94.1.38-3.98.2.69-14.70.pth
+BLEU = 12.10, 39.3/17.2/8.1/3.9 (BP=1.000, ratio=1.061, hyp_len=12978, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.95.1.36-3.91.2.66-14.35.pth
+BLEU = 12.13, 39.3/17.1/8.0/4.0 (BP=1.000, ratio=1.075, hyp_len=13148, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.96.1.31-3.71.2.66-14.34.pth
+BLEU = 12.15, 39.9/17.4/8.1/3.9 (BP=1.000, ratio=1.058, hyp_len=12943, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.97.1.31-3.69.2.68-14.65.pth
+BLEU = 11.90, 39.6/17.1/7.8/3.8 (BP=1.000, ratio=1.081, hyp_len=13220, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.98.1.35-3.85.2.68-14.54.pth
+BLEU = 12.08, 39.6/17.3/8.0/3.9 (BP=1.000, ratio=1.059, hyp_len=12947, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.99.1.28-3.60.2.65-14.20.pth
+BLEU = 11.92, 39.2/17.1/7.9/3.8 (BP=1.000, ratio=1.077, hyp_len=13171, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/bkmy-50epoch
+Evaluation result for the model: seq-rl-model-bkmy.100.1.28-3.58.2.65-14.09.pth
+BLEU = 11.77, 39.1/17.0/7.8/3.7 (BP=1.000, ratio=1.094, hyp_len=13384, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.48.2.13-8.44.2.44-11.47.pth
+BLEU = 10.64, 36.9/15.8/6.9/3.2 (BP=1.000, ratio=1.124, hyp_len=13742, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.49.2.08-8.01.2.45-11.62.pth
+BLEU = 10.79, 37.5/16.1/7.1/3.1 (BP=1.000, ratio=1.091, hyp_len=13346, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.50.2.11-8.25.2.44-11.49.pth
+BLEU = 10.00, 35.3/15.0/6.5/2.9 (BP=1.000, ratio=1.154, hyp_len=14116, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.51.2.06-7.84.2.45-11.59.pth
+BLEU = 11.00, 38.3/16.5/7.2/3.2 (BP=1.000, ratio=1.064, hyp_len=13016, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.52.2.08-7.99.2.47-11.76.pth
+BLEU = 11.38, 38.4/16.8/7.4/3.5 (BP=1.000, ratio=1.090, hyp_len=13337, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.53.2.05-7.79.2.44-11.49.pth
+BLEU = 11.82, 39.2/17.4/7.8/3.7 (BP=1.000, ratio=1.054, hyp_len=12888, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.54.2.04-7.66.2.46-11.69.pth
+BLEU = 10.53, 35.9/15.4/7.0/3.2 (BP=1.000, ratio=1.171, hyp_len=14322, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.55.1.96-7.11.2.46-11.66.pth
+BLEU = 11.58, 39.4/17.3/7.7/3.4 (BP=1.000, ratio=1.072, hyp_len=13108, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.56.1.96-7.09.2.45-11.62.pth
+BLEU = 10.96, 38.0/16.5/7.2/3.2 (BP=1.000, ratio=1.103, hyp_len=13491, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.57.1.98-7.25.2.48-11.90.pth
+BLEU = 10.49, 36.1/15.5/6.9/3.1 (BP=1.000, ratio=1.161, hyp_len=14197, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.58.1.96-7.08.2.44-11.52.pth
+BLEU = 11.21, 37.4/16.4/7.5/3.5 (BP=1.000, ratio=1.118, hyp_len=13673, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.59.1.87-6.47.2.45-11.59.pth
+BLEU = 11.51, 38.0/16.7/7.7/3.6 (BP=1.000, ratio=1.105, hyp_len=13518, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.60.1.90-6.68.2.46-11.73.pth
+BLEU = 11.32, 37.5/16.7/7.6/3.4 (BP=1.000, ratio=1.124, hyp_len=13748, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.61.1.84-6.27.2.46-11.66.pth
+BLEU = 11.63, 38.5/17.1/7.8/3.6 (BP=1.000, ratio=1.110, hyp_len=13574, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.62.1.82-6.16.2.46-11.69.pth
+BLEU = 11.32, 39.1/17.0/7.5/3.3 (BP=1.000, ratio=1.086, hyp_len=13277, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.63.1.82-6.15.2.45-11.63.pth
+BLEU = 11.27, 37.9/16.5/7.4/3.5 (BP=1.000, ratio=1.107, hyp_len=13537, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.64.1.80-6.06.2.46-11.72.pth
+BLEU = 11.92, 39.2/17.1/8.0/3.8 (BP=1.000, ratio=1.077, hyp_len=13170, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.65.1.80-6.06.2.48-11.98.pth
+BLEU = 11.64, 39.0/17.1/7.7/3.6 (BP=1.000, ratio=1.086, hyp_len=13281, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.66.1.74-5.68.2.46-11.68.pth
+BLEU = 12.07, 39.9/17.7/8.1/3.7 (BP=1.000, ratio=1.073, hyp_len=13119, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.67.1.73-5.63.2.49-12.01.pth
+BLEU = 11.96, 39.2/17.4/8.1/3.7 (BP=1.000, ratio=1.072, hyp_len=13115, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.68.1.78-5.96.2.47-11.82.pth
+BLEU = 11.60, 39.2/17.2/7.7/3.5 (BP=1.000, ratio=1.098, hyp_len=13428, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.69.1.70-5.45.2.48-11.96.pth
+BLEU = 11.76, 39.5/17.1/7.8/3.7 (BP=1.000, ratio=1.071, hyp_len=13096, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.70.1.70-5.49.2.47-11.81.pth
+BLEU = 11.31, 38.1/16.6/7.6/3.4 (BP=1.000, ratio=1.109, hyp_len=13567, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.71.1.65-5.18.2.51-12.30.pth
+BLEU = 11.81, 39.3/17.2/7.8/3.7 (BP=1.000, ratio=1.082, hyp_len=13239, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.72.1.63-5.11.2.51-12.29.pth
+BLEU = 11.27, 37.7/16.3/7.5/3.5 (BP=1.000, ratio=1.131, hyp_len=13836, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.73.1.62-5.08.2.51-12.32.pth
+BLEU = 11.56, 37.7/16.7/7.8/3.6 (BP=1.000, ratio=1.144, hyp_len=13991, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.74.1.59-4.89.2.52-12.40.pth
+BLEU = 12.05, 39.1/17.4/8.0/3.9 (BP=1.000, ratio=1.091, hyp_len=13340, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.75.1.59-4.91.2.50-12.24.pth
+BLEU = 11.98, 39.7/17.3/7.9/3.8 (BP=1.000, ratio=1.081, hyp_len=13218, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.76.1.58-4.85.2.52-12.37.pth
+BLEU = 11.91, 39.0/17.3/7.9/3.8 (BP=1.000, ratio=1.091, hyp_len=13346, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.77.1.58-4.87.2.52-12.42.pth
+BLEU = 12.00, 40.1/17.7/8.0/3.6 (BP=1.000, ratio=1.077, hyp_len=13169, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.78.1.57-4.83.2.53-12.58.pth
+BLEU = 11.65, 38.9/16.9/7.8/3.6 (BP=1.000, ratio=1.098, hyp_len=13431, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.79.1.60-4.98.2.51-12.28.pth
+BLEU = 12.37, 39.7/17.6/8.3/4.1 (BP=1.000, ratio=1.074, hyp_len=13141, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.80.1.56-4.78.2.52-12.38.pth
+BLEU = 11.93, 39.6/17.2/8.0/3.7 (BP=1.000, ratio=1.082, hyp_len=13237, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.81.1.53-4.60.2.52-12.46.pth
+BLEU = 12.00, 39.7/17.6/8.0/3.7 (BP=1.000, ratio=1.090, hyp_len=13328, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.82.1.48-4.41.2.55-12.75.pth
+BLEU = 11.85, 39.3/17.1/7.8/3.7 (BP=1.000, ratio=1.087, hyp_len=13296, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.83.1.51-4.51.2.56-12.98.pth
+BLEU = 11.86, 39.8/17.4/7.8/3.7 (BP=1.000, ratio=1.079, hyp_len=13198, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.84.1.43-4.19.2.56-12.96.pth
+BLEU = 12.52, 40.4/18.0/8.3/4.0 (BP=1.000, ratio=1.068, hyp_len=13065, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.85.1.43-4.20.2.56-12.91.pth
+BLEU = 11.36, 38.7/17.0/7.4/3.4 (BP=1.000, ratio=1.114, hyp_len=13625, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.86.1.47-4.33.2.57-13.09.pth
+BLEU = 11.65, 39.4/17.0/7.7/3.6 (BP=1.000, ratio=1.088, hyp_len=13309, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.87.1.44-4.20.2.54-12.65.pth
+BLEU = 11.95, 39.4/17.1/8.0/3.8 (BP=1.000, ratio=1.084, hyp_len=13258, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.88.1.46-4.33.2.58-13.16.pth
+BLEU = 11.95, 39.6/17.5/7.9/3.7 (BP=1.000, ratio=1.089, hyp_len=13322, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.89.1.39-4.03.2.59-13.37.pth
+BLEU = 11.43, 38.5/16.8/7.5/3.5 (BP=1.000, ratio=1.115, hyp_len=13632, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.90.1.37-3.94.2.59-13.34.pth
+BLEU = 12.40, 40.5/17.7/8.3/4.0 (BP=1.000, ratio=1.065, hyp_len=13030, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.91.1.44-4.23.2.60-13.53.pth
+BLEU = 11.82, 38.9/17.2/7.8/3.8 (BP=1.000, ratio=1.105, hyp_len=13513, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.92.1.34-3.81.2.59-13.35.pth
+BLEU = 12.11, 39.6/17.3/8.0/3.9 (BP=1.000, ratio=1.091, hyp_len=13342, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.93.1.37-3.92.2.62-13.71.pth
+BLEU = 11.45, 38.6/16.6/7.6/3.6 (BP=1.000, ratio=1.122, hyp_len=13728, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.94.1.36-3.92.2.59-13.28.pth
+BLEU = 12.10, 39.6/17.4/8.1/3.9 (BP=1.000, ratio=1.080, hyp_len=13214, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.95.1.37-3.92.2.59-13.31.pth
+BLEU = 12.15, 39.7/17.5/8.2/3.9 (BP=1.000, ratio=1.107, hyp_len=13543, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.96.1.33-3.78.2.60-13.46.pth
+BLEU = 12.20, 40.2/17.7/8.1/3.8 (BP=1.000, ratio=1.074, hyp_len=13130, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.97.1.34-3.83.2.62-13.71.pth
+BLEU = 12.11, 39.7/17.5/8.2/3.8 (BP=1.000, ratio=1.088, hyp_len=13307, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.98.1.34-3.81.2.62-13.67.pth
+BLEU = 11.89, 39.2/17.1/7.9/3.8 (BP=1.000, ratio=1.092, hyp_len=13357, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.99.1.34-3.83.2.61-13.63.pth
+BLEU = 11.72, 39.0/16.9/7.8/3.7 (BP=1.000, ratio=1.119, hyp_len=13682, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/bkmy-60epoch
+Evaluation result for the model: seq-rl-model-bkmy.100.1.30-3.65.2.61-13.66.pth
+BLEU = 11.60, 39.0/16.8/7.7/3.6 (BP=1.000, ratio=1.083, hyp_len=13247, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.58.1.81-6.14.2.37-10.75.pth
+BLEU = 10.38, 37.1/15.4/6.7/3.0 (BP=1.000, ratio=1.096, hyp_len=13409, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.59.1.88-6.55.2.38-10.84.pth
+BLEU = 11.38, 38.6/16.8/7.5/3.5 (BP=1.000, ratio=1.063, hyp_len=13005, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.60.1.76-5.83.2.39-10.86.pth
+BLEU = 11.30, 39.0/16.6/7.4/3.4 (BP=1.000, ratio=1.058, hyp_len=12943, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.61.1.77-5.87.2.40-11.07.pth
+BLEU = 11.51, 39.0/16.6/7.5/3.6 (BP=1.000, ratio=1.060, hyp_len=12966, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.62.1.75-5.77.2.41-11.10.pth
+BLEU = 10.79, 38.4/16.1/7.0/3.1 (BP=1.000, ratio=1.071, hyp_len=13104, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.63.1.81-6.11.2.36-10.54.pth
+BLEU = 11.30, 39.3/16.7/7.3/3.4 (BP=1.000, ratio=1.049, hyp_len=12829, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.64.1.78-5.92.2.39-10.96.pth
+BLEU = 11.29, 39.5/16.6/7.4/3.4 (BP=1.000, ratio=1.050, hyp_len=12841, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.65.1.66-5.26.2.39-10.89.pth
+BLEU = 11.29, 39.0/16.5/7.3/3.4 (BP=1.000, ratio=1.060, hyp_len=12959, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.66.1.67-5.31.2.39-10.94.pth
+BLEU = 11.57, 39.6/17.1/7.7/3.5 (BP=1.000, ratio=1.061, hyp_len=12973, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.67.1.68-5.35.2.39-10.93.pth
+BLEU = 11.63, 39.5/17.0/7.6/3.6 (BP=1.000, ratio=1.058, hyp_len=12937, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.68.1.66-5.25.2.39-10.90.pth
+BLEU = 11.33, 38.9/16.7/7.3/3.5 (BP=1.000, ratio=1.076, hyp_len=13158, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.69.1.61-5.02.2.42-11.22.pth
+BLEU = 11.03, 38.4/16.2/7.2/3.3 (BP=1.000, ratio=1.075, hyp_len=13151, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.70.1.61-5.02.2.43-11.40.pth
+BLEU = 11.68, 39.4/16.7/7.7/3.7 (BP=1.000, ratio=1.070, hyp_len=13089, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.71.1.61-4.98.2.40-11.06.pth
+BLEU = 11.29, 38.9/16.6/7.4/3.4 (BP=1.000, ratio=1.078, hyp_len=13182, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.72.1.58-4.86.2.40-11.07.pth
+BLEU = 11.18, 39.1/16.8/7.3/3.3 (BP=1.000, ratio=1.062, hyp_len=12984, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.73.1.66-5.28.2.43-11.35.pth
+BLEU = 11.18, 39.0/16.3/7.2/3.4 (BP=1.000, ratio=1.068, hyp_len=13065, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.74.1.54-4.66.2.44-11.51.pth
+BLEU = 11.18, 38.5/16.4/7.4/3.3 (BP=1.000, ratio=1.076, hyp_len=13163, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.75.1.60-4.93.2.46-11.76.pth
+BLEU = 11.10, 38.7/16.4/7.2/3.3 (BP=1.000, ratio=1.085, hyp_len=13274, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.76.1.51-4.52.2.46-11.73.pth
+BLEU = 11.94, 39.7/17.1/7.9/3.8 (BP=1.000, ratio=1.057, hyp_len=12931, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.77.1.54-4.66.2.47-11.85.pth
+BLEU = 10.97, 38.7/16.3/7.1/3.2 (BP=1.000, ratio=1.077, hyp_len=13167, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.78.1.51-4.55.2.52-12.39.pth
+BLEU = 10.93, 38.2/16.2/7.2/3.2 (BP=1.000, ratio=1.088, hyp_len=13307, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.79.1.56-4.74.2.48-11.97.pth
+BLEU = 11.68, 39.2/17.2/7.7/3.6 (BP=1.000, ratio=1.086, hyp_len=13286, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.80.1.48-4.41.2.46-11.71.pth
+BLEU = 11.11, 38.4/16.1/7.2/3.4 (BP=1.000, ratio=1.083, hyp_len=13252, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.81.1.45-4.24.2.47-11.83.pth
+BLEU = 11.50, 39.2/16.7/7.5/3.6 (BP=1.000, ratio=1.082, hyp_len=13229, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.82.1.59-4.88.2.47-11.77.pth
+BLEU = 11.77, 39.6/17.1/7.7/3.7 (BP=1.000, ratio=1.069, hyp_len=13069, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.83.1.53-4.61.2.51-12.34.pth
+BLEU = 10.87, 38.6/16.0/7.1/3.2 (BP=1.000, ratio=1.083, hyp_len=13243, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.84.1.48-4.39.2.48-11.89.pth
+BLEU = 11.56, 38.9/16.6/7.7/3.6 (BP=1.000, ratio=1.070, hyp_len=13086, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.85.1.51-4.51.2.55-12.74.pth
+BLEU = 11.24, 38.6/16.2/7.3/3.5 (BP=1.000, ratio=1.092, hyp_len=13360, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.86.1.43-4.16.2.52-12.39.pth
+BLEU = 11.84, 39.1/16.7/7.8/3.9 (BP=1.000, ratio=1.072, hyp_len=13114, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.87.1.37-3.95.2.53-12.55.pth
+BLEU = 11.79, 39.6/17.1/7.7/3.7 (BP=1.000, ratio=1.063, hyp_len=13005, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.88.1.39-4.02.2.52-12.45.pth
+BLEU = 11.27, 39.1/16.4/7.4/3.4 (BP=1.000, ratio=1.074, hyp_len=13138, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.89.1.36-3.91.2.54-12.71.pth
+BLEU = 11.27, 39.0/16.4/7.3/3.4 (BP=1.000, ratio=1.091, hyp_len=13338, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.90.1.35-3.85.2.53-12.56.pth
+BLEU = 11.96, 39.6/17.4/7.9/3.8 (BP=1.000, ratio=1.054, hyp_len=12892, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.91.1.32-3.73.2.53-12.58.pth
+BLEU = 11.47, 39.2/16.5/7.4/3.6 (BP=1.000, ratio=1.074, hyp_len=13140, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.92.1.38-3.96.2.53-12.61.pth
+BLEU = 11.71, 39.3/16.9/7.8/3.6 (BP=1.000, ratio=1.081, hyp_len=13218, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.93.1.32-3.73.2.55-12.81.pth
+BLEU = 11.54, 39.1/16.7/7.5/3.6 (BP=1.000, ratio=1.069, hyp_len=13076, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.94.1.39-4.00.2.55-12.87.pth
+BLEU = 11.64, 39.0/16.9/7.7/3.6 (BP=1.000, ratio=1.085, hyp_len=13268, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.95.1.29-3.65.2.56-12.90.pth
+BLEU = 11.86, 40.3/17.4/7.8/3.6 (BP=1.000, ratio=1.066, hyp_len=13033, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.96.1.26-3.53.2.57-13.05.pth
+BLEU = 11.43, 39.2/16.6/7.4/3.6 (BP=1.000, ratio=1.075, hyp_len=13144, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.97.1.30-3.69.2.58-13.19.pth
+BLEU = 11.66, 39.8/16.9/7.7/3.6 (BP=1.000, ratio=1.080, hyp_len=13208, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.98.1.28-3.60.2.61-13.60.pth
+BLEU = 11.81, 39.7/17.0/7.8/3.7 (BP=1.000, ratio=1.076, hyp_len=13156, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.99.1.29-3.65.2.59-13.37.pth
+BLEU = 11.62, 39.4/16.9/7.6/3.6 (BP=1.000, ratio=1.084, hyp_len=13255, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/rl/seq2seq/bkmy-70epoch
+Evaluation result for the model: seq-rl-model-bkmy.100.1.15-3.15.2.19-8.92.pth
+BLEU = 20.60, 48.2/26.5/15.4/9.1 (BP=1.000, ratio=1.069, hyp_len=13074, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.65.1.68-5.36.2.10-8.13.pth
+BLEU = 18.35, 45.6/24.2/13.5/7.6 (BP=1.000, ratio=1.082, hyp_len=13240, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.66.1.75-5.74.2.09-8.09.pth
+BLEU = 17.55, 45.0/23.2/12.7/7.1 (BP=1.000, ratio=1.094, hyp_len=13379, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.67.1.65-5.19.2.08-8.04.pth
+BLEU = 18.16, 46.5/24.3/13.1/7.3 (BP=1.000, ratio=1.068, hyp_len=13064, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.68.1.60-4.94.2.09-8.07.pth
+BLEU = 18.52, 45.3/24.2/13.5/7.9 (BP=1.000, ratio=1.099, hyp_len=13443, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.69.1.58-4.87.2.07-7.95.pth
+BLEU = 18.68, 46.1/24.6/13.8/7.8 (BP=1.000, ratio=1.081, hyp_len=13226, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.70.1.67-5.32.2.08-8.01.pth
+BLEU = 19.29, 47.1/25.1/14.1/8.3 (BP=1.000, ratio=1.060, hyp_len=12969, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.71.1.54-4.65.2.09-8.06.pth
+BLEU = 18.84, 46.9/24.9/13.8/7.8 (BP=1.000, ratio=1.070, hyp_len=13089, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.72.1.62-5.04.2.08-8.02.pth
+BLEU = 18.16, 45.6/23.7/13.2/7.6 (BP=1.000, ratio=1.075, hyp_len=13146, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.73.1.65-5.21.2.09-8.07.pth
+BLEU = 17.50, 44.9/23.4/12.7/7.0 (BP=1.000, ratio=1.122, hyp_len=13724, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.74.1.56-4.74.2.08-8.02.pth
+BLEU = 18.64, 47.2/24.6/13.5/7.7 (BP=1.000, ratio=1.060, hyp_len=12964, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.75.1.50-4.46.2.08-8.02.pth
+BLEU = 19.51, 47.5/25.4/14.4/8.4 (BP=1.000, ratio=1.070, hyp_len=13089, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.76.1.51-4.54.2.08-8.01.pth
+BLEU = 18.78, 46.2/24.6/13.8/8.0 (BP=1.000, ratio=1.093, hyp_len=13373, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.77.1.57-4.79.2.10-8.13.pth
+BLEU = 19.61, 48.1/25.6/14.4/8.3 (BP=1.000, ratio=1.047, hyp_len=12808, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.78.1.41-4.10.2.09-8.10.pth
+BLEU = 19.95, 48.2/26.0/14.8/8.6 (BP=1.000, ratio=1.045, hyp_len=12787, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.79.1.43-4.18.2.10-8.15.pth
+BLEU = 19.58, 48.2/25.7/14.4/8.2 (BP=1.000, ratio=1.053, hyp_len=12877, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.80.1.38-3.99.2.13-8.39.pth
+BLEU = 18.98, 47.1/25.0/14.1/7.9 (BP=1.000, ratio=1.077, hyp_len=13168, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.81.1.40-4.06.2.12-8.36.pth
+BLEU = 19.13, 47.2/25.0/14.0/8.1 (BP=1.000, ratio=1.060, hyp_len=12966, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.82.1.41-4.10.2.10-8.20.pth
+BLEU = 20.78, 49.0/26.8/15.5/9.2 (BP=1.000, ratio=1.048, hyp_len=12813, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.83.1.37-3.92.2.12-8.37.pth
+BLEU = 20.39, 48.6/26.4/15.1/8.9 (BP=1.000, ratio=1.050, hyp_len=12846, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.84.1.32-3.74.2.10-8.19.pth
+BLEU = 19.57, 47.8/25.7/14.3/8.3 (BP=1.000, ratio=1.071, hyp_len=13099, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.85.1.29-3.64.2.13-8.43.pth
+BLEU = 20.06, 48.1/25.9/14.8/8.8 (BP=1.000, ratio=1.060, hyp_len=12961, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.86.1.29-3.64.2.10-8.17.pth
+BLEU = 20.23, 48.4/26.2/15.0/8.8 (BP=1.000, ratio=1.059, hyp_len=12954, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.87.1.35-3.86.2.11-8.22.pth
+BLEU = 20.49, 48.4/26.3/15.3/9.1 (BP=1.000, ratio=1.059, hyp_len=12948, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.88.1.28-3.61.2.13-8.40.pth
+BLEU = 20.62, 48.3/26.4/15.4/9.2 (BP=1.000, ratio=1.061, hyp_len=12975, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.89.1.27-3.57.2.14-8.53.pth
+BLEU = 20.24, 48.2/25.9/14.9/9.0 (BP=1.000, ratio=1.056, hyp_len=12915, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.90.1.20-3.33.2.12-8.36.pth
+BLEU = 20.67, 48.4/26.5/15.5/9.2 (BP=1.000, ratio=1.052, hyp_len=12873, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.91.1.22-3.39.2.10-8.17.pth
+BLEU = 19.76, 48.2/25.9/14.5/8.4 (BP=1.000, ratio=1.064, hyp_len=13011, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.92.1.23-3.42.2.12-8.32.pth
+BLEU = 20.52, 48.7/26.8/15.3/8.9 (BP=1.000, ratio=1.064, hyp_len=13010, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.93.1.18-3.27.2.15-8.62.pth
+BLEU = 20.37, 48.6/26.3/15.1/8.9 (BP=1.000, ratio=1.055, hyp_len=12909, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.94.1.20-3.33.2.14-8.47.pth
+BLEU = 20.37, 48.2/26.2/15.2/9.0 (BP=1.000, ratio=1.061, hyp_len=12975, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.95.1.19-3.28.2.13-8.42.pth
+BLEU = 19.88, 48.2/25.9/14.7/8.5 (BP=1.000, ratio=1.067, hyp_len=13051, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.96.1.28-3.61.2.12-8.34.pth
+BLEU = 21.48, 49.4/27.5/16.2/9.7 (BP=1.000, ratio=1.051, hyp_len=12860, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.97.1.23-3.41.2.15-8.59.pth
+BLEU = 21.03, 48.7/26.8/15.8/9.5 (BP=1.000, ratio=1.053, hyp_len=12885, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.98.1.18-3.25.2.14-8.50.pth
+BLEU = 18.99, 46.5/24.8/13.9/8.1 (BP=1.000, ratio=1.097, hyp_len=13413, ref_len=12231)
+Evaluation result for the model: seq-rl-model-bkmy.99.1.24-3.46.2.13-8.43.pth
+BLEU = 21.10, 48.9/27.0/15.9/9.4 (BP=1.000, ratio=1.064, hyp_len=13016, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
 
+real	100m16.757s
+user	96m58.546s
+sys	9m2.774s
+(simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
 
