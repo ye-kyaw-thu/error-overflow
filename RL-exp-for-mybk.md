@@ -1613,7 +1613,7 @@ my-bk နဲ့ bk-my အတွက် Best model တွေနဲ့ Best Score �
 
 <div align="center"> 
     
-Table 1. Best model and best score for each training  
+Table 1. Best model and best score for each baseline training of my-bk pair  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
 | 30 | 30 | seq-model-mybk.30.2.80-16.52.2.38-10.84.pth | 9.36 |
@@ -1626,7 +1626,18 @@ Table 1. Best model and best score for each training
 
 **for Beik-Myanmar**
 
+<div align="center"> 
+    
+Table 2. Best model and best score for each baseline training of bk-my pair 
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 | 30 | seq-model-bkmy.30.2.69-14.67.2.53-12.59.pth | 9.54 |
+| 40 | 29 | seq-model-bkmy.29.2.67-14.48.2.59-13.38.pth | 8.70 |
+| 50 | 47 | seq-model-bkmy.47.2.18-8.88.2.44-11.52.pth | 10.75 |
+| 60 | 57 | seq-model-bkmy.57.1.85-6.35.2.36-10.55.pth | 11.17 |
+| 70 | 64 | seq-model-bkmy.64.1.70-5.48.2.09-8.07.pth | 17.92 |
 
+</div>  
 
 ## Seq2Seq-RL
 
