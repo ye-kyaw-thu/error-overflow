@@ -1643,6 +1643,52 @@ Table 2. Best model and best score for each baseline training of bk-my pair
 
 နောက်ဆက်တွဲ continuous-training တွေရဲ့ model တွေကိုလည်း ရှေ့မှာ training လုပ်ခဲ့တဲ့ ဖိုလ်ဒါထဲမှာပဲအတူတူ သိမ်းခဲ့တယ်။ အဲဒါကြောင့် 30-epoch ရဲ့ RL model တွေက 30-epoch/ အောက်မှာပဲ ဆက်ရှိမယ်။   
 
+Seq2Seq-RL training (i.e. continue-training) အတွက် ရေးခဲ့တဲ့ bash shell script က အောက်ပါအတိုင်း...  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 4 April 2022
+# a part of Seq2Seq-Reinforcement Learning exp for Myanmar-Beik, Beik-Myanmar
+# this script is for CONTINUE-training or RL training.
+
+   echo "mybk, seq2seq-RL training start for 30 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/mybk-30epoch/seq-model-mybk.30.2.80-16.52.2.38-10.84.pth --model_fn ./model/rl2/rl/seq2seq/mybk-30epoch/seq-rl-model-mybk.pth --init_epoch 31 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/mybk-30epoch/con-train.log;
+
+   echo "mybk, seq2seq-RL training start for 40 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/mybk-40epoch/seq-model-mybk.40.2.49-12.05.2.17-8.77.pth --model_fn ./model/rl2/rl/seq2seq/mybk-40epoch/seq-rl-model-mybk.pth --init_epoch 41 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/mybk-40epoch/con-train.log;
+
+   echo "mybk, seq2seq-RL training start for 50 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/mybk-50epoch/seq-model-mybk.50.2.26-9.59.2.46-11.68.pth --model_fn ./model/rl2/rl/seq2seq/mybk-50epoch/seq-rl-model-mybk.pth --init_epoch 51 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/mybk-50epoch/con-train.log;
+   
+   echo "mybk, seq2seq-RL training start for 60 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/mybk-60epoch/seq-model-mybk.57.2.06-7.84.2.58-13.15.pth --model_fn ./model/rl2/rl/seq2seq/mybk-60epoch/seq-rl-model-mybk.pth --init_epoch 58 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/mybk-60epoch/con-train.log;
+   
+   echo "mybk, seq2seq-RL training start for 70 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/mybk-70epoch/seq-model-mybk.68.1.77-5.87.2.39-10.87.pth --model_fn ./model/rl2/rl/seq2seq/mybk-70epoch/seq-rl-model-mybk.pth --init_epoch 69 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/mybk-70epoch/con-train.log;
+      
+echo "####################";
+
+   echo "bkmy, seq2seq-RL training start for 30 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/bkmy-30epoch/seq-model-bkmy.30.2.69-14.67.2.53-12.59.pth --model_fn ./model/rl2/rl/seq2seq/bkmy-30epoch/seq-rl-model-bkmy.pth --init_epoch 31 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/bkmy-30epoch/con-train.log;
+   
+    echo "bkmy, seq2seq-RL training start for 40 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/bkmy-40epoch/seq-model-bkmy.29.2.67-14.48.2.59-13.38.pth --model_fn ./model/rl2/rl/seq2seq/bkmy-40epoch/seq-rl-model-bkmy.pth --init_epoch 30 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/bkmy-40epoch/con-train.log;
+   
+    echo "bkmy, seq2seq-RL training start for 50 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/bkmy-50epoch/seq-model-bkmy.47.2.18-8.88.2.44-11.52.pth --model_fn ./model/rl2/rl/seq2seq/bkmy-50epoch/seq-rl-model-bkmy.pth --init_epoch 48 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/bkmy-50epoch/con-train.log;   
+
+    echo "bkmy, seq2seq-RL training start for 60 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/bkmy-60epoch/seq-model-bkmy.57.1.85-6.35.2.36-10.55.pth --model_fn ./model/rl2/rl/seq2seq/bkmy-60epoch/seq-rl-model-bkmy.pth --init_epoch 58 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/bkmy-60epoch/con-train.log;   
+   
+    echo "bkmy, seq2seq-RL training start for 70 epochs...";
+   time python continue_train.py --load_fn ./model/rl2/baseline/seq2seq/bkmy-70epoch/seq-model-bkmy.64.1.70-5.48.2.09-8.07.pth --model_fn ./model/rl2/rl/seq2seq/bkmy-70epoch/seq-rl-model-bkmy.pth --init_epoch 65 --iteration_per_update 2 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/seq2seq/bkmy-70epoch/con-train.log;   
+   
+```
+
+training seq2seq-RL ...  
+
 ```
 (simple-nmt) ye@:~/exp/simple-nmt$ time ./rl-seq2seq-con-train.sh | tee rl-seq2seq-con-train-for-mybk-bkmy.log
 ...
