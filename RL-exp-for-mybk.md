@@ -69,6 +69,7 @@ training မလုပ်ခင်မှာ အရင်ဆုံး အောက
 ### Bash Script Writing
 
 အရင်ဆုံး 30 epoch ကနေ 70 epoch အထိ seq2seq training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...  
+ဖိုင်နာမည်က rl-seq2seq-train.sh   
 
 ```bash
 #!/bin/bash
