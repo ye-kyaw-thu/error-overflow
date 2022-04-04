@@ -1611,8 +1611,9 @@ my-bk နဲ့ bk-my အတွက် Best model တွေနဲ့ Best Score �
 
 **for Myanmar-Beik**
 
-<p align="center">
-Table 1. Best model and best score for each training
+<p align="center">  
+    
+Table 1. Best model and best score for each training  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
 | 30 | 30 | seq-model-mybk.30.2.80-16.52.2.38-10.84.pth | 9.36 |
@@ -1621,7 +1622,8 @@ Table 1. Best model and best score for each training
 | 60 | 57 | seq-model-mybk.57.2.06-7.84.2.58-13.15.pth | 10.29 |
 | 70 | 68 | seq-model-mybk.68.1.77-5.87.2.39-10.87.pth | 13.40 |
 
-</p>
+</p>  
+
 **for Beik-Myanmar**
 
 
