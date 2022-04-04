@@ -1,6 +1,6 @@
 # Some Screen Outputs of RL-exp-for-mybk
 
-## Seq2Seq Baseline Training Log
+## Seq2Seq Baseline Training Log (my-bk, bk-my)
 seq2seq baseline training ကို my-bk အတွက်ရော bk-my အတွက်ရော လုပ်စဉ်က screen output ကို ဖိုင်နာမည် "rl-seq2seq-baseline-training-for-mybk-bkmy.log" ပေးပြီးသိမ်းထားခဲ့တယ်။ rl-seq2seq-baseline-training-for-mybk-bkmy.log တစ်ခုလုံးက အောက်ပါအတိုင်း...  
 
 ```
@@ -1607,7 +1607,7 @@ Epoch 70 - |param|=6.29e+02 |g_param|=4.97e+05 loss=1.5501e+00 ppl=4.71
 Validation - loss=2.1237e+00 ppl=8.36 best_loss=2.0842e+00 best_ppl=8.04
 ```
 
-## Seq2Seq-RL Training Log
+## Seq2Seq-RL Training Log (my-bk, bk-my)
 
 ```
 mybk, seq2seq-RL training start for 30 epochs...
@@ -3318,3 +3318,13 @@ Validation - loss=2.1317e+00 ppl=8.43 best_loss=2.0731e+00 best_ppl=7.95
 Epoch 100 - |param|=6.41e+02 |g_param|=1.41e+05 loss=1.1487e+00 ppl=3.15
 Validation - loss=2.1882e+00 ppl=8.92 best_loss=2.0731e+00 best_ppl=7.95
 ```
+
+Continue-Training of Seq2Seq-RL ရဲ့ ကြာချိန်က အောက်ပါအတိုင်း...  
+
+```
+real	89m41.581s
+user	87m52.417s
+sys	1m56.495s
+```
+
+## Transformer Baseline Training Log (for my-bk, bk-my)
