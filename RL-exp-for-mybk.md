@@ -1607,7 +1607,20 @@ real	79m48.118s
 user	78m15.186s
 sys	4m19.828s
 ```
-my-bk အတွက် ပြီးတော့ bk-my အတွက် ရလဒ်တွေက အောက်ပါအတိုင်း...  
+my-bk နဲ့ bk-my အတွက် Best model တွေနဲ့ Best Score ရလဒ်တွေက အောက်ပါအတိုင်း...  
+
+**for Myanmar-Beik**
+
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 | 30 | seq-model-mybk.30.2.80-16.52.2.38-10.84.pth | 9.36 |
+| 40 | 40 | seq-model-mybk.40.2.49-12.05.2.17-8.77.pth | 14.15 |
+| 50 | 50 | seq-model-mybk.50.2.26-9.59.2.46-11.68.pth | 11.42 |
+| 60 | 57 | seq-model-mybk.57.2.06-7.84.2.58-13.15.pth | 10.29 |
+| 70 | 68 | seq-model-mybk.68.1.77-5.87.2.39-10.87.pth | 13.40 |
+
+**for Beik-Myanmar**
+
 
 
 ## Seq2Seq-RL
