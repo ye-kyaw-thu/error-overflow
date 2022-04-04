@@ -3035,7 +3035,7 @@ sys	9m2.774s
 ```
 
 
-## for Transformer Baseline
+## for Transformer Baseline (my-bk, bk-my)
 ### Bash Script Writing
 
 30 epoch ကနေ 70 epoch အထိ transformer training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...   
@@ -3081,6 +3081,8 @@ done
 
 ```
 
+### Training 
+
 training ...  
 
 ```
@@ -3093,11 +3095,13 @@ testing/evaluation ...
 
 ```
 
-## Transformer-RL
+## Transformer-RL (my-bk, bk-my)
 
 ```bash
 
 ```
+
+### Training 
 
 training ...  
 
