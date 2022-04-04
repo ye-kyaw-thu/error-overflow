@@ -1,5 +1,6 @@
 # Some Screen Outputs of RL-exp-for-mybk
 
+## Seq2Seq Baseline Training Log
 seq2seq baseline training ကို my-bk အတွက်ရော bk-my အတွက်ရော လုပ်စဉ်က screen output ကို ဖိုင်နာမည် "rl-seq2seq-baseline-training-for-mybk-bkmy.log" ပေးပြီးသိမ်းထားခဲ့တယ်။ rl-seq2seq-baseline-training-for-mybk-bkmy.log တစ်ခုလုံးက အောက်ပါအတိုင်း...  
 
 ```
