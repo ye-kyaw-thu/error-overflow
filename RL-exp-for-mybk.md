@@ -3105,10 +3105,39 @@ testing/evaluation ...
 
 ### Training 
 
-training ...  
+Training log တစ်ခုလုံးက [RL-exp-for-mybk-screen-output.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/RL-exp-for-mybk-screen-output.md) မှာ ကြည့်ပါ။   
+training ...   
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./rl-transformer-train.sh | tee rl-transformer-train.log
+...
+...
+...
+Validation - loss=2.4728e+00 ppl=11.86 best_loss=2.4748e+00 best_ppl=11.88                                              
+Epoch 63 - |param|=3.07e+02 |g_param|=1.84e+05 loss=2.5102e+00 ppl=12.31                                                
+Validation - loss=2.4612e+00 ppl=11.72 best_loss=2.4728e+00 best_ppl=11.86                                              
+Epoch 64 - |param|=3.07e+02 |g_param|=1.94e+05 loss=2.4588e+00 ppl=11.69                                                
+Validation - loss=2.4635e+00 ppl=11.75 best_loss=2.4612e+00 best_ppl=11.72                                              
+Epoch 65 - |param|=3.07e+02 |g_param|=1.87e+05 loss=2.5101e+00 ppl=12.31                                                
+Validation - loss=2.4568e+00 ppl=11.67 best_loss=2.4612e+00 best_ppl=11.72                                              
+Epoch 66 - |param|=3.07e+02 |g_param|=1.89e+05 loss=2.4734e+00 ppl=11.86                                                
+Validation - loss=2.4387e+00 ppl=11.46 best_loss=2.4568e+00 best_ppl=11.67                                              
+Epoch 67 - |param|=3.07e+02 |g_param|=1.99e+05 loss=2.5390e+00 ppl=12.67                                                
+Validation - loss=2.4350e+00 ppl=11.42 best_loss=2.4387e+00 best_ppl=11.46                                              
+Epoch 68 - |param|=3.07e+02 |g_param|=1.97e+05 loss=2.5081e+00 ppl=12.28                                                
+Validation - loss=2.4301e+00 ppl=11.36 best_loss=2.4350e+00 best_ppl=11.42                                              
+Epoch 69 - |param|=3.07e+02 |g_param|=2.00e+05 loss=2.4656e+00 ppl=11.77                                                
+Validation - loss=2.4262e+00 ppl=11.32 best_loss=2.4301e+00 best_ppl=11.36                                              
+Epoch 70 - |param|=3.07e+02 |g_param|=1.81e+05 loss=2.4884e+00 ppl=12.04                                                
+Validation - loss=2.4183e+00 ppl=11.23 best_loss=2.4262e+00 best_ppl=11.32                                              
 
+real	21m9.699s
+user	21m6.659s
+sys	0m3.522s
+
+real	149m11.281s
+user	148m45.071s
+sys	0m31.116s
 ```
 
 ### Testing/Evaluation
