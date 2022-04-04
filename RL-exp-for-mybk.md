@@ -346,6 +346,8 @@ sys	1m35.128s
 
 ## Testing/Evaluation for Seq2Seq Baseline
 
+သုံးခဲ့တဲ့ test-eval-rl2-seq2seq-baseline-mybk-bkmy.sh က အောက်ပါအတိုင်း...  
+
 ```bash
 #!/bin/bash
 
@@ -1883,9 +1885,54 @@ sys	1m56.495s
 
 ### Testing and Evaluation for Seq2Seq-RL
 
-သုံးခဲ့တဲ့ bash script က အောက်ပါအတိုင်း...  
+သုံးခဲ့တဲ့ bash script (test-eval-rl2-seq2seq-RL-mybk-bkmy.sh) က အောက်ပါအတိုင်း...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 4 April 2022
+# A part of Seq2Seq-Reinforcement Learning exp
+# this script is for testing/evaluation of seq2seq-RL for both Myanmar-Beik and Beik-Myanmar
+
+# testing/evaluation baseline for my-bk
+
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/rl/seq2seq/mybk-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybk < /home/ye/exp/simple-nmt/data/my-bk/syl/test.my > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybk-seq2seq-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-mybk-seq2seq-RL-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
+
+# testing/evaluation baseline for bk-my
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/rl/seq2seq/bkmy-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-bkmy-seq2seq-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.my | tee  -a eval-results-bkmy-seq2seq-RL-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
 
 ```
 
