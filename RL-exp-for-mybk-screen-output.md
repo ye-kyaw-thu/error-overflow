@@ -3328,3 +3328,13 @@ sys	1m56.495s
 ```
 
 ## Transformer Baseline Training Log (for my-bk, bk-my)
+
+```
+
+```
+
+## Transformer-RL Training Log (for my-bk, bk-my)
+
+```
+
+```
