@@ -3041,8 +3041,72 @@ sys	9m2.774s
 30 epoch ကနေ 70 epoch အထိ transformer training အတွက် အောက်ပါ bash script ကို ရေးပြီး သုံးခဲ့...   
 
 ```bash
+#!/bin/bash
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 3 April 2022
+# Transformer-Reinforcement Learning exp for Myanmar-Beik, Beik-Myanmar
+
+## Reference command from my-rk training process
+#time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 40 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-40epoch/myrk-transformer-model.pth
+
+# training baseline for my-bk
+for i in {30,40,50,60,70}
+do
+   echo "mybk, transformer-baseline training start for ${i} epochs...";
+   time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+   --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+   --lang mybk \
+   --gpu_id 0 --batch_size 16 --n_epochs ${i} \
+   --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 \
+   --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 \
+   --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 \
+   --model_fn ./model/rl2/baseline/transformer/mybk-${i}epoch/transformer-model-mybk.pth  | tee ./model/rl2/baseline/transformer/mybk-${i}epoch/mybk-training.log;
+done
+
+echo "####################";
+
+# training baseline for bk-my
+for i in {30,40,50,60,70}
+do
+      echo "bkmy, transformer-baseline training start for ${i} epochs...";
+   time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+   --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+   --lang bkmy \
+   --gpu_id 1 --batch_size 16 --n_epochs ${i} \
+   --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 \
+   --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 \
+   --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 \
+   --model_fn ./model/rl2/baseline/transformer/bkmy-${i}epoch/transformer-model-bkmy.pth | tee ./model/rl2/baseline/transformer/bkmy-${i}epoch/bkmy-training.log;
+done
+
+```
+
+training ...  
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
 
 ```
 
 ## Transformer-RL
 
+```bash
+
+```
+
+training ...  
+
+```
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
