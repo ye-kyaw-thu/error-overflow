@@ -1836,6 +1836,21 @@ sys	1m56.495s
 
 ```
 
+### Testing and Evaluation for Seq2Seq-RL
+
+သုံးခဲ့တဲ့ bash script က အောက်ပါအတိုင်း...  
+
+```bash
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+
 ## for Transformer Baseline
 ### Bash Script Writing
 
