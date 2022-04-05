@@ -3123,6 +3123,50 @@ sys	0m31.116s
 Bash script writing ...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 5 April 2022
+# A part of Seq2Seq-Reinforcement Learning exp
+# this script is for testing/evaluation of baseline transformer for both Myanmar-Beik and Beik-Myanmar
+
+# testing/evaluation baseline for my-bk
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/baseline/transformer/mybk-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybk < /home/ye/exp/simple-nmt/data/my-bk/syl/test.my > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybk-transformer-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-mybk-transformer-baseline-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
+
+# testing/evaluation baseline for bk-my
+for folder in {30,40,50,60,70};
+do
+   cd ./model/rl2/baseline/transformer/bkmy-${folder}epoch/;
+   pwd;
+   for i in *.pth; do
+      MODEL=$i;
+
+      # Testing
+      python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > ./$MODEL.hyp
+
+      # Evaluation with BLEU Score
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-bkmy-transformer-baseline-100epoch.txt;
+      cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.my | tee  -a eval-results-bkmy-transformer-baseline-100epoch.txt;
+
+   done
+   cd -; echo "==========";
+done
 
 ```
 
