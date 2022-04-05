@@ -3178,6 +3178,8 @@ testing/evaluation ...
 
 ## Transformer-RL (my-bk, bk-my)
 
+သုံးခဲ့တဲ့ bash script က အောက်ပါအတိုင်း...  
+
 ```bash
 
 ```
