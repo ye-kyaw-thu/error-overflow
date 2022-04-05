@@ -4345,6 +4345,40 @@ Training log တစ်ခုလုံးက [RL-exp-for-mybk-screen-output.md](h
 training ...   
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./rl-transformer-con-train.sh | tee ./rl-transformer-con-train.log
+...
+...
+...
+Epoch 90 - |param|=3.09e+02 |g_param|=2.20e+05 loss=2.3254e+00 ppl=10.23                                                
+Validation - loss=2.3168e+00 ppl=10.14 best_loss=2.3225e+00 best_ppl=10.20                                              
+Epoch 91 - |param|=3.09e+02 |g_param|=2.22e+05 loss=2.3305e+00 ppl=10.28                                                
+Validation - loss=2.3068e+00 ppl=10.04 best_loss=2.3168e+00 best_ppl=10.14                                              
+Epoch 92 - |param|=3.10e+02 |g_param|=2.06e+05 loss=2.3486e+00 ppl=10.47                                                
+Validation - loss=2.2967e+00 ppl=9.94 best_loss=2.3068e+00 best_ppl=10.04                                               
+Epoch 93 - |param|=3.10e+02 |g_param|=2.19e+05 loss=2.3533e+00 ppl=10.52                                                
+Validation - loss=2.2953e+00 ppl=9.93 best_loss=2.2967e+00 best_ppl=9.94                                                
+Epoch 94 - |param|=3.10e+02 |g_param|=2.17e+05 loss=2.3371e+00 ppl=10.35                                                
+Validation - loss=2.2895e+00 ppl=9.87 best_loss=2.2953e+00 best_ppl=9.93                                                
+Epoch 95 - |param|=3.10e+02 |g_param|=2.17e+05 loss=2.3151e+00 ppl=10.13                                                
+Validation - loss=2.2898e+00 ppl=9.87 best_loss=2.2895e+00 best_ppl=9.87                                                
+Epoch 96 - |param|=3.10e+02 |g_param|=2.33e+05 loss=2.2814e+00 ppl=9.79                                                 
+Validation - loss=2.2808e+00 ppl=9.78 best_loss=2.2895e+00 best_ppl=9.87                                                
+Epoch 97 - |param|=3.10e+02 |g_param|=2.23e+05 loss=2.3064e+00 ppl=10.04                                                
+Validation - loss=2.2784e+00 ppl=9.76 best_loss=2.2808e+00 best_ppl=9.78                                                
+Epoch 98 - |param|=3.10e+02 |g_param|=2.53e+05 loss=2.2905e+00 ppl=9.88                                                 
+Validation - loss=2.2747e+00 ppl=9.73 best_loss=2.2784e+00 best_ppl=9.76                                                
+Epoch 99 - |param|=3.10e+02 |g_param|=2.29e+05 loss=2.3001e+00 ppl=9.98                                                 
+Validation - loss=2.2718e+00 ppl=9.70 best_loss=2.2747e+00 best_ppl=9.73                                                
+Epoch 100 - |param|=3.10e+02 |g_param|=2.33e+05 loss=2.3048e+00 ppl=10.02                                               
+Validation - loss=2.2640e+00 ppl=9.62 best_loss=2.2718e+00 best_ppl=9.70                                                
+
+real	9m16.625s
+user	9m13.730s
+sys	0m2.644s
+
+real	163m36.055s
+user	154m50.789s
+sys	2m14.647s
 
 ```
 
