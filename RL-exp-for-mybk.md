@@ -3173,7 +3173,1130 @@ done
 testing/evaluation ...  
 
 ```
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./test-eval-rl2-transformer-baseline-mybk-bkmy.sh | tee test-eval-rl2-transformer-baseline-mybk-bkmy.log
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/mybk-30epoch
+Evaluation result for the model: transformer-model-mybk.01.6.07-433.79.5.93-376.52.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 31.9/7.2/0.0/0.0 (BP=0.347, ratio=0.486, hyp_len=5557, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.02.5.49-242.47.5.37-214.48.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 31.2/7.6/0.0/0.0 (BP=0.403, ratio=0.524, hyp_len=5989, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.03.5.05-156.18.4.92-137.48.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 33.6/6.0/0.0/0.0 (BP=0.300, ratio=0.454, hyp_len=5186, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.04.4.74-114.19.4.63-102.25.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 37.5/8.3/0.0/0.0 (BP=0.178, ratio=0.367, hyp_len=4196, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.05.4.52-91.43.4.42-83.38.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 31.7/5.6/0.0/0.0 (BP=0.437, ratio=0.547, hyp_len=6258, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.06.4.34-76.55.4.27-71.31.pth
+BLEU = 1.60, 32.7/4.0/2.1/0.6 (BP=0.436, ratio=0.547, hyp_len=6249, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.07.4.25-70.11.4.15-63.44.pth
+BLEU = 3.25, 27.7/5.6/2.6/1.2 (BP=0.698, ratio=0.736, hyp_len=8411, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.08.4.14-63.04.4.05-57.52.pth
+BLEU = 4.40, 23.2/5.8/2.5/1.2 (BP=0.981, ratio=0.981, hyp_len=11214, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.09.4.08-59.26.3.95-51.96.pth
+BLEU = 4.13, 22.2/5.3/2.2/1.1 (BP=0.999, ratio=0.999, hyp_len=11419, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.10.3.97-52.84.3.86-47.70.pth
+BLEU = 3.79, 20.2/5.4/2.1/0.9 (BP=1.000, ratio=1.178, hyp_len=13462, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.11.3.88-48.40.3.79-44.14.pth
+BLEU = 3.67, 19.7/5.4/2.1/0.8 (BP=1.000, ratio=1.241, hyp_len=14189, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.12.3.83-46.09.3.71-40.96.pth
+BLEU = 3.55, 18.6/5.3/2.0/0.8 (BP=1.000, ratio=1.332, hyp_len=15223, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.13.3.74-42.07.3.65-38.39.pth
+BLEU = 3.10, 16.3/4.7/1.6/0.7 (BP=1.000, ratio=1.443, hyp_len=16495, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.14.3.67-39.45.3.57-35.66.pth
+BLEU = 3.08, 16.0/4.6/1.7/0.7 (BP=1.000, ratio=1.527, hyp_len=17460, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.15.3.70-40.51.3.53-34.11.pth
+BLEU = 2.75, 13.4/4.2/1.5/0.7 (BP=1.000, ratio=1.711, hyp_len=19560, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.16.3.62-37.49.3.46-31.89.pth
+BLEU = 2.69, 13.3/4.0/1.5/0.7 (BP=1.000, ratio=1.644, hyp_len=18792, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.17.3.55-34.88.3.41-30.36.pth
+BLEU = 2.87, 13.9/4.3/1.6/0.7 (BP=1.000, ratio=1.741, hyp_len=19900, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.18.3.54-34.46.3.37-28.95.pth
+BLEU = 3.63, 16.6/5.2/2.1/1.0 (BP=1.000, ratio=1.527, hyp_len=17455, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.19.3.46-31.86.3.32-27.80.pth
+BLEU = 3.69, 17.0/5.4/2.1/1.0 (BP=1.000, ratio=1.536, hyp_len=17565, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.20.3.47-31.99.3.28-26.45.pth
+BLEU = 3.50, 16.2/5.0/2.0/0.9 (BP=1.000, ratio=1.628, hyp_len=18613, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.21.3.38-29.45.3.24-25.66.pth
+BLEU = 3.51, 16.0/5.0/2.0/0.9 (BP=1.000, ratio=1.617, hyp_len=18485, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.22.3.42-30.55.3.21-24.70.pth
+BLEU = 3.15, 14.5/4.5/1.8/0.9 (BP=1.000, ratio=1.813, hyp_len=20725, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.23.3.33-28.05.3.17-23.89.pth
+BLEU = 3.65, 16.3/5.3/2.1/1.0 (BP=1.000, ratio=1.688, hyp_len=19294, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.24.3.30-27.15.3.14-23.15.pth
+BLEU = 3.67, 16.1/5.2/2.1/1.0 (BP=1.000, ratio=1.625, hyp_len=18582, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.25.3.29-26.87.3.11-22.49.pth
+BLEU = 4.15, 18.0/6.1/2.5/1.1 (BP=1.000, ratio=1.546, hyp_len=17673, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.26.3.25-25.75.3.08-21.74.pth
+BLEU = 3.57, 15.6/5.2/2.1/0.9 (BP=1.000, ratio=1.724, hyp_len=19707, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.27.3.26-26.15.3.05-21.16.pth
+BLEU = 4.82, 20.2/6.9/2.9/1.4 (BP=1.000, ratio=1.364, hyp_len=15596, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.28.3.26-25.99.3.03-20.69.pth
+BLEU = 4.59, 19.2/6.6/2.8/1.2 (BP=1.000, ratio=1.532, hyp_len=17514, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.29.3.19-24.19.3.00-20.13.pth
+BLEU = 4.80, 19.3/6.8/2.9/1.4 (BP=1.000, ratio=1.522, hyp_len=17394, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.30.3.21-24.75.2.98-19.78.pth
+BLEU = 4.37, 18.2/6.4/2.7/1.2 (BP=1.000, ratio=1.650, hyp_len=18859, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/mybk-40epoch
+Evaluation result for the model: transformer-model-mybk.01.6.05-425.92.5.88-359.34.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 31.8/0.0/0.0/0.0 (BP=0.083, ratio=0.286, hyp_len=3271, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.02.5.46-235.28.5.33-205.85.pth
+BLEU = 0.00, 61.2/0.3/0.0/0.0 (BP=0.011, ratio=0.181, hyp_len=2074, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.03.5.03-153.45.4.92-136.68.pth
+BLEU = 0.00, 61.2/0.3/0.0/0.0 (BP=0.011, ratio=0.181, hyp_len=2074, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.04.4.77-117.90.4.66-105.87.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 40.7/0.2/0.0/0.0 (BP=0.120, ratio=0.321, hyp_len=3664, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.05.4.54-93.71.4.48-88.15.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 52.6/0.1/0.0/0.0 (BP=0.076, ratio=0.280, hyp_len=3196, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.06.4.43-84.17.4.33-76.06.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 49.2/1.7/0.0/0.0 (BP=0.154, ratio=0.348, hyp_len=3979, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.07.4.29-73.01.4.21-67.69.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 46.5/4.9/2.4/0.0 (BP=0.172, ratio=0.363, hyp_len=4145, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.08.4.18-65.09.4.11-60.88.pth
+BLEU = 2.59, 31.4/5.0/3.1/1.5 (BP=0.499, ratio=0.590, hyp_len=6741, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.09.4.11-60.65.4.01-54.95.pth
+BLEU = 3.68, 27.0/6.0/2.9/1.5 (BP=0.711, ratio=0.746, hyp_len=8527, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.10.4.06-58.18.3.93-50.97.pth
+BLEU = 3.95, 21.8/5.4/2.1/1.0 (BP=0.992, ratio=0.992, hyp_len=11342, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.11.3.92-50.27.3.85-46.82.pth
+BLEU = 3.40, 18.9/5.0/1.7/0.8 (BP=1.000, ratio=1.188, hyp_len=13583, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.12.3.84-46.30.3.77-43.51.pth
+BLEU = 2.48, 13.8/3.7/1.2/0.6 (BP=1.000, ratio=1.621, hyp_len=18529, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.13.3.85-47.10.3.71-40.82.pth
+BLEU = 2.39, 12.7/3.4/1.3/0.6 (BP=1.000, ratio=1.887, hyp_len=21567, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.14.3.69-40.18.3.64-38.04.pth
+BLEU = 2.29, 11.5/3.2/1.3/0.6 (BP=1.000, ratio=2.116, hyp_len=24186, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.15.3.68-39.59.3.58-35.92.pth
+BLEU = 2.74, 13.5/3.8/1.5/0.7 (BP=1.000, ratio=1.824, hyp_len=20851, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.16.3.63-37.71.3.53-33.98.pth
+BLEU = 2.53, 12.4/3.5/1.4/0.7 (BP=1.000, ratio=2.009, hyp_len=22962, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.17.3.60-36.57.3.47-32.27.pth
+BLEU = 2.81, 13.1/3.8/1.6/0.8 (BP=1.000, ratio=1.839, hyp_len=21019, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.18.3.56-35.20.3.43-30.81.pth
+BLEU = 2.91, 13.8/3.9/1.6/0.8 (BP=1.000, ratio=1.730, hyp_len=19772, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.19.3.50-33.21.3.38-29.43.pth
+BLEU = 3.88, 17.9/5.3/2.2/1.1 (BP=1.000, ratio=1.363, hyp_len=15585, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.20.3.49-32.78.3.34-28.22.pth
+BLEU = 3.32, 15.3/4.6/1.9/0.9 (BP=1.000, ratio=1.562, hyp_len=17856, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.21.3.47-32.12.3.30-27.15.pth
+BLEU = 3.73, 17.2/5.3/2.1/1.0 (BP=1.000, ratio=1.470, hyp_len=16802, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.22.3.40-30.05.3.27-26.29.pth
+BLEU = 3.79, 17.1/5.2/2.2/1.1 (BP=1.000, ratio=1.431, hyp_len=16363, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.23.3.40-29.85.3.24-25.41.pth
+BLEU = 3.63, 16.0/5.0/2.1/1.1 (BP=1.000, ratio=1.535, hyp_len=17544, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.24.3.35-28.56.3.19-24.36.pth
+BLEU = 4.01, 17.8/5.6/2.4/1.1 (BP=1.000, ratio=1.480, hyp_len=16918, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.25.3.37-29.04.3.16-23.46.pth
+BLEU = 5.07, 21.2/7.0/3.0/1.5 (BP=1.000, ratio=1.260, hyp_len=14410, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.26.3.25-25.89.3.14-23.04.pth
+BLEU = 4.41, 18.8/6.1/2.6/1.2 (BP=1.000, ratio=1.421, hyp_len=16245, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.27.3.27-26.31.3.09-22.07.pth
+BLEU = 5.14, 21.2/7.1/3.1/1.5 (BP=1.000, ratio=1.276, hyp_len=14588, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.28.3.30-27.02.3.08-21.66.pth
+BLEU = 4.78, 20.6/6.7/2.8/1.3 (BP=1.000, ratio=1.300, hyp_len=14865, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.29.3.22-25.04.3.05-21.06.pth
+BLEU = 5.12, 22.2/7.4/3.0/1.4 (BP=1.000, ratio=1.274, hyp_len=14565, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.30.3.20-24.42.3.02-20.57.pth
+BLEU = 5.67, 23.3/7.9/3.5/1.6 (BP=1.000, ratio=1.205, hyp_len=13772, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.31.3.15-23.24.3.01-20.20.pth
+BLEU = 6.40, 25.5/8.9/3.9/1.9 (BP=1.000, ratio=1.137, hyp_len=12997, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.32.3.18-23.98.2.98-19.74.pth
+BLEU = 5.90, 24.3/8.4/3.6/1.6 (BP=1.000, ratio=1.199, hyp_len=13703, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.33.3.11-22.52.2.95-19.17.pth
+BLEU = 5.91, 24.5/8.4/3.7/1.6 (BP=1.000, ratio=1.262, hyp_len=14426, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.34.3.09-21.90.2.94-18.89.pth
+BLEU = 6.34, 25.2/9.0/4.0/1.8 (BP=1.000, ratio=1.206, hyp_len=13785, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.35.3.09-21.88.2.92-18.45.pth
+BLEU = 7.08, 27.1/9.9/4.5/2.1 (BP=1.000, ratio=1.188, hyp_len=13584, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.36.3.09-21.98.2.90-18.14.pth
+BLEU = 6.86, 27.1/9.9/4.3/1.9 (BP=1.000, ratio=1.183, hyp_len=13526, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.37.3.12-22.75.2.88-17.80.pth
+BLEU = 6.76, 26.0/9.5/4.3/2.0 (BP=1.000, ratio=1.226, hyp_len=14016, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.38.3.03-20.69.2.87-17.59.pth
+BLEU = 7.75, 29.2/10.8/5.0/2.3 (BP=1.000, ratio=1.117, hyp_len=12767, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.39.3.04-20.86.2.84-17.19.pth
+BLEU = 7.70, 29.5/11.1/5.0/2.2 (BP=1.000, ratio=1.138, hyp_len=13007, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.40.3.05-21.02.2.83-16.96.pth
+BLEU = 8.23, 30.9/11.8/5.3/2.4 (BP=1.000, ratio=1.098, hyp_len=12547, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/mybk-50epoch
+Evaluation result for the model: transformer-model-mybk.01.6.01-406.58.5.88-359.47.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 36.1/0.0/0.0/0.0 (BP=0.173, ratio=0.363, hyp_len=4148, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.02.5.47-238.07.5.37-214.65.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 9.0/0.0/0.0/0.0 (BP=0.300, ratio=0.454, hyp_len=5185, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.03.5.04-153.79.4.93-138.38.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 28.5/0.3/0.0/0.0 (BP=0.430, ratio=0.542, hyp_len=6197, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.04.4.76-116.98.4.66-105.49.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 38.2/0.4/0.0/0.0 (BP=0.238, ratio=0.411, hyp_len=4696, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.05.4.55-94.41.4.48-88.50.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 35.7/0.7/0.0/0.0 (BP=0.424, ratio=0.538, hyp_len=6152, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.06.4.39-80.96.4.34-76.46.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 37.5/1.2/0.0/0.0 (BP=0.385, ratio=0.512, hyp_len=5851, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.07.4.27-71.75.4.21-67.55.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 30.1/2.1/0.0/0.0 (BP=0.585, ratio=0.651, hyp_len=7440, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.08.4.17-64.83.4.10-60.15.pth
+BLEU = 3.31, 26.5/6.3/2.2/1.0 (BP=0.764, ratio=0.788, hyp_len=9006, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.09.4.08-59.41.4.00-54.84.pth
+BLEU = 4.25, 25.3/7.2/2.9/1.2 (BP=0.845, ratio=0.856, hyp_len=9789, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.10.3.99-53.96.3.91-49.96.pth
+BLEU = 4.06, 24.7/7.0/2.8/1.2 (BP=0.821, ratio=0.835, hyp_len=9550, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.11.3.88-48.36.3.84-46.48.pth
+BLEU = 4.18, 22.3/6.1/2.7/1.1 (BP=0.936, ratio=0.938, hyp_len=10727, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.12.3.87-47.97.3.76-43.16.pth
+BLEU = 3.81, 18.7/5.1/2.2/1.0 (BP=1.000, ratio=1.132, hyp_len=12938, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.13.3.81-44.94.3.69-40.24.pth
+BLEU = 4.16, 18.7/5.4/2.4/1.2 (BP=1.000, ratio=1.197, hyp_len=13680, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.14.3.73-41.56.3.64-38.00.pth
+BLEU = 4.18, 17.7/5.4/2.4/1.3 (BP=1.000, ratio=1.247, hyp_len=14254, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.15.3.68-39.78.3.59-36.23.pth
+BLEU = 4.02, 17.6/5.3/2.3/1.2 (BP=1.000, ratio=1.269, hyp_len=14511, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.16.3.65-38.35.3.54-34.34.pth
+BLEU = 2.96, 13.4/4.0/1.7/0.8 (BP=1.000, ratio=1.748, hyp_len=19980, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.17.3.58-35.96.3.49-32.81.pth
+BLEU = 3.13, 14.3/4.3/1.8/0.9 (BP=1.000, ratio=1.661, hyp_len=18993, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.18.3.54-34.37.3.44-31.29.pth
+BLEU = 3.29, 14.6/4.4/1.9/1.0 (BP=1.000, ratio=1.554, hyp_len=17770, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.19.3.49-32.95.3.40-30.08.pth
+BLEU = 3.33, 14.8/4.5/1.9/1.0 (BP=1.000, ratio=1.578, hyp_len=18044, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.20.3.46-31.67.3.37-28.94.pth
+BLEU = 3.35, 14.7/4.5/1.9/1.0 (BP=1.000, ratio=1.561, hyp_len=17842, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.21.3.43-30.92.3.33-28.03.pth
+BLEU = 2.71, 12.3/3.7/1.5/0.8 (BP=1.000, ratio=1.940, hyp_len=22181, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.22.3.41-30.28.3.30-27.07.pth
+BLEU = 2.83, 13.0/3.9/1.6/0.8 (BP=1.000, ratio=1.840, hyp_len=21039, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.23.3.37-29.21.3.27-26.23.pth
+BLEU = 2.86, 13.1/3.9/1.6/0.8 (BP=1.000, ratio=1.851, hyp_len=21157, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.24.3.35-28.40.3.22-25.15.pth
+BLEU = 2.68, 12.4/3.7/1.5/0.7 (BP=1.000, ratio=2.062, hyp_len=23575, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.25.3.31-27.45.3.20-24.46.pth
+BLEU = 3.30, 15.0/4.5/1.9/0.9 (BP=1.000, ratio=1.622, hyp_len=18543, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.26.3.32-27.68.3.17-23.70.pth
+BLEU = 3.28, 14.7/4.6/1.9/0.9 (BP=1.000, ratio=1.757, hyp_len=20084, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.27.3.29-26.73.3.13-22.95.pth
+BLEU = 3.72, 16.5/5.1/2.1/1.1 (BP=1.000, ratio=1.557, hyp_len=17804, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.28.3.29-26.77.3.12-22.61.pth
+BLEU = 3.89, 17.3/5.4/2.3/1.1 (BP=1.000, ratio=1.487, hyp_len=17005, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.29.3.20-24.63.3.09-22.04.pth
+BLEU = 3.79, 16.9/5.4/2.2/1.0 (BP=1.000, ratio=1.600, hyp_len=18287, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.30.3.23-25.36.3.06-21.38.pth
+BLEU = 4.89, 20.5/6.8/2.9/1.4 (BP=1.000, ratio=1.287, hyp_len=14714, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.31.3.16-23.50.3.04-20.86.pth
+BLEU = 3.80, 16.9/5.5/2.2/1.0 (BP=1.000, ratio=1.663, hyp_len=19013, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.32.3.15-23.35.3.02-20.54.pth
+BLEU = 4.49, 19.3/6.4/2.7/1.2 (BP=1.000, ratio=1.432, hyp_len=16374, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.33.3.17-23.85.2.99-19.92.pth
+BLEU = 5.05, 21.7/7.2/3.0/1.4 (BP=1.000, ratio=1.269, hyp_len=14511, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.34.3.07-21.56.2.98-19.62.pth
+BLEU = 4.90, 20.8/6.9/3.0/1.4 (BP=1.000, ratio=1.343, hyp_len=15349, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.35.3.15-23.31.2.95-19.20.pth
+BLEU = 5.44, 22.8/7.8/3.3/1.5 (BP=1.000, ratio=1.273, hyp_len=14548, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.36.3.11-22.48.2.93-18.79.pth
+BLEU = 5.41, 22.7/7.7/3.2/1.5 (BP=1.000, ratio=1.301, hyp_len=14875, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.37.3.12-22.58.2.92-18.53.pth
+BLEU = 5.43, 22.3/7.7/3.3/1.5 (BP=1.000, ratio=1.300, hyp_len=14864, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.38.3.11-22.47.2.90-18.21.pth
+BLEU = 5.91, 24.4/8.5/3.6/1.7 (BP=1.000, ratio=1.241, hyp_len=14189, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.39.3.02-20.52.2.88-17.73.pth
+BLEU = 6.26, 25.1/8.9/3.9/1.8 (BP=1.000, ratio=1.212, hyp_len=13857, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.40.3.11-22.33.2.86-17.51.pth
+BLEU = 6.73, 26.4/9.5/4.2/2.0 (BP=1.000, ratio=1.178, hyp_len=13467, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.41.3.03-20.79.2.85-17.23.pth
+BLEU = 6.42, 25.6/9.3/3.9/1.8 (BP=1.000, ratio=1.257, hyp_len=14374, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.42.3.02-20.51.2.84-17.13.pth
+BLEU = 6.54, 26.5/9.5/4.0/1.8 (BP=1.000, ratio=1.175, hyp_len=13429, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.43.3.01-20.37.2.82-16.70.pth
+BLEU = 6.32, 24.5/8.9/4.0/1.8 (BP=1.000, ratio=1.344, hyp_len=15365, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.44.3.01-20.36.2.81-16.62.pth
+BLEU = 6.92, 26.7/9.9/4.4/2.0 (BP=1.000, ratio=1.228, hyp_len=14035, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.45.2.98-19.77.2.80-16.44.pth
+BLEU = 7.11, 27.1/10.1/4.5/2.1 (BP=1.000, ratio=1.196, hyp_len=13675, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.46.2.97-19.49.2.78-16.12.pth
+BLEU = 7.03, 27.1/10.1/4.5/2.0 (BP=1.000, ratio=1.215, hyp_len=13895, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.47.2.96-19.29.2.77-16.01.pth
+BLEU = 7.38, 27.9/10.6/4.8/2.1 (BP=1.000, ratio=1.238, hyp_len=14154, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.48.2.96-19.35.2.76-15.74.pth
+BLEU = 7.64, 28.4/10.8/4.9/2.2 (BP=1.000, ratio=1.256, hyp_len=14363, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.49.2.98-19.78.2.74-15.51.pth
+BLEU = 8.54, 30.6/11.9/5.6/2.6 (BP=1.000, ratio=1.152, hyp_len=13165, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.50.2.94-18.96.2.73-15.41.pth
+BLEU = 8.05, 29.8/11.2/5.2/2.4 (BP=1.000, ratio=1.157, hyp_len=13230, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/mybk-60epoch
+Evaluation result for the model: transformer-model-mybk.01.6.13-459.18.6.00-401.44.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 1.9/0.0/0.0/0.0 (BP=0.069, ratio=0.272, hyp_len=3113, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.02.5.56-258.56.5.46-235.29.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 8.8/0.0/0.0/0.0 (BP=0.300, ratio=0.453, hyp_len=5184, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.03.5.11-165.11.5.00-148.05.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 21.8/0.3/0.0/0.0 (BP=0.504, ratio=0.594, hyp_len=6786, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.04.4.77-118.15.4.70-110.25.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 30.5/0.9/0.0/0.0 (BP=0.430, ratio=0.542, hyp_len=6199, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.05.4.55-95.07.4.50-89.65.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 28.7/0.2/0.0/0.0 (BP=0.440, ratio=0.549, hyp_len=6275, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.06.4.45-85.57.4.34-76.90.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 27.5/0.9/0.0/0.0 (BP=0.551, ratio=0.626, hyp_len=7162, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.07.4.25-69.91.4.21-67.17.pth
+BLEU = 2.60, 30.5/4.8/3.3/1.8 (BP=0.483, ratio=0.578, hyp_len=6613, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.08.4.16-63.99.4.09-59.74.pth
+BLEU = 3.08, 24.3/4.2/2.8/1.6 (BP=0.672, ratio=0.715, hyp_len=8176, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.09.4.08-59.36.4.00-54.68.pth
+BLEU = 3.24, 22.7/3.9/2.5/1.3 (BP=0.785, ratio=0.805, hyp_len=9201, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.10.4.04-56.63.3.93-50.76.pth
+BLEU = 2.69, 16.1/2.8/1.5/0.8 (BP=1.000, ratio=1.215, hyp_len=13894, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.11.3.93-50.82.3.85-47.10.pth
+BLEU = 2.69, 14.4/3.7/1.4/0.7 (BP=1.000, ratio=1.547, hyp_len=17690, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.12.3.89-48.76.3.78-43.68.pth
+BLEU = 3.93, 18.6/5.4/2.1/1.1 (BP=1.000, ratio=1.266, hyp_len=14473, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.13.3.84-46.49.3.73-41.54.pth
+BLEU = 4.07, 18.8/5.6/2.3/1.1 (BP=1.000, ratio=1.241, hyp_len=14188, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.14.3.75-42.71.3.67-39.18.pth
+BLEU = 4.15, 19.4/5.9/2.3/1.1 (BP=1.000, ratio=1.263, hyp_len=14443, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.15.3.74-42.22.3.61-36.84.pth
+BLEU = 4.24, 19.2/5.7/2.4/1.2 (BP=1.000, ratio=1.210, hyp_len=13832, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.16.3.64-38.06.3.56-35.03.pth
+BLEU = 3.90, 18.2/5.3/2.2/1.1 (BP=1.000, ratio=1.311, hyp_len=14985, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.17.3.60-36.53.3.51-33.31.pth
+BLEU = 3.85, 18.4/5.4/2.1/1.1 (BP=1.000, ratio=1.345, hyp_len=15376, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.18.3.60-36.72.3.46-31.83.pth
+BLEU = 4.02, 18.7/5.5/2.2/1.1 (BP=1.000, ratio=1.303, hyp_len=14896, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.19.3.54-34.49.3.42-30.55.pth
+BLEU = 3.36, 16.0/4.6/1.8/0.9 (BP=1.000, ratio=1.553, hyp_len=17755, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.20.3.45-31.39.3.37-29.13.pth
+BLEU = 3.81, 17.8/5.2/2.1/1.1 (BP=1.000, ratio=1.435, hyp_len=16405, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.21.3.42-30.61.3.34-28.08.pth
+BLEU = 4.66, 20.9/6.4/2.6/1.4 (BP=1.000, ratio=1.244, hyp_len=14221, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.22.3.43-30.79.3.31-27.28.pth
+BLEU = 4.31, 20.2/6.0/2.4/1.2 (BP=1.000, ratio=1.305, hyp_len=14918, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.23.3.37-29.12.3.27-26.27.pth
+BLEU = 4.27, 19.0/5.9/2.5/1.2 (BP=1.000, ratio=1.375, hyp_len=15719, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.24.3.34-28.27.3.24-25.45.pth
+BLEU = 4.77, 20.5/6.6/2.8/1.4 (BP=1.000, ratio=1.261, hyp_len=14421, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.25.3.33-28.02.3.21-24.68.pth
+BLEU = 3.76, 16.7/5.2/2.2/1.0 (BP=1.000, ratio=1.586, hyp_len=18126, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.26.3.30-27.20.3.18-24.02.pth
+BLEU = 4.15, 18.7/5.9/2.4/1.1 (BP=1.000, ratio=1.466, hyp_len=16757, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.27.3.27-26.30.3.15-23.28.pth
+BLEU = 4.59, 20.4/6.4/2.7/1.3 (BP=1.000, ratio=1.266, hyp_len=14475, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.28.3.23-25.35.3.12-22.70.pth
+BLEU = 5.57, 23.9/7.9/3.3/1.5 (BP=1.000, ratio=1.152, hyp_len=13167, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.29.3.26-26.00.3.09-22.08.pth
+BLEU = 5.02, 21.9/7.1/3.0/1.4 (BP=1.000, ratio=1.263, hyp_len=14442, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.30.3.22-25.03.3.08-21.68.pth
+BLEU = 5.07, 21.3/7.3/3.0/1.4 (BP=1.000, ratio=1.298, hyp_len=14843, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.31.3.19-24.32.3.05-21.08.pth
+BLEU = 5.76, 23.5/8.2/3.6/1.6 (BP=1.000, ratio=1.221, hyp_len=13962, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.32.3.16-23.51.3.02-20.48.pth
+BLEU = 5.74, 24.0/8.2/3.5/1.6 (BP=1.000, ratio=1.187, hyp_len=13569, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.33.3.15-23.31.3.00-20.17.pth
+BLEU = 6.37, 25.8/9.0/4.0/1.8 (BP=1.000, ratio=1.152, hyp_len=13170, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.34.3.18-24.00.2.98-19.65.pth
+BLEU = 6.17, 25.3/8.8/3.8/1.7 (BP=1.000, ratio=1.187, hyp_len=13568, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.35.3.16-23.59.2.97-19.41.pth
+BLEU = 7.41, 28.8/10.2/4.7/2.2 (BP=1.000, ratio=1.047, hyp_len=11967, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.36.3.05-21.19.2.95-19.06.pth
+BLEU = 6.04, 24.6/8.6/3.8/1.6 (BP=1.000, ratio=1.200, hyp_len=13722, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.37.3.10-22.21.2.94-18.90.pth
+BLEU = 6.31, 25.0/8.9/4.1/1.8 (BP=1.000, ratio=1.242, hyp_len=14201, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.38.3.10-22.30.2.91-18.37.pth
+BLEU = 7.11, 27.5/10.0/4.6/2.0 (BP=1.000, ratio=1.185, hyp_len=13548, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.39.3.06-21.32.2.90-18.09.pth
+BLEU = 7.29, 28.1/10.3/4.7/2.1 (BP=1.000, ratio=1.168, hyp_len=13358, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.40.3.10-22.15.2.87-17.66.pth
+BLEU = 7.84, 29.1/11.0/5.1/2.3 (BP=1.000, ratio=1.146, hyp_len=13101, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.41.3.05-21.21.2.86-17.50.pth
+BLEU = 7.79, 28.7/10.7/5.0/2.4 (BP=1.000, ratio=1.126, hyp_len=12874, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.42.3.01-20.23.2.86-17.40.pth
+BLEU = 7.05, 26.7/10.1/4.6/2.0 (BP=1.000, ratio=1.269, hyp_len=14511, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.43.3.00-20.01.2.84-17.12.pth
+BLEU = 8.29, 29.6/11.6/5.6/2.5 (BP=1.000, ratio=1.179, hyp_len=13481, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.44.3.04-20.89.2.82-16.86.pth
+BLEU = 7.38, 27.3/10.3/4.9/2.2 (BP=1.000, ratio=1.240, hyp_len=14172, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.45.2.99-19.87.2.81-16.62.pth
+BLEU = 8.19, 29.9/11.5/5.5/2.4 (BP=1.000, ratio=1.152, hyp_len=13173, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.46.2.98-19.73.2.80-16.39.pth
+BLEU = 8.42, 30.1/11.7/5.6/2.6 (BP=1.000, ratio=1.156, hyp_len=13210, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.47.2.99-19.93.2.78-16.15.pth
+BLEU = 8.57, 30.4/11.8/5.7/2.6 (BP=1.000, ratio=1.171, hyp_len=13392, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.48.2.97-19.46.2.78-16.07.pth
+BLEU = 8.48, 30.7/12.1/5.6/2.5 (BP=1.000, ratio=1.156, hyp_len=13212, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.49.2.99-19.91.2.77-15.89.pth
+BLEU = 8.96, 32.2/12.6/5.9/2.7 (BP=1.000, ratio=1.111, hyp_len=12706, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.50.2.92-18.50.2.76-15.84.pth
+BLEU = 8.25, 30.0/11.4/5.3/2.5 (BP=1.000, ratio=1.148, hyp_len=13122, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.51.2.94-18.93.2.74-15.56.pth
+BLEU = 8.84, 31.7/12.2/5.8/2.7 (BP=1.000, ratio=1.117, hyp_len=12771, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.52.2.91-18.39.2.74-15.50.pth
+BLEU = 8.96, 31.6/12.5/6.0/2.8 (BP=1.000, ratio=1.121, hyp_len=12820, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.53.2.89-17.96.2.73-15.28.pth
+BLEU = 9.56, 33.0/13.1/6.3/3.1 (BP=1.000, ratio=1.090, hyp_len=12463, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.54.2.87-17.63.2.71-15.06.pth
+BLEU = 9.09, 31.3/12.4/6.1/2.9 (BP=1.000, ratio=1.133, hyp_len=12958, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.55.2.87-17.61.2.71-15.05.pth
+BLEU = 8.97, 31.8/12.4/5.9/2.8 (BP=1.000, ratio=1.132, hyp_len=12941, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.56.2.92-18.46.2.70-14.86.pth
+BLEU = 9.17, 31.8/12.6/6.2/2.9 (BP=1.000, ratio=1.130, hyp_len=12913, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.57.2.88-17.78.2.69-14.69.pth
+BLEU = 10.18, 34.0/13.9/6.8/3.3 (BP=1.000, ratio=1.101, hyp_len=12586, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.58.2.83-17.01.2.67-14.50.pth
+BLEU = 10.17, 34.4/14.0/6.8/3.2 (BP=1.000, ratio=1.089, hyp_len=12451, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.59.2.88-17.82.2.68-14.58.pth
+BLEU = 9.60, 32.6/13.0/6.4/3.1 (BP=1.000, ratio=1.131, hyp_len=12929, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.60.2.84-17.04.2.67-14.47.pth
+BLEU = 9.24, 31.9/12.7/6.1/2.9 (BP=1.000, ratio=1.149, hyp_len=13139, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/mybk-70epoch
+Evaluation result for the model: transformer-model-mybk.01.6.07-434.67.5.95-382.79.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 25.0/0.0/0.0/0.0 (BP=0.173, ratio=0.363, hyp_len=4148, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.02.5.56-259.94.5.44-229.73.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 26.6/0.0/0.0/0.0 (BP=0.173, ratio=0.363, hyp_len=4148, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.03.5.07-158.42.5.00-149.02.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 38.9/0.0/0.0/0.0 (BP=0.069, ratio=0.272, hyp_len=3111, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.04.4.78-119.13.4.72-112.33.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 40.4/0.2/0.0/0.0 (BP=0.160, ratio=0.353, hyp_len=4037, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.05.4.55-94.62.4.52-91.44.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 20.4/0.5/0.0/0.0 (BP=0.850, ratio=0.860, hyp_len=9833, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.06.4.39-80.87.4.35-77.27.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 7.2/0.5/0.0/0.0 (BP=1.000, ratio=2.421, hyp_len=27677, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.07.4.30-73.70.4.21-67.60.pth
+BLEU = 1.81, 11.9/2.2/0.9/0.5 (BP=1.000, ratio=1.805, hyp_len=20640, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.08.4.11-60.83.4.10-60.25.pth
+BLEU = 1.35, 8.3/2.0/0.6/0.3 (BP=1.000, ratio=2.865, hyp_len=32755, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.09.4.05-57.52.4.00-54.62.pth
+BLEU = 1.99, 11.7/2.7/1.0/0.5 (BP=1.000, ratio=2.059, hyp_len=23544, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.10.3.97-53.19.3.92-50.35.pth
+BLEU = 2.57, 13.1/3.5/1.4/0.7 (BP=1.000, ratio=1.918, hyp_len=21928, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.11.3.88-48.53.3.84-46.29.pth
+BLEU = 3.52, 17.0/4.8/2.0/1.0 (BP=1.000, ratio=1.396, hyp_len=15963, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.12.3.85-47.03.3.76-43.14.pth
+BLEU = 3.32, 16.0/4.5/1.9/0.9 (BP=1.000, ratio=1.397, hyp_len=15970, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.13.3.76-42.82.3.71-40.88.pth
+BLEU = 3.34, 15.8/4.5/1.9/0.9 (BP=1.000, ratio=1.413, hyp_len=16155, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.14.3.72-41.13.3.64-38.17.pth
+BLEU = 3.68, 16.6/4.9/2.1/1.1 (BP=1.000, ratio=1.319, hyp_len=15079, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.15.3.68-39.68.3.60-36.43.pth
+BLEU = 3.66, 16.9/5.0/2.1/1.0 (BP=1.000, ratio=1.317, hyp_len=15051, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.16.3.59-36.19.3.54-34.35.pth
+BLEU = 3.43, 15.8/4.7/1.9/1.0 (BP=1.000, ratio=1.436, hyp_len=16420, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.17.3.58-35.83.3.49-32.90.pth
+BLEU = 3.46, 16.8/4.9/1.9/0.9 (BP=1.000, ratio=1.425, hyp_len=16296, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.18.3.58-35.96.3.45-31.60.pth
+BLEU = 3.58, 17.2/5.0/2.0/0.9 (BP=1.000, ratio=1.467, hyp_len=16768, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.19.3.46-31.91.3.41-30.34.pth
+BLEU = 3.97, 19.2/5.5/2.2/1.1 (BP=1.000, ratio=1.300, hyp_len=14865, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.20.3.55-34.95.3.37-29.03.pth
+BLEU = 4.32, 19.8/5.9/2.4/1.2 (BP=1.000, ratio=1.279, hyp_len=14618, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.21.3.46-31.74.3.33-27.91.pth
+BLEU = 3.91, 18.3/5.4/2.2/1.1 (BP=1.000, ratio=1.358, hyp_len=15530, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.22.3.45-31.65.3.28-26.59.pth
+BLEU = 4.56, 20.6/6.4/2.6/1.3 (BP=1.000, ratio=1.255, hyp_len=14345, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.23.3.42-30.66.3.25-25.91.pth
+BLEU = 4.17, 18.9/6.0/2.4/1.1 (BP=1.000, ratio=1.418, hyp_len=16212, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.24.3.39-29.55.3.23-25.19.pth
+BLEU = 4.69, 21.0/6.6/2.7/1.3 (BP=1.000, ratio=1.247, hyp_len=14257, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.25.3.37-29.02.3.18-24.00.pth
+BLEU = 4.71, 20.8/6.6/2.7/1.3 (BP=1.000, ratio=1.300, hyp_len=14863, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.26.3.26-25.96.3.15-23.43.pth
+BLEU = 5.15, 23.0/7.3/2.9/1.4 (BP=1.000, ratio=1.219, hyp_len=13933, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.27.3.31-27.40.3.13-22.83.pth
+BLEU = 5.00, 21.9/7.0/2.9/1.4 (BP=1.000, ratio=1.247, hyp_len=14253, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.28.3.27-26.35.3.09-22.00.pth
+BLEU = 5.24, 22.3/7.3/3.1/1.5 (BP=1.000, ratio=1.224, hyp_len=13995, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.29.3.25-25.81.3.07-21.62.pth
+BLEU = 4.61, 20.4/6.7/2.7/1.2 (BP=1.000, ratio=1.441, hyp_len=16477, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.30.3.26-25.95.3.05-21.13.pth
+BLEU = 4.47, 19.8/6.5/2.6/1.2 (BP=1.000, ratio=1.457, hyp_len=16662, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.31.3.17-23.69.3.03-20.64.pth
+BLEU = 5.92, 24.4/8.3/3.6/1.7 (BP=1.000, ratio=1.182, hyp_len=13513, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.32.3.19-24.41.3.00-20.05.pth
+BLEU = 4.87, 20.7/7.0/3.0/1.3 (BP=1.000, ratio=1.452, hyp_len=16598, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.33.3.17-23.81.2.98-19.67.pth
+BLEU = 6.33, 25.1/8.7/3.9/1.9 (BP=1.000, ratio=1.141, hyp_len=13046, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.34.3.11-22.45.2.96-19.23.pth
+BLEU = 6.78, 26.9/9.8/4.2/1.9 (BP=1.000, ratio=1.129, hyp_len=12902, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.35.3.12-22.71.2.94-18.95.pth
+BLEU = 6.90, 26.7/9.6/4.3/2.1 (BP=1.000, ratio=1.106, hyp_len=12643, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.36.3.15-23.36.2.93-18.68.pth
+BLEU = 6.68, 26.2/9.4/4.2/1.9 (BP=1.000, ratio=1.126, hyp_len=12867, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.37.3.12-22.55.2.91-18.36.pth
+BLEU = 6.76, 26.7/9.7/4.2/1.9 (BP=1.000, ratio=1.152, hyp_len=13167, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.38.3.09-21.95.2.89-17.93.pth
+BLEU = 7.42, 27.9/10.5/4.7/2.2 (BP=1.000, ratio=1.149, hyp_len=13135, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.39.3.13-22.82.2.88-17.80.pth
+BLEU = 6.62, 25.9/9.7/4.2/1.8 (BP=1.000, ratio=1.243, hyp_len=14210, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.40.3.07-21.53.2.85-17.31.pth
+BLEU = 7.03, 26.8/10.0/4.5/2.0 (BP=1.000, ratio=1.222, hyp_len=13971, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.41.3.06-21.25.2.84-17.06.pth
+BLEU = 8.03, 29.2/11.1/5.2/2.5 (BP=1.000, ratio=1.083, hyp_len=12378, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.42.3.03-20.71.2.82-16.71.pth
+BLEU = 7.79, 28.8/11.2/5.1/2.2 (BP=1.000, ratio=1.159, hyp_len=13248, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.43.3.04-20.88.2.81-16.63.pth
+BLEU = 7.54, 28.2/10.6/4.9/2.2 (BP=1.000, ratio=1.157, hyp_len=13222, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.44.3.02-20.42.2.79-16.30.pth
+BLEU = 8.46, 30.1/11.6/5.6/2.6 (BP=1.000, ratio=1.129, hyp_len=12909, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.45.2.91-18.33.2.78-16.14.pth
+BLEU = 8.02, 29.1/11.2/5.3/2.4 (BP=1.000, ratio=1.146, hyp_len=13104, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.46.2.96-19.35.2.78-16.04.pth
+BLEU = 7.79, 28.0/10.7/5.1/2.4 (BP=1.000, ratio=1.178, hyp_len=13472, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.47.2.99-19.93.2.76-15.78.pth
+BLEU = 8.02, 28.9/11.0/5.3/2.5 (BP=1.000, ratio=1.181, hyp_len=13504, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.48.2.95-19.17.2.75-15.59.pth
+BLEU = 8.72, 29.9/11.6/5.8/2.9 (BP=1.000, ratio=1.102, hyp_len=12595, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.49.2.97-19.47.2.74-15.41.pth
+BLEU = 8.80, 31.1/12.3/5.8/2.7 (BP=1.000, ratio=1.110, hyp_len=12692, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.50.2.91-18.29.2.72-15.19.pth
+BLEU = 8.94, 30.9/12.3/5.9/2.8 (BP=1.000, ratio=1.139, hyp_len=13018, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.51.2.92-18.58.2.71-15.02.pth
+BLEU = 8.71, 30.3/11.9/5.7/2.8 (BP=1.000, ratio=1.151, hyp_len=13160, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.52.2.92-18.56.2.70-14.86.pth
+BLEU = 8.67, 29.9/11.8/5.7/2.8 (BP=1.000, ratio=1.176, hyp_len=13449, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.53.2.93-18.68.2.69-14.76.pth
+BLEU = 8.89, 30.5/12.0/5.9/2.9 (BP=1.000, ratio=1.116, hyp_len=12757, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.54.2.86-17.52.2.69-14.66.pth
+BLEU = 8.77, 30.4/12.0/5.9/2.8 (BP=1.000, ratio=1.131, hyp_len=12933, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.55.2.91-18.38.2.67-14.41.pth
+BLEU = 9.39, 32.0/12.8/6.2/3.1 (BP=1.000, ratio=1.120, hyp_len=12807, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.56.2.89-17.90.2.66-14.34.pth
+BLEU = 9.92, 32.9/13.5/6.6/3.3 (BP=1.000, ratio=1.097, hyp_len=12545, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.57.2.83-16.89.2.65-14.15.pth
+BLEU = 10.05, 33.3/13.6/6.7/3.3 (BP=1.000, ratio=1.065, hyp_len=12174, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.58.2.84-17.07.2.65-14.22.pth
+BLEU = 8.60, 28.8/11.8/5.7/2.8 (BP=1.000, ratio=1.246, hyp_len=14240, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.59.2.86-17.48.2.64-14.02.pth
+BLEU = 9.57, 31.9/13.1/6.4/3.2 (BP=1.000, ratio=1.137, hyp_len=12996, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.60.2.89-18.06.2.63-13.81.pth
+BLEU = 9.97, 32.8/13.4/6.6/3.4 (BP=1.000, ratio=1.089, hyp_len=12444, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.61.2.79-16.23.2.63-13.83.pth
+BLEU = 9.98, 32.5/13.3/6.7/3.4 (BP=1.000, ratio=1.087, hyp_len=12424, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.62.2.77-15.89.2.61-13.65.pth
+BLEU = 10.84, 34.2/14.4/7.3/3.8 (BP=1.000, ratio=1.097, hyp_len=12544, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.63.2.84-17.18.2.60-13.41.pth
+BLEU = 9.89, 32.7/13.2/6.6/3.4 (BP=1.000, ratio=1.107, hyp_len=12650, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.64.2.85-17.31.2.59-13.36.pth
+BLEU = 10.81, 34.7/14.5/7.2/3.8 (BP=1.000, ratio=1.069, hyp_len=12221, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.65.2.78-16.17.2.59-13.32.pth
+BLEU = 11.37, 35.7/15.2/7.7/4.0 (BP=1.000, ratio=1.035, hyp_len=11834, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.66.2.76-15.79.2.58-13.25.pth
+BLEU = 10.11, 32.7/13.6/6.7/3.5 (BP=1.000, ratio=1.170, hyp_len=13371, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.67.2.75-15.70.2.57-13.10.pth
+BLEU = 10.65, 34.7/14.3/7.0/3.7 (BP=1.000, ratio=1.083, hyp_len=12385, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.68.2.81-16.55.2.57-13.05.pth
+BLEU = 10.33, 33.2/13.7/6.9/3.6 (BP=1.000, ratio=1.110, hyp_len=12687, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.69.2.77-16.02.2.57-13.02.pth
+BLEU = 11.68, 36.7/15.3/7.8/4.3 (BP=1.000, ratio=1.035, hyp_len=11836, ref_len=11432)
+Evaluation result for the model: transformer-model-mybk.70.2.79-16.36.2.55-12.86.pth
+BLEU = 11.57, 35.8/15.4/7.9/4.1 (BP=1.000, ratio=1.069, hyp_len=12226, ref_len=11432)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/bkmy-30epoch
+Evaluation result for the model: transformer-model-bkmy.01.5.97-390.72.5.84-345.34.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 40.1/0.5/0.0/0.0 (BP=0.089, ratio=0.292, hyp_len=3576, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.02.5.37-215.13.5.27-195.21.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 39.4/5.8/0.2/0.0 (BP=0.147, ratio=0.342, hyp_len=4188, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.03.4.89-133.37.4.81-122.59.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 35.1/1.4/0.0/0.0 (BP=0.142, ratio=0.339, hyp_len=4148, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.04.4.60-99.53.4.50-90.44.pth
+BLEU = 0.63, 44.2/4.3/1.3/0.1 (BP=0.257, ratio=0.424, hyp_len=5183, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.05.4.35-77.50.4.28-72.56.pth
+BLEU = 0.75, 22.2/4.0/0.8/0.1 (BP=0.442, ratio=0.550, hyp_len=6730, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.06.4.15-63.35.4.11-61.20.pth
+BLEU = 1.27, 31.3/6.9/0.9/0.1 (BP=0.663, ratio=0.709, hyp_len=8672, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.07.3.99-54.22.3.97-53.21.pth
+BLEU = 1.29, 28.6/6.3/0.8/0.1 (BP=0.742, ratio=0.770, hyp_len=9417, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.08.3.87-48.08.3.84-46.47.pth
+BLEU = 3.75, 31.0/8.6/2.4/0.7 (BP=0.806, ratio=0.822, hyp_len=10057, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.09.3.75-42.56.3.74-41.91.pth
+BLEU = 4.37, 27.8/8.2/2.8/0.8 (BP=0.920, ratio=0.923, hyp_len=11289, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.10.3.69-40.23.3.65-38.48.pth
+BLEU = 4.00, 23.8/6.8/2.4/0.7 (BP=1.000, ratio=1.095, hyp_len=13397, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.11.3.59-36.22.3.56-35.25.pth
+BLEU = 4.81, 27.9/8.5/3.0/0.8 (BP=0.967, ratio=0.968, hyp_len=11837, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.12.3.56-35.25.3.49-32.78.pth
+BLEU = 4.78, 27.1/8.0/2.8/0.9 (BP=1.000, ratio=1.022, hyp_len=12500, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.13.3.43-30.93.3.43-30.92.pth
+BLEU = 5.03, 28.0/8.5/3.0/1.0 (BP=0.985, ratio=0.985, hyp_len=12052, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.14.3.39-29.56.3.37-28.94.pth
+BLEU = 4.84, 27.4/8.3/2.9/0.8 (BP=1.000, ratio=1.027, hyp_len=12563, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.15.3.31-27.51.3.31-27.48.pth
+BLEU = 5.03, 26.9/8.2/3.0/1.0 (BP=1.000, ratio=1.076, hyp_len=13162, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.16.3.26-26.01.3.26-25.98.pth
+BLEU = 5.38, 28.0/8.8/3.1/1.1 (BP=1.000, ratio=1.048, hyp_len=12821, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.17.3.21-24.86.3.22-25.01.pth
+BLEU = 5.27, 28.1/8.9/3.1/1.0 (BP=1.000, ratio=1.057, hyp_len=12930, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.18.3.21-24.83.3.18-24.08.pth
+BLEU = 5.17, 28.8/8.9/3.1/0.9 (BP=1.000, ratio=1.045, hyp_len=12778, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.19.3.17-23.80.3.14-23.01.pth
+BLEU = 5.18, 27.5/8.8/3.1/1.0 (BP=1.000, ratio=1.108, hyp_len=13549, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.20.3.14-23.20.3.10-22.16.pth
+BLEU = 5.46, 27.9/9.1/3.2/1.1 (BP=1.000, ratio=1.121, hyp_len=13710, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.21.3.14-23.07.3.07-21.47.pth
+BLEU = 5.70, 29.3/9.5/3.4/1.1 (BP=1.000, ratio=1.046, hyp_len=12795, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.22.3.08-21.78.3.03-20.67.pth
+BLEU = 5.74, 28.0/9.3/3.5/1.2 (BP=1.000, ratio=1.111, hyp_len=13584, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.23.3.09-21.97.3.00-20.12.pth
+BLEU = 6.17, 29.0/9.9/3.7/1.4 (BP=1.000, ratio=1.125, hyp_len=13759, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.24.3.06-21.23.2.97-19.51.pth
+BLEU = 5.74, 27.6/9.5/3.4/1.2 (BP=1.000, ratio=1.230, hyp_len=15047, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.25.3.01-20.37.2.94-19.01.pth
+BLEU = 6.48, 30.8/10.7/4.0/1.4 (BP=1.000, ratio=1.071, hyp_len=13105, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.26.3.01-20.21.2.91-18.38.pth
+BLEU = 6.45, 29.6/10.3/3.9/1.4 (BP=1.000, ratio=1.151, hyp_len=14082, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.27.2.93-18.81.2.88-17.86.pth
+BLEU = 7.58, 34.0/12.5/4.6/1.7 (BP=1.000, ratio=1.004, hyp_len=12283, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.28.2.95-19.17.2.86-17.41.pth
+BLEU = 7.00, 31.8/11.6/4.3/1.5 (BP=1.000, ratio=1.104, hyp_len=13509, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.29.2.96-19.34.2.84-17.14.pth
+BLEU = 7.76, 32.7/11.9/4.8/2.0 (BP=1.000, ratio=1.071, hyp_len=13104, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.30.2.92-18.52.2.82-16.76.pth
+BLEU = 7.83, 32.8/12.3/4.9/1.9 (BP=1.000, ratio=1.099, hyp_len=13446, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/bkmy-40epoch
+Evaluation result for the model: transformer-model-bkmy.01.5.94-380.54.5.83-341.04.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 11.5/0.0/0.0/0.0 (BP=0.007, ratio=0.170, hyp_len=2074, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.02.5.36-212.16.5.29-198.67.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 8.1/0.0/0.0/0.0 (BP=0.039, ratio=0.236, hyp_len=2884, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.03.4.90-133.94.4.81-122.94.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 24.7/0.0/0.0/0.0 (BP=0.013, ratio=0.188, hyp_len=2301, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.04.4.56-95.72.4.52-91.79.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 51.4/0.3/0.0/0.0 (BP=0.054, ratio=0.255, hyp_len=3119, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.05.4.36-78.42.4.32-74.82.pth
+BLEU = 0.90, 35.2/3.8/0.7/0.1 (BP=0.522, ratio=0.606, hyp_len=7412, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.06.4.16-63.96.4.14-63.07.pth
+BLEU = 1.09, 24.7/3.6/0.5/0.1 (BP=0.870, ratio=0.878, hyp_len=10736, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.07.4.00-54.45.4.01-55.01.pth
+BLEU = 1.22, 22.7/4.5/0.5/0.0 (BP=0.979, ratio=0.979, hyp_len=11972, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.08.3.89-49.13.3.88-48.65.pth
+BLEU = 1.08, 20.1/3.6/0.5/0.0 (BP=1.000, ratio=1.053, hyp_len=12883, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.09.3.80-44.54.3.77-43.42.pth
+BLEU = 1.57, 22.5/4.2/0.7/0.1 (BP=0.954, ratio=0.955, hyp_len=11681, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.10.3.72-41.21.3.67-39.36.pth
+BLEU = 2.88, 27.1/6.4/1.7/0.5 (BP=0.831, ratio=0.843, hyp_len=10316, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.11.3.62-37.31.3.59-36.12.pth
+BLEU = 3.87, 31.6/8.3/2.6/0.8 (BP=0.807, ratio=0.824, hyp_len=10074, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.12.3.52-33.93.3.51-33.59.pth
+BLEU = 3.66, 32.3/8.4/2.6/0.6 (BP=0.792, ratio=0.811, hyp_len=9922, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.13.3.45-31.47.3.45-31.52.pth
+BLEU = 3.29, 32.8/8.5/2.2/0.6 (BP=0.763, ratio=0.787, hyp_len=9631, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.14.3.40-29.90.3.39-29.57.pth
+BLEU = 4.17, 33.7/9.7/3.0/0.9 (BP=0.755, ratio=0.781, hyp_len=9550, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.15.3.31-27.35.3.34-28.14.pth
+BLEU = 4.73, 33.0/10.0/3.3/1.1 (BP=0.806, ratio=0.822, hyp_len=10057, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.16.3.30-27.19.3.29-26.72.pth
+BLEU = 5.17, 33.9/10.8/3.6/1.3 (BP=0.804, ratio=0.821, hyp_len=10042, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.17.3.23-25.38.3.24-25.61.pth
+BLEU = 5.70, 33.8/11.4/4.1/1.4 (BP=0.826, ratio=0.839, hyp_len=10263, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.18.3.19-24.19.3.20-24.65.pth
+BLEU = 5.98, 32.5/11.3/4.1/1.3 (BP=0.896, ratio=0.901, hyp_len=11024, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.19.3.18-23.95.3.17-23.70.pth
+BLEU = 6.27, 30.9/10.8/3.9/1.2 (BP=0.992, ratio=0.992, hyp_len=12133, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.20.3.13-22.87.3.14-22.99.pth
+BLEU = 6.50, 34.1/12.2/4.5/1.4 (BP=0.905, ratio=0.909, hyp_len=11116, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.21.3.05-21.20.3.10-22.10.pth
+BLEU = 6.49, 31.0/11.0/4.0/1.3 (BP=1.000, ratio=1.006, hyp_len=12299, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.22.3.08-21.67.3.07-21.54.pth
+BLEU = 6.93, 31.4/11.3/4.3/1.5 (BP=1.000, ratio=1.025, hyp_len=12533, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.23.3.08-21.83.3.04-20.86.pth
+BLEU = 5.63, 26.6/9.4/3.4/1.2 (BP=1.000, ratio=1.249, hyp_len=15280, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.24.3.01-20.27.3.01-20.19.pth
+BLEU = 7.41, 32.6/12.1/4.6/1.7 (BP=1.000, ratio=1.031, hyp_len=12607, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.25.3.02-20.45.2.99-19.79.pth
+BLEU = 7.51, 32.7/11.9/4.6/1.8 (BP=1.000, ratio=1.027, hyp_len=12559, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.26.2.99-19.96.2.96-19.38.pth
+BLEU = 7.33, 32.4/11.9/4.4/1.7 (BP=1.000, ratio=1.030, hyp_len=12596, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.27.2.95-19.16.2.93-18.74.pth
+BLEU = 7.59, 32.9/12.2/4.6/1.8 (BP=1.000, ratio=1.061, hyp_len=12977, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.28.2.95-19.18.2.91-18.30.pth
+BLEU = 7.81, 33.8/12.5/4.7/1.9 (BP=1.000, ratio=1.027, hyp_len=12560, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.29.2.89-18.05.2.88-17.88.pth
+BLEU = 7.26, 31.1/11.7/4.4/1.7 (BP=1.000, ratio=1.142, hyp_len=13969, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.30.2.85-17.23.2.87-17.57.pth
+BLEU = 7.76, 31.5/12.2/4.8/2.0 (BP=1.000, ratio=1.137, hyp_len=13908, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.31.2.96-19.29.2.85-17.28.pth
+BLEU = 8.36, 35.4/13.4/5.1/2.0 (BP=1.000, ratio=1.006, hyp_len=12310, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.32.2.87-17.55.2.83-16.87.pth
+BLEU = 8.69, 34.8/13.6/5.4/2.2 (BP=1.000, ratio=1.026, hyp_len=12550, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.33.2.82-16.84.2.81-16.59.pth
+BLEU = 7.86, 32.6/12.6/4.8/1.9 (BP=1.000, ratio=1.113, hyp_len=13615, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.34.2.83-16.92.2.79-16.20.pth
+BLEU = 8.15, 33.8/12.9/5.0/2.0 (BP=1.000, ratio=1.084, hyp_len=13255, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.35.2.80-16.42.2.77-15.98.pth
+BLEU = 8.98, 37.8/14.7/5.8/2.3 (BP=0.960, ratio=0.961, hyp_len=11750, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.36.2.85-17.20.2.76-15.81.pth
+BLEU = 8.69, 35.2/13.7/5.4/2.2 (BP=1.000, ratio=1.056, hyp_len=12917, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.37.2.81-16.62.2.74-15.48.pth
+BLEU = 9.46, 37.8/15.0/6.0/2.6 (BP=0.977, ratio=0.978, hyp_len=11958, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.38.2.79-16.28.2.72-15.22.pth
+BLEU = 9.88, 38.1/15.2/6.3/2.6 (BP=0.999, ratio=0.999, hyp_len=12215, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.39.2.74-15.41.2.72-15.13.pth
+BLEU = 9.48, 36.8/14.6/5.8/2.6 (BP=1.000, ratio=1.033, hyp_len=12636, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.40.2.74-15.44.2.69-14.75.pth
+BLEU = 9.93, 39.2/15.8/6.5/2.8 (BP=0.962, ratio=0.963, hyp_len=11780, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/bkmy-50epoch
+Evaluation result for the model: transformer-model-bkmy.01.5.94-378.82.5.80-329.55.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 26.9/0.1/0.0/0.0 (BP=0.143, ratio=0.339, hyp_len=4152, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.02.5.32-203.99.5.21-183.27.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 59.8/0.0/0.0/0.0 (BP=0.009, ratio=0.174, hyp_len=2126, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.03.4.85-127.82.4.76-116.60.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 53.2/2.6/0.3/0.0 (BP=0.142, ratio=0.339, hyp_len=4148, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.04.4.55-94.89.4.46-86.48.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 58.4/0.0/0.0/0.0 (BP=0.054, ratio=0.255, hyp_len=3114, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.05.4.29-73.26.4.25-70.35.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 45.9/5.7/0.1/0.0 (BP=0.209, ratio=0.390, hyp_len=4770, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.06.4.13-62.31.4.09-59.52.pth
+BLEU = 1.39, 31.2/6.5/1.1/0.1 (BP=0.651, ratio=0.700, hyp_len=8561, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.07.4.01-55.23.3.95-51.91.pth
+BLEU = 2.51, 25.7/6.3/1.2/0.3 (BP=0.924, ratio=0.927, hyp_len=11339, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.08.3.84-46.69.3.82-45.75.pth
+BLEU = 4.62, 27.4/8.3/2.7/0.8 (BP=0.980, ratio=0.980, hyp_len=11984, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.09.3.73-41.64.3.72-41.18.pth
+BLEU = 4.43, 28.3/8.4/2.7/0.7 (BP=0.963, ratio=0.964, hyp_len=11786, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.10.3.70-40.48.3.62-37.48.pth
+BLEU = 4.57, 28.8/8.8/2.9/0.8 (BP=0.920, ratio=0.923, hyp_len=11290, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.11.3.52-33.88.3.54-34.49.pth
+BLEU = 4.81, 28.7/8.9/3.0/0.8 (BP=0.961, ratio=0.962, hyp_len=11766, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.12.3.52-33.87.3.46-31.90.pth
+BLEU = 5.03, 29.9/9.8/3.2/1.0 (BP=0.921, ratio=0.924, hyp_len=11300, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.13.3.43-30.84.3.40-30.03.pth
+BLEU = 5.67, 29.4/9.8/3.5/1.1 (BP=0.988, ratio=0.989, hyp_len=12091, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.14.3.39-29.69.3.34-28.14.pth
+BLEU = 5.13, 26.4/8.6/3.1/1.0 (BP=1.000, ratio=1.122, hyp_len=13728, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.15.3.25-25.88.3.29-26.76.pth
+BLEU = 5.26, 28.4/9.3/3.1/0.9 (BP=1.000, ratio=1.066, hyp_len=13040, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.16.3.31-27.26.3.24-25.59.pth
+BLEU = 5.18, 26.4/8.9/3.1/1.0 (BP=1.000, ratio=1.160, hyp_len=14193, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.17.3.17-23.83.3.20-24.55.pth
+BLEU = 5.29, 26.8/9.2/3.1/1.0 (BP=1.000, ratio=1.168, hyp_len=14291, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.18.3.19-24.40.3.15-23.41.pth
+BLEU = 5.17, 25.8/8.9/3.2/1.0 (BP=1.000, ratio=1.259, hyp_len=15398, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.19.3.12-22.54.3.12-22.59.pth
+BLEU = 5.20, 26.0/9.2/3.2/0.9 (BP=1.000, ratio=1.291, hyp_len=15793, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.20.3.11-22.32.3.08-21.79.pth
+BLEU = 6.29, 30.3/11.1/3.9/1.2 (BP=1.000, ratio=1.116, hyp_len=13651, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.21.3.09-21.98.3.05-21.20.pth
+BLEU = 5.36, 26.5/9.7/3.3/1.0 (BP=1.000, ratio=1.321, hyp_len=16156, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.22.3.06-21.39.3.02-20.45.pth
+BLEU = 5.67, 26.8/9.9/3.5/1.1 (BP=1.000, ratio=1.316, hyp_len=16099, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.23.2.99-19.84.3.00-20.05.pth
+BLEU = 6.65, 30.1/11.3/4.1/1.4 (BP=1.000, ratio=1.147, hyp_len=14032, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.24.2.98-19.66.2.97-19.48.pth
+BLEU = 6.16, 28.1/10.5/3.8/1.3 (BP=1.000, ratio=1.262, hyp_len=15438, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.25.2.98-19.63.2.94-18.95.pth
+BLEU = 6.39, 28.5/10.9/4.1/1.3 (BP=1.000, ratio=1.281, hyp_len=15670, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.26.2.95-19.12.2.92-18.50.pth
+BLEU = 6.39, 28.9/10.7/3.9/1.4 (BP=1.000, ratio=1.241, hyp_len=15183, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.27.2.90-18.13.2.89-17.99.pth
+BLEU = 6.87, 29.8/11.4/4.2/1.6 (BP=1.000, ratio=1.227, hyp_len=15009, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.28.2.89-18.08.2.87-17.61.pth
+BLEU = 7.21, 30.6/11.7/4.5/1.7 (BP=1.000, ratio=1.192, hyp_len=14583, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.29.2.92-18.47.2.85-17.28.pth
+BLEU = 7.97, 34.1/13.2/5.0/1.8 (BP=1.000, ratio=1.063, hyp_len=12998, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.30.2.83-16.96.2.84-17.04.pth
+BLEU = 8.40, 34.2/13.6/5.3/2.0 (BP=1.000, ratio=1.095, hyp_len=13391, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.31.2.81-16.65.2.82-16.71.pth
+BLEU = 7.71, 32.4/12.7/4.8/1.8 (BP=1.000, ratio=1.167, hyp_len=14268, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.32.2.83-16.89.2.79-16.35.pth
+BLEU = 7.66, 30.9/12.4/4.8/1.9 (BP=1.000, ratio=1.258, hyp_len=15390, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.33.2.78-16.16.2.77-15.96.pth
+BLEU = 8.64, 35.2/14.1/5.6/2.0 (BP=1.000, ratio=1.104, hyp_len=13499, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.34.2.81-16.61.2.76-15.74.pth
+BLEU = 9.14, 35.4/14.5/5.8/2.3 (BP=1.000, ratio=1.097, hyp_len=13419, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.35.2.81-16.68.2.73-15.40.pth
+BLEU = 8.89, 34.7/14.2/5.7/2.2 (BP=1.000, ratio=1.135, hyp_len=13882, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.36.2.77-15.88.2.72-15.20.pth
+BLEU = 9.04, 34.8/14.4/5.8/2.3 (BP=1.000, ratio=1.128, hyp_len=13802, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.37.2.74-15.55.2.71-14.99.pth
+BLEU = 9.11, 35.0/14.4/5.8/2.3 (BP=1.000, ratio=1.143, hyp_len=13981, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.38.2.76-15.74.2.69-14.76.pth
+BLEU = 10.23, 38.5/16.0/6.5/2.7 (BP=1.000, ratio=1.024, hyp_len=12530, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.39.2.72-15.15.2.68-14.62.pth
+BLEU = 9.93, 36.1/15.3/6.4/2.7 (BP=1.000, ratio=1.120, hyp_len=13700, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.40.2.72-15.24.2.67-14.43.pth
+BLEU = 10.09, 37.7/15.7/6.4/2.7 (BP=1.000, ratio=1.041, hyp_len=12729, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.41.2.67-14.42.2.66-14.26.pth
+BLEU = 10.41, 37.4/16.0/6.9/2.9 (BP=1.000, ratio=1.092, hyp_len=13356, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.42.2.69-14.78.2.64-14.03.pth
+BLEU = 10.13, 37.8/15.9/6.5/2.7 (BP=1.000, ratio=1.058, hyp_len=12937, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.43.2.66-14.31.2.63-13.85.pth
+BLEU = 11.20, 40.3/17.3/7.3/3.1 (BP=0.998, ratio=0.998, hyp_len=12209, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.44.2.68-14.53.2.63-13.82.pth
+BLEU = 11.35, 40.7/17.5/7.4/3.2 (BP=0.997, ratio=0.997, hyp_len=12198, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.45.2.63-13.86.2.60-13.50.pth
+BLEU = 11.38, 40.3/17.4/7.4/3.2 (BP=1.000, ratio=1.011, hyp_len=12367, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.46.2.63-13.92.2.60-13.45.pth
+BLEU = 10.62, 38.4/16.4/6.9/2.9 (BP=1.000, ratio=1.068, hyp_len=13063, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.47.2.66-14.37.2.59-13.35.pth
+BLEU = 12.05, 41.5/18.2/8.0/3.5 (BP=1.000, ratio=1.000, hyp_len=12230, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.48.2.61-13.63.2.58-13.18.pth
+BLEU = 11.66, 42.2/18.3/8.0/3.5 (BP=0.962, ratio=0.962, hyp_len=11771, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.49.2.64-13.95.2.57-13.10.pth
+BLEU = 12.06, 41.4/18.0/8.1/3.6 (BP=0.992, ratio=0.992, hyp_len=12135, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.50.2.62-13.68.2.57-13.01.pth
+BLEU = 11.68, 41.8/18.0/7.8/3.4 (BP=0.981, ratio=0.981, hyp_len=11995, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/bkmy-60epoch
+Evaluation result for the model: transformer-model-bkmy.01.5.96-386.57.5.83-340.63.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 25.5/0.0/0.0/0.0 (BP=0.140, ratio=0.337, hyp_len=4122, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.02.5.34-208.54.5.23-187.35.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 44.5/0.0/0.0/0.0 (BP=0.053, ratio=0.254, hyp_len=3111, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.03.4.90-134.08.4.79-120.86.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 54.4/5.3/1.4/0.0 (BP=0.142, ratio=0.339, hyp_len=4148, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.04.4.56-95.25.4.51-91.34.pth
+BLEU = 0.72, 45.3/5.4/1.3/0.2 (BP=0.258, ratio=0.425, hyp_len=5193, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.05.4.34-76.79.4.30-74.03.pth
+BLEU = 0.95, 25.0/2.9/0.6/0.1 (BP=0.755, ratio=0.781, hyp_len=9547, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.06.4.19-66.15.4.13-62.06.pth
+BLEU = 0.98, 21.8/2.7/0.5/0.0 (BP=0.907, ratio=0.911, hyp_len=11147, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.07.4.02-55.85.3.99-53.86.pth
+BLEU = 1.41, 21.9/4.8/0.6/0.1 (BP=0.985, ratio=0.985, hyp_len=12045, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.08.3.84-46.63.3.84-46.72.pth
+BLEU = 3.03, 25.2/6.7/1.4/0.4 (BP=0.974, ratio=0.974, hyp_len=11918, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.09.3.83-46.03.3.74-42.11.pth
+BLEU = 4.14, 25.5/7.4/2.2/0.7 (BP=1.000, ratio=1.025, hyp_len=12540, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.10.3.68-39.69.3.64-38.07.pth
+BLEU = 4.41, 27.7/8.1/2.5/0.7 (BP=0.982, ratio=0.982, hyp_len=12011, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.11.3.56-35.02.3.55-34.83.pth
+BLEU = 4.69, 28.9/8.7/2.7/0.8 (BP=0.967, ratio=0.967, hyp_len=11832, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.12.3.48-32.49.3.48-32.32.pth
+BLEU = 4.61, 26.6/8.3/2.7/0.8 (BP=1.000, ratio=1.095, hyp_len=13391, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.13.3.43-30.88.3.41-30.28.pth
+BLEU = 4.11, 24.3/7.4/2.3/0.7 (BP=1.000, ratio=1.210, hyp_len=14794, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.14.3.38-29.28.3.35-28.54.pth
+BLEU = 3.51, 21.1/6.4/2.0/0.6 (BP=1.000, ratio=1.410, hyp_len=17242, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.15.3.31-27.26.3.30-27.07.pth
+BLEU = 3.12, 17.4/5.5/1.8/0.6 (BP=1.000, ratio=1.752, hyp_len=21425, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.16.3.28-26.51.3.25-25.68.pth
+BLEU = 3.13, 18.4/5.5/1.8/0.5 (BP=1.000, ratio=1.638, hyp_len=20040, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.17.3.25-25.70.3.20-24.56.pth
+BLEU = 3.76, 20.1/6.5/2.1/0.7 (BP=1.000, ratio=1.532, hyp_len=18740, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.18.3.21-24.74.3.17-23.72.pth
+BLEU = 3.90, 20.9/6.8/2.2/0.7 (BP=1.000, ratio=1.511, hyp_len=18477, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.19.3.13-22.99.3.12-22.67.pth
+BLEU = 4.15, 20.8/7.0/2.4/0.8 (BP=1.000, ratio=1.570, hyp_len=19206, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.20.3.10-22.11.3.09-21.99.pth
+BLEU = 5.76, 28.6/9.7/3.4/1.1 (BP=1.000, ratio=1.103, hyp_len=13493, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.21.3.12-22.57.3.05-21.13.pth
+BLEU = 6.34, 30.4/10.6/3.8/1.3 (BP=1.000, ratio=1.072, hyp_len=13108, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.22.3.08-21.67.3.02-20.48.pth
+BLEU = 5.24, 24.7/8.8/3.1/1.1 (BP=1.000, ratio=1.368, hyp_len=16732, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.23.3.02-20.42.2.99-19.84.pth
+BLEU = 5.46, 25.7/9.2/3.3/1.1 (BP=1.000, ratio=1.330, hyp_len=16271, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.24.2.97-19.51.2.96-19.30.pth
+BLEU = 6.86, 30.3/11.1/4.2/1.6 (BP=1.000, ratio=1.130, hyp_len=13817, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.25.2.97-19.44.2.93-18.71.pth
+BLEU = 6.30, 28.0/10.2/3.9/1.4 (BP=1.000, ratio=1.237, hyp_len=15126, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.26.2.95-19.03.2.90-18.20.pth
+BLEU = 7.98, 32.9/12.4/5.0/2.0 (BP=1.000, ratio=1.069, hyp_len=13071, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.27.2.91-18.35.2.87-17.72.pth
+BLEU = 6.49, 27.7/10.5/4.0/1.5 (BP=1.000, ratio=1.319, hyp_len=16138, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.28.2.99-19.97.2.85-17.22.pth
+BLEU = 6.93, 29.1/10.8/4.4/1.7 (BP=1.000, ratio=1.239, hyp_len=15151, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.29.2.92-18.57.2.82-16.84.pth
+BLEU = 8.17, 32.5/12.8/5.2/2.1 (BP=1.000, ratio=1.127, hyp_len=13783, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.30.2.84-17.08.2.81-16.60.pth
+BLEU = 6.60, 27.0/10.3/4.1/1.7 (BP=1.000, ratio=1.381, hyp_len=16897, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.31.2.87-17.62.2.79-16.24.pth
+BLEU = 7.08, 28.5/10.9/4.5/1.8 (BP=1.000, ratio=1.311, hyp_len=16035, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.32.2.85-17.31.2.76-15.84.pth
+BLEU = 7.93, 30.9/12.2/5.0/2.1 (BP=1.000, ratio=1.226, hyp_len=14997, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.33.2.83-16.92.2.75-15.67.pth
+BLEU = 8.82, 33.7/13.2/5.6/2.4 (BP=1.000, ratio=1.106, hyp_len=13526, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.34.2.76-15.86.2.72-15.24.pth
+BLEU = 8.91, 33.3/13.6/5.7/2.4 (BP=1.000, ratio=1.140, hyp_len=13945, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.35.2.80-16.47.2.71-15.09.pth
+BLEU = 8.38, 32.6/12.9/5.3/2.2 (BP=1.000, ratio=1.156, hyp_len=14144, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.36.2.76-15.72.2.69-14.70.pth
+BLEU = 9.55, 34.8/14.1/6.2/2.7 (BP=1.000, ratio=1.083, hyp_len=13248, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.37.2.79-16.33.2.67-14.49.pth
+BLEU = 9.40, 34.7/14.1/6.0/2.6 (BP=1.000, ratio=1.094, hyp_len=13377, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.38.2.74-15.50.2.67-14.42.pth
+BLEU = 9.11, 34.0/13.8/5.9/2.5 (BP=1.000, ratio=1.126, hyp_len=13776, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.39.2.73-15.35.2.65-14.13.pth
+BLEU = 9.87, 36.0/14.8/6.4/2.8 (BP=1.000, ratio=1.061, hyp_len=12980, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.40.2.81-16.55.2.63-13.91.pth
+BLEU = 9.41, 33.5/14.0/6.1/2.7 (BP=1.000, ratio=1.186, hyp_len=14503, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.41.2.61-13.57.2.62-13.74.pth
+BLEU = 10.40, 37.5/15.6/6.8/2.9 (BP=1.000, ratio=1.037, hyp_len=12680, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.42.2.70-14.86.2.60-13.49.pth
+BLEU = 10.61, 37.3/15.8/6.9/3.1 (BP=1.000, ratio=1.050, hyp_len=12837, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.43.2.66-14.23.2.60-13.43.pth
+BLEU = 10.71, 37.5/15.8/7.0/3.2 (BP=1.000, ratio=1.056, hyp_len=12912, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.44.2.63-13.87.2.58-13.15.pth
+BLEU = 10.46, 37.2/15.7/6.9/3.0 (BP=1.000, ratio=1.071, hyp_len=13099, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.45.2.64-14.04.2.56-13.00.pth
+BLEU = 11.44, 39.0/16.6/7.5/3.5 (BP=1.000, ratio=1.008, hyp_len=12329, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.46.2.62-13.68.2.55-12.84.pth
+BLEU = 11.98, 41.5/18.2/8.3/3.7 (BP=0.972, ratio=0.973, hyp_len=11896, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.47.2.56-12.98.2.55-12.78.pth
+BLEU = 10.04, 35.0/14.8/6.6/3.0 (BP=1.000, ratio=1.135, hyp_len=13879, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.48.2.63-13.84.2.53-12.61.pth
+BLEU = 11.90, 39.3/17.3/8.0/3.7 (BP=1.000, ratio=1.026, hyp_len=12546, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.49.2.62-13.71.2.53-12.55.pth
+BLEU = 10.50, 36.3/15.4/7.0/3.1 (BP=1.000, ratio=1.117, hyp_len=13663, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.50.2.58-13.16.2.51-12.36.pth
+BLEU = 11.07, 37.7/16.2/7.4/3.3 (BP=1.000, ratio=1.097, hyp_len=13419, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.51.2.61-13.64.2.51-12.28.pth
+BLEU = 12.19, 40.4/17.8/8.2/3.7 (BP=1.000, ratio=1.009, hyp_len=12340, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.52.2.55-12.78.2.50-12.13.pth
+BLEU = 12.03, 39.7/17.3/8.1/3.8 (BP=1.000, ratio=1.027, hyp_len=12558, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.53.2.60-13.50.2.48-11.96.pth
+BLEU = 13.04, 41.5/18.6/8.8/4.3 (BP=1.000, ratio=1.000, hyp_len=12231, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.54.2.56-12.90.2.47-11.88.pth
+BLEU = 13.00, 41.4/18.6/8.8/4.3 (BP=0.997, ratio=0.997, hyp_len=12193, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.55.2.51-12.35.2.46-11.74.pth
+BLEU = 12.82, 41.0/18.3/8.7/4.1 (BP=1.000, ratio=1.010, hyp_len=12357, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.56.2.52-12.43.2.46-11.66.pth
+BLEU = 13.25, 42.5/19.2/9.2/4.2 (BP=0.993, ratio=0.993, hyp_len=12147, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.57.2.53-12.54.2.45-11.61.pth
+BLEU = 13.50, 42.8/19.5/9.5/4.6 (BP=0.979, ratio=0.979, hyp_len=11978, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.58.2.54-12.68.2.44-11.49.pth
+BLEU = 13.50, 42.7/19.5/9.4/4.4 (BP=0.991, ratio=0.991, hyp_len=12117, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.59.2.51-12.26.2.45-11.53.pth
+BLEU = 13.02, 41.0/18.6/9.0/4.2 (BP=1.000, ratio=1.022, hyp_len=12502, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.60.2.55-12.79.2.43-11.34.pth
+BLEU = 13.93, 43.8/20.2/9.8/4.8 (BP=0.975, ratio=0.975, hyp_len=11927, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
+/home/ye/exp/simple-nmt/model/rl2/baseline/transformer/bkmy-70epoch
+Evaluation result for the model: transformer-model-bkmy.01.5.89-360.76.5.78-322.45.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 47.3/0.0/0.0/0.0 (BP=0.053, ratio=0.254, hyp_len=3111, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.02.5.31-201.96.5.22-185.40.pth
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+Use of uninitialized value in division (/) at /home/ye/exp/simple-nmt/test/multi-bleu.perl line 139, <STDIN> line 1037.
+BLEU = 0.00, 46.3/0.0/0.0/0.0 (BP=0.142, ratio=0.339, hyp_len=4148, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.03.4.86-128.44.4.76-117.12.pth
+BLEU = 0.00, 51.8/1.3/0.3/0.0 (BP=0.053, ratio=0.254, hyp_len=3111, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.04.4.58-97.34.4.48-88.41.pth
+BLEU = 0.62, 26.7/5.5/1.3/0.2 (BP=0.256, ratio=0.423, hyp_len=5174, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.05.4.36-78.03.4.28-71.95.pth
+BLEU = 0.74, 22.0/4.1/0.9/0.1 (BP=0.431, ratio=0.543, hyp_len=6641, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.06.4.16-64.32.4.10-60.56.pth
+BLEU = 1.10, 25.7/3.4/0.7/0.2 (BP=0.625, ratio=0.680, hyp_len=8319, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.07.4.01-55.07.3.97-52.84.pth
+BLEU = 3.03, 28.1/6.5/1.9/0.6 (BP=0.812, ratio=0.828, hyp_len=10126, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.08.3.87-47.99.3.83-46.12.pth
+BLEU = 3.46, 30.2/7.6/2.2/0.6 (BP=0.811, ratio=0.827, hyp_len=10111, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.09.3.79-44.27.3.73-41.60.pth
+BLEU = 4.40, 31.2/9.0/3.0/0.9 (BP=0.849, ratio=0.859, hyp_len=10510, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.10.3.68-39.70.3.64-37.97.pth
+BLEU = 3.51, 24.5/6.4/2.0/0.5 (BP=1.000, ratio=1.028, hyp_len=12577, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.11.3.57-35.63.3.55-34.68.pth
+BLEU = 4.23, 26.1/7.5/2.6/0.6 (BP=1.000, ratio=1.004, hyp_len=12281, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.12.3.48-32.61.3.48-32.36.pth
+BLEU = 4.53, 27.2/8.0/2.7/0.8 (BP=0.979, ratio=0.980, hyp_len=11981, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.13.3.44-31.05.3.42-30.47.pth
+BLEU = 4.62, 27.9/8.5/2.8/0.7 (BP=0.979, ratio=0.979, hyp_len=11973, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.14.3.35-28.37.3.36-28.88.pth
+BLEU = 4.38, 26.6/7.9/2.6/0.7 (BP=1.000, ratio=1.039, hyp_len=12705, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.15.3.35-28.51.3.32-27.57.pth
+BLEU = 4.16, 24.8/7.4/2.4/0.7 (BP=1.000, ratio=1.126, hyp_len=13773, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.16.3.24-25.59.3.27-26.29.pth
+BLEU = 4.11, 24.0/7.3/2.4/0.7 (BP=1.000, ratio=1.180, hyp_len=14437, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.17.3.21-24.81.3.23-25.36.pth
+BLEU = 4.59, 27.4/8.2/2.6/0.7 (BP=1.000, ratio=1.059, hyp_len=12951, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.18.3.22-24.99.3.19-24.35.pth
+BLEU = 4.77, 29.4/9.4/2.8/0.7 (BP=1.000, ratio=1.036, hyp_len=12677, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.19.3.22-24.92.3.15-23.42.pth
+BLEU = 4.45, 27.1/8.7/2.6/0.6 (BP=1.000, ratio=1.160, hyp_len=14191, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.20.3.13-22.98.3.12-22.71.pth
+BLEU = 5.16, 29.9/9.8/3.1/0.8 (BP=1.000, ratio=1.050, hyp_len=12845, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.21.3.13-22.92.3.09-22.00.pth
+BLEU = 5.10, 29.1/9.6/3.0/0.8 (BP=1.000, ratio=1.081, hyp_len=13224, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.22.3.11-22.35.3.06-21.29.pth
+BLEU = 5.54, 30.3/10.3/3.3/0.9 (BP=1.000, ratio=1.069, hyp_len=13081, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.23.3.08-21.76.3.03-20.75.pth
+BLEU = 5.60, 30.9/10.4/3.4/0.9 (BP=1.000, ratio=1.050, hyp_len=12846, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.24.3.03-20.62.3.00-20.18.pth
+BLEU = 4.82, 26.9/9.0/2.9/0.8 (BP=1.000, ratio=1.242, hyp_len=15196, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.25.2.93-18.74.2.97-19.55.pth
+BLEU = 6.05, 29.6/10.3/3.6/1.2 (BP=1.000, ratio=1.139, hyp_len=13933, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.26.2.96-19.39.2.95-19.16.pth
+BLEU = 5.01, 25.9/8.7/3.0/0.9 (BP=1.000, ratio=1.323, hyp_len=16178, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.27.2.98-19.62.2.92-18.59.pth
+BLEU = 6.27, 29.6/10.5/3.7/1.3 (BP=1.000, ratio=1.151, hyp_len=14083, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.28.2.92-18.63.2.90-18.23.pth
+BLEU = 5.87, 30.3/10.7/3.6/1.0 (BP=1.000, ratio=1.119, hyp_len=13692, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.29.2.95-19.05.2.89-17.97.pth
+BLEU = 5.95, 29.6/10.3/3.5/1.2 (BP=1.000, ratio=1.140, hyp_len=13939, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.30.2.85-17.27.2.86-17.44.pth
+BLEU = 7.42, 33.2/12.2/4.5/1.7 (BP=1.000, ratio=1.037, hyp_len=12679, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.31.2.89-18.04.2.85-17.24.pth
+BLEU = 6.95, 31.4/11.6/4.3/1.5 (BP=1.000, ratio=1.108, hyp_len=13546, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.32.2.92-18.49.2.81-16.64.pth
+BLEU = 7.12, 31.8/11.7/4.3/1.6 (BP=1.000, ratio=1.119, hyp_len=13684, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.33.2.85-17.37.2.80-16.42.pth
+BLEU = 7.38, 32.9/12.1/4.4/1.7 (BP=1.000, ratio=1.074, hyp_len=13133, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.34.2.81-16.68.2.78-16.15.pth
+BLEU = 7.16, 30.9/11.5/4.4/1.7 (BP=1.000, ratio=1.174, hyp_len=14357, ref_len=12231)
+^[Evaluation result for the model: transformer-model-bkmy.35.2.82-16.72.2.77-15.90.pth
+BLEU = 6.96, 30.4/11.3/4.2/1.6 (BP=1.000, ratio=1.176, hyp_len=14382, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.36.2.79-16.20.2.75-15.58.pth
+BLEU = 6.73, 27.9/10.7/4.2/1.7 (BP=1.000, ratio=1.328, hyp_len=16242, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.37.2.86-17.39.2.73-15.33.pth
+BLEU = 6.74, 28.3/10.8/4.2/1.6 (BP=1.000, ratio=1.297, hyp_len=15859, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.38.2.73-15.26.2.72-15.19.pth
+BLEU = 6.56, 27.2/10.4/4.0/1.6 (BP=1.000, ratio=1.361, hyp_len=16644, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.39.2.73-15.32.2.70-14.89.pth
+BLEU = 9.06, 35.7/14.0/5.7/2.4 (BP=1.000, ratio=1.033, hyp_len=12634, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.40.2.79-16.26.2.69-14.79.pth
+BLEU = 6.97, 27.3/10.9/4.3/1.8 (BP=1.000, ratio=1.379, hyp_len=16866, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.41.2.76-15.85.2.68-14.56.pth
+BLEU = 7.97, 30.5/12.2/5.0/2.2 (BP=1.000, ratio=1.251, hyp_len=15303, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.42.2.75-15.66.2.66-14.35.pth
+BLEU = 7.59, 29.2/11.6/4.8/2.0 (BP=1.000, ratio=1.300, hyp_len=15897, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.43.2.70-14.89.2.66-14.24.pth
+BLEU = 7.51, 28.6/11.5/4.7/2.0 (BP=1.000, ratio=1.392, hyp_len=17023, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.44.2.69-14.68.2.64-13.99.pth
+BLEU = 7.60, 29.1/11.7/4.8/2.0 (BP=1.000, ratio=1.335, hyp_len=16330, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.45.2.62-13.71.2.64-14.03.pth
+BLEU = 8.28, 31.0/12.5/5.3/2.3 (BP=1.000, ratio=1.243, hyp_len=15208, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.46.2.67-14.42.2.61-13.63.pth
+BLEU = 9.08, 32.8/13.5/5.9/2.6 (BP=1.000, ratio=1.198, hyp_len=14650, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.47.2.66-14.32.2.61-13.63.pth
+BLEU = 8.46, 30.5/12.6/5.4/2.4 (BP=1.000, ratio=1.294, hyp_len=15826, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.48.2.62-13.70.2.60-13.42.pth
+BLEU = 8.76, 32.2/13.3/5.6/2.5 (BP=1.000, ratio=1.221, hyp_len=14936, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.49.2.58-13.26.2.58-13.23.pth
+BLEU = 9.32, 32.5/13.7/6.0/2.8 (BP=1.000, ratio=1.231, hyp_len=15056, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.50.2.64-13.95.2.57-13.01.pth
+BLEU = 11.32, 39.1/16.8/7.4/3.4 (BP=1.000, ratio=1.016, hyp_len=12432, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.51.2.65-14.13.2.56-12.92.pth
+BLEU = 11.79, 39.5/17.2/7.7/3.7 (BP=1.000, ratio=1.014, hyp_len=12400, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.52.2.60-13.52.2.55-12.81.pth
+BLEU = 10.45, 35.4/15.3/6.9/3.2 (BP=1.000, ratio=1.149, hyp_len=14054, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.53.2.63-13.94.2.55-12.86.pth
+BLEU = 9.38, 32.2/13.8/6.1/2.9 (BP=1.000, ratio=1.269, hyp_len=15517, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.54.2.61-13.58.2.54-12.65.pth
+BLEU = 11.52, 38.1/16.6/7.6/3.7 (BP=1.000, ratio=1.065, hyp_len=13027, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.55.2.58-13.24.2.52-12.46.pth
+BLEU = 11.24, 36.6/16.1/7.4/3.7 (BP=1.000, ratio=1.121, hyp_len=13713, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.56.2.65-14.09.2.51-12.36.pth
+BLEU = 12.13, 39.5/17.6/8.0/3.9 (BP=1.000, ratio=1.043, hyp_len=12752, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.57.2.54-12.71.2.51-12.29.pth
+BLEU = 12.08, 38.8/17.1/7.9/4.0 (BP=1.000, ratio=1.042, hyp_len=12739, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.58.2.55-12.84.2.51-12.27.pth
+BLEU = 12.47, 39.7/17.7/8.3/4.1 (BP=1.000, ratio=1.026, hyp_len=12546, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.59.2.54-12.74.2.50-12.12.pth
+BLEU = 11.73, 38.1/17.0/7.8/3.8 (BP=1.000, ratio=1.080, hyp_len=13209, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.60.2.53-12.52.2.48-11.91.pth
+BLEU = 12.54, 40.1/17.9/8.3/4.1 (BP=1.000, ratio=1.024, hyp_len=12525, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.61.2.51-12.36.2.47-11.88.pth
+BLEU = 12.97, 41.0/18.7/8.7/4.2 (BP=1.000, ratio=1.033, hyp_len=12639, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.62.2.51-12.35.2.47-11.86.pth
+BLEU = 12.76, 39.8/18.1/8.5/4.3 (BP=1.000, ratio=1.059, hyp_len=12949, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.63.2.51-12.31.2.46-11.72.pth
+BLEU = 12.95, 40.2/18.4/8.7/4.4 (BP=1.000, ratio=1.036, hyp_len=12673, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.64.2.46-11.69.2.46-11.75.pth
+BLEU = 12.58, 39.1/17.6/8.4/4.3 (BP=1.000, ratio=1.069, hyp_len=13071, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.65.2.51-12.31.2.46-11.67.pth
+BLEU = 13.13, 40.6/18.5/8.8/4.5 (BP=1.000, ratio=1.033, hyp_len=12635, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.66.2.47-11.86.2.44-11.46.pth
+BLEU = 13.63, 41.3/19.0/9.2/4.8 (BP=1.000, ratio=1.019, hyp_len=12466, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.67.2.54-12.67.2.43-11.42.pth
+BLEU = 13.47, 40.9/18.8/9.1/4.7 (BP=1.000, ratio=1.037, hyp_len=12680, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.68.2.51-12.28.2.43-11.36.pth
+BLEU = 13.51, 40.2/18.9/9.2/4.8 (BP=1.000, ratio=1.070, hyp_len=13090, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.69.2.47-11.77.2.43-11.32.pth
+BLEU = 14.10, 42.1/19.7/9.6/5.0 (BP=1.000, ratio=1.016, hyp_len=12431, ref_len=12231)
+Evaluation result for the model: transformer-model-bkmy.70.2.49-12.04.2.42-11.23.pth
+BLEU = 13.33, 40.7/18.9/9.1/4.5 (BP=1.000, ratio=1.056, hyp_len=12917, ref_len=12231)
+/home/ye/exp/simple-nmt
+==========
 
+real	162m39.874s
+user	155m39.836s
+sys	9m48.317s
+(simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
 ## Transformer-RL (my-bk, bk-my)
