@@ -3083,28 +3083,6 @@ done
 
 ### Training 
 
-training ...  
-
-```
-
-```
-
-### Testing/Evaluation
-
-testing/evaluation ...  
-
-```
-
-```
-
-## Transformer-RL (my-bk, bk-my)
-
-```bash
-
-```
-
-### Training 
-
 Training log တစ်ခုလုံးက [RL-exp-for-mybk-screen-output.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/RL-exp-for-mybk-screen-output.md) မှာ ကြည့်ပါ။   
 training ...   
 
@@ -3138,6 +3116,35 @@ sys	0m3.522s
 real	149m11.281s
 user	148m45.071s
 sys	0m31.116s
+```
+
+### Testing/Evaluation
+
+Bash script writing ...  
+
+```bash
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+## Transformer-RL (my-bk, bk-my)
+
+```bash
+
+```
+
+### Training 
+
+Training log တစ်ခုလုံးက [RL-exp-for-mybk-screen-output.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/RL-exp-for-mybk-screen-output.md) မှာ ကြည့်ပါ။   
+training ...   
+
+```
+
 ```
 
 ### Testing/Evaluation
