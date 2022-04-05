@@ -4308,11 +4308,11 @@ my-bk နဲ့ bk-my အတွက် Transformer Baseline Best model တွေ�
 Table 1. Best model and best score for each transformer baseline training of my-bk pair  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 | 30 |  |  |
-| 40 | 40 |  |  |
-| 50 | 50 |  |  |
-| 60 | 57 |  |  |
-| 70 | 68 |  |  |
+| 30 | 27 | transformer-model-mybk.27.3.26-26.15.3.05-21.16.pth | 4.82 |
+| 40 | 40 | transformer-model-mybk.40.3.05-21.02.2.83-16.96.pth | 8.23 |
+| 50 | 49 | transformer-model-mybk.49.2.98-19.78.2.74-15.51.pth | 8.54 |
+| 60 | 57 | transformer-model-mybk.57.2.88-17.78.2.69-14.69.pth | 10.18 |
+| 70 | 69 | transformer-model-mybk.69.2.77-16.02.2.57-13.02.pth | 11.68 |
 
 </div>  
 
