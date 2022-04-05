@@ -4326,8 +4326,8 @@ Table 2. Best model and best score for each transformer baseline training of bk-
 | 30 | 30 | transformer-model-bkmy.30.2.92-18.52.2.82-16.76.pth | 7.83 |
 | 40 | 40 | transformer-model-bkmy.40.2.74-15.44.2.69-14.75.pth | 9.93 |
 | 50 | 49 | transformer-model-bkmy.49.2.64-13.95.2.57-13.10.pth | 12.06 |
-| 60 | 69 | transformer-model-bkmy.60.2.55-12.79.2.43-11.34.pth | 13.93 |
-| 70 | 68 | transformer-model-bkmy.69.2.47-11.77.2.43-11.32.pth | 14.10 |
+| 60 | 60 | transformer-model-bkmy.60.2.55-12.79.2.43-11.34.pth | 13.93 |
+| 70 | 69 | transformer-model-bkmy.69.2.47-11.77.2.43-11.32.pth | 14.10 |
 
 </div> 
 
