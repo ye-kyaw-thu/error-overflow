@@ -1610,7 +1610,7 @@ real	79m48.118s
 user	78m15.186s
 sys	4m19.828s
 ```
-my-bk နဲ့ bk-my အတွက် Best model တွေနဲ့ Best Score ရလဒ်တွေက အောက်ပါအတိုင်း...  
+my-bk နဲ့ bk-my အတွက် Seq2Seq Baseline Best model တွေနဲ့ Best Score ရလဒ်တွေက အောက်ပါအတိုင်း...  
 
 **for Myanmar-Beik**
 
@@ -4298,6 +4298,38 @@ user	155m39.836s
 sys	9m48.317s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
+
+my-bk နဲ့ bk-my အတွက် Transformer Baseline Best model တွေနဲ့ Best Score ရလဒ်တွေက အောက်ပါအတိုင်း...  
+
+**for Myanmar-Beik**
+
+<div align="center"> 
+    
+Table 1. Best model and best score for each transformer baseline training of my-bk pair  
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 | 30 |  |  |
+| 40 | 40 |  |  |
+| 50 | 50 |  |  |
+| 60 | 57 |  |  |
+| 70 | 68 |  |  |
+
+</div>  
+
+**for Beik-Myanmar**
+
+<div align="center"> 
+    
+Table 2. Best model and best score for each transformer baseline training of bk-my pair 
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 | 30 |  |  |
+| 40 | 40 |  |  |
+| 50 | 50 |  |  |
+| 60 | 57 |  |  |
+| 70 | 68 |  |  |
+
+</div> 
 
 ## Transformer-RL (my-bk, bk-my)
 
