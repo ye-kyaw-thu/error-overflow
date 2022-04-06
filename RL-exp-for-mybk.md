@@ -4516,6 +4516,45 @@ Table 2. Best model and best score for each transformer baseline training of bk-
 သုံးခဲ့တဲ့ bash script က အောက်ပါအတိုင်း...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# Last updated: 5 April 2022
+# a part of Transformer-Reinforcement Learning exp for Myanmar-Beik, Beik-Myanmar
+# this script is for CONTINUE-training or RL training
+
+echo "mybk, transformer-RL training start for 30 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/mybk-30epoch/transformer-model-mybk.27.3.26-26.15.3.05-21.16.pth --model_fn ./model/rl2/rl/transformer/mybk-30epoch/transformer-rl-mybk.pth --init_epoch 28 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/mybk-30epoch/con-train.log;
+
+echo "mybk, transformer-RL training start for 40 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/mybk-40epoch/transformer-model-mybk.40.3.05-21.02.2.83-16.96.pth --model_fn ./model/rl2/rl/transformer/mybk-40epoch/transformer-rl-mybk.pth --init_epoch 41 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/mybk-40epoch/con-train.log;
+
+echo "mybk, transformer-RL training start for 50 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/mybk-50epoch/transformer-model-mybk.49.2.98-19.78.2.74-15.51.pth --model_fn ./model/rl2/rl/transformer/mybk-50epoch/transformer-rl-mybk.pth --init_epoch 50 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/mybk-50epoch/con-train.log;
+
+echo "mybk, transformer-RL training start for 60 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/mybk-60epoch/transformer-model-mybk.57.2.88-17.78.2.69-14.69.pth --model_fn ./model/rl2/rl/transformer/mybk-60epoch/transformer-rl-mybk.pth --init_epoch 58 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/mybk-60epoch/con-train.log;
+
+echo "mybk, transformer-RL training start for 70 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/mybk-70epoch/transformer-model-mybk.69.2.77-16.02.2.57-13.02.pth --model_fn ./model/rl2/rl/transformer/mybk-70epoch/transformer-rl-mybk.pth --init_epoch 70 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/mybk-70epoch/con-train.log;
+
+echo "####################";
+
+echo "bkmy, transformer-RL training start for 30 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/bkmy-30epoch/transformer-model-bkmy.30.2.92-18.52.2.82-16.76.pth --model_fn ./model/rl2/rl/transformer/bkmy-30epoch/transformer-rl-bkmy.pth --init_epoch 31 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/bkmy-30epoch/con-train.log;
+
+echo "bkmy, transformer-RL training start for 40 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/bkmy-40epoch/transformer-model-bkmy.40.2.74-15.44.2.69-14.75.pth --model_fn ./model/rl2/rl/transformer/bkmy-40epoch/transformer-rl-bkmy.pth --init_epoch 41 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/bkmy-40epoch/con-train.log;
+
+echo "bkmy, transformer-RL training start for 50 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/bkmy-50epoch/transformer-model-bkmy.49.2.64-13.95.2.57-13.10.pth --model_fn ./model/rl2/rl/transformer/bkmy-50epoch/transformer-rl-bkmy.pth --init_epoch 50 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/bkmy-50epoch/con-train.log;
+
+echo "bkmy, transformer-RL training start for 60 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/bkmy-60epoch/transformer-model-bkmy.60.2.55-12.79.2.43-11.34.pth --model_fn ./model/rl2/rl/transformer/bkmy-60epoch/transformer-rl-bkmy.pth --init_epoch 61 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/bkmy-60epoch/con-train.log;
+
+echo "bkmy, transformer-RL training start for 70 epochs...";
+time python continue_train.py --load_fn ./model/rl2/baseline/transformer/bkmy-70epoch/transformer-model-bkmy.69.2.47-11.77.2.43-11.32.pth --model_fn ./model/rl2/rl/transformer/bkmy-70epoch/transformer-rl-bkmy.pth --init_epoch 70 --iteration_per_update 32 --max_grad_norm 1e+8 --n_epochs 100 | tee ./model/rl2/rl/transformer/bkmy-70epoch/con-train.log;
+
 
 ```
 
