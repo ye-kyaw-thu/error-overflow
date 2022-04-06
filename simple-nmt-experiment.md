@@ -11405,7 +11405,7 @@ for rk-my ...
 # $2 is for the filename of the RL model results
 # $3 is start line number for the RL model bleu
 # How to run: 
-# e.g. 
+# e.g. ./extract-bleu-lines.sh ./seq30.txt ./seq-rl30.txt 30
 
 # for baseline model
 grep "BLEU =" $1 | cut -f1 -d "," | cut -f2 -d "=" | cat -n > $1.bleu
