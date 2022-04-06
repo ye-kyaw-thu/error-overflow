@@ -5703,5 +5703,98 @@ Table 2. Best model and best score for each transformer-RL training of bk-my pai
 
 </div>  
 
-## Transformer-RL Results with Graph
+## Graphs
+
+<p align="center">
+<img src="" alt="30-70 graph" width="330"/>  
+<img src="" alt="40-60 graph" width="330"/>
+<img src="" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.1 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
+  (Left: 30-70, Middle: 40-60, Right: 50-50)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="60-40 graph" width="500"/>  
+<img src="" alt="70-30 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.2 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
+  (Left: 60-40, Right: 70-30)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="30-70 graph" width="330"/>  
+<img src="" alt="40-60 graph" width="330"/>
+<img src="" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.3 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
+  (Left: 30-70, Middle: 40-60, Right: 50-50)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="60-40 graph" width="500"/>  
+<img src="" alt="70-30 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.4 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
+  (Left: 60-40, Right: 70-30)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="30-70 graph" width="330"/>  
+<img src="" alt="40-60 graph" width="330"/>
+<img src="" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.5 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
+  (Left: 30-70, Middle: 40-60, Right: 50-50)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="60-40 graph" width="500"/>  
+<img src="" alt="30-70 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.6 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
+  (Left: 60-40, Right: 30-70)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="30-70 graph" width="330"/>  
+<img src="" alt="40-60 graph" width="330"/>
+<img src="" alt="50-50 graph" width="330"/>
+</p>  
+<div align="center">
+  Fig.7 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Beik-Myanmar language pair <br /> 
+  (Left: 30-70, Middle: 40-60, Right: 50-50)
+</div> 
+
+<br />
+
+<p align="center">
+<img src="" alt="60-40 graph" width="500"/>  
+<img src="" alt="30-70 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.8 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
+  (Left: 60-40, Right: 30-70)
+</div> 
+
+<br />
+
 
