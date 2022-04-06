@@ -5791,6 +5791,69 @@ for 30-70:
 (base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran30-mybk.txt.bleu ./tran-rl30-mybk.txt.bleu "Transformer 30 epochs + RL 70 epochs (my-bk)" transformer_RL-30-70-mybk
 ```
 
+for 40-60:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran40-mybk.txt ./tran-rl40-mybk.txt 40
+  40   80  520 ./tran40-mybk.txt.bleu
+  60  120  829 ./tran-rl40-mybk.txt.bleu
+ 100  200 1349 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran40-mybk.txt.bleu ./tran-rl40-mybk.txt.bleu "Transformer 40 epochs + RL 60 epochs (my-bk)" transformer_RL-40-60-mybk
+```
+
+for 50-50:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran50-mybk.txt ./tran-rl50-mybk.txt 49
+  50  100  650 ./tran50-mybk.txt.bleu
+  51  102  704 ./tran-rl50-mybk.txt.bleu
+ 101  202 1354 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran50-mybk.txt.bleu ./tran-rl50-mybk.txt.bleu "Transformer 50 epochs + RL 50 epochs (my-bk)" transformer_RL-50-50-mybk
+```
+
+for 60-40:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran60-mybk.txt ./tran-rl60-mybk.txt 58
+  60  120  782 ./tran60-mybk.txt.bleu
+  43   86  597 ./tran-rl60-mybk.txt.bleu
+ 103  206 1379 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran60-mybk.txt.bleu ./tran-rl60-mybk.txt.bleu "Transformer 60 epochs + RL 40 epochs (my-bk)" transformer_RL-60-40-mybk
+```
+
+for 70-30:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran70-mybk.txt ./tran-rl70-mybk.txt 70
+  70  140  919 ./tran70-mybk.txt.bleu
+  31   62  434 ./tran-rl70-mybk.txt.bleu
+ 101  202 1353 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran70-mybk.txt.bleu ./tran-rl70-mybk.txt.bleu "Transformer 70 epochs + RL 30 epochs (my-bk)" transformer_RL-70-30-mybk
+```
+
+**for bk-my**  
+
+for 30-70:  
+```
+
+```
+
+for 40-60:  
+```
+
+```
+
+for 50-50:  
+```
+
+```
+
+for 60-40:  
+```
+
+```
+
+for 70-30:  
+```
+
+```
+
 ## Graphs
 
 <p align="center">
