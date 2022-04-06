@@ -5729,9 +5729,9 @@ Table 2. Best model and best score for each transformer-RL training of bk-my pai
 <br />
 
 <p align="center">
-<img src="" alt="30-70 graph" width="330"/>  
-<img src="" alt="40-60 graph" width="330"/>
-<img src="" alt="50-50 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-30-70-bkmy.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-40-60-bkmy.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-50-50-bkmy.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
   Fig.3 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
@@ -5741,8 +5741,8 @@ Table 2. Best model and best score for each transformer-RL training of bk-my pai
 <br />
 
 <p align="center">
-<img src="" alt="60-40 graph" width="500"/>  
-<img src="" alt="70-30 graph" width="500"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-60-40-bkmy.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/seq2seq/seq2seq_RL-70-30-bkmy.png" alt="70-30 graph" width="500"/>
 </p>  
 <div align="center">
   Fig.4 BLEU score improvements of Seq2Seq+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
