@@ -1909,7 +1909,7 @@ do
       python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybk < /home/ye/exp/simple-nmt/data/my-bk/syl/test.my > ./$MODEL.hyp
 
       # Evaluation with BLEU Score
-      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybk-seq2seq-baseline-100epoch.txt;
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybk-seq2seq-RL-100epoch.txt;
       cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk | tee  -a eval-results-mybk-seq2seq-RL-100epoch.txt;
 
    done
@@ -1928,7 +1928,7 @@ do
       python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang bkmy < /home/ye/exp/simple-nmt/data/my-bk/syl/test.bk > ./$MODEL.hyp
 
       # Evaluation with BLEU Score
-      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-bkmy-seq2seq-baseline-100epoch.txt;
+      echo "Evaluation result for the model: $MODEL" | tee -a eval-results-bkmy-seq2seq-RL-100epoch.txt;
       cat ./$MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /home/ye/exp/simple-nmt/data/my-bk/syl/test.my | tee  -a eval-results-bkmy-seq2seq-RL-100epoch.txt;
 
    done
@@ -3041,13 +3041,15 @@ sys	9m2.774s
 <div align="center"> 
     
 Table 1. Best model and best score for each seq2seq-RL training of my-bk pair  
+    (Note: for epoch 30-70, got two same best BLEU scores)  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 |  |  |  |
-| 40 |  |  |  |
-| 50 |  |  |  |
-| 60 |  |  |  |
-| 70 |  |  |  |
+| 30-70 | 82 | seq-rl-model-mybk.82.1.40-4.07.2.00-7.38.pth | 22.82 |
+| 30-70 | 97 | seq-rl-model-mybk.97.1.24-3.44.2.09-8.10.pth | 22.82 |    
+| 40-60 | 99 | seq-rl-model-mybk.99.1.23-3.43.2.05-7.77.pth | 23.72 |
+| 50-50 | 85 | seq-rl-model-mybk.85.1.52-4.55.2.54-12.74.pth | 13.50 |
+| 60-40 | 82 | seq-rl-model-mybk.82.1.68-5.38.2.69-14.76.pth | 11.50 |
+| 70-30 | 92 | seq-rl-model-mybk.92.1.30-3.68.2.44-11.51.pth | 15.72 |
 
 </div>  
 
@@ -3058,11 +3060,11 @@ Table 1. Best model and best score for each seq2seq-RL training of my-bk pair
 Table 2. Best model and best score for each seq2seq-RL training of bk-my pair 
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 |  |  |  |
-| 40 |  |  |  |
-| 50 |  |  |  |
-| 60 |  |  |  |
-| 70 |  |  |  |
+| 30-70 | 65 | seq-rl-model-bkmy.65.1.79-5.98.2.34-10.36.pth | 13.43 |
+| 40-60 | 91 | seq-rl-model-bkmy.91.1.39-4.03.2.65-14.21.pth | 12.46 |
+| 50-50 | 84 | seq-rl-model-bkmy.84.1.43-4.19.2.56-12.96.pth | 12.52 |
+| 60-40 | 90 | seq-rl-model-bkmy.90.1.35-3.85.2.53-12.56.pth | 11.96 |
+| 70-30 | 96 | seq-rl-model-bkmy.96.1.28-3.61.2.12-8.34.pth | 21.48 |
 
 </div>  
 
@@ -5531,11 +5533,11 @@ sys	12m28.718s
 Table 1. Best model and best score for each transformer-RL training of my-bk pair  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 | 100 | transformer-rl-mybk.100.2.56-12.97.2.39-10.93.pth | 15.32 |
-| 40 | 98 | transformer-rl-mybk.98.2.53-12.58.2.39-10.97.pth | 15.61 |
-| 50 | 98 | transformer-rl-mybk.98.2.55-12.79.2.41-11.17.pth | 15.62 |
-| 60 | 98 | transformer-rl-mybk.98.2.57-13.06.2.45-11.53.pth | 14.40 |
-| 70 | 91 | transformer-rl-mybk.91.2.56-12.90.2.45-11.56.pth | 13.75 |
+| 30-70 | 100 | transformer-rl-mybk.100.2.56-12.97.2.39-10.93.pth | 15.32 |
+| 40-60 | 98 | transformer-rl-mybk.98.2.53-12.58.2.39-10.97.pth | 15.61 |
+| 50-50 | 98 | transformer-rl-mybk.98.2.55-12.79.2.41-11.17.pth | 15.62 |
+| 60-40 | 98 | transformer-rl-mybk.98.2.57-13.06.2.45-11.53.pth | 14.40 |
+| 70-30 | 91 | transformer-rl-mybk.91.2.56-12.90.2.45-11.56.pth | 13.75 |
 
 </div>  
 
@@ -5546,11 +5548,11 @@ Table 1. Best model and best score for each transformer-RL training of my-bk pai
 Table 2. Best model and best score for each transformer-RL training of bk-my pair 
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 | 91 | transformer-rl-bkmy.91.2.32-10.22.2.28-9.77.pth | 18.87 |
-| 40 | 98 | transformer-rl-bkmy.98.2.28-9.79.2.28-9.75.pth | 17.34 |
-| 50 | 100 | transformer-rl-bkmy.100.2.27-9.68.2.25-9.49.pth | 18.48 |
-| 60 | 100 | transformer-rl-bkmy.100.2.24-9.36.2.22-9.18.pth | 19.49 |
-| 70 | 98 | transformer-rl-bkmy.98.2.29-9.88.2.27-9.73.pth | 18.79 |
+| 30-70 | 91 | transformer-rl-bkmy.91.2.32-10.22.2.28-9.77.pth | 18.87 |
+| 40-60 | 98 | transformer-rl-bkmy.98.2.28-9.79.2.28-9.75.pth | 17.34 |
+| 50-50 | 100 | transformer-rl-bkmy.100.2.27-9.68.2.25-9.49.pth | 18.48 |
+| 60-40 | 100 | transformer-rl-bkmy.100.2.24-9.36.2.22-9.18.pth | 19.49 |
+| 70-30 | 98 | transformer-rl-bkmy.98.2.29-9.88.2.27-9.73.pth | 18.79 |
 
 </div>  
 
