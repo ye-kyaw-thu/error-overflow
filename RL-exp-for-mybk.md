@@ -5553,3 +5553,6 @@ Table 2. Best model and best score for each transformer-RL training of bk-my pai
 | 70 | 98 | transformer-rl-bkmy.98.2.29-9.88.2.27-9.73.pth | 18.79 |
 
 </div>  
+
+## Transformer-RL Results with Graph
+
