@@ -3169,6 +3169,50 @@ for 70-30:
 
 **for bk-my**
 
+for 30-70:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq30-bkmy.txt ./seq-rl30-bkmy.txt 30
+  30   60  390 ./seq30-bkmy.txt.bleu
+  70  140  972 ./seq-rl30-bkmy.txt.bleu
+ 100  200 1362 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq30-bkmy.txt.bleu ./seq-rl30-bkmy.txt.bleu "Seq2Seq 30 epochs + RL 70 epochs (bk-my)" seq2seq_RL-30-70-bkmy
+```
+
+for 40-60:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq40-bkmy.txt ./seq-rl40-bkmy.txt 30
+  40   80  520 ./seq40-bkmy.txt.bleu
+  71  142  979 ./seq-rl40-bkmy.txt.bleu
+ 111  222 1499 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq40-bkmy.txt.bleu ./seq-rl40-bkmy.txt.bleu "Seq2Seq 40 epochs + RL 60 epochs (bk-my)" seq2seq_RL-40-60-bkmy
+```
+
+for 50-50:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq50-bkmy.txt ./seq-rl50-bkmy.txt 48
+  50  100  655 ./seq50-bkmy.txt.bleu
+  53  106  742 ./seq-rl50-bkmy.txt.bleu
+ 103  206 1397 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq50-bkmy.txt.bleu ./seq-rl50-bkmy.txt.bleu "Seq2Seq 50 epochs + RL 50 epochs (bk-my)" seq2seq_RL-50-50-bkmy
+```
+
+for 60-40:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq60-bkmy.txt ./seq-rl60-bkmy.txt 58
+  60  120  796 ./seq60-bkmy.txt.bleu
+  43   86  602 ./seq-rl60-bkmy.txt.bleu
+ 103  206 1398 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq60-bkmy.txt.bleu ./seq-rl60-bkmy.txt.bleu "Seq2Seq 60 epochs + RL 40 epochs (bk-my)" seq2seq_RL-60-40-bkmy
+```
+
+for 70-30:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq70-bkmy.txt ./seq-rl70-bkmy.txt 65
+  70  140  939 ./seq70-bkmy.txt.bleu
+  36   72  504 ./seq-rl70-bkmy.txt.bleu
+ 106  212 1443 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq70-bkmy.txt.bleu ./seq-rl70-bkmy.txt.bleu "Seq2Seq 70 epochs + RL 30 epochs (bk-my)" seq2seq_RL-70-30-bkmy
+```
 
 
 ## for Transformer Baseline (my-bk, bk-my)
