@@ -5831,27 +5831,47 @@ for 70-30:
 
 for 30-70:  
 ```
-
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran30-bkmy.txt ./tran-rl30-bkmy.txt 30
+  30   60  390 ./tran30-bkmy.txt.bleu
+  70  140  966 ./tran-rl30-bkmy.txt.bleu
+ 100  200 1356 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran30-bkmy.txt.bleu ./tran-rl30-bkmy.txt.bleu "Transformer 30 epochs + RL 70 epochs (bk-my)" transformer_RL-30-70-bkmy
 ```
 
 for 40-60:  
 ```
-
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran40-bkmy.txt ./tran-rl40-bkmy.txt 40
+  40   80  520 ./tran40-bkmy.txt.bleu
+  60  120  840 ./tran-rl40-bkmy.txt.bleu
+ 100  200 1360 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran40-bkmy.txt.bleu ./tran-rl40-bkmy.txt.bleu "Transformer 40 epochs + RL 60 epochs (bk-my)" transformer_RL-40-60-bkmy
 ```
 
 for 50-50:  
 ```
-
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran50-bkmy.txt ./tran-rl50-bkmy.txt 50
+  50  100  662 ./tran50-bkmy.txt.bleu
+  51  102  714 ./tran-rl50-bkmy.txt.bleu
+ 101  202 1376 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran50-bkmy.txt.bleu ./tran-rl50-bkmy.txt.bleu "Transformer 50 epochs + RL 50 epochs (bk-my)" transformer_RL-50-50-bkmy
 ```
 
 for 60-40:  
 ```
-
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran60-bkmy.txt ./tran-rl60-bkmy.txt 60
+  60  120  800 ./tran60-bkmy.txt.bleu
+  40   80  560 ./tran-rl60-bkmy.txt.bleu
+ 100  200 1360 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran60-bkmy.txt.bleu ./tran-rl60-bkmy.txt.bleu "Transformer 60 epochs + RL 40 epochs (bk-my)" transformer_RL-60-40-bkmy
 ```
 
 for 70-30:  
 ```
-
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran70-bkmy.txt ./tran-rl70-bkmy.txt 70
+  70  140  930 ./tran70-bkmy.txt.bleu
+  31   62  434 ./tran-rl70-bkmy.txt.bleu
+ 101  202 1364 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran70-bkmy.txt.bleu ./tran-rl70-bkmy.txt.bleu "Transformer 70 epochs + RL 30 epochs (bk-my)" transformer_RL-70-30-bkmy
 ```
 
 ## Graphs
