@@ -5923,9 +5923,9 @@ for 70-30:
 <br />
 
 <p align="center">
-<img src="" alt="30-70 graph" width="330"/>  
-<img src="" alt="40-60 graph" width="330"/>
-<img src="" alt="50-50 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-30-70-mybk.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-40-60-mybk.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-50-50-mybk.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
   Fig.5 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
@@ -5935,20 +5935,20 @@ for 70-30:
 <br />
 
 <p align="center">
-<img src="" alt="60-40 graph" width="500"/>  
-<img src="" alt="30-70 graph" width="500"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-60-40-mybk.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-70-30-mybk.png" alt="70-30 graph" width="500"/>
 </p>  
 <div align="center">
   Fig.6 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Myanmar-Beik language pair <br />
-  (Left: 60-40, Right: 30-70)
+  (Left: 60-40, Right: 70-30)
 </div> 
 
 <br />
 
 <p align="center">
-<img src="" alt="30-70 graph" width="330"/>  
-<img src="" alt="40-60 graph" width="330"/>
-<img src="" alt="50-50 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-30-70-bkmy.png" alt="30-70 graph" width="330"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-40-60-bkmy.png" alt="40-60 graph" width="330"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-50-50-bkmy.png" alt="50-50 graph" width="330"/>
 </p>  
 <div align="center">
   Fig.7 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Beik-Myanmar language pair <br /> 
@@ -5958,12 +5958,12 @@ for 70-30:
 <br />
 
 <p align="center">
-<img src="" alt="60-40 graph" width="500"/>  
-<img src="" alt="30-70 graph" width="500"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-60-40-bkmy.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/RL-exp/transformer/transformer_RL-70-30-bkmy.png" alt="70-30 graph" width="500"/>
 </p>  
 <div align="center">
   Fig.8 BLEU score improvements of Transformer+RL (Minimum Risk Training) for Beik-Myanmar language pair <br />
-  (Left: 60-40, Right: 30-70)
+  (Left: 60-40, Right: 70-30)
 </div> 
 
 <br />
