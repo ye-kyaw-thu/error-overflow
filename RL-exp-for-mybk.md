@@ -5546,10 +5546,10 @@ Table 1. Best model and best score for each transformer-RL training of my-bk pai
 Table 2. Best model and best score for each transformer-RL training of bk-my pair 
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 |  |  |  |
-| 40 |  |  |  |
-| 50 |  |  |  |
-| 60 |  |  |  |
-| 70 |  |  |  |
+| 30 | 91 | transformer-rl-bkmy.91.2.32-10.22.2.28-9.77.pth | 18.87 |
+| 40 | 98 | transformer-rl-bkmy.98.2.28-9.79.2.28-9.75.pth | 17.34 |
+| 50 | 100 | transformer-rl-bkmy.100.2.27-9.68.2.25-9.49.pth | 18.48 |
+| 60 | 100 | transformer-rl-bkmy.100.2.24-9.36.2.22-9.18.pth | 19.49 |
+| 70 | 98 | transformer-rl-bkmy.98.2.29-9.88.2.27-9.73.pth | 18.79 |
 
 </div>  
