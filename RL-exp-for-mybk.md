@@ -5742,6 +5742,55 @@ Table 2. Best model and best score for each transformer-RL training of bk-my pai
 
 </div>  
 
+## Preparation for Drawing Graph
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/mybk-30epoch/eval-results-mybk-transformer-baseline-100epoch.txt ./tran30-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/mybk-40epoch/eval-results-mybk-transformer-baseline-100epoch.txt ./tran40-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/mybk-50epoch/eval-results-mybk-transformer-baseline-100epoch.txt ./tran50-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/mybk-60epoch/eval-results-mybk-transformer-baseline-100epoch.txt ./tran60-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/mybk-70epoch/eval-results-mybk-transformer-baseline-100epoch.txt ./tran70-mybk.txt
+```
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/bkmy-30epoch/eval-results-bkmy-transformer-baseline-100epoch.txt ./tran30-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/bkmy-40epoch/eval-results-bkmy-transformer-baseline-100epoch.txt ./tran40-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/bkmy-50epoch/eval-results-bkmy-transformer-baseline-100epoch.txt ./tran50-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/bkmy-60epoch/eval-results-bkmy-transformer-baseline-100epoch.txt ./tran60-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/baseline/transformer/bkmy-70epoch/eval-results-bkmy-transformer-baseline-100epoch.txt ./tran70-bkmy.txt
+```
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/mybk-30epoch/eval-results-mybk-transformer-RL-100epoch.txt ./tran-rl30-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/mybk-40epoch/eval-results-mybk-transformer-RL-100epoch.txt ./tran-rl40-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/mybk-50epoch/eval-results-mybk-transformer-RL-100epoch.txt ./tran-rl50-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/mybk-60epoch/eval-results-mybk-transformer-RL-100epoch.txt ./tran-rl60-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/mybk-70epoch/eval-results-mybk-transformer-RL-100epoch.txt ./tran-rl70-mybk.txt
+```
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/bkmy-30epoch/eval-results-bkmy-transformer-RL-100epoch.txt ./tran-rl30-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/bkmy-40epoch/eval-results-bkmy-transformer-RL-100epoch.txt ./tran-rl40-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/bkmy-50epoch/eval-results-bkmy-transformer-RL-100epoch.txt ./tran-rl50-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/bkmy-60epoch/eval-results-bkmy-transformer-RL-100epoch.txt ./tran-rl60-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ cp ../../../rl2/rl/transformer/bkmy-70epoch/eval-results-bkmy-transformer-RL-100epoch.txt ./tran-rl70-bkmy.txt
+```
+
+## BLEU Score Extraction and Drawing Graph
+
+extract မလုပ်ခင်မှာ BLEU score ဖိုင်ကို ဖွင့်ကြည့်ဖို့ လိုအပ်တယ်။ ဘာကြောင့်လဲ ဆိုတော့ 100 epoch က sorting မလုပ်ထားတော့ ဖိုင်ရဲ့ ထိပ်ဆုံးကို ရောက်နေတတ်လို့ ဖိုင်ရဲ့အောက်ဆုံးကို manual ပြန်ရွှေ့ရတာမို့လို့...  
+
+**for my-bk**  
+
+for 30-70:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ ./extract.sh ./tran30-mybk.txt ./tran-rl30-mybk.txt 28
+  30   60  390 ./tran30-mybk.txt.bleu
+  73  146  989 ./tran-rl30-mybk.txt.bleu
+ 103  206 1379 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/tran$ python ./draw-transformer.py ./tran30-mybk.txt.bleu ./tran-rl30-mybk.txt.bleu "Transformer 30 epochs + RL 70 epochs (my-bk)" transformer_RL-30-70-mybk
+```
+
 ## Graphs
 
 <p align="center">
