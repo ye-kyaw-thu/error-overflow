@@ -3068,6 +3068,109 @@ Table 2. Best model and best score for each seq2seq-RL training of bk-my pair
 
 </div>  
 
+## Graph Drawing for Seq2Seq-RL
+
+### Preparation for Drawing Graph
+
+for seq2seq (baseline), my-bk results:  
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/mybk-30epoch/eval-results-mybk-seq2seq-baseline-100epoch.txt ./seq30-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/mybk-40epoch/eval-results-mybk-seq2seq-baseline-100epoch.txt ./seq40-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/mybk-50epoch/eval-results-mybk-seq2seq-baseline-100epoch.txt ./seq50-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/mybk-60epoch/eval-results-mybk-seq2seq-baseline-100epoch.txt ./seq60-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/mybk-70epoch/eval-results-mybk-seq2seq-baseline-100epoch.txt ./seq70-mybk.txt
+```
+
+for seq2seq (baseline), bk-my results:  
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/bkmy-30epoch/eval-results-bkmy-seq2seq-baseline-100epoch.txt ./seq30-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/bkmy-40epoch/eval-results-bkmy-seq2seq-baseline-100epoch.txt ./seq40-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/bkmy-50epoch/eval-results-bkmy-seq2seq-baseline-100epoch.txt ./seq50-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/bkmy-60epoch/eval-results-bkmy-seq2seq-baseline-100epoch.txt ./seq60-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/baseline/seq2seq/bkmy-70epoch/eval-results-bkmy-seq2seq-baseline-100epoch.txt ./seq70-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$
+```
+
+for seq-RL, my-bk results:  
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/mybk-30epoch/eval-results-mybk-seq2seq-RL-100epoch.txt ./seq-rl30-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/mybk-40epoch/eval-results-mybk-seq2seq-RL-100epoch.txt ./seq-rl40-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/mybk-50epoch/eval-results-mybk-seq2seq-RL-100epoch.txt ./seq-rl50-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/mybk-60epoch/eval-results-mybk-seq2seq-RL-100epoch.txt ./seq-rl60-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/mybk-70epoch/eval-results-mybk-seq2seq-RL-100epoch.txt ./seq-rl70-mybk.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$
+```
+
+for seq-RL, bk-my results:  
+
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/bkmy-30epoch/eval-results-bkmy-seq2seq-RL-100epoch.txt ./seq-rl30-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/bkmy-40epoch/eval-results-bkmy-seq2seq-RL-100epoch.txt ./seq-rl40-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/bkmy-50epoch/eval-results-bkmy-seq2seq-RL-100epoch.txt ./seq-rl50-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/bkmy-60epoch/eval-results-bkmy-seq2seq-RL-100epoch.txt ./seq-rl60-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ cp ../../../rl2/rl/seq2seq/bkmy-70epoch/eval-results-bkmy-seq2seq-RL-100epoch.txt ./seq-rl70-bkmy.txt
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$
+```
+
+### BLEU Score Extraction and Drawing Graph
+
+extract မလုပ်ခင်မှာ BLEU score ဖိုင်ကို ဖွင့်ကြည့်ဖို့ လိုအပ်တယ်။ ဘာကြောင့်လဲ ဆိုတော့ 100 epoch က sorting မလုပ်ထားတော့ ဖိုင်ရဲ့ ထိပ်ဆုံးကို ရောက်နေတတ်လို့ ဖိုင်ရဲ့အောက်ဆုံးကို manual ပြန်ရွှေ့ရတာမို့လို့...  
+
+**for my-bk**  
+
+for 30-70:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq30-mybk.txt ./seq-rl30-mybk.txt 30
+  30   60  390 ./seq30-mybk.txt.bleu
+  70  140  980 ./seq-rl30-mybk.txt.bleu
+ 100  200 1370 total
+ (base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py seq30-mybk.txt.bleu seq-rl30-mybk.txt.bleu "Seq2Seq 30 epochs + RL 70 epochs (my-bk)" seq2seq_RL-30-70-mybk
+```
+
+for 40-60:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq40-mybk.txt ./seq-rl40-mybk.txt 40
+  40   80  529 ./seq40-mybk.txt.bleu
+  60  120  840 ./seq-rl40-mybk.txt.bleu
+ 100  200 1369 total
+ (base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq40-mybk.txt.bleu ./seq-rl40-mybk.txt.bleu "Seq2Seq 40 epochs + RL 60 epochs (my-bk)" seq2seq_RL-40-60-mybk
+```
+
+for 50-50:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq50-mybk.txt ./seq-rl50-mybk.txt 50
+  50  100  658 ./seq50-mybk.txt.bleu
+  50  100  700 ./seq-rl50-mybk.txt.bleu
+ 100  200 1358 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq50-mybk.txt.bleu ./seq-rl50-mybk.txt.bleu "Seq2Seq 50 epochs + RL 50 epochs (my-bk)" seq2seq_RL-50-50-mybk
+```
+
+for 60-40:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq60-mybk.txt ./seq-rl60-mybk.txt 58
+  60  120  784 ./seq60-mybk.txt.bleu
+  43   86  600 ./seq-rl60-mybk.txt.bleu
+ 103  206 1384 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq60-mybk.txt.bleu ./seq-rl60-mybk.txt.bleu "Seq2Seq 60 epochs + RL 40 epochs (my-bk)" seq2seq_RL-60-40-mybk
+
+```
+
+for 70-30:  
+```
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ ./extract.sh ./seq70-mybk.txt ./seq-rl70-mybk.txt 69
+  70  140  939 ./seq70-mybk.txt.bleu
+  32   64  448 ./seq-rl70-mybk.txt.bleu
+ 102  204 1387 total
+(base) ye@:~/exp/simple-nmt/model/graph/30-70exp2/seq$ python ./draw.py ./seq70-mybk.txt.bleu ./seq-rl70-mybk.txt.bleu "Seq2Seq 70 epochs + RL 30 epochs (my-bk)" seq2seq_RL-70-30-mybk
+```
+
+**for bk-my**
+
+
+
 ## for Transformer Baseline (my-bk, bk-my)
 ### Bash Script Writing
 
