@@ -3034,6 +3034,37 @@ sys	9m2.774s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+## Seq2Seq-RL Results
+
+**for Myanmar-Beik**
+
+<div align="center"> 
+    
+Table 1. Best model and best score for each seq2seq-RL training of my-bk pair  
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 |  |  |  |
+| 40 |  |  |  |
+| 50 |  |  |  |
+| 60 |  |  |  |
+| 70 |  |  |  |
+
+</div>  
+
+**for Beik-Myanmar**
+
+<div align="center"> 
+    
+Table 2. Best model and best score for each seq2seq-RL training of bk-my pair 
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 |  |  |  |
+| 40 |  |  |  |
+| 50 |  |  |  |
+| 60 |  |  |  |
+| 70 |  |  |  |
+
+</div>  
 
 ## for Transformer Baseline (my-bk, bk-my)
 ### Bash Script Writing
@@ -5490,3 +5521,35 @@ real	169m44.151s
 user	146m43.296s
 sys	12m28.718s
 ```
+
+## Transformer-RL Results
+
+**for Myanmar-Beik**
+
+<div align="center"> 
+    
+Table 1. Best model and best score for each transformer-RL training of my-bk pair  
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 |  |  |  |
+| 40 |  |  |  |
+| 50 |  |  |  |
+| 60 |  |  |  |
+| 70 |  |  |  |
+
+</div>  
+
+**for Beik-Myanmar**
+
+<div align="center"> 
+    
+Table 2. Best model and best score for each transformer-RL training of bk-my pair 
+| No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
+|-----------:|-----------:|:-----------:|-----------:|
+| 30 |  |  |  |
+| 40 |  |  |  |
+| 50 |  |  |  |
+| 60 |  |  |  |
+| 70 |  |  |  |
+
+</div>  
