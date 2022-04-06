@@ -5531,11 +5531,11 @@ sys	12m28.718s
 Table 1. Best model and best score for each transformer-RL training of my-bk pair  
 | No of Epoch for Training | Best Model Epoch | Model File | Best BLEU |
 |-----------:|-----------:|:-----------:|-----------:|
-| 30 |  |  |  |
-| 40 |  |  |  |
-| 50 |  |  |  |
-| 60 |  |  |  |
-| 70 |  |  |  |
+| 30 | 100 | transformer-rl-mybk.100.2.56-12.97.2.39-10.93.pth | 15.32 |
+| 40 | 98 | transformer-rl-mybk.98.2.53-12.58.2.39-10.97.pth | 15.61 |
+| 50 | 98 | transformer-rl-mybk.98.2.55-12.79.2.41-11.17.pth | 15.62 |
+| 60 | 98 | transformer-rl-mybk.98.2.57-13.06.2.45-11.53.pth | 14.40 |
+| 70 | 91 | transformer-rl-mybk.91.2.56-12.90.2.45-11.56.pth | 13.75 |
 
 </div>  
 
