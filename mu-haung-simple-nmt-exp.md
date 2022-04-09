@@ -36,7 +36,7 @@
 (base) ye@:/media/ye/project2/exp/braille-nmt/data/for-nmt/0$
 ```
 
-### Bash Script for Training
+### Bash Script for Seq2Seq Training
 
 ရှေ့မှာလုပ်ခဲ့တဲ့ မြန်မာ-ရခိုင်၊ မြန်မာ-ဘိတ် တို့ကို Simple-NMT နဲ့ run ခဲ့တဲ့ရလဒ်တွေကို အခြေခံပြီး running command ကို အောက်ပါအတိုင်း ထားခဲ့တယ်။ epoch ကိုတော့ 300 ပေးထားတယ်။  
 bash shell script ရဲ့ နာမည်က ```braille-seq2seq-training.sh```  
@@ -71,7 +71,7 @@ time python train.py --train /media/ye/project2/exp/braille-nmt/data/for-nmt/0/t
 
 ```
 
-## Training
+## Seq2Seq Training
 
 training က အောက်ပါအတိုင်း လုပ်ခဲ့တယ်။  
 (simple-nmt) ye@:~/exp/simple-nmt$ time ./braille-seq2seq-training.sh | tee ./braille-seq2seq-mybk-brmy-training.log  
