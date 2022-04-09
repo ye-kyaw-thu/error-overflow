@@ -74,6 +74,8 @@ time python train.py --train /media/ye/project2/exp/braille-nmt/data/for-nmt/0/t
 ## Training
 
 training က အောက်ပါအတိုင်း လုပ်ခဲ့တယ်။  
+(simple-nmt) ye@:~/exp/simple-nmt$ time ./braille-seq2seq-training.sh | tee ./braille-seq2seq-mybk-brmy-training.log  
+
 
 training log for for my-bk:  
 
