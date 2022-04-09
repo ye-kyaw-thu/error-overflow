@@ -2061,3 +2061,15 @@ user	175m45.462s
 sys	6m42.050s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
+
+bash script for br-my testing ...  
+
+```bash
+
+```
+
+testing for br-my ...  
+
+```
+
+```
