@@ -1417,9 +1417,33 @@ user	254m41.634s
 sys	15m34.916s
 ```
 
-## Testing/Evaluation
+## Testing/Evaluation (Seq2Seq)
+
+updated bash script for my-br:  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, Thailand
+# Last updated: 9 April 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# updated for my-br
+
+cd ./model/braille/seq2seq/my-br/;
+
+for i in *.pth; do
+   MODEL=$i;
+
+   # Testing
+   python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang mybr < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my > $MODEL.hyp
+
+   # Evaluation with BLEU Score
+   echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybr-seq2seq-300epoch.txt;
+   cat $MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee  -a eval-results-mybr-seq2seq-300epoch.txt;
+
+done
+
+cd -;
 
 ```
 
