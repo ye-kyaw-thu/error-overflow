@@ -67,7 +67,7 @@ time python train.py --train /media/ye/project2/exp/braille-nmt/data/for-nmt/0/t
 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 \
 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
 --use_adam --rl_n_epochs 0 \
---model_fn ./model/braille/seq2seq/br-my/seq-model-mybr.pth  | tee ./model/braille/seq2seq/br-my/mybr-seq2seq-training.log;
+--model_fn ./model/braille/seq2seq/br-my/seq-model-brmy.pth  | tee ./model/braille/seq2seq/br-my/brmy-seq2seq-training.log;
 
 ```
 
