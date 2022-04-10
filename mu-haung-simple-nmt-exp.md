@@ -2720,6 +2720,19 @@ Evaluation result for the model: seq-model-brmy.269.0.24-1.27.3.41-30.24.pth
 BLEU = 22.15, 50.8/27.3/16.7/10.4 (BP=1.000, ratio=1.000, hyp_len=28812, ref_len=28803)
 ```
 
+seq2seq ရဲ့ မော်ဒယ်တွေထဲက အကောင်းဆုံးမော်ဒယ်ကိုပဲ 1st-run-bk/ ဖိုလ်ဒါအောက်မှာ backup လုပ်ထားပြီး ကျန်တဲ့ .pth, .hyp ဖိုင်တွေအားလုံးကို နေရာယူလို့ ဖျက်ပစ်လိုက်တယ်။   
+
+```
+(base) ye@:~/exp/simple-nmt/model/braille/seq2seq/my-br$ rm *.pth
+(base) ye@:~/exp/simple-nmt/model/braille/seq2seq/my-br$ rm *.hyp
+(base) ye@:~/exp/simple-nmt/model/braille/seq2seq/my-br$ ls
+1st-run-bk
+(base) ye@:~/exp/simple-nmt/model/braille/seq2seq/my-br$ ls ./1st-run-bk/
+eval-results-mybr-seq2seq-300epoch.txt  seq-model-mybr.295.0.24-1.27.3.68-39.79.pth
+mybr-seq2seq-training.log               seq-model-mybr.295.0.24-1.27.3.68-39.79.pth.hyp
+(base) ye@:~/exp/simple-nmt/model/braille/seq2seq/my-br$
+```
+
 ## Training Transformer with Simple-NMT
 
 bash script for training my-br and br-my ...  
