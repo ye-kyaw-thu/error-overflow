@@ -2738,6 +2738,33 @@ mybr-seq2seq-training.log               seq-model-mybr.295.0.24-1.27.3.68-39.79.
 bash script for training my-br and br-my ...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, Visiting Prof., LST, NECTEC, Thailand
+# Last updated: 10 April 2022
+# for transformer model training with Simple-NMT for Myanmar-MuHaung and MuHaung and Myanmar
+
+echo "my-br, transformer-baseline training start for 300 epochs...";
+time python train.py --train /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train \
+--valid /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev \
+--lang mybr \
+--gpu_id 0 --batch_size 16 --n_epochs 300 \
+--max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 \
+--max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 \
+--use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 \
+--model_fn ./model/braille/transformer/my-br/transformer-model-mybr.pth  | tee ./model/braille/transformer/my-br/mybr-transformer-training.log;
+
+echo "####################";
+echo "br-my, transformer-baseline training start for 300 epochs...";
+time python train.py --train /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train \
+--valid /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev \
+--lang brmy \
+--gpu_id 1 --batch_size 16 --n_epochs 300 \
+--max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 \
+--max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 \
+--use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 \
+--model_fn ./model/braille/transformer/br-my/transformer-model-brmy.pth | tee ./model/braille/transformer/br-my/brmy-transformer-training.log;
+
 
 ```
 
@@ -2747,6 +2774,7 @@ training as follows:
 
 ```
 
+## Testing Transformer Model
 ### bash script for testing (my-br)  
 
 ```bash
