@@ -2062,6 +2062,13 @@ sys	6m42.050s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+Best model and best score for my-br, seq2seq with simple-nmt is:  
+
+```
+Evaluation result for the model: seq-model-mybr.295.0.24-1.27.3.68-39.79.pth
+BLEU = 20.18, 48.6/25.2/15.0/9.0 (BP=1.000, ratio=1.002, hyp_len=28851, ref_len=28803)
+```
+
 bash script for br-my testing ...  
 
 ```bash
