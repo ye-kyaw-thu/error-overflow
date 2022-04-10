@@ -5363,7 +5363,7 @@ sys	8m7.974s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
-မြန်မာ-မူဟောင်းအတွက် Best model နဲ့ Best score က အောက်ပါအတိုင်း...  
+မြန်မာ-မူဟောင်းအတွက် Best model နဲ့ Best score, simple-NMT framework က အောက်ပါအတိုင်း...  
 
 ```
 Evaluation result for the model: transformer-model-mybr.293.0.35-1.42.1.72-5.59.pth
