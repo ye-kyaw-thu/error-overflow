@@ -2706,6 +2706,13 @@ sys	6m42.524s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+Best model and best score for br-my, seq2seq with simple-nmt is:  
+
+```
+Evaluation result for the model: seq-model-brmy.269.0.24-1.27.3.41-30.24.pth
+BLEU = 22.15, 50.8/27.3/16.7/10.4 (BP=1.000, ratio=1.000, hyp_len=28812, ref_len=28803)
+```
+
 ## Training Transformer with Simple-NMT
 
 bash script for training my-br and br-my ...  
