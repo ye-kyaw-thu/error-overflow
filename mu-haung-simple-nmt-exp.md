@@ -4712,10 +4712,33 @@ sys	6m23.556s
 ### bash script for testing (my-br)  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, Thailand
+# Last updated: 10 April 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# updated for Transformer model my-br
+
+cd ./model/braille/transformer/my-br/;
+
+for i in `ls *.pth | sort -V`; do
+   MODEL=$i;
+
+   # Testing
+   python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 1 --lang mybr < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my > $MODEL.hyp
+
+   # Evaluation with BLEU Score
+   echo "Evaluation result for the model: $MODEL" | tee -a eval-results-mybr-transformer-300epoch.txt;
+   cat $MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee  -a eval-results-mybr-transformer-300epoch.txt;
+
+done
+
+cd -;
 
 ```
 
 testing my-br ...  
+**`ls *.pth | sort -V`;** ကို script မှာ ထည့်ဖို့ မေ့သွားလို့ အောက်မှာ မြင်ရတဲ့ evaluation score တွေက အစီအစဉ်တကျတော့ မရှိဘူး...  
 
 ```
 
