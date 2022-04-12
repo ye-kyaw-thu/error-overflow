@@ -70,3 +70,11 @@ real	7m36.136s
 user	14m46.195s
 sys	0m16.659s
 ```
+
+Evaluation Result:  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ cat ./test-train0-mybr-results.txt 
+Evaluation with hyp.iter95000-trainingdata.br, Best Transformer Model:
+BLEU = 99.98, 100.0/100.0/100.0/100.0 (BP=1.000, ratio=1.000, hyp_len=220154, ref_len=220157)
+```
