@@ -1,6 +1,6 @@
 # MuHaung Post Editing with Two NMT Models
 
-## Preparation
+## Script Preparation for Training Data
 
 Post-Editing အတွက် training data တစ်ခုလုံးကို translation လုပ်ပြီး machine-translation output training data ကို ဖန်တီးမယ်။  
 
