@@ -144,3 +144,68 @@ Evaluation with hyp.iter80000-trainingdata.my, Best Transformer Model:
 BLEU = 99.97, 100.0/100.0/100.0/100.0 (BP=1.000, ratio=1.000, hyp_len=220146, ref_len=220157)
 ```
 
+## Translating Myanmar Development Data
+
+Development data ကိုလည်း ဘာသာပြန်ဖို့ လိုအပ်လို့၊ command ကို အောက်ပါအတိုင်းပေးခဲ့...  
+
+```bash
+time marian-decoder -m ./model0-mybr.iter95000.npz \
+-v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+/media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+--devices 0 1 \
+--output hyp.iter95000-devdata.br < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer$ time marian-decoder -m ./model0-mybr.iter95000.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter95000-devdata.br < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my
+...
+...
+...
+[2022-04-13 00:18:26] Best translation 2871 : ⠣⠿⠓⠱⠾ ⠅ ⠇⠱⠂⠟⠔⠂⠨⠋⠆ ⠎⠁⠕⠅ ⠞⠺ ⠗⠱⠆⠰⠣⠣⠞ ⠏ ⠲
+[2022-04-13 00:18:26] Best translation 2872 : ⠼⠂⠝⠴ ⠅⠕⠇⠕⠝⠪ ⠨⠭ ⠅⠣ ⠣⠁⠔⠩⠁⠆ ⠈⠉⠆ ⠗ ⠨⠭ ⠩⠊⠹ ⠈⠉⠆ ⠭ ⠹⠂ ⠙⠣⠛⠉ ⠍⠣⠞⠛⠣⠵⠔⠆ ⠫ ⠮⠙⠪⠞⠁⠡⠦ ⠇⠦ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2873 : ⠹⠔⠨⠋⠆⠎⠁ ⠣⠟⠔⠆ ⠲
+[2022-04-13 00:18:26] Best translation 2874 : ⠈⠪ ⠌⠺⠱⠂ ⠒ ⠎⠓⠁⠆ ⠌⠺⠱⠂ ⠑⠈⠭ ⠌⠺⠱⠂ ⠎⠣⠹⠂ ⠞⠬⠎⠁⠆ ⠟⠉⠂⠽⠉ ⠎ ⠹⠻⠆ ⠣⠌⠺⠱⠂⠾ ⠏⠁ ⠹⠂ ⠷⠭⠷⠋⠆ ⠹⠻⠆ ⠇⠱⠁⠥⠂ ⠳ ⠇⠆ ⠣⠈⠴⠣⠕⠝ ⠏⠭⠎⠪⠆⠏⠭⠎⠣⠽⠣⠾ ⠶⠝⠣⠖ ⠿⠕⠿⠑ ⠇⠁ ⠟ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2875 : ⠼⠣⠨⠁ ⠟⠥⠚ ⠗ ⠏⠁⠇⠁ ⠹⠻⠆ ⠗⠣⠞⠨⠋ ⠇⠥⠟⠪⠆ ⠞⠭ ⠥⠆ ⠅⠣ ⠟⠥⠚ ⠅ ⠈⠺⠮⠆⠨⠻ ⠎⠣⠅⠁⠆⠘⠁ ⠹⠂ ⠣⠝⠱ ⠗ ⠣⠰⠣⠣⠞⠞⠓⠁⠆ ⠒ ⠥⠆ ⠈⠪ ⠅⠣ ⠙⠪ ⠞⠭ ⠗⠁ ⠇⠴ ⠰⠣⠋⠆⠞⠓⠁⠆ ⠇⠕⠂ ⠿⠓ ⠟⠞⠚ ⠋ ⠇⠁ ⠨⠮⠂ ⠏ ⠃⠥⠆ ⠲
+[2022-04-13 00:18:26] Best translation 2876 : ⠼⠉ ⠲ ⠵⠋⠃⠥ ⠎⠕⠆⠗⠣ ⠰⠶ ⠵⠋⠃⠥⠙⠱⠅⠟⠥⠝⠆ ⠅ ⠣⠎⠕⠆⠗⠣ ⠹⠥ ⠲
+[2022-04-13 00:18:26] Best translation 2877 : ⠪ ⠍⠺⠱ ⠅⠁⠆ ⠥⠆⠨⠶⠆ ⠇⠆ ⠌⠮ ⠊ ⠣⠾⠪⠆ ⠇⠆ ⠹⠺⠮ ⠊ ⠲
+[2022-04-13 00:18:26] Best translation 2878 : ⠔⠛⠣⠏⠭⠎⠔ ⠲
+[2022-04-13 00:18:26] Best translation 2879 : ⠎⠓⠁⠆ ⠹ ⠨⠋⠙⠁⠅⠕ ⠣⠞⠺⠑ ⠣⠹⠉⠆⠺⠔ ⠗⠉ ⠹⠁⠍⠣⠅⠣ ⠣⠹⠁⠆ ⠌⠁⠆⠾ ⠝⠌⠡⠁⠆ ⠃⠮⠆ ⠟⠁⠩⠱ ⠟⠁⠩⠱ ⠨⠋ ⠶ ⠣⠟⠕⠆⠣⠟⠶⠆ ⠌⠁⠆⠏⠊ ⠒ ⠌⠁⠆⠡⠴ ⠒ ⠣⠹⠁⠆ ⠡⠴ ⠎⠣⠹ ⠚ ⠿⠥⠂⠇⠦ ⠗⠁ ⠞⠺ ⠇⠆ ⠣⠹⠉⠆⠺⠔ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2880 : ⠼⠁ ⠓ ⠗⠁⠎⠥⠂ ⠝⠢⠂⠯ ⠍⠶⠆⠋ ⠲
+[2022-04-13 00:18:26] Best translation 2881 : ⠶ ⠼⠙ ⠶ ⠞⠭ ⠏⠔ ⠲
+[2022-04-13 00:18:26] Best translation 2882 : ⠶ ⠓⠱⠂ ⠎⠢ ⠇⠁⠆ ⠒ ⠓⠱⠂ ⠾⠣ ⠇⠁⠆ ⠶ ⠓⠱⠆ ⠇⠁⠆ ⠍⠶⠍⠮ ⠗⠕⠂ ⠺⠁⠆ ⠲
+[2022-04-13 00:18:26] Best translation 2883 : ⠣⠾⠕⠆⠹⠁⠆ ⠿⠣⠞⠬ ⠞⠺ ⠣⠁⠣⠞ ⠌⠁⠆ ⠁⠣⠞ ⠩ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2884 : ⠗⠕⠆⠗⠕⠆ ⠿⠻⠆⠎⠣⠅⠁⠆ ⠅ ⠨⠭ ⠣⠹⠪⠆⠹⠪⠆ ⠅⠣ ⠝⠁⠆⠇⠮ ⠝ ⠏ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2885 : ⠼⠊ ⠲ ⠎⠁ ⠗⠥⠞ ⠰⠶ ⠎⠁ ⠅ ⠣⠹⠋ ⠁⠺⠑⠯ ⠈⠕ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2886 : ⠗⠱ ⠨⠕⠂ ⠗⠱⠆ ⠲
+[2022-04-13 00:18:26] Best translation 2887 : ⠼⠃ ⠲ ⠎⠣⠇⠺⠮⠹⠖⠆ ⠰⠶ ⠟⠕⠆ ⠎⠣⠹ ⠅ ⠏⠣⠨⠉⠆ ⠞⠺ ⠎⠣⠇⠺⠮ ⠹⠣⠘⠺⠮ ⠞⠣⠞⠈⠔ ⠹ ⠲
+[2022-04-13 00:18:26] Best translation 2888 : ⠇⠱⠂⠟⠔⠂⠨⠋⠆ ⠲
+[2022-04-13 00:18:26] Best translation 2889 : ⠼⠉ ⠲ ⠅⠕⠆⠎⠁⠆ ⠰⠶ ⠣⠁⠥⠆ ⠁⠆⠅⠕⠆ ⠹ ⠲
+[2022-04-13 00:18:27] Best translation 2890 : ⠇⠮ ⠩⠔ ⠽⠴⠟⠁⠆ ⠇⠆ ⠞⠭⠷⠔⠂ ⠠⠣⠭⠹⠑ ⠟⠪⠷⠕ ⠑ ⠟⠱⠆ ⠍⠔⠆ ⠁⠆ ⠣⠇⠕⠩ ⠞⠖⠆ ⠹⠉⠆⠈⠶ ⠇⠱ ⠮ ⠓ ⠞⠭⠍⠪ ⠓⠾⠣ ⠹⠻⠆ ⠇⠮ ⠅ ⠏⠱⠆⠸⠣⠥ ⠏⠥⠵⠻ ⠃ ⠹⠞ ⠲
+[2022-04-13 00:18:27] Best translation 2891 : ⠾⠋⠍⠁ ⠝⠌ ⠞⠺ ⠞⠊⠗⠭⠈⠋ ⠥⠂⠽⠔ ⠹⠉⠆ ⠨⠥⠂ ⠩ ⠹ ⠲
+[2022-04-13 00:18:27] Best translation 2892 : ⠣⠞⠖ ⠾⠑⠰⠣⠋ ⠝⠑ ⠝⠮⠂ ⠃⠶⠆⠃⠪ ⠞⠕ ⠲
+[2022-04-13 00:18:27] Best translation 2893 : ⠨⠺⠱⠆ ⠓⠭ ⠇⠥ ⠓⠭ ⠒ ⠣⠹⠋⠿⠁ ⠅⠮ ⠡⠴ ⠹⠻⠆⠣⠨⠁ ⠲
+[2022-04-13 00:18:27] Best translation 2894 : ⠁⠊ ⠁⠪ ⠁⠪⠆ ⠲
+[2022-04-13 00:18:27] Best translation 2895 : ⠞⠋ ⠏⠁ ⠅⠺⠮ ⠚ ⠌⠣ ⠓⠁ ⠌ ⠅⠥⠞ ⠏⠁⠂ ⠍⠮ ⠲
+[2022-04-13 00:18:27] Best translation 2896 : ⠣⠰⠣⠁⠞ ⠏⠁⠆ ⠇⠬ ⠩⠁ ⠞⠮ ⠇⠱⠆ ⠲
+[2022-04-13 00:18:27] Total time: 80.81048s wall
+
+real	1m21.546s
+user	2m33.697s
+sys	0m3.292s
+```
+
+## Translating Braille Development Data
+
+```bash
+marian-decoder -m ./model0-brmy.iter80000.npz \
+-v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+/media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+--devices 0 1 \
+--output hyp.iter80000-devdata.my < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br
+```
+
+```
+
+```
+
+
