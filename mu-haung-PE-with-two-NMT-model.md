@@ -366,6 +366,27 @@ sys	0m39.203s
 
 ```
 
+output ဖိုလ်ဒါကို ဝင်စစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$ ls
+config-mtbr0.yml           model0-mtbr.iter25000.npz  model0-mtbr.iter50000.npz    model0-mtbr.npz.optimizer.npz         train-mtbr.log
+dev.mt-br.output           model0-mtbr.iter30000.npz  model0-mtbr.iter5000.npz     model0-mtbr.npz.orig.npz              valid-mtbr.log
+model0-mtbr.iter10000.npz  model0-mtbr.iter35000.npz  model0-mtbr.iter55000.npz    model0-mtbr.npz.orig.npz.decoder.yml
+model0-mtbr.iter15000.npz  model0-mtbr.iter40000.npz  model0-mtbr.npz              model0-mtbr.npz.progress.yml
+model0-mtbr.iter20000.npz  model0-mtbr.iter45000.npz  model0-mtbr.npz.decoder.yml  model0-mtbr.npz.yml
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$
+```
+
+testing or PE:  
+
+```
+
+```
+
+Transformer mt ရလဒ်နဲ့ PE ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
+
+
 ## Training MT_Myanmar-to-Myanmar
 
 ```bash
