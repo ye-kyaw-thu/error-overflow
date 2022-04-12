@@ -120,4 +120,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 113. [RL-exp-for-mybk-screen-output.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/RL-exp-for-mybk-screen-output.md)
 114. [mu-haung-nmt-transformer-exp.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mu-haung-nmt-transformer-exp.md)  
 115. [mu-haung-simple-nmt-exp.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mu-haung-simple-nmt-exp.md)  
+116. [mu-haung-PE-with-two-NMT-model.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mu-haung-PE-with-two-NMT-model.md)  
 
