@@ -5373,6 +5373,28 @@ BLEU = 69.25, 85.7/73.8/64.2/56.6 (BP=1.000, ratio=1.001, hyp_len=28823, ref_len
 ### bash script for testing (br-my)  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, LST, Thailand
+# Last updated: 10 April 2022
+# find all models and parse to translate.py for testing and multi-bleu.perl for evaluation with BLEU score
+# updated for Transformer, br-my
+
+cd ./model/braille/transformer/br-my/;
+
+for i in `ls *.pth | sort -V`; do
+   MODEL=$i;
+
+   # Testing
+   python /home/ye/exp/simple-nmt/translate.py --model_fn $MODEL --gpu_id 0 --lang brmy < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br > $MODEL.hyp
+
+   # Evaluation with BLEU Score
+   echo "Evaluation result for the model: $MODEL" | tee -a eval-results-brmy-transformer-300epoch.txt;
+   cat $MODEL.hyp | perl /home/ye/exp/simple-nmt/test/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee  -a eval-results-brmy-transformer-300epoch.txt;
+
+done
+
+cd -;
 
 ```
 
