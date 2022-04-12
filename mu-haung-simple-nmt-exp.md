@@ -6027,3 +6027,8 @@ Evaluation result for the model: transformer-model-brmy.298.0.34-1.41.1.78-5.91.
 BLEU = 69.51, 85.4/73.8/64.7/57.3 (BP=1.000, ratio=1.005, hyp_len=28947, ref_len=28803)
 ```
 
+## To DO
+
+- Simple-NMT နဲ့က Training time က မြန်တယ် coding ကို ဝင်ပြင်မယ်ဆိုရင်လည်း လွယ်ကူပေမဲ့... BLEU score တွေကို လက်ရှိထက် မြင့်အောင် မြှင့်ဖို့လိုအပ်တယ်။
+- parameter tuning လုပ်ရင် performance socre နည်းနည်း ထပ်တက်နိုင်တယ်။ အထူးသဖြင့် Transformer နဲ့က
+- post-editing အတွက် သုံးချင်သုံးနိုင်တယ်
