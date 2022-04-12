@@ -284,6 +284,85 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/config
 ```
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./mt-ref-transformer-br.sh 
+...
+...
+...
+[2022-04-13 06:47:44] [data] Shuffling data
+[2022-04-13 06:47:44] [data] Done reading 16,415 sentences
+[2022-04-13 06:47:44] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:48:13] Seen 16415 samples
+[2022-04-13 06:48:13] Starting data epoch 739 in logical epoch 739
+[2022-04-13 06:48:13] [data] Shuffling data
+[2022-04-13 06:48:13] [data] Done reading 16,415 sentences
+[2022-04-13 06:48:14] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:48:43] Seen 16415 samples
+[2022-04-13 06:48:43] Starting data epoch 740 in logical epoch 740
+[2022-04-13 06:48:43] [data] Shuffling data
+[2022-04-13 06:48:43] [data] Done reading 16,415 sentences
+[2022-04-13 06:48:43] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:49:12] Seen 16415 samples
+[2022-04-13 06:49:12] Starting data epoch 741 in logical epoch 741
+[2022-04-13 06:49:12] [data] Shuffling data
+[2022-04-13 06:49:12] [data] Done reading 16,415 sentences
+[2022-04-13 06:49:12] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:49:42] Seen 16415 samples
+[2022-04-13 06:49:42] Starting data epoch 742 in logical epoch 742
+[2022-04-13 06:49:42] [data] Shuffling data
+[2022-04-13 06:49:42] [data] Done reading 16,415 sentences
+[2022-04-13 06:49:42] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:50:12] Seen 16415 samples
+[2022-04-13 06:50:12] Starting data epoch 743 in logical epoch 743
+[2022-04-13 06:50:12] [data] Shuffling data
+[2022-04-13 06:50:12] [data] Done reading 16,415 sentences
+[2022-04-13 06:50:12] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:50:14] Ep. 743 : Up. 54500 : Sen. 2,024 : Cost 1.32428324 * 1,606,964 @ 2,405 after 175,555,492 : Time 200.61s : 8010.57 words/s : L.r. 1.6255e-04
+[2022-04-13 06:50:41] Seen 16415 samples
+[2022-04-13 06:50:41] Starting data epoch 744 in logical epoch 744
+[2022-04-13 06:50:41] [data] Shuffling data
+[2022-04-13 06:50:41] [data] Done reading 16,415 sentences
+[2022-04-13 06:50:41] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:51:11] Seen 16415 samples
+[2022-04-13 06:51:11] Starting data epoch 745 in logical epoch 745
+[2022-04-13 06:51:11] [data] Shuffling data
+[2022-04-13 06:51:11] [data] Done reading 16,415 sentences
+[2022-04-13 06:51:11] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:51:40] Seen 16415 samples
+[2022-04-13 06:51:40] Starting data epoch 746 in logical epoch 746
+[2022-04-13 06:51:40] [data] Shuffling data
+[2022-04-13 06:51:40] [data] Done reading 16,415 sentences
+[2022-04-13 06:51:40] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:52:10] Seen 16415 samples
+[2022-04-13 06:52:10] Starting data epoch 747 in logical epoch 747
+[2022-04-13 06:52:10] [data] Shuffling data
+[2022-04-13 06:52:10] [data] Done reading 16,415 sentences
+[2022-04-13 06:52:10] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:52:40] Seen 16415 samples
+[2022-04-13 06:52:40] Starting data epoch 748 in logical epoch 748
+[2022-04-13 06:52:40] [data] Shuffling data
+[2022-04-13 06:52:40] [data] Done reading 16,415 sentences
+[2022-04-13 06:52:40] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:53:09] Seen 16415 samples
+[2022-04-13 06:53:09] Starting data epoch 749 in logical epoch 749
+[2022-04-13 06:53:09] [data] Shuffling data
+[2022-04-13 06:53:09] [data] Done reading 16,415 sentences
+[2022-04-13 06:53:09] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-13 06:53:35] Ep. 749 : Up. 55000 : Sen. 14,753 : Cost 1.32442284 * 1,612,240 @ 3,162 after 177,167,732 : Time 201.25s : 8011.13 words/s : L.r. 1.6181e-04
+[2022-04-13 06:53:35] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz.orig.npz
+[2022-04-13 06:53:36] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.iter55000.npz
+[2022-04-13 06:53:36] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz
+[2022-04-13 06:53:37] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz.optimizer.npz
+[2022-04-13 06:53:44] [valid] Ep. 749 : Up. 55000 : cross-entropy : 13.3764 : stalled 10 times (last best: 12.9159)
+[2022-04-13 06:53:46] [valid] Ep. 749 : Up. 55000 : perplexity : 2.51369 : stalled 10 times (last best: 2.43518)
+[2022-04-13 06:54:00] [valid] Ep. 749 : Up. 55000 : bleu : 86.2131 : stalled 1 times (last best: 86.2406)
+[2022-04-13 06:54:00] Training finished
+[2022-04-13 06:54:01] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz.orig.npz
+[2022-04-13 06:54:01] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz
+[2022-04-13 06:54:02] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz.optimizer.npz
+
+real	374m57.086s
+user	622m5.019s
+sys	0m39.203s
 
 ```
 
