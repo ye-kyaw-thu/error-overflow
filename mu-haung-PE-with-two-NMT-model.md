@@ -23,7 +23,16 @@ perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/y
 for br-my testing:  
 
 ```bash
+#!/bin/bash
 
+## Preparation for Post-Editing with two NMT Models
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with TRAINING-DATA, Marian, Transformer Model, for br-my
+## 12 April 2022
+
+marian-decoder -m ./model0-brmy.iter80000.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml --devices 0 1 --output hyp.iter80000-trainingdata.my < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br
+echo "Evaluation with hyp.iter80000-trainingdata.my, Best Transformer Model:" >> test-train0-brmy-results.txt
+perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my < ./hyp.iter80000-trainingdata.my  >> test-train0-brmy-results.txt
 ```
 
 ## Translating Myanmar Training Data
@@ -122,4 +131,12 @@ real	7m43.005s
 user	15m0.544s
 sys	0m16.851s
  
+```
+
+Evaluation Result:  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ cat ./test-train0-brmy-results.txt 
+Evaluation with hyp.iter80000-trainingdata.my, Best Transformer Model:
+BLEU = 99.97, 100.0/100.0/100.0/100.0 (BP=1.000, ratio=1.000, hyp_len=220146, ref_len=220157)
 ```
