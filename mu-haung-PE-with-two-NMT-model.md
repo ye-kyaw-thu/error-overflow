@@ -242,6 +242,60 @@ marian-decoder -m ./model0-brmy.iter80000.npz \
 
 ```
 
+## Training MT_Braille-to-Ref_Braille
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for Transformer Braille_MT-to-Ref_Braille
+## 13 April 2022
+
+mkdir model.transformer-mt-br;
+
+marian \
+    --model  /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/model0-mtbr.npz --type transformer \
+    --train-sets /media/ye/project2/exp/braille-nmt/model.transformer/hyp.iter95000-trainingdata.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br \
+    --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets /media/ye/project2/exp/braille-nmt/model.transformer/hyp.iter95000-devdata.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br \
+    --valid-translation-output /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/dev.mt-br.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log ./model.transformer-mt-br/train-mtbr.log --valid-log ./model.transformer-mt-br/valid-mtbr.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 1 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/config-mtbr0.yml
+    
+time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-mt-br/config-mtbr0.yml  2>&1 | tee transformer-mtbr0.log
+
+```
+
+```
+
+```
+
+## Training MT_Myanmar-to-Myanmar
+
+```bash
+
+```
+
+```
+
+```
 
 
 
