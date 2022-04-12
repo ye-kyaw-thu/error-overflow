@@ -6020,6 +6020,10 @@ sys	8m11.273s
 (simple-nmt) ye@:~/exp/simple-nmt$
 ```
 
+br-my အတွက် Best model, best score က အောက်ပါအတိုင်း...  
 
-
+```
+Evaluation result for the model: transformer-model-brmy.298.0.34-1.41.1.78-5.91.pth
+BLEU = 69.51, 85.4/73.8/64.7/57.3 (BP=1.000, ratio=1.005, hyp_len=28947, ref_len=28803)
+```
 
