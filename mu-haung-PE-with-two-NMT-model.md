@@ -90,6 +90,9 @@ BLEU = 99.98, 100.0/100.0/100.0/100.0 (BP=1.000, ratio=1.000, hyp_len=220154, re
 
 ## Translating Braille Training Data 
 
+Translating the whole training-set:  
+
+
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-brmy$ time ./tran-eval-traindata-brmy.sh
 ...
@@ -140,3 +143,4 @@ Evaluation Result:
 Evaluation with hyp.iter80000-trainingdata.my, Best Transformer Model:
 BLEU = 99.97, 100.0/100.0/100.0/100.0 (BP=1.000, ratio=1.000, hyp_len=220146, ref_len=220157)
 ```
+
