@@ -468,8 +468,13 @@ BLEU = 86.26, 94.9/89.5/84.6/80.1 (BP=0.990, ratio=0.990, hyp_len=28528, ref_len
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$
 ```
 
-Transformer mt ရလဒ်နဲ့ PE ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
+Transformer mt ရဲ့ အကောင်းဆုံးရလဒ်နဲ့ PE ရဲ့အကောင်းဆုံး ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
 
+| Transformer | Post-Editing |
+|----------:|----------:|
+| 86.73 | 86.26 |
+
+comparable result ကိုပဲ ပေးနိုင်တယ်။   
 
 ## Training MT_Myanmar-to-Myanmar
 
