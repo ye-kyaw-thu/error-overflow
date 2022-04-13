@@ -378,6 +378,27 @@ model0-mtbr.iter20000.npz  model0-mtbr.iter45000.npz  model0-mtbr.npz.decoder.ym
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$
 ```
 
+testing bash for PE model:  
+
+```bash
+#!/bin/bash
+
+## Preparation for Myanmar-MuHaung PE
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with Marian, Transformer PE Model
+## 13 April 2022
+
+model0-mtbr.iter5000.npz
+
+#for i in {5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000,65000,70000,75000,80000,85000,90000,95000,100000}
+for i in {5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000}
+do
+   marian-decoder -m ./model0-mtbr.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter$i.br < ../model.transformer/hyp.iter95000.br
+   echo "Evaluation on ./model0-mtbr.iter${i}.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:" >> test0-PE-results.txt
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./hyp.iter$i.br  >> test0-PE-results.txt
+done
+```
+
 testing or PE:  
 
 ```
