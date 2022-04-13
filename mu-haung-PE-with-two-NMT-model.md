@@ -399,10 +399,73 @@ do
 done
 ```
 
-testing or PE:  
+testing or translation with PE model:  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$ time ./tran-eval-pe.sh
+...
+...
+...
+[2022-04-13 07:47:22] Best translation 2141 : ⠇⠱⠅⠿⠁ ⠞⠺ ⠇⠆ ⠣⠡⠁⠆ ⠹⠻⠆ ⠓⠌⠑⠾ ⠅⠹ ⠥⠆⠨⠶⠆ ⠏⠖⠆ ⠒ ⠗⠔ ⠏⠖⠆ ⠒ ⠺⠋⠆⠃⠬ ⠏⠖⠆ ⠓⠥⠯ ⠩ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2142 : ⠅⠁⠞⠥⠝⠆ ⠈⠣⠗⠁⠟⠪⠆ ⠥⠆⠃⠣⠚⠋⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2143 : ⠵⠣⠾⠔⠆⠈⠺⠮⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2144 : ⠹⠺⠱⠆⠞⠥⠍⠺⠱⠆⠞⠥ ⠝⠺⠁⠆⠾ ⠅ ⠡⠥⠾ ⠒ ⠣⠈⠔⠞⠋⠎⠓⠁⠾ ⠈⠔ ⠿⠪⠆⠸ ⠸⠣⠮⠆⠽⠔ ⠞⠺ ⠏⠋⠆⠈⠕⠆⠞⠋⠆ ⠍⠶⠆ ⠇⠱⠂ ⠩ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2145 : ⠩⠔ ⠒ ⠨⠔⠃⠽⠁ ⠓ ⠁⠥⠆ ⠰⠣ ⠽⠔⠟⠱⠆⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2146 : ⠼⠊ ⠉ ⠙ ⠨⠥⠂ ⠞⠺ ⠏⠻⠏⠴ ⠨⠮⠂ ⠹⠻⠆ ⠎⠡⠓⠌⠁ ⠇⠑⠝⠁⠆ ⠹ ⠣⠗⠱⠆ ⠞⠺ ⠅⠁⠆ ⠍⠔⠆⠞⠽⠟⠪⠆ ⠅⠣ ⠃⠣⠷⠁⠆⠙⠣⠇⠣ ⠣⠏⠻ ⠣⠾⠑ ⠞ ⠩⠯ ⠣⠇⠶⠆⠞ ⠓⠥⠹⠻⠆ ⠽⠕⠆⠙⠣⠽⠁⠆ ⠟⠱⠆⠗⠺⠁ ⠞⠺ ⠟⠥⠝ ⠌⠁⠆ ⠽⠴ ⠗ ⠞⠓⠁⠆ ⠞ ⠍⠥ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2147 : ⠼⠁ ⠚ ⠲ ⠺⠁⠹⠣⠝⠁ ⠰⠶ ⠎⠺⠮⠆⠾⠮⠆ ⠝⠱ ⠹⠻⠆ ⠣⠇⠱⠂⠣⠟⠔⠂ ⠲
+[2022-04-13 07:47:22] Best translation 2148 : ⠍⠶⠘⠕⠆⠎⠢ ⠹ ⠵⠣⠞⠹⠣⠃⠔⠏⠔⠷⠁ ⠅ ⠣⠡⠱⠨⠋ ⠰⠣⠣ ⠎⠣⠯ ⠹⠔⠽⠥ ⠇⠱⠂⠇⠁ ⠨⠮⠂ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2149 : ⠗⠣⠞⠥⠂ ⠒ ⠞⠱⠆⠁⠣⠞ ⠚ ⠞⠺ ⠝⠋⠆ ⠍⠥ ⠝⠋⠆ ⠗⠁ ⠅ ⠞⠺⠱⠂ ⠝ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2150 : ⠪ ⠣⠨⠁ ⠌⠣⠞⠁ ⠅⠣ ⠃⠁⠳ ⠏⠁ ⠇⠆ ⠿ ⠓ ⠸⠽⠴ ⠗⠁ ⠎⠪⠆⠞ ⠅⠣ ⠝⠔ ⠰⠣⠣ ⠎⠁ ⠋ ⠞⠣⠞ ⠃⠮⠆ ⠝⠮⠂ ⠌ ⠗⠱⠆ ⠞⠮⠂ ⠎⠁ ⠞⠺⠱ ⠡⠪⠆⠍⠥⠝⠆ ⠏⠁⠸ ⠌ ⠏ ⠏⠭⠗⠣ ⠝⠱ ⠰⠣⠁ ⠏⠻⠂ ⠲
+[2022-04-13 07:47:22] Best translation 2151 : ⠝⠱⠂⠞⠖⠆ ⠰⠣⠁ ⠅⠁⠆ ⠙⠶⠆⠏⠶ ⠹ ⠣⠎⠁ ⠩⠁⠯ ⠿⠋ ⠹ ⠩ ⠧ ⠈⠱⠅ ⠹⠁⠆⠌⠮ ⠚ ⠹ ⠣⠍⠊ ⠾⠑⠠⠣⠁ ⠅ ⠟⠪⠂ ⠅⠉ ⠑ ⠇⠬ ⠹⠅⠹ ⠌⠣ ⠹⠁⠆ ⠒ ⠌⠣ ⠹⠣⠍⠪⠆ ⠚ ⠹ ⠾⠱⠰⠣⠉⠂ ⠣⠇⠢⠆⠇⠢⠆ ⠅⠣⠞ ⠹⠻⠆ ⠅⠕ ⠿⠓ ⠣⠍⠊ ⠙ ⠅⠣⠞⠯ ⠱ ⠊ ⠲
+[2022-04-13 07:47:22] Best translation 2152 : ⠪ ⠁⠑ ⠇⠥⠝⠯ ⠈⠋⠆⠟⠮ ⠇⠽⠴⠏⠣⠞ ⠹⠻⠆ ⠣⠽ ⠅ ⠟⠥ ⠋ ⠞⠣⠞ ⠛ ⠓ ⠈⠕ ⠊ ⠲
+[2022-04-13 07:47:22] Best translation 2153 : ⠹⠥⠌⠮⠡⠔⠆ ⠏⠱⠆ ⠞⠮⠂ ⠍⠥⠞⠮ ⠣⠾⠣⠟⠕⠆⠓⠌⠁ ⠿⠪⠆ ⠿⠋ ⠗⠱⠆ ⠟ ⠗⠣⠶ ⠲
+[2022-04-13 07:47:22] Best translation 2154 : ⠟⠥⠚ ⠹ ⠪ ⠍⠊⠞⠣⠈⠕⠆ ⠩⠔⠿⠥⠂ ⠅ ⠣⠇⠥⠝ ⠹⠣⠝⠁⠆ ⠎⠞⠝ ⠩ ⠇⠁ ⠟ ⠹ ⠗ ⠥⠆⠎⠋⠩⠺⠱ ⠗ ⠞⠖⠏⠔ ⠅⠁ ⠣⠸⠣⠥ ⠱⠝ ⠞⠺ ⠷⠣ ⠱⠅⠯ ⠞⠣⠞ ⠝ ⠹⠣⠓⠾⠣ ⠗⠣⠞⠞⠪ ⠈⠉⠆⠿⠓⠣⠞ ⠇⠬ ⠟ ⠃ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2155 : ⠟⠑⠥⠂ ⠿⠦ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2156 : ⠽⠨ ⠏⠔ ⠣⠈⠱⠅ ⠇⠥⠆ ⠹⠻⠆ ⠾⠁⠆ ⠿⠓ ⠏⠭ ⠹⠣⠞ ⠋⠂ ⠲
+[2022-04-13 07:47:22] Best translation 2157 : ⠺⠋⠆⠹⠁⠁⠆⠗⠣ ⠒ ⠍⠣⠽⠁⠆ ⠅⠣ ⠞⠭ ⠹⠺⠮ ⠲
+[2022-04-13 07:47:22] Best translation 2158 : ⠺⠱ ⠺⠱⠂ ⠺⠱⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2159 : ⠿⠋⠯ ⠹⠉⠆⠹⠣⠞ ⠟⠪⠂ ⠏⠁ ⠸ ⠾⠋⠍⠁ ⠃⠁⠹⠁⠎⠣⠅⠁⠆ ⠞⠺ ⠣⠗⠱⠆ ⠑⠨⠣⠗⠁ ⠩ ⠞⠓⠁⠆ ⠿⠪⠆ ⠭ ⠹⠿ ⠣⠗⠱⠆ ⠗ ⠣⠘⠣⠞ ⠓⠥⠯ ⠠⠣⠭ ⠾⠕⠆ ⠩ ⠱ ⠹ ⠲
+[2022-04-13 07:47:22] Best translation 2160 : ⠺⠔⠆⠘⠋⠂ ⠇⠆ ⠋ ⠁⠖ ⠗⠣ ⠲
+[2022-04-13 07:47:22] Best translation 2161 : ⠼⠁ ⠲ ⠴⠏⠁ ⠎⠣⠅⠁⠆⠇⠉⠆ ⠚ ⠊ ⠣⠝⠑ ⠣⠙⠱⠅⠏⠮ ⠅ ⠣⠃⠊⠙⠋ ⠞⠺ ⠩⠁ ⠏ ⠲
+[2022-04-13 07:47:22] Best translation 2162 : ⠹⠔⠨⠋⠆⠎⠁ ⠣⠟⠔⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2163 : ⠡⠭⠸⠣⠣⠎ ⠹⠻⠆ ⠹⠁⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2164 : ⠓⠕ ⠩⠱⠂ ⠅⠣ ⠈⠥⠷⠋ ⠈⠥⠷⠋ ⠒ ⠃⠁ ⠹⠋ ⠇⠕⠂ ⠍⠱⠆ ⠲
+[2022-04-13 07:47:22] Best translation 2165 : ⠍⠔⠛⠣⠇⠁⠏⠁ ⠲
+[2022-04-13 07:47:23] Best translation 2166 : ⠍⠊⠍⠊ ⠞⠪ ⠹⠻⠆ ⠿ ⠍⠣⠹⠴⠹⠉⠆ ⠒ ⠸⠣⠥ ⠨⠮⠂ ⠹⠻⠆ ⠟⠥⠝ ⠗ ⠺⠥⠞⠁⠥⠂ ⠏⠭⠎⠪⠆ ⠣⠎⠥⠂⠎⠥⠂ ⠅ ⠠⠣⠶⠆⠇⠥ ⠚ ⠿⠓⠑⠈⠪⠆ ⠠⠣⠱⠅⠎⠑ ⠍⠂ ⠗⠋ ⠰⠣⠣ ⠅⠁⠅⠺⠮ ⠇⠕ ⠡ ⠭ ⠹ ⠲
+[2022-04-13 07:47:23] Total time: 57.65462s wall
 
+real	10m47.831s
+user	19m59.719s
+sys	0m31.420s
+```
+
+PE ရလဒ်တွေက အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$ cat ./test0-PE-results.txt 
+Evaluation on ./model0-mtbr.iter5000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 84.48, 94.9/89.4/84.3/79.6 (BP=0.972, ratio=0.973, hyp_len=28019, ref_len=28803)
+Evaluation on ./model0-mtbr.iter10000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 85.55, 94.8/89.4/84.3/79.5 (BP=0.985, ratio=0.985, hyp_len=28384, ref_len=28803)
+Evaluation on ./model0-mtbr.iter15000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 85.47, 95.0/89.6/84.7/80.0 (BP=0.981, ratio=0.981, hyp_len=28265, ref_len=28803)
+Evaluation on ./model0-mtbr.iter20000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 85.99, 95.0/89.6/84.7/80.1 (BP=0.987, ratio=0.987, hyp_len=28419, ref_len=28803)
+Evaluation on ./model0-mtbr.iter25000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 85.94, 94.8/89.4/84.4/79.8 (BP=0.989, ratio=0.989, hyp_len=28487, ref_len=28803)
+Evaluation on ./model0-mtbr.iter30000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 85.99, 94.9/89.5/84.6/80.0 (BP=0.988, ratio=0.988, hyp_len=28447, ref_len=28803)
+Evaluation on ./model0-mtbr.iter35000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 86.16, 94.9/89.4/84.5/79.9 (BP=0.990, ratio=0.990, hyp_len=28527, ref_len=28803)
+Evaluation on ./model0-mtbr.iter40000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 86.15, 94.9/89.4/84.5/79.9 (BP=0.990, ratio=0.990, hyp_len=28527, ref_len=28803)
+Evaluation on ./model0-mtbr.iter45000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 86.21, 94.9/89.5/84.6/80.0 (BP=0.991, ratio=0.991, hyp_len=28531, ref_len=28803)
+Evaluation on ./model0-mtbr.iter50000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 86.26, 94.9/89.5/84.6/80.1 (BP=0.990, ratio=0.990, hyp_len=28525, ref_len=28803)
+Evaluation on ./model0-mtbr.iter55000.npz with ../model.transformer/hyp.iter95000.br, Transformer PE Model:
+BLEU = 86.26, 94.9/89.5/84.6/80.1 (BP=0.990, ratio=0.990, hyp_len=28528, ref_len=28803)
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-br$
 ```
 
 Transformer mt ရလဒ်နဲ့ PE ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
