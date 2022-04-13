@@ -248,7 +248,7 @@ marian-decoder -m ./model0-brmy.iter80000.npz \
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
-## Experiments for Transformer Braille_MT-to-Ref_Braille
+## Experiments for Transformer MT_Braille-to-Ref_Braille
 ## 13 April 2022
 
 mkdir model.transformer-mt-br;
