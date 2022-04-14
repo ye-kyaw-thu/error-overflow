@@ -709,3 +709,6 @@ BLEU = 87.25, 95.1/90.1/85.6/81.4 (BP=0.993, ratio=0.993, hyp_len=28592, ref_len
 Evaluation on ./model0-mtmy.iter135000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
 BLEU = 87.25, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
 ```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်း best score 87.25 ကို ပေးတာက မော်ဒယ်သုံးခုရှိတယ်။  
+
