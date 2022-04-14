@@ -520,10 +520,33 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-mt-my/config
 ```
 
 training ကိုလုပ်ခဲ့တယ်...  
+training က တရက်ကျော် ကြာတယ် ဒီကြားထဲ training လုပ်နေစဉ်မှာ ရုံးမှာက သင်္ကြန်ပိတ်ရက်မို့လို့ မီးတွေကို ပြင်တာလုပ်တာမို့ နောက်တရက် (14 April 2022) မနက်အစောကြီးမှာ မီးပျက်သွားပြီး ညဘက် ၈နာရီလောက်မှ ပြန်လာတာမို့ training ပြီးသလောက် အခြေအနေကို ကြည့်ခဲ့တယ်...  
 
 ```
-
+[2022-04-14 05:55:40] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-my/model0-mtmy.npz.orig.npz
+[2022-04-14 05:55:40] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-my/model0-mtmy.iter180000.npz
+[2022-04-14 05:55:41] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-my/model0-mtmy.npz
+[2022-04-14 05:55:41] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-mt-my/model0-mtmy.npz.optimizer.npz
+[2022-04-14 05:55:48] [valid] Ep. 2450 : Up. 180000 : cross-entropy : 12.6841 : stalled 3 times (last best: 12.6782)
+[2022-04-14 05:55:50] [valid] Ep. 2450 : Up. 180000 : perplexity : 2.39658 : stalled 3 times (last best: 2.39562)
+[2022-04-14 05:56:03] [valid] Ep. 2450 : Up. 180000 : bleu : 87.0547 : stalled 19 times (last best: 87.159)
+[2022-04-14 05:56:19] Seen 16415 samples
+[2022-04-14 05:56:19] Starting data epoch 2451 in logical epoch 2451
+[2022-04-14 05:56:19] [data] Shuffling data
+[2022-04-14 05:56:19] [data] Done reading 16,415 sentences
+[2022-04-14 05:56:19] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-14 05:56:49] Seen 16415 samples
+[2022-04-14 05:56:49] Starting data epoch 2452 in logical epoch 2452
+[2022-04-14 05:56:49] [data] Shuffling data
+[2022-04-14 05:56:49] [data] Done reading 16,415 sentences
+[2022-04-14 05:56:49] [data] Done shuffling 16,415 sentences to temp files
 ```
 
+အထက်မှာ မြင်ရတဲ့အတိုင်း BLEU score က stalled ဖြစ်တာလည်း ၁၉ ကြိမ် ရှိနေပြီမို့ လက်ရှိ training လုပ်ထားတဲ့ထဲက best model ကိုပဲ ယူဖို့ ဆုံးဖြတ်ခဲ့တယ်။  
+testing bash script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်...  
+
+```bash
+
+```
 
 
