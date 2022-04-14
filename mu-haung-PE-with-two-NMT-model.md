@@ -614,4 +614,81 @@ user	67m41.948s
 sys	1m36.316s
 ```
 
+translation result for mt_Burmese to Burmese PE:  
 
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-my$ cat test0-PE-results.txt
+Evaluation on ./model0-mtmy.iter5000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 85.20, 95.0/89.8/85.1/80.7 (BP=0.974, ratio=0.974, hyp_len=28057, ref_len=28803)
+Evaluation on ./model0-mtmy.iter10000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 86.30, 95.0/89.8/85.2/80.8 (BP=0.986, ratio=0.986, hyp_len=28395, ref_len=28803)
+Evaluation on ./model0-mtmy.iter15000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 86.67, 95.1/90.0/85.4/81.1 (BP=0.988, ratio=0.988, hyp_len=28448, ref_len=28803)
+Evaluation on ./model0-mtmy.iter20000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.12, 95.1/90.0/85.5/81.2 (BP=0.992, ratio=0.992, hyp_len=28578, ref_len=28803)
+Evaluation on ./model0-mtmy.iter25000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.16, 95.1/90.1/85.6/81.3 (BP=0.992, ratio=0.992, hyp_len=28577, ref_len=28803)
+Evaluation on ./model0-mtmy.iter30000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.13, 95.1/90.0/85.5/81.3 (BP=0.992, ratio=0.992, hyp_len=28580, ref_len=28803)
+Evaluation on ./model0-mtmy.iter35000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.16, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28588, ref_len=28803)
+Evaluation on ./model0-mtmy.iter40000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.11, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28589, ref_len=28803)
+Evaluation on ./model0-mtmy.iter45000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.18, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28591, ref_len=28803)
+Evaluation on ./model0-mtmy.iter50000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.24, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter55000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.0/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28598, ref_len=28803)
+Evaluation on ./model0-mtmy.iter60000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.17, 95.0/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter65000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.20, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28601, ref_len=28803)
+Evaluation on ./model0-mtmy.iter70000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28603, ref_len=28803)
+Evaluation on ./model0-mtmy.iter75000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.23, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28599, ref_len=28803)
+Evaluation on ./model0-mtmy.iter80000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.1/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+Evaluation on ./model0-mtmy.iter85000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.18, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28595, ref_len=28803)
+Evaluation on ./model0-mtmy.iter90000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.17, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter95000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28600, ref_len=28803)
+Evaluation on ./model0-mtmy.iter100000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.23, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28594, ref_len=28803)
+Evaluation on ./model0-mtmy.iter105000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.4 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+Evaluation on ./model0-mtmy.iter110000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.0/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28594, ref_len=28803)
+Evaluation on ./model0-mtmy.iter115000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+Evaluation on ./model0-mtmy.iter120000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.1/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28593, ref_len=28803)
+Evaluation on ./model0-mtmy.iter125000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28593, ref_len=28803)
+Evaluation on ./model0-mtmy.iter130000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.4 (BP=0.993, ratio=0.993, hyp_len=28592, ref_len=28803)
+Evaluation on ./model0-mtmy.iter135000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+Evaluation on ./model0-mtmy.iter140000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.19, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter145000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.0/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter150000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28593, ref_len=28803)
+Evaluation on ./model0-mtmy.iter155000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.22, 95.1/90.0/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter160000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.19, 95.1/90.0/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28595, ref_len=28803)
+Evaluation on ./model0-mtmy.iter165000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.1/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28597, ref_len=28803)
+Evaluation on ./model0-mtmy.iter170000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.21, 95.1/90.1/85.5/81.3 (BP=0.993, ratio=0.993, hyp_len=28599, ref_len=28803)
+Evaluation on ./model0-mtmy.iter175000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.18, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28600, ref_len=28803)
+Evaluation on ./model0-mtmy.iter180000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.19, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28595, ref_len=28803)
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-my
+```
