@@ -20,4 +20,5 @@ $MRT_MARIAN/marian \
 - [https://marian-nmt.github.io/examples/exploration/](https://marian-nmt.github.io/examples/exploration/)
 - [https://groups.google.com/g/marian-nmt/c/_mYpKj21suY?pli=1](https://groups.google.com/g/marian-nmt/c/_mYpKj21suY?pli=1)
 - [https://cris.fbk.eu/retrieve/handle/11582/316423/25741/WMT080.pdf](https://cris.fbk.eu/retrieve/handle/11582/316423/25741/WMT080.pdf)
+- [opus-cat-a-state-of-the-art-neural-machine-translation-engine-on-your-local-computer](https://www.ata-chronicle.online/highlights/opus-cat-a-state-of-the-art-neural-machine-translation-engine-on-your-local-computer/)
 
