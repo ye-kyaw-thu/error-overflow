@@ -470,10 +470,16 @@ BLEU = 86.26, 94.9/89.5/84.6/80.1 (BP=0.990, ratio=0.990, hyp_len=28528, ref_len
 
 Transformer mt ရဲ့ အကောင်းဆုံးရလဒ်နဲ့ PE ရဲ့အကောင်းဆုံး ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
 
+<div align="center">
+
+Table 1. Performance comparison between mt_Braille and PE_Braille  
+ 
 | Transformer | Post-Editing |
 |----------:|----------:|
 | 86.73 | 86.26 |
 
+ </div>
+ 
 comparable result ကိုပဲ ပေးနိုင်တယ်။   
 
 ## Training MT_Myanmar-to-Myanmar
@@ -711,4 +717,16 @@ BLEU = 87.25, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len
 ```
 
 အထက်မှာ မြင်ရတဲ့အတိုင်း best score 87.25 ကို ပေးတာက မော်ဒယ်သုံးခုရှိတယ်။  
+မြန်မာစာအတွက် Transformer mt ရဲ့ အကောင်းဆုံးရလဒ်နဲ့ PE ရဲ့အကောင်းဆုံး ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
 
+<div align="center">  
+ 
+Table 2. Performance comparison between mt_Burmese and PE_Burmese  
+
+| Transformer | Post-Editing |
+|----------:|----------:|
+| 87.54 | 87.25 |
+
+ </div>  
+ 
+ဟိုးအထက်က mt_Braille vs PE_Braille ဇယားလိုပါပဲ။ mt_Burmese နဲ့ PE_Burmese အတွက်လည်း comparable result ကိုပဲ ပေးနိုင်တယ်။   
