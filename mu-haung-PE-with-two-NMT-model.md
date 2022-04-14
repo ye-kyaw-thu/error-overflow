@@ -730,3 +730,8 @@ Table 2. Performance comparison between mt_Burmese and PE_Burmese
  </div>  
  
 ဟိုးအထက်က mt_Braille vs PE_Braille ဇယားလိုပါပဲ။ mt_Burmese နဲ့ PE_Burmese အတွက်လည်း comparable result ကိုပဲ ပေးနိုင်တယ်။   
+
+## To Do
+
+- multi-source or two encoder approach ကို သုံးပြီးတော့ PE ရဲ့ ရလဒ်ကို တက်အောင် ကြိုးစားကြည့်ရန်
+
