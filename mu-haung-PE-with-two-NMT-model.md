@@ -557,8 +557,25 @@ for i in {5000..180000..5000}
 
 testing bash script (tran-eval-pe.sh) ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့ပြီး model output ဖိုလ်ဒါဖြစ်တဲ့ ```model.transformer-mt-my/``` အောက်မှာ run  ခဲ့တယ် ...  
 
-
 ```bash
+#!/bin/bash
+
+## Preparation for Myanmar-MuHaung PE
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with Marian, Transformer PE Model
+## 14 April 2022
+model0-mtmy.iter5000.npz
+for i in {5000..180000..5000} 
+do
+   marian-decoder -m ./model0-mtmy.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml --devices 0 1 --output hyp.iter$i.my < ../model.transformer-brmy/hyp.iteriter80000.my
+   echo "Evaluation on ./model0-mtmy.iter${i}.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:" >> test0-PE-results.txt
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./hyp.iter$i.my  >> test0-PE-results.txt
+done
+```
+
+testing/evaluation for mt-my PE:  
+
+```
 
 ```
 
