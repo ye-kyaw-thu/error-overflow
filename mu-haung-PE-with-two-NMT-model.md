@@ -692,3 +692,20 @@ Evaluation on ./model0-mtmy.iter180000.npz with ../model.transformer-brmy/hyp.it
 BLEU = 87.19, 95.1/90.0/85.5/81.2 (BP=0.993, ratio=0.993, hyp_len=28595, ref_len=28803)
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-mt-my
 ```
+
+Best model, best score ပေးတာက အောက်ပါအတိုင်း  
+
+```
+Evaluation on ./model0-mtmy.iter105000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.4 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+```
+
+```
+Evaluation on ./model0-mtmy.iter130000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.4 (BP=0.993, ratio=0.993, hyp_len=28592, ref_len=28803)
+```
+
+```
+Evaluation on ./model0-mtmy.iter135000.npz with ../model.transformer-brmy/hyp.iteriter80000.my, Transformer PE Model:
+BLEU = 87.25, 95.1/90.1/85.6/81.3 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+```
