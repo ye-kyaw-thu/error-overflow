@@ -990,6 +990,8 @@ sys	0m49.689s
 
 ## Testing and Evaluation for {my,mt_br}-->{br}
 
+--input option ကို နှစ်ခု ပေးမှ translation လုပ်လို့ ရလိမ့်မယ်။   
+
 ```bash
 #!/bin/bash
 
@@ -1002,7 +1004,7 @@ sys	0m49.689s
 
 for i in {5000..55000..5000}
 do
-   marian-decoder -m ./model0-mtbr.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter$i.br < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer/hyp.iter95000.br
+   marian-decoder -m ./model0-mtbr.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter$i.br --input  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my --input ../model.transformer/hyp.iter95000.br
    echo "Evaluation on ./model0-mtbr.iter${i}.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:" >> test0-multi-PE-results.txt
    perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./hyp.iter$i.br  >> test0-multi-PE-results.txt
 done
