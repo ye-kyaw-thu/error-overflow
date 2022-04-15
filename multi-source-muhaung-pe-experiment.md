@@ -756,4 +756,56 @@ This starts a training run with `marian` using the following command:
     --exponential-smoothing
 ```
 
+Example တွေ အကုန်ကို ပြန်ကြည့်ခဲ့ပေမဲ့ multi-source အတွက် configuration ဖိုင်က မပါဘူး။ အဲဒါနဲ့ multi-source POS တုန်းက လုပ်ခဲ့တဲ့ experiment ကိုပဲ ပြန်အခြေခံပြီး my-br အတွက် post-editing NMT ကို လုပ်ကြည့်ဖို့ ဆုံးဖြတ်ခဲ့တယ်။  
 
+## Configuration File for {my,mt}-->{br}
+
+bash script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။  
+multi-transformer-pe-mymt2br.sh ဆိုတဲ့ နာမည်နဲ့ သိမ်းခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for Transformer MT_Braille-to-Ref_Braille
+## 15 April 2022
+
+# ဘာတွေထပ်ဖြည့်ခဲ့သလဲ ဆိုရင်
+# running folder နာမည် ပြောင်းပြီး
+# --type multi-transformer
+# --train-sets မှာ {source,mt,target} ထား
+# --vocabs မှာလည်း {source,mt,target} ပေးခဲ့
+# --valid-sets မှာလည်း {source,mt,target} ပေးခဲ့
+  
+
+mkdir model.transformer-multi-mybr;
+
+marian \
+    --model  /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz --type multi-transformer \
+    --train-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my /media/ye/project2/exp/braille-nmt/model.transformer/hyp.iter95000-trainingdata.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br \
+    --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my /media/ye/project2/exp/braille-nmt/model.transformer/hyp.iter95000-devdata.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br \
+    --valid-translation-output /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/dev.multi-mybr.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log ./model.transformer-multi-mybr/train-multi-mybr.log --valid-log ./model.transformer-multi-mybr/valid-multi-mybr.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 1 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/config-multi-mybr0.yml
+    
+time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/config-multi-mybr0.yml  2>&1 | tee transformer-multi-mybr0.log
+
+```
