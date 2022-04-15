@@ -1124,3 +1124,14 @@ Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nm
 BLEU = 86.42, 94.8/89.7/84.9/80.4 (BP=0.990, ratio=0.990, hyp_len=28512, ref_len=28803)
 ```
 
+ခုချိန်ထိ လုပ်ခဲ့တဲ့ expeirment သုံးခု ကို နှိုင်းယှဉ်ကြည့်ရင်...  
+
+<div align="center">
+
+Table 1. Performance comparison for Transformer, Transformer-PE_Transformer and Multisource-Transformer 
+ 
+| Transformer | Post-Editing Transformer | Multisource Transformer |
+|----------:|----------:|
+| 86.73 | 86.26 | 86.42 |
+
+ </div>
