@@ -558,3 +558,6 @@ devices: [0, 1, 2]
 threads-per-device: 1
 (base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$
 ```
+
+အထက်ပါ configuration ဖိုင်တွေကို ကြည့်ပြီး ငါနားလည်တာက model တွေကို ensemble လုပ်ထားတာလို့...  
+
