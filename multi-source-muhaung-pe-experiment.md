@@ -1065,3 +1065,55 @@ real	12m29.381s
 user	23m9.137s
 sys	0m32.984s
 ```
+
+ရလာတဲ့ BLEU score တွေက အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr$ cat ./test0-multi-PE-results.txt 
+Evaluation on ./model0-mtbr.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+Evaluation on ./model0-mtbr.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 84.51, 95.1/89.8/85.0/80.4 (BP=0.967, ratio=0.968, hyp_len=27867, ref_len=28803)
+Evaluation on ./model0-mtbr.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.40, 95.1/90.0/85.2/80.8 (BP=0.975, ratio=0.975, hyp_len=28086, ref_len=28803)
+Evaluation on ./model0-mtbr.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.69, 95.0/90.0/85.2/80.7 (BP=0.979, ratio=0.979, hyp_len=28191, ref_len=28803)
+Evaluation on ./model0-mtbr.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.94, 95.0/90.0/85.2/80.8 (BP=0.981, ratio=0.981, hyp_len=28264, ref_len=28803)
+Evaluation on ./model0-mtbr.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.11, 95.0/89.9/85.2/80.7 (BP=0.983, ratio=0.984, hyp_len=28330, ref_len=28803)
+Evaluation on ./model0-mtbr.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.26, 94.9/89.8/85.1/80.6 (BP=0.987, ratio=0.987, hyp_len=28424, ref_len=28803)
+Evaluation on ./model0-mtbr.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.36, 95.0/89.8/85.0/80.5 (BP=0.988, ratio=0.988, hyp_len=28459, ref_len=28803)
+Evaluation on ./model0-mtbr.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.37, 95.0/89.8/85.0/80.5 (BP=0.988, ratio=0.988, hyp_len=28459, ref_len=28803)
+Evaluation on ./model0-mtbr.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.39, 95.0/89.8/85.0/80.5 (BP=0.989, ratio=0.989, hyp_len=28476, ref_len=28803)
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.42, 94.8/89.7/84.9/80.4 (BP=0.990, ratio=0.990, hyp_len=28512, ref_len=28803)
+Evaluation on ./model0-mtbr.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.41, 94.9/89.7/85.0/80.5 (BP=0.989, ratio=0.989, hyp_len=28489, ref_len=28803)
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr$
+```
+
