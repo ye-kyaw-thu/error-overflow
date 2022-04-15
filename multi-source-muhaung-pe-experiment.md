@@ -818,7 +818,7 @@ Training စလုပ်ပြီး GPU usage က အောက်ပါအတ�
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multi-source/multi-transformer-mymt2br-gpu-usage.png" alt="multi-source GPU usage" width="600"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multi-source/multi-transformer-mymt2br-gpu-usage2.png" alt="multi-source GPU usage" width="600"/>  
 </p>  
 <div align="center">
   Fig.1 GPU usage of multi-source NMT training for {my,mt} to {br} translation <br />  
