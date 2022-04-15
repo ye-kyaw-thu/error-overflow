@@ -407,7 +407,7 @@ system
 (base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16$
 ```
 
-### Configuration File
+### Configuration Files
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$ ll
