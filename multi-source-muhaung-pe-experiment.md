@@ -410,5 +410,151 @@ system
 ### Configuration File
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$ ll
+total 2560
+drwxr-xr-x 2 ye ye 524288 ဩ    29  2016 ./
+drwxr-xr-x 5 ye ye 524288 ဩ    30  2016 ../
+-rwxr-xr-x 1 ye ye    551 မေ    2  2016 mt-pe.ensemble4.tuned.yml*
+-rwxr-xr-x 1 ye ye   2500 မေ    3  2016 mtsrc-pe.ensemble.ape.tuned.yml*
+-rwxr-xr-x 1 ye ye    546 မေ    2  2016 src-pe.ensemble4.yml*
+```
 
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$ cat ./mt-pe.ensemble4.tuned.yml 
+# amunn connfig file
+
+relative-paths: yes
+
+# Scorer configuration
+scorers:
+  F0:
+    type: Nematus
+    path: ../mt-pe/model.iter260000.npz
+  F1:
+    type: Nematus
+    path: ../mt-pe/model.iter270000.npz
+  F2:
+    type: Nematus
+    path: ../mt-pe/model.iter280000.npz
+  F3:
+    type: Nematus
+    path: ../mt-pe/model.iter290000.npz
+
+source-vocab: ../mt-pe/vocab.mt.json
+target-vocab: ../mt-pe/vocab.pe.json
+
+weights:
+  F0: 0.3663
+  F1: 0.3318
+  F2: 0.1629
+  F3: 0.1389
+
+beam-size: 12
+normalize: yes
+n-best: no
+
+devices: [0, 1, 2]
+threads-per-device: 1
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$ cat ./mtsrc-pe.ensemble.ape.tuned.yml 
+# amunn config file
+
+relative-paths: yes
+
+# Scorer configuration
+scorers:
+  F0:
+    type: Nematus                                                                          
+    path: ../mt-pe/model.iter260000.npz                                                    
+  F1:
+    type: Nematus                                                                          
+    path: ../mt-pe/model.iter270000.npz                                                    
+  F2:                                                                                      
+    type: Nematus                                                                          
+    path: ../mt-pe/model.iter280000.npz                                                    
+  F3:                                                                                      
+    type: Nematus                                                                          
+    path: ../mt-pe/model.iter290000.npz  
+  F4:                                                                                      
+    type: Nematus                                                                          
+    path: ../src-pe/model.iter340000.npz                                                   
+    tab: 1
+  F5:                                                                                      
+    type: Nematus                                                                          
+    path: ../src-pe/model.iter350000.npz                                                   
+    tab: 1
+  F6:                                                                                      
+    type: Nematus                                                                          
+    path: ../src-pe/model.iter360000.npz                                                   
+    tab: 1
+  F7:                                                                                      
+    type: Nematus                                                                          
+    path: ../src-pe/model.iter370000.npz   
+    tab: 1
+  F8:
+    type: APE
+
+source-vocab:
+  - ../mt-pe/vocab.mt.json
+  - ../src-pe/vocab.src.json
+target-vocab: ../mt-pe/vocab.pe.json
+
+weights:
+  F0: 0.0679875234050288
+  F1: 0.136272622440232
+  F2: 0.0447424881348462
+  F3: 0.0505810091549122
+  F4: 0.119029214497868
+  F5: -0.0291262004966649
+  F6: -0.0348248568202612
+  F7: 0.131424048800743
+  F8: 0.386012036249443
+
+beam-size: 12
+normalize: yes
+n-best: no
+
+devices: [0, 1, 2]
+threads-per-device: 1
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$ cat src-pe.ensemble4.yml 
+# amunn connfig file
+
+relative-paths: yes
+
+# Scorer configuration
+scorers:
+  F0:
+    type: Nematus
+    path: ../src-pe/model.iter340000.npz
+  F1:
+    type: Nematus
+    path: ../src-pe/model.iter350000.npz
+  F2:
+    type: Nematus
+    path: ../src-pe/model.iter360000.npz
+  F3:
+    type: Nematus
+    path: ../src-pe/model.iter370000.npz
+
+source-vocab: ../src-pe/vocab.src.json
+target-vocab: ../src-pe/vocab.pe.json
+
+weights:
+  F0: 1.0
+  F1: 1.0
+  F2: 1.0
+  F3: 1.0
+
+beam-size: 12
+normalize: yes
+n-best: no
+
+devices: [0, 1, 2]
+threads-per-device: 1
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/system/models/configs$
 ```
