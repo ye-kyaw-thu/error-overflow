@@ -22,7 +22,7 @@ $MRT_MARIAN/marian \
 - [https://cris.fbk.eu/retrieve/handle/11582/316423/25741/WMT080.pdf](https://cris.fbk.eu/retrieve/handle/11582/316423/25741/WMT080.pdf)
 - [opus-cat-a-state-of-the-art-neural-machine-translation-engine-on-your-local-computer](https://www.ata-chronicle.online/highlights/opus-cat-a-state-of-the-art-neural-machine-translation-engine-on-your-local-computer/)
 
-## Command Arguments of Marian
+## Command Line Arguments of Marian
 
 marian command ရဲ့ option တွေကိုလည်း ပြန်လည်လေ့လာဖြစ်ခဲ့တယ်။  
 
@@ -242,3 +242,16 @@ Validation set options:
 (base) ye@:/media/ye/project2/exp/braille-nmt$ 
 ```
 
+## Study on APE-WMT16 Configuration File
+
+### Data Format
+
+```
+
+```
+
+### Configuration File
+
+```
+
+```
