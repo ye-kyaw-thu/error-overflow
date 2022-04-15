@@ -812,6 +812,22 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/c
 
 ## Training {my,mt}-->{br}
 
+
+Training စလုပ်ပြီး GPU usage က အောက်ပါအတိုင်း...  
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multi-source/multi-transformer-mymt2br-gpu-usage.png" alt="multi-source GPU usage" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 GPU usage of multi-source NMT training for {my,mt} to {br} translation <br />  
+</div> 
+
+<br />
+
+training ကြာချိန်က အောက်ပါအတိုင်း...  
+
 ```
 
 ```
