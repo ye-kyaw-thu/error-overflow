@@ -1117,3 +1117,10 @@ BLEU = 86.41, 94.9/89.7/85.0/80.5 (BP=0.989, ratio=0.989, hyp_len=28489, ref_len
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr$
 ```
 
+Best model, best score က အောက်ပါအတိုင်း  
+
+```
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.42, 94.8/89.7/84.9/80.4 (BP=0.990, ratio=0.990, hyp_len=28512, ref_len=28803)
+```
+
