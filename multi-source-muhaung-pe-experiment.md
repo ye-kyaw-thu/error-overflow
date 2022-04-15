@@ -617,3 +617,51 @@ workspace: 4000
 (base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/config$
 ```
 
+running scripts တွေကိုလည်း လေ့လာကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ...  
+
+```bash
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/m-cgru$ cat ./validate_avg.sh 
+#!/bin/bash -v
+
+python ../marian/scripts/average.py -m `grep valid m-cgru/valid.log | sort -r -k8,8 | cut -f 4 -d ' ' | xargs -I{} echo "model.iter{}.npz" | head -n 8 | xargs` -o m-cgru/model.avg.npz
+
+# decode
+../marian/build/s2s -m m-cgru/model.avg.npz -v vocab.mt-pe.step vocab.src vocab.mt-pe.step -b 5 -w 500 -d 0 1 2 3 -i test.mt test.src \
+ | perl -pe 's/<step>//g; s/  / /g' 2>/dev/null \
+ | perl -pe 's/@@ //g' 2>/dev/null \
+ | ../mosesdecoder/scripts/tokenizer/deescape-special-chars.perl 2>/dev/null \
+ | ../mosesdecoder/scripts/recaser/detruecase.perl 2>/dev/null > test.output
+
+../mosesdecoder/bin/evaluator --sctype TER --reference <(cut -f 1 apewmt16.test.pe+mt+src) --candidate test.output 2>/dev/null
+eval/runTER.py -s test.output -r test.pe.ref
+```
+
+```bash
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/m-cgru$ cat ./validate.sh 
+#!/bin/bash
+
+# decode
+../marian/build/s2s -m m-cgru/model.npz -i dev.mt dev.src -v vocab.mt-pe.step vocab.src vocab.mt-pe.step -b 5 -w 500 -d 0 1 2 3 2>/dev/null \
+ | perl -pe 's/<step>//g; s/  / /g' 2>/dev/null \
+ | perl -pe 's/@@ //g' 2>/dev/null \
+ | ./moses-scripts/scripts/tokenizer/deescape-special-chars.perl 2>/dev/null \
+ | ./moses-scripts/scripts/recaser/detruecase.perl 2>/dev/null > dev.output
+
+../mosesdecoder/bin/evaluator --sctype TER --reference dev.pe.ref --candidate dev.output 2>/dev/null
+```
+
+```bash
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/m-cgru$ cat ./validate_test.sh 
+#!/bin/bash
+
+# decode
+../marian/build/s2s -m m-cgru/model.npz -i test.mt test.src -v vocab.mt-pe.step vocab.src vocab.mt-pe.step -b 5 -w 500 -d 0 1 2 3 \
+ | perl -pe 's/<step>//g; s/  / /g' 2>/dev/null \
+ | perl -pe 's/@@ //g' 2>/dev/null \
+ | ./moses-scripts/scripts/tokenizer/deescape-special-chars.perl 2>/dev/null \
+ | ./moses-scripts/scripts/recaser/detruecase.perl 2>/dev/null > test.output
+
+../mosesdecoder/bin/evaluator --sctype TER --reference test.pe.ref --candidate test.output 2>/dev/null
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/m-cgru$
+```
+
