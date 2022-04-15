@@ -809,3 +809,11 @@ marian \
 time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/config-multi-mybr0.yml  2>&1 | tee transformer-multi-mybr0.log
 
 ```
+
+## Training {my,mt}-->{br}
+
+```
+
+```
+
+
