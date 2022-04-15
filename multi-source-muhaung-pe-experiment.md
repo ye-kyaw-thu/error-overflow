@@ -666,6 +666,7 @@ eval/runTER.py -s test.output -r test.pe.ref
 ```
 
 ```https://data.statmt.org/wmt17_systems/training/scripts.tensorflow/train.sh``` က အောက်ပါအတိုင်း...  
+(ဒီ script ကတော့ PE နဲ့ မဆိုင်ဘူး, အစောပိုင်း framework ဖြစ်တဲ့ nematus ကို သုံးထားတဲ့ပုံရှိတယ်)  
 
 ```bash
 #!/bin/sh
