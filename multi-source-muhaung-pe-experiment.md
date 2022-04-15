@@ -247,7 +247,115 @@ Validation set options:
 ### Data Format
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16$ tree data
+data
+├── 4M
+│   ├── 4M.mt
+│   ├── 4M.pe
+│   └── 4M.src
+└── 500K
+    ├── 500K.mt
+    ├── 500K.pe
+    └── 500K.src
 
+2 directories, 6 files
+```
+
+4M ဖိုလ်ဒါအောက်ကို ဝင်လေ့လာတော...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/4M$ wc *
+   4391180   69577157  424504643 4M.mt
+   4391180   73255351  458692150 4M.pe
+   4391180   70841846  372567670 4M.src
+  13173540  213674354 1255764463 total
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/4M$ head *
+==> 4M.mt <==
+unscharf maskieren wurde Radius = 6.0 , Betrag = 0.5 und einem Schwellend= * * * * Daphne Duck .
+folgende Konstanten werden von dieser Erweiterung definiert und stehen nur zur Verfügung , wenn die Erweiterung entweder statisch in PHP kompiliert oder dynamisch zur Laufzeit geladen wurde .
+schauen Sie auf über reguläre Ausdrücke mit einer zu Perl kompatiblen Syntax die PCRE Funktionen fnmatch ( ) bietet die Möglichkeit der Suche mit Platzhalter-Muster Stil . in Shell
+dieses Element wird im Dokument nicht auftauchen , bis es mittels DomNode _ append _ child ( ) eingefügt wurde .
+für eine Verbindung zwischen dem PHP script und dem DBH erforderlichen Parameter von CNF und NAM der SESAM-Konfiguration der Werte des BS2000 DBH gestartet .
+das Verhalten , der Funktionsname und alles Andere was hier dokumentiert ist , kann sich in zukünftigen PHP-Versionen ohne Ankündigung ändern .
+eine Kontrolle besteht aus einer oid die die Kontrolle identifiziert , einem wahlweisen wert , und einem wahlweisen Kennzeichen für Criticality .
+gibt TRUE zurück ( Datensatz ) oder falsch ( abgerufen wurde keine weiteren Datensätze oder Auftreten eines Fehlers ) .
+diese Funktion zerlegt einen Adress-String gemäß RFC822 und liefert ein Array von Objekten mit einem Eintrag je ermittelte Adresse .
+in SESAM muss im Kommamdo DROP TABLE der Name entweder um die Schlüsselwörter restrict oder Cascade ergänzt werden .
+
+==> 4M.pe <==
+unscharf maskieren wurde mit Radius = 6.0 , Betrag = 0.5 und einem Schwellwert = 0.0 angewandt .
+folgende Konstanten werden von dieser Erweiterung definiert und stehen nur zur Verfügung , wenn die Erweiterung entweder statisch in PHP kompiliert oder dynamisch zur Laufzeit geladen wurde .
+schauen Sie sich bezüglich regulärer Ausdrücke mit einer zu Perl kompatiblen Syntax die PCRE Funktionen an. fnmatch ( ) bietet die Möglichkeit der Suche nach Übereinstimmungen mit Wildcard-Suchmustern im einfacheren Shell-Stil .
+dieses Element wird solange nicht im Dokument auftauchen , bis es mittels DomNode _ append _ child ( ) eingefügt wurde .
+für eine Verbindung zwischen dem PHP script und dem DBH müssen die Parameter von CNF und NAM der SESAM-Konfiguration den Werten des im BS2000 gestarteten DBH ensprechen .
+das Verhalten , der Funktionsname und alles Andere was hier dokumentiert ist , kann sich in zukünftigen PHP-Versionen ohne Ankündigung ändern .
+eine Kontrolle besteht aus einer oid die die Kontrolle identifiziert , einem wahlweisen wert , und einem wahlweisen Kennzeichen für Criticality .
+gibt TRUE ( Datensatz wurde abgerufen ) oder FALSE ( keine weiteren Datensätze oder Auftreten eines Fehlers ) zurück .
+diese Funktion zerlegt einen Adress-String gemäß RFC822 und liefert ein Array von Objekten mit einem Eintrag je erkannter Adresse .
+in SESAM muss im Kommamdo DROP TABLE der Name entweder um die Schlüsselwörter restrict oder Cascade ergänzt werden .
+
+==> 4M.src <==
+Unsharp Mask was Radius = 6.0 , Amount = 0.5 , and a threshold = 0.0 .
+the constants below are defined by this extension , and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime .
+look at about regular expressions a Perl-compatible syntax using the PCRE functions the fnmatch ( ) offers the possibility of searching with wildcard pattern in simpler shell style .
+this node will not show up in the document unless it is inserted with e.g. domnode _ append _ child ( ) .
+for a connection between PHP script and the DBH necessary parameters of CNF and NAM SESAM configuration of the values of the BS2000 launched DBH .
+the behaviour of this function , the name of this function , and anything else documented about this function may change without notice in a future release of PHP .
+a control consists of an oid identifying the control , an optional value , and an optional flag for criticality .
+returns TRUE ( record ) or FALSE ( retrieved was no more rows or occurrence of an error ) .
+this function ses the address string as defined in RFC2822 and returns an array of objects with a record ever identified address .
+in SESAM , in the DROP TABLE command , the table name must be either followed by the keyword restrict or cascade .
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/4M$
+```
+
+500K ဖိုလ်ဒါအောက်ကိုလည်း ဝင်ကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/500K$ wc *
+   526368  10594049  63025735 500K.mt
+   526368  11001440  66813242 500K.pe
+   526368  10718110  55228230 500K.src
+  1579104  32313599 185067207 total
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/500K$ head *
+==> 500K.mt <==
+Unscharf maskieren wurde Radius = 6.0 , Betrag = 0.5 und einem Schwellend= * * * * Daphne Duck .
+Für eine Verbindung zwischen dem PHP script und dem DBH erforderlichen Parameter von CNF und NAM der SESAM-Konfiguration der Werte des BS2000 DBH gestartet .
+Gibt TRUE zurück ( Datensatz ) oder falsch ( abgerufen wurde keine weiteren Datensätze oder Auftreten eines Fehlers ) .
+Nachfolgende Aufrufe von Sesam _ fetch _ array ( ) geben die jeweils nächste Zeile ( oder die vorherige höchsten / niedrigsten je nach den Attributen ) im Ausgabesatz oder FALSE wenn keine Zeilen mehr verfügbar .
+Auf der Basis der bestehenden Benutzer von PHP / FI Gebäude , beschlossen ANDi , Rasmus und Zeev zur Kooperation , und kündigten PHP 3.0 als den offiziellen Nachfolger von PHP / FI 2.0 an , und die Entwicklung von PHP / FI 2.0 wurde größtenteils eingestellt .
+Sie haben auch beachten sie , dass PHP intern Ganzzahlwerte als unterzeichnet en-Thema deren Umfang Werte von Automatentyp abhängig speichert .
+Die LDAP _ get _ entries ( ) Funktion wird verwendet , um mehrere Einträge des Ergebnisses lesen , angegebenen Ergebniskennung zu vereinfachen und erst nach die Merkmale und mehfachen Werte gelesen .
+Falls ein zweiter Aufruf von ifx _ connect ( ) mit denselben Verbindungsoptionen erfolgt , wird keine neue Verbindung wird aufgebaut , sondern stattdessen die Verbindungs-Kennung einer schon geöffneten Verbindung .
+Dieser Name ist in ihrer Position im Periodensystem begründet , da dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode .
+Der Datentyp " Number " verwendet diese 52 Bit und ein besonderes verborgenes Bit , um Ganzzahlen im Bereich von -9.007.199.254.740.992 ( -253 ) bis 9.007.199.254.740.992 ( 253 ) .
+
+==> 500K.pe <==
+Unscharf maskieren wurde mit Radius = 6.0 , Betrag = 0.5 und einem Schwellwert = 0.0 angewandt .
+Für eine Verbindung zwischen dem PHP script und dem DBH müssen die Parameter von CNF und NAM der SESAM-Konfiguration den Werten des im BS2000 gestarteten DBH ensprechen .
+Gibt TRUE ( Datensatz wurde abgerufen ) oder FALSE ( keine weiteren Datensätze oder Auftreten eines Fehlers ) zurück .
+Nachfolgende Aufrufe von Sesam _ fetch _ array ( ) liefern die nächste Zeile ( oder die vorhergehende , höchste / niedrigste je nach den Attributen ) im Ausgabesatz oder FALSE wenn keine Zeilen mehr verfügabr sind .
+Auf die Basis der bestehenden Benutzer von PHP / FI aufbauend , entschieden sich ANDi , Rasmus und Zeev zur Kooperation , und kündigten PHP 3.0 als den offiziellen Nachfolger von PHP / FI 2.0 an , und die Entwicklung von PHP / FI 2.0 wurde größtenteils eingestellt .
+Beachten sie auch , dass PHP intern Ganzzahl-Werte als vorzeichen-behaftete Werte speichert , deren Umfang vom Maschinen-Typ abhängig ist .
+Die LDAP _ get _ entries ( ) Funktion wird verwendet um das Lesen mehrfacher Einträge des Ergebnisses , angegeben mit Ergebnis-Kennung zu vereinfachen und danach werden die Merkmale und mehfachen Werte gelesen .
+Falls ein zweiter Aufruf von ifx _ connect ( ) mit denselben Verbindungsoptionen erfolgt , wird keine neue Verbindung aufgebaut , stattdessen wird die Verbindungskennung der bereits geöffneten Verbindung zurückgegeben .
+Dieser Name ist in ihrer Position im Periodensystem begründet , da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt .
+Der Datentyp " Number " verwendet diese 52 Bit sowie ein spezielles verborgenes Bit , um Ganzzahlen im Bereich von -9.007.199.254.740.992 ( -253 ) bis 9.007.199.254.740.992 ( 253 ) darzustellen .
+
+==> 500K.src <==
+Unsharp Mask was Radius = 6.0 , Amount = 0.5 , and a threshold = 0.0 .
+For a connection between PHP script and the DBH necessary parameters of CNF and NAM SESAM configuration of the values of the BS2000 launched DBH .
+Returns TRUE ( record ) or FALSE ( retrieved was no more rows or occurrence of an error ) .
+Subsequent calls to SESAM _ fetch _ array ( ) would return the next row ( or the previous highest / lowest depending on the attributes ) in the result set , or FALSE if no more rows available .
+On the basis of existing users of PHP / FI building , decided ANDi , Rasmus and Zeev to cooperate , and announce PHP 3.0 as the official successor of PHP / FI 2.0 , and development of PHP / FI 2.0 was mostly halted .
+They also note that PHP internally integer values as signed en-subject whose scope stores values by machine type addicted .
+The LDAP _ get _ entries ( ) function is used to read multiple entries of the result , with specified result identifier to simplify and only after reading the attributes and multiple values .
+If a second call made to ifx _ connect ( ) with the same arguments , no new link will be established , but instead , the link identifier of the already opened link .
+This name is in its position on the periodic table justified since there the transition through the successive increase of electrons in atomic oride-ital along each period .
+The Number data type uses these 52 bits and a special hidden bit to integers : The range is -9,007,199,254,740,992 ( -253 ) to 9,007,199,254,740,992 ( 253 ) .
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/500K$
 ```
 
 ### Configuration File
