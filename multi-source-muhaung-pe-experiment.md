@@ -561,3 +561,59 @@ threads-per-device: 1
 
 အထက်ပါ configuration ဖိုင်တွေကို ကြည့်ပြီး ငါနားလည်တာက model တွေကို ensemble လုပ်ထားတာလို့...  
 
+နောက်ထပ် ```https://data.statmt.org/romang/ape-explore/``` အောက်က train.tgz ဖိုင်ကိုလည်း ကိုယ့် local path ```ape-explore/``` အောက်ကို download လုပ်ပြီး configuration file နဲ့ ပတ်သက်ပြီး လေ့လာခဲ့တယ်။ m-cgru.yml ဖိုင်ကတော့ အောက်ပါအတိုင်း ```multi-s2s``` ကို သုံးထားတာ တွေ့ရတယ် ...    
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/config$ cat ./m-cgru.yml 
+devices:
+  - 0
+  - 1
+  - 2
+  - 3
+dim-emb: 512
+dim-rnn: 1024
+dim-vocabs:
+  - 40329
+  - 40329
+  - 40329
+disp-freq: 1000
+dropout-rnn: 0.2
+dropout-src: 0.2
+dropout-trg: 0.2
+dynamic-batching: true
+early-stopping: 10
+layer-normalization: true
+learn-rate: 0.0001
+max-length: 50
+maxi-batch: 100
+mini-batch: 64
+mini-batch-words: 0
+model: m-cgru/model.npz
+moving-average: true
+moving-decay: 0.9999
+save-freq: 10000
+seed: 0
+train-sets:
+  - train.ape2016.mt
+  - train.ape2016.src
+  - train.ape2016.pe
+type: multi-s2s
+valid-freq: 10000
+valid-metrics:
+  - cross-entropy
+  - valid-script
+valid-script-path: ./m-cgru/validate.sh
+valid-sets:
+  - dev.mt
+  - dev.src
+  - dev.pe
+valid-log: m-cgru/valid.log
+log: m-cgru/train.log
+vocabs:
+  - vocab.mt-pe.step
+  - vocab.src
+  - vocab.mt-pe.step
+workspace: 4000
+(base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/ape-explore/train/config$
+```
+
