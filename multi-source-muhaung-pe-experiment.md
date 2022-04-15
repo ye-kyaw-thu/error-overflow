@@ -829,7 +829,171 @@ Training စလုပ်ပြီး GPU usage က အောက်ပါအတ�
 training ကြာချိန်က အောက်ပါအတိုင်း...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./multi-transformer-pe-mymt2br.sh
+...
+...
+...
+[2022-04-15 22:36:41] [data] Done reading 16,415 sentences
+[2022-04-15 22:36:41] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:37:27] Seen 16415 samples
+[2022-04-15 22:37:27] Starting data epoch 525 in logical epoch 525
+[2022-04-15 22:37:27] [data] Shuffling data
+[2022-04-15 22:37:27] [data] Done reading 16,415 sentences
+[2022-04-15 22:37:27] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:37:32] Ep. 525 : Up. 52500 : Sen. 2,058 : Cost 1.32761872 * 1,177,746 @ 2,941 after 123,989,361 : Time 229.56s : 5130.37 words/s : L.r. 1.6562e-04
+[2022-04-15 22:38:13] Seen 16415 samples
+[2022-04-15 22:38:13] Starting data epoch 526 in logical epoch 526
+[2022-04-15 22:38:13] [data] Shuffling data
+[2022-04-15 22:38:13] [data] Done reading 16,415 sentences
+[2022-04-15 22:38:13] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:38:59] Seen 16415 samples
+[2022-04-15 22:38:59] Starting data epoch 527 in logical epoch 527
+[2022-04-15 22:38:59] [data] Shuffling data
+[2022-04-15 22:38:59] [data] Done reading 16,415 sentences
+[2022-04-15 22:38:59] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:39:46] Seen 16415 samples
+[2022-04-15 22:39:46] Starting data epoch 528 in logical epoch 528
+[2022-04-15 22:39:46] [data] Shuffling data
+[2022-04-15 22:39:46] [data] Done reading 16,415 sentences
+[2022-04-15 22:39:46] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:40:32] Seen 16415 samples
+[2022-04-15 22:40:32] Starting data epoch 529 in logical epoch 529
+[2022-04-15 22:40:32] [data] Shuffling data
+[2022-04-15 22:40:32] [data] Done reading 16,415 sentences
+[2022-04-15 22:40:32] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:41:18] Seen 16415 samples
+[2022-04-15 22:41:18] Starting data epoch 530 in logical epoch 530
+[2022-04-15 22:41:18] [data] Shuffling data
+[2022-04-15 22:41:18] [data] Done reading 16,415 sentences
+[2022-04-15 22:41:18] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:41:22] Ep. 530 : Up. 53000 : Sen. 1,048 : Cost 1.32687318 * 1,175,216 @ 1,798 after 125,164,577 : Time 229.88s : 5112.40 words/s : L.r. 1.6483e-04
+[2022-04-15 22:42:04] Seen 16415 samples
+[2022-04-15 22:42:04] Starting data epoch 531 in logical epoch 531
+[2022-04-15 22:42:04] [data] Shuffling data
+[2022-04-15 22:42:04] [data] Done reading 16,415 sentences
+[2022-04-15 22:42:04] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:42:49] Seen 16415 samples
+[2022-04-15 22:42:49] Starting data epoch 532 in logical epoch 532
+[2022-04-15 22:42:49] [data] Shuffling data
+[2022-04-15 22:42:49] [data] Done reading 16,415 sentences
+[2022-04-15 22:42:50] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:43:35] Seen 16415 samples
+[2022-04-15 22:43:35] Starting data epoch 533 in logical epoch 533
+[2022-04-15 22:43:35] [data] Shuffling data
+[2022-04-15 22:43:35] [data] Done reading 16,415 sentences
+[2022-04-15 22:43:35] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:44:21] Seen 16415 samples
+[2022-04-15 22:44:21] Starting data epoch 534 in logical epoch 534
+[2022-04-15 22:44:21] [data] Shuffling data
+[2022-04-15 22:44:21] [data] Done reading 16,415 sentences
+[2022-04-15 22:44:21] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:45:08] Seen 16415 samples
+[2022-04-15 22:45:08] Starting data epoch 535 in logical epoch 535
+[2022-04-15 22:45:08] [data] Shuffling data
+[2022-04-15 22:45:08] [data] Done reading 16,415 sentences
+[2022-04-15 22:45:08] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:45:11] Ep. 535 : Up. 53500 : Sen. 1,304 : Cost 1.32661808 * 1,181,885 @ 2,911 after 126,346,462 : Time 229.29s : 5154.59 words/s : L.r. 1.6406e-04
+[2022-04-15 22:45:54] Seen 16415 samples
+[2022-04-15 22:45:54] Starting data epoch 536 in logical epoch 536
+[2022-04-15 22:45:54] [data] Shuffling data
+[2022-04-15 22:45:54] [data] Done reading 16,415 sentences
+[2022-04-15 22:45:54] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:46:39] Seen 16415 samples
+[2022-04-15 22:46:39] Starting data epoch 537 in logical epoch 537
+[2022-04-15 22:46:39] [data] Shuffling data
+[2022-04-15 22:46:39] [data] Done reading 16,415 sentences
+[2022-04-15 22:46:39] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:47:25] Seen 16415 samples
+[2022-04-15 22:47:25] Starting data epoch 538 in logical epoch 538
+[2022-04-15 22:47:25] [data] Shuffling data
+[2022-04-15 22:47:25] [data] Done reading 16,415 sentences
+[2022-04-15 22:47:25] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:48:12] Seen 16415 samples
+[2022-04-15 22:48:12] Starting data epoch 539 in logical epoch 539
+[2022-04-15 22:48:12] [data] Shuffling data
+[2022-04-15 22:48:12] [data] Done reading 16,415 sentences
+[2022-04-15 22:48:12] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:48:59] Seen 16415 samples
+[2022-04-15 22:48:59] Starting data epoch 540 in logical epoch 540
+[2022-04-15 22:48:59] [data] Shuffling data
+[2022-04-15 22:48:59] [data] Done reading 16,415 sentences
+[2022-04-15 22:48:59] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:49:02] Ep. 540 : Up. 54000 : Sen. 714 : Cost 1.32687712 * 1,178,692 @ 2,544 after 127,525,154 : Time 230.90s : 5104.69 words/s : L.r. 1.6330e-04
+[2022-04-15 22:49:46] Seen 16415 samples
+[2022-04-15 22:49:46] Starting data epoch 541 in logical epoch 541
+[2022-04-15 22:49:46] [data] Shuffling data
+[2022-04-15 22:49:46] [data] Done reading 16,415 sentences
+[2022-04-15 22:49:46] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:50:32] Seen 16415 samples
+[2022-04-15 22:50:32] Starting data epoch 542 in logical epoch 542
+[2022-04-15 22:50:32] [data] Shuffling data
+[2022-04-15 22:50:32] [data] Done reading 16,415 sentences
+[2022-04-15 22:50:32] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:51:17] Seen 16415 samples
+[2022-04-15 22:51:17] Starting data epoch 543 in logical epoch 543
+[2022-04-15 22:51:17] [data] Shuffling data
+[2022-04-15 22:51:17] [data] Done reading 16,415 sentences
+[2022-04-15 22:51:17] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:52:03] Seen 16415 samples
+[2022-04-15 22:52:03] Starting data epoch 544 in logical epoch 544
+[2022-04-15 22:52:03] [data] Shuffling data
+[2022-04-15 22:52:03] [data] Done reading 16,415 sentences
+[2022-04-15 22:52:03] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:52:50] Seen 16415 samples
+[2022-04-15 22:52:50] Starting data epoch 545 in logical epoch 545
+[2022-04-15 22:52:50] [data] Shuffling data
+[2022-04-15 22:52:50] [data] Done reading 16,415 sentences
+[2022-04-15 22:52:50] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:52:52] Ep. 545 : Up. 54500 : Sen. 692 : Cost 1.32661784 * 1,180,441 @ 2,315 after 128,705,595 : Time 229.76s : 5137.75 words/s : L.r. 1.6255e-04
+[2022-04-15 22:53:36] Seen 16415 samples
+[2022-04-15 22:53:36] Starting data epoch 546 in logical epoch 546
+[2022-04-15 22:53:36] [data] Shuffling data
+[2022-04-15 22:53:36] [data] Done reading 16,415 sentences
+[2022-04-15 22:53:36] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:54:22] Seen 16415 samples
+[2022-04-15 22:54:22] Starting data epoch 547 in logical epoch 547
+[2022-04-15 22:54:22] [data] Shuffling data
+[2022-04-15 22:54:22] [data] Done reading 16,415 sentences
+[2022-04-15 22:54:22] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:55:08] Seen 16415 samples
+[2022-04-15 22:55:08] Starting data epoch 548 in logical epoch 548
+[2022-04-15 22:55:08] [data] Shuffling data
+[2022-04-15 22:55:08] [data] Done reading 16,415 sentences
+[2022-04-15 22:55:08] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:55:54] Seen 16415 samples
+[2022-04-15 22:55:54] Starting data epoch 549 in logical epoch 549
+[2022-04-15 22:55:54] [data] Shuffling data
+[2022-04-15 22:55:54] [data] Done reading 16,415 sentences
+[2022-04-15 22:55:54] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:56:39] Seen 16415 samples
+[2022-04-15 22:56:39] Starting data epoch 550 in logical epoch 550
+[2022-04-15 22:56:39] [data] Shuffling data
+[2022-04-15 22:56:39] [data] Done reading 16,415 sentences
+[2022-04-15 22:56:39] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-15 22:56:40] Ep. 550 : Up. 55000 : Sen. 182 : Cost 1.32673931 * 1,176,225 @ 1,800 after 129,881,820 : Time 228.60s : 5145.42 words/s : L.r. 1.6181e-04
+[2022-04-15 22:56:40] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz.orig.npz
+[2022-04-15 22:56:41] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.iter55000.npz
+[2022-04-15 22:56:41] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz
+[2022-04-15 22:56:43] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz.optimizer.npz
+[2022-04-15 22:56:51] [valid] Ep. 550 : Up. 55000 : cross-entropy : 11.0185 : stalled 10 times (last best: 10.0522)
+[2022-04-15 22:56:53] [valid] Ep. 550 : Up. 55000 : perplexity : 2.13672 : stalled 10 times (last best: 1.99908)
+[2022-04-15 22:57:11] [valid] Ep. 550 : Up. 55000 : bleu : 86.454 : new best
+[2022-04-15 22:57:11] Training finished
+[2022-04-15 22:57:12] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz.orig.npz
+[2022-04-15 22:57:13] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz
+[2022-04-15 22:57:14] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-mybr/model0-mtbr.npz.optimizer.npz
+
+real	429m5.282s
+user	696m1.927s
+sys	0m49.689s
+```
+
+## Testing and Evaluation for {my,mt}-->{br}
+
+```bash
 
 ```
 
+```
 
+```
