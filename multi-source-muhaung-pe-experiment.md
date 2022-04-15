@@ -264,7 +264,7 @@ data
 2 directories, 6 files
 ```
 
-4M ဖိုလ်ဒါအောက်ကို ဝင်လေ့လာတော...  
+4M ဖိုလ်ဒါအောက်ကို ဝင်လေ့လာတော့...  
 
 ```
 (base) ye@:/media/ye/project2/exp/braille-nmt/ape-wmt16/data/4M$ wc *
