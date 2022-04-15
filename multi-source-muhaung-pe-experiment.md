@@ -244,6 +244,9 @@ Validation set options:
 
 ## Study on APE-WMT16 Configuration File
 
+Download လုပ်ခဲ့တဲ့ path က   
+```https://data.statmt.org/romang/ape-wmt16/```  
+
 ### Data Format
 
 ```
