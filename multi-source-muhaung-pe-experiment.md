@@ -1431,7 +1431,7 @@ Table 1. Performance comparison for Transformer, Transformer-PE_Transformer, Mul
 
  </div>
  
-## Training for Multisource Transdformer, {br,mt_my}--->{my}
+## Training for Multisource Transformer, {br,mt_my}--->{my}
 
 ဒီတစ်ခါတော့ reverse direction ဖြစ်တဲ့ {br, mt_my}--->{my} အတွက် စပြင်မယ်။  
 အရင်ဆုံး Multi-source အတွက် configuration file ကို ပြင်ရမယ်။  
@@ -1703,4 +1703,17 @@ Table 2. Performance comparison between Transformer, Transformer-PE_Transformer 
 
  </div>  
  
- 
+## Training Shared Multisource Transformer {br,mt_my}--->{my}
+
+shared multisource architecture နဲ့ training လုပ်ဖို့အတွက်က အရင်ဆုံး vocab ကို ပေါင်းပြီး ဆောက်ရမယ်။  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ cat /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000-trainingdata.my > /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br-train.mtmy
+(base) ye@:/media/ye/project2/exp/braille-nmt$ marian-vocab < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br-train.mtmy > /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.br-train.mtmy.yml
+[2022-04-16 21:01:59] Creating vocabulary...
+[2022-04-16 21:01:59] [data] Creating vocabulary stdout from stdin
+[2022-04-16 21:01:59] Finished
+(base) ye@:/media/ye/project2/exp/braille-nmt$
+```
+
+
