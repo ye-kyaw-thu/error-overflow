@@ -1435,7 +1435,7 @@ Table 1. Performance comparison for Transformer, Transformer-PE_Transformer, Mul
 
 ဒီတစ်ခါတော့ reverse direction ဖြစ်တဲ့ {br, mt_my}--->{my} အတွက် စပြင်မယ်။  
 အရင်ဆုံး Multi-source အတွက် configuration file ကို ပြင်ရမယ်။  
-update လုပ်ခဲ့တဲ့ bash script က အောက်ပါအတိုင်း...  
+update လုပ်ခဲ့တဲ့ bash script (multi-transformer-pe-brmt2my.sh) က အောက်ပါအတိုင်း...  
 
 ```bash
 #!/bin/bash
