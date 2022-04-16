@@ -1282,10 +1282,11 @@ sys	1m1.801s
 ## Written by Ye, LST, NECTEC, Thailand
 ## Translation and Evaluation with Marian, Transformer multi PE Model
 ## 16 April 2022
+## vocab က shared-vocab ဖိုင်ကို assign လုပ်ခဲ့တယ်
 
 for i in {5000..80000..5000}
 do
-   marian-decoder -m ./model0-mtbr.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter$i.br --input  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my --input ../model.transformer/hyp.iter95000.br
+   marian-decoder -m ./model0-mtbr.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.my-train.mtbr.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.my-train.mtbr.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml --devices 0 1 --output hyp.iter$i.br --input  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my --input ../model.transformer/hyp.iter95000.br
    echo "Evaluation on ./model0-mtbr.iter${i}.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:" >> test0-shared-multi-PE-results.txt
    perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./hyp.iter$i.br  >> test0-shared-multi-PE-results.txt
 done
@@ -1294,7 +1295,16 @@ done
 testing ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr$ time ./tran-eval-shared-multi.sh | tee tran-eval-shared-multi.log
+...
+...
+...
+
 
 ```
 
+BLEU score တွေက အောက်ပါအတိုင်း...  
 
+```
+
+```
