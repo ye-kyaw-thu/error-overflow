@@ -1210,6 +1210,66 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi
 training ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./shared-multi-transformer-pe-mymt2br.sh 
+...
+...
+...
+[2022-04-16 10:38:21] Starting data epoch 792 in logical epoch 792
+[2022-04-16 10:38:21] [data] Shuffling data
+[2022-04-16 10:38:21] [data] Done reading 16,415 sentences
+[2022-04-16 10:38:21] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:39:04] Seen 16415 samples
+[2022-04-16 10:39:04] Starting data epoch 793 in logical epoch 793
+[2022-04-16 10:39:04] [data] Shuffling data
+[2022-04-16 10:39:04] [data] Done reading 16,415 sentences
+[2022-04-16 10:39:04] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:39:47] Seen 16415 samples
+[2022-04-16 10:39:47] Starting data epoch 794 in logical epoch 794
+[2022-04-16 10:39:47] [data] Shuffling data
+[2022-04-16 10:39:47] [data] Done reading 16,415 sentences
+[2022-04-16 10:39:47] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:40:17] Ep. 794 : Up. 79500 : Sen. 11,800 : Cost 1.32029402 * 1,178,878 @ 2,600 after 187,770,507 : Time 214.83s : 5487.43 words/s : L.r. 1.3459e-04
+[2022-04-16 10:40:30] Seen 16415 samples
+[2022-04-16 10:40:30] Starting data epoch 795 in logical epoch 795
+[2022-04-16 10:40:30] [data] Shuffling data
+[2022-04-16 10:40:30] [data] Done reading 16,415 sentences
+[2022-04-16 10:40:30] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:41:13] Seen 16415 samples
+[2022-04-16 10:41:13] Starting data epoch 796 in logical epoch 796
+[2022-04-16 10:41:13] [data] Shuffling data
+[2022-04-16 10:41:13] [data] Done reading 16,415 sentences
+[2022-04-16 10:41:13] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:41:57] Seen 16415 samples
+[2022-04-16 10:41:57] Starting data epoch 797 in logical epoch 797
+[2022-04-16 10:41:57] [data] Shuffling data
+[2022-04-16 10:41:57] [data] Done reading 16,415 sentences
+[2022-04-16 10:41:57] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:42:40] Seen 16415 samples
+[2022-04-16 10:42:40] Starting data epoch 798 in logical epoch 798
+[2022-04-16 10:42:40] [data] Shuffling data
+[2022-04-16 10:42:40] [data] Done reading 16,415 sentences
+[2022-04-16 10:42:40] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:43:23] Seen 16415 samples
+[2022-04-16 10:43:23] Starting data epoch 799 in logical epoch 799
+[2022-04-16 10:43:23] [data] Shuffling data
+[2022-04-16 10:43:23] [data] Done reading 16,415 sentences
+[2022-04-16 10:43:23] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 10:43:53] Ep. 799 : Up. 80000 : Sen. 11,124 : Cost 1.32034349 * 1,178,075 @ 2,158 after 188,948,582 : Time 215.54s : 5465.82 words/s : L.r. 1.3416e-04
+[2022-04-16 10:43:53] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz.orig.npz
+[2022-04-16 10:43:54] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.iter80000.npz
+[2022-04-16 10:43:54] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz
+[2022-04-16 10:43:55] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz.optimizer.npz
+[2022-04-16 10:43:59] [valid] Ep. 799 : Up. 80000 : cross-entropy : 9.29162 : stalled 10 times (last best: 9.24582)
+[2022-04-16 10:44:02] [valid] Ep. 799 : Up. 80000 : perplexity : 1.897 : stalled 10 times (last best: 1.89103)
+[2022-04-16 10:44:19] [valid] Ep. 799 : Up. 80000 : bleu : 86.7726 : stalled 4 times (last best: 86.8123)
+[2022-04-16 10:44:20] Training finished
+[2022-04-16 10:44:20] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz.orig.npz
+[2022-04-16 10:44:21] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz
+[2022-04-16 10:44:22] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr/model0-mtbr.npz.optimizer.npz
+
+real	583m13.774s
+user	968m14.858s
+sys	1m1.801s
 
 ```
 
