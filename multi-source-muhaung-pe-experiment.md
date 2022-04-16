@@ -1603,12 +1603,91 @@ done
 start testing/evaluation ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy$ time ./tran-eval-multi-brmy.sh 
+...
+...
+...
+2022-04-16 20:49:00] Best translation 2125 : ကတ္တီပါ နှင့် ။
+[2022-04-16 20:49:00] Best translation 2126 : မြန်မာ ဘုရင် ပါ တော်မူ သောအခါ တွင် လည်း ရွှေ ဆီးဖြူ သဘော သို့ ၊ သိမ်ဖွဲ့သေးနုပ် နှင့် လှိမ့် သလို ဟူ၍ မှတ်တမ်းတင် ခဲ့ သည် ။
+[2022-04-16 20:49:00] Best translation 2127 : ခွေ ဋ် ခွေး ။
+[2022-04-16 20:49:00] Best translation 2128 : ဦးအိ သည် အမရပူရ မြို့ ဖြင်း မှ ပိုး ထည် ၊ ချည် ထည် တို့ ကို အရောင်းအဝယ် ပြု သော ပိုး ကင်ခ်ျ့ ဖြစ်ရာ ပစ္စည်း ဥစ္စာ ကြွယ်ဝ ချမ်းသာ သည် ။
+[2022-04-16 20:49:00] Best translation 2129 : ခက်ဆစ် အဖွင့် ။
+[2022-04-16 20:49:00] Best translation 2130 : ၃ ။ ဖွာ ရ ရာ = စုစည်း ခြင်း မ ရှိ ၊ ကွဲ ဖျာ ထွက် လျက် ။
+[2022-04-16 20:49:00] Best translation 2131 : မိမိ ကိုယ်တိုင် အသံနေအသံထား ဖြင့် ရွတ်ဆို လေ့ကျင့် ပါ ။
+[2022-04-16 20:49:00] Best translation 2132 : ( ခ ) တစ်ဥတု လျှင် ------ စီ ကြာမြင့် ပါ သည် ။
+[2022-04-16 20:49:00] Best translation 2133 : ညောင်ပင်သာရွာ ဖြူး မြို့နယ် ၁ ၃ ၄ ၅ ခု ၊ တန်ခူး လဆန်း ၁ ရက် သူငယ်ချင်း ဦးဘဇော် သူငယ်ချင်း ထံသို့ ကင်ခ်ျ့ ကင်ခ်ျ့ ပါ သည် ။
+[2022-04-16 20:49:00] Best translation 2134 : ၈ ။ အားသန် = မ ရ မ နေ မ ဖြစ် မ နေ အားထုတ် ကြိုးပမ်း သည် ။
+[2022-04-16 20:49:00] Best translation 2135 : ပျားရည် သာ ဆောင်ယူ ကြ ချေ ဟု ဆို၍ ပျားရည် ကို ဆောင်ယူ စေ ပြီး သော် ပတ္တမြား ၌ အပေါက်ဝ နှစ် ဖက် ကို လိမ်းသုတ် ပြီး မှ နူးညံ့ သိမ်မွေ့ လှစွာ သော ကမ္ဗလာ ချည် ကြိုး ကို ကျစ် ပြီးလျှင် ထို ကမ္ဗလာ ကြိုး စ ၌ ပျားရည် ဖြင့် ပျားပိတုန်း ကြိုး စ ကို ပတ္တမြား ပေါက် ဝ ကြိုး ဟောင်း စ တစ်ဖက် နှင့် တေ့ ပြီး စဉ်းငယ် ပြီး စဉ်းငယ် ထား ပြီး သော် ပတ္တမြား ဝ က ၊ ပုရွက် စားသောက် စေ ၏ ။
+[2022-04-16 20:49:00] Best translation 2136 : ကျွန်တော်တို့ နှင့် ရင်းနှီး သော အကြောင်းအရာ ပင် ဖြစ် လင့် ကစား ၊ ကျွန်တော်တို့ ခေါက်ထည်ကြမ်း မှ မ ရေး ရ ၊ ကျွန်တော်တို့ ကြည့်မြင် ခံစား သလို မ ရေး ရ ၊ ကျောင်း ပြာတာ ကြီး ၏ လာ မှ ရေး ရ မည် ။
+[2022-04-16 20:49:00] Best translation 2137 : စကားလုံး ကလေး တွေ စီ ကာ ရယ် ရွတ်ဆို ရေး ကြည့် မယ် ။
+[2022-04-16 20:49:00] Best translation 2138 : မမြရင် တို့ အငြိမ့် က သည့် ခေတ် က အုန်းမောင်း မ ပေါ် သေး ပါ အငြိမ့် မင်းသမီးများ သည် ပွဲခင်း ကို ပေါက် အောင် မိမိ ၏ ပင်ကို အသံ နှင့် ကြိုးစား၍ ဆို ကြ ရ သည် ။
+[2022-04-16 20:49:00] Best translation 2139 : မှီငြမ်းပြု ဝတ္ထုများ ၊ ဘာသာပြန် ဝတ္ထုများ ဖေဖေါ်ဝါရီ ရာ ပျိုးနုတ်၍ ၊ ဦးစော ၊ ဘူးသီးခြောက် ၊ ရွှေရင်ကြား ၊ ဦးဘဉာဏ် ၊ ဦးငွေကိုင် ၊ သင်ချေ စသည် တို့ မှာ ထင်ရှား သော မှီငြမ်းပြု ဝတ္ထုများ ဖြစ် သည် ။
+[2022-04-16 20:49:00] Best translation 2140 : ရှေးခေတ် စစ်သည် တစ် ဦး ၏ ဘဝ တစ် စိတ် တစ် ပိုင်း ကို ထင်ဟပ် သော အိုင်းချင်း ဖြစ် သည် ။
+[2022-04-16 20:49:00] Best translation 2141 : လိပ်ပြာ တွင် လည်း အခြား သော ဥပေါသထ ကဲ့သို့ ဦးခေါင်း ပိုင်း ၊ ရင် ပိုင်း ၊ ဝမ်းဗိုက် ပိုင်း ဟူ၍ ရှိ သည် ။
+[2022-04-16 20:49:00] Best translation 2142 : ကာတွန်း ဆရာကြီး ဦးဘဂျမ်း ။
+[2022-04-16 20:49:00] Best translation 2143 : ဈမျဉ်းဆွဲ ။
+[2022-04-16 20:49:00] Best translation 2144 : သွေးတူမွေးတူ နွားများ ကို ချူများ ၊ အဆင်တန်ဆာများ ဆင် ပြီးလျှင် လှည်းယဉ် တွင် ခင်မ မောင်း လေ့ ရှိ သည် ။
+[2022-04-16 20:49:00] Best translation 2145 : ရှင် ၊ ခင်ဗျာ ဟု ထူး မှ ယဉ်ကျေးသည် ။
+[2022-04-16 20:49:01] Best translation 2146 : ၉ ၃ ၄ ခု တွင် ပေါ်ပေါက် ခဲ့ သော အသားရောင် သည် အရေး တွင် အရေး တွင် ကား မင်းတရားကြီး က ဗညားဒလ အပေါ် တော် ရှိ၍ ချောင်းဦး တွင် ကျေးရွာ တွင် ကျွန် ငါး ယောက် နှင့် ထား တော် မူ သည် ။
+[2022-04-16 20:49:01] Best translation 2147 : ၁ ၀ ။ ဝါသနာ = စွဲမြဲ နေ သော အလေ့အကျင့် ။
+[2022-04-16 20:49:01] Best translation 2148 : မောင်ဖိုးစိန် သည် ဇာတ်သဘင်ပညာ ကို အခြေခံ မှ စ၍ သင်ယူ လေ့လာ ခဲ့ သည် ။
+[2022-04-16 20:49:01] Best translation 2149 : ရတု ၊ တေးထပ် တို့ တွင် နန်း မူ နန်း ရာ ကို တွေ့ နိုင် သည် ။
+[2022-04-16 20:49:01] Best translation 2150 : ဤ အခါ ငတာ က ဘာကြောင့် ပါ လည်း ဘုရား ဟု လျှောက် ရာ ငယ်ထိပ် က နင် မှ စာ မ တတ် ဘဲ နဲ့ ငါ ရေး တဲ့ စာ တွေ ချီးမွမ်း ပါလျှင် ငါ ပါ ပစ်ရ နေ မှာ ပေါ့ ။
+[2022-04-16 20:49:01] Best translation 2151 : နေ့တိုင်း မှာ ကား ပုတ်သင်ညို သည် အစာ ရှာ၍ ပြန် သည် ရှိ သော် ဆိတ် သားငယ် တို့ သည် အမိ မျက်နှာ ကို ကြည့် ကုန် လျက် လိုက် သကဲ့သို့ ငါ့ သား ၊ ငါ့ သမီး တို့ သည် မြေမှုန့် အလိမ်းလိမ်း ကပ် သော ကိုယ် ဖြင့် အမိ သို့ ကပ်၍ နေ ၏ ။
+[2022-04-16 20:49:01] Best translation 2152 : ဤ ထက် လွန်၍ ဆန်းကြယ် လျောက်ပတ် သော အရာ ကို ကျွန်ုပ် မ တတ် ပြီ ဟု ဆို ၏ ။
+[2022-04-16 20:49:01] Best translation 2153 : သူငယ်ချင်း ပေး တဲ့ ပုတ်သင်ညို မူတည် ပြီး ပြန် ရေး ကြ ရအောင် ။
+[2022-04-16 20:49:01] Best translation 2154 : ကျွန်ုပ်တို့ သည် ဤ မိတဆိုး ရှင်ပြု ကို အလွန် သနား စေတနာ ရှိ လာ ကြ သည် နှင့် ဦးစံရွှေ နှင့် တိုင်ပင် ကာ အလှူ အိမ် တွင် ည အိပ်၍ တတ် နိုင် သမျှ ကုပ်ကုပ် ဆုံးဖြတ် လိုက် ကြ လေ သည် ။
+[2022-04-16 20:49:01] Best translation 2155 : ကြက်ဥ ပြုတ် သည် ။
+[2022-04-16 20:49:01] Best translation 2156 : ယခု ပင် အဆိပ် လူး သော မြား ဖြင့် ပစ် သတ် အံ့ ။
+[2022-04-16 20:49:01] Best translation 2157 : ဝမ်းသာအားရ ၊ မယား က တစ် သွယ် ။
+[2022-04-16 20:49:01] Best translation 2158 : ဝေ ဝေ့ ဝေး ။
+[2022-04-16 20:49:01] Best translation 2159 : ပြန်၍ သုံးသပ် ကြည့် ပါ လျှင် မြန်မာ ဘာသာစကား တွင် အရေး အက္ခရာ ရှိ ထား ပြီး ဖြစ် သဖြင့် အရေး နှင့် အဖတ် ဟူ၍ နှစ် မျိုး ရှိ နေ သည် ။
+[2022-04-16 20:49:01] Best translation 2160 : ဂြောင် လည်း မ ထိုင် ရ ။
+[2022-04-16 20:49:01] Best translation 2161 : ၁ ။ အောက်ပါ စကားလုံး တို့ ၏ အနက် အဓိပ္ပာယ် ကို အဘိဓာန် တွင် ရှာ ပါ ။
+[2022-04-16 20:49:01] Best translation 2162 : သင်ခန်းစာ အကျဉ်း ။
+[2022-04-16 20:49:01] Best translation 2163 : ချစ်လှစွာ သော သား ။
+[2022-04-16 20:49:01] Best translation 2164 : ဟို ရှေ့ က ဆူညံ ဆူညံ ၊ ဘာ သံ လို့ မေး ။
+[2022-04-16 20:49:01] Best translation 2165 : ဒူးရင်းသီး ။
+[2022-04-16 20:49:01] Best translation 2166 : မိမိ တည် သော ဘုရား ကလအုတ် ၊ လှူ ခဲ့ သော ကျွန် နှင့် ဝတ္ထု ပစ္စည်း အစုစု ကို နှောင်းလူ တို့ ဖျက်ဆီး နှိပ်စက် မည့် ရန် မှ ကာကွယ် လို ခြင်း ဖြစ် သည် ။
+[2022-04-16 20:49:01] Total time: 65.64190s wall
 
+real	12m40.039s
+user	23m17.168s
+sys	0m33.355s
 ```
 
 ရတဲ့ BLEU score တွေကတော့ အောက်ပါအတိုင်းပါ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy$ cat test0-multi-PE-results.txt 
+Evaluation on ./model0-brmt2my.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 85.42, 95.2/90.0/85.4/81.1 (BP=0.973, ratio=0.973, hyp_len=28036, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.27, 95.2/90.3/85.9/81.7 (BP=0.979, ratio=0.979, hyp_len=28204, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.23, 95.2/90.4/86.0/81.9 (BP=0.978, ratio=0.978, hyp_len=28165, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.33, 95.2/90.4/86.0/81.9 (BP=0.978, ratio=0.978, hyp_len=28179, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.40, 95.2/90.3/86.0/81.8 (BP=0.980, ratio=0.980, hyp_len=28227, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.81, 95.2/90.3/85.9/81.8 (BP=0.985, ratio=0.985, hyp_len=28364, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.80, 95.2/90.4/86.0/81.8 (BP=0.984, ratio=0.984, hyp_len=28349, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.77, 95.2/90.3/85.9/81.8 (BP=0.985, ratio=0.985, hyp_len=28364, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 86.76, 95.2/90.3/85.9/81.8 (BP=0.984, ratio=0.984, hyp_len=28356, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 87.14, 94.6/89.5/85.0/80.9 (BP=0.998, ratio=0.998, hyp_len=28733, ref_len=28803)
+Evaluation on ./model0-brmt2my.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 87.19, 94.6/89.6/85.1/81.0 (BP=0.997, ratio=0.997, hyp_len=28721, ref_len=28803)
+```
 
+Best model နဲ့ best BLEU score က အောက်ပါအတိုင်းပါ...  
+
+```
+Evaluation on ./model0-brmt2my.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:
+BLEU = 87.19, 94.6/89.6/85.1/81.0 (BP=0.997, ratio=0.997, hyp_len=28721, ref_len=28803)
 ```
 
