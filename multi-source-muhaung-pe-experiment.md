@@ -1559,6 +1559,27 @@ user	692m44.713s
 sys	0m50.495s
 ```
 
+output model တွေက အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy$ ls *.npz | sort -V
+model0-brmt2my.iter5000.npz
+model0-brmt2my.iter10000.npz
+model0-brmt2my.iter15000.npz
+model0-brmt2my.iter20000.npz
+model0-brmt2my.iter25000.npz
+model0-brmt2my.iter30000.npz
+model0-brmt2my.iter35000.npz
+model0-brmt2my.iter40000.npz
+model0-brmt2my.iter45000.npz
+model0-brmt2my.iter50000.npz
+model0-brmt2my.iter55000.npz
+model0-brmt2my.npz
+model0-brmt2my.npz.optimizer.npz
+model0-brmt2my.npz.orig.npz
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy$
+```
+
 ## Testing/Evaluation for Multisource Transdformer, {br,mt_my}--->{my}
 
 ```bash
