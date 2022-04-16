@@ -1299,12 +1299,123 @@ testing ...
 ...
 ...
 ...
+[2022-04-16 12:17:34] Best translation 2131 : ⠍⠊⠍⠊ ⠅⠕⠞⠖ ⠣⠹⠋⠝⠱⠣⠹⠋⠞⠓⠁⠆ ⠿⠓ ⠗⠥⠞⠈⠕ ⠇⠱⠂⠟⠔⠂ ⠏ ⠲
+[2022-04-16 12:17:34] Best translation 2132 : ⠶ ⠨⠣ ⠶ ⠞⠭⠥⠂⠞⠥⠂ ⠸ ⠤⠤⠤⠤⠤⠤ ⠎⠪ ⠟⠁⠾⠔⠂ ⠏ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2133 : ⠷⠶⠏⠔⠹⠁⠗⠺⠁ ⠿⠓⠥⠆ ⠾⠕⠂⠝⠮ ⠼⠁ ⠉ ⠙ ⠑ ⠨⠥⠂ ⠒ ⠞⠋⠨⠥⠆ ⠇⠣⠈⠋⠆ ⠼⠁ ⠗⠑ ⠹⠥⠌⠮⠡⠔⠆ ⠗⠪⠞⠥ ⠹⠥⠌⠮⠡⠔⠆ ⠁⠋⠙ ⠅⠕⠂⠁⠆⠅⠕⠅⠕⠆ ⠎⠁⠗⠱⠆⠇⠬ ⠏ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2134 : ⠼⠓ ⠲ ⠁⠆⠹⠋ ⠰⠶ ⠋ ⠗⠣ ⠋ ⠝⠱ ⠋ ⠭ ⠋ ⠝⠱ ⠁⠆⠁⠦ ⠟⠕⠆⠏⠋⠆ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2135 : ⠿⠁⠆⠗⠪ ⠹⠁ ⠈⠶⠽⠥ ⠟⠣ ⠡⠱ ⠓ ⠈⠕⠯ ⠿⠁⠆⠗⠪ ⠅ ⠈⠶⠽⠥ ⠎ ⠿⠪⠆ ⠧ ⠏⠣⠞⠞⠣⠾⠁⠆ ⠫ ⠣⠏⠴⠺⠣ ⠠⠣⠭ ⠘⠑ ⠅ ⠇⠢⠆⠹⠦ ⠿⠪⠆ ⠰⠣⠣ ⠝⠥⠆⠷⠋⠂ ⠹⠢⠍⠺⠱⠂ ⠸⠣⠣⠎ ⠹⠻⠆ ⠅⠋⠃⠣⠇⠁ ⠡⠪ ⠟⠕⠆ ⠅ ⠟⠭ ⠿⠪⠆⠸ ⠼ ⠅⠋⠃⠣⠇⠁ ⠟⠕⠆ ⠎⠣ ⠫ ⠿⠁⠆⠗⠪ ⠿⠓ ⠩⠺⠱⠰⠣⠋⠅⠔⠆ ⠟⠕⠆ ⠎⠣ ⠅ ⠏⠣⠞⠞⠣⠾⠁⠆ ⠏⠴ ⠺⠣ ⠟⠕⠆ ⠎⠣ ⠞⠭⠘⠑ ⠗ ⠞⠱⠂ ⠿⠪⠆ ⠎⠔⠆⠌⠮ ⠿⠪⠆ ⠎⠔⠆⠌⠮ ⠹⠺⠔⠆⠯ ⠞⠓⠁⠆ ⠿⠪⠆ ⠧ ⠏⠣⠞⠞⠣⠾⠁⠆ ⠺⠣ ⠅⠣ ⠏⠥⠂⠗⠺⠑ ⠒ ⠏⠕⠆⠗⠺⠣ ⠒ ⠏⠕⠆⠗⠺⠣ ⠒ ⠶⠕⠅ ⠅ ⠎⠁⠆⠹⠴ ⠎ ⠡ ⠓⠌⠁ ⠝⠱⠗⠁ ⠒ ⠝⠱⠗⠁ ⠚ ⠅ ⠏⠥⠂⠗⠺⠑ ⠑ ⠝⠱⠗⠁ ⠚ ⠅ ⠏⠥⠂⠗⠺⠑ ⠑ ⠝⠱⠗⠁ ⠫ ⠞⠓⠁⠆ ⠊ ⠲
+[2022-04-16 12:17:34] Best translation 2136 : ⠟⠞⠚ ⠗ ⠗⠔⠆⠠⠣⠪⠆ ⠹⠻⠆ ⠣⠟⠣⠽ ⠏⠔ ⠭ ⠇⠔⠂ ⠅⠣⠎⠁⠆ ⠒ ⠟⠞⠚ ⠋⠸⠣⠣⠹⠥ ⠰⠣⠣ ⠋ ⠗⠱⠆ ⠗⠣ ⠒ ⠟⠞⠚ ⠟⠪⠂⠾⠔ ⠨⠋⠎⠁⠆ ⠹⠣⠇⠕ ⠋ ⠗⠱⠆ ⠗⠣ ⠒ ⠟⠶⠆ ⠿⠁⠞⠁ ⠟⠪⠆ ⠊ ⠇⠑⠈⠭ ⠰⠣⠣ ⠗⠱⠆ ⠗⠣ ⠍ ⠲
+[2022-04-16 12:17:34] Best translation 2137 : ⠎⠣⠅⠁⠆⠇⠉⠆ ⠅⠣⠇⠱⠆ ⠞⠺⠱ ⠎⠪ ⠅⠁ ⠗⠮ ⠗⠥⠞⠈⠕ ⠗⠱⠆ ⠟⠪⠂ ⠍⠮ ⠲
+[2022-04-16 12:17:34] Best translation 2138 : ⠍⠣⠾⠣⠗⠔ ⠚ ⠣⠷⠢⠂ ⠅⠣ ⠹⠂ ⠨⠱⠞⠄ ⠅⠣ ⠣⠏⠽⠄ ⠋ ⠏⠻ ⠹⠱⠆ ⠏ ⠣⠷⠢⠂ ⠍⠔⠆⠹⠣⠍⠪⠆⠾ ⠹ ⠏⠺⠮⠆⠨⠔⠆ ⠅ ⠏⠴ ⠶ ⠍⠊⠍⠊ ⠊ ⠏⠔⠅ ⠣⠹⠋ ⠗ ⠟⠕⠆⠎⠁⠆⠯ ⠈⠕ ⠟ ⠗⠣ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2139 : ⠰⠣⠪⠷⠋⠆⠿⠥⠂ ⠺⠥⠞⠁⠥⠂⠾ ⠒ ⠃⠁⠹⠁⠿⠋ ⠺⠥⠞⠁⠥⠂⠾ ⠭⠞⠮ ⠗⠁ ⠎⠱⠅⠁⠮⠆ ⠒ ⠌⠁⠆⠾⠭⠡⠔⠆ ⠒ ⠥⠆⠃⠣⠷⠶ ⠒ ⠅⠥⠆⠞⠕⠂ ⠒ ⠺⠁⠆⠘⠣⠞ ⠒ ⠝⠁⠆⠇⠪ ⠒ ⠗⠮⠆⠗⠮⠆⠺⠔⠝⠂⠺⠔⠂ ⠎⠣⠹ ⠚ ⠰⠣⠁ ⠁⠔⠩⠁⠆ ⠹⠻⠆ ⠰⠣⠪⠷⠋⠆⠿⠥⠂ ⠺⠥⠞⠁⠥⠂⠾ ⠭ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2140 : ⠩⠱⠆⠨⠭ ⠎⠭⠹⠪ ⠞⠭ ⠥⠆ ⠊ ⠃⠣⠺⠣ ⠞⠭ ⠎⠱⠅ ⠞⠭ ⠏⠖⠆ ⠅ ⠁⠔⠓⠣⠞ ⠹⠻⠆ ⠖⠆⠡⠔⠆ ⠭ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2141 : ⠇⠱⠅⠿⠁ ⠞⠺ ⠇⠆ ⠣⠡⠁⠆ ⠹⠻⠆ ⠓⠌⠑⠾ ⠅⠹ ⠥⠆⠨⠶⠆ ⠏⠖⠆ ⠒ ⠗⠔ ⠏⠖⠆ ⠒ ⠺⠋⠆⠃⠬ ⠏⠖⠆ ⠓⠥⠯ ⠩ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2142 : ⠅⠁⠞⠥⠝⠆ ⠈⠣⠗⠁⠟⠪⠆ ⠥⠆⠃⠣⠚⠋⠆ ⠲
+[2022-04-16 12:17:34] Best translation 2143 : ⠵⠣⠾⠔⠆⠈⠺⠮⠆ ⠲
+[2022-04-16 12:17:34] Best translation 2144 : ⠹⠺⠱⠆⠞⠥⠍⠺⠱⠆⠞⠥ ⠝⠺⠁⠆⠾ ⠅ ⠡⠥⠾ ⠒ ⠣⠈⠔⠞⠋⠎⠓⠁⠾ ⠈⠔ ⠿⠪⠆⠸ ⠸⠣⠮⠆⠽⠔ ⠞⠺ ⠏⠋⠆⠈⠕⠆⠞⠋⠆ ⠍⠶⠆ ⠇⠱⠂ ⠩ ⠹ ⠲
+[2022-04-16 12:17:34] Best translation 2145 : ⠩⠔ ⠒ ⠨⠔⠃⠽⠁ ⠓ ⠁⠥⠆ ⠰⠣ ⠽⠔⠟⠱⠆⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2146 : ⠼⠊ ⠉ ⠙ ⠨⠥⠂ ⠞⠺ ⠏⠻⠏⠴ ⠨⠮⠂ ⠹⠻⠆ ⠎⠡⠓⠌⠁ ⠇⠑⠝⠁⠆ ⠹ ⠣⠗⠱⠆ ⠞⠺ ⠅⠁⠆ ⠍⠔⠆⠞⠽⠟⠪⠆ ⠅⠣ ⠃⠣⠷⠁⠆⠙⠣⠇⠣ ⠣⠏⠻ ⠣⠾⠑ ⠞ ⠩⠯ ⠣⠇⠶⠆⠞ ⠓⠥⠹⠻⠆ ⠽⠕⠆⠙⠣⠽⠁⠆ ⠟⠱⠆⠗⠺⠁ ⠞⠺ ⠟⠥⠝ ⠌⠁⠆ ⠽⠴ ⠗ ⠞⠓⠁⠆ ⠞ ⠍⠥ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2147 : ⠼⠁ ⠚ ⠲ ⠺⠁⠹⠣⠝⠁ ⠰⠶ ⠎⠺⠮⠆⠾⠮⠆ ⠝⠱ ⠹⠻⠆ ⠣⠇⠱⠂⠣⠟⠔⠂ ⠲
+[2022-04-16 12:17:35] Best translation 2148 : ⠍⠶⠘⠕⠆⠎⠢ ⠹ ⠵⠣⠞⠹⠣⠃⠔⠏⠔⠷⠁ ⠅ ⠣⠡⠱⠨⠋ ⠰⠣⠣ ⠎⠣⠯ ⠹⠔⠽⠥ ⠇⠱⠂⠇⠁ ⠨⠮⠂ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2149 : ⠗⠣⠞⠥⠂ ⠒ ⠞⠱⠆⠁⠣⠞ ⠚ ⠞⠺ ⠝⠋⠆ ⠍⠥ ⠝⠋⠆ ⠗⠁ ⠅ ⠞⠺⠱⠂ ⠝ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2150 : ⠪ ⠣⠨⠁ ⠌⠣⠞⠁ ⠅⠣ ⠃⠁⠳ ⠏⠁ ⠇⠆ ⠿ ⠓ ⠸⠽⠴ ⠗⠁ ⠎⠪⠆⠞ ⠅⠣ ⠝⠔ ⠰⠣⠣ ⠎⠁ ⠋ ⠞⠣⠞ ⠃⠮⠆ ⠝⠮⠂ ⠌ ⠗⠱⠆ ⠞⠮⠂ ⠎⠁ ⠞⠺⠱ ⠡⠪⠆⠍⠥⠝⠆ ⠏⠁⠸ ⠌ ⠏ ⠏⠭⠗⠣ ⠝⠱ ⠰⠣⠁ ⠏⠻⠂ ⠲
+[2022-04-16 12:17:35] Best translation 2151 : ⠝⠱⠂⠞⠖⠆ ⠰⠣⠁ ⠅⠁⠆ ⠙⠶⠆⠏⠶ ⠹ ⠣⠎⠁ ⠩⠁⠯ ⠿⠋ ⠹ ⠩ ⠧ ⠈⠱⠅ ⠹⠁⠆⠌⠮ ⠚ ⠹ ⠣⠍⠊ ⠾⠑⠠⠣⠁ ⠅ ⠟⠪⠂ ⠅⠉ ⠑ ⠇⠬ ⠹⠅⠹ ⠌⠣ ⠹⠁⠆ ⠒ ⠌⠣ ⠹⠣⠍⠪⠆ ⠚ ⠹ ⠾⠱⠰⠣⠉⠂ ⠣⠇⠢⠆⠇⠢⠆ ⠅⠣⠞ ⠹⠻⠆ ⠅⠕ ⠿⠓ ⠣⠍⠊ ⠙ ⠅⠣⠞⠯ ⠱ ⠊ ⠲
+[2022-04-16 12:17:35] Best translation 2152 : ⠪ ⠁⠑ ⠇⠥⠝⠯ ⠈⠋⠆⠟⠮ ⠇⠽⠴⠏⠣⠞ ⠹⠻⠆ ⠣⠽ ⠅ ⠟⠥ ⠋ ⠞⠣⠞ ⠛ ⠓ ⠈⠕ ⠊ ⠲
+[2022-04-16 12:17:35] Best translation 2153 : ⠹⠥⠌⠮⠡⠔⠆ ⠏⠱⠆ ⠞⠮⠂ ⠍⠥⠞⠮ ⠣⠾⠣⠟⠕⠆⠓⠌⠁ ⠿⠪⠆ ⠿⠋ ⠗⠱⠆ ⠟ ⠗⠣⠶ ⠲
+[2022-04-16 12:17:35] Best translation 2154 : ⠟⠥⠚ ⠹ ⠪ ⠍⠊⠞⠣⠈⠕⠆ ⠩⠔⠿⠥⠂ ⠅ ⠣⠇⠥⠝ ⠹⠣⠝⠁⠆ ⠎⠞⠝ ⠩ ⠇⠁ ⠟ ⠹ ⠗ ⠥⠆⠎⠋⠩⠺⠱ ⠗ ⠞⠖⠏⠔ ⠅⠁ ⠣⠸⠣⠥ ⠱⠝ ⠞⠺ ⠷⠣ ⠱⠅⠯ ⠞⠣⠞ ⠝ ⠹⠣⠓⠾⠣ ⠗⠣⠞⠞⠪ ⠈⠉⠆⠿⠓⠣⠞ ⠇⠬ ⠟ ⠃ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2155 : ⠟⠑⠥⠂ ⠿⠦ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2156 : ⠽⠨ ⠏⠔ ⠣⠈⠱⠅ ⠇⠥⠆ ⠹⠻⠆ ⠾⠁⠆ ⠿⠓ ⠏⠭ ⠹⠣⠞ ⠋⠂ ⠲
+[2022-04-16 12:17:35] Best translation 2157 : ⠺⠋⠆⠹⠁⠁⠆⠗⠣ ⠒ ⠍⠣⠽⠁⠆ ⠅⠣ ⠞⠭ ⠹⠺⠮ ⠲
+[2022-04-16 12:17:35] Best translation 2158 : ⠺⠱ ⠺⠱⠂ ⠺⠱⠆ ⠲
+[2022-04-16 12:17:35] Best translation 2159 : ⠿⠋⠯ ⠹⠉⠆⠹⠣⠞ ⠟⠪⠂ ⠏⠁ ⠸ ⠾⠋⠍⠁ ⠃⠁⠹⠁⠎⠣⠅⠁⠆ ⠞⠺ ⠣⠗⠱⠆ ⠑⠨⠣⠗⠁ ⠩ ⠞⠓⠁⠆ ⠿⠪⠆ ⠭ ⠹⠿ ⠣⠗⠱⠆ ⠗ ⠣⠘⠣⠞ ⠓⠥⠯ ⠠⠣⠭ ⠾⠕⠆ ⠩ ⠱ ⠹ ⠲
+[2022-04-16 12:17:35] Best translation 2160 : ⠺⠔⠆⠘⠋⠂ ⠇⠆ ⠋ ⠁⠖ ⠗⠣ ⠲
+[2022-04-16 12:17:35] Best translation 2161 : ⠼⠁ ⠲ ⠴⠏⠁ ⠎⠣⠅⠁⠆⠇⠉⠆ ⠚ ⠊ ⠣⠝⠑ ⠣⠙⠱⠅⠏⠮ ⠅ ⠣⠃⠊⠙⠋ ⠞⠺ ⠩⠁ ⠏ ⠲
+[2022-04-16 12:17:35] Best translation 2162 : ⠹⠔⠨⠋⠆⠎⠁ ⠣⠟⠔⠆ ⠲
+[2022-04-16 12:17:35] Best translation 2163 : ⠡⠭⠸⠣⠣⠎ ⠹⠻⠆ ⠹⠁⠆ ⠲
+[2022-04-16 12:17:35] Best translation 2164 : ⠓⠕ ⠩⠱⠂ ⠅⠣ ⠈⠥⠷⠋ ⠈⠥⠷⠋ ⠒ ⠃⠁ ⠹⠋ ⠇⠕⠂ ⠍⠱⠆ ⠲
+[2022-04-16 12:17:35] Best translation 2165 : ⠍⠔⠛⠣⠇⠁⠏⠁ ⠲
+[2022-04-16 12:17:35] Best translation 2166 : ⠍⠊⠍⠊ ⠞⠪ ⠹⠻⠆ ⠿ ⠍⠣⠹⠴⠹⠉⠆ ⠒ ⠸⠣⠥ ⠨⠮⠂ ⠹⠻⠆ ⠟⠥⠝ ⠗ ⠺⠥⠞⠁⠥⠂ ⠏⠭⠎⠪⠆ ⠣⠎⠥⠂⠎⠥⠂ ⠅ ⠠⠣⠶⠆⠇⠥ ⠚ ⠿⠓⠑⠈⠪⠆ ⠠⠣⠱⠅⠎⠑ ⠍⠂ ⠗⠋ ⠰⠣⠣ ⠅⠁⠅⠺⠮ ⠇⠕ ⠡ ⠭ ⠹ ⠲
+[2022-04-16 12:17:35] Total time: 64.75555s wall
 
-
+real	17m25.141s
+user	33m29.227s
+sys	0m43.057s
 ```
 
 BLEU score တွေက အောက်ပါအတိုင်း...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-mybr$ cat test0-shared-multi-PE-results.txt 
+Evaluation on ./model0-mtbr.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 15.6/0.4/0.0/0.0 (BP=0.865, ratio=0.873, hyp_len=25151, ref_len=28803)
+Evaluation on ./model0-mtbr.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 14.2/0.3/0.0/0.0 (BP=0.805, ratio=0.822, hyp_len=23678, ref_len=28803)
+Evaluation on ./model0-mtbr.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 15.5/0.2/0.0/0.0 (BP=0.715, ratio=0.749, hyp_len=21569, ref_len=28803)
+Evaluation on ./model0-mtbr.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 15.0/0.2/0.0/0.0 (BP=0.743, ratio=0.771, hyp_len=22211, ref_len=28803)
+Evaluation on ./model0-mtbr.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 14.2/0.2/0.0/0.0 (BP=0.759, ratio=0.784, hyp_len=22581, ref_len=28803)
+Evaluation on ./model0-mtbr.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 14.0/0.2/0.0/0.0 (BP=0.711, ratio=0.746, hyp_len=21475, ref_len=28803)
+Evaluation on ./model0-mtbr.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.7/0.1/0.0/0.0 (BP=0.743, ratio=0.771, hyp_len=22202, ref_len=28803)
+Evaluation on ./model0-mtbr.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.8/0.2/0.0/0.0 (BP=0.760, ratio=0.785, hyp_len=22596, ref_len=28803)
+Evaluation on ./model0-mtbr.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 14.1/0.1/0.0/0.0 (BP=0.770, ratio=0.793, hyp_len=22839, ref_len=28803)
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.9/0.1/0.0/0.0 (BP=0.797, ratio=0.815, hyp_len=23470, ref_len=28803)
+Evaluation on ./model0-mtbr.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.5/0.1/0.0/0.0 (BP=0.831, ratio=0.844, hyp_len=24296, ref_len=28803)
+Evaluation on ./model0-mtbr.iter60000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.2/0.1/0.0/0.0 (BP=0.818, ratio=0.833, hyp_len=23980, ref_len=28803)
+Evaluation on ./model0-mtbr.iter65000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.4/0.1/0.0/0.0 (BP=0.843, ratio=0.854, hyp_len=24589, ref_len=28803)
+Evaluation on ./model0-mtbr.iter70000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.2/0.1/0.0/0.0 (BP=0.855, ratio=0.865, hyp_len=24913, ref_len=28803)
+Evaluation on ./model0-mtbr.iter75000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.1/0.1/0.0/0.0 (BP=0.858, ratio=0.867, hyp_len=24986, ref_len=28803)
+Evaluation on ./model0-mtbr.iter80000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 0.00, 13.3/0.2/0.0/0.0 (BP=0.870, ratio=0.878, hyp_len=25287, ref_len=28803)
+Evaluation on ./model0-mtbr.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.27, 94.6/89.3/84.4/79.9 (BP=0.981, ratio=0.982, hyp_len=28272, ref_len=28803)
+Evaluation on ./model0-mtbr.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.99, 95.1/90.0/85.2/80.7 (BP=0.982, ratio=0.982, hyp_len=28281, ref_len=28803)
+Evaluation on ./model0-mtbr.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 85.97, 95.1/90.0/85.3/80.9 (BP=0.980, ratio=0.981, hyp_len=28245, ref_len=28803)
+Evaluation on ./model0-mtbr.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.22, 95.1/90.0/85.3/80.9 (BP=0.983, ratio=0.984, hyp_len=28331, ref_len=28803)
+Evaluation on ./model0-mtbr.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.41, 95.1/90.0/85.3/80.8 (BP=0.986, ratio=0.986, hyp_len=28410, ref_len=28803)
+Evaluation on ./model0-mtbr.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.51, 95.1/90.0/85.4/80.9 (BP=0.986, ratio=0.986, hyp_len=28413, ref_len=28803)
+Evaluation on ./model0-mtbr.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.53, 95.1/90.0/85.4/81.0 (BP=0.987, ratio=0.987, hyp_len=28417, ref_len=28803)
+Evaluation on ./model0-mtbr.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.69, 95.1/90.0/85.3/80.8 (BP=0.989, ratio=0.989, hyp_len=28499, ref_len=28803)
+Evaluation on ./model0-mtbr.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.70, 95.1/90.0/85.3/80.8 (BP=0.989, ratio=0.989, hyp_len=28498, ref_len=28803)
+Evaluation on ./model0-mtbr.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.70, 95.1/90.0/85.3/80.9 (BP=0.989, ratio=0.989, hyp_len=28495, ref_len=28803)
+Evaluation on ./model0-mtbr.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.70, 95.1/90.0/85.3/80.8 (BP=0.989, ratio=0.989, hyp_len=28496, ref_len=28803)
+Evaluation on ./model0-mtbr.iter60000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.69, 95.1/90.0/85.3/80.8 (BP=0.989, ratio=0.989, hyp_len=28493, ref_len=28803)
+Evaluation on ./model0-mtbr.iter65000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.70, 95.0/90.0/85.3/80.8 (BP=0.989, ratio=0.990, hyp_len=28502, ref_len=28803)
+Evaluation on ./model0-mtbr.iter70000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.70, 95.0/89.9/85.3/80.8 (BP=0.990, ratio=0.990, hyp_len=28511, ref_len=28803)
+Evaluation on ./model0-mtbr.iter75000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.71, 95.0/89.9/85.3/80.8 (BP=0.990, ratio=0.990, hyp_len=28513, ref_len=28803)
+Evaluation on ./model0-mtbr.iter80000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.72, 95.0/90.0/85.3/80.8 (BP=0.990, ratio=0.990, hyp_len=28512, ref_len=28803)
+```
+
+Best model နဲ့ best score ကတော့ အောက်ပါအတိုင်း...  
 
 ```
+Evaluation on ./model0-mtbr.iter80000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my ../model.transformer-brmy/hyp.iteriter80000.my, Transformer multi-source PE Model:
+BLEU = 86.72, 95.0/90.0/85.3/80.8 (BP=0.990, ratio=0.990, hyp_len=28512, ref_len=28803)
+```
+
