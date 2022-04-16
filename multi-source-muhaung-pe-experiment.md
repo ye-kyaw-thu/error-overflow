@@ -1691,3 +1691,16 @@ Evaluation on ./model0-brmt2my.iter55000.npz with /media/ye/project2/exp/braille
 BLEU = 87.19, 94.6/89.6/85.1/81.0 (BP=0.997, ratio=0.997, hyp_len=28721, ref_len=28803)
 ```
 
+ခုချိန်ထိ လုပ်ပြီးသလောက် PE experiment တွေကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း...  
+
+<div align="center">  
+ 
+Table 2. Performance comparison between Transformer, Transformer-PE_Transformer and Multisource Transformer  
+
+| Transformer | Post-Editing | Multisource Transformer |
+|----------:|----------:|----------:|
+| 87.54 | 87.25 | 87.19 |
+
+ </div>  
+ 
+ 
