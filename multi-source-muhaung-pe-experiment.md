@@ -1716,7 +1716,7 @@ shared multisource architecture နဲ့ training လုပ်ဖို့အ�
 (base) ye@:/media/ye/project2/exp/braille-nmt$
 ```
 
-shared multisource transformer မော်ဒယ်နဲ့ training လုပ်ဖို့အတွက် bash shell script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+shared multisource transformer မော်ဒယ်နဲ့ training လုပ်ဖို့အတွက် bash shell script (shared-multi-transformer-pe-brmt2my.sh) ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
 ```bash
 #!/bin/bash
