@@ -1487,6 +1487,93 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/c
 training စလုပ်...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./multi-transformer-pe-brmt2my.sh 
+...
+...
+...
+[2022-04-16 20:08:20] Starting data epoch 539 in logical epoch 539
+[2022-04-16 20:08:20] [data] Shuffling data
+[2022-04-16 20:08:20] [data] Done reading 16,415 sentences
+[2022-04-16 20:08:20] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:09:05] Seen 16415 samples
+[2022-04-16 20:09:05] Starting data epoch 540 in logical epoch 540
+[2022-04-16 20:09:05] [data] Shuffling data
+[2022-04-16 20:09:05] [data] Done reading 16,415 sentences
+[2022-04-16 20:09:05] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:09:50] Seen 16415 samples
+[2022-04-16 20:09:50] Starting data epoch 541 in logical epoch 541
+[2022-04-16 20:09:50] [data] Shuffling data
+[2022-04-16 20:09:50] [data] Done reading 16,415 sentences
+[2022-04-16 20:09:50] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:10:35] Seen 16415 samples
+[2022-04-16 20:10:35] Starting data epoch 542 in logical epoch 542
+[2022-04-16 20:10:35] [data] Shuffling data
+[2022-04-16 20:10:35] [data] Done reading 16,415 sentences
+[2022-04-16 20:10:35] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:11:20] Seen 16415 samples
+[2022-04-16 20:11:20] Starting data epoch 543 in logical epoch 543
+[2022-04-16 20:11:20] [data] Shuffling data
+[2022-04-16 20:11:20] [data] Done reading 16,415 sentences
+[2022-04-16 20:11:21] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:11:56] Ep. 543 : Up. 54500 : Sen. 12,800 : Cost 1.32841587 * 1,179,705 @ 2,544 after 128,406,484 : Time 225.83s : 5223.94 words/s : L.r. 1.6255e-04
+[2022-04-16 20:12:07] Seen 16415 samples
+[2022-04-16 20:12:07] Starting data epoch 544 in logical epoch 544
+[2022-04-16 20:12:07] [data] Shuffling data
+[2022-04-16 20:12:07] [data] Done reading 16,415 sentences
+[2022-04-16 20:12:07] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:12:52] Seen 16415 samples
+[2022-04-16 20:12:52] Starting data epoch 545 in logical epoch 545
+[2022-04-16 20:12:52] [data] Shuffling data
+[2022-04-16 20:12:52] [data] Done reading 16,415 sentences
+[2022-04-16 20:12:52] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:13:38] Seen 16415 samples
+[2022-04-16 20:13:38] Starting data epoch 546 in logical epoch 546
+[2022-04-16 20:13:38] [data] Shuffling data
+[2022-04-16 20:13:38] [data] Done reading 16,415 sentences
+[2022-04-16 20:13:38] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:14:23] Seen 16415 samples
+[2022-04-16 20:14:23] Starting data epoch 547 in logical epoch 547
+[2022-04-16 20:14:23] [data] Shuffling data
+[2022-04-16 20:14:23] [data] Done reading 16,415 sentences
+[2022-04-16 20:14:23] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:15:08] Seen 16415 samples
+[2022-04-16 20:15:08] Starting data epoch 548 in logical epoch 548
+[2022-04-16 20:15:08] [data] Shuffling data
+[2022-04-16 20:15:08] [data] Done reading 16,415 sentences
+[2022-04-16 20:15:09] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-16 20:15:43] Ep. 548 : Up. 55000 : Sen. 12,640 : Cost 1.32756233 * 1,177,019 @ 2,488 after 129,583,503 : Time 226.34s : 5200.15 words/s : L.r. 1.6181e-04
+[2022-04-16 20:15:43] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz.orig.npz
+[2022-04-16 20:15:44] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.iter55000.npz
+[2022-04-16 20:15:44] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz
+[2022-04-16 20:15:45] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz.optimizer.npz
+[2022-04-16 20:15:50] [valid] Ep. 548 : Up. 55000 : cross-entropy : 10.7242 : stalled 10 times (last best: 9.8527)
+[2022-04-16 20:15:53] [valid] Ep. 548 : Up. 55000 : perplexity : 2.09382 : stalled 10 times (last best: 1.97178)
+[2022-04-16 20:16:11] [valid] Ep. 548 : Up. 55000 : bleu : 87.0626 : new best
+[2022-04-16 20:16:11] Training finished
+[2022-04-16 20:16:12] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz.orig.npz
+[2022-04-16 20:16:13] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz
+[2022-04-16 20:16:14] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-multi-brmy/model0-brmt2my.npz.optimizer.npz
+
+real	423m28.423s
+user	692m44.713s
+sys	0m50.495s
+```
+
+## Testing/Evaluation for Multisource Transdformer, {br,mt_my}--->{my}
+
+```bash
+
+```
+
+start testing/evaluation ...  
+
+```
+
+```
+
+ရတဲ့ BLEU score တွေကတော့ အောက်ပါအတိုင်းပါ...  
+
+```
 
 ```
 
