@@ -1583,7 +1583,21 @@ model0-brmt2my.npz.orig.npz
 ## Testing/Evaluation for Multisource Transdformer, {br,mt_my}--->{my}
 
 ```bash
+#!/bin/bash
 
+## Preparation for Myanmar-MuHaung PE
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with Marian, Multisource Transformer multi PE Model, {br,mt_my}--->{my}
+## 16 April 2022
+
+#model0-brmt2my.iter5000.npz
+
+for i in {5000..55000..5000}
+do
+   marian-decoder -m ./model0-brmt2my.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml --devices 0 1 --output hyp.iter$i.my --input  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br --input /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my
+   echo "Evaluation on ./model0-brmt2my.iter${i}.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Multisource Transformer multi-source PE Model:" >> test0-multi-PE-results.txt
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./hyp.iter$i.my  >> test0-multi-PE-results.txt
+done
 ```
 
 start testing/evaluation ...  
