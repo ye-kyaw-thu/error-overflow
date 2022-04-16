@@ -1719,5 +1719,56 @@ shared multisource architecture နဲ့ training လုပ်ဖို့အ�
 shared multisource transformer မော်ဒယ်နဲ့ training လုပ်ဖို့အတွက် bash shell script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
 ```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for shared multisource Transformer {br,mt_my}--->{my}
+## 16 April 2022
+
+# ဘာတွေထပ်ဖြည့်ခဲ့သလဲ ဆိုရင်
+# running folder နာမည် ပြောင်းပြီး
+# --type shared-multi-transformer
+# --train-sets မှာ {source,mt,target} ထား
+# --vocabs မှာလည်း {source,mt,target} ပေးခဲ့
+# --valid-sets မှာလည်း {source,mt,target} ပေးခဲ့
+# Error: Requested shape shape=18364x512 size=9402368 for existing parameter 'Wemb' does not match original shape ... ဆိုတဲ့ error ပေးတာကြောင့်
+# vocab ကို source+mt (သို့) br+mt_my ကို ပေါင်းဆောက်ခဲ့ပြီးမှ run လို့ အဆင်ပြေတယ်။  
+
+mkdir model.transformer-shared-multi-brmy;
+
+marian \
+    --model  /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz --type shared-multi-transformer \
+    --train-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000-trainingdata.my /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my \
+    --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.br-train.mtmy.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.br-train.mtmy.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000-devdata.my /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my \
+    --valid-translation-output /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/dev.multi-brmy.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log ./model.transformer-shared-multi-brmy/train-shared-multi-brmy.log --valid-log ./model.transformer-shared-multi-brmy/valid-shared-multi-brmy.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 1 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/config-shared-multi-brmy0.yml
+    
+time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/config-shared-multi-brmy0.yml  2>&1 | tee transformer-shared-multi-brmy0.log
+```
+
+training လုပ်ခဲ့...  
 
 ```
+
+```
+
+
