@@ -1865,9 +1865,26 @@ sys	1m3.831s
 bash script () က အောက်ပါအတိုင်း...  
 
 ```bash
+#!/bin/bash
+
+## Preparation for Myanmar-MuHaung PE
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with Marian, Shared Multisource Transformer PE Model, {br,mt_my}--->{my}
+## 17 April 2022
+
+#model0-mtmy.iter5000.npz
+
+for i in {5000..75000..5000}
+do
+   marian-decoder -m ./model0-mtmy.iter$i.npz -v /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.br-train.mtmy.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/train.br-train.mtmy.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml --devices 0 1 --output hyp.iter$i.my --input  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br --input /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my
+   echo "Evaluation on ./model0-mtmy.iter${i}.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:" >> test0-shared-multi-PE-results.txt
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./hyp.iter$i.my  >> test0-shared-multi-PE-results.txt
+done
+```
+
+testing and evaluation ...  
 
 ```
 
 ```
 
-```
