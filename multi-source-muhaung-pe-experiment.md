@@ -1967,5 +1967,55 @@ Evaluation on ./model0-mtmy.iter75000.npz with /media/ye/project2/exp/braille-nm
 BLEU = 87.50, 95.1/90.2/85.8/81.7 (BP=0.994, ratio=0.994, hyp_len=28625, ref_len=28803)
 ```
 
+ခုချိန်ထိလုပ်ခဲ့တဲ့ မြန်မာကနေ မူဟောင်း၊ မူဟောင်းကနေ မြန်မာစာ ဘာသာပြန်တဲ့ expeirment တွေအားလုံးကို နှိုင်းယှဉ်ကြည့်ရင်...  
 
+<div align="center">
+
+Table 1. Performance comparison for Transformer, Transformer-PE_Transformer, Multisource-Transformer and Shared Multisource Transformer
+ 
+|src-trg| Transformer | Transformer-PE_Transformer | Multisource Transformer | Shared Multisource Transformer |
+|----------:|----------:|----------:|----------:|----------:|   
+| my-br | 86.73 | 86.26 | 86.42 | 86.72 | 
+| br-my | 87.54 | 87.25 | 87.19 | 87.50 | 
+
+ </div>
+
+PE experiment ရလဒ်တွေအားလုံးက comparable ပဲ ရတယ်။ Transformer baseline ကို မကျော်နိုင်ဘူး ဖြစ်နေသေးတယ်။  
+
+## To Do
+
+လက်ရှိ word segmentation က အောက်ပါအတိုင်း word level unit နဲ့ပဲသွားထားတာမို့ ...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$ head /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my
+၄ ။ အောက်ပါ မေးခွန်းများ ကို ဖြေဆို ပါ ။
+အဲဒီ မှာ ကိုရွှေ ဗျည်း တို့ မသရ တို့ ရှိ ကြ တယ် လေ ။
+စစ် မှာ ယွန်းမ ။
+ဆ ။
+တံခွန်တိုင် ရွှေကုက္ကား နဲ့ ဘုရား ကို မြင် ။
+ဥ ကုန် သော် ဟင်္သာ ငယ် တို့ ကို နောက် ဟင်္သာ အို တို့ ကို အစဉ် အတိုင်း စား ကြ လေ ၏ ။
+ဦးပေါင်း ကျား နှင့် မြင်းကျား ရှင် ။
+သူငယ် အမိ လည်း ငါ့ သား ကို ယူ၍ အဘယ် သို့ သွား မည်နည်း ဟု လိုက် လျက် ဘီလူးမ ကို ကိုင် ဆွဲ ၏ ။
+ရွှေ အိမ် နန်း နှင့် ကြငှန်း လည်း ခံ မတ် ပေါင်းရံ လျက် ပျော်စံ ရိပ်ငြိမ် စည်းစိမ် မကွာ ။
+မြန်မာ ဘာသာ ကား အိမ် ထန်းပင် ဟု ခေါ်ဝေါ် ကုန် ၏ ။
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$ head /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br
+⠼⠙ ⠲ ⠴⠏ ⠍⠱⠆⠨⠥⠝⠆⠾ ⠅ ⠿⠓⠱⠈⠕ ⠏ ⠲
+⠮⠆⠙⠪ ⠰⠣⠁ ⠅⠕⠩⠺⠱ ⠃⠽⠪⠆ ⠚ ⠍⠣⠹⠣⠗⠣ ⠚ ⠩ ⠟ ⠞⠮ ⠇⠱ ⠲
+⠎⠭ ⠰⠣⠁ ⠽⠥⠝⠆⠍⠣ ⠲
+⠈⠣ ⠲
+⠞⠋⠨⠥⠝⠞⠖ ⠩⠺⠱⠅⠦⠅⠁⠆ ⠝⠮⠂ ⠿ ⠅ ⠾⠔ ⠲
+⠥⠂ ⠅⠉ ⠧ ⠓⠔⠹⠁ ⠌⠮ ⠚ ⠅ ⠱⠴ ⠓⠔⠹⠁ ⠕ ⠚ ⠅ ⠣⠎ ⠣⠞⠖⠆ ⠎⠁⠆ ⠟ ⠃ ⠊ ⠲
+⠥⠆⠏⠶⠆ ⠟⠁⠆ ⠗ ⠾⠔⠆⠟⠁⠆ ⠩⠔ ⠲
+⠹⠥⠌⠮ ⠣⠍⠊ ⠇⠆ ⠌⠣ ⠹⠁⠆ ⠅ ⠽⠥⠯ ⠣⠃⠮ ⠙ ⠹⠺⠁⠆ ⠍⠝ ⠓ ⠇⠬ ⠑ ⠃⠪⠇⠥⠆⠍⠣ ⠅ ⠅⠖ ⠈⠺⠮⠆ ⠊ ⠲
+⠩⠺⠱ ⠱⠝ ⠝⠋⠆ ⠗ ⠟⠣⠓⠌⠋⠆ ⠇⠆ ⠨⠋ ⠍⠣⠞ ⠏⠶⠆⠗⠋ ⠑ ⠿⠻⠎⠋ ⠗⠱⠅⠷⠢ ⠎⠪⠆⠎⠢ ⠍⠣⠅⠺⠁ ⠲
+⠾⠋⠍⠁ ⠃⠁⠹⠁ ⠅⠁⠆ ⠱⠝ ⠁⠋⠆⠏⠔ ⠓ ⠨⠻⠺⠻ ⠅⠉ ⠊ ⠲
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$
+```
+
+- syllable level unit နဲ့ ပြောင်းပြီး NMT လုပ်ရင် အပြောင်းအလဲတော့ ရှိလာနိုင်တယ်
+- sequence2sequence model တွေကို training လုပ်ကြည့်ရန်
+- model ensemble approach နဲ့ performance ကို တိုးမလား experiment ဆက်လုပ်ရန်
 
