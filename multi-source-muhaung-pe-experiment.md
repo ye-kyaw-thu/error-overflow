@@ -1885,6 +1885,87 @@ done
 testing and evaluation ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$ time ./tran-eval-shared-multi-brmy.sh | tee ./tran-eval.log
+...
+...
+...
+[2022-04-17 11:47:27] Best translation 2140 : ရှေးခေတ် စစ်သည် တစ် ဦး ၏ ဘဝ တစ် စိတ် တစ် ပိုင်း ကို ထင်ဟပ် သော အိုင်းချင်း ဖြစ် သည် ။
+[2022-04-17 11:47:27] Best translation 2141 : လိပ်ပြာ တွင် လည်း အခြား သော ဥပေါသထ ကဲ့သို့ ဦးခေါင်း ပိုင်း ၊ ရင် ပိုင်း ၊ ဝမ်းဗိုက် ပိုင်း ဟူ၍ ရှိ သည် ။
+[2022-04-17 11:47:27] Best translation 2142 : ကာတွန်း ဆရာကြီး ဦးဘဂျမ်း ။
+[2022-04-17 11:47:27] Best translation 2143 : ဈမျဉ်းဆွဲ ။
+[2022-04-17 11:47:27] Best translation 2144 : သွေးတူမွေးတူ နွားများ ကို ချူများ ၊ အဆင်တန်ဆာများ ဆင် ပြီးလျှင် လှည်းယဉ် တွင် ခင်မ မောင်း လေ့ ရှိ သည် ။
+[2022-04-17 11:47:27] Best translation 2145 : ရှင် ၊ ခင်ဗျာ ဟု ထူး မှ ယဉ်ကျေးသည် ။
+[2022-04-17 11:47:28] Best translation 2146 : ၉ ၃ ၄ ခု တွင် ပေါ်ပေါက် ခဲ့ သော အသားရောင် သည် အရေး တွင် အရေး တွင် မင်းတရားကြီး က ဗညားဒလ အပေါ် အမျက် တော် ရှိ၍ တော် ရှိ၍ ယိုးဒယား ကျေးရွာ တွင် ကျွန် ငါး ယောက် နှင့် ထား တော် မူ သည် ။
+[2022-04-17 11:47:28] Best translation 2147 : ၁ ၀ ။ ဝါသနာ = စွဲမြဲ နေ သော အလေ့အကျင့် ။
+[2022-04-17 11:47:28] Best translation 2148 : မောင်ဖိုးစိန် သည် ဇာတ်သဘင်ပညာ ကို အခြေခံ မှ စ၍ သင်ယူ လေ့လာ ခဲ့ သည် ။
+[2022-04-17 11:47:28] Best translation 2149 : ရတု ၊ တေးထပ် တို့ တွင် နန်း မူ နန်း ရာ ကို တွေ့ နိုင် သည် ။
+[2022-04-17 11:47:28] Best translation 2150 : ဤ အခါ ငတာ က ဘာကြောင့် ပါ လည်း ဘုရား ဟု လျှောက် ရာ ငယ်ထိပ် က နင် မှ စာ မ တတ် ဘဲ နဲ့ ငါ ရေး တဲ့ စာ တွေ ချီးမွမ်း ပါလျှင် ငါ ပါ ပစ်ရ နေ မှာ ပေါ့ ။
+[2022-04-17 11:47:28] Best translation 2151 : နေ့တိုင်း မှာ ကား ပုတ်သင်ညို သည် အစာ ရှာ၍ ပြန် သည် ရှိ သော် ဆိတ် သားငယ် တို့ သည် အမိ မျက်နှာ ကို ကြည့် ကုန် လျက် လိုက် သကဲ့သို့ ငါ့ သား ၊ ငါ့ သမီး တို့ သည် မြေမှုန့် အလိမ်းလိမ်း ကပ် သော ကိုယ် ဖြင့် အမိ သို့ ကပ်၍ နေ ၏ ။
+[2022-04-17 11:47:28] Best translation 2152 : ဤ ထက် လွန်၍ ဆန်းကြယ် လျောက်ပတ် သော အရာ ကို ကျွန်ုပ် မ တတ် ပြီ ဟု ဆို ၏ ။
+[2022-04-17 11:47:28] Best translation 2153 : သူငယ်ချင်း ပေး တဲ့ ပုတ်သင်ညို မူတည် ပြီး ပြန် ရေး ကြ ရအောင် ။
+[2022-04-17 11:47:28] Best translation 2154 : ကျွန်ုပ်တို့ သည် ဤ မိတဆိုး ရှင်ပြု ကို အလွန် သနား စေတနာ ရှိ လာ ကြ သည် နှင့် ဦးစံရွှေ နှင့် တိုင်ပင် ကာ အလှူ အိမ် တွင် ည အိပ်၍ တတ် နိုင် သမျှ ကုပ်ကုပ် ဆုံးဖြတ် လိုက် ကြ လေ သည် ။
+[2022-04-17 11:47:28] Best translation 2155 : ကြက်ဥ ပြုတ် သည် ။
+[2022-04-17 11:47:28] Best translation 2156 : ယခု ပင် အဆိပ် လူး သော မြား ဖြင့် ပစ် သတ် အံ့ ။
+[2022-04-17 11:47:28] Best translation 2157 : ဝမ်းသာအားရ ၊ မယား က တစ် သွယ် ။
+[2022-04-17 11:47:28] Best translation 2158 : ဝေ ဝေ့ ဝေး ။
+[2022-04-17 11:47:28] Best translation 2159 : ပြန်၍ သုံးသပ် ကြည့် ပါ လျှင် မြန်မာ ဘာသာစကား တွင် အရေး အက္ခရာ ရှိ ထား ပြီး ဖြစ် သဖြင့် အရေး နှင့် အဖတ် ဟူ၍ နှစ် မျိုး ရှိ နေ သည် ။
+[2022-04-17 11:47:28] Best translation 2160 : ဂြောင် လည်း မ ထိုင် ရ ။
+[2022-04-17 11:47:28] Best translation 2161 : ၁ ။ အောက်ပါ စကားလုံး တို့ ၏ အနက် အဓိပ္ပာယ် ကို အဘိဓာန် တွင် ရှာ ပါ ။
+[2022-04-17 11:47:28] Best translation 2162 : သင်ခန်းစာ အကျဉ်း ။
+[2022-04-17 11:47:28] Best translation 2163 : ချစ်လှစွာ သော သား ။
+[2022-04-17 11:47:28] Best translation 2164 : ဟို ရှေ့ က ဆူညံ ဆူညံ ၊ ဘာ သံ လို့ မေး ။
+[2022-04-17 11:47:28] Best translation 2165 : ဒူးရင်းသီး ။
+[2022-04-17 11:47:28] Best translation 2166 : မိမိ တည် သော ဘုရား ကလအုတ် ၊ လှူ ခဲ့ သော ကျွန် နှင့် ဝတ္ထု ပစ္စည်း အစုစု ကို နှောင်းလူ တို့ ဖျက်ဆီး နှိပ်စက် မည့် ရန် မှ ကာကွယ် လို ခြင်း ဖြစ် သည် ။
+[2022-04-17 11:47:28] Total time: 65.96936s wall
+
+real	17m23.519s
+user	32m7.712s
+sys	0m44.331s
+```
+
+train လုပ်ထားတဲ့ မော်ဒယ်တွေအတွက် BLEU score တွေက အောက်ပါအတိုင်း...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$ cat test0-shared-multi-PE-results.txt 
+Evaluation on ./model0-mtmy.iter5000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 85.50, 95.0/90.1/85.7/81.5 (BP=0.973, ratio=0.973, hyp_len=28023, ref_len=28803)
+Evaluation on ./model0-mtmy.iter10000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 85.84, 95.3/90.5/86.2/82.1 (BP=0.971, ratio=0.972, hyp_len=27989, ref_len=28803)
+Evaluation on ./model0-mtmy.iter15000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.19, 95.4/90.7/86.4/82.3 (BP=0.973, ratio=0.974, hyp_len=28045, ref_len=28803)
+Evaluation on ./model0-mtmy.iter20000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.55, 95.3/90.5/86.2/82.1 (BP=0.979, ratio=0.980, hyp_len=28214, ref_len=28803)
+Evaluation on ./model0-mtmy.iter25000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.57, 95.3/90.5/86.2/82.1 (BP=0.979, ratio=0.980, hyp_len=28218, ref_len=28803)
+Evaluation on ./model0-mtmy.iter30000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.57, 95.3/90.5/86.2/82.1 (BP=0.980, ratio=0.980, hyp_len=28221, ref_len=28803)
+Evaluation on ./model0-mtmy.iter35000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.56, 95.3/90.5/86.2/82.1 (BP=0.979, ratio=0.979, hyp_len=28211, ref_len=28803)
+Evaluation on ./model0-mtmy.iter40000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.74, 95.2/90.4/86.0/81.9 (BP=0.983, ratio=0.983, hyp_len=28311, ref_len=28803)
+Evaluation on ./model0-mtmy.iter45000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 86.58, 95.3/90.5/86.2/82.1 (BP=0.980, ratio=0.980, hyp_len=28231, ref_len=28803)
+Evaluation on ./model0-mtmy.iter50000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.42, 95.2/90.2/85.8/81.7 (BP=0.993, ratio=0.993, hyp_len=28590, ref_len=28803)
+Evaluation on ./model0-mtmy.iter55000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.43, 95.2/90.3/85.9/81.7 (BP=0.992, ratio=0.992, hyp_len=28585, ref_len=28803)
+Evaluation on ./model0-mtmy.iter60000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.45, 95.1/90.2/85.8/81.6 (BP=0.993, ratio=0.993, hyp_len=28604, ref_len=28803)
+Evaluation on ./model0-mtmy.iter65000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.45, 95.1/90.2/85.8/81.7 (BP=0.993, ratio=0.993, hyp_len=28596, ref_len=28803)
+Evaluation on ./model0-mtmy.iter70000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.48, 95.1/90.2/85.9/81.7 (BP=0.993, ratio=0.993, hyp_len=28598, ref_len=28803)
+Evaluation on ./model0-mtmy.iter75000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.50, 95.1/90.2/85.8/81.7 (BP=0.994, ratio=0.994, hyp_len=28625, ref_len=28803)
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy$
+```
+
+Best model နဲ့ best score က အောက်ပါအတိုင်း...  
+
+```
+Evaluation on ./model0-mtmy.iter75000.npz with /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br /media/ye/project2/exp/braille-nmt/model.transformer-brmy/hyp.iter80000.my, Shared Multisource Transformer PE Model:
+BLEU = 87.50, 95.1/90.2/85.8/81.7 (BP=0.994, ratio=0.994, hyp_len=28625, ref_len=28803)
+```
+
+
 
