@@ -1768,7 +1768,106 @@ time marian -c /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi
 training လုပ်ခဲ့...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./shared-multi-transformer-pe-brmt2my.sh 
+...
+...
+...
+[2022-04-17 06:21:11] [data] Shuffling data
+[2022-04-17 06:21:11] [data] Done reading 16,415 sentences
+[2022-04-17 06:21:11] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:21:54] Seen 16415 samples
+[2022-04-17 06:21:54] Starting data epoch 735 in logical epoch 735
+[2022-04-17 06:21:54] [data] Shuffling data
+[2022-04-17 06:21:54] [data] Done reading 16,415 sentences
+[2022-04-17 06:21:54] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:22:37] Seen 16415 samples
+[2022-04-17 06:22:37] Starting data epoch 736 in logical epoch 736
+[2022-04-17 06:22:37] [data] Shuffling data
+[2022-04-17 06:22:37] [data] Done reading 16,415 sentences
+[2022-04-17 06:22:37] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:23:21] Seen 16415 samples
+[2022-04-17 06:23:21] Starting data epoch 737 in logical epoch 737
+[2022-04-17 06:23:21] [data] Shuffling data
+[2022-04-17 06:23:21] [data] Done reading 16,415 sentences
+[2022-04-17 06:23:21] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:24:04] Seen 16415 samples
+[2022-04-17 06:24:04] Starting data epoch 738 in logical epoch 738
+[2022-04-17 06:24:04] [data] Shuffling data
+[2022-04-17 06:24:04] [data] Done reading 16,415 sentences
+[2022-04-17 06:24:04] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:24:05] Ep. 738 : Up. 74000 : Sen. 352 : Cost 1.32262504 * 1,174,385 @ 3,204 after 174,358,440 : Time 214.76s : 5468.39 words/s : L.r. 1.3950e-04
+[2022-04-17 06:24:47] Seen 16415 samples
+[2022-04-17 06:24:47] Starting data epoch 739 in logical epoch 739
+[2022-04-17 06:24:47] [data] Shuffling data
+[2022-04-17 06:24:47] [data] Done reading 16,415 sentences
+[2022-04-17 06:24:47] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:25:30] Seen 16415 samples
+[2022-04-17 06:25:30] Starting data epoch 740 in logical epoch 740
+[2022-04-17 06:25:30] [data] Shuffling data
+[2022-04-17 06:25:30] [data] Done reading 16,415 sentences
+[2022-04-17 06:25:30] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:26:13] Seen 16415 samples
+[2022-04-17 06:26:13] Starting data epoch 741 in logical epoch 741
+[2022-04-17 06:26:13] [data] Shuffling data
+[2022-04-17 06:26:13] [data] Done reading 16,415 sentences
+[2022-04-17 06:26:13] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:26:56] Seen 16415 samples
+[2022-04-17 06:26:56] Starting data epoch 742 in logical epoch 742
+[2022-04-17 06:26:56] [data] Shuffling data
+[2022-04-17 06:26:56] [data] Done reading 16,415 sentences
+[2022-04-17 06:26:56] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:27:39] Ep. 742 : Up. 74500 : Sen. 16,415 : Cost 1.32238007 * 1,177,984 @ 2,962 after 175,536,424 : Time 214.35s : 5495.64 words/s : L.r. 1.3903e-04
+[2022-04-17 06:27:39] Seen 16415 samples
+[2022-04-17 06:27:39] Starting data epoch 743 in logical epoch 743
+[2022-04-17 06:27:39] [data] Shuffling data
+[2022-04-17 06:27:39] [data] Done reading 16,415 sentences
+[2022-04-17 06:27:39] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:28:22] Seen 16415 samples
+[2022-04-17 06:28:22] Starting data epoch 744 in logical epoch 744
+[2022-04-17 06:28:22] [data] Shuffling data
+[2022-04-17 06:28:22] [data] Done reading 16,415 sentences
+[2022-04-17 06:28:22] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:29:05] Seen 16415 samples
+[2022-04-17 06:29:05] Starting data epoch 745 in logical epoch 745
+[2022-04-17 06:29:05] [data] Shuffling data
+[2022-04-17 06:29:05] [data] Done reading 16,415 sentences
+[2022-04-17 06:29:05] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:29:48] Seen 16415 samples
+[2022-04-17 06:29:48] Starting data epoch 746 in logical epoch 746
+[2022-04-17 06:29:48] [data] Shuffling data
+[2022-04-17 06:29:48] [data] Done reading 16,415 sentences
+[2022-04-17 06:29:48] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:30:32] Seen 16415 samples
+[2022-04-17 06:30:32] Starting data epoch 747 in logical epoch 747
+[2022-04-17 06:30:32] [data] Shuffling data
+[2022-04-17 06:30:32] [data] Done reading 16,415 sentences
+[2022-04-17 06:30:32] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-17 06:31:13] Ep. 747 : Up. 75000 : Sen. 16,227 : Cost 1.32205176 * 1,177,497 @ 1,427 after 176,713,921 : Time 214.23s : 5496.44 words/s : L.r. 1.3856e-04
+[2022-04-17 06:31:13] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz.orig.npz
+[2022-04-17 06:31:14] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.iter75000.npz
+[2022-04-17 06:31:14] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz
+[2022-04-17 06:31:16] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz.optimizer.npz
+[2022-04-17 06:31:23] [valid] Ep. 747 : Up. 75000 : cross-entropy : 9.26205 : stalled 10 times (last best: 9.16809)
+[2022-04-17 06:31:26] [valid] Ep. 747 : Up. 75000 : perplexity : 1.89314 : stalled 10 times (last best: 1.88092)
+[2022-04-17 06:31:43] [valid] Ep. 747 : Up. 75000 : bleu : 87.3114 : new best
+[2022-04-17 06:31:44] Training finished
+[2022-04-17 06:31:44] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz.orig.npz
+[2022-04-17 06:31:45] Saving model weights and runtime parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz
+[2022-04-17 06:31:46] Saving Adam parameters to /media/ye/project2/exp/braille-nmt/model.transformer-shared-multi-brmy/model0-mtmy.npz.optimizer.npz
+
+real	550m42.315s
+user	914m16.723s
+sys	1m3.831s
+```
+
+## Testing/Evaluation Shared Multisource Transformer {br,mt_my}--->{my}
+
+bash script () က အောက်ပါအတိုင်း...  
+
+```bash
 
 ```
 
+```
 
+```
