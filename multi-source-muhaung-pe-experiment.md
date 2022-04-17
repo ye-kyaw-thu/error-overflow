@@ -1862,7 +1862,7 @@ sys	1m3.831s
 
 ## Testing/Evaluation Shared Multisource Transformer {br,mt_my}--->{my}
 
-bash script () က အောက်ပါအတိုင်း...  
+bash script (tran-eval-shared-multi-brmy.sh) က အောက်ပါအတိုင်း...  
 
 ```bash
 #!/bin/bash
