@@ -39,7 +39,21 @@ marian \
 time marian -c model.s2s-mybr/config.yml  2>&1 | tee s2s.mybr.log
 ```
 
-training စလုပ်ခဲ့ ...  
+Training စလုပ်ပြီး GPU usage က အောက်ပါအတိုင်း...  
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/multi-source/gpu-usage-of-seq2seq-mybr.png" alt="GPU usage for Seq2Seq Architecture my-br" width="600"/>  
+</p>  
+<div align="center">
+  Fig.1 GPU usage of Seq2Seq Architecture NMT training for my-br (MuHaung) translation <br />  
+</div> 
+
+<br />
+
+training ကြာချိန်က အောက်ပါအတိုင်း...  
+
 
 ```
 
