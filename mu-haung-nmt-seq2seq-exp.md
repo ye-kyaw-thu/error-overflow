@@ -614,9 +614,33 @@ training ကို အောက်ပါအတိုင်း run ခဲ့...
 [2022-04-18 20:22:12] [data] Shuffling data
 [2022-04-18 20:22:12] [data] Done reading 16,415 sentences
 [2022-04-18 20:22:12] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:27:34] Seen 16415 samples
+[2022-04-18 20:27:34] Starting data epoch 4 in logical epoch 4
+[2022-04-18 20:27:34] [data] Shuffling data
+[2022-04-18 20:27:34] [data] Done reading 16,415 sentences
+[2022-04-18 20:27:34] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:27:46] Ep. 4 : Up. 1000 : Sen. 614 : Cost 5.31393194 * 359,931 after 718,565 : Time 487.34s : 738.56 words/s
+[2022-04-18 20:32:56] Seen 16415 samples
+[2022-04-18 20:32:56] Starting data epoch 5 in logical epoch 5
+[2022-04-18 20:32:56] [data] Shuffling data
+[2022-04-18 20:32:56] [data] Done reading 16,415 sentences
+[2022-04-18 20:32:56] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:35:47] Ep. 5 : Up. 1500 : Sen. 9,378 : Cost 4.33697367 * 357,067 after 1,075,632 : Time 481.10s : 742.19 words/s
+[2022-04-18 20:38:18] Seen 16415 samples
+[2022-04-18 20:38:18] Starting data epoch 6 in logical epoch 6
+[2022-04-18 20:38:18] [data] Shuffling data
+[2022-04-18 20:38:18] [data] Done reading 16,415 sentences
+[2022-04-18 20:38:18] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:43:39] Seen 16415 samples
+[2022-04-18 20:43:39] Starting data epoch 7 in logical epoch 7
+[2022-04-18 20:43:39] [data] Shuffling data
+[2022-04-18 20:43:39] [data] Done reading 16,415 sentences
+[2022-04-18 20:43:39] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:44:02] Ep. 7 : Up. 2000 : Sen. 1,174 : Cost 3.41581845 * 360,787 after 1,436,419 : Time 494.66s : 729.37 words/s
 ...
 ...
 ...
+
 
 ```
 
