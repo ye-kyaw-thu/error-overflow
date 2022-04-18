@@ -265,3 +265,52 @@ real	32m4.305s
 user	60m9.064s
 sys	0m49.562s
 ```
+
+score တွေက အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-mybr$ cat ./test-seq2seq-results.txt 
+Evaluation with hyp.iter5000.br, Seq2Seq Model:
+BLEU = 79.89, 89.3/82.9/77.0/71.5 (BP=1.000, ratio=1.024, hyp_len=29506, ref_len=28803)
+Evaluation with hyp.iter10000.br, Seq2Seq Model:
+BLEU = 86.86, 94.0/89.2/84.6/80.2 (BP=1.000, ratio=1.007, hyp_len=29007, ref_len=28803)
+Evaluation with hyp.iter15000.br, Seq2Seq Model:
+BLEU = 86.92, 94.0/89.2/84.7/80.3 (BP=1.000, ratio=1.009, hyp_len=29062, ref_len=28803)
+Evaluation with hyp.iter20000.br, Seq2Seq Model:
+BLEU = 86.16, 93.3/88.5/83.9/79.6 (BP=1.000, ratio=1.016, hyp_len=29255, ref_len=28803)
+Evaluation with hyp.iter25000.br, Seq2Seq Model:
+BLEU = 87.64, 94.6/89.9/85.5/81.1 (BP=1.000, ratio=1.002, hyp_len=28863, ref_len=28803)
+Evaluation with hyp.iter30000.br, Seq2Seq Model:
+BLEU = 87.71, 94.6/90.0/85.5/81.3 (BP=1.000, ratio=1.002, hyp_len=28867, ref_len=28803)
+Evaluation with hyp.iter35000.br, Seq2Seq Model:
+BLEU = 88.24, 95.2/90.5/86.1/81.8 (BP=1.000, ratio=1.000, hyp_len=28795, ref_len=28803)
+Evaluation with hyp.iter40000.br, Seq2Seq Model:
+BLEU = 88.27, 95.3/90.6/86.2/82.0 (BP=0.999, ratio=0.999, hyp_len=28764, ref_len=28803)
+Evaluation with hyp.iter45000.br, Seq2Seq Model:
+BLEU = 88.32, 95.3/90.6/86.2/82.0 (BP=0.999, ratio=0.999, hyp_len=28779, ref_len=28803)
+Evaluation with hyp.iter50000.br, Seq2Seq Model:
+BLEU = 88.25, 95.3/90.6/86.2/81.9 (BP=0.999, ratio=0.999, hyp_len=28763, ref_len=28803)
+Evaluation with hyp.iter55000.br, Seq2Seq Model:
+BLEU = 88.27, 95.3/90.7/86.3/82.0 (BP=0.998, ratio=0.998, hyp_len=28752, ref_len=28803)
+Evaluation with hyp.iter60000.br, Seq2Seq Model:
+BLEU = 88.25, 95.3/90.7/86.3/82.1 (BP=0.997, ratio=0.997, hyp_len=28723, ref_len=28803)
+Evaluation with hyp.iter65000.br, Seq2Seq Model:
+BLEU = 88.33, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28754, ref_len=28803)
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-mybr$
+```
+
+best model နဲ့ best score က အောက်ပါအတိုင်း...  
+
+```
+Evaluation with hyp.iter65000.br, Seq2Seq Model:
+BLEU = 88.33, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28754, ref_len=28803)
+```
+
+## Training Seq2Seq for br-my
+
+ဒီတစ်ခါတော့ မူဟောင်း ကနေ မြန်မာစာကို sequence-to-sequence architecture နဲ့ ဘာသာပြန်ဖို့အတွက် ပြင်ဆင်မယ်။  
+training လုပ်ဖို့အတွက် bash script က အောက်ပါအတိုင်း...  
+
+```bash
+
+```
