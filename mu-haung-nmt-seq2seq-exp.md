@@ -54,8 +54,123 @@ Training စလုပ်ပြီး GPU usage က အောက်ပါအတ�
 
 training ကြာချိန်က အောက်ပါအတိုင်း...  
 
-
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./seq2seq-mybr.sh
+...
+...
+...
+[2022-04-18 05:54:48] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 05:57:15] Ep. 184 : Up. 60500 : Sen. 7,624 : Cost 0.00429036 * 358,013 after 43,403,154 : Time 567.45s : 630.91 words/s
+[2022-04-18 06:00:02] Seen 16415 samples
+[2022-04-18 06:00:02] Starting data epoch 185 in logical epoch 185
+[2022-04-18 06:00:02] [data] Shuffling data
+[2022-04-18 06:00:02] [data] Done reading 16,415 sentences
+[2022-04-18 06:00:02] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:05:11] Ep. 185 : Up. 61000 : Sen. 16,204 : Cost 0.00491026 * 359,316 after 43,762,470 : Time 476.10s : 754.71 words/s
+[2022-04-18 06:05:16] Seen 16415 samples
+[2022-04-18 06:05:16] Starting data epoch 186 in logical epoch 186
+[2022-04-18 06:05:16] [data] Shuffling data
+[2022-04-18 06:05:16] [data] Done reading 16,415 sentences
+[2022-04-18 06:05:16] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:10:30] Seen 16415 samples
+[2022-04-18 06:10:30] Starting data epoch 187 in logical epoch 187
+[2022-04-18 06:10:30] [data] Shuffling data
+[2022-04-18 06:10:30] [data] Done reading 16,415 sentences
+[2022-04-18 06:10:30] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:13:04] Ep. 187 : Up. 61500 : Sen. 8,358 : Cost 0.00299245 * 358,936 after 44,121,406 : Time 473.36s : 758.27 words/s
+[2022-04-18 06:15:45] Seen 16415 samples
+[2022-04-18 06:15:45] Starting data epoch 188 in logical epoch 188
+[2022-04-18 06:15:45] [data] Shuffling data
+[2022-04-18 06:15:45] [data] Done reading 16,415 sentences
+[2022-04-18 06:15:45] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:20:59] Seen 16415 samples
+[2022-04-18 06:20:59] Starting data epoch 189 in logical epoch 189
+[2022-04-18 06:20:59] [data] Shuffling data
+[2022-04-18 06:20:59] [data] Done reading 16,415 sentences
+[2022-04-18 06:20:59] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:21:04] Ep. 189 : Up. 62000 : Sen. 120 : Cost 0.00289217 * 357,570 after 44,478,976 : Time 480.03s : 744.89 words/s
+[2022-04-18 06:26:12] Seen 16415 samples
+[2022-04-18 06:26:12] Starting data epoch 190 in logical epoch 190
+[2022-04-18 06:26:12] [data] Shuffling data
+[2022-04-18 06:26:12] [data] Done reading 16,415 sentences
+[2022-04-18 06:26:12] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:29:00] Ep. 190 : Up. 62500 : Sen. 8,582 : Cost 0.00665823 * 359,006 after 44,837,982 : Time 475.78s : 754.56 words/s
+[2022-04-18 06:31:27] Seen 16415 samples
+[2022-04-18 06:31:27] Starting data epoch 191 in logical epoch 191
+[2022-04-18 06:31:27] [data] Shuffling data
+[2022-04-18 06:31:27] [data] Done reading 16,415 sentences
+[2022-04-18 06:31:27] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:36:41] Seen 16415 samples
+[2022-04-18 06:36:41] Starting data epoch 192 in logical epoch 192
+[2022-04-18 06:36:41] [data] Shuffling data
+[2022-04-18 06:36:41] [data] Done reading 16,415 sentences
+[2022-04-18 06:36:41] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:36:55] Ep. 192 : Up. 63000 : Sen. 708 : Cost 0.00686512 * 357,910 after 45,195,892 : Time 474.65s : 754.04 words/s
+[2022-04-18 06:41:55] Seen 16415 samples
+[2022-04-18 06:41:55] Starting data epoch 193 in logical epoch 193
+[2022-04-18 06:41:55] [data] Shuffling data
+[2022-04-18 06:41:55] [data] Done reading 16,415 sentences
+[2022-04-18 06:41:55] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:44:53] Ep. 193 : Up. 63500 : Sen. 9,012 : Cost 0.00255246 * 359,573 after 45,555,465 : Time 478.08s : 752.12 words/s
+[2022-04-18 06:47:10] Seen 16415 samples
+[2022-04-18 06:47:10] Starting data epoch 194 in logical epoch 194
+[2022-04-18 06:47:10] [data] Shuffling data
+[2022-04-18 06:47:10] [data] Done reading 16,415 sentences
+[2022-04-18 06:47:10] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:52:24] Seen 16415 samples
+[2022-04-18 06:52:24] Starting data epoch 195 in logical epoch 195
+[2022-04-18 06:52:24] [data] Shuffling data
+[2022-04-18 06:52:24] [data] Done reading 16,415 sentences
+[2022-04-18 06:52:24] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 06:52:49] Ep. 195 : Up. 64000 : Sen. 1,202 : Cost 0.00352235 * 358,597 after 45,914,062 : Time 476.03s : 753.31 words/s
+[2022-04-18 06:57:36] Seen 16415 samples
+[2022-04-18 06:57:36] Starting data epoch 196 in logical epoch 196
+[2022-04-18 06:57:36] [data] Shuffling data
+[2022-04-18 06:57:36] [data] Done reading 16,415 sentences
+[2022-04-18 06:57:36] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 07:00:44] Ep. 196 : Up. 64500 : Sen. 9,780 : Cost 0.00406838 * 358,734 after 46,272,796 : Time 475.07s : 755.12 words/s
+[2022-04-18 07:02:51] Seen 16415 samples
+[2022-04-18 07:02:51] Starting data epoch 197 in logical epoch 197
+[2022-04-18 07:02:51] [data] Shuffling data
+[2022-04-18 07:02:51] [data] Done reading 16,415 sentences
+[2022-04-18 07:02:51] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 07:08:06] Seen 16415 samples
+[2022-04-18 07:08:06] Starting data epoch 198 in logical epoch 198
+[2022-04-18 07:08:06] [data] Shuffling data
+[2022-04-18 07:08:06] [data] Done reading 16,415 sentences
+[2022-04-18 07:08:06] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 07:08:36] Ep. 198 : Up. 65000 : Sen. 1,932 : Cost 0.00201767 * 356,297 after 46,629,093 : Time 472.01s : 754.85 words/s
+[2022-04-18 07:08:36] Saving model weights and runtime parameters to model.s2s-mybr/model.npz.orig.npz
+[2022-04-18 07:08:43] Saving model weights and runtime parameters to model.s2s-mybr/model.iter65000.npz
+[2022-04-18 07:08:48] Saving model weights and runtime parameters to model.s2s-mybr/model.npz
+[2022-04-18 07:08:55] Saving Adam parameters to model.s2s-mybr/model.npz.optimizer.npz
+[2022-04-18 07:09:17] [valid] Ep. 198 : Up. 65000 : cross-entropy : 10.1405 : stalled 10 times (last best: 8.13354)
+[2022-04-18 07:09:26] [valid] Ep. 198 : Up. 65000 : perplexity : 2.01128 : stalled 10 times (last best: 1.7515)
+[2022-04-18 07:09:26] Translating validation set...
+[2022-04-18 07:09:30] Best translation 0 : ⠼⠊ ⠲ ⠺⠁⠹⠣⠝⠁ ⠰⠶ ⠎⠺⠮⠆⠾⠮⠆ ⠝⠱ ⠹⠻⠆ ⠣⠇⠱⠂⠣⠟⠔⠂ ⠲
+[2022-04-18 07:09:30] Best translation 1 : ⠶ ⠨⠣ ⠶ ⠽⠉ ⠗ ⠇⠱⠅ ⠲
+[2022-04-18 07:09:30] Best translation 2 : ⠚⠣⠏⠋ ⠝⠌ ⠏⠔⠷⠁ ⠶ ⠙⠻⠨⠔⠍⠕⠆⠏⠺⠔⠂ ⠶ ⠼⠓ ⠲
+[2022-04-18 07:09:30] Best translation 3 : ⠶ ⠅⠣ ⠶ ⠏⠥⠂⠛⠋ ⠾⠕⠂ ⠹ ⠷⠶⠥⠆ ⠾⠕⠂⠝⠮ ⠱⠗⠁⠺⠣⠞⠪ ⠾⠭ ⠤⠤⠤⠤⠤⠤ ⠏⠻ ⠞⠺ ⠩ ⠹ ⠲ ⠶ ⠅⠋⠆ ⠒ ⠅⠋⠆ ⠶ ⠲
+[2022-04-18 07:09:30] Best translation 4 : ⠥⠂⠻⠆ ⠔⠛⠣⠇⠱⠅ ⠭⠭ ⠒ ⠚⠣⠏⠋ ⠭⠭ ⠒ ⠃⠮ ⠝⠌⠡⠹⠁⠆ ⠏⠮⠆ ⠭⠭ ⠟⠞⠚ ⠞⠖⠆⠿⠪ ⠅ ⠹⠨ ⠇⠦ ⠿⠪⠆ ⠇⠁ ⠕⠅⠡⠦ ⠝⠱ ⠞⠁ ⠅ ⠞⠻⠂ ⠣⠇⠕ ⠋ ⠩ ⠃⠥⠆ ⠇⠕⠂ ⠽⠔⠽⠔⠟⠱⠆⠟⠱⠆ ⠿⠋ ⠿⠻⠆ ⠇⠬ ⠹⠣ ⠞⠮⠂ ⠲
+[2022-04-18 07:09:30] Best translation 5 : ⠇⠱⠿⠔⠆⠍⠉⠞⠖⠆ ⠒ ⠹⠉⠆⠈⠶ ⠒ ⠡⠪⠆⠍⠥⠝⠆ ⠒ ⠱⠆⠾⠣ ⠒ ⠝⠥⠆⠷⠋⠂ ⠹⠢⠍⠺⠱⠂ ⠲
+[2022-04-18 07:09:30] Best translation 10 : ⠗⠱⠹⠮ ⠽⠴⠟⠁⠆ ⠱⠝⠩⠱⠂ ⠍⠔⠆ ⠭ ⠿⠪⠆⠝⠴ ⠥⠂⠽⠔ ⠞ ⠞⠺ ⠍⠔⠆⠟⠪⠆ ⠗⠣⠞⠥ ⠩ ⠎⠔ ⠱⠅⠿⠻ ⠝⠱ ⠹⠻⠆ ⠍⠔⠆⠟⠪⠆ ⠅ ⠹⠣⠞⠯ ⠁⠪⠆⠝⠋⠆ ⠽⠥ ⠗⠋ ⠹⠉⠆ ⠟⠢ ⠟⠋⠎⠪ ⠹ ⠲
+[2022-04-18 07:09:30] Best translation 20 : ⠍⠻⠆ ⠍⠻⠂ ⠍⠻ ⠲
+[2022-04-18 07:09:30] Best translation 40 : ⠁⠮⠂⠇⠬ ⠋⠇ ⠅⠺⠮⠂ ⠹⠁⠆ ⠍⠶ ⠅ ⠲
+[2022-04-18 07:09:30] Best translation 80 : ⠝⠱ ⠨⠥⠂ ⠞⠻⠂ ⠿⠓ ⠃⠪⠇⠥⠆⠍⠣ ⠑ ⠅⠬ ⠞⠓⠁⠆ ⠹⠣⠇⠕ ⠾⠑⠠⠣⠁ ⠅ ⠷⠁ ⠞⠥⠝⠂ ⠝⠱ ⠞⠁ ⠏⠮⠆ ⠓⠥⠯ ⠭ ⠏ ⠹⠞ ⠲
+[2022-04-18 07:09:30] Best translation 160 : ⠣⠈⠉⠆⠹⠣⠞ ⠲
+[2022-04-18 07:09:34] Best translation 320 : ⠞⠮⠂ ⠅⠣ ⠹⠥ ⠿⠋ ⠏⠉ ⠰⠣⠁ ⠲
+[2022-04-18 07:09:36] Best translation 640 : ⠕⠆ ⠅⠣⠇⠱⠆ ⠠⠣⠭ ⠇⠉⠆ ⠰⠣⠁ ⠞⠭ ⠇⠉⠆ ⠅⠣ ⠞⠻⠂ ⠕⠆ ⠅⠶⠆ ⠅⠣⠇⠱⠆ ⠭ ⠏⠱⠍⠮⠂ ⠝⠴ ⠞⠭ ⠇⠉⠆ ⠅⠣ ⠞⠻⠂ ⠴⠡⠱ ⠰⠣⠁ ⠑ ⠱ ⠹⠣ ⠞⠮⠂ ⠲
+[2022-04-18 07:09:49] Best translation 1280 : ⠎⠁⠕⠅⠾ ⠅ ⠏⠬ ⠰⠣ ⠅⠖ ⠟⠣ ⠏ ⠹ ⠲
+[2022-04-18 07:10:06] Best translation 2560 : ⠇⠥⠂⠇⠔ ⠹ ⠍⠊⠍⠊ ⠣⠎⠺⠋⠆ ⠅ ⠗⠺⠁ ⠫ ⠩⠱⠆⠥⠆⠎ ⠿⠣ ⠊ ⠲
+[2022-04-18 07:10:07] Total translation time: 40.39035s
+[2022-04-18 07:10:07] [valid] Ep. 198 : Up. 65000 : bleu : 87.9275 : stalled 3 times (last best: 88.1486)
+[2022-04-18 07:10:08] Training finished
+[2022-04-18 07:10:09] Saving model weights and runtime parameters to model.s2s-mybr/model.npz.orig.npz
+[2022-04-18 07:10:14] Saving model weights and runtime parameters to model.s2s-mybr/model.npz
+[2022-04-18 07:10:20] Saving Adam parameters to model.s2s-mybr/model.npz.optimizer.npz
 
+real	1068m9.327s
+user	1788m19.311s
+sys	1m38.674s
 ```
 
