@@ -174,3 +174,47 @@ user	1788m19.311s
 sys	1m38.674s
 ```
 
+output model တွေကို လေ့လာခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-mybr$ ls
+config.yml           model.iter25000.npz  model.iter45000.npz  model.iter60000.npz    model.npz.optimizer.npz         model.npz.yml
+model.iter10000.npz  model.iter30000.npz  model.iter50000.npz  model.iter65000.npz    model.npz.orig.npz              train.log
+model.iter15000.npz  model.iter35000.npz  model.iter5000.npz   model.npz              model.npz.orig.npz.decoder.yml  valid.log
+model.iter20000.npz  model.iter40000.npz  model.iter55000.npz  model.npz.decoder.yml  model.npz.progress.yml
+```
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-mybr$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.iter60000.npz
+model.iter65000.npz
+model.npz
+model.npz.optimizer.npz
+model.npz.orig.npz
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-mybr$
+```
+
+## Testing/Evaluation of Seq2Seq my-br
+
+bash script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```bash
+
+```
+
+testing/evaluation ကို အောက်ပါအတိုင်း run ခဲ့ ...  
+
+```
+
+```
