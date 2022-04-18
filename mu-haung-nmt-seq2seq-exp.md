@@ -350,6 +350,273 @@ time marian -c model.s2s-brmy/config.yml  2>&1 | tee s2s.brmy.log
 training ကို အောက်ပါအတိုင်း run ခဲ့...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt$ gedit seq2seq-brmy.sh
+(base) ye@:/media/ye/project2/exp/braille-nmt$ chmod +x ./seq2seq-brmy.sh 
+(base) ye@:/media/ye/project2/exp/braille-nmt$ ./seq2seq-brmy.sh 
+[2022-04-18 20:09:58] [marian] Marian v1.10.0 6f6d4846 2021-02-06 15:35:16 -0800
+[2022-04-18 20:09:58] [marian] Running on administrator-HP-Z2-Tower-G4-Workstation as process 365527 with command line:
+[2022-04-18 20:09:58] [marian] marian -c model.s2s-brmy/config.yml
+[2022-04-18 20:09:58] [config] after: 0e
+[2022-04-18 20:09:58] [config] after-batches: 0
+[2022-04-18 20:09:58] [config] after-epochs: 0
+[2022-04-18 20:09:58] [config] all-caps-every: 0
+[2022-04-18 20:09:58] [config] allow-unk: false
+[2022-04-18 20:09:58] [config] authors: false
+[2022-04-18 20:09:58] [config] beam-size: 12
+[2022-04-18 20:09:58] [config] bert-class-symbol: "[CLS]"
+[2022-04-18 20:09:58] [config] bert-mask-symbol: "[MASK]"
+[2022-04-18 20:09:58] [config] bert-masking-fraction: 0.15
+[2022-04-18 20:09:58] [config] bert-sep-symbol: "[SEP]"
+[2022-04-18 20:09:58] [config] bert-train-type-embeddings: true
+[2022-04-18 20:09:58] [config] bert-type-vocab-size: 2
+[2022-04-18 20:09:58] [config] build-info: ""
+[2022-04-18 20:09:58] [config] cite: false
+[2022-04-18 20:09:58] [config] clip-norm: 1
+[2022-04-18 20:09:58] [config] cost-scaling:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] cost-type: ce-sum
+[2022-04-18 20:09:58] [config] cpu-threads: 0
+[2022-04-18 20:09:58] [config] data-weighting: ""
+[2022-04-18 20:09:58] [config] data-weighting-type: sentence
+[2022-04-18 20:09:58] [config] dec-cell: lstm
+[2022-04-18 20:09:58] [config] dec-cell-base-depth: 2
+[2022-04-18 20:09:58] [config] dec-cell-high-depth: 2
+[2022-04-18 20:09:58] [config] dec-depth: 2
+[2022-04-18 20:09:58] [config] devices:
+[2022-04-18 20:09:58] [config]   - 0
+[2022-04-18 20:09:58] [config]   - 1
+[2022-04-18 20:09:58] [config] dim-emb: 512
+[2022-04-18 20:09:58] [config] dim-rnn: 1024
+[2022-04-18 20:09:58] [config] dim-vocabs:
+[2022-04-18 20:09:58] [config]   - 0
+[2022-04-18 20:09:58] [config]   - 0
+[2022-04-18 20:09:58] [config] disp-first: 0
+[2022-04-18 20:09:58] [config] disp-freq: 500
+[2022-04-18 20:09:58] [config] disp-label-counts: true
+[2022-04-18 20:09:58] [config] dropout-rnn: 0.3
+[2022-04-18 20:09:58] [config] dropout-src: 0.3
+[2022-04-18 20:09:58] [config] dropout-trg: 0
+[2022-04-18 20:09:58] [config] dump-config: ""
+[2022-04-18 20:09:58] [config] early-stopping: 10
+[2022-04-18 20:09:58] [config] embedding-fix-src: false
+[2022-04-18 20:09:58] [config] embedding-fix-trg: false
+[2022-04-18 20:09:58] [config] embedding-normalization: false
+[2022-04-18 20:09:58] [config] embedding-vectors:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] enc-cell: lstm
+[2022-04-18 20:09:58] [config] enc-cell-depth: 2
+[2022-04-18 20:09:58] [config] enc-depth: 2
+[2022-04-18 20:09:58] [config] enc-type: alternating
+[2022-04-18 20:09:58] [config] english-title-case-every: 0
+[2022-04-18 20:09:58] [config] exponential-smoothing: 0.0001
+[2022-04-18 20:09:58] [config] factor-weight: 1
+[2022-04-18 20:09:58] [config] grad-dropping-momentum: 0
+[2022-04-18 20:09:58] [config] grad-dropping-rate: 0
+[2022-04-18 20:09:58] [config] grad-dropping-warmup: 100
+[2022-04-18 20:09:58] [config] gradient-checkpointing: false
+[2022-04-18 20:09:58] [config] guided-alignment: none
+[2022-04-18 20:09:58] [config] guided-alignment-cost: mse
+[2022-04-18 20:09:58] [config] guided-alignment-weight: 0.1
+[2022-04-18 20:09:58] [config] ignore-model-config: false
+[2022-04-18 20:09:58] [config] input-types:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] interpolate-env-vars: false
+[2022-04-18 20:09:58] [config] keep-best: false
+[2022-04-18 20:09:58] [config] label-smoothing: 0
+[2022-04-18 20:09:58] [config] layer-normalization: true
+[2022-04-18 20:09:58] [config] learn-rate: 0.0001
+[2022-04-18 20:09:58] [config] lemma-dim-emb: 0
+[2022-04-18 20:09:58] [config] log: model.s2s-brmy/train.log
+[2022-04-18 20:09:58] [config] log-level: info
+[2022-04-18 20:09:58] [config] log-time-zone: ""
+[2022-04-18 20:09:58] [config] logical-epoch:
+[2022-04-18 20:09:58] [config]   - 1e
+[2022-04-18 20:09:58] [config]   - 0
+[2022-04-18 20:09:58] [config] lr-decay: 0
+[2022-04-18 20:09:58] [config] lr-decay-freq: 50000
+[2022-04-18 20:09:58] [config] lr-decay-inv-sqrt:
+[2022-04-18 20:09:58] [config]   - 0
+[2022-04-18 20:09:58] [config] lr-decay-repeat-warmup: false
+[2022-04-18 20:09:58] [config] lr-decay-reset-optimizer: false
+[2022-04-18 20:09:58] [config] lr-decay-start:
+[2022-04-18 20:09:58] [config]   - 10
+[2022-04-18 20:09:58] [config]   - 1
+[2022-04-18 20:09:58] [config] lr-decay-strategy: epoch+stalled
+[2022-04-18 20:09:58] [config] lr-report: false
+[2022-04-18 20:09:58] [config] lr-warmup: 0
+[2022-04-18 20:09:58] [config] lr-warmup-at-reload: false
+[2022-04-18 20:09:58] [config] lr-warmup-cycle: false
+[2022-04-18 20:09:58] [config] lr-warmup-start-rate: 0
+[2022-04-18 20:09:58] [config] max-length: 200
+[2022-04-18 20:09:58] [config] max-length-crop: false
+[2022-04-18 20:09:58] [config] max-length-factor: 3
+[2022-04-18 20:09:58] [config] maxi-batch: 100
+[2022-04-18 20:09:58] [config] maxi-batch-sort: trg
+[2022-04-18 20:09:58] [config] mini-batch: 64
+[2022-04-18 20:09:58] [config] mini-batch-fit: true
+[2022-04-18 20:09:58] [config] mini-batch-fit-step: 10
+[2022-04-18 20:09:58] [config] mini-batch-track-lr: false
+[2022-04-18 20:09:58] [config] mini-batch-warmup: 0
+[2022-04-18 20:09:58] [config] mini-batch-words: 0
+[2022-04-18 20:09:58] [config] mini-batch-words-ref: 0
+[2022-04-18 20:09:58] [config] model: model.s2s-brmy/model.npz
+[2022-04-18 20:09:58] [config] multi-loss-type: sum
+[2022-04-18 20:09:58] [config] multi-node: false
+[2022-04-18 20:09:58] [config] multi-node-overlap: true
+[2022-04-18 20:09:58] [config] n-best: false
+[2022-04-18 20:09:58] [config] no-nccl: false
+[2022-04-18 20:09:58] [config] no-reload: false
+[2022-04-18 20:09:58] [config] no-restore-corpus: false
+[2022-04-18 20:09:58] [config] normalize: 0
+[2022-04-18 20:09:58] [config] normalize-gradient: false
+[2022-04-18 20:09:58] [config] num-devices: 0
+[2022-04-18 20:09:58] [config] optimizer: adam
+[2022-04-18 20:09:58] [config] optimizer-delay: 1
+[2022-04-18 20:09:58] [config] optimizer-params:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] output-omit-bias: false
+[2022-04-18 20:09:58] [config] overwrite: false
+[2022-04-18 20:09:58] [config] precision:
+[2022-04-18 20:09:58] [config]   - float32
+[2022-04-18 20:09:58] [config]   - float32
+[2022-04-18 20:09:58] [config]   - float32
+[2022-04-18 20:09:58] [config] pretrained-model: ""
+[2022-04-18 20:09:58] [config] quantize-biases: false
+[2022-04-18 20:09:58] [config] quantize-bits: 0
+[2022-04-18 20:09:58] [config] quantize-log-based: false
+[2022-04-18 20:09:58] [config] quantize-optimization-steps: 0
+[2022-04-18 20:09:58] [config] quiet: false
+[2022-04-18 20:09:58] [config] quiet-translation: false
+[2022-04-18 20:09:58] [config] relative-paths: false
+[2022-04-18 20:09:58] [config] right-left: false
+[2022-04-18 20:09:58] [config] save-freq: 5000
+[2022-04-18 20:09:58] [config] seed: 1111
+[2022-04-18 20:09:58] [config] sentencepiece-alphas:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] sentencepiece-max-lines: 2000000
+[2022-04-18 20:09:58] [config] sentencepiece-options: ""
+[2022-04-18 20:09:58] [config] shuffle: data
+[2022-04-18 20:09:58] [config] shuffle-in-ram: false
+[2022-04-18 20:09:58] [config] sigterm: save-and-exit
+[2022-04-18 20:09:58] [config] skip: true
+[2022-04-18 20:09:58] [config] sqlite: ""
+[2022-04-18 20:09:58] [config] sqlite-drop: false
+[2022-04-18 20:09:58] [config] sync-sgd: true
+[2022-04-18 20:09:58] [config] tempdir: /tmp
+[2022-04-18 20:09:58] [config] tied-embeddings: true
+[2022-04-18 20:09:58] [config] tied-embeddings-all: false
+[2022-04-18 20:09:58] [config] tied-embeddings-src: false
+[2022-04-18 20:09:58] [config] train-embedder-rank:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] train-sets:
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my
+[2022-04-18 20:09:58] [config] transformer-aan-activation: swish
+[2022-04-18 20:09:58] [config] transformer-aan-depth: 2
+[2022-04-18 20:09:58] [config] transformer-aan-nogate: false
+[2022-04-18 20:09:58] [config] transformer-decoder-autoreg: self-attention
+[2022-04-18 20:09:58] [config] transformer-depth-scaling: false
+[2022-04-18 20:09:58] [config] transformer-dim-aan: 2048
+[2022-04-18 20:09:58] [config] transformer-dim-ffn: 2048
+[2022-04-18 20:09:58] [config] transformer-dropout: 0
+[2022-04-18 20:09:58] [config] transformer-dropout-attention: 0
+[2022-04-18 20:09:58] [config] transformer-dropout-ffn: 0
+[2022-04-18 20:09:58] [config] transformer-ffn-activation: swish
+[2022-04-18 20:09:58] [config] transformer-ffn-depth: 2
+[2022-04-18 20:09:58] [config] transformer-guided-alignment-layer: last
+[2022-04-18 20:09:58] [config] transformer-heads: 8
+[2022-04-18 20:09:58] [config] transformer-no-projection: false
+[2022-04-18 20:09:58] [config] transformer-pool: false
+[2022-04-18 20:09:58] [config] transformer-postprocess: dan
+[2022-04-18 20:09:58] [config] transformer-postprocess-emb: d
+[2022-04-18 20:09:58] [config] transformer-postprocess-top: ""
+[2022-04-18 20:09:58] [config] transformer-preprocess: ""
+[2022-04-18 20:09:58] [config] transformer-tied-layers:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] transformer-train-position-embeddings: false
+[2022-04-18 20:09:58] [config] tsv: false
+[2022-04-18 20:09:58] [config] tsv-fields: 0
+[2022-04-18 20:09:58] [config] type: s2s
+[2022-04-18 20:09:58] [config] ulr: false
+[2022-04-18 20:09:58] [config] ulr-dim-emb: 0
+[2022-04-18 20:09:58] [config] ulr-dropout: 0
+[2022-04-18 20:09:58] [config] ulr-keys-vectors: ""
+[2022-04-18 20:09:58] [config] ulr-query-vectors: ""
+[2022-04-18 20:09:58] [config] ulr-softmax-temperature: 1
+[2022-04-18 20:09:58] [config] ulr-trainable-transformation: false
+[2022-04-18 20:09:58] [config] unlikelihood-loss: false
+[2022-04-18 20:09:58] [config] valid-freq: 5000
+[2022-04-18 20:09:58] [config] valid-log: model.s2s-brmy/valid.log
+[2022-04-18 20:09:58] [config] valid-max-length: 1000
+[2022-04-18 20:09:58] [config] valid-metrics:
+[2022-04-18 20:09:58] [config]   - cross-entropy
+[2022-04-18 20:09:58] [config]   - perplexity
+[2022-04-18 20:09:58] [config]   - bleu
+[2022-04-18 20:09:58] [config] valid-mini-batch: 32
+[2022-04-18 20:09:58] [config] valid-reset-stalled: false
+[2022-04-18 20:09:58] [config] valid-script-args:
+[2022-04-18 20:09:58] [config]   []
+[2022-04-18 20:09:58] [config] valid-script-path: ""
+[2022-04-18 20:09:58] [config] valid-sets:
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my
+[2022-04-18 20:09:58] [config] valid-translation-output: ""
+[2022-04-18 20:09:58] [config] vocabs:
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml
+[2022-04-18 20:09:58] [config]   - /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml
+[2022-04-18 20:09:58] [config] word-penalty: 0
+[2022-04-18 20:09:58] [config] word-scores: false
+[2022-04-18 20:09:58] [config] workspace: 500
+[2022-04-18 20:09:58] [config] Model is being created with Marian v1.10.0 6f6d4846 2021-02-06 15:35:16 -0800
+[2022-04-18 20:09:58] Using synchronous SGD
+[2022-04-18 20:09:58] [data] Loading vocabulary from JSON/Yaml file /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml
+[2022-04-18 20:09:58] [data] Setting vocabulary size for input 0 to 18,364
+[2022-04-18 20:09:58] [data] Loading vocabulary from JSON/Yaml file /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml
+[2022-04-18 20:09:59] [data] Setting vocabulary size for input 1 to 18,602
+[2022-04-18 20:09:59] [comm] Compiled without MPI support. Running as a single process on administrator-HP-Z2-Tower-G4-Workstation
+[2022-04-18 20:09:59] [batching] Collecting statistics for batch fitting with step size 10
+[2022-04-18 20:09:59] [memory] Extending reserved space to 512 MB (device gpu0)
+[2022-04-18 20:09:59] [memory] Extending reserved space to 512 MB (device gpu1)
+[2022-04-18 20:09:59] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-04-18 20:09:59] [comm] NCCLCommunicator constructed successfully
+[2022-04-18 20:09:59] [training] Using 2 GPUs
+[2022-04-18 20:09:59] [logits] Applying loss function for 1 factor(s)
+[2022-04-18 20:09:59] [memory] Reserving 407 MB, device gpu0
+[2022-04-18 20:09:59] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-04-18 20:10:00] [memory] Reserving 407 MB, device gpu0
+[2022-04-18 20:11:24] [batching] Done. Typical MB size is 882 target words
+[2022-04-18 20:11:24] [memory] Extending reserved space to 512 MB (device gpu0)
+[2022-04-18 20:11:24] [memory] Extending reserved space to 512 MB (device gpu1)
+[2022-04-18 20:11:24] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-04-18 20:11:24] [comm] NCCLCommunicator constructed successfully
+[2022-04-18 20:11:24] [training] Using 2 GPUs
+[2022-04-18 20:11:24] Training started
+[2022-04-18 20:11:24] [data] Shuffling data
+[2022-04-18 20:11:24] [data] Done reading 16,415 sentences
+[2022-04-18 20:11:24] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:11:24] [training] Batches are processed as 1 process(es) x 2 devices/process
+[2022-04-18 20:11:24] [memory] Reserving 407 MB, device gpu0
+[2022-04-18 20:11:24] [memory] Reserving 407 MB, device gpu1
+[2022-04-18 20:11:25] [memory] Reserving 407 MB, device gpu0
+[2022-04-18 20:11:25] [memory] Reserving 407 MB, device gpu1
+[2022-04-18 20:11:25] [memory] Reserving 203 MB, device gpu0
+[2022-04-18 20:11:25] [memory] Reserving 203 MB, device gpu1
+[2022-04-18 20:11:26] [memory] Reserving 407 MB, device gpu1
+[2022-04-18 20:11:26] [memory] Reserving 407 MB, device gpu0
+[2022-04-18 20:16:50] Seen 16415 samples
+[2022-04-18 20:16:50] Starting data epoch 2 in logical epoch 2
+[2022-04-18 20:16:50] [data] Shuffling data
+[2022-04-18 20:16:50] [data] Done reading 16,415 sentences
+[2022-04-18 20:16:50] [data] Done shuffling 16,415 sentences to temp files
+[2022-04-18 20:19:39] Ep. 2 : Up. 500 : Sen. 8,466 : Cost 6.71785927 * 358,634 after 358,634 : Time 494.82s : 724.78 words/s
+[2022-04-18 20:22:12] Seen 16415 samples
+[2022-04-18 20:22:12] Starting data epoch 3 in logical epoch 3
+[2022-04-18 20:22:12] [data] Shuffling data
+[2022-04-18 20:22:12] [data] Done reading 16,415 sentences
+[2022-04-18 20:22:12] [data] Done shuffling 16,415 sentences to temp files
+...
+...
+...
 
 ```
 
