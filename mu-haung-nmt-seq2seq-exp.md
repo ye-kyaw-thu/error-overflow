@@ -312,5 +312,63 @@ BLEU = 88.33, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28754, ref_len
 training လုပ်ဖို့အတွက် bash script က အောက်ပါအတိုင်း...  
 
 ```bash
+#!/bin/bash
+
+# Preparation for seq2seq NMT experiment between MuHaung Braille and Burmese
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+## for Word Unit
+## Last Updated: 18 April 2022
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+mkdir model.s2s-brmy;
+
+marian \
+  --type s2s \
+  --train-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/train.my \
+  --max-length 200 \
+  --valid-sets /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.br /media/ye/project2/exp/braille-nmt/data/for-nmt/0/dev.my \
+  --vocabs  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+  --model model.s2s-brmy/model.npz \
+  --workspace 500 \
+  --enc-depth 2 --enc-type alternating --enc-cell lstm --enc-cell-depth 2 \
+  --dec-depth 2 --dec-cell lstm --dec-cell-base-depth 2 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log model.s2s-brmy/train.log --valid-log model.s2s-brmy/valid.log \
+  --devices 0 1 --sync-sgd --seed 1111  \
+  --dump-config > model.s2s-brmy/config.yml
+  
+time marian -c model.s2s-brmy/config.yml  2>&1 | tee s2s.brmy.log
+
+```
+
+training ကို အောက်ပါအတိုင်း run ခဲ့...  
+
+```
+
+```
+
+output model တွေက အောက်ပါအတိုင်း...  
+
+```
+
+```
+
+## Testing/Evaluation for Seq2Seq br-my
+
+bash script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
+
+```bash
+
+```
+
+testing/evaluation for seq2seq br-my direction ...  
+
+```
 
 ```
