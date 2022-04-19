@@ -512,4 +512,26 @@ cat ./test-ensemble-results.txt;
 
 ## Results
 
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$ time ./ensemble-eval.sh 
+Evaluation with hyp.0.4-0.6.br, ensemble, my-br translation:
+BLEU = 88.13, 95.3/90.6/86.2/82.0 (BP=0.997, ratio=0.997, hyp_len=28719, ref_len=28803)
+Evaluation with hyp.0.5-0.5.br, ensemble, my-br translation:
+BLEU = 88.25, 95.4/90.7/86.4/82.1 (BP=0.997, ratio=0.997, hyp_len=28719, ref_len=28803)
+Evaluation with hyp.0.6-0.4.br, ensemble, my-br translation:
+BLEU = 88.34, 95.4/90.8/86.5/82.3 (BP=0.997, ratio=0.997, hyp_len=28721, ref_len=28803)
+==========
+Evaluation with hyp.0.4-0.6.my, ensemble, br-my translation:
+BLEU = 88.39, 95.4/90.8/86.7/82.7 (BP=0.996, ratio=0.996, hyp_len=28681, ref_len=28803)
+Evaluation with hyp.0.5-0.5.my, ensemble, br-my translation:
+BLEU = 88.52, 95.5/90.9/86.8/82.9 (BP=0.996, ratio=0.996, hyp_len=28676, ref_len=28803)
+Evaluation with hyp.0.6-0.4.my, ensemble, br-my translation:
+BLEU = 88.55, 95.5/91.0/86.8/82.9 (BP=0.996, ratio=0.996, hyp_len=28680, ref_len=28803)
+
+real	0m0.974s
+user	0m0.961s
+sys	0m0.013s
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$
+```
+
 
