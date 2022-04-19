@@ -482,7 +482,7 @@ tail command နဲ့လည်း တချက် file content ကို confir
 
 ## Evaluation
 
-အရင်ဆုံး bash script ရေးရမှာမို့ ရေးခဲ့...  
+evaluation process အတွက် အရင်ဆုံး bash script ရေးရမှာမို့ ရေးခဲ့...  
 
 ```bash
 
