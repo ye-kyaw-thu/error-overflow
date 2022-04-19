@@ -1265,7 +1265,20 @@ model.npz.orig.npz
 bash script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့...  
 
 ```bash
+#!/bin/bash
 
+## Preparation for Myanmar-MuHaung, MuHaung-Myanmar
+## Written by Ye, LST, NECTEC, Thailand
+## Translation and Evaluation with Marian, Seq2Seq Model for my-br
+## 19 April 2022
+# model.iter5000.npz
+
+for i in {5000..60000..5000}
+do
+   marian-decoder -m ./model.iter$i.npz -v  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml  /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml --devices 0 1 --output hyp.iter$i.my < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br
+   echo "Evaluation with hyp.iter$i.br, Seq2Seq Model, br-my:" >> test-seq2seq-results.txt
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./hyp.iter$i.my  >> test-seq2seq-results.txt
+done
 ```
 
 testing/evaluation for seq2seq br-my direction ...  
