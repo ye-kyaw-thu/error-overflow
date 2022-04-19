@@ -1009,7 +1009,7 @@ sys	0m0.035s
 ## Comparison of Seq2Seq, Transformer and two Seq2Seq-Ensemble Model Results
 
 လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ ပြီးတော့ seq2seq အကောင်းဆုံးမော်ဒယ်နှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
-(⬆ သင်္ေတက baseline or only one best seq2seq ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
+(⬆ သင်္ကေတက baseline or only one best seq2seq ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
 <div align="center">  
  
 Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble Model  
@@ -1286,7 +1286,7 @@ sys	0m0.008s
 ## Comparison of Seq2Seq, Transformer and two Transformer-Ensemble Model Results
 
 လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ ပြီးတော့ Transformer အကောင်းဆုံးမော်ဒယ်နှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
-(⬆ သင်္ေတက baseline or only one best transformer ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
+(⬆ သင်္ကေတ baseline or only one best transformer ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
 <div align="center">  
  
 Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble Model  
