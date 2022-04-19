@@ -669,6 +669,30 @@ sys	0m28.453s
 
 ```
 
+output အဖြစ်ထွက်လာတဲ့ hyp ဖိုင်တွေကို စစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$ wc *.my
+   2167   28764  379284 hyp.0.2-0.8.my
+   2167   28717  378795 hyp.0.3-0.7.my
+   2167   28681  376482 hyp.0.4-0.6.my
+   2167   28676  375116 hyp.0.5-0.5.my
+   2167   28680  373681 hyp.0.6-0.4.my
+   2167   28680  372329 hyp.0.7-0.3.my
+   2167   28732  372143 hyp.0.8-0.2.my
+  15169  200930 2627830 total
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$ wc *.br
+   2167   28782  282249 hyp.0.2-0.8.br
+   2167   28747  279460 hyp.0.3-0.7.br
+   2167   28719  275248 hyp.0.4-0.6.br
+   2167   28719  272346 hyp.0.5-0.5.br
+   2167   28721  270899 hyp.0.6-0.4.br
+   2167   28719  270381 hyp.0.7-0.3.br
+   2167   28720  270058 hyp.0.8-0.2.br
+  15169  201127 1920641 total
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$
+```
+
 တိုးထားတဲ့ weight တွေရဲ့ translated output တွေကိုပါထည့်ပြီး evaluation လုပ်ဖို့အတွက် bash script ကိုအောက်ပါအတိုင်း update လုပ်ခဲ့...  
 
 ```bash
