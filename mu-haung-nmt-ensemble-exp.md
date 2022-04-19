@@ -485,6 +485,28 @@ tail command နဲ့လည်း တချက် file content ကို confir
 evaluation process အတွက် အရင်ဆုံး bash script ရေးရမှာမို့ ရေးခဲ့...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+# Last updated: 19 April 2022
+# BLEU score evaluation on s2s+transformer ensemble results:
+
+# for my-br
+for file in {hyp.0.4-0.6.br,hyp.0.5-0.5.br,hyp.0.6-0.4.br}
+do
+   echo "Evaluation with $file, ensemble, my-br translation:" >> test-ensemble-results.txt;
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./$file >> test-ensemble-results.txt;
+done
+echo "==========" >> test-ensemble-results.txt;
+
+# for br-my
+for file in {hyp.0.4-0.6.my,hyp.0.5-0.5.my,hyp.0.6-0.4.my}
+do
+   echo "Evaluation with $file, ensemble, br-my translation:" >> test-ensemble-results.txt;
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./$file  >> test-ensemble-results.txt;
+done
+
+cat ./test-ensemble-results.txt;
 
 ```
 
