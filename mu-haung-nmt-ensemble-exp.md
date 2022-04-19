@@ -774,3 +774,16 @@ Table 1. Performance comparison of Seq2Seq, Transformer and Ensemble Model
 | br-my | **88.75** | 87.54 | 88.12 | 88.19 | 88.39 | 88.52 |  88.55 | 88.57 | 88.65 |
 
  </div>  
+
+## Ensemble Decoding of Seq2Seq Models
+
+```
+
+```
+
+## Ensemble Decoding of Transformer Models
+
+```
+
+```
+
