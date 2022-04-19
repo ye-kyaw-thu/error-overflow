@@ -1028,6 +1028,148 @@ Thinking:  ပြောရရင် seq2seq မော်ဒယ် နှစ်�
 အကောင်းဆုံး transformer မော်ဒယ်နှစ်ခုကို ensemble decoding လုပ်နိုင်ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း ရေးခဲ့...  
 
 ```bash
+#!/bin/bash
 
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+# Last Updated: 19 April 2022
+# Ensemble decoding with two s2s models
+# Note: ဒီနေရာမှာ တိုက်ဆိုင်မှုက ဒုတိယအကောင်းဆုံး မော်ဒယ်တွေက my-br အတွက်ရော br-my အတွက်ရော iter45000 ဖြစ်နေတာ
+
+# my-br, transformer အတွက် best model က model.iter65000.npz
+# my-br, transformer အတွက် best model က model0-mybr.iter95000.npz
+
+# --weights 0.4 0.6
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.4 0.6 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.4-0.6.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+    
+# --weights 0.5 0.5
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.5 0.5 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.5-0.5.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+    
+# --weights 0.6 0.4
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.6 0.4 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.6-0.4.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+    
+## Additional Experiment for my-br
+
+# --weights 0.2 0.8
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.2 0.8 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.2-0.8.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+    
+# --weights 0.3 0.7
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.3 0.7 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.3-0.7.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+    
+# --weights 0.7 0.3
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.7 0.3 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.7-0.3.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+
+# --weights 0.8 0.2
+time marian-decoder \
+    --models ./model.transformer/model0-mybr.iter95000.npz ./model.transformer/model0-mybr.iter90000.npz \
+    --weights 0.8 0.2 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.8-0.2.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee ensemble.two-transformer.log
+
+# br-my အတွက် best model က model.iter55000.npz
+# br-my အတွက် best model က 
+
+# --weights 0.4 0.6
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz  \
+    --weights 0.4 0.6 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.4-0.6.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+
+# --weights 0.5 0.5
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --weights 0.5 0.5 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.5-0.5.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+    
+# --weights 0.6 0.4
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz  \
+    --weights 0.6 0.4 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.6-0.4.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+
+## Additional Experiment for br-my
+
+# --weights 0.2 0.8
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --weights 0.2 0.8 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.2-0.8.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+
+# --weights 0.3 0.7
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --weights 0.3 0.7 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.3-0.7.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+    
+# --weights 0.7 0.3
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --weights 0.7 0.3 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.7-0.3.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+
+# --weights 0.8 0.2
+time marian-decoder \
+    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --weights 0.8 0.2 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble.transformer/hyp.0.8-0.2.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee ensemble.two-transformer.log
+    
 ```
 
