@@ -1009,14 +1009,14 @@ sys	0m0.035s
 ## Comparison of Seq2Seq, Transformer and two Seq2Seq-Ensemble Model Results
 
 လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ ပြီးတော့ seq2seq အကောင်းဆုံးမော်ဒယ်နှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
-
+(⬆ သင်္ေတက baseline or only one best seq2seq ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
 <div align="center">  
  
 Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble Model  
 
 | Source-Target | Seq2Seq | Transformer | 0.2-0.8 | 0.3-0.7 | 0.4-0.6 | 0.5-0.5 | 0.6-0.4 | 0.7-0.3 | 0.8-0.2 | 
 |----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
-| my-br | 88.33 | 86.73 | 88.31 | 88.32 | 88.32 | 88.32 | 88.33 | 88.33 | **88.34** | 
+| my-br | 88.33 | 86.73 | 88.31 | 88.32 | 88.32 | 88.32 | 88.33 | 88.33 | **88.34** ⬆| 
 | br-my | **88.75** | 87.54 | 88.71 | 88.71 | 88.74 | 88.71 | 88.70 | 88.72 | 88.73 | 
 
  </div>  
@@ -1286,7 +1286,7 @@ sys	0m0.008s
 ## Comparison of Seq2Seq, Transformer and two Transformer-Ensemble Model Results
 
 လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ ပြီးတော့ Transformer အကောင်းဆုံးမော်ဒယ်နှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
-
+(⬆ သင်္ေတက baseline or only one best transformer ထက် ရလဒ်က မြင့်တာကို ပြတာ)  
 <div align="center">  
  
 Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble Model  
@@ -1294,7 +1294,7 @@ Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble
 | Source-Target | Seq2Seq | Transformer | 0.2-0.8 | 0.3-0.7 | 0.4-0.6 | 0.5-0.5 | 0.6-0.4 | 0.7-0.3 | 0.8-0.2 | 
 |----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
 | my-br | **88.33** | 86.73 | 86.55 | 86.58 | 86.57 | 86.57 | 86.57 | 86.61 | 86.61 |
-| br-my | **88.75** | 87.54 | 87.36 | 87.38 | 87.40 | 87.41 | 87.54 | 87.55 | 87.54 |
+| br-my | **88.75** | 87.54 | 87.36 | 87.38 | 87.40 | 87.41 | 87.54 | 87.55 ⬆ | 87.54 |
 
  </div>  
 
