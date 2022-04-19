@@ -1246,11 +1246,54 @@ hyp.0.2-0.8.my  hyp.0.3-0.7.my  hyp.0.4-0.6.my  hyp.0.5-0.5.my  hyp.0.6-0.4.my  
 evaluation ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble.transformer$ time ./ensemble-eval2.sh 
+Evaluation with hyp.0.2-0.8.br, ensemble, my-br translation:
+BLEU = 86.55, 95.0/89.9/85.2/80.7 (BP=0.988, ratio=0.988, hyp_len=28468, ref_len=28803)
+Evaluation with hyp.0.3-0.7.br, ensemble, my-br translation:
+BLEU = 86.58, 95.1/90.0/85.3/80.8 (BP=0.988, ratio=0.988, hyp_len=28456, ref_len=28803)
+Evaluation with hyp.0.4-0.6.br, ensemble, my-br translation:
+BLEU = 86.57, 95.1/90.0/85.3/80.8 (BP=0.988, ratio=0.988, hyp_len=28457, ref_len=28803)
+Evaluation with hyp.0.5-0.5.br, ensemble, my-br translation:
+BLEU = 86.57, 95.1/90.0/85.3/80.8 (BP=0.988, ratio=0.988, hyp_len=28456, ref_len=28803)
+Evaluation with hyp.0.6-0.4.br, ensemble, my-br translation:
+BLEU = 86.57, 95.1/90.0/85.3/80.8 (BP=0.988, ratio=0.988, hyp_len=28456, ref_len=28803)
+Evaluation with hyp.0.7-0.3.br, ensemble, my-br translation:
+BLEU = 86.61, 95.1/90.0/85.3/80.9 (BP=0.988, ratio=0.988, hyp_len=28458, ref_len=28803)
+Evaluation with hyp.0.8-0.2.br, ensemble, my-br translation:
+BLEU = 86.61, 95.1/90.0/85.3/80.9 (BP=0.988, ratio=0.988, hyp_len=28458, ref_len=28803)
+==========
+Evaluation with hyp.0.2-0.8.my, ensemble, br-my translation:
+BLEU = 87.36, 95.2/90.3/85.9/81.7 (BP=0.991, ratio=0.991, hyp_len=28558, ref_len=28803)
+Evaluation with hyp.0.3-0.7.my, ensemble, br-my translation:
+BLEU = 87.38, 95.2/90.3/85.9/81.7 (BP=0.991, ratio=0.991, hyp_len=28557, ref_len=28803)
+Evaluation with hyp.0.4-0.6.my, ensemble, br-my translation:
+BLEU = 87.40, 95.2/90.3/85.9/81.8 (BP=0.991, ratio=0.991, hyp_len=28556, ref_len=28803)
+Evaluation with hyp.0.5-0.5.my, ensemble, br-my translation:
+BLEU = 87.41, 95.2/90.3/85.9/81.8 (BP=0.991, ratio=0.992, hyp_len=28559, ref_len=28803)
+Evaluation with hyp.0.6-0.4.my, ensemble, br-my translation:
+BLEU = 87.54, 95.1/90.2/85.9/81.7 (BP=0.994, ratio=0.994, hyp_len=28624, ref_len=28803)
+Evaluation with hyp.0.7-0.3.my, ensemble, br-my translation:
+BLEU = 87.55, 95.2/90.3/85.9/81.7 (BP=0.994, ratio=0.994, hyp_len=28617, ref_len=28803)
+Evaluation with hyp.0.8-0.2.my, ensemble, br-my translation:
+BLEU = 87.54, 95.1/90.3/85.9/81.7 (BP=0.994, ratio=0.994, hyp_len=28621, ref_len=28803)
 
+real	0m2.501s
+user	0m2.161s
+sys	0m0.008s
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble.transformer$
 ```
 
-results ...  
+## Comparison of Seq2Seq, Transformer and two Transformer-Ensemble Model Results
 
-```
+လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ ပြီးတော့ Transformer အကောင်းဆုံးမော်ဒယ်နှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
 
-```
+<div align="center">  
+ 
+Table 1. Performance comparison of Seq2Seq, Transformer and two seq2seq-Ensemble Model  
+
+| Source-Target | Seq2Seq | Transformer | 0.2-0.8 | 0.3-0.7 | 0.4-0.6 | 0.5-0.5 | 0.6-0.4 | 0.7-0.3 | 0.8-0.2 | 
+|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
+| my-br | 88.33 | 86.73 |
+| br-my | **88.75** | 
+
+ </div>  
