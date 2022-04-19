@@ -534,7 +534,7 @@ sys	0m0.013s
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$
 ```
 
-## Additional Weights for Ensemble Experiment
+## Adding Additional Weights for Ensemble Experiment
 
 Ensemble အတွက် 0.2 0.8, 0.3 0.7, 0.7 0.3, 0.8 0.2 weight တွေကို ထပ်ဖြည့် run ဖို့ ဆုံးဖြတ်ခဲ့...  
 အကြောင်းအရင်းက လက်ရှိမှာက seq2seq architecture ရဲ့ ရလဒ်က ပိုကောင်းနေလို့... နည်းနည်း ဘက်လိုက်မှုက ရှိနေတယ်။ ensemble လုပ်တာက ရလဒ်တက်လာပေမဲ့ ပိုပြီးတော့ ဘယ်လောက်အထိ အများဆုံးထိ တက်နိုင်မလဲ၊ seq2seq ထက် ပိုတက်နိုင်မလား ဆိုတာကို ကွဲကွဲပြားပြား သိချင်လို့ weight ကို ပိုတိုးပြီး experiment လုပ်ကြည့်တာ။  
@@ -627,9 +627,47 @@ time marian-decoder \
     
 ```
 
-တိုးထားတဲ့ weight တွေရဲ့ translated output တွေကိုပါထည့်ပြီး evaluation လုပ်ဖို့အတွက် bash script ကိုအောက်ပါအတိုင်း update လုပ်ခဲ့...  
-
-```bash
+Ensemble Decoding ကို လုပ်ခဲ့...  
 
 ```
 
+```
+
+တိုးထားတဲ့ weight တွေရဲ့ translated output တွေကိုပါထည့်ပြီး evaluation လုပ်ဖို့အတွက် bash script ကိုအောက်ပါအတိုင်း update လုပ်ခဲ့...  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+# Last updated: 19 April 2022
+# BLEU score evaluation on s2s+transformer ensemble results:
+
+# for my-br
+for file in {hyp.0.2-0.8.br,hyp.0.3-0.7.br,hyp.0.4-0.6.br,hyp.0.5-0.5.br,hyp.0.6-0.4.br,hyp.0.7-0.3.br,hyp.0.8-0.2.br}
+do
+   echo "Evaluation with $file, ensemble, my-br translation:" >> test-ensemble-results.txt;
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br < ./$file >> test-ensemble-results.txt;
+done
+echo "==========" >> test-ensemble-results.txt;
+
+# for br-my
+for file in {hyp.0.2-0.8.my,hyp.0.3-0.7.my,hyp.0.4-0.6.my,hyp.0.5-0.5.my,hyp.0.6-0.4.my,hyp.0.7-0.3.my,hyp.0.8-0.2.my}
+do
+   echo "Evaluation with $file, ensemble, br-my translation:" >> test-ensemble-results.txt;
+   perl ~/tool/mosesbin/ubuntu-17.04/moses/scripts/generic/multi-bleu.perl /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my < ./$file  >> test-ensemble-results.txt;
+done
+
+cat ./test-ensemble-results.txt;
+```
+
+evaluation with BLEU score ...  
+
+```
+
+```
+
+## Result After Adding Additional Weights
+
+```
+
+```
