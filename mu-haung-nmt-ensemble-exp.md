@@ -1032,10 +1032,7 @@ Thinking:  ပြောရရင် seq2seq မော်ဒယ် နှစ်�
 
 # Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
 # Last Updated: 19 April 2022
-# Ensemble decoding with two s2s models
-
-# my-br, transformer အတွက် best model က model.iter65000.npz
-# my-br, transformer အတွက် best model က model0-mybr.iter95000.npz
+# Ensemble decoding with two transformer models
 
 # --weights 0.4 0.6
 time marian-decoder \
