@@ -1104,7 +1104,7 @@ time marian-decoder \
 
 # --weights 0.4 0.6
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz  \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz  \
     --weights 0.4 0.6 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1113,7 +1113,7 @@ time marian-decoder \
 
 # --weights 0.5 0.5
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz \
     --weights 0.5 0.5 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1122,7 +1122,7 @@ time marian-decoder \
     
 # --weights 0.6 0.4
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz  \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz  \
     --weights 0.6 0.4 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1133,7 +1133,7 @@ time marian-decoder \
 
 # --weights 0.2 0.8
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz \
     --weights 0.2 0.8 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1142,7 +1142,7 @@ time marian-decoder \
 
 # --weights 0.3 0.7
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz \
     --weights 0.3 0.7 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1151,7 +1151,7 @@ time marian-decoder \
     
 # --weights 0.7 0.3
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz \
     --weights 0.7 0.3 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
@@ -1160,7 +1160,7 @@ time marian-decoder \
 
 # --weights 0.8 0.2
 time marian-decoder \
-    --models ./model.transformer-brmy/model.iter80000.npz ./model.transformer-brmy/model.iter75000.npz \
+    --models ./model.transformer-brmy/model0-brmy.iter80000.npz ./model.transformer-brmy/model0-brmy.iter75000.npz \
     --weights 0.8 0.2 --max-length 200 \
     --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
    --maxi-batch 64  --workspace 500 \
