@@ -969,7 +969,41 @@ sys	0m54.913s
 Evaluation script က ensemble-eval2.sh ကိုပဲ သုံးခဲ့တယ်။ ရလဒ်တွေက အောက်ပါအတိုင်းပါ...  
 
 ```
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble.seq2seq$ time ./ensemble-eval2.sh 
+Evaluation with hyp.0.2-0.8.br, ensemble, my-br translation:
+BLEU = 88.31, 95.3/90.6/86.2/82.0 (BP=0.999, ratio=0.999, hyp_len=28774, ref_len=28803)
+Evaluation with hyp.0.3-0.7.br, ensemble, my-br translation:
+BLEU = 88.32, 95.3/90.6/86.2/82.0 (BP=0.999, ratio=0.999, hyp_len=28774, ref_len=28803)
+Evaluation with hyp.0.4-0.6.br, ensemble, my-br translation:
+BLEU = 88.32, 95.3/90.7/86.3/82.0 (BP=0.999, ratio=0.999, hyp_len=28765, ref_len=28803)
+Evaluation with hyp.0.5-0.5.br, ensemble, my-br translation:
+BLEU = 88.32, 95.3/90.7/86.3/82.1 (BP=0.999, ratio=0.999, hyp_len=28761, ref_len=28803)
+Evaluation with hyp.0.6-0.4.br, ensemble, my-br translation:
+BLEU = 88.33, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28756, ref_len=28803)
+Evaluation with hyp.0.7-0.3.br, ensemble, my-br translation:
+BLEU = 88.33, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28756, ref_len=28803)
+Evaluation with hyp.0.8-0.2.br, ensemble, my-br translation:
+BLEU = 88.34, 95.3/90.7/86.3/82.1 (BP=0.998, ratio=0.998, hyp_len=28756, ref_len=28803)
+==========
+Evaluation with hyp.0.2-0.8.my, ensemble, br-my translation:
+BLEU = 88.71, 95.4/90.8/86.7/82.7 (BP=0.999, ratio=0.999, hyp_len=28776, ref_len=28803)
+Evaluation with hyp.0.3-0.7.my, ensemble, br-my translation:
+BLEU = 88.71, 95.4/90.8/86.7/82.8 (BP=0.999, ratio=0.999, hyp_len=28776, ref_len=28803)
+Evaluation with hyp.0.4-0.6.my, ensemble, br-my translation:
+BLEU = 88.74, 95.4/90.9/86.7/82.8 (BP=0.999, ratio=0.999, hyp_len=28774, ref_len=28803)
+Evaluation with hyp.0.5-0.5.my, ensemble, br-my translation:
+BLEU = 88.71, 95.4/90.9/86.7/82.8 (BP=0.998, ratio=0.998, hyp_len=28759, ref_len=28803)
+Evaluation with hyp.0.6-0.4.my, ensemble, br-my translation:
+BLEU = 88.70, 95.4/90.9/86.7/82.8 (BP=0.998, ratio=0.998, hyp_len=28757, ref_len=28803)
+Evaluation with hyp.0.7-0.3.my, ensemble, br-my translation:
+BLEU = 88.72, 95.4/90.9/86.7/82.8 (BP=0.999, ratio=0.999, hyp_len=28770, ref_len=28803)
+Evaluation with hyp.0.8-0.2.my, ensemble, br-my translation:
+BLEU = 88.73, 95.4/90.9/86.7/82.8 (BP=0.999, ratio=0.999, hyp_len=28769, ref_len=28803)
 
+real	0m2.184s
+user	0m2.136s
+sys	0m0.035s
+(base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble.seq2seq$
 ```
 
 
