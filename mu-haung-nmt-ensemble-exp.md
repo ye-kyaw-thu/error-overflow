@@ -759,3 +759,18 @@ user	0m2.091s
 sys	0m0.027s
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$
 ```
+
+## Comparison of Seq2Seq, Transformer and Ensemble Model Results
+
+လက်ရှိရထားတဲ့ seq2seq, transformer နဲ့ အဲဒီနှစ်ခုကိုပေါင်းထားတဲ့ ensemble decoding ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။   
+
+<div align="center">  
+ 
+Table 1. Performance comparison of Seq2Seq, Transformer and Ensemble Model  
+
+| Source-Target | Seq2Seq | Transformer | 0.2-0.8 | 0.3-0.7 | 0.4-0.6 | 0.5-0.5 | 0.6-0.4 | 0.7-0.3 | 0.8-0.2 | 
+|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
+| my-br | 88.33 | 86.73 | 87.89 | 87.99 | 88.13 | 88.25 | **88.34** | 88.29 | 88.27 |
+| br-my | **88.75** | 87.54 | 88.12 | 88.19 | 88.39 | 88.52 |  88.55 | 88.57 | 88.65 |
+
+ </div>  
