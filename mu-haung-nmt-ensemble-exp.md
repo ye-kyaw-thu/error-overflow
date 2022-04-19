@@ -1169,3 +1169,8 @@ time marian-decoder \
     
 ```
 
+အထက်ပါ bash script ကို run ခဲ့...  
+
+```
+
+```
