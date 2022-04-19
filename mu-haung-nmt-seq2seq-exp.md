@@ -1446,3 +1446,14 @@ BLEU = 88.62, 95.5/90.9/86.8/82.9 (BP=0.997, ratio=0.997, hyp_len=28710, ref_len
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.s2s-brmy$
 ```
 
+အကောင်းဆုံး ရလဒ်ကို ပေးတဲ့ မော်ဒယ်က အောက်ပါအတိုင်း...  
+
+```
+Evaluation with hyp.iter55000.br, Seq2Seq Model, br-my:
+BLEU = 88.75, 95.5/90.9/86.8/82.8 (BP=0.999, ratio=0.999, hyp_len=28767, ref_len=28803)
+```
+
+## Comparison between Seq2Seq and Transformer
+
+လက်ရှိရထားတဲ့ sequence to sequence architecture ရဲ့ ရလဒ်တွေနဲ့ ရှေ့မှာ run ခဲ့တဲ့ Transformer မော်ဒယ်ရဲ့ ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ အောက်ပါဇယားကို ရတယ်။  
+
