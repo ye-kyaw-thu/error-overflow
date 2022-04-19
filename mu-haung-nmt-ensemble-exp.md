@@ -534,4 +534,102 @@ sys	0m0.013s
 (base) ye@:/media/ye/project2/exp/braille-nmt/model.ensemble$
 ```
 
+## Additional Weights for Ensemble Experiment
+
+Ensemble အတွက် 0.2 0.8, 0.3 0.7, 0.7 0.3, 0.8 0.2 weight တွေကို ထပ်ဖြည့် run ဖို့ ဆုံးဖြတ်ခဲ့...  
+အကြောင်းအရင်းက လက်ရှိမှာက seq2seq architecture ရဲ့ ရလဒ်က ပိုကောင်းနေလို့... နည်းနည်း ဘက်လိုက်မှုက ရှိနေတယ်။ ensemble လုပ်တာက ရလဒ်တက်လာပေမဲ့ ပိုပြီးတော့ ဘယ်လောက်အထိ အများဆုံးထိ တက်နိုင်မလဲ၊ seq2seq ထက် ပိုတက်နိုင်မလား ဆိုတာကို ကွဲကွဲပြားပြား သိချင်လို့ weight ကို ပိုတိုးပြီး experiment လုပ်ကြည့်တာ။  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, Visiting Professor, LST, NECTEC, Thailand
+# Last Updated: 19 April 2022
+# Ensemble decoding with s2s+transformer, additional experiment for 0.2 0.8, 0.3 0.7, 0.7 0.3, 0.8 0.2
+
+
+# my-br, seq2seq အတွက် best model က model.iter65000.npz
+# my-br, transformer အတွက် best model က model0-mybr.iter95000.npz
+
+# --weights 0.2 0.8
+time marian-decoder \
+    --models ./model.s2s-mybr/model.iter65000.npz ./model.transformer/model0-mybr.iter95000.npz \
+    --weights 0.2 0.8 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.2-0.8.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee my-br.ensemble.0.2-0.8.log
+    
+# --weights 0.3 0.7
+time marian-decoder \
+    --models ./model.s2s-mybr/model.iter65000.npz ./model.transformer/model0-mybr.iter95000.npz \
+    --weights 0.3 0.7 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.3-0.7.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee my-br.ensemble.0.3-0.7.log
+    
+# --weights 0.7 0.3
+time marian-decoder \
+    --models ./model.s2s-mybr/model.iter65000.npz ./model.transformer/model0-mybr.iter95000.npz \
+    --weights 0.7 0.3 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.7-0.3.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee my-br.ensemble.0.7-0.3.log
+
+# --weights 0.8 0.2
+time marian-decoder \
+    --models ./model.s2s-mybr/model.iter65000.npz ./model.transformer/model0-mybr.iter95000.npz \
+    --weights 0.8 0.2 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.8-0.2.br \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.my | tee my-br.ensemble.0.8-0.2.log
+    
+# br-my အတွက် best model က model.iter55000.npz
+# br-my အတွက် best model က 
+
+# --weights 0.2 0.8
+time marian-decoder \
+    --models ./model.s2s-brmy/model.iter55000.npz ./model.transformer-brmy/model0-brmy.iter80000.npz \
+    --weights 0.2 0.8 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.2-0.8.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee br-my.ensemble.0.2-0.8.log
+
+# --weights 0.3 0.7
+time marian-decoder \
+    --models ./model.s2s-brmy/model.iter55000.npz ./model.transformer-brmy/model0-brmy.iter80000.npz \
+    --weights 0.3 0.7 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.3-0.7.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee br-my.ensemble.0.3-0.7.log
+    
+# --weights 0.7 0.3
+time marian-decoder \
+    --models ./model.s2s-brmy/model.iter55000.npz ./model.transformer-brmy/model0-brmy.iter80000.npz \
+    --weights 0.7 0.3 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.7-0.3.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee br-my.ensemble.0.7-0.3.log
+
+# --weights 0.8 0.2
+time marian-decoder \
+    --models ./model.s2s-brmy/model.iter55000.npz ./model.transformer-brmy/model0-brmy.iter80000.npz \
+    --weights 0.8 0.2 --max-length 200 \
+    --vocabs /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.br.yml /media/ye/project2/exp/braille-nmt/data/for-nmt/0/vocab/vocab.my.yml \
+   --maxi-batch 64  --workspace 500 \
+   --output ./model.ensemble/hyp.0.8-0.2.my \
+    --devices 0 1 < /media/ye/project2/exp/braille-nmt/data/for-nmt/0/test.br | tee br-my.ensemble.0.8-0.2.log
+    
+```
+
+တိုးထားတဲ့ weight တွေရဲ့ translated output တွေကိုပါထည့်ပြီး evaluation လုပ်ဖို့အတွက် bash script ကိုအောက်ပါအတိုင်း update လုပ်ခဲ့...  
+
+```bash
+
+```
 
