@@ -1496,7 +1496,7 @@ F
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars.png" alt="example of invisible characters" width="700"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars.png" alt="example of invisible characters" width="300"/>
 </p>  
 <div align="center">
   Fig.1 Some examples of invisible characters inside the extracted syllable list
