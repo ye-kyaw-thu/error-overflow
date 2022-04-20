@@ -894,6 +894,11 @@ predicted_token : henson
 (haggingface) ye@:/media/ye/project2/exp/myPoem$
 ```
 
+## Testing OpenAI GPT-2
+
+OpenAI GPT-2 အပိုင်းကိုလည်း ကိုယ့်စက်ထဲမှာ ဆက်စမ်းကြည့်ခဲ့...  
+
+
 ## Reference
 
 - https://huggingface.co/transformers/v2.0.0/quickstart.html
