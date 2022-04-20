@@ -1496,7 +1496,7 @@ F
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars.png" alt="example of invisible characters" width="270"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars.png" alt="example of invisible characters" width="265"/>
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars2.png" alt="example of invisible characters" width="300"/>
 </p>  
 <div align="center">
