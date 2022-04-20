@@ -1189,6 +1189,8 @@ predicted_text:  Who was Jim Henson? Jim Henson was a man
 
 The Multilingual Cased (New) model also fixes normalization issues in many languages, so it is recommended in languages with non-Latin alphabets (and is often better for most languages with Latin alphabets). When using this model, make sure to pass --do_lower_case=false to run_pretraining.py and other scripts.  
 
+အဲဒီ page ရဲ့ အောက်ဆုံးမှာ ရှင်းပြထားတဲ့အတိုင်းဆိုရင် Thai နဲ့ Mongolian ဘာသာစကားတွေအတွက်က ပထမ release လုပ်ခဲ့တဲ့ အော်ရဂျင်နယ် ဗားရှင်းမှာ မပါပဲ (New) ဆိုတဲ့ ဗားရှင်းမှာမှ ပါလာတဲ့ ပုံရှိတယ်။  
+
 
 
 
