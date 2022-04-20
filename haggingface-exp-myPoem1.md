@@ -1306,7 +1306,78 @@ sylbreak.pl                           100%[=====================================
 space cleaning လည်း လုပ်ရလိမ့်မယ်။ double space တို့ TAB တို့ ပါနေတဲ့ ကိစ္စမျိုးတွေ....  
 
 ```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ wget https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/clean-space.pl
+--2022-04-20 12:43:47--  https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/clean-space.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 686 [text/plain]
+Saving to: ‘clean-space.pl’
 
+clean-space.pl                        100%[=========================================================================>]     686  --.-KB/s    in 0s      
+
+2022-04-20 12:43:48 (97.2 MB/s) - ‘clean-space.pl’ saved [686/686]
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ perl ./clean-space.pl ./myPoem_all.syl > ./myPoem_all.syl.clean
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ head ./myPoem_all.syl.clean 
+ကြက် ဖ သာ လျှင်
+အာ ရုဏ် ရောင် လှ ဝင်း ဝါ ကြ ၏
+ဥ ဩ သာ လျှင်
+ရာ သီ နွေ လ ဖူး ပွ င့် ကြ ၏
+ဖား ငယ် သာ လျှင်
+အာ ကာ မိုး က မိုး ရွာ ကြ ၏
+တက် လူ သာ လျှင်
+မြန် မာ ပြည် လှ အား သစ် ရ ၍
+ဇေ ယျ အောင် လံ ထူ မည် တည်း
+ဤ နေ ရာ တွင်
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ tail ./myPoem_all.syl.clean 
+ဥ ပ မာ က ဗျာ ဘယ် က လာ သ လဲ ဆို တာ မျိုး
+ဆို ပါ တော့ ငါ မင်း ကို လွမ်း နေ တယ် ဆို တာ မျိုး
+က မာ္ဘ က သူ့ အ တိုင်း ရိှ တယ်
+ငါ မ ရယ် ချင် ဘူး
+မင်း မ ရယ် တော့ ဘူး လို့ ငါ သိ တယ်
+၆ ဒ ဿ မ ၈ ပဲ
+င လျင် လှုပ် တယ်
+ငါ ပြို ကျ တယ်
+မင်း က လေး အ ကောင်း အ တိုင်း ရိှ နေ ရဲ့ မ ဟုတ် လား
+က မာ္ဘ ကို က ရူး ခဲ့ တာ ပါ ကွယ် ။
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.syl.clean | head
+အစ္စ က ရာ သည် မ ယိမ်း မ ယိုင် အ စမ်း သပ် ခံ သံ ခဲ တင် ခံ
+စု ဖွဲ့ ပေး လတ် ရေး သတ် မှတ် ၏
+ဖဲ ကြိုး နီ နီ လေး ကို
+အ နန္တော တည့် သွား ရော ဂါ ဘက်
+လွန် ပါ ရော
+တိမ် ရောင် စုံ ကွက် မ ကန်း
+တိုင်း ဧ ရာ ဝယ် သာ ပေါင်း မြို့ နယ်
+ရယ် သံ လေး တွေ ကို အ စ အ ဆုံး ကြိုး သီ လို့ သူ့ မှာ
+မ ချစ် သူ နှင့် အ တူ သာ
+လျှောက် နိုင် ခဲ့ ပြီး လား
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.syl.clean | tail
+ပြည် ရွာ ကောင်း မှု လုပ် အား မှန်
+ဝင့် မော် ရွှင် ပျ သု ခု မ ဟု
+ဘာ ကို လို လို ဆို ဦး စို့
+ကြမ်း တမ်း ဒုက္ခ ခက် ခဲ လှ လည်း
+အ သည်း နှ လုံး လေး က တော့
+သို့ တ မူ လည်း နွဲ့ လျ ကြည်း ကား
+ဖြေ မ ဆည် ဇာတ် စုံ ကျင်း သော် ကြော င့်
+ဘယ် ဇာတ် တော် လေ မှန်း သိ
+ချမ်း ချမ်း ဖွေး ဖွေး ပါ ပဲ
+ရွှေ ခဲ တို့ နောင် ဝိဇ္ဇာ မောင် သည်
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$
 ```
 
 
