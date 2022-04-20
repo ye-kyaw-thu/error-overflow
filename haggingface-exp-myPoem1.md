@@ -1274,6 +1274,40 @@ sylbreak.pl                           100%[=====================================
 (base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ 
 ```
 
+အထက်မှာ download လုပ်ထားတဲ့ sylbreak perl script ကို သုံးပြီး syllable ဖြတ်ခဲ့တယ်။  
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ perl ./sylbreak.pl -i ./myPoem_all.txt -s " " > ./myPoem_all.syl
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ head ./myPoem_all.syl 
+ ကြက် ဖ   သာ လျှင်
+ အာ ရုဏ် ရောင် လှ ဝင်း ဝါ ကြ ၏  
+ ဥ ဩ   သာ လျှင်
+ ရာ သီ နွေ လ ဖူး ပွ င့် ကြ ၏  
+ ဖား ငယ်   သာ လျှင်
+ အာ ကာ မိုး က မိုး ရွာ ကြ ၏  
+ တက် လူ   သာ လျှင်
+ မြန် မာ ပြည် လှ အား သစ် ရ ၍
+ ဇေ ယျ အောင် လံ   ထူ မည် တည်း  
+ ဤ နေ ရာ တွင်
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ tail ./myPoem_all.syl 
+ ဥ ပ မာ   က ဗျာ ဘယ် က လာ သ လဲ   ဆို တာ မျိုး
+ ဆို ပါ တော့   ငါ မင်း ကို   လွမ်း နေ တယ် ဆို တာ မျိုး
+ က မာ္ဘ က   သူ့ အ တိုင်း ရိှ တယ်
+ ငါ မ ရယ် ချင် ဘူး
+ မင်း မ ရယ် တော့ ဘူး လို့   ငါ သိ တယ်
+ ၆   ဒ ဿ မ   ၈   ပဲ
+ င လျင် လှုပ် တယ်
+ ငါ ပြို ကျ တယ်
+ မင်း က လေး အ ကောင်း အ တိုင်း   ရိှ နေ ရဲ့   မ ဟုတ် လား
+ က မာ္ဘ ကို က   ရူး ခဲ့ တာ ပါ ကွယ် ။
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$
+```
+
+space cleaning လည်း လုပ်ရလိမ့်မယ်။ double space တို့ TAB တို့ ပါနေတဲ့ ကိစ္စမျိုးတွေ....  
+
+```
+
+```
 
 
 
