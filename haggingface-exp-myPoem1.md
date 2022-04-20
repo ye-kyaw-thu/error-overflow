@@ -1492,6 +1492,19 @@ F
 ```
 
 တကယ်က မမြင်ရတဲ့စာလုံးတွေ (invisible character) လည်း list ထဲမှာ ပါလာတတ်ပါတယ်။  
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/mypoem/invisible-chars.png" alt="example of invisible characters" width="700"/>
+</p>  
+<div align="center">
+  Fig.1 Some examples of invisible characters inside the extracted syllable list
+ </div> 
+
+<br />
+
+
 ဖိုင်ဆိုက် ကတော့ အောက်ပါအတိုင်း...  
 
 ```
