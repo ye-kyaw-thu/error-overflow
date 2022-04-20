@@ -1191,7 +1191,88 @@ The Multilingual Cased (New) model also fixes normalization issues in many langu
 
 အဲဒီ page ရဲ့ အောက်ဆုံးမှာ ရှင်းပြထားတဲ့အတိုင်းဆိုရင် Thai နဲ့ Mongolian ဘာသာစကားတွေအတွက်က ပထမ release လုပ်ခဲ့တဲ့ အော်ရဂျင်နယ် ဗားရှင်းမှာ မပါပဲ (New) ဆိုတဲ့ ဗားရှင်းမှာမှ ပါလာတဲ့ ပုံရှိတယ်။  
 
+## Prepare myPoem Data
 
+အသစ်ထပ်ရိုက်ထားတာလည်း ရှိသေးပေမဲ့ လောလောဆယ် Jan 7 ထိ ဒေတာကိုပဲ သုံးဖို့ ပြင်မယ်။  
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ wc ./myPoem_all.txt 
+  59006  108409 4126908 ./myPoem_all.txt
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ head ./myPoem_all.txt 
+ကြက်ဖ သာလျှင်
+အာရုဏ်ရောင်လှဝင်းဝါကြ၏ 
+ဥဩ သာလျှင်
+ရာသီနွေလဖူးပွင့်ကြ၏ 
+ဖားငယ် သာလျှင်
+အာကာမိုးကမိုးရွာကြ၏ 
+တက်လူ သာလျှင်
+မြန်မာပြည်လှအားသစ်ရ၍
+ဇေယျအောင်လံ ထူမည်တည်း 
+ဤနေရာတွင်
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ tail ./myPoem_all.txt 
+ဥပမာ ကဗျာဘယ်ကလာသလဲ ဆိုတာမျိုး
+ဆိုပါတော့ ငါမင်းကို လွမ်းနေတယ်ဆိုတာမျိုး
+ကမာ္ဘက သူ့အတိုင်းရိှတယ်
+ငါမရယ်ချင်ဘူး
+မင်းမရယ်တော့ဘူးလို့ ငါသိတယ်
+၆ ဒဿမ ၈ ပဲ
+ငလျင်လှုပ်တယ်
+ငါပြိုကျတယ်
+မင်းကလေးအကောင်းအတိုင်း ရိှနေရဲ့ မဟုတ်လား
+ကမာ္ဘကိုက ရူးခဲ့တာပါကွယ်။
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.txt | head
+ကောင်းစွာ လုပ်ကျွေး ပြုစုပေး 
+မီးလောင်နေတဲ့ 
+
+ဆက်ဆက် ကြည့်နေပါ
+အကြိုက်တွေ့လေပဲ
+ရွာလယ်ခေါင်မှာ ပျော်တော်ဆက်
+ခင်မင်မှုကို လုံးချေလွှင့်ပစ်လိုက်ပါ မိတ်ဆွေ 
+သွေးမတိတ်နိုင်တဲ့
+ငါ၏ဝလုံးအ သုံးလုံးတို့
+မှုန်းချေအပြတ်ရှင်းပစ်စို့လေး
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.txt | tail
+
+သမုဒယပုံပြင်
+မင်းလည်းပါသကိုး နေ့များ။
+ပြိုပျက်ယိုင်လဲ ဒုက္ခယှဉ်တွဲ
+ရေထဲ ပစ်ချနေတယ်
+သခင်ခွဲမယ့် ကာလမှာ
+ကျဆုံးပေးဆပ်သွားတဲ့ သားမောင်ရှင်အမေတွေအတွက်
+တောလုံးပွင့်အန် မြို့ပွင့်လျှံဝေ
+နုပျိုဖွံ့ထွားမေ့ချစ်သား
+လယ်သမားတို့ ဖွံ့ထွားချမ်းသာ
+```
+
+ထုံးစံအတိုင်း မြန်စာဒေတာမှာက စာလုံးပေါင်းအမှား၊ typing order အမှားနဲ့ ဇော်ဂျီကနေ Myanmar3 ဖောင့်ကို ပြောင်းတဲ့အခါမှာ ဖြစ်တတ်တဲ့ encoding အမှားတွေရှိနေတယ်။ အချိန်ရသလောက် ဒေတာကို cleaning လုပ်မယ်။  
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ wget https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
+--2022-04-20 12:36:55--  https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2189 (2.1K) [text/plain]
+Saving to: ‘sylbreak.pl’
+
+sylbreak.pl                           100%[=========================================================================>]   2.14K  --.-KB/s    in 0s      
+
+2022-04-20 12:36:55 (20.2 MB/s) - ‘sylbreak.pl’ saved [2189/2189]
+
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ 
+```
 
 
 
