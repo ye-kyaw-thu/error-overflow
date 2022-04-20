@@ -896,8 +896,60 @@ predicted_token : henson
 
 ## Testing OpenAI GPT-2
 
-OpenAI GPT-2 အပိုင်းကိုလည်း ကိုယ့်စက်ထဲမှာ ဆက်စမ်းကြည့်ခဲ့...  
+OpenAI GPT-2 အပိုင်းကိုလည်း ကိုယ့်စက်ထဲမှာ ဆက်စမ်းကြည့်ခဲ့တယ်။  
+print line တွေထပ်ဖြည့်ထားတဲ့ python ပရိုဂရမ်က အောက်ပါအတိုင်း...  
 
+```python
+(haggingface) ye@:/media/ye/project2/exp/myPoem$ cat gpt2tokenizer.py 
+import torch
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+# OPTIONAL: if you want to have more information on what's happening, activate the logger as follows
+import logging
+logging.basicConfig(level=logging.INFO)
+
+# Load pre-trained model tokenizer (vocabulary)
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+
+# Encode a text inputs
+text = "Who was Jim Henson ? Jim Henson was a"
+indexed_tokens = tokenizer.encode(text)
+
+print("text: ", text)
+print("indexed_tokens: ", indexed_tokens)
+
+# Convert indexed tokens in a PyTorch tensor
+tokens_tensor = torch.tensor([indexed_tokens])
+print("tokens_tensor: ", tokens_tensor) 
+
+# Load pre-trained model (weights)
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
+# Set the model in evaluation mode to desactivate the DropOut modules
+# This is IMPORTANT to have reproductible results during evaluation!
+model.eval()
+
+print("model.eval(): ", model.eval())
+
+# If you have a GPU, put everything on cuda
+tokens_tensor = tokens_tensor.to('cuda')
+model.to('cuda')
+
+# Predict all tokens
+with torch.no_grad():
+    outputs = model(tokens_tensor)
+    predictions = outputs[0]
+
+# get the predicted next sub-word (in our case, the word 'man')
+predicted_index = torch.argmax(predictions[0, -1, :]).item()
+predicted_text = tokenizer.decode(indexed_tokens + [predicted_index])
+assert predicted_text == 'Who was Jim Henson? Jim Henson was a man'
+
+print("predicted_index: ", predicted_index)
+print("predicted_text: ", predicted_text)
+
+(haggingface) ye@:/media/ye/project2/exp/myPoem$
+```
 
 ## Reference
 
