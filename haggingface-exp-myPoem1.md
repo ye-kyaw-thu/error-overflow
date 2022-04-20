@@ -1175,6 +1175,17 @@ predicted_text:  Who was Jim Henson? Jim Henson was a man
 
 အဆင်ပြေပြေနဲ့ predict လုပ်ပေးသွားတာကို တွေ့ရတယ်။  
 
+## Pretrained Model for Our Experiment
+
+[https://huggingface.co/transformers/v2.0.0/pretrained_models.html](https://huggingface.co/transformers/v2.0.0/pretrained_models.html) link မှာ ရှင်းပြထားတဲ့ မော်ဒယ်တွေကို ဝင်ကြည့်တော့ မြန်မာစာအတွက် အသုံးဝင်နိုင်မယ့် မော်ဒယ် နှစ်ခုကို အောက်ပါအတိုင်း တွေ့ခဲ့ရ...  
+
+
+| Architecture | Shortcut Names | Details of the Model |
+|:------------|:------------|:--------------|
+| BERT | bert-base-multilingual-uncased | (Original, not recommended) 12-layer, 768-hidden, 12-heads, 110M parameters.\Trained on lower-cased text in the top 102 languages with the largest Wikipedias. |
+| BERT | bert-base-multilingual-cased | (New, recommended) 12-layer, 768-hidden, 12-heads, 110M parameters. Trained on cased text in the top 104 languages with the largest Wikipedias. |
+
+
 
 ## Reference
 
