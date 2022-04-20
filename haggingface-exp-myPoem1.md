@@ -1,5 +1,7 @@
 # Haggingface Exp for myPOEM Generation
 
+ဒေါက်တာတန်းကျောင်းသူ ခိုင်ဆုဝေ (Okayama Prefecture Univ., Japan) က ပြင်ပေးထားတဲ့ မြန်မာကဗျာဒေတာကို သုံးပြီး LM generation experiment လုပ်ဖို့အတွက် ပြင်စဉ်က log ဖိုင်ပါ။  
+
 ## Create a New Conda Env
 
 ```
