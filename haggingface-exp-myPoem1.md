@@ -1319,6 +1319,8 @@ clean-space.pl                        100%[=====================================
 2022-04-20 12:43:48 (97.2 MB/s) - ‘clean-space.pl’ saved [686/686]
 ```
 
+space တွေကို ရှင်းခဲ့...  
+
 ```
 (base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ perl ./clean-space.pl ./myPoem_all.syl > ./myPoem_all.syl.clean
 ```
@@ -1380,7 +1382,116 @@ clean-space.pl                        100%[=====================================
 (base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$
 ```
 
+ကဗျာဒေတာဖိုင်ထဲကနေ syllable list ကို ဆွဲထုတ်ခဲ့တယ်။  
 
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ time cat ./myPoem_all.syl.clean | sed "s/ /\n/g;" | sort | uniq > ./myPoem_all.uniq
+
+real	0m8.966s
+user	0m8.988s
+sys	0m0.037s
+```
+
+ဆွဲထုတ်ပြီး ရလာတဲ့ syllable တွေ (တကယ်ကတော့ မြန်မာစာမှာက အင်္ဂလိပ်စာလုံးတွေ၊ သင်္ကေတတွေကိုလည်း ထည့်ရေးကြလို့ အင်္ဂလိပ်စာလုံးတွေနဲ့ "!" တို့ "," စတာတွေလည်း ပါ) ကို အကြမ်းစစ်ကြည့်ခဲ့...  
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ head ./myPoem_all.uniq 
+
+
+
+!
+"
+#
+'
+(
+)
+*
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ tail ./myPoem_all.uniq 
+
+
+
+န်း
+ေ
+တ
+တံ
+တာ
+
+၍့်
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.uniq | head -30
+ထိမ်း
+မှီ
+ငွား
+ဗုံ
+လျှိုး
+ခေါန်း
+ဖြင့်
+ရှောင်း
+ကစ္ဆ
+ချန့်
+ချည်း
+လျမ်း
+ဒေါ်
+လှာ
+ဖြူး
+ဆေး
+ခါ
+ဌေး
+ချိန်
+ခစ်
+မေတ္တ
+ဂျို
+ရှောင်
+အော့
+ပြူး
+တိုင်း
+ပွက်
+သတ္တာ
+ဗြန်
+တင်း
+```
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ shuf ./myPoem_all.uniq | head -30
+တံ့
+တန်
+မျှော်
+သဗ္ဗ
+အူ
+ချိုင်း​
+ကျေ
+ယက္ကန်း
+သာဒ်
+ရမ်
+လှိ
+ပြန့်
+ရှူး
+ဟန်
+အတ္တုပ္ပ
+ပျိူ
+ဆယ်
+တြာ
+ညေ
+မြန်
+F
+ဥတ္တ
+ဖြိုင်
+ထိ
+ဝတ္တုံ
+ကြူး
+စူး
+ကျောင်း
+ရှော့ခ်
+သမ္မာ
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$
+```
+
+တကယ်က မမြင်ရတဲ့စာလုံးတွေ (invisible character) လည်း list ထဲမှာ ပါလာတတ်ပါတယ်။  
 
 
 ## Reference
