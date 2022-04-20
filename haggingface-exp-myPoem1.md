@@ -1185,6 +1185,8 @@ predicted_text:  Who was Jim Henson? Jim Henson was a man
 | BERT | bert-base-multilingual-uncased | (Original, not recommended) 12-layer, 768-hidden, 12-heads, 110M parameters. Trained on lower-cased text in the top 102 languages with the largest Wikipedias. |
 | BERT | bert-base-multilingual-cased | (New, recommended) 12-layer, 768-hidden, 12-heads, 110M parameters. Trained on cased text in the top 104 languages with the largest Wikipedias. |
 
+အထက်ပါ မော်ဒယ်နှစ်ခုနဲ့ ပတ်သက်ပြီး အသေးစိတ်က [https://github.com/google-research/bert/blob/master/multilingual.md](https://github.com/google-research/bert/blob/master/multilingual.md) link မှာ ရှာဖတ်ပါ။  
+
 
 
 ## Reference
