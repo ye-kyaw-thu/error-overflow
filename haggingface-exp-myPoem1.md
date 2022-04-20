@@ -1179,4 +1179,7 @@ predicted_text:  Who was Jim Henson? Jim Henson was a man
 ## Reference
 
 - https://huggingface.co/transformers/v2.0.0/quickstart.html
+- https://huggingface.co/transformers/v2.0.0/pretrained_models.html
+
+
 
