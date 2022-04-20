@@ -1492,6 +1492,14 @@ F
 ```
 
 တကယ်က မမြင်ရတဲ့စာလုံးတွေ (invisible character) လည်း list ထဲမှာ ပါလာတတ်ပါတယ်။  
+ဖိုင်ဆိုက် ကတော့ အောက်ပါအတိုင်း...  
+
+```
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$ wc ./myPoem_all.uniq 
+ 3375  3375 44855 ./myPoem_all.uniq
+(base) ye@:/media/ye/project2/data/my-poem/khaing-hus-wai/ye-edit-20apr2022/syl-chk$
+```
+
 
 
 ## Reference
