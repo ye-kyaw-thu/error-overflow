@@ -1182,7 +1182,7 @@ predicted_text:  Who was Jim Henson? Jim Henson was a man
 
 | Architecture | Shortcut Names | Details of the Model |
 |:------------|:------------|:--------------|
-| BERT | bert-base-multilingual-uncased | (Original, not recommended) 12-layer, 768-hidden, 12-heads, 110M parameters.\Trained on lower-cased text in the top 102 languages with the largest Wikipedias. |
+| BERT | bert-base-multilingual-uncased | (Original, not recommended) 12-layer, 768-hidden, 12-heads, 110M parameters. Trained on lower-cased text in the top 102 languages with the largest Wikipedias. |
 | BERT | bert-base-multilingual-cased | (New, recommended) 12-layer, 768-hidden, 12-heads, 110M parameters. Trained on cased text in the top 104 languages with the largest Wikipedias. |
 
 
