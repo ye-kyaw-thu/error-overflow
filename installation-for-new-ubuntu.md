@@ -28,7 +28,40 @@ Need to get 4,108 kB of archives.
 After this operation, 20.9 MB of additional disk space will be used.
 Do you want to continue? [Y/n] Y
 Get:1 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 liberror-perl all 0.17029-1 [26.5 kB]
-Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 git-man all 1:2.34.1-1ubuntu1.2 [952 kB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 git-man all 1:2.34.1-1ubuntu1.2 [952 kB]ye@ye-System-Product-Name:~$ sudo apt install curl
+[sudo] password for ye: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libcurl4
+The following NEW packages will be installed:
+  curl
+The following packages will be upgraded:
+  libcurl4
+1 upgraded, 1 newly installed, 0 to remove and 21 not upgraded.
+Need to get 483 kB of archives.
+After this operation, 452 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.1 [289 kB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.1 [194 kB]
+Fetched 483 kB in 1s (756 kB/s)
+(Reading database ... 179956 files and directories currently installed.)
+Preparing to unpack .../libcurl4_7.81.0-1ubuntu1.1_amd64.deb ...
+Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.1) over (7.81.0-1) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_7.81.0-1ubuntu1.1_amd64.deb ...
+Unpacking curl (7.81.0-1ubuntu1.1) ...
+Setting up libcurl4:amd64 (7.81.0-1ubuntu1.1) ...
+Setting up curl (7.81.0-1ubuntu1.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3) ...
+ye@ye-System-Product-Name:~$ curl --version
+curl 7.81.0 (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/3.0.2 zlib/1.2.11 brotli/1.0.9 zstd/1.4.8 libidn2/2.3.2 libpsl/0.21.0 (+libidn2/2.3.2) libssh/0.9.6/openssl/zlib nghttp2/1.43.0 librtmp/2.3 OpenLDAP/2.5.11
+Release-Date: 2022-01-05
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp 
+Features: alt-svc AsynchDNS brotli GSS-API HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM NTLM_WB PSL SPNEGO SSL TLS-SRP UnixSockets zstd
+ye@ye-System-Product-Name:~$
 Get:3 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.2 [3,130 kB]
 Fetched 4,108 kB in 0s (12.0 MB/s)
 Selecting previously unselected package liberror-perl.
@@ -91,6 +124,55 @@ ye@ye-System-Product-Name:~$ pycharm-community
 </div> 
 
 <br />
+
+## curl
+
+Wiki ကနေ အင်္ဂလိပ်လိုရှင်းထားတာကတော့...  
+cURL is a command-line tool for getting or sending data including files using URL syntax.  
+
+url ကနေတဆင့် ကိုယ့်စက်ထဲကို download လုပ်လို့ ရဖို့အတွက် curl tool ကို installation လုပ်မယ်ဆိုရင်...  
+
+```
+ye@ye-System-Product-Name:~$ sudo apt install curl
+[sudo] password for ye: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libcurl4
+The following NEW packages will be installed:
+  curl
+The following packages will be upgraded:
+  libcurl4
+1 upgraded, 1 newly installed, 0 to remove and 21 not upgraded.
+Need to get 483 kB of archives.
+After this operation, 452 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.1 [289 kB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.1 [194 kB]
+Fetched 483 kB in 1s (756 kB/s)
+(Reading database ... 179956 files and directories currently installed.)
+Preparing to unpack .../libcurl4_7.81.0-1ubuntu1.1_amd64.deb ...
+Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.1) over (7.81.0-1) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_7.81.0-1ubuntu1.1_amd64.deb ...
+Unpacking curl (7.81.0-1ubuntu1.1) ...
+Setting up libcurl4:amd64 (7.81.0-1ubuntu1.1) ...
+Setting up curl (7.81.0-1ubuntu1.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3) ...
+```
+
+curl command ကို --version option နဲ့ ကိုခေါ်ပြီးတော့ installation ကို confirmation လုပ်ကြည့်ရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ curl --version
+curl 7.81.0 (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/3.0.2 zlib/1.2.11 brotli/1.0.9 zstd/1.4.8 libidn2/2.3.2 libpsl/0.21.0 (+libidn2/2.3.2) libssh/0.9.6/openssl/zlib nghttp2/1.43.0 librtmp/2.3 OpenLDAP/2.5.11
+Release-Date: 2022-01-05
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp 
+Features: alt-svc AsynchDNS brotli GSS-API HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM NTLM_WB PSL SPNEGO SSL TLS-SRP UnixSockets zstd
+ye@ye-System-Product-Name:~$
+```
 
 ## java
 
@@ -1213,15 +1295,52 @@ ye@ye-System-Product-Name:~$
 
 ## pip (or) pip for Python2
 
-Python2 အတွက် pip က default မှာ Ubuntu OS မှာ installation လုပ်မထားပါဘူး။ 
+Python2 အတွက် pip က default မှာ Ubuntu OS မှာ installation လုပ်မထားပါဘူး။  
 
 ```
 ye@ye-System-Product-Name:~$ pip
 pip                     pip3                    pip3.10                 pipewire                pipewire-media-session
 ```
 
+curl command နဲ့ get-pip.py ဆိုတဲ့ script ကို ကိုယ့်စက်ထဲကို download လုပ်ရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1863k  100 1863k    0     0  4235k      0 --:--:-- --:--:-- --:--:-- 4244k
+ye@ye-System-Product-Name:~$
+```
+
+အထက်က curl နဲ့ download လုပ်ထားတဲ့ get-pip.py ဆိုတဲ့ script ကို python version 2 နဲ့ run ပြီး pip2 ကို download/install လုပ်ခိုင်းရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ sudo python2 get-pip.py
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+Collecting pip<21.0
+  Downloading pip-20.3.4-py2.py3-none-any.whl (1.5 MB)
+     |████████████████████████████████| 1.5 MB 1.8 MB/s 
+Collecting setuptools<45
+  Downloading setuptools-44.1.1-py2.py3-none-any.whl (583 kB)
+     |████████████████████████████████| 583 kB 122.5 MB/s 
+Collecting wheel
+  Downloading wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+Installing collected packages: pip, setuptools, wheel
+Successfully installed pip-20.3.4 setuptools-44.1.1 wheel-0.37.1
+ye@ye-System-Product-Name:~$
+```
+
+pip2 command ကို --version option ပေးပြီးတော့ installation အဆင်ပြေပြေနဲ့ ပြီးသွားသလား ဆိုတာကို confirmation လုပ်ကြည့်ရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ pip2 --version
+pip 20.3.4 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
+ye@ye-System-Product-Name:~$
+```
 
 ## Reference
 
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
+- https://en.wikipedia.org/wiki/CURL
+- 
 
