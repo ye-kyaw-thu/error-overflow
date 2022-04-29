@@ -1,5 +1,16 @@
 # Installation of Required Packages for a New Ubuntu OS
 
+လက်ရှိ သုံးနေတဲ့ ubuntu version က ...  
+
+```
+ye@ye-System-Product-Name:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04 LTS
+Release:	22.04
+Codename:	jammy
+```
+
 Ubuntu OS ကို စက်အသစ်မှာ installation လုပ်ပြီးသွားတဲ့အခါမှာ လုပ်လေ့ရှိတဲ့ installation step နဲ့ ပတ်သက်တဲ့ log ပါ။  
 Default Ubuntu OS မှာက ကိုယ်လိုချင်တဲ့ library တို့ဘာတို့က အဆင်သင့် ရှိမနေပါဘူး။ အဲဒါကြောင့် ကိုယ့်ဖာသာကိုယ် customize လုပ်ရပါတယ်။  
 
@@ -1337,6 +1348,21 @@ ye@ye-System-Product-Name:~$ pip2 --version
 pip 20.3.4 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
 ye@ye-System-Product-Name:~$
 ```
+
+## jupyter
+
+လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
+
+```
+ye@ye-System-Product-Name:~$ jupyter
+Command 'jupyter' not found, but can be installed with:
+sudo snap install jupyter       # version 1.0.0, or
+sudo apt  install jupyter-core  # version 4.9.1-1
+See 'snap info jupyter' for additional versions.
+ye@ye-System-Product-Name:~$ 
+```
+
+
 
 ## Reference
 
