@@ -9,6 +9,9 @@ sudo apt update && sudo apt upgrade -y
 
 ## git
 
+ကိုယ်မှာ GitHub account ရှိပြီးတော့ repository တွေနဲ့အလုပ်လုပ်ဖို့အတွက် လိုအပ်ပါတယ်။ တကယ်လို့ ကိုယ့်မှာ GitHub account မရှိရင်တောင်မှာ command line ကနေ တခြားသူတွေရဲ့ source code repository တစ်ခုခုကို clone လုပ်ဖို့အတွက် ($git clone) က install လုပ်ထားသင့်ပါတယ်။  
+
+
 ```
 ye@ye-System-Product-Name:~$ sudo apt-get install git
 Reading package lists... Done
