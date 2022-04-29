@@ -550,6 +550,16 @@ where possible options include:
 ye@ye-System-Product-Name:~$
 ```
 
+## Google Chrome Browser
+
+Ubuntu မှာက FireFox browser က default ပါ။ တကယ်လို့ Google chrome browser ကို သုံးချင်တယ်ဆိုရင်တော့...  
+
+```
+sudo apt install -y chromium-browser
+```
+
+
+
 ## Reference
 
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
