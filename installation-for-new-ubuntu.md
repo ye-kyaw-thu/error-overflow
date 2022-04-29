@@ -849,7 +849,29 @@ telegram-desktop 3.7.3 from Telegram FZ-LLC (telegram.desktop) installed
 ye@ye-System-Product-Name:~$
 ```
 
+command line ကနေ run မယ်ဆိုရင်တော့  
 
+```
+telegram-desktop 
+```
+
+အဲဒါဆိုရင် အောက်ပါလိုမျိုး welcome screen ကို မြင်ရပါလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/telegram-welcome-screen.png" alt="telegram Welcome Screen" /> </p>  
+<div align="center">
+  Fig. Welcome screen of telegram <br />
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/telegram-login.png" alt="telegram Login Screen" /> </p>  
+<div align="center">
+  Fig. Login screen of telegram <br />
+</div> 
+
+<br />
 
 ## Reference
 
