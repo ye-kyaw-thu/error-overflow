@@ -72,7 +72,7 @@ ye@ye-System-Product-Name:~$ pycharm-community
 ပထမဆုံး run တဲ့အခါမှာ project path တို့ ဘာတို့ကို setup လုပ်ပေးရပါလိမ့်မယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/pycharm-1.png" alt="folder setup of PyCharm" width="600"/> </p>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/pycharm-1.png" alt="folder setup of PyCharm" width="800"/> </p>  
 <div align="center">
   Fig. Folder and path setting for the PyCharm <br />
 </div> 
@@ -82,7 +82,7 @@ ye@ye-System-Product-Name:~$ pycharm-community
 ပြီးရင်တော့ coding လုပ်ဖို့အတွက် IDE interface တက်လာပါလိမ့်မယ်။  
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/pycharm-1.png" alt="folder setup of PyCharm" width="800"/> </p>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/pycharm-2.png" alt="folder setup of PyCharm" width="1000"/> </p>  
 <div align="center">
   Fig. IDE of PyCharm <br />
 </div> 
