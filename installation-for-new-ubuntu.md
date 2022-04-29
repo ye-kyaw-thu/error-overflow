@@ -827,6 +827,14 @@ Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
 ye@ye-System-Product-Name:~$
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gimp-UI.png" alt="gimp UI" /> </p>  
+<div align="center">
+  Fig. User interface of the gimp (graphics editing software)<br />
+</div> 
+
+<br />
+
 ## Reference
 
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
