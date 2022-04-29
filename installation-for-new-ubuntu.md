@@ -581,7 +581,8 @@ zoom_amd64.deb                            100%[=================================
 ye@ye-System-Product-Name:~$
 ```
 
-``ye@ye-System-Product-Name:~$ sudo apt install ./zoom_amd64.deb
+```
+ye@ye-System-Product-Name:~$ sudo apt install ./zoom_amd64.deb
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -628,7 +629,7 @@ Processing triggers for shared-mime-info (2.1-2) ...
 Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
 Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
 N: Download is performed unsandboxed as root as file '/home/ye/zoom_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
-ye@ye-System-Product-Name:~$`
+ye@ye-System-Product-Name:~$
 ```
 
 
