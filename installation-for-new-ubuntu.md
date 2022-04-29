@@ -1079,15 +1079,25 @@ installation လုပ်ပြီးတဲ့အခါမှာ command prompt 
 
 ## python
 
+NLP (Natural Language Processing), AI (Artificial Intelligence) နဲ့ ML (Machine Learning) သုတေသနလုပ်ကြတဲ့ သူတွေအတွက်က python programming က မရှိမဖြစ်ပါပဲ။ Ubuntu OS အသစ် install လုပ်လိုက်ရင် default အနေနဲ့ python2.7 နဲ့ python3 ရဲ့ version တစ်ခုခုကတော့ ပါလာတတ်ပြီးသားပါ။ ကိုယ်တိုင် လုပ်မယ် experimental setting ပေါ်ကိုမူတည်ပြီးတော့ လိုချင်တဲ့ သုံးချင်တဲ့ ဗားရှင်းကို ထပ်ထည့်တာမျိုး လုပ်ကြရပါတယ်။  
+
+ကိုယ့်စက်ထဲမှာ ဘယ်လို python version တွေရှိနေသလဲ ဆိုတာကို သိချင်ရင် python လို့ ရိုက်ထည့်ပြီးတော့ TAB key ကိုနှိပ်လိုက်ရင် အောက်ပါလိုမျိုး အသေးစိတ် ပြပေးပါလိမ့်မယ်။  
+
 ```
 ye@ye-System-Product-Name:~$ python
 python2             python2.7           python3             python3.10          python3.8           python3-futurize    python3-pasteurize
 ```
 
+python2 ကို ရိုက်လိုက်ရင် ဘယ် python2 ရဲ့ ဗားရှင်း (တနည်းအားဖြင့် detail version information) ကိုယူသုံးသွားမှာလဲ ဆိုတာကို အောက်ပါလိုမျိုး ဖော်ပြပေးပါလိမ့်မယ်။  
+
 ```
 ye@ye-System-Product-Name:~$ python2 --version
 Python 2.7.18
 ```
+
+ထိုနည်းလည်းကောင်း python3 ရဲ့ ဗားရှင်းကိုလည်း အသေးစိတ်ကြည့်ကြည့်ရအောင်...  
+(စက်တစ်လုံးနဲ့ တစ်လုံး တူမှာ မဟုတ်ဘူးနော်)  
+
 ```
 ye@ye-System-Product-Name:~$ python3 --version
 Python 3.10.4
