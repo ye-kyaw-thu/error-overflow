@@ -635,7 +635,7 @@ ye@ye-System-Product-Name:~$
 command prompt မှာ zoom ဆိုပြီး ရိုက်ထည့်ပြီး run လိုက်ရင် zoom program က တက်လာပါလိမ့်မယ်။ အောက်ပါလိုမျိုး screen နဲ့...  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/zoom-welcome-screen.png" alt="zoom program welcome screen" width="1200"/> </p>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/zoom-welcome-screen.png" alt="zoom program welcome screen" /> </p>  
 <div align="center">
   Fig. Welcome screen of the Zoom video conferencing program <br />
 </div> 
