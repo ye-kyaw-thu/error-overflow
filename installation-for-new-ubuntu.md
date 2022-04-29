@@ -1077,7 +1077,21 @@ installation လုပ်ပြီးတဲ့အခါမှာ command prompt 
 
 <br />
 
+## python
 
+```
+ye@ye-System-Product-Name:~$ python
+python2             python2.7           python3             python3.10          python3.8           python3-futurize    python3-pasteurize
+```
+
+```
+ye@ye-System-Product-Name:~$ python2 --version
+Python 2.7.18
+```
+```
+ye@ye-System-Product-Name:~$ python3 --version
+Python 3.10.4
+```
 
 ## Reference
 
