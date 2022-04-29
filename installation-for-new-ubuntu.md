@@ -1105,6 +1105,8 @@ Python 3.10.4
 
 ## pip3
 
+python library တွေကို installation လုပ်ဖို့အတွက်က pip3 (pip for Python3) က လိုအပ်ပါတယ်။  
+
 ```
 Command 'pip3' not found, but can be installed with:
 sudo apt install python3-pip
@@ -1201,6 +1203,13 @@ Processing triggers for man-db (2.10.2-1) ...
 ye@ye-System-Product-Name:~$
 ```
 
+pip3 ရဲ့ ဗားရှင်းကို confirm လုပ်ကြည့်ရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ pip3 --version
+pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+ye@ye-System-Product-Name:~$
+```
 
 ## Reference
 
