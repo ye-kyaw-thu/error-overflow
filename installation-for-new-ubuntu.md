@@ -124,7 +124,11 @@ Need to get 43.8 MB of archives.
 After this operation, 180 MB of additional disk space will be used.
 Do you want to continue? [Y/n] Y
 Get:1 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 java-common all 0.72build2 [6,782 B]
-Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 openjdk-11-jre-headless amd64 11.0.15+10-0ubuntu0.22.04.1 [41.5 MB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammye@ye-System-Product-Name:~$ java --version
+openjdk 11.0.15 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1, mixed mode, sharing)
+ye@ye-System-Product-Name:~$y-updates/main amd64 openjdk-11-jre-headless amd64 11.0.15+10-0ubuntu0.22.04.1 [41.5 MB]
 Get:3 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 default-jre-headless amd64 2:1.11-72build2 [3,042 B]
 Get:4 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 ca-certificates-java all 20190909 [12.1 kB]
 Get:5 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 openjdk-11-jre amd64 11.0.15+10-0ubuntu0.22.04.1 [194 kB]
@@ -321,6 +325,20 @@ Running hooks in /etc/ca-certificates/update.d...
 
 done.
 done.
+ye@ye-System-Product-Name:~$ye@ye-System-Product-Name:~$ java --version
+openjdk 11.0.15 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1, mixed mode, sharing)
+ye@ye-System-Product-Name:~$
+```
+
+သေချာအောင် Java version ကို ရိုက်ထုတ်ကြည့်ပြီး confirmation လုပ်ကြည့်ကြရအောင်...  
+
+```
+ye@ye-System-Product-Name:~$ java --version
+openjdk 11.0.15 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1, mixed mode, sharing)
 ye@ye-System-Product-Name:~$
 ```
 
