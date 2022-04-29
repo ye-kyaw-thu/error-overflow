@@ -1211,6 +1211,16 @@ pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
 ye@ye-System-Product-Name:~$
 ```
 
+## pip (or) pip for Python2
+
+Python2 အတွက် pip က default မှာ Ubuntu OS မှာ installation လုပ်မထားပါဘူး။ 
+
+```
+ye@ye-System-Product-Name:~$ pip
+pip                     pip3                    pip3.10                 pipewire                pipewire-media-session
+```
+
+
 ## Reference
 
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
