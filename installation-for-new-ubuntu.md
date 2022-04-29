@@ -1067,6 +1067,16 @@ Processing triggers for man-db (2.10.2-1) ...
 ye@ye-System-Product-Name:~$
 ```
 
+installation လုပ်ပြီးတဲ့အခါမှာ command prompt ကနေ vim လို့ရိုက်ပြီးတော့ Enter ခေါက်လိုက်ရင် vim text editor တက်လာပါလိမ့်မယ်။  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/vim-text-editor-screen.png" alt="vim text editor Screen" /> </p>  
+<div align="center">
+  Fig. vim text editor <br />
+</div> 
+
+<br />
+
 
 
 ## Reference
