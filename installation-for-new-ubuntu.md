@@ -877,7 +877,7 @@ telegram မှာ ပထမဆုံး သုံးဖို့အတွက်
 
 ## build-essential
 
-Linux OS မှာ software တွေကို compile လုပ်ဖို့အတွက် နောက်ထပ် အရေးကြီးတာ တစ်ခုကတော့ build-essential ပါပဲ။ build-essential မှာ ပါဝင်တာတွေကတော့ GNU debugger, g++/GNU compiler collection တို့နဲ့တကွ compile လုပ်တဲ့အခါမှာလိုအပ်တဲ့ library တွေ tool တွေပါပဲ။  
+Linux OS မှာ software တွေကို compile လုပ်ဖို့အတွက် နောက်ထပ် အရေးကြီးတာ တစ်ခုကတော့ build-essential ပါပဲ။ build-essential မှာ ပါဝင်တာတွေကတော့ GNU debugger, g++/GNU compiler collection တို့နဲ့တကွ compile လုပ်တဲ့အခါမှာလိုအပ်တဲ့ library တွေ tool (e.g. make tool) တွေပါပဲ။  
 
 ```
 ye@ye-System-Product-Name:~$ sudo apt install build-essential
