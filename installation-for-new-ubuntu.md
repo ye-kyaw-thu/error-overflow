@@ -865,6 +865,8 @@ telegram-desktop
 
 <br />
 
+telegram မှာ ပထမဆုံး သုံးဖို့အတွက် ဆိုရင်တော့ mobile phone နဲ့ QR code ကိုသုံးပြီး confirmation လုပ်ပြီးမှ login ဝင်လို့ ရပါလိမ့်မယ်။  
+
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/telegram-login.png" alt="telegram Login Screen" /> </p>  
 <div align="center">
