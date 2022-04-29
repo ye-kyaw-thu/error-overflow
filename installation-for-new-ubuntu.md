@@ -558,6 +558,79 @@ Ubuntu မှာက FireFox browser က default ပါ။ တကယ်လို�
 sudo apt install -y chromium-browser
 ```
 
+## Zoom
+
+```
+ye@ye-System-Product-Name:~$ wget https://zoom.us/client/latest/zoom_amd64.deb
+--2022-04-29 11:58:03--  https://zoom.us/client/latest/zoom_amd64.deb
+Resolving zoom.us (zoom.us)... 170.114.10.87
+Connecting to zoom.us (zoom.us)|170.114.10.87|:443... connected.
+HTTP request sent, awaiting response... 302 
+Location: https://cdn.zoom.us/prod/5.10.4.2845/zoom_amd64.deb [following]
+--2022-04-29 11:58:04--  https://cdn.zoom.us/prod/5.10.4.2845/zoom_amd64.deb
+Resolving cdn.zoom.us (cdn.zoom.us)... 13.35.19.248
+Connecting to cdn.zoom.us (cdn.zoom.us)|13.35.19.248|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 128995720 (123M) [binary/octet-stream]
+Saving to: ‘zoom_amd64.deb’
+
+zoom_amd64.deb                            100%[=====================================================================================>] 123.02M  37.3MB/s    in 3.3s    
+
+2022-04-29 11:58:07 (37.3 MB/s) - ‘zoom_amd64.deb’ saved [128995720/128995720]
+
+ye@ye-System-Product-Name:~$
+```
+
+``ye@ye-System-Product-Name:~$ sudo apt install ./zoom_amd64.deb
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Note, selecting 'zoom' instead of './zoom_amd64.deb'
+The following additional packages will be installed:
+  libegl1-mesa libgl1-mesa-glx libxcb-xinerama0 libxcb-xtest0
+The following NEW packages will be installed:
+  libegl1-mesa libgl1-mesa-glx libxcb-xinerama0 libxcb-xtest0 zoom
+0 upgraded, 5 newly installed, 0 to remove and 21 not upgraded.
+Need to get 22.4 kB/129 MB of archives.
+After this operation, 479 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 /home/ye/zoom_amd64.deb zoom amd64 5.10.4.2845 [129 MB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy/universe amd64 libegl1-mesa amd64 22.0.1-1ubuntu2 [6,658 B]
+Get:3 http://th.archive.ubuntu.com/ubuntu jammy/universe amd64 libgl1-mesa-glx amd64 22.0.1-1ubuntu2 [5,456 B]
+Get:4 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 libxcb-xinerama0 amd64 1.14-3ubuntu3 [5,414 B]
+Get:5 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 libxcb-xtest0 amd64 1.14-3ubuntu3 [4,874 B]
+Fetched 22.4 kB in 3s (6,445 B/s)         
+Selecting previously unselected package libegl1-mesa:amd64.
+(Reading database ... 169052 files and directories currently installed.)
+Preparing to unpack .../libegl1-mesa_22.0.1-1ubuntu2_amd64.deb ...
+Unpacking libegl1-mesa:amd64 (22.0.1-1ubuntu2) ...
+Selecting previously unselected package libgl1-mesa-glx:amd64.
+Preparing to unpack .../libgl1-mesa-glx_22.0.1-1ubuntu2_amd64.deb ...
+Unpacking libgl1-mesa-glx:amd64 (22.0.1-1ubuntu2) ...
+Selecting previously unselected package libxcb-xinerama0:amd64.
+Preparing to unpack .../libxcb-xinerama0_1.14-3ubuntu3_amd64.deb ...
+Unpacking libxcb-xinerama0:amd64 (1.14-3ubuntu3) ...
+Selecting previously unselected package libxcb-xtest0:amd64.
+Preparing to unpack .../libxcb-xtest0_1.14-3ubuntu3_amd64.deb ...
+Unpacking libxcb-xtest0:amd64 (1.14-3ubuntu3) ...
+Selecting previously unselected package zoom.
+Preparing to unpack /home/ye/zoom_amd64.deb ...
+Unpacking zoom (5.10.4.2845) ...
+Setting up libegl1-mesa:amd64 (22.0.1-1ubuntu2) ...
+Setting up libxcb-xinerama0:amd64 (1.14-3ubuntu3) ...
+Setting up libxcb-xtest0:amd64 (1.14-3ubuntu3) ...
+Setting up libgl1-mesa-glx:amd64 (22.0.1-1ubuntu2) ...
+Setting up zoom (5.10.4.2845) ...
+run post install script, action is configure...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for libc-bin (2.35-0ubuntu3) ...
+Processing triggers for shared-mime-info (2.1-2) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+N: Download is performed unsandboxed as root as file '/home/ye/zoom_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+ye@ye-System-Product-Name:~$`
+```
+
 
 
 ## Reference
