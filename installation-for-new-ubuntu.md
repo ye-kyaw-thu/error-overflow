@@ -4,7 +4,7 @@ Ubuntu OS ကို စက်အသစ်မှာ installation လုပ်ပ�
 Default Ubuntu OS မှာက ကိုယ်လိုချင်တဲ့ library တို့ဘာတို့က အဆင်သင့် ရှိမနေပါဘူး။ အဲဒါကြောင့် ကိုယ့်ဖာသာကိုယ် customize လုပ်ရပါတယ်။  
 
 ```
-sudo apt-get update  
+sudo apt update && sudo apt upgrade -y  
 ```
 
 ## git
