@@ -1340,7 +1340,7 @@ ye@ye-System-Product-Name:~$
 
 ## Reference
 
-- https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
-- https://en.wikipedia.org/wiki/CURL
-- 
+- https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/  
+- https://en.wikipedia.org/wiki/CURL  
+- https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/  
 
