@@ -1,5 +1,8 @@
 # Installation of Required Packages for a New Ubuntu OS
 
+Ubuntu OS ကို စက်အသစ်မှာ installation လုပ်ပြီးသွားတဲ့အခါမှာ လုပ်လေ့ရှိတဲ့ installation step နဲ့ ပတ်သက်တဲ့ log ပါ။  
+Default Ubuntu OS မှာက ကိုယ်လိုချင်တဲ့ library တို့ဘာတို့က အဆင်သင့် ရှိမနေပါဘူး။ အဲဒါကြောင့် ကိုယ့်ဖာသာကိုယ် customize လုပ်ရပါတယ်။  
+
 ```
 sudo apt-get update  
 ```
