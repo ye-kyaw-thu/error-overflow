@@ -1369,4 +1369,5 @@ ye@ye-System-Product-Name:~$
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/  
 - https://en.wikipedia.org/wiki/CURL  
 - https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/  
+- https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda
 
