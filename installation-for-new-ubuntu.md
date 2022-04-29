@@ -988,6 +988,40 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ye@ye-System-Product-Name:~$
 ```
 
+c ပရိုဂရမ် အသေးတစ်ပုဒ် ရေးပြီးတော့ hello.c အနေနဲ့ သိမ်းခဲ့တယ်။  
+
+```
+ye@ye-System-Product-Name:~$ vi hello.c
+ye@ye-System-Product-Name:~$ cat hello.c
+#include <stdio.h>
+
+int main() {
+    printf("နေကောင်းလား\n");
+    return 0;
+}
+```
+
+compile လုပ်ပြီး output filename ကို hello လို့ သတ်မှတ်ခဲ့တယ်။  
+
+```
+ye@ye-System-Product-Name:~$ gcc ./hello.c -o hello
+```
+
+coding မှာက အမှားအယွင်းမရှိရင် hello ဆိုတဲ့ executable program ကို output အနေနဲ့ ထုတ်ပေးပါလိမ့်မယ်။  
+
+```
+ye@ye-System-Product-Name:~$ ls hello*
+hello  hello.c
+```
+
+run ကြည့်ရအောင် ...  
+
+```
+ye@ye-System-Product-Name:~$ ./hello
+နေကောင်းလား
+ye@ye-System-Product-Name:~$
+```
+
 ## vim
 
 vim editor ကလည်း စသုံးစလူတွေအတွက် ခက်ပေမဲ့ linux သမားတွေ၊ ပရိုဂရမ်မာတွေအတွက်က powerful text editor တစ်ခုပါ။  
