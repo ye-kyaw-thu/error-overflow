@@ -988,6 +988,52 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ye@ye-System-Product-Name:~$
 ```
 
+## vim
+
+vim editor ကလည်း စသုံးစလူတွေအတွက် ခက်ပေမဲ့ linux သမားတွေ၊ ပရိုဂရမ်မာတွေအတွက်က powerful text editor တစ်ခုပါ။  
+
+```
+ye@ye-System-Product-Name:~$ sudo apt install vim
+[sudo] password for ye: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-runtime
+Suggested packages:
+  ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  vim vim-runtime
+0 upgraded, 2 newly installed, 0 to remove and 22 not upgraded.
+Need to get 8,548 kB of archives.
+After this operation, 37.6 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2 [6,825 kB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy/main amd64 vim amd64 2:8.2.3995-1ubuntu2 [1,724 kB]
+Fetched 8,548 kB in 1s (9,041 kB/s)
+Selecting previously unselected package vim-runtime.
+(Reading database ... 176765 files and directories currently installed.)
+Preparing to unpack .../vim-runtime_2%3a8.2.3995-1ubuntu2_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.2.3995-1ubuntu2_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2) ...
+Setting up vim (2:8.2.3995-1ubuntu2) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+Processing triggers for man-db (2.10.2-1) ...
+ye@ye-System-Product-Name:~$
+```
+
+
 
 ## Reference
 
