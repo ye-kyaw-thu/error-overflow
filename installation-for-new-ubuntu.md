@@ -838,6 +838,19 @@ ye@ye-System-Product-Name:~$
 
 <br />
 
+## telegram
+
+telegram ကလည်း ကိုယ်ရောက်နေတဲ့နိုင်ငံ၊ ကိုယ်မှာရှိတဲ့ မိတ်ဆွေတွေရဲ့ အသုံးပြုမှုအပေါ်ကို မူတည်ပြီး လိုအပ်တတ်ပါတယ်။ ဥပမာ ကမ္ဘောဒီယားမှာ ဆိုရင် သူငယ်ချင်း အချင်းချင်း၊ ဆရာနဲ့တပည့်အကြား ဆက်သွယ်ဖို့အတွက်က telegram က အဓိက ကျပါတယ်။ ထိုနည်းလည်းကောင်း ထိုင်းနိုင်ငံမှာ ဆိုရင်တော့ LINE ကို အားထားပြီး သုံးကြပါတယ်။  
+
+```
+ye@ye-System-Product-Name:~$ sudo snap install telegram-desktop
+[sudo] password for ye: 
+telegram-desktop 3.7.3 from Telegram FZ-LLC (telegram.desktop) installed
+ye@ye-System-Product-Name:~$
+```
+
+
+
 ## Reference
 
 - https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/
