@@ -1600,7 +1600,12 @@ https://www.anaconda.com/pycharm
 ye@ye-System-Product-Name:~/tool/anaconda$
 ```
 
+activate လုပ်ကြည့်ရအောင်...  
 
+```
+ye@ye-System-Product-Name:~/tool/anaconda$ source ~/.bashrc
+(base) ye@ye-System-Product-Name:~/tool/anaconda$
+```
 
 
 ## jupyter
