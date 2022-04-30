@@ -1349,6 +1349,40 @@ pip 20.3.4 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
 ye@ye-System-Product-Name:~$
 ```
 
+## Anaconda
+
+လက်ရှိ အချိန်အခါမှာ machine learning, data science စတဲ့ ပရောဂျက်တွေနဲ့ အလုပ်လုပ်နေတဲ့ သူတွေအနေနဲ့က virtual environment တစ်ခုခုကို installation လုပ်ထားဖို့ လိုအပ်ပါတယ်။ အဲ့ဒါကြောင့် Anaconda သို့မဟုတ် Virtualenv တစ်ခုခုကို installation လုပ်ဖို့ လိုအပ်ပါတယ်။ နှစ်ခုအနက် ဘယ်ဟာကိုသုံးမလဲ ဆိုတာကတော့ အောက်ပါအချက်အလက်တွေကို ကြည့်ပြီးတော့ ဆုံးဖြတ်ပါ။  
+
+### Anaconda
+
+- Data Science ပဲ လုပ်မယ်ဆိုရင် သင့်တော်တယ်
+- လိုအပ်တဲ့ library တွေ အများစုက ပါပြီးသားပါ (Tensorflow, Numpy, Jupyter, Pandas, Matplotlib etc.)
+- experiment လုပ်ဖို့သက်သက်၊ R&D အတွက်ဆိုရင် သင့်တော်တယ်
+- HDD size နေရာတော့ ယူထက် (virtualenv ထက်စာရင် အများကြီး ယူတယ်)
+
+### Virtualenv
+
+- Frontend + Data Science တွဲလုပ်မယ် ဆိုရင် သင့်တော်တယ်
+- Flask
+- SQLAlchemy
+- Ninja2
+- Pandas
+- Matplotlib
+
+## Anaconda Installation 
+
+folder အသစ်တစ်ခု ဆောက်ခဲ့...  
+
+```
+ye@ye-System-Product-Name:~/tool$ mkdir anaconda
+ye@ye-System-Product-Name:~/tool$ cd anaconda/
+```
+
+```
+
+```
+
+
 ## jupyter
 
 လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
@@ -1370,4 +1404,5 @@ ye@ye-System-Product-Name:~$
 - https://en.wikipedia.org/wiki/CURL  
 - https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/  
 - https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda
+- https://dataaspirant.com/anaconda-python-virtualenv/
 
