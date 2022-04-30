@@ -1378,9 +1378,24 @@ ye@ye-System-Product-Name:~/tool$ mkdir anaconda
 ye@ye-System-Product-Name:~/tool$ cd anaconda/
 ```
 
-```
+wget command နဲ့ shell ဖိုင်ကို download လုပ်ယူ...  
 
 ```
+ye@ye-System-Product-Name:~/tool/anaconda$ wget -P /tmp https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+--2022-04-30 12:55:33--  https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+Resolving repo.anaconda.com (repo.anaconda.com)... 104.16.131.3, 104.16.130.3, 2606:4700::6810:8303, ...
+Connecting to repo.anaconda.com (repo.anaconda.com)|104.16.131.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 546910666 (522M) [application/x-sh]
+Saving to: ‘/tmp/Anaconda3-2020.02-Linux-x86_64.sh’
+
+Anaconda3-2020.02-Linux-x86_64.sh     100%[========================================================================>] 521.57M  15.7MB/s    in 35s     
+
+2022-04-30 12:56:09 (14.7 MB/s) - ‘/tmp/Anaconda3-2020.02-Linux-x86_64.sh’ saved [546910666/546910666]
+
+ye@ye-System-Product-Name:~/tool/anaconda$
+```
+
 
 
 ## jupyter
