@@ -1742,6 +1742,13 @@ ye@ye-System-Product-Name:~$
 (base) ye@ye-System-Product-Name:~/tool/anaconda$ jupyter notebook
 ```
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/jupyter-IDE.png" alt="UI of Jupyter Notebook" /> </p>  
+<div align="center">
+  Fig. UI of Jupyter Notebook <br />
+</div> 
+
+<br />
 
 
 ## Reference
