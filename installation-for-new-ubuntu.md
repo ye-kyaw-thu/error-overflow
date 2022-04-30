@@ -1479,8 +1479,130 @@ Anaconda3 will now be installed into this location:
 [/home/ye/anaconda3] >>>
 ```
 
+ENTER နှိပ်လိုက်ရင်...  
 
-                                                                                                          
+```
+[/home/ye/anaconda3] >>> 
+PREFIX=/home/ye/anaconda3
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): done                                                                                              
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3
+
+  added / updated specs:
+    - _ipyw_jlab_nb_ext_conf==0.1.0=py37_0
+    - _libgcc_mutex==0.1=main
+    - alabaster==0.7.12=py37_0
+    - anaconda-client==1.7.2=py37_0
+    - anaconda-navigator==1.9.12=py37_0
+    - anaconda-project==0.8.4=py_0
+    - anaconda==2020.02=py37_0
+    - argh==0.26.2=py37_0
+    - asn1crypto==1.3.0=py37_0
+    - astroid==2.3.3=py37_0
+    - astropy==4.0=py37h7b6447c_0
+    - atomicwrites==1.3.0=py37_1
+    - attrs==19.3.0=py_0
+    - autopep8==1.4.4=py_0
+    - babel==2.8.0=py_0
+    - backcall==0.1.0=py37_0
+    - backports.functools_lru_cache==1.6.1=py_0
+    - backports.shutil_get_terminal_size==1.0.0=py37_2
+    - backports.tempfile==1.0=py_1
+    - backports.weakref==1.0.post1=py_1
+    - backports==1.0=py_2
+
+...
+...
+...
+  xmltodict          pkgs/main/noarch::xmltodict-0.12.0-py_0
+  xz                 pkgs/main/linux-64::xz-5.2.4-h14c3975_4
+  yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+  yapf               pkgs/main/noarch::yapf-0.28.0-py_0
+  zeromq             pkgs/main/linux-64::zeromq-4.3.1-he6710b0_3
+  zict               pkgs/main/noarch::zict-1.0.0-py_0
+  zipp               pkgs/main/noarch::zipp-2.2.0-py_0
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+  zstd               pkgs/main/linux-64::zstd-1.3.7-h0b5b093_0
+
+
+Preparing transaction: done
+Executing transaction: done
+installation finished.
+Do you wish the installer to initialize Anaconda3
+by running conda init? [yes|no]
+[no] >>> yes
+no change     /home/ye/anaconda3/condabin/conda
+no change     /home/ye/anaconda3/bin/conda
+no change     /home/ye/anaconda3/bin/conda-env
+no change     /home/ye/anaconda3/bin/activate
+no change     /home/ye/anaconda3/bin/deactivate
+no change     /home/ye/anaconda3/etc/profile.d/conda.sh
+no change     /home/ye/anaconda3/etc/fish/conf.d/conda.fish
+no change     /home/ye/anaconda3/shell/condabin/Conda.psm1
+no change     /home/ye/anaconda3/shell/condabin/conda-hook.ps1
+no change     /home/ye/anaconda3/lib/python3.7/site-packages/xontrib/conda.xsh
+no change     /home/ye/anaconda3/etc/profile.d/conda.csh
+modified      /home/ye/.bashrc
+
+==> For changes to take effect, close and re-open your current shell. <==
+
+If you'd prefer that conda's base environment not be activated on startup, 
+   set the auto_activate_base parameter to false: 
+
+conda config --set auto_activate_base false
+
+Thank you for installing Anaconda3!
+
+===========================================================================
+
+Anaconda and JetBrains are working together to bring you Anaconda-powered
+environments tightly integrated in the PyCharm IDE.
+[/home/ye/anaconda3] >>> 
+PREFIX=/home/ye/anaconda3
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): done                                                                                              
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3
+
+  added / updated specs:
+    - _ipyw_jlab_nb_ext_conf==0.1.0=py37_0
+    - _libgcc_mutex==0.1=main
+    - alabaster==0.7.12=py37_0
+    - anaconda-client==1.7.2=py37_0
+    - anaconda-navigator==1.9.12=py37_0
+    - anaconda-project==0.8.4=py_0
+    - anaconda==2020.02=py37_0
+    - argh==0.26.2=py37_0
+    - asn1crypto==1.3.0=py37_0
+    - astroid==2.3.3=py37_0
+    - astropy==4.0=py37h7b6447c_0
+    - atomicwrites==1.3.0=py37_1
+    - attrs==19.3.0=py_0
+    - autopep8==1.4.4=py_0
+    - babel==2.8.0=py_0
+    - backcall==0.1.0=py37_0
+    - backports.functools_lru_cache==1.6.1=py_0
+    - backports.shutil_get_terminal_size==1.0.0=py37_2
+    - backports.tempfile==1.0=py_1
+    - backports.weakref==1.0.post1=py_1
+    - backports==1.0=py_2
+
+PyCharm for Anaconda is available at:
+https://www.anaconda.com/pycharm
+
+ye@ye-System-Product-Name:~/tool/anaconda$
+```
+
+
+
+
 ## jupyter
 
 လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
