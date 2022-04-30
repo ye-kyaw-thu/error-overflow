@@ -1404,6 +1404,61 @@ ye@ye-System-Product-Name:~/tool/anaconda$ sha256sum /tmp/Anaconda3-2020.02-Linu
 ye@ye-System-Product-Name:~/tool/anaconda$
 ```
 
+installation လုပ်ဖို့ shell script ကို run ...  
+
+```
+ye@ye-System-Product-Name:~/tool/anaconda$ bash /tmp/Anaconda3-2020.02-Linux-x86_64.sh
+
+Welcome to Anaconda3 2020.02
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+>>>
+```
+
+installation လုပ်မှာ သေချာရင် ENTER key ကိုခေါက်ပါ။ အဲဒါဆိုရင် လိုင်စင်နဲ့ ပတ်သက်တဲ့ အချက်အလက်တွေကို အောက်ပါအတိုင်း မြင်ရလိမ့်မယ်။  
+
+```
+===================================
+End User License Agreement - Anaconda Individual Edition
+===================================
+
+Copyright 2015-2020, Anaconda, Inc.
+
+All rights reserved under the 3-clause BSD License:
+
+This End User License Agreement (the "Agreement") is a legal agreement between you and Anaconda, Inc. ("Anaconda") and governs your use of Anaconda Ind
+ividual Edition (which was formerly known as Anaconda Distribution).
+
+Subject to the terms of this Agreement, Anaconda hereby grants you a non-exclusive, non-transferable license to:
+
+  * Install and use the Anaconda Individual Edition (which was formerly known as Anaconda Distribution),
+  * Modify and create derivative works of sample source code delivered in Anaconda Individual Edition; and
+  * Redistribute code files in source (if provided to you by Anaconda as source) and binary forms, with or without modification subject to the requirem
+ents set forth below.
+
+Anaconda may, at its option, make available patches, workarounds or other updates to Anaconda Individual Edition. Unless the updates are provided with 
+their separate governing terms, they are deemed part of Anaconda Individual Edition licensed to you as provided in this Agreement.  This Agreement does
+ not entitle you to any support for Anaconda Individual Edition.
+
+Anaconda reserves all rights not expressly granted to you in this Agreement.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+  * Neither the name of Anaconda nor the names of its contributors may be used to endorse or promote products derived from this software without specif
+ic prior written permission.
+
+You acknowledge that, as between you and Anaconda, Anaconda owns all right, title, and interest, including all intellectual property rights, in and to 
+Anaconda Individual Edition and, with respect to third-party products distributed with or in Anaconda Individual Edition, the applicable third-party li
+censors own all right, title and interest, including all intellectual property rights, in and to such products.  If you send or transmit any communicat
+ions or materials to Anaconda suggesting or recommending changes to the software or documentation, including without limitation, new features or functi
+--More--
+
+```
 
 
 ## jupyter
