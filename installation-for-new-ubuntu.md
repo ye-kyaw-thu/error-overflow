@@ -1721,9 +1721,11 @@ Executing transaction: done
 ```
 
 
-## jupyter
+## jupyter notebook
 
-လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
+Jupyter notebook က အရမ်းအသုံးဝင်တဲ့ web-browser ကို အခြေခံထားတဲ့ IDE ပါ။ Python programming တစ်မျိုးတည်း မဟုတ်ပဲ၊ တခြား programming language တွေကိုလည်း support လုပ်ပါတယ်။ ပြီးတော့ linux command တွေကိုလည်း jupyter notebook cell တွေထဲကနေ ခေါ်run လို့ရလို့ အရမ်းအဆင်ပြေပါတယ်။ program running output တစ်ခုတည်းသာမကပဲ matplotlib တို့ကိုသုံးပြီး graph ဆွဲတာတို့လုပ်ပြီး code နဲ့တကွ တွဲသိမ်းထားလို့ ရတာကြောင့် demo လုပ်တဲ့အခါမျိုးတွေ၊ စာသင်တဲ့အခါမျိုးတွေအတွက်လည်း အသုံးဝင်ပါတယ်။  
+
+Ubuntu OS အသစ် installation လုပ်ထားတဲ့စက်မှာ jupyter notebook က မရှိသေးပါဘူး...  
 
 ```
 ye@ye-System-Product-Name:~$ jupyter
@@ -1732,6 +1734,12 @@ sudo snap install jupyter       # version 1.0.0, or
 sudo apt  install jupyter-core  # version 4.9.1-1
 See 'snap info jupyter' for additional versions.
 ye@ye-System-Product-Name:~$ 
+```
+
+သို့သော် အထက်ကလိုမျိုး Anaconda ကို installation လုပ်ပြီးသွားရင်တော့ Jupyter notebook လည်း ခေါ် run လို့ ရပါပြီ။  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/anaconda$ jupyter notebook
 ```
 
 
