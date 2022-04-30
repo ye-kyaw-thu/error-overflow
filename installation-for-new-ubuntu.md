@@ -1752,6 +1752,10 @@ ye@ye-System-Product-Name:~$
 
 ## emacs
 
+Linux သမားတွေ၊ programmer တွေထဲမှာ emacs ကို ချစ်တဲ့သူတွေ အများကြီးပါ။ လေ့လာလို့ မကုန်နိုင်အောင်ပဲလို့ အပြောများကြပါတယ်။ သုံးရင်းလေ့လာ၊ လေ့လာရင်းသုံး သွားရတဲ့ ပုံစံပါ။ ပြောရရင် text editor ဆိုတာထက် operating system တစ်ခုလိုပါပဲ...   
+
+command line ကနေပဲ emacs ကို installation လုပ်မယ်ဆိုရင်တော့ အောက်ပါအတိုင်းပါ။  
+
 ```
 (base) ye@ye-System-Product-Name:~/tool/anaconda$ sudo apt install emacs
 [sudo] password for ye: 
@@ -1828,6 +1832,14 @@ Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
 Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
 (base) ye@ye-System-Product-Name:~/tool/anaconda$
 ```
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/UI-of-emacs.png" alt="UI of emacs" /> </p>  
+<div align="center">
+  Fig. UI of emacs text editor <br />
+</div> 
+
+<br />
 
 
 ## Reference
