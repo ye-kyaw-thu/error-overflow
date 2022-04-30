@@ -1396,6 +1396,14 @@ Anaconda3-2020.02-Linux-x86_64.sh     100%[=====================================
 ye@ye-System-Product-Name:~/tool/anaconda$
 ```
 
+checksum နံပါတ်ကို ထုတ်ကြည့်ပြီး ဒေါင်းလုပ်လုပ်ခဲ့စဉ်က error ရှိမရှိ detect လုပ်ကြည့်.... (ဒီအဆင့်က optional ပါ)  
+
+```
+ye@ye-System-Product-Name:~/tool/anaconda$ sha256sum /tmp/Anaconda3-2020.02-Linux-x86_64.sh
+2b9f088b2022edb474915d9f69a803d6449d5fdb4c303041f60ac4aefcc208bb  /tmp/Anaconda3-2020.02-Linux-x86_64.sh
+ye@ye-System-Product-Name:~/tool/anaconda$
+```
+
 
 
 ## jupyter
