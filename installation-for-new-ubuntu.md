@@ -1467,7 +1467,20 @@ Do you accept the license terms? [yes|no]
 [no] >>> yes
 ```
 
+yes နှိပ်ပြီးရင်... installation လုပ်မယ့် path ကိုဆုံးဖြတ်ပါ။ သူပြထားတဲ့ default path အတိုင်းပဲ installation လုပ်မယ်ဆိုရင်တော့ ENTER ကို နှိပ်ပါ။  
+```
+Anaconda3 will now be installed into this location:
+/home/ye/anaconda3
 
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/home/ye/anaconda3] >>>
+```
+
+
+                                                                                                          
 ## jupyter
 
 လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
