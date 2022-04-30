@@ -1662,6 +1662,65 @@ conda commands available from other packages:
 (base) ye@ye-System-Product-Name:~/tool/anaconda$
 ```
 
+update လုပ်မယ်...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/anaconda$ conda update --all
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _ipyw_jlab_nb_ext_conf-0.1.0|   py37h06a4308_1           5 KB
+    backports.functools_lru_cache-1.6.4|     pyhd3eb1b0_0           9 KB
+    backports.tempfile-1.0     |     pyhd3eb1b0_1          11 KB
+    conda-4.12.0               |   py37h06a4308_0        14.5 MB
+    conda-build-3.21.8         |   py37h06a4308_2         547 KB
+    conda-package-handling-1.8.1|   py37h7f8727e_0         889 KB
+    navigator-updater-0.2.1    |           py37_1         687 KB
+    xmltodict-0.12.0           |     pyhd3eb1b0_0          13 KB
+    ------------------------------------------------------------
+                                           Total:        16.6 MB
+
+The following packages will be UPDATED:
+
+  _ipyw_jlab_nb_ext~                           0.1.0-py37_0 --> 0.1.0-py37h06a4308_1
+  backports.functoo~                             1.6.1-py_0 --> 1.6.4-pyhd3eb1b0_0
+  conda                                        4.8.2-py37_0 --> 4.12.0-py37h06a4308_0
+  conda-build                                3.18.11-py37_0 --> 3.21.8-py37h06a4308_2
+  conda-package-han~                   1.6.0-py37h7b6447c_0 --> 1.8.1-py37h7f8727e_0
+  navigator-updater                            0.2.1-py37_0 --> 0.2.1-py37_1
+
+The following packages will be DOWNGRADED:
+
+  backports.tempfile                               1.0-py_1 --> 1.0-pyhd3eb1b0_1
+  xmltodict                                     0.12.0-py_0 --> 0.12.0-pyhd3eb1b0_0
+
+
+Proceed ([y]/n)? 
+Downloading and Extracting Packages
+_ipyw_jlab_nb_ext_co | 5 KB      | ############################################################################################################ | 100% 
+navigator-updater-0. | 687 KB    | ############################################################################################################ | 100% 
+conda-package-handli | 889 KB    | ############################################################################################################ | 100% 
+backports.functools_ | 9 KB      | ############################################################################################################ | 100% 
+backports.tempfile-1 | 11 KB     | ############################################################################################################ | 100% 
+conda-build-3.21.8   | 547 KB    | ############################################################################################################ | 100% 
+conda-4.12.0         | 14.5 MB   | ############################################################################################################ | 100% 
+xmltodict-0.12.0     | 13 KB     | ############################################################################################################ | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(base) ye@ye-System-Product-Name:~/tool/anaconda$
+```
+
+
 ## jupyter
 
 လက်ရှိစက်မှာ jupyter notebook က မရှိသေးဘူး...  
