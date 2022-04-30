@@ -1460,6 +1460,13 @@ ions or materials to Anaconda suggesting or recommending changes to the software
 
 ```
 
+လိုင်စင်နဲ့ ပတ်သက်တာကို page down လုပ်သွားပြီးရင် yes ကိုရွေးပါ  
+
+```
+Do you accept the license terms? [yes|no]
+[no] >>> yes
+```
+
 
 ## jupyter
 
