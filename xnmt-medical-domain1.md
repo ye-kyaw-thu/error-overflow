@@ -1003,13 +1003,674 @@ config.medical.en-my-syl.yaml  config.medical.my-en-syl.yaml  data
 en-my direction အတွက် updated config ဖိုင်က အောက်ပါအတိုင်း  
 
 ```yaml
-
+# standard settings
+medical.syl.en-my: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.3           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+      - '{EXP_DIR}/data/train.en'
+      - '{EXP_DIR}/data/train.my'
+      out_files:
+      - '{EXP_DIR}/vocab.en'
+      - '{EXP_DIR}/vocab.my'
+      specs:
+      - filenum: all
+        filters:
+        - !VocabFiltererRank
+          max_rank: 30000 # Limit the vocabulary size to the 40k most frequent words
+  model: !DefaultTranslator
+    src_reader: !PlainTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.en'}
+    trg_reader: !PlainTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.my'}
+    src_embedder: !SimpleWordEmbedder   # Embed source words as 256 dimensional vectors
+      emb_dim: 512
+    encoder: !ResidualSeqTransducer
+      child: !BiLSTMSeqTransducer
+        layers: 2
+    attender: !MlpAttender {}
+    decoder: !AutoRegressiveDecoder
+      embedder: !DenseWordEmbedder      # Represent target words as a 40000x256 matrix
+        emb_dim: 512
+      bridge: !LinearBridge {}          # Initialize the first state of the decoder with an affine transform of the last state of the encoder
+      rnn: !UniLSTMSeqTransducer        # Just your standard LSTM decoder
+        layers: 2                       # With 2 layers
+      transform: !AuxNonLinear
+        output_dim: !Ref
+          path: model.decoder.embedder.emb_dim
+        activation: 'relu'
+      scorer: !Softmax
+        output_projector: !Ref
+          path: model.decoder.embedder      # Tie the softmax output to the target word embeddings
+        label_smoothing: 0.1              # Smooth the output labels with the uniform distribution
+    inference: !AutoRegressiveInference
+      search_strategy: !BeamSearch
+        beam_size: 5
+        len_norm: !PolynomialNormalization
+          apply_during_search: true
+          m: 0.8
+  train: !SimpleTrainingRegimen
+    run_for_epochs: 30  # Run for at most 20 epochs
+    initial_patience: 2 # Run for at least 2 epochs without decreasing the learning rate
+    patience: 1         # After there is no improvement for 1 epoch, decrease the learning rate
+    lr_decay: 0.5       # Decay the learning rate by half whenever there is no improvement
+    lr_decay_times: 2   # If there is still no improvement after decreasing the learning rate 2 times in a row, stop training
+    trainer: !AdamTrainer
+      alpha: 0.001
+    batcher: !WordSrcBatcher
+      avg_batch_size: 64
+    src_file: '{EXP_DIR}/data/train.en'
+    trg_file: '{EXP_DIR}/data/train.my'
+    dev_tasks:
+      - !AccuracyEvalTask
+        eval_metrics: bleu,gleu
+        src_file: &dev_src '{EXP_DIR}/data/dev.en'
+        ref_file: &dev_trg '{EXP_DIR}/data/dev.my'
+        hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.my'
+      - !LossEvalTask
+        src_file: *dev_src
+        ref_file: *dev_trg
+  evaluate:
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: *dev_src
+      ref_file: *dev_trg
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.my'
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: &test_src '{EXP_DIR}/data/test.en'
+      ref_file: &test_trg '{EXP_DIR}/data/test.my'
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.test.my'
 ```
 
 training စလုပ် ...  
 
 ```
+xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ time xnmt --backend torch --gpu ./config.medical.en-my-syl.yaml 
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-01 23:46:18
+=> Running medical.syl.en-my
+> Preprocessing
+> use randomly initialized neural network parameters for all components
+  neural network param count: 15725870
+> Training
+Starting to read ./data/train.en and ./data/train.my
+Done reading ./data/train.en and ./data/train.my. Packing into batches.
+Done packing batches.
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/batchers.py:184: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180593867/work/torch/csrc/utils/tensor_numpy.cpp:189.)
+ERROR:   mask_exp = torch.as_tensor(self.np_arr[:, timestep:timestep + 1], dtype=expr.dtype, device=xnmt.device)
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+[medical.syl.en-my] Epoch 0.0770: train_loss/word=6.449455 (steps=25, words/sec=10757.61, time=0-00:00:04)
+[medical.syl.en-my] Epoch 0.1508: train_loss/word=6.042576 (steps=49, words/sec=11939.57, time=0-00:00:07)
+[medical.syl.en-my] Epoch 0.2293: train_loss/word=5.983436 (steps=75, words/sec=11062.98, time=0-00:00:10)
+[medical.syl.en-my] Epoch 0.3032: train_loss/word=5.812195 (steps=98, words/sec=11882.33, time=0-00:00:12)
+[medical.syl.en-my] Epoch 0.3773: train_loss/word=5.662924 (steps=120, words/sec=12773.39, time=0-00:00:14)
+[medical.syl.en-my] Epoch 0.4539: train_loss/word=5.431385 (steps=140, words/sec=12428.67, time=0-00:00:16)
+[medical.syl.en-my] Epoch 0.5275: train_loss/word=5.361574 (steps=161, words/sec=13303.17, time=0-00:00:18)
+[medical.syl.en-my] Epoch 0.6047: train_loss/word=5.226443 (steps=184, words/sec=12503.40, time=0-00:00:20)
+[medical.syl.en-my] Epoch 0.6789: train_loss/word=5.120733 (steps=205, words/sec=13020.61, time=0-00:00:22)
+[medical.syl.en-my] Epoch 0.7565: train_loss/word=5.012428 (steps=229, words/sec=13403.80, time=0-00:00:25)
+[medical.syl.en-my] Epoch 0.8351: train_loss/word=4.937770 (steps=253, words/sec=11353.02, time=0-00:00:27)
+[medical.syl.en-my] Epoch 0.9105: train_loss/word=4.829199 (steps=277, words/sec=12469.63, time=0-00:00:30)
+[medical.syl.en-my] Epoch 0.9844: train_loss/word=4.790692 (steps=298, words/sec=12521.43, time=0-00:00:32)
+[medical.syl.en-my] Epoch 1.0000: train_loss/word=4.782508 (steps=303, words/sec=13834.74, time=0-00:00:32)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 1.0000 dev BLEU4: 0.01099024124992242, 0.064975/0.024005/0.006791/0.001377 (BP = 1.000000, ratio=2.86, hyp_len=37076, ref_len=12957) (time=0-00:02:10)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.024515
+[medical.syl.en-my]              dev auxiliary Loss: 4.713 (ref_len=12957)
+             checkpoint took 0-00:01:37
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 1.0027: train_loss/word=4.665554 (steps=304, words/sec=9582.11, time=0-00:02:19)
+[medical.syl.en-my] Epoch 1.0791: train_loss/word=4.655997 (steps=328, words/sec=12032.22, time=0-00:02:22)
+[medical.syl.en-my] Epoch 1.1550: train_loss/word=4.630332 (steps=352, words/sec=11175.63, time=0-00:02:24)
+[medical.syl.en-my] Epoch 1.2318: train_loss/word=4.483023 (steps=373, words/sec=13953.66, time=0-00:02:26)
+[medical.syl.en-my] Epoch 1.3055: train_loss/word=4.525351 (steps=395, words/sec=12570.71, time=0-00:02:28)
+[medical.syl.en-my] Epoch 1.3796: train_loss/word=4.447316 (steps=418, words/sec=11936.46, time=0-00:02:31)
+[medical.syl.en-my] Epoch 1.4542: train_loss/word=4.442305 (steps=440, words/sec=12245.45, time=0-00:02:33)
+[medical.syl.en-my] Epoch 1.5294: train_loss/word=4.344111 (steps=465, words/sec=12151.93, time=0-00:02:36)
+[medical.syl.en-my] Epoch 1.6061: train_loss/word=4.322758 (steps=489, words/sec=12236.89, time=0-00:02:38)
+[medical.syl.en-my] Epoch 1.6819: train_loss/word=4.256598 (steps=509, words/sec=14299.89, time=0-00:02:40)
+[medical.syl.en-my] Epoch 1.7582: train_loss/word=4.191670 (steps=530, words/sec=13407.48, time=0-00:02:42)
+[medical.syl.en-my] Epoch 1.8369: train_loss/word=4.225763 (steps=555, words/sec=12281.29, time=0-00:02:44)
+[medical.syl.en-my] Epoch 1.9111: train_loss/word=4.170138 (steps=578, words/sec=11913.10, time=0-00:02:46)
+[medical.syl.en-my] Epoch 1.9861: train_loss/word=4.131441 (steps=601, words/sec=12569.92, time=0-00:02:49)
+[medical.syl.en-my] Epoch 2.0000: train_loss/word=4.342649 (steps=608, words/sec=7148.38, time=0-00:02:50)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 2.0000 dev BLEU4: 0.09168901023230502, 0.340148/0.157660/0.071213/0.033942 (BP = 0.859305, ratio=0.87, hyp_len=11251, ref_len=12957) (time=0-00:03:25)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.121011
+[medical.syl.en-my]              dev auxiliary Loss: 4.089 (ref_len=12957)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 2.0025: train_loss/word=4.136420 (steps=609, words/sec=13020.92, time=0-00:03:29)
+[medical.syl.en-my] Epoch 2.0805: train_loss/word=4.005873 (steps=632, words/sec=12240.65, time=0-00:03:31)
+[medical.syl.en-my] Epoch 2.1552: train_loss/word=4.010615 (steps=657, words/sec=11514.31, time=0-00:03:34)
+[medical.syl.en-my] Epoch 2.2298: train_loss/word=3.983417 (steps=681, words/sec=12401.82, time=0-00:03:36)
+[medical.syl.en-my] Epoch 2.3036: train_loss/word=3.922187 (steps=704, words/sec=11467.57, time=0-00:03:39)
+[medical.syl.en-my] Epoch 2.3804: train_loss/word=3.895779 (steps=725, words/sec=12046.03, time=0-00:03:41)
+[medical.syl.en-my] Epoch 2.4572: train_loss/word=3.917246 (steps=749, words/sec=11602.44, time=0-00:03:43)
+[medical.syl.en-my] Epoch 2.5336: train_loss/word=3.931775 (steps=772, words/sec=12204.00, time=0-00:03:45)
+[medical.syl.en-my] Epoch 2.6072: train_loss/word=3.920406 (steps=795, words/sec=12703.53, time=0-00:03:48)
+[medical.syl.en-my] Epoch 2.6854: train_loss/word=3.830536 (steps=816, words/sec=12911.88, time=0-00:03:50)
+[medical.syl.en-my] Epoch 2.7604: train_loss/word=3.798772 (steps=837, words/sec=12923.81, time=0-00:03:52)
+[medical.syl.en-my] Epoch 2.8344: train_loss/word=3.805916 (steps=859, words/sec=12497.59, time=0-00:03:54)
+[medical.syl.en-my] Epoch 2.9086: train_loss/word=3.872956 (steps=885, words/sec=11404.95, time=0-00:03:57)
+[medical.syl.en-my] Epoch 2.9837: train_loss/word=3.808479 (steps=908, words/sec=11953.99, time=0-00:03:59)
+[medical.syl.en-my] Epoch 3.0000: train_loss/word=3.679333 (steps=912, words/sec=16569.56, time=0-00:03:59)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 3.0000 dev BLEU4: 0.1308309731594243, 0.396426/0.206009/0.105213/0.058485 (BP = 0.873815, ratio=0.88, hyp_len=11417, ref_len=12957) (time=0-00:04:36)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.155865
+[medical.syl.en-my]              dev auxiliary Loss: 3.757 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 3.0029: train_loss/word=3.730231 (steps=913, words/sec=12623.54, time=0-00:04:39)
+[medical.syl.en-my] Epoch 3.0781: train_loss/word=3.694070 (steps=939, words/sec=10841.65, time=0-00:04:42)
+[medical.syl.en-my] Epoch 3.1531: train_loss/word=3.709771 (steps=963, words/sec=11293.49, time=0-00:04:45)
+[medical.syl.en-my] Epoch 3.2304: train_loss/word=3.601261 (steps=987, words/sec=13199.34, time=0-00:04:47)
+[medical.syl.en-my] Epoch 3.3052: train_loss/word=3.598760 (steps=1011, words/sec=11545.28, time=0-00:04:49)
+[medical.syl.en-my] Epoch 3.3800: train_loss/word=3.564337 (steps=1031, words/sec=12860.07, time=0-00:04:51)
+[medical.syl.en-my] Epoch 3.4536: train_loss/word=3.560421 (steps=1052, words/sec=12209.74, time=0-00:04:53)
+[medical.syl.en-my] Epoch 3.5276: train_loss/word=3.565409 (steps=1073, words/sec=12506.76, time=0-00:04:55)
+[medical.syl.en-my] Epoch 3.6020: train_loss/word=3.463567 (steps=1093, words/sec=12402.65, time=0-00:04:57)
+[medical.syl.en-my] Epoch 3.6758: train_loss/word=3.540402 (steps=1116, words/sec=11972.46, time=0-00:04:59)
+[medical.syl.en-my] Epoch 3.7506: train_loss/word=3.536281 (steps=1140, words/sec=12081.54, time=0-00:05:02)
+[medical.syl.en-my] Epoch 3.8275: train_loss/word=3.565021 (steps=1165, words/sec=11029.85, time=0-00:05:05)
+[medical.syl.en-my] Epoch 3.9044: train_loss/word=3.566181 (steps=1190, words/sec=11398.91, time=0-00:05:07)
+[medical.syl.en-my] Epoch 3.9785: train_loss/word=3.549159 (steps=1212, words/sec=12421.41, time=0-00:05:10)
+[medical.syl.en-my] Epoch 4.0000: train_loss/word=3.441866 (steps=1218, words/sec=15069.63, time=0-00:05:10)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 4.0000 dev BLEU4: 0.1651003546724009, 0.472842/0.261429/0.142772/0.083429 (BP = 0.842830, ratio=0.85, hyp_len=11065, ref_len=12957) (time=0-00:05:46)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.195598
+[medical.syl.en-my]              dev auxiliary Loss: 3.527 (ref_len=12957)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 4.0051: train_loss/word=3.027872 (steps=1219, words/sec=18685.24, time=0-00:05:49)
+[medical.syl.en-my] Epoch 4.0791: train_loss/word=3.373485 (steps=1243, words/sec=12336.90, time=0-00:05:51)
+[medical.syl.en-my] Epoch 4.1546: train_loss/word=3.392860 (steps=1266, words/sec=12408.55, time=0-00:05:54)
+[medical.syl.en-my] Epoch 4.2293: train_loss/word=3.437794 (steps=1290, words/sec=11924.03, time=0-00:05:56)
+[medical.syl.en-my] Epoch 4.3030: train_loss/word=3.385536 (steps=1313, words/sec=10683.05, time=0-00:05:59)
+[medical.syl.en-my] Epoch 4.3774: train_loss/word=3.291455 (steps=1334, words/sec=13248.45, time=0-00:06:01)
+[medical.syl.en-my] Epoch 4.4539: train_loss/word=3.264868 (steps=1357, words/sec=12768.68, time=0-00:06:03)
+[medical.syl.en-my] Epoch 4.5285: train_loss/word=3.373045 (steps=1381, words/sec=12000.96, time=0-00:06:06)
+[medical.syl.en-my] Epoch 4.6026: train_loss/word=3.273367 (steps=1403, words/sec=13542.82, time=0-00:06:08)
+[medical.syl.en-my] Epoch 4.6763: train_loss/word=3.323933 (steps=1428, words/sec=11425.77, time=0-00:06:10)
+[medical.syl.en-my] Epoch 4.7518: train_loss/word=3.312043 (steps=1450, words/sec=11559.66, time=0-00:06:13)
+[medical.syl.en-my] Epoch 4.8303: train_loss/word=3.292932 (steps=1472, words/sec=12216.43, time=0-00:06:15)
+[medical.syl.en-my] Epoch 4.9052: train_loss/word=3.208125 (steps=1494, words/sec=12758.01, time=0-00:06:17)
+[medical.syl.en-my] Epoch 4.9810: train_loss/word=3.271132 (steps=1517, words/sec=12030.68, time=0-00:06:19)
+[medical.syl.en-my] Epoch 5.0000: train_loss/word=3.274344 (steps=1523, words/sec=12361.14, time=0-00:06:20)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 5.0000 dev BLEU4: 0.2009904562247608, 0.482384/0.276610/0.158015/0.094312 (BP = 0.951796, ratio=0.95, hyp_len=12347, ref_len=12957) (time=0-00:06:58)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.225232
+[medical.syl.en-my]              dev auxiliary Loss: 3.368 (ref_len=12957)
+             checkpoint took 0-00:00:37
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 5.0049: train_loss/word=3.033296 (steps=1524, words/sec=17438.83, time=0-00:07:01)
+[medical.syl.en-my] Epoch 5.0797: train_loss/word=3.186673 (steps=1547, words/sec=11760.43, time=0-00:07:03)
+[medical.syl.en-my] Epoch 5.1571: train_loss/word=3.114829 (steps=1570, words/sec=12569.33, time=0-00:07:05)
+[medical.syl.en-my] Epoch 5.2338: train_loss/word=3.100167 (steps=1593, words/sec=12461.96, time=0-00:07:08)
+[medical.syl.en-my] Epoch 5.3082: train_loss/word=3.103512 (steps=1615, words/sec=12742.61, time=0-00:07:10)
+[medical.syl.en-my] Epoch 5.3857: train_loss/word=3.112627 (steps=1640, words/sec=12727.83, time=0-00:07:12)
+[medical.syl.en-my] Epoch 5.4614: train_loss/word=3.206031 (steps=1666, words/sec=10527.77, time=0-00:07:15)
+[medical.syl.en-my] Epoch 5.5356: train_loss/word=3.137171 (steps=1690, words/sec=11961.65, time=0-00:07:18)
+[medical.syl.en-my] Epoch 5.6131: train_loss/word=3.024104 (steps=1710, words/sec=13603.81, time=0-00:07:19)
+[medical.syl.en-my] Epoch 5.6881: train_loss/word=3.119931 (steps=1733, words/sec=12251.95, time=0-00:07:22)
+[medical.syl.en-my] Epoch 5.7640: train_loss/word=3.062264 (steps=1756, words/sec=11637.19, time=0-00:07:24)
+[medical.syl.en-my] Epoch 5.8418: train_loss/word=3.180205 (steps=1783, words/sec=10967.49, time=0-00:07:27)
+[medical.syl.en-my] Epoch 5.9193: train_loss/word=3.068629 (steps=1806, words/sec=12898.50, time=0-00:07:29)
+[medical.syl.en-my] Epoch 5.9940: train_loss/word=3.033971 (steps=1826, words/sec=13675.79, time=0-00:07:31)
+[medical.syl.en-my] Epoch 6.0000: train_loss/word=3.080540 (steps=1828, words/sec=13529.93, time=0-00:07:31)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 6.0000 dev BLEU4: 0.22759180632624595, 0.548301/0.330471/0.196251/0.122206 (BP = 0.886427, ratio=0.89, hyp_len=11563, ref_len=12957) (time=0-00:08:07)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.256951
+[medical.syl.en-my]              dev auxiliary Loss: 3.242 (ref_len=12957)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 6.0040: train_loss/word=2.805032 (steps=1829, words/sec=16885.27, time=0-00:08:10)
+[medical.syl.en-my] Epoch 6.0822: train_loss/word=2.960468 (steps=1853, words/sec=12354.62, time=0-00:08:12)
+[medical.syl.en-my] Epoch 6.1600: train_loss/word=2.984009 (steps=1879, words/sec=11237.54, time=0-00:08:15)
+[medical.syl.en-my] Epoch 6.2343: train_loss/word=2.903008 (steps=1900, words/sec=13422.74, time=0-00:08:17)
+[medical.syl.en-my] Epoch 6.3084: train_loss/word=2.879579 (steps=1921, words/sec=12933.32, time=0-00:08:19)
+[medical.syl.en-my] Epoch 6.3840: train_loss/word=2.835366 (steps=1941, words/sec=14204.71, time=0-00:08:21)
+[medical.syl.en-my] Epoch 6.4603: train_loss/word=2.961677 (steps=1966, words/sec=12179.51, time=0-00:08:23)
+[medical.syl.en-my] Epoch 6.5380: train_loss/word=2.963696 (steps=1990, words/sec=12203.66, time=0-00:08:26)
+[medical.syl.en-my] Epoch 6.6131: train_loss/word=2.956896 (steps=2013, words/sec=12544.13, time=0-00:08:28)
+[medical.syl.en-my] Epoch 6.6883: train_loss/word=2.919949 (steps=2036, words/sec=12813.02, time=0-00:08:30)
+[medical.syl.en-my] Epoch 6.7643: train_loss/word=2.967431 (steps=2058, words/sec=12444.88, time=0-00:08:32)
+[medical.syl.en-my] Epoch 6.8383: train_loss/word=2.916672 (steps=2080, words/sec=12292.15, time=0-00:08:35)
+[medical.syl.en-my] Epoch 6.9124: train_loss/word=2.973231 (steps=2103, words/sec=11285.39, time=0-00:08:37)
+[medical.syl.en-my] Epoch 6.9878: train_loss/word=2.928396 (steps=2127, words/sec=11823.53, time=0-00:08:40)
+[medical.syl.en-my] Epoch 7.0000: train_loss/word=3.024202 (steps=2131, words/sec=10570.51, time=0-00:08:40)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 7.0000 dev BLEU4: 0.259986032686756, 0.551666/0.340037/0.209770/0.135106 (BP = 0.962820, ratio=0.96, hyp_len=12484, ref_len=12957) (time=0-00:09:18)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.279629
+[medical.syl.en-my]              dev auxiliary Loss: 3.145 (ref_len=12957)
+             checkpoint took 0-00:00:38
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 7.0026: train_loss/word=2.832834 (steps=2132, words/sec=11970.30, time=0-00:09:21)
+[medical.syl.en-my] Epoch 7.0800: train_loss/word=2.753453 (steps=2156, words/sec=12266.11, time=0-00:09:24)
+[medical.syl.en-my] Epoch 7.1561: train_loss/word=2.817156 (steps=2181, words/sec=12478.23, time=0-00:09:26)
+[medical.syl.en-my] Epoch 7.2302: train_loss/word=2.806054 (steps=2203, words/sec=12929.19, time=0-00:09:29)
+[medical.syl.en-my] Epoch 7.3058: train_loss/word=2.693140 (steps=2223, words/sec=14007.94, time=0-00:09:30)
+[medical.syl.en-my] Epoch 7.3814: train_loss/word=2.670823 (steps=2243, words/sec=14609.74, time=0-00:09:32)
+[medical.syl.en-my] Epoch 7.4559: train_loss/word=2.792532 (steps=2268, words/sec=11537.35, time=0-00:09:34)
+[medical.syl.en-my] Epoch 7.5310: train_loss/word=2.793217 (steps=2290, words/sec=12442.53, time=0-00:09:37)
+[medical.syl.en-my] Epoch 7.6068: train_loss/word=2.897852 (steps=2316, words/sec=10727.31, time=0-00:09:40)
+[medical.syl.en-my] Epoch 7.6830: train_loss/word=2.773273 (steps=2339, words/sec=12611.27, time=0-00:09:42)
+[medical.syl.en-my] Epoch 7.7571: train_loss/word=2.843442 (steps=2364, words/sec=12258.11, time=0-00:09:44)
+[medical.syl.en-my] Epoch 7.8341: train_loss/word=2.809284 (steps=2386, words/sec=11265.98, time=0-00:09:47)
+[medical.syl.en-my] Epoch 7.9097: train_loss/word=2.726823 (steps=2407, words/sec=13786.08, time=0-00:09:49)
+[medical.syl.en-my] Epoch 7.9844: train_loss/word=2.839620 (steps=2431, words/sec=10950.47, time=0-00:09:51)
+[medical.syl.en-my] Epoch 8.0000: train_loss/word=2.776074 (steps=2436, words/sec=13583.76, time=0-00:09:52)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 8.0000 dev BLEU4: 0.2791858122781454, 0.556212/0.351103/0.225520/0.149915 (BP = 0.979416, ratio=0.98, hyp_len=12693, ref_len=12957) (time=0-00:10:29)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.292199
+[medical.syl.en-my]              dev auxiliary Loss: 3.079 (ref_len=12957)
+             checkpoint took 0-00:00:37
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 8.0057: train_loss/word=2.197822 (steps=2437, words/sec=20339.60, time=0-00:10:32)
+[medical.syl.en-my] Epoch 8.0824: train_loss/word=2.640290 (steps=2461, words/sec=11779.81, time=0-00:10:35)
+[medical.syl.en-my] Epoch 8.1588: train_loss/word=2.557991 (steps=2482, words/sec=12677.92, time=0-00:10:37)
+[medical.syl.en-my] Epoch 8.2340: train_loss/word=2.655938 (steps=2504, words/sec=12473.58, time=0-00:10:39)
+[medical.syl.en-my] Epoch 8.3094: train_loss/word=2.649001 (steps=2525, words/sec=13060.05, time=0-00:10:41)
+[medical.syl.en-my] Epoch 8.3836: train_loss/word=2.667929 (steps=2549, words/sec=12531.22, time=0-00:10:43)
+[medical.syl.en-my] Epoch 8.4600: train_loss/word=2.706156 (steps=2574, words/sec=11991.40, time=0-00:10:46)
+[medical.syl.en-my] Epoch 8.5346: train_loss/word=2.654573 (steps=2595, words/sec=14203.35, time=0-00:10:48)
+[medical.syl.en-my] Epoch 8.6109: train_loss/word=2.740205 (steps=2620, words/sec=11232.83, time=0-00:10:51)
+[medical.syl.en-my] Epoch 8.6877: train_loss/word=2.603345 (steps=2642, words/sec=13082.54, time=0-00:10:53)
+[medical.syl.en-my] Epoch 8.7636: train_loss/word=2.771747 (steps=2670, words/sec=10554.22, time=0-00:10:56)
+[medical.syl.en-my] Epoch 8.8399: train_loss/word=2.582838 (steps=2691, words/sec=13263.39, time=0-00:10:58)
+[medical.syl.en-my] Epoch 8.9137: train_loss/word=2.675331 (steps=2714, words/sec=11718.27, time=0-00:11:00)
+[medical.syl.en-my] Epoch 8.9876: train_loss/word=2.647733 (steps=2736, words/sec=12278.63, time=0-00:11:03)
+[medical.syl.en-my] Epoch 9.0000: train_loss/word=2.731488 (steps=2740, words/sec=11827.02, time=0-00:11:03)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 9.0000 dev BLEU4: 0.29187098885511936, 0.590451/0.380497/0.247346/0.166744 (BP = 0.940736, ratio=0.94, hyp_len=12211, ref_len=12957) (time=0-00:11:39)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.309567
+[medical.syl.en-my]              dev auxiliary Loss: 3.040 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 9.0024: train_loss/word=2.649746 (steps=2741, words/sec=11026.24, time=0-00:11:43)
+[medical.syl.en-my] Epoch 9.0767: train_loss/word=2.520530 (steps=2763, words/sec=11765.36, time=0-00:11:45)
+[medical.syl.en-my] Epoch 9.1506: train_loss/word=2.575722 (steps=2787, words/sec=12085.19, time=0-00:11:47)
+[medical.syl.en-my] Epoch 9.2262: train_loss/word=2.394225 (steps=2806, words/sec=14794.10, time=0-00:11:49)
+[medical.syl.en-my] Epoch 9.3014: train_loss/word=2.551423 (steps=2831, words/sec=11735.34, time=0-00:11:51)
+[medical.syl.en-my] Epoch 9.3771: train_loss/word=2.541972 (steps=2854, words/sec=12326.55, time=0-00:11:54)
+[medical.syl.en-my] Epoch 9.4546: train_loss/word=2.523453 (steps=2877, words/sec=12365.41, time=0-00:11:56)
+[medical.syl.en-my] Epoch 9.5290: train_loss/word=2.581678 (steps=2900, words/sec=11636.38, time=0-00:11:58)
+[medical.syl.en-my] Epoch 9.6026: train_loss/word=2.538374 (steps=2922, words/sec=12594.82, time=0-00:12:00)
+[medical.syl.en-my] Epoch 9.6762: train_loss/word=2.595419 (steps=2946, words/sec=12758.51, time=0-00:12:03)
+[medical.syl.en-my] Epoch 9.7521: train_loss/word=2.487244 (steps=2966, words/sec=14520.21, time=0-00:12:05)
+[medical.syl.en-my] Epoch 9.8298: train_loss/word=2.598979 (steps=2991, words/sec=12534.96, time=0-00:12:07)
+[medical.syl.en-my] Epoch 9.9044: train_loss/word=2.584240 (steps=3015, words/sec=11259.88, time=0-00:12:10)
+[medical.syl.en-my] Epoch 9.9787: train_loss/word=2.589362 (steps=3037, words/sec=11010.71, time=0-00:12:12)
+[medical.syl.en-my] Epoch 10.0000: train_loss/word=2.551735 (steps=3043, words/sec=14918.04, time=0-00:12:13)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 10.0000 dev BLEU4: 0.30903745779669795, 0.602820/0.393871/0.259159/0.176810 (BP = 0.956880, ratio=0.96, hyp_len=12410, ref_len=12957) (time=0-00:12:49)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.324445
+[medical.syl.en-my]              dev auxiliary Loss: 2.986 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 10.0032: train_loss/word=2.337345 (steps=3044, words/sec=14652.46, time=0-00:12:53)
+[medical.syl.en-my] Epoch 10.0792: train_loss/word=2.416294 (steps=3067, words/sec=11934.29, time=0-00:12:55)
+[medical.syl.en-my] Epoch 10.1560: train_loss/word=2.434408 (steps=3089, words/sec=12012.04, time=0-00:12:57)
+[medical.syl.en-my] Epoch 10.2310: train_loss/word=2.434208 (steps=3112, words/sec=13221.91, time=0-00:12:59)
+[medical.syl.en-my] Epoch 10.3050: train_loss/word=2.402848 (steps=3136, words/sec=11624.44, time=0-00:13:02)
+[medical.syl.en-my] Epoch 10.3804: train_loss/word=2.434217 (steps=3158, words/sec=12623.96, time=0-00:13:04)
+[medical.syl.en-my] Epoch 10.4558: train_loss/word=2.415425 (steps=3181, words/sec=12941.25, time=0-00:13:06)
+[medical.syl.en-my] Epoch 10.5310: train_loss/word=2.466543 (steps=3203, words/sec=12718.13, time=0-00:13:08)
+[medical.syl.en-my] Epoch 10.6074: train_loss/word=2.414537 (steps=3225, words/sec=12556.16, time=0-00:13:11)
+[medical.syl.en-my] Epoch 10.6829: train_loss/word=2.546193 (steps=3250, words/sec=11587.49, time=0-00:13:13)
+[medical.syl.en-my] Epoch 10.7588: train_loss/word=2.422036 (steps=3273, words/sec=11728.17, time=0-00:13:16)
+[medical.syl.en-my] Epoch 10.8353: train_loss/word=2.447641 (steps=3295, words/sec=13082.86, time=0-00:13:18)
+[medical.syl.en-my] Epoch 10.9138: train_loss/word=2.399208 (steps=3316, words/sec=12944.25, time=0-00:13:20)
+[medical.syl.en-my] Epoch 10.9889: train_loss/word=2.556407 (steps=3342, words/sec=10901.12, time=0-00:13:23)
+[medical.syl.en-my] Epoch 11.0000: train_loss/word=2.471342 (steps=3346, words/sec=12563.34, time=0-00:13:23)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 11.0000 dev BLEU4: 0.3166131276818528, 0.618060/0.407303/0.269737/0.186546 (BP = 0.943757, ratio=0.95, hyp_len=12248, ref_len=12957) (time=0-00:14:00)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.331921
+[medical.syl.en-my]              dev auxiliary Loss: 2.957 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 11.0035: train_loss/word=2.160998 (steps=3347, words/sec=13537.04, time=0-00:14:03)
+[medical.syl.en-my] Epoch 11.0802: train_loss/word=2.320361 (steps=3371, words/sec=12409.04, time=0-00:14:05)
+[medical.syl.en-my] Epoch 11.1544: train_loss/word=2.347400 (steps=3393, words/sec=11635.38, time=0-00:14:08)
+[medical.syl.en-my] Epoch 11.2282: train_loss/word=2.407927 (steps=3418, words/sec=11166.33, time=0-00:14:11)
+[medical.syl.en-my] Epoch 11.3054: train_loss/word=2.323089 (steps=3440, words/sec=11621.74, time=0-00:14:13)
+[medical.syl.en-my] Epoch 11.3809: train_loss/word=2.391509 (steps=3465, words/sec=10817.85, time=0-00:14:16)
+[medical.syl.en-my] Epoch 11.4563: train_loss/word=2.284138 (steps=3485, words/sec=13009.81, time=0-00:14:18)
+[medical.syl.en-my] Epoch 11.5308: train_loss/word=2.345199 (steps=3507, words/sec=11497.96, time=0-00:14:20)
+[medical.syl.en-my] Epoch 11.6081: train_loss/word=2.382391 (steps=3531, words/sec=11594.72, time=0-00:14:22)
+[medical.syl.en-my] Epoch 11.6824: train_loss/word=2.386444 (steps=3553, words/sec=11921.59, time=0-00:14:25)
+[medical.syl.en-my] Epoch 11.7595: train_loss/word=2.363131 (steps=3576, words/sec=12334.64, time=0-00:14:27)
+[medical.syl.en-my] Epoch 11.8345: train_loss/word=2.348422 (steps=3598, words/sec=11980.90, time=0-00:14:29)
+[medical.syl.en-my] Epoch 11.9093: train_loss/word=2.426716 (steps=3623, words/sec=11102.29, time=0-00:14:32)
+[medical.syl.en-my] Epoch 11.9852: train_loss/word=2.380454 (steps=3646, words/sec=13051.14, time=0-00:14:34)
+[medical.syl.en-my] Epoch 12.0000: train_loss/word=2.249631 (steps=3650, words/sec=14443.84, time=0-00:14:35)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 12.0000 dev BLEU4: 0.32350438039645757, 0.625568/0.420019/0.281483/0.195966 (BP = 0.932365, ratio=0.93, hyp_len=12109, ref_len=12957) (time=0-00:15:10)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.336888
+[medical.syl.en-my]              dev auxiliary Loss: 2.945 (ref_len=12957)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 12.0029: train_loss/word=2.195766 (steps=3651, words/sec=13508.49, time=0-00:15:13)
+[medical.syl.en-my] Epoch 12.0773: train_loss/word=2.275557 (steps=3674, words/sec=11105.29, time=0-00:15:16)
+[medical.syl.en-my] Epoch 12.1512: train_loss/word=2.224351 (steps=3696, words/sec=13213.79, time=0-00:15:18)
+[medical.syl.en-my] Epoch 12.2271: train_loss/word=2.264343 (steps=3718, words/sec=12610.11, time=0-00:15:20)
+[medical.syl.en-my] Epoch 12.3028: train_loss/word=2.266407 (steps=3740, words/sec=13098.99, time=0-00:15:22)
+[medical.syl.en-my] Epoch 12.3786: train_loss/word=2.299483 (steps=3763, words/sec=11204.09, time=0-00:15:25)
+[medical.syl.en-my] Epoch 12.4523: train_loss/word=2.213619 (steps=3783, words/sec=13516.90, time=0-00:15:27)
+[medical.syl.en-my] Epoch 12.5269: train_loss/word=2.264760 (steps=3805, words/sec=12389.71, time=0-00:15:29)
+[medical.syl.en-my] Epoch 12.6040: train_loss/word=2.316799 (steps=3830, words/sec=10726.06, time=0-00:15:32)
+[medical.syl.en-my] Epoch 12.6781: train_loss/word=2.278767 (steps=3852, words/sec=12378.78, time=0-00:15:34)
+[medical.syl.en-my] Epoch 12.7526: train_loss/word=2.361983 (steps=3877, words/sec=11783.91, time=0-00:15:36)
+[medical.syl.en-my] Epoch 12.8304: train_loss/word=2.356508 (steps=3904, words/sec=10756.53, time=0-00:15:40)
+[medical.syl.en-my] Epoch 12.9058: train_loss/word=2.231190 (steps=3926, words/sec=12803.31, time=0-00:15:42)
+[medical.syl.en-my] Epoch 12.9798: train_loss/word=2.304073 (steps=3949, words/sec=11832.37, time=0-00:15:44)
+[medical.syl.en-my] Epoch 13.0000: train_loss/word=2.243739 (steps=3954, words/sec=13069.73, time=0-00:15:45)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 13.0000 dev BLEU4: 0.3308049211439105, 0.629691/0.423226/0.288180/0.205176 (BP = 0.933683, ratio=0.94, hyp_len=12125, ref_len=12957) (time=0-00:16:21)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.340204
+[medical.syl.en-my]              dev auxiliary Loss: 2.942 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 13.0018: train_loss/word=2.563223 (steps=3955, words/sec=8053.05, time=0-00:16:24)
+[medical.syl.en-my] Epoch 13.0781: train_loss/word=2.147999 (steps=3978, words/sec=12239.30, time=0-00:16:26)
+[medical.syl.en-my] Epoch 13.1546: train_loss/word=2.166690 (steps=4001, words/sec=12811.66, time=0-00:16:28)
+[medical.syl.en-my] Epoch 13.2284: train_loss/word=2.181812 (steps=4025, words/sec=12287.46, time=0-00:16:31)
+[medical.syl.en-my] Epoch 13.3033: train_loss/word=2.246368 (steps=4049, words/sec=11808.01, time=0-00:16:34)
+[medical.syl.en-my] Epoch 13.3771: train_loss/word=2.132147 (steps=4069, words/sec=12718.56, time=0-00:16:35)
+[medical.syl.en-my] Epoch 13.4512: train_loss/word=2.257139 (steps=4094, words/sec=10816.30, time=0-00:16:38)
+[medical.syl.en-my] Epoch 13.5263: train_loss/word=2.231661 (steps=4117, words/sec=11794.65, time=0-00:16:41)
+[medical.syl.en-my] Epoch 13.6034: train_loss/word=2.239490 (steps=4142, words/sec=11070.22, time=0-00:16:43)
+[medical.syl.en-my] Epoch 13.6792: train_loss/word=2.217012 (steps=4165, words/sec=12101.37, time=0-00:16:46)
+[medical.syl.en-my] Epoch 13.7541: train_loss/word=2.214404 (steps=4187, words/sec=11424.40, time=0-00:16:48)
+[medical.syl.en-my] Epoch 13.8301: train_loss/word=2.199153 (steps=4209, words/sec=12487.09, time=0-00:16:50)
+[medical.syl.en-my] Epoch 13.9052: train_loss/word=2.218125 (steps=4232, words/sec=11414.77, time=0-00:16:53)
+[medical.syl.en-my] Epoch 13.9820: train_loss/word=2.223519 (steps=4253, words/sec=12666.46, time=0-00:16:55)
+[medical.syl.en-my] Epoch 14.0000: train_loss/word=2.270893 (steps=4259, words/sec=10236.15, time=0-00:16:55)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 14.0000 dev BLEU4: 0.34288163059709825, 0.637286/0.431266/0.294850/0.209685 (BP = 0.949690, ratio=0.95, hyp_len=12321, ref_len=12957) (time=0-00:17:32)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.354195
+[medical.syl.en-my]              dev auxiliary Loss: 2.918 (ref_len=12957)
+             checkpoint took 0-00:00:37
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 14.0034: train_loss/word=2.056669 (steps=4260, words/sec=15425.41, time=0-00:17:35)
+[medical.syl.en-my] Epoch 14.0792: train_loss/word=2.069215 (steps=4282, words/sec=14250.62, time=0-00:17:37)
+[medical.syl.en-my] Epoch 14.1542: train_loss/word=2.148128 (steps=4306, words/sec=11381.77, time=0-00:17:40)
+[medical.syl.en-my] Epoch 14.2287: train_loss/word=2.159312 (steps=4329, words/sec=11988.73, time=0-00:17:43)
+[medical.syl.en-my] Epoch 14.3039: train_loss/word=2.068653 (steps=4349, words/sec=14624.44, time=0-00:17:44)
+[medical.syl.en-my] Epoch 14.3807: train_loss/word=2.055412 (steps=4371, words/sec=13121.61, time=0-00:17:46)
+[medical.syl.en-my] Epoch 14.4567: train_loss/word=2.176916 (steps=4395, words/sec=12544.74, time=0-00:17:49)
+[medical.syl.en-my] Epoch 14.5319: train_loss/word=2.187749 (steps=4421, words/sec=10010.82, time=0-00:17:52)
+[medical.syl.en-my] Epoch 14.6096: train_loss/word=2.172742 (steps=4446, words/sec=10373.04, time=0-00:17:55)
+[medical.syl.en-my] Epoch 14.6834: train_loss/word=2.126842 (steps=4468, words/sec=12069.09, time=0-00:17:57)
+[medical.syl.en-my] Epoch 14.7571: train_loss/word=2.183985 (steps=4491, words/sec=11954.03, time=0-00:17:59)
+[medical.syl.en-my] Epoch 14.8327: train_loss/word=2.128527 (steps=4513, words/sec=12824.52, time=0-00:18:01)
+[medical.syl.en-my] Epoch 14.9095: train_loss/word=2.175420 (steps=4536, words/sec=12278.42, time=0-00:18:04)
+[medical.syl.en-my] Epoch 14.9835: train_loss/word=2.168867 (steps=4557, words/sec=12016.10, time=0-00:18:06)
+[medical.syl.en-my] Epoch 15.0000: train_loss/word=2.179272 (steps=4563, words/sec=11484.35, time=0-00:18:06)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 15.0000 dev BLEU4: 0.34265942765356794, 0.615438/0.413156/0.280235/0.197542 (BP = 0.994816, ratio=0.99, hyp_len=12890, ref_len=12957) (time=0-00:18:45)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.347935
+[medical.syl.en-my]              dev auxiliary Loss: 2.916 (ref_len=12957)
+             checkpoint took 0-00:00:38
+[medical.syl.en-my] Epoch 15.0024: train_loss/word=2.164566 (steps=4564, words/sec=10924.50, time=0-00:18:45)
+[medical.syl.en-my] Epoch 15.0760: train_loss/word=2.014039 (steps=4585, words/sec=12058.09, time=0-00:18:47)
+[medical.syl.en-my] Epoch 15.1496: train_loss/word=2.014804 (steps=4606, words/sec=12492.52, time=0-00:18:49)
+[medical.syl.en-my] Epoch 15.2248: train_loss/word=2.084567 (steps=4629, words/sec=11361.79, time=0-00:18:52)
+[medical.syl.en-my] Epoch 15.2990: train_loss/word=1.994144 (steps=4650, words/sec=12385.27, time=0-00:18:54)
+[medical.syl.en-my] Epoch 15.3727: train_loss/word=2.053292 (steps=4673, words/sec=12829.42, time=0-00:18:56)
+[medical.syl.en-my] Epoch 15.4496: train_loss/word=2.040003 (steps=4696, words/sec=11465.20, time=0-00:18:58)
+[medical.syl.en-my] Epoch 15.5257: train_loss/word=2.106320 (steps=4719, words/sec=11541.80, time=0-00:19:01)
+[medical.syl.en-my] Epoch 15.6006: train_loss/word=2.097597 (steps=4742, words/sec=10984.91, time=0-00:19:03)
+[medical.syl.en-my] Epoch 15.6761: train_loss/word=2.034884 (steps=4763, words/sec=11979.59, time=0-00:19:05)
+[medical.syl.en-my] Epoch 15.7499: train_loss/word=2.130263 (steps=4787, words/sec=11494.62, time=0-00:19:08)
+[medical.syl.en-my] Epoch 15.8261: train_loss/word=2.110267 (steps=4810, words/sec=11206.37, time=0-00:19:11)
+[medical.syl.en-my] Epoch 15.9010: train_loss/word=2.192263 (steps=4836, words/sec=10161.62, time=0-00:19:14)
+[medical.syl.en-my] Epoch 15.9773: train_loss/word=2.128308 (steps=4860, words/sec=11947.48, time=0-00:19:16)
+[medical.syl.en-my] Epoch 16.0000: train_loss/word=2.161387 (steps=4868, words/sec=10914.39, time=0-00:19:17)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 16.0000 dev BLEU4: 0.35418342712655027, 0.636701/0.431203/0.297281/0.211847 (BP = 0.976734, ratio=0.98, hyp_len=12659, ref_len=12957) (time=0-00:19:55)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.363138
+[medical.syl.en-my]              dev auxiliary Loss: 2.900 (ref_len=12957)
+             checkpoint took 0-00:00:38
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 16.0032: train_loss/word=1.969204 (steps=4869, words/sec=14970.61, time=0-00:19:59)
+[medical.syl.en-my] Epoch 16.0769: train_loss/word=1.999472 (steps=4895, words/sec=11179.59, time=0-00:20:02)
+[medical.syl.en-my] Epoch 16.1509: train_loss/word=1.941389 (steps=4917, words/sec=12681.88, time=0-00:20:04)
+[medical.syl.en-my] Epoch 16.2256: train_loss/word=2.066995 (steps=4941, words/sec=10738.37, time=0-00:20:06)
+[medical.syl.en-my] Epoch 16.3025: train_loss/word=1.963000 (steps=4964, words/sec=11692.25, time=0-00:20:09)
+[medical.syl.en-my] Epoch 16.3771: train_loss/word=2.046694 (steps=4987, words/sec=11228.29, time=0-00:20:11)
+[medical.syl.en-my] Epoch 16.4514: train_loss/word=1.973139 (steps=5006, words/sec=13128.60, time=0-00:20:13)
+[medical.syl.en-my] Epoch 16.5266: train_loss/word=2.065607 (steps=5030, words/sec=11589.95, time=0-00:20:16)
+[medical.syl.en-my] Epoch 16.6027: train_loss/word=2.040019 (steps=5053, words/sec=11196.62, time=0-00:20:18)
+[medical.syl.en-my] Epoch 16.6766: train_loss/word=2.014010 (steps=5073, words/sec=12572.45, time=0-00:20:20)
+[medical.syl.en-my] Epoch 16.7545: train_loss/word=2.035461 (steps=5096, words/sec=12473.99, time=0-00:20:22)
+[medical.syl.en-my] Epoch 16.8291: train_loss/word=2.118397 (steps=5121, words/sec=11493.46, time=0-00:20:25)
+[medical.syl.en-my] Epoch 16.9035: train_loss/word=2.017593 (steps=5143, words/sec=12971.71, time=0-00:20:27)
+[medical.syl.en-my] Epoch 16.9777: train_loss/word=2.041071 (steps=5166, words/sec=12864.69, time=0-00:20:29)
+[medical.syl.en-my] Epoch 17.0000: train_loss/word=2.054715 (steps=5173, words/sec=11685.08, time=0-00:20:30)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 17.0000 dev BLEU4: 0.33759971909724634, 0.654678/0.441285/0.299323/0.212121 (BP = 0.917349, ratio=0.92, hyp_len=11928, ref_len=12957) (time=0-00:21:06)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.353930
+[medical.syl.en-my]              dev auxiliary Loss: 2.921 (ref_len=12957)
+             checkpoint took 0-00:00:35
+[medical.syl.en-my] Epoch 17.0035: train_loss/word=1.819227 (steps=5174, words/sec=14128.11, time=0-00:21:06)
+[medical.syl.en-my] Epoch 17.0780: train_loss/word=1.952232 (steps=5199, words/sec=11323.47, time=0-00:21:09)
+[medical.syl.en-my] Epoch 17.1526: train_loss/word=1.953578 (steps=5223, words/sec=12727.50, time=0-00:21:11)
+[medical.syl.en-my] Epoch 17.2263: train_loss/word=1.963069 (steps=5245, words/sec=12669.00, time=0-00:21:13)
+[medical.syl.en-my] Epoch 17.3023: train_loss/word=1.988894 (steps=5267, words/sec=11986.98, time=0-00:21:15)
+[medical.syl.en-my] Epoch 17.3772: train_loss/word=1.890124 (steps=5286, words/sec=12688.80, time=0-00:21:17)
+[medical.syl.en-my] Epoch 17.4515: train_loss/word=1.965508 (steps=5310, words/sec=11400.51, time=0-00:21:20)
+[medical.syl.en-my] Epoch 17.5287: train_loss/word=1.923171 (steps=5332, words/sec=13574.55, time=0-00:21:22)
+[medical.syl.en-my] Epoch 17.6040: train_loss/word=2.014063 (steps=5357, words/sec=11610.65, time=0-00:21:24)
+[medical.syl.en-my] Epoch 17.6811: train_loss/word=2.003048 (steps=5380, words/sec=11776.21, time=0-00:21:27)
+[medical.syl.en-my] Epoch 17.7553: train_loss/word=1.984107 (steps=5403, words/sec=12130.15, time=0-00:21:29)
+[medical.syl.en-my] Epoch 17.8312: train_loss/word=1.987220 (steps=5425, words/sec=12125.07, time=0-00:21:31)
+[medical.syl.en-my] Epoch 17.9051: train_loss/word=1.958663 (steps=5448, words/sec=11001.12, time=0-00:21:34)
+[medical.syl.en-my] Epoch 17.9829: train_loss/word=2.030871 (steps=5472, words/sec=12558.99, time=0-00:21:36)
+[medical.syl.en-my] Epoch 18.0000: train_loss/word=2.142120 (steps=5479, words/sec=8578.63, time=0-00:21:37)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 18.0000 dev BLEU4: 0.348276483708428, 0.637111/0.432975/0.298439/0.213460 (BP = 0.956558, ratio=0.96, hyp_len=12406, ref_len=12957) (time=0-00:22:13)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.358470
+[medical.syl.en-my]              dev auxiliary Loss: 2.916 (ref_len=12957)
+             checkpoint took 0-00:00:36
+  new learning rate: 0.5
+[medical.syl.en-my] Epoch 18.0041: train_loss/word=1.785648 (steps=5480, words/sec=16132.88, time=0-00:22:14)
+[medical.syl.en-my] Epoch 18.0801: train_loss/word=1.792592 (steps=5500, words/sec=12786.55, time=0-00:22:15)
+[medical.syl.en-my] Epoch 18.1556: train_loss/word=1.815709 (steps=5523, words/sec=12488.93, time=0-00:22:18)
+[medical.syl.en-my] Epoch 18.2312: train_loss/word=1.904288 (steps=5548, words/sec=11287.14, time=0-00:22:20)
+[medical.syl.en-my] Epoch 18.3061: train_loss/word=1.861056 (steps=5570, words/sec=12298.13, time=0-00:22:22)
+[medical.syl.en-my] Epoch 18.3815: train_loss/word=1.849769 (steps=5592, words/sec=13123.11, time=0-00:22:25)
+[medical.syl.en-my] Epoch 18.4553: train_loss/word=1.855886 (steps=5614, words/sec=12684.96, time=0-00:22:27)
+[medical.syl.en-my] Epoch 18.5329: train_loss/word=1.857755 (steps=5637, words/sec=12272.78, time=0-00:22:29)
+[medical.syl.en-my] Epoch 18.6087: train_loss/word=1.880363 (steps=5662, words/sec=11820.62, time=0-00:22:32)
+[medical.syl.en-my] Epoch 18.6844: train_loss/word=1.843506 (steps=5684, words/sec=12998.24, time=0-00:22:34)
+[medical.syl.en-my] Epoch 18.7597: train_loss/word=1.933848 (steps=5710, words/sec=10741.20, time=0-00:22:37)
+[medical.syl.en-my] Epoch 18.8378: train_loss/word=1.904873 (steps=5735, words/sec=11794.21, time=0-00:22:39)
+[medical.syl.en-my] Epoch 18.9122: train_loss/word=1.895218 (steps=5757, words/sec=11529.55, time=0-00:22:42)
+[medical.syl.en-my] Epoch 18.9876: train_loss/word=1.805952 (steps=5778, words/sec=13884.97, time=0-00:22:44)
+[medical.syl.en-my] Epoch 19.0000: train_loss/word=2.018422 (steps=5783, words/sec=11051.14, time=0-00:22:44)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 19.0000 dev BLEU4: 0.35011939243601775, 0.657258/0.446876/0.305775/0.218081 (BP = 0.935902, ratio=0.94, hyp_len=12152, ref_len=12957) (time=0-00:23:19)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.365076
+[medical.syl.en-my]              dev auxiliary Loss: 2.903 (ref_len=12957)
+             checkpoint took 0-00:00:34
+  new learning rate: 0.25
+[medical.syl.en-my] Epoch 19.0042: train_loss/word=1.658584 (steps=5784, words/sec=19355.34, time=0-00:23:19)
+[medical.syl.en-my] Epoch 19.0807: train_loss/word=1.736440 (steps=5806, words/sec=13106.81, time=0-00:23:21)
+[medical.syl.en-my] Epoch 19.1589: train_loss/word=1.807006 (steps=5829, words/sec=13013.12, time=0-00:23:23)
+[medical.syl.en-my] Epoch 19.2330: train_loss/word=1.758344 (steps=5851, words/sec=13208.30, time=0-00:23:25)
+[medical.syl.en-my] Epoch 19.3078: train_loss/word=1.738429 (steps=5874, words/sec=13242.79, time=0-00:23:28)
+[medical.syl.en-my] Epoch 19.3817: train_loss/word=1.817417 (steps=5897, words/sec=12095.88, time=0-00:23:30)
+[medical.syl.en-my] Epoch 19.4553: train_loss/word=1.845529 (steps=5920, words/sec=12205.73, time=0-00:23:32)
+[medical.syl.en-my] Epoch 19.5311: train_loss/word=1.821739 (steps=5946, words/sec=11533.90, time=0-00:23:35)
+[medical.syl.en-my] Epoch 19.6050: train_loss/word=1.822337 (steps=5969, words/sec=11179.02, time=0-00:23:38)
+[medical.syl.en-my] Epoch 19.6797: train_loss/word=1.718418 (steps=5988, words/sec=14086.29, time=0-00:23:39)
+[medical.syl.en-my] Epoch 19.7544: train_loss/word=1.831908 (steps=6012, words/sec=9978.65, time=0-00:23:42)
+[medical.syl.en-my] Epoch 19.8295: train_loss/word=1.820122 (steps=6038, words/sec=11357.12, time=0-00:23:45)
+[medical.syl.en-my] Epoch 19.9050: train_loss/word=1.807687 (steps=6061, words/sec=11459.17, time=0-00:23:47)
+[medical.syl.en-my] Epoch 19.9817: train_loss/word=1.714277 (steps=6081, words/sec=14881.46, time=0-00:23:49)
+[medical.syl.en-my] Epoch 20.0000: train_loss/word=1.853978 (steps=6087, words/sec=9997.47, time=0-00:23:50)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 20.0000 dev BLEU4: 0.3576129113504674, 0.651159/0.442721/0.305935/0.220157 (BP = 0.958006, ratio=0.96, hyp_len=12424, ref_len=12957) (time=0-00:24:26)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.369846
+[medical.syl.en-my]              dev auxiliary Loss: 2.896 (ref_len=12957)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 20.0057: train_loss/word=1.511653 (steps=6088, words/sec=15058.16, time=0-00:24:29)
+[medical.syl.en-my] Epoch 20.0804: train_loss/word=1.705625 (steps=6108, words/sec=14004.98, time=0-00:24:31)
+[medical.syl.en-my] Epoch 20.1595: train_loss/word=1.746556 (steps=6133, words/sec=11631.13, time=0-00:24:33)
+[medical.syl.en-my] Epoch 20.2341: train_loss/word=1.718253 (steps=6154, words/sec=10841.94, time=0-00:24:35)
+[medical.syl.en-my] Epoch 20.3099: train_loss/word=1.718538 (steps=6176, words/sec=12955.44, time=0-00:24:37)
+[medical.syl.en-my] Epoch 20.3840: train_loss/word=1.809958 (steps=6201, words/sec=11473.62, time=0-00:24:40)
+[medical.syl.en-my] Epoch 20.4579: train_loss/word=1.786267 (steps=6225, words/sec=11396.84, time=0-00:24:43)
+[medical.syl.en-my] Epoch 20.5319: train_loss/word=1.803707 (steps=6248, words/sec=10591.62, time=0-00:24:45)
+[medical.syl.en-my] Epoch 20.6065: train_loss/word=1.740303 (steps=6269, words/sec=12745.87, time=0-00:24:47)
+[medical.syl.en-my] Epoch 20.6822: train_loss/word=1.748449 (steps=6291, words/sec=12305.35, time=0-00:24:49)
+[medical.syl.en-my] Epoch 20.7574: train_loss/word=1.791710 (steps=6314, words/sec=12360.06, time=0-00:24:52)
+[medical.syl.en-my] Epoch 20.8317: train_loss/word=1.744807 (steps=6336, words/sec=13250.90, time=0-00:24:54)
+[medical.syl.en-my] Epoch 20.9069: train_loss/word=1.783588 (steps=6361, words/sec=12267.86, time=0-00:24:56)
+[medical.syl.en-my] Epoch 20.9823: train_loss/word=1.819895 (steps=6387, words/sec=11016.56, time=0-00:24:59)
+[medical.syl.en-my] Epoch 21.0000: train_loss/word=1.857592 (steps=6393, words/sec=10553.82, time=0-00:25:00)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 21.0000 dev BLEU4: 0.36375391673239676, 0.647598/0.440523/0.304478/0.221674 (BP = 0.976497, ratio=0.98, hyp_len=12656, ref_len=12957) (time=0-00:25:38)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.372705
+[medical.syl.en-my]              dev auxiliary Loss: 2.907 (ref_len=12957)
+             checkpoint took 0-00:00:37
+  best dev score, writing out model
+[medical.syl.en-my] Epoch 21.0021: train_loss/word=1.842596 (steps=6394, words/sec=9694.54, time=0-00:25:41)
+[medical.syl.en-my] Epoch 21.0780: train_loss/word=1.745794 (steps=6419, words/sec=11302.02, time=0-00:25:44)
+[medical.syl.en-my] Epoch 21.1521: train_loss/word=1.718242 (steps=6441, words/sec=13098.95, time=0-00:25:46)
+[medical.syl.en-my] Epoch 21.2280: train_loss/word=1.713376 (steps=6461, words/sec=12915.82, time=0-00:25:48)
+[medical.syl.en-my] Epoch 21.3048: train_loss/word=1.695708 (steps=6483, words/sec=12599.22, time=0-00:25:50)
+[medical.syl.en-my] Epoch 21.3812: train_loss/word=1.728886 (steps=6505, words/sec=11471.32, time=0-00:25:52)
+[medical.syl.en-my] Epoch 21.4565: train_loss/word=1.739670 (steps=6530, words/sec=11430.41, time=0-00:25:55)
+[medical.syl.en-my] Epoch 21.5305: train_loss/word=1.752269 (steps=6552, words/sec=12545.80, time=0-00:25:57)
+[medical.syl.en-my] Epoch 21.6043: train_loss/word=1.789362 (steps=6575, words/sec=11864.65, time=0-00:25:59)
+[medical.syl.en-my] Epoch 21.6787: train_loss/word=1.774606 (steps=6600, words/sec=10668.86, time=0-00:26:02)
+[medical.syl.en-my] Epoch 21.7540: train_loss/word=1.755943 (steps=6623, words/sec=12024.45, time=0-00:26:05)
+[medical.syl.en-my] Epoch 21.8278: train_loss/word=1.746289 (steps=6645, words/sec=11007.61, time=0-00:26:07)
+[medical.syl.en-my] Epoch 21.9025: train_loss/word=1.764884 (steps=6668, words/sec=10848.19, time=0-00:26:09)
+[medical.syl.en-my] Epoch 21.9765: train_loss/word=1.766709 (steps=6690, words/sec=12633.42, time=0-00:26:12)
+[medical.syl.en-my] Epoch 22.0000: train_loss/word=1.808633 (steps=6698, words/sec=10585.96, time=0-00:26:13)
+> Checkpoint [medical.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[medical.syl.en-my] Epoch 22.0000 dev BLEU4: 0.3635562261340307, 0.647345/0.444730/0.308158/0.223528 (BP = 0.968806, ratio=0.97, hyp_len=12559, ref_len=12957) (time=0-00:26:50)
+[medical.syl.en-my]              dev auxiliary GLEU: 0.371236
+[medical.syl.en-my]              dev auxiliary Loss: 2.913 (ref_len=12957)
+             checkpoint took 0-00:00:37
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.my
+Performing inference on ./data/test.en and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+medical.syl.en-my             | BLEU4: 0.36375391673239676, 0.647598/0.440523/0.304478/0.221674 (BP = 0.976497, ratio=0.98, hyp_len=12656, ref_len=12957)
+                              | GLEU: 0.372705
+                              | WER: 58.85% ( C/S/I/D: 7057/3874/1725/2026; hyp_len=12656, ref_len=12957 )
+                              | CER: 53.36% ( C/S/I/D: 22375/8440/5053/6325; hyp_len=35868, ref_len=37140 )
+                              | BLEU4: 0.3669128759686029, 0.652303/0.443451/0.307870/0.220885 (BP = 0.979729, ratio=0.98, hyp_len=13135, ref_len=13404)
+                              | GLEU: 0.376249
+                              | WER: 58.39% ( C/S/I/D: 7325/4063/1747/2016; hyp_len=13135, ref_len=13404 )
+                              | CER: 53.03% ( C/S/I/D: 23025/9022/5043/6233; hyp_len=37090, ref_len=38280 )
 
+real	28m17.790s
+user	28m16.641s
+sys	0m2.399s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
 ```
 
 
