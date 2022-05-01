@@ -3247,6 +3247,9 @@ development အတွက် hyp ဖိုင်နဲ့ testing အတွက်
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/hyp$
 ```
 
+Note: multiple-GPU နဲ့ run တာကို XNMT က လက်ရှိထိ support မလုပ်သေးဘူးလို့ ထင်တယ်။  
+Check: [https://github.com/neulab/xnmt/issues/415](https://github.com/neulab/xnmt/issues/415)  
+
 ## Reference
 
 - https://github.com/clab/dynet/issues/1570conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
@@ -3254,6 +3257,7 @@ development အတွက် hyp ဖိုင်နဲ့ testing အတွက်
 - https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29
 - https://pytorch.org/get-started/previous-versions/
 - https://github.com/neulab/xnmt/blob/transformer-optimizations/examples/16_transformer.yaml
+- https://github.com/neulab/xnmt/issues/415
 
 
 
