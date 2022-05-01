@@ -817,6 +817,25 @@ dev.en  dev.my  dev.th  test.en  test.my  test.th  train.en  train.my  train.th
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
 ```
 
+sylbrea.pl ကို ကိုယ့်စက်ထဲကို Download လုပ်ယူ ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ wget https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-01 23:22:59--  https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2189 (2.1K) [text/plain]
+Saving to: ‘sylbreak.pl’
+
+sylbreak.pl                     100%[=====================================================>]   2.14K  --.-KB/s    in 0s      
+
+2022-05-01 23:23:00 (80.1 MB/s) - ‘sylbreak.pl’ saved [2189/2189]
+
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
+```
+
 
 
 
