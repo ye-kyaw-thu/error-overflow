@@ -2486,6 +2486,8 @@ sys	15m57.014s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$
 ```
 
+config ဖိုင်မှာ task အနေနဲ့ testing ကို ထည့်ထားရင် testing လည်း လုပ်ပေးတယ်။  
+
 ## Check the model and outputs
 
 model folder အောက်မှာက...  
