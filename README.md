@@ -127,4 +127,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 120. [haggingface-exp-myPoem1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/haggingface-exp-myPoem1.md)  
 121. [gpu-installation-note-25apr2022.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/gpu-installation-note-25apr2022.md)  
 122. [installation-for-new-ubuntu.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/installation-for-new-ubuntu.md)
+123. [xnmt-installation2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-installation2.md)  
 
