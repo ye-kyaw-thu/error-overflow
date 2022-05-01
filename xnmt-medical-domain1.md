@@ -819,38 +819,6 @@ dev.en  dev.my  dev.th  test.en  test.my  test.th  train.en  train.my  train.th
 
 
 
-###################
 
-  train: !SimpleTrainingRegimen
-    run_for_epochs: 100 # maximum number of epochs, but might stop earlier depending on the following settings.
-    lr_decay: 0.5
-    lr_decay_times: 3
-    patience: 1
-    initial_patience: 2
-    dev_tasks: # the first metric (here: bleu) is used for checking whether LR should be decayed.
-      - !AccuracyEvalTask
-        eval_metrics: bleu,gleu
-        
-==================
-
-     eval_metrics: bleu,gleu,wer
-     
-==================
-
-  evaluate:
-    - !AccuracyEvalTask
-      eval_metrics: bleu
-      src_file: examples/data/head.ja
-      ref_file: examples/data/head.en
-      hyp_file: examples/output/{EXP}.test_hyp
-      inference: !AutoRegressiveInference
-        reporter:
-        - !AttentionReporter {} # plot attentions
-        - !ReferenceDiffReporter {} # difference highlighting
-        - !CompareMtReporter {} # analyze MT outputs
-        - !OOVStatisticsReporter # report on recovered OOVs, fantasized new words, etc.
-            train_trg_file: examples/data/head.en
-            
-========================
 
             
