@@ -885,6 +885,32 @@ syllable ဖြတ်ထားတဲ ဖိုင်တွေမှာက space 
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ 
 ```
 
+အဲဒါကြောင့် space cleaning လုပ်ပေးတဲ့ script ကို GitHub ကနေ download လုပ်ယူခဲ့...  
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ wget https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/clean-space.pl
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-01 23:29:01--  https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/clean-space.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 686 [text/plain]
+Saving to: ‘clean-space.pl’
+
+clean-space.pl                  100%[=====================================================>]     686  --.-KB/s    in 0s      
+
+2022-05-01 23:29:02 (94.2 MB/s) - ‘clean-space.pl’ saved [686/686]
+
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
+```
+
+စောစောက syllable ဖြတ်ထားတဲ့ မြန်မာဒေတာဖိုင်တွေကို space cleaning လုပ်ခဲ့တယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ perl ./clean-space.pl ./train.my.syl > train.my.syl.clean
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ perl ./clean-space.pl ./dev.my.syl > dev.my.syl.clean
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ perl ./clean-space.pl ./test.my.syl > test.my.syl.clean
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ 
+```
 
             
