@@ -1115,6 +1115,16 @@ ye@ye-System-Product-Name:~$ ./hello
 ye@ye-System-Product-Name:~$
 ```
 
+## Check g++
+
+```
+(xnmt) ye@ye-System-Product-Name:~/tool/dynet-base$ g++ --version
+g++ (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
 ## vim
 
 vim editor ကလည်း စသုံးစလူတွေအတွက် ခက်ပေမဲ့ linux သမားတွေ၊ ပရိုဂရမ်မာတွေအတွက်က powerful text editor တစ်ခုပါ။  
