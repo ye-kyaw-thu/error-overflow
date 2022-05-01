@@ -2486,6 +2486,40 @@ sys	15m57.014s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$
 ```
 
+## Check the model and outputs
+
+model folder အောက်မှာက...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$ tree ./models/
+./models/
+├── kftt.en-ja.mod
+└── kftt.en-ja.mod.data
+    ├── AuxNonLinear-5436935f
+    ├── DenseWordEmbedder-35e672da
+    ├── Linear-da953d1c
+    ├── MlpAttender-fb815d33
+    ├── SimpleWordEmbedder-56af3728
+    ├── UniLSTMSeqTransducer-4dd4e810
+    ├── UniLSTMSeqTransducer-5dec2edd
+    ├── UniLSTMSeqTransducer-7f83663d
+    ├── UniLSTMSeqTransducer-82ff1a73
+    └── UniLSTMSeqTransducer-85c06e6e
+
+1 directory, 11 files
+```
+
+log folder အောက်မှာက...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$ tree ./logs/
+./logs/
+├── kftt.en-ja.log
+└── kftt.en-ja.log.yaml
+
+0 directories, 2 files
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$
+```
 
 ## Reference
 
