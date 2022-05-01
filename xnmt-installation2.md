@@ -1,3 +1,13 @@
+# XNMT Installation and Test Running
+
+XNMT က default setting က DyNet နဲ့ ချိတ်ပြီးသုံးတာကြောင့် အနည်းဆုံး DyNet python library ကို installation လုပ် ရပါတယ်။  
+အဲဒီနေရာမှာ အခန့်မသင့်ရင် installation မှာတင် တစ်နေတတ်ပါတယ်။  
+အထူးသဖြင့်တော့ Eigen ကို installation လုပ်တဲ့အခါ version မတူလို့ ERROR ပေးတာမျိုး၊ pip နဲ့ install လုပ်တာဆိုရင် DyNet အတွက် wheel ဆောက်တဲ့ နေရာမှာ ပြဿနာပေးတာမျိုး၊ GPU library ဖြစ်တဲ့ CUDA ကိစ္စတို့က နည်းနည်း ခက်ပါတယ်။  
+
+ဒီ log ကတော့ Backend ကို DyNet မသုံးပဲနဲ့ PyTorch ကိုသုံးပြီး GPU ကို အခြေခံတဲ့ training/testing ကို စမ်းပြထားတာပါ။  
+
+y@LST Lab,  
+1 May 2022
 
 ## clone xnmt
 
