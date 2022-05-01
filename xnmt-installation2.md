@@ -2509,6 +2509,13 @@ model folder အောက်မှာက...
 1 directory, 11 files
 ```
 
+model ရဲ့ size က ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/models$ ls -lh kftt.en-ja.mod
+-rw-rw-r-- 1 ye ye 1.6M May  1 17:16 kftt.en-ja.mod
+```
+
 log folder အောက်မှာက...  
 
 ```
