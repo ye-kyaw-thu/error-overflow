@@ -1673,6 +1673,40 @@ sys	0m2.399s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
 ```
 
+## Check the hyp
+
+test hyp ဖိုင် ရဲ့ ထိပ်ဆုံး စာကြောင်း ၁၀ကြောင်း...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ head ./hyp/medical.syl.en-my.test.my 
+လူ နာ က မ ကျေ နပ် ပါ ဘူး ပြီး တော့ သူ မ က ခင် ဗျား ကို တိုင် တန်း ခဲ့ တယ် ။
+ခင် ဗျား ရဲ့ ညာ ဘက် ခြမ်း မှာ ခန္ဓာ ကိုယ် လှုပ် ရှား မှု တွေ နဲ့ တူ ညီ တဲ့ ပြ ဿ နာ တွေ ရှိ တယ် ။
+ခင် ဗျား စိတ် ကြွ ဆေး တွေ ကို အ သုံး ပြု ပါ သ လား ။
+ကု သ မှု က ခွဲ စိတ် ခြင်း က ခွဲ စိတ် မှု များ ကို လျော့ ကျ စေ ပါ တယ် ။
+ဟမ် ။ တ ချို့ က လေး တွေ က ဘာ ကို မ ကြိုက် ဘူး ပြီး တော့ သွား ပိုး ဝင် တာ မ ရှိ သေး ဘူး ပြီး တော့ သွား ပိုး ပေါက် တွေ မ ရှိ သေး ဘူး ။
+ဦး နှောက် အ တွင်း ရှိ အ ဖွဲ့ ကို ညွှန် ပြ တဲ့ အ ရာ က ဘာ လဲ ။
+ကောင်း ပြီ ၊ အား က စား ရုံ ။
+ကောင်း ပြီ ။ ကျွန် တော့် မျက် လုံး တွေ က ဘာ လို့ ဒီ လောက် ပဲ ဖြစ် နေ တာ လဲ ။
+ခင် ဗျား မှာ အ ချိန် အ ချို့ ရှိ ရင် ၊ ခင် ဗျား ကျွန် တော့် ကို သူ ငယ် ချင်း တွေ နဲ့ အ တူ ခင် ဗျား အ ပြင် ထွက် လာ လို့ ရ တယ် ၊ ကျွန် တော် တို့ က အဲ ဒီ လို ဆို ရင် တော့ ကျွန် တော် တို့ က အဲ ဒီ လို ဆို တာ ကို ရပ် ဖို့ စီ စ ဥ် နေ တယ် ။
+ကျွန် တော် မ သေ ချာ ပေ မဲ့ ဆီး လမ်း ကြောင်း ပိုး ဝင် ခြင်း ၊ ဆီး လမ်း ကြောင်း ပိုး ဝင် ခြင်း ၊ အက်စ် တီ ဒီ ကူး စက် ခြင်း ၊ အက်စ် တီ ဒီ ကူး စက် ခြင်း ၊ အက်စ် တီ ဒီ ကူး စက် မှု အ နည်း ငယ် ပဲ ဖြစ် ပါ တယ် ။
+```
+
+input ဖိုင်နဲ့ အထက်က မော်ဒယ်က ဘာသာပြန်ပြီးထွက်လာတဲ့ စာကြောင်းတွေကို နှိုင်းယှဉ်ကြည့်...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ head ./data/test.en
+The patient is not happy and she has complained to you .
+You have problems with coordination on your right side .
+Do you use recreational drugs ?
+The procedure has advantages over traditional open surgery .
+Hmm . How come some kids dont brush thier teeth and still don &apos;t have cavities ?
+What does a priapism indicate ?
+Well , gym .
+Alright . Why might my eyes be watering so much ?
+If you have some free time , you can hang out with me and my friends , we are planning to go to the cinema .
+I &apos;m not sure , but urine infection , uti , kidney infection , std , this is just a few things go to the dr ! .
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
+```
 
 ## Training (syl, my-en)
 
