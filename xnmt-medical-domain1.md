@@ -913,4 +913,33 @@ clean-space.pl                  100%[===========================================
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ 
 ```
 
-            
+word ဖိုင်တွေကို backup ကူးထားပြီး၊ clean လုပ်ထားပြီးသား ဖိုင်တွေကို config ဖိုင်ကနေ ယူသုံးတဲ့ပုံစံ ညီအောင် နာမည်အသစ်ပေးပြီး copy ကူးယူခဲ့ ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ mkdir word
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ mv {train,dev,test}.my ./word/
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ cp train.my.syl.clean train.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ cp dev.my.syl.clean dev.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ cp test.my.syl.clean test.my
+```
+
+word count လုပ်ကြည့်ရင်တော့ syllable ဖြတ်ထားတာမို့ word ထက်စာရင် များနေရမယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ wc {train,dev,test}.my
+  13592  363914 3483167 train.my
+    500   12957  124151 dev.my
+    500   13404  128038 test.my
+  14592  390275 3735356 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
+```
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$ wc ./word/*
+    500    7744  118989 ./word/dev.my
+    500    8017  122689 ./word/test.my
+  13592  217238 3337665 ./word/train.my
+  14592  232999 3579343 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
+```
+
