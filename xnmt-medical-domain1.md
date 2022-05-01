@@ -982,3 +982,36 @@ training မလုပ်ခင်မှာ ဖိုင်တွေကို မ
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl/data$
 ```
 
+## Training (syl, en-my)
+
+config ဖိုင်တွေက word နဲ့ train လုပ်စဉ်က သုံးခဲ့တဲ့ ဖိုင်တွေကိုပဲ သုံးလို့ ရမယ်လို့ ထင်တယ်။  
+အကြမ်းမျဉ်းအားဖြင့်က အတူတူပါပဲ သို့သော် experiment name ပြောင်းတာတို့ config ဖိုင်ကိုယ်တိုင်ရဲ့ နာမည်ကိုလည်း နောက်ပိုင်းမှာ ပြန်ကြည့်ရင် ရှင်းနေအောင် နာမည်ပြောင်းပေးခဲ့...  
+
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ cp ../word/config.medical.* .
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ ls
+config.medical.en-my-word.yaml  config.medical.my-en-word.yaml  data
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ mv config.medical.en-my-word.yaml config.medical.en-my-syl.yaml 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ mv config.medical.my-en-word.yaml config.medical.my-en-syl.yaml 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ ls 
+config.medical.en-my-syl.yaml  config.medical.my-en-syl.yaml  data
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
+```
+
+တကယ်တမ်းက config ဖိုင်မှာ experiment name တစ်ခုကိုပဲ syl ဆိုတာ ထပ်ဖြည့်လိုက်တာပါ။  
+en-my direction အတွက် updated config ဖိုင်က အောက်ပါအတိုင်း  
+
+```yaml
+
+```
+
+training စလုပ် ...  
+
+```
+
+```
+
+
+## Training (syl, my-en)
+
