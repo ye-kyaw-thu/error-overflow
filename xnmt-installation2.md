@@ -3196,6 +3196,57 @@ train: !SimpleTrainingRegimen
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/models$
 ```
 
+## Check the Hypothesis
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$ tree ./hyp
+./hyp
+├── kftt.en-ja.dev.ja
+└── kftt.en-ja.test.ja
+
+0 directories, 2 files
+```
+
+dev ရော test ရော ကို file size အတူတူနည်းပါး ထားထားတာကို တွေ့ရ...   
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt$ cd hyp
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/hyp$ wc *
+  1166  23707 117960 kftt.en-ja.dev.ja
+  1160  25080 123136 kftt.en-ja.test.ja
+  2326  48787 241096 total
+```
+
+development အတွက် hyp ဖိုင်နဲ့ testing အတွက် hyp ဖိုင်တွေကို head command နဲ့ print လုပ်ကြည့်ရအောင်...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/hyp$ head *
+==> kftt.en-ja.dev.ja <==
+臨済 禅 （ <unk> <unk> ） と は 、 中国 の 五 家 の 一 つ で 、 唐 の 禅 （ 臨済 ・ <unk> ・ <unk> ・ <unk> ） ・ 臨済 義 玄 （ 貞観 9 年 （ 867 年 ） ? - 貞観 9 年 （ 867 年 ） ） を 祖 と する 。
+「 <unk> （ <unk> ） 」 、 『 <unk> <unk> 』 など と し て 知 ら れ 、 独特 の 禅 の 頂点 に まで 達 し た 。
+公案 の 研究 に よ り 公案 を 自覚 し よ う と し た 禅 話 が 公案 を 意識 し て い る こと から 、 曹洞 宗 の 禅 禅 と は 異な る 。
+中国 の 臨済 流
+名前 の 通り 、 唐 の 廃仏 毀釈 後 の 廃仏 毀釈 後 に 臨済 義 玄 を 祖 と する 臨済 宗 を 祖 と する 。
+<unk> は <unk> <unk> の 門人 と し て 河北 省 を 中心 と し た 宗教 運動 と し て 発展 し た が 、 唐 末期 の 混乱 が あ っ た こと に 対 し 、 <unk> は 分裂 し た 。
+当時 の 中心 的 な 姿 は <unk> <unk> で あ っ た 。
+<unk> <unk> の 下 に あ っ た 臨済 宗 の <unk> ・ <unk> ・ <unk> ・ <unk> ・ <unk> と とも に 、 臨済 宗 を 中心 に 各地 を 流 さ れ 、 中国 全土 を 席巻 し た 。
+南宋 時代 に 入 る と 、 <unk> 派 に 属 する <unk> <unk> の 門人 ・ <unk> <unk> の 弟子 ・ <unk> <unk> が 、 臨済 宗 に お い て 主要 な 一派 と な っ た 。
+日本 の 臨済 流
+
+==> kftt.en-ja.test.ja <==
+<unk>
+道元 （ 道元 ） は 、 鎌倉 時代 前期 の 禅僧 。
+曹洞 禅 の 祖 。
+その 後 も 紀元 と も い う 。
+また 、 <unk> で あ る 。
+『 <unk> <unk> 』 、 <unk> 所 。
+一般 に は 道元 禅師 と 呼 ば れ る 。
+お 歯黒 を 洗 っ た の は 、 <unk> の <unk> ・ <unk> ・ <unk> ・ <unk> の よう に 広ま っ た と 伝え られ て い る 。
+また 、 <unk> を 持参 し て 日本 に <unk> を もたら し た と い う 説 も あ る 。
+道元 の 出自 に つ い て は 不明 で あ る が 、 右 大臣 土御門 通親 （ 源 通親 ・ 久我 通親 ） の 系統 で 生まれ た と い う 説 も あ る 。
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/recipes/kftt/hyp$
+```
+
 ## Reference
 
 - https://github.com/clab/dynet/issues/1570conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
