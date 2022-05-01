@@ -3253,7 +3253,7 @@ development အတွက် hyp ဖိုင်နဲ့ testing အတွက်
 - https://github.com/pydata/bottleneck/issues/281
 - https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29
 - https://pytorch.org/get-started/previous-versions/
-
+- https://github.com/neulab/xnmt/blob/transformer-optimizations/examples/16_transformer.yaml
 
 
 
