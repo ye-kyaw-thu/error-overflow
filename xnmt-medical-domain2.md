@@ -194,6 +194,77 @@ xnmt ဖိုလ်ဒါ အထက်ကို တက်ကြည့်လိ�
 
 ```
 
+အဲဒါကြောင့် ဘယ် source ဖိုင်မှာ Trainer တွေနဲ့ ပတ်သက်ပြီး ရေးထားသလဲ ဆိုတာကို သိချင်လို့ အောက်ပါအတိုင်း ရှာကြည့်ခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'AdamTrainer' 
+./xnmt/optimizers.py:364:  yaml_tag = '!AdamTrainer'
+./xnmt/optimizers.py:374:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(), alpha, beta_1, beta_2, eps),
+./xnmt/optimizers.py:396:  yaml_tag = '!AdamTrainer'
+./xnmt/optimizers.py:418:AdamTrainer = xnmt.resolve_backend(AdamTrainerDynet, AdamTrainerTorch)
+./xnmt/optimizers.py:451:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(),
+./xnmt/persistence.py:819:                [{"path" : "model.trainer", "val":AdamTrainer()},
+./docs/experiment_config_files.rst:116:    trainer: !AdamTrainer
+./test/test_training.py:355:    train_args['trainer'] = optimizers.AdamTrainer(alpha=0.1, rescale_grads=5.0, skip_noisy=True)
+./test/config/speech_retrieval.yaml:32:    trainer: !AdamTrainer
+./test/config/retrieval.yaml:19:    trainer: !AdamTrainer
+./test/config/load_model.yaml:57:    val: !AdamTrainer
+./test/config/speech.yaml:44:    trainer: !AdamTrainer {}
+./test/config/classifier-torch.yaml:18:    trainer: !AdamTrainer
+./test/config/multi_task_speech.yaml:6:    trainer: !AdamTrainer {}
+./test/config/multi_task.yaml:8:    trainer: !AdamTrainer {}
+./test/config/multi_task.yaml:106:    trainer: !AdamTrainer {}
+./test/config/multi_task.yaml:113:    trainer: !AdamTrainer {}
+./test/config/lm.yaml:15:    trainer: !AdamTrainer
+./test/config/pretrained_embeddings.yaml:26:    trainer: !AdamTrainer
+./test/config/lattice.yaml:36:    trainer: !AdamTrainer
+./test/config/seq_labeler.yaml:21:    trainer: !AdamTrainer
+./test/config/classifier.yaml:18:    trainer: !AdamTrainer
+./examples/07_load_finetune.yaml:64:    val: !AdamTrainer
+./examples/01_standard.yaml:41:    trainer: !AdamTrainer
+./examples/22_switchout.yaml:43:    trainer: !AdamTrainer
+./examples/13_speech.yaml:53:    trainer: !AdamTrainer {}
+./examples/09_programmatic.py:37:from xnmt.optimizers import AdamTrainer
+./examples/09_programmatic.py:91:  trainer=AdamTrainer(alpha=0.001),
+./examples/12_multi_task.yaml:13:    trainer: !AdamTrainer {}
+./examples/models/standard.mod:442:  trainer: !AdamTrainer
+./examples/19_subword_sample.yaml:49:    trainer: !AdamTrainer
+./examples/18_lexiconbias.yaml:39:    trainer: !AdamTrainer
+./examples/logs/standard.log:46:initialized train.trainer: AdamTrainer@139669774376576({'alpha': 0.001})
+./examples/logs/standard.log:54:initialized train: SimpleTrainingRegimen@139669774375568({'model': DefaultTranslator@139669774374672, 'src_file': 'examples/data/head.ja', 'trg_file': 'examples/data/head.en', 'batcher': SrcBatcher@139669774055520, 'loss_calculator': MLELoss@139669774054288, 'trainer': AdamTrainer@139669774055576, 'run_for_epochs': 2, 'dev_tasks': [LossEvalTask@139669774421296], 'name': 'standard', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@139669774419840, 'dev_loss_tracker': DevLossTracker@139669774057424})
+./build/lib/xnmt/optimizers.py:364:  yaml_tag = '!AdamTrainer'
+./build/lib/xnmt/optimizers.py:374:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(), alpha, beta_1, beta_2, eps),
+./build/lib/xnmt/optimizers.py:396:  yaml_tag = '!AdamTrainer'
+./build/lib/xnmt/optimizers.py:418:AdamTrainer = xnmt.resolve_backend(AdamTrainerDynet, AdamTrainerTorch)
+./build/lib/xnmt/optimizers.py:451:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(),
+./build/lib/xnmt/persistence.py:819:                [{"path" : "model.trainer", "val":AdamTrainer()},
+./exp/medical1/word/config.medical.my-en-word.yaml:58:    trainer: !AdamTrainer
+./exp/medical1/word/config.medical.en-my-word.yaml:58:    trainer: !AdamTrainer
+./exp/medical1/word/models/medical.en-my.mod:26725:  trainer: !AdamTrainer
+./exp/medical1/word/models/medical.my-en.mod:26725:  trainer: !AdamTrainer
+./exp/medical1/word/logs/medical.en-my.log:68:initialized train.trainer: AdamTrainer@140560390124320({'alpha': 0.001})
+./exp/medical1/word/logs/medical.en-my.log:78:initialized train: SimpleTrainingRegimen@140560390125104({'model': DefaultTranslator@140560390053448, 'src_file': './data/train.en', 'trg_file': './data/train.my', 'batcher': WordSrcBatcher@140560390067256, 'loss_calculator': MLELoss@140560390003232, 'trainer': AdamTrainer@140560380492824, 'run_for_epochs': 30, 'lr_decay': 0.5, 'lr_decay_times': 2, 'patience': 1, 'initial_patience': 2, 'dev_tasks': [AccuracyEvalTask@140560390001104, LossEvalTask@140560390002784], 'name': 'medical.en-my', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@140560390001552, 'dev_loss_tracker': DevLossTracker@140560390051040})
+./exp/medical1/word/logs/medical.my-en.log:68:initialized train.trainer: AdamTrainer@140366526506432({'alpha': 0.001})
+./exp/medical1/word/logs/medical.my-en.log:78:initialized train: SimpleTrainingRegimen@140366526505312({'model': DefaultTranslator@140366526442856, 'src_file': './data/train.my', 'trg_file': './data/train.en', 'batcher': WordSrcBatcher@140366576648032, 'loss_calculator': MLELoss@140366517927328, 'trainer': AdamTrainer@140366517926432, 'run_for_epochs': 30, 'lr_decay': 0.5, 'lr_decay_times': 2, 'patience': 1, 'initial_patience': 2, 'dev_tasks': [AccuracyEvalTask@140366517926096, LossEvalTask@140366526382992], 'name': 'medical.my-en', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@140366517926936, 'dev_loss_tracker': DevLossTracker@140366517927496})
+./exp/medical1/syl/config.medical.my-en-syl.yaml:58:    trainer: !AdamTrainer
+./exp/medical1/syl/config.medical.en-my-syl.yaml:58:    trainer: !AdamTrainer
+./exp/medical1/syl/models/medical.syl.my-en.mod:12158:  trainer: !AdamTrainer
+./exp/medical1/syl/models/medical.syl.en-my.mod:12158:  trainer: !AdamTrainer
+./exp/medical1/syl/logs/medical.syl.my-en.log:68:initialized train.trainer: AdamTrainer@139619423188416({'alpha': 0.001})
+./exp/medical1/syl/logs/medical.syl.my-en.log:78:initialized train: SimpleTrainingRegimen@139619423187296({'model': DefaultTranslator@139619423120744, 'src_file': './data/train.my', 'trg_file': './data/train.en', 'batcher': WordSrcBatcher@139619423154920, 'loss_calculator': MLELoss@139619418282864, 'trainer': AdamTrainer@139619418282584, 'run_for_epochs': 30, 'lr_decay': 0.5, 'lr_decay_times': 2, 'patience': 1, 'initial_patience': 2, 'dev_tasks': [AccuracyEvalTask@139619423187520, LossEvalTask@139619423154528], 'name': 'medical.syl.my-en', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@139619423060880, 'dev_loss_tracker': DevLossTracker@139619418283200})
+./exp/medical1/syl/logs/medical.syl.en-my.log:68:initialized train.trainer: AdamTrainer@139754384610584({'alpha': 0.001})
+./exp/medical1/syl/logs/medical.syl.en-my.log:78:initialized train: SimpleTrainingRegimen@139754384609408({'model': DefaultTranslator@139754384548696, 'src_file': './data/train.en', 'trg_file': './data/train.my', 'batcher': WordSrcBatcher@139754384549984, 'loss_calculator': MLELoss@139754384551440, 'trainer': AdamTrainer@139754384609968, 'run_for_epochs': 30, 'lr_decay': 0.5, 'lr_decay_times': 2, 'patience': 1, 'initial_patience': 2, 'dev_tasks': [AccuracyEvalTask@139754379710248, LossEvalTask@139754384491520], 'name': 'medical.syl.en-my', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@139754384491184, 'dev_loss_tracker': DevLossTracker@139754379709408})
+./recipes/kftt/models/kftt.en-ja.mod:80433:  trainer: !AdamTrainer
+./recipes/kftt/config.kftt.en-ja.yaml:58:    trainer: !AdamTrainer
+./recipes/kftt/logs/kftt.en-ja.log:68:initialized train.trainer: AdamTrainer@140325776753944({'alpha': 0.001})
+./recipes/kftt/logs/kftt.en-ja.log:78:initialized train: SimpleTrainingRegimen@140325776752768({'model': DefaultTranslator@140325776675672, 'src_file': './kftt-data-1.0/data/tok/kyoto-train.cln.en', 'trg_file': './kftt-data-1.0/data/tok/kyoto-train.cln.ja', 'batcher': WordSrcBatcher@140325826891616, 'loss_calculator': MLELoss@140325741185680, 'trainer': AdamTrainer@140325741184448, 'run_for_epochs': 20, 'lr_decay': 0.5, 'lr_decay_times': 2, 'patience': 1, 'initial_patience': 2, 'dev_tasks': [AccuracyEvalTask@140325776753832, LossEvalTask@140325741185008], 'name': 'kftt.en-ja', 'loss_comb_method': 'sum', 'train_loss_tracker': TrainLossTracker@140325741186296, 'dev_loss_tracker': DevLossTracker@140325741186072})
+./recipes/stanford-iwslt/config.en-vi.yaml:24:    trainer: !AdamTrainer
+./recipes/las-tedlium/config.las-pyramidal.yaml:60:    trainer: !AdamTrainer
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
+```
+
+
+
 ## Reference
 
 - https://github.com/neulab/xnmt/blob/transformer-optimizations/examples/16_transformer.yaml
