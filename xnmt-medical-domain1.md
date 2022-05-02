@@ -1936,3 +1936,5 @@ sys	0m2.635s
 
 ငါ့အတွေ့ machine translation R&D အတွေ့အကြုံအရဆိုရင်တော့ မြန်မာစာအတွက်က syllable unit က word unit ထက် ရလဒ် ပိုကောင်းတယ်။ သို့သော် direct comparison လုပ်ဖို့အတွက်က word unit ကို syllable ပြန်ညှိပြီးမှ evaluation လုပ်ရလိမ့်မယ်။ နောက်ပိုင်းမှာ လုပ်မယ်။  
 
+Note: DefaultTranslator, which implements a standard attentional sequence-to-sequence model  
+
