@@ -263,6 +263,53 @@ xnmt ဖိုလ်ဒါ အထက်ကို တက်ကြည့်လိ�
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
 ```
 
+optimizers.py ဖိုင်ထဲမှာ ရှိတဲ့ Trainer အကုန်ကို grep command နဲ့ ဆွဲထုတ်ကြည့်ခဲ့တော့ error ပေးနေတဲ့ "TransformerAdamTrainer" ဆိုတာက ရှိပုံမရဘူး ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -n "Trainer" ./build/lib/xnmt/optimizers.py 
+28:  A base classe for trainers. Trainers are mostly simple wrappers of the backend trainers but can add extra
+67:  A base classe for trainers. Trainers are mostly simple wrappers of DyNet trainers but can add extra functionality.
+77:  def __init__(self, optimizer: 'dy.Trainer', skip_noisy: bool = False, rescale_grads: Optional[numbers.Real] = 5.0) \
+143:  A base classe for trainers. Trainers are mostly simple wrappers of PyTorch trainers but can add extra functionality.
+205:class SimpleSGDTrainerDynet(XnmtOptimizerDynet, Serializable):
+218:  yaml_tag = '!SimpleSGDTrainer'
+222:    super().__init__(optimizer=dy.SimpleSGDTrainer(ParamManager.global_collection(), e0),
+227:class SimpleSGDTrainerTorch(XnmtOptimizerTorch, Serializable):
+244:  yaml_tag = '!SimpleSGDTrainer'
+264:SimpleSGDTrainer = xnmt.resolve_backend(SimpleSGDTrainerDynet, SimpleSGDTrainerTorch)
+267:class MomentumSGDTrainer(XnmtOptimizerDynet, Serializable):
+281:  yaml_tag = '!MomentumSGDTrainer'
+289:    super().__init__(optimizer=dy.MomentumSGDTrainer(ParamManager.global_collection(), e0, mom),
+294:class AdagradTrainer(XnmtOptimizerDynet, Serializable):
+308:  yaml_tag = '!AdagradTrainer'
+316:    super().__init__(optimizer=dy.AdagradTrainer(ParamManager.global_collection(), e0, eps=eps),
+321:class AdadeltaTrainer(XnmtOptimizerDynet, Serializable):
+335:  yaml_tag = '!AdadeltaTrainer'
+343:    super().__init__(optimizer=dy.AdadeltaTrainer(ParamManager.global_collection(), eps, rho),
+348:class AdamTrainerDynet(XnmtOptimizerDynet, Serializable):
+364:  yaml_tag = '!AdamTrainer'
+374:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(), alpha, beta_1, beta_2, eps),
+378:class AdamTrainerTorch(XnmtOptimizerTorch, Serializable):
+396:  yaml_tag = '!AdamTrainer'
+418:AdamTrainer = xnmt.resolve_backend(AdamTrainerDynet, AdamTrainerTorch)
+422:class NoamTrainerDynet(XnmtOptimizerDynet, Serializable):
+439:  yaml_tag = '!NoamTrainer'
+451:    super().__init__(optimizer=dy.AdamTrainer(ParamManager.global_collection(),
+476:class NoamTrainerTorch(XnmtOptimizerTorch, Serializable):
+493:  yaml_tag = '!NoamTrainer'
+526:NoamTrainer = xnmt.resolve_backend(NoamTrainerDynet, NoamTrainerTorch)
+529:class DummyTrainer(XnmtOptimizer, Serializable):
+533:  yaml_tag = "!DummyTrainer"
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
+```
+
+အဲဒါကြောင့် optimizer က transformer ဖြစ်ကြောင်း သပ်သပ်ပြောစရာမလိုပဲ ရှိနေတဲ့ Trainer တစ်ခုခုနဲ့ပဲ OK တယ်လို့ ယူဆတယ်။  
+ဆက်စပ်ပြီး architecture တွေနဲ့ ပတ်သက်ပြီးလည်း သိချင်လို့ အောက်ပါအတိုင်း ရှာကြည့်ခဲ့...  
+
+```
+
+```
+
 
 
 ## Reference
