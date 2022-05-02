@@ -183,6 +183,16 @@ sys	0m0.532s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_tran$
 ```
 
+## Debugging the Error
+
+xnmt ဖိုလ်ဒါ အထက်ကို တက်ကြည့်လိုက်ပြီးတော့ python source code တွေမှာပဲ ဖြစ်ဖြစ်၊ TransformerAdamTrainer ဆိုတာ ရှိသလား၊ ရှိရင် filename ရော line-no ပါ ရိုက်ထုတ်ပေးခိုင်းကြည့်ခဲ့ပေမဲ့... ရှိပုံမရ  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'TransformerAdamTrainer' 
+./exp/medical1/word_tran/transformer-word-en-my.yaml:43:    trainer: !TransformerAdamTrainer
+./exp/medical1/word_tran/transformer-word-my-en.yaml:43:    trainer: !TransformerAdamTrainer
+
+```
 
 ## Reference
 
