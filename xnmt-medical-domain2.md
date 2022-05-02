@@ -307,7 +307,215 @@ optimizers.py ဖိုင်ထဲမှာ ရှိတဲ့ Trainer အက�
 ဆက်စပ်ပြီး architecture တွေနဲ့ ပတ်သက်ပြီးလည်း သိချင်လို့ အောက်ပါအတိုင်း ရှာကြည့်ခဲ့...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'model: ' 
+./xnmt/eval/tasks.py:43:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/eval/tasks.py:124:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/eval/tasks.py:173:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/loss_calculators.py:18:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:43:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:69:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:98:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:130:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:163:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:215:                model: 'model_base.ConditionedModel',
+./xnmt/train/tasks.py:25:  def __init__(self, model: 'model_base.TrainableModel') -> None:
+./xnmt/train/tasks.py:115:               model: 'model_base.ConditionedModel',
+./docs/experiment_config_files.rst:22:      model: ...
+./docs/experiment_config_files.rst:28:      model: ...
+./docs/experiment_config_files.rst:76:  model: !DefaultTranslator
+./test/data/tiny_jaen.model:8:  model: !Ref {default: 1928437192847, name: null, path: model}
+./test/data/tiny_jaen.model:39:model: !DefaultTranslator
+./test/config/cascade.yaml:11:        model: !DefaultTranslator
+./test/config/cascade.yaml:39:        model: !DefaultTranslator
+./test/config/cascade.yaml:68:      model: !CascadeGenerator
+./test/config/speech_retrieval.yaml:6:  model: !DotProductRetriever
+./test/config/reinforce.yaml:4:  model: !DefaultTranslator
+./test/config/retrieval.yaml:5:  model: !DotProductRetriever
+./test/config/score.yaml:2:exp1-model: !Experiment
+./test/config/score.yaml:7:  model: !DefaultTranslator
+./test/config/load_model.yaml:2:exp1-pretrain-model: !Experiment
+./test/config/load_model.yaml:7:  model: !DefaultTranslator
+./test/config/load_model.yaml:45:exp2-finetune-model: !LoadSerialized
+./test/config/component_sharing.yaml:5:  model: !DefaultTranslator
+./test/config/speech.yaml:15:  model: !DefaultTranslator
+./test/config/autobatch-fail.yaml:7:    model: !DefaultTranslator
+./test/config/simultaneous.yaml:5:  model: !SimultaneousTranslator
+./test/config/classifier-torch.yaml:5:  model: !SequenceClassifier
+./test/config/cudnn-lstm.yaml:5:  model: !DefaultTranslator
+./test/config/multi_task_speech.yaml:16:      model: !DefaultTranslator
+./test/config/multi_task_speech.yaml:54:          model: !Ref { name: first_task_model }
+./test/config/multi_task_speech.yaml:66:      model: !DefaultTranslator
+./test/config/multi_task_speech.yaml:92:          model: !Ref { name: second_task_model }
+./test/config/multi_task_speech.yaml:99:      model: !Ref { name: first_task_model }
+./test/config/multi_task_speech.yaml:107:exp2-finetune-model: !LoadSerialized
+./test/config/multi_task.yaml:17:      model: !DefaultTranslator
+./test/config/multi_task.yaml:49:          model: !Ref { name: first_task_model }
+./test/config/multi_task.yaml:61:      model: !DefaultTranslator
+./test/config/multi_task.yaml:86:          model: !Ref { name: second_task_model }
+./test/config/multi_task.yaml:93:      model: !Ref { name: first_task_model }
+./test/config/multi_task.yaml:99:exp2-finetune-model: !LoadSerialized
+./test/config/lm.yaml:4:  model: !LanguageModel
+./test/config/forced.yaml:4:  model: !DefaultTranslator
+./test/config/pretrained_embeddings.yaml:5:  model: !DefaultTranslator
+./test/config/report.yaml:4:  model: !DefaultTranslator
+./test/config/assemble.yaml:5:  model: !DefaultTranslator
+./test/config/assemble.yaml:37:  model: !DefaultTranslator
+./test/config/assemble.yaml:68:  model: !DefaultTranslator
+./test/config/assemble.yaml:102:  model: !DefaultTranslator
+./test/config/transformer.yaml:5:  model: !TransformerTranslator
+./test/config/encoders.yaml:25:    model: !DefaultTranslator
+./test/config/encoders.yaml:37:    model: !DefaultTranslator
+./test/config/encoders.yaml:59:    model: !DefaultTranslator
+./test/config/encoders.yaml:82:    model: !DefaultTranslator
+./test/config/seg_report.yaml:4:  model: !DefaultTranslator
+./test/config/self_attentional_am.yaml:15:  model: !DefaultTranslator
+./test/config/preproc.yaml:54:  model: !DefaultTranslator
+./test/config/minrisk.yaml:5:  model: !DefaultTranslator
+./test/config/autobatch.yaml:7:    model: !DefaultTranslator
+./test/config/dev_combinator.yaml:5:  model: !DefaultTranslator
+./test/config/lattice.yaml:14:  model: !DefaultTranslator
+./test/config/random_search_test_params.yaml:5:  model: !DefaultTranslator
+./test/config/seq_labeler.yaml:5:  model: !SeqLabeler
+./test/config/classifier.yaml:5:  model: !SequenceClassifier
+./test/config/seg_learn_debug.yaml:5:  model: !DefaultTranslator
+./test/config/reload_exception.yaml:5:  model: !DefaultTranslator
+./test/config/ensembling.yaml:6:  model: !DefaultTranslator
+./test/config/ensembling.yaml:22:  model: !DefaultTranslator
+./test/config/ensembling.yaml:45:  model: !EnsembleTranslator
+./test/config/seg_debug.yaml:5:  model: !DefaultTranslator
+./test/config/standard.yaml:5:  model: !DefaultTranslator
+./test/config/random_search_train_params.yaml:6:  model: !DefaultTranslator
+./test/config/reload.yaml:4:  model: !DefaultTranslator
+./examples/06_early_stopping.yaml:10:  model: !DefaultTranslator
+./examples/07_load_finetune.yaml:4:exp1-pretrain-model: !Experiment
+./examples/07_load_finetune.yaml:11:  model: !DefaultTranslator
+./examples/07_load_finetune.yaml:52:exp2-finetune-model: !LoadSerialized
+./examples/03a_multiple_exp.yaml:20:  model: &my_model !DefaultTranslator
+./examples/03a_multiple_exp.yaml:43:  model: *my_model
+./examples/01_standard.yaml:14:  model: !DefaultTranslator
+./examples/03c_multiple_exp.yaml:7:  model: &my_model !DefaultTranslator
+./examples/16_ensembling.yaml:8:  model: &model1 !DefaultTranslator
+./examples/16_ensembling.yaml:26:  model: &model2 !DefaultTranslator
+./examples/16_ensembling.yaml:47:  model: !EnsembleTranslator
+./examples/16_ensembling.yaml:67:  model: !EnsembleTranslator
+./examples/14_report.yaml:7:  model: !DefaultTranslator
+./examples/02_minimal.yaml:11:  model: !DefaultTranslator
+./examples/05_preproc.yaml:78:  model: !DefaultTranslator
+./examples/22_switchout.yaml:14:  model: !DefaultTranslator
+./examples/21_char_segment.yaml:8:  model: !DefaultTranslator
+./examples/21_char_segment.yaml:34:  model: !DefaultTranslator
+./examples/21_char_segment.yaml:59:  model: !DefaultTranslator
+./examples/21_char_segment.yaml:85:  model: !DefaultTranslator
+./examples/21_char_segment.yaml:112:  model: !DefaultTranslator
+./examples/15_score.yaml:8:exp1-model: !Experiment
+./examples/15_score.yaml:15:  model: !DefaultTranslator
+./examples/13_speech.yaml:22:  model: !DefaultTranslator
+./examples/08_load_eval_beam.yaml:3:exp1-train-model: !Experiment
+./examples/08_load_eval_beam.yaml:12:  model: !DefaultTranslator
+./examples/08_load_eval_beam.yaml:58:exp2-eval-model: !LoadSerialized
+./examples/04_settings.yaml:12:  model: !DefaultTranslator
+./examples/12_multi_task.yaml:23:      model: !DefaultTranslator
+./examples/12_multi_task.yaml:55:          model: !Ref { name: first_task_model }
+./examples/12_multi_task.yaml:66:      model: !DefaultTranslator
+./examples/12_multi_task.yaml:89:          model: !Ref { name: second_task_model }
+./examples/12_multi_task.yaml:96:      model: !Ref { name: first_task_model }
+./examples/12_multi_task.yaml:102:exp2-finetune-model: !LoadSerialized
+./examples/models/standard.mod:10:  model: !Ref
+./examples/models/standard.mod:42:model: !DefaultTranslator
+./examples/models/standard.mod:411:    model: !Ref
+./examples/models/standard.mod:426:  model: !Ref
+./examples/20_self_attention.yaml:27:  model: !DefaultTranslator
+./examples/19_subword_sample.yaml:10:  model: !DefaultTranslator
+./examples/11_component_sharing.yaml:21:  model: !DefaultTranslator
+./examples/18_lexiconbias.yaml:8:  model: !DefaultTranslator
+./examples/03b_multiple_exp.yaml:8:  model: &my_model !DefaultTranslator
+./examples/03b_multiple_exp.yaml:32:  model: *my_model
+./examples/23_autobatch.yaml:14:  model: !DefaultTranslator &autobatch_model
+./examples/23_autobatch.yaml:36:  model: *autobatch_model
+./examples/17_minrisk.yaml:4:exp1-pretrain-model: !Experiment
+./examples/17_minrisk.yaml:11:  model: !DefaultTranslator
+./build/lib/xnmt/eval/tasks.py:43:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/eval/tasks.py:124:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/eval/tasks.py:173:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/loss_calculators.py:18:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:43:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:69:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:98:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:130:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:163:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:215:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/train/tasks.py:25:  def __init__(self, model: 'model_base.TrainableModel') -> None:
+./build/lib/xnmt/train/tasks.py:115:               model: 'model_base.ConditionedModel',
+./exp/medical1/word/config.medical.my-en-word.yaml:21:  model: !DefaultTranslator
+./exp/medical1/word/config.medical.en-my-word.yaml:21:  model: !DefaultTranslator
+./exp/medical1/word/models/medical.en-my.mod:10:  model: !Ref
+./exp/medical1/word/models/medical.en-my.mod:28:  model: !Ref
+./exp/medical1/word/models/medical.en-my.mod:64:model: !DefaultTranslator
+./exp/medical1/word/models/medical.en-my.mod:26667:    model: !Ref
+./exp/medical1/word/models/medical.en-my.mod:26688:    model: !Ref
+./exp/medical1/word/models/medical.en-my.mod:26707:  model: !Ref
+./exp/medical1/word/models/medical.my-en.mod:10:  model: !Ref
+./exp/medical1/word/models/medical.my-en.mod:28:  model: !Ref
+./exp/medical1/word/models/medical.my-en.mod:64:model: !DefaultTranslator
+./exp/medical1/word/models/medical.my-en.mod:26667:    model: !Ref
+./exp/medical1/word/models/medical.my-en.mod:26688:    model: !Ref
+./exp/medical1/word/models/medical.my-en.mod:26707:  model: !Ref
+./exp/medical1/word_tran/transformer-word-en-my.yaml:24:  model: !TransformerTranslator
+./exp/medical1/word_tran/transformer-word-my-en.yaml:24:  model: !TransformerTranslator
+./exp/medical1/syl/config.medical.my-en-syl.yaml:21:  model: !DefaultTranslator
+./exp/medical1/syl/config.medical.en-my-syl.yaml:21:  model: !DefaultTranslator
+./exp/medical1/syl/models/medical.syl.my-en.mod:10:  model: !Ref
+./exp/medical1/syl/models/medical.syl.my-en.mod:28:  model: !Ref
+./exp/medical1/syl/models/medical.syl.my-en.mod:64:model: !DefaultTranslator
+./exp/medical1/syl/models/medical.syl.my-en.mod:12100:    model: !Ref
+./exp/medical1/syl/models/medical.syl.my-en.mod:12121:    model: !Ref
+./exp/medical1/syl/models/medical.syl.my-en.mod:12140:  model: !Ref
+./exp/medical1/syl/models/medical.syl.en-my.mod:10:  model: !Ref
+./exp/medical1/syl/models/medical.syl.en-my.mod:28:  model: !Ref
+./exp/medical1/syl/models/medical.syl.en-my.mod:64:model: !DefaultTranslator
+./exp/medical1/syl/models/medical.syl.en-my.mod:12100:    model: !Ref
+./exp/medical1/syl/models/medical.syl.en-my.mod:12121:    model: !Ref
+./exp/medical1/syl/models/medical.syl.en-my.mod:12140:  model: !Ref
+./recipes/kftt/models/kftt.en-ja.mod:10:  model: !Ref
+./recipes/kftt/models/kftt.en-ja.mod:28:  model: !Ref
+./recipes/kftt/models/kftt.en-ja.mod:64:model: !DefaultTranslator
+./recipes/kftt/models/kftt.en-ja.mod:80375:    model: !Ref
+./recipes/kftt/models/kftt.en-ja.mod:80396:    model: !Ref
+./recipes/kftt/models/kftt.en-ja.mod:80415:  model: !Ref
+./recipes/kftt/config.kftt.en-ja.yaml:21:  model: !DefaultTranslator
+./recipes/stanford-iwslt/config.en-vi.yaml:6:  model: !DefaultTranslator
+./recipes/las-tedlium/config.las-pyramidal.yaml:20:  model: !DefaultTranslator
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
+```
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'model: ' | grep ".py"
+./xnmt/eval/tasks.py:43:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/eval/tasks.py:124:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/eval/tasks.py:173:               model: 'model_base.GeneratorModel' = Ref("model"),
+./xnmt/loss_calculators.py:18:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:43:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:69:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:98:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:130:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:163:                model: 'model_base.ConditionedModel',
+./xnmt/loss_calculators.py:215:                model: 'model_base.ConditionedModel',
+./xnmt/train/tasks.py:25:  def __init__(self, model: 'model_base.TrainableModel') -> None:
+./xnmt/train/tasks.py:115:               model: 'model_base.ConditionedModel',
+./build/lib/xnmt/eval/tasks.py:43:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/eval/tasks.py:124:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/eval/tasks.py:173:               model: 'model_base.GeneratorModel' = Ref("model"),
+./build/lib/xnmt/loss_calculators.py:18:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:43:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:69:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:98:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:130:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:163:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/loss_calculators.py:215:                model: 'model_base.ConditionedModel',
+./build/lib/xnmt/train/tasks.py:25:  def __init__(self, model: 'model_base.TrainableModel') -> None:
+./build/lib/xnmt/train/tasks.py:115:               model: 'model_base.ConditionedModel',
+./recipes/las-tedlium/config.las-pyramidal.yaml:20:  model: !DefaultTranslator
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
 
 
