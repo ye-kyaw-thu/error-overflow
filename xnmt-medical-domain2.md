@@ -594,6 +594,19 @@ sys	0m0.639s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'TransformerTranslator'
+./xnmt/models/translators/transformer.py:25:class TransformerTranslator(auto_regressive.AutoRegressiveTranslator, Serializable, Reportable):
+./xnmt/models/translators/transformer.py:39:  yaml_tag = '!TransformerTranslator'
+./test/config/transformer.yaml:5:  model: !TransformerTranslator
+./build/lib/xnmt/models/translators/transformer.py:25:class TransformerTranslator(auto_regressive.AutoRegressiveTranslator, Serializable, Reportable):
+./build/lib/xnmt/models/translators/transformer.py:39:  yaml_tag = '!TransformerTranslator'
+./exp/medical1/word_tran/transformer-word-en-my.yaml:24:  model: !TransformerTranslator
+./exp/medical1/word_tran/transformer-word-my-en.yaml:24:  model: !TransformerTranslator
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
+```
+
+
 
 
 ## Reference
