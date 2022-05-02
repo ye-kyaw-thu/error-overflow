@@ -524,6 +524,28 @@ tasks.py ဖိုင်ထဲကို ဝင်လေ့လာ...
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ gedit xnmt/train/tasks.py
 ```
 
+regimens.py ဖိုင်ထဲမှာ ""TrainingRegimen"" ရှိတဲ့ စာကြောင်းတွေကို line-no နဲ့တကွ ဆွဲထုတ်ကြည့်ခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/xnmt/train$ grep -n "TrainingRegimen" ./regimens.py 
+16:class TrainingRegimen(object):
+47:class SimpleTrainingRegimen(train_tasks.SimpleTrainingTask, TrainingRegimen, Serializable):
+83:  yaml_tag = '!SimpleTrainingRegimen'
+144:    Main training loop (overwrites TrainingRegimen.run_training())
+179:class AutobatchTrainingRegimen(SimpleTrainingRegimen):
+181:  This regimen overrides SimpleTrainingRegimen by accumulating (summing) losses
+220:  yaml_tag = '!AutobatchTrainingRegimen'
+268:      raise ValueError("AutobatchTrainingRegimen forces the batcher to have batch_size 1. Use update_every to set the actual batch size in this regimen.")
+277:    Main training loop (overwrites TrainingRegimen.run_training())
+321:class MultiTaskTrainingRegimen(TrainingRegimen):
+363:class SameBatchMultiTaskTrainingRegimen(MultiTaskTrainingRegimen, Serializable):
+384:  yaml_tag = "!SameBatchMultiTaskTrainingRegimen"
+450:class AlternatingBatchMultiTaskTrainingRegimen(MultiTaskTrainingRegimen, Serializable):
+470:  yaml_tag = "!AlternatingBatchMultiTaskTrainingRegimen"
+525:class SerialMultiTaskTrainingRegimen(MultiTaskTrainingRegimen, Serializable):
+539:  yaml_tag = "!SerialMultiTaskTrainingRegimen"
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/xnmt/train$
+```
 
 ## Reference
 
