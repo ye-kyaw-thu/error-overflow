@@ -129,4 +129,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 122. [installation-for-new-ubuntu.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/installation-for-new-ubuntu.md)
 123. [xnmt-installation2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-installation2.md)  
 124. [xnmt-medical-domain1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-medical-domain1.md)
+125. [xnmt-medical-domain2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-medical-domain2.md)
 
