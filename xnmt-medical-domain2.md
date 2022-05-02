@@ -547,6 +547,49 @@ regimens.py ဖိုင်ထဲမှာ ""TrainingRegimen"" ရှိတဲ�
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/xnmt/train$
 ```
 
+အဲဲဒါနဲ့ trainer ကို AdamTrainer ပဲ ထားပြီး run ကြည့်ခဲ့...  
+
+```yaml
+    trainer: !AdamTrainer
+```
+
+ပြီးတော့ training လုပ်ခိုင်းကြည့်ခဲ့တော့ အောက်ပါအတိုင်း error ပေးတယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_tran$ time xnmt --backend torch --gpu ./transformer-word-en-my.yaml 
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-02 18:58:02
+=> Running transformer.word.en-my
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/bin/xnmt", line 33, in <module>
+    sys.exit(load_entry_point('xnmt==0.0.1', 'console_scripts', 'xnmt')())
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 121, in main
+    raise e
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 109, in main
+    experiment = initialize_if_needed(uninitialized_exp_args)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1467, in initialize_if_needed
+    return _YamlDeserializer().initialize_if_needed(root)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1194, in initialize_if_needed
+    else: return self.initialize_object(deserialized_yaml_wrapper=obj)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1226, in initialize_object
+    self.check_args(self.deserialized_yaml)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1243, in check_args
+    _check_backend(node)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 517, in _check_backend
+    raise ValueError(f"'{node.__class__.__name__}' is not supported by this backend.")
+ValueError: 'TransformerTranslator' is not supported by this backend.
+
+real	0m1.489s
+user	0m1.757s
+sys	0m0.639s
+
+```
+
+ဒီ backend က pytorch ကို ထားထားတာမို့ run လို့မရဘူးလို့ ပြောတာ...  
+
+```
+
+```
+
 ## Reference
 
 - https://github.com/neulab/xnmt/blob/transformer-optimizations/examples/16_transformer.yaml
