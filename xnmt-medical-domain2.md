@@ -585,10 +585,16 @@ sys	0m0.639s
 ```
 
 ဒီ backend က pytorch ကို ထားထားတာမို့ run လို့မရဘူးလို့ ပြောတာ...  
+"Transformer" ဆိုတဲ့ စာလုံးပါတဲ့ ဖိုင်ကို ရိုက်ထုတ်ခိုင်းတော့လည်း config ဖိုင်မှာပဲ တွေ့ရတယ် ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'Transformer'
+./exp/medical1/word_tran/transformer-word-en-my.yaml:1:# This example demonstrates how to use the Transformer architecture following
+./exp/medical1/word_tran/transformer-word-my-en.yaml:1:# This example demonstrates how to use the Transformer architecture following
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
+
+
 
 ## Reference
 
