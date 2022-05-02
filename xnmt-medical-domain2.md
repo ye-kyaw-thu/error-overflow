@@ -606,7 +606,39 @@ sys	0m0.639s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
 ```
 
-
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ grep -rnw './' -e 'transformer'
+./xnmt/specialized_encoders/self_attentional_am.py:69:  Interleaved feed-forward components of the transformer, computed as layer_norm(dropout(linear(relu(linear))) + x).
+./xnmt/specialized_encoders/self_attentional_am.py:74:    nonlinearity: non-linearity, a DyNet unary operation (rectify according to the transformer paper)
+./xnmt/models/translators/transformer.py:27:  A translator based on the transformer model.
+./xnmt/__init__.py:97:import xnmt.models.translators.transformer
+./xnmt/__init__.py:118:import xnmt.transformer
+./test/test_hyperparams.py:48:#                                            transformer=self.tail_transformer)
+./test/test_run.py:132:    run.main(["test/config/transformer.yaml"])
+grep: ./.git/objects/pack/pack-7b37d420ba3015609ed9671d4864116fc96b94d2.pack: binary file matches
+grep: ./.git/index: binary file matches
+./.git/packed-refs:39:b44e74adf8c2ff0ed8ee9b94b620fa5bd00be35e refs/remotes/origin/transformer-dropout
+./.git/packed-refs:40:854a520ada5f1cf3a62a8d7cea0b29f518d8e0d5 refs/remotes/origin/transformer-optimizations
+./xnmt.egg-info/SOURCES.txt:50:xnmt/transformer.py
+./xnmt.egg-info/SOURCES.txt:82:xnmt/models/translators/transformer.py
+./build/lib/xnmt/specialized_encoders/self_attentional_am.py:69:  Interleaved feed-forward components of the transformer, computed as layer_norm(dropout(linear(relu(linear))) + x).
+./build/lib/xnmt/specialized_encoders/self_attentional_am.py:74:    nonlinearity: non-linearity, a DyNet unary operation (rectify according to the transformer paper)
+./build/lib/xnmt/models/translators/transformer.py:27:  A translator based on the transformer model.
+./build/lib/xnmt/__init__.py:97:import xnmt.models.translators.transformer
+./build/lib/xnmt/__init__.py:118:import xnmt.transformer
+./exp/medical1/note.txt:4:syl_tran = transformer model running with syllable unit
+./exp/medical1/note.txt:5:word_tran = transformer model running with word unit
+./exp/medical1/word_tran/transformer-word-en-my.yaml:5:transformer.word.en-my: !Experiment
+./exp/medical1/word_tran/transformer-word-my-en.yaml:5:transformer.word.my-en: !Experiment
+grep: ./dist/xnmt-0.0.1-py3.6.egg: binary file matches
+./recipes/kftt/kftt-data-1.0/data/tok/kyoto-train.en:392119:However , the number of transformer stations is reduced to less than usual to minimize the electrification cost ( only four transformer stations in more than 80 km of line ) and the turnout manual point-switch and so on remains in the station 's turnout and in some sections the speed is limited to 25km / h and so on , and facilities are at the level of local private railways , and in reality , they have to drive by keeping down the acceleration and the highest speed ( for example , usually in JR West Suburban Trains Series 125 , the acceleration at start-up is 2.5 km / h / s , but in the Obama Line it is reduced to 1.2 km / h / s . On the Hokuriku Main Line , the original acceleration is exerted ) .
+./recipes/stanford-iwslt/tst2013.en:912:As you can see , the solar panel charges the battery , and the battery supplies the power to the small indicator box . I call it a transformer .
+./recipes/stanford-iwslt/train.en:22271:In the winning Life Edited scheme in a render here , we combine a moving wall with transformer furniture to get a lot out of the space .
+./recipes/stanford-iwslt/train.en:28555:But inside a standard transformer are two coils of wire .
+./recipes/stanford-iwslt/train.en:28557:What Dr. Soljacic figured out how to do was separate the coils in a transformer to a greater distance than the size of those transformers using this technology , which is not dissimilar from the way an opera singer shatters a glass on the other side of the room .
+./recipes/stanford-iwslt/train.en:92104:And over the course of 30 years , I recorded traditional tales from Alex , mostly mythological accounts of Wy-ghet , the trickster transformer of Gitxsan lore who , in his folly , taught the people how to live on the land .
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
+```
 
 
 ## Reference
