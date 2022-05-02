@@ -109,3 +109,8 @@ transformer.word.en-my: !Experiment
 
 ```
 
+## Reference
+
+- https://github.com/neulab/xnmt/blob/transformer-optimizations/examples/16_transformer.yaml
+- https://msperber-xnmt.readthedocs.io/en/latest/_modules/xnmt/optimizer.html
+- 
