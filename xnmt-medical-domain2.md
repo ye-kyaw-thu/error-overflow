@@ -518,6 +518,11 @@ optimizers.py ဖိုင်ထဲမှာ ရှိတဲ့ Trainer အက�
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
 
+tasks.py ဖိုင်ထဲကို ဝင်လေ့လာ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ gedit xnmt/train/tasks.py
+```
 
 
 ## Reference
