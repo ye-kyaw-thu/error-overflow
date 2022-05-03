@@ -1049,7 +1049,7 @@ user	34m10.420s
 sys	0m8.464s                              
 ```
 
-အရင် run ခဲ့တဲ့ (no-data argumentation, word unit, en-my) ရလဒ်က အောက်ပါအတိုင်း...  
+အရင် run ခဲ့တဲ့ **baseline (no-data argumentation, word unit, en-my)** ရလဒ်က အောက်ပါအတိုင်း...  
 
 ```
 Experiment                    | Final Scores
@@ -1066,7 +1066,7 @@ medical.en-my                 | BLEU4: 0.1654160488338149, 0.484379/0.230994/0.1
 
 အထက်ပါ ရလဒ်နှစ်ခုကို နှိုင်းယှဉ်ကြည့်ရင် ...  
 
-***switchout ရလဒ်က အကုန်သာတယ်***  
+***switchout ရလဒ်က အကုန်သာတယ်***  :)  
 
 ## Updating Config File for Word Unit (my-en)
 
@@ -1967,7 +1967,7 @@ user	25m29.269s
 sys	0m3.079s                              
 ```
 
-ပထမ run ခဲ့တဲ့ experiment တုန်းက ရခဲ့တဲ့ (word, no data-argumentation, my-en) က အောက်ပါအတိုင်း...  
+ပထမ run ခဲ့တဲ့ experiment တုန်းက ရခဲ့တဲ့ **baseline (word, no data-argumentation, my-en)** က အောက်ပါအတိုင်း...  
 
 ```
 Experiment                    | Final Scores
@@ -2749,7 +2749,7 @@ user	33m58.326s
 sys	0m2.927s                              
 ```
 
-ပထမပိုင်း training လုပ်ခဲ့တဲ့ (no data argumentation or no switchout, syllable unit, en-my) ရဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
+ပထမပိုင်း training လုပ်ခဲ့တဲ့ **baseline (no data argumentation or no switchout, syllable unit, en-my)** ရဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
 Experiment                    | Final Scores
@@ -3723,11 +3723,24 @@ user	28m50.665s
 sys	0m2.945s
 ```
 
-အရင် run ခဲ့တဲ့ baseline (no switchout or data argumentation, syllable unit, my-en) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း...  
+အရင် run ခဲ့တဲ့ **baseline (no switchout or data argumentation, syllable unit, my-en)** ရဲ့ ရလဒ်က အောက်ပါအတိုင်း...  
 
 ```
-
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+medical.syl.my-en             | BLEU4: 0.2596173393318105, 0.534462/0.300429/0.205433/0.146385 (BP = 0.984867, ratio=0.98, hyp_len=6558, ref_len=6658)
+                              | GLEU: 0.280838
+                              | WER: 62.84% ( C/S/I/D: 3202/2628/728/828; hyp_len=6558, ref_len=6658 )
+                              | CER: 55.99% ( C/S/I/D: 14372/7461/2583/4953; hyp_len=24416, ref_len=26786 )
+                              | BLEU4: 0.25248237249733924, 0.526454/0.294544/0.197296/0.139678 (BP = 0.987509, ratio=0.99, hyp_len=6842, ref_len=6928)
+                              | GLEU: 0.274979
+                              | WER: 63.37% ( C/S/I/D: 3280/2820/742/828; hyp_len=6842, ref_len=6928 )
+                              | CER: 56.48% ( C/S/I/D: 14732/7883/2747/4926; hyp_len=25362, ref_len=27541 )
 ```
+
+baseline နဲ့ switchout ရလဒ်ကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာတော့...  
+**switchout ရဲ့ ရလဒ်က dev data နဲ့ရော၊ test data နဲ့ရော Evaluation method လေးမျိုးစလုံးအတွက် ရလဒ်ကောင်းပါတယ်။**  
+
 
 ## Reference
 
