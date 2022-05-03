@@ -2861,8 +2861,860 @@ switchout.syl.my-en: !Experiment
 ## Training for Syllable-SwitchOut (my-en)
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl_switchout$ time xnmt --backend torch --gpu ./config.switchout.my-en-word.yaml | tee switchout.my-en.log1
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 18:57:53
+=> Running switchout.syl.my-en
+> Preprocessing
+> use randomly initialized neural network parameters for all components
+  neural network param count: 15733925
+> Training
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 0.0763: train_loss/word=8.173760 (steps=21, words/sec=6453.53, time=0-00:00:06)
+[switchout.syl.my-en] Epoch 0.1504: train_loss/word=7.616157 (steps=36, words/sec=10624.14, time=0-00:00:07)
+[switchout.syl.my-en] Epoch 0.2274: train_loss/word=7.429851 (steps=56, words/sec=9024.21, time=0-00:00:09)
+[switchout.syl.my-en] Epoch 0.3013: train_loss/word=7.310545 (steps=74, words/sec=10626.93, time=0-00:00:10)
+[switchout.syl.my-en] Epoch 0.3757: train_loss/word=7.453460 (steps=92, words/sec=8037.79, time=0-00:00:12)
+[switchout.syl.my-en] Epoch 0.4530: train_loss/word=7.228559 (steps=111, words/sec=9526.91, time=0-00:00:13)
+[switchout.syl.my-en] Epoch 0.5333: train_loss/word=7.151711 (steps=128, words/sec=10742.85, time=0-00:00:15)
+[switchout.syl.my-en] Epoch 0.6093: train_loss/word=7.021877 (steps=149, words/sec=8026.19, time=0-00:00:17)
+[switchout.syl.my-en] Epoch 0.6836: train_loss/word=6.908680 (steps=168, words/sec=8624.83, time=0-00:00:18)
+[switchout.syl.my-en] Epoch 0.7571: train_loss/word=6.833556 (steps=188, words/sec=7198.24, time=0-00:00:20)
+[switchout.syl.my-en] Epoch 0.8317: train_loss/word=6.712205 (steps=209, words/sec=8208.28, time=0-00:00:22)
+[switchout.syl.my-en] Epoch 0.9093: train_loss/word=6.674800 (steps=229, words/sec=8482.13, time=0-00:00:24)
+[switchout.syl.my-en] Epoch 0.9843: train_loss/word=6.648622 (steps=249, words/sec=8161.38, time=0-00:00:26)
+[switchout.syl.my-en] Epoch 1.0000: train_loss/word=6.546168 (steps=255, words/sec=6371.33, time=0-00:00:27)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 1.0000 dev BLEU4: 0.0, 0.133459/0.010595/0.000701/0.000000 (BP = 1.000000, ratio=1.44, hyp_len=9561, ref_len=6658) (time=0-00:01:05)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.037852
+[switchout.syl.my-en]              dev auxiliary Loss: 6.268 (ref_len=6658)
+             checkpoint took 0-00:00:38
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 1.0043: train_loss/word=6.268409 (steps=256, words/sec=9773.11, time=0-00:01:19)
+[switchout.syl.my-en] Epoch 1.0805: train_loss/word=6.537399 (steps=276, words/sec=8443.28, time=0-00:01:20)
+[switchout.syl.my-en] Epoch 1.1581: train_loss/word=6.374343 (steps=292, words/sec=11269.68, time=0-00:01:21)
+[switchout.syl.my-en] Epoch 1.2348: train_loss/word=6.412278 (steps=314, words/sec=7527.60, time=0-00:01:24)
+[switchout.syl.my-en] Epoch 1.3111: train_loss/word=6.302754 (steps=331, words/sec=10248.76, time=0-00:01:25)
+[switchout.syl.my-en] Epoch 1.3864: train_loss/word=6.294185 (steps=352, words/sec=7803.50, time=0-00:01:27)
+[switchout.syl.my-en] Epoch 1.4624: train_loss/word=6.257094 (steps=373, words/sec=7826.38, time=0-00:01:29)
+[switchout.syl.my-en] Epoch 1.5380: train_loss/word=6.168816 (steps=392, words/sec=9059.68, time=0-00:01:30)
+[switchout.syl.my-en] Epoch 1.6185: train_loss/word=6.222914 (steps=407, words/sec=12069.78, time=0-00:01:31)
+[switchout.syl.my-en] Epoch 1.6941: train_loss/word=6.200054 (steps=430, words/sec=7175.21, time=0-00:01:34)
+[switchout.syl.my-en] Epoch 1.7689: train_loss/word=6.104041 (steps=451, words/sec=8655.19, time=0-00:01:36)
+[switchout.syl.my-en] Epoch 1.8446: train_loss/word=6.023467 (steps=468, words/sec=9573.25, time=0-00:01:37)
+[switchout.syl.my-en] Epoch 1.9187: train_loss/word=6.010730 (steps=492, words/sec=6901.57, time=0-00:01:40)
+[switchout.syl.my-en] Epoch 1.9955: train_loss/word=6.037721 (steps=509, words/sec=9502.69, time=0-00:01:41)
+[switchout.syl.my-en] Epoch 2.0000: train_loss/word=6.048472 (steps=510, words/sec=11180.83, time=0-00:01:41)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 2.0000 dev BLEU4: 0.027598187695761816, 0.229662/0.041893/0.014293/0.004219 (BP = 1.000000, ratio=1.04, hyp_len=6945, ref_len=6658) (time=0-00:02:14)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.070500
+[switchout.syl.my-en]              dev auxiliary Loss: 5.599 (ref_len=6658)
+             checkpoint took 0-00:00:33
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 2.0032: train_loss/word=5.883535 (steps=511, words/sec=8598.11, time=0-00:02:20)
+[switchout.syl.my-en] Epoch 2.0772: train_loss/word=5.907196 (steps=526, words/sec=9523.83, time=0-00:02:22)
+[switchout.syl.my-en] Epoch 2.1552: train_loss/word=5.804579 (steps=548, words/sec=7888.06, time=0-00:02:24)
+[switchout.syl.my-en] Epoch 2.2373: train_loss/word=5.708257 (steps=565, words/sec=10653.61, time=0-00:02:25)
+[switchout.syl.my-en] Epoch 2.3136: train_loss/word=5.805349 (steps=585, words/sec=9184.44, time=0-00:02:27)
+[switchout.syl.my-en] Epoch 2.3885: train_loss/word=5.781292 (steps=604, words/sec=8326.39, time=0-00:02:28)
+[switchout.syl.my-en] Epoch 2.4634: train_loss/word=5.711737 (steps=624, words/sec=7283.94, time=0-00:02:30)
+[switchout.syl.my-en] Epoch 2.5414: train_loss/word=5.724784 (steps=646, words/sec=8177.92, time=0-00:02:32)
+[switchout.syl.my-en] Epoch 2.6164: train_loss/word=5.661680 (steps=665, words/sec=8913.54, time=0-00:02:34)
+[switchout.syl.my-en] Epoch 2.6916: train_loss/word=5.708720 (steps=682, words/sec=8371.33, time=0-00:02:35)
+[switchout.syl.my-en] Epoch 2.7667: train_loss/word=5.733962 (steps=704, words/sec=8080.58, time=0-00:02:37)
+[switchout.syl.my-en] Epoch 2.8423: train_loss/word=5.637979 (steps=726, words/sec=7745.27, time=0-00:02:39)
+[switchout.syl.my-en] Epoch 2.9227: train_loss/word=5.626434 (steps=747, words/sec=8150.73, time=0-00:02:41)
+[switchout.syl.my-en] Epoch 2.9963: train_loss/word=5.586532 (steps=765, words/sec=8724.70, time=0-00:02:43)
+[switchout.syl.my-en] Epoch 3.0000: train_loss/word=5.342990 (steps=766, words/sec=10676.34, time=0-00:02:43)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 3.0000 dev BLEU4: 0.06310423267986766, 0.318784/0.087236/0.038398/0.017280 (BP = 0.962829, ratio=0.96, hyp_len=6415, ref_len=6658) (time=0-00:03:12)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.110151
+[switchout.syl.my-en]              dev auxiliary Loss: 5.222 (ref_len=6658)
+             checkpoint took 0-00:00:28
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 3.0073: train_loss/word=5.590003 (steps=767, words/sec=17814.31, time=0-00:03:18)
+[switchout.syl.my-en] Epoch 3.0834: train_loss/word=5.371479 (steps=783, words/sec=10334.59, time=0-00:03:19)
+[switchout.syl.my-en] Epoch 3.1596: train_loss/word=5.483011 (steps=804, words/sec=8049.08, time=0-00:03:21)
+[switchout.syl.my-en] Epoch 3.2386: train_loss/word=5.434516 (steps=827, words/sec=7616.07, time=0-00:03:23)
+[switchout.syl.my-en] Epoch 3.3123: train_loss/word=5.394340 (steps=847, words/sec=8509.30, time=0-00:03:25)
+[switchout.syl.my-en] Epoch 3.3877: train_loss/word=5.404084 (steps=866, words/sec=8680.29, time=0-00:03:27)
+[switchout.syl.my-en] Epoch 3.4627: train_loss/word=5.490683 (steps=885, words/sec=8492.23, time=0-00:03:28)
+[switchout.syl.my-en] Epoch 3.5455: train_loss/word=5.416471 (steps=906, words/sec=8964.18, time=0-00:03:30)
+[switchout.syl.my-en] Epoch 3.6222: train_loss/word=5.381094 (steps=927, words/sec=8428.17, time=0-00:03:32)
+[switchout.syl.my-en] Epoch 3.6963: train_loss/word=5.371186 (steps=947, words/sec=8460.12, time=0-00:03:34)
+[switchout.syl.my-en] Epoch 3.7741: train_loss/word=5.346787 (steps=966, words/sec=8825.99, time=0-00:03:35)
+[switchout.syl.my-en] Epoch 3.8527: train_loss/word=5.365077 (steps=986, words/sec=8220.01, time=0-00:03:37)
+[switchout.syl.my-en] Epoch 3.9270: train_loss/word=5.385625 (steps=1005, words/sec=7928.11, time=0-00:03:39)
+[switchout.syl.my-en] Epoch 4.0000: train_loss/word=5.315095 (steps=1021, words/sec=10254.37, time=0-00:03:40)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 4.0000 dev BLEU4: 0.08923930563942165, 0.367647/0.118861/0.060742/0.033961 (BP = 0.915845, ratio=0.92, hyp_len=6120, ref_len=6658) (time=0-00:04:08)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.134014
+[switchout.syl.my-en]              dev auxiliary Loss: 4.953 (ref_len=6658)
+             checkpoint took 0-00:00:28
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 4.0044: train_loss/word=5.133913 (steps=1022, words/sec=11704.24, time=0-00:04:14)
+[switchout.syl.my-en] Epoch 4.0783: train_loss/word=5.089533 (steps=1041, words/sec=8823.59, time=0-00:04:16)
+[switchout.syl.my-en] Epoch 4.1560: train_loss/word=5.159883 (steps=1062, words/sec=7411.92, time=0-00:04:18)
+[switchout.syl.my-en] Epoch 4.2298: train_loss/word=5.186816 (steps=1082, words/sec=7666.24, time=0-00:04:20)
+[switchout.syl.my-en] Epoch 4.3065: train_loss/word=5.115817 (steps=1102, words/sec=7902.43, time=0-00:04:22)
+[switchout.syl.my-en] Epoch 4.3817: train_loss/word=5.108023 (steps=1121, words/sec=8774.98, time=0-00:04:23)
+[switchout.syl.my-en] Epoch 4.4581: train_loss/word=5.076747 (steps=1140, words/sec=8431.72, time=0-00:04:25)
+[switchout.syl.my-en] Epoch 4.5318: train_loss/word=5.147263 (steps=1159, words/sec=8197.90, time=0-00:04:27)
+[switchout.syl.my-en] Epoch 4.6101: train_loss/word=5.140063 (steps=1177, words/sec=9837.51, time=0-00:04:28)
+[switchout.syl.my-en] Epoch 4.6854: train_loss/word=5.060167 (steps=1197, words/sec=8480.79, time=0-00:04:30)
+[switchout.syl.my-en] Epoch 4.7594: train_loss/word=5.184194 (steps=1219, words/sec=7411.64, time=0-00:04:32)
+[switchout.syl.my-en] Epoch 4.8384: train_loss/word=5.091246 (steps=1240, words/sec=8652.02, time=0-00:04:34)
+[switchout.syl.my-en] Epoch 4.9137: train_loss/word=5.094226 (steps=1257, words/sec=8821.88, time=0-00:04:35)
+[switchout.syl.my-en] Epoch 4.9873: train_loss/word=5.090392 (steps=1274, words/sec=8940.01, time=0-00:04:37)
+[switchout.syl.my-en] Epoch 5.0000: train_loss/word=5.147992 (steps=1276, words/sec=15500.28, time=0-00:04:37)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 5.0000 dev BLEU4: 0.10415039552110504, 0.388260/0.138283/0.072710/0.040956 (BP = 0.926215, ratio=0.93, hyp_len=6184, ref_len=6658) (time=0-00:05:04)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.146960
+[switchout.syl.my-en]              dev auxiliary Loss: 4.794 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 5.0038: train_loss/word=4.673596 (steps=1277, words/sec=10466.36, time=0-00:05:10)
+[switchout.syl.my-en] Epoch 5.0782: train_loss/word=4.881935 (steps=1297, words/sec=7914.25, time=0-00:05:12)
+[switchout.syl.my-en] Epoch 5.1518: train_loss/word=4.819946 (steps=1316, words/sec=8762.33, time=0-00:05:14)
+[switchout.syl.my-en] Epoch 5.2262: train_loss/word=4.913421 (steps=1336, words/sec=8130.47, time=0-00:05:15)
+[switchout.syl.my-en] Epoch 5.3000: train_loss/word=4.856552 (steps=1355, words/sec=8893.68, time=0-00:05:17)
+[switchout.syl.my-en] Epoch 5.3755: train_loss/word=4.977251 (steps=1374, words/sec=8249.79, time=0-00:05:19)
+[switchout.syl.my-en] Epoch 5.4509: train_loss/word=4.849660 (steps=1392, words/sec=8953.55, time=0-00:05:20)
+[switchout.syl.my-en] Epoch 5.5261: train_loss/word=4.850970 (steps=1411, words/sec=9714.69, time=0-00:05:22)
+[switchout.syl.my-en] Epoch 5.6017: train_loss/word=4.841667 (steps=1432, words/sec=8222.26, time=0-00:05:24)
+[switchout.syl.my-en] Epoch 5.6777: train_loss/word=4.885751 (steps=1450, words/sec=9003.94, time=0-00:05:25)
+[switchout.syl.my-en] Epoch 5.7532: train_loss/word=4.843753 (steps=1469, words/sec=8614.95, time=0-00:05:27)
+[switchout.syl.my-en] Epoch 5.8300: train_loss/word=4.893387 (steps=1486, words/sec=8655.85, time=0-00:05:28)
+[switchout.syl.my-en] Epoch 5.9051: train_loss/word=4.922762 (steps=1507, words/sec=7226.13, time=0-00:05:31)
+[switchout.syl.my-en] Epoch 5.9823: train_loss/word=4.854827 (steps=1527, words/sec=8462.79, time=0-00:05:32)
+[switchout.syl.my-en] Epoch 6.0000: train_loss/word=4.789122 (steps=1531, words/sec=8988.44, time=0-00:05:33)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 6.0000 dev BLEU4: 0.1214392296193554, 0.408301/0.157278/0.085665/0.052542 (BP = 0.931362, ratio=0.93, hyp_len=6216, ref_len=6658) (time=0-00:06:00)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.162485
+[switchout.syl.my-en]              dev auxiliary Loss: 4.628 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 6.0037: train_loss/word=4.664496 (steps=1532, words/sec=8510.37, time=0-00:06:06)
+[switchout.syl.my-en] Epoch 6.0795: train_loss/word=4.611863 (steps=1552, words/sec=8574.03, time=0-00:06:08)
+[switchout.syl.my-en] Epoch 6.1581: train_loss/word=4.660902 (steps=1572, words/sec=8739.10, time=0-00:06:10)
+[switchout.syl.my-en] Epoch 6.2329: train_loss/word=4.716821 (steps=1588, words/sec=9576.84, time=0-00:06:11)
+[switchout.syl.my-en] Epoch 6.3118: train_loss/word=4.743878 (steps=1606, words/sec=9595.35, time=0-00:06:12)
+[switchout.syl.my-en] Epoch 6.3920: train_loss/word=4.679853 (steps=1625, words/sec=9020.51, time=0-00:06:14)
+[switchout.syl.my-en] Epoch 6.4677: train_loss/word=4.611383 (steps=1643, words/sec=9176.75, time=0-00:06:15)
+[switchout.syl.my-en] Epoch 6.5437: train_loss/word=4.665374 (steps=1665, words/sec=7464.02, time=0-00:06:18)
+[switchout.syl.my-en] Epoch 6.6189: train_loss/word=4.557889 (steps=1683, words/sec=8979.59, time=0-00:06:19)
+[switchout.syl.my-en] Epoch 6.6936: train_loss/word=4.663109 (steps=1704, words/sec=8362.26, time=0-00:06:21)
+[switchout.syl.my-en] Epoch 6.7696: train_loss/word=4.703575 (steps=1725, words/sec=7663.20, time=0-00:06:23)
+[switchout.syl.my-en] Epoch 6.8440: train_loss/word=4.599513 (steps=1742, words/sec=9464.01, time=0-00:06:24)
+[switchout.syl.my-en] Epoch 6.9176: train_loss/word=4.727379 (steps=1763, words/sec=7248.26, time=0-00:06:27)
+[switchout.syl.my-en] Epoch 6.9941: train_loss/word=4.722585 (steps=1783, words/sec=7645.07, time=0-00:06:29)
+[switchout.syl.my-en] Epoch 7.0000: train_loss/word=4.762388 (steps=1785, words/sec=5493.78, time=0-00:06:29)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 7.0000 dev BLEU4: 0.14248532013378473, 0.407579/0.169365/0.097570/0.061197 (BP = 1.000000, ratio=1.00, hyp_len=6676, ref_len=6658) (time=0-00:06:58)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.175908
+[switchout.syl.my-en]              dev auxiliary Loss: 4.499 (ref_len=6658)
+             checkpoint took 0-00:00:29
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 7.0040: train_loss/word=4.310894 (steps=1786, words/sec=10600.90, time=0-00:07:04)
+[switchout.syl.my-en] Epoch 7.0822: train_loss/word=4.468722 (steps=1803, words/sec=9878.78, time=0-00:07:05)
+[switchout.syl.my-en] Epoch 7.1569: train_loss/word=4.492018 (steps=1826, words/sec=7052.54, time=0-00:07:08)
+[switchout.syl.my-en] Epoch 7.2367: train_loss/word=4.480853 (steps=1846, words/sec=8146.03, time=0-00:07:10)
+[switchout.syl.my-en] Epoch 7.3157: train_loss/word=4.441285 (steps=1869, words/sec=8109.17, time=0-00:07:12)
+[switchout.syl.my-en] Epoch 7.3910: train_loss/word=4.408805 (steps=1890, words/sec=8194.01, time=0-00:07:14)
+[switchout.syl.my-en] Epoch 7.4684: train_loss/word=4.477570 (steps=1910, words/sec=8239.56, time=0-00:07:15)
+[switchout.syl.my-en] Epoch 7.5439: train_loss/word=4.491470 (steps=1929, words/sec=7982.68, time=0-00:07:17)
+[switchout.syl.my-en] Epoch 7.6179: train_loss/word=4.525271 (steps=1948, words/sec=8873.93, time=0-00:07:19)
+[switchout.syl.my-en] Epoch 7.6964: train_loss/word=4.467447 (steps=1967, words/sec=9401.70, time=0-00:07:20)
+[switchout.syl.my-en] Epoch 7.7721: train_loss/word=4.513919 (steps=1988, words/sec=7236.44, time=0-00:07:22)
+[switchout.syl.my-en] Epoch 7.8475: train_loss/word=4.382183 (steps=2007, words/sec=9782.05, time=0-00:07:24)
+[switchout.syl.my-en] Epoch 7.9244: train_loss/word=4.516981 (steps=2026, words/sec=8805.11, time=0-00:07:25)
+[switchout.syl.my-en] Epoch 8.0000: train_loss/word=4.555316 (steps=2040, words/sec=11382.09, time=0-00:07:26)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 8.0000 dev BLEU4: 0.16122133886973586, 0.436431/0.194189/0.117122/0.075536 (BP = 0.974292, ratio=0.97, hyp_len=6489, ref_len=6658) (time=0-00:07:54)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.195068
+[switchout.syl.my-en]              dev auxiliary Loss: 4.389 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 8.0039: train_loss/word=4.283272 (steps=2041, words/sec=10871.74, time=0-00:08:00)
+[switchout.syl.my-en] Epoch 8.0801: train_loss/word=4.311996 (steps=2060, words/sec=7803.94, time=0-00:08:02)
+[switchout.syl.my-en] Epoch 8.1568: train_loss/word=4.255781 (steps=2079, words/sec=8141.73, time=0-00:08:03)
+[switchout.syl.my-en] Epoch 8.2322: train_loss/word=4.285936 (steps=2098, words/sec=9101.35, time=0-00:08:05)
+[switchout.syl.my-en] Epoch 8.3097: train_loss/word=4.323948 (steps=2120, words/sec=7895.20, time=0-00:08:07)
+[switchout.syl.my-en] Epoch 8.3849: train_loss/word=4.310094 (steps=2139, words/sec=8706.66, time=0-00:08:09)
+[switchout.syl.my-en] Epoch 8.4606: train_loss/word=4.318443 (steps=2157, words/sec=8423.44, time=0-00:08:10)
+[switchout.syl.my-en] Epoch 8.5344: train_loss/word=4.324783 (steps=2179, words/sec=7252.83, time=0-00:08:12)
+[switchout.syl.my-en] Epoch 8.6090: train_loss/word=4.380347 (steps=2201, words/sec=7264.44, time=0-00:08:15)
+[switchout.syl.my-en] Epoch 8.6860: train_loss/word=4.339012 (steps=2219, words/sec=9838.01, time=0-00:08:16)
+[switchout.syl.my-en] Epoch 8.7618: train_loss/word=4.286429 (steps=2237, words/sec=8820.92, time=0-00:08:18)
+[switchout.syl.my-en] Epoch 8.8381: train_loss/word=4.280214 (steps=2257, words/sec=8893.35, time=0-00:08:19)
+[switchout.syl.my-en] Epoch 8.9136: train_loss/word=4.274578 (steps=2277, words/sec=8412.07, time=0-00:08:21)
+[switchout.syl.my-en] Epoch 8.9915: train_loss/word=4.430114 (steps=2293, words/sec=10107.74, time=0-00:08:22)
+[switchout.syl.my-en] Epoch 9.0000: train_loss/word=4.335002 (steps=2295, words/sec=11637.86, time=0-00:08:22)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 9.0000 dev BLEU4: 0.16974833638791892, 0.446708/0.203814/0.123486/0.079873 (BP = 0.980589, ratio=0.98, hyp_len=6530, ref_len=6658) (time=0-00:08:50)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.201860
+[switchout.syl.my-en]              dev auxiliary Loss: 4.337 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 9.0095: train_loss/word=4.700399 (steps=2296, words/sec=20307.75, time=0-00:08:56)
+[switchout.syl.my-en] Epoch 9.0883: train_loss/word=4.162659 (steps=2316, words/sec=7404.79, time=0-00:08:58)
+[switchout.syl.my-en] Epoch 9.1620: train_loss/word=4.108088 (steps=2336, words/sec=8437.64, time=0-00:09:00)
+[switchout.syl.my-en] Epoch 9.2401: train_loss/word=4.200112 (steps=2355, words/sec=7981.78, time=0-00:09:02)
+[switchout.syl.my-en] Epoch 9.3136: train_loss/word=4.159983 (steps=2374, words/sec=8250.57, time=0-00:09:04)
+[switchout.syl.my-en] Epoch 9.3896: train_loss/word=4.227571 (steps=2391, words/sec=9384.42, time=0-00:09:05)
+[switchout.syl.my-en] Epoch 9.4678: train_loss/word=4.174638 (steps=2416, words/sec=7172.04, time=0-00:09:08)
+[switchout.syl.my-en] Epoch 9.5432: train_loss/word=4.295419 (steps=2434, words/sec=8287.43, time=0-00:09:09)
+[switchout.syl.my-en] Epoch 9.6195: train_loss/word=4.084963 (steps=2452, words/sec=8673.23, time=0-00:09:11)
+[switchout.syl.my-en] Epoch 9.6972: train_loss/word=4.123809 (steps=2474, words/sec=8447.98, time=0-00:09:13)
+[switchout.syl.my-en] Epoch 9.7715: train_loss/word=4.089138 (steps=2493, words/sec=9500.25, time=0-00:09:14)
+[switchout.syl.my-en] Epoch 9.8476: train_loss/word=4.087435 (steps=2509, words/sec=10520.19, time=0-00:09:15)
+[switchout.syl.my-en] Epoch 9.9219: train_loss/word=4.078226 (steps=2528, words/sec=9180.51, time=0-00:09:17)
+[switchout.syl.my-en] Epoch 9.9968: train_loss/word=4.207985 (steps=2549, words/sec=7581.46, time=0-00:09:19)
+[switchout.syl.my-en] Epoch 10.0000: train_loss/word=4.261928 (steps=2550, words/sec=7599.03, time=0-00:09:19)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 10.0000 dev BLEU4: 0.18171312357956157, 0.482040/0.229254/0.141875/0.091158 (BP = 0.934567, ratio=0.94, hyp_len=6236, ref_len=6658) (time=0-00:09:46)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.217010
+[switchout.syl.my-en]              dev auxiliary Loss: 4.279 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 10.0026: train_loss/word=3.932516 (steps=2551, words/sec=7204.01, time=0-00:09:52)
+[switchout.syl.my-en] Epoch 10.0776: train_loss/word=4.029966 (steps=2568, words/sec=9107.52, time=0-00:09:53)
+[switchout.syl.my-en] Epoch 10.1532: train_loss/word=3.985517 (steps=2587, words/sec=9417.52, time=0-00:09:54)
+[switchout.syl.my-en] Epoch 10.2311: train_loss/word=4.019338 (steps=2610, words/sec=6901.38, time=0-00:09:57)
+[switchout.syl.my-en] Epoch 10.3064: train_loss/word=3.950916 (steps=2633, words/sec=7564.85, time=0-00:09:59)
+[switchout.syl.my-en] Epoch 10.3812: train_loss/word=3.919561 (steps=2653, words/sec=9038.30, time=0-00:10:01)
+[switchout.syl.my-en] Epoch 10.4579: train_loss/word=3.984586 (steps=2674, words/sec=8152.37, time=0-00:10:03)
+[switchout.syl.my-en] Epoch 10.5372: train_loss/word=4.101198 (steps=2694, words/sec=8130.88, time=0-00:10:05)
+[switchout.syl.my-en] Epoch 10.6115: train_loss/word=4.027030 (steps=2712, words/sec=9918.76, time=0-00:10:06)
+[switchout.syl.my-en] Epoch 10.6874: train_loss/word=3.982178 (steps=2732, words/sec=8657.49, time=0-00:10:08)
+[switchout.syl.my-en] Epoch 10.7683: train_loss/word=4.068126 (steps=2750, words/sec=9290.52, time=0-00:10:09)
+[switchout.syl.my-en] Epoch 10.8473: train_loss/word=4.150630 (steps=2768, words/sec=8908.01, time=0-00:10:11)
+[switchout.syl.my-en] Epoch 10.9236: train_loss/word=3.994865 (steps=2787, words/sec=8329.50, time=0-00:10:12)
+[switchout.syl.my-en] Epoch 11.0000: train_loss/word=4.070227 (steps=2805, words/sec=9485.06, time=0-00:10:14)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 11.0000 dev BLEU4: 0.19803184485066733, 0.487614/0.244641/0.154432/0.099509 (BP = 0.957049, ratio=0.96, hyp_len=6378, ref_len=6658) (time=0-00:10:41)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.230027
+[switchout.syl.my-en]              dev auxiliary Loss: 4.211 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 11.0039: train_loss/word=3.859883 (steps=2806, words/sec=10984.27, time=0-00:10:47)
+[switchout.syl.my-en] Epoch 11.0792: train_loss/word=3.802959 (steps=2825, words/sec=8486.13, time=0-00:10:49)
+[switchout.syl.my-en] Epoch 11.1549: train_loss/word=3.854720 (steps=2845, words/sec=8522.70, time=0-00:10:50)
+[switchout.syl.my-en] Epoch 11.2312: train_loss/word=3.810830 (steps=2865, words/sec=8856.77, time=0-00:10:52)
+[switchout.syl.my-en] Epoch 11.3050: train_loss/word=3.910980 (steps=2881, words/sec=10920.80, time=0-00:10:53)
+[switchout.syl.my-en] Epoch 11.3852: train_loss/word=3.937983 (steps=2898, words/sec=10233.45, time=0-00:10:54)
+[switchout.syl.my-en] Epoch 11.4647: train_loss/word=3.860334 (steps=2918, words/sec=9669.37, time=0-00:10:56)
+[switchout.syl.my-en] Epoch 11.5422: train_loss/word=3.863190 (steps=2940, words/sec=8062.85, time=0-00:10:58)
+[switchout.syl.my-en] Epoch 11.6198: train_loss/word=3.882041 (steps=2960, words/sec=7954.75, time=0-00:11:00)
+[switchout.syl.my-en] Epoch 11.6987: train_loss/word=3.895839 (steps=2979, words/sec=8900.73, time=0-00:11:01)
+[switchout.syl.my-en] Epoch 11.7763: train_loss/word=4.026207 (steps=2997, words/sec=8325.91, time=0-00:11:03)
+[switchout.syl.my-en] Epoch 11.8545: train_loss/word=3.877444 (steps=3018, words/sec=7919.70, time=0-00:11:05)
+[switchout.syl.my-en] Epoch 11.9314: train_loss/word=3.943363 (steps=3041, words/sec=7680.82, time=0-00:11:07)
+[switchout.syl.my-en] Epoch 12.0000: train_loss/word=3.981024 (steps=3060, words/sec=7366.86, time=0-00:11:09)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 12.0000 dev BLEU4: 0.19730213677643546, 0.472967/0.233883/0.145812/0.093952 (BP = 1.000000, ratio=1.01, hyp_len=6751, ref_len=6658) (time=0-00:11:38)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.226801
+[switchout.syl.my-en]              dev auxiliary Loss: 4.190 (ref_len=6658)
+             checkpoint took 0-00:00:28
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 12.0024: train_loss/word=3.724798 (steps=3061, words/sec=6079.00, time=0-00:11:41)
+[switchout.syl.my-en] Epoch 12.0779: train_loss/word=3.671521 (steps=3082, words/sec=8556.77, time=0-00:11:43)
+[switchout.syl.my-en] Epoch 12.1516: train_loss/word=3.734636 (steps=3102, words/sec=7850.98, time=0-00:11:45)
+[switchout.syl.my-en] Epoch 12.2271: train_loss/word=3.739316 (steps=3122, words/sec=8674.05, time=0-00:11:47)
+[switchout.syl.my-en] Epoch 12.3030: train_loss/word=3.736481 (steps=3144, words/sec=7717.63, time=0-00:11:49)
+[switchout.syl.my-en] Epoch 12.3767: train_loss/word=3.775735 (steps=3166, words/sec=7421.30, time=0-00:11:51)
+[switchout.syl.my-en] Epoch 12.4517: train_loss/word=3.813671 (steps=3184, words/sec=8137.15, time=0-00:11:53)
+[switchout.syl.my-en] Epoch 12.5269: train_loss/word=3.726243 (steps=3202, words/sec=9332.52, time=0-00:11:54)
+[switchout.syl.my-en] Epoch 12.6031: train_loss/word=3.705015 (steps=3221, words/sec=9135.86, time=0-00:11:56)
+[switchout.syl.my-en] Epoch 12.6791: train_loss/word=3.769747 (steps=3239, words/sec=8563.00, time=0-00:11:57)
+[switchout.syl.my-en] Epoch 12.7554: train_loss/word=3.840196 (steps=3256, words/sec=9462.17, time=0-00:11:58)
+[switchout.syl.my-en] Epoch 12.8334: train_loss/word=3.876909 (steps=3277, words/sec=7496.03, time=0-00:12:01)
+[switchout.syl.my-en] Epoch 12.9112: train_loss/word=3.958386 (steps=3294, words/sec=7705.37, time=0-00:12:02)
+[switchout.syl.my-en] Epoch 12.9873: train_loss/word=3.819626 (steps=3312, words/sec=8696.10, time=0-00:12:04)
+[switchout.syl.my-en] Epoch 13.0000: train_loss/word=3.757303 (steps=3315, words/sec=10080.34, time=0-00:12:04)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 13.0000 dev BLEU4: 0.20060723945609593, 0.515781/0.260018/0.163150/0.105582 (BP = 0.915030, ratio=0.92, hyp_len=6115, ref_len=6658) (time=0-00:12:30)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.237110
+[switchout.syl.my-en]              dev auxiliary Loss: 4.154 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 13.0034: train_loss/word=3.529285 (steps=3316, words/sec=8888.58, time=0-00:12:36)
+[switchout.syl.my-en] Epoch 13.0794: train_loss/word=3.528122 (steps=3339, words/sec=7288.00, time=0-00:12:39)
+[switchout.syl.my-en] Epoch 13.1588: train_loss/word=3.703247 (steps=3355, words/sec=10542.78, time=0-00:12:40)
+[switchout.syl.my-en] Epoch 13.2345: train_loss/word=3.647349 (steps=3374, words/sec=8948.96, time=0-00:12:41)
+[switchout.syl.my-en] Epoch 13.3096: train_loss/word=3.668219 (steps=3391, words/sec=8527.64, time=0-00:12:43)
+[switchout.syl.my-en] Epoch 13.3843: train_loss/word=3.608073 (steps=3412, words/sec=7504.66, time=0-00:12:45)
+[switchout.syl.my-en] Epoch 13.4607: train_loss/word=3.658250 (steps=3431, words/sec=8814.12, time=0-00:12:46)
+[switchout.syl.my-en] Epoch 13.5388: train_loss/word=3.647966 (steps=3453, words/sec=7524.14, time=0-00:12:49)
+[switchout.syl.my-en] Epoch 13.6129: train_loss/word=3.678789 (steps=3471, words/sec=10137.64, time=0-00:12:50)
+[switchout.syl.my-en] Epoch 13.6880: train_loss/word=3.664457 (steps=3495, words/sec=7167.08, time=0-00:12:52)
+[switchout.syl.my-en] Epoch 13.7620: train_loss/word=3.696308 (steps=3514, words/sec=8379.12, time=0-00:12:54)
+[switchout.syl.my-en] Epoch 13.8396: train_loss/word=3.671907 (steps=3531, words/sec=10104.98, time=0-00:12:55)
+[switchout.syl.my-en] Epoch 13.9152: train_loss/word=3.802419 (steps=3549, words/sec=9004.64, time=0-00:12:57)
+[switchout.syl.my-en] Epoch 13.9890: train_loss/word=3.776431 (steps=3566, words/sec=8994.89, time=0-00:12:58)
+[switchout.syl.my-en] Epoch 14.0000: train_loss/word=3.757618 (steps=3570, words/sec=5454.40, time=0-00:12:59)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 14.0000 dev BLEU4: 0.22326003015767729, 0.505153/0.264021/0.171219/0.112831 (BP = 0.990948, ratio=0.99, hyp_len=6598, ref_len=6658) (time=0-00:13:26)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.248867
+[switchout.syl.my-en]              dev auxiliary Loss: 4.124 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 14.0038: train_loss/word=3.632223 (steps=3571, words/sec=10287.25, time=0-00:13:32)
+[switchout.syl.my-en] Epoch 14.0805: train_loss/word=3.470948 (steps=3591, words/sec=8800.66, time=0-00:13:34)
+[switchout.syl.my-en] Epoch 14.1559: train_loss/word=3.518178 (steps=3610, words/sec=8732.02, time=0-00:13:36)
+[switchout.syl.my-en] Epoch 14.2322: train_loss/word=3.538282 (steps=3636, words/sec=6590.80, time=0-00:13:38)
+[switchout.syl.my-en] Epoch 14.3062: train_loss/word=3.554320 (steps=3656, words/sec=7925.32, time=0-00:13:40)
+[switchout.syl.my-en] Epoch 14.3802: train_loss/word=3.536420 (steps=3673, words/sec=9940.88, time=0-00:13:42)
+[switchout.syl.my-en] Epoch 14.4553: train_loss/word=3.560521 (steps=3694, words/sec=8635.28, time=0-00:13:43)
+[switchout.syl.my-en] Epoch 14.5361: train_loss/word=3.551293 (steps=3713, words/sec=9172.32, time=0-00:13:45)
+[switchout.syl.my-en] Epoch 14.6132: train_loss/word=3.592613 (steps=3732, words/sec=9325.28, time=0-00:13:47)
+[switchout.syl.my-en] Epoch 14.6964: train_loss/word=3.697614 (steps=3747, words/sec=11182.44, time=0-00:13:48)
+[switchout.syl.my-en] Epoch 14.7711: train_loss/word=3.587134 (steps=3765, words/sec=9786.83, time=0-00:13:49)
+[switchout.syl.my-en] Epoch 14.8463: train_loss/word=3.678041 (steps=3785, words/sec=8256.71, time=0-00:13:51)
+[switchout.syl.my-en] Epoch 14.9204: train_loss/word=3.649511 (steps=3804, words/sec=8920.91, time=0-00:13:52)
+[switchout.syl.my-en] Epoch 14.9944: train_loss/word=3.611489 (steps=3823, words/sec=8916.26, time=0-00:13:54)
+[switchout.syl.my-en] Epoch 15.0000: train_loss/word=3.625057 (steps=3825, words/sec=6787.59, time=0-00:13:54)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 15.0000 dev BLEU4: 0.21699094325836693, 0.513607/0.267900/0.170497/0.111474 (BP = 0.959552, ratio=0.96, hyp_len=6394, ref_len=6658) (time=0-00:14:20)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.248216
+[switchout.syl.my-en]              dev auxiliary Loss: 4.089 (ref_len=6658)
+             checkpoint took 0-00:00:26
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 15.0040: train_loss/word=3.163033 (steps=3826, words/sec=10224.78, time=0-00:14:23)
+[switchout.syl.my-en] Epoch 15.0825: train_loss/word=3.420430 (steps=3848, words/sec=8129.28, time=0-00:14:25)
+[switchout.syl.my-en] Epoch 15.1613: train_loss/word=3.558137 (steps=3866, words/sec=8005.02, time=0-00:14:27)
+[switchout.syl.my-en] Epoch 15.2357: train_loss/word=3.508221 (steps=3886, words/sec=7870.70, time=0-00:14:29)
+[switchout.syl.my-en] Epoch 15.3106: train_loss/word=3.536763 (steps=3906, words/sec=7861.50, time=0-00:14:31)
+[switchout.syl.my-en] Epoch 15.3866: train_loss/word=3.518079 (steps=3927, words/sec=7614.10, time=0-00:14:33)
+[switchout.syl.my-en] Epoch 15.4613: train_loss/word=3.511780 (steps=3946, words/sec=7984.41, time=0-00:14:35)
+[switchout.syl.my-en] Epoch 15.5419: train_loss/word=3.483942 (steps=3965, words/sec=9084.51, time=0-00:14:36)
+[switchout.syl.my-en] Epoch 15.6190: train_loss/word=3.489459 (steps=3983, words/sec=9055.16, time=0-00:14:38)
+[switchout.syl.my-en] Epoch 15.6942: train_loss/word=3.577729 (steps=4001, words/sec=8153.28, time=0-00:14:39)
+[switchout.syl.my-en] Epoch 15.7686: train_loss/word=3.442953 (steps=4021, words/sec=8062.49, time=0-00:14:41)
+[switchout.syl.my-en] Epoch 15.8442: train_loss/word=3.546975 (steps=4040, words/sec=8834.87, time=0-00:14:43)
+[switchout.syl.my-en] Epoch 15.9186: train_loss/word=3.544759 (steps=4058, words/sec=9107.25, time=0-00:14:44)
+[switchout.syl.my-en] Epoch 15.9948: train_loss/word=3.516853 (steps=4078, words/sec=8223.02, time=0-00:14:46)
+[switchout.syl.my-en] Epoch 16.0000: train_loss/word=3.467452 (steps=4080, words/sec=6360.58, time=0-00:14:46)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 16.0000 dev BLEU4: 0.22789510988088174, 0.517780/0.275302/0.179492/0.118569 (BP = 0.971052, ratio=0.97, hyp_len=6468, ref_len=6658) (time=0-00:15:14)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.256186
+[switchout.syl.my-en]              dev auxiliary Loss: 4.097 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 16.0024: train_loss/word=3.026709 (steps=4081, words/sec=6406.69, time=0-00:15:20)
+[switchout.syl.my-en] Epoch 16.0778: train_loss/word=3.378078 (steps=4099, words/sec=9319.44, time=0-00:15:21)
+[switchout.syl.my-en] Epoch 16.1518: train_loss/word=3.384242 (steps=4118, words/sec=8955.31, time=0-00:15:23)
+[switchout.syl.my-en] Epoch 16.2281: train_loss/word=3.612475 (steps=4134, words/sec=8072.16, time=0-00:15:24)
+[switchout.syl.my-en] Epoch 16.3020: train_loss/word=3.418111 (steps=4153, words/sec=8274.11, time=0-00:15:26)
+[switchout.syl.my-en] Epoch 16.3757: train_loss/word=3.363369 (steps=4173, words/sec=8175.84, time=0-00:15:28)
+[switchout.syl.my-en] Epoch 16.4506: train_loss/word=3.388247 (steps=4193, words/sec=9089.07, time=0-00:15:29)
+[switchout.syl.my-en] Epoch 16.5250: train_loss/word=3.337892 (steps=4213, words/sec=8563.03, time=0-00:15:31)
+[switchout.syl.my-en] Epoch 16.6009: train_loss/word=3.415538 (steps=4234, words/sec=7961.77, time=0-00:15:33)
+[switchout.syl.my-en] Epoch 16.6771: train_loss/word=3.429212 (steps=4255, words/sec=7919.92, time=0-00:15:35)
+[switchout.syl.my-en] Epoch 16.7515: train_loss/word=3.413708 (steps=4277, words/sec=8230.36, time=0-00:15:37)
+[switchout.syl.my-en] Epoch 16.8287: train_loss/word=3.522630 (steps=4294, words/sec=10971.69, time=0-00:15:38)
+[switchout.syl.my-en] Epoch 16.9024: train_loss/word=3.551878 (steps=4310, words/sec=10794.35, time=0-00:15:39)
+[switchout.syl.my-en] Epoch 16.9779: train_loss/word=3.451205 (steps=4329, words/sec=8473.45, time=0-00:15:41)
+[switchout.syl.my-en] Epoch 17.0000: train_loss/word=3.586437 (steps=4335, words/sec=7409.84, time=0-00:15:42)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 17.0000 dev BLEU4: 0.2349961019811038, 0.529838/0.285250/0.189765/0.129012 (BP = 0.952811, ratio=0.95, hyp_len=6351, ref_len=6658) (time=0-00:16:08)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.264761
+[switchout.syl.my-en]              dev auxiliary Loss: 4.078 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 17.0018: train_loss/word=3.431468 (steps=4336, words/sec=4511.88, time=0-00:16:14)
+[switchout.syl.my-en] Epoch 17.0789: train_loss/word=3.303343 (steps=4358, words/sec=7161.44, time=0-00:16:17)
+[switchout.syl.my-en] Epoch 17.1574: train_loss/word=3.286796 (steps=4381, words/sec=8168.82, time=0-00:16:19)
+[switchout.syl.my-en] Epoch 17.2314: train_loss/word=3.320714 (steps=4398, words/sec=9265.11, time=0-00:16:20)
+[switchout.syl.my-en] Epoch 17.3084: train_loss/word=3.339684 (steps=4418, words/sec=8679.19, time=0-00:16:22)
+[switchout.syl.my-en] Epoch 17.3835: train_loss/word=3.341681 (steps=4436, words/sec=9118.96, time=0-00:16:23)
+[switchout.syl.my-en] Epoch 17.4592: train_loss/word=3.425370 (steps=4455, words/sec=8386.43, time=0-00:16:25)
+[switchout.syl.my-en] Epoch 17.5346: train_loss/word=3.367046 (steps=4473, words/sec=9779.13, time=0-00:16:27)
+[switchout.syl.my-en] Epoch 17.6090: train_loss/word=3.390966 (steps=4493, words/sec=7869.50, time=0-00:16:28)
+[switchout.syl.my-en] Epoch 17.6828: train_loss/word=3.372908 (steps=4512, words/sec=9230.81, time=0-00:16:30)
+[switchout.syl.my-en] Epoch 17.7602: train_loss/word=3.439605 (steps=4530, words/sec=9877.34, time=0-00:16:31)
+[switchout.syl.my-en] Epoch 17.8374: train_loss/word=3.393508 (steps=4550, words/sec=9475.08, time=0-00:16:33)
+[switchout.syl.my-en] Epoch 17.9124: train_loss/word=3.519682 (steps=4566, words/sec=9196.83, time=0-00:16:34)
+[switchout.syl.my-en] Epoch 17.9863: train_loss/word=3.312610 (steps=4585, words/sec=9216.67, time=0-00:16:36)
+[switchout.syl.my-en] Epoch 18.0000: train_loss/word=3.390737 (steps=4589, words/sec=9186.97, time=0-00:16:36)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 18.0000 dev BLEU4: 0.23596305133832232, 0.532276/0.287401/0.187327/0.124746 (BP = 0.965007, ratio=0.97, hyp_len=6429, ref_len=6658) (time=0-00:17:03)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.266514
+[switchout.syl.my-en]              dev auxiliary Loss: 4.050 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 18.0055: train_loss/word=3.396316 (steps=4590, words/sec=14869.32, time=0-00:17:09)
+[switchout.syl.my-en] Epoch 18.0794: train_loss/word=3.203210 (steps=4609, words/sec=9575.60, time=0-00:17:10)
+[switchout.syl.my-en] Epoch 18.1574: train_loss/word=3.300162 (steps=4628, words/sec=9065.09, time=0-00:17:12)
+[switchout.syl.my-en] Epoch 18.2326: train_loss/word=3.313185 (steps=4649, words/sec=7148.86, time=0-00:17:14)
+[switchout.syl.my-en] Epoch 18.3074: train_loss/word=3.229297 (steps=4670, words/sec=7694.04, time=0-00:17:16)
+[switchout.syl.my-en] Epoch 18.3814: train_loss/word=3.312289 (steps=4688, words/sec=8430.68, time=0-00:17:18)
+[switchout.syl.my-en] Epoch 18.4572: train_loss/word=3.288166 (steps=4708, words/sec=7873.75, time=0-00:17:19)
+[switchout.syl.my-en] Epoch 18.5319: train_loss/word=3.289463 (steps=4726, words/sec=8891.11, time=0-00:17:21)
+[switchout.syl.my-en] Epoch 18.6060: train_loss/word=3.281930 (steps=4745, words/sec=9055.71, time=0-00:17:23)
+[switchout.syl.my-en] Epoch 18.6807: train_loss/word=3.276002 (steps=4762, words/sec=9159.31, time=0-00:17:24)
+[switchout.syl.my-en] Epoch 18.7546: train_loss/word=3.286400 (steps=4784, words/sec=8096.57, time=0-00:17:26)
+[switchout.syl.my-en] Epoch 18.8292: train_loss/word=3.177693 (steps=4804, words/sec=8552.90, time=0-00:17:28)
+[switchout.syl.my-en] Epoch 18.9049: train_loss/word=3.271878 (steps=4825, words/sec=8128.19, time=0-00:17:30)
+[switchout.syl.my-en] Epoch 18.9815: train_loss/word=3.433441 (steps=4842, words/sec=9956.61, time=0-00:17:31)
+[switchout.syl.my-en] Epoch 19.0000: train_loss/word=4.195560 (steps=4844, words/sec=17525.26, time=0-00:17:31)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 19.0000 dev BLEU4: 0.24036748141969813, 0.541044/0.294850/0.196293/0.135073 (BP = 0.942538, ratio=0.94, hyp_len=6286, ref_len=6658) (time=0-00:17:57)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.268480
+[switchout.syl.my-en]              dev auxiliary Loss: 4.040 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 19.0030: train_loss/word=3.317026 (steps=4845, words/sec=8203.37, time=0-00:18:03)
+[switchout.syl.my-en] Epoch 19.0789: train_loss/word=3.100939 (steps=4865, words/sec=8599.29, time=0-00:18:05)
+[switchout.syl.my-en] Epoch 19.1527: train_loss/word=3.208416 (steps=4883, words/sec=8329.97, time=0-00:18:07)
+[switchout.syl.my-en] Epoch 19.2276: train_loss/word=3.448768 (steps=4897, words/sec=8733.84, time=0-00:18:08)
+[switchout.syl.my-en] Epoch 19.3054: train_loss/word=3.262430 (steps=4914, words/sec=10383.80, time=0-00:18:09)
+[switchout.syl.my-en] Epoch 19.3810: train_loss/word=3.072519 (steps=4935, words/sec=8825.82, time=0-00:18:11)
+[switchout.syl.my-en] Epoch 19.4553: train_loss/word=3.203815 (steps=4953, words/sec=9759.33, time=0-00:18:12)
+[switchout.syl.my-en] Epoch 19.5323: train_loss/word=3.130738 (steps=4976, words/sec=7720.98, time=0-00:18:14)
+[switchout.syl.my-en] Epoch 19.6061: train_loss/word=3.268391 (steps=4994, words/sec=9039.89, time=0-00:18:16)
+[switchout.syl.my-en] Epoch 19.6839: train_loss/word=3.251722 (steps=5013, words/sec=8875.58, time=0-00:18:18)
+[switchout.syl.my-en] Epoch 19.7594: train_loss/word=3.305509 (steps=5033, words/sec=7999.47, time=0-00:18:19)
+[switchout.syl.my-en] Epoch 19.8344: train_loss/word=3.210266 (steps=5054, words/sec=7486.20, time=0-00:18:21)
+[switchout.syl.my-en] Epoch 19.9091: train_loss/word=3.233658 (steps=5074, words/sec=7878.34, time=0-00:18:23)
+[switchout.syl.my-en] Epoch 19.9865: train_loss/word=3.295344 (steps=5094, words/sec=9066.52, time=0-00:18:25)
+[switchout.syl.my-en] Epoch 20.0000: train_loss/word=3.191696 (steps=5099, words/sec=6387.58, time=0-00:18:26)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 20.0000 dev BLEU4: 0.24721965719043856, 0.541095/0.297744/0.195371/0.132038 (BP = 0.973676, ratio=0.97, hyp_len=6485, ref_len=6658) (time=0-00:18:52)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.276272
+[switchout.syl.my-en]              dev auxiliary Loss: 4.067 (ref_len=6658)
+             checkpoint took 0-00:00:25
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 20.0054: train_loss/word=3.278959 (steps=5100, words/sec=13106.97, time=0-00:18:57)
+[switchout.syl.my-en] Epoch 20.0812: train_loss/word=3.089687 (steps=5118, words/sec=9868.53, time=0-00:18:59)
+[switchout.syl.my-en] Epoch 20.1612: train_loss/word=3.222799 (steps=5135, words/sec=9915.37, time=0-00:19:00)
+[switchout.syl.my-en] Epoch 20.2387: train_loss/word=3.256727 (steps=5154, words/sec=7445.60, time=0-00:19:02)
+[switchout.syl.my-en] Epoch 20.3181: train_loss/word=3.090084 (steps=5177, words/sec=7531.77, time=0-00:19:04)
+[switchout.syl.my-en] Epoch 20.3936: train_loss/word=3.145691 (steps=5197, words/sec=8164.21, time=0-00:19:06)
+[switchout.syl.my-en] Epoch 20.4695: train_loss/word=3.225780 (steps=5216, words/sec=8771.09, time=0-00:19:08)
+[switchout.syl.my-en] Epoch 20.5498: train_loss/word=3.109081 (steps=5237, words/sec=9003.57, time=0-00:19:09)
+[switchout.syl.my-en] Epoch 20.6249: train_loss/word=3.282758 (steps=5255, words/sec=9043.69, time=0-00:19:11)
+[switchout.syl.my-en] Epoch 20.6992: train_loss/word=3.086673 (steps=5277, words/sec=7335.01, time=0-00:19:13)
+[switchout.syl.my-en] Epoch 20.7774: train_loss/word=3.214388 (steps=5297, words/sec=8075.81, time=0-00:19:15)
+[switchout.syl.my-en] Epoch 20.8516: train_loss/word=3.163761 (steps=5316, words/sec=8279.72, time=0-00:19:17)
+[switchout.syl.my-en] Epoch 20.9276: train_loss/word=3.298140 (steps=5333, words/sec=9313.30, time=0-00:19:18)
+[switchout.syl.my-en] Epoch 21.0000: train_loss/word=3.135993 (steps=5354, words/sec=8858.15, time=0-00:19:20)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 21.0000 dev BLEU4: 0.25476635129798697, 0.539607/0.302793/0.201632/0.139697 (BP = 0.978136, ratio=0.98, hyp_len=6514, ref_len=6658) (time=0-00:19:46)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.279585
+[switchout.syl.my-en]              dev auxiliary Loss: 4.053 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 21.0027: train_loss/word=2.768114 (steps=5355, words/sec=7749.33, time=0-00:19:52)
+[switchout.syl.my-en] Epoch 21.0763: train_loss/word=2.992614 (steps=5376, words/sec=7778.63, time=0-00:19:54)
+[switchout.syl.my-en] Epoch 21.1506: train_loss/word=3.088584 (steps=5395, words/sec=8885.20, time=0-00:19:56)
+[switchout.syl.my-en] Epoch 21.2267: train_loss/word=3.021817 (steps=5416, words/sec=7739.20, time=0-00:19:58)
+[switchout.syl.my-en] Epoch 21.3014: train_loss/word=3.035100 (steps=5436, words/sec=8303.89, time=0-00:20:00)
+[switchout.syl.my-en] Epoch 21.3768: train_loss/word=3.072020 (steps=5455, words/sec=8690.11, time=0-00:20:01)
+[switchout.syl.my-en] Epoch 21.4536: train_loss/word=3.075680 (steps=5474, words/sec=8867.98, time=0-00:20:03)
+[switchout.syl.my-en] Epoch 21.5319: train_loss/word=3.161985 (steps=5492, words/sec=9693.76, time=0-00:20:04)
+[switchout.syl.my-en] Epoch 21.6069: train_loss/word=3.231366 (steps=5509, words/sec=8643.75, time=0-00:20:06)
+[switchout.syl.my-en] Epoch 21.6836: train_loss/word=3.122368 (steps=5527, words/sec=9082.58, time=0-00:20:07)
+[switchout.syl.my-en] Epoch 21.7599: train_loss/word=3.084890 (steps=5548, words/sec=7588.83, time=0-00:20:10)
+[switchout.syl.my-en] Epoch 21.8342: train_loss/word=3.179137 (steps=5568, words/sec=8253.41, time=0-00:20:11)
+[switchout.syl.my-en] Epoch 21.9100: train_loss/word=3.274159 (steps=5585, words/sec=8535.87, time=0-00:20:13)
+[switchout.syl.my-en] Epoch 21.9873: train_loss/word=3.152172 (steps=5604, words/sec=9582.73, time=0-00:20:14)
+[switchout.syl.my-en] Epoch 22.0000: train_loss/word=3.125392 (steps=5608, words/sec=8398.40, time=0-00:20:15)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 22.0000 dev BLEU4: 0.2544344761737309, 0.556257/0.317245/0.215444/0.150512 (BP = 0.925085, ratio=0.93, hyp_len=6177, ref_len=6658) (time=0-00:20:40)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.281117
+[switchout.syl.my-en]              dev auxiliary Loss: 4.057 (ref_len=6658)
+             checkpoint took 0-00:00:25
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 22.0044: train_loss/word=3.300424 (steps=5609, words/sec=11522.46, time=0-00:20:43)
+[switchout.syl.my-en] Epoch 22.0792: train_loss/word=3.086993 (steps=5628, words/sec=8178.34, time=0-00:20:45)
+[switchout.syl.my-en] Epoch 22.1537: train_loss/word=3.179509 (steps=5644, words/sec=10095.51, time=0-00:20:46)
+[switchout.syl.my-en] Epoch 22.2287: train_loss/word=3.011255 (steps=5664, words/sec=8984.98, time=0-00:20:48)
+[switchout.syl.my-en] Epoch 22.3047: train_loss/word=2.986629 (steps=5687, words/sec=7989.75, time=0-00:20:50)
+[switchout.syl.my-en] Epoch 22.3788: train_loss/word=3.085481 (steps=5704, words/sec=9933.15, time=0-00:20:51)
+[switchout.syl.my-en] Epoch 22.4542: train_loss/word=3.079460 (steps=5722, words/sec=9955.82, time=0-00:20:53)
+[switchout.syl.my-en] Epoch 22.5294: train_loss/word=3.210280 (steps=5739, words/sec=8689.31, time=0-00:20:54)
+[switchout.syl.my-en] Epoch 22.6030: train_loss/word=3.072190 (steps=5758, words/sec=9225.62, time=0-00:20:56)
+[switchout.syl.my-en] Epoch 22.6784: train_loss/word=3.081226 (steps=5779, words/sec=8084.39, time=0-00:20:58)
+[switchout.syl.my-en] Epoch 22.7539: train_loss/word=3.205394 (steps=5798, words/sec=9076.91, time=0-00:20:59)
+[switchout.syl.my-en] Epoch 22.8303: train_loss/word=3.122854 (steps=5818, words/sec=8387.22, time=0-00:21:01)
+[switchout.syl.my-en] Epoch 22.9060: train_loss/word=3.054763 (steps=5839, words/sec=8565.74, time=0-00:21:03)
+[switchout.syl.my-en] Epoch 22.9855: train_loss/word=3.142100 (steps=5859, words/sec=7932.63, time=0-00:21:05)
+[switchout.syl.my-en] Epoch 23.0000: train_loss/word=3.242054 (steps=5863, words/sec=8538.50, time=0-00:21:05)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 23.0000 dev BLEU4: 0.26283493000988417, 0.550668/0.312268/0.213576/0.149362 (BP = 0.965784, ratio=0.97, hyp_len=6434, ref_len=6658) (time=0-00:21:31)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.287567
+[switchout.syl.my-en]              dev auxiliary Loss: 4.035 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 23.0031: train_loss/word=2.827191 (steps=5864, words/sec=8165.55, time=0-00:21:37)
+[switchout.syl.my-en] Epoch 23.0770: train_loss/word=3.030446 (steps=5881, words/sec=8034.54, time=0-00:21:39)
+[switchout.syl.my-en] Epoch 23.1505: train_loss/word=3.023112 (steps=5898, words/sec=10001.15, time=0-00:21:40)
+[switchout.syl.my-en] Epoch 23.2241: train_loss/word=3.145917 (steps=5915, words/sec=9868.12, time=0-00:21:42)
+[switchout.syl.my-en] Epoch 23.2979: train_loss/word=3.000432 (steps=5936, words/sec=8054.48, time=0-00:21:44)
+[switchout.syl.my-en] Epoch 23.3723: train_loss/word=3.038792 (steps=5954, words/sec=9908.44, time=0-00:21:45)
+[switchout.syl.my-en] Epoch 23.4472: train_loss/word=3.022418 (steps=5973, words/sec=9510.35, time=0-00:21:46)
+[switchout.syl.my-en] Epoch 23.5225: train_loss/word=3.079815 (steps=5991, words/sec=9184.09, time=0-00:21:48)
+[switchout.syl.my-en] Epoch 23.5968: train_loss/word=2.984228 (steps=6013, words/sec=7151.54, time=0-00:21:50)
+[switchout.syl.my-en] Epoch 23.6735: train_loss/word=3.005359 (steps=6033, words/sec=9614.68, time=0-00:21:52)
+[switchout.syl.my-en] Epoch 23.7483: train_loss/word=3.056265 (steps=6053, words/sec=8506.74, time=0-00:21:54)
+[switchout.syl.my-en] Epoch 23.8231: train_loss/word=3.077390 (steps=6073, words/sec=8682.54, time=0-00:21:55)
+[switchout.syl.my-en] Epoch 23.8967: train_loss/word=3.010018 (steps=6091, words/sec=9352.68, time=0-00:21:57)
+[switchout.syl.my-en] Epoch 23.9711: train_loss/word=3.095078 (steps=6110, words/sec=9003.61, time=0-00:21:58)
+[switchout.syl.my-en] Epoch 24.0000: train_loss/word=3.276532 (steps=6117, words/sec=7389.43, time=0-00:21:59)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 24.0000 dev BLEU4: 0.26551510163235814, 0.543973/0.311292/0.212573/0.151787 (BP = 0.976600, ratio=0.98, hyp_len=6504, ref_len=6658) (time=0-00:22:26)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.286983
+[switchout.syl.my-en]              dev auxiliary Loss: 4.054 (ref_len=6658)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 24.0047: train_loss/word=2.762941 (steps=6118, words/sec=12352.33, time=0-00:22:32)
+[switchout.syl.my-en] Epoch 24.0802: train_loss/word=2.941217 (steps=6138, words/sec=8057.27, time=0-00:22:34)
+[switchout.syl.my-en] Epoch 24.1642: train_loss/word=2.899836 (steps=6161, words/sec=7507.36, time=0-00:22:36)
+[switchout.syl.my-en] Epoch 24.2421: train_loss/word=3.017235 (steps=6181, words/sec=8443.10, time=0-00:22:38)
+[switchout.syl.my-en] Epoch 24.3185: train_loss/word=2.898011 (steps=6204, words/sec=8098.43, time=0-00:22:40)
+[switchout.syl.my-en] Epoch 24.3982: train_loss/word=3.013558 (steps=6223, words/sec=8144.14, time=0-00:22:42)
+[switchout.syl.my-en] Epoch 24.4734: train_loss/word=2.981705 (steps=6241, words/sec=9544.75, time=0-00:22:43)
+[switchout.syl.my-en] Epoch 24.5473: train_loss/word=3.059059 (steps=6260, words/sec=9057.80, time=0-00:22:45)
+[switchout.syl.my-en] Epoch 24.6289: train_loss/word=3.014639 (steps=6281, words/sec=9252.68, time=0-00:22:47)
+[switchout.syl.my-en] Epoch 24.7067: train_loss/word=2.957962 (steps=6301, words/sec=8893.14, time=0-00:22:48)
+[switchout.syl.my-en] Epoch 24.7817: train_loss/word=3.001346 (steps=6321, words/sec=8036.68, time=0-00:22:50)
+[switchout.syl.my-en] Epoch 24.8560: train_loss/word=3.040012 (steps=6338, words/sec=9997.98, time=0-00:22:51)
+[switchout.syl.my-en] Epoch 24.9308: train_loss/word=3.097693 (steps=6356, words/sec=8748.79, time=0-00:22:53)
+[switchout.syl.my-en] Epoch 25.0000: train_loss/word=3.164758 (steps=6371, words/sec=9845.75, time=0-00:22:54)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 25.0000 dev BLEU4: 0.26874894457271303, 0.552045/0.315816/0.218109/0.155475 (BP = 0.969196, ratio=0.97, hyp_len=6456, ref_len=6658) (time=0-00:23:21)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.292577
+[switchout.syl.my-en]              dev auxiliary Loss: 4.057 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 25.0035: train_loss/word=2.453878 (steps=6372, words/sec=8487.27, time=0-00:23:27)
+[switchout.syl.my-en] Epoch 25.0775: train_loss/word=2.959489 (steps=6391, words/sec=8383.31, time=0-00:23:28)
+[switchout.syl.my-en] Epoch 25.1519: train_loss/word=2.886546 (steps=6410, words/sec=9201.16, time=0-00:23:30)
+[switchout.syl.my-en] Epoch 25.2273: train_loss/word=2.977683 (steps=6431, words/sec=7961.22, time=0-00:23:32)
+[switchout.syl.my-en] Epoch 25.3035: train_loss/word=2.966352 (steps=6451, words/sec=9047.73, time=0-00:23:34)
+[switchout.syl.my-en] Epoch 25.3843: train_loss/word=2.847410 (steps=6471, words/sec=9396.64, time=0-00:23:35)
+[switchout.syl.my-en] Epoch 25.4631: train_loss/word=3.001334 (steps=6490, words/sec=9484.60, time=0-00:23:37)
+[switchout.syl.my-en] Epoch 25.5397: train_loss/word=3.086055 (steps=6507, words/sec=8952.08, time=0-00:23:38)
+[switchout.syl.my-en] Epoch 25.6169: train_loss/word=2.936968 (steps=6533, words/sec=7051.39, time=0-00:23:41)
+[switchout.syl.my-en] Epoch 25.6945: train_loss/word=3.091095 (steps=6550, words/sec=9958.06, time=0-00:23:42)
+[switchout.syl.my-en] Epoch 25.7705: train_loss/word=3.078123 (steps=6570, words/sec=6836.76, time=0-00:23:44)
+[switchout.syl.my-en] Epoch 25.8475: train_loss/word=3.024133 (steps=6588, words/sec=9373.44, time=0-00:23:46)
+[switchout.syl.my-en] Epoch 25.9246: train_loss/word=3.043085 (steps=6609, words/sec=8422.13, time=0-00:23:48)
+[switchout.syl.my-en] Epoch 26.0000: train_loss/word=3.132485 (steps=6626, words/sec=9993.15, time=0-00:23:49)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 26.0000 dev BLEU4: 0.26820863327107014, 0.553409/0.315966/0.214912/0.154774 (BP = 0.971206, ratio=0.97, hyp_len=6469, ref_len=6658) (time=0-00:24:15)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.292076
+[switchout.syl.my-en]              dev auxiliary Loss: 4.053 (ref_len=6658)
+             checkpoint took 0-00:00:25
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 26.0042: train_loss/word=2.498807 (steps=6627, words/sec=11355.90, time=0-00:24:18)
+[switchout.syl.my-en] Epoch 26.0806: train_loss/word=2.863470 (steps=6646, words/sec=9925.49, time=0-00:24:19)
+[switchout.syl.my-en] Epoch 26.1563: train_loss/word=2.919924 (steps=6666, words/sec=7836.97, time=0-00:24:21)
+[switchout.syl.my-en] Epoch 26.2327: train_loss/word=2.810529 (steps=6688, words/sec=8104.09, time=0-00:24:23)
+[switchout.syl.my-en] Epoch 26.3158: train_loss/word=3.034426 (steps=6705, words/sec=9328.74, time=0-00:24:24)
+[switchout.syl.my-en] Epoch 26.3953: train_loss/word=2.878837 (steps=6727, words/sec=8624.39, time=0-00:24:26)
+[switchout.syl.my-en] Epoch 26.4706: train_loss/word=2.913856 (steps=6746, words/sec=9312.04, time=0-00:24:28)
+[switchout.syl.my-en] Epoch 26.5462: train_loss/word=2.909934 (steps=6765, words/sec=9552.11, time=0-00:24:29)
+[switchout.syl.my-en] Epoch 26.6226: train_loss/word=3.007625 (steps=6784, words/sec=8115.25, time=0-00:24:31)
+[switchout.syl.my-en] Epoch 26.6967: train_loss/word=2.940640 (steps=6804, words/sec=8826.64, time=0-00:24:33)
+[switchout.syl.my-en] Epoch 26.7758: train_loss/word=2.976048 (steps=6824, words/sec=8079.29, time=0-00:24:35)
+[switchout.syl.my-en] Epoch 26.8523: train_loss/word=2.943332 (steps=6846, words/sec=8223.24, time=0-00:24:37)
+[switchout.syl.my-en] Epoch 26.9305: train_loss/word=2.989243 (steps=6865, words/sec=9189.85, time=0-00:24:38)
+[switchout.syl.my-en] Epoch 27.0000: train_loss/word=3.025875 (steps=6881, words/sec=9344.24, time=0-00:24:40)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 27.0000 dev BLEU4: 0.2657238051106499, 0.547141/0.307604/0.209790/0.148425 (BP = 0.987608, ratio=0.99, hyp_len=6576, ref_len=6658) (time=0-00:25:06)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.287163
+[switchout.syl.my-en]              dev auxiliary Loss: 4.059 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  new learning rate: 0.5
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 27.0029: train_loss/word=2.656193 (steps=6882, words/sec=8032.64, time=0-00:25:09)
+[switchout.syl.my-en] Epoch 27.0785: train_loss/word=2.875244 (steps=6901, words/sec=8918.49, time=0-00:25:11)
+[switchout.syl.my-en] Epoch 27.1538: train_loss/word=2.714102 (steps=6921, words/sec=8180.03, time=0-00:25:13)
+[switchout.syl.my-en] Epoch 27.2282: train_loss/word=2.875171 (steps=6938, words/sec=9220.61, time=0-00:25:14)
+[switchout.syl.my-en] Epoch 27.3075: train_loss/word=2.770182 (steps=6961, words/sec=7250.71, time=0-00:25:17)
+[switchout.syl.my-en] Epoch 27.3841: train_loss/word=2.936597 (steps=6979, words/sec=9190.71, time=0-00:25:18)
+[switchout.syl.my-en] Epoch 27.4578: train_loss/word=2.753610 (steps=7000, words/sec=9164.27, time=0-00:25:20)
+[switchout.syl.my-en] Epoch 27.5378: train_loss/word=2.775162 (steps=7023, words/sec=8198.08, time=0-00:25:22)
+[switchout.syl.my-en] Epoch 27.6165: train_loss/word=3.018548 (steps=7038, words/sec=10710.99, time=0-00:25:23)
+[switchout.syl.my-en] Epoch 27.6908: train_loss/word=2.924989 (steps=7056, words/sec=9128.59, time=0-00:25:24)
+[switchout.syl.my-en] Epoch 27.7649: train_loss/word=2.794090 (steps=7075, words/sec=9494.77, time=0-00:25:26)
+[switchout.syl.my-en] Epoch 27.8397: train_loss/word=2.998593 (steps=7092, words/sec=9452.71, time=0-00:25:27)
+[switchout.syl.my-en] Epoch 27.9156: train_loss/word=2.778256 (steps=7114, words/sec=7672.60, time=0-00:25:29)
+[switchout.syl.my-en] Epoch 27.9922: train_loss/word=2.832889 (steps=7134, words/sec=9230.90, time=0-00:25:31)
+[switchout.syl.my-en] Epoch 28.0000: train_loss/word=2.971045 (steps=7136, words/sec=10106.71, time=0-00:25:31)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 28.0000 dev BLEU4: 0.28111919273978964, 0.572073/0.333727/0.230004/0.164536 (BP = 0.964230, ratio=0.96, hyp_len=6424, ref_len=6658) (time=0-00:25:58)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.306527
+[switchout.syl.my-en]              dev auxiliary Loss: 4.003 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 28.0029: train_loss/word=2.758905 (steps=7137, words/sec=7707.16, time=0-00:26:04)
+[switchout.syl.my-en] Epoch 28.0786: train_loss/word=2.726323 (steps=7156, words/sec=8546.79, time=0-00:26:06)
+[switchout.syl.my-en] Epoch 28.1539: train_loss/word=2.809652 (steps=7174, words/sec=8841.58, time=0-00:26:07)
+[switchout.syl.my-en] Epoch 28.2276: train_loss/word=2.668042 (steps=7197, words/sec=6895.74, time=0-00:26:10)
+[switchout.syl.my-en] Epoch 28.3041: train_loss/word=2.825638 (steps=7216, words/sec=8901.47, time=0-00:26:11)
+[switchout.syl.my-en] Epoch 28.3799: train_loss/word=2.883669 (steps=7234, words/sec=8667.47, time=0-00:26:13)
+[switchout.syl.my-en] Epoch 28.4545: train_loss/word=2.845378 (steps=7251, words/sec=8411.62, time=0-00:26:14)
+[switchout.syl.my-en] Epoch 28.5289: train_loss/word=2.932153 (steps=7267, words/sec=9106.51, time=0-00:26:16)
+[switchout.syl.my-en] Epoch 28.6034: train_loss/word=2.806391 (steps=7287, words/sec=8523.81, time=0-00:26:18)
+[switchout.syl.my-en] Epoch 28.6787: train_loss/word=2.678404 (steps=7311, words/sec=7957.80, time=0-00:26:20)
+[switchout.syl.my-en] Epoch 28.7545: train_loss/word=2.863424 (steps=7329, words/sec=9471.71, time=0-00:26:21)
+[switchout.syl.my-en] Epoch 28.8320: train_loss/word=2.809783 (steps=7348, words/sec=9520.88, time=0-00:26:23)
+[switchout.syl.my-en] Epoch 28.9107: train_loss/word=2.775092 (steps=7369, words/sec=7990.55, time=0-00:26:25)
+[switchout.syl.my-en] Epoch 28.9854: train_loss/word=2.794043 (steps=7387, words/sec=9132.45, time=0-00:26:26)
+[switchout.syl.my-en] Epoch 29.0000: train_loss/word=2.764603 (steps=7391, words/sec=8931.99, time=0-00:26:27)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 29.0000 dev BLEU4: 0.28195559014984756, 0.563107/0.326933/0.229284/0.166166 (BP = 0.974292, ratio=0.97, hyp_len=6489, ref_len=6658) (time=0-00:26:53)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.303943
+[switchout.syl.my-en]              dev auxiliary Loss: 4.000 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  best dev score, writing out model
+Starting to read ./data/train.my and ./data/train.en
+Done reading ./data/train.my and ./data/train.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 29.0039: train_loss/word=2.668440 (steps=7392, words/sec=9931.87, time=0-00:26:59)
+[switchout.syl.my-en] Epoch 29.0786: train_loss/word=2.697012 (steps=7413, words/sec=8491.65, time=0-00:27:01)
+[switchout.syl.my-en] Epoch 29.1522: train_loss/word=2.826101 (steps=7429, words/sec=9080.34, time=0-00:27:02)
+[switchout.syl.my-en] Epoch 29.2281: train_loss/word=2.685111 (steps=7449, words/sec=8483.61, time=0-00:27:04)
+[switchout.syl.my-en] Epoch 29.3053: train_loss/word=2.775685 (steps=7469, words/sec=8494.86, time=0-00:27:06)
+[switchout.syl.my-en] Epoch 29.3797: train_loss/word=2.703198 (steps=7490, words/sec=7068.61, time=0-00:27:08)
+[switchout.syl.my-en] Epoch 29.4540: train_loss/word=2.745394 (steps=7510, words/sec=8916.55, time=0-00:27:10)
+[switchout.syl.my-en] Epoch 29.5288: train_loss/word=2.775558 (steps=7527, words/sec=10084.40, time=0-00:27:11)
+[switchout.syl.my-en] Epoch 29.6047: train_loss/word=2.700424 (steps=7549, words/sec=8049.62, time=0-00:27:13)
+[switchout.syl.my-en] Epoch 29.6792: train_loss/word=2.851235 (steps=7566, words/sec=9983.85, time=0-00:27:14)
+[switchout.syl.my-en] Epoch 29.7567: train_loss/word=2.678193 (steps=7589, words/sec=8160.44, time=0-00:27:17)
+[switchout.syl.my-en] Epoch 29.8378: train_loss/word=2.853739 (steps=7609, words/sec=7987.58, time=0-00:27:18)
+[switchout.syl.my-en] Epoch 29.9136: train_loss/word=2.956247 (steps=7625, words/sec=11142.07, time=0-00:27:19)
+[switchout.syl.my-en] Epoch 29.9873: train_loss/word=2.802727 (steps=7642, words/sec=9693.59, time=0-00:27:21)
+[switchout.syl.my-en] Epoch 30.0000: train_loss/word=2.645692 (steps=7646, words/sec=8462.84, time=0-00:27:21)
+> Checkpoint [switchout.syl.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.syl.my-en] Epoch 30.0000 dev BLEU4: 0.27751022070657877, 0.554692/0.322559/0.221164/0.158715 (BP = 0.985782, ratio=0.99, hyp_len=6564, ref_len=6658) (time=0-00:27:48)
+[switchout.syl.my-en]              dev auxiliary GLEU: 0.298853
+[switchout.syl.my-en]              dev auxiliary Loss: 3.982 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  new learning rate: 0.25
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.en
+Performing inference on ./data/test.my and ./data/test.en
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.syl.my-en           | BLEU4: 0.28195559014984756, 0.563107/0.326933/0.229284/0.166166 (BP = 0.974292, ratio=0.97, hyp_len=6489, ref_len=6658)
+                              | GLEU: 0.303943
+                              | WER: 59.54% ( C/S/I/D: 3369/2445/675/844; hyp_len=6489, ref_len=6658 )
+                              | CER: 53.01% ( C/S/I/D: 15036/6840/2448/4910; hyp_len=24324, ref_len=26786 )
+                              | BLEU4: 0.27297688162140515, 0.558894/0.321971/0.222984/0.159546 (BP = 0.965050, ratio=0.97, hyp_len=6690, ref_len=6928)
+                              | GLEU: 0.296973
+                              | WER: 59.70% ( C/S/I/D: 3430/2622/638/876; hyp_len=6690, ref_len=6928 )
+                              | CER: 54.67% ( C/S/I/D: 15165/7175/2681/5201; hyp_len=25021, ref_len=27541 )
+real	28m52.326s
+user	28m50.665s
+sys	0m2.945s
 ```
+
+
 
 ## Reference
 
