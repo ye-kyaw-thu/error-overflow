@@ -2770,7 +2770,7 @@ switchout.syl.my-en: !Experiment
 
 config ဖိုင်ကို တစ်ခုလုံးကို ဒီနေရာမှာလည်း ကြည်ချင်တဲ့သူ ရှိနိုင်လို့ တစ်ဖိုင်လုံးကိုပြရရင်တော့ အောက်ပါအတိုင်း ဖြစ်ပါတယ်။  
 
-```
+```yaml
 # standard settings
 switchout.syl.my-en: !Experiment
   exp_global: !ExpGlobal
