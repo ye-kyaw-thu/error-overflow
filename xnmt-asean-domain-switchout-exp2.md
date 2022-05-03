@@ -644,8 +644,8 @@ baseline ရဲ့ vocab တွေနဲ့ switchout experiment ရဲ့ vocab
 ```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ tree ./asean-mt-baseline/
 ./asean-mt-baseline/
-├── config.baseline.en-my-word.yaml
-├── config.baseline.my-en-word.yaml
+├── config.baseline.en-th-word.yaml
+├── config.baseline.th-en-word.yaml
 └── data
     ├── bk
     │   ├── train.en
@@ -662,6 +662,7 @@ baseline ရဲ့ vocab တွေနဲ့ switchout experiment ရဲ့ vocab
     └── train.th
 
 3 directories, 13 files
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$
 ```
 
 switchout experiment အတွက်က အောက်ပါအတိုင်း...  
