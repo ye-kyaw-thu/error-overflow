@@ -1044,6 +1044,9 @@ switchout.en-my               | BLEU4: 0.1765910715396283, 0.504297/0.246354/0.1
                               | GLEU: 0.229314
                               | WER: 67.94% ( C/S/I/D: 3471/3415/901/1131; hyp_len=7787, ref_len=8017 )
                               | CER: 56.27% ( C/S/I/D: 20483/10066/3743/7731; hyp_len=34292, ref_len=38280 )
+real	34m17.528s
+user	34m10.420s
+sys	0m8.464s                              
 ```
 
 အရင် run ခဲ့တဲ့ (no-data argumentation, word unit, en-my) ရလဒ်က အောက်ပါအတိုင်း...  
@@ -1959,6 +1962,9 @@ switchout.my-en               | BLEU4: 0.22891812887481092, 0.517436/0.274463/0.
                               | GLEU: 0.260500
                               | WER: 64.78% ( C/S/I/D: 3068/2951/628/909; hyp_len=6647, ref_len=6928 )
                               | CER: 58.63% ( C/S/I/D: 14094/8108/2700/5339; hyp_len=24902, ref_len=27541 )
+real	25m31.091s
+user	25m29.269s
+sys	0m3.079s                              
 ```
 
 ပထမ run ခဲ့တဲ့ experiment တုန်းက ရခဲ့တဲ့ (word, no data-argumentation, my-en) က အောက်ပါအတိုင်း...  
@@ -2738,6 +2744,9 @@ switchout.syl.en-my           | BLEU4: 0.3526960460799318, 0.643521/0.435425/0.2
                               | GLEU: 0.372263
                               | WER: 58.36% ( C/S/I/D: 7182/4068/1600/2154; hyp_len=12850, ref_len=13404 )
                               | CER: 52.92% ( C/S/I/D: 22783/8797/4760/6700; hyp_len=36340, ref_len=38280 )
+real	33m59.915s
+user	33m58.326s
+sys	0m2.927s                              
 ```
 
 ပထမပိုင်း training လုပ်ခဲ့တဲ့ (no data argumentation or no switchout, syllable unit, en-my) ရဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
