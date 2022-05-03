@@ -304,3 +304,10 @@ vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်
  70  70 409 ./head.ja.vocab
 ```
 
+### Training Again
+
+ဒီတစ်ခါတော့ example ဖိုလ်ဒါရဲ့ အထက်ကို တက်လိုက်ပြီး ensembling exp ကို စမ်း run ကြည့်ခဲ့တယ်။  
+
+```
+
+```
