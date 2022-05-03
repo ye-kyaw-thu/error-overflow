@@ -88,4 +88,44 @@ exp4-ensemble-train: !Experiment
 (base) ye@ye-System-Product-Name:~/tool/xnmt/examples$ 
 ```
 
+အထက်ပါ config ဖိုင်နဲ့ run ကြည့်တော့အောက်ပါအတိုင်း vocab ဖိုင်က မရှိလို့ error ပေးတယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$ time xnmt --backend torch --gpu ./16_ensembling.yaml | tee ensemble-tst-train.log
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 11:56:17
+=> Running exp1-single
+ERROR: ------ Error Report ------
+ERROR: *** yaml_path ***
+ERROR: model.src_reader.vocab
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/bin/xnmt", line 33, in <module>
+    sys.exit(load_entry_point('xnmt==0.0.1', 'console_scripts', 'xnmt')())
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 121, in main
+    raise e
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 109, in main
+    experiment = initialize_if_needed(uninitialized_exp_args)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1467, in initialize_if_needed
+    return _YamlDeserializer().initialize_if_needed(root)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1194, in initialize_if_needed
+    else: return self.initialize_object(deserialized_yaml_wrapper=obj)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1237, in initialize_object
+    initialized = self.init_components_bottom_up(self.deserialized_yaml)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1337, in init_components_bottom_up
+    initialized_component = self.init_component(path)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 1373, in init_component
+    initialized_obj = obj.__class__(**init_params)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 92, in wrapper
+    f(obj, **serialize_params)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/vocabs.py", line 39, in __init__
+    i2w = Vocab.i2w_from_vocab_file(vocab_file, sentencepiece_vocab)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/vocabs.py", line 62, in i2w_from_vocab_file
+    with open(vocab_file, encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'examples/data/head.ja.vocab'
+
+real	0m1.583s
+user	0m1.842s
+sys	0m0.650s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$
+```
+
 
