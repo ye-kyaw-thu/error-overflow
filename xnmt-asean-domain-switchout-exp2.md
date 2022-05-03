@@ -880,6 +880,7 @@ asean.baseline.th-en: !Experiment
 ## Training for en-th, word unit (Baseline)
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline$ time xnmt --backend torch --gpu ./config.baseline.en-th-word.yaml | tee baseline.en-th.log1
 
 ```
 
