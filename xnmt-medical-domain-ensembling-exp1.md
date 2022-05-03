@@ -371,3 +371,20 @@ sys	0m1.353s
 ```
 
 အထက်ပါ အတိုင်း error ပေးနေတယ်။  
+log ဖိုင်တွေက ရှိနေတဲ့အတွက် ပေးတဲ့ error လားလို့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ ls ./examples/logs/*
+./examples/logs/exp1-single.log       ./examples/logs/exp2-single.log       ./examples/logs/standard.log
+./examples/logs/exp1-single.log.yaml  ./examples/logs/exp2-single.log.yaml  ./examples/logs/standard.log.yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ rm ./examples/logs/exp1*.log
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ rm ./examples/logs/exp2*.log
+```
+
+နောက်တစ်ခါ ထပ် run ခဲ့ ....  
+
+```
+
+```
+
+
