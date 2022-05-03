@@ -500,8 +500,75 @@ confirmation တစ်ချက် လုပ်ခဲ့...
 
 မဖျက်ခင်က အနေအထားက အောက်ပါအတိုင်း...  
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6862,6864p ./bk/train.th
+มี จุด ที่ น่า สนใจ ไหม ระหว่าง การ เดินทาง ไป เอฟ ? 
+
+ค่า โดยสาร เท่าไหร่ ? 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6862,6864p ./bk/train.en
+Are there some scenic spots on the way to F?
+We serve green tea.
+How much is the fare?
+```
+
+ဖျက်ပြီးသွားတဲ့ အခါမှာ ...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6862,6864p ./train.enth
+How much is the fare?	ค่า โดยสาร เท่าไหร่ ? 
+But the fried fish meuniere is very good.	แต่ปลาทอดมูเนียร์ดีมาก
+Can I have something for a cough?	ฉัน ขอ ยา แก้ ไอ หน่อย ได้ ไหม ? 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
+
+မဖျက်ခင်က အနေအထား  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6860,6865p ./bk/train.th 
+คุณ สามารถ บอก ฉัน เกี่ยว กับ ดิสนี่ย์แลนด์ บาง อย่าง ได้ ไหม ? 
+มัน ไม่ มี คน มา เลย 
+มี จุด ที่ น่า สนใจ ไหม ระหว่าง การ เดินทาง ไป เอฟ ? 
+
+ค่า โดยสาร เท่าไหร่ ? 
+แต่ปลาทอดมูเนียร์ดีมาก
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6860,6865p ./bk/train.en
+Can you tell me something about Disneyland?
+It's dead in here.
+Are there some scenic spots on the way to F?
+We serve green tea.
+How much is the fare?
+But the fried fish meuniere is very good.
+```
+
+ဖျက်ပြီးသွားတဲ့ အခါမှာ  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6860,6865p ./train.enth 
+It's dead in here.	มัน ไม่ มี คน มา เลย 
+Are there some scenic spots on the way to F?	มี จุด ที่ น่า สนใจ ไหม ระหว่าง การ เดินทาง ไป เอฟ ? 
+How much is the fare?	ค่า โดยสาร เท่าไหร่ ? 
+But the fried fish meuniere is very good.	แต่ปลาทอดมูเนียร์ดีมาก
+Can I have something for a cough?	ฉัน ขอ ยา แก้ ไอ หน่อย ได้ ไหม ? 
+Which would you prefer?	สิ่งไหนที่คุณต้องการ?
+```
+
+နောက်ဆုံးပိုင်းက parallel ဖြစ်မဖြစ်ကိုလည်း သေချာအောင် print ထုတ်ကြည့်တာ၊ Google Translate နဲ့ ထိုင်းဘက်အခြမ်းကို ဘာသာပြန်ခိုင်းပြီး အင်္ဂလိပ်စာဘက်အခြမ်းနဲ့ ခန့်မှန်းခြေ တူရဲ့လား ဆိုတာကိုလည်း confirm လုပ်ခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ tail -n 3 ./train.enth 
+How many hours does it take to complete that tour?	ทัวร์ ใช้ เวลา ทั้งหมด เท่าไร ? 
+I don't want to watch a tragedy until we have finished the journey.	ฉัน ไม่ ต้องการ ดู เรื่อง เศร้า จนกว่า เรา จะ ท่องเที่ยว เสร็จ 
+Passengers who have got the ticket for Express Number K please get on the train at once.	ผู้ โดยสาร ที่ มี ตั๋ว สำหรับ รถไฟ ด่วนหมายเลข เค กรุณา ขึ้น รถไฟ ตอน นี้ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+```
+
+Google Translate output က အောက်ပါအတိုင်း...  
+
+```
+ทัวร์นี้ใช้เวลากี่ชั่วโมงจึงจะเสร็จสิ้น
+ฉันไม่ต้องการดูโศกนาฏกรรมจนกว่าเราจะเสร็จสิ้นการเดินทาง
+ผู้โดยสารที่ได้รับตั๋ว Express Number K โปรดขึ้นรถไฟทันที
+```
+
 
 ### for en-th, word unit
 
