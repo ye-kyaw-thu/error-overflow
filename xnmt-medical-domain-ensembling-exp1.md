@@ -4,6 +4,8 @@
 
 ပထမဆုံး ensembling config example ဖိုင်ကို နားလည်အောင် ဖတ်ကြည့်ခဲ့...  
 
+### Study on config
+
 ```yaml
 (base) ye@ye-System-Product-Name:~/tool/xnmt/examples$ cat ./16_ensembling.yaml 
 # This example shows different ways to perform model ensembling
@@ -18,7 +20,7 @@ exp1-single: !Experiment
       vocab: !Vocab {vocab_file: examples/data/head.ja.vocab}
     trg_reader: &trg_reader !PlainTextReader
       vocab: !Vocab {vocab_file: examples/data/head.en.vocab}
-  train: &train !SimpleTrainingRegimen
+  train: &train !SimpleTrainingRegimenvocab ဖိုင်ကို manual စမ်းဆောက်
     run_for_epochs: 2
     src_file: examples/data/head.ja
     trg_file: examples/data/head.en
@@ -77,7 +79,7 @@ exp4-ensemble-train: !Experiment
     trg_reader: *trg_reader
     models:
       - *model1
-      - *model2
+      - *model2vocab ဖိုင်ကို manual စမ်းဆောက်
   train: *train
   evaluate:
     - !AccuracyEvalTask
@@ -128,7 +130,9 @@ sys	0m0.650s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$
 ```
 
-vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်ခဲ့...  
+### How to Build Vocab Manually? 
+
+vocab ဖိုင်ကို manual စမ်းဆောက်ဖို့အတွက်က ...  
 
 ```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$ python ../script/vocab/make_vocab.py --help
@@ -251,4 +255,10 @@ seg_lookup: !Experiment
 
 Note: ```--char_vocab``` option ကို make_vocab.py ပရိုဂရမ်မှာ မတွေ့လို့။ အဲဒါကြောင့် char level vocab ဆောက်မယ်ဆိုရင် make_charngram_vocab.py ပရိုဂရမ်ကိုပဲ သုံးရလိမ့်မယ်။  
 
+### Build Vocab Manually
 
+vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်ခဲ့...  
+
+```
+
+```
