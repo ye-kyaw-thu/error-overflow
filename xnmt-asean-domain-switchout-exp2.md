@@ -577,13 +577,45 @@ I don't want to see a tragedy until we finish the journey.
 Passengers receiving Express Number K tickets, please board the train immediately.
 ```
 
-blank line ဖြစ်နေတာတွေကို ဖျက်တဲ့နေရာမှာ အမှားအယွင်း မလုပ်ခဲ့ဘူးလို့ ယုံကြည်ပြီးတော့ training ကို ပြန်လုပ်ခိုင်းကြည့်ခဲ့...  
+blank line ဖြစ်နေတာတွေကို ဖျက်တဲ့နေရာမှာ အမှားအယွင်း မလုပ်ခဲ့ဘူးလို့ ယုံကြည်။  
+NMT လုပ်ဖို့အတွက် တစ်ဖိုင်စီ ပြန်ခွဲထုတ်ခဲ့...  
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ cut -f1 ./train.enth > ./train.en
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ cut -f2 ./train.enth > ./train.th
+```
+
+cleaning လုပ်ထားတဲ့ parallel ဖိုင်ကိုလည်း backup လုပ်ထားခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ mv train.enth ./bk/train.enth.clean
+```
+
+cleaning လုပ်ပြီးတဲ့အချိန်မှာ training data ရဲ့ size က အောက်ပါအတိုင်း ဖြစ်လိမ့်မယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ wc train.{en,th}
+  19994  141075  737175 train.en
+  19994  139767 1951021 train.th
+  39988  280842 2688196 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
 
 ## Baseline 
 
 baseline ကို အရင် run သင့်တာမို့ baseline config ဖိုင် နှစ်ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ပြီးတော့ run ခဲ့...  
 
+for en-th translation direction:  
+
+```yaml
+
+```
+
+for th-en translation direction:  
+
+```yaml
+
+```
 
 ### for en-th, word unit
 
