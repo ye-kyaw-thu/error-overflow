@@ -487,6 +487,22 @@ Please drink the soup directly from the bowl.	กรุณาดื่มซุ�
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
 ```
 
+ဖျက်ချင်တဲ့ blank ဖြစ်နေတဲ့ လိုင်းတွေကို လိုင်းနံပါတ် တစ်ခုချင်းစီပေးပြီးတော့ sed command နဲ့ ဖျက်ခဲ့တယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -i '4616d;6863d;8076d;10007d;13347d;19555d;' ./train.enth 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ wc ./train.enth 
+  19994  280842 2688196 ./train.enth
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
+
+confirmation တစ်ချက် လုပ်ခဲ့...  
+
+မဖျက်ခင်က အနေအထားက အောက်ပါအတိုင်း...  
+```
+
+```
+
 ### for en-th, word unit
 
 ### for th-en, word unit
@@ -494,6 +510,6 @@ Please drink the soup directly from the bowl.	กรุณาดื่มซุ�
 ## Reference
 
 - [https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array](https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array)
-- 
+- [https://unix.stackexchange.com/questions/612680/remove-lines-with-specific-line-number-specified-in-a-file](https://unix.stackexchange.com/questions/612680/remove-lines-with-specific-line-number-specified-in-a-file)
 
 
