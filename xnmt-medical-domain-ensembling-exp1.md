@@ -130,8 +130,41 @@ sys	0m0.650s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$
 ```
 
+တကယ်ကတော့ examples ဖိုလ်ဒါအောက်ထဲ ဝင်ပြီးမှ run လို့ ပေးတဲ့ error လို့ ယူဆပါတယ်။ ဘာကြောင့်လဲ ဆိုတော့ examples/data/ အောက်မှာက vocab ဖိုင်တွေက ရှိနေလို့ပါ။ အောက်ပါအတိုင်းပါ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ wc ./head.en.vocab 
+ 66  66 360 ./head.en.vocab
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ wc ./head.ja.vocab 
+ 70  70 409 ./head.ja.vocab
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ head ./head.en.vocab 
+.
+you
+?
+a
+do
+the
+in
+it
+to
+with
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ head ./head.ja.vocab 
+。
+い
+で
+を
+が
+は
+た
+な
+し
+す
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$
+```
+
 ### How to Build Vocab Manually? 
 
+အထက်ပါ error ကနေ လိုအပ်တဲ့အခါ သုံးလို့ ရဖို့အတွက် xnmt က support လုပ်ထားတဲ့ vocab ဆောက်ပေးတဲ့ python script တွေကိုလည်း လေ့လာခဲ့တယ်။  
 vocab ဖိုင်ကို manual စမ်းဆောက်ဖို့အတွက်က ...  
 
 ```
