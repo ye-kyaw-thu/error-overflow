@@ -312,7 +312,7 @@ switchout.asean.th-en: !Experiment
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.en'
 ```
 
-## Training
+## Training But Got Error!!!
 
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ time xnmt --backend torch --gpu ./config.switchout.en-th-word.yaml | tee asean-en-th-switchout-exp1.log ဆိုတဲ့ command ပေးလိုက်တော့ အောက်ပါအတိုင်း error ပေးတယ်။  
 
@@ -357,6 +357,51 @@ real	0m11.494s
 user	0m11.187s
 sys	0m1.198s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$
+```
+
+မသင်္ကာဘူး။ ဒေတာထဲမှာ blank line ရှိနေတယ်လို့ ယူဆခဲ့...  
+အဲဒါကြောင့် blank line ရှိမရှိကို check လုပ်ဖို့အတွက် ငါ့ရဲ့ GitHub အောက်က tool ဆိုတဲ့ repository အောက်က perl script ပရိုဂရမ် တစ်ပုဒ်ကို လက်ရှိ ဒေတာ path ထဲကို download လုပ်ယူခဲ့တယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ wget https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/print-blank-lines.pl
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-03 20:15:42--  https://raw.githubusercontent.com/ye-kyaw-thu/tools/master/perl/print-blank-lines.pl
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 595 [text/plain]
+Saving to: ‘print-blank-lines.pl’
+
+print-blank-lines.pl            100%[=====================================================>]     595  --.-KB/s    in 0s      
+
+2022-05-03 20:15:42 (24.2 MB/s) - ‘print-blank-lines.pl’ saved [595/595]
+
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
+
+ပြီးတော့ blank line ရှိမရှိကို စစ်ဆေးကြည့်တော့ အောက်ပါအတိုင်း ထိုင်းဘာသာစကားအတွက် trainining ဖိုင်မှာ blank line ရှိနေတာကို တွေ့ခဲ့ရ။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./train.en
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./train.th
+4616	
+6863	
+8076	
+10007	
+13347	
+19555	
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./dev.en
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./dev.th
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./test.en
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ perl ./print-blank-lines.pl ./test.th
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
+
+train.th ထဲက blank ဖြစ်နေတဲ့ နေရာတွေက အောက်ပါအတိုင်း ...  
+
+```
+
 ```
 
 ### for en-th, word unit
