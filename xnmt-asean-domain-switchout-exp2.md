@@ -109,7 +109,7 @@ I have some shirts that need laundering, and I'd like my suit pressed.
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
 ```
 
-## Prepare Config Files
+## Prepare Config Files (for SwitchOut)
 
 အရင်ဆုံး ရှိပြီးသား config ဖိုင်တွေကို လက်ရှိ experiment အသစ်လုပ်မယ့် folder အောက်ကို ကူးယူခဲ့တယ်။  
 
@@ -127,7 +127,7 @@ config.switchout.en-my-word.yaml  config.switchout.my-en-word.yaml  data
 
 ```
 
-## Update config Files
+## Update config Files (for SwitchOut)
 
 အဓိက ပြင်ဆင်ခဲ့တာကတော့ experiment name နဲ့ "my" နေရာတွေမှာ "th" ကို အစားထိုးခဲ့တာပါ။  
 ကျန်တဲ့ hyperparameter နဲ့ network architecture setting တွေကတော့ နှိုင်းယှဉ်လို့ ရအောင် (result comparison လုပ်လို့ ရအောင်အတွက်) ရှေ့က medical domain လုပ်ခဲ့တုန်းကနဲ့ အတူတူပဲ ထားခဲ့တယ်။  
@@ -569,11 +569,27 @@ Google Translate output က အောက်ပါအတိုင်း...
 ผู้โดยสารที่ได้รับตั๋ว Express Number K โปรดขึ้นรถไฟทันที
 ```
 
+Google Translate ကိုပဲ သုံးပြီး အထက်က ထိုင်းစာကြောင်းတွေကို အင်္ဂလိပ်လို ပြန်ခိုင်းကြည့်ခဲ့...  
+
+```
+How many hours does this tour take to complete?
+I don't want to see a tragedy until we finish the journey.
+Passengers receiving Express Number K tickets, please board the train immediately.
+```
+
+blank line ဖြစ်နေတာတွေကို ဖျက်တဲ့နေရာမှာ အမှားအယွင်း မလုပ်ခဲ့ဘူးလို့ ယုံကြည်ပြီးတော့ training ကို ပြန်လုပ်ခိုင်းကြည့်ခဲ့...  
+
+
+## Baseline 
+
+baseline ကို အရင် run သင့်တာမို့ baseline config ဖိုင် နှစ်ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ပြီးတော့ run ခဲ့...  
+
 
 ### for en-th, word unit
 
 ### for th-en, word unit
 
+## 
 ## Reference
 
 - [https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array](https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array)
