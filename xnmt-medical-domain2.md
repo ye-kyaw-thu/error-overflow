@@ -640,6 +640,13 @@ grep: ./dist/xnmt-0.0.1-py3.6.egg: binary file matches
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
 
+## Notes
+
+- installation လုပ်ချိန်မှာ DyNet pythion binding က အဆင်မပြေခဲ့ဘူး
+- xnmt နဲ့ Transformer architecture က python backend နဲ့ run တာကို လက်ရှိဗားရှင်းက support မလုပ်ရသေးဘူးလို့ နားလည်တယ်
+- အဲဒါကြောင့် Transformer ကို xnmt နဲ့ run ချင်ရင် DyNet python library ကို installation success ဖြစ်မှရလိမ့်မယ်
+- အချိန်ရတဲ့အခါ ထပ်စမ်းမယ်
+
 
 ## Reference
 
