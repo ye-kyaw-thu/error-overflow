@@ -2755,6 +2755,8 @@ medical.syl.en-my             | BLEU4: 0.36375391673239676, 0.647598/0.440523/0.
                               | CER: 53.03% ( C/S/I/D: 23025/9022/5043/6233; hyp_len=37090, ref_len=38280 )
 ```
 
+ရလဒ် နှစ်ခုကို နှိုင်းယှဉ်ကြည့်တဲ့အခါမှာ switchout က syllable မှာ လည်းအလုပ်လုပ်ပါတယ်။ သို့သော် detail analysis အနေနဲ့ လုပ်ကြည့်ရင်တော့...    
+**BLEU score နဲ့ GLEU score နှစ်မျိုးတည်းကို ကြည့်ရင်တော့ test data မှာ (BLEU: 36.22 vs 36.69, GLEU: 37.22 vs 37.62) ဆိုတော့ တက်ပေမဲ့ WER, CER score တွေမှာတော့ comparable ဖြစ်တယ်။**  
 
 
 ## Updating Config File for Syllable Unit (my-en)
