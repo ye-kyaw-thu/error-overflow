@@ -483,4 +483,6 @@ ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/opti
 ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
 ```
 
+Note: အချိန်ထပ်ရမှ လေ့လာမယ်။ segmentation unit မတူရင် vocab ဖိုင်တွေကိုလည်း ရှဲလုပ်တာ သို့မဟုတ် ပေါင်းဆောက်တာလည်း လုပ်ရမှာမို့ marian ကိုပဲ သုံးပြီး exp လုပ်ဖို့ ဆုံးဖြတ်ခဲ့ ...  
+
 
