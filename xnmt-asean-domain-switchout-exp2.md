@@ -129,12 +129,187 @@ config.switchout.en-my-word.yaml  config.switchout.my-en-word.yaml  data
 
 ## Update config Files
 
-```yaml
+အဓိက ပြင်ဆင်ခဲ့တာကတော့ experiment name နဲ့ "my" နေရာတွေမှာ "th" ကို အစားထိုးခဲ့တာပါ။  
+ကျန်တဲ့ hyperparameter နဲ့ network architecture setting တွေကတော့ နှိုင်းယှဉ်လို့ ရအောင် (result comparison လုပ်လို့ ရအောင်အတွက်) ရှေ့က medical domain လုပ်ခဲ့တုန်းကနဲ့ အတူတူပဲ ထားခဲ့တယ်။  
 
+အောက်ပါ config ဖိုင်ကတော့ en-th translation direction အတွက်ပါ။  
+
+```yaml
+# standard settings
+switchout.asean.en-th: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.3           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+      - '{EXP_DIR}/data/train.en'
+      - '{EXP_DIR}/data/train.th'
+      out_files:
+      - '{EXP_DIR}/vocab.en'
+      - '{EXP_DIR}/vocab.th'
+      specs:
+      - filenum: all
+        filters:
+        - !VocabFiltererRank
+          max_rank: 30000 # Limit the vocabulary size to the 40k most frequent words
+  model: !DefaultTranslator
+    src_reader: !RamlTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.en'}
+      tau: 0.8      
+    trg_reader: !RamlTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.th'}
+      tau: 0.8      
+    src_embedder: !SimpleWordEmbedder   # Embed source words as 256 dimensional vectors
+      emb_dim: 512
+    encoder: !ResidualSeqTransducer
+      child: !BiLSTMSeqTransducer
+        layers: 2
+    attender: !MlpAttender {}
+    decoder: !AutoRegressiveDecoder
+      embedder: !DenseWordEmbedder      # Represent target words as a 40000x256 matrix
+        emb_dim: 512
+      bridge: !LinearBridge {}          # Initialize the first state of the decoder with an affine transform of the last state of the encoder
+      rnn: !UniLSTMSeqTransducer        # Just your standard LSTM decoder
+        layers: 2                       # With 2 layers
+      transform: !AuxNonLinear
+        output_dim: !Ref
+          path: model.decoder.embedder.emb_dim
+        activation: 'relu'
+      scorer: !Softmax
+        output_projector: !Ref
+          path: model.decoder.embedder      # Tie the softmax output to the target word embeddings
+        label_smoothing: 0.1              # Smooth the output labels with the uniform distribution
+    inference: !AutoRegressiveInference
+      search_strategy: !BeamSearch
+        beam_size: 5
+        len_norm: !PolynomialNormalization
+          apply_during_search: true
+          m: 0.8
+  train: !SimpleTrainingRegimen
+    run_for_epochs: 30  # Run for at most 20 epochs
+    initial_patience: 2 # Run for at least 2 epochs without decreasing the learning rate
+    patience: 1         # After there is no improvement for 1 epoch, decrease the learning rate
+    lr_decay: 0.5       # Decay the learning rate by half whenever there is no improvement
+    lr_decay_times: 2   # If there is still no improvement after decreasing the learning rate 2 times in a row, stop training
+    trainer: !AdamTrainer
+      alpha: 0.001
+    batcher: !WordSrcBatcher
+      avg_batch_size: 64
+    src_file: '{EXP_DIR}/data/train.en'
+    trg_file: '{EXP_DIR}/data/train.th'
+    dev_tasks:
+      - !AccuracyEvalTask
+        eval_metrics: bleu,gleu
+        src_file: &dev_src '{EXP_DIR}/data/dev.en'
+        ref_file: &dev_trg '{EXP_DIR}/data/dev.th'
+        hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.th'
+      - !LossEvalTask
+        src_file: *dev_src
+        ref_file: *dev_trg
+  evaluate:
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: *dev_src
+      ref_file: *dev_trg
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.th'
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: &test_src '{EXP_DIR}/data/test.en'
+      ref_file: &test_trg '{EXP_DIR}/data/test.th'
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.test.th'
 ```
 
-```yaml
+အောက်ပါ config ဖိုင်ကတော့ th-en translation direction အတွက်ပါ။  
 
+```yaml
+# standard settings
+switchout.asean.th-en: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.3           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+      - '{EXP_DIR}/data/train.th'
+      - '{EXP_DIR}/data/train.en'
+      out_files:
+      - '{EXP_DIR}/vocab.th'
+      - '{EXP_DIR}/vocab.en'
+      specs:
+      - filenum: all
+        filters:
+        - !VocabFiltererRank
+          max_rank: 30000 # Limit the vocabulary size to the 40k most frequent words
+  model: !DefaultTranslator
+    src_reader: !RamlTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.th'}
+      tau: 0.8      
+    trg_reader: !RamlTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.en'}
+      tau: 0.8      
+    src_embedder: !SimpleWordEmbedder   # Embed source words as 256 dimensional vectors
+      emb_dim: 512
+    encoder: !ResidualSeqTransducer
+      child: !BiLSTMSeqTransducer
+        layers: 2
+    attender: !MlpAttender {}
+    decoder: !AutoRegressiveDecoder
+      embedder: !DenseWordEmbedder      # Represent target words as a 40000x256 matrix
+        emb_dim: 512
+      bridge: !LinearBridge {}          # Initialize the first state of the decoder with an affine transform of the last state of the encoder
+      rnn: !UniLSTMSeqTransducer        # Just your standard LSTM decoder
+        layers: 2                       # With 2 layers
+      transform: !AuxNonLinear
+        output_dim: !Ref
+          path: model.decoder.embedder.emb_dim
+        activation: 'relu'
+      scorer: !Softmax
+        output_projector: !Ref
+          path: model.decoder.embedder      # Tie the softmax output to the target word embeddings
+        label_smoothing: 0.1              # Smooth the output labels with the uniform distribution
+    inference: !AutoRegressiveInference
+      search_strategy: !BeamSearch
+        beam_size: 5
+        len_norm: !PolynomialNormalization
+          apply_during_search: true
+          m: 0.8
+  train: !SimpleTrainingRegimen
+    run_for_epochs: 30  # Run for at most 20 epochs
+    initial_patience: 2 # Run for at least 2 epochs without decreasing the learning rate
+    patience: 1         # After there is no improvement for 1 epoch, decrease the learning rate
+    lr_decay: 0.5       # Decay the learning rate by half whenever there is no improvement
+    lr_decay_times: 2   # If there is still no improvement after decreasing the learning rate 2 times in a row, stop training
+    trainer: !AdamTrainer
+      alpha: 0.001
+    batcher: !WordSrcBatcher
+      avg_batch_size: 64
+    src_file: '{EXP_DIR}/data/train.th'
+    trg_file: '{EXP_DIR}/data/train.en'
+    dev_tasks:
+      - !AccuracyEvalTask
+        eval_metrics: bleu,gleu
+        src_file: &dev_src '{EXP_DIR}/data/dev.th'
+        ref_file: &dev_trg '{EXP_DIR}/data/dev.en'
+        hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.en'
+      - !LossEvalTask
+        src_file: *dev_src
+        ref_file: *dev_trg
+  evaluate:
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: *dev_src
+      ref_file: *dev_trg
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.en'
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: &test_src '{EXP_DIR}/data/test.th'
+      ref_file: &test_trg '{EXP_DIR}/data/test.en'
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.test.en'
 ```
 
 ## Training
