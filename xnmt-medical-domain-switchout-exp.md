@@ -3723,11 +3723,16 @@ user	28m50.665s
 sys	0m2.945s
 ```
 
+အရင် run ခဲ့တဲ့ baseline (no switchout or data argumentation, syllable unit, my-en) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း...  
 
+```
+
+```
 
 ## Reference
 
 - SwitchOut Proposal အသေးစိတ်က ဒီစာတမ်းကို ဖတ်ကြည့်ပါ။ [https://arxiv.org/pdf/1808.07512.pdf](https://arxiv.org/pdf/1808.07512.pdf)
 - [Example SwitchOut Configuration File](https://xnmt.readthedocs.io/en/latest/experiment_config_files.html#switchout)
 - Transformer SwitchOut ကို ဒီ source နဲ့ run လို့ ရနိုင်တယ်။ [https://github.com/nsapru/SwitchOut](https://github.com/nsapru/SwitchOut) 
+- Baseline Running Log (no data argumentation for word and syllable units): [https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-medical-domain1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/xnmt-medical-domain1.md) 
 
