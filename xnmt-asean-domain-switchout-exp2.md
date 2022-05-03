@@ -1650,7 +1650,555 @@ asean.baseline.en-th          | BLEU4: 0.3370160624188604, 0.558852/0.383695/0.2
 ## Training for th-en, word unit (Baseline)
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline$ time xnmt --backend torch --gpu ./config.baseline.th-en-word.yaml | tee baseline.th-en.log1
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 21:47:39
+=> Running asean.baseline.th-en
+> Preprocessing
+> use randomly initialized neural network parameters for all components
+  neural network param count: 20659460
+> Training
+Starting to read ./data/train.th and ./data/train.en
+Done reading ./data/train.th and ./data/train.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 0.0512: train_loss/word=9.041227 (steps=23, words/sec=5411.19, time=0-00:00:04)
+[asean.baseline.th-en] Epoch 0.1028: train_loss/word=7.953733 (steps=46, words/sec=8096.36, time=0-00:00:05)
+[asean.baseline.th-en] Epoch 0.1529: train_loss/word=7.638606 (steps=70, words/sec=8097.83, time=0-00:00:06)
+[asean.baseline.th-en] Epoch 0.2036: train_loss/word=7.542161 (steps=91, words/sec=9138.26, time=0-00:00:07)
+[asean.baseline.th-en] Epoch 0.2540: train_loss/word=7.515797 (steps=113, words/sec=8402.10, time=0-00:00:08)
+[asean.baseline.th-en] Epoch 0.3052: train_loss/word=7.435911 (steps=136, words/sec=8487.40, time=0-00:00:09)
+[asean.baseline.th-en] Epoch 0.3559: train_loss/word=7.273364 (steps=160, words/sec=7434.36, time=0-00:00:10)
+[asean.baseline.th-en] Epoch 0.4092: train_loss/word=7.141827 (steps=186, words/sec=6772.83, time=0-00:00:11)
+[asean.baseline.th-en] Epoch 0.4601: train_loss/word=7.096162 (steps=210, words/sec=7947.94, time=0-00:00:12)
+[asean.baseline.th-en] Epoch 0.5125: train_loss/word=7.120195 (steps=236, words/sec=7389.68, time=0-00:00:13)
+[asean.baseline.th-en] Epoch 0.5632: train_loss/word=6.901426 (steps=259, words/sec=8532.19, time=0-00:00:14)
+[asean.baseline.th-en] Epoch 0.6154: train_loss/word=6.828043 (steps=285, words/sec=7386.84, time=0-00:00:16)
+[asean.baseline.th-en] Epoch 0.6656: train_loss/word=6.878164 (steps=309, words/sec=7883.72, time=0-00:00:17)
+[asean.baseline.th-en] Epoch 0.7171: train_loss/word=6.716918 (steps=333, words/sec=8011.66, time=0-00:00:18)
+[asean.baseline.th-en] Epoch 0.7681: train_loss/word=6.608228 (steps=354, words/sec=9009.36, time=0-00:00:18)
+[asean.baseline.th-en] Epoch 0.8194: train_loss/word=6.539059 (steps=377, words/sec=8468.60, time=0-00:00:19)
+[asean.baseline.th-en] Epoch 0.8702: train_loss/word=6.590628 (steps=400, words/sec=8464.24, time=0-00:00:20)
+[asean.baseline.th-en] Epoch 0.9205: train_loss/word=6.441869 (steps=422, words/sec=9095.89, time=0-00:00:21)
+[asean.baseline.th-en] Epoch 0.9707: train_loss/word=6.282051 (steps=443, words/sec=9126.34, time=0-00:00:22)
+[asean.baseline.th-en] Epoch 1.0000: train_loss/word=6.456410 (steps=456, words/sec=8058.90, time=0-00:00:23)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 1.0000 dev BLEU4: 0.005577474375100524, 0.051017/0.011849/0.003208/0.000499 (BP = 1.000000, ratio=2.90, hyp_len=21032, ref_len=7245) (time=0-00:01:48)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.017076
+[asean.baseline.th-en]              dev auxiliary Loss: 6.307 (ref_len=7245)
+             checkpoint took 0-00:01:25
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 1.0010: train_loss/word=6.947172 (steps=457, words/sec=4964.82, time=0-00:02:06)
+[asean.baseline.th-en] Epoch 1.0527: train_loss/word=6.269581 (steps=481, words/sec=7310.43, time=0-00:02:08)
+[asean.baseline.th-en] Epoch 1.1030: train_loss/word=6.092869 (steps=502, words/sec=8979.33, time=0-00:02:08)
+[asean.baseline.th-en] Epoch 1.1546: train_loss/word=6.089249 (steps=525, words/sec=8254.48, time=0-00:02:09)
+[asean.baseline.th-en] Epoch 1.2076: train_loss/word=6.074701 (steps=551, words/sec=7642.11, time=0-00:02:11)
+[asean.baseline.th-en] Epoch 1.2579: train_loss/word=6.057353 (steps=574, words/sec=8150.91, time=0-00:02:12)
+[asean.baseline.th-en] Epoch 1.3092: train_loss/word=6.104577 (steps=598, words/sec=7648.54, time=0-00:02:13)
+[asean.baseline.th-en] Epoch 1.3602: train_loss/word=5.910841 (steps=620, words/sec=9090.77, time=0-00:02:14)
+[asean.baseline.th-en] Epoch 1.4109: train_loss/word=5.912568 (steps=643, words/sec=8074.81, time=0-00:02:15)
+[asean.baseline.th-en] Epoch 1.4615: train_loss/word=5.778236 (steps=665, words/sec=8704.33, time=0-00:02:15)
+[asean.baseline.th-en] Epoch 1.5124: train_loss/word=5.817820 (steps=688, words/sec=7982.90, time=0-00:02:16)
+[asean.baseline.th-en] Epoch 1.5641: train_loss/word=5.900090 (steps=712, words/sec=7957.27, time=0-00:02:17)
+[asean.baseline.th-en] Epoch 1.6142: train_loss/word=5.906331 (steps=736, words/sec=6961.85, time=0-00:02:19)
+[asean.baseline.th-en] Epoch 1.6672: train_loss/word=5.794959 (steps=760, words/sec=8273.57, time=0-00:02:20)
+[asean.baseline.th-en] Epoch 1.7179: train_loss/word=5.714368 (steps=782, words/sec=7963.21, time=0-00:02:20)
+[asean.baseline.th-en] Epoch 1.7681: train_loss/word=5.744250 (steps=806, words/sec=8413.02, time=0-00:02:21)
+[asean.baseline.th-en] Epoch 1.8185: train_loss/word=5.714598 (steps=829, words/sec=8324.84, time=0-00:02:22)
+[asean.baseline.th-en] Epoch 1.8688: train_loss/word=5.650063 (steps=852, words/sec=8324.13, time=0-00:02:23)
+[asean.baseline.th-en] Epoch 1.9191: train_loss/word=5.922932 (steps=877, words/sec=6864.79, time=0-00:02:25)
+[asean.baseline.th-en] Epoch 1.9707: train_loss/word=5.717003 (steps=900, words/sec=8124.01, time=0-00:02:26)
+[asean.baseline.th-en] Epoch 2.0000: train_loss/word=5.558463 (steps=913, words/sec=9127.20, time=0-00:02:26)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 2.0000 dev BLEU4: 0.03388102268083235, 0.201654/0.063040/0.021280/0.004871 (BP = 1.000000, ratio=1.10, hyp_len=7979, ref_len=7245) (time=0-00:03:02)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.074845
+[asean.baseline.th-en]              dev auxiliary Loss: 5.689 (ref_len=7245)
+             checkpoint took 0-00:00:35
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 2.0021: train_loss/word=5.881651 (steps=914, words/sec=5599.05, time=0-00:03:08)
+[asean.baseline.th-en] Epoch 2.0533: train_loss/word=5.503037 (steps=939, words/sec=7191.35, time=0-00:03:09)
+[asean.baseline.th-en] Epoch 2.1041: train_loss/word=5.407206 (steps=963, words/sec=7437.45, time=0-00:03:10)
+[asean.baseline.th-en] Epoch 2.1565: train_loss/word=5.345283 (steps=986, words/sec=8696.61, time=0-00:03:11)
+[asean.baseline.th-en] Epoch 2.2075: train_loss/word=5.234749 (steps=1010, words/sec=7955.26, time=0-00:03:12)
+[asean.baseline.th-en] Epoch 2.2582: train_loss/word=5.320360 (steps=1035, words/sec=6910.01, time=0-00:03:13)
+[asean.baseline.th-en] Epoch 2.3098: train_loss/word=5.188320 (steps=1059, words/sec=7420.80, time=0-00:03:14)
+[asean.baseline.th-en] Epoch 2.3612: train_loss/word=5.082039 (steps=1080, words/sec=9303.72, time=0-00:03:15)
+[asean.baseline.th-en] Epoch 2.4114: train_loss/word=5.133915 (steps=1102, words/sec=7914.60, time=0-00:03:16)
+[asean.baseline.th-en] Epoch 2.4626: train_loss/word=5.365956 (steps=1124, words/sec=8412.92, time=0-00:03:17)
+[asean.baseline.th-en] Epoch 2.5136: train_loss/word=5.272347 (steps=1148, words/sec=8148.30, time=0-00:03:18)
+[asean.baseline.th-en] Epoch 2.5645: train_loss/word=5.266895 (steps=1171, words/sec=8018.79, time=0-00:03:19)
+[asean.baseline.th-en] Epoch 2.6152: train_loss/word=5.207582 (steps=1196, words/sec=7059.82, time=0-00:03:20)
+[asean.baseline.th-en] Epoch 2.6663: train_loss/word=5.028013 (steps=1219, words/sec=8612.95, time=0-00:03:21)
+[asean.baseline.th-en] Epoch 2.7182: train_loss/word=5.103695 (steps=1244, words/sec=7393.55, time=0-00:03:22)
+[asean.baseline.th-en] Epoch 2.7693: train_loss/word=5.180906 (steps=1268, words/sec=7481.88, time=0-00:03:23)
+[asean.baseline.th-en] Epoch 2.8209: train_loss/word=5.253600 (steps=1292, words/sec=7710.17, time=0-00:03:25)
+[asean.baseline.th-en] Epoch 2.8726: train_loss/word=4.982751 (steps=1314, words/sec=8084.74, time=0-00:03:25)
+[asean.baseline.th-en] Epoch 2.9233: train_loss/word=5.063516 (steps=1338, words/sec=8501.12, time=0-00:03:26)
+[asean.baseline.th-en] Epoch 2.9763: train_loss/word=5.038360 (steps=1362, words/sec=8128.99, time=0-00:03:28)
+[asean.baseline.th-en] Epoch 3.0000: train_loss/word=5.095595 (steps=1374, words/sec=7933.04, time=0-00:03:28)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 3.0000 dev BLEU4: 0.06436098606122566, 0.264441/0.095596/0.041879/0.016208 (BP = 1.000000, ratio=1.04, hyp_len=7548, ref_len=7245) (time=0-00:04:01)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.105449
+[asean.baseline.th-en]              dev auxiliary Loss: 5.362 (ref_len=7245)
+             checkpoint took 0-00:00:32
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 3.0026: train_loss/word=4.444925 (steps=1375, words/sec=10273.18, time=0-00:04:06)
+[asean.baseline.th-en] Epoch 3.0536: train_loss/word=4.663537 (steps=1399, words/sec=8198.69, time=0-00:04:07)
+[asean.baseline.th-en] Epoch 3.1038: train_loss/word=4.734108 (steps=1421, words/sec=8493.61, time=0-00:04:08)
+[asean.baseline.th-en] Epoch 3.1545: train_loss/word=4.714766 (steps=1444, words/sec=8334.18, time=0-00:04:09)
+[asean.baseline.th-en] Epoch 3.2061: train_loss/word=4.832736 (steps=1468, words/sec=7981.74, time=0-00:04:10)
+[asean.baseline.th-en] Epoch 3.2564: train_loss/word=4.719988 (steps=1493, words/sec=8494.87, time=0-00:04:11)
+[asean.baseline.th-en] Epoch 3.3067: train_loss/word=4.573088 (steps=1516, words/sec=7938.25, time=0-00:04:12)
+[asean.baseline.th-en] Epoch 3.3576: train_loss/word=4.643589 (steps=1539, words/sec=7564.22, time=0-00:04:13)
+[asean.baseline.th-en] Epoch 3.4099: train_loss/word=4.704369 (steps=1564, words/sec=8068.46, time=0-00:04:14)
+[asean.baseline.th-en] Epoch 3.4613: train_loss/word=4.550186 (steps=1588, words/sec=7822.89, time=0-00:04:15)
+[asean.baseline.th-en] Epoch 3.5126: train_loss/word=4.520438 (steps=1610, words/sec=8876.38, time=0-00:04:16)
+[asean.baseline.th-en] Epoch 3.5652: train_loss/word=4.677894 (steps=1633, words/sec=8468.76, time=0-00:04:17)
+[asean.baseline.th-en] Epoch 3.6160: train_loss/word=4.672296 (steps=1656, words/sec=8200.22, time=0-00:04:18)
+[asean.baseline.th-en] Epoch 3.6681: train_loss/word=4.634925 (steps=1678, words/sec=9207.60, time=0-00:04:19)
+[asean.baseline.th-en] Epoch 3.7192: train_loss/word=4.758535 (steps=1702, words/sec=7921.59, time=0-00:04:20)
+[asean.baseline.th-en] Epoch 3.7701: train_loss/word=4.590686 (steps=1725, words/sec=8557.09, time=0-00:04:21)
+[asean.baseline.th-en] Epoch 3.8208: train_loss/word=4.613171 (steps=1748, words/sec=8894.81, time=0-00:04:22)
+[asean.baseline.th-en] Epoch 3.8715: train_loss/word=4.544312 (steps=1770, words/sec=8296.68, time=0-00:04:23)
+[asean.baseline.th-en] Epoch 3.9220: train_loss/word=4.741644 (steps=1796, words/sec=6637.05, time=0-00:04:24)
+[asean.baseline.th-en] Epoch 3.9721: train_loss/word=4.641303 (steps=1819, words/sec=8433.28, time=0-00:04:25)
+[asean.baseline.th-en] Epoch 4.0000: train_loss/word=4.829526 (steps=1833, words/sec=7388.71, time=0-00:04:26)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 4.0000 dev BLEU4: 0.09451787497260426, 0.295704/0.129175/0.065328/0.031983 (BP = 1.000000, ratio=1.02, hyp_len=7379, ref_len=7245) (time=0-00:04:56)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.127802
+[asean.baseline.th-en]              dev auxiliary Loss: 5.121 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 4.0024: train_loss/word=3.779757 (steps=1834, words/sec=6131.60, time=0-00:05:02)
+[asean.baseline.th-en] Epoch 4.0527: train_loss/word=4.092020 (steps=1857, words/sec=8806.50, time=0-00:05:03)
+[asean.baseline.th-en] Epoch 4.1041: train_loss/word=4.052028 (steps=1880, words/sec=8355.80, time=0-00:05:04)
+[asean.baseline.th-en] Epoch 4.1548: train_loss/word=4.183057 (steps=1902, words/sec=8202.61, time=0-00:05:05)
+[asean.baseline.th-en] Epoch 4.2073: train_loss/word=4.136158 (steps=1926, words/sec=7781.14, time=0-00:05:06)
+[asean.baseline.th-en] Epoch 4.2583: train_loss/word=4.371499 (steps=1950, words/sec=7468.92, time=0-00:05:07)
+[asean.baseline.th-en] Epoch 4.3094: train_loss/word=4.319290 (steps=1974, words/sec=8306.87, time=0-00:05:08)
+[asean.baseline.th-en] Epoch 4.3599: train_loss/word=4.132676 (steps=1997, words/sec=7992.22, time=0-00:05:09)
+[asean.baseline.th-en] Epoch 4.4120: train_loss/word=4.231389 (steps=2021, words/sec=8796.14, time=0-00:05:10)
+[asean.baseline.th-en] Epoch 4.4622: train_loss/word=4.315262 (steps=2044, words/sec=8490.54, time=0-00:05:11)
+[asean.baseline.th-en] Epoch 4.5135: train_loss/word=4.278158 (steps=2066, words/sec=8106.34, time=0-00:05:12)
+[asean.baseline.th-en] Epoch 4.5652: train_loss/word=4.168122 (steps=2088, words/sec=8658.41, time=0-00:05:13)
+[asean.baseline.th-en] Epoch 4.6155: train_loss/word=4.205282 (steps=2111, words/sec=8034.00, time=0-00:05:14)
+[asean.baseline.th-en] Epoch 4.6660: train_loss/word=4.280810 (steps=2135, words/sec=8243.25, time=0-00:05:15)
+[asean.baseline.th-en] Epoch 4.7170: train_loss/word=4.059815 (steps=2156, words/sec=10000.33, time=0-00:05:16)
+[asean.baseline.th-en] Epoch 4.7676: train_loss/word=4.213059 (steps=2180, words/sec=8194.03, time=0-00:05:17)
+[asean.baseline.th-en] Epoch 4.8177: train_loss/word=4.258697 (steps=2203, words/sec=8175.98, time=0-00:05:18)
+[asean.baseline.th-en] Epoch 4.8692: train_loss/word=4.263851 (steps=2227, words/sec=8435.33, time=0-00:05:19)
+[asean.baseline.th-en] Epoch 4.9194: train_loss/word=4.229970 (steps=2251, words/sec=8125.45, time=0-00:05:20)
+[asean.baseline.th-en] Epoch 4.9696: train_loss/word=4.244958 (steps=2276, words/sec=6884.22, time=0-00:05:21)
+[asean.baseline.th-en] Epoch 5.0000: train_loss/word=4.143152 (steps=2291, words/sec=8057.15, time=0-00:05:21)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 5.0000 dev BLEU4: 0.11853608290801357, 0.339836/0.160887/0.084510/0.042727 (BP = 1.000000, ratio=1.03, hyp_len=7433, ref_len=7245) (time=0-00:05:54)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.155772
+[asean.baseline.th-en]              dev auxiliary Loss: 4.969 (ref_len=7245)
+             checkpoint took 0-00:00:32
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 5.0014: train_loss/word=4.148327 (steps=2292, words/sec=7135.79, time=0-00:06:00)
+[asean.baseline.th-en] Epoch 5.0530: train_loss/word=3.751101 (steps=2314, words/sec=7243.57, time=0-00:06:01)
+[asean.baseline.th-en] Epoch 5.1056: train_loss/word=3.829542 (steps=2337, words/sec=7707.91, time=0-00:06:02)
+[asean.baseline.th-en] Epoch 5.1574: train_loss/word=3.674336 (steps=2360, words/sec=8742.00, time=0-00:06:03)
+[asean.baseline.th-en] Epoch 5.2096: train_loss/word=3.697292 (steps=2381, words/sec=8663.88, time=0-00:06:04)
+[asean.baseline.th-en] Epoch 5.2604: train_loss/word=3.777280 (steps=2404, words/sec=8223.49, time=0-00:06:05)
+[asean.baseline.th-en] Epoch 5.3121: train_loss/word=3.764286 (steps=2426, words/sec=9012.93, time=0-00:06:06)
+[asean.baseline.th-en] Epoch 5.3632: train_loss/word=3.794981 (steps=2449, words/sec=7172.56, time=0-00:06:07)
+[asean.baseline.th-en] Epoch 5.4151: train_loss/word=3.820177 (steps=2472, words/sec=8323.29, time=0-00:06:08)
+[asean.baseline.th-en] Epoch 5.4657: train_loss/word=3.966784 (steps=2497, words/sec=6005.51, time=0-00:06:09)
+[asean.baseline.th-en] Epoch 5.5173: train_loss/word=3.935305 (steps=2522, words/sec=6691.51, time=0-00:06:11)
+[asean.baseline.th-en] Epoch 5.5673: train_loss/word=3.913813 (steps=2546, words/sec=7607.03, time=0-00:06:12)
+[asean.baseline.th-en] Epoch 5.6184: train_loss/word=3.826214 (steps=2570, words/sec=8010.76, time=0-00:06:13)
+[asean.baseline.th-en] Epoch 5.6695: train_loss/word=3.840251 (steps=2595, words/sec=7672.53, time=0-00:06:14)
+[asean.baseline.th-en] Epoch 5.7200: train_loss/word=3.846579 (steps=2619, words/sec=8252.13, time=0-00:06:15)
+[asean.baseline.th-en] Epoch 5.7707: train_loss/word=3.941512 (steps=2644, words/sec=6640.70, time=0-00:06:16)
+[asean.baseline.th-en] Epoch 5.8207: train_loss/word=3.787543 (steps=2666, words/sec=8696.63, time=0-00:06:17)
+[asean.baseline.th-en] Epoch 5.8724: train_loss/word=3.800063 (steps=2690, words/sec=7492.82, time=0-00:06:18)
+[asean.baseline.th-en] Epoch 5.9244: train_loss/word=3.758392 (steps=2714, words/sec=8771.13, time=0-00:06:19)
+[asean.baseline.th-en] Epoch 5.9764: train_loss/word=3.805974 (steps=2738, words/sec=8176.90, time=0-00:06:20)
+[asean.baseline.th-en] Epoch 6.0000: train_loss/word=4.062088 (steps=2749, words/sec=7347.38, time=0-00:06:21)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 6.0000 dev BLEU4: 0.14834767720117115, 0.382133/0.206075/0.120500/0.070939 (BP = 0.920984, ratio=0.92, hyp_len=6694, ref_len=7245) (time=0-00:06:50)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.182048
+[asean.baseline.th-en]              dev auxiliary Loss: 4.896 (ref_len=7245)
+             checkpoint took 0-00:00:29
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 6.0023: train_loss/word=3.303079 (steps=2750, words/sec=9474.32, time=0-00:06:56)
+[asean.baseline.th-en] Epoch 6.0524: train_loss/word=3.359694 (steps=2771, words/sec=8696.37, time=0-00:06:57)
+[asean.baseline.th-en] Epoch 6.1031: train_loss/word=3.414367 (steps=2795, words/sec=7614.60, time=0-00:06:58)
+[asean.baseline.th-en] Epoch 6.1533: train_loss/word=3.445125 (steps=2816, words/sec=9009.72, time=0-00:06:59)
+[asean.baseline.th-en] Epoch 6.2039: train_loss/word=3.537024 (steps=2839, words/sec=7935.07, time=0-00:07:00)
+[asean.baseline.th-en] Epoch 6.2549: train_loss/word=3.479910 (steps=2862, words/sec=7858.12, time=0-00:07:01)
+[asean.baseline.th-en] Epoch 6.3055: train_loss/word=3.513387 (steps=2887, words/sec=7540.81, time=0-00:07:02)
+[asean.baseline.th-en] Epoch 6.3557: train_loss/word=3.600177 (steps=2912, words/sec=7243.36, time=0-00:07:03)
+[asean.baseline.th-en] Epoch 6.4057: train_loss/word=3.448319 (steps=2933, words/sec=8862.83, time=0-00:07:04)
+[asean.baseline.th-en] Epoch 6.4568: train_loss/word=3.555642 (steps=2957, words/sec=7293.55, time=0-00:07:05)
+[asean.baseline.th-en] Epoch 6.5069: train_loss/word=3.478140 (steps=2979, words/sec=8747.28, time=0-00:07:06)
+[asean.baseline.th-en] Epoch 6.5587: train_loss/word=3.536165 (steps=3004, words/sec=8071.44, time=0-00:07:07)
+[asean.baseline.th-en] Epoch 6.6092: train_loss/word=3.664846 (steps=3030, words/sec=7158.15, time=0-00:07:08)
+[asean.baseline.th-en] Epoch 6.6592: train_loss/word=3.562300 (steps=3052, words/sec=7925.65, time=0-00:07:09)
+[asean.baseline.th-en] Epoch 6.7107: train_loss/word=3.535093 (steps=3077, words/sec=7938.32, time=0-00:07:10)
+[asean.baseline.th-en] Epoch 6.7614: train_loss/word=3.415891 (steps=3099, words/sec=8512.57, time=0-00:07:11)
+[asean.baseline.th-en] Epoch 6.8141: train_loss/word=3.426424 (steps=3122, words/sec=8799.59, time=0-00:07:12)
+[asean.baseline.th-en] Epoch 6.8652: train_loss/word=3.543475 (steps=3147, words/sec=7498.12, time=0-00:07:13)
+[asean.baseline.th-en] Epoch 6.9159: train_loss/word=3.563559 (steps=3172, words/sec=7260.84, time=0-00:07:14)
+[asean.baseline.th-en] Epoch 6.9663: train_loss/word=3.455181 (steps=3195, words/sec=8125.53, time=0-00:07:15)
+[asean.baseline.th-en] Epoch 7.0000: train_loss/word=3.450608 (steps=3210, words/sec=8844.26, time=0-00:07:16)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 7.0000 dev BLEU4: 0.16272978621611944, 0.382128/0.213823/0.128426/0.074645 (BP = 0.972719, ratio=0.97, hyp_len=7050, ref_len=7245) (time=0-00:07:45)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.189521
+[asean.baseline.th-en]              dev auxiliary Loss: 4.841 (ref_len=7245)
+             checkpoint took 0-00:00:28
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 7.0014: train_loss/word=3.431657 (steps=3211, words/sec=6826.18, time=0-00:07:50)
+[asean.baseline.th-en] Epoch 7.0535: train_loss/word=3.198862 (steps=3235, words/sec=8147.38, time=0-00:07:52)
+[asean.baseline.th-en] Epoch 7.1036: train_loss/word=3.170818 (steps=3259, words/sec=8102.76, time=0-00:07:53)
+[asean.baseline.th-en] Epoch 7.1564: train_loss/word=3.120068 (steps=3283, words/sec=8165.70, time=0-00:07:54)
+[asean.baseline.th-en] Epoch 7.2070: train_loss/word=3.224556 (steps=3308, words/sec=7997.47, time=0-00:07:55)
+[asean.baseline.th-en] Epoch 7.2571: train_loss/word=3.219106 (steps=3330, words/sec=8438.94, time=0-00:07:56)
+[asean.baseline.th-en] Epoch 7.3071: train_loss/word=3.256043 (steps=3351, words/sec=9099.68, time=0-00:07:56)
+[asean.baseline.th-en] Epoch 7.3592: train_loss/word=3.271427 (steps=3375, words/sec=7697.22, time=0-00:07:57)
+[asean.baseline.th-en] Epoch 7.4093: train_loss/word=3.264398 (steps=3397, words/sec=7987.74, time=0-00:07:58)
+[asean.baseline.th-en] Epoch 7.4611: train_loss/word=3.136769 (steps=3419, words/sec=8724.26, time=0-00:07:59)
+[asean.baseline.th-en] Epoch 7.5117: train_loss/word=3.254409 (steps=3444, words/sec=7411.63, time=0-00:08:00)
+[asean.baseline.th-en] Epoch 7.5639: train_loss/word=3.271853 (steps=3468, words/sec=9022.10, time=0-00:08:01)
+[asean.baseline.th-en] Epoch 7.6144: train_loss/word=3.261904 (steps=3492, words/sec=7821.66, time=0-00:08:03)
+[asean.baseline.th-en] Epoch 7.6657: train_loss/word=3.262435 (steps=3515, words/sec=8539.08, time=0-00:08:04)
+[asean.baseline.th-en] Epoch 7.7168: train_loss/word=3.290557 (steps=3537, words/sec=8125.66, time=0-00:08:04)
+[asean.baseline.th-en] Epoch 7.7699: train_loss/word=3.127153 (steps=3561, words/sec=7724.74, time=0-00:08:05)
+[asean.baseline.th-en] Epoch 7.8215: train_loss/word=3.286835 (steps=3586, words/sec=7671.16, time=0-00:08:07)
+[asean.baseline.th-en] Epoch 7.8738: train_loss/word=3.234504 (steps=3609, words/sec=7888.59, time=0-00:08:08)
+[asean.baseline.th-en] Epoch 7.9254: train_loss/word=3.386453 (steps=3634, words/sec=7196.16, time=0-00:08:09)
+[asean.baseline.th-en] Epoch 7.9765: train_loss/word=3.100096 (steps=3656, words/sec=8324.42, time=0-00:08:10)
+[asean.baseline.th-en] Epoch 8.0000: train_loss/word=3.228174 (steps=3667, words/sec=7253.81, time=0-00:08:10)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 8.0000 dev BLEU4: 0.18267419161525147, 0.396977/0.226489/0.141150/0.087743 (BP = 1.000000, ratio=1.02, hyp_len=7411, ref_len=7245) (time=0-00:08:42)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.206835
+[asean.baseline.th-en]              dev auxiliary Loss: 4.811 (ref_len=7245)
+             checkpoint took 0-00:00:31
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 8.0032: train_loss/word=2.542059 (steps=3668, words/sec=13443.78, time=0-00:08:47)
+[asean.baseline.th-en] Epoch 8.0559: train_loss/word=2.945627 (steps=3693, words/sec=7872.24, time=0-00:08:48)
+[asean.baseline.th-en] Epoch 8.1066: train_loss/word=2.914568 (steps=3716, words/sec=8524.31, time=0-00:08:49)
+[asean.baseline.th-en] Epoch 8.1577: train_loss/word=3.008690 (steps=3740, words/sec=8470.47, time=0-00:08:50)
+[asean.baseline.th-en] Epoch 8.2090: train_loss/word=2.957009 (steps=3764, words/sec=8102.46, time=0-00:08:51)
+[asean.baseline.th-en] Epoch 8.2595: train_loss/word=2.896986 (steps=3785, words/sec=9421.13, time=0-00:08:52)
+[asean.baseline.th-en] Epoch 8.3100: train_loss/word=2.899988 (steps=3805, words/sec=9438.76, time=0-00:08:53)
+[asean.baseline.th-en] Epoch 8.3604: train_loss/word=2.939803 (steps=3826, words/sec=9235.39, time=0-00:08:54)
+[asean.baseline.th-en] Epoch 8.4109: train_loss/word=3.054926 (steps=3849, words/sec=7770.50, time=0-00:08:55)
+[asean.baseline.th-en] Epoch 8.4619: train_loss/word=2.976986 (steps=3871, words/sec=8471.41, time=0-00:08:56)
+[asean.baseline.th-en] Epoch 8.5142: train_loss/word=2.993556 (steps=3895, words/sec=7864.94, time=0-00:08:57)
+[asean.baseline.th-en] Epoch 8.5665: train_loss/word=3.084859 (steps=3919, words/sec=7906.12, time=0-00:08:58)
+[asean.baseline.th-en] Epoch 8.6165: train_loss/word=3.052888 (steps=3941, words/sec=7479.54, time=0-00:08:59)
+[asean.baseline.th-en] Epoch 8.6683: train_loss/word=3.025706 (steps=3966, words/sec=7422.26, time=0-00:09:00)
+[asean.baseline.th-en] Epoch 8.7193: train_loss/word=2.988459 (steps=3990, words/sec=7550.88, time=0-00:09:01)
+[asean.baseline.th-en] Epoch 8.7700: train_loss/word=3.021496 (steps=4012, words/sec=8254.14, time=0-00:09:02)
+[asean.baseline.th-en] Epoch 8.8204: train_loss/word=3.040261 (steps=4037, words/sec=7469.55, time=0-00:09:03)
+[asean.baseline.th-en] Epoch 8.8719: train_loss/word=3.129501 (steps=4064, words/sec=6679.02, time=0-00:09:05)
+[asean.baseline.th-en] Epoch 8.9243: train_loss/word=3.069324 (steps=4089, words/sec=7478.10, time=0-00:09:06)
+[asean.baseline.th-en] Epoch 8.9761: train_loss/word=3.084829 (steps=4113, words/sec=7433.63, time=0-00:09:07)
+[asean.baseline.th-en] Epoch 9.0000: train_loss/word=3.116741 (steps=4124, words/sec=6861.46, time=0-00:09:07)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 9.0000 dev BLEU4: 0.19693601662584975, 0.410570/0.240486/0.155420/0.098021 (BP = 1.000000, ratio=1.01, hyp_len=7285, ref_len=7245) (time=0-00:09:38)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.217916
+[asean.baseline.th-en]              dev auxiliary Loss: 4.819 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 9.0024: train_loss/word=2.476194 (steps=4125, words/sec=6425.17, time=0-00:09:44)
+[asean.baseline.th-en] Epoch 9.0529: train_loss/word=2.687529 (steps=4148, words/sec=8126.83, time=0-00:09:45)
+[asean.baseline.th-en] Epoch 9.1035: train_loss/word=2.727327 (steps=4170, words/sec=8332.95, time=0-00:09:46)
+[asean.baseline.th-en] Epoch 9.1559: train_loss/word=2.770746 (steps=4194, words/sec=7613.62, time=0-00:09:47)
+[asean.baseline.th-en] Epoch 9.2088: train_loss/word=2.865746 (steps=4221, words/sec=6936.38, time=0-00:09:48)
+[asean.baseline.th-en] Epoch 9.2599: train_loss/word=2.734385 (steps=4243, words/sec=7122.36, time=0-00:09:49)
+[asean.baseline.th-en] Epoch 9.3102: train_loss/word=2.813257 (steps=4266, words/sec=8079.48, time=0-00:09:50)
+[asean.baseline.th-en] Epoch 9.3620: train_loss/word=2.764535 (steps=4288, words/sec=8265.30, time=0-00:09:51)
+[asean.baseline.th-en] Epoch 9.4121: train_loss/word=2.714036 (steps=4310, words/sec=8225.74, time=0-00:09:52)
+[asean.baseline.th-en] Epoch 9.4633: train_loss/word=2.765714 (steps=4334, words/sec=7657.57, time=0-00:09:53)
+[asean.baseline.th-en] Epoch 9.5151: train_loss/word=2.801743 (steps=4358, words/sec=7825.90, time=0-00:09:54)
+[asean.baseline.th-en] Epoch 9.5668: train_loss/word=2.924844 (steps=4383, words/sec=7437.78, time=0-00:09:55)
+[asean.baseline.th-en] Epoch 9.6175: train_loss/word=2.878647 (steps=4408, words/sec=6792.08, time=0-00:09:56)
+[asean.baseline.th-en] Epoch 9.6694: train_loss/word=2.887109 (steps=4433, words/sec=7180.96, time=0-00:09:57)
+[asean.baseline.th-en] Epoch 9.7210: train_loss/word=2.924191 (steps=4456, words/sec=7437.52, time=0-00:09:58)
+[asean.baseline.th-en] Epoch 9.7730: train_loss/word=2.867396 (steps=4479, words/sec=7403.56, time=0-00:10:00)
+[asean.baseline.th-en] Epoch 9.8248: train_loss/word=2.825841 (steps=4502, words/sec=8216.27, time=0-00:10:00)
+[asean.baseline.th-en] Epoch 9.8775: train_loss/word=2.946462 (steps=4529, words/sec=7051.76, time=0-00:10:02)
+[asean.baseline.th-en] Epoch 9.9276: train_loss/word=2.851420 (steps=4552, words/sec=7705.05, time=0-00:10:03)
+[asean.baseline.th-en] Epoch 9.9778: train_loss/word=2.844691 (steps=4575, words/sec=7458.36, time=0-00:10:04)
+[asean.baseline.th-en] Epoch 10.0000: train_loss/word=2.937100 (steps=4586, words/sec=7685.98, time=0-00:10:04)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 10.0000 dev BLEU4: 0.20822462540438078, 0.443197/0.268280/0.174719/0.113475 (BP = 0.944987, ratio=0.95, hyp_len=6857, ref_len=7245) (time=0-00:10:33)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.235108
+[asean.baseline.th-en]              dev auxiliary Loss: 4.802 (ref_len=7245)
+             checkpoint took 0-00:00:29
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 10.0032: train_loss/word=2.357811 (steps=4587, words/sec=12687.81, time=0-00:10:39)
+[asean.baseline.th-en] Epoch 10.0548: train_loss/word=2.596948 (steps=4611, words/sec=7447.51, time=0-00:10:40)
+[asean.baseline.th-en] Epoch 10.1050: train_loss/word=2.577026 (steps=4635, words/sec=7439.03, time=0-00:10:41)
+[asean.baseline.th-en] Epoch 10.1565: train_loss/word=2.582916 (steps=4658, words/sec=8178.05, time=0-00:10:42)
+[asean.baseline.th-en] Epoch 10.2067: train_loss/word=2.646761 (steps=4683, words/sec=6639.54, time=0-00:10:44)
+[asean.baseline.th-en] Epoch 10.2572: train_loss/word=2.562920 (steps=4705, words/sec=7385.33, time=0-00:10:45)
+[asean.baseline.th-en] Epoch 10.3074: train_loss/word=2.622322 (steps=4726, words/sec=8271.75, time=0-00:10:46)
+[asean.baseline.th-en] Epoch 10.3587: train_loss/word=2.638344 (steps=4750, words/sec=7161.07, time=0-00:10:47)
+[asean.baseline.th-en] Epoch 10.4090: train_loss/word=2.587846 (steps=4772, words/sec=8514.48, time=0-00:10:48)
+[asean.baseline.th-en] Epoch 10.4606: train_loss/word=2.632249 (steps=4795, words/sec=7420.35, time=0-00:10:49)
+[asean.baseline.th-en] Epoch 10.5131: train_loss/word=2.585244 (steps=4817, words/sec=9124.67, time=0-00:10:49)
+[asean.baseline.th-en] Epoch 10.5632: train_loss/word=2.663360 (steps=4841, words/sec=7667.09, time=0-00:10:50)
+[asean.baseline.th-en] Epoch 10.6150: train_loss/word=2.751987 (steps=4866, words/sec=7432.72, time=0-00:10:52)
+[asean.baseline.th-en] Epoch 10.6665: train_loss/word=2.638160 (steps=4890, words/sec=8440.94, time=0-00:10:53)
+[asean.baseline.th-en] Epoch 10.7180: train_loss/word=2.748802 (steps=4911, words/sec=8329.41, time=0-00:10:53)
+[asean.baseline.th-en] Epoch 10.7702: train_loss/word=2.601980 (steps=4933, words/sec=8787.40, time=0-00:10:54)
+[asean.baseline.th-en] Epoch 10.8205: train_loss/word=2.745955 (steps=4958, words/sec=7482.33, time=0-00:10:56)
+[asean.baseline.th-en] Epoch 10.8715: train_loss/word=2.771869 (steps=4982, words/sec=7790.23, time=0-00:10:57)
+[asean.baseline.th-en] Epoch 10.9217: train_loss/word=2.755154 (steps=5006, words/sec=7308.35, time=0-00:10:58)
+[asean.baseline.th-en] Epoch 10.9727: train_loss/word=2.793320 (steps=5032, words/sec=7671.16, time=0-00:10:59)
+[asean.baseline.th-en] Epoch 11.0000: train_loss/word=2.748086 (steps=5045, words/sec=6387.70, time=0-00:11:00)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 11.0000 dev BLEU4: 0.21876016315403943, 0.431400/0.266010/0.178642/0.119774 (BP = 0.982737, ratio=0.98, hyp_len=7121, ref_len=7245) (time=0-00:11:30)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.236566
+[asean.baseline.th-en]              dev auxiliary Loss: 4.814 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 11.0017: train_loss/word=2.594304 (steps=5046, words/sec=3075.21, time=0-00:11:36)
+[asean.baseline.th-en] Epoch 11.0549: train_loss/word=2.503479 (steps=5072, words/sec=7454.86, time=0-00:11:37)
+[asean.baseline.th-en] Epoch 11.1069: train_loss/word=2.452836 (steps=5097, words/sec=8113.37, time=0-00:11:38)
+[asean.baseline.th-en] Epoch 11.1584: train_loss/word=2.546053 (steps=5123, words/sec=6412.53, time=0-00:11:39)
+[asean.baseline.th-en] Epoch 11.2091: train_loss/word=2.494594 (steps=5145, words/sec=8969.60, time=0-00:11:40)
+[asean.baseline.th-en] Epoch 11.2598: train_loss/word=2.520964 (steps=5169, words/sec=8508.81, time=0-00:11:41)
+[asean.baseline.th-en] Epoch 11.3103: train_loss/word=2.501336 (steps=5191, words/sec=7879.35, time=0-00:11:42)
+[asean.baseline.th-en] Epoch 11.3612: train_loss/word=2.544917 (steps=5216, words/sec=8144.12, time=0-00:11:43)
+[asean.baseline.th-en] Epoch 11.4118: train_loss/word=2.507804 (steps=5237, words/sec=9260.20, time=0-00:11:44)
+[asean.baseline.th-en] Epoch 11.4619: train_loss/word=2.563574 (steps=5262, words/sec=7708.76, time=0-00:11:45)
+[asean.baseline.th-en] Epoch 11.5133: train_loss/word=2.473416 (steps=5284, words/sec=9219.83, time=0-00:11:46)
+[asean.baseline.th-en] Epoch 11.5654: train_loss/word=2.570512 (steps=5306, words/sec=8584.65, time=0-00:11:47)
+[asean.baseline.th-en] Epoch 11.6158: train_loss/word=2.569030 (steps=5328, words/sec=8483.04, time=0-00:11:48)
+[asean.baseline.th-en] Epoch 11.6663: train_loss/word=2.482757 (steps=5351, words/sec=8257.72, time=0-00:11:49)
+[asean.baseline.th-en] Epoch 11.7186: train_loss/word=2.566548 (steps=5374, words/sec=8355.61, time=0-00:11:50)
+[asean.baseline.th-en] Epoch 11.7696: train_loss/word=2.500223 (steps=5396, words/sec=8446.15, time=0-00:11:51)
+[asean.baseline.th-en] Epoch 11.8207: train_loss/word=2.521574 (steps=5420, words/sec=7371.38, time=0-00:11:52)
+[asean.baseline.th-en] Epoch 11.8718: train_loss/word=2.627492 (steps=5444, words/sec=7351.70, time=0-00:11:53)
+[asean.baseline.th-en] Epoch 11.9233: train_loss/word=2.546089 (steps=5466, words/sec=8643.32, time=0-00:11:54)
+[asean.baseline.th-en] Epoch 11.9739: train_loss/word=2.573671 (steps=5488, words/sec=8201.39, time=0-00:11:55)
+[asean.baseline.th-en] Epoch 12.0000: train_loss/word=2.597867 (steps=5501, words/sec=7308.12, time=0-00:11:55)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 12.0000 dev BLEU4: 0.23066215898063697, 0.456140/0.285714/0.196200/0.135465 (BP = 0.950795, ratio=0.95, hyp_len=6897, ref_len=7245) (time=0-00:12:25)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.251841
+[asean.baseline.th-en]              dev auxiliary Loss: 4.835 (ref_len=7245)
+             checkpoint took 0-00:00:29
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 12.0026: train_loss/word=2.350551 (steps=5502, words/sec=11179.10, time=0-00:12:30)
+[asean.baseline.th-en] Epoch 12.0527: train_loss/word=2.370951 (steps=5524, words/sec=8535.11, time=0-00:12:31)
+[asean.baseline.th-en] Epoch 12.1034: train_loss/word=2.326856 (steps=5548, words/sec=7939.51, time=0-00:12:32)
+[asean.baseline.th-en] Epoch 12.1549: train_loss/word=2.368505 (steps=5572, words/sec=8153.80, time=0-00:12:33)
+[asean.baseline.th-en] Epoch 12.2069: train_loss/word=2.335554 (steps=5595, words/sec=8625.47, time=0-00:12:34)
+[asean.baseline.th-en] Epoch 12.2588: train_loss/word=2.397421 (steps=5618, words/sec=6922.59, time=0-00:12:35)
+[asean.baseline.th-en] Epoch 12.3105: train_loss/word=2.504960 (steps=5647, words/sec=6427.38, time=0-00:12:37)
+[asean.baseline.th-en] Epoch 12.3607: train_loss/word=2.363204 (steps=5669, words/sec=8996.22, time=0-00:12:38)
+[asean.baseline.th-en] Epoch 12.4111: train_loss/word=2.370719 (steps=5690, words/sec=7816.15, time=0-00:12:39)
+[asean.baseline.th-en] Epoch 12.4613: train_loss/word=2.429609 (steps=5714, words/sec=7175.40, time=0-00:12:40)
+[asean.baseline.th-en] Epoch 12.5115: train_loss/word=2.459414 (steps=5738, words/sec=7568.78, time=0-00:12:41)
+[asean.baseline.th-en] Epoch 12.5623: train_loss/word=2.442217 (steps=5763, words/sec=8164.58, time=0-00:12:42)
+[asean.baseline.th-en] Epoch 12.6125: train_loss/word=2.456757 (steps=5785, words/sec=8516.67, time=0-00:12:43)
+[asean.baseline.th-en] Epoch 12.6643: train_loss/word=2.462696 (steps=5808, words/sec=8175.65, time=0-00:12:44)
+[asean.baseline.th-en] Epoch 12.7149: train_loss/word=2.445188 (steps=5832, words/sec=8684.83, time=0-00:12:45)
+[asean.baseline.th-en] Epoch 12.7664: train_loss/word=2.453983 (steps=5856, words/sec=6943.98, time=0-00:12:46)
+[asean.baseline.th-en] Epoch 12.8178: train_loss/word=2.408725 (steps=5879, words/sec=8360.96, time=0-00:12:47)
+[asean.baseline.th-en] Epoch 12.8688: train_loss/word=2.432749 (steps=5902, words/sec=8329.00, time=0-00:12:48)
+[asean.baseline.th-en] Epoch 12.9219: train_loss/word=2.406035 (steps=5923, words/sec=9437.15, time=0-00:12:49)
+[asean.baseline.th-en] Epoch 12.9724: train_loss/word=2.498211 (steps=5947, words/sec=7651.57, time=0-00:12:50)
+[asean.baseline.th-en] Epoch 13.0000: train_loss/word=2.445406 (steps=5958, words/sec=8870.16, time=0-00:12:50)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 13.0000 dev BLEU4: 0.2296280188066882, 0.444775/0.278977/0.190238/0.131336 (BP = 0.973145, ratio=0.97, hyp_len=7053, ref_len=7245) (time=0-00:13:20)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.247231
+[asean.baseline.th-en]              dev auxiliary Loss: 4.841 (ref_len=7245)
+             checkpoint took 0-00:00:29
+[asean.baseline.th-en] Epoch 13.0021: train_loss/word=2.163611 (steps=5959, words/sec=8698.09, time=0-00:13:20)
+[asean.baseline.th-en] Epoch 13.0524: train_loss/word=2.304956 (steps=5982, words/sec=6861.13, time=0-00:13:21)
+[asean.baseline.th-en] Epoch 13.1046: train_loss/word=2.294990 (steps=6006, words/sec=7289.34, time=0-00:13:22)
+[asean.baseline.th-en] Epoch 13.1550: train_loss/word=2.292314 (steps=6030, words/sec=7055.01, time=0-00:13:23)
+[asean.baseline.th-en] Epoch 13.2062: train_loss/word=2.300355 (steps=6055, words/sec=7071.31, time=0-00:13:25)
+[asean.baseline.th-en] Epoch 13.2570: train_loss/word=2.301955 (steps=6077, words/sec=8327.75, time=0-00:13:25)
+[asean.baseline.th-en] Epoch 13.3080: train_loss/word=2.262647 (steps=6099, words/sec=8382.51, time=0-00:13:26)
+[asean.baseline.th-en] Epoch 13.3594: train_loss/word=2.277821 (steps=6123, words/sec=8335.63, time=0-00:13:27)
+[asean.baseline.th-en] Epoch 13.4108: train_loss/word=2.304217 (steps=6147, words/sec=7521.17, time=0-00:13:28)
+[asean.baseline.th-en] Epoch 13.4614: train_loss/word=2.293683 (steps=6171, words/sec=8317.64, time=0-00:13:29)
+[asean.baseline.th-en] Epoch 13.5120: train_loss/word=2.368734 (steps=6195, words/sec=7757.00, time=0-00:13:31)
+[asean.baseline.th-en] Epoch 13.5638: train_loss/word=2.297416 (steps=6217, words/sec=8375.49, time=0-00:13:31)
+[asean.baseline.th-en] Epoch 13.6155: train_loss/word=2.322228 (steps=6240, words/sec=7793.82, time=0-00:13:32)
+[asean.baseline.th-en] Epoch 13.6658: train_loss/word=2.396181 (steps=6263, words/sec=7784.48, time=0-00:13:33)
+[asean.baseline.th-en] Epoch 13.7169: train_loss/word=2.359660 (steps=6288, words/sec=7312.42, time=0-00:13:35)
+[asean.baseline.th-en] Epoch 13.7672: train_loss/word=2.345230 (steps=6311, words/sec=7680.90, time=0-00:13:36)
+[asean.baseline.th-en] Epoch 13.8185: train_loss/word=2.395359 (steps=6335, words/sec=7410.39, time=0-00:13:37)
+[asean.baseline.th-en] Epoch 13.8703: train_loss/word=2.291819 (steps=6354, words/sec=8661.89, time=0-00:13:38)
+[asean.baseline.th-en] Epoch 13.9222: train_loss/word=2.381877 (steps=6380, words/sec=6957.50, time=0-00:13:39)
+[asean.baseline.th-en] Epoch 13.9746: train_loss/word=2.384202 (steps=6403, words/sec=8429.23, time=0-00:13:40)
+[asean.baseline.th-en] Epoch 14.0000: train_loss/word=2.358491 (steps=6414, words/sec=8659.03, time=0-00:13:40)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 14.0000 dev BLEU4: 0.228397651737553, 0.427793/0.271807/0.187721/0.131252 (BP = 0.987221, ratio=0.99, hyp_len=7153, ref_len=7245) (time=0-00:14:10)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.242371
+[asean.baseline.th-en]              dev auxiliary Loss: 4.824 (ref_len=7245)
+             checkpoint took 0-00:00:29
+  new learning rate: 0.5
+[asean.baseline.th-en] Epoch 14.0032: train_loss/word=2.163680 (steps=6415, words/sec=11557.55, time=0-00:14:10)
+[asean.baseline.th-en] Epoch 14.0543: train_loss/word=2.175109 (steps=6437, words/sec=7869.68, time=0-00:14:11)
+[asean.baseline.th-en] Epoch 14.1043: train_loss/word=2.139678 (steps=6460, words/sec=8252.45, time=0-00:14:12)
+[asean.baseline.th-en] Epoch 14.1561: train_loss/word=2.198526 (steps=6486, words/sec=6979.81, time=0-00:14:13)
+[asean.baseline.th-en] Epoch 14.2081: train_loss/word=2.161067 (steps=6511, words/sec=6839.43, time=0-00:14:14)
+[asean.baseline.th-en] Epoch 14.2581: train_loss/word=2.184161 (steps=6536, words/sec=6810.16, time=0-00:14:16)
+[asean.baseline.th-en] Epoch 14.3084: train_loss/word=2.173340 (steps=6560, words/sec=6516.43, time=0-00:14:17)
+[asean.baseline.th-en] Epoch 14.3595: train_loss/word=2.100692 (steps=6581, words/sec=9692.13, time=0-00:14:18)
+[asean.baseline.th-en] Epoch 14.4104: train_loss/word=2.193071 (steps=6607, words/sec=6722.33, time=0-00:14:19)
+[asean.baseline.th-en] Epoch 14.4614: train_loss/word=2.152771 (steps=6630, words/sec=8579.25, time=0-00:14:20)
+[asean.baseline.th-en] Epoch 14.5126: train_loss/word=2.099384 (steps=6651, words/sec=9331.01, time=0-00:14:21)
+[asean.baseline.th-en] Epoch 14.5645: train_loss/word=2.152212 (steps=6675, words/sec=7990.14, time=0-00:14:22)
+[asean.baseline.th-en] Epoch 14.6164: train_loss/word=2.153458 (steps=6697, words/sec=7997.77, time=0-00:14:23)
+[asean.baseline.th-en] Epoch 14.6677: train_loss/word=2.110272 (steps=6718, words/sec=8762.75, time=0-00:14:24)
+[asean.baseline.th-en] Epoch 14.7178: train_loss/word=2.114386 (steps=6740, words/sec=8204.85, time=0-00:14:25)
+[asean.baseline.th-en] Epoch 14.7707: train_loss/word=2.145470 (steps=6763, words/sec=8244.57, time=0-00:14:26)
+[asean.baseline.th-en] Epoch 14.8238: train_loss/word=2.178159 (steps=6789, words/sec=7029.27, time=0-00:14:27)
+[asean.baseline.th-en] Epoch 14.8753: train_loss/word=2.129752 (steps=6812, words/sec=8747.64, time=0-00:14:28)
+[asean.baseline.th-en] Epoch 14.9260: train_loss/word=2.158403 (steps=6836, words/sec=7870.51, time=0-00:14:29)
+[asean.baseline.th-en] Epoch 14.9769: train_loss/word=2.167607 (steps=6861, words/sec=7065.28, time=0-00:14:30)
+[asean.baseline.th-en] Epoch 15.0000: train_loss/word=2.152966 (steps=6872, words/sec=7271.64, time=0-00:14:30)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 15.0000 dev BLEU4: 0.26385955492796165, 0.469102/0.314585/0.234091/0.177262 (BP = 0.943238, ratio=0.94, hyp_len=6845, ref_len=7245) (time=0-00:15:01)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.274095
+[asean.baseline.th-en]              dev auxiliary Loss: 4.780 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  best dev score, writing out model
+[asean.baseline.th-en] Epoch 15.0018: train_loss/word=2.081119 (steps=6873, words/sec=9087.30, time=0-00:15:07)
+[asean.baseline.th-en] Epoch 15.0526: train_loss/word=2.021609 (steps=6896, words/sec=8172.50, time=0-00:15:08)
+[asean.baseline.th-en] Epoch 15.1027: train_loss/word=2.055779 (steps=6919, words/sec=8345.38, time=0-00:15:09)
+[asean.baseline.th-en] Epoch 15.1545: train_loss/word=2.090929 (steps=6943, words/sec=7280.66, time=0-00:15:10)
+[asean.baseline.th-en] Epoch 15.2071: train_loss/word=2.062061 (steps=6968, words/sec=8528.47, time=0-00:15:11)
+[asean.baseline.th-en] Epoch 15.2582: train_loss/word=2.040752 (steps=6990, words/sec=9077.78, time=0-00:15:12)
+[asean.baseline.th-en] Epoch 15.3107: train_loss/word=2.073434 (steps=7015, words/sec=8207.84, time=0-00:15:13)
+[asean.baseline.th-en] Epoch 15.3618: train_loss/word=2.038073 (steps=7039, words/sec=7352.40, time=0-00:15:14)
+[asean.baseline.th-en] Epoch 15.4126: train_loss/word=2.060269 (steps=7063, words/sec=7992.10, time=0-00:15:15)
+[asean.baseline.th-en] Epoch 15.4634: train_loss/word=2.062265 (steps=7088, words/sec=7449.26, time=0-00:15:17)
+[asean.baseline.th-en] Epoch 15.5161: train_loss/word=2.068236 (steps=7110, words/sec=9301.85, time=0-00:15:17)
+[asean.baseline.th-en] Epoch 15.5675: train_loss/word=2.050894 (steps=7134, words/sec=8094.60, time=0-00:15:18)
+[asean.baseline.th-en] Epoch 15.6190: train_loss/word=2.072697 (steps=7158, words/sec=8195.18, time=0-00:15:19)
+[asean.baseline.th-en] Epoch 15.6698: train_loss/word=2.085335 (steps=7181, words/sec=7996.35, time=0-00:15:20)
+[asean.baseline.th-en] Epoch 15.7207: train_loss/word=2.034657 (steps=7203, words/sec=8846.36, time=0-00:15:21)
+[asean.baseline.th-en] Epoch 15.7715: train_loss/word=2.077248 (steps=7226, words/sec=8003.56, time=0-00:15:22)
+[asean.baseline.th-en] Epoch 15.8230: train_loss/word=2.103579 (steps=7249, words/sec=8171.27, time=0-00:15:23)
+[asean.baseline.th-en] Epoch 15.8752: train_loss/word=2.090608 (steps=7274, words/sec=7219.88, time=0-00:15:25)
+[asean.baseline.th-en] Epoch 15.9257: train_loss/word=2.110297 (steps=7296, words/sec=8398.63, time=0-00:15:25)
+[asean.baseline.th-en] Epoch 15.9775: train_loss/word=2.086421 (steps=7320, words/sec=8491.34, time=0-00:15:26)
+[asean.baseline.th-en] Epoch 16.0000: train_loss/word=2.165545 (steps=7331, words/sec=6477.92, time=0-00:15:27)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 16.0000 dev BLEU4: 0.25349280770348104, 0.446499/0.288425/0.207736/0.154347 (BP = 1.000000, ratio=1.02, hyp_len=7355, ref_len=7245) (time=0-00:15:57)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.263535
+[asean.baseline.th-en]              dev auxiliary Loss: 4.788 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  new learning rate: 0.25
+[asean.baseline.th-en] Epoch 16.0023: train_loss/word=2.068007 (steps=7332, words/sec=7869.32, time=0-00:15:58)
+[asean.baseline.th-en] Epoch 16.0546: train_loss/word=2.010402 (steps=7354, words/sec=9081.98, time=0-00:15:58)
+[asean.baseline.th-en] Epoch 16.1064: train_loss/word=2.020420 (steps=7379, words/sec=7649.24, time=0-00:16:00)
+[asean.baseline.th-en] Epoch 16.1591: train_loss/word=1.995333 (steps=7404, words/sec=7631.67, time=0-00:16:01)
+[asean.baseline.th-en] Epoch 16.2108: train_loss/word=1.981721 (steps=7428, words/sec=7777.70, time=0-00:16:02)
+[asean.baseline.th-en] Epoch 16.2611: train_loss/word=1.966729 (steps=7450, words/sec=8898.54, time=0-00:16:03)
+[asean.baseline.th-en] Epoch 16.3118: train_loss/word=1.995226 (steps=7473, words/sec=8042.28, time=0-00:16:04)
+[asean.baseline.th-en] Epoch 16.3623: train_loss/word=1.982111 (steps=7496, words/sec=7738.49, time=0-00:16:05)
+[asean.baseline.th-en] Epoch 16.4131: train_loss/word=1.999482 (steps=7520, words/sec=7552.07, time=0-00:16:06)
+[asean.baseline.th-en] Epoch 16.4659: train_loss/word=1.953551 (steps=7543, words/sec=8191.89, time=0-00:16:07)
+[asean.baseline.th-en] Epoch 16.5176: train_loss/word=1.992763 (steps=7568, words/sec=7636.77, time=0-00:16:08)
+[asean.baseline.th-en] Epoch 16.5687: train_loss/word=1.985207 (steps=7593, words/sec=6904.70, time=0-00:16:09)
+[asean.baseline.th-en] Epoch 16.6188: train_loss/word=1.994924 (steps=7616, words/sec=7874.69, time=0-00:16:10)
+[asean.baseline.th-en] Epoch 16.6705: train_loss/word=2.003964 (steps=7641, words/sec=7473.89, time=0-00:16:11)
+[asean.baseline.th-en] Epoch 16.7210: train_loss/word=1.986697 (steps=7665, words/sec=7571.83, time=0-00:16:12)
+[asean.baseline.th-en] Epoch 16.7719: train_loss/word=1.968228 (steps=7687, words/sec=9168.16, time=0-00:16:13)
+[asean.baseline.th-en] Epoch 16.8226: train_loss/word=1.990918 (steps=7710, words/sec=8181.85, time=0-00:16:14)
+[asean.baseline.th-en] Epoch 16.8739: train_loss/word=1.973023 (steps=7733, words/sec=8098.35, time=0-00:16:15)
+[asean.baseline.th-en] Epoch 16.9247: train_loss/word=2.028304 (steps=7757, words/sec=7345.28, time=0-00:16:16)
+[asean.baseline.th-en] Epoch 16.9768: train_loss/word=1.979667 (steps=7780, words/sec=8366.88, time=0-00:16:17)
+[asean.baseline.th-en] Epoch 17.0000: train_loss/word=1.991229 (steps=7790, words/sec=7913.85, time=0-00:16:18)
+> Checkpoint [asean.baseline.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[asean.baseline.th-en] Epoch 17.0000 dev BLEU4: 0.26369633638529455, 0.456863/0.297992/0.218185/0.162780 (BP = 1.000000, ratio=1.00, hyp_len=7256, ref_len=7245) (time=0-00:16:48)
+[asean.baseline.th-en]              dev auxiliary GLEU: 0.270755
+[asean.baseline.th-en]              dev auxiliary Loss: 4.783 (ref_len=7245)
+             checkpoint took 0-00:00:30
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.en
+Performing inference on ./data/test.th and ./data/test.en
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.th-en          | BLEU4: 0.26385955492796165, 0.469102/0.314585/0.234091/0.177262 (BP = 0.943238, ratio=0.94, hyp_len=6845, ref_len=7245)
+                              | GLEU: 0.274095
+                              | WER: 65.29% ( C/S/I/D: 3182/2996/667/1067; hyp_len=6845, ref_len=7245 )
+                              | CER: 52.88% ( C/S/I/D: 17012/7455/2689/5928; hyp_len=27156, ref_len=30395 )
+                              | BLEU4: 0.2739701584690131, 0.489638/0.331681/0.238898/0.175448 (BP = 0.953815, ratio=0.95, hyp_len=6852, ref_len=7176)
+                              | GLEU: 0.288053
+                              | WER: 62.32% ( C/S/I/D: 3338/2880/634/958; hyp_len=6852, ref_len=7176 )
+                              | CER: 51.61% ( C/S/I/D: 17645/7169/2932/5594; hyp_len=27746, ref_len=30408 )
 ```
 
 ## Training for en-th, word unit (SwitchOut)
