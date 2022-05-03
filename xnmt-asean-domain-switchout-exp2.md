@@ -601,6 +601,20 @@ cleaning လုပ်ပြီးတဲ့အချိန်မှာ training d
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
 ```
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ wc {train,dev,test}.en
+ 19994 141075 737175 train.en
+  1031   7245  37663 dev.en
+  1000   7176  37600 test.en
+ 22025 155496 812438 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ wc {train,dev,test}.th
+  19994  139767 1951021 train.th
+   1031    6809   98543 dev.th
+   1000    7169   99326 test.th
+  22025  153745 2148890 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
+```
+
 ## Baseline 
 
 baseline ကို အရင် run သင့်တာမို့ baseline config ဖိုင် နှစ်ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ပြီးတော့ run ခဲ့...  
