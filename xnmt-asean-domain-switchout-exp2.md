@@ -363,3 +363,9 @@ sys	0m1.198s
 
 ### for th-en, word unit
 
+## Reference
+
+- [https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array](https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array)
+- 
+
+
