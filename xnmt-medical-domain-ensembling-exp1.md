@@ -128,4 +128,37 @@ sys	0m0.650s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$
 ```
 
+vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်ခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$ python ../script/vocab/make_vocab.py --help
+usage: make_vocab.py [-h] [--min_count MIN_COUNT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --min_count MIN_COUNT
+```
+
+minimum count အတွက် default က ဘယ်လောက် ထားထားသလဲ ဆိုတာကို သိချင်လို့ source code ကို ဝင်ကြည့်ခဲ့...  
+
+```python
+#!/usr/bin/env python3
+
+"""
+Simple script to generate vocabulary that can be used in most of the xnmt.input_readers
+
+--min_count Is a filter based on count of words that need to be at least min_count to appear in the vocab.
+
+"""
+
+
+import sys
+import argparse
+from collections import Counter
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--min_count", type=int, default=1)
+```
+
+default တန်ဖိုးက စာလုံး တစ်လုံး တွေ့တာနဲ့ ယူမယ်ဆိုတဲ့ setting ဆိုတာကို သိခဲ့ရတယ်။  
 
