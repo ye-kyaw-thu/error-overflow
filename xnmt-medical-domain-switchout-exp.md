@@ -2774,3 +2774,8 @@ switchout.syl.my-en: !Experiment
 
 ```
 
+## Reference
+
+- [https://arxiv.org/pdf/1808.07512.pdf](https://arxiv.org/pdf/1808.07512.pdf)
+- [Example SwitchOut Configuration File](https://xnmt.readthedocs.io/en/latest/experiment_config_files.html#switchout)
+
