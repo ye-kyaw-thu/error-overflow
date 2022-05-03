@@ -2740,6 +2740,21 @@ switchout.syl.en-my           | BLEU4: 0.3526960460799318, 0.643521/0.435425/0.2
                               | CER: 52.92% ( C/S/I/D: 22783/8797/4760/6700; hyp_len=36340, ref_len=38280 )
 ```
 
+ပထမပိုင်း training လုပ်ခဲ့တဲ့ (no data argumentation or no switchout, syllable unit, en-my) ရဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
+
+```
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+medical.syl.en-my             | BLEU4: 0.36375391673239676, 0.647598/0.440523/0.304478/0.221674 (BP = 0.976497, ratio=0.98, hyp_len=12656, ref_len=12957)
+                              | GLEU: 0.372705
+                              | WER: 58.85% ( C/S/I/D: 7057/3874/1725/2026; hyp_len=12656, ref_len=12957 )
+                              | CER: 53.36% ( C/S/I/D: 22375/8440/5053/6325; hyp_len=35868, ref_len=37140 )
+                              | BLEU4: 0.3669128759686029, 0.652303/0.443451/0.307870/0.220885 (BP = 0.979729, ratio=0.98, hyp_len=13135, ref_len=13404)
+                              | GLEU: 0.376249
+                              | WER: 58.39% ( C/S/I/D: 7325/4063/1747/2016; hyp_len=13135, ref_len=13404 )
+                              | CER: 53.03% ( C/S/I/D: 23025/9022/5043/6233; hyp_len=37090, ref_len=38280 )
+```
+
 
 
 ## Updating Config File for Syllable Unit (my-en)
