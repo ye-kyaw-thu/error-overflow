@@ -113,3 +113,52 @@ sys	0m1.513s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
 
 ```
+
+## Updating Config File for Word Unit (en-my)
+
+```yaml
+
+```
+
+## Training for Word-SwitchOut (en-my)
+
+```
+
+```
+
+## Updating Config File for Word Unit (my-en)
+
+```yaml
+
+```
+
+## Training for Word-SwitchOut (my-en)
+
+```
+
+```
+
+## Updating Config File for Syllable Unit (en-my)
+
+```yaml
+
+```
+
+## Training for Syllable-SwitchOut (en-my)
+
+```
+
+```
+
+## Updating Config File for Syllable Unit (my-en)
+
+```yaml
+
+```
+
+## Training for Syllable-SwitchOut (my-en)
+
+```
+
+```
+
