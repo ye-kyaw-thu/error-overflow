@@ -314,6 +314,51 @@ switchout.asean.th-en: !Experiment
 
 ## Training
 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ time xnmt --backend torch --gpu ./config.switchout.en-th-word.yaml | tee asean-en-th-switchout-exp1.log ဆိုတဲ့ command ပေးလိုက်တော့ အောက်ပါအတိုင်း error ပေးတယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ time xnmt --backend torch --gpu ./config.switchout.en-th-word.yaml | tee asean-en-th-switchout-exp1.log
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 20:08:04
+=> Running switchout.asean.en-th
+> Preprocessing
+> use randomly initialized neural network parameters for all components
+  neural network param count: 20656222
+> Training
+Starting to read ./data/train.en and ./data/train.th
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/bin/xnmt", line 33, in <module>
+    sys.exit(load_entry_point('xnmt==0.0.1', 'console_scripts', 'xnmt')())
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 121, in main
+    raise e
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 115, in main
+    eval_scores = experiment(save_fct = lambda: save_to_file(model_file, experiment))
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/experiments.py", line 108, in __call__
+    self.train.run_training(save_fct = save_fct)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/train/regimens.py", line 147, in run_training
+    for src, trg in self.next_minibatch():
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/train/tasks.py", line 277, in next_minibatch
+    self._advance_epoch()
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/train/tasks.py", line 255, in _advance_epoch
+    max_src_len=self.max_src_len, max_trg_len=self.max_trg_len)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/input_readers.py", line 697, in read_parallel_corpus
+    for src_sent, trg_sent in zip_longest(src_train_iterator, trg_train_iterator):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/input_readers.py", line 89, in iterate_filtered
+    yield self.read_sent(line=line, idx=sent_count)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/input_readers.py", line 271, in read_sent
+    logits = np.exp(logits - np.max(logits))
+  File "<__array_function__ internals>", line 6, in amax
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 2706, in amax
+    keepdims=keepdims, initial=initial, where=where)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 87, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+ValueError: zero-size array to reduction operation maximum which has no identity
+
+real	0m11.494s
+user	0m11.187s
+sys	0m1.198s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$
+```
+
 ### for en-th, word unit
 
 ### for th-en, word unit
