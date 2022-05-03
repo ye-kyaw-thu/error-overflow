@@ -11,7 +11,10 @@
 # This example shows different ways to perform model ensembling
 
 # First, let's a define a simple experiment with a single model
-exp1-single: !Experiment
+exp1-single: !ExperimentERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/batchers.py:184: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180593867/work/torch/csrc/utils/tensor_numpy.cpp:189.)
+ERROR:   mask_exp = torch.as_tensor(self.np_arr[:, timestep:timestep + 1], dtype=expr.dtype, device=xnmt.device)
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
   exp_global: &globals !ExpGlobal
     default_layer_dim: 32
   # Just use default model settings here
@@ -384,7 +387,100 @@ log ဖိုင်တွေက ရှိနေတဲ့အတွက် ပေ�
 နောက်တစ်ခါ ထပ် run ခဲ့ ....  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ time xnmt --backend torch --gpu ./examples/16_ensembling.yaml | tee ensemble-tst-train.log
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 12:37:02
+=> Running exp1-single
+> use randomly initialized neural network parameters for all components
+  neural network param count: 29957
+> Training
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/batchers.py:184: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180593867/work/torch/csrc/utils/tensor_numpy.cpp:189.)
+ERROR:   mask_exp = torch.as_tensor(self.np_arr[:, timestep:timestep + 1], dtype=expr.dtype, device=xnmt.device)
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+[exp1-single] Epoch 1.0000: train_loss/word=4.693406 (steps=1, words/sec=216.76, time=0-00:00:00)
+> Checkpoint [exp1-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp1-single] Epoch 1.0000 dev Loss: 4.598 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+[exp1-single] Epoch 2.0000: train_loss/word=4.600169 (steps=2, words/sec=2667.67, time=0-00:00:00)
+> Checkpoint [exp1-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp1-single] Epoch 2.0000 dev Loss: 4.497 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+reverting learned weights to best checkpoint..
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+exp1-single                   | Not evaluated
+=> Running exp2-single
+> use randomly initialized neural network parameters for all components
+  neural network param count: 135973
+> Training
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp2-single] Epoch 1.0000: train_loss/word=4.699435 (steps=1, words/sec=1286.58, time=0-00:00:00)
+> Checkpoint [exp2-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp2-single] Epoch 1.0000 dev Loss: 4.597 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+[exp2-single] Epoch 2.0000: train_loss/word=4.597915 (steps=2, words/sec=1288.45, time=0-00:00:00)
+> Checkpoint [exp2-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp2-single] Epoch 2.0000 dev Loss: 4.493 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+reverting learned weights to best checkpoint..
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+exp1-single                   | Not evaluated
+exp2-single                   | Not evaluated
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 996, in _load_serialized
+    with open(node.filename) as stream:
+FileNotFoundError: [Errno 2] No such file or directory: 'examples/output/exp1-single.mod'
 
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/bin/xnmt", line 33, in <module>
+    sys.exit(load_entry_point('xnmt==0.0.1', 'console_scripts', 'xnmt')())
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 80, in main
+    resume=args.resume)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 937, in preload_experiment_from_file
+    resume=resume)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 971, in preload_obj
+    root = YamlPreloader._load_serialized(root)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 999, in _load_serialized
+    raise RuntimeError(f"Could not read configuration file {node.filename}: {e}")
+RuntimeError: Could not read configuration file examples/output/exp1-single.mod: [Errno 2] No such file or directory: 'examples/output/exp1-single.mod'
+
+real	0m5.091s
+user	0m4.674s
+sys	0m1.306s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ 
+```
+
+အဓိက ပေးနေတဲ့ ERROR က အောက်ပါအတိုင်းလို့ ယူဆ...  
+
+```
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/batchers.py:184: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180593867/work/torch/csrc/utils/tensor_numpy.cpp:189.)
+ERROR:   mask_exp = torch.as_tensor(self.np_arr[:, timestep:timestep + 1], dtype=expr.dtype, device=xnmt.device)
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
 ```
 
 
