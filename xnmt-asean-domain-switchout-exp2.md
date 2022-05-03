@@ -401,7 +401,36 @@ print-blank-lines.pl            100%[===========================================
 train.th ထဲက blank ဖြစ်နေတဲ့ နေရာတွေက အောက်ပါအတိုင်း ...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 4615,4617p train.th
+ร้าน ขาย ของ ที่ ระลึก อยู่ ที่ไหน 
 
+มี สถานที่ ทาง ประวัติศาสตร์ เยอะ ไหม ใน บ้าน เกิด ของ คุณ ? 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 6862,6864p train.th
+มี จุด ที่ น่า สนใจ ไหม ระหว่าง การ เดินทาง ไป เอฟ ? 
+
+ค่า โดยสาร เท่าไหร่ ? 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 8075,8077p train.th
+ฉัน มา เช็คอิน ที่ นี่ สำหรับ เที่ยวบิน ไป แอลเอ 
+
+ฉัน ควร โทร เรียก รถ พยาบาล ไหม ? 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 10006,10008p train.th
+ฉัน จะ ส่ง คน ไป ที่ ห้อง คุณ ทันที . 
+
+ให้ ฉัน ดู ก่อน ว่า จะ ช่วย คุณ อย่างไร 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 13346,13348p train.th
+ฉัน ต้องการ ไป ตาม ที่ อยู่ ที่ นี่ 
+
+ฉันต้องจ่ายทั้งหมดเท่าไร
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$ sed -n 19554,19556p train.th
+มี สถานที่ ที่ น่า สนใจ มากมาย ระหว่าง ทาง ไป ดี , เช่น อี , เอฟ 
+
+มัน ง่าย กว่า ที่ ทาง ข้าม 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt/data$
 ```
 
 ### for en-th, word unit
