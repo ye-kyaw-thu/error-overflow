@@ -309,5 +309,65 @@ vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်
 ဒီတစ်ခါတော့ example ဖိုလ်ဒါရဲ့ အထက်ကို တက်လိုက်ပြီး ensembling exp ကို စမ်း run ကြည့်ခဲ့တယ်။  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$ time xnmt --backend torch --gpu ./examples/16_ensembling.yaml | tee ensemble-tst-train.log
+running XNMT revision d93f8f3 on ye-System-Product-Name with PyTorch on 2022-05-03 12:32:03
+=> Running exp1-single
+WARNING: log file(s) ./examples/logs/exp1-single.log already exists, skipping experiment; please delete log file by hand if you want to overwrite it (or activate OVERWRITE_LOG, by either specifying an environment variable OVERWRITE_LOG=1, or specifying --settings=debug, or changing xnmt.settings.Standard.OVERWRITE_LOG manually)
+=> Running exp2-single
+> use randomly initialized neural network parameters for all components
+  neural network param count: 135973
+> Training
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/batchers.py:184: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180593867/work/torch/csrc/utils/tensor_numpy.cpp:189.)
+ERROR:   mask_exp = torch.as_tensor(self.np_arr[:, timestep:timestep + 1], dtype=expr.dtype, device=xnmt.device)
+ERROR: /home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+ERROR:   "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+[exp2-single] Epoch 1.0000: train_loss/word=4.698348 (steps=1, words/sec=204.73, time=0-00:00:00)
+> Checkpoint [exp2-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp2-single] Epoch 1.0000 dev Loss: 4.585 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+[exp2-single] Epoch 2.0000: train_loss/word=4.587391 (steps=2, words/sec=1270.49, time=0-00:00:00)
+> Checkpoint [exp2-single]
+Starting to read examples/data/head.ja and examples/data/head.en
+Done reading examples/data/head.ja and examples/data/head.en. Packing into batches.
+Done packing batches.
+[exp2-single] Epoch 2.0000 dev Loss: 4.467 (ref_len=91) (time=0-00:00:00)
+             checkpoint took 0-00:00:00
+  best dev score, writing out model
+reverting learned weights to best checkpoint..
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+exp2-single                   | Not evaluated
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 996, in _load_serialized
+    with open(node.filename) as stream:
+FileNotFoundError: [Errno 2] No such file or directory: 'examples/output/exp1-single.mod'
 
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/bin/xnmt", line 33, in <module>
+    sys.exit(load_entry_point('xnmt==0.0.1', 'console_scripts', 'xnmt')())
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/xnmt_run_experiments.py", line 80, in main
+    resume=args.resume)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 937, in preload_experiment_from_file
+    resume=resume)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 971, in preload_obj
+    root = YamlPreloader._load_serialized(root)
+  File "/home/ye/anaconda3/envs/xnmt-py3.6/lib/python3.6/site-packages/xnmt-0.0.1-py3.6.egg/xnmt/persistence.py", line 999, in _load_serialized
+    raise RuntimeError(f"Could not read configuration file {node.filename}: {e}")
+RuntimeError: Could not read configuration file examples/output/exp1-single.mod: [Errno 2] No such file or directory: 'examples/output/exp1-single.mod'
+
+real	0m4.560s
+user	0m4.089s
+sys	0m1.353s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt$
 ```
+
+အထက်ပါ အတိုင်း error ပေးနေတယ်။  
