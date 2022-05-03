@@ -2203,6 +2203,9 @@ asean.baseline.th-en          | BLEU4: 0.26385955492796165, 0.469102/0.314585/0.
 
 ## Training for en-th, word unit (SwitchOut)
 
+run ထားတယ်... go back home ...  
+(22:10, Thai time)  
+
 ```
 
 ```
