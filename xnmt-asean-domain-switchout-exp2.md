@@ -631,6 +631,72 @@ config.medical.en-my-word.yaml  config.switchout.en-th-word.yaml  data          
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ 
 ```
 
+baseline ရဲ့ vocab တွေနဲ့ switchout experiment ရဲ့ vocab တွေကို သပ်သပ်စီ ခွဲထားချင်လို့... experiment folder အသစ်တစ်ခု ထပ်ဆောက်ပြီးတော့ config ဖိုင်တွေကိုလည်း အဲဒီအောက်ကို ရွှေ့ထားခဲ့တယ်။  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ mkdir asean-mt-baseline
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ mv ./asean-mt/config.baseline.* ./asean-mt-baseline/
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ cp ./asean-mt/data/ ./asean-mt-baseline/ -r
+```
+
+မြင်သာအောင်လို့ tree structure အနေနဲ့ log မှတ်ထားခဲ့...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ tree ./asean-mt-baseline/
+./asean-mt-baseline/
+├── config.baseline.en-my-word.yaml
+├── config.baseline.my-en-word.yaml
+└── data
+    ├── bk
+    │   ├── train.en
+    │   ├── train.enth.clean
+    │   └── train.th
+    ├── dev.en
+    ├── dev.th
+    ├── print-blank-lines.pl
+    ├── test.en
+    ├── test.th
+    ├── tmp
+    │   └── test.txt
+    ├── train.en
+    └── train.th
+
+3 directories, 13 files
+```
+
+switchout experiment အတွက်က အောက်ပါအတိုင်း...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$ tree ./asean-mt-switchout/
+./asean-mt-switchout/
+├── asean-en-th-switchout-exp1.log
+├── config.switchout.en-th-word.yaml
+├── config.switchout.th-en-word.yaml
+├── data
+│   ├── bk
+│   │   ├── train.en
+│   │   ├── train.enth.clean
+│   │   └── train.th
+│   ├── dev.en
+│   ├── dev.th
+│   ├── print-blank-lines.pl
+│   ├── test.en
+│   ├── test.th
+│   ├── tmp
+│   │   └── test.txt
+│   ├── train.en
+│   └── train.th
+├── logs
+│   ├── switchout.asean.en-th.log
+│   └── switchout.asean.en-th.log.yaml
+├── train.en
+├── vocab.en
+└── vocab.th
+
+4 directories, 19 files
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp$
+```
+
 manually edit ဝင်လုပ်ခဲ့တယ်။ 
 
 
