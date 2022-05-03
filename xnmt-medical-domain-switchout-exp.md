@@ -1980,11 +1980,16 @@ medical.my-en                 | BLEU4: 0.23651943640021703, 0.513891/0.271322/0.
 
 ## Updating Config File for Syllable Unit (en-my)
 
-```yaml
+ပြောရရင် အထက်က word unit, en-my အတွက်တုန်းက သုံးခဲ့တဲ့ config ဖိုင်နဲ့ အတူတူပါပဲ။  
+နာမည်ကိုပဲ အောက်ပါအတိုင်း ပြောင်းခဲ့တယ်။  
 
+```yaml
+switchout.syl.en-my: !Experiment
 ```
 
 ## Training for Syllable-SwitchOut (en-my)
+
+syllable unit နဲ့ ဆိုရင် ရလဒ်က ပိုကောင်းမယ်လို့ မျှော်လင့်တယ်။ run ကြည့်ကြရအောင်...   
 
 ```
 
@@ -1992,8 +1997,11 @@ medical.my-en                 | BLEU4: 0.23651943640021703, 0.513891/0.271322/0.
 
 ## Updating Config File for Syllable Unit (my-en)
 
-```yaml
+ပြောရရင် အထက်က word unit, my-en အတွက်တုန်းက သုံးခဲ့တဲ့ config ဖိုင်နဲ့ အတူတူပါပဲ။  
+နာမည်ကိုပဲ အောက်ပါအတိုင်း ပြောင်းခဲ့တယ်။  
 
+```yaml
+switchout.syl.my-en: !Experiment
 ```
 
 ## Training for Syllable-SwitchOut (my-en)
