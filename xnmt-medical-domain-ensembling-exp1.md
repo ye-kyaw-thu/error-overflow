@@ -161,4 +161,94 @@ parser.add_argument("--min_count", type=int, default=1)
 ```
 
 default တန်ဖိုးက စာလုံး တစ်လုံး တွေ့တာနဲ့ ယူမယ်ဆိုတဲ့ setting ဆိုတာကို သိခဲ့ရတယ်။  
+ပြီးတော့ character ngram vocab ဆောက်ဖို့အတွက် script လည်း ရှိတယ်။  
+link ကနေ ဆိုရင်တော့ [https://github.com/neulab/xnmt/blob/master/script/vocab/make_charngram_vocab.py](https://github.com/neulab/xnmt/blob/master/script/vocab/make_charngram_vocab.py)  
+
+
+```python
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$ cat ../script/vocab/make_charngram_vocab.py 
+#!/usr/bin/env python3
+
+"""
+By: Philip Arthur
+
+Script to generate CHARAGRAM vocabulary.
+For example if we have 2 words corpus: ["ab", "deac"]
+Then it wil produce the char n gram vocabulary.
+
+a
+b
+c
+d
+e
+ab
+de
+ea
+ac
+dea
+eac
+deac
+
+This is useful to be used in CharNGramSegmentComposer.
+
+Args:
+  ngram - The size of the ngram.
+  top - Prin only the top ngram.
+"""
+
+
+
+import sys
+import argparse
+from collections import Counter
+
+parser = argparse.ArgumentParser()
+parser.add_argument("ngram", type=int, default=4)
+parser.add_argument("--top", type=int, default=-1)
+args = parser.parse_args()
+
+k = args.ngram
+counts = Counter()
+for line in sys.stdin:
+  words = line.strip().split()
+  for word in words:
+    for i in range(len(word)):
+      for j in range(i+1, min(i+k+1, len(word)+1)):
+        counts[word[i:j]] += 1
+
+for i, (key, count) in enumerate(sorted(counts.items(), key=lambda x: -x[1])):
+  if args.top != -1:
+    if i == args.top:
+      break
+  print(key)
+
+
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples$
+```
+
+[https://xnmt.readthedocs.io/en/latest/experiment_config_files.html#](https://xnmt.readthedocs.io/en/latest/experiment_config_files.html#) မှာ ရှင်းပြထားတဲ့ Char Segment အပိုင်းက script ကို ကြည့်ပြီး နားလည်တာက အောက်ပါလိုမျိုး ရေးထားတာက နည်းနည်းလွဲနေသလားလို့...  
+
+```yaml
+# Examples of using SegmentingSeqTransducer
+# Look available composition functions at xnmt/specialized_encoders/segmenting_encoder/segmenting_composer.py
+
+# Looking up characters from word vocabulary
+# Basically this is the same as 01_standard.yaml
+seg_lookup: !Experiment
+  exp_global: !ExpGlobal {}
+  model: !DefaultTranslator
+    src_reader: !CharFromWordTextReader
+      # Can be produced by script/vocab/make_vocab.py --char_vocab < [CORPUS]
+      vocab: !Vocab {vocab_file: examples/data/head.ja.charvocab}
+    trg_reader: !PlainTextReader
+      vocab: !Vocab {vocab_file: examples/data/head.en.vocab}
+    # It reads in characters and produce word embeddings
+    encoder: !SegmentingSeqTransducer
+      segment_composer: !LookupComposer
+        word_vocab: !Vocab {vocab_file: examples/data/head.ja.vocab}
+      final_transducer: !BiLSTMSeqTransducer {}
+```
+
+Note: ```--char_vocab``` option ကို make_vocab.py ပရိုဂရမ်မှာ မတွေ့လို့။ အဲဒါကြောင့် char level vocab ဆောက်မယ်ဆိုရင် make_charngram_vocab.py ပရိုဂရမ်ကိုပဲ သုံးရလိမ့်မယ်။  
+
 
