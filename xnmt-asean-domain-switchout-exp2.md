@@ -127,3 +127,19 @@ config.switchout.en-my-word.yaml  config.switchout.my-en-word.yaml  data
 
 ```
 
+## Update config Files
+
+```yaml
+
+```
+
+```yaml
+
+```
+
+## Training
+
+### for en-th, word unit
+
+### for th-en, word unit
+
