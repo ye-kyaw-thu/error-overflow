@@ -293,5 +293,14 @@ Note: ```--char_vocab``` option ကို make_vocab.py ပရိုဂရမ်
 vocab ဖိုင်ကို manual စမ်းဆောက်ကြည့်ခဲ့...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ python ../../script/vocab/make_vocab.py < ./head.en > head.en.vocab
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ python ../../script/vocab/make_vocab.py < ./head.ja > head.ja.vocab
+```
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ wc ./head.en.vocab 
+ 66  66 360 ./head.en.vocab
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/examples/data$ wc ./head.ja.vocab 
+ 70  70 409 ./head.ja.vocab
+```
+
