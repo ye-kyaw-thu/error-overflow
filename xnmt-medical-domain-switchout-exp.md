@@ -2868,4 +2868,5 @@ switchout.syl.my-en: !Experiment
 
 - SwitchOut Proposal အသေးစိတ်က ဒီစာတမ်းကို ဖတ်ကြည့်ပါ။ [https://arxiv.org/pdf/1808.07512.pdf](https://arxiv.org/pdf/1808.07512.pdf)
 - [Example SwitchOut Configuration File](https://xnmt.readthedocs.io/en/latest/experiment_config_files.html#switchout)
+- Transformer SwitchOut ကို ဒီ source နဲ့ run လို့ ရနိုင်တယ်။ [https://github.com/nsapru/SwitchOut](https://github.com/nsapru/SwitchOut) 
 
