@@ -619,6 +619,21 @@ cleaning လုပ်ပြီးတဲ့အချိန်မှာ training d
 
 baseline ကို အရင် run သင့်တာမို့ baseline config ဖိုင် နှစ်ဖိုင်ကို အောက်ပါအတိုင်း ပြင်ဆင်ပြီးတော့ run ခဲ့...  
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ cp ../medical1/word/config.medical.
+config.medical.en-my-word.yaml  config.medical.my-en-word.yaml  
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ cp ../medical1/word/config.medical.* .
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ ls
+asean-en-th-switchout-exp1.log  config.medical.my-en-word.yaml    config.switchout.th-en-word.yaml  logs      vocab.en
+config.medical.en-my-word.yaml  config.switchout.en-th-word.yaml  data                              train.en  vocab.th
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ mv config.medical.en-my-word.yaml config.baseline.en-my-word.yaml 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ mv config.medical.my-en-word.yaml ./config.baseline.my-en-word.yaml 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt$ 
+```
+
+manually edit ဝင်လုပ်ခဲ့တယ်။ 
+
+
 for en-th translation direction:  
 
 ```yaml
