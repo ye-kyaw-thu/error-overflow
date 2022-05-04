@@ -2237,8 +2237,172 @@ BATCH_SIZE = 64
 training ထပ်လုပ်ကြည့်ခဲ့တယ်။  
 
 ```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+/home/ye/tool/SwitchOut/transformer.py:395: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(p)
+/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+The `device` argument should be set by using `torch.device` or passing a string as an argument. This behavior will be deprecated soon and currently defaults to cpu.
+The `device` argument should be set by using `torch.device` or passing a string as an argument. This behavior will be deprecated soon and currently defaults to cpu.
+/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+Traceback (most recent call last):
+  File "./train.py", line 425, in <module>
+Entering Data loop
+Tokenizing Words....
+Data set sizes (number of sentence pairs):
+train 196545
+valid 992
+test 1305 
 
+First training example:
+src: David Gallo : Das ist Bill Lange . Ich bin Dave Gallo .
+trg: David Gallo : This is Bill Lange . I 'm Dave Gallo . 
+
+Most common words (src):
+         ,     273463
+         .     200398
+       die      81905
+       und      73250
+       der      53713
+       ist      50514
+       das      44503
+        in      42698
+        zu      42668
+       ich      38260 
+
+Most common words (trg):
+         ,     230525
+         .     193834
+       the     150642
+        to      94270
+        of      88037
+       and      79575
+         a      79155
+      that      68057
+         I      62673
+        in      56279 
+
+First 10 words (src):
+00 <unk>
+01 <blank>
+02 ,
+03 .
+04 die
+05 und
+06 der
+07 ist
+08 das
+09 in 
+
+First 10 words (trg):
+00 <unk>
+01 <blank>
+02 <s>
+03 </s>
+04 ,
+05 .
+06 the
+07 to
+08 of
+09 and 
+
+Number of German words (types): 58949
+Number of English words (types): 36207 
+
+Creating model, criterion, optimizer, data iterators, and paralelization
+Entering true training loop
+Building the Model
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0368, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0349, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0320, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0281, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0232, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0167, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(9.0076, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9945, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9791, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9623, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9451, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9256, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.9060, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.8831, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.8608, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.8397, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.8175, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.7942, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.7718, device='cuda:0')
+Not Using SwitchOut....
+Not Using SwitchOut....
+Val_loss:  tensor(8.7508, device='cuda:0')
+    max_len=60, start_symbol=TGT.vocab.stoi["<s>"])
+  File "/home/ye/tool/SwitchOut/transformer.py", line 356, in greedy_decode
+    memory = model.encode(src, src_mask)
+  File "/home/ye/tool/SwitchOut/transformer.py", line 41, in encode
+    return self.encoder(self.src_embed(src), src_mask)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/tool/SwitchOut/transformer.py", line 252, in forward
+    return self.lut(x) * math.sqrt(self.d_model)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/modules/sparse.py", line 160, in forward
+    self.norm_type, self.scale_grad_by_freq, self.sparse)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/functional.py", line 2044, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument index in method wrapper__index_select)
+
+real	0m37.860s
+user	0m36.783s
+sys	0m1.336s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
 ```
+
+ဒီတစ်ခါတော့ running လုပ်တာမှာ တိုးတက်မှုရှိတယ်။ သို့သော် အထက်ပါအတိုင်း cuda:0 and cpu ဆိုတဲ့ ERROR အသစ်တက်လာတယ်။  
+
+
 
 ## Reference
 
