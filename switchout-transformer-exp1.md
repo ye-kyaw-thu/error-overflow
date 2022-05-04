@@ -1223,6 +1223,7 @@ You can now load the package via spacy.load('de_core_news_sm')
 
 အောက်ပါ link ကို refer လုပ်ပြီးတော့ ...  
 
+[https://spacy.io/usage](https://spacy.io/usage)  
 
 Spacy ကို ပြန် install လုပ်ပြီး အင်္ဂလိပ်စာ ဒေတာကို download ထပ်လုပ်ကြည့်တော့ ရတယ်။  
 
