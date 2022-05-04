@@ -1688,6 +1688,44 @@ iwslt
 
 file extension ကတော့ tgz ဖိုင်ဖြစ်နေတာကို တွေ့ရတယ်။  
 
+ပြဿနာက manual ဖြေကြည့်တော့လည်း ဖြေလို့ မရဘူး ဖြစ်နေတာကို တွေ့ရတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data/iwslt$ tar -xf ./de-en.tgz 
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+```
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data/iwslt$ tar -xzvf ./de-en.tgz 
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+```
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data/iwslt$ gunzip -c ./de-en.tgz | tar xvf -
+
+gzip: ./de-en.tgz: not in gzip format
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+```
+
+အဲဒါနဲ့ အဲဒီ iwslt folder ကို ပြန်ဖျက်ပြီးတော့ train.py ကို run ကြည့်ပြီး အဲဒီ python script ထဲကနေ download လုပ်ထားတာ သေချာရဲ့လား ဆိုတာကို confirmation လုပ်ကြည့်တော့လည်း ဟုတ်တယ်။ train.py ကို run ရင် အသစ် download လုပ်ပေးတဲ့ ဖိုင်ဆိုတာကို confirm ဖြစ်တယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ tree .data
+.data
+└── iwslt
+    └── de-en.tgz
+
+1 directory, 1 file
+
+```
+
 
 ## Reference
 
