@@ -1067,6 +1067,12 @@ SRC.build_vocab(train.src, min_freq=MIN_FREQ)
 TGT.build_vocab(train.trg, min_freq=MIN_FREQ)
 ```
 
+train, val, test, SRC, TGT ဆိုတဲ့ argument တွေအနေနဲ့ pass လုပ်ရတဲ့ပုံရှိတယ်။  
+
+```python
+print_data_info(train, val, test, SRC, TGT)
+```
+
 
 ## Reference
 
