@@ -1681,6 +1681,13 @@ iwslt
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data$
 ```
 
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data/iwslt$ ll ./de-en.tgz 
+-rw-rw-r-- 1 ye ye 109600 May  4 17:20 ./de-en.tgz
+```
+
+file extension ကတော့ tgz ဖိုင်ဖြစ်နေတာကို တွေ့ရတယ်။  
+
 
 ## Reference
 
