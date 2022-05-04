@@ -2088,10 +2088,24 @@ sys	0m1.291s
 ```
 
 GPU ကဒ် ကိစ္စကတော့ ERROR မပေးတော့ဘူး။ သို့သော် အထက်ပါအတိုင်း ERROR အသစ် ထပ်ထွက်လာတယ်။  
+line 350 ရဲ့ code ကတော့ အောက်ပါအတိုင်း...  
 
+```python
+            # Compute loss. 
+            y = [(g.contiguous().view(-1, g.size(-1)), 
+                  t[:, i:i+chunk_size].contiguous().view(-1)) 
+                 for g, t in zip(gen, targets)]
+            loss = nn.parallel.parallel_apply(self.criterion, y)
+
+            # Sum and normalize loss
+            l = nn.parallel.gather(loss, 
+                                   target_device=self.devices[0])
+            l = l.sum()[0] / normalize
+            total += l.data[0]
 ```
 
-```
+
+
 
 ## Reference
 
