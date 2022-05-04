@@ -1810,8 +1810,53 @@ tar: Exiting with failure status due to previous errors
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data$
 ```
 
+အထက်ပါ download လုပ်ထားတဲ့ ထဲမှာက language-pair တွေက တစ်ခုထက်မက ပါလို့... ကိုယ်လိုချင်တာတစ်ခုကိုပဲ .data/ ဖိုလ်ဒါအောက်ကို ရွှေ့ပေးခဲ့...  
 
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$ ls
+de-en.tgz
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$ cp ~/tool/SwitchOut/.data/iwslt/
+cp: missing destination file operand after '/home/ye/tool/SwitchOut/.data/iwslt/'
+Try 'cp --help' for more information.
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$ cp ./de-en.tgz ~/tool/SwitchOut/.data/iwslt/
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$
+```
 
+ပြီးတော့ ဖြေလို့ ရမရ သိချင်လို့ လက်ရှိ path အောက်က ဖိုင်ကိုလည်း manually unzip လုပ်ခဲ့တော့ အောက်ပါအတိုင်း ရတာကို တွေ့ရတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$ tar -xzvf ./de-en.tgz 
+de-en/
+de-en/IWSLT16.TED.dev2010.de-en.de.xml
+de-en/IWSLT16.TED.dev2010.de-en.en.xml
+de-en/IWSLT16.TED.tst2010.de-en.de.xml
+de-en/IWSLT16.TED.tst2010.de-en.en.xml
+de-en/IWSLT16.TED.tst2011.de-en.de.xml
+de-en/IWSLT16.TED.tst2011.de-en.en.xml
+de-en/IWSLT16.TED.tst2012.de-en.de.xml
+de-en/IWSLT16.TED.tst2012.de-en.en.xml
+de-en/IWSLT16.TED.tst2013.de-en.de.xml
+de-en/IWSLT16.TED.tst2013.de-en.en.xml
+de-en/IWSLT16.TED.tst2014.de-en.de.xml
+de-en/IWSLT16.TED.tst2014.de-en.en.xml
+de-en/IWSLT16.TEDX.dev2012.de-en.de.xml
+de-en/IWSLT16.TEDX.dev2012.de-en.en.xml
+de-en/IWSLT16.TEDX.tst2013.de-en.de.xml
+de-en/IWSLT16.TEDX.tst2013.de-en.en.xml
+de-en/IWSLT16.TEDX.tst2014.de-en.de.xml
+de-en/IWSLT16.TEDX.tst2014.de-en.en.xml
+de-en/README
+de-en/train.en
+de-en/train.tags.de-en.de
+de-en/train.tags.de-en.en
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data/2016-01/texts/de/en$
+```
+
+train.py ကို ထပ် train လုပ်ကြည့်ခဲ့...  
+
+```
+
+```
 ## Reference
 
 Source Code က အောက်ပါ link ကနေ git clone လုပ်ယူထားတာ...  
