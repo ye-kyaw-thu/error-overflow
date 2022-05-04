@@ -4163,6 +4163,12 @@ switchout.asean.th-en         | BLEU4: 0.2806523314430044, 0.499339/0.336159/0.2
                               | CER: 48.97% ( C/S/I/D: 18122/6606/2606/5680; hyp_len=27334, ref_len=30408 )
 ```
 
+## Results
+
+Baseline နဲ့ SwitchOut ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်ရင် အောက်ပါအတိုင်း တွေ့ရလိမ့်မယ်။  
+
+
+
 ## Reference
 
 - [https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array](https://stackoverflow.com/questions/22903114/overcome-valueerror-for-empty-array)
