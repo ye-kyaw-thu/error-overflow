@@ -1508,10 +1508,34 @@ sys	0m0.136s
 ```
 
 အပေါ်က error message ကို ကြည့်ပြီး ငါနားလည်တာက fullname ပေးပြီး load လုပ်ရမယ်လို့ ထင်တယ်။  
+train.py ထဲက load နဲ့ ဆိုင်တဲ့ code ကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။  
 
+```python
+#spacy_de = spacy.load('de')
+spacy_de = spacy.load('de_core_news_sm')
+#spacy_de = spacy.load('en')
+spacy_en = spacy.load('en_core_web_sm')
 ```
 
+ထပ် run ကြည့်ခဲ့တယ်။  
+
 ```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+Entering Data loop
+Tokenizing Words....
+Traceback (most recent call last):
+  File "./train.py", line 123, in <module>
+    SRC = data.Field(tokenize=tokenize_de, pad_token=BLANK_WORD)
+AttributeError: module 'torchtext.data' has no attribute 'Field'
+
+real	0m3.034s
+user	0m2.811s
+sys	0m0.192s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
+```
+
+load လုပ်တဲ့ အဆင့်မှာ ပေးတဲ့ error တော့ ရှင်းလို့ ပြီးသွားပြီလို့ ယူဆ။ သို့သော် အထက်ပါအတိုင်း attribute "Field" က မရှိဘူးဆိုတဲ့ ERROR အသစ် ထပ်ပေးတယ်။  
+
 
 ## Reference
 
