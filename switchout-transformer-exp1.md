@@ -1050,6 +1050,24 @@ Successfully installed typing-extensions-4.1.1
 (switchout_venv) ye@ye-System-Product-Name:~/tool$
 ```
 
+## Study on Python Codes
+
+training လုပ်ဖို့အတွက်က train.py ဆိုတဲ့ python code ထဲကနေပဲ source language, target language တွေကို ဝင်ပြီးတော့ သတ်မှတ်ရတဲ့ ပုံရှိတယ်။  
+
+```python
+# Using a low max_len to minimize size of the dataset
+MAX_LEN = 100
+
+train, val, test = datasets.IWSLT.splits(
+    exts=('.de', '.en'), fields=(SRC, TGT), 
+    filter_pred=lambda x: len(vars(x)['src']) <= MAX_LEN and 
+        len(vars(x)['trg']) <= MAX_LEN)
+MIN_FREQ = 2
+SRC.build_vocab(train.src, min_freq=MIN_FREQ)
+TGT.build_vocab(train.trg, min_freq=MIN_FREQ)
+```
+
+
 ## Reference
 
 - https://github.com/nsapru/SwitchOut
