@@ -1340,6 +1340,144 @@ You can now load the package via spacy.load('en_core_web_sm')
 folder တွေကို check လုပ်ကြည့်ခဲ့...  
 
 ```
+(switchout_venv) ye@ye-System-Product-Name:~/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torchtext$ tree
+.
+├── data
+│   ├── datasets_utils.py
+│   ├── functional.py
+│   ├── __init__.py
+│   ├── metrics.py
+│   ├── __pycache__
+│   │   ├── datasets_utils.cpython-36.pyc
+│   │   ├── functional.cpython-36.pyc
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── metrics.cpython-36.pyc
+│   │   └── utils.cpython-36.pyc
+│   └── utils.py
+├── datasets
+│   ├── ag_news.py
+│   ├── amazonreviewfull.py
+│   ├── amazonreviewpolarity.py
+│   ├── conll2000chunking.py
+│   ├── dbpedia.py
+│   ├── enwik9.py
+│   ├── imdb.py
+│   ├── __init__.py
+│   ├── iwslt2016.py
+│   ├── iwslt2017.py
+│   ├── multi30k.py
+│   ├── penntreebank.py
+│   ├── __pycache__
+│   │   ├── ag_news.cpython-36.pyc
+│   │   ├── amazonreviewfull.cpython-36.pyc
+│   │   ├── amazonreviewpolarity.cpython-36.pyc
+│   │   ├── conll2000chunking.cpython-36.pyc
+│   │   ├── dbpedia.cpython-36.pyc
+│   │   ├── enwik9.cpython-36.pyc
+│   │   ├── imdb.cpython-36.pyc
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── iwslt2016.cpython-36.pyc
+│   │   ├── iwslt2017.cpython-36.pyc
+│   │   ├── multi30k.cpython-36.pyc
+│   │   ├── penntreebank.cpython-36.pyc
+│   │   ├── sogounews.cpython-36.pyc
+│   │   ├── squad1.cpython-36.pyc
+│   │   ├── squad2.cpython-36.pyc
+│   │   ├── udpos.cpython-36.pyc
+│   │   ├── wikitext103.cpython-36.pyc
+│   │   ├── wikitext2.cpython-36.pyc
+│   │   ├── yahooanswers.cpython-36.pyc
+│   │   ├── yelpreviewfull.cpython-36.pyc
+│   │   └── yelpreviewpolarity.cpython-36.pyc
+│   ├── sogounews.py
+│   ├── squad1.py
+│   ├── squad2.py
+│   ├── udpos.py
+│   ├── wikitext103.py
+│   ├── wikitext2.py
+│   ├── yahooanswers.py
+│   ├── yelpreviewfull.py
+│   └── yelpreviewpolarity.py
+├── _download_hooks.py
+├── _extension.py
+├── __init__.py
+├── legacy
+│   ├── data
+│   │   ├── batch.py
+│   │   ├── dataset.py
+│   │   ├── example.py
+│   │   ├── field.py
+│   │   ├── __init__.py
+│   │   ├── iterator.py
+│   │   ├── pipeline.py
+│   │   └── __pycache__
+│   │       ├── batch.cpython-36.pyc
+│   │       ├── dataset.cpython-36.pyc
+│   │       ├── example.cpython-36.pyc
+│   │       ├── field.cpython-36.pyc
+│   │       ├── __init__.cpython-36.pyc
+│   │       ├── iterator.cpython-36.pyc
+│   │       └── pipeline.cpython-36.pyc
+│   ├── datasets
+│   │   ├── babi.py
+│   │   ├── imdb.py
+│   │   ├── __init__.py
+│   │   ├── language_modeling.py
+│   │   ├── nli.py
+│   │   ├── __pycache__
+│   │   │   ├── babi.cpython-36.pyc
+│   │   │   ├── imdb.cpython-36.pyc
+│   │   │   ├── __init__.cpython-36.pyc
+│   │   │   ├── language_modeling.cpython-36.pyc
+│   │   │   ├── nli.cpython-36.pyc
+│   │   │   ├── sequence_tagging.cpython-36.pyc
+│   │   │   ├── sst.cpython-36.pyc
+│   │   │   ├── text_classification.cpython-36.pyc
+│   │   │   ├── translation.cpython-36.pyc
+│   │   │   ├── trec.cpython-36.pyc
+│   │   │   └── unsupervised_learning.cpython-36.pyc
+│   │   ├── sequence_tagging.py
+│   │   ├── sst.py
+│   │   ├── text_classification.py
+│   │   ├── translation.py
+│   │   ├── trec.py
+│   │   └── unsupervised_learning.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   └── vocab.cpython-36.pyc
+│   └── vocab.py
+├── nn
+│   ├── __init__.py
+│   ├── modules
+│   │   ├── __init__.py
+│   │   ├── multiheadattention.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-36.pyc
+│   │       └── multiheadattention.cpython-36.pyc
+│   └── __pycache__
+│       └── __init__.cpython-36.pyc
+├── __pycache__
+│   ├── _download_hooks.cpython-36.pyc
+│   ├── _extension.cpython-36.pyc
+│   ├── __init__.cpython-36.pyc
+│   ├── utils.cpython-36.pyc
+│   └── version.cpython-36.pyc
+├── _torchtext.so
+├── utils.py
+├── version.py
+└── vocab
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-36.pyc
+    │   ├── vectors.cpython-36.pyc
+    │   ├── vocab.cpython-36.pyc
+    │   └── vocab_factory.cpython-36.pyc
+    ├── vectors.py
+    ├── vocab_factory.py
+    └── vocab.py
+
+17 directories, 117 files
 
 ```
 
