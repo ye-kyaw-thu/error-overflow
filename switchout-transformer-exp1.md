@@ -1481,6 +1481,37 @@ folder တွေကို check လုပ်ကြည့်ခဲ့...
 
 ```
 
+## Training with De-En Dataset
+
+train.py ကို စ run ကြည့်တော့ အောက်ပါအတိုင်း ERROR ပေးတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+Traceback (most recent call last):
+Entering Data loop
+  File "./train.py", line 107, in <module>
+    spacy_de = spacy.load('de')
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/spacy/__init__.py", line 52, in load
+    name, vocab=vocab, disable=disable, exclude=exclude, config=config
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/spacy/util.py", line 426, in load_model
+    raise IOError(Errors.E941.format(name=name, full=OLD_MODEL_SHORTCUTS[name]))  # type: ignore[index]
+OSError: [E941] Can't find model 'de'. It looks like you're trying to load a model from a shortcut, which is obsolete as of spaCy v3.0. To load the model, use its full name instead:
+
+nlp = spacy.load("de_core_news_sm")
+
+For more details on the available models, see the models directory: https://spacy.io/models. If you want to create a blank model, use spacy.blank: nlp = spacy.blank("de")
+
+real	0m1.858s
+user	0m1.703s
+sys	0m0.136s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
+```
+
+အပေါ်က error message ကို ကြည့်ပြီး ငါနားလည်တာက fullname ပေးပြီး load လုပ်ရမယ်လို့ ထင်တယ်။  
+
+```
+
+```
 
 ## Reference
 
