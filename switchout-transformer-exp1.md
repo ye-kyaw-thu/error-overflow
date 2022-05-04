@@ -1358,6 +1358,8 @@ Coding က အောက်ပါ link နှစ်ခုကို အခြေ�
 original python code က ဂျာမာန်နဲ့ အင်္ဂလိပ်ကို ဘာသာပြန်ပြထားတာ။ အဲဒီအတွက် သုံးထားတဲ့ ဒေတာက torchtext ကနေ ယူလို့ ရတယ်။  
 - https://torchtext.readthedocs.io/en/latest/index.html
 
+TorchText dataset နဲ့ ပတ်သက်ပြီးတော့ လေ့လာရန်...  
+[https://torchtext.readthedocs.io/en/latest/datasets.html](https://torchtext.readthedocs.io/en/latest/datasets.html)  
 
 
 
