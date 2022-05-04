@@ -1628,6 +1628,22 @@ sys	0m0.273s
 OSError: Not a gzipped file (b'<!')
 ```
 
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ gedit /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py
+
+```python
+    def _read_gzip_header(self):
+        magic = self._fp.read(2)
+        if magic == b'':
+            return False
+
+        if magic != b'\037\213':
+            raise OSError('Not a gzipped file (%r)' % magic)
+
+        (method, flag,
+         self._last_mtime) = struct.unpack("<BBIxx", self._read_exact(8))
+        if method != 8:
+            raise OSError('Unknown compression method')
+```
 
 
 ## Reference
