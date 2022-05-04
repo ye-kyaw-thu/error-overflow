@@ -2427,6 +2427,8 @@ train.py ကို run တော့ ပေးတဲ့ "AttributeError: module '
 pytorch မတူလို့ ဖြစ်တဲ့ "IndexError: invalid index of a 0-dim tensor. Use `tensor.item()` in Python or `tensor.item<T>()` in C++ to convert a 0-dim tensor to a number" ပြဿနာနဲ့ ပတ်သက်ပြီးတော့ solution က အောက်ပါ link ကနေ ရခဲ့တယ်။  
 - https://github.com/NVIDIA/flownet2-pytorch/issues/113
 
+Runtime Error "RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!" နဲ့ ပတ်သက်တဲ့ link:  
+- https://stackoverflow.com/questions/66091226/runtimeerror-expected-all-tensors-to-be-on-the-same-device-but-found-at-least  
 
 
 
