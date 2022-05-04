@@ -1619,6 +1619,16 @@ sys	0m0.273s
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
 ```
 
+ဒုတိယ ERROR ကို မကြည့်သင့်ဘူး။ ဘာကြောင့်လဲ ဆိုတော့ ဒုတိယ သို့မဟုတ် နောက်ဆုံး ပြောနေတဲ့ ERROR က ရှေ့က ERROR ကြောင့်မို့လို့ ဆင့်ကဲထပ်ဖြစ်လာတဲ့ ERROR မို့လို့...  
+ပထမ ERROR က အောက်ာပါအတိုင်း...  
+
+```
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py", line 411, in _read_gzip_header
+    raise OSError('Not a gzipped file (%r)' % magic)
+OSError: Not a gzipped file (b'<!')
+```
+
+
 
 ## Reference
 
