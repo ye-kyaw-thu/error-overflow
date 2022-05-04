@@ -2104,8 +2104,14 @@ line 350 ရဲ့ code ကတော့ အောက်ပါအတိုင်�
             total += l.data[0]
 ```
 
+Reference link: [https://github.com/NVIDIA/flownet2-pytorch/issues/113](https://github.com/NVIDIA/flownet2-pytorch/issues/113)  
 
+အောက်ပါအတိုင်း ဝင်ပြင်ခဲ့...  
 
+```python
+#            total += l.data[0]
+            total += l.data       
+```
 
 ## Reference
 
