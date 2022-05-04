@@ -883,7 +883,20 @@ Executing transaction: done
 (switchout_venv) ye@ye-System-Product-Name:~/tool$
 ```
 
-## 
+## pytorch Installation
+
+recommend လုပ်ထားတဲ့ whl ကိုပဲ သုံးပြီးတော့ installation လုပ်ခဲ့တယ်။  
+
+```
+pip install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
+```
+
+```
+
+```
+
+
+
 
 ## Reference
 
