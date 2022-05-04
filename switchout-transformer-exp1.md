@@ -1153,6 +1153,60 @@ def batch_size_fn(new, count, sofar):
     return max(src_elements, tgt_elements)
 ```
 
+## Download German and English Data
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ python3 -m spacy download de_core_news_sm
+Collecting de-core-news-sm==3.3.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.3.0/de_core_news_sm-3.3.0-py3-none-any.whl (14.6 MB)
+     |████████████████████████████████| 14.6 MB 514 kB/s 
+Requirement already satisfied: spacy<3.4.0,>=3.3.0.dev0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from de-core-news-sm==3.3.0) (3.3.0)
+Requirement already satisfied: thinc<8.1.0,>=8.0.14 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (8.0.15)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.0.6)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (3.0.9)
+Requirement already satisfied: wasabi<1.1.0,>=0.9.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.9.1)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (3.3.0)
+Collecting typing-extensions<4.0.0.0,>=3.7.4; python_version < "3.8"
+  Downloading typing_extensions-3.10.0.2-py3-none-any.whl (26 kB)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.0.2)
+Requirement already satisfied: blis<0.8.0,>=0.4.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.7.7)
+Requirement already satisfied: typer<0.5.0,>=0.3.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.4.1)
+Requirement already satisfied: packaging>=20.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (20.4)
+Requirement already satisfied: numpy>=1.15.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.18.5)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.4.3)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (4.47.0)
+Requirement already satisfied: pathy>=0.3.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.6.1)
+Requirement already satisfied: jinja2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.11.2)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.0.7)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.0.7)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.24.0)
+Requirement already satisfied: setuptools in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (49.2.0.post20200714)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (3.0.6)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<1.9.0,>=1.7.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.8.2)
+Requirement already satisfied: dataclasses<1.0,>=0.6; python_version < "3.7" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from thinc<8.1.0,>=8.0.14->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.8)
+Requirement already satisfied: contextvars<3,>=2.4; python_version < "3.7" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from thinc<8.1.0,>=8.0.14->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.4)
+Requirement already satisfied: click<9.0.0,>=7.1.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from typer<0.5.0,>=0.3.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (7.1.2)
+Requirement already satisfied: pyparsing>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.4.7)
+Requirement already satisfied: six in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.15.0)
+Requirement already satisfied: smart-open<6.0.0,>=5.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from pathy>=0.3.5->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (5.2.1)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from jinja2->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.1.1)
+Requirement already satisfied: zipp>=0.5; python_version < "3.8" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from catalogue<2.1.0,>=2.0.6->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (3.1.0)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (1.25.9)
+Requirement already satisfied: chardet<4,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (3.0.4)
+Requirement already satisfied: idna<3,>=2.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2.10)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (2020.6.20)
+Requirement already satisfied: immutables>=0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from contextvars<3,>=2.4; python_version < "3.7"->thinc<8.1.0,>=8.0.14->spacy<3.4.0,>=3.3.0.dev0->de-core-news-sm==3.3.0) (0.14)
+Installing collected packages: de-core-news-sm, typing-extensions
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing-extensions 4.1.1
+    Uninstalling typing-extensions-4.1.1:
+      Successfully uninstalled typing-extensions-4.1.1
+Successfully installed de-core-news-sm-3.3.0 typing-extensions-3.10.0.2
+✔ Download and installation successful
+You can now load the package via spacy.load('de_core_news_sm')
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$
+```
+
 
 
 ## Reference
