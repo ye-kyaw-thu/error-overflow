@@ -997,8 +997,58 @@ Successfully installed blis-0.7.7 catalogue-2.0.7 cymem-2.0.6 dataclasses-0.8 la
 ERROR: pydantic 1.8.2 has requirement typing-extensions>=3.7.4.3, but you'll have typing-extensions 3.7.4.2 which is incompatible.
 ```
 
+pydantic နဲ့ typing-extension အကြားကို version က မကိုက်ဘူး ဆိုပြီး error ပေးနေလို့ ...  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool$ conda install pydantic -c conda-forge
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/switchout_venv
+
+  added / updated specs:
+    - pydantic
 
 
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pydantic-0.18.2            |             py_0          35 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:          35 KB
+
+The following NEW packages will be INSTALLED:
+
+  dataclasses        conda-forge/noarch::dataclasses-0.8-pyh787bdff_2
+  pydantic           conda-forge/noarch::pydantic-0.18.2-py_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+pydantic-0.18.2      | 35 KB     | ################################################################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(switchout_venv) ye@ye-System-Product-Name:~/tool$
+```
+
+typing-extension မှာ error ပေးနေပေမဲ့ transformer ကို run ဖို့အတွက်က ပြဿနာမရှိလောက်ဘူးလို့ ယူဆခဲ့...  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool$ pip install typing-extensions
+Collecting typing-extensions
+  Using cached typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+ERROR: thinc 8.0.15 has requirement typing-extensions<4.0.0.0,>=3.7.4.1; python_version < "3.8", but you'll have typing-extensions 4.1.1 which is incompatible.
+ERROR: spacy 3.3.0 has requirement typing-extensions<4.0.0.0,>=3.7.4; python_version < "3.8", but you'll have typing-extensions 4.1.1 which is incompatible.
+Installing collected packages: typing-extensions
+Successfully installed typing-extensions-4.1.1
+(switchout_venv) ye@ye-System-Product-Name:~/tool$
+```
 
 ## Reference
 
