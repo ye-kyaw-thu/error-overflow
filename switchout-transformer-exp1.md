@@ -1661,6 +1661,27 @@ OSError: Not a gzipped file (b'<!')
         t._extfileobj = False
         return t
 ```
+
+data ဖိုင်ကို download မလုပ်သွားလို့လား ဆိုတာကို သိချင်လို့ ရှာကြည့်တော့ ရှိတာတော့ ရှိနေတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ ls
+early_stopping.py  LICENSE  __pycache__  README.md  tmp  train-de2en.log  train.py  transformer.py
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ ls -a
+.  ..  .data  early_stopping.py  .git  LICENSE  __pycache__  README.md  tmp  train-de2en.log  train.py  transformer.py
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ cd .data/
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data$ ls
+iwslt
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data$ tree
+.
+└── iwslt
+    └── de-en.tgz
+
+1 directory, 1 file
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/.data$
+```
+
+
 ## Reference
 
 Source Code က အောက်ပါ link ကနေ git clone လုပ်ယူထားတာ...  
