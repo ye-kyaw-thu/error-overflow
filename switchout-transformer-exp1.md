@@ -1155,6 +1155,8 @@ def batch_size_fn(new, count, sofar):
 
 ## Download German and English Data
 
+ဂျာမာန် ဒေတာကို အရင် download လုပ်ခဲ့...  
+
 ```
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ python3 -m spacy download de_core_news_sm
 Collecting de-core-news-sm==3.3.0
@@ -1207,6 +1209,17 @@ You can now load the package via spacy.load('de_core_news_sm')
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$
 ```
 
+ပြီးတော့ အင်္ဂလိပ် ဒေတာကိုလည်း download လုပ်ခဲ့...  
+အောက်ပါအတိုင်း ERROR ပေးတယ်...  
+
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ python3 -m spacy download en_core_news_sm
+
+✘ No compatible package found for 'en_core_news_sm' (spaCy v3.3.0)
+
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$
+```
 
 
 ## Reference
