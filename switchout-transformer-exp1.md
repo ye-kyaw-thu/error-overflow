@@ -1726,6 +1726,91 @@ tar: Exiting with failure status due to previous errors
 
 ```
 
+အရင်လိုနေပါတယ် ဆိုမှ ဒေတာကို unzip လုပ်တဲ့နေရာမှာ ERROR လာပေးနေတယ်။  
+ကိုယ့်ဖာသာကိုယ် iwslt dataset ကို download လုပ်ခဲ့တယ်။ အောက်ပါလင့်ကနေ...  
+[https://drive.google.com/file/d/1l5y6Giag9aRPwGtuZHswh3w5v3qEz8D8/view](https://drive.google.com/file/d/1l5y6Giag9aRPwGtuZHswh3w5v3qEz8D8/view)  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data$ mv ~/Downloads/2016-01.tgz .
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data$ ls
+2016-01.tgz
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data$ tar -xzvf ./2016-01.tgz 
+2016-01/
+2016-01/subeval_files/
+2016-01/._subjeval.html
+2016-01/subjeval.html
+2016-01/texts/
+2016-01/._texts.html
+2016-01/texts.html
+2016-01/._tools.html
+2016-01/tools.html
+2016-01/texts/ar/
+2016-01/texts/cs/
+2016-01/texts/de/
+2016-01/texts/en/
+2016-01/texts/fr/
+2016-01/texts/fr/en/
+2016-01/texts/fr/en/._.eval
+2016-01/texts/fr/en/.eval
+2016-01/texts/fr/en/._.info
+2016-01/texts/fr/en/.info
+2016-01/texts/fr/en/._fr-en.tgz
+2016-01/texts/fr/en/fr-en.tgz
+2016-01/texts/en/ar/
+2016-01/texts/en/cs/
+2016-01/texts/en/de/
+2016-01/texts/en/fr/
+2016-01/texts/en/fr/._.eval
+2016-01/texts/en/fr/.eval
+2016-01/texts/en/fr/._.info
+2016-01/texts/en/fr/.info
+2016-01/texts/en/fr/._en-fr.tgz
+2016-01/texts/en/fr/en-fr.tgz
+2016-01/texts/en/de/._.eval
+2016-01/texts/en/de/.eval
+2016-01/texts/en/de/._.info
+2016-01/texts/en/de/.info
+2016-01/texts/en/de/._en-de.tgz
+2016-01/texts/en/de/en-de.tgz
+2016-01/texts/en/cs/._.eval
+2016-01/texts/en/cs/.eval
+2016-01/texts/en/cs/._.info
+2016-01/texts/en/cs/.info
+2016-01/texts/en/cs/._en-cs.tgz
+2016-01/texts/en/cs/en-cs.tgz
+2016-01/texts/en/ar/._.eval
+2016-01/texts/en/ar/.eval
+2016-01/texts/en/ar/._.info
+2016-01/texts/en/ar/.info
+2016-01/texts/en/ar/._en-ar.tgz
+2016-01/texts/en/ar/en-ar.tgz
+2016-01/texts/de/en/
+2016-01/texts/de/en/._.eval
+2016-01/texts/de/en/.eval
+2016-01/texts/de/en/._.info
+2016-01/texts/de/en/.info
+2016-01/texts/de/en/._de-en.tgz
+2016-01/texts/de/en/de-en.tgz
+2016-01/texts/cs/en/
+2016-01/texts/cs/en/._.eval
+2016-01/texts/cs/en/.eval
+2016-01/texts/cs/en/._.info
+2016-01/texts/cs/en/.info
+2016-01/texts/cs/en/._cs-en.tgz
+2016-01/texts/cs/en/cs-en.tgz
+2016-01/texts/ar/en/
+2016-01/texts/ar/en/._.eval
+2016-01/texts/ar/en/.eval
+2016-01/texts/ar/en/._.info
+2016-01/texts/ar/en/.info
+2016-01/texts/ar/en/._ar-en.tgz
+2016-01/texts/ar/en/ar-en.tgz
+2016-01/subeval_files/._IWSLT16-HE-RELEASE.zip
+2016-01/subeval_files/IWSLT16-HE-RELEASE.zip
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/data$
+```
+
+
 
 ## Reference
 
