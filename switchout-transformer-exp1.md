@@ -1554,6 +1554,11 @@ original python code က ဂျာမာန်နဲ့ အင်္ဂလိပ
 TorchText dataset နဲ့ ပတ်သက်ပြီးတော့ လေ့လာရန်...  
 - [https://torchtext.readthedocs.io/en/latest/datasets.html](https://torchtext.readthedocs.io/en/latest/datasets.html)  
 
+train.py ကို run တော့ ပေးတဲ့ "AttributeError: module 'torchtext.data' has no attribute 'Field'" ဆိုတဲ့ error နဲ့ ပတ်သက်တဲ့ reference:  
+- https://stackoverflow.com/questions/66516388/attributeerror-module-torchtext-data-has-no-attribute-field
+
+
+
 
 
 
