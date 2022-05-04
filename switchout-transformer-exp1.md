@@ -1104,5 +1104,14 @@ model_par = nn.DataParallel(model, device_ids=devices)
 
 ## Reference
 
+Source Code က အောက်ပါ link ကနေ git clone လုပ်ယူထားတာ...  
+
 - https://github.com/nsapru/SwitchOut
+
+Coding က အောက်ပါ link နှစ်ခုကို အခြေခံပြီး develop လုပ်ထားတာ ...  
+
+- http://nlp.seas.harvard.edu/2018/04/03/attention.html
+- https://bastings.github.io/annotated_encoder_decoder/
+
+
 
