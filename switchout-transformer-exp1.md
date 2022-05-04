@@ -1535,6 +1535,89 @@ sys	0m0.192s
 ```
 
 load လုပ်တဲ့ အဆင့်မှာ ပေးတဲ့ error တော့ ရှင်းလို့ ပြီးသွားပြီလို့ ယူဆ။ သို့သော် အထက်ပါအတိုင်း attribute "Field" က မရှိဘူးဆိုတဲ့ ERROR အသစ် ထပ်ပေးတယ်။  
+Reference link: [https://stackoverflow.com/questions/66516388/attributeerror-module-torchtext-data-has-no-attribute-field](https://stackoverflow.com/questions/66516388/attributeerror-module-torchtext-data-has-no-attribute-field)  
+code ရဲ့ import အပိုင်းကို အောက်ပါအတိုင်း update လုပ်ခဲ့တယ်။  
+
+```python
+#from torchtext import data, datasets
+from torchtext import datasets
+from torchtext.legacy import data
+```
+
+train.py ကို နောက်တစ်ခေါက် ထပ် run ကြည့်တော့ အောက်ပါအတိုင်း ERROR အသစ်က ထွက်လာတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+Traceback (most recent call last):
+  File "./train.py", line 131, in <module>
+Entering Data loop
+Tokenizing Words....
+    train, val, test = datasets.IWSLT.splits(
+AttributeError: module 'torchtext.datasets' has no attribute 'IWSLT'
+
+real	0m3.061s
+user	0m2.827s
+sys	0m0.216s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
+```
+
+ဒီတစ်ခါတော့ IWSLT ဒေတာနဲ့ ပတ်သက်ပြီး မသိတဲ့ ပုံရှိတယ်။ dataset ကလည်း legacy အောက်မှာပဲ ရှိနေတာလား?!  
+
+```python
+#from torchtext import data, datasets
+#from torchtext import datasets
+from torchtext.legacy import data, datasets
+```
+
+train.py ကို ထပ် run ကြည့်တော့ ...  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+110kB [00:00, 1.83MB/s]
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1643, in gzopen
+Entering Data loop
+Tokenizing Words....
+downloading de-en.tgz
+    t = cls.taropen(name, mode, fileobj, **kwargs)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1619, in taropen
+    return cls(name, mode, fileobj, **kwargs)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1482, in __init__
+    self.firstmember = self.next()
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 2297, in next
+    tarinfo = self.tarinfo.fromtarfile(self)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1092, in fromtarfile
+    buf = tarfile.fileobj.read(BLOCKSIZE)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py", line 276, in read
+    return self._buffer.read(size)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/_compression.py", line 68, in readinto
+    data = self.read(len(byte_view))
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py", line 463, in read
+    if not self._read_gzip_header():
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py", line 411, in _read_gzip_header
+    raise OSError('Not a gzipped file (%r)' % magic)
+OSError: Not a gzipped file (b'<!')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./train.py", line 133, in <module>
+    filter_pred=lambda x: len(vars(x)['src']) <= MAX_LEN and 
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torchtext/legacy/datasets/translation.py", line 147, in splits
+    path = cls.download(root, check=check)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torchtext/legacy/data/dataset.py", line 191, in download
+    with tarfile.open(zpath, 'r:gz') as tar:
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1589, in open
+    return func(name, filemode, fileobj, **kwargs)
+  File "/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py", line 1647, in gzopen
+    raise ReadError("not a gzip file")
+tarfile.ReadError: not a gzip file
+
+real	0m4.546s
+user	0m2.711s
+sys	0m0.273s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$
+```
 
 
 ## Reference
