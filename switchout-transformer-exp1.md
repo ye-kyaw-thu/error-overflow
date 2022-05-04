@@ -893,6 +893,7 @@ pip install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-li
 
 pytorch installation လုပ်တာက အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ ပြီးသွားတယ်လို့ ထင်ပါတယ်။  
 
+```
 (switchout_venv) ye@ye-System-Product-Name:~/tool$ pip install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
 Collecting torch==0.3.0.post4
   Downloading http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl (633.1 MB)
@@ -901,7 +902,7 @@ Requirement already satisfied: pyyaml in /home/ye/anaconda3/envs/switchout_venv/
 Requirement already satisfied: numpy in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from torch==0.3.0.post4) (1.18.5)
 Installing collected packages: torch
 Successfully installed torch-0.3.0.post4
-(switchout_venv) ye@ye-System-Product-Name:~/tool$```
+(switchout_venv) ye@ye-System-Product-Name:~/tool$
 ```
 
 ## Other Packages Installation
@@ -988,6 +989,7 @@ Installing collected packages: blis, catalogue, wasabi, spacy-loggers, cymem, mu
 Successfully installed blis-0.7.7 catalogue-2.0.7 cymem-2.0.6 dataclasses-0.8 langcodes-3.3.0 murmurhash-1.0.7 pathy-0.6.1 preshed-3.0.6 pydantic-1.8.2 smart-open-5.2.1 spacy-3.3.0 spacy-legacy-3.0.9 spacy-loggers-1.0.2 srsly-2.4.3 thinc-8.0.15 torch-1.10.2 torchtext-0.11.2 typer-0.4.1 wasabi-0.9.1
 (switchout_venv) ye@ye-System-Product-Name:~/tool$
 ```
+
 
 အထက်ပါအတိုင်းပဲ package တစ်ခုအတွက် version မတူဘူးဆိုတဲ့ error message တော့ ပေးနေတယ်။  
 
