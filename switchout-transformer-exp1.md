@@ -1,5 +1,11 @@
 # SwitchOut Experiment with Transformer Architecture
 
+အဆင်ပြေမပြေတော့ မသိဘူး။  
+လက်ရှိ xnmt ကို run နေတာက Backend က pytorch ကို သုံးပြီး run နေတာ။  
+Transformer က Backend ကို DyNet ကို သုံးတာပဲ လက်ရှိမှာ ရတာမို့လို့ Transformer architecture နဲ့ experiment လုပ်မယ် ဆိုရင် DyNet python ကို သေချာ install လုပ်ထားမှရလိမ့်မယ်။  
+လက်ရှိမှာ version conflict ကြောင့် DyNet ကို python library အနေနဲ့ ခေါ်သုံးဖို့က ခက်နေလို့...  
+အဲဒါနဲ့ လက်ရှိ SwitchOut argumentation အတွက် experiment လုပ်လို့ ရမရကို သိချင်လို့ SwitchOut ဆိုတဲ့ GitHub repository ကို သုံးပြီး စမ်းကြည့်ဖို့ ဆုံးဖြတ်ခဲ့တာ...  
+
 ## Git clone
 
 ```
@@ -1101,6 +1107,29 @@ valid_iter = MyIterator(val, batch_size=BATCH_SIZE, device=0,
 model_par = nn.DataParallel(model, device_ids=devices)
 ```
 
+data ကို ဖတ်တာက segmentation or tokenization လုပ်တာက spacy ကို ယူသုံးထားတာမို့ တကယ်လို့ မြန်မာစာတို့ ထိုင်းစာတို့ကို run မယ် ဆိုရင် သတိထားရလိမ့်မယ်။  
+
+```python
+##########################################################################
+#########################   DATA LOADING   ###############################
+##########################################################################
+
+
+print("Entering Data loop")
+
+spacy_de = spacy.load('de')
+spacy_en = spacy.load('en')
+
+def tokenize_de(text):
+    return [tok.text for tok in spacy_de.tokenizer(text)]
+
+def tokenize_en(text):
+    return [tok.text for tok in spacy_en.tokenizer(text)]
+
+BOS_WORD = '<s>'
+EOS_WORD = '</s>'
+BLANK_WORD = "<blank>"
+```
 
 ## Reference
 
