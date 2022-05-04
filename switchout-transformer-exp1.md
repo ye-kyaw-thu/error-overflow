@@ -1994,6 +1994,104 @@ devices = [0, 1]
 devices = [0]
 ```
 
+training ထပ်လုပ်ကြည့်ခဲ့တယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ time python ./train.py | tee ./train-de2en.log 
+/home/ye/tool/SwitchOut/transformer.py:395: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(p)
+/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+The `device` argument should be set by using `torch.device` or passing a string as an argument. This behavior will be deprecated soon and currently defaults to cpu.
+The `device` argument should be set by using `torch.device` or passing a string as an argument. This behavior will be deprecated soon and currently defaults to cpu.
+/home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+Traceback (most recent call last):
+  File "./train.py", line 404, in <module>
+Entering Data loop
+Tokenizing Words....
+Data set sizes (number of sentence pairs):
+train 196545
+valid 992
+test 1305 
+
+First training example:
+src: David Gallo : Das ist Bill Lange . Ich bin Dave Gallo .
+trg: David Gallo : This is Bill Lange . I 'm Dave Gallo . 
+
+Most common words (src):
+         ,     273463
+         .     200398
+       die      81905
+       und      73250
+       der      53713
+       ist      50514
+       das      44503
+        in      42698
+        zu      42668
+       ich      38260 
+
+Most common words (trg):
+         ,     230525
+         .     193834
+       the     150642
+        to      94270
+        of      88037
+       and      79575
+         a      79155
+      that      68057
+         I      62673
+        in      56279 
+
+First 10 words (src):
+00 <unk>
+01 <blank>
+02 ,
+03 .
+04 die
+05 und
+06 der
+07 ist
+08 das
+09 in 
+
+First 10 words (trg):
+00 <unk>
+01 <blank>
+02 <s>
+03 </s>
+04 ,
+05 .
+06 the
+07 to
+08 of
+09 and 
+
+Number of German words (types): 58949
+Number of English words (types): 36207 
+
+Creating model, criterion, optimizer, data iterators, and paralelization
+Entering true training loop
+Building the Model
+Not Using SwitchOut....
+    devices=devices, opt=model_opt))
+  File "./train.py", line 292, in run_epoch
+    loss = loss_compute(out, batch.trg_y, batch.ntokens)
+  File "./train.py", line 350, in __call__
+    l = l.sum()[0] / normalize
+IndexError: invalid index of a 0-dim tensor. Use `tensor.item()` in Python or `tensor.item<T>()` in C++ to convert a 0-dim tensor to a number
+
+real	0m32.404s
+user	0m31.462s
+sys	0m1.291s
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ 
+```
+
+GPU ကဒ် ကိစ္စကတော့ ERROR မပေးတော့ဘူး။ သို့သော် အထက်ပါအတိုင်း ERROR အသစ် ထပ်ထွက်လာတယ်။  
+
+```
+
+```
 
 ## Reference
 
