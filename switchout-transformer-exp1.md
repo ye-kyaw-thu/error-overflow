@@ -1628,7 +1628,7 @@ sys	0m0.273s
 OSError: Not a gzipped file (b'<!')
 ```
 
-(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ gedit /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ gedit /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/gzip.py  
 
 ```python
     def _read_gzip_header(self):
@@ -1645,7 +1645,22 @@ OSError: Not a gzipped file (b'<!')
             raise OSError('Unknown compression method')
 ```
 
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut$ gedit /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/tarfile.py  
 
+```python
+        try:
+            t = cls.taropen(name, mode, fileobj, **kwargs)
+        except OSError:
+            fileobj.close()
+            if mode == 'r':
+                raise ReadError("not a gzip file")
+            raise
+        except:
+            fileobj.close()
+            raise
+        t._extfileobj = False
+        return t
+```
 ## Reference
 
 Source Code က အောက်ပါ link ကနေ git clone လုပ်ယူထားတာ...  
