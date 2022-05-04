@@ -1221,6 +1221,127 @@ You can now load the package via spacy.load('de_core_news_sm')
 (switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$
 ```
 
+အောက်ပါ link ကို refer လုပ်ပြီးတော့ ...  
+
+
+Spacy ကို ပြန် install လုပ်ပြီး အင်္ဂလိပ်စာ ဒေတာကို download ထပ်လုပ်ကြည့်တော့ ရတယ်။  
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ pip install -U pip setuptools wheel
+Collecting pip
+  Using cached pip-21.3.1-py3-none-any.whl (1.7 MB)
+Collecting setuptools
+  Using cached setuptools-59.6.0-py3-none-any.whl (952 kB)
+Collecting wheel
+  Using cached wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+Installing collected packages: pip, setuptools, wheel
+  Attempting uninstall: pip
+    Found existing installation: pip 20.1.1
+    Uninstalling pip-20.1.1:
+      Successfully uninstalled pip-20.1.1
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 49.2.0.post20200714
+    Uninstalling setuptools-49.2.0.post20200714:
+      Successfully uninstalled setuptools-49.2.0.post20200714
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.34.2
+    Uninstalling wheel-0.34.2:
+      Successfully uninstalled wheel-0.34.2
+Successfully installed pip-21.3.1 setuptools-59.6.0 wheel-0.37.1
+```
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ pip install -U spacy
+Requirement already satisfied: spacy in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (3.3.0)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (3.0.6)
+Requirement already satisfied: typer<0.5.0,>=0.3.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (0.4.1)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (1.0.2)
+Requirement already satisfied: setuptools in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (59.6.0)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (4.47.0)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.0.6)
+Requirement already satisfied: wasabi<1.1.0,>=0.9.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (0.9.1)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.4.3)
+Requirement already satisfied: packaging>=20.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (20.4)
+Requirement already satisfied: thinc<8.1.0,>=8.0.14 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (8.0.15)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (1.0.7)
+Requirement already satisfied: blis<0.8.0,>=0.4.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (0.7.7)
+Requirement already satisfied: jinja2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.11.2)
+Requirement already satisfied: numpy>=1.15.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (1.18.5)
+Requirement already satisfied: pathy>=0.3.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (0.6.1)
+Requirement already satisfied: typing-extensions<4.0.0.0,>=3.7.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (3.10.0.2)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.24.0)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.0.7)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<1.9.0,>=1.7.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (1.8.2)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (3.3.0)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (3.0.9)
+Requirement already satisfied: zipp>=0.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from catalogue<2.1.0,>=2.0.6->spacy) (3.1.0)
+Requirement already satisfied: six in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy) (1.15.0)
+Requirement already satisfied: pyparsing>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy) (2.4.7)
+Requirement already satisfied: smart-open<6.0.0,>=5.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from pathy>=0.3.5->spacy) (5.2.1)
+Requirement already satisfied: dataclasses<1.0,>=0.6 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from pathy>=0.3.5->spacy) (0.8)
+Requirement already satisfied: chardet<4,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (1.25.9)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (2020.6.20)
+Requirement already satisfied: idna<3,>=2.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (2.10)
+Requirement already satisfied: contextvars<3,>=2.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from thinc<8.1.0,>=8.0.14->spacy) (2.4)
+Requirement already satisfied: click<9.0.0,>=7.1.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from typer<0.5.0,>=0.3.0->spacy) (7.1.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from jinja2->spacy) (1.1.1)
+Requirement already satisfied: immutables>=0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from contextvars<3,>=2.4->thinc<8.1.0,>=8.0.14->spacy) (0.14)
+```
+
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$ python -m spacy download en_core_web_sm
+Collecting en-core-web-sm==3.3.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0-py3-none-any.whl (12.8 MB)
+     |████████████████████████████████| 12.8 MB 1.2 MB/s            
+Requirement already satisfied: spacy<3.4.0,>=3.3.0.dev0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from en-core-web-sm==3.3.0) (3.3.0)
+Requirement already satisfied: numpy>=1.15.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.18.5)
+Requirement already satisfied: thinc<8.1.0,>=8.0.14 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (8.0.15)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.24.0)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.0.6)
+Requirement already satisfied: pathy>=0.3.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.6.1)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.3.0)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<1.9.0,>=1.7.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.8.2)
+Requirement already satisfied: typing-extensions<4.0.0.0,>=3.7.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.10.0.2)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.0.7)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.0.9)
+Requirement already satisfied: blis<0.8.0,>=0.4.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.7.7)
+Requirement already satisfied: wasabi<1.1.0,>=0.9.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.9.1)
+Requirement already satisfied: jinja2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.11.2)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.0.7)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.4.3)
+Requirement already satisfied: setuptools in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (59.6.0)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (4.47.0)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.0.2)
+Requirement already satisfied: typer<0.5.0,>=0.3.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.4.1)
+Requirement already satisfied: packaging>=20.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (20.4)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.0.6)
+Requirement already satisfied: zipp>=0.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from catalogue<2.1.0,>=2.0.6->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.1.0)
+Requirement already satisfied: pyparsing>=2.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.4.7)
+Requirement already satisfied: six in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from packaging>=20.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.15.0)
+Requirement already satisfied: smart-open<6.0.0,>=5.0.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from pathy>=0.3.5->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (5.2.1)
+Requirement already satisfied: dataclasses<1.0,>=0.6 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from pathy>=0.3.5->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.8)
+Requirement already satisfied: idna<3,>=2.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.10)
+Requirement already satisfied: chardet<4,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.25.9)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2020.6.20)
+Requirement already satisfied: contextvars<3,>=2.4 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from thinc<8.1.0,>=8.0.14->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (2.4)
+Requirement already satisfied: click<9.0.0,>=7.1.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from typer<0.5.0,>=0.3.0->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (7.1.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from jinja2->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (1.1.1)
+Requirement already satisfied: immutables>=0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from contextvars<3,>=2.4->thinc<8.1.0,>=8.0.14->spacy<3.4.0,>=3.3.0.dev0->en-core-web-sm==3.3.0) (0.14)
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.3.0
+✔ Download and installation successful
+You can now load the package via spacy.load('en_core_web_sm')
+(switchout_venv) ye@ye-System-Product-Name:~/tool/SwitchOut/tmp$
+```
+
+folder တွေကို check လုပ်ကြည့်ခဲ့...  
+
+```
+
+```
+
 
 ## Reference
 
