@@ -904,7 +904,96 @@ Successfully installed torch-0.3.0.post4
 (switchout_venv) ye@ye-System-Product-Name:~/tool$```
 ```
 
+## Other Packages Installation
 
+```
+(switchout_venv) ye@ye-System-Product-Name:~/tool$ pip install numpy matplotlib spacy torchtext
+Requirement already satisfied: numpy in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (1.18.5)
+Requirement already satisfied: matplotlib in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (3.2.2)
+Collecting spacy
+  Downloading spacy-3.3.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.2 MB)
+     |████████████████████████████████| 6.2 MB 1.8 MB/s 
+Collecting torchtext
+  Downloading torchtext-0.11.2-cp36-cp36m-manylinux1_x86_64.whl (8.0 MB)
+     |████████████████████████████████| 8.0 MB 15.3 MB/s 
+Requirement already satisfied: python-dateutil>=2.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from matplotlib) (1.2.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: cycler>=0.10 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: setuptools in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (49.2.0.post20200714)
+Collecting blis<0.8.0,>=0.4.0
+  Downloading blis-0.7.7-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.9 MB)
+     |████████████████████████████████| 9.9 MB 102.2 MB/s 
+Collecting catalogue<2.1.0,>=2.0.6
+  Downloading catalogue-2.0.7-py3-none-any.whl (17 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0
+  Downloading spacy_loggers-1.0.2-py3-none-any.whl (7.2 kB)
+Collecting thinc<8.1.0,>=8.0.14
+  Downloading thinc-8.0.15-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (655 kB)
+     |████████████████████████████████| 655 kB 83.3 MB/s 
+Collecting preshed<3.1.0,>=3.0.2
+  Downloading preshed-3.0.6-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (127 kB)
+     |████████████████████████████████| 127 kB 94.2 MB/s 
+Collecting srsly<3.0.0,>=2.4.3
+  Downloading srsly-2.4.3-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+     |████████████████████████████████| 456 kB 71.1 MB/s 
+Requirement already satisfied: typing-extensions<4.0.0.0,>=3.7.4; python_version < "3.8" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (3.7.4.2)
+Requirement already satisfied: packaging>=20.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (20.4)
+Collecting murmurhash<1.1.0,>=0.28.0
+  Downloading murmurhash-1.0.7-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (21 kB)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.24.0)
+Collecting spacy-legacy<3.1.0,>=3.0.9
+  Downloading spacy_legacy-3.0.9-py2.py3-none-any.whl (20 kB)
+Collecting pydantic!=1.8,!=1.8.1,<1.9.0,>=1.7.4
+  Downloading pydantic-1.8.2-cp36-cp36m-manylinux2014_x86_64.whl (10.2 MB)
+     |████████████████████████████████| 10.2 MB 28.3 MB/s 
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (4.47.0)
+Collecting wasabi<1.1.0,>=0.9.1
+  Downloading wasabi-0.9.1-py3-none-any.whl (26 kB)
+Collecting langcodes<4.0.0,>=3.2.0
+  Downloading langcodes-3.3.0-py3-none-any.whl (181 kB)
+     |████████████████████████████████| 181 kB 104.9 MB/s 
+Collecting pathy>=0.3.5
+  Downloading pathy-0.6.1-py3-none-any.whl (42 kB)
+     |████████████████████████████████| 42 kB 252 kB/s 
+Requirement already satisfied: jinja2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from spacy) (2.11.2)
+Collecting typer<0.5.0,>=0.3.0
+  Downloading typer-0.4.1-py3-none-any.whl (27 kB)
+Collecting cymem<2.1.0,>=2.0.2
+  Downloading cymem-2.0.6-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (35 kB)
+Collecting torch==1.10.2
+  Downloading torch-1.10.2-cp36-cp36m-manylinux1_x86_64.whl (881.9 MB)
+     |████████████████████████████████| 881.9 MB 12 kB/s 
+Requirement already satisfied: six>=1.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib) (1.15.0)
+Requirement already satisfied: zipp>=0.5; python_version < "3.8" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from catalogue<2.1.0,>=2.0.6->spacy) (3.1.0)
+Collecting dataclasses<1.0,>=0.6; python_version < "3.7"
+  Using cached dataclasses-0.8-py3-none-any.whl (19 kB)
+Requirement already satisfied: contextvars<3,>=2.4; python_version < "3.7" in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from thinc<8.1.0,>=8.0.14->spacy) (2.4)
+Requirement already satisfied: idna<3,>=2.5 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (1.25.9)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (2020.6.20)
+Requirement already satisfied: chardet<4,>=3.0.2 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from requests<3.0.0,>=2.13.0->spacy) (3.0.4)
+Collecting smart-open<6.0.0,>=5.0.0
+  Downloading smart_open-5.2.1-py3-none-any.whl (58 kB)
+     |████████████████████████████████| 58 kB 276 kB/s 
+Requirement already satisfied: MarkupSafe>=0.23 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from jinja2->spacy) (1.1.1)
+Requirement already satisfied: click<9.0.0,>=7.1.1 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from typer<0.5.0,>=0.3.0->spacy) (7.1.2)
+Requirement already satisfied: immutables>=0.9 in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from contextvars<3,>=2.4; python_version < "3.7"->thinc<8.1.0,>=8.0.14->spacy) (0.14)
+ERROR: pydantic 1.8.2 has requirement typing-extensions>=3.7.4.3, but you'll have typing-extensions 3.7.4.2 which is incompatible.
+Installing collected packages: blis, catalogue, wasabi, spacy-loggers, cymem, murmurhash, preshed, dataclasses, pydantic, srsly, thinc, spacy-legacy, langcodes, typer, smart-open, pathy, spacy, torch, torchtext
+  Attempting uninstall: torch
+    Found existing installation: torch 0.3.0.post4
+    Uninstalling torch-0.3.0.post4:
+      Successfully uninstalled torch-0.3.0.post4
+Successfully installed blis-0.7.7 catalogue-2.0.7 cymem-2.0.6 dataclasses-0.8 langcodes-3.3.0 murmurhash-1.0.7 pathy-0.6.1 preshed-3.0.6 pydantic-1.8.2 smart-open-5.2.1 spacy-3.3.0 spacy-legacy-3.0.9 spacy-loggers-1.0.2 srsly-2.4.3 thinc-8.0.15 torch-1.10.2 torchtext-0.11.2 typer-0.4.1 wasabi-0.9.1
+(switchout_venv) ye@ye-System-Product-Name:~/tool$
+```
+
+အထက်ပါအတိုင်းပဲ package တစ်ခုအတွက် version မတူဘူးဆိုတဲ့ error message တော့ ပေးနေတယ်။  
+
+```
+ERROR: pydantic 1.8.2 has requirement typing-extensions>=3.7.4.3, but you'll have typing-extensions 3.7.4.2 which is incompatible.
+```
 
 
 
