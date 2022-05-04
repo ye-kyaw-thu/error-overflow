@@ -882,3 +882,10 @@ Executing transaction: done
 (base) ye@ye-System-Product-Name:~/tool$ conda activate switchout_venv
 (switchout_venv) ye@ye-System-Product-Name:~/tool$
 ```
+
+## 
+
+## Reference
+
+- https://github.com/nsapru/SwitchOut
+
