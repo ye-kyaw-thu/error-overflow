@@ -891,9 +891,20 @@ recommend လုပ်ထားတဲ့ whl ကိုပဲ သုံးပြ�
 pip install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
 ```
 
+pytorch installation လုပ်တာက အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ ပြီးသွားတယ်လို့ ထင်ပါတယ်။  
+
+(switchout_venv) ye@ye-System-Product-Name:~/tool$ pip install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
+Collecting torch==0.3.0.post4
+  Downloading http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl (633.1 MB)
+     |████████████████████████████████| 633.1 MB 62.8 MB/s 
+Requirement already satisfied: pyyaml in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from torch==0.3.0.post4) (5.3.1)
+Requirement already satisfied: numpy in /home/ye/anaconda3/envs/switchout_venv/lib/python3.6/site-packages (from torch==0.3.0.post4) (1.18.5)
+Installing collected packages: torch
+Successfully installed torch-0.3.0.post4
+(switchout_venv) ye@ye-System-Product-Name:~/tool$```
 ```
 
-```
+
 
 
 
