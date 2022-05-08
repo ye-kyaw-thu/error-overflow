@@ -17,7 +17,7 @@ just update experiment name and dropout.
 asean.baseline.nodropout.en-th: !Experiment
   exp_global: !ExpGlobal
   default_layer_dim: 512 # Hidden layer size 512 by default
-    dropout: 0.0           # Dropout 0.3 by default
+  dropout: 0.0           # Dropout 0.3 by default
   preproc: !PreprocRunner
     overwrite: False       # Don't redo preprocessing if it's been done once before
     tasks:
