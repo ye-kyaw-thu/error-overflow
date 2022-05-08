@@ -42,6 +42,20 @@ asean.baseline.nodropout.th-en: !Experiment
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline-nodropout$
 ```
 
+## Prepare a Shell Script for Training
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline-nodropout$ chmod +x ./train.sh
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline-nodropout$ cat ./train.sh
+#!/bin/bash
+
+time xnmt --backend torch --gpu ./config.baseline.en-th-word-nodropout.yaml | tee no-dropout.en-th.log1
+time xnmt --backend torch --gpu ./config.baseline.th-en-word-nodropout.yaml | tee no-dropout.th-en.log1
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline-nodropout$
+```
+
+## Training
+
 ```
 
 ```
