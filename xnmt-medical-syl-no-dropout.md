@@ -167,17 +167,25 @@ switchout.nodropout.syl.en-my: !Experiment
 
 ## Training
 
+command ...  
+
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl_switchout$ time xnmt --backend torch --gpu ./config.switchout.nodropout.en-my-syl.yaml | tee switchout.nodropout.en-my-syl.log
+```
+
+result for en-my, switchout, nodropout, syllable unit ...  
 
 ```
 
 ```
 
-```
+command ...  
 
 ```
 
 ```
+
+result for en-my, switchout, nodropout, syllable unit ...  
 
 ```
 
