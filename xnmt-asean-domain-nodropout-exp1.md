@@ -169,25 +169,24 @@ asean.baseline.nodropout.en-th| BLEU4: 0.3463192177550231, 0.573536/0.396025/0.2
 result for en-th ...  
 
 ```
-[asean.baseline.nodropout.en-th]              dev auxiliary Loss: 4.650 (ref_len=6809)
-             checkpoint took 0-00:00:26
+Done packing batches.
+[asean.baseline.nodropout.th-en] Epoch 18.0000 dev BLEU4: 0.26889110653376486, 0.457166/0.302675/0.223567/0.168985 (BP = 1.000000, ratio=1.02, hyp_len=7424, ref_len=7245) (time=0-00:16:57)
+[asean.baseline.nodropout.th-en]              dev auxiliary GLEU: 0.276516
+[asean.baseline.nodropout.th-en]              dev auxiliary Loss: 5.106 (ref_len=7245)
+             checkpoint took 0-00:00:29
   Early stopping
 reverting learned weights to best checkpoint..
 > Performing final evaluation
-Performing inference on ./data/dev.en and ./data/dev.th
-Performing inference on ./data/test.en and ./data/test.th
+Performing inference on ./data/dev.th and ./data/dev.en
+Performing inference on ./data/test.th and ./data/test.en
 Experiment                    | Final Scores
 -----------------------------------------------------------------------
-asean.baseline.nodropout.en-th| BLEU4: 0.3463192177550231, 0.573536/0.396025/0.286235/0.221259 (BP = 1.000000, ratio=1.05, hyp_len=7119, ref_len=6809)
-                              | GLEU: 0.347426
-                              | WER: 61.42% ( C/S/I/D: 3940/1866/1313/1003; hyp_len=7119, ref_len=6809 )
-                              | CER: 48.98% ( C/S/I/D: 18797/7454/3075/4563; hyp_len=29326, ref_len=30814 )
-                              | BLEU4: 0.37248305134650994, 0.603629/0.421736/0.310859/0.243793 (BP = 0.999442, ratio=1.00, hyp_len=7165, ref_len=7169)
-                              | GLEU: 0.366892
-                              | WER: 57.05% ( C/S/I/D: 4156/1932/1077/1081; hyp_len=7165, ref_len=7169 )
-                              | CER: 48.25% ( C/S/I/D: 19004/7424/2941/4613; hyp_len=29369, ref_len=31041 )
-
-real    21m51.845s
-user    21m50.334s
-sys     0m2.694s
+asean.baseline.nodropout.th-en| BLEU4: 0.27064950622269823, 0.456802/0.304744/0.225172/0.171180 (BP = 1.000000, ratio=1.01, hyp_len=7292, ref_len=7245)
+                              | GLEU: 0.276648
+                              | WER: 67.08% ( C/S/I/D: 3267/3143/882/835; hyp_len=7292, ref_len=7245 )
+                              | CER: 56.41% ( C/S/I/D: 17602/8121/4352/4672; hyp_len=30075, ref_len=30395 )
+                              | BLEU4: 0.3007472883141158, 0.484179/0.334456/0.251953/0.200513 (BP = 1.000000, ratio=1.01, hyp_len=7237, ref_len=7176)
+                              | GLEU: 0.306213
+                              | WER: 62.64% ( C/S/I/D: 3458/3002/777/716; hyp_len=7237, ref_len=7176 )
+                              | CER: 52.42% ( C/S/I/D: 18341/7671/3872/4396; hyp_len=29884, ref_len=30408 )
 ```
