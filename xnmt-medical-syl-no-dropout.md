@@ -176,7 +176,45 @@ command ...
 result for en-my, switchout, nodropout, syllable unit ...  
 
 ```
+[switchout.nodropout.syl.en-my] Epoch 20.3807: train_loss/word=1.955596 (steps=6211, words/sec=13331.20, time=0-00:23:17)
+[switchout.nodropout.syl.en-my] Epoch 20.4549: train_loss/word=2.035654 (steps=6232, words/sec=14799.07, time=0-00:23:19)
+[switchout.nodropout.syl.en-my] Epoch 20.5306: train_loss/word=1.993931 (steps=6253, words/sec=15394.95, time=0-00:23:21)
+[switchout.nodropout.syl.en-my] Epoch 20.6076: train_loss/word=2.007725 (steps=6276, words/sec=13835.60, time=0-00:23:23)
+[switchout.nodropout.syl.en-my] Epoch 20.6850: train_loss/word=2.022797 (steps=6300, words/sec=13295.64, time=0-00:23:25)
+[switchout.nodropout.syl.en-my] Epoch 20.7603: train_loss/word=2.015961 (steps=6324, words/sec=11770.73, time=0-00:23:28)
+[switchout.nodropout.syl.en-my] Epoch 20.8355: train_loss/word=1.983724 (steps=6349, words/sec=13092.45, time=0-00:23:30)
+[switchout.nodropout.syl.en-my] Epoch 20.9100: train_loss/word=2.081794 (steps=6371, words/sec=13441.40, time=0-00:23:32)
+[switchout.nodropout.syl.en-my] Epoch 20.9851: train_loss/word=1.987199 (steps=6394, words/sec=14009.17, time=0-00:23:34)
+[switchout.nodropout.syl.en-my] Epoch 21.0000: train_loss/word=2.046443 (steps=6398, words/sec=16853.24, time=0-00:23:34)
+> Checkpoint [switchout.nodropout.syl.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[switchout.nodropout.syl.en-my] Epoch 21.0000 dev BLEU4: 0.3435070829692638, 0.649184/0.439618/0.299209/0.214474 (BP = 0.933765, ratio=0.94, hyp_len=12126, ref_len=12957) (time=0-00:24:08)
+[switchout.nodropout.syl.en-my]              dev auxiliary GLEU: 0.360906
+[switchout.nodropout.syl.en-my]              dev auxiliary Loss: 2.979 (ref_len=12957)
+             checkpoint took 0-00:00:33
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.my
+Performing inference on ./data/test.en and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.syl.en-my | BLEU4: 0.34540814958202326, 0.649653/0.436271/0.298266/0.212471 (BP = 0.943512, ratio=0.95, hyp_len=12245, ref_len=12957)
+                              | GLEU: 0.360589
+                              | WER: 58.38% ( C/S/I/D: 6885/3868/1492/2204; hyp_len=12245, ref_len=12957 )
+                              | CER: 52.61% ( C/S/I/D: 21971/8493/4372/6676; hyp_len=34836, ref_len=37140 )
+                              | BLEU4: 0.35348586236960633, 0.650419/0.442342/0.307085/0.223696 (BP = 0.942768, ratio=0.94, hyp_len=12658, ref_len=13404)
+                              | GLEU: 0.367651
+                              | WER: 58.42% ( C/S/I/D: 7059/4114/1485/2231; hyp_len=12658, ref_len=13404 )
+                              | CER: 53.04% ( C/S/I/D: 22302/9143/4324/6835; hyp_len=35769, ref_len=38280 )
 
+real    25m28.034s
+user    25m26.861s
+sys     0m2.393s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl_switchout$
 ```
 
 command ...  
