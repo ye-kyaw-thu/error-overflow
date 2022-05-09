@@ -230,3 +230,16 @@ switchout.nodropout.asean.th-en: !Experiment
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$
 ```
 
+## Training SwitchOut No-Dropout for ASEAN En-Th, Th-En
+
+training for en-th language pair ...  
+
+```
+
+```
+
+training for th-en language pair ...  
+
+```
+
+```
