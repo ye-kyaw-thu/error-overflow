@@ -197,3 +197,36 @@ asean.baseline.nodropout.th-en| BLEU4: 0.27064950622269823, 0.456802/0.304744/0.
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$ cp config.switchout.th-en-word.yaml ./config.switchout.nodropout.th-en-word.yaml
 ```
 
+updated the experiment name and dropout value for en-th ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$ head ./config.switchout.nodropout.en-th-word.yaml
+# standard settings
+switchout.nodropout.asean.en-th: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+```
+
+updated the experiment name and dropout value for th-en ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$ head ./config.switchout.nodropout.th-en-word.yaml
+# standard settings
+switchout.nodropout.asean.th-en: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$
+```
+
