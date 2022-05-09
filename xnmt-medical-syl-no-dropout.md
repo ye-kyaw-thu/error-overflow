@@ -220,7 +220,7 @@ sys     0m2.393s
 command ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl_switchout$ time xnmt --backend torch --gpu ./config.switchout.nodropout.my-en-syl.yaml | tee switchout.nodropout.my-en-syl.log
 ```
 
 result for en-my, switchout, nodropout, syllable unit ...  
