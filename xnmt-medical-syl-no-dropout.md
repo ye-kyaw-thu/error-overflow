@@ -85,8 +85,10 @@ sys     0m2.184s
 training for my-en ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ time xnmt --backend torch --gpu ./config.medical.my-en-syl.nodropout.yaml | tee my-en.syl.nodropout.log
 ```
+
+result for my-en, syllable, no dropout ...  
 
 ```
 
