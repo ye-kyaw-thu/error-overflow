@@ -190,3 +190,10 @@ asean.baseline.nodropout.th-en| BLEU4: 0.27064950622269823, 0.456802/0.304744/0.
                               | WER: 62.64% ( C/S/I/D: 3458/3002/777/716; hyp_len=7237, ref_len=7176 )
                               | CER: 52.42% ( C/S/I/D: 18341/7671/3872/4396; hyp_len=29884, ref_len=30408 )
 ```
+
+## Preparing for SwitchOut No-Dropout
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$ cp config.switchout.th-en-word.yaml ./config.switchout.nodropout.th-en-word.yaml
+```
+
