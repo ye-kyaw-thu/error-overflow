@@ -16,8 +16,8 @@ just update experiment name and dropout.
 # standard settings
 asean.baseline.nodropout.en-th: !Experiment
   exp_global: !ExpGlobal
-  default_layer_dim: 512 # Hidden layer size 512 by default
-  dropout: 0.0           # Dropout 0.3 by default
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
   preproc: !PreprocRunner
     overwrite: False       # Don't redo preprocessing if it's been done once before
     tasks:
@@ -140,10 +140,54 @@ Options:
 
 ## Training
 
-```
+result for th-en ...  
 
 ```
-
+Done packing batches.
+[asean.baseline.nodropout.en-th] Epoch 25.0000 dev BLEU4: 0.34479153588229566, 0.568389/0.394797/0.284897/0.221065 (BP = 1.000000, ratio=1.05, hyp_len=7143, ref_len=6809) (time=0-00:20:44)
+[asean.baseline.nodropout.en-th]              dev auxiliary GLEU: 0.345076
+[asean.baseline.nodropout.en-th]              dev auxiliary Loss: 4.650 (ref_len=6809)
+             checkpoint took 0-00:00:26
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.th
+Performing inference on ./data/test.en and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.nodropout.en-th| BLEU4: 0.3463192177550231, 0.573536/0.396025/0.286235/0.221259 (BP = 1.000000, ratio=1.05, hyp_len=7119, ref_len=6809)
+                              | GLEU: 0.347426
+                              | WER: 61.42% ( C/S/I/D: 3940/1866/1313/1003; hyp_len=7119, ref_len=6809 )
+                              | CER: 48.98% ( C/S/I/D: 18797/7454/3075/4563; hyp_len=29326, ref_len=30814 )
+                              | BLEU4: 0.37248305134650994, 0.603629/0.421736/0.310859/0.243793 (BP = 0.999442, ratio=1.00, hyp_len=7165, ref_len=7169)
+                              | GLEU: 0.366892
+                              | WER: 57.05% ( C/S/I/D: 4156/1932/1077/1081; hyp_len=7165, ref_len=7169 )
+                              | CER: 48.25% ( C/S/I/D: 19004/7424/2941/4613; hyp_len=29369, ref_len=31041 )
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline-nodropout$
 ```
 
+result for en-th ...  
+
+```
+[asean.baseline.nodropout.en-th]              dev auxiliary Loss: 4.650 (ref_len=6809)
+             checkpoint took 0-00:00:26
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.th
+Performing inference on ./data/test.en and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.nodropout.en-th| BLEU4: 0.3463192177550231, 0.573536/0.396025/0.286235/0.221259 (BP = 1.000000, ratio=1.05, hyp_len=7119, ref_len=6809)
+                              | GLEU: 0.347426
+                              | WER: 61.42% ( C/S/I/D: 3940/1866/1313/1003; hyp_len=7119, ref_len=6809 )
+                              | CER: 48.98% ( C/S/I/D: 18797/7454/3075/4563; hyp_len=29326, ref_len=30814 )
+                              | BLEU4: 0.37248305134650994, 0.603629/0.421736/0.310859/0.243793 (BP = 0.999442, ratio=1.00, hyp_len=7165, ref_len=7169)
+                              | GLEU: 0.366892
+                              | WER: 57.05% ( C/S/I/D: 4156/1932/1077/1081; hyp_len=7165, ref_len=7169 )
+                              | CER: 48.25% ( C/S/I/D: 19004/7424/2941/4613; hyp_len=29369, ref_len=31041 )
+
+real    21m51.845s
+user    21m50.334s
+sys     0m2.694s
 ```
