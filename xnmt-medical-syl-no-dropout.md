@@ -132,3 +132,32 @@ sys     0m2.184s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
 ```
 
+## Medical Domain Syllable SwitchOut and No-Dropout
+
+preparing config files ...  
+
+```
+
+```
+
+```
+
+```
+
+## Training
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
