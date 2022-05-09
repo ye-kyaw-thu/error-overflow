@@ -91,6 +91,44 @@ training for my-en ...
 result for my-en, syllable, no dropout ...  
 
 ```
+[medical.syl.nodropout.my-en] Epoch 18.3800: train_loss/word=2.012662 (steps=4685, words/sec=9574.99, time=0-00:14:48)
+[medical.syl.nodropout.my-en] Epoch 18.4539: train_loss/word=1.980176 (steps=4702, words/sec=10768.71, time=0-00:14:49)
+[medical.syl.nodropout.my-en] Epoch 18.5294: train_loss/word=2.051752 (steps=4722, words/sec=9717.09, time=0-00:14:51)
+[medical.syl.nodropout.my-en] Epoch 18.6053: train_loss/word=1.999263 (steps=4742, words/sec=9816.82, time=0-00:14:52)
+[medical.syl.nodropout.my-en] Epoch 18.6805: train_loss/word=1.999332 (steps=4761, words/sec=10127.90, time=0-00:14:54)
+[medical.syl.nodropout.my-en] Epoch 18.7548: train_loss/word=1.998372 (steps=4779, words/sec=10233.81, time=0-00:14:55)
+[medical.syl.nodropout.my-en] Epoch 18.8286: train_loss/word=2.003607 (steps=4796, words/sec=9150.63, time=0-00:14:57)
+[medical.syl.nodropout.my-en] Epoch 18.9042: train_loss/word=1.965679 (steps=4812, words/sec=11630.88, time=0-00:14:58)
+[medical.syl.nodropout.my-en] Epoch 18.9819: train_loss/word=2.080426 (steps=4836, words/sec=8842.12, time=0-00:15:00)
+[medical.syl.nodropout.my-en] Epoch 19.0000: train_loss/word=2.088435 (steps=4842, words/sec=9446.26, time=0-00:15:00)
+> Checkpoint [medical.syl.nodropout.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[medical.syl.nodropout.my-en] Epoch 19.0000 dev BLEU4: 0.15340692164834868, 0.390150/0.168082/0.110550/0.076396 (BP = 1.000000, ratio=1.01, hyp_len=6741, ref_len=6658) (time=0-00:15:27)
+[medical.syl.nodropout.my-en]              dev auxiliary GLEU: 0.178869
+[medical.syl.nodropout.my-en]              dev auxiliary Loss: 5.082 (ref_len=6658)
+             checkpoint took 0-00:00:26
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.en
+Performing inference on ./data/test.my and ./data/test.en
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+medical.syl.nodropout.my-en   | BLEU4: 0.15895698309835926, 0.396994/0.177099/0.117552/0.080651 (BP = 0.989279, ratio=0.99, hyp_len=6587, ref_len=6658)
+                              | GLEU: 0.183193
+                              | WER: 76.79% ( C/S/I/D: 2289/3554/744/815; hyp_len=6587, ref_len=6658 )
+                              | CER: 68.47% ( C/S/I/D: 11712/9949/3267/5125; hyp_len=24928, ref_len=26786 )
+                              | BLEU4: 0.14823426256716127, 0.388848/0.165803/0.105756/0.073289 (BP = 0.991447, ratio=0.99, hyp_len=6869, ref_len=6928)
+                              | GLEU: 0.175279
+                              | WER: 77.66% ( C/S/I/D: 2343/3731/795/854; hyp_len=6869, ref_len=6928 )
+                              | CER: 69.50% ( C/S/I/D: 11834/10679/3434/5028; hyp_len=25947, ref_len=27541 )
 
+real    16m30.376s
+user    16m29.297s
+sys     0m2.184s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
 ```
 
