@@ -279,5 +279,43 @@ sys     0m2.875s
 training for th-en language pair ...  
 
 ```
+[switchout.nodropout.asean.th-en] Epoch 25.5653: train_loss/word=3.059163 (steps=11699, words/sec=10825.24, time=0-00:26:49)
+[switchout.nodropout.asean.th-en] Epoch 25.6168: train_loss/word=3.118423 (steps=11722, words/sec=8900.61, time=0-00:26:50)
+[switchout.nodropout.asean.th-en] Epoch 25.6695: train_loss/word=3.253051 (steps=11745, words/sec=10562.02, time=0-00:26:51)
+[switchout.nodropout.asean.th-en] Epoch 25.7198: train_loss/word=3.223706 (steps=11769, words/sec=8041.08, time=0-00:26:52)
+[switchout.nodropout.asean.th-en] Epoch 25.7709: train_loss/word=3.043218 (steps=11793, words/sec=8674.13, time=0-00:26:53)
+[switchout.nodropout.asean.th-en] Epoch 25.8229: train_loss/word=3.220041 (steps=11817, words/sec=9965.41, time=0-00:26:54)
+[switchout.nodropout.asean.th-en] Epoch 25.8752: train_loss/word=3.128776 (steps=11842, words/sec=9473.52, time=0-00:26:55)
+[switchout.nodropout.asean.th-en] Epoch 25.9267: train_loss/word=3.019609 (steps=11865, words/sec=9157.80, time=0-00:26:56)
+[switchout.nodropout.asean.th-en] Epoch 25.9789: train_loss/word=3.026770 (steps=11890, words/sec=9226.58, time=0-00:26:57)
+[switchout.nodropout.asean.th-en] Epoch 26.0000: train_loss/word=2.978781 (steps=11902, words/sec=7268.18, time=0-00:26:57)
+> Checkpoint [switchout.nodropout.asean.th-en]
+Performing inference on ./data/dev.th and ./data/dev.en
+Starting to read ./data/dev.th and ./data/dev.en
+Done reading ./data/dev.th and ./data/dev.en. Packing into batches.
+Done packing batches.
+[switchout.nodropout.asean.th-en] Epoch 26.0000 dev BLEU4: 0.28248944660060127, 0.512647/0.351733/0.267599/0.211047 (BP = 0.889260, ratio=0.89, hyp_len=6484, ref_len=7245) (time=0-00:27:22)
+[switchout.nodropout.asean.th-en]              dev auxiliary GLEU: 0.293425
+[switchout.nodropout.asean.th-en]              dev auxiliary Loss: 4.706 (ref_len=7245)
+             checkpoint took 0-00:00:24
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.en
+Performing inference on ./data/test.th and ./data/test.en
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.asean.th-en| BLEU4: 0.28460356510539947, 0.513756/0.353374/0.270154/0.215995 (BP = 0.887112, ratio=0.89, hyp_len=6470, ref_len=7245)
+                              | GLEU: 0.294741
+                              | WER: 61.67% ( C/S/I/D: 3288/2671/511/1286; hyp_len=6470, ref_len=7245 )
+                              | CER: 50.87% ( C/S/I/D: 16974/6438/2041/6983; hyp_len=25453, ref_len=30395 )
+                              | BLEU4: 0.30344751118300956, 0.531399/0.375295/0.283031/0.225707 (BP = 0.903213, ratio=0.91, hyp_len=6513, ref_len=7176)
+                              | GLEU: 0.314479
+                              | WER: 59.18% ( C/S/I/D: 3419/2604/490/1153; hyp_len=6513, ref_len=7176 )
+                              | CER: 49.39% ( C/S/I/D: 17429/6473/2039/6506; hyp_len=25941, ref_len=30408 )
 
+real    28m27.820s
+user    28m26.188s
+sys     0m2.905s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$
 ```
