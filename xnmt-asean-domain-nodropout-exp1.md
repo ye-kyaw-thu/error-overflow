@@ -235,7 +235,45 @@ switchout.nodropout.asean.th-en: !Experiment
 training for en-th language pair ...  
 
 ```
+[switchout.nodropout.asean.en-th] Epoch 24.5633: train_loss/word=3.354674 (steps=10834, words/sec=10202.60, time=0-00:21:35)
+[switchout.nodropout.asean.en-th] Epoch 24.6140: train_loss/word=2.736280 (steps=10862, words/sec=8028.96, time=0-00:21:37)
+[switchout.nodropout.asean.en-th] Epoch 24.6666: train_loss/word=3.111305 (steps=10884, words/sec=8891.24, time=0-00:21:37)
+[switchout.nodropout.asean.en-th] Epoch 24.7174: train_loss/word=3.186068 (steps=10903, words/sec=10302.89, time=0-00:21:38)
+[switchout.nodropout.asean.en-th] Epoch 24.7694: train_loss/word=2.949471 (steps=10928, words/sec=8940.76, time=0-00:21:39)
+[switchout.nodropout.asean.en-th] Epoch 24.8200: train_loss/word=2.857589 (steps=10954, words/sec=7556.43, time=0-00:21:40)
+[switchout.nodropout.asean.en-th] Epoch 24.8719: train_loss/word=3.074174 (steps=10979, words/sec=8937.72, time=0-00:21:41)
+[switchout.nodropout.asean.en-th] Epoch 24.9249: train_loss/word=3.004033 (steps=11002, words/sec=9951.02, time=0-00:21:42)
+[switchout.nodropout.asean.en-th] Epoch 24.9755: train_loss/word=3.216816 (steps=11024, words/sec=9368.85, time=0-00:21:43)
+[switchout.nodropout.asean.en-th] Epoch 25.0000: train_loss/word=3.241428 (steps=11034, words/sec=10119.01, time=0-00:21:43)
+> Checkpoint [switchout.nodropout.asean.en-th]
+Performing inference on ./data/dev.en and ./data/dev.th
+Starting to read ./data/dev.en and ./data/dev.th
+Done reading ./data/dev.en and ./data/dev.th. Packing into batches.
+Done packing batches.
+[switchout.nodropout.asean.en-th] Epoch 25.0000 dev BLEU4: 0.34160770057337403, 0.568507/0.392048/0.281373/0.217147 (BP = 1.000000, ratio=1.03, hyp_len=6992, ref_len=6809) (time=0-00:22:10)
+[switchout.nodropout.asean.en-th]              dev auxiliary GLEU: 0.336515
+[switchout.nodropout.asean.en-th]              dev auxiliary Loss: 4.043 (ref_len=6809)
+             checkpoint took 0-00:00:26
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.th
+Performing inference on ./data/test.en and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.asean.en-th| BLEU4: 0.34756345881141265, 0.570658/0.398170/0.288971/0.222248 (BP = 1.000000, ratio=1.03, hyp_len=7041, ref_len=6809)
+                              | GLEU: 0.342217
+                              | WER: 61.98% ( C/S/I/D: 3880/1870/1291/1059; hyp_len=7041, ref_len=6809 )
+                              | CER: 48.86% ( C/S/I/D: 18678/7277/2920/4859; hyp_len=28875, ref_len=30814 )
+                              | BLEU4: 0.37081752511306093, 0.609105/0.423800/0.307131/0.238487 (BP = 1.000000, ratio=1.01, hyp_len=7227, ref_len=7169)
+                              | GLEU: 0.368353
+                              | WER: 56.10% ( C/S/I/D: 4249/1876/1102/1044; hyp_len=7227, ref_len=7169 )
+                              | CER: 46.85% ( C/S/I/D: 19428/6918/2930/4695; hyp_len=29276, ref_len=31041 )
 
+real    23m17.424s
+user    23m15.745s
+sys     0m2.875s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-switchout$
 ```
 
 training for th-en language pair ...  
