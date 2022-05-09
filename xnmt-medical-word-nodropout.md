@@ -30,3 +30,28 @@ medical.word.nodropout.my-en: !Experiment
       in_files:
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word$
 ```
+
+## Training
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word$ time xnmt --backend torch --gpu ./config.medical.en-my-word.nodropout.yaml | tee switcho
+ut.nodropout.en-my-word.log
+```
+
+result  
+
+```
+
+```
+
+command    
+
+```
+
+```
+
+result  
+
+```
+
+```
