@@ -1,5 +1,6 @@
 # XNMT Medical Syllable No-dropout
 
+```yaml
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ head ./config.medical.en-my-syl.nodorpout.yaml
 # standard settings
 medical.syl.nodropout.en-my: !Experiment
@@ -11,6 +12,9 @@ medical.syl.nodropout.en-my: !Experiment
     tasks:
     - !PreprocVocab        # Create vocabulary files from the training data
       in_files:
+```
+
+```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$ head ./config.medical.my-en-syl.nodropout.yaml
 # standard settings
 medical.syl.nodropout.my-en: !Experiment
@@ -23,3 +27,6 @@ medical.syl.nodropout.my-en: !Experiment
     - !PreprocVocab        # Create vocabulary files from the training data
       in_files:
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/syl$
+```
+
+
