@@ -75,10 +75,22 @@ Make parallel training data for deleting blank lines of Thai side together with 
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$
 ```
 
+keep current data that contained blank lines ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ mkdir blank-line
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ mv train.my ./blank-line/
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ mv train.th ./blank-line/
+```
+
 delete blank lines according to their line numbers ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ wc ./train.thmy
+  20000  327341 4311076 ./train.thmy
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ sed -i '4616d;6863d;8076d;10007d;13347d;19555d;' ./train.thmy
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ wc ./train.thmy
+  19994  327311 4310659 ./train.thmy
 ```
 
 ```
