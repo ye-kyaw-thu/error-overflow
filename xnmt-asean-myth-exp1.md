@@ -796,10 +796,45 @@ sys     0m2.819s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
+## SwitchOut with No-Dropout
+
+Preparing config files ...  
+
+```yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ head ./config.switchout.nodropout.my-th-word.yaml
+# standard settings
+switchout.nodropout.asean.my-th: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
 ```
 
+```yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ head ./config.switchout.nodropout.th-my-word.yaml
+# standard settings
+switchout.nodropout.asean.th-my: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
-```
+## Training SwitchOut No-Dropout
+
+command ...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.switchout.nodropout.th-my-word.yaml | tee th-my.switchout.nodropout-word.log
+```
+
+results for ASEAN-MT domain, th-my, switchout, no-dropout:  
