@@ -756,9 +756,13 @@ switchout.asean.th-my: !Experiment
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
-```
+training for th-my, switchout, dropout=0.3 ...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.switchout.th-my-word.yaml | tee th-my.switchout.dropout-word.log
+```
+
+Evaluation results for th-my, switchout, dropout=0.3 are as follows:  
 
 ```
 
