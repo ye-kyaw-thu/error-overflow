@@ -94,7 +94,13 @@ delete blank lines according to their line numbers ...
 ```
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ cut -f1 ./train.thmy > train.th
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ cut -f2 ./train.thmy > train.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ wc train.{th,my}
+  19994  139767 1951021 train.th
+  19994  187544 2359638 train.my
+  39988  327311 4310659 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$
 ```
 
 ```
