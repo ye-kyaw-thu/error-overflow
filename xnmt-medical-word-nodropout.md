@@ -82,7 +82,8 @@ sys     0m10.017s
 command    
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word$ time xnmt --backend torch --gpu ./config.medical.my-en-word.nodropout.yaml | tee switcho
+ut.nodropout.my-en-word.log
 ```
 
 result  
