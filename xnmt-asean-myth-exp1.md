@@ -27,13 +27,28 @@ test.my  test.th  train.my  train.th  valid.my  valid.th
 
 Sometimes, it might contain blank lines and we need to check it before we train NMT model ...  
 
-```
+1st copying the perl script ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline/data$ cp print-blank-lines.pl ../../asean-myth/data/
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-mt-baseline/data$ cd ../../asean-myth/data/
 ```
 
+check blank line exist or not with that perl script ...  
+
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./train.th
+4616
+6863
+8076
+10007
+13347
+19555
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./valid.th
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./test.th
+```
+
+As above, we found some blank lines when we checked with train.th.  
 
 ```
 
