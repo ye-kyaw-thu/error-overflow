@@ -520,8 +520,14 @@ sys     0m2.339s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
-```
+## SwitchOut with DropOut
 
+Preparing two configuration files ...  
+1st copied switchout config from the previous experiment and then rename the filename ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ cp ../asean-mt-switchout/config.switchout.en-th-word.yaml .
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ mv ./config.switchout.en-th-word.yaml ./config.switchout.my-th-word.yaml
 ```
 
 ```
