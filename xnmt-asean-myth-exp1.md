@@ -765,7 +765,35 @@ training for th-my, switchout, dropout=0.3 ...
 Evaluation results for th-my, switchout, dropout=0.3 are as follows:  
 
 ```
+> Checkpoint [switchout.asean.th-my]
+Performing inference on ./data/dev.th and ./data/dev.my
+Starting to read ./data/dev.th and ./data/dev.my
+Done reading ./data/dev.th and ./data/dev.my. Packing into batches.
+Done packing batches.
+[switchout.asean.th-my] Epoch 25.0000 dev BLEU4: 0.21044337902264193, 0.533524/0.287757/0.172295/0.109378 (BP = 0.907382, ratio=0.91, hyp_len=8725, ref_len=9573) (time=0-00:27:49)
+[switchout.asean.th-my]              dev auxiliary GLEU: 0.247152
+[switchout.asean.th-my]              dev auxiliary Loss: 4.176 (ref_len=9573)
+             checkpoint took 0-00:00:31
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.asean.th-my         | BLEU4: 0.21412897218000257, 0.530687/0.289357/0.177611/0.114169 (BP = 0.906469, ratio=0.91, hyp_len=8717, ref_len=9573)
+                              | GLEU: 0.248696
+                              | WER: 64.62% ( C/S/I/D: 4351/3402/964/1820; hyp_len=8717, ref_len=9573 )
+                              | CER: 59.70% ( C/S/I/D: 18547/8673/3684/9660; hyp_len=30904, ref_len=36880 )
+                              | BLEU4: 0.20703215993070573, 0.537122/0.291667/0.169144/0.102403 (BP = 0.907100, ratio=0.91, hyp_len=8728, ref_len=9579)
+                              | GLEU: 0.245810
+                              | WER: 65.12% ( C/S/I/D: 4388/3293/1047/1898; hyp_len=8728, ref_len=9579 )
+                              | CER: 59.68% ( C/S/I/D: 18865/8606/3913/9616; hyp_len=31384, ref_len=37087 )
 
+real    29m7.478s
+user    29m5.881s
+sys     0m2.819s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
 ```
