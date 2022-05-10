@@ -305,9 +305,17 @@ asean.baseline.th-my: !Experiment
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.my'
 ```
 
+change valid to dev, adjusting with config file ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ mv valid.my dev.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ mv valid.th dev.th
+```
+
 ## Training  
 
 command ...  
+
 ```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.my-th-word.yaml | tee my-th.dropout-word.log
 ```
