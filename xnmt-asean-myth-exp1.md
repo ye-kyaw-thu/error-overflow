@@ -366,6 +366,42 @@ command for th-my:
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.th-my-word.yaml | tee th-my.dropout-word.log
 ```
 
-```
+result is as follows:  
 
 ```
+[asean.baseline.th-my] Epoch 20.8716: train_loss/word=1.889703 (steps=10016, words/sec=9418.34, time=0-00:21:03)
+[asean.baseline.th-my] Epoch 20.9234: train_loss/word=1.921971 (steps=10041, words/sec=9097.48, time=0-00:21:04)
+[asean.baseline.th-my] Epoch 20.9747: train_loss/word=1.921831 (steps=10066, words/sec=8264.88, time=0-00:21:05)
+[asean.baseline.th-my] Epoch 21.0000: train_loss/word=1.982251 (steps=10078, words/sec=8481.19, time=0-00:21:06)
+> Checkpoint [asean.baseline.th-my]
+Performing inference on ./data/dev.th and ./data/dev.my
+Starting to read ./data/dev.th and ./data/dev.my
+Done reading ./data/dev.th and ./data/dev.my. Packing into batches.
+Done packing batches.
+[asean.baseline.th-my] Epoch 21.0000 dev BLEU4: 0.1914505704883847, 0.470950/0.244157/0.139027/0.084040 (BP = 1.000000, ratio=1.04, hyp_len=9931, ref_len=9573) (time=0-00:21:40)
+[asean.baseline.th-my]              dev auxiliary GLEU: 0.226395
+[asean.baseline.th-my]              dev auxiliary Loss: 4.420 (ref_len=9573)
+             checkpoint took 0-00:00:33
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.th-my          | BLEU4: 0.19669169444262083, 0.501321/0.263197/0.150997/0.093260 (BP = 0.947372, ratio=0.95, hyp_len=9082, ref_len=9573)
+                              | GLEU: 0.234573
+                              | WER: 66.62% ( C/S/I/D: 4281/3715/1086/1577; hyp_len=9082, ref_len=9573 )
+                              | CER: 61.24% ( C/S/I/D: 19143/9822/4847/7915; hyp_len=33812, ref_len=36880 )
+                              | BLEU4: 0.20307924386482126, 0.516104/0.274670/0.158236/0.093724 (BP = 0.948395, ratio=0.95, hyp_len=9097, ref_len=9579)
+                              | GLEU: 0.242634
+                              | WER: 65.95% ( C/S/I/D: 4353/3653/1091/1573; hyp_len=9097, ref_len=9579 )
+                              | CER: 60.84% ( C/S/I/D: 19324/9861/4800/7902; hyp_len=33985, ref_len=37087 )
+
+real    22m59.149s
+user    22m57.968s
+sys     0m2.375s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
+```
+
+
