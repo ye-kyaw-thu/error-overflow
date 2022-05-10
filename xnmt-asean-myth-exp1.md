@@ -621,6 +621,32 @@ switchout.asean.my-th: !Experiment
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.th'
 ```
 
+## Training
+
+training for ASEAN-MT domain, my-th, switchout, dropout=0.3, word unit ...  
+
+```
+ time xnmt --backend torch --gpu ./config.switchout.my-th-word.yaml | tee my-th.switchout.dropout-word.log
+```
+
+Evaluation results are as follows:  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
