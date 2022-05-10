@@ -165,13 +165,52 @@ command:
 result:  
 
 ```
+[switchout.nodropout.en-my] Epoch 22.3791: train_loss/word=2.907220 (steps=6437, words/sec=10788.76, time=0-00:23:50)
+[switchout.nodropout.en-my] Epoch 22.4556: train_loss/word=2.983515 (steps=6455, words/sec=13534.28, time=0-00:23:51)
+[switchout.nodropout.en-my] Epoch 22.5310: train_loss/word=2.802518 (steps=6477, words/sec=11435.54, time=0-00:23:53)
+[switchout.nodropout.en-my] Epoch 22.6068: train_loss/word=2.887820 (steps=6498, words/sec=11447.73, time=0-00:23:55)
+[switchout.nodropout.en-my] Epoch 22.6854: train_loss/word=2.817711 (steps=6523, words/sec=9899.16, time=0-00:23:57)
+[switchout.nodropout.en-my] Epoch 22.7595: train_loss/word=2.773578 (steps=6544, words/sec=11079.28, time=0-00:23:58)
+[switchout.nodropout.en-my] Epoch 22.8356: train_loss/word=2.886686 (steps=6564, words/sec=12696.19, time=0-00:24:00)
+[switchout.nodropout.en-my] Epoch 22.9100: train_loss/word=2.718673 (steps=6590, words/sec=9688.55, time=0-00:24:02)
+[switchout.nodropout.en-my] Epoch 22.9888: train_loss/word=2.806439 (steps=6612, words/sec=11484.12, time=0-00:24:04)
+[switchout.nodropout.en-my] Epoch 23.0000: train_loss/word=2.888503 (steps=6615, words/sec=12417.11, time=0-00:24:04)
+> Checkpoint [switchout.nodropout.en-my]
+Performing inference on ./data/dev.en and ./data/dev.my
+Starting to read ./data/dev.en and ./data/dev.my
+Done reading ./data/dev.en and ./data/dev.my. Packing into batches.
+Done packing batches.
+[switchout.nodropout.en-my] Epoch 23.0000 dev BLEU4: 0.14293925006627745, 0.460311/0.208479/0.097036/0.047162 (BP = 0.987395, ratio=0.99, hyp_len=7647, ref_len=7744) (time=0-00:24:34)
+[switchout.nodropout.en-my]              dev auxiliary GLEU: 0.194230
+[switchout.nodropout.en-my]              dev auxiliary Loss: 4.989 (ref_len=7744)
+             checkpoint took 0-00:00:29
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.en and ./data/dev.my
+Performing inference on ./data/test.en and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.en-my     | BLEU4: 0.1478841963800444, 0.462133/0.210881/0.100724/0.051671 (BP = 0.985432, ratio=0.99, hyp_len=7632, ref_len=7744)
+                              | GLEU: 0.196319
+                              | WER: 73.66% ( C/S/I/D: 3032/3608/992/1104; hyp_len=7632, ref_len=7744 )
+                              | CER: 60.89% ( C/S/I/D: 18379/11078/3852/7683; hyp_len=33309, ref_len=37140 )
+                              | BLEU4: 0.155386772206501, 0.470128/0.217339/0.104381/0.057495 (BP = 0.987448, ratio=0.99, hyp_len=7917, ref_len=8017)
+                              | GLEU: 0.202573
+                              | WER: 72.78% ( C/S/I/D: 3177/3745/995/1095; hyp_len=7917, ref_len=8017 )
+                              | CER: 60.35% ( C/S/I/D: 19271/11483/4093/7526; hyp_len=34847, ref_len=38280 )
 
+real    25m51.062s
+user    25m42.239s
+sys     0m10.042s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$
 ```
 
 command:  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$ time xnmt --backend torch --gpu ./config.switchout.nodropout.my-en-word.yaml |
+ tee switchout.nodropout.my-en-word.log
 ```
 
 result:  
