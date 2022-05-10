@@ -49,6 +49,15 @@ check blank line exist or not with that perl script ...
 ```
 
 As above, we found some blank lines when we checked with train.th.  
+And also check for the Myanmar data and it looks OK as follows:  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./train.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./valid.my
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ perl ./print-blank-lines.pl ./test.my
+```
+
+Make parallel training data for deleting blank lines of Thai side together with the parallel Myanmar sentences ...  
 
 ```
 
@@ -62,3 +71,14 @@ As above, we found some blank lines when we checked with train.th.
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
