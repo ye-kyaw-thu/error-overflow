@@ -159,7 +159,7 @@ switchout.nodropout.my-en: !Experiment
 command:  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$ time xnmt --backend torch --gpu ./config.switchout.nodropout.en-my-word.yaml | tee switchout.nodropout.en-my-word.log
 ```
 
 result:  
