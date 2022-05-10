@@ -305,9 +305,14 @@ asean.baseline.th-my: !Experiment
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.my'
 ```
 
+## Training  
+
+command ...  
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.my-th-word.yaml | tee my-th.dropout-word.log
 ```
 
-```
+result ...  
 
 ```
 
