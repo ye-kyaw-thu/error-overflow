@@ -89,5 +89,36 @@ ut.nodropout.my-en-word.log
 result  
 
 ```
+[medical.word.nodropout.my-en] Epoch 28.9099: train_loss/word=1.438401 (steps=7835, words/sec=13384.34, time=0-00:23:15)
+[medical.word.nodropout.my-en] Epoch 28.9835: train_loss/word=1.438354 (steps=7855, words/sec=11533.41, time=0-00:23:17)
+[medical.word.nodropout.my-en] Epoch 29.0000: train_loss/word=1.438122 (steps=7859, words/sec=13505.72, time=0-00:23:17)
+> Checkpoint [medical.word.nodropout.my-en]
+Performing inference on ./data/dev.my and ./data/dev.en
+Starting to read ./data/dev.my and ./data/dev.en
+Done reading ./data/dev.my and ./data/dev.en. Packing into batches.
+Done packing batches.
+[medical.word.nodropout.my-en] Epoch 29.0000 dev BLEU4: 0.24470525213426483, 0.545013/0.296705/0.195846/0.134164 (BP = 0.958458, ratio=0.96, hyp_len=6387, ref_len=6658) (time=0-00:23:40)
+[medical.word.nodropout.my-en]              dev auxiliary GLEU: 0.274967
+[medical.word.nodropout.my-en]              dev auxiliary Loss: 4.970 (ref_len=6658)
+             checkpoint took 0-00:00:23
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.en
+Performing inference on ./data/test.my and ./data/test.en
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+medical.word.nodropout.my-en  | BLEU4: 0.24562800715957595, 0.535422/0.291639/0.193290/0.134696 (BP = 0.972750, ratio=0.97, hyp_len=6479, ref_len=6658)
+                              | GLEU: 0.273092
+                              | WER: 63.04% ( C/S/I/D: 3157/2626/696/875; hyp_len=6479, ref_len=6658 )
+                              | CER: 56.71% ( C/S/I/D: 14402/7515/2806/4869; hyp_len=24723, ref_len=26786 )
+                              | BLEU4: 0.2426041985359957, 0.528529/0.286035/0.189288/0.136173 (BP = 0.971008, ratio=0.97, hyp_len=6730, ref_len=6928)
+                              | GLEU: 0.271245
+                              | WER: 63.05% ( C/S/I/D: 3230/2830/670/868; hyp_len=6730, ref_len=6928 )
+                              | CER: 56.86% ( C/S/I/D: 14697/7868/2817/4976; hyp_len=25382, ref_len=27541 )
 
+real    24m45.212s
+user    24m43.493s
+sys     0m2.945s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word$
 ```
