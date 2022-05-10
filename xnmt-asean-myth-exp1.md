@@ -323,11 +323,47 @@ command ...
 result ...  
 
 ```
+[asean.baseline.my-th] Epoch 16.7719: train_loss/word=2.323018 (steps=7530, words/sec=7169.06, time=0-00:14:45)
+[asean.baseline.my-th] Epoch 16.8224: train_loss/word=2.354590 (steps=7553, words/sec=6744.07, time=0-00:14:46)
+[asean.baseline.my-th] Epoch 16.8729: train_loss/word=2.351877 (steps=7577, words/sec=6755.44, time=0-00:14:48)
+[asean.baseline.my-th] Epoch 16.9239: train_loss/word=2.297239 (steps=7599, words/sec=7792.73, time=0-00:14:49)
+[asean.baseline.my-th] Epoch 16.9762: train_loss/word=2.347510 (steps=7624, words/sec=7885.17, time=0-00:14:50)
+[asean.baseline.my-th] Epoch 17.0000: train_loss/word=2.299110 (steps=7633, words/sec=8949.01, time=0-00:14:50)
+> Checkpoint [asean.baseline.my-th]
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[asean.baseline.my-th] Epoch 17.0000 dev BLEU4: 0.20172180917679228, 0.455431/0.258125/0.151442/0.093006 (BP = 1.000000, ratio=1.01, hyp_len=6877, ref_len=6809) (time=0-00:15:17)
+[asean.baseline.my-th]              dev auxiliary GLEU: 0.219040
+[asean.baseline.my-th]              dev auxiliary Loss: 4.623 (ref_len=6809)
+             checkpoint took 0-00:00:27
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.my-th          | BLEU4: 0.20203486452368793, 0.455994/0.258342/0.152916/0.092491 (BP = 1.000000, ratio=1.02, hyp_len=6965, ref_len=6809)
+                              | GLEU: 0.221651
+                              | WER: 80.25% ( C/S/I/D: 2850/2610/1505/1349; hyp_len=6965, ref_len=6809 )
+                              | CER: 65.10% ( C/S/I/D: 14425/10126/3672/6263; hyp_len=28223, ref_len=30814 )
+                              | BLEU4: 0.22506257721500164, 0.483277/0.279062/0.174677/0.116119 (BP = 0.984113, ratio=0.98, hyp_len=7056, ref_len=7169)
+                              | GLEU: 0.242567
+                              | WER: 73.92% ( C/S/I/D: 3086/2754/1216/1329; hyp_len=7056, ref_len=7169 )
+                              | CER: 63.75% ( C/S/I/D: 14848/9869/3596/6324; hyp_len=28313, ref_len=31041 )
 
+real    16m23.986s
+user    16m22.851s
+sys     0m2.234s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
-```
+command for th-my:  
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.th-my-word.yaml | tee th-my.dropout-word.log
 ```
 
 ```
