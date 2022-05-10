@@ -119,6 +119,31 @@ wc of train, valid, test is as follows:
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$
 ```
 
+## Preparing config files  
+
+preparing config files ...  
+
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ cp ../asean-mt-baseline/config.baseline.en-th-word.yaml ./config.baseline.my-th-word.yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ cp ../asean-mt-baseline/config.baseline.th-en-word.yaml ./config.baseline.th-my-word.yaml
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
