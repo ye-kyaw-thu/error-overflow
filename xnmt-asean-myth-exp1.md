@@ -447,14 +447,45 @@ command for ASEAN-MT domain, my-th, baseline, nodropout training, developing and
 result:  
 
 ```
+[asean.baseline.nodropout.my-th] Epoch 22.0000: train_loss/word=1.558586 (steps=9886, words/sec=9570.28, time=0-00:18:19)
+> Checkpoint [asean.baseline.nodropout.my-th]
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[asean.baseline.nodropout.my-th] Epoch 22.0000 dev BLEU4: 0.2101315519557975, 0.438703/0.249130/0.158752/0.112370 (BP = 1.000000, ratio=1.04, hyp_len=7064, ref_len=6809) (time=0-00:18:48)
+[asean.baseline.nodropout.my-th]              dev auxiliary GLEU: 0.222889
+[asean.baseline.nodropout.my-th]              dev auxiliary Loss: 5.221 (ref_len=6809)
+             checkpoint took 0-00:00:28
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.nodropout.my-th| BLEU4: 0.21606688933375506, 0.446223/0.256901/0.162897/0.116714 (BP = 1.000000, ratio=1.02, hyp_len=6936, ref_len=6809)
+                              | GLEU: 0.227172
+                              | WER: 79.20% ( C/S/I/D: 2809/2734/1393/1266; hyp_len=6936, ref_len=6809 )
+                              | CER: 66.75% ( C/S/I/D: 14231/10543/3985/6040; hyp_len=28759, ref_len=30814 )
+                              | BLEU4: 0.23035157520273358, 0.469646/0.276815/0.177735/0.125536 (BP = 0.992580, ratio=0.99, hyp_len=7116, ref_len=7169)
+                              | GLEU: 0.241452
+                              | WER: 75.27% ( C/S/I/D: 3006/2877/1233/1286; hyp_len=7116, ref_len=7169 )
+                              | CER: 65.40% ( C/S/I/D: 14638/10327/3899/6076; hyp_len=28864, ref_len=31041 )
 
+real    19m56.165s
+user    19m54.828s
+sys     0m2.495s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
 command for ASEAN-MT domain, th-my, baseline, nodropout training, developing and testing ...  
 
 ```
-
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.nodropout.th-my-word.yaml | tee th-my.nodropout-word.log
 ```
+
+result:  
 
 ```
 
