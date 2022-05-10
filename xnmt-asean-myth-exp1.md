@@ -436,13 +436,21 @@ asean.baseline.nodropout.th-my: !Experiment
       in_files:
 ```
 
+## Training
+
+command for ASEAN-MT domain, my-th, baseline, nodropout training, developing and testing ...  
+
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ time xnmt --backend torch --gpu ./config.baseline.nodropout.my-th-word.yaml | tee my-th.nodropout-word.log
+```
+
+result:  
 
 ```
 
 ```
 
-```
+command for ASEAN-MT domain, th-my, baseline, nodropout training, developing and testing ...  
 
 ```
 
