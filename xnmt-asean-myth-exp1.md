@@ -93,6 +93,8 @@ delete blank lines according to their line numbers ...
   19994  327311 4310659 ./train.thmy
 ```
 
+Split th and my as two files. After deletion blank lines ...  
+
 ```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ cut -f1 ./train.thmy > train.th
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ cut -f2 ./train.thmy > train.my
@@ -103,8 +105,18 @@ delete blank lines according to their line numbers ...
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$
 ```
 
-```
+wc of train, valid, test is as follows:  
 
+```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$ wc {train,valid,test}.{th,my}
+  19994  139767 1951021 train.th
+  19994  187544 2359638 train.my
+   1031    6809   98543 valid.th
+   1031    9573  119279 valid.my
+   1000    7169   99326 test.th
+   1000    9579  119884 test.my
+  44050  360441 4747691 total
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth/data$
 ```
 
 ```
