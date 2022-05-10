@@ -122,3 +122,60 @@ user    24m43.493s
 sys     0m2.945s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word$
 ```
+
+## Preparing Config Files for Word Unit Switchout with No-Dropout
+
+```yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$ head ./config.switchout.nodropout.en-my-word.yaml
+# standard settings
+switchout.nodropout.en-my: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+```
+
+```yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$ head ./config.switchout.nodropout.my-en-word.yaml
+# standard settings
+switchout.nodropout.my-en: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/medical1/word_switchout$
+```
+
+## Training Word Switchout No-Dropout
+
+command:  
+
+```
+
+```
+
+result:  
+
+```
+
+```
+
+command:  
+
+```
+
+```
+
+result:  
+
+```
+
+```
