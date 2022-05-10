@@ -302,6 +302,9 @@ asean.baseline.my-th: !Experiment
       src_file: &test_src '{EXP_DIR}/data/test.my'
       ref_file: &test_trg '{EXP_DIR}/data/test.th'
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.th'
+```
+
+```
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$ cat ./config.baseline.th-my-word.yaml
 # standard settings
 asean.baseline.th-my: !Experiment
