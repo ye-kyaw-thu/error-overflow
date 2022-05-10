@@ -838,3 +838,33 @@ command ...
 ```
 
 results for ASEAN-MT domain, th-my, switchout, no-dropout:  
+
+```
+Done reading ./data/dev.th and ./data/dev.my. Packing into batches.
+Done packing batches.
+[switchout.nodropout.asean.th-my] Epoch 30.0000 dev BLEU4: 0.21515942331605512, 0.486302/0.267646/0.161083/0.102217 (BP = 1.000000, ratio=1.01, hyp_len=9673, ref_len=9573) (time=0-00:30:07)
+[switchout.nodropout.asean.th-my]              dev auxiliary GLEU: 0.239568
+[switchout.nodropout.asean.th-my]              dev auxiliary Loss: 4.320 (ref_len=9573)
+             checkpoint took 0-00:00:32
+  best dev score, writing out model
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.asean.th-my| BLEU4: 0.21515942331605512, 0.486302/0.267646/0.161083/0.102217 (BP = 1.000000, ratio=1.01, hyp_len=9673, ref_len=9573)
+                              | GLEU: 0.239568
+                              | WER: 69.56% ( C/S/I/D: 4449/3689/1535/1435; hyp_len=9673, ref_len=9573 )
+                              | CER: 65.31% ( C/S/I/D: 19864/9574/7071/7442; hyp_len=36509, ref_len=36880 )
+                              | BLEU4: 0.21573618748986903, 0.512010/0.280746/0.164382/0.100361 (BP = 0.977622, ratio=0.98, hyp_len=9367, ref_len=9579)
+                              | GLEU: 0.244231
+                              | WER: 68.16% ( C/S/I/D: 4477/3463/1427/1639; hyp_len=9367, ref_len=9579 )
+                              | CER: 63.41% ( C/S/I/D: 19682/9385/6113/8020; hyp_len=35180, ref_len=37087 )
+
+real    31m28.113s
+user    31m26.437s
+sys     0m2.937s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
+```
+
