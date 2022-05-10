@@ -632,7 +632,36 @@ training for ASEAN-MT domain, my-th, switchout, dropout=0.3, word unit ...
 Evaluation results are as follows:  
 
 ```
+[switchout.asean.my-th] Epoch 30.0000: train_loss/word=3.418958 (steps=13477, words/sec=8995.08, time=0-00:27:57)
+> Checkpoint [switchout.asean.my-th]
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[switchout.asean.my-th] Epoch 30.0000 dev BLEU4: 0.2388131878696973, 0.483666/0.292169/0.184447/0.124791 (BP = 1.000000, ratio=1.02, hyp_len=6918, ref_len=6809) (time=0-00:28:25)
+[switchout.asean.my-th]              dev auxiliary GLEU: 0.247869
+[switchout.asean.my-th]              dev auxiliary Loss: 4.386 (ref_len=6809)
+             checkpoint took 0-00:00:27
+  best dev score, writing out model
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.asean.my-th         | BLEU4: 0.2388131878696973, 0.483666/0.292169/0.184447/0.124791 (BP = 1.000000, ratio=1.02, hyp_len=6918, ref_len=6809)
+                              | GLEU: 0.247869
+                              | WER: 76.53% ( C/S/I/D: 3061/2394/1463/1354; hyp_len=6918, ref_len=6809 )
+                              | CER: 62.45% ( C/S/I/D: 15184/9051/3612/6579; hyp_len=27847, ref_len=30814 )
+                              | BLEU4: 0.25029461094815264, 0.505429/0.305861/0.196552/0.134975 (BP = 0.989060, ratio=0.99, hyp_len=7091, ref_len=7169)
+                              | GLEU: 0.261531
+                              | WER: 71.66% ( C/S/I/D: 3281/2561/1249/1327; hyp_len=7091, ref_len=7169 )
+                              | CER: 61.40% ( C/S/I/D: 15437/9236/3454/6368; hyp_len=28127, ref_len=31041 )
 
+real    29m36.448s
+user    29m34.814s
+sys     0m2.928s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
 ```
