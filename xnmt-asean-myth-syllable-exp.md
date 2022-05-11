@@ -946,9 +946,16 @@ switchout.asean.syl.th-my: !Experiment
       ref_file: &test_trg '{EXP_DIR}/data/test.my'
       hyp_file: '{EXP_DIR}/hyp/{EXP}.test.my'
 ```
- 
+
+training th-my, ASEAN-MT domain, switchout, dropout=0.3, syllable unit ...  
+
 ```
- 
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ time xnmt --backend torch --gpu ./config.switchout.th-my-syl.yaml | tee th-my.switchout.dropout-syl.log
+...
+...
+...
+
+
 ```
 
 ```
