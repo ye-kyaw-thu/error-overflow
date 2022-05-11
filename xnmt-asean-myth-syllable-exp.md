@@ -1117,30 +1117,10 @@ sys     0m2.573s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
 
-```
- 
-```
+Finished for all experiments!!!  
+
 
 ```
  
 ```
 
-```
- 
-```
-
-```
- 
-```
-
-```
- 
-```
-
-```
- 
-```
-
-```
- 
-```
