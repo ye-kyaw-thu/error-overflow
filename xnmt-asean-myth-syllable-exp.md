@@ -86,17 +86,51 @@ check the file content ... it looks OK ...
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
 ```
 
-```
+## Cleaning Spaces
+
+Current sylbreak program is just showing the concept of syllable breaking with regular expression and you need to make space cleaning ...    
+
+changed file names of word segmented training, dev and test files:  
 
 ```
-
-
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ mv train.my train.word
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ mv dev.my dev.word
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ mv test.my test.word
 ```
 
-```
+run space cleaning perl script ...  
 
 ```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./clean-space.pl ./train.syl > train.my
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./clean-space.pl ./dev.syl > dev.my
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./clean-space.pl ./test.syl > test.my
+```
 
+Check the cleaned files...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ head -n 5 {train,dev,test}.my
+==> train.my <==
+ဟုတ် ကဲ့ ၊ ကျွန် တော် ထိုင်း စစ် တု ရင် က စား ရ တာ ကြိုက် တယ် ။
+က လေး များ အ တွက် တစ် ခု ခု အ ကြံ ပြု ပေး နိုင် မ လား ။
+အဲ ဒီ ကို ဘယ် လို ရောက် နိုင် မ လဲ ။
+တစ် ကိုယ် လုံး ကိုက် ခဲ နေ လို့ ။
+ကျွန် တော် တို့ အ တွက် လုပ် ပေး ခဲ့ တာ တွေ ကျေး ဇူး တင် ပါ တယ် ။
+
+==> dev.my <==
+ဒိုင် ဗင် ထိုး တဲ့ စင် ၊ ဒိုင် ဗင် ဘုတ် နဲ့ လမ်း တွေ မ ရှိ ဘူး ။
+၅ ၀ ဘတ် ကို အ ကြွေ လဲ ပေး မ လား ။
+အ မျိုး သား ပြ တိုက် ကို ဘယ် လို သွား ရ မ လဲ ။
+ဒီ နေ ရာ က ပြိုင် ဘက် ကင်း ပဲ ။
+တ ခြား အ ခန်း တွေ‌ ရော ရ နိုင် မ လား ။
+
+==> test.my <==
+ကျ သင့် ငွေ ဘယ် လောက် လဲ ။
+ကျွန် တော် လက် ဆောင် အ နေ နဲ့ ပေး လို့ ရ တဲ့ ပစ္စည်း မျိုး ကြည့် ချင် လို့ ။
+ရ ထား က ကြာ နေ တာ လား ။
+တံ ခါး နောက် မှာ ရပ် ပါ ။
+ခ ဏ လောက် ။
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
 ```
 
 
