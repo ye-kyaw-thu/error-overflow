@@ -868,3 +868,42 @@ sys     0m2.937s
 (xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth$
 ```
 
+command:  
+
+```
+(base) ye@ye-System-Product-Name:~$ time xnmt --backend torch --gpu ./config.switchout.nodropout.my-th-word.yaml | tee my-th.switchout.nodropout-word.log
+```
+
+result for my-th, switchout, nodropout, ASEAN-MT Domain:  
+
+```
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[switchout.nodropout.asean.my-th] Epoch 22.0000 dev BLEU4: 0.22369394808175674, 0.463513/0.269068/0.169588/0.118385 (BP = 1.000000, ratio=1.05, hyp_len=7167, ref_len=6809) (time=0-00:20:54)
+[switchout.nodropout.asean.my-th]              dev auxiliary GLEU: 0.236257
+[switchout.nodropout.asean.my-th]              dev auxiliary Loss: 4.535 (ref_len=6809)
+             checkpoint took 0-00:00:27
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+switchout.nodropout.asean.my-th| BLEU4: 0.2268791184584467, 0.462507/0.272029/0.173630/0.121289 (BP = 1.000000, ratio=1.05, hyp_len=7148, ref_len=6809)
+                              | GLEU: 0.237950
+                              | WER: 79.35% ( C/S/I/D: 3042/2470/1636/1297; hyp_len=7148, ref_len=6809 )
+                              | CER: 62.79% ( C/S/I/D: 15032/9240/3567/6542; hyp_len=27839, ref_len=30814 )
+                              | BLEU4: 0.24533007088230563, 0.500984/0.296466/0.190667/0.132084 (BP = 0.992017, ratio=0.99, hyp_len=7112, ref_len=7169)
+                              | GLEU: 0.257847
+                              | WER: 72.17% ( C/S/I/D: 3264/2579/1269/1326; hyp_len=7112, ref_len=7169 )
+                              | CER: 61.48% ( C/S/I/D: 15177/9321/3220/6543; hyp_len=27718, ref_len=31041 )
+
+real    22m1.986s
+user    22m0.633s
+sys     0m2.529s
+```
+
+
