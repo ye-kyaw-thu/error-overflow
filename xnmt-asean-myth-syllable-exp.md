@@ -161,11 +161,55 @@ confirmation the no. of sentences with Thai corpus also ...
   22025  153745 2148890 total
 ```
 
-## Prepare Configuration Files for Seq2Seq with Dropout  
+## Prepare Configuration Files for Syllable Unit Experiments 
+
+Generally same configuration files with word unit experiments, I just added "syl" to the name of the experiments ...  
 
 ```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ head -3 config.*
+==> config.baseline.my-th-syl.yaml <==
+# standard settings
+asean.baseline.syl.my-th: !Experiment
+  exp_global: !ExpGlobal
 
+==> config.baseline.nodropout.my-th-syl.yaml <==
+# standard settings
+asean.baseline.nodropout.syl.my-th: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.baseline.nodropout.th-my-syl.yaml <==
+# standard settings
+asean.baseline.nodropout.syl.th-my: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.baseline.th-my-syl.yaml <==
+# standard settings
+asean.baseline.syl.th-my: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.switchout.my-th-syl.yaml <==
+# standard settings
+switchout.asean.syl.my-th: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.switchout.nodropout.my-th-syl.yaml <==
+# standard settings
+switchout.nodropout.syl.asean.my-th: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.switchout.nodropout.th-my-syl.yaml <==
+# standard settings
+switchout.nodropout.syl.asean.th-my: !Experiment
+  exp_global: !ExpGlobal
+
+==> config.switchout.th-my-syl.yaml <==
+# standard settings
+switchout.asean.syl.th-my: !Experiment
+  exp_global: !ExpGlobal
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
+
+## Training Baseline, Syllable with Dropout  
 
 ```
 
