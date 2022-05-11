@@ -434,7 +434,36 @@ result for baseline, th-my, dropout=0.3
 ...
 ...
 ...
+[asean.baseline.syl.th-my] Epoch 18.0000: train_loss/word=1.760576 (steps=9507, words/sec=8107.18, time=0-00:24:03)
+> Checkpoint [asean.baseline.syl.th-my]
+Performing inference on ./data/dev.th and ./data/dev.my
+Starting to read ./data/dev.th and ./data/dev.my
+Done reading ./data/dev.th and ./data/dev.my. Packing into batches.
+Done packing batches.
+[asean.baseline.syl.th-my] Epoch 18.0000 dev BLEU4: 0.2566258276500028, 0.505264/0.310275/0.199814/0.138456 (BP = 1.000000, ratio=1.04, hyp_len=13868, ref_len=13394) (time=0-00:24:45)
+[asean.baseline.syl.th-my]              dev auxiliary GLEU: 0.266111
+[asean.baseline.syl.th-my]              dev auxiliary Loss: 3.351 (ref_len=13394)
+             checkpoint took 0-00:00:42
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.syl.th-my      | BLEU4: 0.2652767701968845, 0.518840/0.322356/0.207617/0.142615 (BP = 1.000000, ratio=1.02, hyp_len=13694, ref_len=13394)
+                              | GLEU: 0.274291
+                              | WER: 70.05% ( C/S/I/D: 6420/4866/2408/2108; hyp_len=13694, ref_len=13394 )
+                              | CER: 65.79% ( C/S/I/D: 20462/10162/7846/6256; hyp_len=38470, ref_len=36880 )
+                              | BLEU4: 0.26469023060014685, 0.529932/0.326540/0.205251/0.138570 (BP = 0.999332, ratio=1.00, hyp_len=13464, ref_len=13473)
+                              | GLEU: 0.273250
+                              | WER: 69.21% ( C/S/I/D: 6381/4851/2232/2241; hyp_len=13464, ref_len=13473 )
+                              | CER: 63.96% ( C/S/I/D: 20358/10132/6992/6597; hyp_len=37482, ref_len=37087 )
 
+real    26m15.653s
+user    26m14.548s
+sys     0m2.289s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
 
 ```
