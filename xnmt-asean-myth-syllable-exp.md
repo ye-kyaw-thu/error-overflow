@@ -151,6 +151,16 @@ make confirmation ...
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data$
 ```
 
+confirmation the no. of sentences with Thai corpus also ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data$ wc *.th
+   1031    6809   98543 dev.th
+   1000    7169   99326 test.th
+  19994  139767 1951021 train.th
+  22025  153745 2148890 total
+```
+
 ## Prepare Configuration Files for Seq2Seq with Dropout  
 
 ```
