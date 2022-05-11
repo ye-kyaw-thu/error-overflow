@@ -692,7 +692,36 @@ training and result for th-my, baseline, no-dropout, syllable unit ...
 ...
 ...
 ...
+[asean.baseline.nodropout.syl.th-my] Epoch 15.0000: train_loss/word=1.465050 (steps=7927, words/sec=8209.70, time=0-00:18:37)
+> Checkpoint [asean.baseline.nodropout.syl.th-my]
+Performing inference on ./data/dev.th and ./data/dev.my
+Starting to read ./data/dev.th and ./data/dev.my
+Done reading ./data/dev.th and ./data/dev.my. Packing into batches.
+Done packing batches.
+[asean.baseline.nodropout.syl.th-my] Epoch 15.0000 dev BLEU4: 0.22816904147278358, 0.471422/0.280921/0.173696/0.117827 (BP = 1.000000, ratio=1.11, hyp_len=14889, ref_len=13394) (time=0-00:19:19)
+[asean.baseline.nodropout.syl.th-my]              dev auxiliary GLEU: 0.247285
+[asean.baseline.nodropout.syl.th-my]              dev auxiliary Loss: 3.793 (ref_len=13394)
+             checkpoint took 0-00:00:41
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.nodropout.syl.th-my| BLEU4: 0.23995358322698018, 0.486367/0.294468/0.184116/0.125724 (BP = 1.000000, ratio=1.04, hyp_len=13973, ref_len=13394)
+                              | GLEU: 0.251929
+                              | WER: 73.77% ( C/S/I/D: 6206/5074/2693/2114; hyp_len=13973, ref_len=13394 )
+                              | CER: 65.91% ( C/S/I/D: 19237/11111/6665/6532; hyp_len=37013, ref_len=36880 )
+                              | BLEU4: 0.2527370589124289, 0.510207/0.311022/0.194878/0.131939 (BP = 1.000000, ratio=1.00, hyp_len=13520, ref_len=13473)
+                              | GLEU: 0.259349
+                              | WER: 71.16% ( C/S/I/D: 6243/4920/2357/2310; hyp_len=13520, ref_len=13473 )
+                              | CER: 63.15% ( C/S/I/D: 19639/10436/5974/7012; hyp_len=36049, ref_len=37087 )
 
+real    20m48.641s
+user    20m47.709s
+sys     0m2.082s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
 
 ```
