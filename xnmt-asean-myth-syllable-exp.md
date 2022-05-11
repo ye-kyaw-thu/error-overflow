@@ -306,7 +306,36 @@ result ...
 ...
 ...
 ...
+[asean.baseline.syl.my-th] Epoch 23.0000: train_loss/word=1.981130 (steps=9830, words/sec=7388.01, time=0-00:20:27)
+> Checkpoint [asean.baseline.syl.my-th]
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[asean.baseline.syl.my-th] Epoch 23.0000 dev BLEU4: 0.22922427960529682, 0.452423/0.269354/0.176910/0.128062 (BP = 1.000000, ratio=1.07, hyp_len=7283, ref_len=6809) (time=0-00:20:57)
+[asean.baseline.syl.my-th]              dev auxiliary GLEU: 0.238062
+[asean.baseline.syl.my-th]              dev auxiliary Loss: 4.642 (ref_len=6809)
+             checkpoint took 0-00:00:30
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.syl.my-th      | BLEU4: 0.23014186330201042, 0.456549/0.270465/0.176129/0.128989 (BP = 1.000000, ratio=1.07, hyp_len=7261, ref_len=6809)
+                              | GLEU: 0.241488
+                              | WER: 79.76% ( C/S/I/D: 3002/2635/1624/1172; hyp_len=7261, ref_len=6809 )
+                              | CER: 63.41% ( C/S/I/D: 14988/10059/3713/5767; hyp_len=28760, ref_len=30814 )
+                              | BLEU4: 0.2283041114724462, 0.472327/0.278864/0.175812/0.117320 (BP = 1.000000, ratio=1.04, hyp_len=7444, ref_len=7169)
+                              | GLEU: 0.243820
+                              | WER: 76.75% ( C/S/I/D: 3193/2725/1526/1251; hyp_len=7444, ref_len=7169 )
+                              | CER: 63.49% ( C/S/I/D: 15273/9786/3939/5982; hyp_len=28998, ref_len=31041 )
 
+real    22m7.352s
+user    22m6.139s
+sys     0m2.383s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
 
 Configuration file for ASEAN-MT domain, th-my, syllable, dropout  
