@@ -557,7 +557,13 @@ asean.baseline.nodropout.syl.my-th: !Experiment
 
 ```
 
+training my-th, baseline, nodropout, syllable unit ...  
+
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ time xnmt --backend torch --gpu ./config.baseline.nodropout.my-th-syl.yaml | tee th-my.nodropout-syl.log
+...
+...
+...
 
 ```
 
