@@ -30,3 +30,76 @@ Currently, word segmented Myanmar data:
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
 ```
 
+Syllable Breaking ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./sylbreak.pl -i ./train.my -s " " > train.syl
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./sylbreak.pl -i ./dev.my -s " " > dev.syl
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ perl ./sylbreak.pl -i ./test.my -s " " > test.syl
+```
+
+confirmed with wc command ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ wc *.syl
+   1031   13394  141200 dev.syl
+   1000   13473  141923 test.syl
+  19994  263503 2790412 train.syl
+  22025  290370 3073535 total
+```
+
+no. of words should be bigger than word segmented files ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ wc *.my
+   1031    9573  119279 dev.my
+   1000    9579  119884 test.my
+  19994  187544 2359638 train.my
+  22025  206696 2598801 total
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
+```
+
+check the file content ... it looks OK ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ head -n 5 *.syl
+==> dev.syl <==
+ ဒိုင် ဗင်   ထိုး   တဲ့   စင်   ၊   ဒိုင် ဗင် ဘုတ်   နဲ့   လမ်း   တွေ   မ   ရှိ   ဘူး   ။
+ ၅ ၀   ဘတ်   ကို   အ ကြွေ   လဲ   ပေး   မ လား   ။
+ အ မျိုး သား ပြ တိုက်   ကို   ဘယ် လို   သွား   ရ   မ လဲ   ။
+ ဒီ   နေ ရာ   က   ပြိုင် ဘက် ကင်း   ပဲ   ။
+ တ ခြား   အ ခန်း   တွေ‌   ရော   ရ   နိုင်   မ လား   ။
+
+==> test.syl <==
+ ကျ သင့် ငွေ   ဘယ် လောက်   လဲ   ။
+ ကျွန် တော်   လက် ဆောင်   အ နေ   နဲ့   ပေး   လို့   ရ   တဲ့   ပစ္စည်း   မျိုး   ကြည့်   ချင်   လို့   ။
+ ရ ထား   က   ကြာ   နေ   တာ   လား   ။
+ တံ ခါး   နောက်   မှာ   ရပ်   ပါ   ။
+ ခ ဏ   လောက်   ။
+
+==> train.syl <==
+ ဟုတ် ကဲ့   ၊   ကျွန် တော်   ထိုင်း   စစ် တု ရင်   က စား   ရ   တာ   ကြိုက်   တယ်   ။
+ က လေး များ   အ တွက်   တစ်   ခု   ခု   အ ကြံ ပြု   ပေး   နိုင်   မ လား   ။
+ အဲ ဒီ   ကို   ဘယ် လို   ရောက်   နိုင်   မ လဲ   ။
+ တစ် ကိုယ် လုံး   ကိုက် ခဲ   နေ   လို့   ။
+ ကျွန် တော်   တို့   အ တွက်   လုပ်   ပေး   ခဲ့   တာ   တွေ   ကျေး ဇူး တင်   ပါ   တယ်   ။
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
