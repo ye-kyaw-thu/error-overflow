@@ -133,7 +133,67 @@ Check the cleaned files...
 (base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$
 ```
 
+copied syllable breaked Myanmar files to the path data/  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ cp *.my ../
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data/mk-syl$ cd ..
+```
+
+make confirmation ...  
+
+```
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data$ wc *.my
+   1031   13394  123100 dev.my
+   1000   13473  123778 test.my
+  19994  263503 2435597 train.my
+  22025  290370 2682475 total
+(base) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl/data$
+```
+
+## Prepare Configuration Files for Seq2Seq with Dropout  
 
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
