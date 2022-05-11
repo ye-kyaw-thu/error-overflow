@@ -560,18 +560,138 @@ asean.baseline.nodropout.syl.my-th: !Experiment
 training my-th, baseline, nodropout, syllable unit ...  
 
 ```
-(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ time xnmt --backend torch --gpu ./config.baseline.nodropout.my-th-syl.yaml | tee th-my.nodropout-syl.log
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ time xnmt --backend torch --gpu ./config.baseline.nodropout.my-th-syl.yaml | tee my-th.nodropout-syl.log
 ...
 ...
 ...
+[asean.baseline.nodropout.syl.my-th] Epoch 22.0000: train_loss/word=1.573830 (steps=9401, words/sec=5509.10, time=0-00:18:40)
+> Checkpoint [asean.baseline.nodropout.syl.my-th]
+Performing inference on ./data/dev.my and ./data/dev.th
+Starting to read ./data/dev.my and ./data/dev.th
+Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
+Done packing batches.
+[asean.baseline.nodropout.syl.my-th] Epoch 22.0000 dev BLEU4: 0.17307018623902545, 0.377860/0.204082/0.128210/0.090747 (BP = 1.000000, ratio=1.07, hyp_len=7254, ref_len=6809) (time=0-00:19:09)
+[asean.baseline.nodropout.syl.my-th]              dev auxiliary GLEU: 0.186962
+[asean.baseline.nodropout.syl.my-th]              dev auxiliary Loss: 5.667 (ref_len=6809)
+             checkpoint took 0-00:00:28
+  Early stopping
+reverting learned weights to best checkpoint..
+> Performing final evaluation
+Performing inference on ./data/dev.my and ./data/dev.th
+Performing inference on ./data/test.my and ./data/test.th
+Experiment                    | Final Scores
+-----------------------------------------------------------------------
+asean.baseline.nodropout.syl.my-th| BLEU4: 0.18020276096446447, 0.387453/0.211408/0.133583/0.096372 (BP = 1.000000, ratio=1.06, hyp_len=7237, ref_len=6809)
+                              | GLEU: 0.193483
+                              | WER: 87.47% ( C/S/I/D: 2500/3090/1647/1219; hyp_len=7237, ref_len=6809 )
+                              | CER: 69.77% ( C/S/I/D: 13293/11987/3978/5534; hyp_len=29258, ref_len=30814 )
+                              | BLEU4: 0.19206732692124862, 0.405506/0.225434/0.144673/0.102899 (BP = 1.000000, ratio=1.01, hyp_len=7228, ref_len=7169)
+                              | GLEU: 0.202264
+                              | WER: 82.15% ( C/S/I/D: 2614/3280/1334/1275; hyp_len=7228, ref_len=7169 )
+                              | CER: 70.06% ( C/S/I/D: 13250/11792/3956/5999; hyp_len=28998, ref_len=31041 )
 
+real    20m16.032s
+user    20m14.919s
+sys     0m2.257s
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
 ```
 
+Configuration file for th-my, baseline, no-dropout, syllable unit ...  
+
+```yaml
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ cat ./config.baseline.nodropout.th-my-syl.yaml
+# standard settings
+asean.baseline.nodropout.syl.th-my: !Experiment
+  exp_global: !ExpGlobal
+    default_layer_dim: 512 # Hidden layer size 512 by default
+    dropout: 0.0           # Dropout 0.3 by default
+  preproc: !PreprocRunner
+    overwrite: False       # Don't redo preprocessing if it's been done once before
+    tasks:
+    - !PreprocVocab        # Create vocabulary files from the training data
+      in_files:
+      - '{EXP_DIR}/data/train.th'
+      - '{EXP_DIR}/data/train.my'
+      out_files:
+      - '{EXP_DIR}/vocab.th'
+      - '{EXP_DIR}/vocab.my'
+      specs:
+      - filenum: all
+        filters:
+        - !VocabFiltererRank
+          max_rank: 30000 # Limit the vocabulary size to the 40k most frequent words
+  model: !DefaultTranslator
+    src_reader: !PlainTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.th'}
+    trg_reader: !PlainTextReader
+      vocab: !Vocab {vocab_file: '{EXP_DIR}/vocab.my'}
+    src_embedder: !SimpleWordEmbedder   # Embed source words as 256 dimensional vectors
+      emb_dim: 512
+    encoder: !ResidualSeqTransducer
+      child: !BiLSTMSeqTransducer
+        layers: 2
+    attender: !MlpAttender {}
+    decoder: !AutoRegressiveDecoder
+      embedder: !DenseWordEmbedder      # Represent target words as a 40000x256 matrix
+        emb_dim: 512
+      bridge: !LinearBridge {}          # Initialize the first state of the decoder with an affine transform of the last state of the encoder
+      rnn: !UniLSTMSeqTransducer        # Just your standard LSTM decoder
+        layers: 2                       # With 2 layers
+      transform: !AuxNonLinear
+        output_dim: !Ref
+          path: model.decoder.embedder.emb_dim
+        activation: 'relu'
+      scorer: !Softmax
+        output_projector: !Ref
+          path: model.decoder.embedder      # Tie the softmax output to the target word embeddings
+        label_smoothing: 0.1              # Smooth the output labels with the uniform distribution
+    inference: !AutoRegressiveInference
+      search_strategy: !BeamSearch
+        beam_size: 5
+        len_norm: !PolynomialNormalization
+          apply_during_search: true
+          m: 0.8
+  train: !SimpleTrainingRegimen
+    run_for_epochs: 30  # Run for at most 20 epochs
+    initial_patience: 2 # Run for at least 2 epochs without decreasing the learning rate
+    patience: 1         # After there is no improvement for 1 epoch, decrease the learning rate
+    lr_decay: 0.5       # Decay the learning rate by half whenever there is no improvement
+    lr_decay_times: 2   # If there is still no improvement after decreasing the learning rate 2 times in a row, stop training
+    trainer: !AdamTrainer
+      alpha: 0.001
+    batcher: !WordSrcBatcher
+      avg_batch_size: 64
+    src_file: '{EXP_DIR}/data/train.th'
+    trg_file: '{EXP_DIR}/data/train.my'
+    dev_tasks:
+      - !AccuracyEvalTask
+        eval_metrics: bleu,gleu
+        src_file: &dev_src '{EXP_DIR}/data/dev.th'
+        ref_file: &dev_trg '{EXP_DIR}/data/dev.my'
+        hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.my'
+      - !LossEvalTask
+        src_file: *dev_src
+        ref_file: *dev_trg
+  evaluate:
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: *dev_src
+      ref_file: *dev_trg
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.dev.my'
+    - !AccuracyEvalTask
+      eval_metrics: bleu,gleu,wer,cer
+      src_file: &test_src '{EXP_DIR}/data/test.th'
+      ref_file: &test_trg '{EXP_DIR}/data/test.my'
+      hyp_file: '{EXP_DIR}/hyp/{EXP}.test.my'
 ```
 
-```
+training and result for th-my, baseline, no-dropout, syllable unit ...  
 
 ```
+(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$ time xnmt --backend torch --gpu ./config.baseline.nodropout.th-my-syl.yaml | tee th-my.nodropout-syl.log
+...
+...
+...
 
 ```
 
