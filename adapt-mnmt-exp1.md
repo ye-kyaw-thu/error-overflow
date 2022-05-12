@@ -348,9 +348,454 @@ added "./scripts/" for open function:
 Run again ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time ./scripts/get-data.sh
+/bin/bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Loading and reading ted data ...
+~/tool/adapt-mnmt/data/ted-data ~/tool/adapt-mnmt
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-12 18:18:18--  http://phontron.com/data/ted_talks.tar.gz
+Resolving phontron.com (phontron.com)... 208.113.196.149
+Connecting to phontron.com (phontron.com)|208.113.196.149|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 352222045 (336M) [application/gzip]
+Saving to: ‘ted_talks.tar.gz’
 
+ted_talks.tar.gz                  100%[============================================================>] 335.90M  8.67MB/s    in 49s
+
+2022-05-12 18:19:07 (6.91 MB/s) - ‘ted_talks.tar.gz’ saved [352222045/352222045]
+
+all_talks_dev.tsv
+all_talks_test.tsv
+all_talks_train.tsv
+en en
+~/tool/adapt-mnmt
+
+real    11m13.753s
+user    10m16.927s
+sys     0m9.416s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+Check the downloaded data:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ tree ./data/
+./data/
+└── ted-data
+    ├── ar_en
+    │   ├── dev.ar
+    │   ├── dev.en
+    │   ├── test.ar
+    │   ├── test.en
+    │   ├── train.ar
+    │   └── train.en
+    ├── az_en
+    │   ├── dev.az
+    │   ├── dev.en
+    │   ├── test.az
+    │   ├── test.en
+    │   ├── train.az
+    │   └── train.en
+    ├── be_en
+    │   ├── dev.be
+    │   ├── dev.en
+    │   ├── test.be
+    │   ├── test.en
+    │   ├── train.be
+    │   └── train.en
+    ├── bg_en
+    │   ├── dev.bg
+    │   ├── dev.en
+    │   ├── test.bg
+    │   ├── test.en
+    │   ├── train.bg
+    │   └── train.en
+    ├── bn_en
+    │   ├── dev.bn
+    │   ├── dev.en
+    │   ├── test.bn
+    │   ├── test.en
+    │   ├── train.bn
+    │   └── train.en
+    ├── bs_en
+    │   ├── dev.bs
+    │   ├── dev.en
+    │   ├── test.bs
+    │   ├── test.en
+    │   ├── train.bs
+    │   └── train.en
+    ├── calv_en
+    │   ├── dev.calv
+    │   ├── dev.en
+    │   ├── test.calv
+    │   ├── test.en
+    │   ├── train.calv
+    │   └── train.en
+    ├── cs_en
+    │   ├── dev.cs
+    │   ├── dev.en
+    │   ├── test.cs
+    │   ├── test.en
+    │   ├── train.cs
+    │   └── train.en
+    ├── da_en
+    │   ├── dev.da
+    │   ├── dev.en
+    │   ├── test.da
+    │   ├── test.en
+    │   ├── train.da
+    │   └── train.en
+    ├── de_en
+    │   ├── dev.de
+    │   ├── dev.en
+    │   ├── test.de
+    │   ├── test.en
+    │   ├── train.de
+    │   └── train.en
+    ├── el_en
+    │   ├── dev.el
+    │   ├── dev.en
+    │   ├── test.el
+    │   ├── test.en
+    │   ├── train.el
+    │   └── train.en
+    ├── eo_en
+    │   ├── dev.en
+    │   ├── dev.eo
+    │   ├── test.en
+    │   ├── test.eo
+    │   ├── train.en
+    │   └── train.eo
+    ├── es_en
+    │   ├── dev.en
+    │   ├── dev.es
+    │   ├── test.en
+    │   ├── test.es
+    │   ├── train.en
+    │   └── train.es
+    ├── et_en
+    │   ├── dev.en
+    │   ├── dev.et
+    │   ├── test.en
+    │   ├── test.et
+    │   ├── train.en
+    │   └── train.et
+    ├── eu_en
+    │   ├── dev.en
+    │   ├── dev.eu
+    │   ├── test.en
+    │   ├── test.eu
+    │   ├── train.en
+    │   └── train.eu
+    ├── fa_en
+    │   ├── dev.en
+    │   ├── dev.fa
+    │   ├── test.en
+    │   ├── test.fa
+    │   ├── train.en
+    │   └── train.fa
+    ├── fi_en
+    │   ├── dev.en
+    │   ├── dev.fi
+    │   ├── test.en
+    │   ├── test.fi
+    │   ├── train.en
+    │   └── train.fi
+    ├── fr-ca_en
+    │   ├── dev.en
+    │   ├── dev.fr-ca
+    │   ├── test.en
+    │   ├── test.fr-ca
+    │   ├── train.en
+    │   └── train.fr-ca
+    ├── fr_en
+    │   ├── dev.en
+    │   ├── dev.fr
+    │   ├── test.en
+    │   ├── test.fr
+    │   ├── train.en
+    │   └── train.fr
+    ├── gl_en
+    │   ├── dev.en
+    │   ├── dev.gl
+    │   ├── test.en
+    │   ├── test.gl
+    │   ├── train.en
+    │   └── train.gl
+    ├── he_en
+    │   ├── dev.en
+    │   ├── dev.he
+    │   ├── test.en
+    │   ├── test.he
+    │   ├── train.en
+    │   └── train.he
+    ├── hi_en
+    │   ├── dev.en
+    │   ├── dev.hi
+    │   ├── test.en
+    │   ├── test.hi
+    │   ├── train.en
+    │   └── train.hi
+    ├── hr_en
+    │   ├── dev.en
+    │   ├── dev.hr
+    │   ├── test.en
+    │   ├── test.hr
+    │   ├── train.en
+    │   └── train.hr
+    ├── hu_en
+    │   ├── dev.en
+    │   ├── dev.hu
+    │   ├── test.en
+    │   ├── test.hu
+    │   ├── train.en
+    │   └── train.hu
+    ├── hy_en
+    │   ├── dev.en
+    │   ├── dev.hy
+    │   ├── test.en
+    │   ├── test.hy
+    │   ├── train.en
+    │   └── train.hy
+    ├── id_en
+    │   ├── dev.en
+    │   ├── dev.id
+    │   ├── test.en
+    │   ├── test.id
+    │   ├── train.en
+    │   └── train.id
+    ├── it_en
+    │   ├── dev.en
+    │   ├── dev.it
+    │   ├── test.en
+    │   ├── test.it
+    │   ├── train.en
+    │   └── train.it
+    ├── ja_en
+    │   ├── dev.en
+    │   ├── dev.ja
+    │   ├── test.en
+    │   ├── test.ja
+    │   ├── train.en
+    │   └── train.ja
+    ├── ka_en
+    │   ├── dev.en
+    │   ├── dev.ka
+    │   ├── test.en
+    │   ├── test.ka
+    │   ├── train.en
+    │   └── train.ka
+    ├── kk_en
+    │   ├── dev.en
+    │   ├── dev.kk
+    │   ├── test.en
+    │   ├── test.kk
+    │   ├── train.en
+    │   └── train.kk
+    ├── ko_en
+    │   ├── dev.en
+    │   ├── dev.ko
+    │   ├── test.en
+    │   ├── test.ko
+    │   ├── train.en
+    │   └── train.ko
+    ├── ku_en
+    │   ├── dev.en
+    │   ├── dev.ku
+    │   ├── test.en
+    │   ├── test.ku
+    │   ├── train.en
+    │   └── train.ku
+    ├── lt_en
+    │   ├── dev.en
+    │   ├── dev.lt
+    │   ├── test.en
+    │   ├── test.lt
+    │   ├── train.en
+    │   └── train.lt
+    ├── mk_en
+    │   ├── dev.en
+    │   ├── dev.mk
+    │   ├── test.en
+    │   ├── test.mk
+    │   ├── train.en
+    │   └── train.mk
+    ├── mn_en
+    │   ├── dev.en
+    │   ├── dev.mn
+    │   ├── test.en
+    │   ├── test.mn
+    │   ├── train.en
+    │   └── train.mn
+    ├── mr_en
+    │   ├── dev.en
+    │   ├── dev.mr
+    │   ├── test.en
+    │   ├── test.mr
+    │   ├── train.en
+    │   └── train.mr
+    ├── ms_en
+    │   ├── dev.en
+    │   ├── dev.ms
+    │   ├── test.en
+    │   ├── test.ms
+    │   ├── train.en
+    │   └── train.ms
+    ├── my_en
+    │   ├── dev.en
+    │   ├── dev.my
+    │   ├── test.en
+    │   ├── test.my
+    │   ├── train.en
+    │   └── train.my
+    ├── nb_en
+    │   ├── dev.en
+    │   ├── dev.nb
+    │   ├── test.en
+    │   ├── test.nb
+    │   ├── train.en
+    │   └── train.nb
+    ├── nl_en
+    │   ├── dev.en
+    │   ├── dev.nl
+    │   ├── test.en
+    │   ├── test.nl
+    │   ├── train.en
+    │   └── train.nl
+    ├── pl_en
+    │   ├── dev.en
+    │   ├── dev.pl
+    │   ├── test.en
+    │   ├── test.pl
+    │   ├── train.en
+    │   └── train.pl
+    ├── pt-br_en
+    │   ├── dev.en
+    │   ├── dev.pt-br
+    │   ├── test.en
+    │   ├── test.pt-br
+    │   ├── train.en
+    │   └── train.pt-br
+    ├── pt_en
+    │   ├── dev.en
+    │   ├── dev.pt
+    │   ├── test.en
+    │   ├── test.pt
+    │   ├── train.en
+    │   └── train.pt
+    ├── ro_en
+    │   ├── dev.en
+    │   ├── dev.ro
+    │   ├── test.en
+    │   ├── test.ro
+    │   ├── train.en
+    │   └── train.ro
+    ├── ru_en
+    │   ├── dev.en
+    │   ├── dev.ru
+    │   ├── test.en
+    │   ├── test.ru
+    │   ├── train.en
+    │   └── train.ru
+    ├── sk_en
+    │   ├── dev.en
+    │   ├── dev.sk
+    │   ├── test.en
+    │   ├── test.sk
+    │   ├── train.en
+    │   └── train.sk
+    ├── sl_en
+    │   ├── dev.en
+    │   ├── dev.sl
+    │   ├── test.en
+    │   ├── test.sl
+    │   ├── train.en
+    │   └── train.sl
+    ├── sq_en
+    │   ├── dev.en
+    │   ├── dev.sq
+    │   ├── test.en
+    │   ├── test.sq
+    │   ├── train.en
+    │   └── train.sq
+    ├── sr_en
+    │   ├── dev.en
+    │   ├── dev.sr
+    │   ├── test.en
+    │   ├── test.sr
+    │   ├── train.en
+    │   └── train.sr
+    ├── sv_en
+    │   ├── dev.en
+    │   ├── dev.sv
+    │   ├── test.en
+    │   ├── test.sv
+    │   ├── train.en
+    │   └── train.sv
+    ├── ta_en
+    │   ├── dev.en
+    │   ├── dev.ta
+    │   ├── test.en
+    │   ├── test.ta
+    │   ├── train.en
+    │   └── train.ta
+    ├── th_en
+    │   ├── dev.en
+    │   ├── dev.th
+    │   ├── test.en
+    │   ├── test.th
+    │   ├── train.en
+    │   └── train.th
+    ├── tr_en
+    │   ├── dev.en
+    │   ├── dev.tr
+    │   ├── test.en
+    │   ├── test.tr
+    │   ├── train.en
+    │   └── train.tr
+    ├── uk_en
+    │   ├── dev.en
+    │   ├── dev.uk
+    │   ├── test.en
+    │   ├── test.uk
+    │   ├── train.en
+    │   └── train.uk
+    ├── ur_en
+    │   ├── dev.en
+    │   ├── dev.ur
+    │   ├── test.en
+    │   ├── test.ur
+    │   ├── train.en
+    │   └── train.ur
+    ├── vi_en
+    │   ├── dev.en
+    │   ├── dev.vi
+    │   ├── test.en
+    │   ├── test.vi
+    │   ├── train.en
+    │   └── train.vi
+    ├── zh-cn_en
+    │   ├── dev.en
+    │   ├── dev.zh-cn
+    │   ├── test.en
+    │   ├── test.zh-cn
+    │   ├── train.en
+    │   └── train.zh-cn
+    ├── zh_en
+    │   ├── dev.en
+    │   ├── dev.zh
+    │   ├── test.en
+    │   ├── test.zh
+    │   ├── train.en
+    │   └── train.zh
+    └── zh-tw_en
+        ├── dev.en
+        ├── dev.zh-tw
+        ├── test.en
+        ├── test.zh-tw
+        ├── train.en
+        └── train.zh-tw
+
+60 directories, 354 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
