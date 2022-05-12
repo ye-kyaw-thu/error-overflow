@@ -1101,8 +1101,17 @@ s/\\& a p o s ;/\\&apos;/g"> ./dev.syl.clean
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$
 ```
 
-```
+copy syllable breaked files to "ted-data/my_en/" path:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ ls
+dev.en  mk-syl  original  test.en  train.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ cp ./mk-syl/*.clean .
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ ls
+dev.en  dev.syl.clean  mk-syl  original  test.en  test.syl.clean  train.en  train.syl.clean
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv train.syl.clean train.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv dev.syl.clean dev.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv test.syl.clean test.my
 ```
 
 ```
