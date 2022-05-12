@@ -306,10 +306,37 @@ python: can't open file '/home/ye/tool/adapt-mnmt/scripts/scripts/ted_reader.py'
 ```
 
 got ERROR as shown in the above and related to running "ted_reader.py"  
+When I checked the ERROR, I found that is caused by running path. And thus, I move upper level folder and then run the "get-data.sh" again ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ ./scripts/get-data.sh
+/bin/bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Loading and reading ted data ...
+~/tool/adapt-mnmt/data/ted-data ~/tool/adapt-mnmt
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-12 17:18:32--  http://phontron.com/data/ted_talks.tar.gz
+Resolving phontron.com (phontron.com)... 208.113.196.149
+Connecting to phontron.com (phontron.com)|208.113.196.149|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 352222045 (336M) [application/gzip]
+Saving to: ‘ted_talks.tar.gz’
 
+ted_talks.tar.gz                  100%[============================================================>] 335.90M  11.3MB/s    in 38s
+
+2022-05-12 17:19:11 (8.80 MB/s) - ‘ted_talks.tar.gz’ saved [352222045/352222045]
+
+all_talks_dev.tsv
+all_talks_test.tsv
+all_talks_train.tsv
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/scripts/ted_reader.py", line 139, in <module>
+    with open("./ted_talks_langs.txt", 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './ted_talks_langs.txt'
+~/tool/adapt-mnmt
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
+
+ERROR again as above ...  
 
 ```
 
