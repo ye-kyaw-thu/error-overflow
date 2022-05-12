@@ -1152,7 +1152,10 @@ confirm no of lines for both English and Myanmar side:
 
 
 
+# Reference
 
+- https://github.com/OpenNMT/OpenNMT-tf
+- https://github.com/surafelml/adapt-mnmt 
 
 
 
