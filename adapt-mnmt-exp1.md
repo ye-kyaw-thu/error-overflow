@@ -1196,7 +1196,23 @@ sys     0m0.030s
 ```
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$ tree
+.
+└── sov-1
+    └── data
+        ├── dev.src
+        ├── dev.tgt
+        ├── test-sets
+        │   ├── test.en
+        │   ├── test.ja
+        │   └── test.ko
+        ├── test.src
+        ├── test.tgt
+        ├── train.src
+        └── train.tgt
 
+3 directories, 9 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
 ```
 
 ```
