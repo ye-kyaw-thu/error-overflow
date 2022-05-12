@@ -1215,8 +1215,59 @@ sys     0m0.030s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
 ```
 
+got ERROR ...  
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/preprocess.sh sov-1 30000
+bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
 
+LEARNING SP MODEL ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 93, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 69, in main
+    train(args.spm_dir, args.in_file, args.src, args.tgt, args.spm_size)
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 18, in train
+    spm_train(file_src, spm_src, spm_size)
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 7, in spm_train
+    spm.SentencePieceTrainer.Train('--input={} --model_prefix={} --vocab_size={} '
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceTrainer'
+SP MODEL: [/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel]
+
+APPLYING SP MODEL ON [train] ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 93, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 77, in main
+    encode(args.spm_dir, args.in_file, args.src, args.op_file)
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 27, in encode
+    spm_spp = spm.SentencePieceProcessor()
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceProcessor'
+
+APPLYING SP MODEL ON [dev] ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 93, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 77, in main
+    encode(args.spm_dir, args.in_file, args.src, args.op_file)
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 27, in encode
+    spm_spp = spm.SentencePieceProcessor()
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceProcessor'
+
+APPLYING SP MODEL ON [test] ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 93, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 77, in main
+    encode(args.spm_dir, args.in_file, args.src, args.op_file)
+  File "/home/ye/tool/adapt-mnmt/scripts/sentencepiece.py", line 27, in encode
+    spm_spp = spm.SentencePieceProcessor()
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceProcessor'
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+real    0m0.088s
+user    0m0.069s
+sys     0m0.019s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
