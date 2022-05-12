@@ -305,6 +305,8 @@ python: can't open file '/home/ye/tool/adapt-mnmt/scripts/scripts/ted_reader.py'
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$
 ```
 
+got ERROR as shown in the above and related to running "ted_reader.py"  
+
 ```
 
 ```
