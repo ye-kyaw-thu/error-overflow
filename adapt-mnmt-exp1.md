@@ -1141,7 +1141,58 @@ DEVICES=$3      # -1 for cpu
 ```
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/build-training-data.sh 'ja-en ko-en' flag sov-1
+bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
+~/tool/adapt-mnmt/models/sov-1/data ~/tool/adapt-mnmt
+DSTDIR: /home/ye/tool/adapt-mnmt/models/sov-1/data
+DATADIR: /home/ye/tool/adapt-mnmt/data/ted-data
+BUILDING: ja>en
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-train.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-train.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-dev.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-dev.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-test.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-test.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 79: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-test.orig.ja: No such file or directory
+Warning: No built-in rules for language ja.
+./scripts/build-training-data.sh: line 83: /home/ye/tool/adapt-mnmt/data/ted-data/ja_en/ted-test.orig.en: No such file or directory
+BUILDING: ko>en
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-train.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-train.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-dev.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-dev.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+./scripts/build-training-data.sh: line 79: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.ko: No such file or directory
+Warning: No built-in rules for language ko.
+~/tool/adapt-mnmt
+Done: /home/ye/tool/adapt-mnmt/models/sov-1/data
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/dev.src
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/dev.tgt
+wc: /home/ye/tool/adapt-mnmt/models/sov-1/data/test-sets: Is a directory
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/test-sets
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/test.src
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/test.tgt
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+      0 /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+      0 total
 
+real    0m0.077s
+user    0m0.105s
+sys     0m0.030s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
