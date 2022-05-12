@@ -139,6 +139,9 @@ fi
 
 ## Run Setup-Env
 
+Got ERROR at tensorflow installation ...  
+(Version problem)  
+
 ```
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ bash ./setup-env.sh | tee ./setup-env-running.log
 bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
@@ -162,6 +165,11 @@ Requirement already satisfied: pyonmttok<2,>=1.5.0 in /home/ye/anaconda3/envs/ad
 Installing collected packages: OpenNMT-tf
   Running setup.py develop for OpenNMT-tf
 Successfully installed OpenNMT-tf-1.15.0
+```
+
+I updated the tensorflow version to 2.6.2 and then run setup-env.sh again:  
+
+```
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ vi ./setup-env.sh
 vi: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by vi)
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ bash ./setup-env.sh | tee ./setup-env-running.log
