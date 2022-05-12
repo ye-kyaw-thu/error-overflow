@@ -337,10 +337,15 @@ FileNotFoundError: [Errno 2] No such file or directory: './ted_talks_langs.txt'
 ```
 
 ERROR again as above ...  
+added "./scripts/" for open function:  
 
+```python
+    # read ted_langs_list to extract [langs-en] pairs
+    with open("./scripts/ted_talks_langs.txt", 'r') as f:
+        langs = f.read().splitlines()
 ```
 
-```
+Run again ...  
 
 ```
 
