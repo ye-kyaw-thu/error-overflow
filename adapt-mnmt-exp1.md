@@ -276,8 +276,33 @@ Successfully installed OpenNMT-tf-1.15.0
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+## Download Data
 
+run get-data.sh for getting TED corpus:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ ./get-data.sh
+/bin/bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Loading and reading ted data ...
+~/tool/adapt-mnmt/scripts/data/ted-data ~/tool/adapt-mnmt/scripts
+wget: /home/ye/anaconda3/envs/xnmt/lib/libuuid.so.1: no version information available (required by wget)
+--2022-05-12 17:13:07--  http://phontron.com/data/ted_talks.tar.gz
+Resolving phontron.com (phontron.com)... 208.113.196.149
+Connecting to phontron.com (phontron.com)|208.113.196.149|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 352222045 (336M) [application/gzip]
+Saving to: ‘ted_talks.tar.gz’
+
+ted_talks.tar.gz                  100%[============================================================>] 335.90M  9.19MB/s    in 33s
+
+2022-05-12 17:13:41 (10.1 MB/s) - ‘ted_talks.tar.gz’ saved [352222045/352222045]
+
+all_talks_dev.tsv
+all_talks_test.tsv
+all_talks_train.tsv
+python: can't open file '/home/ye/tool/adapt-mnmt/scripts/scripts/ted_reader.py': [Errno 2] No such file or directory
+~/tool/adapt-mnmt/scripts
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$
 ```
 
 ```
