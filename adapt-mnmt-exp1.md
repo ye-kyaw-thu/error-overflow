@@ -1015,11 +1015,40 @@ check the output files:
 ပြီးပျောက်သွားတဲ့သူပါ။
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$
 ```
+
 syllable breaking ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ perl ./sylbreak.pl -i ./train.my.nospace -s " " > ./train.syl
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ perl ./sylbreak.pl -i ./dev.my.nospace -s " " > ./
+dev.syl
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ perl ./sylbreak.pl -i ./test.my.nospace -s " " > .
+/test.syl
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$
+```
+
+checking the syllable breaked Myanmar text files ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ head -n 3 {train,dev,test}.syl
+==> train.syl <==
+ ( စက် ပိုင်း ဆိုင် ရာ ဆူ ညံ သံ များ ) ( ဂီ တ သံ ) ( လက် ခုပ် သံ များ )
+ ဒီ အ ကြောင်း က လန် ဒန် က & a p o s ; စွန် လွှတ် သူ ရဲ့ တောင် ကုန်း & q u o t ; & q u o t ; လို့ ခေါ် တဲ့ နေ ရာ ပါ ။ သွား ပြီး နာ ရီ တွေ ကို ကုန် ဆုံး လေ့ ရှိ တဲ့ နေ ရာ ပါ & a p o s ; သူ ဘယ် တော့ ပြန် လာ မ လဲ & a p o s ; & a p o s ; သူ ဘယ် တော့ ပြန် လာ မ လဲ & a p o s ; လို့ ဆို ရင်း ဒီ တော့ ဒါ ဟာ အဲ့ ဒီ လူ ကို ရည် စူး တဲ့ နောက် တစ် ခု ပေါ့ ၊
+ ပြီး ပျောက် သွား တဲ့ သူ ပါ ။
+
+==> dev.syl <==
+ ပ ထ မ ဆုံး ၊ ဗီ ဒီ ယို တစ် ခု ။
+ ဟုတ် ပါ တယ် ၊ ဒါ က ကြက် ဥ မွှေ ကြော် တစ် လုံး ပါ ။
+ ဒါ ပေ မဲ့ ကြ ည့် လိုက် စဉ် မှာ ခင် ဗျား နည်း နည်း စိတ် မ သက် မ သာ ဖြစ် မိ မယ် လို့ မျှော် လ င့် ပါ တယ် ။
+
+==> test.syl <==
+ ဒီ နှစ် ကုန် လောက် မှာ ဒီ ကမ္ဘာ ပေါ် မှာ လူ မှု ရေး ကွန် ရက် တွေ ကို စိတ် ဝင် တ စား သုံး ကြ မ ယ့် သူ သန်း ၁ ထောင် နီး ပါး ရှိ လာ လိ မ့် မယ် ။
+ ဒီ လူ တွေ အား လုံး မှာ တူ နေ တာ တစ် ခု က သူ တို့ တွေ ဟာ သေ ကြ မှာ ပဲ ဖြစ် ပါ တယ် ။
+ ဒါ ဟာ အ နိဋ္ဌာ ရုံ အ တွေး လို့ ဆို နိုင် ပေ မဲ့ စူး စမ်း လေ့ လာ ထိုက် တဲ့ တ ကယ် ကို နက် ရှိုင်း တဲ့ ဂ ယက် ရိုက် မှု တွေ ရှိ တယ် လို့ ထင် ပါ တယ် ။
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$
+```
+
+I wanna change "& q u o t ;" to "&quot;"   
 
 ```
 
