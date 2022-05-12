@@ -1130,8 +1130,14 @@ confirm no of lines for both English and Myanmar side:
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
 ```
 
-```
+learning what is experiment-ID:  
 
+```bash
+#!/bin/bash
+
+PARENT_EXPID=$1 # 'pt-en'
+EXPID=$2        # 'gl-en_progadapt'
+DEVICES=$3      # -1 for cpu
 ```
 
 ```
