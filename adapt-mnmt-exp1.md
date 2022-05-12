@@ -938,10 +938,22 @@ There is trade , there is disarmament , there is cross-border relations .
 ## Syllable Breaking for Myanmar Language
 
 Current segmentation is wired ...  and thus, I made a syllable segmentation.  
+1st, keep the original data under original/ folder, copied syllable breaking and space cleaning perl scripts to working folder ...  
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ ls
+dev.en  dev.my  test.en  test.my  train.en  train.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mkdir original
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ cp *.my ./original/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mkdir mk-syl
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv *.my ./mk-syl/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ cd mk-syl/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ cp /home/ye/tool/xnmt/exp/asean-myth-syl/data/mk-syl/*.pl .
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$ ls
+clean-space.pl  dev.my  print-blank-lines.pl  sylbreak.pl  test.my  train.my
 ```
+
+syllable breaking ...  
 
 ```
 
