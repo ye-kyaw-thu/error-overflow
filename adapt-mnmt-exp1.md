@@ -1048,7 +1048,7 @@ checking the syllable breaked Myanmar text files ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en/mk-syl$
 ```
 
-I wanna change "& q u o t ;" to "&quot;"   
+I wanna change "& q u o t ;" to ```&quot;```   
 
 ```
 
