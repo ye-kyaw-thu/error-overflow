@@ -799,3 +799,91 @@ Check the downloaded data:
 60 directories, 354 files
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
+
+## Check Myanmar Data
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ ls
+dev.en  dev.my  test.en  test.my  train.en  train.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ wc *
+    741   13293   66834 dev.en
+    741   22491  212851 dev.my
+   1504   30578  153883 test.en
+   1504   49945  480504 test.my
+  21497  430740 2160265 train.en
+  21497  716879 6903838 train.my
+  47484 1263926 9978175 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ head *
+==> dev.en <==
+First , a video .
+Yes , it is a scrambled egg .
+But as you look at it , I hope you &apos;ll begin to feel just slightly uneasy .
+Because you may notice that what &apos;s actually happening is that the egg is unscrambling itself .
+And you &apos;ll now see the yolk and the white have separated .
+And now they &apos;re going to be poured back into the egg .
+And we all know in our heart of hearts that this is not the way the universe works .
+A scrambled egg is mush — tasty mush — but it &apos;s mush .
+An egg is a beautiful , sophisticated thing that can create even more sophisticated things , such as chickens .
+And we know in our heart of hearts that the universe does not travel from mush to complexity .
+
+==> dev.my <==
+ပထမဆုံး ၊ ဗီဒီယိုတစ ် ခု ။
+ဟုတ ် ပါတယ ် ၊ ဒါက ကြက ် ဥမွှေကြော ် တစ ် လုံးပါ ။
+ဒါပေမဲ ့ ကြည ့ ် လိုက ် စဉ ် မှာ ခင ် ဗျား နည ် းနည ် း စိတ ် မသက ် မသာဖြစ ် မိမယ ် လို ့ မျှော ် လင ့ ် ပါတယ ် ။
+အကြောင ် းက တကယ ် ဖြစ ် နေတာက ကြက ် ဥဟာ သူ ့ ဘာသာ ဖော ် ထုတ ် နေတာ ခင ် ဗျားတို ့ သတိထားမိနိုင ် လို ့ ပါ ။
+အခုဆို အနှစ ် နဲ ့ အကာဟာ ခွဲထွက ် သွားတာ မြင ် ရမှာပါ ။
+အခု ဒါတွေကို ကြက ် ဥထဲကို ပြန ် လောင ် းထည ့ ် တော ့ မှာပါ ။
+ကျွန ် တော ် တို ့ အားလုံးရဲ ့ ရင ် ထဲအသည ် းထဲမှာ သိနေတာက ဒါက စကြာဝဠာ အလုပ ် လုပ ် တဲ ့ ပုံ မဟုတ ် ဘူးပေါ ့ ။
+ကြက ် ဥမွှေကြော ် က ပျော ့ ပြဲတယ ် ၊ အရသာရှိပေမဲ ့ ပျော ့ ပြဲတယ ် လေ ။
+ကြက ် ဥတစ ် လုံးဟာ လှပ ၊ ဆန ် းပြားတဲ ့ အရာပါ ။ ကြက ် ကလေးတွေလို ပိုပြီးဆန ် းပြားတာတွေတောင ် ဖန ် တီးနိုင ် ပါတယ ် ။
+ကျွန ် တော ် တို ့ ရင ် ထဲအသည ် းထဲက သိနေတာက စကြာဝဠာဟာ ပျော ့ ပြဲတာကနေ ရှုပ ် ထွေးမှုဆီ မသွားဘူးပေါ ့ ။
+
+==> test.en <==
+By the end of this year , there &apos;ll be nearly a billion people on this planet that actively use social networking sites .
+The one thing that all of them have in common is that they &apos;re going to die .
+While that might be a somewhat morbid thought , I think it has some really profound implications that are worth exploring .
+What first got me thinking about this was a blog post authored earlier this year by Derek K. Miller , who was a science and technology journalist who died of cancer .
+And what Miller did was have his family and friends write a post that went out shortly after he died .
+Here &apos;s what he wrote in starting that out .
+He said , &quot; &quot; Here it is . I &apos;m dead , and this is my last post to my blog .
+In advance , I asked that once my body finally shut down from the punishments of my cancer , then my family and friends publish this prepared message I wrote — the first part of the process of turning this from an active website to an archive . &quot; &quot; Now , while as a journalist , Miller &apos;s archive may have been better written and more carefully curated than most , the fact of the matter is that all of us today are creating an archive that &apos;s something completely different than anything that &apos;s been created by any previous generation .
+Consider a few stats for a moment .
+Right now there are 48 hours of video being uploaded to YouTube every single minute .
+
+==> test.my <==
+ဒီနှစ ် ကုန ် လောက ် မှာ ဒီကမ ္ ဘာပေါ ် မှာ လူမှုရေးကွန ် ရက ် တွေကို စိတ ် ဝင ် တစားသုံးကြမယ ့ ် သူ သန ် း ၁ ထောင ် နီးပါးရှိလာလိမ ့ ် မယ ် ။
+ဒီလူတွေအားလုံးမှာ တူနေတာတစ ် ခုက သူတို ့ တွေဟာ သေကြမှာပဲဖြစ ် ပါတယ ် ။
+ဒါဟာ အနိဋ ္ ဌာရုံအတွေးလို ့ ဆိုနိုင ် ပေမဲ ့ စူးစမ ် းလေ ့ လာထိုက ် တဲ ့ တကယ ် ကို နက ် ရှိုင ် းတဲ ့ ဂယက ် ရိုက ် မှုတွေ ရှိတယ ် လို ့ ထင ် ပါတယ ် ။
+ဒါကို ပထမဆုံး တွေးဖြစ ် မိတဲ ့ အကြောင ် းက ဒီနှစ ် အစောပိုင ် းက Derek Miller ရေးသားတဲ ့ ဘလော ့ ဂ ် ကြောင ့ ် ပါ ။ သူဟာ သိပ ္ ပံနဲ ့ နည ် းပညာ သတင ် းစာဆရာဖြစ ် ပြီး ကင ် ဆာနဲ ့ သေဆုံးခဲ ့ ပါတယ ် ။
+Miller လုပ ် ခဲ ့ တာက သူ ့ မိသားစုနဲ ့ မိတ ် ဆွေတွေကို သူသေပြီးနောက ် မှာ ချက ် ချင ် းပဲ ပို ့ စ ် တစ ် ခုရေးတင ် ခိုင ် းတာပါ ။
+ဒါက စစချင ် းမှာ သူရေးခဲ ့ တာပါ ။
+သူပြောတာက &quot; &quot; ဟောဒီမှာ ၊ ကျုပ ် သေပြီ ၊ ဒါက ကျုပ ် ဘလော ့ ဂ ် ရဲ ့ နောက ် ဆုံး ပိုစ ့ ် ပါ ။
+ကြိုတင ် ပြီး ကျုပ ် ရဲ ့ ခန ္ ဓာကိုယ ် ကို ကင ် ဆာရဲ ့ ဒဏ ် ခတ ် မှုတွေကနေ နောက ် ဆုံး တစ ် ခါတည ် းပိတ ် ချပစ ် လိုက ် တာနဲ ့ ဒီကြိုရေးထားတဲ ့ စာကိုတင ် ဖို ့ မိသားစု ၊ မိတ ် ဆွေတွေကို ပြောခဲ ့ တယ ် ။ လုပ ် ငန ် းစဉ ် ရဲ ့ ပထမပိုင ် းက ဒါကို သက ် ဝင ် တဲ ့ ဝက ် ဘ ် ဆိုဒ ် ကနေ မော ် ကွန ် းဘဏ ် ကို ပြောင ် းဖို ့ ပါ ။ ကဲ သတင ် းစာသမားတစ ် ယ ​ ောက ် ဆိုပေမည ့ ် လည ် း Miller ရဲ ့ မော ် ကွန ် းဘဏ ် ကိုရေးကာ အများစုထက ် ပိုဂရုစိုက ် ထိန ် းထားပါတယ ် ။ အမှန ် က ကျွန ် တော ် တို ့ အားလုံး ဒီနေ ့ မှာ အရင ် ကနဲ ့ မျိုးဆက ် တွေ ဖန ် တီးထားခဲ ့ တာတွေနဲ ့ ဘာမှမတူတဲ ့ မော ် ကွန ် းပြုစုခြင ် းကို ဖန ် တီးနေကြပါတယ ် ။
+စာရင ် း တစ ် ချို ့ ကို တွေးကြည ့ ် လိုက ် ပါ ။
+အခုအခါမှာ Youtube မှာ မိနစ ် တိုင ် းမှာ ဗီဒီယို ၄၈ နာရီကြာစာလောက ် ကို တင ် ဖြစ ် တယ ် ။
+
+==> train.en <==
+( Mechanical noises ) ( Music ) ( Applause )
+This is about a place in London called Kiteflyer &apos;s Hill where I used to go and spend hours going &quot; &quot; When is he coming back ? When is he coming back ? &quot; &quot; So this is another one dedicated to that guy ...
+who I &apos;ve got over .
+But this is &quot; &quot; Kiteflyer &apos;s Hill . &quot; &quot; It &apos;s a beautiful song written by a guy called Martin Evan , actually , for me .
+Boo Hewerdine , Thomas Dolby , thank you very much for inviting me . It &apos;s been a blessing singing for you .
+Thank you very much .
+♫ Do you remember when we used to go ♫ ♫ up to Kiteflyer &apos;s Hill ? ♫ ♫ Those summer nights , so still ♫ ♫ with all of the city beneath us ♫ ♫ and all of our lives ahead ♫ ♫ before cruel and foolish words ♫ ♫ were cruelly and foolishly said ♫ ♫ Some nights I think of you ♫ ♫ and then I go up ♫ ♫ on Kiteflyer &apos;s Hill ♫ ♫ wrapped up against the winter chill ♫ ♫ And somewhere in the city beneath me ♫ ♫ you lie asleep in your bed ♫ ♫ and I wonder if ever just briefly ♫
+♫ do I creep in your dreams now and then ♫ ♫ Where are you now ? ♫ ♫ My wild summer love ♫ ♫ Where are you now ? ♫ ♫ Have the years been kind ? ♫ ♫ And do you think of me sometimes ♫ ♫ up on Kiteflyer &apos;s Hill ? ♫ ♫ Oh , I pray you one day will ♫ ♫ We won &apos;t say a word ♫ ♫ We won &apos;t need them ♫ ♫ Sometimes silence is best ♫ ♫ We &apos;ll just stand in the still of the evening ♫ ♫ and whisper farewell to loneliness ♫ ♫ Where are you now ? ♫ ♫ My wild summer love ♫ ♫ Where are you now ? ♫
+♫ Do you think of me sometimes ? ♫ ♫ And do you ever make that climb ? ♫ ♫ Where are you now ? ♫ ♫ My wild summer love ♫ ♫ Where are you now ? ♫ ♫ Have the years been kind ? ♫ ♫ And do you ever make that climb ♫ ♫ up on Kiteflyer &apos;s Hill ? Kiteflyer &apos;s ... ♫ ♫ &#91; French &#93; ♫ ♫ Where are you ? Where are you now ? ♫ ♫ Where are you now ? ♫ ♫ Kiteflyer &apos;s ... ♫ ( Applause ) Gracias . Thank you very much .
+I &apos;m actually here to make a challenge to people .
+
+==> train.my <==
+( စက ် ပိုင ် းဆိုင ် ရာ ဆူညံသံများ ) ( ဂီတသံ ) ( လက ် ခုပ ် သံများ )
+ဒီအကြောင ် းက လန ် ဒန ် က &apos; စွန ် လွှတ ် သူရဲ ့ တောင ် ကုန ် း &quot; &quot; လို ့ ခေါ ် တဲ ့ နေရာပါ ။ သွားပြီး နာရီတွေကို ကုန ် ဆုံးလေ ့ ရှိတဲ ့ နေရာပါ &apos; သူဘယ ် တော ့ ပြန ် လာမလဲ &apos; &apos; သူဘယ ် တော ့ ပြန ် လာမလဲ &apos; လို ့ ဆိုရင ် း ဒီတော ့ ဒါဟာ အဲ ့ ဒီလူကိုရည ် စူးတဲ ့ နောက ် တစ ် ခုပေါ ့ ၊
+ပြီးပျောက ် သွားတဲ ့ သူပါ ။
+ဒါပေမဲ ့ ဒါက စွန ် လွှတ ် တဲ ့ သူရဲ ့ တောင ် ကုန ် းပါ ဒါက Martin Evan ဆိုတဲ ့ လူရေးစပ ် တဲ ့ လှပတဲ ့ သီချင ် းတစ ် ပုဒ ် ၊ တကယ ် က ကျွန ် မအတွက ် ပါ ။
+Boo Hewerdine Thomas Dolby ဖိတ ် တဲ ့ အတွက ် ကျေးဇူးပါ ၊ ရှင ် တို ့ အတွက ် ကောင ် းချီးပေး သီဆိုခြင ် းပါ
+ကျေးဇူးအများကြီး တင ် ပါတယ ် ။
+စွန ် လွှတ ် သူတောင ် ကုန ် းဆီကို တက ် သွားခဲ ့ ဖူးတဲ ့ ​ အချိန ် ကို မှတ ် မိလား ။ ဒီနွေရာသီညတွေ ၊ ကိုယ ် တို ့ အောက ် ခြေက မြို ့ ရဲ ့ အားလုံးနဲ ့ အတူ ရှိနေဆဲပါ ။ ရှေ ့ ဆက ် မယ ့ ် ကိုယ ် တို ဘဝတွေ အားလုံးအတွက ် ၊ ရက ် စက ် ပြီး မိုက ် မဲတဲ ့ စကားလုံးတွေ ရက ် ရက ် စက ် စက ် မိုက ် မိုက ် မဲမဲ မပြောမီက တစ ် ချို ့ ညတွေ ကိုယ ် မင ် းကိုတွေးမိတယ ် ၊ ပြီးတော ့ စွန ် လွှတ ် သူရဲ ့ တောင ် ကုန ် းပေါ ် ကိုယ ် လှမ ် းခဲ ့ တာပေါ ့ ။ ဆောင ် းရာသီ အအေးဒဏ ် ကို အံတုထွေးပတ ် လို ့ လေ ။ ကိုယ ့ ် အောက ် ခြေက မြို ့ ရဲ ့ တစ ် နေရာရာမှာ မင ် းကတော ့ အိပ ် ခန ် းထဲ လဲလျောင ် းအိပ ် စက ် နေတာပေါ ့ ။ ပြီးတော ့ တွေးမိတာက တစ ် ခါတစ ် ခါမှာ မင ် းရဲ ့
+အိပ ် မက ် တွေထဲ ခဏလေး ခိုးဝင ် လိုက ် ရရင ် များလို ့ လေ ။ အခုမင ် းဘယ ် မှာလဲ ။ ကိုယ ့ ် ရဲ ့ နွေရာသီ အချစ ် ရူးရေ အခုမင ် းဘယ ် မှာလဲ ။ နှစ ် ကာလတွေဖြတ ် သန ် းတာ ညင ် သာပါရဲ ့ လား ၊ ပြီးတော ့ စွန ် လွတ ် သူရဲ ့ တောင ် ကုန ် းပေါ ် က ကိုယ ့ ် ကို တစ ် ခါတစ ် လေ တွေးမိလား ။ အို တစ ် နေ ့ တော ့ မင ် းတွေးမိမှာ လို ့ ပဲ ဆုတောင ် းပါတယ ် ။ စကားတစ ် ခွန ် းမှ ကိုယ ် တို ့ ပြောမှာမဟုတ ် တော ့ ဘူးလေ ၊ ဒါတွေ လိုတော ့ မှာ မဟုတ ် ဘူးလေ ။ တစ ် ခါတစ ် လေကျတော ့ တိတ ် ဆိတ ် ခြင ် းက အကောင ် းဆုံးပါ ၊ ညနေခင ် းရဲ ့ ဆိတ ် ငြိမ ် မှုထဲ ကိုယ ် တို ့ ရပ ် နေရုံ ရပ ် နေပြီး အထီးကျန ် မှုကို နှုတ ် ဆက ် စကား တိုးတိုးလေးပြောကြမယ ် လေ ။ အခုမင ် းဘယ ် မှာလဲ ။ ကိုယ ့ ် ရဲ ့ နွေရာသီ အချစ ် ရူးရေ အခုမင ် းဘယ ် မှာလဲ ။
+တစ ် ခါတစ ် လေ ကိုယ ့ ် အကြောင ် း တွေးမိလား ။ စွန ် လွှတ ် သူကုန ် းပေါ ် မင ် းတက ် တုန ် းလား ။ အခုမင ် းဘယ ် မှာလဲ ။ ကိုယ ့ ် ရဲ ့ နွေရာသီ အချစ ် ရူးရေ အခုမင ် းဘယ ် မှာလဲ ။ ပြီးတော ့ နှစ ် ကာလတွေ ဖြတ ် သန ် းတာ ညင ် သာပါရဲ ့ လား ၊ စွန ် လွှတ ် သူကုန ် းပေါ ် မင ် း တက ် ဖြစ ် တုန ် းလား ။ စွန ် လွှတ ် ကုန ် းရဲ ့ ..... စွန ် တွေဆီကိုပေါ ့ ... အခုမင ် းဘယ ် မှာလဲ ။ အခုမင ် းဘယ ် မှာလဲ ။ အခုမင ် းဘယ ် မှာလဲ ။ စွန ် လွှတ ် သူရဲ ့ .... ( လက ် ခုပ ် သံများ ) ကျေးဇူး ကျေးဇူး အများကြီးတင ် ပါတယ ် ရှင ် ။
+တကယ ် က ကျွန ် မ ဒီကိုရောက ် လာတာက လူတွေကို စိမ ် ခေါ ် မှုတစ ် ခု လုပ ် ချင ် လို ့ ပါ ။
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
+```
