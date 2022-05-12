@@ -887,3 +887,107 @@ Boo Hewerdine Thomas Dolby ဖိတ ် တဲ ့ အတွက ် ကျေ�
 တကယ ် က ကျွန ် မ ဒီကိုရောက ် လာတာက လူတွေကို စိမ ် ခေါ ် မှုတစ ် ခု လုပ ် ချင ် လို ့ ပါ ။
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
 ```
+
+## Check Japanese Data
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data$ cd ja_en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ ls
+dev.en  dev.ja  test.en  test.ja  train.en  train.ja
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ wc *
+    4429    89107   442013 dev.en
+    4429    19524   495770 dev.ja
+    5565   110961   554462 test.en
+    5565    22835   603768 test.ja
+  204090  4263251 21431280 train.en
+  204090   886227 23740455 train.ja
+  428168  5391905 47267748 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ head -n 3 *
+==> dev.en <==
+When I was 11 , I remember waking up one morning to the sound of joy in my house .
+My father was listening to BBC News on his small , gray radio .
+There was a big smile on his face which was unusual then , because the news mostly depressed him .
+
+==> dev.ja <==
+私が11才の時のことです ある朝 家中に湧き上がった 歓声に目を覚ましました
+父はグレーの小型ラジオで BBCニュースを聞いていました
+そして 珍しく 満面の笑みを浮かべていました 普段は暗いニュースに 落ち込んでばかりいましたから
+
+==> test.en <==
+By the end of this year , there &apos;ll be nearly a billion people on this planet that actively use social networking sites .
+The one thing that all of them have in common is that they &apos;re going to die .
+While that might be a somewhat morbid thought , I think it has some really profound implications that are worth exploring .
+
+==> test.ja <==
+今年の終わりには 世界中で 10億人近くがソーシャルネットワークのサイトを 活発に使っているでしょう
+１つ全員に共通して言えるのは 皆いずれ死ぬということです
+なんとなく陰気な考えである一方 これには検討に値する 実に深い意味があると思います
+
+==> train.en <==
+Amongst all the troubling deficits we struggle with today — we think of financial and economic primarily — the ones that concern me most is the deficit of political dialogue — our ability to address modern conflicts as they are , to go to the source of what they &apos;re all about and to understand the key players and to deal with them .
+We who are diplomats , we are trained to deal with conflicts between states and issues between states .
+There is trade , there is disarmament , there is cross-border relations .
+
+==> train.ja <==
+我々が今日直面している 様々な機能不全のなかで — 財政や経済が最初に思いつきますが — 私が一番 憂慮しているのは 政治的対話の欠乏です 我々 が 近年の紛争において 状況を把握し その根本原因を探り 中心人物を理解し 彼らと交渉をする能力です
+我々外交官は 国家間の紛争や問題に対処するよう 訓練されています
+貿易や軍縮の 国境を越えた問題などに 対処しなければなりません
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
