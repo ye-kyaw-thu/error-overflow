@@ -935,8 +935,49 @@ There is trade , there is disarmament , there is cross-border relations .
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$
 ```
 
+## Syllable Breaking for Myanmar Language
 
+Current segmentation is wired ...  and thus, I made a syllable segmentation.  
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 
 
