@@ -1114,8 +1114,20 @@ dev.en  dev.syl.clean  mk-syl  original  test.en  test.syl.clean  train.en  trai
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv test.syl.clean test.my
 ```
 
-```
+confirm no of lines for both English and Myanmar side:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ wc *.en
+    741   13293   66834 dev.en
+   1504   30578  153883 test.en
+  21497  430740 2160265 train.en
+  23742  474611 2380982 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ wc *.my
+    741   23984  215084 dev.my
+   1504   54506  486569 test.my
+  21497  775603 6983957 train.my
+  23742  854093 7685610 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
 ```
 
 ```
