@@ -2540,10 +2540,65 @@ g++ -pthread -shared -B /home/ye/anaconda3/envs/adapt-mnmt/compiler_compat -L/ho
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$ sudo python3 ./setup.py install
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'description-file' will not be supported in future versions. Please use the underscore name 'description_file' instead
+  warnings.warn(
+running install
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+running bdist_egg
+running egg_info
+creating src/sentencepiece.egg-info
+writing src/sentencepiece.egg-info/PKG-INFO
+writing dependency_links to src/sentencepiece.egg-info/dependency_links.txt
+writing top-level names to src/sentencepiece.egg-info/top_level.txt
+writing manifest file 'src/sentencepiece.egg-info/SOURCES.txt'
+reading manifest file 'src/sentencepiece.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src/sentencepiece.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build/lib.linux-x86_64-3.10
+creating build/lib.linux-x86_64-3.10/sentencepiece
+copying src/sentencepiece/__init__.py -> build/lib.linux-x86_64-3.10/sentencepiece
+copying src/sentencepiece/sentencepiece_model_pb2.py -> build/lib.linux-x86_64-3.10/sentencepiece
+copying src/sentencepiece/sentencepiece_pb2.py -> build/lib.linux-x86_64-3.10/sentencepiece
+running build_ext
+-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+## cflags=-std=c++11 -I/usr/local/include
+## libs=-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+building 'sentencepiece._sentencepiece' extension
+creating build/temp.linux-x86_64-3.10
+creating build/temp.linux-x86_64-3.10/src
+creating build/temp.linux-x86_64-3.10/src/sentencepiece
+x86_64-linux-gnu-gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.10 -c src/sentencepiece/sentencepiece_wrap.cxx -o build/temp.linux-x86_64-3.10/src/sentencepiece/sentencepiece_wrap.o -std=c++11 -I/usr/local/include
+src/sentencepiece/sentencepiece_wrap.cxx:178:11: fatal error: Python.h: No such file or directory
+  178 | # include <Python.h>
+      |           ^~~~~~~~~~
+compilation terminated.
+error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$ sudo apt-get install python-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package python-dev is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+However the following packages replace it:
+  python2-dev:i386 python2:i386 python2-dev python2 python-dev-is-python3
 
+E: Package 'python-dev' has no installation candidate
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
 
-```
 
 ```
 
@@ -2569,4 +2624,5 @@ g++ -pthread -shared -B /home/ye/anaconda3/envs/adapt-mnmt/compiler_compat -L/ho
 - https://github.com/rstudio/rstudio/issues/8278
 - https://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
 - https://github.com/google/sentencepiece
-
+- https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
+- 
