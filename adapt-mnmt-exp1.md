@@ -2090,10 +2090,77 @@ renamed 'libstdc++.so.6' -> 'libstdc++.so.6.old'
 (adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ./libstdc++.so.6
 ```
 
+tried ```cmake ..``` again and still got ERROR ...  :(  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ conda deactivate
+(base) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ source /home/ye/.bashrc
+(base) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ conda activate adapt-mnmt
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 # Reference
 
