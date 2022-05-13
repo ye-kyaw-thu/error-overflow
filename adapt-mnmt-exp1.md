@@ -2512,10 +2512,34 @@ sys     0m0.000s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+## Install SentencePiece Python Module
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$ python ./setup.py build
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/setuptools/dist.py:720: UserWarning: Usage of dash-separated 'description-file' will not be supported in future versions. Please use the underscore name 'description_file' instead
+  % (opt, underscore_opt)
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.6
+creating build/lib.linux-x86_64-3.6/sentencepiece
+copying src/sentencepiece/__init__.py -> build/lib.linux-x86_64-3.6/sentencepiece
+copying src/sentencepiece/sentencepiece_model_pb2.py -> build/lib.linux-x86_64-3.6/sentencepiece
+copying src/sentencepiece/sentencepiece_pb2.py -> build/lib.linux-x86_64-3.6/sentencepiece
+running build_ext
+-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+## cflags=-std=c++11 -I/usr/local/include
+## libs=-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+building 'sentencepiece._sentencepiece' extension
+creating build/temp.linux-x86_64-3.6
+creating build/temp.linux-x86_64-3.6/src
+creating build/temp.linux-x86_64-3.6/src/sentencepiece
+gcc -pthread -B /home/ye/anaconda3/envs/adapt-mnmt/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/ye/anaconda3/envs/adapt-mnmt/include/python3.6m -c src/sentencepiece/sentencepiece_wrap.cxx -o build/temp.linux-x86_64-3.6/src/sentencepiece/sentencepiece_wrap.o -std=c++11 -I/usr/local/include
+cc1plus: warning: command-line option ‘-Wstrict-prototypes’ is valid for C/ObjC but not for C++
+g++ -pthread -shared -B /home/ye/anaconda3/envs/adapt-mnmt/compiler_compat -L/home/ye/anaconda3/envs/adapt-mnmt/lib -Wl,-rpath=/home/ye/anaconda3/envs/adapt-mnmt/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/src/sentencepiece/sentencepiece_wrap.o -o build/lib.linux-x86_64-3.6/sentencepiece/_sentencepiece.cpython-36m-x86_64-linux-gnu.so -L/usr/local/lib -lsentencepiece -lsentencepiece_train
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
+
 
 ```
 
