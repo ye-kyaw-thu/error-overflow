@@ -2210,12 +2210,46 @@ GLIBCXX_3.4.30
 GLIBCXX_DEBUG_MESSAGE_LENGTH
 ```
 
-```
+I updated the $LD_LIBRARY_PATH path inside /home/ye/.bashrc and run source command ...  
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ echo $LD_LIBRARY_PATH
+/usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
 ```
 
+Finally, cmake OK ...  :)  
+
+```
+(base) ye@ye-System-Product-Name:~/anaconda3/lib$ vi /home/ye/.bashrc
+(base) ye@ye-System-Product-Name:~/anaconda3/lib$ sudo ldconfig
+(base) ye@ye-System-Product-Name:~/anaconda3/lib$ source /home/ye/.bashrc
+(base) ye@ye-System-Product-Name:~/anaconda3/lib$ cd -
+/home/ye/tool/sentencepiece/build
+(base) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ conda activate adapt-mnmt
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+-- VERSION: 0.1.96
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found TCMalloc: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ye/tool/sentencepiece/build
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
