@@ -1881,8 +1881,50 @@ Processing triggers for libc-bin (2.35-0ubuntu3) ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+## Installation of SentencePiece
+
+uninstall current sentencepiece ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool$ pip uninstall sentencepiece
+Found existing installation: sentencepiece 0.1.8
+Uninstalling sentencepiece-0.1.8:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/_sentencepiece.cpython-36m-x86_64-linux-gnu.so
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece-0.1.8.dist-info/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece.py
+Proceed (Y/n)? Y
+  Successfully uninstalled sentencepiece-0.1.8
 ```
 
+git clone the updated sentencepiece ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool$ git clone https://github.com/google/sentencepiece.git
+Cloning into 'sentencepiece'...
+remote: Enumerating objects: 3870, done.
+remote: Counting objects: 100% (179/179), done.
+remote: Compressing objects: 100% (107/107), done.
+remote: Total 3870 (delta 83), reused 133 (delta 71), pack-reused 3691
+Receiving objects: 100% (3870/3870), 32.18 MiB | 10.65 MiB/s, done.
+Resolving deltas: 100% (2675/2675), done.
+```
+
+Got error when I tried to compile ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool$ cd sentencepiece/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece$ mkdir build
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece$ cd build
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ sudo apt-get install libstdc++6
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+libstdc++6 is already the newest version (12-20220319-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 32 not upgraded.
 ```
 
 ```
