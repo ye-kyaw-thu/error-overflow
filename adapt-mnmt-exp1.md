@@ -1940,12 +1940,95 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-```
+cmake again ...  
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
+run ```sudo apt-get dist-upgrade``` also ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ sudo apt-get dist-upgrade
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following NEW packages will be installed:
+  linux-headers-5.15.0-30 linux-headers-5.15.0-30-generic linux-image-5.15.0-30-generic linux-modules-5.15.0-30-generic
+  linux-modules-extra-5.15.0-30-generic
+The following packages will be upgraded:
+  linux-generic-hwe-22.04 linux-headers-generic-hwe-22.04 linux-image-generic-hwe-22.04
+3 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 110 MB of archives.
+After this operation, 558 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-modules-5.15.0-30-generic amd64 5.15.0-30.31 [21.9 MB]
+Get:2 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-image-5.15.0-30-generic amd64 5.15.0-30.31 [10.9 MB]
+Get:3 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-modules-extra-5.15.0-30-generic amd64 5.15.0-30.31 [61.8 MB]
+Get:4 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-generic-hwe-22.04 amd64 5.15.0.30.33 [1,670 B]
+Get:5 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-image-generic-hwe-22.04 amd64 5.15.0.30.33 [2,476 B]
+Get:6 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-headers-5.15.0-30 all 5.15.0-30.31 [12.3 MB]
+Get:7 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-headers-5.15.0-30-generic amd64 5.15.0-30.31 [2,825 kB]
+Get:8 http://th.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-headers-generic-hwe-22.04 amd64 5.15.0.30.33 [2,366 B]
+Fetched 110 MB in 2s (45.4 MB/s)
+Selecting previously unselected package linux-modules-5.15.0-30-generic.
+(Reading database ... 230597 files and directories currently installed.)
+Preparing to unpack .../0-linux-modules-5.15.0-30-generic_5.15.0-30.31_amd64.deb ...
+Unpacking linux-modules-5.15.0-30-generic (5.15.0-30.31) ...
+Selecting previously unselected package linux-image-5.15.0-30-generic.
+Preparing to unpack .../1-linux-image-5.15.0-30-generic_5.15.0-30.31_amd64.deb ...
+Unpacking linux-image-5.15.0-30-generic (5.15.0-30.31) ...
+Selecting previously unselected package linux-modules-extra-5.15.0-30-generic.
+Preparing to unpack .../2-linux-modules-extra-5.15.0-30-generic_5.15.0-30.31_amd64.deb ...
+Unpacking linux-modules-extra-5.15.0-30-generic (5.15.0-30.31) ...
+Preparing to unpack .../3-linux-generic-hwe-22.04_5.15.0.30.33_amd64.deb ...
+Unpacking linux-generic-hwe-22.04 (5.15.0.30.33) over (5.15.0.27.30) ...
+Preparing to unpack .../4-linux-image-generic-hwe-22.04_5.15.0.30.33_amd64.deb ...
+Unpacking linux-image-generic-hwe-22.04 (5.15.0.30.33) over (5.15.0.27.30) ...
+Selecting previously unselected package linux-headers-5.15.0-30.
+Preparing to unpack .../5-linux-headers-5.15.0-30_5.15.0-30.31_all.deb ...
+Unpacking linux-headers-5.15.0-30 (5.15.0-30.31) ...
+Selecting previously unselected package linux-headers-5.15.0-30-generic.
+Preparing to unpack .../6-linux-headers-5.15.0-30-generic_5.15.0-30.31_amd64.deb ...
+Unpacking linux-headers-5.15.0-30-generic (5.15.0-30.31) ...
+Preparing to unpack .../7-linux-headers-generic-hwe-22.04_5.15.0.30.33_amd64.deb ...
+Unpacking linux-headers-generic-hwe-22.04 (5.15.0.30.33) over (5.15.0.27.30) ...
+Setting up linux-headers-5.15.0-30 (5.15.0-30.31) ...
+Setting up linux-headers-5.15.0-30-generic (5.15.0-30.31) ...
+Setting up linux-headers-generic-hwe-22.04 (5.15.0.30.33) ...
+Setting up linux-modules-5.15.0-30-generic (5.15.0-30.31) ...
+Setting up linux-image-5.15.0-30-generic (5.15.0-30.31) ...
+I: /boot/vmlinuz.old is now a symlink to vmlinuz-5.15.0-27-generic
+I: /boot/initrd.img.old is now a symlink to initrd.img-5.15.0-27-generic
+I: /boot/vmlinuz is now a symlink to vmlinuz-5.15.0-30-generic
+I: /boot/initrd.img is now a symlink to initrd.img-5.15.0-30-generic
+Setting up linux-modules-extra-5.15.0-30-generic (5.15.0-30.31) ...
+Setting up linux-image-generic-hwe-22.04 (5.15.0.30.33) ...
+Setting up linux-generic-hwe-22.04 (5.15.0.30.33) ...
+Processing triggers for linux-image-5.15.0-30-generic (5.15.0-30.31) ...
+/etc/kernel/postinst.d/initramfs-tools:
+update-initramfs: Generating /boot/initrd.img-5.15.0-30-generic
+/etc/kernel/postinst.d/zz-update-grub:
+Sourcing file `/etc/default/grub'
+Sourcing file `/etc/default/grub.d/init-select.cfg'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.15.0-30-generic
+Found initrd image: /boot/initrd.img-5.15.0-30-generic
+Found linux image: /boot/vmlinuz-5.15.0-27-generic
+Found initrd image: /boot/initrd.img-5.15.0-27-generic
+Found linux image: /boot/vmlinuz-5.15.0-25-generic
+Found initrd image: /boot/initrd.img-5.15.0-25-generic
+Memtest86+ needs a 16-bit boot, that is not available on EFI, exiting
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
