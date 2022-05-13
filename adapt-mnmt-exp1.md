@@ -1327,7 +1327,41 @@ I am not sure working well or not ... I just noticed that "spdata" and "spmodel"
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
 ```
 
+When I checked the filesize, it looks not OK ... :(   
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ ls
+dev.src  dev.tgt  spdata  spmodel  test-sets  test.src  test.tgt  train.src  train.tgt
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ head *.src
+==> dev.src <==
+
+==> test.src <==
+
+==> train.src <==
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ head *.tgt
+==> dev.tgt <==
+
+==> test.tgt <==
+
+==> train.tgt <==
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ wc *.src
+0 0 0 dev.src
+0 0 0 test.src
+0 0 0 train.src
+0 0 0 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ wc *.tgt
+0 0 0 dev.tgt
+0 0 0 test.tgt
+0 0 0 train.tgt
+0 0 0 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ cd test-sets/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$ wc *
+0 0 0 test.en
+0 0 0 test.ja
+0 0 0 test.ko
+0 0 0 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$
+```
 
 
 # Reference
