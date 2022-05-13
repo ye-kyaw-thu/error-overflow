@@ -1293,8 +1293,15 @@ Successfully installed sentencepiece-0.1.96
 Then retry ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/preprocess.sh sov-1 50000
+bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
 
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
+
 
 # Reference
 
