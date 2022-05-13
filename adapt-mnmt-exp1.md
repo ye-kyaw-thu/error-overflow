@@ -1480,9 +1480,62 @@ See following messages:
 ./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.en: No such file or directory
 ```
 
+I changed the filenames ...  :  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv train.en ted-train.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv dev.en ted-dev.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv test.en ted-test.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv train.ko ted-train.orig.ko
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv dev.ko ted-dev.orig.ko
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv test.ko ted-test.orig.ko
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 
 
 # Reference
