@@ -1824,6 +1824,20 @@ sys     0m0.000s
 
 spdata meaning might be sentencepiece-data and currently still a blank folder ...  ?! ?!   
 
+libtinfo.so.6 error message as follows is caused by adding anaconda library path to ```LD_LIBRARY_PATH```:  
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/OpenNMT/opennmt/bin$ vi build_vocab.py
+vi: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by vi)
+```
+
+I removed anaconda library path of .bashrc as follows:  
+
+```
+#export LD_LIBRARY_PATH="/home/ye/anaconda3/envs/xnmt/lib/:/usr/local/cuda-11.6/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda-11.6/lib64:$LD_LIBRARY_PATH"
+```
+
+deactivate conda env, source /home/ye/.bashrc and then activate conda env and now that libtinfo.so.6 error already solved! :)  
 ```
 
 ```
@@ -1832,6 +1846,37 @@ spdata meaning might be sentencepiece-data and currently still a blank folder ..
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 
 # Reference
