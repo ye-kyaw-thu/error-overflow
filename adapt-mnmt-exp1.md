@@ -2413,7 +2413,38 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
 ```
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ sudo ldconfig -v
+/sbin/ldconfig.real: Can't stat /usr/local/lib/x86_64-linux-gnu: No such file or directory
+/sbin/ldconfig.real: Path `/usr/lib/x86_64-linux-gnu' given more than once
+(from /etc/ld.so.conf.d/x86_64-linux-gnu.conf:4 and /etc/ld.so.conf.d/x86_64-linux-gnu.conf:3)
+/sbin/ldconfig.real: Path `/lib/x86_64-linux-gnu' given more than once
+(from <builtin>:0 and /etc/ld.so.conf.d/x86_64-linux-gnu.conf:3)
+/sbin/ldconfig.real: Path `/usr/lib/x86_64-linux-gnu' given more than once
+(from <builtin>:0 and /etc/ld.so.conf.d/x86_64-linux-gnu.conf:3)
+/sbin/ldconfig.real: Path `/usr/lib' given more than once
+(from <builtin>:0 and <builtin>:0)
+/usr/local/cuda-11.6/targets/x86_64-linux/lib: (from /etc/ld.so.conf.d/cuda-11-6.conf:1)
+        libcublas.so.11 -> libcublas.so.11.9.2.110
+        libnppitc.so.11 -> libnppitc.so.11.6.3.9
+        libcusolver.so.11 -> libcusolver.so.11.3.4.124
+        libcufftw.so.10 -> libcufftw.so.10.7.2.124
+...
+...
+...
+        libGLU.so.1 -> libGLU.so.1.3.1
+        libsensors.so.5 -> libsensors.so.5.0.0
+        libnetsnmpmibs.so.40 -> libnetsnmpmibs.so.40.1.0
+        libgpg-error.so.0 -> libgpg-error.so.0.32.1
+        libhyphen.so.0 -> libhyphen.so.0.3.0
+        libgexiv2.so.2 -> libgexiv2.so.2.14.0
+        libabsl_random_internal_pool_urbg.so.20210324 -> libabsl_random_internal_pool_urbg.so.20210324.0.0
+        libabsl_flags_program_name.so.20210324 -> libabsl_flags_program_name.so.20210324.0.0
+        libtasn1.so.6 -> libtasn1.so.6.6.2
+        libgssdp-1.2.so.0 -> libgssdp-1.2.so.0.104.0
+/lib: (from <builtin>:0)
+        libBLT.2.5.so.8.6 -> libBLT.2.5.so.8.6
+        libBLTlite.2.5.so.8.6 -> libBLTlite.2.5.so.8.6
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
