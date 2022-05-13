@@ -2063,6 +2063,7 @@ cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /l
 - https://github.com/surafelml/adapt-mnmt 
 - https://github.com/google/sentencepiece/issues/464
 - https://github.com/rstudio/rstudio/issues/8278
+- https://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
 
 
 
