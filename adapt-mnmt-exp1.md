@@ -2077,8 +2077,17 @@ cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /l
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
-```
+change filename of the libstdc library under anaconda3/lib/ and create a new soft link file with /usr/lib/x86_64-linux-gnu/libstdc++.so.6 as follows:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cd /home/ye/anaconda3/lib
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ mv -vf libstdc++.so.6
+libstdc++.so.6       libstdc++.so.6.0.26
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ mv -vf libstdc++.so.6
+libstdc++.so.6       libstdc++.so.6.0.26
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ mv -vf libstdc++.so.6 libstdc++.so.6.old
+renamed 'libstdc++.so.6' -> 'libstdc++.so.6.old'
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ./libstdc++.so.6
 ```
 
 ```
