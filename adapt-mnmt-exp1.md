@@ -1919,6 +1919,11 @@ Got error when I tried to compile ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
 cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
 cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+```
+
+install libstdc++6 ...  
+
+```
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ sudo apt-get install libstdc++6
 Reading package lists... Done
 Building dependency tree... Done
@@ -1927,8 +1932,12 @@ libstdc++6 is already the newest version (12-20220319-1ubuntu1).
 0 upgraded, 0 newly installed, 0 to remove and 32 not upgraded.
 ```
 
-```
+I did the followings:  
 
+```
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+sudo apt-get update
+sudo apt-get upgrade
 ```
 
 ```
