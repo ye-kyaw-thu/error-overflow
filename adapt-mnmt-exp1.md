@@ -1303,9 +1303,28 @@ sys     0m0.000s
 ```
 
 No error message and thus it looks OK and let me confirm by seeing some files ...  
+I am not sure working well or not ... I just noticed that "spdata" and "spmodel" folders are built.  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$ tree
+.
+└── sov-1
+    └── data
+        ├── dev.src
+        ├── dev.tgt
+        ├── spdata
+        ├── spmodel
+        ├── test-sets
+        │   ├── test.en
+        │   ├── test.ja
+        │   └── test.ko
+        ├── test.src
+        ├── test.tgt
+        ├── train.src
+        └── train.tgt
 
+5 directories, 9 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
 ```
 
 
