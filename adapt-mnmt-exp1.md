@@ -1468,8 +1468,16 @@ filesize for both src and tgt files are ZERO. I think there is a problem ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$
 ```
 
-```
+TED-data filename changes?!   
+See following messages:  
 
+```
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-train.orig.en: No such file or directory
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-train.orig.en: No such file or directory
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-dev.orig.en: No such file or directory
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-dev.orig.en: No such file or directory
+./scripts/build-training-data.sh: line 66: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.en: No such file or directory
+./scripts/build-training-data.sh: line 68: /home/ye/tool/adapt-mnmt/data/ted-data/ko_en/ted-test.orig.en: No such file or directory
 ```
 
 ```
