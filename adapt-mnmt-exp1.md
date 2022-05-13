@@ -1452,8 +1452,20 @@ sys     0m0.064s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+filesize for both src and tgt files are ZERO. I think there is a problem ...  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ wc *.src
+0 0 0 dev.src
+0 0 0 test.src
+0 0 0 train.src
+0 0 0 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ wc *.tgt
+0 0 0 dev.tgt
+0 0 0 test.tgt
+0 0 0 train.tgt
+0 0 0 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$
 ```
 
 ```
