@@ -1839,7 +1839,7 @@ spdata meaning might be sentencepiece-data and currently still a blank folder ..
 - https://github.com/OpenNMT/OpenNMT-tf
 - https://github.com/surafelml/adapt-mnmt 
 - https://github.com/google/sentencepiece/issues/464
-- 
+- https://github.com/rstudio/rstudio/issues/8278
 
 
 
