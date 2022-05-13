@@ -2672,8 +2672,71 @@ Processing triggers for man-db (2.10.2-1) ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
 
-```
+After installation of python-dev for Python3, running sentencepiece python wrapper looks OK ...   
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$ sudo python3 ./setup.py install
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'description-file' will not be supported in future versions. Please use the underscore name 'description_file' instead
+  warnings.warn(
+running install
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+running bdist_egg
+running egg_info
+writing src/sentencepiece.egg-info/PKG-INFO
+writing dependency_links to src/sentencepiece.egg-info/dependency_links.txt
+writing top-level names to src/sentencepiece.egg-info/top_level.txt
+reading manifest file 'src/sentencepiece.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src/sentencepiece.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+running build_ext
+-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+## cflags=-std=c++11 -I/usr/local/include
+## libs=-L/usr/local/lib -lsentencepiece -lsentencepiece_train
+building 'sentencepiece._sentencepiece' extension
+x86_64-linux-gnu-gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.10 -c src/sentencepiece/sentencepiece_wrap.cxx -o build/temp.linux-x86_64-3.10/src/sentencepiece/sentencepiece_wrap.o -std=c++11 -I/usr/local/include
+x86_64-linux-gnu-g++ -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -g -fwrapv -O2 -Wl,-Bsymbolic-functions -g -fwrapv -O2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.10/src/sentencepiece/sentencepiece_wrap.o -o build/lib.linux-x86_64-3.10/sentencepiece/_sentencepiece.cpython-310-x86_64-linux-gnu.so -L/usr/local/lib -lsentencepiece -lsentencepiece_train
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/sentencepiece
+copying build/lib.linux-x86_64-3.10/sentencepiece/_sentencepiece.cpython-310-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/egg/sentencepiece
+copying build/lib.linux-x86_64-3.10/sentencepiece/sentencepiece_pb2.py -> build/bdist.linux-x86_64/egg/sentencepiece
+copying build/lib.linux-x86_64-3.10/sentencepiece/__init__.py -> build/bdist.linux-x86_64/egg/sentencepiece
+copying build/lib.linux-x86_64-3.10/sentencepiece/sentencepiece_model_pb2.py -> build/bdist.linux-x86_64/egg/sentencepiece
+byte-compiling build/bdist.linux-x86_64/egg/sentencepiece/sentencepiece_pb2.py to sentencepiece_pb2.cpython-310.pyc
+byte-compiling build/bdist.linux-x86_64/egg/sentencepiece/__init__.py to __init__.cpython-310.pyc
+byte-compiling build/bdist.linux-x86_64/egg/sentencepiece/sentencepiece_model_pb2.py to sentencepiece_model_pb2.cpython-310.pyc
+creating stub loader for sentencepiece/_sentencepiece.cpython-310-x86_64-linux-gnu.so
+byte-compiling build/bdist.linux-x86_64/egg/sentencepiece/_sentencepiece.py to _sentencepiece.cpython-310.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying src/sentencepiece.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying src/sentencepiece.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying src/sentencepiece.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying src/sentencepiece.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+sentencepiece.__pycache__._sentencepiece.cpython-310: module references __file__
+creating dist
+creating 'dist/sentencepiece-0.1.96-py3.10-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing sentencepiece-0.1.96-py3.10-linux-x86_64.egg
+creating /usr/local/lib/python3.10/dist-packages/sentencepiece-0.1.96-py3.10-linux-x86_64.egg
+Extracting sentencepiece-0.1.96-py3.10-linux-x86_64.egg to /usr/local/lib/python3.10/dist-packages
+Adding sentencepiece 0.1.96 to easy-install.pth file
+
+Installed /usr/local/lib/python3.10/dist-packages/sentencepiece-0.1.96-py3.10-linux-x86_64.egg
+Processing dependencies for sentencepiece==0.1.96
+Finished processing dependencies for sentencepiece==0.1.96
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
 
 ```
