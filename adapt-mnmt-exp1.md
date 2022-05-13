@@ -1492,8 +1492,16 @@ I changed the filenames ...  :
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ko_en$ mv test.ko ted-test.orig.ko
 ```
 
-```
+changed for Japanese-English parallel corpus also ...  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv dev.en ted-dev.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv train.en ted-train.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv test.en ted-test.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv dev.ja ted-dev.orig.ja
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv train.ja ted-train.orig.ja
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv test.ja ted-test.orig.ja
 ```
 
 ```
