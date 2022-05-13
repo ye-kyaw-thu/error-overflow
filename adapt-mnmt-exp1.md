@@ -1367,15 +1367,18 @@ dev.src  dev.tgt  spdata  spmodel  test-sets  test.src  test.tgt  train.src  tra
 
 ```./scripts/build-training-data.sh ['src1-en en-src1 src2-en en-src2'] [flag] [exp-id]```
 
-I found that I run the command not exactly the same and I haven't put for the reverse translation directions ... 
+I found that I run the command for "build-training-data.sh" not exactly the same as example given (see above) and I haven't put for the reverse translation directions ... 
 I run as follows:  
 
 ```
+time bash ./scripts/build-training-data.sh 'ja-en ko-en' flag sov-1
+```
+
+And thus, I rerun as follows:  
 
 ```
 
-```
-
+time bash ./scripts/build-training-data.sh 'ja-en en-ja ko-en en-ko' flag sov-1
 ```
 
 ```
