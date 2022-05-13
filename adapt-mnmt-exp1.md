@@ -1363,6 +1363,37 @@ dev.src  dev.tgt  spdata  spmodel  test-sets  test.src  test.tgt  train.src  tra
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$
 ```
 
+## Trying to Fix the Error
+
+```./scripts/build-training-data.sh ['src1-en en-src1 src2-en en-src2'] [flag] [exp-id]```
+
+I found that I run the command not exactly the same and I haven't put for the reverse translation directions ... 
+I run as follows:  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 
 # Reference
 
