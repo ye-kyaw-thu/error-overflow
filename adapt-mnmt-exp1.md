@@ -1770,10 +1770,59 @@ sys     0m0.007s
 ```
 
 I still got an error as above ...  
+I tried uninstall current version of sentencepiece and then install the same version that adapt-mnmt used it ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip uninstall sentencepiece
+Found existing installation: sentencepiece 0.1.96
+Uninstalling sentencepiece-0.1.96:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece-0.1.96.dist-info/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece/*
+Proceed (Y/n)? Y
+  Successfully uninstalled sentencepiece-0.1.96
+```
+
+install 0.1.8 version as follows:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip install sentencepiece==0.1.8
+Collecting sentencepiece==0.1.8
+  Using cached sentencepiece-0.1.8-cp36-cp36m-manylinux1_x86_64.whl (1.0 MB)
+Installing collected packages: sentencepiece
+Successfully installed sentencepiece-0.1.8
+```
+
+run again and no error message however I am still doubt ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/preprocess.sh sov-1 50000
+bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ cd models/sov-1/
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$ tree
+.
+└── data
+    ├── dev.src
+    ├── dev.tgt
+    ├── spdata
+    ├── spmodel
+    ├── test-sets
+    │   ├── test.en
+    │   ├── test.ja
+    │   └── test.ko
+    ├── test.src
+    ├── test.tgt
+    ├── train.src
+    └── train.tgt
+
+4 directories, 9 files
+```
+
+spdata meaning might be sentencepiece-data and currently still a blank folder ...  ?! ?!   
 
 ```
 
