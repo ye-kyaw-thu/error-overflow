@@ -1522,9 +1522,52 @@ dev.en  dev.my  mk-syl  original  test.en  test.my  train.en  train.my
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv train.my ted-train.orig.my
 ```
 
-```
+re-run the script "build-training-data.sh" :  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/build-training-data.sh 'ja-en en-ja ko-en en-ko' flag sov
+-1
+bash: /home/ye/anaconda3/envs/xnmt/lib/libtinfo.so.6: no version information available (required by bash)
+~/tool/adapt-mnmt/models/sov-1/data ~/tool/adapt-mnmt
+DSTDIR: /home/ye/tool/adapt-mnmt/models/sov-1/data
+DATADIR: /home/ye/tool/adapt-mnmt/data/ted-data
+BUILDING: ja>en
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+Warning: No built-in rules for language ja.
+BUILDING: en>ja
+BUILDING: ko>en
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+Warning: No built-in rules for language ko.
+BUILDING: en>ko
+~/tool/adapt-mnmt
+Done: /home/ye/tool/adapt-mnmt/models/sov-1/data
+    17740 /home/ye/tool/adapt-mnmt/models/sov-1/data/dev.src
+    17740 /home/ye/tool/adapt-mnmt/models/sov-1/data/dev.tgt
+wc: /home/ye/tool/adapt-mnmt/models/sov-1/data/test-sets: Is a directory
+        0 /home/ye/tool/adapt-mnmt/models/sov-1/data/test-sets
+    22404 /home/ye/tool/adapt-mnmt/models/sov-1/data/test.src
+    22404 /home/ye/tool/adapt-mnmt/models/sov-1/data/test.tgt
+   819460 /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+   819460 /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+  1719208 total
+
+real    1m41.567s
+user    2m3.998s
+sys     0m1.161s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+As shown as above, for this time, it looks working ... :)  
 
 ```
 
