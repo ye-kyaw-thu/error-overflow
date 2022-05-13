@@ -2040,8 +2040,32 @@ cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /l
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
-```
+libgcc installation with conda ...  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ conda install libgcc
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/adapt-mnmt
+
+  added / updated specs:
+    - libgcc
+
+
+The following NEW packages will be INSTALLED:
+
+  libgcc             pkgs/main/linux-64::libgcc-7.2.0-h69d50b8_2
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
