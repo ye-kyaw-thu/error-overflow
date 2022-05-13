@@ -2031,8 +2031,13 @@ done
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
-```
+cmake again and still got error as follows:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
