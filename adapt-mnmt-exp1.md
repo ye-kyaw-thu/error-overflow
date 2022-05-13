@@ -1504,8 +1504,22 @@ changed for Japanese-English parallel corpus also ...
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/ja_en$ mv test.ja ted-test.orig.ja
 ```
 
-```
+Filename changes for Myanmar-English also ...  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ ls
+dev.en  dev.my  mk-syl  original  test.en  test.my  train.en  train.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mkdir bk
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ cp *.en ./bk
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ cp *.my ./bk
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv dev.en ted-dev.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv test.en ted-test.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv train.en ted-train.orig.en
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv dev.my ted-dev.orig.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv test.my ted-test.orig.my
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/data/ted-data/my_en$ mv train.my ted-train.orig.my
 ```
 
 ```
