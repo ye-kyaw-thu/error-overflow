@@ -2253,7 +2253,163 @@ Finally, cmake OK ...  :)
 ```
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ make -j 12
+[  3%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/builder.cc.o
+[  4%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arena.cc.o
+[  3%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/unicode_script.cc.o
+[  3%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/trainer_factory.cc.o
+[  5%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/trainer_interface.cc.o
+[  5%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arenastring.cc.o
+[  5%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/arena.cc.o
+[  6%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/unigram_model_trainer.cc.o
+[  7%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/word_model_trainer.cc.o
+[  8%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/arenastring.cc.o
+[  9%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/bytestream.cc.o
+[ 10%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/bytestream.cc.o
+[ 12%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/coded_stream.cc.o
+[ 12%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/coded_stream.cc.o
+[ 13%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/extension_set.cc.o
+[ 14%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/common.cc.o
+[ 15%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/common.cc.o
+[ 16%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/extension_set.cc.o
+[ 16%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/char_model_trainer.cc.o
+[ 17%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/bpe_model_trainer.cc.o
+[ 18%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_enum_util.cc.o
+[ 19%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_enum_util.cc.o
+[ 20%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_table_driven_lite.cc.o
+[ 21%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/sentencepiece_trainer.cc.o
+[ 21%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_util.cc.o
+[ 21%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_message_table_driven_lite.cc.o
+[ 22%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/pretokenizer_for_training.cc.o
+[ 24%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/implicit_weak_message.cc.o
+[ 24%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_message_util.cc.o
+[ 25%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/implicit_weak_message.cc.o
+[ 26%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/int128.cc.o
+[ 27%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/int128.cc.o
+[ 28%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/io_win32.cc.o
+[ 29%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/message_lite.cc.o
+[ 30%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/parse_context.cc.o
+[ 31%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/io_win32.cc.o
+[ 32%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/message_lite.cc.o
+[ 33%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/parse_context.cc.o
+[ 34%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/repeated_field.cc.o
+[ 34%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/repeated_field.cc.o
+[ 35%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/status.cc.o
+[ 35%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/statusor.cc.o
+[ 36%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringpiece.cc.o
+[ 37%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringprintf.cc.o
+[ 38%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/status.cc.o
+In file included from /usr/include/string.h:535,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/port.h:39,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/macros.h:34,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/common.h:46,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/message_lite.h:45,
+                 from /home/ye/tool/sentencepiece/third_party/protobuf-lite/message_lite.cc:36:
+In function ‘void* memcpy(void*, const void*, size_t)’,
+    inlined from ‘google::protobuf::uint8* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, google::protobuf::uint8*)’ at /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/io/coded_stream.h:699:16,
+    inlined from ‘virtual google::protobuf::uint8* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(google::protobuf::uint8*, google::protobuf::io::EpsCopyOutputStream*) const’ at /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/implicit_weak_message.h:85:28,
+    inlined from ‘bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const’ at /home/ye/tool/sentencepiece/third_party/protobuf-lite/message_lite.cc:419:30:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: ‘void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)’ specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 39%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/structurally_valid.cc.o
+In file included from /usr/include/string.h:535,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/port.h:39,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/macros.h:34,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/stubs/common.h:46,
+                 from /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/message_lite.h:45,
+                 from /home/ye/tool/sentencepiece/third_party/protobuf-lite/message_lite.cc:36:
+In function ‘void* memcpy(void*, const void*, size_t)’,
+    inlined from ‘google::protobuf::uint8* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, google::protobuf::uint8*)’ at /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/io/coded_stream.h:699:16,
+    inlined from ‘virtual google::protobuf::uint8* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(google::protobuf::uint8*, google::protobuf::io::EpsCopyOutputStream*) const’ at /home/ye/tool/sentencepiece/src/../third_party/protobuf-lite/google/protobuf/implicit_weak_message.h:85:28,
+    inlined from ‘bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const’ at /home/ye/tool/sentencepiece/third_party/protobuf-lite/message_lite.cc:419:30:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: ‘void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)’ specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 40%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/strutil.cc.o
+[ 41%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/time.cc.o
+[ 42%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/statusor.cc.o
+[ 43%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/stringpiece.cc.o
+[ 44%] Linking CXX static library libsentencepiece_train.a
+[ 44%] Built target sentencepiece_train-static
+[ 45%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/stringprintf.cc.o
+[ 46%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/wire_format_lite.cc.o
+[ 47%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/structurally_valid.cc.o
+[ 48%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/strutil.cc.o
+[ 48%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream.cc.o
+[ 48%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/time.cc.o
+[ 49%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/wire_format_lite.cc.o
+[ 50%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream.cc.o
+[ 51%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl.cc.o
+[ 52%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream_impl.cc.o
+[ 53%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream_impl_lite.cc.o
+[ 54%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl_lite.cc.o
+[ 55%] Building CXX object src/CMakeFiles/sentencepiece.dir/builtin_pb/sentencepiece.pb.cc.o
+[ 56%] Building CXX object src/CMakeFiles/sentencepiece.dir/builtin_pb/sentencepiece_model.pb.cc.o
+[ 57%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece.pb.cc.o
+[ 58%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece_model.pb.cc.o
+[ 59%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/bpe_model.cc.o
+[ 60%] Building CXX object src/CMakeFiles/sentencepiece.dir/bpe_model.cc.o
+[ 61%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/char_model.cc.o
+[ 61%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/error.cc.o
+[ 61%] Building CXX object src/CMakeFiles/sentencepiece.dir/char_model.cc.o
+[ 62%] Building CXX object src/CMakeFiles/sentencepiece.dir/error.cc.o
+[ 63%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/filesystem.cc.o
+[ 64%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_factory.cc.o
+[ 65%] Building CXX object src/CMakeFiles/sentencepiece.dir/filesystem.cc.o
+[ 66%] Building CXX object src/CMakeFiles/sentencepiece.dir/model_factory.cc.o
+[ 67%] Building CXX object src/CMakeFiles/sentencepiece.dir/model_interface.cc.o
+[ 68%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_interface.cc.o
+[ 69%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/normalizer.cc.o
+[ 70%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/sentencepiece_processor.cc.o
+[ 71%] Building CXX object src/CMakeFiles/sentencepiece.dir/normalizer.cc.o
+[ 72%] Building CXX object src/CMakeFiles/sentencepiece.dir/sentencepiece_processor.cc.o
+[ 73%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/unigram_model.cc.o
+[ 73%] Building CXX object src/CMakeFiles/sentencepiece.dir/unigram_model.cc.o
+[ 73%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/util.cc.o
+[ 74%] Building CXX object src/CMakeFiles/sentencepiece.dir/util.cc.o
+[ 75%] Building CXX object src/CMakeFiles/sentencepiece.dir/word_model.cc.o
+[ 76%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/word_model.cc.o
+[ 77%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/absl/strings/string_view.cc.o
+[ 78%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/absl/strings/string_view.cc.o
+[ 79%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/absl/flags/flag.cc.o
+[ 80%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/absl/flags/flag.cc.o
+[ 81%] Linking CXX static library libsentencepiece.a
+[ 82%] Linking CXX shared library libsentencepiece.so
+[ 82%] Built target sentencepiece-static
+[ 82%] Built target sentencepiece
+[ 86%] Building CXX object src/CMakeFiles/spm_encode.dir/spm_encode_main.cc.o
+[ 86%] Building CXX object src/CMakeFiles/spm_decode.dir/spm_decode_main.cc.o
+[ 87%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/trainer_factory.cc.o
+[ 87%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/builder.cc.o
+[ 88%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/unigram_model_trainer.cc.o
+[ 88%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/trainer_interface.cc.o
+[ 89%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/char_model_trainer.cc.o
+[ 86%] Building CXX object src/CMakeFiles/spm_export_vocab.dir/spm_export_vocab_main.cc.o
+[ 86%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/unicode_script.cc.o
+[ 91%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/bpe_model_trainer.cc.o
+[ 91%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/word_model_trainer.cc.o
+[ 92%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/sentencepiece_trainer.cc.o
+[ 93%] Linking CXX executable spm_export_vocab
+[ 93%] Built target spm_export_vocab
+[ 94%] Building CXX object src/CMakeFiles/sentencepiece_train.dir/pretokenizer_for_training.cc.o
+[ 95%] Linking CXX executable spm_decode
+[ 95%] Built target spm_decode
+[ 96%] Linking CXX executable spm_encode
+[ 96%] Built target spm_encode
+[ 96%] Linking CXX shared library libsentencepiece_train.so
+[ 96%] Built target sentencepiece_train
+[ 98%] Building CXX object src/CMakeFiles/spm_train.dir/spm_train_main.cc.o
+[ 98%] Building CXX object src/CMakeFiles/spm_normalize.dir/spm_normalize_main.cc.o
+[ 99%] Linking CXX executable spm_normalize
+[100%] Linking CXX executable spm_train
+[100%] Built target spm_normalize
+[100%] Built target spm_train
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
 ```
@@ -2296,52 +2452,4 @@ Finally, cmake OK ...  :)
 - https://github.com/rstudio/rstudio/issues/8278
 - https://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
 - https://github.com/google/sentencepiece
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
