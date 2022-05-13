@@ -1568,21 +1568,149 @@ sys     0m1.161s
 ```
 
 As shown as above, for this time, it looks working ... :)  
+Check the files:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$ tree
+.
+└── data
+    ├── dev.src
+    ├── dev.tgt
+    ├── test-sets
+    │   ├── test.en
+    │   ├── test.ja
+    │   └── test.ko
+    ├── test.src
+    ├── test.tgt
+    ├── train.src
+    └── train.tgt
 
+2 directories, 9 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$ wc ./data/*.src
+   17740   231315  1962874 ./data/dev.src
+   22404   285295  2426802 ./data/test.src
+  819460 10941469 93754627 ./data/train.src
+  859604 11458079 98144303 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$ wc ./data/*.tgt
+   17740   213575  1856434 ./data/dev.tgt
+   22404   262891  2292378 ./data/test.tgt
+  819460 10122009 88837867 ./data/train.tgt
+  859604 10598475 92986679 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$ wc ./data/test-sets/*
+   5565   93624  516341 ./data/test-sets/test.en
+   5565    8511  589015 ./data/test-sets/test.ja
+   5637   66301  666237 ./data/test-sets/test.ko
+  16767  168436 1771593 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1$
 ```
 
-```
+I feel a little bit wired and check the contents ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ head -n 3 *.src
+==> dev.src <==
+<2en> 私が11才の時のことですある朝家中に湧き上がった歓声に目を覚ましました
+<2en> 父はグレーの小型ラジオで BBCニュースを聞いていました
+<2en> そして珍しく満面の笑みを浮かべていました普段は暗いニュースに落ち込んでばかりいましたから
 
+==> test.src <==
+<2en> 今年の終わりには世界中で 10億人近くがソーシャルネットワークのサイトを活発に使っているでしょう
+<2en> １つ全員に共通して言えるのは皆いずれ死ぬということです
+<2en> なんとなく陰気な考えである一方これには検討に値する実に深い意味があると思います
+
+==> train.src <==
+<2en> 我々が今日直面している様々な機能不全のなかで - 財政や経済が最初に思いつきますが - 私が一番憂慮しているのは政治的対話の欠乏です我 々が近年の紛争において状況を把握しその根本原因を探り中心人物を理解し彼らと交渉をする能力です
+<2en> 我々外交官は国家間の紛争や問題に対処するよう訓練されています
+<2en> 貿易や軍縮の国境を越えた問題などに対処しなければなりません
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ head -n 3 *.tgt
+==> dev.tgt <==
+私が11才の時のことですある朝家中に湧き上がった歓声に目を覚ましました
+父はグレーの小型ラジオで BBCニュースを聞いていました
+そして珍しく満面の笑みを浮かべていました普段は暗いニュースに落ち込んでばかりいましたから
+
+==> test.tgt <==
+今年の終わりには世界中で 10億人近くがソーシャルネットワークのサイトを活発に使っているでしょう
+１つ全員に共通して言えるのは皆いずれ死ぬということです
+なんとなく陰気な考えである一方これには検討に値する実に深い意味があると思います
+
+==> train.tgt <==
+我々が今日直面している様々な機能不全のなかで - 財政や経済が最初に思いつきますが - 私が一番憂慮しているのは政治的対話の欠乏です我々が近 年の紛争において状況を把握しその根本原因を探り中心人物を理解し彼らと交渉をする能力です
+我々外交官は国家間の紛争や問題に対処するよう訓練されています
+貿易や軍縮の国境を越えた問題などに対処しなければなりません
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$
 ```
 
-```
+When I checked with tail command, I found English text as follows:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ tail -n 3 *.src
+==> dev.src <==
+<2ko> For you, it's your call.
+<2ko> Thank you.
+<2ko> (Applause)
 
+==> test.src <==
+<2ko> And all I could detect was this energy - energy.
+<2ko> And I'm asking myself, "" What is wrong with me?
+<2ko> And I felt lighter in my body.
+
+==> train.src <==
+<2ko> I have my own answer to that question, which comes from a great artist of the 19th century, Anton Chekhov, who said, "" Man will become better when you show him what he is like. "" And I think that the argument can't be put any more eloquently than that.
+<2ko> Thank you very much.
+<2ko> (Applause)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$ tail -n 3 *.tgt
+==> dev.tgt <==
+For you, it's your call.
+Thank you.
+(Applause)
+
+==> test.tgt <==
+And all I could detect was this energy - energy.
+And I'm asking myself, "" What is wrong with me?
+And I felt lighter in my body.
+
+==> train.tgt <==
+I have my own answer to that question, which comes from a great artist of the 19th century, Anton Chekhov, who said, "" Man will become better when you show him what he is like. "" And I think that the argument can't be put any more eloquently than that.
+Thank you very much.
+(Applause)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data$
+```
+
+for the test data ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$ head -n 3 test.{en,ja,ko}
+==> test.en <==
+By the end of this year, there'll be nearly a billion people on this planet that actively use social networking sites.
+The one thing that all of them have in common is that they're going to die.
+While that might be a somewhat morbid thought, I think it has some really profound implications that are worth exploring.
+
+==> test.ja <==
+今年の終わりには世界中で 10億人近くがソーシャルネットワークのサイトを活発に使っているでしょう
+１つ全員に共通して言えるのは皆いずれ死ぬということです
+なんとなく陰気な考えである一方これには検討に値する実に深い意味があると思います
+
+==> test.ko <==
+올해 말쯤 되면 지구상에 약 10억 명의 사람들이 적극적으로 소셜 네트워킹 사이트를 이용할 것입니다.
+이 사람들이 가지고 있는 단 하나의 공통점은 바로 언젠가 모두 다 죽는다는겁니다.
+이게 약간 소름끼치는 생각일지도 모르지만 전 이게 연구해 볼 가치가 있는 심오한 뭔가가 있다고 생각합니다.
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$ tail -n 3 test.{en,ja,ko}
+==> test.en <==
+And all I could detect was this energy - energy.
+And I'm asking myself, "" What is wrong with me?
+And I felt lighter in my body.
+
+==> test.ja <==
+唯一感じ取れるのはエネルギーだけでした
+そして自分に問いかけました
+体が軽くなったのを感じました
+
+==> test.ko <==
+스스로에게 물어보았어요. "" 뭐가 잘못된 거지?
+무슨 일이 일어나고 있는 거야? "" 그 순간, 뇌 수다장이가,
+외부 세계의 모든 관계와 그 외부 세계에 관련된
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/test-sets$
 ```
 
 ```
