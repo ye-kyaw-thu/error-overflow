@@ -1270,11 +1270,31 @@ sys     0m0.019s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+The above error is caused by the version conflict of SentencePiece. And thus ... uninstall and install updated SentencePiece as follows:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~$ pip uninstall sentencepiece
+Found existing installation: sentencepiece 0.1.8
+Uninstalling sentencepiece-0.1.8:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/_sentencepiece.cpython-36m-x86_64-linux-gnu.so
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece-0.1.8.dist-info/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/sentencepiece.py
+Proceed (Y/n)? Y
+  Successfully uninstalled sentencepiece-0.1.8
+(adapt-mnmt) ye@ye-System-Product-Name:~$ pip install sentencepiece
+Collecting sentencepiece
+  Using cached sentencepiece-0.1.96-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+Installing collected packages: sentencepiece
+Successfully installed sentencepiece-0.1.96
+(adapt-mnmt) ye@ye-System-Product-Name:~$
+```
+
+Then retry ...  
+
 ```
 
 ```
-
-
 
 # Reference
 
