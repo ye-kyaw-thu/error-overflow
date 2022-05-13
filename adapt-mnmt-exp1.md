@@ -2141,9 +2141,31 @@ GLIBCXX_DEBUG_MESSAGE_LENGTH
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
 ```
 
-```
+update the link with lib64/xxx    
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ ll /usr/lib64/*
+lrwxrwxrwx 1 root root       42 Mar  4 09:54 /usr/lib64/ld-linux-x86-64.so.2 -> /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2*
+lrwxrwxrwx 1 root root       21 Apr 30 18:33 /usr/lib64/libstdc++.so.6 -> ./libstdc++.so.6.0.28*
+-rwxr-xr-x 1 root root 13121976 Apr 30 18:32 /usr/lib64/libstdc++.so.6.0.28*
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cd /home/ye/anaconda3/lib/
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ ln -s /usr/lib64/libstdc++.so.6 ./libstdc++.so.6
+ln: failed to create symbolic link './libstdc++.so.6': File exists
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ mv ./libstdc++.so.6 ./libstdc++.so.6.old-link
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ ln -s /usr/lib64/libstdc++.so.6 ./libstdc++.so.6
+(adapt-mnmt) ye@ye-System-Product-Name:~/anaconda3/lib$ cd -
+/home/ye/tool/sentencepiece/build
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ ldconfig
+/sbin/ldconfig.real: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ sudo ldconfig
+[sudo] password for ye:
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$ cmake ..
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by cmake)
+cmake: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /lib/x86_64-linux-gnu/libjsoncpp.so.25)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/build$
+```
+
+Not working yet ... ?! ?! ...  
 
 ```
 
