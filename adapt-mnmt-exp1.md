@@ -3075,6 +3075,38 @@ sys     0m2.715s
 
 Yes, I got a new ERROR as above ...  
 
+The improvement is now some files under the spdata/ and spmodel/ folders:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ tree ./models/sov-1/data/
+./models/sov-1/data/
+├── dev.src
+├── dev.tgt
+├── spdata
+│   ├── dev.src
+│   ├── dev.tgt
+│   ├── test.src
+│   ├── test.tgt
+│   ├── train.src
+│   └── train.tgt
+├── spmodel
+│   ├── spm.src.model
+│   ├── spm.src.vocab
+│   ├── spm.tgt.model
+│   └── spm.tgt.vocab
+├── test-sets
+│   ├── test.en
+│   ├── test.ja
+│   └── test.ko
+├── test.src
+├── test.tgt
+├── train.src
+└── train.tgt
+
+3 directories, 19 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
 ## Fixing the Error Relating to Tensorflow
 
 Currently, I have to fix the following error:  
