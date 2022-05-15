@@ -3107,6 +3107,30 @@ The improvement is now some files under the spdata/ and spmodel/ folders:
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+I also checked the file size: 
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/spdata$ wc *
+    17740    423771   2846941 dev.src
+    17740    370467   2651717 dev.tgt
+    22404    522349   3516973 test.src
+    22404    455109   3270501 test.tgt
+   819460  19847625 135372221 train.src
+   819460  17386979 126355895 train.tgt
+  1719208  39006300 274014248 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/spdata$ cd ../spmodel/
+```
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/spmodel$ wc *
+  68964   35351  819556 spm.src.model
+  32000   64000  609925 spm.src.vocab
+  68994   35257  818959 spm.tgt.model
+  32000   64000  610073 spm.tgt.vocab
+ 201958  198608 2858513 total
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/spmodel$
+```
+
 ## Fixing the Error Relating to Tensorflow
 
 Currently, I have to fix the following error:  
