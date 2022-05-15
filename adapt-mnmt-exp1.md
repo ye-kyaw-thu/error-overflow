@@ -3200,8 +3200,108 @@ Type "help", "copyright", "credits" or "license" for more information.
 I think I should downgrade the version of tensorflow based on the original running environment of adapt-mnmt:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip uninstall tensorflow
+WARNING: Skipping tensorflow as it is not installed.
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip3 uninstall tensorflow
+WARNING: Skipping tensorflow as it is not installed.
+```
+
+Oh! it should be "tensorflow-gpu" ...  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip uninstall tensorflow-gpu
+Found existing installation: tensorflow-gpu 2.6.2
+Uninstalling tensorflow-gpu-2.6.2:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/estimator_ckpt_converter
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/import_pb_to_tensorboard
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/saved_model_cli
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/tensorboard
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/tf_upgrade_v2
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/tflite_convert
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/toco
+    /home/ye/anaconda3/envs/adapt-mnmt/bin/toco_from_protos
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_gpu-2.6.2.dist-info/*
+Proceed (Y/n)? Y
+  Successfully uninstalled tensorflow-gpu-2.6.2
+```
+
+After removing tensorflow-gpu version 2.6.2, I installed version 1.15 as follows:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip install tensorflow-gpu==1.15
+Collecting tensorflow-gpu==1.15
+  Downloading tensorflow_gpu-1.15.0-cp36-cp36m-manylinux2010_x86_64.whl (411.5 MB)
+     |████████████████████████████████| 411.5 MB 18 kB/s
+Requirement already satisfied: grpcio>=1.8.6 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.46.1)
+Requirement already satisfied: keras-preprocessing>=1.0.5 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.1.2)
+Collecting keras-applications>=1.0.8
+  Downloading Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+     |████████████████████████████████| 50 kB 954 kB/s
+Requirement already satisfied: wrapt>=1.11.1 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.12.1)
+Collecting tensorboard<1.16.0,>=1.15.0
+  Downloading tensorboard-1.15.0-py3-none-any.whl (3.8 MB)
+     |████████████████████████████████| 3.8 MB 101.8 MB/s
+Collecting gast==0.2.2
+  Downloading gast-0.2.2.tar.gz (10 kB)
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: wheel>=0.26 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (0.37.1)
+Requirement already satisfied: absl-py>=0.7.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (0.15.0)
+Requirement already satisfied: six>=1.10.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.15.0)
+Collecting tensorflow-estimator==1.15.1
+  Downloading tensorflow_estimator-1.15.1-py2.py3-none-any.whl (503 kB)
+     |████████████████████████████████| 503 kB 91.3 MB/s
+Requirement already satisfied: opt-einsum>=2.3.2 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (3.3.0)
+Requirement already satisfied: google-pasta>=0.1.6 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (0.2.0)
+Collecting astor>=0.6.0
+  Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Requirement already satisfied: protobuf>=3.6.1 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (3.19.4)
+Requirement already satisfied: termcolor>=1.1.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.1.0)
+Requirement already satisfied: numpy<2.0,>=1.16.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-gpu==1.15) (1.19.5)
+Requirement already satisfied: h5py in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from keras-applications>=1.0.8->tensorflow-gpu==1.15) (3.1.0)
+Requirement already satisfied: setuptools>=41.0.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (58.0.4)
+Requirement already satisfied: markdown>=2.6.8 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (3.3.7)
+Requirement already satisfied: werkzeug>=0.11.15 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (2.0.3)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from markdown>=2.6.8->tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (4.8.3)
+Requirement already satisfied: dataclasses in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from werkzeug>=0.11.15->tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (0.8)
+Requirement already satisfied: cached-property in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from h5py->keras-applications>=1.0.8->tensorflow-gpu==1.15) (1.5.2)
+Requirement already satisfied: zipp>=0.5 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (3.6.0)
+Requirement already satisfied: typing-extensions>=3.6.4 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15) (3.7.4.3)
+Building wheels for collected packages: gast
+  Building wheel for gast (setup.py) ... done
+  Created wheel for gast: filename=gast-0.2.2-py3-none-any.whl size=7554 sha256=1f6697a3079bb446e7248f825f3dabc8036961cb204824bf4fdbbf5913f27406
+  Stored in directory: /home/ye/.cache/pip/wheels/19/a7/b9/0740c7a3a7d1d348f04823339274b90de25fbcd217b2ee1fbe
+Successfully built gast
+Installing collected packages: tensorflow-estimator, tensorboard, keras-applications, gast, astor, tensorflow-gpu
+  Attempting uninstall: tensorflow-estimator
+    Found existing installation: tensorflow-estimator 2.6.0
+    Uninstalling tensorflow-estimator-2.6.0:
+      Successfully uninstalled tensorflow-estimator-2.6.0
+  Attempting uninstall: tensorboard
+    Found existing installation: tensorboard 2.6.0
+    Uninstalling tensorboard-2.6.0:
+      Successfully uninstalled tensorboard-2.6.0
+  Attempting uninstall: gast
+    Found existing installation: gast 0.4.0
+    Uninstalling gast-0.4.0:
+      Successfully uninstalled gast-0.4.0
+Successfully installed astor-0.8.1 gast-0.2.2 keras-applications-1.0.8 tensorboard-1.15.0 tensorflow-estimator-1.15.1 tensorflow-gpu-1.15.0
+```
+
+confirm installation by importing tensorflow module and it looks OK ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow as tf
+>>> print(tf.__version__)
+1.15.0
+>>>
+```
+
 
 ```
 
