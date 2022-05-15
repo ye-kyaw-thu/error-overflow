@@ -3448,8 +3448,64 @@ sys     0m2.876s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+check the commmand line argument of the build_vocab.py program:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python ./OpenNMT/opennmt/bin/build_vocab.py --help
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+usage: build_vocab.py [-h] [--from_vocab FROM_VOCAB]
+                      [--from_format {default,sentencepiece}] --save_vocab
+                      SAVE_VOCAB [--min_frequency MIN_FREQUENCY] [--size SIZE]
+                      [--size_multiple SIZE_MULTIPLE]
+                      [--without_sequence_tokens]
+                      [--tokenizer {CharacterTokenizer,OpenNMTTokenizer,SpaceTokenizer}]
+                      [--tokenizer_config TOKENIZER_CONFIG]
+                      [data [data ...]]
+
+positional arguments:
+  data                  Source text file. (default: None)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --from_vocab FROM_VOCAB
+                        Build from a saved vocabulary (see also
+                        --from_format). (default: None)
+  --from_format {default,sentencepiece}
+                        The format of the saved vocabulary (see also
+                        --from_vocab). (default: default)
+  --save_vocab SAVE_VOCAB
+                        Output vocabulary file. (default: None)
+  --min_frequency MIN_FREQUENCY
+                        Minimum word frequency. (default: 1)
+  --size SIZE           Maximum vocabulary size. If = 0, do not limit
+                        vocabulary. (default: 0)
+  --size_multiple SIZE_MULTIPLE
+                        Ensure that the vocabulary size + 1 is a multiple of
+                        this value (+ 1 represents the <unk> token that will
+                        be added during the training. (default: 1)
+  --without_sequence_tokens
+                        If set, do not add special sequence tokens (start,
+                        end) in the vocabulary. (default: False)
+  --tokenizer {CharacterTokenizer,OpenNMTTokenizer,SpaceTokenizer}
+                        Tokenizer class name. (default: SpaceTokenizer)
+  --tokenizer_config TOKENIZER_CONFIG
+                        Tokenization configuration file. (default: None)
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
