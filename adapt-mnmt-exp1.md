@@ -3178,11 +3178,12 @@ I updated the cell.py as follows:
  16                attention_mechanisms=None):
 ```
 
-Re-run again:  
+After that, clean the folders "spdata/" and "spmodel/" and Re-run again and got following error:  
 
 ```
-
+AttributeError: module 'tensorflow' has no attribute 'contrib'
 ```
+
 
 ```
 
