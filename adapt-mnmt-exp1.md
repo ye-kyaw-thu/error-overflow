@@ -3184,10 +3184,20 @@ After that, clean the folders "spdata/" and "spmodel/" and Re-run again and got 
 AttributeError: module 'tensorflow' has no attribute 'contrib'
 ```
 
+Checked current tensorflow version:  
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow as tf
+>>> print(tf.__version__)
+2.6.2
+>>>
 ```
+
+I think I should downgrade the version of tensorflow based on the original running environment of adapt-mnmt:  
 
 ```
 
@@ -3243,3 +3253,4 @@ AttributeError: module 'tensorflow' has no attribute 'contrib'
 - https://github.com/google/sentencepiece
 - https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
 - https://stackoverflow.com/questions/59762996/how-to-fix-attributeerror-partially-initialized-module
+- https://github.com/tensorflow/nmt/issues/466
