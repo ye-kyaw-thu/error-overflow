@@ -3393,9 +3393,59 @@ SPMSIZE=$2      # 4000/single-pair/low-resource 8000/single-pair 16000/single-pa
 VOCABSIZE=$3
 ```
 
+rerun scripts/preprocess.sh again and got following error:  
 
 ```
+GENERATING VOCABULARY ...
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
 
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 59, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 50, in main
+    from_format=args.from_format)
+TypeError: __init__() got an unexpected keyword argument 'from_format'
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 59, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 50, in main
+    from_format=args.from_format)
+TypeError: __init__() got an unexpected keyword argument 'from_format'
+
+real    2m51.479s
+user    9m22.391s
+sys     0m2.876s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
