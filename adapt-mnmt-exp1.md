@@ -3757,12 +3757,37 @@ Successfully installed tensorflow-addons-0.14.0
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+run again and got the same error and thus ...  
+
 ```
+pip uninstall tensorflow-gpu
+pip install tensorflow-gpu
+```
+
+and then run scripts/preprocess.sh again ...  time bash ./scripts/preprocess.sh sov-1 32000 32000 and got a new error:  
 
 ```
 
-```
+APPLYING SP MODEL ON [train] ...
 
+APPLYING SP MODEL ON [dev] ...
+
+APPLYING SP MODEL ON [test] ...
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+GENERATING VOCABULARY ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 59, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 37, in main
+    tokenizers.add_command_line_arguments(parser)
+AttributeError: module 'opennmt.tokenizers' has no attribute 'add_command_line_arguments'
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 59, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 37, in main
+    tokenizers.add_command_line_arguments(parser)
+AttributeError: module 'opennmt.tokenizers' has no attribute 'add_command_line_arguments'
 ```
 
 ```
