@@ -3136,7 +3136,22 @@ I also checked the file size:
 Currently, I have to fix the following error:  
 
 ```
+GENERATING VOCABULARY ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 5, in <module>
+    from opennmt import constants
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/__init__.py", line 5, in <module>
+    from opennmt import decoders
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/__init__.py", line 3, in <module>
+    from opennmt.decoders.rnn_decoder import RNNDecoder
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py", line 12, in <module>
+    from opennmt.utils.cell import build_cell
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/cell.py", line 13, in <module>
+    cell_class=tf.nn.rnn_cell.LSTMCell,
 AttributeError: module 'tensorflow._api.v2.nn' has no attribute 'rnn_cell'
+...
+...
+...
 ```
 
 I think this error is relating to tensorflow versions ...  
