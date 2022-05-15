@@ -2817,11 +2817,6 @@ Check sentencepiece methods:
 Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
 [GCC 7.5.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> import sentencepiece spm
-  File "<stdin>", line 1
-    import sentencepiece spm
-                           ^
-SyntaxError: invalid syntax
 >>> import sentencepiece as spm
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
 Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
