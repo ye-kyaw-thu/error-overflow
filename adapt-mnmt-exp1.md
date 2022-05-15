@@ -3302,9 +3302,80 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
+Rerun again and got different type of error, for this time relating to one more argument ...  
 
 ```
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=43258 obj=13.4767 num_tokens=4592496 num_tokens/piece=106.165
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=43258 obj=13.4233 num_tokens=4592840 num_tokens/piece=106.173
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=35200 obj=13.6685 num_tokens=4784977 num_tokens/piece=135.937
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6272 num_tokens=4785014 num_tokens/piece=135.938
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.vocab
+SP MODEL: [/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel]
 
+APPLYING SP MODEL ON [train] ...
+
+APPLYING SP MODEL ON [dev] ...
+
+APPLYING SP MODEL ON [test] ...
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+GENERATING VOCABULARY ...
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+usage: build_vocab.py [-h] [--from_vocab FROM_VOCAB]
+                      [--from_format {default,sentencepiece}] --save_vocab
+                      SAVE_VOCAB [--min_frequency MIN_FREQUENCY] [--size SIZE]
+                      [--size_multiple SIZE_MULTIPLE]
+                      [--without_sequence_tokens]
+                      [--tokenizer {CharacterTokenizer,OpenNMTTokenizer,SpaceTokenizer}]
+                      [--tokenizer_config TOKENIZER_CONFIG]
+                      [data [data ...]]
+build_vocab.py: error: argument --size: expected one argument
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+usage: build_vocab.py [-h] [--from_vocab FROM_VOCAB]
+                      [--from_format {default,sentencepiece}] --save_vocab
+                      SAVE_VOCAB [--min_frequency MIN_FREQUENCY] [--size SIZE]
+                      [--size_multiple SIZE_MULTIPLE]
+                      [--without_sequence_tokens]
+                      [--tokenizer {CharacterTokenizer,OpenNMTTokenizer,SpaceTokenizer}]
+                      [--tokenizer_config TOKENIZER_CONFIG]
+                      [data [data ...]]
+build_vocab.py: error: argument --size: expected one argument
+
+real    2m50.929s
+user    9m19.784s
+sys     0m2.591s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
