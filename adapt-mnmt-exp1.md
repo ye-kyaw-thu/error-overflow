@@ -3813,3 +3813,5 @@ AttributeError: module 'opennmt.tokenizers' has no attribute 'add_command_line_a
 - https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
 - https://stackoverflow.com/questions/59762996/how-to-fix-attributeerror-partially-initialized-module
 - https://github.com/tensorflow/nmt/issues/466
+- https://stackoverflow.com/questions/65464463/importerror-cannot-import-name-keras-tensor-from-tensorflow-python-keras-eng
+
