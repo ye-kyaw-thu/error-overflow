@@ -3155,10 +3155,30 @@ AttributeError: module 'tensorflow._api.v2.nn' has no attribute 'rnn_cell'
 ```
 
 I think this error is relating to tensorflow versions ...  
+I updated the cell.py as follows:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models/sov-1/data/spmodel$ vi /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/cell.py
 
+  1 """RNN cells helpers."""
+  2
+  3 import collections
+  4
+  5 import tensorflow as tf
+  6
+  7
+  8 def build_cell(num_layers,
+  9                num_units,
+ 10                mode,
+ 11                dropout=0.0,
+ 12                residual_connections=False,
+ 13 #               cell_class=tf.nn.rnn_cell.LSTMCell,
+ 14                cell_class=tf.contrib.rnn_cell.LSTMCell,
+ 15                attention_layers=None,
+ 16                attention_mechanisms=None):
 ```
+
+Re-run again:  
 
 ```
 
