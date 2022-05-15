@@ -4188,9 +4188,25 @@ under the folder:
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
 ```
 
-```
+## Training
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time ./train.sh sov-1 [0,1]  | tee train.log1
+
+TRAINING LOG: [ /home/ye/tool/adapt-mnmt/models/sov-1/log.train ]
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py", line 16, in <module>
+    from opennmt.utils.misc import classes_in_module
+ImportError: cannot import name 'classes_in_module'
+
+real    0m1.267s
+user    0m1.609s
+sys     0m0.585s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+Waiting a new ERROR! :)
+I should go back for today .... See you ...  
 
 # Reference
 
