@@ -954,36 +954,25 @@ training th-my, ASEAN-MT domain, switchout, dropout=0.3, syllable unit ...
 ...
 ...
 ...
-[switchout.nodropout.syl.asean.my-th] Epoch 27.0000: train_loss/word=2.972814 (steps=11539, words/sec=7951.78, time=0-00:25:17)
-> Checkpoint [switchout.nodropout.syl.asean.my-th]
-Performing inference on ./data/dev.my and ./data/dev.th
-Starting to read ./data/dev.my and ./data/dev.th
-Done reading ./data/dev.my and ./data/dev.th. Packing into batches.
-Done packing batches.
-[switchout.nodropout.syl.asean.my-th] Epoch 27.0000 dev BLEU4: 0.21837550516735713, 0.448980/0.262659/0.167917/0.114842 (BP = 1.000000, ratio=1.07, hyp_len=7252, ref_len=6809) (time=0-00:25:46)
-[switchout.nodropout.syl.asean.my-th]              dev auxiliary GLEU: 0.233087
-[switchout.nodropout.syl.asean.my-th]              dev auxiliary Loss: 4.631 (ref_len=6809)
-             checkpoint took 0-00:00:29
-  Early stopping
+[switchout.asean.syl.th-my] Epoch 30.0000 dev BLEU4: 0.271102901822661, 0.583018/0.377558/0.250783/0.179073 (BP = 0.859776, ratio=0.87, hyp_len=11636, ref_len=13394) (time=0-00:39:22)
+[switchout.asean.syl.th-my]              dev auxiliary GLEU: 0.287672
+[switchout.asean.syl.th-my]              dev auxiliary Loss: 3.246 (ref_len=13394)
+             checkpoint took 0-00:00:35
+  new learning rate: 0.25
 reverting learned weights to best checkpoint..
 > Performing final evaluation
-Performing inference on ./data/dev.my and ./data/dev.th
-Performing inference on ./data/test.my and ./data/test.th
+Performing inference on ./data/dev.th and ./data/dev.my
+Performing inference on ./data/test.th and ./data/test.my
 Experiment                    | Final Scores
 -----------------------------------------------------------------------
-switchout.nodropout.syl.asean.my-th| BLEU4: 0.2226864907865672, 0.451300/0.267065/0.171584/0.118909 (BP = 1.000000, ratio=1.06, hyp_len=7228, ref_len=6809)
-                              | GLEU: 0.235603
-                              | WER: 79.81% ( C/S/I/D: 2988/2627/1613/1194; hyp_len=7228, ref_len=6809 )
-                              | CER: 63.18% ( C/S/I/D: 14951/9906/3605/5957; hyp_len=28462, ref_len=30814 )
-                              | BLEU4: 0.23980958436853606, 0.480148/0.283471/0.184235/0.131890 (BP = 1.000000, ratio=1.02, hyp_len=7304, ref_len=7169)
-                              | GLEU: 0.249331
-                              | WER: 75.56% ( C/S/I/D: 3167/2722/1415/1280; hyp_len=7304, ref_len=7169 )
-                              | CER: 62.63% ( C/S/I/D: 15195/9714/3594/6132; hyp_len=28503, ref_len=31041 )
-
-real    26m54.942s
-user    26m53.668s
-sys     0m2.512s
-(xnmt-py3.6) ye@ye-System-Product-Name:~/tool/xnmt/exp/asean-myth-syl$
+switchout.asean.syl.th-my     | BLEU4: 0.2724906745372971, 0.550540/0.356105/0.236080/0.168997 (BP = 0.916274, ratio=0.92, hyp_len=12317, ref_len=13394)
+                              | GLEU: 0.283565
+                              | WER: 65.57% ( C/S/I/D: 6239/4451/1627/2704; hyp_len=12317, ref_len=13394 )
+                              | CER: 61.24% ( C/S/I/D: 19350/9259/5056/8271; hyp_len=33665, ref_len=36880 )
+                              | BLEU4: 0.2647102497715145, 0.560405/0.358611/0.232969/0.162529 (BP = 0.896257, ratio=0.90, hyp_len=12143, ref_len=13473)
+                              | GLEU: 0.279666
+                              | WER: 65.07% ( C/S/I/D: 6274/4301/1568/2898; hyp_len=12143, ref_len=13473 )
+                              | CER: 60.10% ( C/S/I/D: 19525/9039/4728/8523; hyp_len=33292, ref_len=37087 )
 
 ```
 
