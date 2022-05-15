@@ -3625,9 +3625,89 @@ Successfully installed OpenNMT-tf-2.26.1 colorama-0.4.4 ctranslate2-2.17.0 porta
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+try again and got different error ...  
 
 ```
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6272 num_tokens=4785014 num_tokens/piece=135.938
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.vocab
+SP MODEL: [/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel]
+
+APPLYING SP MODEL ON [train] ...
+
+APPLYING SP MODEL ON [dev] ...
+
+APPLYING SP MODEL ON [test] ...
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+GENERATING VOCABULARY ...
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/version.py:27: UserWarning: OpenNMT-tf supports TensorFlow versions 2.4.0 (included) to 2.9.0 (excluded), but you have TensorFlow 1.15.0 installed. Some features might not work properly.
+  UserWarning,
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/utils/ensure_tf_install.py:67: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.4.0 and strictly below 2.7.0 (nightly versions are not supported).
+ The versions of TensorFlow you are currently using is 1.15.0 and is not supported.
+Some things might work, some things might not.
+If you were to encounter a bug, do not file an issue.
+If you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version.
+You can find the compatibility matrix in TensorFlow Addon's readme:
+https://github.com/tensorflow/addons
+  UserWarning,
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 5, in <module>
+    from opennmt import constants
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/__init__.py", line 7, in <module>
+    from opennmt.config import convert_to_v2_config, load_config, load_model, merge_config
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/config.py", line 11, in <module>
+    from opennmt.models import catalog
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/__init__.py", line 3, in <module>
+    from opennmt.models.catalog import (
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/catalog.py", line 4, in <module>
+    import tensorflow_addons as tfa
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/__init__.py", line 21, in <module>
+    from tensorflow_addons import activations
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/activations/__init__.py", line 17, in <module>
+    from tensorflow_addons.activations.gelu import gelu
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/activations/gelu.py", line 19, in <module>
+    from tensorflow_addons.utils.types import TensorLike
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/utils/types.py", line 26, in <module>
+    from tensorflow.python.keras.engine import keras_tensor
+ImportError: cannot import name 'keras_tensor'
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/version.py:27: UserWarning: OpenNMT-tf supports TensorFlow versions 2.4.0 (included) to 2.9.0 (excluded), but you have TensorFlow 1.15.0 installed. Some features might not work properly.
+  UserWarning,
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/utils/ensure_tf_install.py:67: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.4.0 and strictly below 2.7.0 (nightly versions are not supported).
+ The versions of TensorFlow you are currently using is 1.15.0 and is not supported.
+Some things might work, some things might not.
+If you were to encounter a bug, do not file an issue.
+If you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version.
+You can find the compatibility matrix in TensorFlow Addon's readme:
+https://github.com/tensorflow/addons
+  UserWarning,
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 5, in <module>
+    from opennmt import constants
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/__init__.py", line 7, in <module>
+    from opennmt.config import convert_to_v2_config, load_config, load_model, merge_config
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/config.py", line 11, in <module>
+    from opennmt.models import catalog
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/__init__.py", line 3, in <module>
+    from opennmt.models.catalog import (
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/catalog.py", line 4, in <module>
+    import tensorflow_addons as tfa
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/__init__.py", line 21, in <module>
+    from tensorflow_addons import activations
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/activations/__init__.py", line 17, in <module>
+    from tensorflow_addons.activations.gelu import gelu
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/activations/gelu.py", line 19, in <module>
+    from tensorflow_addons.utils.types import TensorLike
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/utils/types.py", line 26, in <module>
+    from tensorflow.python.keras.engine import keras_tensor
+ImportError: cannot import name 'keras_tensor'
+
+real    2m48.715s
+user    9m5.286s
+sys     0m2.625s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
 
 ```
 
