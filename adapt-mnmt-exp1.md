@@ -3803,12 +3803,90 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-```
+I tried to use command line vocab build command of opennmt and got following errors:  
 
 ```
-
+GENERATING VOCABULARY ...
+2022-05-15 19:58:16.958784: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 19:58:16.959074: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 19:58:17.298042: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-15 19:58:17.298078: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1835] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-05-15 19:58:17.298313: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "/home/ye/anaconda3/envs/adapt-mnmt/bin/onmt-build-vocab", line 8, in <module>
+    sys.exit(main())
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/bin/build_vocab.py", line 153, in main
+    vocab.add_from_text(data_file, tokenizer=tokenizer)
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/data/vocab.py", line 87, in add_from_text
+    for line in text:
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py", line 206, in __next__
+    retval = self.readline()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py", line 170, in readline
+    self._preread_check()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow/python/lib/io/file_io.py", line 80, in _preread_check
+    compat.path_to_str(self.__name), 1024 * 512)
+tensorflow.python.framework.errors_impl.NotFoundError: train.; No such file or directory
 ```
 
+And thus, install cudnn on current environment:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ conda install -c anaconda cudnn
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/adapt-mnmt
+
+  added / updated specs:
+    - cudnn
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2022.4.26  |       h06a4308_0         132 KB  anaconda
+    certifi-2020.6.20          |     pyhd3eb1b0_3         159 KB  anaconda
+    cudatoolkit-11.3.1         |       h2bc3f7f_2       815.6 MB  anaconda
+    cudnn-8.2.1                |       cuda11.3_0        1.32 GB  anaconda
+    openssl-1.1.1n             |       h7f8727e_0         3.8 MB  anaconda
+    pip-21.2.2                 |   py36h06a4308_0         2.1 MB  anaconda
+    ------------------------------------------------------------
+                                           Total:        2.12 GB
+
+The following NEW packages will be INSTALLED:
+
+  cudatoolkit        anaconda/linux-64::cudatoolkit-11.3.1-h2bc3f7f_2
+  cudnn              anaconda/linux-64::cudnn-8.2.1-cuda11.3_0
+  pip                anaconda/linux-64::pip-21.2.2-py36h06a4308_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates                                 pkgs/main --> anaconda
+  certifi            pkgs/main/linux-64::certifi-2021.5.30~ --> anaconda/noarch::certifi-2020.6.20-pyhd3eb1b0_3
+  openssl              pkgs/main::openssl-1.1.1o-h7f8727e_0 --> anaconda::openssl-1.1.1n-h7f8727e_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+cudatoolkit-11.3.1   | 815.6 MB  | ############################################################################################ | 100%
+cudnn-8.2.1          | 1.32 GB   | ############################################################################################ | 100%
+openssl-1.1.1n       | 3.8 MB    | ############################################################################################ | 100%
+ca-certificates-2022 | 132 KB    | ############################################################################################ | 100%
+certifi-2020.6.20    | 159 KB    | ############################################################################################ | 100%
+pip-21.2.2           | 2.1 MB    | ############################################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: / By downloading and using the CUDA Toolkit conda packages, you accept the terms and conditions of the CUDA End User License Agreement (EULA): https://docs.nvidia.com/cuda/eula/index.html
+
+done
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 # Reference
