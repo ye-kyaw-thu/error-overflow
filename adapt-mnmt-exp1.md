@@ -2834,6 +2834,21 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ## Fixed One Error
 
+Reference Link:  
+https://stackoverflow.com/questions/59762996/how-to-fix-attributeerror-partially-initialized-module  
+
+rename sentencepiece.py to sp.py and that solved the following errors:  
+
+```
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceTrainer'
+...
+...
+...
+AttributeError: module 'sentencepiece' has no attribute 'SentencePieceProcessor'
+```
+
+the following is the running log:  
+
 ```
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ mv sentencepiece.py sp.py
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ vi ./preprocess.sh
@@ -3056,6 +3071,74 @@ real    2m49.997s
 user    9m5.807s
 sys     0m2.715s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+Yes, I got a new ERROR as above ...  
+
+## Fixing the Error Relating to Tensorflow
+
+Currently, I have to fix the following error:  
+
+```
+AttributeError: module 'tensorflow._api.v2.nn' has no attribute 'rnn_cell'
+```
+
+I think this error is relating to tensorflow versions ...  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 # Reference
