@@ -2810,8 +2810,31 @@ Finished processing dependencies for sentencepiece==0.1.96
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/sentencepiece/python$
 ```
 
-```
+Check sentencepiece methods:  
 
+```python 
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sentencepiece spm
+  File "<stdin>", line 1
+    import sentencepiece spm
+                           ^
+SyntaxError: invalid syntax
+>>> import sentencepiece as spm
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linuxystem-Product-Name:~/tool/adapt-mnmt$ vi ./scripts/sentencepiece.py
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sentencepiece as spm
+>>> print(dir(spm))
+['BytesIO', 'EncoderVersion_kOptimized', 'EncoderVersion_kOriginal', 'SentencePieceProcessor', 'SentencePieceTrainer', 'SentencePieceTrainer__TrainFromMap', 'SentencePieceTrainer__TrainFromMap2', 'SentencePieceTrainer__TrainFromMap3', 'SentencePieceTrainer__TrainFromMap4', 'SentencePieceTrainer__TrainFromString', 'SetRandomGeneratorSeed', 'StringIO', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '_add_snake_case', '_batchnize', '_sentencepiece', '_sentencepiece_processor_init_native', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'csv', 'm', 're', 'set_random_generator_seed', 'sys']
+>>> print(dir(spm.SentencePieceTrainer))
+['Train', '_TrainFromMap', '_TrainFromMap2', '_TrainFromMap3', '_TrainFromMap4', '_TrainFromString', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'thisown', 'train']
+>>> print(dir(spm.SentencePieceProcessor))
+['Decode', 'DecodeIds', 'DecodeIdsAsSerializedProto', 'DecodeIdsAsSerializedProtoWithCheck', 'DecodeIdsWithCheck', 'DecodePieces', 'DecodePiecesAsSerializedProto', 'Detokenize', 'Encode', 'EncodeAsIds', 'EncodeAsPieces', 'EncodeAsSerializedProto', 'GetEncoderVersion', 'GetPieceSize', 'GetScore', 'IdToPiece', 'Init', 'IsByte', 'IsControl', 'IsUnknown', 'IsUnused', 'Load', 'LoadFromFile', 'LoadFromSerializedProto', 'LoadVocabulary', 'NBestEncodeAsIds', 'NBestEncodeAsPieces', 'NBestEncodeAsSerializedProto', 'PieceToId', 'ResetVocabulary', 'SampleEncodeAsIds', 'SampleEncodeAsPieces', 'SampleEncodeAsSerializedProto', 'SetDecodeExtraOptions', 'SetEncodeExtraOptions', 'SetEncoderVersion', 'SetVocabulary', 'Tokenize', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__swig_destroy__', '__weakref__', 'bos_id', 'decode', 'decode_ids', 'decode_ids_as_serialized_proto', 'decode_ids_as_serialized_proto_with_check', 'decode_ids_with_check', 'decode_pieces', 'decode_pieces_as_serialized_proto', 'detokenize', 'encode', 'encode_as_ids', 'encode_as_pieces', 'encode_as_serialized_proto', 'eos_id', 'get_encoder_version', 'get_piece_size', 'get_score', 'id_to_piece', 'init', 'is_byte', 'is_control', 'is_unknown', 'is_unused', 'load', 'load_from_file', 'load_from_serialized_proto', 'load_vocabulary', 'nbest_encode_as_ids', 'nbest_encode_as_pieces', 'nbest_encode_as_serialized_proto', 'pad_id', 'piece_size', 'piece_to_id', 'reset_vocabulary', 'sample_encode_as_ids', 'sample_encode_as_pieces', 'sample_encode_as_serialized_proto', 'serialized_model_proto', 'set_decode_extra_options', 'set_encode_extra_options', 'set_encoder_version', 'set_vocabulary', 'thisown', 'tokenize', 'unk_id', 'vocab_size']
+>>>
 ```
 
 ```
