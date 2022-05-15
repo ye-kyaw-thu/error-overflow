@@ -3889,6 +3889,309 @@ done
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+I think for this time preprocess running successfully ...  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/preprocess.sh sov-1 32000 32000
+
+LEARNING SP MODEL ...
+sentencepiece_trainer.cc(177) LOG(INFO) Running command: --input=/home/ye/tool/adapt-mnmt/models/sov-1/data/train.src --model_prefix=/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src --vocab_size=32000 --hard_vocab_limit=false --shuffle_input_sentence=true --input_sentence_size=6000000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+  input_format:
+  model_prefix: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src
+  model_type: UNIGRAM
+  vocab_size: 32000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 6000000
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 0
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(329) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(178) LOG(INFO) Loading corpus: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+trainer_interface.cc(385) LOG(INFO) Loaded all 819460 sentences
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(405) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(466) LOG(INFO) all chars count=63686442
+trainer_interface.cc(477) LOG(INFO) Done: 99.9501% characters are covered.
+trainer_interface.cc(487) LOG(INFO) Alphabet size=2938
+trainer_interface.cc(488) LOG(INFO) Final character coverage=0.999501
+trainer_interface.cc(520) LOG(INFO) Done! preprocessed 819460 sentences.
+unigram_model_trainer.cc(139) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(143) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(194) LOG(INFO) Initialized 1000000 seed sentencepieces
+trainer_interface.cc(526) LOG(INFO) Tokenizing input sentences with whitespace: 819460
+trainer_interface.cc(537) LOG(INFO) Done! 736392
+unigram_model_trainer.cc(489) LOG(INFO) Using 736392 sentences for EM training
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=509212 obj=15.0288 num_tokens=3111764 num_tokens/piece=6.11094
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=435847 obj=12.3973 num_tokens=3120396 num_tokens/piece=7.15938
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=325641 obj=12.3834 num_tokens=3194709 num_tokens/piece=9.81052
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=324540 obj=12.3649 num_tokens=3195281 num_tokens/piece=9.84557
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=243291 obj=12.4446 num_tokens=3329493 num_tokens/piece=13.6852
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=243182 obj=12.4225 num_tokens=3330065 num_tokens/piece=13.6937
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=182381 obj=12.5397 num_tokens=3497376 num_tokens/piece=19.1762
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=182376 obj=12.514 num_tokens=3497806 num_tokens/piece=19.1791
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=136780 obj=12.6623 num_tokens=3683168 num_tokens/piece=26.9277
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=136780 obj=12.6322 num_tokens=3684122 num_tokens/piece=26.9347
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=102585 obj=12.816 num_tokens=3883806 num_tokens/piece=37.8594
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=102585 obj=12.7834 num_tokens=3883968 num_tokens/piece=37.861
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=76938 obj=13 num_tokens=4101746 num_tokens/piece=53.3124
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=76938 obj=12.9644 num_tokens=4101873 num_tokens/piece=53.314
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=57703 obj=13.2158 num_tokens=4336752 num_tokens/piece=75.1564
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=57703 obj=13.1737 num_tokens=4336789 num_tokens/piece=75.1571
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=43277 obj=13.4633 num_tokens=4588785 num_tokens/piece=106.033
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=43277 obj=13.4142 num_tokens=4588799 num_tokens/piece=106.033
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=35200 obj=13.6451 num_tokens=4783159 num_tokens/piece=135.885
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6068 num_tokens=4783173 num_tokens/piece=135.886
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src.vocab
+sentencepiece_trainer.cc(177) LOG(INFO) Running command: --input=/home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt --model_prefix=/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt --vocab_size=32000 --hard_vocab_limit=false --shuffle_input_sentence=true --input_sentence_size=6000000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+  input_format:
+  model_prefix: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt
+  model_type: UNIGRAM
+  vocab_size: 32000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 6000000
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 0
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(329) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(178) LOG(INFO) Loading corpus: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+trainer_interface.cc(385) LOG(INFO) Loaded all 819460 sentences
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(405) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(466) LOG(INFO) all chars count=58769682
+trainer_interface.cc(477) LOG(INFO) Done: 99.9501% characters are covered.
+trainer_interface.cc(487) LOG(INFO) Alphabet size=2977
+trainer_interface.cc(488) LOG(INFO) Final character coverage=0.999501
+trainer_interface.cc(520) LOG(INFO) Done! preprocessed 819460 sentences.
+unigram_model_trainer.cc(139) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(143) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(194) LOG(INFO) Initialized 1000000 seed sentencepieces
+trainer_interface.cc(526) LOG(INFO) Tokenizing input sentences with whitespace: 819460
+trainer_interface.cc(537) LOG(INFO) Done! 736466
+unigram_model_trainer.cc(489) LOG(INFO) Using 736466 sentences for EM training
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=508844 obj=14.7287 num_tokens=3110126 num_tokens/piece=6.11214
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=435675 obj=12.3451 num_tokens=3119234 num_tokens/piece=7.15954
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=325531 obj=12.3337 num_tokens=3194804 num_tokens/piece=9.81413
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=324404 obj=12.3126 num_tokens=3195519 num_tokens/piece=9.85043
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=243182 obj=12.3974 num_tokens=3330606 num_tokens/piece=13.6959
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=243078 obj=12.374 num_tokens=3331058 num_tokens/piece=13.7037
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=182304 obj=12.4982 num_tokens=3498822 num_tokens/piece=19.1922
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=182299 obj=12.4701 num_tokens=3499418 num_tokens/piece=19.196
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=136722 obj=12.6279 num_tokens=3684963 num_tokens/piece=26.9522
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=136722 obj=12.5951 num_tokens=3685217 num_tokens/piece=26.9541
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=102541 obj=12.7904 num_tokens=3885320 num_tokens/piece=37.8904
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=102541 obj=12.7548 num_tokens=3885420 num_tokens/piece=37.8914
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=76905 obj=12.9848 num_tokens=4102762 num_tokens/piece=53.3484
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=76905 obj=12.9461 num_tokens=4105667 num_tokens/piece=53.3862
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=57678 obj=13.2141 num_tokens=4340283 num_tokens/piece=75.2502
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=57678 obj=13.1684 num_tokens=4340283 num_tokens/piece=75.2502
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=43258 obj=13.4767 num_tokens=4592496 num_tokens/piece=106.165
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=43258 obj=13.4233 num_tokens=4592840 num_tokens/piece=106.173
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=35200 obj=13.6685 num_tokens=4784977 num_tokens/piece=135.937
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6272 num_tokens=4785014 num_tokens/piece=135.938
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.vocab
+SP MODEL: [/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel]
+
+APPLYING SP MODEL ON [train] ...
+
+APPLYING SP MODEL ON [dev] ...
+
+APPLYING SP MODEL ON [test] ...
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+GENERATING VOCABULARY ...
+2022-05-15 20:45:25.711213: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.711428: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.715743: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.716081: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.716294: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.716462: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.716814: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-15 20:45:25.868537: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.868732: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.868903: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.869058: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.869215: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:25.869377: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.412921: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.413167: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.413401: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.413628: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.413807: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.413976: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9652 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5
+2022-05-15 20:45:26.414273: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:26.414420: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 6678 MB memory:  -> device: 1, name: NVIDIA GeForce RTX 2070, pci bus id: 0000:05:00.0, compute capability: 7.5
+2022-05-15 20:45:45.427125: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.427401: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.431919: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.432131: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.432311: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.432488: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.432838: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-15 20:45:45.589268: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.589440: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.589578: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.589702: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.589826: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:45.589951: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.137248: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.137530: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.137759: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.137990: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.138214: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.138436: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9652 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5
+2022-05-15 20:45:46.138817: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-15 20:45:46.139022: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 6678 MB memory:  -> device: 1, name: NVIDIA GeForce RTX 2070, pci bus id: 0000:05:00.0, compute capability: 7.5
+
+real    3m26.012s
+user    9m45.734s
+sys     0m3.343s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+to sove the problem, I updated the preprocess.sh as follows:  
+
+```bash
+    # generate vocab using opennmt
+    if [ -f train.$SRC ] && [ -f train.$TGT ]; then
+       echo -e "\nGENERATING VOCABULARY ..."
+
+       if $SHARED_VOCAB; then
+         cat train.$SRC train.$TGT > train.${SRC}${TGT}
+         python $GEN_VOCAB --save_vocab vocab train.${SRC}${TGT}
+         rm -rf train.${SRC}${TGT}
+       else
+         #python $GEN_VOCAB --size $VOCABSIZE --save_vocab vocab.$SRC train.$SRC
+         #python $GEN_VOCAB --size $VOCABSIZE --save_vocab vocab.$TGT train.$TGT
+         /home/ye/anaconda3/envs/adapt-mnmt/bin/onmt-build-vocab --size $VOCABSIZE --save_vocab vocab.$SRC $SPDATA/train.$SRC
+         /home/ye/anaconda3/envs/adapt-mnmt/bin/onmt-build-vocab --size $VOCABSIZE --save_vocab vocab.$TGT $SPDATA/train.$TGT
+       fi
+    fi
+```
+
+under the folder:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$ tree
+.
+└── sov-1
+    └── data
+        ├── dev.src
+        ├── dev.tgt
+        ├── spdata
+        │   ├── dev.src
+        │   ├── dev.tgt
+        │   ├── test.src
+        │   ├── test.tgt
+        │   ├── train.src
+        │   ├── train.tgt
+        │   ├── vocab.src
+        │   └── vocab.tgt
+        ├── spmodel
+        │   ├── spm.src.model
+        │   ├── spm.src.vocab
+        │   ├── spm.tgt.model
+        │   └── spm.tgt.vocab
+        ├── test-sets
+        │   ├── test.en
+        │   ├── test.ja
+        │   └── test.ko
+        ├── test.src
+        ├── test.tgt
+        ├── train.src
+        └── train.tgt
+
+5 directories, 21 files
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/models$
+```
+
+```
+
+```
+
 # Reference
 
 - https://github.com/OpenNMT/OpenNMT-tf
