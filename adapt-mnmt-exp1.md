@@ -3579,8 +3579,50 @@ WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/optimizers/mult
 >>>
 ```
 
-```
+I upgraded the opennmt-tf version ...  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip install --upgrade OpenNMT-tf
+Requirement already satisfied: OpenNMT-tf in ./OpenNMT (1.15.0)
+Collecting OpenNMT-tf
+  Downloading OpenNMT_tf-2.26.1-py3-none-any.whl (160 kB)
+     |████████████████████████████████| 160 kB 1.8 MB/s
+Collecting sacrebleu<2.1,>=1.5.0
+  Downloading sacrebleu-2.0.0-py3-none-any.whl (90 kB)
+     |████████████████████████████████| 90 kB 1.5 MB/s
+Collecting ctranslate2<3,>=2.14.0
+  Downloading ctranslate2-2.17.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (19.1 MB)
+     |████████████████████████████████| 19.1 MB 10.9 MB/s
+Requirement already satisfied: pyyaml<7,>=5.3 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from OpenNMT-tf) (6.0)
+Collecting tensorflow-addons<0.17,>=0.14
+  Downloading tensorflow_addons-0.14.0-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.1 MB)
+     |████████████████████████████████| 1.1 MB 78.6 MB/s
+Requirement already satisfied: pyonmttok<2,>=1.29.0 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from OpenNMT-tf) (1.31.0)
+Collecting rouge<2,>=1.0
+  Downloading rouge-1.0.1-py3-none-any.whl (13 kB)
+Requirement already satisfied: numpy in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from ctranslate2<3,>=2.14.0->OpenNMT-tf) (1.19.5)
+Requirement already satisfied: six in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from rouge<2,>=1.0->OpenNMT-tf) (1.15.0)
+Collecting portalocker
+  Downloading portalocker-2.4.0-py2.py3-none-any.whl (16 kB)
+Collecting tabulate>=0.8.9
+  Downloading tabulate-0.8.9-py3-none-any.whl (25 kB)
+Collecting colorama
+  Downloading colorama-0.4.4-py2.py3-none-any.whl (16 kB)
+Collecting regex
+  Using cached regex-2022.4.24-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (749 kB)
+Collecting typeguard>=2.7
+  Downloading typeguard-2.13.3-py3-none-any.whl (17 kB)
+Installing collected packages: typeguard, tabulate, regex, portalocker, colorama, tensorflow-addons, sacrebleu, rouge, ctranslate2, OpenNMT-tf
+  Attempting uninstall: rouge
+    Found existing installation: rouge 0.3.1
+    Uninstalling rouge-0.3.1:
+      Successfully uninstalled rouge-0.3.1
+  Attempting uninstall: OpenNMT-tf
+    Found existing installation: OpenNMT-tf 1.15.0
+    Uninstalling OpenNMT-tf-1.15.0:
+      Successfully uninstalled OpenNMT-tf-1.15.0
+Successfully installed OpenNMT-tf-2.26.1 colorama-0.4.4 ctranslate2-2.17.0 portalocker-2.4.0 regex-2022.4.24 rouge-1.0.1 sacrebleu-2.0.0 tabulate-0.8.9 tensorflow-addons-0.14.0 typeguard-2.13.3
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
