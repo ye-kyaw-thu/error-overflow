@@ -2832,8 +2832,230 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-```
+## Fixed One Error
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ mv sentencepiece.py sp.py
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ vi ./preprocess.sh
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt/scripts$ cd ..
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time bash ./scripts/preprocess.sh sov-1 32000
+
+LEARNING SP MODEL ...
+sentencepiece_trainer.cc(177) LOG(INFO) Running command: --input=/home/ye/tool/adapt-mnmt/models/sov-1/data/train.src --model_prefix=/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src --vocab_size=32000 --hard_vocab_limit=false --shuffle_input_sentence=true --input_sentence_size=6000000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+  input_format:
+  model_prefix: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src
+  model_type: UNIGRAM
+  vocab_size: 32000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 6000000
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 0
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(329) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(178) LOG(INFO) Loading corpus: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.src
+trainer_interface.cc(385) LOG(INFO) Loaded all 819460 sentences
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(405) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(466) LOG(INFO) all chars count=63686442
+trainer_interface.cc(477) LOG(INFO) Done: 99.9501% characters are covered.
+trainer_interface.cc(487) LOG(INFO) Alphabet size=2938
+trainer_interface.cc(488) LOG(INFO) Final character coverage=0.999501
+trainer_interface.cc(520) LOG(INFO) Done! preprocessed 819460 sentences.
+unigram_model_trainer.cc(139) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(143) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(194) LOG(INFO) Initialized 1000000 seed sentencepieces
+trainer_interface.cc(526) LOG(INFO) Tokenizing input sentences with whitespace: 819460
+trainer_interface.cc(537) LOG(INFO) Done! 736392
+unigram_model_trainer.cc(489) LOG(INFO) Using 736392 sentences for EM training
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=509212 obj=15.0288 num_tokens=3111764 num_tokens/piece=6.11094
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=435847 obj=12.3973 num_tokens=3120396 num_tokens/piece=7.15938
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=325641 obj=12.3834 num_tokens=3194709 num_tokens/piece=9.81052
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=324540 obj=12.3649 num_tokens=3195281 num_tokens/piece=9.84557
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=243291 obj=12.4446 num_tokens=3329493 num_tokens/piece=13.6852
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=243182 obj=12.4225 num_tokens=3330065 num_tokens/piece=13.6937
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=182381 obj=12.5397 num_tokens=3497376 num_tokens/piece=19.1762
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=182376 obj=12.514 num_tokens=3497806 num_tokens/piece=19.1791
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=136780 obj=12.6623 num_tokens=3683168 num_tokens/piece=26.9277
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=136780 obj=12.6322 num_tokens=3684122 num_tokens/piece=26.9347
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=102585 obj=12.816 num_tokens=3883806 num_tokens/piece=37.8594
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=102585 obj=12.7834 num_tokens=3883968 num_tokens/piece=37.861
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=76938 obj=13 num_tokens=4101746 num_tokens/piece=53.3124
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=76938 obj=12.9644 num_tokens=4101873 num_tokens/piece=53.314
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=57703 obj=13.2158 num_tokens=4336752 num_tokens/piece=75.1564
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=57703 obj=13.1737 num_tokens=4336789 num_tokens/piece=75.1571
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=43277 obj=13.4633 num_tokens=4588785 num_tokens/piece=106.033
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=43277 obj=13.4142 num_tokens=4588799 num_tokens/piece=106.033
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=35200 obj=13.6451 num_tokens=4783159 num_tokens/piece=135.885
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6068 num_tokens=4783173 num_tokens/piece=135.886
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.src.vocab
+sentencepiece_trainer.cc(177) LOG(INFO) Running command: --input=/home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt --model_prefix=/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt --vocab_size=32000 --hard_vocab_limit=false --shuffle_input_sentence=true --input_sentence_size=6000000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+  input_format:
+  model_prefix: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt
+  model_type: UNIGRAM
+  vocab_size: 32000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 6000000
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 0
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(329) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(178) LOG(INFO) Loading corpus: /home/ye/tool/adapt-mnmt/models/sov-1/data/train.tgt
+trainer_interface.cc(385) LOG(INFO) Loaded all 819460 sentences
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(400) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(405) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(466) LOG(INFO) all chars count=58769682
+trainer_interface.cc(477) LOG(INFO) Done: 99.9501% characters are covered.
+trainer_interface.cc(487) LOG(INFO) Alphabet size=2977
+trainer_interface.cc(488) LOG(INFO) Final character coverage=0.999501
+trainer_interface.cc(520) LOG(INFO) Done! preprocessed 819460 sentences.
+unigram_model_trainer.cc(139) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(143) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(194) LOG(INFO) Initialized 1000000 seed sentencepieces
+trainer_interface.cc(526) LOG(INFO) Tokenizing input sentences with whitespace: 819460
+trainer_interface.cc(537) LOG(INFO) Done! 736466
+unigram_model_trainer.cc(489) LOG(INFO) Using 736466 sentences for EM training
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=508844 obj=14.7287 num_tokens=3110126 num_tokens/piece=6.11214
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=435675 obj=12.3451 num_tokens=3119234 num_tokens/piece=7.15954
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=325531 obj=12.3337 num_tokens=3194804 num_tokens/piece=9.81413
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=324404 obj=12.3126 num_tokens=3195519 num_tokens/piece=9.85043
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=243182 obj=12.3974 num_tokens=3330606 num_tokens/piece=13.6959
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=243078 obj=12.374 num_tokens=3331058 num_tokens/piece=13.7037
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=182304 obj=12.4982 num_tokens=3498822 num_tokens/piece=19.1922
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=182299 obj=12.4701 num_tokens=3499418 num_tokens/piece=19.196
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=136722 obj=12.6279 num_tokens=3684963 num_tokens/piece=26.9522
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=136722 obj=12.5951 num_tokens=3685217 num_tokens/piece=26.9541
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=102541 obj=12.7904 num_tokens=3885320 num_tokens/piece=37.8904
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=102541 obj=12.7548 num_tokens=3885420 num_tokens/piece=37.8914
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=76905 obj=12.9848 num_tokens=4102762 num_tokens/piece=53.3484
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=76905 obj=12.9461 num_tokens=4105667 num_tokens/piece=53.3862
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=57678 obj=13.2141 num_tokens=4340283 num_tokens/piece=75.2502
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=57678 obj=13.1684 num_tokens=4340283 num_tokens/piece=75.2502
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=43258 obj=13.4767 num_tokens=4592496 num_tokens/piece=106.165
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=43258 obj=13.4233 num_tokens=4592840 num_tokens/piece=106.173
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=0 size=35200 obj=13.6685 num_tokens=4784977 num_tokens/piece=135.937
+unigram_model_trainer.cc(505) LOG(INFO) EM sub_iter=1 size=35200 obj=13.6272 num_tokens=4785014 num_tokens/piece=135.938
+trainer_interface.cc(615) LOG(INFO) Saving model: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel/spm.tgt.vocab
+SP MODEL: [/home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel]
+
+APPLYING SP MODEL ON [train] ...
+
+APPLYING SP MODEL ON [dev] ...
+
+APPLYING SP MODEL ON [test] ...
+SP DATA: [ /home/ye/tool/adapt-mnmt/models/sov-1/data/spmodel ]
+
+GENERATING VOCABULARY ...
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 5, in <module>
+    from opennmt import constants
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/__init__.py", line 5, in <module>
+    from opennmt import decoders
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/__init__.py", line 3, in <module>
+    from opennmt.decoders.rnn_decoder import RNNDecoder
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py", line 12, in <module>
+    from opennmt.utils.cell import build_cell
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/cell.py", line 13, in <module>
+    cell_class=tf.nn.rnn_cell.LSTMCell,
+AttributeError: module 'tensorflow._api.v2.nn' has no attribute 'rnn_cell'
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/build_vocab.py", line 5, in <module>
+    from opennmt import constants
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/__init__.py", line 5, in <module>
+    from opennmt import decoders
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/__init__.py", line 3, in <module>
+    from opennmt.decoders.rnn_decoder import RNNDecoder
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/decoders/rnn_decoder.py", line 12, in <module>
+    from opennmt.utils.cell import build_cell
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/utils/cell.py", line 13, in <module>
+    cell_class=tf.nn.rnn_cell.LSTMCell,
+AttributeError: module 'tensorflow._api.v2.nn' has no attribute 'rnn_cell'
+
+real    2m49.997s
+user    9m5.807s
+sys     0m2.715s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 # Reference
@@ -2845,4 +3067,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 - https://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
 - https://github.com/google/sentencepiece
 - https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
-- 
+- https://stackoverflow.com/questions/59762996/how-to-fix-attributeerror-partially-initialized-module
