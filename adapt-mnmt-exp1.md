@@ -3378,13 +3378,21 @@ sys     0m2.591s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+I found one error inside the "preprocess.sh" script, i.e. Although using $VOCABSIZE, there is no assignment for that variable ...  
+
+```bash
+         python $GEN_VOCAB --size $VOCABSIZE --save_vocab vocab.$SRC train.$SRC
+         python $GEN_VOCAB --size $VOCABSIZE --save_vocab vocab.$TGT train.$TGT
 ```
 
+And thus, I updated the "scripts/preprocess.sh" as follows:  
+
+```bash
+EXPID=$1        # pt-en, gl-en, gl-en_progadapt, ptgl-en_proggrow
+SPMSIZE=$2      # 4000/single-pair/low-resource 8000/single-pair 16000/single-pair 32000/mnmt based on the model type
+VOCABSIZE=$3
 ```
 
-```
-
-```
 
 ```
 
