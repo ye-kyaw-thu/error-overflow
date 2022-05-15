@@ -3708,9 +3708,53 @@ sys     0m2.625s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+playing with the tensorflow-addons versions ...  
 
 ```
-
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip uninstall tensorflow-addons
+Found existing installation: tensorflow-addons 0.14.0
+Uninstalling tensorflow-addons-0.14.0:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/_foo.cpython-36m-x86_64-linux-gnu.so
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons-0.14.0.dist-info/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/*
+Proceed (Y/n)? Y
+  Successfully uninstalled tensorflow-addons-0.14.0
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python --version
+Python 3.6.13 :: Anaconda, Inc.
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow as tf
+>>> print(tf.__version__)
+1.15.0
+>>> exit()
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip install tensorflow-addons==0.12.0
+Collecting tensorflow-addons==0.12.0
+  Downloading tensorflow_addons-0.12.0-cp36-cp36m-manylinux2010_x86_64.whl (703 kB)
+     |████████████████████████████████| 703 kB 1.9 MB/s
+Requirement already satisfied: typeguard>=2.7 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-addons==0.12.0) (2.13.3)
+Installing collected packages: tensorflow-addons
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+opennmt-tf 2.26.1 requires tensorflow-addons<0.17,>=0.14, but you have tensorflow-addons 0.12.0 which is incompatible.
+Successfully installed tensorflow-addons-0.12.0
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip uninstall tensorflow-addons
+Found existing installation: tensorflow-addons 0.12.0
+Uninstalling tensorflow-addons-0.12.0:
+  Would remove:
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/_foo.cpython-36m-x86_64-linux-gnu.so
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons-0.12.0.dist-info/*
+    /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_addons/*
+Proceed (Y/n)? Y
+  Successfully uninstalled tensorflow-addons-0.12.0
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ pip install tensorflow-addons==0.14
+Collecting tensorflow-addons==0.14
+  Using cached tensorflow_addons-0.14.0-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.1 MB)
+Requirement already satisfied: typeguard>=2.7 in /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages (from tensorflow-addons==0.14) (2.13.3)
+Installing collected packages: tensorflow-addons
+Successfully installed tensorflow-addons-0.14.0
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
