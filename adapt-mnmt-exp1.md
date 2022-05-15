@@ -3508,16 +3508,46 @@ optional arguments:
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+command line running such as follows also giving the same error:  
 
 ```
-
+python OpenNMT/opennmt/bin/build_vocab.py --save_vocab ./vocab.src ./models/sov-1/data/train.src
+or
+python OpenNMT/opennmt/bin/build_vocab.py --size 32000 --save_vocab ./vocab.src ./models/sov-1/data/train.src
 ```
 
-```
+And thus, check the train.src file format:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ head ./models/sov-1/data/train.src
+<2en> 我々が今日直面している様々な機能不全のなかで - 財政や経済が最初に思いつきますが - 私が一番憂慮しているのは政治的対話の欠乏です我 々が近年の紛争において状況を把握しその根本原因を探り中心人物を理解し彼らと交渉をする能力です
+<2en> 我々外交官は国家間の紛争や問題に対処するよう訓練されています
+<2en> 貿易や軍縮の国境を越えた問題などに対処しなければなりません
+<2en> しかし状況は変わりつつあり近年新しい中心人物達が登場してきました
+<2en> 我々は彼らをおおまかに「集団」と呼んでいます彼らはそれぞれ社会 ､ 宗教政治 ､ 経済 ､ 軍事などの利害関係を代表していて
+<2en> 我々は彼らの対処に苦慮しています
+<2en> そしてこれらの紛争の中心的役割を果たしているのがこれらの国々の中にある様々な利害を代表する集団なのです
+<2en> 彼らの行動いかんでは紛争が他国にも急速に広まります
+<2en> 政治的な解決が必要となります
+<2en> 9 ・ 11テロが起きた後は世界は敵と味方に二分されました
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
 
+Checked under spdata/train.src also:  
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ head ./models/sov-1/data/spdata/train.src
+▁<2 en > ▁我々が 今日 直面している 様々な 機能 不 全 のなかで ▁- ▁ 財政 や 経済 が 最初に 思い つき ますが ▁- ▁私が 一番 憂 慮 しているのは 政治的 対話 の 欠 乏 です 我々が 近年 の 紛争 において 状況 を把握し その 根本 原因 を探 り 中心 人物 を理解し 彼ら と 交渉 をする 能力 です
+▁<2 en > ▁ 我々 外交官 は 国家 間の 紛争 や 問題 に対処する よう 訓練 されています
+▁<2 en > ▁ 貿易 や 軍 縮 の 国境を越え た 問題 など に対処し なければなりません
+▁<2 en > ▁しかし 状況は 変わり つつ あり 近年 新しい 中心 人物 達が 登場 してきました
+▁<2 en > ▁我々は 彼らを お お ま かに 「 集団 」 と呼んでいます 彼らは それぞれ 社会 ▁、 ▁ 宗教 政治 ▁、 ▁ 経済 ▁、 ▁ 軍事 などの 利害 関係 を 代表 していて
+▁<2 en > ▁我々は 彼らの 対処 に 苦 慮 しています
+▁<2 en > ▁そして これらの 紛争 の中心 的 役割を果たし ているの が これらの 国々 の中にある 様々な 利害 を 代表 する 集団 なのです
+▁<2 en > ▁彼らの 行動 いか んで は 紛争 が 他国 にも 急速に 広まり ます
+▁<2 en > ▁ 政治的な 解決 が必要 となります
+▁<2 en > ▁9 ▁ ・ ▁11 テロ が起きた 後 は 世界は 敵 と 味方 に 二 分 されました
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
 ```
