@@ -3790,8 +3790,17 @@ Traceback (most recent call last):
 AttributeError: module 'opennmt.tokenizers' has no attribute 'add_command_line_arguments'
 ```
 
-```
+check current opennmt version:  
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import opennmt as onmt
+>>> print(onmt.__version__)
+2.26.1
+>>>
 ```
 
 ```
