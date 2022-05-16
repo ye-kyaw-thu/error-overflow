@@ -4205,7 +4205,7 @@ sys     0m0.585s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-Waiting a new ERROR! :)
+A new ERROR is waiting! :)
 I should go back for today .... See you ...  
 
 # Reference
