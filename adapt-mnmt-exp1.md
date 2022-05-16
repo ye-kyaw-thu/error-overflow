@@ -4424,6 +4424,92 @@ sys     0m0.819s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ conda install cudatoolkit=10.0.130
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/adapt-mnmt
+
+  added / updated specs:
+    - cudatoolkit=10.0.130
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2022.4.26  |       h06a4308_0         124 KB
+    certifi-2020.6.20          |     pyhd3eb1b0_3         155 KB
+    cudatoolkit-10.0.130       |                0       261.2 MB
+    cudnn-7.6.5                |       cuda10.0_0       165.0 MB
+    ------------------------------------------------------------
+                                           Total:       426.5 MB
+
+The following packages will be UPDATED:
+
+  openssl               anaconda::openssl-1.1.1n-h7f8727e_0 --> pkgs/main::openssl-1.1.1o-h7f8727e_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates                                  anaconda --> pkgs/main
+  certifi                                          anaconda --> pkgs/main
+  cudatoolkit        anaconda::cudatoolkit-11.3.1-h2bc3f7f~ --> pkgs/main::cudatoolkit-10.0.130-0
+  cudnn                    anaconda::cudnn-8.2.1-cuda11.3_0 --> pkgs/main::cudnn-7.6.5-cuda10.0_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+certifi-2020.6.20    | 155 KB    | ########################################################################## | 100%
+ca-certificates-2022 | 124 KB    | ########################################################################## | 100%
+cudatoolkit-10.0.130 | 261.2 MB  | ########################################################################## | 100%
+cudnn-7.6.5          | 165.0 MB  | ########################################################################## | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 
 # Reference
 
