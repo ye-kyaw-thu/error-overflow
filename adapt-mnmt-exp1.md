@@ -4709,9 +4709,14 @@ sys     0m0.811s
 (adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
 ```
 
-```
+When I checked the training log file:  
 
 ```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ cat ./models/sov-1/log.train
+./train.sh: line 27: --data_dir: command not found
+```
+
+Did I forgot to pass argument?!  
 
 ```
 
