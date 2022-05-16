@@ -4208,6 +4208,223 @@ sys     0m0.585s
 A new ERROR is waiting! :)
 I should go back for today .... See you ...  
 
+## After adjusting some tensorflow-gpu and OpenNMT-tf
+
+```
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$ time ./train.sh sov-1 0,1 | tee train.log
+
+TRAINING LOG: [ /home/ye/tool/adapt-mnmt/models/sov-1/log.train ]
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/decoders/rnn_decoder.py:428: The name tf.nn.rnn_cell.RNNCell is deprecated. Please use tf.compat.v1.nn.rnn_cell.RNNCell instead.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/utils/hooks.py:15: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/optimizers/adafactor.py:34: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/optimizers/multistep_adam.py:36: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:130: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:130: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/config.py:136: The name tf.gfile.Open is deprecated. Please use tf.io.gfile.GFile instead.
+
+/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/config.py:137: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  subconfig = yaml.load(config_file.read())
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:156: The name tf.gfile.Exists is deprecated. Please use tf.io.gfile.exists instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:157: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+INFO:tensorflow:Creating model directory /home/ye/tool/adapt-mnmt/models/sov-1/model
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:158: The name tf.gfile.MakeDirs is deprecated. Please use tf.io.gfile.makedirs instead.
+
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/config.py:103: The name tf.gfile.Copy is deprecated. Please use tf.io.gfile.copy instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:165: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py:168: The name tf.GPUOptions is deprecated. Please use tf.compat.v1.GPUOptions instead.
+
+INFO:tensorflow:Using parameters: {
+  "data": {
+    "eval_features_file": "dev.src",
+    "eval_labels_file": "dev.tgt",
+    "source_words_vocabulary": "vocab.src",
+    "target_words_vocabulary": "vocab.tgt",
+    "train_features_file": "train.src",
+    "train_labels_file": "train.tgt"
+  },
+  "eval": {
+    "batch_size": 32,
+    "bucket_width": 5,
+    "eval_delay": 1800,
+    "exporters": "last",
+    "external_evaluators": "BLEU",
+    "n_best": 1,
+    "num_threads": 10,
+    "prefetch_buffer_size": 1,
+    "start_delay_secs": 1,
+    "steps": 100,
+    "with_alignments": null,
+    "with_scores": false
+  },
+  "infer": {
+    "batch_size": 32,
+    "bucket_width": null
+  },
+  "load_weights": {
+    "decoder": true,
+    "encoder": true,
+    "global_step": true,
+    "optim": true,
+    "projection": true,
+    "shared_embs": true,
+    "src_embs": true,
+    "tgt_embs": true,
+    "words_per_sec": true
+  },
+  "model_dir": "/home/ye/tool/adapt-mnmt/models/sov-1/model",
+  "params": {
+    "average_loss_in_time": true,
+    "beam_width": 5,
+    "decay_rate": 512,
+    "decay_step_duration": 8,
+    "decay_steps": 8000,
+    "decay_type": "noam_decay",
+    "label_smoothing": 0.1,
+    "learning_rate": 2.0,
+    "length_penalty": 0.6,
+    "maximum_iterations": 250,
+    "optimizer": "LazyAdamOptimizer",
+    "optimizer_params": {
+      "beta1": 0.9,
+      "beta2": 0.998
+    },
+    "start_decay_steps": 0
+  },
+  "score": {
+    "batch_size": 64
+  },
+  "train": {
+    "batch_size": 4096,
+    "batch_type": "tokens",
+    "bucket_width": 5,
+    "keep_checkpoint_max": 10,
+    "maximum_features_length": 100,
+    "maximum_labels_length": 100,
+    "sample_buffer_size": 5000000,
+    "save_checkpoints_steps": 1000,
+    "save_summary_steps": 50,
+    "train_steps": 500000
+  }
+}
+WARNING:tensorflow:From /home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/runner.py:119: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-05-16 14:07:25.580236: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-05-16 14:07:25.602635: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3199980000 Hz
+2022-05-16 14:07:25.603057: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x560d0b2c0670 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-05-16 14:07:25.603071: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-05-16 14:07:25.604366: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-05-16 14:07:25.771402: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.780340: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.780643: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x560d0989bee0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-05-16 14:07:25.780657: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-05-16 14:07:25.780661: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): NVIDIA GeForce RTX 2070, Compute Capability 7.5
+2022-05-16 14:07:25.780857: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.781008: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2022-05-16 14:07:25.781073: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.781276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 1 with properties:
+name: NVIDIA GeForce RTX 2070 major: 7 minor: 5 memoryClockRate(GHz): 1.74
+pciBusID: 0000:05:00.0
+2022-05-16 14:07:25.781384: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781463: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781527: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781570: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781614: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781658: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781701: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.781708: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1641] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-05-16 14:07:25.781719: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-05-16 14:07:25.781725: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 1
+2022-05-16 14:07:25.781729: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N N
+2022-05-16 14:07:25.781734: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 1:   N N
+2022-05-16 14:07:25.783193: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.783342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2022-05-16 14:07:25.783377: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-05-16 14:07:25.783519: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 1 with properties:
+name: NVIDIA GeForce RTX 2070 major: 7 minor: 5 memoryClockRate(GHz): 1.74
+pciBusID: 0000:05:00.0
+2022-05-16 14:07:25.783592: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.783692: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.783792: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.783848: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.783904: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.783960: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.784018: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/:/usr/local/cuda-11.6/lib64:/usr/local/lib:/usr/lib/:/lib:/lib64/
+2022-05-16 14:07:25.784025: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1641] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-05-16 14:07:25.784036: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-05-16 14:07:25.784042: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 1
+2022-05-16 14:07:25.784046: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N N
+2022-05-16 14:07:25.784051: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 1:   N N
+INFO:tensorflow:Using config: {'_model_dir': '/home/ye/tool/adapt-mnmt/models/sov-1/model', '_tf_random_seed': None, '_save_summary_steps': 50, '_save_checkpoints_steps': 1000, '_save_checkpoints_secs': None, '_session_config': gpu_options {
+}
+allow_soft_placement: true
+graph_options {
+  rewrite_options {
+    layout_optimizer: OFF
+  }
+}
+, '_keep_checkpoint_max': 10, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 50, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f9c602a7240>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+Traceback (most recent call last):
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py", line 224, in <module>
+    main()
+  File "/home/ye/tool/adapt-mnmt/OpenNMT/opennmt/bin/main.py", line 182, in main
+    runner.train_and_evaluate(checkpoint_path=args.checkpoint_path)
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/runner.py", line 308, in train_and_evaluate
+    eval_spec = self._build_eval_spec()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/runner.py", line 248, in _build_eval_spec
+    assets_extra=self._get_model_assets()),
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/runner.py", line 257, in _get_model_assets
+    return self._model.get_assets(self._config["data"], asset_dir=generated_assets_path)
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/model.py", line 582, in get_assets
+    assets = self._initialize(metadata, asset_dir=asset_dir)
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/sequence_to_sequence.py", line 146, in _initialize
+    assets = super(SequenceToSequence, self)._initialize(metadata, asset_dir=asset_dir)
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/models/model.py", line 318, in _initialize
+    metadata, asset_dir=asset_dir, asset_prefix="source_"))
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/inputters/text_inputter.py", line 316, in initialize
+    self.vocabulary_size = count_lines(self.vocabulary_file) + self.num_oov_buckets
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/opennmt/utils/misc.py", line 88, in count_lines
+    for i, _ in enumerate(f):
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_core/python/lib/io/file_io.py", line 220, in __next__
+    return self.next()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_core/python/lib/io/file_io.py", line 214, in next
+    retval = self.readline()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_core/python/lib/io/file_io.py", line 178, in readline
+    self._preread_check()
+  File "/home/ye/anaconda3/envs/adapt-mnmt/lib/python3.6/site-packages/tensorflow_core/python/lib/io/file_io.py", line 84, in _preread_check
+    compat.as_bytes(self.__name), 1024 * 512)
+tensorflow.python.framework.errors_impl.NotFoundError: vocab.src; No such file or directory
+
+real    0m1.429s
+user    0m1.534s
+sys     0m0.819s
+(adapt-mnmt) ye@ye-System-Product-Name:~/tool/adapt-mnmt$
+```
+
+
 # Reference
 
 - https://github.com/OpenNMT/OpenNMT-tf
