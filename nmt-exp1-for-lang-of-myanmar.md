@@ -1508,4 +1508,45 @@ Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 67.29, 89.5/76.5/65.5/57.8 (BP=0.943, ratio=0.945, hyp_len=7166, ref_len=7585)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwbk-my$
 ```
- 
+
+## sk-my, Word, Transformer
+
+training ...  
+
+```
+
+```
+
+testing and evaluation ...  
+
+```
+
+```
+
+results ...  
+
+```
+
+```
+
+
+## sk-my, syllable, Transformer
+
+training ...  
+
+```
+
+```
+
+testing and evaluation ...  
+
+```
+
+```
+
+results ...  
+
+```
+
+```
+
