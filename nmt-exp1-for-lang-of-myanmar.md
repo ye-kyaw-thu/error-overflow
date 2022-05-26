@@ -5,6 +5,7 @@
 
 Training ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mysh.sh
 ...
 ...
@@ -32,8 +33,9 @@ Training ...
 real    80m43.093s
 user    100m20.907s
 sys     1m11.143s
+```
 
-------------
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysh$ ls model.iter*.npz | sort -V
 model.iter5000.npz
 model.iter10000.npz
@@ -47,9 +49,11 @@ model.iter45000.npz
 model.iter50000.npz
 model.iter55000.npz
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysh$
+```
 
 Testing ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysh$ time ./test-eval.sh | tee test-eval.log
 ...
 ...
@@ -76,9 +80,11 @@ It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on
 real    0m47.294s
 user    1m14.845s
 sys     0m10.427s
+```
 
 Results are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysh$ cat eval-result.txt
 Evaluation with hyp.iter5000.sh, Transformer model:
 BLEU = 18.79, 59.4/29.5/15.2/8.8 (BP=0.853, ratio=0.863, hyp_len=4096, ref_len=4748)
@@ -103,11 +109,13 @@ BLEU = 18.49, 57.8/28.2/14.3/7.9 (BP=0.892, ratio=0.898, hyp_len=4263, ref_len=4
 Evaluation with hyp.iter55000.sh, Transformer model:
 BLEU = 18.06, 57.7/28.0/14.0/7.6 (BP=0.886, ratio=0.892, hyp_len=4234, ref_len=4748)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysh$
+```
 
 ## sh-my, Transformer
 
 updated shell script for training sh-my:
 
+```bash
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
@@ -148,12 +156,12 @@ marian \
     --dump-config > ${model_folder}/${src}-${tgt}.config.yml
 
 time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_folder}/transformer-${src}-${tgt}.log
-
+```
 
 
 training ...  
 
-
+```bash
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.shmy.sh
 ...
 ...
@@ -181,10 +189,11 @@ training ...
 real    84m53.517s
 user    107m33.430s
 sys     1m34.236s
+```
 
 Testing and Evaluation for shan-to-burmese:  
 
-
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.shmy$ time ./test-eval.sh
 ...
 ...
@@ -210,9 +219,11 @@ It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on
 real    0m54.624s
 user    1m29.715s
 sys     0m10.451s
+```
 
 Evaluation result with BLEU Score: 
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.shmy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 34.00, 70.3/46.3/33.0/25.2 (BP=0.839, ratio=0.850, hyp_len=5125, ref_len=6026)
@@ -236,11 +247,13 @@ Evaluation with hyp.iter50000.my, Transformer model:
 BLEU = 35.94, 68.3/45.4/32.6/25.3 (BP=0.899, ratio=0.904, hyp_len=5445, ref_len=6026)
 Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 35.95, 68.4/45.6/32.8/25.5 (BP=0.894, ratio=0.900, hyp_len=5421, ref_len=6026)
+```
 
 ## my-ch (Mizo Chin), Transformer
 
 training ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mych.sh 
 ...
 ...
@@ -268,10 +281,11 @@ training ...
 real    82m56.408s
 user    102m20.336s
 sys     1m3.715s
- 
+```
+
 Testing and Evaluation ...  
 
-
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mych$ time ./test-eval.sh
 ...
 ...
@@ -299,9 +313,11 @@ It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on
 real    1m58.218s
 user    3m23.739s
 sys     0m22.046s
+```
 
 Evaluation result with BLEU Score:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mych$ cat eval-result.txt
 Evaluation with hyp.iter5000.ch, Transformer model:
 BLEU = 30.79, 67.0/40.7/27.7/19.7 (BP=0.882, ratio=0.889, hyp_len=12228, ref_len=13759)
@@ -326,10 +342,11 @@ BLEU = 31.29, 66.2/40.1/27.4/19.4 (BP=0.908, ratio=0.912, hyp_len=12550, ref_len
 Evaluation with hyp.iter55000.ch, Transformer model:
 BLEU = 30.85, 65.8/39.7/27.0/19.0 (BP=0.907, ratio=0.911, hyp_len=12535, ref_len=13759)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mych$
+```
 
 ## ch-my, Transformer
 
-
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.chmy.sh
 ...
 ...
@@ -357,10 +374,11 @@ BLEU = 30.85, 65.8/39.7/27.0/19.0 (BP=0.907, ratio=0.911, hyp_len=12535, ref_len
 real    87m2.904s
 user    108m24.973s
 sys     1m16.436s
+```
 
 Testing and Evaluation ...  
 
-
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.chmy$ time ./test-eval.sh
 ...
 ...
@@ -388,9 +406,11 @@ It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on
 real    2m19.479s
 user    4m5.839s
 sys     0m22.240s
+```
 
 Evaluation result with BLEU score are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.chmy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 32.78, 67.6/45.5/32.0/23.7 (BP=0.838, ratio=0.850, hyp_len=14954, ref_len=17592)
@@ -415,11 +435,13 @@ BLEU = 34.18, 66.0/44.3/31.6/23.9 (BP=0.887, ratio=0.893, hyp_len=15713, ref_len
 Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 34.12, 65.7/44.4/31.5/23.7 (BP=0.889, ratio=0.895, hyp_len=15741, ref_len=17592)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.chmy$
+```
 
 ## my-sh, Seq2Seq
 
 Training ...  
 
+```
 [2022-05-24 01:52:49] Best translation 3 : ႁဝ်း ၶႃႈ ပႂ်ႉ တူၺ်း တီႈ ၼႆ ၼႄ တၢင်း ၶႅၵ်ႇ ၼႆႉ ၼၼ်ႉ ၵွၼ်ႇ
 [2022-05-24 01:52:49] Best translation 4 : ၵပ်း ၵၢႆႇ လွင်ႈ ၼႆႉ သေ ၼၼ်ႉ ဢမ် ထၢမ် ၸႃး ၼႃႇ ႁႃႉ
 [2022-05-24 01:52:49] Best translation 5 : သူ ႁဵတ်း သင် ယူႇ
@@ -443,10 +465,11 @@ real    386m50.499s
 user    455m20.978s
 sys     0m43.651s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$
+```
 
 testing and evaluation ...  
 
-
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mysh$ time ./test-eval.sh
 ...
 ...
@@ -472,9 +495,11 @@ It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on
 real    1m19.580s
 usr    2m9.064s
 sys     0m17.263s
+```
 
 results are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mysh$ cat eval-result.txt
 Evaluation with hyp.iter5000.sh, Transformer model:
 BLEU = 12.25, 50.0/22.3/10.6/5.2 (BP=0.779, ratio=0.800, hyp_len=3799, ref_len=4748)
@@ -501,10 +526,11 @@ BLEU = 11.15, 39.1/16.2/7.4/4.0 (BP=0.955, ratio=0.956, hyp_len=4541, ref_len=47
 Evaluation with hyp.iter60000.sh, Transformer model:
 BLEU = 11.16, 38.9/16.4/7.5/3.9 (BP=0.958, ratio=0.959, hyp_len=4551, ref_len=4748)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mysh$
-
+```
 
 ## sh-my, Seq2Seq
 
+```
 [2022-05-24 11:11:52] Best translation 4 : ငါ ပြု မူ လိုက် တာ နဲ့ ပတ် သက် ပြီး တောင်း ပန် ထား တာ လား ဒါ မှ မ ဟုတ် တ ခြား အ ရေး ကြီး တဲ့ ကိစ္စ တစ် ခု များ လား
 [2022-05-24 11:11:52] Best translation 5 : မင်း ဘာ တွေ ဖတ် နေ တာ လဲ
 [2022-05-24 11:11:52] Best translation 10 : သူ မ သည် ထူး ခြား တဲ့ အ တွေး အ ခေါ် ရှိ တယ်
@@ -527,9 +553,11 @@ real    385m52.479s
 user    453m3.194s
 sys     0m44.565s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$
+```
 
 Testing and Evaluation ...  
 
+```
 [2022-05-24 11:26:54] Best translation 485 : ကား ဂဂို ဒေါင် ထဲ မှာ ကား ရှိ လား
 [2022-05-24 11:26:54] Best translation 486 : မင်း အ သက် ရှင် ပြ တတဲ့ အ ဖြေ
 [2022-05-24 11:26:54] Best translation 487 : အအဲ့ ဒါ သူ မ အ တွက် လွယ် လွယ် လေး ပါ
@@ -552,9 +580,11 @@ real    1m23.991s
 user    2m17.692s
 sys     0m17.356s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.shmy$ time ./test-eval.sh
+```
 
 results are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.shmy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 25.10, 59.1/36.4/24.7/18.8 (BP=0.795, ratio=0.813, hyp_len=4901, ref_len=6026)
@@ -581,11 +611,13 @@ BLEU = 27.95, 51.6/32.7/23.6/18.6 (BP=0.953, ratio=0.954, hyp_len=5748, ref_len=
 Evaluation with hyp.iter60000.my, Transformer model:
 BLEU = 28.00, 51.1/32.1/23.2/18.4 (BP=0.967, ratio=0.968, hyp_len=5833, ref_len=6026)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.shmy$
+```
 
 ## my-ch, Seq2Seq
 
 Training ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./seq2seq.mych.sh 
 ...
 ...
@@ -615,9 +647,11 @@ Training ...
 real    388m31.719s
 user    456m13.256s
 sys     0m41.484s
+```
 
 Testing and evaluation:  
 
+```
 [2022-05-24 20:04:50] Best translation 1473 : a theih alawm .
 [2022-05-24 20:04:50] Best translation 1474 : anni hmuh chu i hreh deuh em ni ?
 [2022-05-24 20:04:50] Best translation 1475 : i duh duhin ti rawh .
@@ -641,9 +675,11 @@ real    3m15.305s
 user    5m47.131s
 sys     0m30.349s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mych$ time ./test-eval.sh
+```
 
 result ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mych$ cat ./eval-result.txt
 Evaluation with hyp.iter5000.ch, Transformer model:
 BLEU = 19.64, 58.0/29.9/18.2/11.7 (BP=0.797, ratio=0.815, hyp_len=11217, ref_len=13759)
@@ -670,9 +706,11 @@ BLEU = 21.35, 51.3/25.9/16.2/10.8 (BP=0.972, ratio=0.972, hyp_len=13374, ref_len
 Evaluation with hyp.iter60000.ch, Transformer model:
 BLEU = 21.01, 50.9/25.5/15.9/10.4 (BP=0.977, ratio=0.977, hyp_len=13447, ref_len=13759)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mych$
+```
 
 ## Training for ch-my, Seq2Seq
 
+```
 [2022-05-25 02:33:29] [valid] Ep. 283 : Up. 60000 : perplexity : 18.2232 : stalled 10 times (last best: 6.36893)
 [2022-05-25 02:33:29] Translating validation set...
 [2022-05-25 02:33:30] Best translation 0 : ဒါ တ ကယ် ကောင်း တဲ့ အ ကြံ ဉာဏ် ပါ ပဲ
@@ -699,9 +737,11 @@ user    451m1.428s
 sys     0m42.141s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./seq2seq.chmy.sh
+```
 
 Testing and evaluation ...  
 
+```
 [2022-05-25 06:51:49] Best translation 1473 : ရ ပါ တယ်
 [2022-05-25 06:51:49] Best translation 1474 : သူ တတိတို့ ကကို တွေ့ ဖဖိဖို့ ဝန် လေး နေ လား
 [2022-05-25 06:51:49] Best translation 1475 : ခင် ဗျား ကြြိုက် သ လလို လုပ် ပါ
@@ -725,9 +765,11 @@ real    3m26.542s
 user    6m9.200s
 sys     0m30.527s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.chmy$ time ./test-eval.sh
+```
 
 results:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.chmy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 23.71, 61.6/37.5/24.9/17.8 (BP=0.745, ratio=0.773, hyp_len=13593, ref_len=17592)
@@ -754,15 +796,19 @@ BLEU = 28.05, 52.5/33.2/23.6/18.5 (BP=0.950, ratio=0.951, hyp_len=16729, ref_len
 Evaluation with hyp.iter60000.my, Transformer model:
 BLEU = 27.59, 51.9/32.5/23.1/17.9 (BP=0.954, ratio=0.955, hyp_len=16801, ref_len=17592)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.chmy$
+```
 
 ## my-po, Transformer
 
 Training ...  
 
+```
 [2022-05-25 08:24:08] [data] Done reading 14,683 sentences                                                            [2022-05-25 08:24:08] [data] Done shuffling 14,683 sentences to temp files                                            [2022-05-25 08:24:13] Seen 14,683 samples                                                                             [2022-05-25 08:24:13] Starting data epoch 932 in logical epoch 932                                                    [2022-05-25 08:24:13] [data] Shuffling data                                                                           [2022-05-25 08:24:13] [data] Done reading 14,683 sentences                                                            [2022-05-25 08:24:13] [data] Done shuffling 14,683 sentences to temp files                                            [2022-05-25 08:24:17] Ep. 932 : Up. 55000 : Sen. 11,078 : Cost 1.19751966 * 1,383,939 @ 2,627 after 152,783,168 : Time 43.43s : 31863.49 words/s : gNorm 0.2974 : L.r. 1.6181e-04                                                           [2022-05-25 08:24:17] Saving model weights and runtime parameters to model.transformer.mypo/model.iter55000.npz       [2022-05-25 08:24:17] Saving model weights and runtime parameters to model.transformer.mypo/model.npz                 [2022-05-25 08:24:17] Saving Adam parameters                                                                          [2022-05-25 08:24:17] [training] Saving training checkpoint to model.transformer.mypo/model.npz and model.transformer.mypo/model.npz.optimizer.npz                                                                                          [2022-05-25 08:24:19] [valid] Ep. 932 : Up. 55000 : cross-entropy : 35.0058 : stalled 10 times (last best: 28.6436)   [2022-05-25 08:24:19] [valid] Ep. 932 : Up. 55000 : perplexity : 24.2252 : stalled 10 times (last best: 13.5732)      [2022-05-25 08:24:20] [valid] Ep. 932 : Up. 55000 : bleu : 30.6819 : stalled 10 times (last best: 30.9519)            [2022-05-25 08:24:20] Training finished                                                                               [2022-05-25 08:24:20] Saving model weights and runtime parameters to model.transformer.mypo/model.npz                 [2022-05-25 08:24:21] Saving Adam parameters                                                                          [2022-05-25 08:24:21] [training] Saving training checkpoint to model.transformer.mypo/model.npz and model.transformer.mypo/model.npz.optimizer.npz                                                                                                                                                                                                                real    80m29.773s                                                                                                    user    100m2.556s                                                                                                    sys     1m16.578s                                                                                                     (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mypo.sh 
+```
 
 testing and evaluation with test data:  
 
+```
 [2022-05-25 08:54:44] Best translation 1818 : ခွေ အ တာႏ ဒွွိုႏ ဗာႏ သွတ် နဝ်ꩻ အ ဆင်ႏ ပြေႏ ဒျာႏ
 [2022-05-25 08:54:44] Best translation 1819 : နာꩻ အဝ်ႏ လလိုႏ အအုံ ပ ဆား
 [2022-05-25 08:54:44] Best translation 1820 : ယယို ခါꩻ ထထဲ့ꩻ ဆဆုဲင်ꩻ ထထိုꩻ လဲဉ်း
@@ -787,9 +833,11 @@ real    2m31.265s
 user    4m25.408s
 sys     0m25.758s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mypo$ time ./test-eval.sh
+```
 
 results are as follows:
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mypo$ cat eval-result.txt
 Evaluation with hyp.iter5000.po, Transformer model:
 BLEU = 30.45, 70.5/42.3/25.9/16.5 (BP=0.906, ratio=0.911, hyp_len=16792, ref_len=18442)
@@ -814,11 +862,13 @@ BLEU = 30.51, 69.7/41.7/25.4/15.9 (BP=0.927, ratio=0.929, hyp_len=17135, ref_len
 Evaluation with hyp.iter55000.po, Transformer model:
 BLEU = 30.54, 69.5/41.7/25.5/16.0 (BP=0.925, ratio=0.928, hyp_len=17113, ref_len=18442)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mypo$
+```
 
 ## po-my, Transformer
 
 Training ...  
 
+```
 [2022-05-25 10:24:14] [data] Done reading 14,683 sentences
 [2022-05-25 10:24:14] [data] Done shuffling 14,683 sentences to temp files
 [2022-05-25 10:24:19] Seen 14,683 samples
@@ -843,9 +893,11 @@ real    84m6.604s
 user    105m53.008s
 sys     1m24.719s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.pomy.sh
+```
 
 Testing and evaluation ...  
 
+```
 [2022-05-25 10:38:13] Best translation 1818 : ငါ အ တွက် အ ချက် အ ပြုတ် ရ တာ အ ဆင် ပြေ ပါ တယ်
 [2022-05-25 10:38:13] Best translation 1819 : မင်း အ နား ယူ သ င့် တယ်
 [2022-05-25 10:38:13] Best translation 1820 : အ ခု တောင် ကျ နေ ပြီ
@@ -870,9 +922,11 @@ real    2m42.266s
 user    4m46.917s
 sys     0m26.300s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.pomy$ time ./test-eval.sh
+```
 
 Results are as follows:
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.pomy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 40.80, 75.4/52.4/38.8/29.8 (BP=0.882, ratio=0.889, hyp_len=18395, ref_len=20700)
@@ -897,11 +951,13 @@ BLEU = 41.76, 74.4/51.8/38.6/29.8 (BP=0.910, ratio=0.914, hyp_len=18925, ref_len
 Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 41.71, 74.1/51.7/38.5/29.6 (BP=0.912, ratio=0.916, hyp_len=18963, ref_len=20700)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.pomy$
+```
 
 ## my-sk, word unit, Transformer
 
 Training ...  
 
+```
 [2022-05-25 14:26:27] [data] Done reading 48,000 sentences
 [2022-05-25 14:26:28] [data] Done shuffling 48,000 sentences to temp files
 [2022-05-25 14:27:39] Seen 48,000 samples
@@ -926,9 +982,11 @@ real    225m23.144s
 user    245m54.821s
 sys     1m7.813s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mysk.sh
+```
 
 testing and evaluation:
 
+```
 [2022-05-25 14:38:39] Best translation 6841 : အဝဲသ့ၣ် လၢအလီၤဘှံး သနာ်က့ အဝဲသ့ၣ် မၤတၢ် ဆူညါ န့ၢ်ဝဲလီၤ
 [2022-05-25 14:38:39] Best translation 6842 : နဆိကမိၣ်လၢ အဝဲကအဲၣ်ဝဲယၤ န့ၣ်ဧါ
 [2022-05-25 14:38:39] Best translation 6843 : ပဝဲသ့ၣ် ပတကးတံာ်ဝဲ ပဲတြီဘၣ်ဧါ
@@ -952,9 +1010,11 @@ real    7m18.286s
 user    12m48.478s
 sys     1m26.700s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysk$ time ./test-eval.sh
+```
 
 Results with my-sk, word unit are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysk$ cat eval-result.txt
 Evaluation with hyp.iter5000.sk, Transformer model:
 BLEU = 1.37, 14.6/3.3/1.6/0.8 (BP=0.488, ratio=0.582, hyp_len=21463, ref_len=36850)
@@ -979,23 +1039,29 @@ BLEU = 0.47, 10.9/1.4/0.4/0.1 (BP=0.491, ratio=0.584, hyp_len=21537, ref_len=368
 Evaluation with hyp.iter55000.sk, Transformer model:
 BLEU = 0.36, 10.9/1.4/0.4/0.1 (BP=0.491, ratio=0.584, hyp_len=21534, ref_len=36850)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysk$
+```
 
 ## my-sk, syllable unit, Transformer
 
 preprocessing:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/data/4nmt$ mv my-sk my-sk-word
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/data/4nmt$ mv my-sk-syl my-sk
+```
 
 inside script:  
 
+```bash
 model_folder="model.transformer.mysk.syl";
 mkdir ${model_folder};
 data_path="/home/ye/exp/my-nmt/data/4nmt/my-sk/";
 src="my"; tgt="sk";
+```
 
 vocab building:
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/data/4nmt/my-sk$ marian-vocab < ./train-dev.my > ./vocab/vocab.my.yml
 [2022-05-25 14:45:19] Creating vocabulary...
 [2022-05-25 14:45:19] [data] Creating vocabulary stdout from stdin
@@ -1005,9 +1071,11 @@ vocab building:
 [2022-05-25 14:45:33] [data] Creating vocabulary stdout from stdin
 [2022-05-25 14:45:33] Finished
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/data/4nmt/my-sk$
+```
 
 Training ...  
 
+```
 [2022-05-25 16:10:55] [data] Done reading 48,000 sentences
 [2022-05-25 16:10:55] [data] Done shuffling 48,000 sentences to temp files
 [2022-05-25 16:11:10] Seen 48,000 samples
@@ -1032,9 +1100,11 @@ real    83m35.377s
 user    107m51.687s
 sys     1m28.097s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mysk.syl.sh
+```
 
 Testing and Evaluation:
 
+```
 [2022-05-25 16:31:32] Best translation 6842 : ပာ် ဖျါ တၢ် ထံၣ် အ ဝဲ ပိာ် မုၣ် အဲၣ် ယၤ ကီး ဧါ
 [2022-05-25 16:31:32] Best translation 6843 : ပ တ ကး တံာ် ဝဲ ပဲ တြီ ဘၣ် ဧါ
 [2022-05-25 16:31:32] Best translation 6844 : တ မ့ၢ် အ ဝဲ အ သ့ၣ် နီၣ် ဝဲ တၢ် လၢ ပ ဝဲ သ့ၣ် ဘၣ် တၢ် ကဲ ထီၣ် ဝဲ တ ဖၣ် န့ၣ် ဘၣ်
@@ -1057,9 +1127,11 @@ real    11m0.500s
 user    20m14.921s
 sys     1m26.413s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysk.syl$ time ./test-eval.sh
+```
 
 results are as follows:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mysk.syl$ cat eval-result.txt
 Evaluation with hyp.iter5000.sk, Transformer model:
 BLEU = 31.19, 68.9/40.4/24.6/15.0 (BP=0.980, ratio=0.980, hyp_len=79351, ref_len=80936)
@@ -1083,11 +1155,13 @@ Evaluation with hyp.iter50000.sk, Transformer model:
 BLEU = 27.72, 64.1/36.0/21.0/12.2 (BP=1.000, ratio=1.083, hyp_len=87684, ref_len=80936)
 Evaluation with hyp.iter55000.sk, Transformer model:
 BLEU = 27.78, 64.1/36.1/21.0/12.3 (BP=1.000, ratio=1.084, hyp_len=87720, ref_len=80936)
+```
 
 ## my-dw, syllable, Transformer
 
 training ...  
 
+```
 [2022-05-25 18:16:34] [data] Done reading 5,452 sentences
 [2022-05-25 18:16:34] [data] Done shuffling 5,452 sentences to temp files
 [2022-05-25 18:16:35] Seen 5,452 samples
@@ -1112,9 +1186,11 @@ real    79m19.981s
 user    99m11.589s
 sys     1m27.165s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mydw.sh
+```
 
 Testing and Evaluation:
 
+```
 [2022-05-25 18:32:04] Best translation 653 : ကျွန် တော့် ငယ် ဟှွန်း ဂဂို ဆစ် သွယ် ဟှှိှို့ မျှော် လင့် ဟှယ် ။
 [2022-05-25 18:32:04] Best translation 654 : နန် ဒုက္ခ မ ရော့ ဟှ ။
 [2022-05-25 18:32:04] Best translation 655 : ငါ ပြော ဟှှိှို့ စ နေ နေ့ မှာ ငါ တတိတို့ ကကိုး ။
@@ -1139,9 +1215,11 @@ real    1m0.582s
 user    1m38.831s
 sys     0m12.650s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mydw$ time ./test-eval.sh
+```
 
 Results for single source my-dw, syllable, Transformer:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mydw$ cat eval-result.txt
 Evaluation with hyp.iter5000.dw, Transformer model:
 BLEU = 46.91, 76.9/56.1/42.0/33.4 (BP=0.946, ratio=0.947, hyp_len=6412, ref_len=6769)
@@ -1166,11 +1244,14 @@ BLEU = 46.53, 75.8/55.0/41.4/33.1 (BP=0.952, ratio=0.953, hyp_len=6449, ref_len=
 Evaluation with hyp.iter55000.dw, Transformer model:
 BLEU = 46.46, 75.3/54.4/41.2/32.9 (BP=0.957, ratio=0.958, hyp_len=6483, ref_len=6769)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mydw$
+```
 
 ## my,bk-dw, syllable, Multi-Source Transformer
 
 training ...  
- [2022-05-25 20:48:38] [data] Done reading 5,452 sentences
+
+```
+[2022-05-25 20:48:38] [data] Done reading 5,452 sentences
 [2022-05-25 20:48:38] [data] Done shuffling 5,452 sentences to temp files
 [2022-05-25 20:48:42] Seen 5,452 samples
 [2022-05-25 20:48:42] Starting data epoch 1897 in logical epoch 1897
@@ -1194,9 +1275,11 @@ real    110m28.647s
 user    133m2.503s
 sys     1m3.560s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mybk-dw.sh
+```
 
 testing evaluation ...  
 
+```
 [2022-05-26 05:14:45] Best translation 654 : နန် ဒုက္ခ ရော့ ဟှ ။
 [2022-05-26 05:14:45] Best translation 655 : ငါ ပြော မယ် ။
 [2022-05-26 05:14:45] Best translation 656 : ငါ ပြော မယ် ။
@@ -1220,7 +1303,9 @@ real    1m13.274s
 user    2m4.116s
 sys     0m13.128s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mybk-dw$ time ./test-eval.sh
+```
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mybk-dw$ cat eval-result.txt
 Evaluation with hyp.iter5000.dw, Transformer model:
 BLEU = 48.87, 77.8/57.9/44.4/35.5 (BP=0.946, ratio=0.948, hyp_len=6414, ref_len=6769)
@@ -1245,11 +1330,13 @@ BLEU = 49.39, 77.3/57.9/44.0/34.9 (BP=0.965, ratio=0.965, hyp_len=6534, ref_len=
 Evaluation with hyp.iter55000.dw, Transformer model:
 BLEU = 49.33, 77.1/57.5/43.6/34.6 (BP=0.970, ratio=0.971, hyp_len=6570, ref_len=6769)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mybk-dw$
+```
 
 ## dw-my, syllable unit, Transformer
 
 Training ...  
 
+```
 [2022-05-25 22:11:49] [data] Done reading 5,452 sentences
 [2022-05-25 22:11:49] [data] Done shuffling 5,452 sentences to temp files
 [2022-05-25 22:11:50] Seen 5,452 samples
@@ -1274,9 +1361,11 @@ real    80m29.263s
 user    102m41.691s
 sys     1m22.923s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.dwmy.sh
+```
 
 Testing and evaluation ...  
 
+```
 [2022-05-26 05:18:37] Best translation 654 : မင်း ဒုက္ခ မ ကျ ဘူး ။
 [2022-05-26 05:18:37] Best translation 655 : ကကိုယ် ပြော မယ် စ နေ နေ့ လည် မှာ ငါ တတိတို့ အ တွင်း က စား ရ မယ် ။
 [2022-05-26 05:18:37] Best translation 656 : ကကိုယ် ပြော မယ် စ နေ နေ့ လယ် မှာ ငါ တတိတို့ ကကိုး တွင်း တွင်း ရေး ကြ မယ် ။
@@ -1300,9 +1389,11 @@ real    1m6.062s
 user    1m50.035s
 sys     0m12.728s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwmy$ time ./test-eval.sh
+```
 
 Results:  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwmy$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 60.26, 86.3/70.1/57.5/49.1 (BP=0.937, ratio=0.939, hyp_len=7123, ref_len=7585)
@@ -1327,11 +1418,13 @@ BLEU = 60.87, 85.6/69.7/57.4/49.3 (BP=0.950, ratio=0.951, hyp_len=7212, ref_len=
 Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 60.74, 85.4/69.6/57.4/49.3 (BP=0.948, ratio=0.950, hyp_len=7202, ref_len=7585)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwmy$
+```
 
 ## dw,bk to my, Transformer
 
 Training ...  
 
+```
 [2022-05-26 07:14:50] [data] Done reading 5,452 sentences
 [2022-05-26 07:14:50] [data] Done shuffling 5,452 sentences to temp files
 [2022-05-26 07:14:54] Seen 5,452 samples
@@ -1356,9 +1449,11 @@ real    111m56.333s
 user    135m12.179s
 sys     1m6.907s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.dwbk-my.sh
+```
 
 Testing and Evaluation ...  
 
+```
 [2022-05-26 08:23:15] Best translation 653 : ကျွန် တော် ရရဲ့ ချစ် ကကို ဆက် သွယ် ဖဖိဖို့ မျှော် လ င့် ပါ တယ် ။
 [2022-05-26 08:23:15] Best translation 654 : မင်း ဒုက္ခ မ ရောက် ပါ ဘူး ။
 [2022-05-26 08:23:15] Best translation 655 : ကကိုယ် ပြော ပြ လိမ့် နေ နေ့ လည် မှာ ငါ တတိတို့ က စား မယ် ။
@@ -1383,9 +1478,11 @@ real    1m20.865s
 user    2m18.942s
 sys     0m13.395s
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwbk-my$ time ./test-eval.sh
+```
 
 Results are ...  
 
+```
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwbk-my$ cat eval-result.txt
 Evaluation with hyp.iter5000.my, Transformer model:
 BLEU = 66.07, 89.9/75.8/64.7/57.1 (BP=0.932, ratio=0.934, hyp_len=7088, ref_len=7585)
@@ -1410,5 +1507,5 @@ BLEU = 67.09, 89.6/76.4/65.7/58.1 (BP=0.938, ratio=0.940, hyp_len=7131, ref_len=
 Evaluation with hyp.iter55000.my, Transformer model:
 BLEU = 67.29, 89.5/76.5/65.5/57.8 (BP=0.943, ratio=0.945, hyp_len=7166, ref_len=7585)
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwbk-my$
-
+```
  
