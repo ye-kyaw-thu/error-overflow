@@ -1535,18 +1535,52 @@ results ...
 training ...  
 
 ```
-
+[2022-05-26 10:40:01] Saving model weights and runtime parameters to model.transformer.skmy.syl/model.npz
+[2022-05-26 10:40:01] Saving Adam parameters
+[2022-05-26 10:40:01] [training] Saving training checkpoint to model.transformer.skmy.syl/model.npz and model.transformer.skmy.syl/model.npz.optimizer.npz
+[2022-05-26 10:40:04] [valid] Ep. 427 : Up. 80000 : cross-entropy : 9.2118 : stalled 10 times (last best: 8.61618)
+[2022-05-26 10:40:04] [valid] Ep. 427 : Up. 80000 : perplexity : 2.05441 : stalled 10 times (last best: 1.96096)
+[2022-05-26 10:40:10] [valid] Ep. 427 : Up. 80000 : bleu : 63.4707 : new best
+[2022-05-26 10:40:10] Training finished
+[2022-05-26 10:40:10] Saving model weights and runtime parameters to model.transformer.skmy.syl/model.npz
+[2022-05-26 10:40:11] Saving Adam parameters
+[2022-05-26 10:40:11] [training] Saving training checkpoint to model.transformer.skmy.syl/model.npz and model.transformer.skmy.syl/model.npz.optimizer.npz
 ```
 
-testing and evaluation ...  
-
+results:
+```
+Evaluation with hyp.iter5000.my, Transformer model:
+BLEU = 43.37, 77.4/57.9/45.6/36.9 (BP=0.828, ratio=0.841, hyp_len=66186, ref_len=78676)
+Evaluation with hyp.iter10000.my, Transformer model:
+BLEU = 53.92, 81.2/66.0/56.0/48.6 (BP=0.873, ratio=0.880, hyp_len=69244, ref_len=78676)
+Evaluation with hyp.iter15000.my, Transformer model:
+BLEU = 58.17, 82.7/69.2/60.1/53.4 (BP=0.889, ratio=0.894, hyp_len=70361, ref_len=78676)
+Evaluation with hyp.iter20000.my, Transformer model:
+BLEU = 60.50, 83.5/70.8/62.3/56.0 (BP=0.898, ratio=0.903, hyp_len=71021, ref_len=78676)
+Evaluation with hyp.iter25000.my, Transformer model:
+BLEU = 62.00, 84.1/71.9/63.7/57.6 (BP=0.903, ratio=0.908, hyp_len=71405, ref_len=78676)
+Evaluation with hyp.iter30000.my, Transformer model:
+BLEU = 62.94, 84.3/72.4/64.3/58.4 (BP=0.909, ratio=0.913, hyp_len=71854, ref_len=78676)
+Evaluation with hyp.iter35000.my, Transformer model:
+BLEU = 63.32, 84.5/72.7/64.6/58.8 (BP=0.911, ratio=0.915, hyp_len=71957, ref_len=78676)
+Evaluation with hyp.iter40000.my, Transformer model:
+BLEU = 63.69, 84.6/72.9/65.0/59.2 (BP=0.913, ratio=0.916, hyp_len=72080, ref_len=78676)
+Evaluation with hyp.iter45000.my, Transformer model:
+BLEU = 63.83, 84.7/73.0/65.1/59.4 (BP=0.913, ratio=0.916, hyp_len=72085, ref_len=78676)
+Evaluation with hyp.iter50000.my, Transformer model:
+BLEU = 64.26, 84.7/73.2/65.4/59.7 (BP=0.916, ratio=0.920, hyp_len=72354, ref_len=78676)
+Evaluation with hyp.iter55000.my, Transformer model:
+BLEU = 63.99, 84.6/73.0/65.2/59.4 (BP=0.915, ratio=0.918, hyp_len=72258, ref_len=78676)
+Evaluation with hyp.iter60000.my, Transformer model:
+BLEU = 64.13, 84.7/73.1/65.3/59.7 (BP=0.915, ratio=0.918, hyp_len=72256, ref_len=78676)
+Evaluation with hyp.iter65000.my, Transformer model:
+BLEU = 64.22, 84.7/73.2/65.4/59.6 (BP=0.916, ratio=0.919, hyp_len=72324, ref_len=78676)
+Evaluation with hyp.iter70000.my, Transformer model:
+BLEU = 64.23, 84.7/73.2/65.3/59.6 (BP=0.916, ratio=0.920, hyp_len=72366, ref_len=78676)
+Evaluation with hyp.iter75000.my, Transformer model:
+BLEU = 64.23, 84.6/73.1/65.4/59.7 (BP=0.916, ratio=0.919, hyp_len=72340, ref_len=78676)
+Evaluation with hyp.iter80000.my, Transformer model:
+BLEU = 64.10, 84.5/73.0/65.3/59.6 (BP=0.916, ratio=0.919, hyp_len=72299, ref_len=78676)
 ```
 
-```
-
-results ...  
-
-```
-
-```
 
