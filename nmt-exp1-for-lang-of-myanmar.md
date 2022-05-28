@@ -1682,18 +1682,119 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 training ...  
 
 ```
+[2022-05-28 15:57:52] Seen 5,452 samples
+[2022-05-28 15:57:52] Starting data epoch 2746 in logical epoch 2746
+[2022-05-28 15:57:52] [data] Shuffling data
+[2022-05-28 15:57:52] [data] Done reading 5,452 sentences
+[2022-05-28 15:57:52] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 15:57:53] Seen 5,452 samples
+[2022-05-28 15:57:53] Starting data epoch 2747 in logical epoch 2747
+[2022-05-28 15:57:53] [data] Shuffling data
+[2022-05-28 15:57:53] [data] Done reading 5,452 sentences
+[2022-05-28 15:57:53] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 15:57:55] Seen 5,452 samples
+[2022-05-28 15:57:55] Starting data epoch 2748 in logical epoch 2748
+[2022-05-28 15:57:55] [data] Shuffling data
+[2022-05-28 15:57:55] [data] Done reading 5,452 sentences
+[2022-05-28 15:57:55] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 15:57:57] Seen 5,452 samples
+[2022-05-28 15:57:57] Starting data epoch 2749 in logical epoch 2749
+[2022-05-28 15:57:57] [data] Shuffling data
+[2022-05-28 15:57:57] [data] Done reading 5,452 sentences
+[2022-05-28 15:57:57] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 15:57:58] Seen 5,452 samples
+[2022-05-28 15:57:58] Starting data epoch 2750 in logical epoch 2750
+[2022-05-28 15:57:58] [data] Shuffling data
+[2022-05-28 15:57:58] [data] Done reading 5,452 sentences
+[2022-05-28 15:57:59] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 15:58:00] Ep. 2750 : Up. 55000 : Sen. 5,452 : Cost 1.04303694 * 1,537,400 @ 3,500 after 169,114,000 : Time 41.96s : 36637.84 words/s : gNorm 0.1151 : L.r. 1.6181e-04
+[2022-05-28 15:58:00] Saving model weights and runtime parameters to model.transformer.mybk/model.iter55000.npz
+[2022-05-28 15:58:00] Saving model weights and runtime parameters to model.transformer.mybk/model.npz
+[2022-05-28 15:58:01] Saving Adam parameters
+[2022-05-28 15:58:01] [training] Saving training checkpoint to model.transformer.mybk/model.npz and model.transformer.mybk/model.npz.optimizer.npz
+[2022-05-28 15:58:03] [valid] Ep. 2750 : Up. 55000 : cross-entropy : 27.1532 : stalled 10 times (last best: 21.7688)
+[2022-05-28 15:58:03] [valid] Ep. 2750 : Up. 55000 : perplexity : 10.7665 : stalled 10 times (last best: 6.72077)
+[2022-05-28 15:58:03] [valid] Ep. 2750 : Up. 55000 : bleu : 49.4682 : stalled 8 times (last best: 50.0873)
+[2022-05-28 15:58:03] Training finished
+[2022-05-28 15:58:03] Saving model weights and runtime parameters to model.transformer.mybk/model.npz
+[2022-05-28 15:58:04] Saving Adam parameters
+[2022-05-28 15:58:04] [training] Saving training checkpoint to model.transformer.mybk/model.npz and model.transformer.mybk/model.npz.optimizer.npz
 
+real    77m38.136s
+user    96m55.906s
+sys     1m18.916s
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.mybk.sh
 ```
 
 testing and evaluation ...  
 ```
+[2022-05-28 16:51:08] Best translation 638 : ဖယ် သူ တွေ အိပ် နေ ကြ ရိ လဲ ။
+[2022-05-28 16:51:08] Best translation 639 : မင်း စ ကား ပြော နေ စာ ။
+[2022-05-28 16:51:08] Best translation 640 : သူ ဒယ် စာ ဝဝို ဆဆုံး ဖြတ် ခခဲ့ ဟယ် ။
+[2022-05-28 16:51:08] Best translation 641 : ငါ့ အ နား နေ ရ ဇာ ပျော် လား ။
+[2022-05-28 16:51:08] Best translation 642 : ငါ့ ဝဝို ယယုံ တတဲ့ သူ ဒေ ဂဂို ဘယ် ခါ မှ သစ္စာ မ ဖောက် ရ ။
+[2022-05-28 16:51:08] Best translation 643 : မင်း ဘိန် ရိ ဟင်း ချက် မ ချက် ။
+[2022-05-28 16:51:08] Best translation 644 : နင် ဒယ် စာ ဝဝို စဉ်း စား ကြည့် ရရိုက် ။
+[2022-05-28 16:51:08] Best translation 645 : တံ ခါး ဖွင့် ရင် စိတ် ဆဆိုး ဝဝိဝို့ လား ။
+[2022-05-28 16:51:08] Best translation 646 : ဟုတ် ဝယ် ၊ ရ ရရ် ။
+[2022-05-28 16:51:08] Best translation 647 : နင် ဘာ ဇာ လုပ် ထား ရယ် ။
+[2022-05-28 16:51:08] Best translation 648 : ကျွန် တော် လလိလို့ ဒယ့် ဇာ ကကို ကာ ကွယ် ဝဝိဝို့ လား ။
+[2022-05-28 16:51:08] Best translation 649 : နင် ဘာ ဇာ တွေ လုပ် နေ ရယ် ။
+[2022-05-28 16:51:08] Best translation 650 : နင် ဘာ ဇာ တွေ လုပ် နေ ရယ် ။
+[2022-05-28 16:51:08] Best translation 651 : ခင် ဗျား လလို အပ် ရင် ရေ လလို အပ် နနိုင် ရရ် ။
+[2022-05-28 16:51:08] Best translation 652 : ကျွန် တော် ဝဝိဝို့ အအဲ့ ဒါ ဝဝို အ တည် မ ပြု ခခဲ့ ရ ။
+[2022-05-28 16:51:08] Best translation 653 : ငါ ငယ် ချစ် ဝဝိဝို့ မျှော် လင့် သွယ် ဝဝိဝို့ မျှော် လင့် တယ် ။
+[2022-05-28 16:51:08] Best translation 654 : နင် ဒုက္ခ မ ရောက် ဝ ။
+[2022-05-28 16:51:08] Best translation 655 : ငါ ပြော ဟာ ည နေ နေ့ လည် မှာ ကကိုယ် တတိတို့ တွင်း က စား ကြ မယ် ။
+[2022-05-28 16:51:08] Best translation 656 : ငါ ပြော ဟာ ည နေ နေ့ လည် မှာ ကကိုယ် တတိတို့ တွင်း က စား ကြ မယ် ။
+[2022-05-28 16:51:08] Best translation 657 : အယ့် ဒါ ဘယ် သသူ့ လှောင် အိမ် ရိ ။
+[2022-05-28 16:51:08] Best translation 658 : နင် သသူ့ ကကို မုန်း လလိုက် မယ် မ ဟုတ် ဝ လား ။
+[2022-05-28 16:51:08] Best translation 659 : နင့် ကြီး တတိတို့ က ဖယ် သူ တွေ ။
+[2022-05-28 16:51:08] Best translation 660 : ဖယ် သူ လေ ဝဝို မေး ကြ ရိ လဲ ။
+[2022-05-28 16:51:08] Best translation 661 : သူ ဒယ့် ဇာ ကကို လလို ချင် ဟုတ် ဝ လား ။
+[2022-05-28 16:51:08] Best translation 662 : ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+[2022-05-28 16:51:08] Best translation 663 : မင်း ငါ့ ကကို ရှင်း ပြ နနိုင် မ လား ။
+[2022-05-28 16:51:08] Best translation 664 : အဲ ဒီ ကကို သော ဖဖိဖို့ မင်း ကကို ငါ မ တတိုက် တွန်း ရ ။
+[2022-05-28 16:51:08] Best translation 665 : နင် ခ ရီး မ ထွက် ခခဲ့ ရ လား ။
+[2022-05-28 16:51:08] Best translation 666 : သူ တတိတို့ ဘ ဇာ လောက်် သတ္တိ ရှိ လဲ ။
+[2022-05-28 16:51:08] Best translation 667 : ဒယ် အ ထဲ မှာ အ ဝေး ဖုန်း ပြော ရယ် ။
+[2022-05-28 16:51:08] Best translation 668 : ဒယ် အ ထဲ မှာ အ ဝေး ဖုန်း ပြော ရယ် ။
+[2022-05-28 16:51:08] Best translation 669 : ဒယ် ကောင် မ ငယ် ကကို လက် ထပ် လလိုက် ရယ် လား ။
+[2022-05-28 16:51:08] Total time: 5.12985s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    1m1.478s
+user    1m41.286s
+sys     0m12.201s
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mybk$
 ```
 
 results ...  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.mybk$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 47.81, 75.3/54.1/41.5/33.9 (BP=0.977, ratio=0.978, hyp_len=6666, ref_len=6818)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 48.56, 75.8/54.9/42.4/34.6 (BP=0.976, ratio=0.977, hyp_len=6658, ref_len=6818)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 48.84, 75.7/55.0/42.7/34.9 (BP=0.978, ratio=0.979, hyp_len=6672, ref_len=6818)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 48.99, 75.4/54.7/42.4/34.5 (BP=0.988, ratio=0.988, hyp_len=6737, ref_len=6818)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 49.32, 75.4/55.1/43.0/35.2 (BP=0.985, ratio=0.985, hyp_len=6716, ref_len=6818)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 49.56, 75.6/55.5/43.1/35.1 (BP=0.987, ratio=0.987, hyp_len=6730, ref_len=6818)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 49.59, 75.5/55.1/42.9/35.1 (BP=0.991, ratio=0.991, hyp_len=6758, ref_len=6818)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 49.57, 75.8/55.5/43.1/35.4 (BP=0.985, ratio=0.985, hyp_len=6717, ref_len=6818)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 49.80, 75.8/56.0/43.7/35.8 (BP=0.981, ratio=0.981, hyp_len=6690, ref_len=6818)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 49.40, 75.5/55.1/42.9/35.0 (BP=0.988, ratio=0.988, hyp_len=6739, ref_len=6818)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 49.50, 75.6/55.2/43.0/35.4 (BP=0.986, ratio=0.986, hyp_len=6724, ref_len=6818)
 ```
 
 ## bk-my, syllable unit, Transformer
