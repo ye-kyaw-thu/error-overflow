@@ -1846,11 +1846,210 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 
 training ...  
 
+```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.bkmy.sh
+...
+...
+...
+[2022-05-28 19:27:49] Seen 5,452 samples
+[2022-05-28 19:27:49] Starting data epoch 3232 in logical epoch 3232
+[2022-05-28 19:27:49] [data] Shuffling data
+[2022-05-28 19:27:49] [data] Done reading 5,452 sentences
+[2022-05-28 19:27:49] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 19:27:51] Seen 5,452 samples
+[2022-05-28 19:27:51] Starting data epoch 3233 in logical epoch 3233
+[2022-05-28 19:27:51] [data] Shuffling data
+[2022-05-28 19:27:51] [data] Done reading 5,452 sentences
+[2022-05-28 19:27:51] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 19:27:52] Seen 5,452 samples
+[2022-05-28 19:27:52] Starting data epoch 3234 in logical epoch 3234
+[2022-05-28 19:27:52] [data] Shuffling data
+[2022-05-28 19:27:52] [data] Done reading 5,452 sentences
+[2022-05-28 19:27:52] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 19:27:54] Seen 5,452 samples
+[2022-05-28 19:27:54] Starting data epoch 3235 in logical epoch 3235
+[2022-05-28 19:27:54] [data] Shuffling data
+[2022-05-28 19:27:54] [data] Done reading 5,452 sentences
+[2022-05-28 19:27:54] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 19:27:55] Seen 5,452 samples
+[2022-05-28 19:27:55] Starting data epoch 3236 in logical epoch 3236
+[2022-05-28 19:27:55] [data] Shuffling data
+[2022-05-28 19:27:55] [data] Done reading 5,452 sentences
+[2022-05-28 19:27:55] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 19:27:56] Ep. 3236 : Up. 55000 : Sen. 1,668 : Cost 1.02800620 * 1,979,193 @ 3,560 after 217,828,391 : Time 44.00s : 44979.97 words/s : gNorm 0.1051 : L.r. 1.6181e-04
+[2022-05-28 19:27:56] Saving model weights and runtime parameters to model.transformer.bkmy/model.iter55000.npz
+[2022-05-28 19:27:56] Saving model weights and runtime parameters to model.transformer.bkmy/model.npz
+[2022-05-28 19:27:56] Saving Adam parameters
+[2022-05-28 19:27:56] [training] Saving training checkpoint to model.transformer.bkmy/model.npz and model.transformer.bkmy/model.npz.optimizer.npz
+[2022-05-28 19:27:59] [valid] Ep. 3236 : Up. 55000 : cross-entropy : 23.4476 : stalled 10 times (last best: 19.2605)
+[2022-05-28 19:27:59] [valid] Ep. 3236 : Up. 55000 : perplexity : 6.48515 : stalled 10 times (last best: 4.64446)
+[2022-05-28 19:27:59] [valid] Ep. 3236 : Up. 55000 : bleu : 58.041 : stalled 9 times (last best: 58.1815)
+[2022-05-28 19:27:59] Training finished
+[2022-05-28 19:27:59] Saving model weights and runtime parameters to model.transformer.bkmy/model.npz
+[2022-05-28 19:27:59] Saving Adam parameters
+[2022-05-28 19:27:59] [training] Saving training checkpoint to model.transformer.bkmy/model.npz and model.transformer.bkmy/model.npz.optimizer.npz
+
+real    81m1.028s
+user    102m59.748s
+sys     1m35.956s
+```
+
+testing and evaluation ...  
+
+```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.bkmy$ time ./test-eval.sh
+...
+...
+...
+[2022-05-28 19:34:28] Best translation 636 : ကောင် လေး တွေ က ဟဟို မှာ ။
+[2022-05-28 19:34:28] Best translation 637 : သူ တတိတို့ ဘယ် သသူ့ ကကို မှ သံ သ ယ မ ဝင် ခခဲ့ ဘူး လား ။
+[2022-05-28 19:34:28] Best translation 638 : ဘယ် သူ တွေ အိပ် နေ ကြ တာ လဲ ။
+[2022-05-28 19:34:28] Best translation 639 : မင်း စ ကား ပြော နေ တာ ။
+[2022-05-28 19:34:29] Best translation 640 : သူ အအဲ့ ဒါ ကကို ဆဆုံး ဖြတ် ခခဲ့ တယ် ။
+[2022-05-28 19:34:29] Best translation 641 : ငါ့ အ နား မှာ နေ ရ တာ ပျော် လား ။
+[2022-05-28 19:34:29] Best translation 642 : ကျွန် တော့် ကကို ယယုံ ကြည် တတဲ့ လူ တွေ ကကို ဘယ် တော့ မှ သစ္စာ မ ဖောက် ဘူး ။
+[2022-05-28 19:34:29] Best translation 643 : ဘာ့ ကြော င့် မင်း အ ကြောင်း မ ချက် တာ လဲ ။
+[2022-05-28 19:34:29] Best translation 644 : ခင် ဗျား အအဲ့ ဒါ ကကို စဉ်း စား ကြ ည့် ပါ ဦး ။
+[2022-05-28 19:34:29] Best translation 645 : တံ ခါး ဖွ င့် ရင် စိတ် ဆဆိုး မှာ လား ။
+[2022-05-28 19:34:29] Best translation 646 : ဟုတ် ရ ပါ တယ် ။
+[2022-05-28 19:34:29] Best translation 647 : မင်း ဘာ လုပ် ထား သ လဲ ။
+[2022-05-28 19:34:29] Best translation 648 : ကျွန် တော် တတိတို့ အအဲ့ ဒါ ကကို ကာ ကွယ် မှာ လား ။
+[2022-05-28 19:34:29] Best translation 649 : မင်း ဘာ တွေ လုပ် နေ သေး တာ လဲ ။
+[2022-05-28 19:34:29] Best translation 650 : မင်း ဘာ တွေ လုပ် နေ သေး တာ လဲ ။
+[2022-05-28 19:34:29] Best translation 651 : ခင် ဗျား လလို ရင် ရေ ကြြိုက် သ လလို ရ နနိုင် တယ် ။
+[2022-05-28 19:34:29] Best translation 652 : ကျွန် တော် တတိတို့ အအဲ့ ဒါ ကကို အ တည် မ ပြု ခခဲ့ ကြ ဘူး လေ ။
+[2022-05-28 19:34:29] Best translation 653 : ကျွန် တော် ရရဲ့ ချစ် ဟောင်း ကကို ဆက် သွယ် ဖဖိဖို့ မျှော် လ င့် တယ် ။
+[2022-05-28 19:34:29] Best translation 654 : မင်း ဒုက္ခ မ ရောက် ဘူး ။
+[2022-05-28 19:34:29] Best translation 655 : ငါ ပြော ပြ မယ် စ နေ နေ့ မှာ ငါ တတိတို့ ကကိုယ် တတိုင် က စား မယ် ။
+[2022-05-28 19:34:29] Best translation 656 : ငါ ပြော ပြ မယ် စ နေ နေ့ မှာ ငါ တတိတို့ ကကိုယ် တတိုင် က စား မယ် ။
+[2022-05-28 19:34:29] Best translation 657 : ဒါ ဘယ် သသူ့ အိမ် လှောင် ပြောင် လဲ ။
+[2022-05-28 19:34:29] Best translation 658 : မင်း သသူ့ ကကို မုန်း နေ တာ မ ဟုတ် ဘူး လား ။
+[2022-05-28 19:34:29] Best translation 659 : မင်း ရရဲ့ ကြီး တွေ က ဘယ် သူ တွေ လဲ ။
+[2022-05-28 19:34:29] Best translation 660 : ဘယ် သူ တွေ ကကို မေး ခခဲ့ ကြ တာ လဲ ။
+[2022-05-28 19:34:29] Best translation 661 : သူ မ အအဲ့ ဒါ ကကို လလို ချင် မှာ မ ဟုတ် ဘူး ။
+[2022-05-28 19:34:29] Best translation 662 : ဘယ် လောက် စိတ် လှုပ် ရှား သ လဲ ။
+[2022-05-28 19:34:29] Best translation 663 : မင်း ငါ့ ကကို ရှင်း ပြ နနိုင် မ လား ။
+[2022-05-28 19:34:29] Best translation 664 : အဲ ဒီ ကကို သွား ဖဖိဖို့ ငါ မင်း ကကို ငါ မ တတိုက် တွန်း ဘူး ။
+[2022-05-28 19:34:29] Best translation 665 : မင်း ခ ရီး မ ထွက် ခခဲ့ ဘူး လား ။
+[2022-05-28 19:34:29] Best translation 666 : သူ တတိတို့ ဘယ် လောက် သတ္တိ ရှိ လဲ ။
+[2022-05-28 19:34:29] Best translation 667 : ဒီ အ ထဲ မှာ အ ဝေး ဖုန်း ပြော ရ တာ သိပ် များ ကြီး ရှိ တယ် ။
+[2022-05-28 19:34:29] Best translation 668 : ဒီ အ ထဲ မှာ အ ဝေး ဖုန်း ပြော ရ တာ သိပ် များ ကြီး ရှိ တယ် ။
+[2022-05-28 19:34:29] Best translation 669 : သူ မ ကကို လက် ထပ် လလိုက် တာ လား ။
+[2022-05-28 19:34:29] Total time: 5.67546s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+
+real    1m6.093s
+user    1m50.288s
+sys     0m12.507s
+```
+
+results ...  
+
+```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.bkmy$ cat eval-result.txt
+Evaluation with hyp.iter5000.my, Transformer model:
+BLEU = 58.83, 85.2/69.3/57.3/49.3 (BP=0.921, ratio=0.924, hyp_len=7005, ref_len=7585)
+Evaluation with hyp.iter10000.my, Transformer model:
+BLEU = 59.33, 85.4/69.8/57.9/50.1 (BP=0.920, ratio=0.923, hyp_len=7003, ref_len=7585)
+Evaluation with hyp.iter15000.my, Transformer model:
+BLEU = 59.68, 85.0/69.6/58.0/50.3 (BP=0.926, ratio=0.928, hyp_len=7041, ref_len=7585)
+Evaluation with hyp.iter20000.my, Transformer model:
+BLEU = 59.53, 84.5/69.0/57.4/49.9 (BP=0.931, ratio=0.933, hyp_len=7080, ref_len=7585)
+Evaluation with hyp.iter25000.my, Transformer model:
+BLEU = 59.88, 85.1/69.7/58.0/50.1 (BP=0.929, ratio=0.932, hyp_len=7068, ref_len=7585)
+Evaluation with hyp.iter30000.my, Transformer model:
+BLEU = 60.30, 84.7/69.4/58.1/50.2 (BP=0.937, ratio=0.939, hyp_len=7124, ref_len=7585)
+Evaluation with hyp.iter35000.my, Transformer model:
+BLEU = 60.12, 84.7/69.3/57.9/50.4 (BP=0.935, ratio=0.937, hyp_len=7105, ref_len=7585)
+Evaluation with hyp.iter40000.my, Transformer model:
+BLEU = 59.51, 84.6/69.0/57.4/49.7 (BP=0.931, ratio=0.933, hyp_len=7080, ref_len=7585)
+Evaluation with hyp.iter45000.my, Transformer model:
+BLEU = 59.97, 84.4/69.2/57.6/49.6 (BP=0.938, ratio=0.940, hyp_len=7130, ref_len=7585)
+Evaluation with hyp.iter50000.my, Transformer model:
+BLEU = 60.46, 84.4/69.3/58.0/50.3 (BP=0.941, ratio=0.943, hyp_len=7152, ref_len=7585)
+Evaluation with hyp.iter55000.my, Transformer model:
+BLEU = 60.41, 84.5/69.4/58.1/50.2 (BP=0.940, ratio=0.941, hyp_len=7140, ref_len=7585)
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.bkmy$
+```
+
+## bk-dw, Syllable, Transformer
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese and Ethnic Languages
+## used Marian NMT Framework for training
+## Last updated: 23 May 2022
+
+
+model_folder="model.transformer.bkdw";
+mkdir ${model_folder};
+data_path="/home/ye/exp/my-nmt/data/4nmt/dw-bk/";
+src="bk"; tgt="dw";
+
+marian \
+    --model ${model_folder}/model.npz --type transformer \
+    --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+    --max-length 200 \
+    --vocabs ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets ${data_path}/dev.${src} ${data_path}/dev.${tgt} \
+    --valid-translation-output ${model_folder}/valid.${src}-${tgt}.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 1 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > ${model_folder}/${src}-${tgt}.config.yml
+
+time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_folder}/transformer-${src}-${tgt}.log
+```
+
+Training ...  
+
+```
+
+```
+
+Testing ...  
+
+```
+
+```
+
+Results are as follows:  
+
+```
+
+```
+
+## dw-bk, Syllable, Transformer
+
+script for training ...  
+
 ```bash
 
 ```
 
-testing and evaluation ...  
+training ...  
+
+```
+
+```
+
+testing ...  
 
 ```
 
@@ -1861,4 +2060,5 @@ results ...
 ```
 
 ```
+
 
