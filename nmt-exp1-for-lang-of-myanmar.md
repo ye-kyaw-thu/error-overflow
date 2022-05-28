@@ -1812,7 +1812,7 @@ bash script
 
 model_folder="model.transformer.bkmy";
 mkdir ${model_folder};
-data_path="/home/ye/exp/my-nmt/data/4nmt/bk-my/";
+data_path="/home/ye/exp/my-nmt/data/4nmt/my-bk/";
 src="bk"; tgt="my";
 
 marian \
