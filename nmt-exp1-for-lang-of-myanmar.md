@@ -1514,19 +1514,70 @@ BLEU = 67.29, 89.5/76.5/65.5/57.8 (BP=0.943, ratio=0.945, hyp_len=7166, ref_len=
 training ...  
 
 ```
+[2022-05-27 23:13:20] Saving model weights and runtime parameters to model.transformer.skmy/model.npz
+[2022-05-27 23:13:22] Saving Adam parameters
+[2022-05-27 23:13:22] [training] Saving training checkpoint to model.transformer.skmy/model.npz and model.transformer.skmy/model.npz.optimizer.npz
+[2022-05-27 23:13:29] [valid] Ep. 432 : Up. 60000 : cross-entropy : 23.3281 : stalled 10 times (last best: 19.5287)
+[2022-05-27 23:13:29] [valid] Ep. 432 : Up. 60000 : perplexity : 31.1036 : stalled 10 times (last best: 17.7695)
+[2022-05-27 23:13:35] [valid] Ep. 432 : Up. 60000 : bleu : 11.7631 : stalled 9 times (last best: 13.6648)
+[2022-05-27 23:13:35] Training finished
+[2022-05-27 23:13:36] Saving model weights and runtime parameters to model.transformer.skmy/model.npz
+[2022-05-27 23:13:37] Saving Adam parameters
+[2022-05-27 23:13:38] [training] Saving training checkpoint to model.transformer.skmy/model.npz and model.transformer.skmy/model.npz.optimizer.npz
 
+real    250m32.321s
+user    277m42.417s
+sys     2m12.397s
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.skmy.sh
 ```
 
 testing and evaluation ...  
 
 ```
+[2022-05-28 13:18:38] Best translation 6851 : ငါ ကြောက်ဒူး တုန် နေတယ်
+[2022-05-28 13:18:38] Best translation 6852 : ကျွန်တော် စောစော မ ကြောက် နနိုင်ဘူး
+[2022-05-28 13:18:38] Best translation 6853 : မင်း လက်ခံ တတဲ့ အဖြေ
+[2022-05-28 13:18:38] Best translation 6854 : ခင်ဗျား ဘယ် အချိန် ကျ မလဲ
+[2022-05-28 13:18:38] Best translation 6855 : ကျွန်မကကို ချစ် တတဲ့ ကောင်မလေးက ငါ့ကကို ဘယလို သဘောရ သလဲ
+[2022-05-28 13:18:38] Best translation 6856 : ခင်ဗျား တတိတို့ မြန်မြန် တက် လိမ့်မယ်
+[2022-05-28 13:18:38] Total time: 48.21635s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    9m44.151s
+user    17m26.839s
+sys     1m36.002s
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.skmy$ time ./test-eval.sh
 ```
 
 results ...  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.skmy$ cat ./eval-result.txt
+Evaluation with hyp.iter5000.my, Transformer model:
+BLEU = 14.52, 32.4/16.6/11.0/7.6 (BP=1.000, ratio=1.006, hyp_len=39333, ref_len=39092)
+Evaluation with hyp.iter10000.my, Transformer model:
+BLEU = 15.88, 32.9/17.8/12.2/8.9 (BP=1.000, ratio=1.030, hyp_len=40275, ref_len=39092)
+Evaluation with hyp.iter15000.my, Transformer model:
+BLEU = 16.29, 33.3/18.2/12.5/9.3 (BP=1.000, ratio=1.019, hyp_len=39818, ref_len=39092)
+Evaluation with hyp.iter20000.my, Transformer model:
+BLEU = 16.05, 32.9/18.0/12.4/9.1 (BP=1.000, ratio=1.027, hyp_len=40150, ref_len=39092)
+Evaluation with hyp.iter25000.my, Transformer model:
+BLEU = 16.12, 32.8/18.0/12.5/9.2 (BP=1.000, ratio=1.028, hyp_len=40180, ref_len=39092)
+Evaluation with hyp.iter30000.my, Transformer model:
+BLEU = 15.58, 32.3/17.4/12.0/8.7 (BP=1.000, ratio=1.027, hyp_len=40156, ref_len=39092)
+Evaluation with hyp.iter35000.my, Transformer model:
+BLEU = 15.47, 32.1/17.3/11.9/8.7 (BP=1.000, ratio=1.037, hyp_len=40544, ref_len=39092)
+Evaluation with hyp.iter40000.my, Transformer model:
+BLEU = 15.24, 32.0/17.1/11.7/8.4 (BP=1.000, ratio=1.041, hyp_len=40687, ref_len=39092)
+Evaluation with hyp.iter45000.my, Transformer model:
+BLEU = 14.92, 31.8/16.9/11.4/8.1 (BP=1.000, ratio=1.047, hyp_len=40912, ref_len=39092)
+Evaluation with hyp.iter50000.my, Transformer model:
+BLEU = 14.73, 31.4/16.6/11.2/8.0 (BP=1.000, ratio=1.055, hyp_len=41259, ref_len=39092)
+Evaluation with hyp.iter55000.my, Transformer model:
+BLEU = 14.57, 31.2/16.5/11.1/7.9 (BP=1.000, ratio=1.063, hyp_len=41573, ref_len=39092)
+Evaluation with hyp.iter60000.my, Transformer model:
+BLEU = 14.43, 31.2/16.4/11.0/7.7 (BP=1.000, ratio=1.062, hyp_len=41523, ref_len=39092)
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.skmy$
 ```
 
 
