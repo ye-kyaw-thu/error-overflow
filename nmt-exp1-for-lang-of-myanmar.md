@@ -2413,13 +2413,74 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 Training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./seq2seq.mypo.sh
+...
+...
+...
+[2022-05-29 18:53:18] Seen 14,683 samples
+[2022-05-29 18:53:18] Starting data epoch 236 in logical epoch 236
+[2022-05-29 18:53:18] [data] Shuffling data
+[2022-05-29 18:53:18] [data] Done reading 14,683 sentences
+[2022-05-29 18:53:18] [data] Done shuffling 14,683 sentences to temp files
+[2022-05-29 18:54:56] Seen 14,683 samples
+[2022-05-29 18:54:56] Starting data epoch 237 in logical epoch 237
+[2022-05-29 18:54:56] [data] Shuffling data
+[2022-05-29 18:54:56] [data] Done reading 14,683 sentences
+[2022-05-29 18:54:56] [data] Done shuffling 14,683 sentences to temp files
+[2022-05-29 18:55:37] Ep. 237 : Up. 60000 : Sen. 6,320 : Cost 0.06320087 * 322,353 @ 801 after 38,767,073 : Time 192.76s : 1672.28 words/s : gNorm 0.6575
+[2022-05-29 18:55:37] Saving model weights and runtime parameters to model.seq2seq.mypo/model.iter60000.npz
+[2022-05-29 18:55:38] Saving model weights and runtime parameters to model.seq2seq.mypo/model.npz
+[2022-05-29 18:55:41] Saving Adam parameters
+[2022-05-29 18:55:41] [training] Saving training checkpoint to model.seq2seq.mypo/model.npz and model.seq2seq.mypo/model.npz.optimizer.npz
+[2022-05-29 18:55:58] [valid] Ep. 237 : Up. 60000 : cross-entropy : 42.052 : stalled 10 times (last best: 26.1201)
+[2022-05-29 18:55:59] [valid] Ep. 237 : Up. 60000 : perplexity : 46.0156 : stalled 10 times (last best: 10.7868)
+[2022-05-29 18:55:59] Translating validation set...
+[2022-05-29 18:55:59] Best translation 0 : ခွေ အအုံ ဗာႏ ဟောင် ကောင် ငတ်ꩻ နေင်ႏ နဝ်ꩻ နာꩻ သေ ဒျာႏ မွေး တဝ်း ဟောင်း
+[2022-05-29 18:55:59] Best translation 1 : ခွေ မာꩻ ထာꩻ မာꩻ
+[2022-05-29 18:55:59] Best translation 2 : နဝ်ꩻ နဝ်ꩻ ရန်ႏ နွတ် ဆီ ငတ်ꩻ ဆင့်
+[2022-05-29 18:55:59] Best translation 3 : တ ရက် တဝ်း ဝွေꩻ နဝ်ꩻ ယိင်း ဟဝ် ဒျာႏ
+[2022-05-29 18:55:59] Best translation 4 : ဝွေꩻ မူႏ ကူ ငီႏ ဖေႏ ဒျာႏ ဝွေꩻ သီး
+[2022-05-29 18:55:59] Best translation 5 : မွူး ရဝ်ꩻ နီ ခွေ အီး သဲင်ꩻ ဗာႏ လမ်း အ ခိန်ႏ မမုဲင်ꩻ ဟောင်း
+[2022-05-29 18:55:59] Best translation 10 : ဝွေꩻ ယယို ခါꩻ အဝ်ႏ မာꩻ အ စီꩻ အ ဝွေꩻ
+[2022-05-29 18:55:59] Best translation 20 : နဝ်ꩻ နဝ်ꩻ ထေ အာႏ တ ရန် အီး ထွာ တွုပ် နက် ပွယ်ꩻ ဒျာႏ
+[2022-05-29 18:55:59] Best translation 40 : အွဉ်ႏ ကေꩻ ဇူꩻ ယွုမ်း ဝွေꩻ သီး ဟဟုဲင်း
+[2022-05-29 18:55:59] Best translation 80 : နီ ထွား တီ ဗီ စွုမ်ႏ ဟာ ဟာ
+[2022-05-29 18:55:59] Best translation 160 : ခွေ အွဉ်ႏ နယ် ဖေႏ ဗာႏ ဟောင်း နာꩻ စူ မီႏ
+[2022-05-29 18:55:59] Best translation 320 : မဉ် ည တ ပတ် ရပ်
+[2022-05-29 18:56:00] Best translation 640 : ခွေ ဝေး ခခို နဝ်ꩻ ဝွေꩻ က မာꩻ ပ ဆဆိုး သေ သေ ဖဖုံႏ သူꩻ ဖေႏ က ထွာ မွွိုန်း အ လွဉ်ꩻ အ ပွန်း ယယို ထိန်ꩻ သိမ်ꩻ ဒျာႏ
+[2022-05-29 18:56:00] Best translation 1280 : နာꩻ အီး ခံႏ စာꩻ ဗာႏ နနုဲင်း မမုဲင်ꩻ ခွေ သေ ဒျာႏ
+[2022-05-29 18:56:01] Total translation time: 1.87302s
+[2022-05-29 18:56:01] [valid] Ep. 237 : Up. 60000 : bleu : 20.1234 : stalled 10 times (last best: 27.3743)
+[2022-05-29 18:56:01] Training finished
+[2022-05-29 18:56:01] Saving model weights and runtime parameters to model.seq2seq.mypo/model.npz
+[2022-05-29 18:56:04] Saving Adam parameters
+[2022-05-29 18:56:05] [training] Saving training checkpoint to model.seq2seq.mypo/model.npz and model.seq2seq.mypo/model.npz.optimizer.npz
 
+real    390m57.903s
+user    459m43.082s
+sys     0m43.574s
 ```
 
 bash script for testing and evaluation ...  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese and Ethnic Languages
+## used Marian NMT Framework for training
+## Last updated: 23 May 2022
+
+data_path="/home/ye/exp/my-nmt/data/4nmt/my-po/";
+src="my"; tgt="po";
+
+for i in {5000..60000..5000}
+do
+    marian-decoder -m ./model.iter$i.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 1 --output hyp.iter$i.${tgt} < ${data_path}/test.${src};
+    echo "Evaluation with hyp.iter$i.${tgt}, Transformer model:" >> eval-result.txt;
+    perl /home/ye/tool/moses-scripts/scripts/generic/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.iter$i.${tgt} >> eval-result.txt;
+
+done
 ```
 
 testing and evaluation ...  
