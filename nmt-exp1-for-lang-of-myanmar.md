@@ -2289,7 +2289,50 @@ done
 run test-eval.sh script ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.dwbk$ time ./test-eval.sh
+...
+...
+...
+[2022-05-29 12:09:31] Best translation 636 : သား ငယ် တွေ ရ ပါ ။
+[2022-05-29 12:09:31] Best translation 637 : နင် တတိတို့ ဖယ် သသူ့ ကကို သံ သ ယ မ ဝင် ခခဲ့ လဲ ။
+[2022-05-29 12:09:31] Best translation 638 : ဖယ် သူ တွေ အိပ် နေ ရိ လဲ ။
+[2022-05-29 12:09:31] Best translation 639 : မင်း စ ကား ပြော နေ စာ ။
+[2022-05-29 12:09:31] Best translation 640 : သူ ဒယ် စာ ဝဝို ဆဆုံး ဖြတ် ခခဲ့ ဟယ် ။
+[2022-05-29 12:09:31] Best translation 641 : ငါ့ နား ရ ဇာ ပျော် လား ။
+[2022-05-29 12:09:31] Best translation 642 : ငါ့ ဝဝို ယယုံ တတဲ့ သူ ဒေ ဂဂို ဘယ် ခါ မှ သစ္စာ မ ဖောက် ရ ။
+[2022-05-29 12:09:31] Best translation 643 : နင် ဘာ ဖြစ် ရိ ချက် မ ချစ် ။
+[2022-05-29 12:09:31] Best translation 644 : ခင် ဗျား ဒယ် စာ ဝဝို စဉ်း စား ကြည့် ရရိုက် ။
+[2022-05-29 12:09:31] Best translation 645 : တံ ခါး ပေါက် ဖွင့် ဟား ဇာ စိတ် ဆဆိုး လား ။
+[2022-05-29 12:09:31] Best translation 646 : ရ ရရ် လန်း ။
+[2022-05-29 12:09:31] Best translation 647 : နင် ဘာ လုပ် ခခဲ့ ရယ် ။
+[2022-05-29 12:09:31] Best translation 648 : ကျွန် တော် လလိလို့ ဒယ့် ဇာ ကကို ကာ ကွယ် မယ် လား ။
+[2022-05-29 12:09:31] Best translation 649 : နင် ဘာ ဇာ တွေ လုပ် နေ ရယ် ။
+[2022-05-29 12:09:31] Best translation 650 : ခင် ဗျား ဘာ လုပ် နေ ရယ် ။
+[2022-05-29 12:09:31] Best translation 651 : နင် လလို အပ် တတဲ့ ရေ တော့ များ နနိုင် ရယ် ။
+[2022-05-29 12:09:31] Best translation 652 : ကျွန် တော် ဝဝိဝို့ အအဲ့ ဒါ ဝဝို အ တည် မ ပြု ခခဲ့ ရ ။
+[2022-05-29 12:09:31] Best translation 653 : ငါ သူ ငယ် ကကို ချစ် ဝဝိဝို့ မျှော် လင့် သွယ် တယ် ။
+[2022-05-29 12:09:31] Best translation 654 : နင် ဒုက္ခ မ ရောက် ဝှက် ။
+[2022-05-29 12:09:31] Best translation 655 : ငါ ပြော နေ နေ့ ကျ ရင် ကကိုး နာ မည် က စား မယ် ။
+[2022-05-29 12:09:31] Best translation 656 : ငါ ပြော နေ နေ့ လည် မင်း စား နေ မယ် ။
+[2022-05-29 12:09:31] Best translation 657 : အယ့် ဒါ ဘယ် သသူ့ အိမ် လှောင် ရိ ။
+[2022-05-29 12:09:31] Best translation 658 : နင် သသူ့ ဝဝို မုန်း ခခဲ့ ရ မ ဟုတ် ဝ လား ။
+[2022-05-29 12:09:31] Best translation 659 : နင့် မိ ဘ ကြီး တတိတို့ က ဖယ် သူ တွေ ။
+[2022-05-29 12:09:31] Best translation 660 : ဖယ် သူ တွေ ဝဝို မေး ခခဲ့ ရိ လဲ ။
+[2022-05-29 12:09:31] Best translation 661 : သူ ဒယ့် ဇာ ကကို လလို ချင် ဟုတ် ဝ လား ။
+[2022-05-29 12:09:31] Best translation 662 : ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+[2022-05-29 12:09:31] Best translation 663 : မင်း ငါ့ ကကို ရှင်း ပြ ပါ လား ။
+[2022-05-29 12:09:31] Best translation 664 : အဲ ဒီ ကကို သော ဖဖိဖို့ မ တတိုက် တွန်း ရ ။
+[2022-05-29 12:09:31] Best translation 665 : နင် ခ ရီး မ ထွက် ရ လား ။
+[2022-05-29 12:09:31] Best translation 666 : သူ တတိတို့ ဘ ဇာ လောက်် သတ္တိ ရှိ လဲ ။
+[2022-05-29 12:09:31] Best translation 667 : ဒါ ထဲ မှာ ဖုန်း ကကို ဆက် ရယ် ။
+[2022-05-29 12:09:31] Best translation 668 : ဒါ ထဲ မှာ ဖုန်း ပြော စ ရာ ရီး ရ ရယ် ။
+[2022-05-29 12:09:31] Best translation 669 : ဒယ် ကောင် မ ငယ် ဝဝို လက် ထပ် လလိုက် ရယ် လား ။
+[2022-05-29 12:09:31] Total time: 5.20990s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    1m1.914s
+user    1m42.010s
+sys     0m12.373s
 ```
 
 results ...  
