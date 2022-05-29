@@ -2217,7 +2217,51 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.dwbk.sh
+...
+...
+...
+[2022-05-29 11:58:05] Seen 5,452 samples
+[2022-05-29 11:58:05] Starting data epoch 2746 in logical epoch 2746
+[2022-05-29 11:58:05] [data] Shuffling data
+[2022-05-29 11:58:05] [data] Done reading 5,452 sentences
+[2022-05-29 11:58:05] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-29 11:58:07] Seen 5,452 samples
+[2022-05-29 11:58:07] Starting data epoch 2747 in logical epoch 2747
+[2022-05-29 11:58:07] [data] Shuffling data
+[2022-05-29 11:58:07] [data] Done reading 5,452 sentences
+[2022-05-29 11:58:07] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-29 11:58:09] Seen 5,452 samples
+[2022-05-29 11:58:09] Starting data epoch 2748 in logical epoch 2748
+[2022-05-29 11:58:09] [data] Shuffling data
+[2022-05-29 11:58:09] [data] Done reading 5,452 sentences
+[2022-05-29 11:58:09] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-29 11:58:10] Seen 5,452 samples
+[2022-05-29 11:58:10] Starting data epoch 2749 in logical epoch 2749
+[2022-05-29 11:58:10] [data] Shuffling data
+[2022-05-29 11:58:10] [data] Done reading 5,452 sentences
+[2022-05-29 11:58:10] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-29 11:58:12] Seen 5,452 samples
+[2022-05-29 11:58:12] Starting data epoch 2750 in logical epoch 2750
+[2022-05-29 11:58:12] [data] Shuffling data
+[2022-05-29 11:58:12] [data] Done reading 5,452 sentences
+[2022-05-29 11:58:12] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-29 11:58:14] Ep. 2750 : Up. 55000 : Sen. 5,452 : Cost 1.04432809 * 1,537,400 @ 3,500 after 169,114,000 : Time 42.10s : 36514.37 words/s : gNorm 0.1223 : L.r. 1.6181e-04
+[2022-05-29 11:58:14] Saving model weights and runtime parameters to model.transformer.dwbk/model.iter55000.npz
+[2022-05-29 11:58:14] Saving model weights and runtime parameters to model.transformer.dwbk/model.npz
+[2022-05-29 11:58:15] Saving Adam parameters
+[2022-05-29 11:58:15] [training] Saving training checkpoint to model.transformer.dwbk/model.npz and model.transformer.dwbk/model.npz.optimizer.npz
+[2022-05-29 11:58:17] [valid] Ep. 2750 : Up. 55000 : cross-entropy : 32.6933 : stalled 10 times (last best: 25.9234)
+[2022-05-29 11:58:17] [valid] Ep. 2750 : Up. 55000 : perplexity : 17.4842 : stalled 10 times (last best: 9.66786)
+[2022-05-29 11:58:17] [valid] Ep. 2750 : Up. 55000 : bleu : 38.7547 : stalled 9 times (last best: 39.062)
+[2022-05-29 11:58:17] Training finished
+[2022-05-29 11:58:17] Saving model weights and runtime parameters to model.transformer.dwbk/model.npz
+[2022-05-29 11:58:18] Saving Adam parameters
+[2022-05-29 11:58:18] [training] Saving training checkpoint to model.transformer.dwbk/model.npz and model.transformer.dwbk/model.npz.optimizer.npz
 
+real    77m53.271s
+user    96m45.571s
+sys     1m17.572s
 ```
 
 testing ...  
