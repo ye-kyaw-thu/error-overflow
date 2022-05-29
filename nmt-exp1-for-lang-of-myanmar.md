@@ -2020,7 +2020,51 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 Training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./transformer.bkdw.sh
+...
+...
+...
+[2022-05-28 21:33:55] Seen 5,452 samples
+[2022-05-28 21:33:55] Starting data epoch 3052 in logical epoch 3052
+[2022-05-28 21:33:55] [data] Shuffling data
+[2022-05-28 21:33:55] [data] Done reading 5,452 sentences
+[2022-05-28 21:33:55] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 21:33:56] Seen 5,452 samples
+[2022-05-28 21:33:56] Starting data epoch 3053 in logical epoch 3053
+[2022-05-28 21:33:56] [data] Shuffling data
+[2022-05-28 21:33:56] [data] Done reading 5,452 sentences
+[2022-05-28 21:33:56] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 21:33:58] Seen 5,452 samples
+[2022-05-28 21:33:58] Starting data epoch 3054 in logical epoch 3054
+[2022-05-28 21:33:58] [data] Shuffling data
+[2022-05-28 21:33:58] [data] Done reading 5,452 sentences
+[2022-05-28 21:33:58] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 21:33:59] Seen 5,452 samples
+[2022-05-28 21:33:59] Starting data epoch 3055 in logical epoch 3055
+[2022-05-28 21:33:59] [data] Shuffling data
+[2022-05-28 21:33:59] [data] Done reading 5,452 sentences
+[2022-05-28 21:33:59] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 21:34:01] Seen 5,452 samples
+[2022-05-28 21:34:01] Starting data epoch 3056 in logical epoch 3056
+[2022-05-28 21:34:01] [data] Shuffling data
+[2022-05-28 21:34:01] [data] Done reading 5,452 sentences
+[2022-05-28 21:34:01] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-28 21:34:02] Ep. 3056 : Up. 55000 : Sen. 2,902 : Cost 1.07905507 * 1,688,748 @ 3,260 after 185,669,413 : Time 43.85s : 38515.04 words/s : gNorm 0.0993 : L.r. 1.6181e-04
+[2022-05-28 21:34:02] Saving model weights and runtime parameters to model.transformer.bkdw/model.iter55000.npz
+[2022-05-28 21:34:02] Saving model weights and runtime parameters to model.transformer.bkdw/model.npz
+[2022-05-28 21:34:03] Saving Adam parameters
+[2022-05-28 21:34:03] [training] Saving training checkpoint to model.transformer.bkdw/model.npz and model.transformer.bkdw/model.npz.optimizer.npz
+[2022-05-28 21:34:05] [valid] Ep. 3056 : Up. 55000 : cross-entropy : 34.1193 : stalled 10 times (last best: 26.8236)
+[2022-05-28 21:34:05] [valid] Ep. 3056 : Up. 55000 : perplexity : 20.3596 : stalled 10 times (last best: 10.6884)
+[2022-05-28 21:34:05] [valid] Ep. 3056 : Up. 55000 : bleu : 33.4609 : stalled 10 times (last best: 35.0583)
+[2022-05-28 21:34:05] Training finished
+[2022-05-28 21:34:05] Saving model weights and runtime parameters to model.transformer.bkdw/model.npz
+[2022-05-28 21:34:06] Saving Adam parameters
+[2022-05-28 21:34:06] [training] Saving training checkpoint to model.transformer.bkdw/model.npz and model.transformer.bkdw/model.npz.optimizer.npz
 
+real    81m7.785s
+user    101m13.050s
+sys     1m31.560s
 ```
 
 Testing ...  
