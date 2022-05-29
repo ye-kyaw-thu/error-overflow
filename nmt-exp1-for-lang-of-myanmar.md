@@ -2067,6 +2067,28 @@ user    101m13.050s
 sys     1m31.560s
 ```
 
+bash script for testing and evaluation process ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese and Ethnic Languages
+## used Marian NMT Framework for training
+## Last updated: 23 May 2022
+
+data_path="/home/ye/exp/my-nmt/data/4nmt/dw-bk/";
+src="bk"; tgt="dw";
+
+for i in {5000..55000..5000}
+do
+    marian-decoder -m ./model.iter$i.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 1 --output hyp.iter$i.${tgt} < ${data_path}/test.${src};
+    echo "Evaluation with hyp.iter$i.${tgt}, Transformer model:" >> eval-result.txt;
+    perl /home/ye/tool/moses-scripts/scripts/generic/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.iter$i.${tgt} >> eval-result.txt;
+
+done
+```
+
 Testing ...  
 
 ```
