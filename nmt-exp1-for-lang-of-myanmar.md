@@ -2486,13 +2486,78 @@ done
 testing and evaluation ...  
 
 ```
+[2022-05-29 19:44:40] Best translation 1801 : ဝွေꩻ ထေင် တဝ်း ဝွေꩻ မူႏ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1802 : တ ကောက် ဗေး အဝ်ႏ ခံ ပေ့ꩻ ခါꩻ
+[2022-05-29 19:44:40] Best translation 1803 : အ ခိန်ႏ ထင်ႏ ည ပ သာႏ မꩻ မစ္စ တာ ပ ရရိုက် ကွဲး တွော့ꩻ ယိင်း ယံ လွဉ် ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1804 : မမဲ့ꩻ နာꩻ သေ နန်း ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1805 : နဝ်ꩻ နဝ်ꩻ နာꩻ သွဉ် လွူ တဝ်း ဟောင်း
+[2022-05-29 19:44:40] Best translation 1806 : ဝွေꩻ မူႏ အီး လွောက် လွဉ်ꩻ မွေး တဝ်း နာꩻ
+[2022-05-29 19:44:40] Best translation 1807 : ဝွေꩻ မူႏ နဝ်ꩻ သ ဝင်ႏ စာꩻ ထ မမုဲင်ꩻ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1808 : ခွေ ဟဟိုꩻ ကကိုး မွေး စွဉ်ႏ ထာꩻ
+[2022-05-29 19:44:40] Best translation 1809 : ဝွေꩻ မာႏ အ မာႏ အ ကျောင်ꩻ ဝွေꩻ ဝွန်ႏ ခံꩻ ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1810 : အီး မာꩻ နဝ်ꩻ နဝ်ꩻ စောင်း မꩻ စွꩻ ခွင်ꩻ ဖေႏ နာꩻ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1811 : နဝ်ꩻ နဝ်ꩻ နာꩻ အီး တဲမ်း ချာ ယင်း တ လ တဝ်း
+[2022-05-29 19:44:40] Best translation 1812 : ဝွေꩻ ထျꩻ နဝ်ꩻ အ ယံ သွတ် အ ခိန်ႏ ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1813 : ဟန် အအို သဉ် ဟန် အအို လာႏ ယယို နဝ်ꩻ တ မဉ် ဖူႏ ဟဝ် တဝ်း အ အံႏ အ အွ ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1814 : အီး အွ နေင်ႏ ထီ တ မွေး တဝ်း
+[2022-05-29 19:44:40] Best translation 1815 : ခွေ အီး ထထဲ့ꩻ ဆဆုဲင်ꩻ ‌ ထန်ႏ ထထို ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1816 : နာꩻ က ယူႏ ဒါႏ အ ဖြေႏ
+[2022-05-29 19:44:40] Best translation 1817 : ပျော်ႏ ခ ရာႏ ဟဝ် ငါႏ ဝါႏ မွူး နီ ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1818 : ခွေ အ တာႏ ဒွွိုႏ ဗာႏ ဟန် အအို ယယို နဝ်ꩻ အ ဆင်ႏ ပြေႏ ဒျာႏ
+[2022-05-29 19:44:40] Best translation 1819 : နာꩻ အဝ်ႏ လလိုႏ အအုံ ပ ဆား
+[2022-05-29 19:44:40] Best translation 1820 : ယယို ခါꩻ ထထဲ့ꩻ ဆဆုဲင်ꩻ ထထိုꩻ လဲဉ်း
+[2022-05-29 19:44:40] Best translation 1821 : ဝွေꩻ မူႏ တ ပေ့ꩻ တဝ်း တ ခါꩻ
+[2022-05-29 19:44:40] Best translation 1822 : ခွေ အအုံ ဗာႏ ယယို ကကို နဝ်ꩻ အဝ်ႏ လဲဉ်း အ နေင်ႏ ၂ ၀
+[2022-05-29 19:44:40] Best translation 1823 : နီ ဖျင် တင် ခါꩻ ဗေ ဟမ်ႏ ဖက်ꩻ ခေါ် နမ်း မန်ꩻ ဗာႏ ထီ ဆုမ် ဖဖုံႏ
+[2022-05-29 19:44:40] Best translation 1824 : ခွေ နဝ်ꩻ ယိင်း မဉ် လ ဒျာႏ လိတ် တဲမ်း ခွင်ꩻ
+[2022-05-29 19:44:40] Best translation 1825 : ဝွေꩻ အဝ်ႏ ထောင် တ ဖူꩻ တွင်ꩻ ခွေ ခင်ႏ ဆာ ထထို
+[2022-05-29 19:44:40] Best translation 1826 : နာꩻ ပပို လီꩻ တ စု အ ကကို ရောႏ ဂါႏ ထွာ နေ တ ဖြာꩻ ဖြာꩻ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1827 : ယယို ခါꩻ သူꩻ နား ရီး ဗော့ꩻ ဗော့ꩻ လဲဉ်း
+[2022-05-29 19:44:40] Best translation 1828 : ကွပ် ပွွိုး သ ရေ ငါႏ တဲင်ꩻ
+[2022-05-29 19:44:40] Best translation 1829 : ခွေ ဖေႏ ဗာႏ နာꩻ ဒုက္ခ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1830 : နီ ဖါꩻ နဝ်ꩻ ဝွေꩻ မဉ် ဖဖုဲင်ꩻ ခိန်ႏ တဲမ်း ဒျာႏ ဝတ္ထု က ဗျာ
+[2022-05-29 19:44:40] Best translation 1831 : အွွိုး အ မွူး သူꩻ လောင်း ကဝ်ႏ ရာꩻ တ အဝ်ႏ အာ တဝ်း
+[2022-05-29 19:44:40] Best translation 1832 : နာꩻ ထူႏ ယင်း ဟန် အအို ထ ပေႏ ဆေ့ ဆေ့ ဟောင်း
+[2022-05-29 19:44:40] Best translation 1833 : တ သီႏ ယယို နဝ်ꩻ ဟဝ် မွေး စွဉ်ႏ ထာꩻ နောႏ
+[2022-05-29 19:44:40] Best translation 1834 : ပွွိုး ထ မမုဲင်ꩻ ရီ ဟောင်း
+[2022-05-29 19:44:40] Total time: 18.55846s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    3m55.363s
+user    7m1.604s
+sys     0m35.615s
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mypo$ time ./test-eval.sh
 ```
 
 results of my-po, syllable unit, seq2seq:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mypo$ cat eval-result.txt
+Evaluation with hyp.iter5000.po, Transformer model:
+BLEU = 24.30, 66.0/38.1/22.7/13.7 (BP=0.817, ratio=0.832, hyp_len=15342, ref_len=18442)
+Evaluation with hyp.iter10000.po, Transformer model:
+BLEU = 28.34, 68.0/40.8/25.2/15.9 (BP=0.872, ratio=0.880, hyp_len=16228, ref_len=18442)
+Evaluation with hyp.iter15000.po, Transformer model:
+BLEU = 26.82, 64.7/37.6/22.7/14.2 (BP=0.901, ratio=0.905, hyp_len=16694, ref_len=18442)
+Evaluation with hyp.iter20000.po, Transformer model:
+BLEU = 25.23, 62.0/35.0/20.9/12.9 (BP=0.913, ratio=0.916, hyp_len=16900, ref_len=18442)
+Evaluation with hyp.iter25000.po, Transformer model:
+BLEU = 24.04, 59.9/33.1/19.5/12.0 (BP=0.921, ratio=0.924, hyp_len=17043, ref_len=18442)
+Evaluation with hyp.iter30000.po, Transformer model:
+BLEU = 23.35, 58.1/32.0/18.7/11.4 (BP=0.930, ratio=0.933, hyp_len=17199, ref_len=18442)
+Evaluation with hyp.iter35000.po, Transformer model:
+BLEU = 22.74, 57.0/31.0/17.9/10.8 (BP=0.940, ratio=0.941, hyp_len=17360, ref_len=18442)
+Evaluation with hyp.iter40000.po, Transformer model:
+BLEU = 21.98, 56.0/30.0/17.1/10.3 (BP=0.943, ratio=0.945, hyp_len=17421, ref_len=18442)
+Evaluation with hyp.iter45000.po, Transformer model:
+BLEU = 21.68, 54.8/29.2/16.6/9.9 (BP=0.957, ratio=0.958, hyp_len=17660, ref_len=18442)
+Evaluation with hyp.iter50000.po, Transformer model:
+BLEU = 21.46, 54.0/28.6/16.4/9.9 (BP=0.960, ratio=0.961, hyp_len=17721, ref_len=18442)
+Evaluation with hyp.iter55000.po, Transformer model:
+BLEU = 20.77, 53.3/28.0/15.9/9.3 (BP=0.957, ratio=0.958, hyp_len=17665, ref_len=18442)
+Evaluation with hyp.iter60000.po, Transformer model:
+BLEU = 20.49, 52.7/27.5/15.5/9.2 (BP=0.960, ratio=0.961, hyp_len=17714, ref_len=18442)
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.mypo$
 ```
 
 ## po-my, syllable unit, Seq2Seq
