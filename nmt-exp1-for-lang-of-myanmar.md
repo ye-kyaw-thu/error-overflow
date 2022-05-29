@@ -2141,7 +2141,30 @@ sys     0m12.440s
 Results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.bkdw$ cat eval-result.txt
+Evaluation with hyp.iter5000.dw, Transformer model:
+BLEU = 37.32, 72.5/49.0/34.6/26.6 (BP=0.878, ratio=0.884, hyp_len=5987, ref_len=6769)
+Evaluation with hyp.iter10000.dw, Transformer model:
+BLEU = 38.18, 72.3/48.8/34.6/26.8 (BP=0.898, ratio=0.902, hyp_len=6109, ref_len=6769)
+Evaluation with hyp.iter15000.dw, Transformer model:
+BLEU = 38.18, 72.5/48.8/34.6/26.8 (BP=0.897, ratio=0.902, hyp_len=6104, ref_len=6769)
+Evaluation with hyp.iter20000.dw, Transformer model:
+BLEU = 38.16, 71.7/48.4/34.2/26.5 (BP=0.906, ratio=0.910, hyp_len=6159, ref_len=6769)
+Evaluation with hyp.iter25000.dw, Transformer model:
+BLEU = 38.33, 72.1/48.6/34.8/27.1 (BP=0.899, ratio=0.904, hyp_len=6119, ref_len=6769)
+Evaluation with hyp.iter30000.dw, Transformer model:
+BLEU = 37.87, 71.3/47.7/34.1/26.4 (BP=0.906, ratio=0.910, hyp_len=6158, ref_len=6769)
+Evaluation with hyp.iter35000.dw, Transformer model:
+BLEU = 38.08, 70.9/47.7/34.2/26.5 (BP=0.910, ratio=0.914, hyp_len=6187, ref_len=6769)
+Evaluation with hyp.iter40000.dw, Transformer model:
+BLEU = 37.89, 71.1/47.9/34.1/26.0 (BP=0.908, ratio=0.912, hyp_len=6176, ref_len=6769)
+Evaluation with hyp.iter45000.dw, Transformer model:
+BLEU = 37.53, 71.1/47.4/33.7/25.8 (BP=0.908, ratio=0.912, hyp_len=6171, ref_len=6769)
+Evaluation with hyp.iter50000.dw, Transformer model:
+BLEU = 37.41, 71.1/47.5/33.8/26.0 (BP=0.901, ratio=0.906, hyp_len=6132, ref_len=6769)
+Evaluation with hyp.iter55000.dw, Transformer model:
+BLEU = 37.39, 70.5/47.2/33.6/25.9 (BP=0.906, ratio=0.910, hyp_len=6163, ref_len=6769)
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.transformer.bkdw$
 ```
 
 ## dw-bk, Syllable, Transformer
