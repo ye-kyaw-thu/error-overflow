@@ -1309,7 +1309,7 @@ I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4" and --dec
 ## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
 ## for NMT Experiments between Burmese and Ethnic Languages
 ## used Marian NMT Framework for seq2seq training
-## Last updated: 23 May 2022
+## Last updated: 30 May 2022
 
 ## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
 
