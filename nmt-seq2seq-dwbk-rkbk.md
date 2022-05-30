@@ -1343,13 +1343,53 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
+When I run I got "out of memory" ERROR as follows:  
+
 ```
+[2022-05-30 17:56:50] [data] Done reading 5,452 sentences
+[2022-05-30 17:56:50] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-30 17:56:50] [training] Batches are processed as 1 process(es) x 2 devices/process
+[2022-05-30 17:56:50] [memory] Reserving 729 MB, device gpu0
+[2022-05-30 17:56:50] [memory] Reserving 729 MB, device gpu1
+[2022-05-30 17:56:50] [memory] Reserving 729 MB, device gpu0
+[2022-05-30 17:56:51] [memory] Reserving 729 MB, device gpu1
+[2022-05-30 17:56:52] Parameter type float32, optimization type float32, casting types false
+[2022-05-30 17:56:52] Allocating memory for general optimizer shards
+[2022-05-30 17:56:52] [memory] Reserving 364 MB, device gpu0
+[2022-05-30 17:56:52] [memory] Reserving 364 MB, device gpu1
+[2022-05-30 17:56:52] Error: CUDA error 2 'out of memory' - /home/ye/tool/marian/src/tensors/gpu/device.cu:38: cudaMalloc(&data_, size)
+[2022-05-30 17:56:52] Error: Aborted from virtual void marian::gpu::Device::reserve(size_t) in /home/ye/tool/marian/src/tensors/gpu/device.cu:38
+Allocating memory for Adam-specific shards
+[memory] Reserving 729 MB, device gpu0
+
+[CALL STACK]
+[0x55f07f1566fb]    marian::gpu::Device::  reserve  (unsigned long)    + 0x127b
+[0x55f07f0cfcb3]    marian::Allocator::  Allocator  (marian::DeviceId,  unsigned long,  unsigned long,  unsigned long) + 0x243
+[0x55f07f0ca5bf]    marian::OptimizerBase::  update  (IntrusivePtr<marian::TensorBase>,  IntrusivePtr<marian::TensorBase>,  unsigned long,  float) + 0x7ef
+[0x55f07ee2a81e]                                                       + 0x92281e
+[0x55f07ee5b5fc]    marian::ThreadPool::enqueue<std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&>(std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&)::{lambda()#1}::  operator()  () const + 0x5c
+[0x55f07ee5c2d6]    std::_Function_handler<std::unique_ptr<std::__future_base::_Result_base,std::__future_base::_Result_base::_Deleter> (),std::__future_base::_Task_setter<std::unique_ptr<std::__future_base::_Result<float>,std::__future_base::_Result_base::_Deleter>,std::__future_base::_Task_state<marian::ThreadPool::enqueue<std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&>(std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&)::{lambda()#1},std::allocator<int>,float ()>::_M_run()::{lambda()#1},float>>::  _M_invoke  (std::_Any_data const&) + 0x36
+[0x55f07e8b59bd]    std::__future_base::_State_baseV2::  _M_do_set  (std::function<std::unique_ptr<std::__future_base::_Result_base,std::__future_base::_Result_base::_Deleter> ()>*,  bool*) + 0x2d
+[0x7fec02e6af68]                                                       + 0x99f68
+[0x55f07ee4cf45]    std::_Function_handler<void (),marian::ThreadPool::enqueue<std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&>(std::function<float (unsigned long,unsigned long,unsigned long)> const&,unsigned long&,unsigned long&,unsigned long&)::{lambda()#3}>::  _M_invoke  (std::_Any_data const&) + 0x115
+[0x55f07e8bb7b5]    std::thread::_State_impl<std::thread::_Invoker<std::tuple<marian::ThreadPool::reserve(unsigned long)::{lambda()#1}>>>::  _M_run  () + 0x1a5
+[0x7fec030d52c3]                                                       + 0xdc2c3
+[0x7fec02e65b43]                                                       + 0x94b43
+[0x7fec02ef7a00]                                                       + 0x126a00
+
+
+real    1m21.506s
+user    1m19.704s
+sys     0m1.813s
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$
+```
+
+And thus, I updated the training script as follows:  
+
+```bash
 
 ```
 
-```
-
-```
 
 ```
 
