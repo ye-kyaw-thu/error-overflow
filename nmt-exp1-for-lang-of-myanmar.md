@@ -2702,7 +2702,6 @@ done
 testing and evaluation ...  
 
 ```
-
 (marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.pomy$ time ./test-eval.sh
 ...
 ...
@@ -2752,3 +2751,32 @@ sys     0m34.885s
 results of my-po, syllable unit, seq2seq:  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.pomy$ cat eval-result.txt
+Evaluation with hyp.iter5000.my, Transformer model:
+BLEU = 31.68, 68.3/44.3/31.3/23.0 (BP=0.825, ratio=0.839, hyp_len=17359, ref_len=20700)
+Evaluation with hyp.iter10000.my, Transformer model:
+BLEU = 38.54, 70.6/48.7/36.5/28.5 (BP=0.887, ratio=0.893, hyp_len=18475, ref_len=20700)
+Evaluation with hyp.iter15000.my, Transformer model:
+BLEU = 39.13, 69.5/48.1/36.5/28.8 (BP=0.904, ratio=0.909, hyp_len=18808, ref_len=20700)
+Evaluation with hyp.iter20000.my, Transformer model:
+BLEU = 38.05, 67.2/46.1/35.0/27.8 (BP=0.914, ratio=0.917, hyp_len=18986, ref_len=20700)
+Evaluation with hyp.iter25000.my, Transformer model:
+BLEU = 36.91, 65.0/44.1/33.2/26.3 (BP=0.928, ratio=0.931, hyp_len=19266, ref_len=20700)
+Evaluation with hyp.iter30000.my, Transformer model:
+BLEU = 36.02, 62.9/42.5/31.9/25.2 (BP=0.940, ratio=0.942, hyp_len=19500, ref_len=20700)
+Evaluation with hyp.iter35000.my, Transformer model:
+BLEU = 35.66, 61.9/41.6/31.5/24.9 (BP=0.945, ratio=0.947, hyp_len=19596, ref_len=20700)
+Evaluation with hyp.iter40000.my, Transformer model:
+BLEU = 35.17, 60.9/40.8/31.0/24.6 (BP=0.948, ratio=0.949, hyp_len=19651, ref_len=20700)
+Evaluation with hyp.iter45000.my, Transformer model:
+BLEU = 34.65, 60.1/39.9/30.2/24.1 (BP=0.954, ratio=0.955, hyp_len=19766, ref_len=20700)
+Evaluation with hyp.iter50000.my, Transformer model:
+BLEU = 34.11, 59.5/39.2/29.6/23.6 (BP=0.955, ratio=0.956, hyp_len=19781, ref_len=20700)
+Evaluation with hyp.iter55000.my, Transformer model:
+BLEU = 33.97, 58.9/38.9/29.3/23.3 (BP=0.961, ratio=0.961, hyp_len=19900, ref_len=20700)
+Evaluation with hyp.iter60000.my, Transformer model:
+BLEU = 33.72, 58.3/38.4/29.0/23.1 (BP=0.963, ratio=0.963, hyp_len=19944, ref_len=20700)
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.pomy$
+```
+
+
