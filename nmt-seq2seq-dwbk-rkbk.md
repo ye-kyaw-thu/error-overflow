@@ -89,9 +89,93 @@ path: 9/
 (marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/dw-bk$
 ```
 
-```
+data info for rk-bk language pair:  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/rk-bk$ for i in {1..10}; do echo "path: $i/"; wc ./$i/*.{rk,bk}; done;
+path: 1/
+    800    5175   85367 ./1/dev.rk
+   1072    6739  110724 ./1/test.rk
+   8850   57071  927947 ./1/train.rk
+    800    5306   79716 ./1/dev.bk
+   1072    6956  103337 ./1/test.bk
+   8850   58185  864939 ./1/train.bk
+  21444  139432 2172030 total
+path: 2/
+    800    5175   85367 ./2/dev.rk
+   1072    7004  115305 ./2/test.rk
+   8850   56806  923366 ./2/train.rk
+    800    5306   79716 ./2/dev.bk
+   1072    7142  107707 ./2/test.bk
+   8850   57999  860569 ./2/train.bk
+  21444  139432 2172030 total
+path: 3/
+    800    5175   85367 ./3/dev.rk
+   1072    7019  114329 ./3/test.rk
+   8850   56791  924342 ./3/train.rk
+    800    5306   79716 ./3/dev.bk
+   1072    7152  106704 ./3/test.bk
+   8850   57989  861572 ./3/train.bk
+  21444  139432 2172030 total
+path: 4/
+    800    5175   85367 ./4/dev.rk
+   1072    6796  109356 ./4/test.rk
+   8850   57014  929315 ./4/train.rk
+    800    5306   79716 ./4/dev.bk
+   1072    6905  101225 ./4/test.bk
+   8850   58236  867051 ./4/train.bk
+  21444  139432 2172030 total
+path: 5/
+    800    5175   85367 ./5/dev.rk
+   1072    6851  109765 ./5/test.rk
+   8850   56959  928906 ./5/train.rk
+    800    5306   79716 ./5/dev.bk
+   1072    7007  102834 ./5/test.bk
+   8850   58134  865442 ./5/train.bk
+  21444  139432 2172030 total
+path: 6/
+    800    5175   85367 ./6/dev.rk
+   1072    6798  112415 ./6/test.rk
+   8850   57012  926256 ./6/train.rk
+    800    5306   79716 ./6/dev.bk
+   1072    6982  104609 ./6/test.bk
+   8850   58159  863667 ./6/train.bk
+  21444  139432 2172030 total
+path: 7/
+    800    5175   85367 ./7/dev.rk
+   1072    7021  112493 ./7/test.rk
+   8850   56789  926178 ./7/train.rk
+    800    5306   79716 ./7/dev.bk
+   1072    7142  105254 ./7/test.bk
+   8850   57999  863022 ./7/train.bk
+  21444  139432 2172030 total
+path: 8/
+    800    5175   85367 ./8/dev.rk
+   1072    7014  114156 ./8/test.rk
+   8850   56796  924515 ./8/train.rk
+    800    5306   79716 ./8/dev.bk
+   1072    7149  106394 ./8/test.bk
+   8850   57992  861882 ./8/train.bk
+  21444  139432 2172030 total
+path: 9/
+    800    5175   85367 ./9/dev.rk
+   1072    6830  110901 ./9/test.rk
+   8850   56980  927770 ./9/train.rk
+    800    5306   79716 ./9/dev.bk
+   1072    6918  103287 ./9/test.bk
+   8850   58223  864989 ./9/train.bk
+  21444  139432 2172030 total
+path: 10/
+    800    5128   83237 ./10/dev.rk
+   1072    6898  114428 ./10/test.rk
+   8850   56959  926373 ./10/train.rk
+    800    5173   77217 ./10/dev.bk
+   1072    7081  106504 ./10/test.bk
+   8850   58193  864271 ./10/train.bk
+  21444  139432 2172030 total
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/rk-bk$
+```
+
 
 ```
 
