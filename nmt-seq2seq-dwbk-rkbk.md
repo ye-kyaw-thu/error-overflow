@@ -1313,9 +1313,9 @@ I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4" and --dec
 
 ## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
 
-model_folder="model.seq2seq.bkdw";
+model_folder="model.seq2seq.bkdw.1";
 mkdir ${model_folder};
-data_path="/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/";
+data_path="/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/1/";
 src="bk"; tgt="dw";
 
 
