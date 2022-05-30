@@ -2607,7 +2607,52 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 Training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt$ ./seq2seq.pomy.sh
+...
+...
+...
+[2022-05-30 02:13:56] Seen 14,683 samples
+[2022-05-30 02:13:56] Starting data epoch 253 in logical epoch 253
+[2022-05-30 02:13:56] [data] Shuffling data
+[2022-05-30 02:13:56] [data] Done reading 14,683 sentences
+[2022-05-30 02:13:56] [data] Done shuffling 14,683 sentences to temp files
+[2022-05-30 02:15:26] Seen 14,683 samples
+[2022-05-30 02:15:26] Starting data epoch 254 in logical epoch 254
+[2022-05-30 02:15:26] [data] Shuffling data
+[2022-05-30 02:15:26] [data] Done reading 14,683 sentences
+[2022-05-30 02:15:26] [data] Done shuffling 14,683 sentences to temp files
+[2022-05-30 02:16:27] Ep. 254 : Up. 60000 : Sen. 10,042 : Cost 0.04517486 * 384,488 @ 784 after 46,047,048 : Time 192.37s : 1998.71 words/s : gNorm 0.5405
+[2022-05-30 02:16:27] Saving model weights and runtime parameters to model.seq2seq.pomy/model.iter60000.npz
+[2022-05-30 02:16:28] Saving model weights and runtime parameters to model.seq2seq.pomy/model.npz
+[2022-05-30 02:16:31] Saving Adam parameters
+[2022-05-30 02:16:32] [training] Saving training checkpoint to model.seq2seq.pomy/model.npz and model.seq2seq.pomy/model.npz.optimizer.npz
+[2022-05-30 02:16:45] [valid] Ep. 254 : Up. 60000 : cross-entropy : 30.9914 : stalled 10 times (last best: 19.0237)
+[2022-05-30 02:16:46] [valid] Ep. 254 : Up. 60000 : perplexity : 12.8022 : stalled 10 times (last best: 4.78294)
+[2022-05-30 02:16:46] Translating validation set...
+[2022-05-30 02:16:46] Best translation 0 : မင်း ငါ နား လည် တဲ့ အ ကျ င့် မ ရှိ ဘူး လား
+[2022-05-30 02:16:46] Best translation 1 : ငါ အ လုပ် လုပ် လို့ မ ရ ဘူး
+[2022-05-30 02:16:46] Best translation 2 : အဲ ဒါ ခု နစ် ဆ ယ့် ငါး ဆ င့် ကျ ပါ တယ်
+[2022-05-30 02:16:46] Best translation 3 : သူ မ ကို မ ချစ် ရ တာ ပို ကောင်း ပါ တယ်
+[2022-05-30 02:16:46] Best translation 4 : သူ တို့ ကို သူ မ မ ကူ ညီ ဘူး လား
+[2022-05-30 02:16:46] Best translation 5 : မင်း မ နက် ဘယ် အ ချိန် ပြန် ရောက် မ လဲ
+[2022-05-30 02:16:46] Best translation 10 : သူ အ ခု အ ရေး တ ကြီး ဖြစ် နေ တယ်
+[2022-05-30 02:16:46] Best translation 20 : အဲ ဒါ ကြောက် စ ရာ ခက် ခဲ တယ်
+[2022-05-30 02:16:46] Best translation 40 : သူ တို့ ကို မ ယုံ နဲ့
+[2022-05-30 02:16:46] Best translation 80 : ငါ ပါ တီ ပွဲ တစ် လုံး ကို ခေါ် မှာ မ ဟုတ် ဘူး
+[2022-05-30 02:16:46] Best translation 160 : ကြက် ဥ တစ် လုံး ဈေး နှုန်း က နှစ် ကျပ် ဖြစ် တယ်
+[2022-05-30 02:16:46] Best translation 320 : ငါ ၁ ၈ နှစ် ရှိ ပြီ
+[2022-05-30 02:16:46] Best translation 640 : ငါ တို့ ရဲ့ သူ ဌေး က စ တား ဝုဒ် မြို့ သစ် မှာ ရပ် လိုက် ရင် ငါ နေ တော့ မယ်
+[2022-05-30 02:16:47] Best translation 1280 : မင်း ဘယ် လို ခံ စား ရ မယ် ဆို တာ ငါ သိ တယ်
+[2022-05-30 02:16:48] Total translation time: 2.01597s
+[2022-05-30 02:16:48] [valid] Ep. 254 : Up. 60000 : bleu : 32.6198 : stalled 9 times (last best: 38.9791)
+[2022-05-30 02:16:48] Training finished
+[2022-05-30 02:16:48] Saving model weights and runtime parameters to model.seq2seq.pomy/model.npz
+[2022-05-30 02:16:51] Saving Adam parameters
+[2022-05-30 02:16:52] [training] Saving training checkpoint to model.seq2seq.pomy/model.npz and model.seq2seq.pomy/model.npz.optimizer.npz
 
+real    389m21.013s
+user    457m47.163s
+sys     0m43.778s
 ```
 
 bash script for testing and evaluation ...  
