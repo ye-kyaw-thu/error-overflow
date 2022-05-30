@@ -178,9 +178,32 @@ path: 10/
 
 ## Vocab Building
 
+write build-vocab.sh for bk-dw pair:  
+
+```bash
+#!/bin/bash
+
+## Written by Ye, Affiliate Professor, CADT, Cambodia
+## Last updated: 30 May 2022
+## Vocab building with marian
+
+for i in {1..10}
+do
+   cd $i; mkdir vocab;
+
+   # for dw
+   cat ./train.dw ./dev.dw > train-dev.dw
+   marian-vocab < ./train-dev.dw > ./vocab/vocab.dw.yml
+   # for bk
+   cat ./train.bk ./dev.bk > train-dev.bk
+   marian-vocab < ./train-dev.bk > ./vocab/vocab.bk.yml
+   pwd; wc ./vocab/*.{dw,bk}.yml;
+
+   cd ..;
+done
 ```
 
-```
+run build-vocab.sh for dw-bk pair:  
 
 ```
 
