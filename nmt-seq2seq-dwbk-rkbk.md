@@ -1300,7 +1300,7 @@ run build-vocab.sh for rk-bk language pair:
 
 ## Hyperparemeters of Seq2Seq or Script for Training
 
-I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4" and --dec-cell-base-depth to "4" ...  
+I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4", --dec-cell-base-depth to "4" and --workspace "5500" ...  
 1st trying with following bash script:  
 
 ```bash
