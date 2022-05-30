@@ -313,8 +313,29 @@ run build-vocab.sh for dw-bk pair:
 bash script for building vocab of rk-bk:  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye, Affiliate Professor, CADT, Cambodia
+## Last updated: 30 May 2022
+## Vocab building with marian for rk-bk language pair
+
+for i in {1..10}
+do
+   cd $i; mkdir vocab;
+
+   # for rk
+   cat ./train.rk ./dev.rk > train-dev.rk
+   marian-vocab < ./train-dev.rk > ./vocab/vocab.rk.yml
+   # for bk
+   cat ./train.bk ./dev.bk > train-dev.bk
+   marian-vocab < ./train-dev.bk > ./vocab/vocab.bk.yml
+   pwd; wc ./vocab/*.{rk,bk}.yml;
+
+   cd ..;
+done
 ```
+
+run build-vocab.sh for rk-bk language pair:  
 
 ```
 
