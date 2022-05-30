@@ -206,10 +206,113 @@ done
 run build-vocab.sh for dw-bk pair:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/dw-bk$ ./build-vocab.sh | tee build-vocab.log
+[2022-05-30 17:02:34] Creating vocabulary...
+[2022-05-30 17:02:34] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/1
+  7444  14890 235984 ./vocab/vocab.dw.yml
+  5580  11162 164884 ./vocab/vocab.bk.yml
+ 13024  26052 400868 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/2
+  7416  14834 235271 ./vocab/vocab.dw.yml
+  5573  11148 164680 ./vocab/vocab.bk.yml
+ 12989  25982 399951 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/3
+  7381  14764 233509 ./vocab/vocab.dw.yml
+  5528  11058 163311 ./vocab/vocab.bk.yml
+ 12909  25822 396820 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/4
+  7392  14786 233774 ./vocab/vocab.dw.yml
+  5533  11068 162563 ./vocab/vocab.bk.yml
+ 12925  25854 396337 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/5
+  7424  14850 235559 ./vocab/vocab.dw.yml
+  5513  11028 162525 ./vocab/vocab.bk.yml
+ 12937  25878 398084 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/6
+  7423  14848 235438 ./vocab/vocab.dw.yml
+  5567  11136 164787 ./vocab/vocab.bk.yml
+ 12990  25984 400225 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/7
+  7445  14892 235808 ./vocab/vocab.dw.yml
+  5568  11138 164545 ./vocab/vocab.bk.yml
+ 13013  26030 400353 total
+[2022-05-30 17:02:35] Creating vocabulary...
+[2022-05-30 17:02:35] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:35] Finished
+[2022-05-30 17:02:36] Creating vocabulary...
+[2022-05-30 17:02:36] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:36] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/8
+  7386  14774 233881 ./vocab/vocab.dw.yml
+  5540  11082 163542 ./vocab/vocab.bk.yml
+ 12926  25856 397423 total
+[2022-05-30 17:02:36] Creating vocabulary...
+[2022-05-30 17:02:36] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:36] Finished
+[2022-05-30 17:02:36] Creating vocabulary...
+[2022-05-30 17:02:36] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:36] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/9
+  7397  14796 234973 ./vocab/vocab.dw.yml
+  5532  11066 163226 ./vocab/vocab.bk.yml
+ 12929  25862 398199 total
+[2022-05-30 17:02:36] Creating vocabulary...
+[2022-05-30 17:02:36] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:36] Finished
+[2022-05-30 17:02:36] Creating vocabulary...
+[2022-05-30 17:02:36] [data] Creating vocabulary stdout from stdin
+[2022-05-30 17:02:36] Finished
+/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/10
+  7476  14954 237041 ./vocab/vocab.dw.yml
+  5545  11092 164075 ./vocab/vocab.bk.yml
+ 13021  26046 401116 total
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/dw-bk$
 ```
 
-```
+bash script for building vocab of rk-bk:  
+
+```bash
 
 ```
 
