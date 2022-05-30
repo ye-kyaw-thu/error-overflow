@@ -2703,6 +2703,50 @@ testing and evaluation ...
 
 ```
 
+(marian) ye@ye-System-Product-Name:~/exp/my-nmt/model.seq2seq.pomy$ time ./test-eval.sh
+...
+...
+...
+[2022-05-30 10:55:52] Best translation 1801 : သူ သူ မ ကကို မ ကျိန် ခခဲ့ ဘူး လား
+[2022-05-30 10:55:52] Best translation 1802 : ငါ တတိတို့ ၅ ယောက် ရှိ တယ် အစ် မ အ ကြီး နှစ် ယောက် ရယ် ငါ ရယ်
+[2022-05-30 10:55:52] Best translation 1803 : အ ချိန် ကုန် ခံ ကြ ည့် ပေး တတဲ့ အ တွက် ကျေး ဇူး ပဲ
+[2022-05-30 10:55:52] Best translation 1804 : မင်း စစိုး ရိမ် နေ လိ မ့် မယ်
+[2022-05-30 10:55:52] Best translation 1805 : မင်း အဲ ဒါ ကကို မ လေ့ ကျ င့် ဘူး လား
+[2022-05-30 10:55:52] Best translation 1806 : သူ မ အဲ ဒါ ကကို ရွေး ချယ် မှာ မ ဟုတ် ဘူး
+[2022-05-30 10:55:52] Best translation 1807 : ဘာ က သူ မ စိတ် တွေ လှုပ် ရှား နေ တာ လဲ
+[2022-05-30 10:55:52] Best translation 1808 : ငါ လည်း ပင် ပန်း နေ ပြီ
+[2022-05-30 10:55:52] Best translation 1809 : သူ အ မှား အ ယွင်း အ နည်း အ ကျဉ်း သာ ပြု လုပ် မိ ခခဲ့ တယ်
+[2022-05-30 10:55:52] Best translation 1810 : အဲ ဒါ ကကို လုပ် ဖဖိဖို့ အ သ င့် မ ဖြစ် သေး ဘူး လား
+[2022-05-30 10:55:52] Best translation 1811 : မင်း အဲ ဒါ ကကို စာ လလုံး ပေါင်း ပြ မှာ မ ဟုတ် ဘူး
+[2022-05-30 10:55:52] Best translation 1812 : စာ ရေး ရ တာ ထက် စာ သင် ရ တာ ပပို နှစ် သက် တယ်
+[2022-05-30 10:55:52] Best translation 1813 : ဟင်း သီး ဟင်း ရွက် တွေ ဟာ သသူ့ အ ကြြိုက် ဆဆုံး အ စား အ စာ ဖြစ် တယ်
+[2022-05-30 10:55:52] Best translation 1814 : ငါ တတိတို့ လက် ဖက် ရည် ဆဆိုင် မှာ မ ဟုတ် ဘူး
+[2022-05-30 10:55:52] Best translation 1815 : ငါ ဒဏ် ရာ ရ ပြီး လွတ် သွား တယ်
+[2022-05-30 10:55:52] Best translation 1816 : မင်း ဖတ် တတဲ့ အ ဖြေ
+[2022-05-30 10:55:52] Best translation 1817 : ဒါ ဆဆို ပျော် စ ရာ ကောင်း တတဲ့ လက် ဖက် ရည် တစ် ခွက် ပဲ
+[2022-05-30 10:55:52] Best translation 1818 : ငါ အ တွက် ဒီ ဟင်း ကကို ချက် ဖဖိဖို့ အ ဆင် ပြေ ပါ တယ်
+[2022-05-30 10:55:52] Best translation 1819 : မင်း နည်း နည်း ပါး ပါး အ နား ယူ သ င့် တယ်
+[2022-05-30 10:55:52] Best translation 1820 : ခု ချက် ချင်း လာ မယ်
+[2022-05-30 10:55:52] Best translation 1821 : သူ မ တံ ခါး မ ပိတ် ခခဲ့ ဘူး လား
+[2022-05-30 10:55:52] Best translation 1822 : ငါ ဒီ မှာ နေ တာ တစ် နှစ် လောက် ရှိ တော့ မယ်
+[2022-05-30 10:55:52] Best translation 1823 : ပ ညာ ရေး မူ ဝါ ဒ ကကို တ လော က စေ့ စေ့ စပ် စပ် စီ စစ် ခခဲ့ တယ်
+[2022-05-30 10:55:52] Best translation 1824 : ငါ လက် ဆွဲ နှုတ် ဆက် ဖဖိဖို့ အ မေ က ငါ ကကို ပြော ခခဲ့ တယ်
+[2022-05-30 10:55:52] Best translation 1825 : သူ လမ်း ပေါ် မှာ လမ်း လျှောက် နေ တုန်း ငါ မင်း ကကို မြင် ခခဲ့ တယ်
+[2022-05-30 10:55:52] Best translation 1826 : မင်း ရရဲ့ မိ သား စု ထဲ က တစ် ယောက် ယောက် ကကို ရော ဂါ ဖြစ် သေး လား
+[2022-05-30 10:55:52] Best translation 1827 : ခု ဆဆို နှစ် နာ ရီ ခွဲ လေ အ ခု ကကို သွား မှ ရ တော့ မှာ
+[2022-05-30 10:55:52] Best translation 1828 : ဝမ်း သာ ကြည် နူး နေ တတဲ့ အ တွက် ကြော င့်
+[2022-05-30 10:55:52] Best translation 1829 : ငါ မင်း ကကို ဒုက္ခ ပေး လလိုက် လား
+[2022-05-30 10:55:52] Best translation 1830 : ငါ အ ဖေ က တော့ ငါ ကကို အင်္ဂ လိပ် လလို ပြော တယ်
+[2022-05-30 10:55:52] Best translation 1831 : ဟော ဟဟို အ ပင် ပေါ် မှာ ပန်း သီး တစ် လလုံး မှ မ ရှိ ဘူး
+[2022-05-30 10:55:52] Best translation 1832 : မင်း ငါး ဟင်း နည်း နည်း ယူ ပါ ဦး လား
+[2022-05-30 10:55:52] Best translation 1833 : ဒီ နှစ် က တော် တော် မြန် မြန် သွား တာ
+[2022-05-30 10:55:52] Best translation 1834 : ဘာ ဖြစ် လလိလို့ ရပ် လလိုက် တာ လဲ
+[2022-05-30 10:55:52] Total time: 19.22174s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+
+real    4m2.244s
+user    7m16.311s
+sys     0m34.885s
 ```
 
 results of my-po, syllable unit, seq2seq:  
