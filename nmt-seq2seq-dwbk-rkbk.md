@@ -1427,6 +1427,16 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
+GPU usage for seq2seq model for bk-my (1/ of 10-folds) is as follows:  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/nmt-exp/seq2seq-bkdw-1-running-GPU-usage.png" alt="GPU Usage Infor for Seq2Seq Training" width="800"/>  
+</p>  
+<div align="center">
+  Fig. GPU usage of training seq2seq model for bk-my  
+</div> 
+
+<br />
 
 ```
 
