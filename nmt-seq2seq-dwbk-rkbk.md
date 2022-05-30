@@ -1298,9 +1298,49 @@ run build-vocab.sh for rk-bk language pair:
 (marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/data/word/rk-bk$
 ```
 
+## Hyperparemeters of Seq2Seq or Script for Training
 
-```
+I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4" and --dec-cell-base-depth to "4" ...  
+1st trying with following bash script:  
 
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese and Ethnic Languages
+## used Marian NMT Framework for seq2seq training
+## Last updated: 23 May 2022
+
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.bkdw";
+mkdir ${model_folder};
+data_path="/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/";
+src="bk"; tgt="dw";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 200 \
+  --valid-sets ${data_path}/dev.${src} ${data_path}/dev.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 5500 \
+  --enc-depth 3 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 3 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 1 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
 ```
