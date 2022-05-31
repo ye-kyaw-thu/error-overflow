@@ -1610,14 +1610,23 @@ BLEU = 13.48, 40.2/15.0/8.7/6.8 (BP=0.984, ratio=0.984, hyp_len=3949, ref_len=40
 (marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1$
 ```
 
+**Best score is 13.84.**  
+
 ## dw-bk, word unit, seq2seq
+
+bash script for dw-bk, word unit, seq2seq ...  
+
+```bash
+
 ```
+
+training ...  
 
 ```
 
 ```
 
-```
+bash script for dw-bk, word unit, seq2seq ...  
 
 ```
 
