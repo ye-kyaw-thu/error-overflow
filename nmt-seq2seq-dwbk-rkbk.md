@@ -1659,9 +1659,54 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 training ...  
 from 08:05 ...  
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.dwbk.1.sh
+...
+...
+...
+[2022-05-31 21:28:02] [data] Done reading 5,452 sentences
+[2022-05-31 21:28:02] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 21:28:17] Seen 5,452 samples
+[2022-05-31 21:28:17] Starting data epoch 3235 in logical epoch 3235
+[2022-05-31 21:28:17] [data] Shuffling data
+[2022-05-31 21:28:17] [data] Done reading 5,452 sentences
+[2022-05-31 21:28:17] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 21:28:32] Seen 5,452 samples
+[2022-05-31 21:28:32] Starting data epoch 3236 in logical epoch 3236
+[2022-05-31 21:28:32] [data] Shuffling data
+[2022-05-31 21:28:32] [data] Done reading 5,452 sentences
+[2022-05-31 21:28:32] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 21:28:36] Ep. 3236 : Up. 55000 : Sen. 1,654 : Cost 0.04235865 * 1,173,302 @ 2,820 after 129,168,120 : Time 435.25s : 2695.68 words/s : gNorm 0.0676
+[2022-05-31 21:28:36] Saving model weights and runtime parameters to model.seq2seq.dwbk.1/model.iter55000.npz
+[2022-05-31 21:28:37] Saving model weights and runtime parameters to model.seq2seq.dwbk.1/model.npz
+[2022-05-31 21:28:42] Saving Adam parameters
+[2022-05-31 21:28:43] [training] Saving training checkpoint to model.seq2seq.dwbk.1/model.npz and model.seq2seq.dwbk.1/model.npz.optimizer.npz
+[2022-05-31 21:29:00] [valid] Ep. 3236 : Up. 55000 : cross-entropy : 57.3937 : stalled 10 times (last best: 42.4461)
+[2022-05-31 21:29:01] [valid] Ep. 3236 : Up. 55000 : perplexity : 2272.75 : stalled 10 times (last best: 303.65)
+[2022-05-31 21:29:01] Translating validation set...
+[2022-05-31 21:29:01] Best translation 0 : ခင်ဗျား မ ငို ရလား ။
+[2022-05-31 21:29:01] Best translation 1 : ငါ လက်သည်း သွားပြုပြင် ချင်ရိ ။
+[2022-05-31 21:29:01] Best translation 2 : စု နေတဲ့ လူ ဒေ ကို နင် မြင် ရယ် ။
+[2022-05-31 21:29:01] Best translation 3 : ကျေးဇူးပြု၍ ကျွန်တော့်ရဲ့ မွေးနေ့ပွဲ ကို လာ ပါလား ။
+[2022-05-31 21:29:01] Best translation 4 : ဘသူပဲ့ တယ်လီဖုန်း ဆက်ဆက် ၊ သူ့လို့ဝို ငါ အပြင် သွား ဝယ်လိ ပြော လိုက်န ။
+[2022-05-31 21:29:01] Best translation 5 : အဲ့အမ လေ အဲ့ဇာ ကို သိ ရယ် ။
+[2022-05-31 21:29:01] Best translation 10 : သူတို့ ဘာ ကို စိတ်အနှောင့်အယှက်ဖြစ် သွားလဲ ။
+[2022-05-31 21:29:01] Best translation 20 : လူတွေ ချမ်းသာ နေကြတောင် ဒါထက် ချမ်းသာ ချင်သေးတယ် ။
+[2022-05-31 21:29:01] Best translation 40 : ဒါတပတ် ကုန်ခါနီးမှာ ရာသီဥတုသာယာပ ပြီး နေပူ မယ်တဲ့ ။
+[2022-05-31 21:29:01] Best translation 80 : ဒယ်ကောင်မငယ် ဝို အဲဒီဝို သွားခိုင်း ခဲ့ရယ်လား ။
+[2022-05-31 21:29:01] Best translation 160 : သူ ခရီး ရှည် ထွက် နေကျလေ ။
+[2022-05-31 21:29:01] Best translation 320 : နင် ဖယ်သူ့ ဝို မယုံ ဖြစ်ခဲ့လဲ ။
+[2022-05-31 21:29:01] Total translation time: 0.53674s
+[2022-05-31 21:29:01] [valid] Ep. 3236 : Up. 55000 : bleu : 9.76287 : stalled 7 times (last best: 10.1296)
+[2022-05-31 21:29:01] Training finished
+[2022-05-31 21:29:02] Saving model weights and runtime parameters to model.seq2seq.dwbk.1/model.npz
+[2022-05-31 21:29:07] Saving Adam parameters
+[2022-05-31 21:29:08] [training] Saving training checkpoint to model.seq2seq.dwbk.1/model.npz and model.seq2seq.dwbk.1/model.npz.optimizer.npz
 
+real    804m18.561s
+user    963m49.461s
+sys     2m26.816s
 ```
-end at the : ...  
+end the training around 21:30 ...  
 
 bash script for dw-bk, word unit, seq2seq ...  
 
