@@ -1438,11 +1438,60 @@ GPU usage for seq2seq model for bk-my (1/ of 10-folds) is as follows:
 
 <br />
 
-```
+1st time training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.bkdw.1.sh
+...
+...
+...
+[2022-05-31 07:19:11] [data] Done reading 5,452 sentences
+[2022-05-31 07:19:11] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 07:19:26] Seen 5,452 samples
+[2022-05-31 07:19:26] Starting data epoch 3235 in logical epoch 3235
+[2022-05-31 07:19:26] [data] Shuffling data
+[2022-05-31 07:19:26] [data] Done reading 5,452 sentences
+[2022-05-31 07:19:26] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 07:19:40] Seen 5,452 samples
+[2022-05-31 07:19:40] Starting data epoch 3236 in logical epoch 3236
+[2022-05-31 07:19:40] [data] Shuffling data
+[2022-05-31 07:19:40] [data] Done reading 5,452 sentences
+[2022-05-31 07:19:40] [data] Done shuffling 5,452 sentences to temp files
+[2022-05-31 07:19:45] Ep. 3236 : Up. 55000 : Sen. 2,100 : Cost 0.06274325 * 1,123,966 @ 1,412 after 123,157,504 : Time 432.95s : 2596.07 words/s : gNorm 0.0841
+[2022-05-31 07:19:45] Saving model weights and runtime parameters to model.seq2seq.bkdw.1/model.iter55000.npz
+[2022-05-31 07:19:46] Saving model weights and runtime parameters to model.seq2seq.bkdw.1/model.npz
+[2022-05-31 07:19:51] Saving Adam parameters
+[2022-05-31 07:19:52] [training] Saving training checkpoint to model.seq2seq.bkdw.1/model.npz and model.seq2seq.bkdw.1/model.npz.optimizer.npz
+[2022-05-31 07:20:09] [valid] Ep. 3236 : Up. 55000 : cross-entropy : 51.095 : stalled 10 times (last best: 40.3277)
+[2022-05-31 07:20:10] [valid] Ep. 3236 : Up. 55000 : perplexity : 1384.58 : stalled 10 times (last best: 301.54)
+[2022-05-31 07:20:10] Translating validation set...
+[2022-05-31 07:20:10] Best translation 0 : နန် ဟှဲဖြစ်ဟှိ ပ္လေး နေဟှယ် ။
+[2022-05-31 07:20:10] Best translation 1 : အဲဟှာ ကြောက်-က်စာ အီတ် ဟှီးမား ။
+[2022-05-31 07:20:10] Best translation 2 : အယ်ပြီး နေ့ဒါန်ပပိုင်း တနေ့ မှ ကျွန်မ စကိတ်ပွဲ တစ် ခု သွား ခခဲ့ဟှယ် ။
+[2022-05-31 07:20:10] Best translation 3 : ကျွန်တော် မမိုးလန်းတတိုင်း တစ် နာရီ ကစားဟှယ် ။
+[2022-05-31 07:20:10] Best translation 4 : ဟှယ်လူဝဝဲ့ ဖုန်း ဆစ်ဆစ် ၊ သူးနနိနို့ဂဂို ငါ ပ္လန်သွားဟှယ်ဆဆို ပြော လလိုက် ။
+[2022-05-31 07:20:10] Best translation 5 : ဝယ်ယား ဟှ က သူးနနိနို့ ဝဝို သိ နေရယ် ။
+[2022-05-31 07:20:10] Best translation 10 : ကျွန်တော် ဟှယ်ဒဒူ့ဟှှိုလည်း ပြစ်တန် ခခဲ့ဟှ ။
+[2022-05-31 07:20:10] Best translation 20 : ကားလေမှာ ဘီးလေ ရှိဟှယ် ။
+[2022-05-31 07:20:10] Best translation 40 : အဲထက် ပပိုကောန်းဇာ မှေ့မှုပီ ။
+[2022-05-31 07:20:10] Best translation 80 : နန့် ဟှှို ငါ ဝဝိုင်း သယ် ပေးမယ် ။
+[2022-05-31 07:20:10] Best translation 160 : နန့် ဟှှို ငါ ဝဝိုင်း သယ် ပေးမယ် ။
+[2022-05-31 07:20:10] Best translation 320 : နန် ဟှယ်သသူ့ ဟှှို ပလပ် ဇာနူး ။
+[2022-05-31 07:20:10] Total translation time: 0.56958s
+[2022-05-31 07:20:10] [valid] Ep. 3236 : Up. 55000 : bleu : 10.3312 : new best
+[2022-05-31 07:20:10] Training finished
+[2022-05-31 07:20:11] Saving model weights and runtime parameters to model.seq2seq.bkdw.1/model.npz
+[2022-05-31 07:20:16] Saving Adam parameters
+[2022-05-31 07:20:17] [training] Saving training checkpoint to model.seq2seq.bkdw.1/model.npz and model.seq2seq.bkdw.1/model.npz.optimizer.npz
 
+real    801m25.131s
+user    960m36.334s
+sys     2m24.628s
 ```
+
+prepare script for testing ...  
+
+```bash
 
 ```
 
