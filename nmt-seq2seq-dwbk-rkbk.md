@@ -1750,13 +1750,85 @@ do
 done
 ```
 
-```
+testing and evaluation for dw-bk, word, seq2seq ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1$ time ./test-eval.sh
+...
+...
+...
+[2022-05-31 22:11:54] Best translation 636 : တကယ် ကောင်း ဝယ်ပပဲ့ ။
+[2022-05-31 22:11:54] Best translation 637 : သသူ့အတွက် ကျွန်တော်လလိလို့ က မေး မှာ မ ဟုတ် ဝ ။
+[2022-05-31 22:11:54] Best translation 638 : ဖယ်သူလေ ဝန်းသာ ရိလဲ ။
+[2022-05-31 22:11:54] Best translation 639 : မင်း စကား ပြော နေရယ် ။
+[2022-05-31 22:11:54] Best translation 640 : သူ ဒယ်စာဝဝို ဖယ်ပစ် ခခဲ့ဟယ် ။
+[2022-05-31 22:11:54] Best translation 641 : ဒယ်ကောင်မငယ် ကကို ငါ မေး ရအအုံးမယ် ။
+[2022-05-31 22:11:54] Best translation 642 : ငါ့ ဝဝို ယယုံ တတဲ့ သူ ဒေ ဂဂို ဘယ်ခါမှ သစ္စာ မ ဖောက် ရ ။
+[2022-05-31 22:11:54] Best translation 643 : နင် ဘောလ်ပင် မ ကောက် ရလား ။
+[2022-05-31 22:11:54] Best translation 644 : နင် ဒယ်စာ ဝဝို ကြား ဟယ် ။
+[2022-05-31 22:11:54] Best translation 645 : ရေဒီယယို ဖွင့် ရင် စိတ်ဆဆိုး ဝဝိဝို့လား ။
+[2022-05-31 22:11:54] Best translation 646 : မဟုတ်ဝ ။
+[2022-05-31 22:11:54] Best translation 647 : နင် ဘာတွေ အသံထွက် ခခဲ့ရိ ။
+[2022-05-31 22:11:54] Best translation 648 : ငါလလိလို့ ဒယ်စာ ဝဝို စီစဉ် ခခဲ့ကြဇာ ။
+[2022-05-31 22:11:54] Best translation 649 : ခင်ဗျား ဘာ သောက် နေရယ် ။
+[2022-05-31 22:11:54] Best translation 650 : ခင်ဗျား ဘာ သောက် နေရယ် ။
+[2022-05-31 22:11:54] Best translation 651 : နင် မှန် ရယ်ရိ ငါ ထင် ရ ယ် ။
+[2022-05-31 22:11:54] Best translation 652 : ကျွန်တော်ဝဝိဝို့ အအဲ့ဒါဝဝို ပထမတော့ မ အောင်မြင် ခခဲ့ရလေ ။
+[2022-05-31 22:11:54] Best translation 653 : ကျွန်တော် ခရီး ကကို စလုပ် ဖဖိဖို့ မျှော်လင့် တယ် ။
+[2022-05-31 22:11:54] Best translation 654 : နင် အရက် သောက် လာခခဲ့ဟယ် ။
+[2022-05-31 22:11:54] Best translation 655 : ငါ နင်နနဲ့ စကားပြောတာ အား ဝမ်းသာရရ် ။
+[2022-05-31 22:11:54] Best translation 656 : မင်းဘယ်သသူ့ကကို အားကကိုး မင်း တစ်နေ့ကျ ဒုက္ခ ရောက် မယ် ။
+[2022-05-31 22:11:54] Best translation 657 : အယ့်ဒါ ဘယ်သသူ့ ပပိုက်ဆံ ရိ ။
+[2022-05-31 22:11:54] Best translation 658 : နင် သသူ့ ကကို သံယောဇဉ် ရှိ သောရိမယ် ။
+[2022-05-31 22:11:54] Best translation 659 : နင့် ဆွေမျျိုး တတိတို့ က ဖယ်သူတွေ ။
+[2022-05-31 22:11:54] Best translation 660 : ဖယ်သူလေ အထင်သေး ရိလဲ ။
+[2022-05-31 22:11:55] Best translation 661 : သူ ဒယ်အကြောင်း ကကို သိ ဟုတ်ဝ ။
+[2022-05-31 22:11:55] Best translation 662 : သူ ဖျားပပဲ့ဖျား နေမလား ။
+[2022-05-31 22:11:55] Best translation 663 : ခင်ဗျား ကျွန်တော့် ကကို ရရိုက် ဝဝိဝို့လား ။
+[2022-05-31 22:11:55] Best translation 664 : ဘယ်သူဟ မင့် အကြောင်း ဝဝို တတိုင်တတိုင် ငါ မ ယယုံ ဝ ။
+[2022-05-31 22:11:55] Best translation 665 : သူ ဆေးလိပ် သောက် ဇာ မ ကြြိုက် ရ ။
+[2022-05-31 22:11:55] Best translation 666 : မင်းက ဘဇာလောက်် သတ္တိရှိ လဲ ။
+[2022-05-31 22:11:55] Best translation 667 : ကျွန်နော် သူ ဝက် အကြာကြီး စကား ပြော ခခဲ့ဇာ ။
+[2022-05-31 22:11:55] Best translation 668 : အဲဒါ ကကို ရှင်းပြ ဖဖိဖို့ ငါ ဆန္ဒ ရှိ တယ် ။
+[2022-05-31 22:11:55] Best translation 669 : သူ အိမ်ထောင် ထိန်းသိမ်း နနိုင်မယ်ပပဲ့လား ။
+[2022-05-31 22:11:55] Total time: 8.71540s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    2m3.005s
+user    3m21.565s
+sys     0m26.594s
 ```
 
+results are as follows:  
+
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 6.81, 32.1/7.6/3.7/2.7 (BP=0.968, ratio=0.968, hyp_len=4131, ref_len=4267)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 10.61, 37.2/11.8/6.4/4.5 (BP=1.000, ratio=1.001, hyp_len=4272, ref_len=4267)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 11.27, 37.4/12.4/6.9/5.0 (BP=1.000, ratio=1.002, hyp_len=4277, ref_len=4267)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 11.33, 37.6/12.5/7.0/5.0 (BP=1.000, ratio=1.000, hyp_len=4266, ref_len=4267)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 11.23, 38.0/12.6/6.9/4.8 (BP=1.000, ratio=1.001, hyp_len=4272, ref_len=4267)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 11.19, 37.5/12.5/6.9/4.9 (BP=1.000, ratio=1.005, hyp_len=4288, ref_len=4267)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 11.10, 37.6/12.4/6.8/4.8 (BP=1.000, ratio=1.000, hyp_len=4267, ref_len=4267)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 11.08, 37.5/12.6/6.7/4.7 (BP=1.000, ratio=1.004, hyp_len=4282, ref_len=4267)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 11.12, 37.8/12.5/6.8/4.8 (BP=0.999, ratio=0.999, hyp_len=4264, ref_len=4267)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 11.04, 37.7/12.5/6.7/4.7 (BP=1.000, ratio=1.007, hyp_len=4295, ref_len=4267)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 11.17, 37.4/12.5/6.9/4.8 (BP=1.000, ratio=1.011, hyp_len=4314, ref_len=4267)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1$
+```
+
+**Best BLEU Score for dw-bk, word, seq2seq archi is 11.33**  
 
 ```
 
