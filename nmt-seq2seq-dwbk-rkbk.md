@@ -178,6 +178,7 @@ path: 10/
 
 ## Let's Peek the Data
 
+both dw-bk and rk-bk data are manually segmented ...  
 for dw-bk pair:  
 
 ```
@@ -1580,10 +1581,36 @@ user    3m22.412s
 sys     0m26.770s
 ```
 
-```
+Results for bk-dw, word unit, seq2seq with above configuration are as follows:  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.dw, Transformer model:
+BLEU = 10.50, 37.3/12.1/6.6/4.8 (BP=0.958, ratio=0.959, hyp_len=3848, ref_len=4013)
+Evaluation with hyp.iter10000.dw, Transformer model:
+BLEU = 12.90, 39.2/13.8/8.2/6.6 (BP=0.986, ratio=0.986, hyp_len=3956, ref_len=4013)
+Evaluation with hyp.iter15000.dw, Transformer model:
+BLEU = 13.24, 39.2/14.4/8.5/6.7 (BP=0.988, ratio=0.988, hyp_len=3965, ref_len=4013)
+Evaluation with hyp.iter20000.dw, Transformer model:
+BLEU = 13.34, 39.9/14.6/8.6/6.6 (BP=0.989, ratio=0.989, hyp_len=3968, ref_len=4013)
+Evaluation with hyp.iter25000.dw, Transformer model:
+BLEU = 13.25, 39.3/14.4/8.5/6.5 (BP=0.997, ratio=0.997, hyp_len=3999, ref_len=4013)
+Evaluation with hyp.iter30000.dw, Transformer model:
+BLEU = 13.32, 39.7/14.5/8.5/6.7 (BP=0.990, ratio=0.990, hyp_len=3973, ref_len=4013)
+Evaluation with hyp.iter35000.dw, Transformer model:
+BLEU = 13.34, 39.6/14.6/8.5/6.7 (BP=0.992, ratio=0.992, hyp_len=3982, ref_len=4013)
+Evaluation with hyp.iter40000.dw, Transformer model:
+BLEU = 13.14, 39.6/14.4/8.3/6.5 (BP=0.993, ratio=0.993, hyp_len=3985, ref_len=4013)
+Evaluation with hyp.iter45000.dw, Transformer model:
+BLEU = 13.84, 40.1/15.1/9.0/7.1 (BP=0.986, ratio=0.986, hyp_len=3958, ref_len=4013)
+Evaluation with hyp.iter50000.dw, Transformer model:
+BLEU = 13.64, 40.0/15.0/8.8/7.0 (BP=0.985, ratio=0.985, hyp_len=3954, ref_len=4013)
+Evaluation with hyp.iter55000.dw, Transformer model:
+BLEU = 13.48, 40.2/15.0/8.7/6.8 (BP=0.984, ratio=0.984, hyp_len=3949, ref_len=4013)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1$
+```
 
+## dw-bk, word unit, seq2seq
 ```
 
 ```
