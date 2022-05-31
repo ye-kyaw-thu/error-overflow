@@ -1307,7 +1307,7 @@ I changed --enc-depth and --dec-depth to "3",  --enc-cell-depth to "4", --dec-ce
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
-## for NMT Experiments between Burmese and Ethnic Languages
+## for NMT Experiments between Burmese dialects
 ## used Marian NMT Framework for seq2seq training
 ## Last updated: 30 May 2022
 
@@ -1391,7 +1391,7 @@ And thus, I updated the training script as follows:
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
-## for NMT Experiments between Burmese and Ethnic Languages
+## for NMT Experiments between Burmese dialects
 ## used Marian NMT Framework for seq2seq training
 ## Last updated: 30 May 2022
 
@@ -1489,14 +1489,46 @@ user    960m36.334s
 sys     2m24.628s
 ```
 
+Check the models ...  
+
+```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1$
+```
+
 prepare script for testing ...  
 
 ```bash
+#!/bin/bash
 
-```
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese dialects
+## used Marian NMT Framework for training
+## Last updated: 31 May 2022
 
-```
+data_path="/home/ye/exp/my-nmt/data/4nmt/dw-bk/";
+src="bk"; tgt="dw";
 
+for i in {5000..55000..5000}
+do
+    marian-decoder -m ./model.iter$i.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 1 --output hyp.iter$i.${tgt} < ${data_path}/test.${src};
+    echo "Evaluation with hyp.iter$i.${tgt}, Transformer model:" >> eval-result.txt;
+    perl /home/ye/tool/moses-scripts/scripts/generic/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.iter$i.${tgt} >> eval-result.txt;
+
+done
 ```
 
 ```
