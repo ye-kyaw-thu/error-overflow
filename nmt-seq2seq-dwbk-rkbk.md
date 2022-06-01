@@ -1952,12 +1952,83 @@ done
 testing ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.rkbk.1$ time ./test-eval.sh
+...
+...
+...
+[2022-06-01 19:31:12] Best translation 1039 : နင် က ဘာတွေ သင်ပေး ခခဲ့ရိ ။
+[2022-06-01 19:31:12] Best translation 1040 : သူ ခင်ဗျား ကကို သံသယ ဖြစ်မယ်နား ။
+[2022-06-01 19:31:12] Best translation 1041 : သူတတိတို့ ဘဇာလောက် စိတ်ရှည် လဲ ။
+[2022-06-01 19:31:13] Best translation 1042 : သူဝဝိဝို့ အစားစာ နနဲ့ အဝတ်ဒေ လလိုအပ်တတဲ့အခါ မီးခွက်စောင့် ဘီလူး ကကိုပဲ ခခိုင်း ရယ် ။
+[2022-06-01 19:31:13] Best translation 1043 : ဝေဖန် တတဲ့ လူ ဒေ ဝဝို ငါ မ ကြြိုက် ရ ။
+[2022-06-01 19:31:13] Best translation 1044 : သူဝဝိဝို့ရရဲ့ ကူညီမှု အတွက် ကျေးဇူးတင်ကြောင်း သူ က ပြော ရယ် ။
+[2022-06-01 19:31:13] Best translation 1045 : ဟိတ် နင် ဘာ တင်ပြ အုန်း ။
+[2022-06-01 19:31:13] Best translation 1046 : နင်ဝဝိဝို့ အအဲ့ဇာဝဝို သိမ်းဟား ဝဝိဝို့လား ။
+[2022-06-01 19:31:13] Best translation 1047 : မင်း ပပိပို့စကဒ် တေ မ စုဆောင်း ရလား ။
+[2022-06-01 19:31:13] Best translation 1048 : ဒါကကို မင်းကြြိုက်ချင်ကြြိုက် မကြြိုက်ချင်နေ ။
+[2022-06-01 19:31:13] Best translation 1049 : ဒယ်ကောင်မငယ် စောရီး သွားပီး နေမရ် ။
+[2022-06-01 19:31:13] Best translation 1050 : သူ စာ ကြြိုးစား ခခဲ့ရာဆဆိုတော့ စာမေးပွဲ အောင် လေ့မယ် ။
+[2022-06-01 19:31:13] Best translation 1051 : သူ နင့်ဆီကကို သော ရယ်လား ။
+[2022-06-01 19:31:13] Best translation 1052 : ရရုံး ဝ ဆင်း ဒေါ့ သူ ဈေး ဝဝို သွား ဝယ် ။
+[2022-06-01 19:31:13] Best translation 1053 : အဲဒါ ကနေ မင့် ကြြိုက် တတဲ့ဟာ ရ နနိုင်ရယ် ။
+[2022-06-01 19:31:13] Best translation 1054 : ဒီ မိန်းမ က ဖယ်သူ ဖြစ်နနိုင်လဲ ။
+[2022-06-01 19:31:13] Best translation 1055 : နင် ဒယ်ဇာ ဘယ်သသူ့ ဝဝို ပေးသင့် ရယ် ။
+[2022-06-01 19:31:13] Best translation 1056 : ဒါဇာ မျက်နှာကျက် လေ ။
+[2022-06-01 19:31:13] Best translation 1057 : နင် ဖယ်သသူ့ ကကို ကူညီ ဝဝိဝို့လဲ ။
+[2022-06-01 19:31:13] Best translation 1058 : ကျွန်တော် သူငယ်ချင်း တွေ ဒါကကို ရောက် လာလား ။
+[2022-06-01 19:31:13] Best translation 1059 : ကျွန်တော်လလိလို့က ခင်ဗျား ကကို လက်ခံ ရမယ်လား ။
+[2022-06-01 19:31:13] Best translation 1060 : ကျွန်တော်ဝဝိဝို့ ထပ် မ ကြြိုးစား တော့ဝီလား ။
+[2022-06-01 19:31:13] Best translation 1061 : ဘယ်လောက် နာရီ ရှိပြီ ။
+[2022-06-01 19:31:13] Best translation 1062 : ကျွန်တော်ဝဝိဝို့ လေးစား တတဲ့ ဆရာ က လူတတိုင်း အပေါ် နားလည် တတ်ရယ် ။
+[2022-06-01 19:31:13] Best translation 1063 : တတိတို့ သူ ကကို အားပေး စစိစို့ ။
+[2022-06-01 19:31:13] Best translation 1064 : နင် ဒယ်ကောင်မငယ် နနဲ့စကားများ ခခဲ့ရယ်လား ။
+[2022-06-01 19:31:13] Best translation 1065 : ငါ တံခါး ပိတ် ဇာ မင်း စိတ်ညစ် နေရယ်လား ။
+[2022-06-01 19:31:13] Best translation 1066 : နောက်ဆဆုံးတော့ မမိုးလင်းတစ်ခုမှာ မယ်မယ်ဟာ ဗဗိုက်နာလာရယ်ဒါနနဲ့ ဒယ်ကောင်မငယ် နနဲ့ဘဘဆေးရရုံကကိုသောကြရယ်၊ အဲအချိန်မှာ ကျွန်တော်က ကျောင်းသောနေပြီ ။
+[2022-06-01 19:31:13] Best translation 1067 : ကျေးဇူးပြုပြီး အသံမြှင့် ပေးပါ ။
+[2022-06-01 19:31:13] Best translation 1068 : သော စစုံစမ်း ။
+[2022-06-01 19:31:13] Best translation 1069 : နင် ဘာ ဝယ် ဝဝိဝို့ ။
+[2022-06-01 19:31:13] Best translation 1070 : ကျေးဇူးပြုပြီး ပြန် လာ ရမှာ ဘယ်လလိုမှ စနောင့်စနင်း မ ဖြစ် ပါနှင့် ။
+[2022-06-01 19:31:13] Best translation 1071 : အအဲ့ဇာက ကျွန်တော့် အတွက် လွယ်လွယ်ငယ်ပဲ ။
+[2022-06-01 19:31:13] Total time: 14.23964s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    3m43.385s
+user    5m45.709s
+sys     0m34.881s
 ```
 
-```
+Results are as follows:  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.rkbk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 3.38, 32.7/5.2/1.6/0.8 (BP=0.872, ratio=0.880, hyp_len=6119, ref_len=6956)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 14.22, 38.7/14.5/9.3/7.8 (BP=1.000, ratio=1.004, hyp_len=6983, ref_len=6956)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 15.71, 40.1/16.0/10.6/9.0 (BP=0.998, ratio=0.998, hyp_len=6944, ref_len=6956)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 16.57, 40.5/16.9/11.5/9.6 (BP=0.999, ratio=0.999, hyp_len=6948, ref_len=6956)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 16.57, 40.6/17.0/11.5/9.5 (BP=0.999, ratio=0.999, hyp_len=6947, ref_len=6956)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 17.13, 41.0/17.5/12.0/10.0 (BP=1.000, ratio=1.006, hyp_len=6999, ref_len=6956)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 17.48, 41.4/17.9/12.3/10.2 (BP=1.000, ratio=1.006, hyp_len=7001, ref_len=6956)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 17.55, 41.3/17.9/12.4/10.3 (BP=1.000, ratio=1.004, hyp_len=6985, ref_len=6956)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 17.39, 41.3/18.0/12.3/10.1 (BP=1.000, ratio=1.011, hyp_len=7033, ref_len=6956)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 17.62, 41.4/18.1/12.5/10.3 (BP=1.000, ratio=1.011, hyp_len=7032, ref_len=6956)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 17.98, 42.0/18.6/12.8/10.5 (BP=1.000, ratio=1.005, hyp_len=6994, ref_len=6956)
+Evaluation with hyp.iter60000.bk, Transformer model:
+BLEU = 18.61, 42.4/19.2/13.3/11.1 (BP=1.000, ratio=1.004, hyp_len=6987, ref_len=6956)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.rkbk.1$
+```
+
+**Best BLEU for rkbk, word unit, Seq2Seq is 18.61.**  
 
 ```
 
