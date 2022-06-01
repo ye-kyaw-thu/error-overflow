@@ -1874,12 +1874,58 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
-training ...  
-start 22:19 Cambodian time.   
+training ...    
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.rkbk.1.sh
+...
+...
+...
+[2022-06-01 15:31:23] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-01 15:31:52] Seen 8,850 samples
+[2022-06-01 15:31:52] Starting data epoch 1925 in logical epoch 1925
+[2022-06-01 15:31:52] [data] Shuffling data
+[2022-06-01 15:31:52] [data] Done reading 8,850 sentences
+[2022-06-01 15:31:52] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-01 15:32:20] Seen 8,850 samples
+[2022-06-01 15:32:20] Starting data epoch 1926 in logical epoch 1926
+[2022-06-01 15:32:20] [data] Shuffling data
+[2022-06-01 15:32:20] [data] Done reading 8,850 sentences
+[2022-06-01 15:32:20] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-01 15:32:42] Ep. 1926 : Up. 60000 : Sen. 7,064 : Cost 0.04219449 * 1,062,165 @ 1,827 after 129,095,679 : Time 445.63s : 2383.50 words/s : gNorm 0.0841
+[2022-06-01 15:32:42] Saving model weights and runtime parameters to model.seq2seq.rkbk.1/model.iter60000.npz
+[2022-06-01 15:32:43] Saving model weights and runtime parameters to model.seq2seq.rkbk.1/model.npz
+[2022-06-01 15:32:48] Saving Adam parameters
+[2022-06-01 15:32:49] [training] Saving training checkpoint to model.seq2seq.rkbk.1/model.npz and model.seq2seq.rkbk.1/model.npz.optimizer.npz
+[2022-06-01 15:33:07] [valid] Ep. 1926 : Up. 60000 : cross-entropy : 47.9898 : stalled 10 times (last best: 35.8691)
+[2022-06-01 15:33:07] [valid] Ep. 1926 : Up. 60000 : perplexity : 537.841 : stalled 10 times (last best: 109.895)
+[2022-06-01 15:33:07] Translating validation set...
+[2022-06-01 15:33:08] Best translation 0 : ဒယ်ကောင်မ နင့်ဝို့ နှောင့်ယှက် လိမ့်မယ်မော် ။
+[2022-06-01 15:33:08] Best translation 1 : မင်း နာမယ် ဘယ်မျိုး ပေါင်း ရယ် ။
+[2022-06-01 15:33:08] Best translation 2 : ကျွန်တော် လိုင်းချိတ် ပေးမယ် ။
+[2022-06-01 15:33:08] Best translation 3 : သူရဲ့ သား မိုက် ကို သူ က စွန့်လွှတ် လိုက်ရယ် ။
+[2022-06-01 15:33:08] Best translation 4 : ခုန် နေတဲ့ ခွေး ဒွေ ။
+[2022-06-01 15:33:08] Best translation 5 : နင် ဘာ မေး ဝို့ ။
+[2022-06-01 15:33:08] Best translation 10 : သူက ရာရာစစ နေရရယ် ။
+[2022-06-01 15:33:08] Best translation 20 :
+[2022-06-01 15:33:08] Best translation 40 : အယ့်ဒါ ဘယ်သူ့ စက်ဘီး ရိ ။
+[2022-06-01 15:33:08] Best translation 80 : ဒါ စာအုပ် ဝ အပိုင်း လေး ပိုင်း ပါရယ် ။
+[2022-06-01 15:33:08] Best translation 160 : မင့် ဘီယာ သောက် ချင် ဆို သောက် ။
+[2022-06-01 15:33:08] Best translation 320 : သူ က သနား တော့ ဟုတ် ဝ ။
+[2022-06-01 15:33:08] Best translation 640 : ငါ လိမ္မော်ဖျော်ရယ် သောက် ချင် ရယ် ။
+[2022-06-01 15:33:08] Total translation time: 0.95058s
+[2022-06-01 15:33:08] [valid] Ep. 1926 : Up. 60000 : bleu : 18.1531 : stalled 1 times (last best: 18.3091)
+[2022-06-01 15:33:08] Training finished
+[2022-06-01 15:33:09] Saving model weights and runtime parameters to model.seq2seq.rkbk.1/model.npz
+[2022-06-01 15:33:14] Saving Adam parameters
+[2022-06-01 15:33:16] [training] Saving training checkpoint to model.seq2seq.rkbk.1/model.npz and model.seq2seq.rkbk.1/model.npz.optimizer.npz
 
+real    376m51.006s
+user    451m35.261s
+sys     1m5.551s
 ```
+
+Actually, I have to run two times. Stopped during training and thus above time information is for the 2nd time training.  
 
 ```
 
