@@ -2044,7 +2044,7 @@ script ...
 
 ## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
 
-model_folder="model.seq2seq.rkbk.1";
+model_folder="model.seq2seq.bkrk.1";
 mkdir ${model_folder};
 data_path="/home/ye/exp/pivot-nmt-baseline/data/word/rk-bk/1/";
 src="bk"; tgt="rk";
