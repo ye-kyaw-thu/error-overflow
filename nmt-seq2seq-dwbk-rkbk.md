@@ -2170,11 +2170,79 @@ done
 Testing and evaluation ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1$ time ./test-eval.sh
+...
+...
+...
+[2022-06-02 10:40:22] Best translation 1038 : မင်း ဇာသသူ့ ကကို ချစ် ဖဖိဖို့လေး။
+[2022-06-02 10:40:22] Best translation 1039 : မင်းဇာတိ လလိုချင် ခလေး ။
+[2022-06-02 10:40:22] Best translation 1040 : သူရရိရို့ မင်း ကကို ကူညီ ကတ်ယင့်လား ။
+[2022-06-02 10:40:22] Best translation 1041 : သူရရိရို့ ဇာလောက် ကတ်တီးကတ်ဖဖဲ့နနိုင် လေး။
+[2022-06-02 10:40:22] Best translation 1042 : စားပွဲက ညစ်ပတ်ရေ ပန်းကန် တိ ကကို သူ ဖယ် လလိုက်တေ ။
+[2022-06-02 10:40:22] Best translation 1043 : အစွပ်စွဲခံရ ရေ လူ တစ်ယောက်စွာ ဇာပပိုင် ခံစား ရဖဖိဖို့လေး ဆဆိုစွာ မင်း စဉ်းစားကြည့် ။
+[2022-06-02 10:40:22] Best translation 1044 : မင်းကကို ဖက်ထား မယ် နန့် မ ဖက် ထားရ ပါလား ။
+[2022-06-02 10:40:22] Best translation 1045 : မင်း တစ်ခုခု တင်ပြဖဖိဖို့ ဟိ လား ။
+[2022-06-02 10:40:22] Best translation 1046 : မင်းရရိရို့ ယင်းချင့် ကကို သိမ်းထား ဖဖိဖို့လား ။
+[2022-06-02 10:40:22] Best translation 1047 : မင်း ဒုက္ခ ရောက် ဖဖိဖို့ မဟုတ်ပါလား ။
+[2022-06-02 10:40:22] Best translation 1048 : ယင်းချင့်ကကို သိမ်းသိမ်း မ သိမ်းသိမ်း ။
+[2022-06-02 10:40:22] Best translation 1049 : သူ ညက သင်တန်း မ တက် ခ ပါ ။
+[2022-06-02 10:40:22] Best translation 1050 : သူ ယင်းချင့် ကကို ကြြိုးစား ဖဖိဖို့ မဟုတ် ပါ လား ။
+[2022-06-02 10:40:22] Best translation 1051 : ထထိုမချေ က သသူ့ ကကို မြတ်နနိုး ခစွာလား ။
+[2022-06-02 10:40:22] Best translation 1052 : သူ တစ်ပတ်မာ ငါး ရက် အလုပ် လား ရေ ။
+[2022-06-02 10:40:22] Best translation 1053 : ယင်းချင့် အတွက် မင်းငါ အိမ် ကကို လာ ရဖဖိဖို့ ။
+[2022-06-02 10:40:22] Best translation 1054 : သူ ရရိရို့ တစ်ယောက်နန့် တစ်ယောက် ရန်ဖြစ် ကတ်ရေ ။
+[2022-06-02 10:40:22] Best translation 1055 : မင်း ယင်းချင့် ကကို ခန့်မှန်းကြည့် ပါ။
+[2022-06-02 10:40:22] Best translation 1056 : ယင်းစွာ ခက်ခဲရေ ။
+[2022-06-02 10:40:22] Best translation 1057 : သူရရိရို့ ဇာသသူ့ ကကို ကူညီ ဖဖိဖို့ လေး ။
+[2022-06-02 10:40:22] Best translation 1058 : သူ တင်းနစ် ကဇတ် နီရေ။
+[2022-06-02 10:40:22] Best translation 1059 : ကျွန်တော်ရရိရို့ က မင်းကကို လက်ခံ ရဖဖိဖို့လား ။
+[2022-06-02 10:40:22] Best translation 1060 : ကျွန်တော်ရရိရို့ မ ကြြိုးစား ခကတ်ပါ ။
+[2022-06-02 10:40:22] Best translation 1061 : ဇာ အတွက် လေး။
+[2022-06-02 10:40:22] Best translation 1062 : ကျွန်တော်ရရိရို့ အရုပ် တိ ရောင်းခ ဂတ် စွာ ။
+[2022-06-02 10:40:22] Best translation 1063 : ကျွန်တော်ရရိရို့ သသူ့ ကကို နှှိုး ရဖဖိဖို့ မဟုတ် ပါ ။
+[2022-06-02 10:40:22] Best translation 1064 : မင်း သူရရိရို့ နန့် ဆဆုံ ခရေ ။
+[2022-06-02 10:40:22] Best translation 1065 : ငါ ဆရာဝန် ဘက် လား ဖဖိဖို့ ဟိရေ ။
+[2022-06-02 10:40:22] Best translation 1066 : ယေကေလေ့ ၁၀၀၀မြောက် စစုံတွဲက ဒေမာ လာ ဗျာယ် ။
+[2022-06-02 10:40:22] Best translation 1067 : လူကြီးမင်း ပြန်ခေါ် ချင်ပါလား ။
+[2022-06-02 10:40:22] Best translation 1068 : လား မိန်းပါ ။
+[2022-06-02 10:40:22] Best translation 1069 : မင်း ဇာ ကူညီ ဖဖိဖို့လေး။
+[2022-06-02 10:40:22] Best translation 1070 : ဒေမာ ဆက်နီလလိလို့ မ ရဗျာယ်လား ။
+[2022-06-02 10:40:22] Best translation 1071 : ယင်းချင့် ထထိုမချေ အတွက် အလွယ်ချေပါ ။
+[2022-06-02 10:40:22] Total time: 14.27738s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    3m4.491s
+user    5m19.878s
+sys     0m31.760s
 ```
 
-```
+Results are as follows:  
 
+```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.rk, Transformer model:
+BLEU = 23.24, 50.7/28.5/20.4/14.6 (BP=0.908, ratio=0.912, hyp_len=6148, ref_len=6739)
+Evaluation with hyp.iter10000.rk, Transformer model:
+BLEU = 21.08, 47.0/24.7/16.4/10.9 (BP=0.988, ratio=0.988, hyp_len=6661, ref_len=6739)
+Evaluation with hyp.iter15000.rk, Transformer model:
+BLEU = 21.04, 46.4/24.4/16.1/10.7 (BP=1.000, ratio=1.013, hyp_len=6825, ref_len=6739)
+Evaluation with hyp.iter20000.rk, Transformer model:
+BLEU = 20.96, 46.8/24.6/16.0/10.5 (BP=1.000, ratio=1.010, hyp_len=6806, ref_len=6739)
+Evaluation with hyp.iter25000.rk, Transformer model:
+BLEU = 20.33, 46.3/23.9/15.4/10.0 (BP=1.000, ratio=1.014, hyp_len=6832, ref_len=6739)
+Evaluation with hyp.iter30000.rk, Transformer model:
+BLEU = 20.81, 46.4/24.2/15.9/10.5 (BP=1.000, ratio=1.008, hyp_len=6791, ref_len=6739)
+Evaluation with hyp.iter35000.rk, Transformer model:
+BLEU = 20.92, 46.8/24.4/16.0/10.5 (BP=1.000, ratio=1.004, hyp_len=6769, ref_len=6739)
+Evaluation with hyp.iter40000.rk, Transformer model:
+BLEU = 20.92, 46.9/24.5/15.9/10.5 (BP=1.000, ratio=1.007, hyp_len=6785, ref_len=6739)
+Evaluation with hyp.iter45000.rk, Transformer model:
+BLEU = 20.57, 46.2/24.1/15.7/10.2 (BP=1.000, ratio=1.009, hyp_len=6802, ref_len=6739)
+Evaluation with hyp.iter50000.rk, Transformer model:
+BLEU = 20.84, 46.5/24.3/15.9/10.5 (BP=1.000, ratio=1.000, hyp_len=6736, ref_len=6739)
+Evaluation with hyp.iter55000.rk, Transformer model:
+BLEU = 20.93, 46.4/24.3/16.0/10.6 (BP=1.000, ratio=1.003, hyp_len=6756, ref_len=6739)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1$
 ```
 
 ```
