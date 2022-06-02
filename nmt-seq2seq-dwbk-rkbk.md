@@ -2077,16 +2077,97 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ vi ./seq2seq.bkrk.1.sh
+...
+...
+...
+[2022-06-02 09:39:24] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-02 09:39:48] Seen 8,850 samples
+[2022-06-02 09:39:48] Starting data epoch 1936 in logical epoch 1936
+[2022-06-02 09:39:48] [data] Shuffling data
+[2022-06-02 09:39:48] [data] Done reading 8,850 sentences
+[2022-06-02 09:39:48] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-02 09:40:13] Seen 8,850 samples
+[2022-06-02 09:40:13] Starting data epoch 1937 in logical epoch 1937
+[2022-06-02 09:40:13] [data] Shuffling data
+[2022-06-02 09:40:13] [data] Done reading 8,850 sentences
+[2022-06-02 09:40:13] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-02 09:40:18] Ep. 1937 : Up. 55000 : Sen. 2,130 : Cost 0.04683007 * 1,158,935 @ 1,887 after 127,637,194 : Time 442.52s : 2618.93 words/s : gNorm 0.0963
+[2022-06-02 09:40:18] Saving model weights and runtime parameters to model.seq2seq.bkrk.1/model.iter55000.npz
+[2022-06-02 09:40:20] Saving model weights and runtime parameters to model.seq2seq.bkrk.1/model.npz
+[2022-06-02 09:40:27] Saving Adam parameters
+[2022-06-02 09:40:28] [training] Saving training checkpoint to model.seq2seq.bkrk.1/model.npz and model.seq2seq.bkrk.1/model.npz.optimizer.npz
+[2022-06-02 09:41:02] [valid] Ep. 1937 : Up. 55000 : cross-entropy : 41.6271 : stalled 10 times (last best: 30.9605)
+[2022-06-02 09:41:02] [valid] Ep. 1937 : Up. 55000 : perplexity : 263.356 : stalled 10 times (last best: 63.1392)
+[2022-06-02 09:41:02] Translating validation set...
+[2022-06-02 09:41:02] Best translation 0 : ထထိုမချေ ကကို စ လား ခပါလား ။
+[2022-06-02 09:41:02] Best translation 1 : မင်း ပါတီပွဲ နောက်ကျ နီဗျာယ် ။
+[2022-06-02 09:41:02] Best translation 2 : ကျေးဇူးပြု၍ သတင်းစာ ဖတ် ပါလား ။
+[2022-06-02 09:41:02] Best translation 3 : သူ အိမ် ကကို ကျိန်းသီ ပြန် ဖဖိဖို့ပါ ။
+[2022-06-02 09:41:02] Best translation 4 : အူ နီ ရေ ခွီး တိ ။
+[2022-06-02 09:41:02] Best translation 5 : မင်း ဇာ မိန်း လေး ။
+[2022-06-02 09:41:02] Best translation 10 : ယင်းသူ က ဆရာဝန် ပါ ။
+[2022-06-02 09:41:02] Best translation 20 : ငါ ၂၅ ဆင့် နှစ် ခက် နန့် ၁၀ ဆင့် တန် ငါး ခက် လလို ချင်ရေ ။
+[2022-06-02 09:41:02] Best translation 40 : ဒေချင့် ဇာသသူ့ ထမင်းဘူး လေး ။
+[2022-06-02 09:41:02] Best translation 80 : မင်းရရဲ့ ဝမ်းကွဲ ညီ တိ က မချေ ကကို ဒေါသပပိုကြီး စီရေ ။
+[2022-06-02 09:41:02] Best translation 160 : မင်း ဆီးလိပ် မ သောက် ပါလား ။
+[2022-06-02 09:41:03] Best translation 320 : ထထိုမချေ က ယင်းချင့် ကကို ယယုံကြည် ခပါလား ။
+[2022-06-02 09:41:03] Best translation 640 : ကျွန်တော် ဘီယာ သောက် ခပါရေ ။
+[2022-06-02 09:41:03] Total translation time: 0.97518s
+[2022-06-02 09:41:03] [valid] Ep. 1937 : Up. 55000 : bleu : 20.1678 : stalled 10 times (last best: 22.0371)
+[2022-06-02 09:41:03] Training finished
+[2022-06-02 09:41:04] Saving model weights and runtime parameters to model.seq2seq.bkrk.1/model.npz
+[2022-06-02 09:41:11] Saving Adam parameters
+[2022-06-02 09:41:12] [training] Saving training checkpoint to model.seq2seq.bkrk.1/model.npz and model.seq2seq.bkrk.1/model.npz.optimizer.npz
 
+real    820m39.883s
+user    986m59.393s
+sys     2m19.510s
 ```
 
-```
+check the output models ...  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1$
 ```
 
+script for running ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese dialects
+## used Marian NMT Framework for training
+## Last updated: 31 May 2022
+
+data_path="/home/ye/exp/pivot-nmt-baseline/data/word/rk-bk/1/";
+src="bk"; tgt="rk";
+
+for i in {5000..55000..5000}
+do
+    marian-decoder -m ./model.iter$i.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 1 --output hyp.iter$i.${tgt} < ${data_path}/test.${src};
+    echo "Evaluation with hyp.iter$i.${tgt}, Transformer model:" >> eval-result.txt;
+    perl /home/ye/tool/moses-scripts/scripts/generic/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.iter$i.${tgt} >> eval-result.txt;
+
+done
 ```
+
+Testing and evaluation ...  
 
 ```
 
