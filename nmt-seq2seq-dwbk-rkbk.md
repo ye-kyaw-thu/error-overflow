@@ -2300,15 +2300,85 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.bkdw.1-2hidden-layers.sh
+...
+...
+...
+[2022-06-02 22:04:44] [data] Done reading 5,452 sentences
+[2022-06-02 22:04:44] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-02 22:04:53] Seen 5,452 samples
+[2022-06-02 22:04:53] Starting data epoch 3928 in logical epoch 3928
+[2022-06-02 22:04:53] [data] Shuffling data
+[2022-06-02 22:04:53] [data] Done reading 5,452 sentences
+[2022-06-02 22:04:53] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-02 22:05:02] Seen 5,452 samples
+[2022-06-02 22:05:02] Starting data epoch 3929 in logical epoch 3929
+[2022-06-02 22:05:02] [data] Shuffling data
+[2022-06-02 22:05:02] [data] Done reading 5,452 sentences
+[2022-06-02 22:05:02] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-02 22:05:08] Ep. 3929 : Up. 55000 : Sen. 3,414 : Cost 0.05739907 * 1,363,042 @ 4,606 after 149,546,172 : Time 324.39s : 4201.91 words/s : gNorm 0.0814
+[2022-06-02 22:05:08] Saving model weights and runtime parameters to model.seq2seq.bkdw.1-2hl/model.iter55000.npz
+[2022-06-02 22:05:08] Saving model weights and runtime parameters to model.seq2seq.bkdw.1-2hl/model.npz
+[2022-06-02 22:05:14] Saving Adam parameters
+[2022-06-02 22:05:14] [training] Saving training checkpoint to model.seq2seq.bkdw.1-2hl/model.npz and model.seq2seq.bkdw.1-2hl/model.npz.optimizer.npz
+[2022-06-02 22:05:33] [valid] Ep. 3929 : Up. 55000 : cross-entropy : 55.6634 : stalled 10 times (last best: 42.6357)
+[2022-06-02 22:05:33] [valid] Ep. 3929 : Up. 55000 : perplexity : 2643.52 : stalled 10 times (last best: 418.063)
+[2022-06-02 22:05:33] Translating validation set...
+[2022-06-02 22:05:33] Best translation 0 : နန် ဟှဲဖြစ်ဟှိ ပ္လေး နေဟှယ် ။
+[2022-06-02 22:05:33] Best translation 1 : အဲဟှာ ကြောက်-က်စာ အီတ် ဟှီးမား ။
+[2022-06-02 22:05:33] Best translation 2 : မမိုးလန်းပပိုင်း မှာ ခံဗျား ဟှယ် ခီ အိယာ က ထ နူး ။
+[2022-06-02 22:05:33] Best translation 3 : ကျေးဇူးပြုပီး ကျွန်တော့ မွီးနေ့ ပွဲ ဟှှို လာ ပါလား ။
+[2022-06-02 22:05:33] Best translation 4 : ဟှင့်အင်း ၊ နန် က ငါ့ ကကို တစ် ဒေါ်လာ ပေး ၊ အဲဆဆိုဟှာ ငါ့မှာ ရှိဇာ နတ်မှာ ရှိ ဇာန ၂ ဆ ဖြစ်ဟှားလလီ့မယ် ။
+[2022-06-02 22:05:33] Best translation 5 : ဝယ်ယား ဟှ က သူးနနိနို့ ဝဝို သိ နေရယ် ။
+[2022-06-02 22:05:34] Best translation 10 : သူ ဟှယ်ဒဒူ့ဟှှိုလည်းဖွမ့် ပြောခခဲ့ဟှှိှို့ မမိမို့ ဟှ ။
+[2022-06-02 22:05:34] Best translation 20 : ကားမာ ဘီး လေးဘီးရှိဟှယ် ။
+[2022-06-02 22:05:34] Best translation 40 : နေ ဟှ ခြော့-က် နာရီ ထထိုးခံ ထွပ်ဟှယ် ။
+[2022-06-02 22:05:34] Best translation 80 : နန့် ဟှှို ငါ ဝဝိုင်း သယ် ပေးမယ် ။
+[2022-06-02 22:05:34] Best translation 160 : နန့် ဟှှို ငါ ဝဝိုင်း သယ် ပေးမယ် ။
+[2022-06-02 22:05:34] Best translation 320 : နန် ဟှယ်လလူ့ ဟှှို ရှာ ဟှှိှို့နူး ။
+[2022-06-02 22:05:34] Total translation time: 0.36855s
+[2022-06-02 22:05:34] [valid] Ep. 3929 : Up. 55000 : bleu : 10.1864 : stalled 4 times (last best: 10.268)
+[2022-06-02 22:05:34] Training finished
+[2022-06-02 22:05:34] Saving model weights and runtime parameters to model.seq2seq.bkdw.1-2hl/model.npz
+[2022-06-02 22:05:39] Saving Adam parameters
+[2022-06-02 22:05:40] [training] Saving training checkpoint to model.seq2seq.bkdw.1-2hl/model.npz and model.seq2seq.bkdw.1-2hl/model.npz.optimizer.npz
 
+real    600m24.423s
+user    736m10.027s
+sys     2m35.297s
 ```
 
 I skip to show testing steps...    
 Results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1-2hl$ cat eval-result.txt
+Evaluation with hyp.iter5000.dw, Transformer model:
+BLEU = 9.92, 37.3/11.7/6.3/4.3 (BP=0.949, ratio=0.950, hyp_len=3813, ref_len=4013)
+Evaluation with hyp.iter10000.dw, Transformer model:
+BLEU = 12.64, 39.2/13.9/7.9/6.1 (BP=0.992, ratio=0.992, hyp_len=3980, ref_len=4013)
+Evaluation with hyp.iter15000.dw, Transformer model:
+BLEU = 11.71, 39.1/13.5/7.1/5.3 (BP=0.987, ratio=0.988, hyp_len=3963, ref_len=4013)
+Evaluation with hyp.iter20000.dw, Transformer model:
+BLEU = 11.97, 38.9/13.5/7.5/5.6 (BP=0.982, ratio=0.983, hyp_len=3943, ref_len=4013)
+Evaluation with hyp.iter25000.dw, Transformer model:
+BLEU = 12.90, 39.2/14.2/8.3/6.4 (BP=0.984, ratio=0.984, hyp_len=3949, ref_len=4013)
+Evaluation with hyp.iter30000.dw, Transformer model:
+BLEU = 12.85, 38.3/13.8/8.2/6.3 (BP=1.000, ratio=1.000, hyp_len=4013, ref_len=4013)
+Evaluation with hyp.iter35000.dw, Transformer model:
+BLEU = 13.02, 38.8/14.0/8.4/6.6 (BP=0.988, ratio=0.988, hyp_len=3964, ref_len=4013)
+Evaluation with hyp.iter40000.dw, Transformer model:
+BLEU = 13.11, 39.3/14.3/8.5/6.7 (BP=0.981, ratio=0.981, hyp_len=3937, ref_len=4013)
+Evaluation with hyp.iter45000.dw, Transformer model:
+BLEU = 13.10, 39.0/14.1/8.4/6.7 (BP=0.985, ratio=0.985, hyp_len=3954, ref_len=4013)
+Evaluation with hyp.iter50000.dw, Transformer model:
+BLEU = 13.38, 39.3/14.5/8.7/6.9 (BP=0.982, ratio=0.983, hyp_len=3943, ref_len=4013)
+Evaluation with hyp.iter55000.dw, Transformer model:
+BLEU = 13.60, 39.4/14.7/9.0/7.0 (BP=0.984, ratio=0.984, hyp_len=3950, ref_len=4013)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkdw.1-2hl$
 ```
+
+**Best BLEU score, bk-dw, word unit, seq2seq, config2: 13.60**  
 
 ## dw-bk, Word, Seq2Seq, 2 Hidden Layers and Valid-Mini-Batch 64
 
