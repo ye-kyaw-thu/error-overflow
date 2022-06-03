@@ -2462,6 +2462,8 @@ BLEU = 12.31, 40.3/14.0/7.7/5.3 (BP=0.996, ratio=0.996, hyp_len=4251, ref_len=42
 (marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1-2hl$
 ```
 
+**Best BLEU score for dw-bk, word unit, seq2seq, config2 is 12.67.**  
+
 ## rk-bk, Word, Seq2Seq, 2 Hidden Layers and Valid-Mini-Batch 64
 
 ```
