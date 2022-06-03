@@ -2466,8 +2466,46 @@ BLEU = 12.31, 40.3/14.0/7.7/5.3 (BP=0.996, ratio=0.996, hyp_len=4251, ref_len=42
 
 ## rk-bk, Word, Seq2Seq, 2 Hidden Layers and Valid-Mini-Batch 64
 
-```
+config2 preparation and training bash script for rk-bk language pair...  
 
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese and Ethnic Languages
+## used Marian NMT Framework for seq2seq training
+## Last updated: 2 June 2022
+## for this time, enc-depth and dec-depth = 2 and valid-mini-batch = 64
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.rkbk.1-2hl";
+mkdir ${model_folder};
+data_path="/home/ye/exp/pivot-nmt-baseline/data/word/rk-bk/1/";
+src="rk"; tgt="bk";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 200 \
+  --valid-sets ${data_path}/dev.${src} ${data_path}/dev.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 4500 \
+  --enc-depth 2 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 2 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 64 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 1 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
 Results are as follows:  
