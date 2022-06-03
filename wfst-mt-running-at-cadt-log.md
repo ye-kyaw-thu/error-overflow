@@ -31,8 +31,24 @@ for dw-bk pair:
 ```
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.dw ../../4wfst/dw-bk/1/
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.bk ../../4wfst/dw-bk/1/
+```
 
+4wfst/dw-bk/1/ အောက်ကို ရွှေ့ပြီးတော့ ...  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/dw-bk/1$ ls
+dev.bk  dev.dw  test.bk  test.dw  train.bk  train.dw
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/dw-bk/1$ cat train.bk dev.bk > ../train.bk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/dw-bk/1$ cat train.dw dev.dw > ../train.dw
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/dw-bk/1$ cd ..
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/dw-bk$ wc *
+wc: 1: Is a directory
+      0       0       0 1
+    670    4267   60615 test.bk
+    670    4013   64228 test.dw
+   5952   37686  540873 train.bk
+   5952   35646  573030 train.dw
+  13244   81612 1238746 total
 ```
 
 for rk-bk pair:  
@@ -41,27 +57,10 @@ for rk-bk pair:
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ ls
 dev.bk  dev.rk  test.bk  test.rk  train.bk  train.rk
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp * ../../4wfst/rk-bk/1/
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cat train.bk dev.bk > ../train.bk
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cat train.rk dev.rk > ../train.rk
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp test.bk ../
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp test.rk ../
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cd ..
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ wc *.bk
-   1072    6956  103337 test.bk
-   9650   63491  944655 train.bk
-  10722   70447 1047992 total
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ wc *.rk
-   1072    6739  110724 test.rk
-   9650   62246 1013314 train.rk
-  10722   68985 1124038 total
-```
-
-4wfst အောက်ကို ရွှေ့...  
 
 ```
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ mv *.bk ../4wfst/rk-bk/
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ mv *.rk ../4wfst/rk-bk/
-```
+
+
 
 
 ```
