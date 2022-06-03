@@ -31,6 +31,7 @@ for dw-bk pair:
 ```
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.dw ../../4wfst/dw-bk/1/
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.bk ../../4wfst/dw-bk/1/
+
 ```
 
 for rk-bk pair:  
@@ -39,7 +40,19 @@ for rk-bk pair:
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ ls
 dev.bk  dev.rk  test.bk  test.rk  train.bk  train.rk
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp * ../../4wfst/rk-bk/1/
-
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cat train.bk dev.bk > ../train.bk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cat train.rk dev.rk > ../train.rk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp test.bk ../
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp test.rk ../
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cd ..
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ wc *.bk
+   1072    6956  103337 test.bk
+   9650   63491  944655 train.bk
+  10722   70447 1047992 total
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ wc *.rk
+   1072    6739  110724 test.rk
+   9650   62246 1013314 train.rk
+  10722   68985 1124038 total
 ```
 
 ```
