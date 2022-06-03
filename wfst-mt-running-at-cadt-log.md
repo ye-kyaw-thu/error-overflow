@@ -80,6 +80,10 @@ wc: 1: Is a directory
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk$
 ```
 
+## Alignment
+
+Alignment လုပ်ပြီးတော့ phrase-level dictionary ကို ဆောက်ခဲ့ ...  
+
 ```
 
 ```
