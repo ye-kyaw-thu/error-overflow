@@ -104,17 +104,52 @@ Alignment လုပ်ပြီးတော့ phrase-level dictionary ကို
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment$
 ```
 
+alignment လုပ်ဖို့အတွက် လိုအပ်တဲ့ script ကို ကော်ပီကူးယူခဲ့ ...  
+
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word/alignment/my-bk$ cp anymalign.sh /media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word/alignment/my-bk$ cp anymalign.sh /media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word/alignment/my-bk$
+```
+
+alignment လုပ်တဲ့ script က အောက်ပါအတိုင်း ...  
+
+```bash
+#!/bin/bash -v
+
+# How to run:
+# e.g. ./anymalign.sh my bk
+SOURCE=$1;
+TARGET=$2;
+
+time python2.7 /home/ye/tool/anymalign2.5/anymalign.py ./train.$SOURCE ./train.$TARGET > alignment-train.txt
+wc ./alignment-train.txt
+
+head ./alignment-train.txt
+tail ./alignment-train.txt
+
+cut -f1 ./alignment-train.txt > train-equal-smt.$SOURCE
+cut -f2 ./alignment-train.txt > train-equal-smt.$TARGET
+
+head ./train-equal-smt.$SOURCE
+head ./train-equal-smt.$TARGET
+
+tail ./train-equal-smt.$SOURCE
+tail ./train-equal-smt.$TARGET
+
+wc ./train-equal-smt.$SOURCE
+wc ./train-equal-smt.$TARGET
+
+echo "Alignment path:"
+pwd;
+```
+
+alignment for dw-bk language pair:  
 
 ```
 
 ```
 
-```
-
-```
-
-```
 
 ```
 
