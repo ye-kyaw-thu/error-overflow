@@ -147,9 +147,120 @@ pwd;
 alignment for dw-bk language pair:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk$ time ./anymalign.sh bk dw
+#!/bin/bash -v
 
+# How to run:
+# e.g. ./anymalign.sh my bk
+SOURCE=$1;
+TARGET=$2;
+
+time python2.7 /home/ye/tool/anymalign2.5/anymalign.py ./train.$SOURCE ./train.$TARGET > alignment-train.txt
+Input corpus: 2 languages, 5952 lines
+Aligning... (ctrl-c to interrupt)
+(4568242 subcorpora, avg=11.95) Alignment interrupted! Proceeding...
+183055 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+100%
+real	26m17.825s
+user	26m8.015s
+sys	0m2.703s
+wc ./alignment-train.txt
+  183055  1806362 22186254 ./alignment-train.txt
+
+head ./alignment-train.txt
+။	။	-	0.980111 0.983410	41655021
+။	ဟှယ် ။	-	0.009424 0.717105	400534
+နင်	နန်	-	0.918959 0.859376	367305
+ဘဇာလောက်	ဟှယ်လော့	-	0.970911 0.979262	264382
+သူ	သူ	-	0.921849 0.863447	215437
+ရယ် ။	။	-	0.640275 0.003865	163712
+ပြော	ပြော	-	0.916247 0.912796	112691
+သိ	သိ	-	0.913766 0.950137	102764
+ငါ	ငါ	-	0.526656 0.908933	94609
+ရေချိုးခန်း လဲ ပါ ရယ်	ရေချိုးခန်း လည်း ရှိဟှယ်	-	0.993098 0.604144	90647
+tail ./alignment-train.txt
+ကို တောင်းပန် ရမယ်လား	တွန်းပန် ရဝို့လား	-	0.200000 0.001534	1
+နှစ် အုပ်ယူ မယ်	အယ် စာအောက် နှေ့အောက်	-	0.015385 0.014085	1
+တစ်ယောက် စီ မှာ ဘယ်လောက်စီ	တစ် ယွတ် စီ မှာ ဟှာမျှလွတ် စီ ရှိ	-	0.125000 0.055556	1
+ရှိ လဲ ။	သိဟှ ။	-	0.017544 0.002538	1
+ခင်ဗား သူဒို့ကို ထပ် ကြိုးစား ဖို့ အားပေး ခဲ့လား	သူးနို့ဂို ထပ်ကြိုးစားဟှို့	-	0.000118 0.004016	1
+ထိုင်ခုံ ပေါ်မှာ ထိုင် နေရယ် ။	ထိုင်ခေါင်ထပ်မာ ထိုင် နေဟှယ်	-	0.001709 0.000682	1
+နင့် ကို တကယ် မုန်းတိန်း	နန့်ဟှို တကယ် မူးပစ်	-	0.009346 0.004902	1
+လား ။	လိုက်ဟှိလား ။	-	0.000022 0.002725	1
+နင် ဘာ ကြား ခဲ့ရယ်	နန် ဟှယ်စာ ကြား နူး ။	-	0.000146 0.000838	1
+ဒယ်စာဝို လို ချင်လား	သူ အဲ့မာ ဟှို လိုရှင် နေလား ။	-	0.002618 0.000838	1
+
+cut -f1 ./alignment-train.txt > train-equal-smt.$SOURCE
+cut -f2 ./alignment-train.txt > train-equal-smt.$TARGET
+
+head ./train-equal-smt.$SOURCE
+။
+။
+နင်
+ဘဇာလောက်
+သူ
+ရယ် ။
+ပြော
+သိ
+ငါ
+ရေချိုးခန်း လဲ ပါ ရယ်
+head ./train-equal-smt.$TARGET
+။
+ဟှယ် ။
+နန်
+ဟှယ်လော့
+သူ
+။
+ပြော
+သိ
+ငါ
+ရေချိုးခန်း လည်း ရှိဟှယ်
+
+tail ./train-equal-smt.$SOURCE
+ကို တောင်းပန် ရမယ်လား
+နှစ် အုပ်ယူ မယ်
+တစ်ယောက် စီ မှာ ဘယ်လောက်စီ
+ရှိ လဲ ။
+ခင်ဗား သူဒို့ကို ထပ် ကြိုးစား ဖို့ အားပေး ခဲ့လား
+ထိုင်ခုံ ပေါ်မှာ ထိုင် နေရယ် ။
+နင့် ကို တကယ် မုန်းတိန်း
+လား ။
+နင် ဘာ ကြား ခဲ့ရယ်
+ဒယ်စာဝို လို ချင်လား
+tail ./train-equal-smt.$TARGET
+တွန်းပန် ရဝို့လား
+အယ် စာအောက် နှေ့အောက်
+တစ် ယွတ် စီ မှာ ဟှာမျှလွတ် စီ ရှိ
+သိဟှ ။
+သူးနို့ဂို ထပ်ကြိုးစားဟှို့
+ထိုင်ခေါင်ထပ်မာ ထိုင် နေဟှယ်
+နန့်ဟှို တကယ် မူးပစ်
+လိုက်ဟှိလား ။
+နန် ဟှယ်စာ ကြား နူး ။
+သူ အဲ့မာ ဟှို လိုရှင် နေလား ။
+
+wc ./train-equal-smt.$SOURCE
+ 183055  530101 8438087 ./train-equal-smt.bk
+wc ./train-equal-smt.$TARGET
+ 183055  544041 9576735 ./train-equal-smt.dw
+
+echo "Alignment path:"
+Alignment path:
+pwd;
+/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk
+
+
+
+real	26m18.920s
+user	26m8.878s
+sys	0m2.792s
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk$
 ```
 
+for bk-rk pair:  
 
 ```
 
