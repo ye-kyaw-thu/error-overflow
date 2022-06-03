@@ -24,6 +24,8 @@ mk-fst-format.pl  multi-test.sh       test-nofstdraw.sh         translate.sh
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$
 ```
 
+## Data Preparation  
+
 training ဒေတာနဲ့ development ဒေတာကို ပေါင်းပြီး wfst ဆောက်ရမှာမို့ အဲဒီအတွက် ဒေတာကို ပြင်ခဲ့...  
 
 for dw-bk pair:  
