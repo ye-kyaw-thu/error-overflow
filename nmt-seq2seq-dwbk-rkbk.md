@@ -2385,7 +2385,52 @@ BLEU = 13.60, 39.4/14.7/9.0/7.0 (BP=0.984, ratio=0.984, hyp_len=3950, ref_len=40
 Training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.dwbk.1-2hidden-layers.sh
+...
+...
+...
+[2022-06-03 09:08:21] [data] Done reading 5,452 sentences
+[2022-06-03 09:08:21] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-03 09:08:30] Seen 5,452 samples
+[2022-06-03 09:08:30] Starting data epoch 4230 in logical epoch 4230
+[2022-06-03 09:08:30] [data] Shuffling data
+[2022-06-03 09:08:30] [data] Done reading 5,452 sentences
+[2022-06-03 09:08:30] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-03 09:08:39] Seen 5,452 samples
+[2022-06-03 09:08:39] Starting data epoch 4231 in logical epoch 4231
+[2022-06-03 09:08:39] [data] Shuffling data
+[2022-06-03 09:08:39] [data] Done reading 5,452 sentences
+[2022-06-03 09:08:39] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-03 09:08:46] Ep. 4231 : Up. 55000 : Sen. 3,788 : Cost 0.03955685 * 1,530,453 @ 508 after 168,911,035 : Time 338.79s : 4517.36 words/s : gNorm 0.0644
+[2022-06-03 09:08:46] Saving model weights and runtime parameters to model.seq2seq.dwbk.1-2hl/model.iter55000.npz
+[2022-06-03 09:08:47] Saving model weights and runtime parameters to model.seq2seq.dwbk.1-2hl/model.npz
+[2022-06-03 09:08:52] Saving Adam parameters
+[2022-06-03 09:08:53] [training] Saving training checkpoint to model.seq2seq.dwbk.1-2hl/model.npz and model.seq2seq.dwbk.1-2hl/model.npz.optimizer.npz
+[2022-06-03 09:09:11] [valid] Ep. 4231 : Up. 55000 : cross-entropy : 57.4461 : stalled 10 times (last best: 40.6634)
+[2022-06-03 09:09:12] [valid] Ep. 4231 : Up. 55000 : perplexity : 2288.85 : stalled 10 times (last best: 238.847)
+[2022-06-03 09:09:12] Translating validation set...
+[2022-06-03 09:09:12] Best translation 0 : နင် ဟုတ်ဘောင်းဘီ မ ဝတ် ကမား ။
+[2022-06-03 09:09:12] Best translation 1 : မိန်းမချော ငယ် ရ အခန်း ထဲမှာ ရှိ ရယ် ။
+[2022-06-03 09:09:12] Best translation 2 : ကိုး နာရီ ထိုးချိန် မှာ သူ ထွက် သွားရယ် ။
+[2022-06-03 09:09:12] Best translation 3 : ကျေးဇူးပြု၍ ကျွန်တော့်ရဲ့ မွေးနေ့ပွဲ ကို လာ ပါလား ။
+[2022-06-03 09:09:12] Best translation 4 : ဘသူပဲ့ တယ်လီဖုန်း ဆက်ဆက် ၊ သူ့လို့ဝို ငါ အပြင် သွား ဝယ်လိ ပြော လိုက်န ။
+[2022-06-03 09:09:12] Best translation 5 : အဲ့အမ လေ အဲ့ဇာ ကို သိ ရယ် ။
+[2022-06-03 09:09:12] Best translation 10 : သူလို့ ငါ့ အကြောင်း ကို အချင်းမပြော ကြကလား ။
+[2022-06-03 09:09:12] Best translation 20 : သူ့ရဲ့ မျက်နှာလေး ကို သိ နေရယ်၊ ဒါမဲ့ သူ့ရဲ့ နာမည် ကို မ မှတ်မိ ဖြစ်နေရယ် ။
+[2022-06-03 09:09:12] Best translation 40 : ဒါ ဟင်းသီးဟင်းရွက် ဒေ က ကျက်အားကြီးပြီး ပျော့ပြဲ နေရဘ် ။
+[2022-06-03 09:09:12] Best translation 80 : ဒယ်ကောင်မငယ် ဝို တွေ့ ရဇာ ဝမ်းသာ ရယ် ။
+[2022-06-03 09:09:12] Best translation 160 : ဒယ်ကောင်မငယ် ဝို မ ကူညီ ရရိ စိတ်တောင် မကောင်းရ ။
+[2022-06-03 09:09:12] Best translation 320 : နင် ဖယ်သူ့ ဝို တွေ့ ဝို့လဲ ။
+[2022-06-03 09:09:12] Total translation time: 0.37010s
+[2022-06-03 09:09:12] [valid] Ep. 4231 : Up. 55000 : bleu : 11.3127 : stalled 4 times (last best: 11.5023)
+[2022-06-03 09:09:12] Training finished
+[2022-06-03 09:09:12] Saving model weights and runtime parameters to model.seq2seq.dwbk.1-2hl/model.npz
+[2022-06-03 09:09:17] Saving Adam parameters
+[2022-06-03 09:09:18] [training] Saving training checkpoint to model.seq2seq.dwbk.1-2hl/model.npz and model.seq2seq.dwbk.1-2hl/model.npz.optimizer.npz
 
+real    626m59.828s
+user    768m43.898s
+sys     2m45.149s
 ```
 
 Results are as follows:  
