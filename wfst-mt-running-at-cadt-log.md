@@ -32,6 +32,7 @@ for dw-bk pair:
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.dw ../../4wfst/dw-bk/1/
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/dw-bk/1$ cp *.bk ../../4wfst/dw-bk/1/
 
+
 ```
 
 for rk-bk pair:  
@@ -55,9 +56,13 @@ dev.bk  dev.rk  test.bk  test.rk  train.bk  train.rk
   10722   68985 1124038 total
 ```
 
-```
+4wfst အောက်ကို ရွှေ့...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ mv *.bk ../4wfst/rk-bk/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk$ mv *.rk ../4wfst/rk-bk/
+```
+
 
 ```
 
