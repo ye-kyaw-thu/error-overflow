@@ -263,7 +263,117 @@ sys	0m2.792s
 for bk-rk pair:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk$ time ./anymalign.sh bk rk
+#!/bin/bash -v
 
+# How to run:
+# e.g. ./anymalign.sh my bk
+SOURCE=$1;
+TARGET=$2;
+
+time python2.7 /home/ye/tool/anymalign2.5/anymalign.py ./train.$SOURCE ./train.$TARGET > alignment-train.txt
+Input corpus: 2 languages, 9650 lines
+Aligning... (ctrl-c to interrupt)
+(5246089 subcorpora, avg=12.77) Alignment interrupted! Proceeding...
+294352 alignments
+Sorting alignments
+Computing conditional probabilities...
+Outputting results...
+100%
+real	24m28.958s
+user	24m23.843s
+sys	0m3.509s
+wc ./alignment-train.txt
+  294352  2980716 36743568 ./alignment-train.txt
+
+head ./alignment-train.txt
+။	။	-	0.904938 0.965847	14476373
+မ	မ	-	0.909321 0.934329	829697
+သူ	သူ	-	0.905877 0.898486	320108
+သိ	သိ	-	0.963547 0.952186	250027
+နင်	မင်း	-	0.902978 0.447674	242305
+ကို	ကို	-	0.732186 0.450506	207055
+။	မင်း	-	0.011477 0.339220	183604
+ရယ် ။	။	-	0.586329 0.010789	161703
+ကူညီ	ကူညီ	-	0.972580 0.955970	138369
+အတွက်	အတွက်	-	0.977607 0.910176	138264
+tail ./alignment-train.txt
+။	သား ဟိ ပါလား ။	-	0.000000 0.001876	1
+သူက ဆရာဝန် ဆီ	သူက ဆရာဝန် ဘက်လားရစွာ	-	0.500000 0.020000	1
+သောရဇာ ကြိုက် ပဲ့လား ။	ကြိုက် ပါ လား ။	-	1.000000 0.032258	1
+တို့ ငါ့	သူ ရို့ ငါ့	-	0.045455 0.125000	1
+သော ဝို့ ရည်ရွယ်	ဖို့ ရည်ရွယ်	-	0.333333 0.006849	1
+ကျဒေါ် ကျောင်း မှာ	ကျောင်း မာ	-	0.500000 0.020408	1
+နှစ် ရှိ	နှစ် ဟိ ဗျာယ်	-	0.010204 0.500000	1
+ဟိတ် နင် ဘာ တင်ပြ အုန်း ။	မင်း တစ်ခုခု တင်ပြဖို့ ဟိ လား	-	0.001183 0.000696	1
+ဒယ်မာ ဖယ်သူတွေ ရှိ ခဲ့တယ်	ဇာသူရို့ ဟိ ဂတ်လေး ။	-	0.000360 0.041667	1
+နင် သူလို့ဝို တွေ့ ခဲ့ရယ်လား	သူရို့ ကို တွိ	-	0.000668 0.076923	1
+
+cut -f1 ./alignment-train.txt > train-equal-smt.$SOURCE
+cut -f2 ./alignment-train.txt > train-equal-smt.$TARGET
+
+head ./train-equal-smt.$SOURCE
+။
+မ
+သူ
+သိ
+နင်
+ကို
+။
+ရယ် ။
+ကူညီ
+အတွက်
+head ./train-equal-smt.$TARGET
+။
+မ
+သူ
+သိ
+မင်း
+ကို
+မင်း
+။
+ကူညီ
+အတွက်
+
+tail ./train-equal-smt.$SOURCE
+။
+သူက ဆရာဝန် ဆီ
+သောရဇာ ကြိုက် ပဲ့လား ။
+တို့ ငါ့
+သော ဝို့ ရည်ရွယ်
+ကျဒေါ် ကျောင်း မှာ
+နှစ် ရှိ
+ဟိတ် နင် ဘာ တင်ပြ အုန်း ။
+ဒယ်မာ ဖယ်သူတွေ ရှိ ခဲ့တယ်
+နင် သူလို့ဝို တွေ့ ခဲ့ရယ်လား
+tail ./train-equal-smt.$TARGET
+သား ဟိ ပါလား ။
+သူက ဆရာဝန် ဘက်လားရစွာ
+ကြိုက် ပါ လား ။
+သူ ရို့ ငါ့
+ဖို့ ရည်ရွယ်
+ကျောင်း မာ
+နှစ် ဟိ ဗျာယ်
+မင်း တစ်ခုခု တင်ပြဖို့ ဟိ လား
+ဇာသူရို့ ဟိ ဂတ်လေး ။
+သူရို့ ကို တွိ
+
+wc ./train-equal-smt.$SOURCE
+  294352   915264 14679597 ./train-equal-smt.bk
+wc ./train-equal-smt.$TARGET
+  294352   888044 15392718 ./train-equal-smt.rk
+
+echo "Alignment path:"
+Alignment path:
+pwd;
+/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk
+
+
+
+real	24m30.841s
+user	24m25.255s
+sys	0m3.627s
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk$
 ```
 
 ```
