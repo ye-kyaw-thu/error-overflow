@@ -2436,7 +2436,30 @@ sys     2m45.149s
 Results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1-2hl$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 9.98, 38.7/11.9/6.2/4.4 (BP=0.942, ratio=0.944, hyp_len=4027, ref_len=4267)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 11.96, 39.9/13.8/7.5/5.2 (BP=0.987, ratio=0.987, hyp_len=4213, ref_len=4267)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 12.65, 40.6/14.4/8.0/5.6 (BP=0.992, ratio=0.992, hyp_len=4232, ref_len=4267)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 12.67, 40.1/14.3/8.1/5.6 (BP=1.000, ratio=1.001, hyp_len=4271, ref_len=4267)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 12.35, 40.4/14.1/7.7/5.3 (BP=0.999, ratio=0.999, hyp_len=4262, ref_len=4267)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 12.21, 40.1/13.8/7.6/5.3 (BP=0.998, ratio=0.998, hyp_len=4260, ref_len=4267)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 12.34, 40.4/13.9/7.7/5.5 (BP=0.995, ratio=0.995, hyp_len=4244, ref_len=4267)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 12.40, 40.5/14.0/7.8/5.4 (BP=0.998, ratio=0.998, hyp_len=4260, ref_len=4267)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 12.30, 40.2/13.9/7.6/5.4 (BP=1.000, ratio=1.001, hyp_len=4273, ref_len=4267)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 12.67, 40.8/14.5/8.0/5.6 (BP=0.993, ratio=0.993, hyp_len=4238, ref_len=4267)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 12.31, 40.3/14.0/7.7/5.3 (BP=0.996, ratio=0.996, hyp_len=4251, ref_len=4267)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.dwbk.1-2hl$
 ```
 
 ## rk-bk, Word, Seq2Seq, 2 Hidden Layers and Valid-Mini-Batch 64
