@@ -57,14 +57,25 @@ for rk-bk pair:
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ ls
 dev.bk  dev.rk  test.bk  test.rk  train.bk  train.rk
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/rk-bk/1$ cp * ../../4wfst/rk-bk/1/
-
 ```
 
-
-
+4wfst/rk-bk/1/ path အောက်ကို ရွှေ့ပြီးတော့ ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk/1$ ls
+dev.bk  dev.rk  test.bk  test.rk  train.bk  train.rk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk/1$ cat train.bk dev.bk > ../train.bk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk/1$ cat train.rk dev.rk > ../train.rk
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk/1$ cp test.* ../(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk/1$ cd ..
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk$ wc *
+wc: 1: Is a directory
+      0       0       0 1
+   1072    6956  103337 test.bk
+   1072    6739  110724 test.rk
+   9650   63491  944655 train.bk
+   9650   62246 1013314 train.rk
+  21444  139432 2172030 total
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/data/word/4wfst/rk-bk$
 ```
 
 ```
