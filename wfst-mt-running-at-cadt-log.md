@@ -84,8 +84,24 @@ wc: 1: Is a directory
 
 Alignment လုပ်ပြီးတော့ phrase-level dictionary ကို ဆောက်ခဲ့ ...  
 
-```
+ပထမဆုံး အထက်မှာ ပြင်ဆင်ခဲ့တဲ့ ဒေတာတွေကို alignment လုပ်မယ့် folder အောက်ကို ကော်ပီကူးပြီးတော့ အောက်ပါအတိုင်း သိမ်းယူထားခဲ့ ...  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment$ tree
+.
+├── dw-bk
+│   ├── test.bk
+│   ├── test.dw
+│   ├── train.bk
+│   └── train.dw
+└── rk-bk
+    ├── test.bk
+    ├── test.rk
+    ├── train.bk
+    └── train.rk
+
+2 directories, 8 files
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment$
 ```
 
 ```
