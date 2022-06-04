@@ -1011,7 +1011,7 @@ prepare လုပ်ပေးတဲ့ script ကို ကောပီကူး
 # written by Ye Kyaw Thu, LST, NECTEC, Thailand
 # last updated: 4 June 2020
 
-mkdir -p ./wfst-mt/bk-dw-anymalign;
+mkdir -p ./wfst-mt/bk-rk-anymalign;
 EXP_PATH="./wfst-mt/bk-rk-anymalign";
 ALIGN_DATA_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk";
 SCRIPTS_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/ready-to-run-scripts";
