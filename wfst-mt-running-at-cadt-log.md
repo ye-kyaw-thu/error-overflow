@@ -376,11 +376,43 @@ sys	0m3.627s
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk$
 ```
 
+## Preparation for Running WFST-MT
+
+အရင်တုန်းက လုပ်ခဲ့တဲ့ WFST-MT experiment ဖိုလ်ဒါက script ကို ကော်ပီကူးယူခဲ့ ...  
+
+```bash
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word$ cp prepare-rkmy-fast-pt.sh /media/ye/project1/exp/wfst-mt/exp/wfst-cadt/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word$
 ```
 
-```
+script ကို ဝင် အောက်ပါအတိုင်း update လုပ်ခဲ့...  
+အရင်တုန်းက path တွေကို ဝင်ရိုက်ထည့်ခဲ့ပေမဲ့ ဒီတစ်ခါတော့ ပိုလုပ်ရကိုင်ရတာ အဆင်ပြေအောင်လို့ script ရဲ့ ထိပ်ဆုံးပိုင်းမှာ variable တွေအဖြစ် assign လုပ်ခဲ့...  
 
 ```
+#!/bin/bash -v
+
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 4 June 2020
+
+mkdir -p ./wfst-mt/bk-dw-anymalign;
+EXP_PATH="./wfst-mt/bk-dw-anymalign";
+ALIGN_DATA_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk";
+SCRIPTS_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/ready-to-run-scripts";
+SRC="bk";
+TGT="dw";
+
+# copying aligned data
+cp $ALIGN_DATA_PATH/train-equal-smt.{$SRC,$TGT} $EXP_PATH;
+cp $ALIGN_DATA_PATH/test.{$SRC,$TGT} $EXP_PATH;
+
+cat $EXP_PATH/train-equal-smt.$SRC $EXP_PATH/test.$SRC > $EXP_PATH/all.$SRC;
+cat $EXP_PATH/train-equal-smt.$TGT $EXP_PATH/test.$TGT > $EXP_PATH/all.$TGT;
+
+# copying shell, perl and python scripts for running WFST based MT experiment
+cp $SCRIPTS_PATH/*.{sh,pl,py} $EXP_PATH;
+
+# confirmation
+tree $EXP_PATH;
 
 ```
 
