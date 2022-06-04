@@ -419,7 +419,7 @@ tree $EXP_PATH;
 Running above script ...  
 
 ```
-(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ ./prepare-rkmy-fast-pt.sh 
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ ./prepare-bkdw-anymalign.sh 
 #!/bin/bash -v
 
 # written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -513,6 +513,27 @@ time ./eval.sh ./test.rk hyp.txt.clean
 အထက်ပါ script ကို အောက်ပါအတိုင်း update လုပ်ခဲ့...  
 
 ```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, 
+# Affiliate Professor, IDRI, CADT, Cambodia
+# Last Updated: 4 June 2022
+
+SRC="bk";
+TGT="dw";
+
+# Prepare oneline test data
+# head က ပုဒ်မ တစ်ခုတည်းဖြစ်နေလို့ tail ကို သုံးဖို့ ဆုံးဖြတ်လိုက်တယ်
+tail -n 1 ./train-equal-smt.$SRC > oneline.$SRC
+
+# Building Transducers with training data (i.e. language model, translation model, composing etc.)
+time ./translate-nofstdraw.sh ./train-equal-smt.$SRC ./train-equal-smt.$TGT oneline.$SRC ./all.$SRC ./all.$TGT ./all.$TGT
+
+# Testing with WFST MT
+time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TFT.log1
+
+# Evaluation
+time ./eval.sh ./test.$TGT hyp.txt.clean
 
 ```
 
