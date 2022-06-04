@@ -1134,7 +1134,7 @@ fstcompile for the input sentence finished!
 fstcompose together into a search graph finished!
 fstrmepsilon finished!
 finding the shortest path finished!
-...
+```
 
 အမှန်က ဒီအဆင့်မှာ shortest-path ကို graph အနေနဲ့ဆွဲထုတ်ထားတဲ့ PDF ဖိုင်ကို evince နဲ့ ဖွင့်ပြတယ်။ အထက်က run ခဲ့တဲ့ နေရာတွေမှာ မပြခဲ့ပေမဲ့ ....  graph က အောက်ပါအတိုင်း  
 
@@ -1147,8 +1147,7 @@ finding the shortest path finished!
 
 <br />
 
-```
-
+အဲဒီ PDF ဖိုင်ကို ပိတ်ပေးလိုက်ရင် script က ဆက် run ပြီးတော့ testing/evaluation တွေကို အဆင့်ဆင့် လုပ်ပေးသွားလိမ့်မယ်။ testing မှာတော့ နည်းနည်း ကြာတယ်။ မိနစ် ၂၀လောက်တော့ စောင့်ရလိမ့်မယ်။  
 
 ```
 
