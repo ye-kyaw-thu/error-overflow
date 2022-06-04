@@ -1184,6 +1184,35 @@ Translation: ကျောင်း လေ အခု ဖွင့် ဟောပ
 ...
 ...
 ...
+Translation: နင် ဖယ်သူ့ဝို မ ပေး ရလား ။
+Translation: ပဲခူး သွား တဲ့ ရထား ဘူတာရုံ က ၃:၄၀ လောက်ဆို ထွက် လေ့မယ် ။
+Translation: မင့် ကြိုက် ရဲ့ လူ ဝို ပြော ငါ ဟတော့ ဂရုမစိုက် ဝ ။
+FATAL: FstCompiler: Symbol "ဟတော့" is not mapped to any integer arc ilabel, symbol table = onetoone.all.isym, source = ./oneline-test.formatted, line = 8
+Translation: နင် ဖယ်သူ့ ဝို တွေ့ ဝို့လဲ ။
+Translation: ကျွန်တော့် အတွက် ရေကူး ရဇာ လွယ်လွယ်ငယ်ပဲ ။
+Translation: ကျွန်တော် အပြင် သိပ် မ ထွက် တက်ရ ။
+Translation: သားငယ် က လူဝတုတ်ကြီး ကို သေချာ မြင် နေတယ် ။
+Translation: ခင်ဗျား ရေကူး ကန် မှာ ရေကူး ရယ်လား ။
+Translation: မင်း ဆေး မ ကြိတ် ရလား ။
+Translation: ကြွား ရယ်လား ။
+Translation: ငါလို့ ရေချိုး ခဲ့ ကြပါဟယ် ။
+Translation: သူ အသက် ၄၀ ရှိ ပီ ။
+Translation: ဘာဖြစ် သူတို့ကို ဆဲ ဝ ။
+Translation: ဘာဇာဖြစ် မေး ရယ် ။
+Translation: ဘယ်သူဟ မင့် အကြောင်း ဝို တိုင်တိုင် ငါ မ ယုံ ဝ ။
+Translation: ဒါဇာ က ကြမ်းပြင် ။
+Translation: စာမေးပွဲ အောင်မြင် ဖို့ ရမ်း ခက်ခဲ တယ် ။
+Translation: ငါ ဒယ်ဆို လက်ဆောင်ထုပ် အဖြစ် ဘယ်မှာ သွားထုပ် ရဝို့ ။
+Translation: သူ့ဝို ဆိုင် မှာ အလိုရှိ နေရယ် ။
+Translation: အေးအေး ၊ ဒယ့် ကား ငါ ယူ မယ် ၊ ဘယ်မှာ လက်မှတ် ထိုး ရမယ် ။
+Translation: ကျွန်တော် ကြက် နီမ ဖမ်းဖို့ လုပ်ဦးမယ် ။
+Translation: ဒယ်ဇာဆို နင် နေရိထိုင်ရိ အား ကောင်း ပေါ့မယ် ။
+Translation: သူ စကား မ ပြော ရ ။
+Translation: ကျတော့်မှာ ဘာ မ ရှိက ။
+Translation: နင် မ ကြိုက် တဲ့ ဖြေ ။
+...
+...
+...
 
 ```
 
