@@ -2557,6 +2557,7 @@ user    787m56.514s
 sys     2m27.794s
 ```
 
+Checked the output models and prepared test-eval.sh bash script.  
 After the testing/evaluation ...  
 Results are as follows:  
 
