@@ -2508,6 +2508,56 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
+```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.rkbk.1-2hidden-layers.sh
+...
+...
+...
+[2022-06-03 23:12:20] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-03 23:12:36] Seen 8,850 samples
+[2022-06-03 23:12:36] Starting data epoch 2304 in logical epoch 2304
+[2022-06-03 23:12:36] [data] Shuffling data
+[2022-06-03 23:12:36] [data] Done reading 8,850 sentences
+[2022-06-03 23:12:36] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-03 23:12:53] Seen 8,850 samples
+[2022-06-03 23:12:53] Starting data epoch 2305 in logical epoch 2305
+[2022-06-03 23:12:53] [data] Shuffling data
+[2022-06-03 23:12:53] [data] Done reading 8,850 sentences
+[2022-06-03 23:12:53] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-03 23:13:05] Ep. 2305 : Up. 55000 : Sen. 6,830 : Cost 0.03575936 * 1,402,000 @ 313 after 154,500,231 : Time 347.08s : 4039.44 words/s : gNorm 0.0892
+[2022-06-03 23:13:05] Saving model weights and runtime parameters to model.seq2seq.rkbk.1-2hl/model.iter55000.npz
+[2022-06-03 23:13:06] Saving model weights and runtime parameters to model.seq2seq.rkbk.1-2hl/model.npz
+[2022-06-03 23:13:11] Saving Adam parameters
+[2022-06-03 23:13:12] [training] Saving training checkpoint to model.seq2seq.rkbk.1-2hl/model.npz and model.seq2seq.rkbk.1-2hl/model.npz.optimizer.npz
+[2022-06-03 23:13:32] [valid] Ep. 2305 : Up. 55000 : cross-entropy : 42.9832 : stalled 10 times (last best: 31.7675)
+[2022-06-03 23:13:32] [valid] Ep. 2305 : Up. 55000 : perplexity : 279.112 : stalled 10 times (last best: 64.2083)
+[2022-06-03 23:13:32] Translating validation set...
+[2022-06-03 23:13:32] Best translation 0 : ဒယ်ကောင်မ ငါ့ ဝို စ ခဲ့ဇာ မ ဟုတ် ဝလား ။
+[2022-06-03 23:13:32] Best translation 1 : မင်း ရှူးဖိနပ် မ စီး ရလား ။
+[2022-06-03 23:13:32] Best translation 2 : ကျွန်တော် အကြံပြု မယ်လန်း ။
+[2022-06-03 23:13:32] Best translation 3 : သူရဲ့ အိမ် ကို အလည် လာ ဖို့ သူ က ဒယ်ကောင်မငယ် ကို မ ဖိတ် ခဲ့ဘူး ။
+[2022-06-03 23:13:32] Best translation 4 : အူနေ တဲ့ ခွေး ဒွေ ။
+[2022-06-03 23:13:32] Best translation 5 : နင် ဘာ မေး ဝို့ ။
+[2022-06-03 23:13:32] Best translation 10 : သူ မင်္ဂလာဆောင် ပြီး လား ။
+[2022-06-03 23:13:32] Best translation 20 :
+[2022-06-03 23:13:32] Best translation 40 : အယ့်ဒါ ဘယ်သူ့ ဓာတ်ပုံ ရိ ။
+[2022-06-03 23:13:32] Best translation 80 : ဒါ စာအုပ် မှာ ဝတ္တုတို ဆယ် ပုဒ် ပါ ရယ် ။
+[2022-06-03 23:13:32] Best translation 160 : မင့် အကုန်အကျ ရက် ပတ်သက်ရိ မ ပူ တတ် ။
+[2022-06-03 23:13:32] Best translation 320 : ဒါမယ့် ယဉ်ကျေးတဲ့ ပေါင်းစည်းနေထိုင်ခြင်း ကိုတော့ ယုံကြည် မှု ရှိရယ် ။
+[2022-06-03 23:13:33] Best translation 640 : ငါ လိမ္မော်ဖျော်ရယ် သောက် ချင် ရယ် ။
+[2022-06-03 23:13:33] Total translation time: 0.65891s
+[2022-06-03 23:13:33] [valid] Ep. 2305 : Up. 55000 : bleu : 22.5573 : stalled 2 times (last best: 22.6372)
+[2022-06-03 23:13:33] Training finished
+[2022-06-03 23:13:33] Saving model weights and runtime parameters to model.seq2seq.rkbk.1-2hl/model.npz
+[2022-06-03 23:13:38] Saving Adam parameters
+[2022-06-03 23:13:39] [training] Saving training checkpoint to model.seq2seq.rkbk.1-2hl/model.npz and model.seq2seq.rkbk.1-2hl/model.npz.optimizer.npz
+
+real    644m25.648s
+user    787m56.514s
+sys     2m27.794s
+```
+
+After the testing/evaluation ...  
 Results are as follows:  
 
 ```
