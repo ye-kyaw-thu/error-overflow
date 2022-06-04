@@ -993,7 +993,7 @@ user	23m23.300s
 sys	1m48.054s
 ```
 
-## Build WFST for bk-rk Translation
+## Preparation for bk-rk pair 
 
 prepare လုပ်ပေးတဲ့ script ကို ကောပီကူး...  
 
@@ -1034,13 +1034,89 @@ tree $EXP_PATH;
 
 ```
 
-```
+run preparation bash script ...  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ ./prepare-bkrk-anymalign.sh 
+#!/bin/bash -v
+
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 4 June 2020
+
+mkdir -p ./wfst-mt/bk-rk-anymalign;
+EXP_PATH="./wfst-mt/bk-rk-anymalign";
+ALIGN_DATA_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk";
+SCRIPTS_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/ready-to-run-scripts";
+SRC="bk";
+TGT="rk";
+
+# copying aligned data
+cp $ALIGN_DATA_PATH/train-equal-smt.{$SRC,$TGT} $EXP_PATH;
+cp $ALIGN_DATA_PATH/test.{$SRC,$TGT} $EXP_PATH;
+
+cat $EXP_PATH/train-equal-smt.$SRC $EXP_PATH/test.$SRC > $EXP_PATH/all.$SRC;
+cat $EXP_PATH/train-equal-smt.$TGT $EXP_PATH/test.$TGT > $EXP_PATH/all.$TGT;
+
+# copying shell, perl and python scripts for running WFST based MT experiment
+cp $SCRIPTS_PATH/*.{sh,pl,py} $EXP_PATH;
+
+# confirmation
+tree $EXP_PATH;
+./wfst-mt/bk-rk-anymalign
+├── all.bk
+├── all.rk
+├── bigram.py
+├── eval.sh
+├── mk-fst-format.pl
+├── mk-symbol.pl
+├── mk-train-symbol.sh
+├── mk-uniq-word.sh
+├── multi-test.sh
+├── onetoone.py
+├── shortest-path-to-line.sh
+├── symbols.py
+├── test.bk
+├── test-nofstdraw.sh
+├── test.rk
+├── test.sh
+├── train-equal-smt.bk
+├── train-equal-smt.rk
+├── train-test-eval.sh
+├── translate-nofstdraw.sh
+└── translate.sh
+
+0 directories, 21 files
+
+
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ 
 ``` 
 
+## Build WFST for bk-rk Translation
+
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 
 ## Build WFST for rk-bk Translation
 
