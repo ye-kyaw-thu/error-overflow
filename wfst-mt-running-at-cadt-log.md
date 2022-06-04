@@ -537,12 +537,13 @@ time ./eval.sh ./test.$TGT hyp.txt.clean
 
 ```
 
-
 WFST-MT transducer ကို အောက်ပါအတိုင်း ဆောက်ခဲ့ ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-dw-anymalign$ time ./train-test-eval.sh 2>&1 | tee train-test-eval-word-bkdw.log1  
 ```
+
+log is as follows:  
 
 ```
 
