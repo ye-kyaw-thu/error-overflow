@@ -473,9 +473,21 @@ tree $EXP_PATH;
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$
 ```
 
-```
+## Building WFST for Translation
+
+အရင်ဆုံး folder change ပြီး script တွေကို စစ်ကြည့်ခဲ့ ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ cd wfst-mt/bk-dw-anymalign/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-dw-anymalign$ ls
+all.bk            mk-symbol.pl        shortest-path-to-line.sh  test.sh                 translate.sh
+all.dw            mk-train-symbol.sh  symbols.py                train-equal-smt.bk
+bigram.py         mk-uniq-word.sh     test.bk                   train-equal-smt.dw
+eval.sh           multi-test.sh       test.dw                   train-test-eval.sh
+mk-fst-format.pl  onetoone.py         test-nofstdraw.sh         translate-nofstdraw.sh
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-dw-anymalign$
+```
+
 
 ```
 
