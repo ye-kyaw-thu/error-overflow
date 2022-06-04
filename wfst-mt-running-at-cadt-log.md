@@ -543,10 +543,175 @@ WFST-MT transducer ကို အောက်ပါအတိုင်း ဆေ�
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-dw-anymalign$ time ./train-test-eval.sh 2>&1 | tee train-test-eval-word-bkdw.log1  
 ```
 
-log is as follows:  
+a part of running log is as follows:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-dw-anymalign$ time ./train-test-eval.sh 2>&1 | tee train-test-eval-word-bkdw.log1
+...
+...
+...
+Translation: သူ ကံကောင်းတယ် သူ့ဇာသူ မနည်း ခိုက်မိ မယ် ။
+Translation: ဆရာဝန် က ဒါ ဆေး အား ရှာ ခက်ရရ်ဆို ပြော ဝရ်ပဲ ။
+Translation: ဒယ်ဇာ ကို သိမ်း ထားရယ်လား ။
+Translation: ဘဇာလောက် ပျော်စရာကောင်း ရိ ။
+Translation: ဦး ကျော် ဇော က သူ့ရဲ့ ရုံးခန်း ထဲမှာ ရှိ နိုင်ရယ် ။
+Translation: နင် ဘာ လျော် နေရယ် ။
+Translation: သူ ဒယ်ဇာကို ရှင်းပြ ရရိ ဝမ်းသာ နေဇာ ။
+Translation: ငါဝို့ နင့်ဝို ကျေးဇူးတင်ရယ် ။
+Translation: နင် လက်ထပ် ဖို့ မ ရည်ရွယ် ခဲ့ရလား ။
+Translation: နောက် တစ်ချိန်ဆို မင့် ဝို တွေ့ ရဝို့လား ။
+Translation: နောက် တစ်ချိန်ဆို မင့် ဝို တွေ့ ရဝို့လား ။
+Translation: ကျွန်တော် မင့်ဝို တွေ့ ရဇာ ပျော် ရယ် ။
+Translation: မင်း ဘဝ မှာ တစ်ယောက်ယောက်ကို လေးလေးနက်နက် ချစ်ဖူး ရယ်လား ။
+Translation: သစ်သား တအား မ မာ က ။
+Translation: ဒယ်လို စကားတွေ တအားများ ရှိ ရယ် ။
+Translation: ဒယ်လို စကားတွေ တအားများ ရှိ ရယ် ။
+Translation: သူတို့ ငါ့ ကို ဂရုစိုက် နေသော်လည်း ငါ ဂရုမစိုက် ဘူး ။
+Translation: ဒယ်ကောင်မ သီချင်း ဆိုဝယ် ၊ မ ဆို ဝ လား ။
+Translation: မင်း ဖယ်သူ့ ဝို မေး ဝို့လဲ ။
+Translation: ဒယ် ညမျိုး အကြွေ မ ရှိ ရိ ။
+Translation: ဒယ် ညမျိုး အကြွေ မ ရှိ ရိ ။
+Translation: သူ သူ့ ကို မ ယုံ ကလား ။
+Translation: ကျွန်တော် တရားနာ ဝို့ စိတ်ရှည် ရမယ် ။
+Translation: နင် ဘယ်သူ့ ဝို စော်ကား နေဝ ။
+Translation: ဘာ အထိမ်းအမှတ် ဝို ။
+Translation: ဘာ အထိမ်းအမှတ် ဝို ။
+Translation: ဒယ်ကောင်မငယ် ဆေးလိပ် ဖြတ် ခဲ့ရယ် ။
+Translation: ငါ စင် ထက်မှာ က ခဲ့ပါဟယ် ။
+Translation: ငါ နင့် နေရာ မှ ဆို ဒယ်အတိုင်း ပဲ လုပ် မယ် ။
+Translation: ငါ နင့် နေရာ မှ ဆို ဒယ်အတိုင်း ပဲ လုပ် မယ် ။
+Translation: အဲဒါ ကနေ မင့် ကြိုက် တဲ့ဟာ ရ နိုင်ရယ် ။
+Translation: ငါ့ နှိုးစက် နာရီ ။
+Translation: ငါ့ နှိုးစက် နာရီ ။
+Translation: နင် ဖယ်သူ ဒေ ဝို မေး ဟားရစ်တယ် ။
+Translation: ကျွန်တော်လို့ ပျော်ပျော်ရွှင်ရွှင် က ကြရမယ် မ ဟုတ် လား ။
+Translation: ငါ ကျီးပြား နဲ့ ချေ ပါမယ် ။
+FATAL: FstCompiler: Symbol "ပါမယ်" is not mapped to any integer arc ilabel, symbol table = onetoone.all.isym, source = ./oneline-test.formatted, line = 5
+Translation: ငါ ကျီးပြား နဲ့ ချေ ပါမယ် ။
+FATAL: FstCompiler: Symbol "ပါမယ်" is not mapped to any integer arc ilabel, symbol table = onetoone.all.isym, source = ./oneline-test.formatted, line = 5
+Translation: ဘဇာလောက် နောက်ကျ ရိ ။
+Translation: သူ ဟိုကို သောတာ ငါ မြင် ရယ် ။
+Translation: သူ ဟိုကို သောတာ ငါ မြင် ရယ် ။
+Translation: ပေးဖို့ ဘာမှ မ ရှိ က ။
+Translation: နင် က ဘာတွေ ရှင်းပြ ခဲ့ရယ် ။
+Translation: လမ်း ပေါ်မှာ ယောက်ျားငယ် တစ်အုပ် ရှိ ရယ် ။
+Translation: သူ့စာသူ ဘယ်သူ့ကို ဆဲဆဲ ပြန် မ ပြော နဲ့ ။
+Translation: နင်တို့ ဘယ်မှာ လက်ထပ် ထားရယ် ။
+Translation: ငါ နင့်ဝို ချစ် ရယ်ရ် ။
+Translation: ခင်ဗျား အောင်မြင် ချင်ရင် အလုပ် ဝို ကြိုးစား ဟို့ လို ဝယ် ။
+Translation: ခင်ဗျား ဒယ်ဇာ ကို သိ လား ။
+Translation: ငါ နင့် ကို နမ်း ရဝို့လား ။
+Translation: ငါ ကူညီ မယ်လန်း ။
+Translation: ငါ ကူညီ မယ်လန်း ။
+Translation: နင် မ လာ ကလား ။
+Translation: သားကင်းငယ် ကို သေချာ ချီ လန်း ။
+Translation: သူဝို့ ကို ခွင့်ပြု လိုက်လား ။
+Translation: သူ အမြဲ ညည်း နေရယ် ။
+Translation: ဟုတ်ဝ ၊ သူ လုပ် မယ် မ ထင် ရ ။
+Translation: သူလို့ အနားယူ ကြရယ်လား ။
+Translation: နင်ကိုယ်တိုင် မီး ပိတ် ပီးလား ။
+Translation: ငါလို့ အလုပ် လျှောက် ခဲ့ကြဟယ် ။
+Translation: နင့်ရဲ့ ဆရာ က ဘယ်သူဘောဝမ့် ။
+Translation: နင့်ရဲ့ ဆရာ က ဘယ်သူဘောဝမ့် ။
+Translation: ငါလို့ ကြို ပြီး မ ခန့်မှန်း ထားလား ။
+Translation: မင် သွားသွား ငါ့ကို သတိရ ။
+Translation: သူ ဖယ်မှာ ။
+Translation: သူ ရေဒီယို နားထောင် ဟုတ် ဝ ။
+Translation: သူတို့ ငါ့ကို ဘင်းမျိုး စစ်ဆေး လဲ ။
+Translation: ဘဘ က ခြံအလုပ် အား လုပ် ရရ် ။
+Translation: ခင်ဗျား ကျွန်တော်ဝို့ ကို လာ ခိုင်းဇာ ။
+Translation: မနေ့ က သူ ပြန်လာ သေးရရ်လား ။
+Translation: နင် ဘယ်မှာ ပြော ဝို့ ။
+Translation: လေ့ကျင့်ပေး ထားတဲ့ သူတွေ က ပို ကျွမ်း တယ် ။
+Translation: မင်း စကား ပြော နေရိလား ။
+Translation: နင် ဒယ် အကြောင်း စုံစမ်း မယ်လား ။
+Translation: နင် မေး ချင်စာ မေး အဆင်သင့်ပဲ ။
+Translation: သူတို့ကိုယ်သူတို့ သိ ရယ် ။
+Translation: သူ ညဘက် အလုပ် လုပ် ရတာကို ပို သဘောကျရယ် ။
+Translation: သူ ညဘက် အလုပ် လုပ် ရတာကို ပို သဘောကျရယ် ။
+Translation: မင်း ငါ တင်းနစ်ခ် ပွဲ ကစား ဝို့လား ။
+Translation: နင် ဘာဇာတွေ ညီး နေရယ်ဆိုတာ ငါတော့ နားမလည် နိုင်ပီ ။
+Translation: နင် ဘာဇာတွေ ညီး နေရယ်ဆိုတာ ငါတော့ နားမလည် နိုင်ပီ ။
+Translation: ဒါဆို ဒါ ကျောင်း ကို သွား ပြီး သာဆို ဘာသရယ် ဘယ်ဟာ ပေးထား ဆိုပီး မေး ။
+Translation: ဒါဆို ဒါ ကျောင်း ကို သွား ပြီး သာဆို ဘာသရယ် ဘယ်ဟာ ပေးထား ဆိုပီး မေး ။
+Translation: ကျနော် လမ်း မှာ လမ်းလျှောက် ရင်း ခြေထောက် နာ သွား တယ် ။
+Translation: နင် ဖယ်သူ့ ဝို ကူညီ သင့်ရယ် ။
+Translation: ကျွန်တော် နိုင်ငံခြား သော ရယ် ။
+Translation: သူ နှင်းကျ ဆို အမြဲ ခမောက် ဆောင်း ဝယ် ။
+Translation: ဒယ် စာအုပ် သူ့ ဝိုဝ် ပေး ရပ် ။
+Translation: သူ ဒယ့်ဇာ ကို အသံထွက် ပြရိမယ် ။
+Translation: သူ နှုတ်ဆက်စကား ပြော ရယ် ။
+Translation: နင် ဖယ်သူ နဲ့ ဆွေးနွေး သင့်ရယ် ။
+Translation: ဒယ်ကောင်မငယ် ကိုယ် နဲ့ အိပ် ဖို့ ရှက် နေရယ် ။
+Translation: နင်က ဘာ ရှင်းပြ လိုက်ရယ် ။
+Translation: စကားပြော သင်တန်း တက် ဝို့ နင် သူ့ ကို တွန်းအား မ ပေး ဟလား ။
+Translation: ဒယ်ကောင်မငယ် မင်းဝို ချိန်း ရိလား ။
+Translation: ကျွန်တော် ပြော ဇာဝို သူတို့ နာခံ ကြပါဟယ် ။
+Translation: မင်း အဲ့ဇာ မ နိုင် ဘဲ့လား ။
+Translation: စာအုပ် အနီ ရ စားပွဲ ပေါ် မှာ ။
+Translation: နင် ငါ့ဝို ဘယ်မှာ စောင့် နေရယ် ။
+Translation: ကျနော့် ခမောက် လိုမျိုး သူ ဆောင်းထား ဝယ် ။
+Translation: စားဝို့ တခုခု သွား ဝယ်လန်း ။
+Translation: နင် ညနေ ဆို ဘာတွေ လုပ် နေရရ် ။
+Translation: အား မှောင် ရိ ငါတို့ ဘားလည်း မ မြင် ရပီ ။
+FATAL: FstCompiler: Symbol "ရပီ" is not mapped to any integer arc ilabel, symbol table = onetoone.all.isym, source = ./oneline-test.formatted, line = 8
+Translation: သူ့ ကို ဘာ က ဒဏ်ရာရ စေတာလဲ ။
+Translation: ငါ ဒယ်ဇာ အတွက် မေး တိန်းလား ။
+Translation: သားငယ် လေ ရရ် ဟုံး မှာ ။
+Translation: သူတို့ ဖယ်သူ့မှ သံသယ မ ဝင် ရလား ။
+Translation: ဖယ်သူတွေ အိပ် နေကြရယ် ။
+Translation: မင် စကား ပြော နေစာ ။
+Translation: သူ ဒယ်စာဝို ဆုံးဖြတ် ခဲ့ဟယ် ။
+Translation: ငါ့ အနား မှာ နေ ရဇာ ပျော် လား ။
+Translation: ငါ့ ဝို ယုံတဲ့ လူဒေ ဝို ဘယ်တော့မှ သစ္စာ မ ဖောက် ရ ။
+FATAL: FstCompiler: Symbol "ဖောက်" is not mapped to any integer arc ilabel, symbol table = onetoone.all.isym, source = ./oneline-test.formatted, line = 9
+Translation: မင့် ဘာအကြောင်းကြောင့် ဟင်းမချက် ။
+Translation: ခင်ဗျား ဒယ်စာ ဝို စဉ်းစား ကြည့် ရိုက် ။
+Translation: တံခါး ဖွင့် ရင် စိတ်ဆိုး ဝို့လား ။
+Translation: ဟုတ် ရရယ်လန်း ။
+Translation: မင်း ဘာ လုပ် ထားရယ် ။
+Translation: ကျွန်တော်လို့ ဒယ့်ဇာ ကို ကာကွယ် မယ်လား ။
+Translation: နင် ဘယ်ဇာ တွေ လုပ် နေသေးရရ် ။
+Translation: နင် ဘယ်ဇာ တွေ လုပ် နေသေးရရ် ။
+Translation: ခင်ဗျား လို ရင် ရေ ကြိုက် သလောက် ရ နိုင်ရယ် ။
+Translation: ကျွန်တော်ဝို့ အဲ့ဒါဝို အတည်မပြု ခဲ့ရလေ ။
+Translation: ငါရဲ့ ရည်းစားဟောင်း ကို ဆက်သွယ် ဖို့ မျှော်လင့် တယ် ။
+Translation: နင် ဒုက္ခ မ ရောက် ဝ ။
+Translation: ငါ ပြော ပြမယ် စနေနေ့ ကျရင်လန်း ငါတို့ ကိုယ်တိုင် ကစား မယ် ။
+Translation: ငါ ပြော ပြမယ် စနေနေ့ ကျရင်လန်း ငါတို့ ကိုယ်တိုင် ကစား မယ် ။
+Translation: အယ့်ဒါ ဘယ်သူ့ လှောင်အိမ် ရိ ။
+Translation: နင် သူ့ဝို မုန်း နေဇာ မ ဟုတ် ဝလား ။
+Translation: နင့် ကြီးကြီး တို့ က ဖယ်သူတွေ ။
+Translation: ဖယ်သူလေ ကို မေး ရိလဲ ။
+Translation: သူ ဒယ့်ဟာ ကို လိုချင် မ ဟုတ် ဝ ။
+Translation: ဘဇာလောက် စိတ်လှုပ်ရှား ရိ ။
+Translation: မင်း ငါ့ ကို ရှင်းပြ နိုင်မလား ။
+Translation: အဲဒီ ကို သော ဖို့ ငါ မင်းကို ငါ မ တိုက်တွန်း ရ ။
+Translation: နင် ခရီး မ ထွက် ခဲ့ရလား ။
+Translation: သူတို့ ဘဇာလောက် သတ္တိရှိ လဲ ။
+Translation: ဒါ ထဲမှာ အဝေးပြော ဖုန်းပြော တအား များရယ် ။
+Translation: ဒါ ထဲမှာ အဝေးပြော ဖုန်းပြော တအား များရယ် ။
+Translation: အဲ့အမ ကို လက်ထပ် လိုက်ရယ်လား ။
+hypothesis file: hyp.txt.clean
 
+real	26m22.358s
+user	23m34.314s
+sys	1m50.068s
+Evaluation with BLEU score:
+BLEU = 9.77, 36.2/11.9/6.3/3.3 (BP=1.000, ratio=1.057, hyp_len=4243, ref_len=4013)
+Evaluation with chrF++ score:
+start_time:	1654328310
+c6+w2-F2	35.2383
+c6+w2-avgF2	35.6171
+end_time:	1654328311
+
+real	0m0.389s
+user	0m0.354s
+sys	0m0.020s
+
+real	27m55.179s
+user	23m43.782s
+sys	1m51.003s
 ```
 
 ```
