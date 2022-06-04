@@ -995,11 +995,16 @@ sys	1m48.054s
 
 ## Build WFST for bk-rk Translation
 
-```
+prepare လုပ်ပေးတဲ့ script ကို ကောပီကူး...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ cp prepare-bkdw-anymalign.sh prepare-bkrk-anymalign.sh 
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$
 ```
+
+အောက်ပါအတိုင်း update လုပ်ခဲ့....   
+
+```bash
 
 ```
 
