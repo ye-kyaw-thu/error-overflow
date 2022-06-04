@@ -1093,9 +1093,34 @@ tree $EXP_PATH;
 
 ## Build WFST for bk-rk Translation
 
-```
+change directory to experiment folder and update source, target ...  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, 
+# Affiliate Professor, IDRI, CADT, Cambodia
+# Last Updated: 4 June 2022
+
+SRC="bk"; # replace with your source language file extension
+TGT="rk"; # replace with your target language file extension
+
+# Prepare oneline test data
+# head က ပုဒ်မ တစ်ခုတည်းဖြစ်နေလို့ tail ကို သုံးဖို့ ဆုံးဖြတ်လိုက်တယ်
+tail -n 1 ./train-equal-smt.$SRC > oneline.$SRC
+
+# Building Transducers with training data (i.e. language model, translation model, composing etc.)
+time ./translate-nofstdraw.sh ./train-equal-smt.$SRC ./train-equal-smt.$TGT oneline.$SRC ./all.$SRC ./all.$TGT ./all.$TGT
+
+# Testing with WFST MT
+time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TFT.log1
+
+# Evaluation
+time ./eval.sh ./test.$TGT hyp.txt.clean
 
 ```
+
+run train, test and eval ....  
 
 ```
 
