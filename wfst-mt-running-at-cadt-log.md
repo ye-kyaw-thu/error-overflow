@@ -1123,8 +1123,24 @@ time ./eval.sh ./test.$TGT hyp.txt.clean
 run train, test and eval ....  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-rk-anymalign$ time ./train-test-eval.sh 2>&1 | tee train-test-eval-word-bkrk.log1
+Create symbol file for target language ...
+Preparing test data FST finished!
+fstcompile for the bigram language model FST finished!
+fstcompile for the translation model FST finished!
+compile success!!
+fstcompose together a translation model and language model finished!
+fstcompile for the input sentence finished!
+fstcompose together into a search graph finished!
+fstrmepsilon finished!
+finding the shortest path finished!
+...
+...
+...
+
 
 ```
+
 
 ```
 
