@@ -2562,8 +2562,33 @@ After the testing/evaluation ...
 Results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.rkbk.1-2hl$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 10.67, 42.6/13.7/8.3/6.7 (BP=0.796, ratio=0.814, hyp_len=5662, ref_len=6956)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 21.40, 45.1/21.8/16.1/13.6 (BP=0.994, ratio=0.994, hyp_len=6916, ref_len=6956)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 21.62, 45.3/22.1/16.2/13.5 (BP=1.000, ratio=1.003, hyp_len=6977, ref_len=6956)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 21.30, 45.1/21.9/15.8/13.2 (BP=1.000, ratio=1.009, hyp_len=7017, ref_len=6956)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 21.92, 45.7/22.5/16.4/13.7 (BP=1.000, ratio=1.011, hyp_len=7030, ref_len=6956)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 21.57, 45.6/22.2/16.0/13.4 (BP=1.000, ratio=1.023, hyp_len=7113, ref_len=6956)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 21.77, 45.7/22.4/16.2/13.5 (BP=1.000, ratio=1.014, hyp_len=7050, ref_len=6956)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 21.85, 46.0/22.5/16.2/13.6 (BP=1.000, ratio=1.009, hyp_len=7020, ref_len=6956)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 21.63, 45.6/22.2/16.0/13.5 (BP=1.000, ratio=1.012, hyp_len=7037, ref_len=6956)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 21.80, 45.7/22.4/16.2/13.6 (BP=1.000, ratio=1.015, hyp_len=7057, ref_len=6956)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 22.06, 46.0/22.7/16.5/13.7 (BP=1.000, ratio=1.014, hyp_len=7053, ref_len=6956)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.rkbk.1-2hl$
 ```
+
+**Best BLEU score for rkbk, word unit, seq2seq archi with 2nd configuration file is 22.06.**  
 
 ## bk-rk, Word, Seq2Seq, 2 Hidden Layers and Valid-Mini-Batch 64
 
