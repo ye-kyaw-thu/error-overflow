@@ -1135,9 +1135,17 @@ fstcompose together into a search graph finished!
 fstrmepsilon finished!
 finding the shortest path finished!
 ...
-...
-...
 
+အမှန်က ဒီအဆင့်မှာ shortest-path ကို graph အနေနဲ့ဆွဲထုတ်ထားတဲ့ PDF ဖိုင်ကို evince နဲ့ ဖွင့်ပြတယ်။ အထက်က run ခဲ့တဲ့ နေရာတွေမှာ မပြခဲ့ပေမဲ့ ....  graph က အောက်ပါအတိုင်း  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/shortest-path-graph-bkrk.png" alt="shortest-path" width="800"/>  
+</p>  
+<div align="center">
+  Fig. shortest-path graph  
+</div> 
+
+<br />
 
 ```
 
