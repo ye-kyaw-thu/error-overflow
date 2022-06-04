@@ -473,7 +473,7 @@ tree $EXP_PATH;
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$
 ```
 
-## Building WFST for Translation
+## Building WFST for bk-dw Translation
 
 အရင်ဆုံး folder change ပြီး script တွေကို စစ်ကြည့်ခဲ့ ...  
 
@@ -530,7 +530,7 @@ tail -n 1 ./train-equal-smt.$SRC > oneline.$SRC
 time ./translate-nofstdraw.sh ./train-equal-smt.$SRC ./train-equal-smt.$TGT oneline.$SRC ./all.$SRC ./all.$TGT ./all.$TGT
 
 # Testing with WFST MT
-time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TFT.log1
+time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TGT.log1
 
 # Evaluation
 time ./eval.sh ./test.$TGT hyp.txt.clean
@@ -714,6 +714,47 @@ user	23m43.782s
 sys	1m51.003s
 ```
 
+## Build WFST for dw-bk Translation
+
+အရင်ဆုံး bk-dw အတွက် run ထားခဲ့တဲ့ ဖိုလ်ဒါတစ်ခုလုံးကို နာမည်ပြောင်းပြီး copy ကူးယူ ...   
+
+```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt$ cp -r bk-dw-anymalign/ ./dw-bk-anymalign
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt$ cd dw-bk-anymalign/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/dw-bk-anymalign$
+```
+
+update the shell script ...  
+
+```
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, 
+# Affiliate Professor, IDRI, CADT, Cambodia
+# Last Updated: 4 June 2022
+
+SRC="dw";
+TGT="bk";
+
+# Prepare oneline test data
+# head က ပုဒ်မ တစ်ခုတည်းဖြစ်နေလို့ tail ကို သုံးဖို့ ဆုံးဖြတ်လိုက်တယ်
+tail -n 1 ./train-equal-smt.$SRC > oneline.$SRC
+
+# Building Transducers with training data (i.e. language model, translation model, composing etc.)
+time ./translate-nofstdraw.sh ./train-equal-smt.$SRC ./train-equal-smt.$TGT oneline.$SRC ./all.$SRC ./all.$TGT ./all.$TGT
+
+# Testing with WFST MT
+time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TGT.log1
+
+# Evaluation
+time ./eval.sh ./test.$TGT hyp.txt.clean
+
+```
+
+Train/Test/Eval running ...  
+
+```
+time ./train-test-eval.sh 2>&1 | tee train-test-eval-word-dwbk.log1
 ```
 
 ```
@@ -724,6 +765,45 @@ sys	1m51.003s
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+## Reference
+
+မြန်မာစာလုံးတွေက shortest-path graph မှာ မှန်မှန်ကန်ကန် ပေါ်စေဖို့အတွက်က အောက်ပါအတိုင်း command ပေးပါ။  
+
+```
+fstdraw --portrait --isymbols=onetoone.isym  --osymbols=$corpusf.words.sym ./shortest-path.fst | dot -Tpdf:cairo -Nfontname=Padauk -Nfontsize=15 -Efontname=Padauk -Efontsize=15 -Gsize=6,3 -Eheadport=e -Etailport=w > shortest-path.pdf
 ```
 
 
