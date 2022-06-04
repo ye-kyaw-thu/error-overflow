@@ -1213,19 +1213,35 @@ Translation: နင် မ ကြိုက် တဲ့ ဖြေ ။
 ...
 ...
 ...
+Translation: နင် သူလို့နဲ့ ဆုံ ခဲ့ရယ်လား ။
+Translation: ဘာလိုလုပ်ပီး မှိုက်ပုံကြီး ဆီ ရောက်အောင် သွား နိုင်မလဲ ။
+Translation: ဒါမယ့် ကျွန်တော့်ရဲ့ မယ်မယ်ဟာ ခွဲစိတ်ခန်း ထဲမှာ ရှိနေသေးရယ်၊ ဘဘ က အပြင်မှာ စိုးရိမ်ပူပန်စိတ်လှုပ်ရှားစွာ စောင့်ဆိုင်း နေရယ် ။
+Translation: လူကြီးမင်း ကိုင်ထား မယ်လာ ။
+Translation: သော က လိုက် ။
+Translation: နင် က ဘာ ဝယ် ဝို့ ။
+Translation: ဒယ်မှာ အိပ် ဝို့ မ သင့်တော် ရ ။
+Translation: အဲ့ဇာက ဒယ်ကောင်မငယ် အတွက် လွယ်လွယ်ငယ်ပဲ ။
+hypothesis file: hyp.txt.clean
 
-```
+real	71m49.083s
+user	64m49.480s
+sys	4m41.560s
+Evaluation with BLEU score:
+BLEU = 20.06, 49.7/24.2/14.7/9.1 (BP=1.000, ratio=1.025, hyp_len=6910, ref_len=6739)
+Evaluation with chrF++ score:
+start_time:	1654338360
+c6+w2-F2	52.8153
+c6+w2-avgF2	53.2416
+end_time:	1654338361
 
-```
+real	0m0.901s
+user	0m0.712s
+sys	0m0.008s
 
-```
-
-```
-
-```
-
-```
-
+real	72m54.357s
+user	65m1.936s
+sys	4m42.557s
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/bk-rk-anymalign$ 
 ```
 
 
@@ -1255,6 +1271,17 @@ Translation: နင် မ ကြိုက် တဲ့ ဖြေ ။
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ## Reference
 
