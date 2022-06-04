@@ -1284,7 +1284,54 @@ time ./eval.sh ./test.$TGT hyp.txt.clean
 running ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt/rk-bk-anymalign$
+...
+...
+...
+Translation: ယင်းချင့်ကို ကြိုက်ကြိုက် မ ကြိုက်ကြိုက် ။
+Translation: ထိုမချေ ညက ပိုင် ပြော ခလား ။
+Translation: သူ အပြင်းအထန် ကြိုးစား ကေလေ့ စာမိန်းပွဲ မ အောင် ပါ ။
+Translation: သူ ထိုမချေ ကို ရှာ ခစွာလား ။
+Translation: ယေဒါလေ့ တစ် ပတ် ကြာပြီးနောက် သူ လား ပါရေ ။
+Translation: ယင်းချင့်ကို မိန့်ထားစွာ ငါ့ အတွက် ပိုကောင်း ရေ ။
+Translation: သူရို့ ဆရာ ဖြစ် လာရေ။
+Translation: မင်း ယင်းချင့် ကို သွား စုံစမ်းကြည့် လေ ။
+Translation: ယင်းချင့် ဇာပိုင်လေ ။
+Translation: သူရို့ ဇာသူ့ ကို ကူညီ ဖို့လေး ။
+Translation: အချေတိ ဒန်း ထက်မာ ကဇတ် နီခပါရေ ။
+Translation: ကျွန်တော်ရို့ က မင်းကို တောင်းပန် ရဖို့လား ။
+Translation: ကျွန်တော် ရို့ မ ကြိုးစား ခလို့လား ။
+Translation: ဇာ အရွယ်ပါ လေး ။
+Translation: ကျွန်တော်ရို့ လိမ္မော်သီး တိ ဝယ်ခ ကတ်စွာ ။
+Translation: ကျွန်တော်ရို့ သူ့ ကို လေးမွန် လို့ ခေါ် ရေ။
+Translation: မင်း သူရို့ နန့် ဆုံ ခပါလား ။
+Translation: ဇာပိုင်လုပ်လို့ အမှိုက်ပုံကြီ ကို ရောက်အောင် လား နိုင်ဖို့လေး ။
+Translation: ယေဒါလေ့ ကျွန်တော့်ရဲ့ အမိ စွာ ခွဲစိတ်ခန်း ထဲမာဘင် ဟိနီ ပါသိပါရေ ၊ အဘာ က အပြင်မာ စိုးရိမ်ကြောင့်ကြစိတ်လှုပ်ရှားစွာ နန့် စောင့်ဆိုင်း နီပါရေ ။
+Translation: လူကြီးမင်း ကိုင်ထား ဖို့လား ။
+Translation: လား ကပါ ။
+Translation: မင်း ဇာ ဝယ် ဖို့လေး။
+Translation: ဒေမာ အိပ် ဖို့ မ သင့်တော် ပါ ။
+Translation: ယင်းချင့် ထိုမချေ အတွက် အလွယ်ချေပါ ။
+hypothesis file: hyp.txt.clean
 
+real	78m51.185s
+user	71m11.277s
+sys	5m16.928s
+Evaluation with BLEU score:
+BLEU = 16.31, 46.6/20.2/12.0/7.2 (BP=0.967, ratio=0.967, hyp_len=6727, ref_len=6956)
+Evaluation with chrF++ score:
+start_time:	1654347114
+c6+w2-F2	46.3568
+c6+w2-avgF2	45.9513
+end_time:	1654347114
+
+real	0m0.643s
+user	0m0.582s
+sys	0m0.013s
+
+real	79m17.018s
+user	71m25.697s
+sys	5m17.951s
 ```
 
 ```
