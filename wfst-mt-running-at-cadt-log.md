@@ -416,8 +416,61 @@ tree $EXP_PATH;
 
 ```
 
-```
+Running above script ...  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$ ./prepare-rkmy-fast-pt.sh 
+#!/bin/bash -v
+
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 4 June 2020
+
+mkdir -p ./wfst-mt/bk-dw-anymalign;
+EXP_PATH="./wfst-mt/bk-dw-anymalign";
+ALIGN_DATA_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/dw-bk";
+SCRIPTS_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/ready-to-run-scripts";
+SRC="bk";
+TGT="dw";
+
+# copying aligned data
+cp $ALIGN_DATA_PATH/train-equal-smt.{$SRC,$TGT} $EXP_PATH;
+cp $ALIGN_DATA_PATH/test.{$SRC,$TGT} $EXP_PATH;
+
+cat $EXP_PATH/train-equal-smt.$SRC $EXP_PATH/test.$SRC > $EXP_PATH/all.$SRC;
+cat $EXP_PATH/train-equal-smt.$TGT $EXP_PATH/test.$TGT > $EXP_PATH/all.$TGT;
+
+# copying shell, perl and python scripts for running WFST based MT experiment
+cp $SCRIPTS_PATH/*.{sh,pl,py} $EXP_PATH;
+
+# confirmation
+tree $EXP_PATH;
+./wfst-mt/bk-dw-anymalign
+├── all.bk
+├── all.dw
+├── bigram.py
+├── eval.sh
+├── mk-fst-format.pl
+├── mk-symbol.pl
+├── mk-train-symbol.sh
+├── mk-uniq-word.sh
+├── multi-test.sh
+├── onetoone.py
+├── shortest-path-to-line.sh
+├── symbols.py
+├── test.bk
+├── test.dw
+├── test-nofstdraw.sh
+├── test.sh
+├── train-equal-smt.bk
+├── train-equal-smt.dw
+├── train-test-eval.sh
+├── translate-nofstdraw.sh
+└── translate.sh
+
+0 directories, 21 files
+
+
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt$
 ```
 
 ```
