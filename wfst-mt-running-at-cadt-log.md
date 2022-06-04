@@ -380,7 +380,7 @@ sys	0m3.627s
 
 အရင်တုန်းက လုပ်ခဲ့တဲ့ WFST-MT experiment ဖိုလ်ဒါက script ကို ကော်ပီကူးယူခဲ့ ...  
 
-```bash
+```
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word$ cp prepare-rkmy-fast-pt.sh /media/ye/project1/exp/wfst-mt/exp/wfst-cadt/
 (base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/word$
 ```
@@ -388,7 +388,7 @@ sys	0m3.627s
 script ကို ဝင် အောက်ပါအတိုင်း update လုပ်ခဲ့...  
 အရင်တုန်းက path တွေကို ဝင်ရိုက်ထည့်ခဲ့ပေမဲ့ ဒီတစ်ခါတော့ ပိုလုပ်ရကိုင်ရတာ အဆင်ပြေအောင်လို့ script ရဲ့ ထိပ်ဆုံးပိုင်းမှာ variable တွေအဖြစ် assign လုပ်ခဲ့...  
 
-```
+```bash
 #!/bin/bash -v
 
 # written by Ye Kyaw Thu, LST, NECTEC, Thailand
