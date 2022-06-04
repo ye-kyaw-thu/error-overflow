@@ -1003,8 +1003,34 @@ prepare လုပ်ပေးတဲ့ script ကို ကောပီကူး
 ```
 
 အောက်ပါအတိုင်း update လုပ်ခဲ့....   
+(path တွေနဲ့ SRC, TGT variable တွေကိုပဲ ပြောင်းခဲ့တာပါ)  
 
 ```bash
+#!/bin/bash -v
+
+# written by Ye Kyaw Thu, LST, NECTEC, Thailand
+# last updated: 4 June 2020
+
+mkdir -p ./wfst-mt/bk-dw-anymalign;
+EXP_PATH="./wfst-mt/bk-rk-anymalign";
+ALIGN_DATA_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/alignment/rk-bk";
+SCRIPTS_PATH="/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/ready-to-run-scripts";
+SRC="bk";
+TGT="rk";
+
+# copying aligned data
+cp $ALIGN_DATA_PATH/train-equal-smt.{$SRC,$TGT} $EXP_PATH;
+cp $ALIGN_DATA_PATH/test.{$SRC,$TGT} $EXP_PATH;
+
+cat $EXP_PATH/train-equal-smt.$SRC $EXP_PATH/test.$SRC > $EXP_PATH/all.$SRC;
+cat $EXP_PATH/train-equal-smt.$TGT $EXP_PATH/test.$TGT > $EXP_PATH/all.$TGT;
+
+# copying shell, perl and python scripts for running WFST based MT experiment
+cp $SCRIPTS_PATH/*.{sh,pl,py} $EXP_PATH;
+
+# confirmation
+tree $EXP_PATH;
+
 
 ```
 
