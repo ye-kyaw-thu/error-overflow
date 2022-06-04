@@ -1247,13 +1247,41 @@ sys	4m42.557s
 
 ## Build WFST for rk-bk Translation
 
+ရခိုင်-ဘိတ် အတွက် အထက်က run ထားခဲ့တဲ့ bk-rk folder တစ်ခုလုံးကို ကော်ပီကူးခဲ့...  
+
 ```
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt$ cp -r bk-rk-anymalign/ rk-bk-anymalign/
+(base) ye@ykt-pro:/media/ye/project1/exp/wfst-mt/exp/wfst-cadt/wfst-mt$
+```
+
+training/testing/evaluation လုပ်ပေးမယ့် script ကို rk-bk အတွက် update လုပ်ခဲ့...  
+
+```bash
+#!/bin/bash
+
+# Written by Ye Kyaw Thu, 
+# Affiliate Professor, IDRI, CADT, Cambodia
+# Last Updated: 4 June 2022
+
+SRC="rk"; # replace with your source language file extension
+TGT="bk"; # replace with your target language file extension
+
+# Prepare oneline test data
+# head က ပုဒ်မ တစ်ခုတည်းဖြစ်နေလို့ tail ကို သုံးဖို့ ဆုံးဖြတ်လိုက်တယ်
+tail -n 1 ./train-equal-smt.$SRC > oneline.$SRC
+
+# Building Transducers with training data (i.e. language model, translation model, composing etc.)
+time ./translate-nofstdraw.sh ./train-equal-smt.$SRC ./train-equal-smt.$TGT oneline.$SRC ./all.$SRC ./all.$TGT ./all.$TGT
+
+# Testing with WFST MT
+time ./multi-test.sh ./all.$SRC ./all.$TGT ./test.$SRC 2>&1 | tee anymaTrainingDataOnly-test-$SRC-$TGT.log1
+
+# Evaluation
+time ./eval.sh ./test.$TGT hyp.txt.clean
 
 ```
 
-```
-
-```
+running ...  
 
 ```
 
