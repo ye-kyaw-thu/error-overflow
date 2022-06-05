@@ -1,5 +1,10 @@
 # NMT Transformer dw-bk, rk-bk Baselines
 
+Preparing baseline with Transformer architecture for dw-bk, rk-bk language pairs.  
+
+y@CADT, Cambodia  
+5 June 2022  
+
 ## bk-dw, Word Unit, Transformer Archi
 
 ```bash
