@@ -89,7 +89,107 @@ training ...
 
 ```
 
+check the models ...  
+
 ```
+
+```
+
+test-eval script ...  
+
+```bash
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+results are as follows:  
+
+```
+
+```
+
+## rk-bk, Word Unit, Transformer Archi
+
+Training script ...  
+
+```bash
+
+```
+
+Training ...  
+
+```
+
+```
+
+check models ...  
+
+```
+
+```
+
+prepare test-eval bash script ...  
+
+```bash
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+results are as follows:  
+
+```
+
+```
+
+## rk-bk, Word Unit, Transformer Archi  
+
+Prepare model training bash script ...  
+
+```bash
+
+```
+
+start training ...  
+
+```
+
+```
+
+check the output models ...  
+
+```
+
+```
+
+prepare test-eval script ...  
+
+```bash
+
+```
+
+testing/evaluation ...  
+
+```
+
+```
+
+results are as follows:  
+
+```
+
+```
+
+## Evaluation with chrF score 
 
 ```
 
@@ -98,57 +198,6 @@ training ...
 ```
 
 ```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
 ```
 
 ```
@@ -156,10 +205,3 @@ training ...
 
 ```
 
-```
-
-```
-
-```
-
-```
