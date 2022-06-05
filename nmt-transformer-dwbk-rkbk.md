@@ -558,14 +558,82 @@ done
 testing/evaluation ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.rkbk.1$ time ./test-eval.sh
+...
+...
+...
+[2022-06-05 22:37:48] Best translation 1038 : နင် ဖယ်သသူ့ကကို ခွင့်ပြု ဝဝိဝို့ ။
+[2022-06-05 22:37:48] Best translation 1039 : နင် က ဘာ သင် ခခဲ့ရယ် ။
+[2022-06-05 22:37:48] Best translation 1040 : သူလလိလို့ ခင်ဗျား ကကို သံသယ ဖြစ်မယ်နား ။
+[2022-06-05 22:37:48] Best translation 1041 : သူတတိတို့ ဘဇာလောက် အမြော်အမြင်ကြီး လည်း ။
+[2022-06-05 22:37:48] Best translation 1042 : ဘုရင် တင်မြှောက် လလိုက်ကြရယ် ။
+[2022-06-05 22:37:48] Best translation 1043 : တစ်နေ့ ရေချျိုးချိန် တတဲ့ လူ တစ်ယောက် နှိပ်ပေးတတဲ့ လူ ဝ ။
+[2022-06-05 22:37:48] Best translation 1044 : အေး ပြန်ဖြစ် လာပီတတဲ့ လလိလို့ မင်း မ ခံစား ရလား ။
+[2022-06-05 22:37:48] Best translation 1045 : ဟိတ် နင် ဘာ တင်ပြ အုန်း ။
+[2022-06-05 22:37:48] Best translation 1046 : နင်ဝဝိဝို့ အအဲ့ဇာဝဝို ရောင်း ဝဝိဝို့လား ။
+[2022-06-05 22:37:48] Best translation 1047 : မင်း ဒုက္ခ တေ ကကို သည်းမခံ နနိုင်လား ။
+[2022-06-05 22:37:48] Best translation 1048 : ဒါကကို မင်းကြြိုက်ချင်ကြြိုက် မကြြိုက်ချင်နေ ။
+[2022-06-05 22:37:48] Best translation 1049 : ဒယ်ကောင်မငယ် နေ့က လလို ခခဲ့ရယ်လား ။
+[2022-06-05 22:37:48] Best translation 1050 : သူ နေမကောင်းဝ ရိ စာမေးပွဲ မ ကြြိုးစား ရ ။
+[2022-06-05 22:37:48] Best translation 1051 : သူ ဒယ်ကောင်မငယ် ဝဝို ရှာ ခခဲ့ဇာလား ။
+[2022-06-05 22:37:48] Best translation 1052 : ဒါမမဲ့ သူ တစ် ပတ် ကြာ စာ ။
+[2022-06-05 22:37:48] Best translation 1053 : အအဲ့ဇာဝဝို မေ့ဟားဇာ ပပိုကောင်း ရယ် ။
+[2022-06-05 22:37:48] Best translation 1054 : သူဒဒိဒို့ ဆရာ ဖြစ် လာရယ် ။
+[2022-06-05 22:37:48] Best translation 1055 : မင်း ဒယ်စာ ဝဝို သွား သင့်ပြီလန်း ။
+[2022-06-05 22:37:48] Best translation 1056 : အဲဒါ ဘာလလို လဲ ။
+[2022-06-05 22:37:48] Best translation 1057 : သူတတိတို့ ဖယ်သသူ့ ကကို ကူညီ ဝဝိဝို့လဲ ။
+[2022-06-05 22:37:48] Best translation 1058 : သားငယ် လေ ဟဟုံး ပေါ်မှာ ကစား နေခခဲ့ရယ် ။
+[2022-06-05 22:37:48] Best translation 1059 : ကျွန်တော်လလိလို့က ခင်ဗျား ကကို တောင်းပန် ရမယ်လား ။
+[2022-06-05 22:37:48] Best translation 1060 : ကျွန်တော်ဝဝိဝို့ မ ကြြိုးစား ခခဲ့ဟိလား ။
+[2022-06-05 22:37:48] Best translation 1061 : ဘာ စာတွေ ရိ ။
+[2022-06-05 22:37:48] Best translation 1062 : ကျွန်တော်ဝဝိဝို့ ဝယ် ဟားတတဲ့ နေရာ လေ ။
+[2022-06-05 22:37:48] Best translation 1063 : ကျွန်တော်ဝဝိဝို့ သသူ့ ကကို ဘုရားကျောင်း မှာ ခေါ် ရယ် ။
+[2022-06-05 22:37:48] Best translation 1064 : နင် သူဝဝိဝို့ နနဲ့ ဆဆုံ ခခဲ့ရယ်လား ။
+[2022-06-05 22:37:48] Best translation 1065 : တခါတလေ သော နနိုင်ရယ် ။
+[2022-06-05 22:37:48] Best translation 1066 : ဒါမယ့် ကျွန်တော့်ရရဲ့ မယ် ၊ ဒါမမဲ့ အမှန်ပပဲ့ ။
+[2022-06-05 22:37:48] Best translation 1067 : လူကြီးမင်း ခဏငယ် ကကိုင်ထား ပေးလန်း ။
+[2022-06-05 22:37:48] Best translation 1068 : သော က ။
+[2022-06-05 22:37:48] Best translation 1069 : နင် ဘာ ဝယ် ဝဝိဝို့ ။
+[2022-06-05 22:37:48] Best translation 1070 : ဒယ်ကောင်မငယ် မ အိပ် သင့်ရ ။
+[2022-06-05 22:37:48] Best translation 1071 : အအဲ့ဇာက ဒယ်ကောင်မငယ် အတွက် လွယ်လွယ်ငယ်ပဲ ။
+[2022-06-05 22:37:48] Total time: 6.20151s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    1m15.053s
+user    2m1.907s
+sys     0m17.183s
 ```
 
 results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.rkbk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 33.43, 64.2/39.7/30.6/24.9 (BP=0.897, ratio=0.902, hyp_len=6271, ref_len=6956)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 33.57, 64.1/39.7/30.8/24.9 (BP=0.898, ratio=0.903, hyp_len=6281, ref_len=6956)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 33.71, 64.5/39.9/31.0/25.4 (BP=0.893, ratio=0.898, hyp_len=6248, ref_len=6956)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 33.69, 64.2/39.9/31.2/25.3 (BP=0.893, ratio=0.899, hyp_len=6250, ref_len=6956)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 33.31, 63.2/38.9/30.3/24.5 (BP=0.906, ratio=0.910, hyp_len=6329, ref_len=6956)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 32.95, 63.0/38.6/29.9/24.0 (BP=0.907, ratio=0.911, hyp_len=6337, ref_len=6956)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 32.94, 63.0/38.5/29.6/23.7 (BP=0.912, ratio=0.915, hyp_len=6367, ref_len=6956)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 32.51, 62.5/37.9/29.0/23.3 (BP=0.914, ratio=0.917, hyp_len=6382, ref_len=6956)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 32.29, 62.5/37.7/28.7/23.0 (BP=0.915, ratio=0.918, hyp_len=6386, ref_len=6956)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 32.21, 62.0/37.5/28.6/22.4 (BP=0.922, ratio=0.925, hyp_len=6434, ref_len=6956)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 31.84, 61.8/36.9/27.9/21.9 (BP=0.926, ratio=0.929, hyp_len=6461, ref_len=6956)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.rkbk.1$
 ```
+
+**Best score for rk-bk, word unit, transformer is 33.71.**
 
 ## bk-rk, Word Unit, Transformer Archi  
 
