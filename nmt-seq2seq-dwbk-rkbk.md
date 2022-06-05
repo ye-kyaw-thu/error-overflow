@@ -2634,6 +2634,54 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log
 ```
 
+training ...  
+```
+[2022-06-04 21:58:33] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-04 21:58:49] Seen 8,850 samples
+[2022-06-04 21:58:49] Starting data epoch 2420 in logical epoch 2420
+[2022-06-04 21:58:49] [data] Shuffling data
+[2022-06-04 21:58:49] [data] Done reading 8,850 sentences
+[2022-06-04 21:58:49] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-04 21:59:04] Seen 8,850 samples
+[2022-06-04 21:59:04] Starting data epoch 2421 in logical epoch 2421
+[2022-06-04 21:59:04] [data] Shuffling data
+[2022-06-04 21:59:04] [data] Done reading 8,850 sentences
+[2022-06-04 21:59:04] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-04 21:59:13] Ep. 2421 : Up. 55000 : Sen. 5,744 : Cost 0.04726242 * 1,455,864 @ 4,550 after 159,570,212 : Time 340.43s : 4276.59 words/s : gNorm 0.1414
+[2022-06-04 21:59:13] Saving model weights and runtime parameters to model.seq2seq.bkrk.1-2hl/model.iter55000.npz
+[2022-06-04 21:59:14] Saving model weights and runtime parameters to model.seq2seq.bkrk.1-2hl/model.npz
+[2022-06-04 21:59:19] Saving Adam parameters
+[2022-06-04 21:59:20] [training] Saving training checkpoint to model.seq2seq.bkrk.1-2hl/model.npz and model.seq2seq.bkrk.1-2hl/model.npz.optimizer.npz
+[2022-06-04 21:59:40] [valid] Ep. 2421 : Up. 55000 : cross-entropy : 42.8806 : stalled 10 times (last best: 33.181)
+[2022-06-04 21:59:40] [valid] Ep. 2421 : Up. 55000 : perplexity : 311.479 : stalled 10 times (last best: 84.9989)
+[2022-06-04 21:59:40] Translating validation set...
+[2022-06-04 21:59:40] Best translation 0 : သူရို့ ကို မင်း အပြစ်ပီး ခပါလား ။
+[2022-06-04 21:59:40] Best translation 1 : ယေကေဆင်ဟိ လား ။
+[2022-06-04 21:59:40] Best translation 2 : ချစ်သူ ဟိ ပါလား ။
+[2022-06-04 21:59:40] Best translation 3 : သူ ကောင်ခေျ ကို ဇာ သင်ပီးစွာလေ။
+[2022-06-04 21:59:40] Best translation 4 : သံသယဖြစ် ရေ နီရာတိ ကို စစ်ဆီး ပါ ။
+[2022-06-04 21:59:40] Best translation 5 : မင်း ဇာ မိန်း လေး ။
+[2022-06-04 21:59:40] Best translation 10 : ယင်းသူ က ဆရာဝန် ပါ ။
+[2022-06-04 21:59:40] Best translation 20 : ငါ ၂၅ ဆင့် နှစ် ခက် နန့် ၁၀ ဆင့် တန် ငါး ခက် လို ချင်ရေ ။
+[2022-06-04 21:59:40] Best translation 40 : ဒေချင့် ဇာသူ့ အရုပ် လေး ။
+[2022-06-04 21:59:40] Best translation 80 : မင်းရဲ့ ကော်ဖီ ထဲ သကြား မဟုတ်ကေ နှို့မှုန့် ထည့် ဖို့လား ။
+[2022-06-04 21:59:40] Best translation 160 : မင်း ဆီးလိပ် မ သောက် ပါလား ။
+[2022-06-04 21:59:40] Best translation 320 : ထိုမချေ က ယင်းချင့်ကို မှတ်တမ်းတင် ချင် ရေ ။
+[2022-06-04 21:59:40] Best translation 640 : ကျွန်တော် ဘီယာ သောက် ဖို့ ။
+[2022-06-04 21:59:40] Total translation time: 0.63411s
+[2022-06-04 21:59:40] [valid] Ep. 2421 : Up. 55000 : bleu : 19.4985 : new best
+[2022-06-04 21:59:41] Training finished
+[2022-06-04 21:59:41] Saving model weights and runtime parameters to model.seq2seq.bkrk.1-2hl/model.npz
+[2022-06-04 21:59:47] Saving Adam parameters
+[2022-06-04 21:59:48] [training] Saving training checkpoint to model.seq2seq.bkrk.1-2hl/model.npz and model.seq2seq.bkrk.1-2hl/model.npz.optimizer.npz
+
+real    631m0.818s
+user    781m10.016s
+sys     2m33.116s
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./seq2seq.bkrk.1-2hidden-layers.sh
+```
+
+Prepared test-eval script and run testing-evaluation.  
 Results are as follows:  
 
 ```
