@@ -53,13 +53,71 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./transformer.bkdw.sh
+...
+...
+...
+[2022-06-05 12:50:37] Seen 5,452 samples
+[2022-06-05 12:50:37] Starting data epoch 3925 in logical epoch 3925
+[2022-06-05 12:50:37] [data] Shuffling data
+[2022-06-05 12:50:37] [data] Done reading 5,452 sentences
+[2022-06-05 12:50:37] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-05 12:50:39] Seen 5,452 samples
+[2022-06-05 12:50:39] Starting data epoch 3926 in logical epoch 3926
+[2022-06-05 12:50:39] [data] Shuffling data
+[2022-06-05 12:50:39] [data] Done reading 5,452 sentences
+[2022-06-05 12:50:39] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-05 12:50:40] Seen 5,452 samples
+[2022-06-05 12:50:40] Starting data epoch 3927 in logical epoch 3927
+[2022-06-05 12:50:40] [data] Shuffling data
+[2022-06-05 12:50:40] [data] Done reading 5,452 sentences
+[2022-06-05 12:50:40] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-05 12:50:41] Seen 5,452 samples
+[2022-06-05 12:50:41] Starting data epoch 3928 in logical epoch 3928
+[2022-06-05 12:50:41] [data] Shuffling data
+[2022-06-05 12:50:41] [data] Done reading 5,452 sentences
+[2022-06-05 12:50:42] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-05 12:50:43] Seen 5,452 samples
+[2022-06-05 12:50:43] Starting data epoch 3929 in logical epoch 3929
+[2022-06-05 12:50:43] [data] Shuffling data
+[2022-06-05 12:50:43] [data] Done reading 5,452 sentences
+[2022-06-05 12:50:43] [data] Done shuffling 5,452 sentences to temp files
+[2022-06-05 12:50:44] Ep. 3929 : Up. 55000 : Sen. 3,580 : Cost 1.24684238 * 1,363,470 @ 4,088 after 149,547,454 : Time 52.07s : 26184.43 words/s : gNorm 0.0727 : L.r. 1.6181e-04
+[2022-06-05 12:50:44] Saving model weights and runtime parameters to model.transformer.bkdw.1/model.iter55000.npz
+[2022-06-05 12:50:44] Saving model weights and runtime parameters to model.transformer.bkdw.1/model.npz
+[2022-06-05 12:50:45] Saving Adam parameters
+[2022-06-05 12:50:45] [training] Saving training checkpoint to model.transformer.bkdw.1/model.npz and model.transformer.bkdw.1/model.npz.optimizer.npz
+[2022-06-05 12:50:48] [valid] Ep. 3929 : Up. 55000 : cross-entropy : 33.0172 : stalled 10 times (last best: 29.1508)
+[2022-06-05 12:50:48] [valid] Ep. 3929 : Up. 55000 : perplexity : 107.127 : stalled 10 times (last best: 61.9716)
+[2022-06-05 12:50:48] [valid] Ep. 3929 : Up. 55000 : bleu : 15.8054 : stalled 9 times (last best: 17.332)
+[2022-06-05 12:50:48] Training finished
+[2022-06-05 12:50:48] Saving model weights and runtime parameters to model.transformer.bkdw.1/model.npz
+[2022-06-05 12:50:49] Saving Adam parameters
+[2022-06-05 12:50:49] [training] Saving training checkpoint to model.transformer.bkdw.1/model.npz and model.transformer.bkdw.1/model.npz.optimizer.npz
 
+real    96m6.325s
+user    116m9.763s
+sys     2m9.870s
 ```
 
 check the model folders:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkdw.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkdw.1$
 ```
 
 test-eval script ...  
