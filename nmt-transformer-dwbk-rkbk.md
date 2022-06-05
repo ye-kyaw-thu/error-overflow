@@ -1,5 +1,7 @@
 # NMT Transformer dw-bk, rk-bk Baselines
 
+## bk-dw, Word Unit, Transformer Archi
+
 ```bash
 #!/bin/bash
 
@@ -43,29 +45,45 @@ marian \
 time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_folder}/transformer-${src}-${tgt}.log
 ```
 
-```
+training ...  
 
 ```
 
 ```
 
-```
+check the model folders:  
 
 ```
 
 ```
 
+test-eval script ...  
+
+```bash
+
 ```
+
+testing/evaluation ...  
 
 ```
 
 ```
 
-```
+results are as follows ...  
 
 ```
 
 ```
+
+## bk-dw, Word Unit, Transformer Archi
+
+training script ...  
+
+```bash
+
+```
+
+training ...  
 
 ```
 
