@@ -145,7 +145,50 @@ done
 testing/evaluation ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkdw.1$ time ./test-eval.sh
+...
+...
+...
+[2022-06-05 13:49:35] Best translation 636 : အဲမှာ ကင်းစာ ဟှှိုး အဲမှာ ဒေဟှှို ။
+[2022-06-05 13:49:35] Best translation 637 : သူးနနိနို့ ဟှယ်သသူ့ ဝမ် ကေ့ဟှလား ။
+[2022-06-05 13:49:35] Best translation 638 : ဟှယ်လူလေ အိ နေကေ့နူး ။
+[2022-06-05 13:49:35] Best translation 639 : နန် ဂါး ပြော နေဇာ ။
+[2022-06-05 13:49:35] Best translation 640 : သူ အအဲ့ဇာဝဝို ဆဆုံးဖြတ် ခခဲ့ရယ် ။
+[2022-06-05 13:49:35] Best translation 641 : ငါ့ နား မှာ ပျော် လား ။
+[2022-06-05 13:49:35] Best translation 642 : ငါ့ ဟှှို လလုံးဝ သစ္စာ ဖွတ်ဟှ ။
+[2022-06-05 13:49:35] Best translation 643 : နန် ဂတိမပျက် ဟှ ။
+[2022-06-05 13:49:35] Best translation 644 : ခန်ဗျား အအဲ့မာ ဟှှို ကေ့ ပါအူး ။
+[2022-06-05 13:49:35] Best translation 645 : ခွပ်ပွတ် ဖွမ့် ဟှာ စိဆဆိုး ဟှှိှို့လား ။
+[2022-06-05 13:49:35] Best translation 646 : မှန်ပေါ့ ။
+[2022-06-05 13:49:35] Best translation 647 : နန် ဟှဲ လောက် လောက် ဟှားဟှယ် ။
+[2022-06-05 13:49:35] Best translation 648 : ကျွန်တော်ဝဝိဝို့ အအဲ့ဇာဝဝို ကာကွယ် ဝဝိဝို့လား ။
+[2022-06-05 13:49:35] Best translation 649 : နန် သတ်မွီးဝမ်းကြောင်း ဟှ ရှားနူး ။
+[2022-06-05 13:49:35] Best translation 650 : နန် သတ်မွီးဝမ်းကြောင်း ဟှ ရှားနူး ။
+[2022-06-05 13:49:35] Best translation 651 : ခန်ဗျား ဟှှို ရေ ဟှာ ကြြိုက် ဟှ ။
+[2022-06-05 13:49:35] Best translation 652 : ကျွန်တော်ဟှားဒေ အဲမှာ ဟှှို ဖိဟှား ကေ့ဟှ ။
+[2022-06-05 13:49:35] Best translation 653 : ငါ့တူ တူမ လေ ဟှှို မျှော်လင့် ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 654 : နန် ဒုက္ခ ရောက် လလီ့မယ် ။
+[2022-06-05 13:49:35] Best translation 655 : ကျွန်တော် စစိုးရီသလော့ ခြေနေ ကော ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 656 : ကျွန်တော် စစိုးရီသလော့ ခြေနေ ကော ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 657 : ဟှယ်ဒဒူ့ လွှန်အီ နူး ။
+[2022-06-05 13:49:35] Best translation 658 : နန် သသူ့ဟှှို မူး ဟှလား ။
+[2022-06-05 13:49:35] Best translation 659 : နန့် မေ ဟှ ဟှယ်လူ လေ နူး ။
+[2022-06-05 13:49:35] Best translation 660 : ဟှယ်လူလေ ဟှှို မေး ကေ့နူး ။
+[2022-06-05 13:49:35] Best translation 661 : အဲဝယ်ဟှား ငယ်ဂျင်း ဟှှို လလိုရှင် ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 662 : ဟှယ်လော့ စိလှုပ်ရှား ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 663 : နန် ငါ့ ဟှှို ရှင်း ပြ ပါလား ။
+[2022-06-05 13:49:35] Best translation 664 : အဲဟှှို သွား ဟှှိှို့ ငါ နန့် ဟှှို ငါ တတိုက်တွန်း ဟှ ။
+[2022-06-05 13:49:35] Best translation 665 : နန် ခရီး ထွပ် ဟှလား ။
+[2022-06-05 13:49:35] Best translation 666 : သူးနနိနို့ ဟှယ်လော့ ရဲရင့် ဟှယ် ။
+[2022-06-05 13:49:35] Best translation 667 : အယ် စားသော့-က့့််ဆဆိုက်ဟှ ညညံ့ဇ ။
+[2022-06-05 13:49:35] Best translation 668 : အယ် စားသော့-က့့််ဆဆိုက်ဟှ ညညံ့ဇ ။
+[2022-06-05 13:49:35] Best translation 669 : အဲဝယ်ဟှားဟှှို ယူ လလိုက်လား ။
+[2022-06-05 13:49:35] Total time: 3.99209s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    0m50.488s
+user    1m18.157s
+sys     0m12.283s
 ```
 
 results are as follows ...  
