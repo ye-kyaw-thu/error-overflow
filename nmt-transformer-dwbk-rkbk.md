@@ -322,26 +322,99 @@ sys     2m1.018s
 check the models ...  
 
 ```
-
-```
-
-test-eval script ...  
-
-```bash
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.dwbk.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.dwbk.1$
 ```
 
 testing/evaluation ...  
 
 ```
+[2022-06-05 16:12:08] Best translation 636 : လေးစားစရာ ကောင်း ပါ ။
+[2022-06-05 16:12:08] Best translation 637 : ဒါကြောင့် ရေလမ်း က ဝင် နေရယ် ။
+[2022-06-05 16:12:08] Best translation 638 : ဖယ်သူလေ စိတ်နှောင့်ယှက်ပေး ရိလဲ ။
+[2022-06-05 16:12:08] Best translation 639 : မင်း စကား ပြော နေစာ ။
+[2022-06-05 16:12:08] Best translation 640 : သူ ဒယ်စာ ဝဝို ဆဆုံးဖြတ် ခခဲ့ဟယ် ။
+[2022-06-05 16:12:08] Best translation 641 : ငါ့ နား နေ့ဒဒိုင်း ပျော် လား ။
+[2022-06-05 16:12:08] Best translation 642 : ငါ့ ဝဝို ယယုံ တတဲ့ သူ ဒေ ဂဂို ဘယ်ခါမှ သစ္စာ မ ဖောက် ရ ။
+[2022-06-05 16:12:08] Best translation 643 : မင့် ဘာကြောင့် ဘာမှမပြောမိလလိုက်ပါလိမ့် ။
+[2022-06-05 16:12:08] Best translation 644 : ခင်ဗျား ဒယ် အကြောင်း ဝဝို စဉ်းစား နေရယ် ။
+[2022-06-05 16:12:09] Best translation 645 : တံခါးပေါက် ဖွင့် ရင် စိတ်ဆဆိုး နေလား ။
+[2022-06-05 16:12:09] Best translation 646 : စိတ်မပေါက် က ဆဆို ။
+[2022-06-05 16:12:09] Best translation 647 : နင် ဘာ ဇာ လုပ် ။
+[2022-06-05 16:12:09] Best translation 648 : ကျွန်တော်လလိလို့ ဒယ်စာ ဝဝို ကာကွယ် ကြရလား ။
+[2022-06-05 16:12:09] Best translation 649 : ခင်ဗျား ဘာ လုပ် နေရယ် ။
+[2022-06-05 16:12:09] Best translation 650 : ခင်ဗျား ဘာ လုပ် နေရယ် ။
+[2022-06-05 16:12:09] Best translation 651 : နင် အေး ရင် ရေ ကကို လာ ဖဖိဖို့ လလိုအပ် ရယ် ။
+[2022-06-05 16:12:09] Best translation 652 : ကျွန်တော်ဝဝိဝို့ အအဲ့ဒါဝဝို ပထမတော့ မ ပြု ခခဲ့ရ ။
+[2022-06-05 16:12:09] Best translation 653 : ကျွန်တော် မမျှော်လင့် ဟားတတဲ့ ဖဖိဖို့ မျှော်လင့် တယ် ။
+[2022-06-05 16:12:09] Best translation 654 : နင် ဒုက္ခ မ ဒုက္ခပေး ရ ။
+[2022-06-05 16:12:09] Best translation 655 : ငါ ကကိုး နာရီမှာ တာဝန် တစ်ရပ် ဖြစ်ရယ် ။
+[2022-06-05 16:12:09] Best translation 656 : ငါ စည်းဝေးပွဲ နောက်ကျ နေရယ် ။
+[2022-06-05 16:12:09] Best translation 657 : အယ့်ဒါ ဘယ်သသူ့ ယောက်မ ရိ ။
+[2022-06-05 16:12:09] Best translation 658 : နင် သသူ့ကကို မုန်းက လဲ မ ဟုတ် ဝလား ။
+[2022-06-05 16:12:09] Best translation 659 : နင့် မိဘတွေ က ဖယ်သူ တွေ ။
+[2022-06-05 16:12:09] Best translation 660 : ဖယ်သူတွေ စိတ်လှုပ်ရှားသွား ရိလဲ ။
+[2022-06-05 16:12:09] Best translation 661 : ဒယ်ကောင်မငယ် အိမ်ရှင်မ တစ်ယောက်ဖြစ်ရယ် ။
+[2022-06-05 16:12:09] Best translation 662 : ဘဇာလောက် စိတ်မလှုပ်ရှား ရိ ။
+[2022-06-05 16:12:09] Best translation 663 : မင်း ငါ့ ကကို ရှင်းပြ ပါလား ။
+[2022-06-05 16:12:09] Best translation 664 : အဲဒီ ကကို သော ဖဖိဖို့ မ တတိုက်တွန်း ရ ။
+[2022-06-05 16:12:09] Best translation 665 : ခရီးမထွက် ရလား ။
+[2022-06-05 16:12:09] Best translation 666 : သူတတိတို့ ဘယ်လောက် သတ္တိရှိ လဲ ။
+[2022-06-05 16:12:09] Best translation 667 : နင့်ဟာနင် အားငယ် နေစာ ။
+[2022-06-05 16:12:09] Best translation 668 : ဒယ် အကြောင်း ပြော ရမယ်ဆဆို သိလား ။
+[2022-06-05 16:12:09] Best translation 669 : သူ မင်္ဂလာဆောင် ကကို လာကြ လလိုက်ရယ်လား ။
+[2022-06-05 16:12:09] Total time: 4.06537s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    0m50.702s
+user    1m18.666s
+sys     0m12.274s
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.dwbk.1$ time ./test-eval.sh
 ```
 
 results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.dwbk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.bk, Transformer model:
+BLEU = 20.90, 56.7/27.3/18.4/13.2 (BP=0.843, ratio=0.854, hyp_len=3646, ref_len=4267)
+Evaluation with hyp.iter10000.bk, Transformer model:
+BLEU = 20.21, 55.7/26.5/17.9/12.4 (BP=0.845, ratio=0.856, hyp_len=3652, ref_len=4267)
+Evaluation with hyp.iter15000.bk, Transformer model:
+BLEU = 19.71, 55.5/25.9/17.0/11.9 (BP=0.849, ratio=0.859, hyp_len=3665, ref_len=4267)
+Evaluation with hyp.iter20000.bk, Transformer model:
+BLEU = 19.28, 54.6/24.8/16.3/11.3 (BP=0.862, ratio=0.871, hyp_len=3715, ref_len=4267)
+Evaluation with hyp.iter25000.bk, Transformer model:
+BLEU = 19.10, 54.4/24.4/15.5/10.6 (BP=0.884, ratio=0.890, hyp_len=3799, ref_len=4267)
+Evaluation with hyp.iter30000.bk, Transformer model:
+BLEU = 19.01, 53.3/24.2/15.3/10.5 (BP=0.892, ratio=0.897, hyp_len=3829, ref_len=4267)
+Evaluation with hyp.iter35000.bk, Transformer model:
+BLEU = 19.07, 53.5/24.2/15.6/10.8 (BP=0.883, ratio=0.889, hyp_len=3793, ref_len=4267)
+Evaluation with hyp.iter40000.bk, Transformer model:
+BLEU = 18.94, 53.4/24.1/15.4/10.5 (BP=0.886, ratio=0.892, hyp_len=3806, ref_len=4267)
+Evaluation with hyp.iter45000.bk, Transformer model:
+BLEU = 18.65, 53.1/23.8/15.1/10.1 (BP=0.889, ratio=0.895, hyp_len=3817, ref_len=4267)
+Evaluation with hyp.iter50000.bk, Transformer model:
+BLEU = 19.23, 53.3/24.3/15.6/10.5 (BP=0.896, ratio=0.901, hyp_len=3845, ref_len=4267)
+Evaluation with hyp.iter55000.bk, Transformer model:
+BLEU = 19.18, 53.0/24.1/15.4/10.6 (BP=0.897, ratio=0.902, hyp_len=3849, ref_len=4267)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.dwbk.1$
 ```
+
+**BEST BLEU Score of dw-bk, word unit, transformer archi is 20.90.**  
 
 ## rk-bk, Word Unit, Transformer Archi
 
