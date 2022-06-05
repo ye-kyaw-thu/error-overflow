@@ -2682,6 +2682,54 @@ sys     2m33.116s
 ```
 
 Prepared test-eval script and run testing-evaluation.  
+
+```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1-2hl$ time ./test-eval.sh | tee testing.log
+...
+...
+...
+[2022-06-05 10:51:51] Best translation 1038 : မင်း သူရရိရို့ ကကို တွိ ခပါလား ။
+[2022-06-05 10:51:51] Best translation 1039 : မင်းဇာတိ လလိုချင် ခလေး ။
+[2022-06-05 10:51:52] Best translation 1040 : သူရရိရို့ မင်းကကို အသနားခံ ဖဖိဖို့ မဟုတ်ပါ ။
+[2022-06-05 10:51:52] Best translation 1041 : သူရရိရို့ ဇာလောက် ကတ်တီးကတ်ဖဖဲ့နနိုင် လေး။
+[2022-06-05 10:51:52] Best translation 1042 : သူရရိရို့ ဓါးပြတတိုက် ရေ သူတိ က သူရရိရို့ရရဲ့ သူငယ်ချင်းတိ ဖြြိုက်ရေ ။
+[2022-06-05 10:51:52] Best translation 1043 : အစွပ်စွဲခံရ ရေ လူ တစ်ယောက်စွာ ဇာပပိုင် ခံစား ရဖဖိဖို့လေး ဆဆိုစွာ မင်း စဉ်းစားကြည့် ။
+[2022-06-05 10:51:52] Best translation 1044 : မင်းကကို ဖက်ထား မယ် နန့် မ ဖက် ထားရ ပါလား ။
+[2022-06-05 10:51:52] Best translation 1045 : မင်း တစ်ခုခု တင်ပြဖဖိဖို့ ဟိ လား ။
+[2022-06-05 10:51:52] Best translation 1046 : မင်းရရိရို့ ယင်းချင့် ကကို သိမ်းထား ဖဖိဖို့လား ။
+[2022-06-05 10:51:52] Best translation 1047 : မင်း ဒုက္ခ ရောက် ဖဖိဖို့ လလိုရေ။
+[2022-06-05 10:51:52] Best translation 1048 : ယင်းချင့်ကကို ဖွင့်ဖွင့် မ ဖွင့်ဖွင့် ။
+[2022-06-05 10:51:52] Best translation 1049 : သူ ညက သင်တန်း တက် ဖဖိဖို့ မဟုတ် ပါ ။
+[2022-06-05 10:51:52] Best translation 1050 : သူ စိတ် ပြောင်း ပြီး မင်း ကကို ပြန် ခေါ်ကောင်း ခေါ်ဖဖိဖို့ရာ ။
+[2022-06-05 10:51:52] Best translation 1051 : သူ မင်းကကို တောင်းပန် ခပါလား ။
+[2022-06-05 10:51:52] Best translation 1052 : ယေကေလေ့ နီရာ မှန် ရ ဖဖိဖို့ ငါ ကြြိုးစား နီပါရေ ။
+[2022-06-05 10:51:52] Best translation 1053 : ယင်းချင့် အတွက် မင်းငါ အိမ် ကကို လာ ရဖဖိဖို့ ။
+[2022-06-05 10:51:52] Best translation 1054 : သူ ရရိရို့ မင်း ကကို သံသယ ဖြစ်လား ကတ်စွာ ။
+[2022-06-05 10:51:52] Best translation 1055 : မင်း ယင်းချင့် ကကို ခန့်မှန်းကြည့် ပါ။
+[2022-06-05 10:51:52] Best translation 1056 : ယင်းစွာ ခက်ခဲရေ ။
+[2022-06-05 10:51:52] Best translation 1057 : သူရရိရို့ ဇာသသူ့ ကကို ကူညီ ကတ်ဖဖိဖို့လေး ။
+[2022-06-05 10:51:52] Best translation 1058 : သူ တင်းနစ် ကဇတ် နီရေ။
+[2022-06-05 10:51:52] Best translation 1059 : ကျွန်တော်ရရိရို့ က မင်း ကကို တောင်းပန် ကတ်ဖဖိဖို့ ။
+[2022-06-05 10:51:52] Best translation 1060 : ကျွန်တော်ရရိရို့ မ ကြြိုးစား ခကတ်ပါ ။
+[2022-06-05 10:51:52] Best translation 1061 : ဇာ ဖြစ် စွာလေ ။
+[2022-06-05 10:51:52] Best translation 1062 : ကျွန်တော်ရရိရို့ အရုပ် တိ ရောင်းခ ဂတ် စွာ ။
+[2022-06-05 10:51:52] Best translation 1063 : ကျွန်တော်ရရိရို့ သသူ့ ကကို ပါအောင် ဖျောင်းဖျ စွာလား ။
+[2022-06-05 10:51:52] Best translation 1064 : မင်း သူရရိရို့ နန့် ဆွေးနွေး ရလိမ့်မေ ။
+[2022-06-05 10:51:52] Best translation 1065 : ငါ ဆရာဝန် ဘက် လား ဖဖိဖို့ ဟိရေ ။
+[2022-06-05 10:51:52] Best translation 1066 : ယေကေလေ့ သူ ရုတ်တရက် ဒေလောက် အယင်ကြီး ထွက်လားဗျာယ် နှုတ်ဆက်စကား ပြောခွင့်ချေတောင် မ ရ လလိုက်ပါ ။
+[2022-06-05 10:51:52] Best translation 1067 : လူကြီးမင်း ပြောရေ အတတိုင်း ပါယာ ။
+[2022-06-05 10:51:52] Best translation 1068 : လား မိန်းပါ ။
+[2022-06-05 10:51:52] Best translation 1069 : မင်း ဇာ စစ် ဖဖိဖို့လေး။
+[2022-06-05 10:51:52] Best translation 1070 : ဒေမာ အိပ် ဖဖိဖို့ မ ဟိ ပါ ။
+[2022-06-05 10:51:52] Best translation 1071 : ယင်းချင့် ထထိုမချေ အတွက် အလွယ်ချေပါ ။
+[2022-06-05 10:51:52] Total time: 11.01957s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+
+real    2m20.558s
+user    4m0.145s
+sys     0m26.719s
+```
+
 Results are as follows:  
 
 ```
