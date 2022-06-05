@@ -2759,6 +2759,8 @@ BLEU = 19.28, 44.8/22.6/14.5/9.4 (BP=1.000, ratio=1.007, hyp_len=6786, ref_len=6
 (marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1-2hl$
 ```
 
+**Best BLEU score for bk-rk, word unit, seq2seq, config2 is 19.48.**  
+
 ## Evaluation with chrF for Seq2Seq Archi   
 
 ```
