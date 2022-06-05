@@ -2733,10 +2733,33 @@ sys     0m26.719s
 Results are as follows:  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1-2hl$ cat eval-result.txt
+Evaluation with hyp.iter5000.rk, Transformer model:
+BLEU = 5.38, 36.3/12.0/5.1/1.9 (BP=0.666, ratio=0.711, hyp_len=4789, ref_len=6739)
+Evaluation with hyp.iter10000.rk, Transformer model:
+BLEU = 19.42, 44.7/22.9/14.6/9.7 (BP=0.995, ratio=0.995, hyp_len=6704, ref_len=6739)
+Evaluation with hyp.iter15000.rk, Transformer model:
+BLEU = 19.48, 45.0/23.0/14.6/9.5 (BP=1.000, ratio=1.007, hyp_len=6786, ref_len=6739)
+Evaluation with hyp.iter20000.rk, Transformer model:
+BLEU = 19.21, 44.5/22.6/14.4/9.4 (BP=1.000, ratio=1.011, hyp_len=6814, ref_len=6739)
+Evaluation with hyp.iter25000.rk, Transformer model:
+BLEU = 19.43, 45.0/22.8/14.5/9.6 (BP=1.000, ratio=1.012, hyp_len=6823, ref_len=6739)
+Evaluation with hyp.iter30000.rk, Transformer model:
+BLEU = 19.42, 45.1/23.0/14.5/9.5 (BP=1.000, ratio=1.016, hyp_len=6847, ref_len=6739)
+Evaluation with hyp.iter35000.rk, Transformer model:
+BLEU = 19.40, 45.0/22.9/14.6/9.4 (BP=1.000, ratio=1.012, hyp_len=6823, ref_len=6739)
+Evaluation with hyp.iter40000.rk, Transformer model:
+BLEU = 19.47, 45.0/22.8/14.7/9.5 (BP=1.000, ratio=1.012, hyp_len=6822, ref_len=6739)
+Evaluation with hyp.iter45000.rk, Transformer model:
+BLEU = 19.48, 45.0/22.9/14.7/9.5 (BP=1.000, ratio=1.010, hyp_len=6808, ref_len=6739)
+Evaluation with hyp.iter50000.rk, Transformer model:
+BLEU = 19.36, 44.8/22.7/14.6/9.5 (BP=1.000, ratio=1.008, hyp_len=6791, ref_len=6739)
+Evaluation with hyp.iter55000.rk, Transformer model:
+BLEU = 19.28, 44.8/22.6/14.5/9.4 (BP=1.000, ratio=1.007, hyp_len=6786, ref_len=6739)
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.seq2seq.bkrk.1-2hl$
 ```
 
-Some more experiments ...  
+## Evaluation with chrF for Seq2Seq Archi   
 
 ```
 
