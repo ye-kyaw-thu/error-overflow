@@ -466,13 +466,71 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 Training ...  
 
 ```
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline$ ./transformer.rkbk.sh
+...
+...
+...
+[2022-06-05 18:08:43] Seen 8,850 samples
+[2022-06-05 18:08:43] Starting data epoch 2037 in logical epoch 2037
+[2022-06-05 18:08:43] [data] Shuffling data
+[2022-06-05 18:08:43] [data] Done reading 8,850 sentences
+[2022-06-05 18:08:43] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-05 18:08:46] Seen 8,850 samples
+[2022-06-05 18:08:46] Starting data epoch 2038 in logical epoch 2038
+[2022-06-05 18:08:46] [data] Shuffling data
+[2022-06-05 18:08:46] [data] Done reading 8,850 sentences
+[2022-06-05 18:08:46] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-05 18:08:48] Seen 8,850 samples
+[2022-06-05 18:08:48] Starting data epoch 2039 in logical epoch 2039
+[2022-06-05 18:08:48] [data] Shuffling data
+[2022-06-05 18:08:48] [data] Done reading 8,850 sentences
+[2022-06-05 18:08:48] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-05 18:08:51] Seen 8,850 samples
+[2022-06-05 18:08:51] Starting data epoch 2040 in logical epoch 2040
+[2022-06-05 18:08:51] [data] Shuffling data
+[2022-06-05 18:08:51] [data] Done reading 8,850 sentences
+[2022-06-05 18:08:52] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-05 18:08:54] Seen 8,850 samples
+[2022-06-05 18:08:54] Starting data epoch 2041 in logical epoch 2041
+[2022-06-05 18:08:54] [data] Shuffling data
+[2022-06-05 18:08:54] [data] Done reading 8,850 sentences
+[2022-06-05 18:08:54] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-05 18:08:55] Ep. 2041 : Up. 55000 : Sen. 1,406 : Cost 1.24907100 * 1,245,012 @ 3,384 after 136,761,428 : Time 55.74s : 22336.16 words/s : gNorm 0.0957 : L.r. 1.6181e-04
+[2022-06-05 18:08:55] Saving model weights and runtime parameters to model.transformer.rkbk.1/model.iter55000.npz
+[2022-06-05 18:08:55] Saving model weights and runtime parameters to model.transformer.rkbk.1/model.npz
+[2022-06-05 18:08:56] Saving Adam parameters
+[2022-06-05 18:08:56] [training] Saving training checkpoint to model.transformer.rkbk.1/model.npz and model.transformer.rkbk.1/model.npz.optimizer.npz
+[2022-06-05 18:08:59] [valid] Ep. 2041 : Up. 55000 : cross-entropy : 26.7789 : stalled 10 times (last best: 22.468)
+[2022-06-05 18:08:59] [valid] Ep. 2041 : Up. 55000 : perplexity : 33.3991 : stalled 10 times (last best: 18.9865)
+[2022-06-05 18:09:00] [valid] Ep. 2041 : Up. 55000 : bleu : 31.169 : stalled 10 times (last best: 33.3424)
+[2022-06-05 18:09:00] Training finished
+[2022-06-05 18:09:00] Saving model weights and runtime parameters to model.transformer.rkbk.1/model.npz
+[2022-06-05 18:09:01] Saving Adam parameters
+[2022-06-05 18:09:01] [training] Saving training checkpoint to model.transformer.rkbk.1/model.npz and model.transformer.rkbk.1/model.npz.optimizer.npz
 
+real    102m54.624s
+user    123m4.786s
+sys     1m48.896s
 ```
 
 check models ...  
 
 ```
-
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.rkbk.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(marian) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.rkbk.1$
 ```
 
 prepare test-eval bash script ...  
