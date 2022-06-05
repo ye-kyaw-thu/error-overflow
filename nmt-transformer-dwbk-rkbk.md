@@ -235,7 +235,7 @@ training script ...
 ## Last updated: 5 June 2022
 
 
-model_folder="model.transformer.bkdw.1";
+model_folder="model.transformer.dwbk.1";
 mkdir ${model_folder};
 data_path="/home/ye/exp/pivot-nmt-baseline/data/word/dw-bk/1/";
 src="dw"; tgt="bk";
