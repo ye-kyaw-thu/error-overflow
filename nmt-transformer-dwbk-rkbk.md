@@ -796,13 +796,72 @@ model.npz.optimizer.npz
 prepare test-eval script ...  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese dialects
+## used Marian NMT Framework for training
+## Last updated: 31 May 2022
+
+data_path="/home/ye/exp/pivot-nmt-baseline/data/word/rk-bk/1/";
+src="bk"; tgt="rk";
+
+for i in {5000..55000..5000}
+do
+    marian-decoder -m ./model.iter$i.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 1 --output hyp.iter$i.${tgt} < ${data_path}/test.${src};
+    echo "Evaluation with hyp.iter$i.${tgt}, Transformer model:" >> eval-result.txt;
+    perl /home/ye/tool/moses-scripts/scripts/generic/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.iter$i.${tgt} >> eval-result.txt;
+
+done
 ```
 
 testing/evaluation ...  
 
 ```
+(base) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkrk.1$ time ./test-eval.sh
+...
+...
+...
+[2022-06-06 08:58:02] Best translation 1038 : မင်း ဗလီ အတွက် ခွင့်ပြု ဖို့ ။
+[2022-06-06 08:58:02] Best translation 1039 : မင်းဇာတိ သင် ခလေး ။
+[2022-06-06 08:58:02] Best translation 1040 : သူရို့ မင်း ကို သံသယ ဖြိုက်လားမယ် ။
+[2022-06-06 08:58:02] Best translation 1041 : သူရို့ ဇာလောက် သတ္တိ ဟိလေး ။
+[2022-06-06 08:58:02] Best translation 1042 : အစောက ချိုမြိန်နီရေ ချောကလက်ပြားချေ ဖို့ ဖေသာ ကုန်ရေ။
+[2022-06-06 08:58:02] Best translation 1043 : ​ကောင်းစွာတိ ရ ရေ လူ ဝကြီးကို မ ထိကေ။
+[2022-06-06 08:58:02] Best translation 1044 : ကျွန်တော် ရို့ချမ်း ကေ မင်း မ ခံစားရ ပါလား ။
+[2022-06-06 08:58:02] Best translation 1045 : မင်း တစ်ခုခု တင်ပြဖို့ ဟိ လား ။
+[2022-06-06 08:58:02] Best translation 1046 : မင်းရို့ ယင်းချင့် ကို ရောင်း ဖို့လား ။
+[2022-06-06 08:58:02] Best translation 1047 : မင်း ဒုက္ခ တိ ကို သည်းမခံ နိုင်ပါလာ ။
+[2022-06-06 08:58:02] Best translation 1048 : ယင်းချင့်ကို လားကြည့်ပါ ။
+[2022-06-06 08:58:02] Best translation 1049 : သူ ညက ပြောရေ ရေပိုင် ပြောပါ ။
+[2022-06-06 08:58:02] Best translation 1050 : သူ ကကောင်း မ ကြိုးစား ခ ပါ ။
+[2022-06-06 08:58:02] Best translation 1051 : သူ သူ့ ကို မိန့်ပစ် ခပါလား ။
+[2022-06-06 08:58:02] Best translation 1052 : ယေကေလေ့ တစ်ပတ် သူ တစ်ပတ်မာ လား ရေ ။
+[2022-06-06 08:58:02] Best translation 1053 : ယင်းကို မိန့်ထားစွာ ပိုကောင်း ပါရေ ။
+[2022-06-06 08:58:02] Best translation 1054 : သူရို့ ဆရာ ဖြစ် လာရေ။
+[2022-06-06 08:58:02] Best translation 1055 : မင်း ယင်းချင့် ကို လား စုံစမ်း နိုင်ဖို့လား ။
+[2022-06-06 08:58:02] Best translation 1056 : ယင်းချင့် ဇာပိုင် လေး ။
+[2022-06-06 08:58:03] Best translation 1057 : သူရို့ ဇာသူ့ ကို ကူညီ ဖို့ လေး ။
+[2022-06-06 08:58:03] Best translation 1058 : ပုံနှိပ်ထား ရေ ။
+[2022-06-06 08:58:03] Best translation 1059 : ကျွန်တော်ရို့ က မင်းကို တောင်းပန် ရဖို့လား ။
+[2022-06-06 08:58:03] Best translation 1060 : ကျွန်တော်ရို့ မ ကြိုးစား ခ ပါလား။
+[2022-06-06 08:58:03] Best translation 1061 : ဇာ အရွယ် ဝတ် ပါ လေး ။
+[2022-06-06 08:58:03] Best translation 1062 : ကျွန်တော်ရို့ လိမ္မော်သီး တိ ဝယ် ခကတ်စွာပါ ။
+[2022-06-06 08:58:03] Best translation 1063 : ကျွန်တော်ရို့ သူ့ကို မိန်းကြည့်ကတ်ဖို့။
+[2022-06-06 08:58:03] Best translation 1064 : မင်း သူရို့ နန့် ဆုံ ခပါလား ။
+[2022-06-06 08:58:03] Best translation 1065 : ညစာအတွက် ကုန်ကျစရိတ်ကိုမျှဝေကျခံ ဖို့ စိတ်ထက်သန် ပါရေ ။
+[2022-06-06 08:58:03] Best translation 1066 : ယေကေလေ့ ကျွန်တော့်ရဲ့ ခန်းမ ထဲမာ တင်ဖို့အချိန် မီ ပြီးရဖို့ ။
+[2022-06-06 08:58:03] Best translation 1067 : လူကြီးမင်း တစ်ချက်လောက် ကိုင်ထား ပီးပါ ။
+[2022-06-06 08:58:03] Best translation 1068 : လား က လိုက် ဗျာယ် ။
+[2022-06-06 08:58:03] Best translation 1069 : မင်း ဇာ ဝယ် ဖို့လေး။
+[2022-06-06 08:58:03] Best translation 1070 : ဒေမာ အိပ် ဖို့ မ သင့်တော် ပါ ။
+[2022-06-06 08:58:03] Best translation 1071 : ယင်းချင့် ထိုမချေ အတွက် အလွယ်ချေပါ ။
+[2022-06-06 08:58:03] Total time: 6.24559s wall
+It is in-advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    1m30.843s
+user    2m3.003s
+sys     0m17.517s
 ```
 
 results are as follows:  
