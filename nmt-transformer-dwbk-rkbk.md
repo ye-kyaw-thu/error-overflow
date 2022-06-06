@@ -685,7 +685,92 @@ time marian -c ${model_folder}/${src}-${tgt}.config.yml  2>&1 | tee ${model_fold
 start training ...  
 
 ```
-
+[2022-06-05 23:00:38] [marian] Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+[2022-06-05 23:00:38] [marian] Running on ye-System-Product-Name as process 62812 with command line:
+[2022-06-05 23:00:38] [marian] marian -c model.transformer.bkrk.1/bk-rk.config.yml
+[2022-06-05 23:00:38] [config] after: 0e
+[2022-06-05 23:00:38] [config] after-batches: 0
+[2022-06-05 23:00:38] [config] after-epochs: 0
+[2022-06-05 23:00:38] [config] all-caps-every: 0
+[2022-06-05 23:00:38] [config] allow-unk: false
+[2022-06-05 23:00:38] [config] authors: false
+[2022-06-05 23:00:38] [config] beam-size: 6
+[2022-06-05 23:00:38] [config] bert-class-symbol: "[CLS]"
+[2022-06-05 23:00:38] [config] bert-mask-symbol: "[MASK]"
+[2022-06-05 23:00:38] [config] bert-masking-fraction: 0.15
+[2022-06-05 23:00:38] [config] bert-sep-symbol: "[SEP]"
+[2022-06-05 23:00:38] [config] bert-train-type-embeddings: true
+[2022-06-05 23:00:38] [config] bert-type-vocab-size: 2
+[2022-06-05 23:00:38] [config] build-info: ""
+[2022-06-05 23:00:38] [config] check-gradient-nan: false
+[2022-06-05 23:00:38] [config] check-nan: false
+[2022-06-05 23:00:38] [config] cite: false
+[2022-06-05 23:00:38] [config] clip-norm: 5
+[2022-06-05 23:00:38] [config] cost-scaling:
+[2022-06-05 23:00:38] [config]   []
+[2022-06-05 23:00:38] [config] cost-type: ce-sum
+[2022-06-05 23:00:38] [config] cpu-threads: 0
+[2022-06-05 23:00:38] [config] data-threads: 8
+[2022-06-05 23:00:38] [config] data-weighting: ""
+[2022-06-05 23:00:38] [config] data-weighting-type: sentence
+[2022-06-05 23:00:38] [config] dec-cell: gru
+[2022-06-05 23:00:38] [config] dec-cell-base-depth: 2
+[2022-06-05 23:00:38] [config] dec-cell-high-depth: 1
+[2022-06-05 23:00:38] [config] dec-depth: 2
+[2022-06-05 23:00:38] [config] devices:
+[2022-06-05 23:00:38] [config]   - 0
+[2022-06-05 23:00:38] [config]   - 1
+[2022-06-05 23:00:38] [config] dim-emb: 512
+[2022-06-05 23:00:38] [config] dim-rnn: 1024
+[2022-06-05 23:00:38] [config] dim-vocabs:
+[2022-06-05 23:00:38] [config]   - 0
+[2022-06-05 23:00:38] [config]   - 0
+[2022-06-05 23:00:38] [config] disp-first: 0
+[2022-06-05 23:00:38] [config] disp-freq: 500
+...
+...
+...
+[2022-06-06 00:44:46] Starting data epoch 2173 in logical epoch 2173
+[2022-06-06 00:44:46] [data] Shuffling data
+[2022-06-06 00:44:46] [data] Done reading 8,850 sentences
+[2022-06-06 00:44:46] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:44:48] Seen 8,850 samples
+[2022-06-06 00:44:48] Starting data epoch 2174 in logical epoch 2174
+[2022-06-06 00:44:48] [data] Shuffling data
+[2022-06-06 00:44:48] [data] Done reading 8,850 sentences
+[2022-06-06 00:44:49] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:44:51] Seen 8,850 samples
+[2022-06-06 00:44:51] Starting data epoch 2175 in logical epoch 2175
+[2022-06-06 00:44:51] [data] Shuffling data
+[2022-06-06 00:44:51] [data] Done reading 8,850 sentences
+[2022-06-06 00:44:51] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:44:54] Seen 8,850 samples
+[2022-06-06 00:44:54] Starting data epoch 2176 in logical epoch 2176
+[2022-06-06 00:44:54] [data] Shuffling data
+[2022-06-06 00:44:54] [data] Done reading 8,850 sentences
+[2022-06-06 00:44:54] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:44:57] Seen 8,850 samples
+[2022-06-06 00:44:57] Starting data epoch 2177 in logical epoch 2177
+[2022-06-06 00:44:57] [data] Shuffling data
+[2022-06-06 00:44:57] [data] Done reading 8,850 sentences
+[2022-06-06 00:44:57] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:45:00] Seen 8,850 samples
+[2022-06-06 00:45:00] Starting data epoch 2178 in logical epoch 2178
+[2022-06-06 00:45:00] [data] Shuffling data
+[2022-06-06 00:45:00] [data] Done reading 8,850 sentences
+[2022-06-06 00:45:00] [data] Done shuffling 8,850 sentences to temp files
+[2022-06-06 00:45:01] Ep. 2178 : Up. 55000 : Sen. 2,934 : Cost 1.26405466 * 1,310,942 @ 4,496 after 143,530,362 : Time 56.59s : 23166.99 words/s : gNorm 0.1065 : L.r. 1.6181e-04
+[2022-06-06 00:45:01] Saving model weights and runtime parameters to model.transformer.bkrk.1/model.iter55000.npz
+[2022-06-06 00:45:01] Saving model weights and runtime parameters to model.transformer.bkrk.1/model.npz
+[2022-06-06 00:45:02] Saving Adam parameters
+[2022-06-06 00:45:02] [training] Saving training checkpoint to model.transformer.bkrk.1/model.npz and model.transformer.bkrk.1/model.npz.optimizer.npz
+[2022-06-06 00:45:05] [valid] Ep. 2178 : Up. 55000 : cross-entropy : 25.7818 : stalled 10 times (last best: 22.626)
+[2022-06-06 00:45:05] [valid] Ep. 2178 : Up. 55000 : perplexity : 31.562 : stalled 10 times (last best: 20.6852)
+[2022-06-06 00:45:06] [valid] Ep. 2178 : Up. 55000 : bleu : 33.2718 : stalled 10 times (last best: 34.1791)
+[2022-06-06 00:45:06] Training finished
+[2022-06-06 00:45:06] Saving model weights and runtime parameters to model.transformer.bkrk.1/model.npz
+[2022-06-06 00:45:07] Saving Adam parameters
+[2022-06-06 00:45:07] [training] Saving training checkpoint to model.transformer.bkrk.1/model.npz and model.transformer.bkrk.1/model.npz.optimizer.npz
 ```
 
 check the output models ...  
