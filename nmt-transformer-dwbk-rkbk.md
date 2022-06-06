@@ -867,8 +867,33 @@ sys     0m17.517s
 results are as follows:  
 
 ```
-
+(base) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkrk.1$ cat eval-result.txt
+Evaluation with hyp.iter5000.rk, Transformer model:
+BLEU = 33.32, 62.4/41.0/30.6/23.2 (BP=0.907, ratio=0.911, hyp_len=6142, ref_len=6739)
+Evaluation with hyp.iter10000.rk, Transformer model:
+BLEU = 32.54, 61.6/40.2/29.9/22.5 (BP=0.906, ratio=0.910, hyp_len=6131, ref_len=6739)
+Evaluation with hyp.iter15000.rk, Transformer model:
+BLEU = 32.78, 61.5/39.9/29.6/22.7 (BP=0.914, ratio=0.918, hyp_len=6186, ref_len=6739)
+Evaluation with hyp.iter20000.rk, Transformer model:
+BLEU = 33.26, 62.0/40.7/30.3/23.0 (BP=0.914, ratio=0.917, hyp_len=6181, ref_len=6739)
+Evaluation with hyp.iter25000.rk, Transformer model:
+BLEU = 32.79, 61.9/40.2/29.9/22.9 (BP=0.907, ratio=0.911, hyp_len=6142, ref_len=6739)
+Evaluation with hyp.iter30000.rk, Transformer model:
+BLEU = 32.52, 61.6/39.8/29.4/22.4 (BP=0.913, ratio=0.916, hyp_len=6175, ref_len=6739)
+Evaluation with hyp.iter35000.rk, Transformer model:
+BLEU = 32.40, 61.3/39.5/29.3/22.4 (BP=0.912, ratio=0.916, hyp_len=6173, ref_len=6739)
+Evaluation with hyp.iter40000.rk, Transformer model:
+BLEU = 32.36, 61.1/39.2/29.0/22.1 (BP=0.919, ratio=0.922, hyp_len=6215, ref_len=6739)
+Evaluation with hyp.iter45000.rk, Transformer model:
+BLEU = 32.75, 61.3/39.5/29.4/22.7 (BP=0.919, ratio=0.922, hyp_len=6214, ref_len=6739)
+Evaluation with hyp.iter50000.rk, Transformer model:
+BLEU = 32.87, 61.1/39.6/29.4/22.5 (BP=0.923, ratio=0.926, hyp_len=6242, ref_len=6739)
+Evaluation with hyp.iter55000.rk, Transformer model:
+BLEU = 32.56, 60.8/39.2/29.0/22.1 (BP=0.926, ratio=0.929, hyp_len=6261, ref_len=6739)
+(base) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkrk.1$
 ```
+
+**Best BLEU score for bk-rk, word unit, transformer archi is 33.32.**  
 
 ## Evaluation with chrF score 
 
