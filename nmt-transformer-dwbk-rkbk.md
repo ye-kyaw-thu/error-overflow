@@ -776,7 +776,21 @@ start training ...
 check the output models ...  
 
 ```
-
+(base) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkrk.1$ ls *.npz | sort -V
+model.iter5000.npz
+model.iter10000.npz
+model.iter15000.npz
+model.iter20000.npz
+model.iter25000.npz
+model.iter30000.npz
+model.iter35000.npz
+model.iter40000.npz
+model.iter45000.npz
+model.iter50000.npz
+model.iter55000.npz
+model.npz
+model.npz.optimizer.npz
+(base) ye@ye-System-Product-Name:~/exp/pivot-nmt-baseline/model.transformer.bkrk.1$
 ```
 
 prepare test-eval script ...  
