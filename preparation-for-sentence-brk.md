@@ -1,3 +1,4 @@
+sentence breaking experiment လုပ်ဖို့အတွက် ပြင်ဆင်ရာမှာ ဒီတစ်ခါ GPU server က sudo command သုံးလို့မရတဲ့ environment ဖြစ်ပြီးတော့ ပေးထားတဲ့ docker env အောက်မှာပဲ run ရလို့ လက်ဝင်တယ်။ တချို့ marian framework ကို run လို့ရဖို့ လုပ်ခဲ့တုန်းက log ပါ။  
 
 ## git clone
 
