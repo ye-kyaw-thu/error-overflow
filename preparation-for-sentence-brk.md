@@ -1479,6 +1479,11 @@ yekyaw.thu@gpu:~/tool/marian/build$ make -j21
 ```
 
 ဒီစက်မှာလည်း အဆင်မပြေဘူး ....   
+အဓိက ပြဿနာပေးတာက အောက်ပါအတိုင်းလို့ ယူဆခဲ့ ...  
 
+```
+/usr/include/crt/host_config.h:138:2: error: #error -- unsupported GNU version! gcc versions later than 8 are not supported!
+  138 | #error -- unsupported GNU version! gcc versions later than 8 are not supported!
+```
 
 
