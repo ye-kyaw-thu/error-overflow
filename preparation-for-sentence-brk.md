@@ -1486,4 +1486,14 @@ yekyaw.thu@gpu:~/tool/marian/build$ make -j21
   138 | #error -- unsupported GNU version! gcc versions later than 8 are not supported!
 ```
 
+gcc version ကို check ကြည့်တော့ > 8 ဖြစ်နေတာကို အောက်ပါအတိုင်း တွေ့ရ ...  
 
+```
+yekyaw.thu@gpu:~/tool/marian/build$ gcc --version
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+yekyaw.thu@gpu:~/tool/marian/build$ 
