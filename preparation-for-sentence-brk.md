@@ -1,6 +1,8 @@
 
 ## git clone
 
+
+```
 root@2b3cc0b49af6:/home/tool# git clone https://github.com/marian-nmt/marian
 Cloning into 'marian'...
 remote: Enumerating objects: 59913, done.
@@ -10,24 +12,31 @@ remote: Total 59913 (delta 1268), reused 1550 (delta 1156), pack-reused 58079
 Receiving objects: 100% (59913/59913), 40.26 MiB | 2.10 MiB/s, done.
 Resolving deltas: 100% (46069/46069), done.
 root@2b3cc0b49af6:/home/tool#
+```
 
 ## check
 
+```
 root@2b3cc0b49af6:/home/tool# cd marian
 root@2b3cc0b49af6:/home/tool/marian# ls
 CHANGELOG.md    CMakeSettings.json  Doxyfile.in  README.md  azure-pipelines.yml  contrib  examples          scripts  vs
 CMakeLists.txt  CONTRIBUTING.md     LICENSE.md   VERSION    build                doc      regression-tests  src
 root@2b3cc0b49af6:/home/tool/marian#
+```
 
 ## no cmake error
+
+```
 root@2b3cc0b49af6:/home/tool/marian# mkdir build
 root@2b3cc0b49af6:/home/tool/marian# cd build
 root@2b3cc0b49af6:/home/tool/marian/build# cmake .. | tee ../../marian-installation.log
 bash: cmake: command not found
 root@2b3cc0b49af6:/home/tool/marian/build#
+```
 
 ## cmake installation
 
+```
 root@2b3cc0b49af6:/home/tool/marian# apt-get install build-essential libssl-dev
 ...
 ...
@@ -62,15 +71,20 @@ Preparing to unpack .../libssl-dev_3.0.2-0ubuntu1.6_amd64.deb ...
 Unpacking libssl-dev:amd64 (3.0.2-0ubuntu1.6) ...
 Setting up libssl-dev:amd64 (3.0.2-0ubuntu1.6) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
+```
 
 Check Linux:
 
+
+```
 root@2b3cc0b49af6:/home/tool/marian# uname -a
 Linux 2b3cc0b49af6 5.15.0-43-generic #46-Ubuntu SMP Tue Jul 12 10:30:17 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 root@2b3cc0b49af6:/home/tool/marian#
+```
 
 Install cmake with apt-get:
 
+```
 Preparing to unpack .../0-libuv1_1.43.0-1_amd64.deb ...
 Unpacking libuv1:amd64 (1.43.0-1) ...
 Selecting previously unselected package libarchive13:amd64.
@@ -104,9 +118,11 @@ Setting up cmake-data (3.22.1-1ubuntu1) ...
 Setting up cmake (3.22.1-1ubuntu1) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
 root@2b3cc0b49af6:/home/tool/marian# apt-get -y install cmake
+```
 
 check cmake:
 
+```
 Preparing to unpack .../0-libuv1_1.43.0-1_amd64.deb ...
 Unpacking libuv1:amd64 (1.43.0-1) ...
 Selecting previously unselected package libarchive13:amd64.
@@ -140,9 +156,11 @@ Setting up cmake-data (3.22.1-1ubuntu1) ...
 Setting up cmake (3.22.1-1ubuntu1) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
 root@2b3cc0b49af6:/home/tool/marian# apt-get -y install cmake
+```
 
 build for marian:
 
+```
 root@2b3cc0b49af6:/home/tool/marian# mkdir build
 root@2b3cc0b49af6:/home/tool/marian# cd build
 root@2b3cc0b49af6:/home/tool/marian/build# cmake ..
@@ -180,7 +198,10 @@ CMake Error at CMakeLists.txt:634 (include):
 See also "/home/tool/marian/build/CMakeFiles/CMakeOutput.log".
 See also "/home/tool/marian/build/CMakeFiles/CMakeError.log".
 root@2b3cc0b49af6:/home/tool/marian/build#
+```
 
+
+```
 root@2b3cc0b49af6:/home/tool/marian/build# vi CMakeCache.txt
 # This is the CMakeCache file.
 # For build in directory: /home/tool/marian/build
@@ -212,9 +233,12 @@ BLAS_armpl_lp64_LIBRARY:FILEPATH=BLAS_armpl_lp64_LIBRARY-NOTFOUND
 
 //Path to a library.
 BLAS_blas_LIBRARY:FILEPATH=BLAS_blas_LIBRARY-NOTFOUND
+```
 
-because of above error, install lib of openblas as follows:
+because of above error, install lib of openblas as follows:  
 
+
+```
 root@2b3cc0b49af6:/home/tool/marian/build# apt-get -y install libopenblas-dev
 ...
 ...
@@ -245,10 +269,12 @@ update-alternatives: using /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.
 update-alternatives: using /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblas.so to provide /usr/lib/x86_64-linux-gnu/libopenblas.so (libopenblas.so-x86_64-linux-gnu) in auto mode
 Setting up libopenblas-dev:amd64 (0.3.20+ds-1) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
+```
+
+Also install root@2b3cc0b49af6:/home/tool/marian/build# apt-get install doxygen as follows:  
 
 
-Also install root@2b3cc0b49af6:/home/tool/marian/build# apt-get install doxygen as follows: 
-
+```
 Need to get 48.2 MB of archives.
 After this operation, 219 MB of additional disk space will be used.
 Do you want to continue? [Y/n] Y
@@ -281,9 +307,12 @@ Setting up libclang1-14 (1:14.0.0-1ubuntu1) ...
 Setting up libclang-cpp14 (1:14.0.0-1ubuntu1) ...
 Setting up doxygen (1.9.1-2ubuntu2) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
+```
 
-install graphviz also:
+install graphviz also:  
 
+
+```
 Selecting previously unselected package libpathplan4:amd64.
 Preparing to unpack .../06-libpathplan4_2.42.2-6_amd64.deb ...
 Unpacking libpathplan4:amd64 (2.42.2-6) ...
@@ -317,12 +346,13 @@ Setting up graphviz (2.42.2-6) ...
 Processing triggers for libc-bin (2.35-0ubuntu3) ...
 Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
 root@2b3cc0b49af6:/home/tool/marian/build# apt-get install graphviz
+```
 
+run cmake again and errors are as follows:  
+inside CMakeError.log  
 
-run cmake again and errors are as follows:
-inside CMakeError.log
-
-Determining if the function sgemm_ exists failed with the following output:
+```
+Determining if the function sgemm_ exists failed with the following output:  
 Change Dir: /home/tool/marian/build/CMakeFiles/CMakeTmp
 
 Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f3efd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f3efd.dir/build.make CMakeFiles/cmTC_f3efd.dir/build
@@ -338,13 +368,15 @@ collect2: error: ld returned 1 exit status
 gmake[1]: *** [CMakeFiles/cmTC_f3efd.dir/build.make:99: cmTC_f3efd] Error 1
 gmake[1]: Leaving directory '/home/tool/marian/build/CMakeFiles/CMakeTmp'
 gmake: *** [Makefile:127: cmTC_f3efd/fast] Error 2
+```
+
+I think I have to solve this ERROR: "Determining if the function sgemm_ exists failed".  
+Actually, that error is relating to BLAS...  
+
+When I log the running output with tee command, I noticed following errors:  
 
 
-I think I have to solve this ERROR: "Determining if the function sgemm_ exists failed".
-Actually, that error is relating to BLAS...
-
-When I log the running output with tee command, I noticed following errors:
-
+```
 1)
 -- Detecting C compile features - done
 CMake Error at CMakeLists.txt:68 (include):
@@ -373,8 +405,12 @@ CMake Error at CMakeLists.txt:634 (include):
 
     GetCacheVariables
 
+```
+
 ## Pulling Docker Image of Marian Framework
 
+
+```
 ye@lst-gpu-server-197:~/docker-image$ docker pull intel/nmt_marian_framework_demo
 Using default tag: latest
 latest: Pulling from intel/nmt_marian_framework_demo
@@ -397,9 +433,11 @@ Digest: sha256:0f538f8d468a068e2290b1d61c2936c9758f06c36cabc86ab212141ead143028
 Status: Downloaded newer image for intel/nmt_marian_framework_demo:latest
 docker.io/intel/nmt_marian_framework_demo:latest
 ye@lst-gpu-server-197:~/docker-image$
+```
 
 ## Check the downloaded images
 
+```
 ye@lst-gpu-server-197:~/docker-image$ docker ps
 CONTAINER ID   IMAGE                                  COMMAND       CREATED        STATUS       PORTS     NAMES
 2b3cc0b49af6   nvidia/cuda:11.7.0-devel-ubuntu22.04   "/bin/bash"   44 hours ago   Up 6 hours             ylst
@@ -414,9 +452,11 @@ nvidia/cuda                       10.2-base                    55c80b56bbcd   13
 nvidia/cuda                       11.1-base                    287475453634   20 months ago   124MB
 nvidia/cuda                       11.0-base                    2ec708416bb8   23 months ago   122MB
 ye@lst-gpu-server-197:~/docker-image$
+```
 
-## Test
+## Testing Pulled Image
 
+```
 ye@lst-gpu-server-197:~$ docker run 827326ffd56a
 Please review the following licenses & disclaimers:
 Helper scripts: /nmt/license.txt
@@ -434,5 +474,5 @@ Traceback (most recent call last):
     raise CalledProcessError(retcode, process.args,
 subprocess.CalledProcessError: Command '['/nmt/marian/marian-decoder', '-i', '/nmt/data/input_en.txt', '-o', '/tmp/marian/translated.out', '-m', '/nmt/model/model-finetune.intgemm.alphas.2021.bin', '--gemm-type', 'intgemm8', '--beam-size=1', '--mini-batch=1', '--maxi-batch=1', '--maxi-batch-sort', 'src', '-w', '512', '--skip-cost', '--cpu-threads', '2', '--quiet', '--quiet-translation', '-v', '/nmt/model/vocab.spm', '/nmt/model/vocab.spm', '--shortlist', '/nmt/model/lex.s2t.50.bin', 'false', '--log-level', 'off', '--intgemm-options', 'shifted', 'all-shifted', 'precomputed-alpha']' died with <Signals.SIGILL: 4>.
 ye@lst-gpu-server-197:~$
-
+```
 
