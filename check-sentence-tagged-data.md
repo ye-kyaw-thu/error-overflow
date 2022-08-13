@@ -1,4 +1,13 @@
+# Checking Tagged Sentences for Sentence Breaking
+
+မြန်မာစာ sentence breaking အတွက် program နဲ့ အရင်ဆုံး tag လုပ်ခဲ့ပြီး။ မောင်သူရအောင်က manual ဝင်စစ်ထားတဲ့ ဒေတာကို model မဆောက်ခင်မှာ ကိုယ်တိုင် ဝင်စစ်ကြည့်တော့ error တချို့ဖြစ်နေတာတွေကို တွေ့ရလို့ ဝင်ပြင်ခဲ့တဲ့ log ပါ။ error pattern ကိုလည်း မြင်ရအောင်၊ အကြောင်းအရင်းကိုလည်း သိရအောင် မှတ်ထားခဲ့တဲ့ log ပါ။  
+
+y@CADT, Cambodia  
+13 Aug 2022  
+
 ## Split Word and Tag Files
+
+word နဲ့ tag ဖိုင်အဖြစ် mk-wordtag.pl နဲ့ ခွဲကြည့်တဲ့ အခါမှာ အောက်ပါအသိုင်း word နဲ့ tag က pair ဖြစ်မနေလို့ error ပေးခဲ့ပါတယ်။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/paper/isai-nlp2022/conf/thura/9Aug2022/preprocess$ ./mk-wordtag.pl ./myPOSTaged.txt "\/" w > myPOSTaged.word
@@ -43,6 +52,8 @@ B E
 
 ## Number of Words are Different
 
+စာလုံး အရေအတွက်လည်း မတူတာကို သွားတွေ့ရတယ်။  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/paper/isai-nlp2022/conf/thura/9Aug2022/preprocess$ wc myPOSTaged.word 
   43353  509784 7290137 myPOSTaged.word
@@ -51,6 +62,8 @@ B E
 ```
 
 ## Error Lines
+
+Error လို့ ထင်ရတဲ့ line number တွေက အောက်ပါအတိုင်းပါ။  
 
 ```
 (base) ye@ykt-pro:/media/ye/project1/paper/isai-nlp2022/conf/thura/9Aug2022/preprocess$ ./mk-wordtag.pl ./myPOSTaged.txt "\/" t > myPOSTaged.tag
@@ -280,6 +293,8 @@ Use of uninitialized value $tag in concatenation (.) or string at ./mk-wordtag.p
 ```
 
 ## Error Example
+
+detect လုပ်လို့ ရတဲ့ error ဥပမာ တချို့က အောက်ပါအတိုင်းပါ။  
 
 ```
 ဥရောပ/n ကို/ppm တစ်/tn ခါ/part လောက်/part သွား/v ကြည့်/part ချင်/part တယ်/ppm ။/punc
@@ -519,3 +534,4 @@ B လ/O အကြောင်း/O ကို/O ဝေါဟာရ/O လိနတ
 ထိုအခါ/conj လူ့/n|ယဉ်ကျေး/adj များ/part နှင့်/conj ငါ/pron လူရိုင်း/n ဟု/part ဇာတိ/n ခွဲ/v ပစ်/part ချင်/part သည့်/part စိတ်/n များ/part ရှိ/v လာ/part သည်/ppm ”/punc ဟု/part ရေးသား/v ခဲ့/part ဖူး/part ၏/ppm ။/punc
 ထိုEခါ/B လူ့/O ယဉ်ကျေး/O များ/O နှင့်/O ငါ/O လူရိုင်း/O ဟု/O ဇာတိ/O ခွဲ/O ပစ်/O ချင်/O သည့်/O စိတ်/ONများ/O ရှိ/O လာ/O သည်/E ဟု/O ရေးသား/N ခဲ့/N ဖူး/N ၏/E
 ```
+
