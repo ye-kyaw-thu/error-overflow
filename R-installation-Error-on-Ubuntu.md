@@ -1,14 +1,16 @@
 ## Check the R
 
-
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ R --version
 
 Command 'R' not found, but can be installed with:
 
 sudo apt install r-base-core
+```
 
 ## Install Dependencies
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 [sudo] password for ye: 
 Reading package lists... Done
@@ -58,17 +60,20 @@ Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
 Processing triggers for libglib2.0-0:amd64 (2.56.4-0ubuntu0.18.04.9) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Add the CRAN Repository to Your System Sources' List
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 Executing: /tmp/apt-key-gpghome.lPYEQoCMAv/gpg.1.sh --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 gpg: key 51716619E084DAB9: public key "Michael Rutter <marutter@gmail.com>" imported
 gpg: Total number processed: 1
 gpg:               imported: 1
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
-
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 Hit:1 http://packages.microsoft.com/repos/vscode stable InRelease
 Get:2 http://dl.google.com/linux/chrome/deb stable InRelease [1,811 B]                                                       
@@ -106,9 +111,11 @@ W: Failed to fetch https://dl.bintray.com/sbt/debian/InRelease  502  Bad Gateway
 W: Failed to fetch https://dl.yarnpkg.com/debian/dists/stable/InRelease  The following signatures were invalid: EXPKEYSIG 23E7166788B63E1E Yarn Packaging <yarn@dan.cx>
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
 ## Install R
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt install r-base
 Reading package lists... Done
 Building dependency tree       
@@ -125,23 +132,29 @@ The following packages have unmet dependencies:
           Recommends: r-base-html but it is not going to be installed
 E: Unable to correct problems, you have held broken packages.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
 ## Download the Key
 
 Trying with Ubuntu 22.04 OS Installation ...  
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/r-project.gpg
 gpg: WARNING: unsafe ownership on homedir '/home/ye/.gnupg'
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Add the R-Source List
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | sudo tee -a /etc/apt/sources.list.d/r-project.list
 deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Update the Package List
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt update
 Get:1 http://dl.google.com/linux/chrome/deb stable InRelease [1,811 B]
 Hit:2 https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/ InRelease                                                   
@@ -176,9 +189,11 @@ W: Failed to fetch https://dl.bintray.com/sbt/debian/InRelease  502  Bad Gateway
 W: Failed to fetch https://dl.yarnpkg.com/debian/dists/stable/InRelease  The following signatures were invalid: EXPKEYSIG 23E7166788B63E1E Yarn Packaging <yarn@dan.cx>
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
 ## Install R
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt install --no-install-recommends r-base
 Reading package lists... Done
 Building dependency tree       
@@ -194,9 +209,11 @@ The following packages have unmet dependencies:
           Depends: r-recommended (= 4.2.1-2.2204.0) but it is not going to be installed
 E: Unable to correct problems, you have held broken packages.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Check the APT sources.list.d Folder
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ cat /etc/apt/sources.list.d/*
 ### THIS FILE IS AUTOMATICALLY CONFIGURED ###
 # You may comment out this entry, but any other modifications may be lost.
@@ -236,9 +253,11 @@ deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main
 deb https://dl.yarnpkg.com/debian/ stable main
 deb https://dl.yarnpkg.com/debian/ stable main
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
 ## Installation Again
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo add-apt-repository ppa:marutter/rrutter
  Contains packages related to my use of R for research and teaching.  This PPA is also mirrored on the CRAN Ubuntu page.  Please note, R 3.3.0 and above are no longer supported for 12.04 (precise).
  More info: https://launchpad.net/~marutter/+archive/ubuntu/rrutter
@@ -277,8 +296,9 @@ W: Failed to fetch https://dl.bintray.com/sbt/debian/InRelease  502  Bad Gateway
 W: Failed to fetch https://dl.yarnpkg.com/debian/dists/stable/InRelease  The following signatures were invalid: EXPKEYSIG 23E7166788B63E1E Yarn Packaging <yarn@dan.cx>
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
-
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt-get update
 Hit:1 http://packages.microsoft.com/repos/vscode stable InRelease
 Hit:2 https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/ InRelease                                                   
@@ -309,8 +329,9 @@ W: Failed to fetch https://dl.bintray.com/sbt/debian/InRelease  502  Bad Gateway
 W: Failed to fetch https://dl.yarnpkg.com/debian/dists/stable/InRelease  The following signatures were invalid: EXPKEYSIG 23E7166788B63E1E Yarn Packaging <yarn@dan.cx>
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
-
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt-get install r-base r-base-dev
 Reading package lists... Done
 Building dependency tree       
@@ -330,9 +351,11 @@ E: Unable to correct problems, you have held broken packages.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
 
 Error အတူတူပဲ ပေးနေတယ် ...  
+```
 
 ## Used autoremove
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt-get autoremove
 Reading package lists... Done
 Building dependency tree       
@@ -347,9 +370,11 @@ Removing linux-hwe-5.4-headers-5.4.0-117 (5.4.0-117.132~18.04.1) ...
 Removing linux-hwe-5.4-headers-5.4.0-120 (5.4.0-120.136~18.04.1) ...
 Removing linux-hwe-5.4-headers-5.4.0-121 (5.4.0-121.137~18.04.1) ...
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Retried Again
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo add-apt-repository ppa:marutter/rrutter
  Contains packages related to my use of R for research and teaching.  This PPA is also mirrored on the CRAN Ubuntu page.  Please note, R 3.3.0 and above are no longer supported for 12.04 (precise).
  More info: https://launchpad.net/~marutter/+archive/ubuntu/rrutter
@@ -430,11 +455,13 @@ The following packages have unmet dependencies:
  r-base-dev : Depends: r-base-core (>= 4.2.1-2.2204.0) but it is not going to be installed
 E: Unable to correct problems, you have held broken packages.
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ 
+```
 
 Error ပေးနေသေးတယ်။  
 
 ## Searching with apt search
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt search r-base
 Sorting... Done
 Full Text Search... Done
@@ -922,19 +949,25 @@ r-base-dev/jammy-cran40 4.2.1-2.2204.0 all
   GNU R installation of auxiliary GNU R packages
 
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Editing sources.list File
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo gedit  /etc/apt/sources.list
+```
 
-sources.list ဖိုင်ကို ဖွင့်ပြီး focal-cran40 လိုင်းကို comment ပိတ်ပြီး bionic-cran35 ဆိုတဲ့ လိုင်းကို ဝင်ဖြည့်ခဲ့ ...  
+sources.list ဖိုင်ကို ဖွင့်ပြီး focal-cran40 လိုင်းကို comment ပိတ်ပြီး bionic-cran35 ဆိုတဲ့ လိုင်းကို ဝင်ဖြည့်ခဲ့ ...   
 
+```
 # deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/
 # deb-src https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/
 deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
+```
 
 ## Reinstall the R Again
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo apt-get install -y r-base r-base-dev
 Reading package lists... Done
 Building dependency tree       
@@ -1225,9 +1258,11 @@ Processing triggers for mime-support (3.60ubuntu1) ...
 Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
 Processing triggers for install-info (6.5.0.dfsg.1-2) ...
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Check R Version
 
+```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ R --version
 R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
 Copyright (C) 2018 The R Foundation for Statistical Computing
@@ -1240,20 +1275,26 @@ For more information about these matters see
 http://www.gnu.org/licenses/.
 
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
+```
 
 ## Run Example R Script
+
+```
+
+```
 
 
 ## References
 
-https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/
-https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-22-04
-https://askubuntu.com/questions/496788/you-have-held-broken-package-while-trying-to-install-r
-https://linuxpip.org/fix-unable-to-correct-problems-you-have-held-broken-packages/
-https://linuxconfig.org/install-r-on-ubuntu-18-04-bionic-beaver-linux
+- https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/
+- https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-22-04
+- https://askubuntu.com/questions/496788/you-have-held-broken-package-while-trying-to-install-r
+- https://linuxpip.org/fix-unable-to-correct-problems-you-have-held-broken-packages/
+- https://linuxconfig.org/install-r-on-ubuntu-18-04-bionic-beaver-linux
 
-This reference helped me:
-https://forums.linuxmint.com/viewtopic.php?t=297881
+This reference helped me:  
+
+- https://forums.linuxmint.com/viewtopic.php?t=297881
 
 
 
