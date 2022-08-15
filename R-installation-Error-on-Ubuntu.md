@@ -958,7 +958,7 @@ r-base-dev/jammy-cran40 4.2.1-2.2204.0 all
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
 ```
 
-## Editing sources.list File
+## [Editing sources.list File]
 
 ```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo gedit  /etc/apt/sources.list
