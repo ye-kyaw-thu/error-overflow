@@ -1,6 +1,6 @@
 ## R Installation Error on Ubuntu
 
-I wanna draw error-bar graph with R. And thus, install R on my Ubuntu notebook and got error relating to "packages have unmet dependencies". This is the log file for clearing that error. You can skip directly to the [Solution](#solution).
+I wanna draw error-bar graph with R. And thus, install R on my Ubuntu notebook and got error relating to "packages have unmet dependencies". This is the log file for clearing that error. You can skip directly to the [Solution](## Editing sources.list File).
 
 y@CADT, Cambodia  
 15 Aug 2022  
@@ -958,7 +958,7 @@ r-base-dev/jammy-cran40 4.2.1-2.2204.0 all
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$
 ```
 
-## Editing sources.list File {#solution}
+## Editing sources.list File
 
 ```
 (base) ye@ykt-pro:/media/ye/project2/thazin-journal/pivot-journal/18Oct2021/TALLIP/error-bar-graph/draw-with-R$ sudo gedit  /etc/apt/sources.list
