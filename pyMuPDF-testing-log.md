@@ -247,5 +247,5 @@ pdf.save(output_file)
 
 ## Reference
 
-[1] https://github.com/pymupdf/PyMuPDF
-[2] https://stackoverflow.com/questions/60711402/pymupdf-insert-image-at-bottom
+[1] https://github.com/pymupdf/PyMuPDF  
+[2] https://stackoverflow.com/questions/60711402/pymupdf-insert-image-at-bottom  
