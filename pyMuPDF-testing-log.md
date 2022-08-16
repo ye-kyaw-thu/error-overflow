@@ -130,6 +130,43 @@ done
 
 ## Python Code FYI
 
+ဒီဖိုင်နဲ့က PDF ဖိုင်ရဲ့ page အားလုံးကို looping ပတ်ပြီး insert-image လုပ်ကြည့်တာ။  
+သို့သော် လက်တွေ့မှာက အဆင်မပြေခဲ့ဘူး။ ဘာကြောင့်လဲ ဆိုတေါ့ တချို့ စာမျက်နှာတွေက scan ဖတ်ထားတဲ့ direction က မတူတာနဲ့ function အနေနဲ့က x, y coordinate တွေကို တွက်တဲ့အခါမှာ လွဲကုန်တာ။ ကိုယ်လိုချင်တဲ့ နေရာကို ချဖို့ ခက်တယ်။ နောက်တစ်ချက်က တချို့ စာမျက်နှာမှာ sign ထိုးရတာက ညာဘက်ထောင့် အောက်ဆုံး အပိုင်း မဟုတ်ပဲနဲ့ သတ်မှတာထားတဲ့ နေရာ (နာမည်ရေးပေးထားတဲ့ နေရာမျိုး) မှာ sign image ကို ဝင် insert လုပ်ရတာမို့လို့။  
+တကယ်လို့ sing ထိုးရတာက PDF ဖိုင်ရဲ့ စာမျက်နှာ အားလုံးရဲ့ တနေရာထဲဆိုရင်တော့ အောက်ပါ code က အသုံးဝင်ပါလိမ့်မယ်။  
+
+filename: add-sign.py  
+
+```python
+# !/usr/bin/python
+
+import fitz
+
+#input_file = "NCR-NT-2022-17333-EN.pdf"
+pdf = fitz.open("NCR-NT-2022-17333-EN.pdf")
+output_file = "output.pdf"
+img = open("sign.png", "rb").read()
+#barcode_file = "sign.png"
+
+# define the position (upper-right corner)
+#image_rectangle = fitz.Rect(450,20,550,120)
+# define lower-rightcorner
+image_rectangle = fitz.Rect(450,700,650,800)
+
+# retrieve the first page of the PDF
+#file_handle = fitz.open(input_file)
+
+for i in range(0, pdf.page_count):
+   page_no = pdf[i]
+   page_no.insert_image(image_rectangle, stream=img)
+
+
+# add the image
+#first_page.insertImage(image_rectangle, fileName=barcode_file)
+#first_page.insert_image(image_rectangle, stream=img)
+
+pdf.save(output_file)
+```
+
 filename: add-sign-onepage.py  
 
 ```python
@@ -156,6 +193,8 @@ page_no.insert_image(image_rectangle, stream=img)
 
 pdf.save(output_file)
 ```
+
+လက်တွေ့မှာ အပင်ပန်းခံပြီး စာမျက်နှာ တစ်ခုချင်းစီ ခွဲထားတဲ့ 1-page PDF ဖိုင်တွေကို x, y coordinate တွေညှိပြီး sign-image ကို ဝင်ထည့်ခဲ့ပါတယ်။  
 
 filename: sign.py  
 
