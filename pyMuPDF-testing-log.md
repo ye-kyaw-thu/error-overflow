@@ -128,6 +128,84 @@ done
 (base) ye@ykt-pro:/media/ye/project2/NECTEC/contract-and-documents/new-contract-2022/sign-work$ pdftk 1.sign.pdf 2.sign.pdf 3.sign.pdf 4.sign.pdf 5.sign.pdf 6.sign.pdf 7.sign.pdf 8.sign.pdf 9.sign.pdf 10.sign.pdf 11.sign.pdf 12.sign.pdf 13.sign.pdf 14.sign.pdf 15.sign.pdf 16.sign.pdf 17.sign.pdf 18.sign.pdf 19.sign.pdf 20.sign.pdf 21.sign.pdf 22.sign.pdf 23.sign.pdf 24.sign.pdf 25.sign.pdf 26.sign.pdf 27.sign.pdf 28.sign.pdf 29.sign.pdf 30.sign.pdf 31.sign.pdf 32.sign.pdf 33.sign.pdf 34.sign.pdf 35.sign.pdf 36.sign.pdf 37.sign.pdf 38.sign.pdf 39.sign.pdf 40.sign.pdf 41.sign.pdf 42.sign.pdf 43.sign.pdf 44.sign.pdf 45.sign.pdf cat output final.pdf
 ```
 
+## Python Code FYI
+
+filename: add-sign-onepage.py  
+
+```python
+# !/usr/bin/python
+
+# signing for page no. 2
+# usage: python ./add-sign-onepage.py 1
+
+import sys
+import fitz
+
+pdf = fitz.open("NCR-NT-2022-17333-EN.pdf")
+output_file = "output.pdf"
+img = open("sign.png", "rb").read()
+
+# define the position (upper-right corner)
+#image_rectangle = fitz.Rect(450,20,550,120)
+# define lower-rightcorner
+image_rectangle = fitz.Rect(450,700,650,800)
+
+target_page = int(sys.argv[1])
+page_no = pdf[target_page]
+page_no.insert_image(image_rectangle, stream=img)
+
+pdf.save(output_file)
+```
+
+filename: sign.py  
+
+```python
+# !/usr/bin/python
+
+# usage: python ./sign.py 1.pdf 1.sign.pdf
+
+import sys
+import fitz
+
+pdf = fitz.open(sys.argv[1])
+output_file = sys.argv[2]
+img = open("sign.png", "rb").read()
+
+# define the position (upper-right corner)
+#image_rectangle = fitz.Rect(450,20,550,120)
+# define lower-rightcorner
+#image_rectangle = fitz.Rect(420,750,620,850)
+
+# for page no. 2
+#image_rectangle = fitz.Rect(380,280,580,380)
+
+# for page no. 9
+#image_rectangle = fitz.Rect(450,700,650,800)
+
+# for page no. 10, 29
+image_rectangle = fitz.Rect(420,700,620,800)
+
+# for page no. 34, 35, 36, 37
+#image_rectangle = fitz.Rect(20,700,220,800)
+
+#image_rectangle = fitz.Rect(120,700,320,800)
+
+# for page no. 14, 15, 16
+#image_rectangle = fitz.Rect(420,735,620,835)
+
+# for page no. 39, 40, 44
+#image_rectangle = fitz.Rect(30,500,230,600)
+
+# for page no. 41, 42, 43
+#image_rectangle = fitz.Rect(420,700,620,800)
+
+page_no = pdf[0]
+page_no.insert_image(image_rectangle, stream=img)
+
+pdf.save(output_file)
+
+```
+
 ## Reference
 
 [1] https://github.com/pymupdf/PyMuPDF
