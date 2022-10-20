@@ -409,6 +409,7 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 2 ./test
 
 Check the final data or read to train NMT dataset:  
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.{my,tg}.final
 ==> train.my.final <==
 နားလည် ပါ ပြီ
@@ -417,6 +418,9 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train
 ==> train.tg.final <==
 N N E
 B O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid.{my,tg}.final
 ==> valid.my.final <==
 သူ ဘယ်သူ နဲ့ အရင်းနှီးဆုံး လဲ
@@ -425,6 +429,9 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid
 ==> valid.tg.final <==
 B N N N E
 B O O O O O O O O O O O O O O O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.{my,tg}.final
 ==> test.my.final <==
 ရင်ဘတ် အောင့် လာ ရင် သတိထား ပါ ။
@@ -434,9 +441,11 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.
 B O N N N E B
 B N E
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process#
+```
 
-Copied to the folder called inside configuration file:
+Copied to the folder called inside configuration file:  
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para# cp ./combind-process/*.final .
 root@2d563285774c:/home/ye/exp/mysent/data-para# ls
 combind-process  paragraph.txt.error  test.my.final  train.my.final  valid.my.final
@@ -449,9 +458,11 @@ root@2d563285774c:/home/ye/exp/mysent/data-para# mv valid.tg.final valid.tg
 root@2d563285774c:/home/ye/exp/mysent/data-para#
 root@2d563285774c:/home/ye/exp/mysent/data-para# mv test.my.final test.my
 root@2d563285774c:/home/ye/exp/mysent/data-para# mv test.tg.final test.tg
+```
 
 ## Build Vocabs
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para# mkdir vocab
 root@2d563285774c:/home/ye/exp/mysent/data-para# cat train.my valid.my test.my > vocab/all.my
 root@2d563285774c:/home/ye/exp/mysent/data-para# cat train.tg valid.tg test.tg > vocab/all.tg
@@ -465,9 +476,11 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/vocab# marian-vocab < ./all.tg >
 [2022-10-19 05:32:52] [data] Creating vocabulary stdout from stdin
 [2022-10-19 05:32:52] Finished
 root@2d563285774c:/home/ye/exp/mysent/data-para/vocab#
+```
 
-Check/confirm the vocab files:
+Check/confirm the vocab files:  
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/vocab# head vocab.my.yml
 </s>: 0
 <unk>: 1
@@ -479,6 +492,9 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/vocab# head vocab.my.yml
 မှာ: 7
 တွေ: 8
 တဲ့: 9
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/vocab# head vocab.tg.yml
 </s>: 0
 <unk>: 1
@@ -491,8 +507,11 @@ BBအိုး: 7
 BEအကြိမ်: 8
 BN: 9
 root@2d563285774c:/home/ye/exp/mysent/data-para/vocab#
+```
 
 ## Prepare Shell Script for NMT Training
+
+```bash
 
 mkdir model.transformer.para1;
 
@@ -523,15 +542,23 @@ marian \
     --dump-config > model.transformer.para1/config.yml
 
 time marian -c model.transformer.para1/config.yml  2>&1 | tee transformer.para1.log
+```
 
 ## Training NMT Model
 
+```
 ye@lst-gpu-3090:~$ screen -ls
 There is a screen on:
         97054.nmt       (18/10/2565 07:29:58)   (Detached)
 1 Socket in /run/screen/S-ye.
 ye@lst-gpu-3090:~$ screen -r 97054.nmt
+```
 
+```
+root@cb9dcb03dfe7:/home/ye/exp/mysent# ./transformer.para1.sh
+...
+...
+...
 [2022-10-19 05:48:16] Using synchronous SGD
 [2022-10-19 05:48:16] [comm] Compiled without MPI support. Running as a single process on cb9dcb03dfe7
 [2022-10-19 05:48:16] Synced seed 1111
@@ -561,14 +588,14 @@ ye@lst-gpu-3090:~$ screen -r 97054.nmt
 real    0m0.382s
 user    0m0.202s
 sys     0m0.033s
-root@cb9dcb03dfe7:/home/ye/exp/mysent# ./transformer.para1.sh
-
+```
 
 ## Updating the Shell Script
 
-As usual, we need to adjust some hyperparameters based on our current machine and GPU card ...
-Final Script is as follows:  
+As usual, we need to adjust some hyperparameters based on our current machine and GPU card ...  
+Final Script is as follows:    
 
+```
 mkdir model.transformer.para1;
 
 marian \
@@ -599,9 +626,11 @@ marian \
 
 time marian -c model.transformer.para1/config.yml  2>&1 | tee transformer.para1.log
 root@8c9f9e316b59:/home/ye/exp/mysent#
+```
 
 ## Training
 
+```
 root@8c9f9e316b59:/home/ye/exp/mysent# ./transformer.para1.sh
 ...
 ...
@@ -634,9 +663,11 @@ words/s : gNorm 0.7127 : L.r. 1.1239e-04
 real    46m29.086s
 user    46m14.094s
 sys     1m22.137s
+```
 
 ## Prepare bas Script for Testing with the Best Model
 
+```
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.para1# cat ./test-eval-best.sh
 #!/bin/bash
 
@@ -653,9 +684,15 @@ echo "Evaluation with hyp.best.${tgt}, Transformer model, with sent+para trainin
 perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.${tgt} >> eval-best-result.txt;
 
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.para1#
+```
 
 ## Testing with Best Model
 
+```
+root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.para1# time ./test-eval-best.sh
+...
+...
+...
 [2022-10-19 22:53:07] Best translation 5490 : B O O O O O N N N E
 [2022-10-19 22:53:07] Best translation 5491 : B O O O N N N E
 [2022-10-19 22:53:07] Best translation 5492 : B O O O O O O O O O O O O O O O O O N N N E
@@ -684,16 +721,18 @@ It is not advisable to publish scores from multi-bleu.perl.  The scores depend o
 real    1m30.069s
 user    1m27.975s
 sys     0m3.616s
-root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.para1# time ./test-eval-best.sh
+```
 
 ## Check the Result
 
+```
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.para1# cat eval-best-result.txt
 Evaluation with hyp.best.tg, Transformer model, with sent+para training data:
 BLEU = 91.66, 95.0/93.9/92.7/91.4 (BP=0.983, ratio=0.983, hyp_len=95015, ref_len=96641)
+```
 
 ## To Do
 
-- chrF score calculation
-- WER Calculation, check the top ten Error and make translation error analysis in details
+- chrF score calculation  
+- WER Calculation, check the top ten Error and make translation error analysis in details  
 
