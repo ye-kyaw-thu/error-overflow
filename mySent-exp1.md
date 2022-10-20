@@ -1,7 +1,8 @@
-# Sentence Segmentation by Tagging Experiment
+# Sentence Segmentation by NMT Tagging Experiment
 
 ## Code for end-mark Error Checking
 
+```bash
 root@105d5ce0073b:/home/ye/exp/mysent# cat check-end-mark.sh
 #!/bin/bash
 
@@ -12,9 +13,11 @@ root@105d5ce0073b:/home/ye/exp/mysent# cat check-end-mark.sh
 
 cat $1 | grep -o '[^/]*$' \
         | nl -s: | sed 's/^ *//g' | grep "N\|O" > $2
+```
 
 ## Checking Again
 
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura# ls
 err.para.txt  err.sent.txt  paragraph.txt  sentences.txt
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura# ../check-end-mark.sh ./sentences.txt ./chk.out
@@ -24,9 +27,11 @@ root@105d5ce0073b:/home/ye/exp/mysent/checked-thura# ../check-end-mark.sh ./para
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura# wc chk.out
 0 0 0 chk.out
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura#
+```
 
 ## Connection Dropped
 
+```
 ye@lst-gpu-3090:~$ screen -r
 There is a screen on:
         97054.nmt       (18/10/2565 07:29:58)   (Attached)
@@ -35,9 +40,11 @@ ye@lst-gpu-3090:~$ screen -d 97054.nmt
 [97054.nmt detached.]
 
 ye@lst-gpu-3090:~$ screen -r 97054.nmt
+```
 
 ## Download mk-wordtag.pl
 
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wget https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-draft-ver-1.0/mk-wordtag.pl
 --2022-10-18 06:58:42--  https://raw.githubusercontent.com/ye-kyaw-thu/myPOS/master/corpus-draft-ver-1.0/mk-wordtag.pl
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.108.133, ...
@@ -53,17 +60,115 @@ mk-wordtag.pl                     100%[=========================================
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# ls
 mk-wordtag.pl  paragraph.txt  sentences.txt
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag#
+```
 
 ## Updating mk-wordtag.pl 
 
+```perl 
 
+#!/usr/bin/perl
+use warnings;
+use utf8;
+
+#last updated: 18 Oct 2022
+#written by Ye, IDRI, CADT, Cambodia,
+#How to run: perl mk-wordtag2.pl <input-file-name> <delimeter> <w|t|wt>
+#Here,
+# w = print word only (i.e. without POS tags),
+# t = print tag only
+# wt = print word/tag
+# c = print sentence that contain tagging error of "word/"
+#
+# How to run:
+# e.g. ./mk-wordtag.pl ./kh-pos.all.f2.utf8 "\/" w | less -r
+# e.g ./mk-wordtag.pl ./kh-pos.all.f2.utf8 "\/" t
+# e.g ./mk-wordtag.pl ./kh-pos.all.f2.utf8 "\/" wt
+
+binmode STDIN,  ":utf8";
+binmode STDOUT, ":utf8";
+
+my $TagMarker=$ARGV[1]; # give command line parameter such as "\|", "\/" ...
+my $word_or_tag=$ARGV[2];
+
+open (my $inputFILE,"<:encoding(utf8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+my $one_token; my $tmpLine=""; my $tmpLine2="";
+
+   while($line = <$inputFILE>)
+   {
+      if ($line!~/^$/)
+      {
+         chomp ($line);
+         my $originalLine = $line;
+         #print $line, "\n";
+
+         $line =~ s/\s+/ /g;
+         $line =~ s/^\s+|\s+$//g;
+         my @token = split('\s', $line);
+         #print "\@tokens:\n"."@token\n";
+         foreach $one_token(@token)
+         {
+            #print "one_token: $one_token\n";
+            my ($text, $tag) = split(/$TagMarker/, $one_token);
+            if($word_or_tag eq "w")
+            {
+               $tmpLine = $tmpLine.$text." ";
+            }elsif($word_or_tag eq "t")
+            {
+               $tmpLine = $tmpLine.$tag." ";
+            }elsif($word_or_tag eq "wt" || $word_or_tag eq "c")
+            {
+               $tmpLine = $tmpLine.$text." ";
+               $tmpLine2 = $tmpLine2.$tag." ";
+
+            }
+        }
+            #chomp($tmpLine);
+            if ($word_or_tag eq "w" || $word_or_tag eq "t")
+            {
+               $tmpLine =~ s/^\s+|\s+$//g;
+               print $tmpLine."\n";
+            }elsif ($word_or_tag eq "wt")
+            {
+
+               $tmpLine =~ s/^\s+|\s+$//g;
+               $tmpLine2 =~ s/^\s+|\s+$//g;
+               print $tmpLine."\n"; print $tmpLine2."\n";
+            }elsif ($word_or_tag eq "c")
+            {
+               $tmpLine =~ s/^\s+|\s+$//g;
+               $tmpLine =~ s/\s+/ /g;
+               $tmpLine2 =~ s/^\s+|\s+$//g;
+               $tmpLine2 =~ s/\s+/ /g;
+               my $word_count = split / /,$tmpLine;
+               my $tag_count = split / /,$tmpLine2;
+
+               if ($word_count != $tag_count)
+               {
+                  print "$originalLine\n";
+                  print "$word_count: $tag_count\n";
+                  print $tmpLine."\n"; print $tmpLine2."\n";
+               }
+
+             }
+                    $tmpLine = ""; $tmpLine2 = "";
+         }
+      }
+
+close($inputFILE);
+```
+	
 ## Splitting for sentences.txt
 
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" w > sentences.word
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wc ./sentences.txt
    47127   639484 10534167 ./sentences.txt
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wc ./sentences.word
   47127    4411 9254497 ./sentences.word
+```
+
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# head ./sentences.word
 Summit ဟဟိုတယ် အခန်း နံပါတ် ၃၀၂ မှာ နေ ဖဖိဖို့ ခင်ဗျား အတွက် စီစဉ် ပေး ထား ပါ တယ်
 ကူးစက်ရောဂါ ဖြစ် ပါ တယ်
@@ -76,10 +181,11 @@ Summit ဟဟိုတယ် အခန်း နံပါတ် ၃၀၂ မှ
 ကျွန်တော် အထက်တန်း အိပ်စင် တွဲ မှာ ပါ
 ကြား ဖူး တာ ထက် ပပို တော် တယ် ဆဆို တာ ကကို လူကကိုယ်တတိုင် တွေ့ မှ သိ တော့ တယ်
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag#
+```
+As you see in above, some Myanmar characters are repeating. Why?  
+Confirm outside of docker container env again and the output is as follows:  
 
-As you see in above, some Myanmar characters are repeating. Why?
-Confirm outside of docker container env again and the output is as follows:
-
+```
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$ head ./sentences.word
 Summit ဟိုတယ် အခန်း နံပါတ် ၃၀၂ မှာ နေ ဖို့ ခင်ဗျား အတွက် စီစဉ် ပေး ထား ပါ တယ်
 ကူးစက်ရောဂါ ဖြစ် ပါ တယ်
@@ -92,20 +198,24 @@ Summit ဟိုတယ် အခန်း နံပါတ် ၃၀၂ မှာ
 ကျွန်တော် အထက်တန်း အိပ်စင် တွဲ မှာ ပါ
 ကြား ဖူး တာ ထက် ပို တော် တယ် ဆို တာ ကို လူကိုယ်တိုင် တွေ့ မှ သိ တော့ တယ်
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$
+```
 
-It looks OK! :)
+It looks OK! :)  
 
-Confirmation on the numbers of word outside of the docker env also:
+Confirmation on the numbers of word outside of the docker env also:  
 
+```
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$ wc sentences.{txt,word,tag}
    47127   639526 10534167 sentences.txt
    47127   639501  9254497 sentences.word
    47127   639484  1279422 sentences.tag
   141381  1918511 21068086 total
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$
+```
 
-I think there are some tagging errors!!!
+I think there are some tagging errors!!!  
 
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" t > sentences.
 tag
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wc ./sentences.tag
@@ -122,13 +232,17 @@ B O N N N E
 B O N N N E
 B O O O O O O O O O O O N N N E
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag#
+```
 
 ## Check the Splitted Files
 
+```
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" c > chk.err
 root@105d5ce0073b:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wc chk.err
    72   805 11688 chk.err
+```
 
+```
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$ head chk.err
 ၁၈၇၉/B /Bခုနှစ်/O တွင်/O ရုရှား/O လူမျိုး/O ထဲ/O မှ/O ဒေသ/O သစ်/O ရှာဖွေ/O သော/O ပါဇီဗားလစကီး/O ဆို/O သူ/O ထံ/O သို့/O အထက်/O ထက်/O က/O မည်သူ/O တစ်စုံတစ်ယောက်/O မျှ/O မ/O တွေ့မြင်/O ဖူး/O သေး/O သော/O ဤ/O မြင်း/O ရိုင်း/O မျိုး/O ရောက်/N ရှိ/N လာ/N သည်/E
 34: 35
@@ -152,9 +266,11 @@ E
 ဥပမာ ခရစ်နှစ် ၂၀၁၂ တွင် ၂ ၆၀၀ ဗုဒ္ဓသာသနာ နှစ် ၂၀၁၂ဘီစီ၅၈၈၂၆၀၀ ဗုဒ္ဓသာသနာ နှစ် ဖြစ် ရ ပါ မည်
 B O O O O O O O O O O O N N N E
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$
+```
 
 ## Updated sentences.txt And Re-Check
 
+```
 perl ./mk-wordtag2.pl ./sentences.txt "\/" c
 
 root@f84cbd307135:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# cat ./sentences.chk
@@ -163,11 +279,12 @@ root@f84cbd307135:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# cat
 အယ်ဆာဗေဒို အစိုးရ ၏ လက်ယာ ပိုမို ယိမ်းယိုင် လာ မှု ကြောင့် လက်ဝဲ အဖွဲ့အစည်း များ ဆိုရှယ်ဒီမိုကရက်တစ် များ ၊ ခရစ်ယာန် ဒီမိုကရက်တစ် အချို့ နှင့် တောင်သူလယ်သမား အဖွဲ့အစည်း များ ၊ ကျောင်းသား များ ၊ အလုပ်သမား သမဂ္ဂ များ ၊ ဘာသာ ရေး အဖွဲ့အစည်း များ မှ ပုဂ္ဂိုလ် များ သည် ဒီမိုကရက်တစ် တော်လှန် ရေး တပ်ဦး ကို ဖွဲ့စည်း ပြီး အစိုးရ ကို ပိုမို ဆန့်ကျင် လာ ခဲ့ ကြ သည်
 B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
 root@f84cbd307135:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag#
+```
 
-I think, I forgot to delete /O tag.
+I think, I forgot to delete /O tag.  
+When I see with vi editor inside the docker env, it looks OK. ?!?!  
 
-When I see with vi editor inside the docker env, it looks OK. ?!?!
-
+```
 37363 ~@~@~Z~@~@~F~@~@~W~@~@~R~@~@/B ~@~@~E~@~@~@~@~[/O ~A~O/O ~@~\~@~@~@~@~Z~@/O ~@~U~@~@~@~Y
       ~@~@/O ~@~Z~@~@~Y~@~@~@~Z~@~@~@~D~@/O ~@~\~@/O ~@~Y~@~@/O ~@~@~@~@~@~@~D~@~@/O ~@~\~@~@
       ~@~@~]~@/O ~@~@~V~@~@~@~@~@~E~@~J~@~@/O ~@~Y~@~@~@/O ~A~J/O ~@~F~@~@~@~[~@~@~Z~@~@~R~@
@@ -180,10 +297,12 @@ When I see with vi editor inside the docker env, it looks OK. ?!?!
       ~@~@~\~@~@~T~@/O ~@~[~@~@/O ~@~P~@~U~@~@~@/O ~@~@~@~@/O ~@~V~@~@~@~@~E~@~J~@~@/O ~@~U~@
       ~@~@/O ~@~@~E~@~@~@~@~[/O ~@~@~@~@/O ~@~U~@~@~@~Y~@~@/O ~@~F~@~T~@~@~@~@~@~@~D~@/O ~@~\\
       ~@/N ~@~A~@~@/N ~@~@~@/N ~@~^~@~J~@/E
-	  
+```	  
 
-When I checked in details:
-That sentence typed 2 times in the corpus. One I can found as follows at line no. 37363:
+When I checked in details:  
+
+```
+That sentence typed 2 times in the corpus. One I can found as follows at line no. 37363:  
 
 အင်္ဂလိပ်/B လို/O လည်း/N ပြော/N တတ်/N လား/E
 အယ်ဆာဗေဒို/B အစိုးရ/O ၏/O လက်ယာ/O ပိုမို/O ယိမ်းယိုင်/O လာ/O မှု/O ကြောင့်/O လက်ဝဲ/O အဖွဲ့အစည်း/O များ/O ၊/O ဆိုရှယ်ဒီမိုကရက်တစ်/O များ/O ခရစ်ယာန်/O ဒီမိုကရက်တစ်/O အချို့/O နှင့်/O တောင်သူလယ်သမား/O အဖွဲ့အစည်း/O များ/O ကျောင်းသား/O များ/O အလုပ်သမား/O သမဂ္ဂ/O များ/O ဘာသာ/O ရေး/O အဖွဲ့အစည်း/O များ/O မှ/O ပုဂ္ဂိုလ်/O များ/O သည်/O ဒီမိုကရက်တစ်/O တော်လှန်/O ရေး/O တပ်ဦး/O ကို/O ဖွဲ့စည်း/O ပြီး/O အစိုးရ/O ကို/O ပိုမို/O ဆန့်ကျင်/O လာ/N ခဲ့/N ကြ/N သည်/E
@@ -194,17 +313,21 @@ line no. 38347:
 ကျွန်တော်/B ပါ/N ပဲ/E
 အယ်ဆာဗေဒို/B အစိုးရ/O ၏/O လက်ယာ/O ပိုမို/O ယိမ်းယိုင်/O လာ/O မှု/O ကြောင့်/O လက်ဝဲ/O အဖွဲ့အစည်း/O များ/O /O ဆိုရှယ်ဒီမိုကရက်တစ်/O များ/O ၊/O ခရစ်ယာန်/O ဒီမိုကရက်တစ်/O အချို့/O နှင့်/O တောင်သူလယ်သမား/O အဖွဲ့အစည်း/O များ/O ၊/O ကျောင်းသား/O များ/O ၊/O အလုပ်သမား/O သမဂ္ဂ/O များ/O ၊/O ဘာသာ/O ရေး/O အဖွဲ့အစည်း/O များ/O မှ/O ပုဂ္ဂိုလ်/O များ/O သည်/O ဒီမိုကရက်တစ်/O တော်လှန်/O ရေး/O တပ်ဦး/O ကို/O ဖွဲ့စည်း/O ပြီး/O အစိုးရ/O ကို/O ပိုမို/O ဆန့်ကျင်/O လာ/N ခဲ့/N ကြ/N သည်/E
 ‌ဆေး/B အလုံး/N နှစ်ဆယ်/N ပါ/N တယ်/E
+```
 
 ## Fixed Line No. 38347 and Re-Check
 
+```
 root@1df80c9b2102:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" w > ./sentences.word
 root@1df80c9b2102:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" t > ./sentences
 .tag
 root@1df80c9b2102:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# perl ./mk-wordtag2.pl ./sentences.txt "\/" c
 root@1df80c9b2102:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag#
+```
 
 ## Check No. of Words for Sentence Data
 
+```
 root@1df80c9b2102:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag# wc sentences.{word,tag}
    47126     4411  9254522 sentences.word
    47126   639469  1279356 sentences.tag
@@ -218,11 +341,13 @@ ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$ wc sentences
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$
 ye@lst-gpu-3090:~/exp/mysent/checked-thura/preprocessing/split-tag$ wc sentences.txt
    47126   639511 10534119 sentences.txt
+```
 
-Althoug I wish to check more in details, no time. Should start experiment ASAP.
+Althoug I wish to check more in details, no time. Should start experiment ASAP.  
 
 ## Shuffle the Sentence Data
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# shuf ./sentences.txt > sentences.txt.shuf
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# head ./sentences.txt
 Summit/B ဟိုတယ်/O အခန်း/O နံပါတ်/O ၃၀၂/O မှာ/O နေ/O ဖို့/O ခင်ဗျား/O အတွက်/O စီစဉ်/O ပေး/N ထား/N ပါ/N တယ်/E
@@ -235,7 +360,9 @@ Summit/B ဟိုတယ်/O အခန်း/O နံပါတ်/O ၃၀၂/O
 အို/B ကို/O တိုက်ရိုက်/N သွား/N ဖို့/N လား/E
 ကျွန်တော်/B အထက်တန်း/O အိပ်စင်/N တွဲ/N မှာ/N ပါ/E
 ကြား/B ဖူး/O တာ/O ထက်/O ပို/O တော်/O တယ်/O ဆို/O တာ/O ကို/O လူကိုယ်တိုင်/O တွေ့/O မှ/N သိ/N တော့/N တယ်/E
+```
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# head ./sentences.txt.shuf
 ဘာ/B ရယ်/O လို့/O တိတိကျကျ/O ထောက်မပြ/O နိုင်/O ပေမဲ့/O ပြဿနာ/O တစ်/O ခု/O ခု/O ရှိ/O တယ်/N နဲ့/N တူ/N တယ်/E
 လူ့/B အဖွဲ့အစည်း/O က/O ရှပ်ထွေး/O လာ/O တာ/O နဲ့/O အမျှ/O အရင်/O က/O မ/O ရှိ/O ခဲ့/O တဲ့/O လူမှုရေး/O ပြဿနာ/O တွေ/O ဖြစ်ပေါ်/N လာ/N ခဲ့/N တယ်/E
@@ -248,25 +375,35 @@ root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuf
 နောက်/B မှ/O ကော်ဖီ/O ဖြစ်/O ဖြစ်/O တစ်/O ခွက်/O လောက်/N သောက်/N ကြ/N ရအောင်/E
 နေ့/B တိုင်း/O အသား/O ပဲ/O စား/O နေ/O ရ/O တော့/O အခု/O ဆို/N ငြီးငွေ့/N လာ/N ပြီ/E
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data#
+```
 
 ## Data Preparation for Sentence Data
 
-Test data:
+Test data:  
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# tail -n 4712 ./sentences.txt.shuf > test.txt
+```
 
-Training data:
+Training data:  
+
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# head -n 40000 ./sentences.txt.shuf > train.txt
+```
 
-Valid data:
+Valid data:  
+
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# head -n 42414 ./sentences.txt.shuf | tail -n 2414 > valid.txt
 
 Rename files for avoiding errors with paragraph data:
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# mv train.txt train.sent.txt
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# mv valid.txt valid.sent.txt
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# mv test.txt test.sent.txt
+```
 
-Note/Check the data size:
+Note/Check the data size:  
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# wc train.sent.txt
   40000  543534 8956178 train.sent.txt
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# wc valid.sent.txt
@@ -274,9 +411,11 @@ root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuf
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# wc test.sent.txt
    4712   63620 1046769 test.sent.txt
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data#
+```
 
 ## Splitting word and tag files
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./train.sent.txt  "\/" w > train.my
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./train.sent.txt  "\/" t > train.tg
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./valid.sent.txt  "\/"
@@ -286,9 +425,11 @@ t > valid.tg
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./test.sent.txt  "\/" w
  > test.my
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./test.sent.txt  "\/" t > test.tg
+```
 
 ## Backup Sentence Train/valid/Test
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./train.sent.txt  "\/" w > train.my
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./train.sent.txt  "\/" t > train.tg
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./valid.sent.txt  "\/"
@@ -298,9 +439,11 @@ t > valid.tg
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./test.sent.txt  "\/" w
  > test.my
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data# perl ./mk-wordtag2.pl ./test.sent.txt  "\/" t > test.tg
+```
 
 ## Check Stastics of Sentence Train/Valid/Test
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data/final-bk# wc train.{my,tg}
   40000    3703 7868550 train.my
   40000  543534 1087429 train.tg
@@ -314,9 +457,11 @@ root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuf
    4712   63620  127285 test.tg
    9424   64071 1046733 total
 root@d1e452255dc6:/home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data/final-bk#
+```
 
 ## Vocab Building
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent# mkdir data-sent
 root@d1e452255dc6:/home/ye/exp/mysent# cp /home/ye/exp/mysent/checked-thura/preprocessing/split-tag/shuffle-data/final-bk/* ./data-sent/
 root@d1e452255dc6:/home/ye/exp/mysent# cd data-sent
@@ -325,7 +470,9 @@ test.my  test.tg  train.my  train.tg  valid.my  valid.tg
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent# mkdir vocab
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent# cat train.my valid.my test.my > ./vocab/all.my
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent# cat train.tg valid.tg test.tg > ./vocab/all.tg
+```
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# ls
 all.my  all.tg
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# marian-vocab < all.my > vocab.my.yml
@@ -336,6 +483,9 @@ root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# marian-vocab < all.tg > v
 [2022-10-18 11:09:48] Creating vocabulary...
 [2022-10-18 11:09:48] [data] Creating vocabulary stdout from stdin
 [2022-10-18 11:09:48] Finished
+```
+
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# head vocab.my.yml
 </s>: 0
 <unk>: 1
@@ -347,6 +497,9 @@ root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# head vocab.my.yml
 မှာ: 7
 များ: 8
 ရှိ: 9
+```
+	
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# head vocab.tg.yml
 </s>: 0
 <unk>: 1
@@ -359,8 +512,9 @@ BBအိုး: 7
 BEအကြိမ်: 8
 Bကြီး: 9
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab#
-
-Printout the whole vocab file of tg:
+```
+	
+Printout the whole vocab file of tg:  
 
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# cat vocab.tg.yml
 </s>: 0
