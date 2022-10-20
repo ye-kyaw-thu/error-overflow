@@ -108,14 +108,17 @@ More than one spaces:
 
 ## Shuffling and Splitting Word and Tags
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para# wc ./paragraph.txt
    8464  353339 5655932 ./paragraph.txt
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para# wc ./paragraph.txt.error
    8465  353328 5655900 ./paragraph.txt.error
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para#
+```
 
-I will used roughly cleaning data by myself (i.e. paragraph.txt).
+I will used roughly cleaning data by myself (i.e. paragraph.txt).  
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# ls
 paragraph.txt
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# shuf ./paragraph.txt > ./paragraph.txt.shuf
@@ -131,8 +134,11 @@ root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head ./paragraph.
 အရက်မူး/B နေ/O တဲ့/O ခင်/O အောင်/N ကို/N ဆင်းခိုင်း/N တယ်/E သူ့/B လွယ်အိတ်/O ထဲ/O က/O ပြောင်/O လက်/O ပြီး/O အင်္ဂလိပ်စာ/O တွေ/O ရေး/O ထား/O တဲ့/O သံမဏိသတ္တု/O ဘူး/O သုံး/O ဘူး/N ကို/N တွေ့/N တယ်/E
 ခင်ဗျား/B လို/O ချင်/O တဲ့/O နံပါတ်/O ဒီ/O မှာ/N ရှိ/N ပါ/N တယ်/E ဒါပေမဲ့/B ခင်ဗျား/O လို/O ချင်/O တဲ့/O အရောင်/N မ/N ရှိ/N ဘူး/E
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
+```
 
-Copying updated mk-wordtag perl script to current path:
+Copying updated mk-wordtag perl script to current path:  
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# cp ../../checked-thura/preprocessing/split-tag/mk-wordtag2.pl .
 
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# perl ./mk-wordtag2.pl ./paragraph.txt.shuf "\/" w > ./para.word
@@ -141,9 +147,11 @@ root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# wc ./para.word
    8465    2944 4949034 ./para.word
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# wc ./para.tag
   8465 353340 706792 ./para.tag
+```
 
-Check the content:
+Check the content:  
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 para.word
 နိုင်ငံတော် အလံ ကို လည်း ယခင် နိုင်ငံတော် အေးချမ်းသာယာ ရေး နှင့် ဖွံ့ဖြိုးရေး ကောင်စီ အစိုးရ လက်ထက် ၂၀⁠၀၈ ခုနှစ် တွင် ပြဋ္ဌာန်း ခဲ့ သော ဖွဲ့စည်းပုံ အခြေခံ ဥပဒေ ၂၀၀၈ တွင် သတ်မှတ် ထား သည့် နိုင်ငံတော် အလံ ဖြင့် အစားထိုး ၍ ပြောင်းလဲ အသုံးပြု ခဲ့ သည် ဝေါဟာရ ဗေဒ၁၉၈၉ ခုနှစ် တွင် စစ် အစိုးရ က အင်္ဂလိပ် ဘာသာ ဖြင့် ‌ ဘားမား ကို မြန်မာ ဟု ပြောင်းလဲ ရန် ဆုံးဖြတ် ခဲ့ ခြင်း သည် အငြင်းပွား စရာ ဖြစ် ခဲ့ သည်
 မောင် ဟူသော စကားလုံး သည် အဓိပ္ပာယ် အမျိုးမျိုး ရှိ သည် ဤ နေရာ တွင် အမည် အသုံးပြု ပုံ ကို ရှင်းပြ မည် ဖြစ် သည်
@@ -153,82 +161,112 @@ B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O 
 B O O O N N N E B O O O O O O N N N E
 B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
-
+```
 
 ## Splitting Training/Valid/Test
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# tail -n 800 ./para.word > test.my
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# tail -n 800 ./para.tag > test.tg
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 7000 ./para.word > train.my
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 7000 ./para.tag > train.tg
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 7665 ./para.word | tail -n 665 > valid.my
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 7665 ./para.tag | tail -n 665 > valid.tg
+```
 
 Check filesize:
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# wc train.{my,tg}
    7000    2370 4077210 train.my
    7000  290848  581798 train.tg
   14000  293218 4659008 total
+```
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# wc valid.{my,tg}
    665    262 411050 valid.my
    665  29471  58952 valid.tg
   1330  29733 470002 total
+```
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# wc test.{my,tg}
    800    312 460774 test.my
    800  33021  66042 test.tg
   1600  33333 526816 total
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
+```
 
-Check the content:
+Check the content:  
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 train.my
 နိုင်ငံတော် အလံ ကို လည်း ယခင် နိုင်ငံတော် အေးချမ်းသာယာ ရေး နှင့် ဖွံ့ဖြိုးရေး ကောင်စီ အစိုးရ လက်ထက် ၂၀⁠၀၈ ခုနှစ် တွင် ပြဋ္ဌာန်း ခဲ့ သော ဖွဲ့စည်းပုံ အခြေခံ ဥပဒေ ၂၀၀၈ တွင် သတ်မှတ် ထား သည့် နိုင်ငံတော် အလံ ဖြင့် အစားထိုး ၍ ပြောင်းလဲ အသုံးပြု ခဲ့ သည် ဝေါဟာရ ဗေဒ၁၉၈၉ ခုနှစ် တွင် စစ် အစိုးရ က အင်္ဂလိပ် ဘာသာ ဖြင့် ‌ ဘားမား ကို မြန်မာ ဟု ပြောင်းလဲ ရန် ဆုံးဖြတ် ခဲ့ ခြင်း သည် အငြင်းပွား စရာ ဖြစ် ခဲ့ သည်
 မောင် ဟူသော စကားလုံး သည် အဓိပ္ပာယ် အမျိုးမျိုး ရှိ သည် ဤ နေရာ တွင် အမည် အသုံးပြု ပုံ ကို ရှင်းပြ မည် ဖြစ် သည်
 ကာကွယ် ဆေး ဆို တာ ဗိုင်းရပ်စ် တွေ ကို အားနည်း သွား အောင် လုပ်ဆောင် ပြီး ခန္ဓာကိုယ် က ပဋိပစ္စည်း တွေ ထွက် လာ အောင် လှုံ့ဆော် တဲ့ နည်း နဲ့ ကူးစက်ရောဂါ တွေ ကို ခုခံ နိုင် အောင် ပံ့ပိုး ပေး ဖို့ ရည်ရွယ် ပါ တယ် ဒါပေမဲ့ ရောဂါ ကူးစက်ခံ ထား ရ သူ ရဲ့ ခန္ဓာကိုယ် က ပဋိပစ္စည်း တွေ ကို ထုတ် ထား ပြီး ဖြစ် နေ လျက် နဲ့ တစ်ဖန် ပြန် ကူးစက်ခံ ရ မယ် ဆို ရင် တော့ ကာကွယ် ဆေး ရဲ့ ထိရောက် မှု နဲ့ ပတ်သက် ပြီး မေးခွန်း ထုတ် စရာ တွေ ဖြစ် နေ ပါ တယ်
+```
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 train.tg
 B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O N N N E
 B O O O N N N E B O O O O O O N N N E
 B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
+```
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 valid.my
 sharedhouse အိမ် တစ် လုံး မှာ နေထိုင် ကြ တဲ့ သူ တိုင်း ဟာ သီးသန့် အိပ်ခန်း တစ် ခန်း စီရှိ ကြ ပေ မယ့် သူ တို့ တွေ ဟာ မီးဖိုခန်း နဲ့ ဧည့်ခန်း ကို တော့ အတူတူ မျှ သုံး ကြ ရ တာ ဖြစ် ပါ တယ် အဲဒါ ကြောင့် မကြာခဏ ထိ တွေ့ ကိုင်တွယ် လေ့ ရှိ တဲ့ နေရာ တွေ ဖြစ် တဲ့ ရေဘုံ ပိုင် ခေါင်း တွေ ဒါမှမဟုတ် လျှပ်စစ်မီးခလုတ် စ တဲ့ အများ ကိုင်တွယ် အသုံးပြု တဲ့ နေရာ တွေ ကို အာနိသင်ပျော့ တဲ့ ကြေးချွတ်ဆေး ဒါမှမဟုတ် အရက် ပြန် ကို အခြေခံ ပြီး လုပ် ထား တဲ့ ပိုးသတ်ဆေး နဲ့ ပိုးသတ် ပြီး သန့်ရှင်း အောင် ထား ဖို့ အရေးကြီး တယ် လို့ ဂျပန် က StLukes International Hospital က ကူးစက်ရောဂါ ဆိုင်ရာ ကျွမ်းကျင် သူ စာခါ့ မို တို က ပြော ပါ တယ်
 အဲဒီ လို လက္ခဏာ တွေ ဘယ် အကြောင်းရင်းကြောင့် ဖြစ် လာ သလဲ ဆို တာဝေခွဲ ရအောင် လုပ်ဆောင် ရ မယ့် အချက် တွေ ကို လေ့လာ ပါ မယ် ပထမ ပိုင်း မှာ တော့ ဘာ တွေ ကို သတိပြု သင့် ပြီး ကြိုတင်ပြင်ဆင်သင့် သလဲ ဆို တာ ကို လေ့လာ ကြ ရအောင်
 ဒါ က ဘယ် က ရောက် လာ တာ တုန်း ဘာ လုပ် ရ တာ တုန်း ဘယ် ထဲ က ထုတ်ယူ တာ တုန်း မြေကြီး ထဲ က တူးဆွဲ ယူ လို့ ရ တာ လား သူ သိချင် တယ်
+```
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 valid.tg
 B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
 B O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O N N N E
 B O O O N N N E B N N N E B O N N N E B O O O O O O O N N N E
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
+```
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 test.my
 ရှေ့ မှာ ဝယ် လို့ ရ တယ် ဒါပေမယ့် လူ နည်းနည်း ပဲ လက်မှတ် ဝယ်တာ သိပ် တော့ မ လို ဘူး
 ပထမဆုံး ဓမ္မစကြာ ရဲ့ တည်‌ဆောက် ပုံ လေး မြင်ကွင်းကျယ် လေး ကို ဘုန်းဘုန်း whiteboard ပေါ် မှာ ရေးပြ မယ် နော် စာ လေ့လာ တဲ့ အခါ မှာ bird’s eyeview and worm’s eyeview ငှက် ရဲ့ အမြင် နဲ့ တီကောင် ရဲ့ အမြင် အဲဒီ လို အမြင် နှစ် ခု ကြည့် ရ မယ်
 မ လို ပါ ဘူး ကျွန်မ ကိုယ်တိုင် သယ် လို့ ရ ပါ တယ်
+```
+
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing# head -n 3 test.tg
 B O N N N E B O O O O O O N N N E
 B O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
 B N N E B O O N N N E
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/preprocessing#
+```
 
 ## Combination of Sentence and Paragraph
 
-Combination for word data:
+Combination for word data:  
 
+```
 root@85f02f4cfa85:/home/ye/exp/mysent/data-para/combind-process# cat ../../data-sent/train.my ../preprocessing/train.my > train.my.combi
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process# cat ../../data-sent/valid.my ../preprocessing/valid.my > valid.my.combi
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process# cat ../../data-sent/test.my ../preprocessing/test.my > test.my.combi
+```
 
+```
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process# wc *.combi
     5512      763  1380222 test.my.combi
    47000     6073 11945760 train.my.combi
     3079      519   877574 valid.my.combi
    55591     7355 14203556 total
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process#
+```
 
-Combination for tag data:
+Combination for tag data:  
 
+```
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process# cat ../../data-sent/valid.tg ../preprocessing/valid.tg > valid.tg.comb
 i
 root@62e76e3751ae:/home/ye/exp/mysent/data-para/combind-process# cat ../../data-sent/train.tg ../preprocessing/train.tg > train.tg.comb
@@ -241,83 +279,135 @@ root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# wc {train,valid
    3079   61786  123594 valid.tg.combi
    5512   96641  193327 test.tg.combi
   55591  992809 1986148 total
+```
 
 ## Shuffling the Combined Data
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# ls
 test.my.combi  test.tg.combi  train.my.combi  train.tg.combi  valid.my.combi  valid.tg.combi
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.my.combi
 ဘာ ရယ် လို့ တိတိကျကျ ထောက်မပြ နိုင် ပေမဲ့ ပြဿနာ တစ် ခု ခု ရှိ တယ် နဲ့ တူ တယ်
 လူ့ အဖွဲ့အစည်း က ရှပ်ထွေး လာ တာ နဲ့ အမျှ အရင် က မ ရှိ ခဲ့ တဲ့ လူမှုရေး ပြဿနာ တွေ ဖြစ်ပေါ် လာ ခဲ့ တယ်
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.tg.combi
 B O O O O O O O O O O O N N N E
 B O O O O O O O O O O O O O O O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid.my.combi
 ထို အချိန် မှ စ ၍ စင်္ကာပူ ကျွန်း ၏ ခေတ်သစ် တစ် ခေတ် စ ခဲ့ သည်
 ကျေးဇူးပြုပြီး အချိုသာဆုံး စျေး နဲ့ ရောင်း ပေး ပါ
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid.tg.combi
 B O O O O O O O O O N N N E
 B O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.my.combi
 အခု သန့်စင်ခန်း ကို သုံး ပါရစေ
 လူငယ် တွေ က ပုံစံတကျ ရှိ မှု ကို မ ကြိုက် ဘူး
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.tg.combi
 B N N N E
 B O O O O O N N N E
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process#
+```
 
-Before shuffle, we have to paste each my and tg pair:
+Before shuffle, we have to paste each my and tg pair:  
 
-
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# ls
 test.my.combi  test.tg.combi  train.my.combi  train.tg.combi  valid.my.combi  valid.tg.combi
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.my.combi
 ဘာ ရယ် လို့ တိတိကျကျ ထောက်မပြ နိုင် ပေမဲ့ ပြဿနာ တစ် ခု ခု ရှိ တယ် နဲ့ တူ တယ်
 လူ့ အဖွဲ့အစည်း က ရှပ်ထွေး လာ တာ နဲ့ အမျှ အရင် က မ ရှိ ခဲ့ တဲ့ လူမှုရေး ပြဿနာ တွေ ဖြစ်ပေါ် လာ ခဲ့ တယ်
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.tg.combi
 B O O O O O O O O O O O N N N E
 B O O O O O O O O O O O O O O O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid.my.combi
 ထို အချိန် မှ စ ၍ စင်္ကာပူ ကျွန်း ၏ ခေတ်သစ် တစ် ခေတ် စ ခဲ့ သည်
 ကျေးဇူးပြုပြီး အချိုသာဆုံး စျေး နဲ့ ရောင်း ပေး ပါ
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 valid.tg.combi
 B O O O O O O O O O N N N E
 B O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.my.combi
 အခု သန့်စင်ခန်း ကို သုံး ပါရစေ
 လူငယ် တွေ က ပုံစံတကျ ရှိ မှု ကို မ ကြိုက် ဘူး
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 test.tg.combi
 B N N N E
 B O O O O O N N N E
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process#
+```
 
-Shuffling 
+Shuffling  
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# shuf ./train.my-tg > ./train.my-tg.shuf
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# shuf ./valid.my-tg > ./valid.my-tg.shuf
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# shuf ./test.my-tg > ./test.my-tg.shuf
+```
 
-Check with eyeball:
+Check with eyeball:  
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 ./train.my-tg.shuf
 နားလည် ပါ ပြီ   N N E
 ဈေး က များ လှ ချေ လား   B O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 ./valid.my-tg.shuf
 သူ ဘယ်သူ နဲ့ အရင်းနှီးဆုံး လဲ   B N N N E
 ဒီ က နေ ရှေ့ ကို တည့်တည့် သွား မီးပွိုင့် တွေ့ ရင် ဘယ်ဘက် ကွေ့ ၂ မှတ်တိုင် ဆက်လက် သွား ရင် ရောက် ပါ လိမ့် မယ်   B O O O O O O O O O O O O O O O O N N N E
+```
+
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 ./test.my-tg.shuf
 ရင်ဘတ် အောင့် လာ ရင် သတိထား ပါ ။        B O N N N E B
 ဘယ်လောက် နောက်ကျ သလဲ    B N E
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process#
+```
 
+```
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 1 ./train.my-tg.shuf > train.my.final
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 2 ./train.my-tg.shuf > train.tg.final
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 1 ./valid.my-tg.shuf > valid.my.final
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 2 ./valid.my-tg.shuf > valid.tg.final
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 1 ./test.my-tg.shuf > test.my.final
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# cut -f 2 ./test.my-tg.shuf > test.tg.final
+```
 
-Check the final data or read to train NMT dataset:
+Check the final data or read to train NMT dataset:  
 
 root@2d563285774c:/home/ye/exp/mysent/data-para/combind-process# head -n 2 train.{my,tg}.final
 ==> train.my.final <==
