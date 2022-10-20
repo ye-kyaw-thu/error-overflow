@@ -516,6 +516,7 @@ root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab#
 	
 Printout the whole vocab file of tg:  
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# cat vocab.tg.yml
 </s>: 0
 <unk>: 1
@@ -554,18 +555,22 @@ ONရေးမှတE: 33
 ONသာလွန်NN: 34
 Oး: 35
 Oးပေါက်: 36root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab#
-
-From the above result, I found that manual tagging error still exist.
+```
+	
+From the above result, I found that manual tagging error still exist.  
 
 ## Check Current Vocab Filesize
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent/vocab# wc *.yml
   32611   65224 1072535 vocab.my.yml
      36      74     635 vocab.tg.yml
   32647   65298 1073170 total
-  
+```
+	
 ## Check the Prepared Data Folder for Sentence-Level
 
+```
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent# tree
 .
 |-- test.my
@@ -582,10 +587,12 @@ root@d1e452255dc6:/home/ye/exp/mysent/data-sent# tree
 
 1 directory, 10 files
 root@d1e452255dc6:/home/ye/exp/mysent/data-sent#
-
+```
+	
 ## Prepare marian configuration file for Transformer Archi
 
-root@d1e452255dc6:/home/ye/exp/mysent# head -n 20 ./transformer.sent1.sh
+```bash
+root@d1e452255dc6:/home/ye/exp/mysent# cat ./transformer.sent1.sh
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -629,9 +636,15 @@ marian \
     --dump-config > model.transformer.sent1/config.yml
 
 time marian -c model.transformer.sent1/config.yml  2>&1 | tee transformer.sent1.log
-
+```
+	
 ## Training NMT Model for Sentence Data
 
+```
+root@cb9dcb03dfe7:/home/ye/exp/mysent# ./transformer.sent1.sh
+...
+...
+...
 [2022-10-18 11:24:13] Using synchronous SGD
 [2022-10-18 11:24:13] [comm] Compiled without MPI support. Running as a single process on cb9dcb03dfe7
 [2022-10-18 11:24:13] Synced seed 1111
@@ -661,10 +674,11 @@ time marian -c model.transformer.sent1/config.yml  2>&1 | tee transformer.sent1.
 real    0m37.309s
 user    0m0.149s
 sys     0m29.984s
-root@cb9dcb03dfe7:/home/ye/exp/mysent# ./transformer.sent1.sh
+```
 
-Check the GPU status:
+Check the GPU status:  
 
+```
 root@cb9dcb03dfe7:/home/ye/exp/mysent# nvidia-smi
 Tue Oct 18 11:28:04 2022
 +-----------------------------------------------------------------------------+
@@ -686,9 +700,11 @@ Tue Oct 18 11:28:04 2022
 |=============================================================================|
 +-----------------------------------------------------------------------------+
 root@cb9dcb03dfe7:/home/ye/exp/mysent#
-
+```
+	
 ## Updated the script
 
+```
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -732,9 +748,12 @@ marian \
     --dump-config > model.transformer.sent1/config.yml
 
 time marian -c model.transformer.sent1/config.yml  2>&1 | tee transformer.sent1.log
-
+```
+	
 ## Training
 
+```
+	
 [2022-10-19 00:34:44] [data] Done shuffling 40,000 sentences to temp files
 [2022-10-19 00:35:41] Ep. 567 : Up. 135000 : Sen. 28,293 : Cost 0.67268777 * 1,222,632 @ 3,197 after 330,467,583 : Time 170.19s : 7183.90 words/s : gNorm 0.2991 : L.r. 1.0328e-04
 [2022-10-19 00:35:41] Saving model weights and runtime parameters to model.transformer.sent1/model.iter135000.npz
@@ -764,9 +783,11 @@ time marian -c model.transformer.sent1/config.yml  2>&1 | tee transformer.sent1.
 [2022-10-19 00:40:39] Starting data epoch 571 in logical epoch 571
 [2022-10-19 00:40:39] [data] Shuffling data
 [2022-10-19 00:40:39] [data] Done reading 40,000 sentences
-
+```
+	
 ## Got GPU Error
 
+```
 ye@lst-gpu-3090:~/exp/mysent$ nvidia-smi
 Wed Oct 19 07:39:48 2022
 +-----------------------------------------------------------------------------+
@@ -790,9 +811,11 @@ Wed Oct 19 07:39:48 2022
 |    0   N/A  N/A      1760      G   /usr/bin/gnome-shell               58MiB |
 |    0   N/A  N/A    114254      C   marian                           2545MiB |
 +-----------------------------------------------------------------------------+
-
+```
+	
 ## Check the valid.log file
 
+```
 ye@lst-gpu-3090:~/exp/mysent/model.transformer.sent1$ cat ./valid.log
 ...
 ...
@@ -828,10 +851,11 @@ ye@lst-gpu-3090:~/exp/mysent/model.transformer.sent1$ cat ./valid.log
 [2022-10-19 05:24:52] [valid] Ep. 777 : Up. 185000 : cross-entropy : 1.17364 : stalled 2 times (last best: 1.17087)
 [2022-10-19 05:24:53] [valid] Ep. 777 : Up. 185000 : perplexity : 1.085 : stalled 2 times (last best: 1.08479)
 [2022-10-19 05:25:10] [valid] Ep. 777 : Up. 185000 : bleu : 82.351 : stalled 29 times (last best: 97.8322)
-
+```
 
 ## Preparing bash Script for Testing with Best Model
 
+```bash
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.sent1# cat test-eval-best.sh
 #!/bin/bash
 
@@ -848,9 +872,11 @@ echo "Evaluation with hyp.best.${tgt}, Transformer model:" >> eval-best-result.t
 perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.${tgt} >> eval-best-result.txt;
 
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.sent1#
-
+```
+	
 ## Testing with Test Data
 
+```
 [2022-10-19 22:46:31] Best translation 4688 : B O O N N N E
 [2022-10-19 22:46:31] Best translation 4689 : B O N N N E
 [2022-10-19 22:46:31] Best translation 4690 : B O O O O O N N N E
@@ -882,14 +908,17 @@ real    1m3.558s
 user    1m0.199s
 sys     0m3.328s
 root@8c9f9e316b59:/home/ye/exp/mysent/model.transformer.sent1# time ./test-eval-best.sh
-
+```
+	
 Let's check the result:  
 
+```
 Evaluation with hyp.best.tg, Transformer model:
 BLEU = 95.28, 95.8/95.5/95.1/94.7 (BP=1.000, ratio=1.036, hyp_len=65926, ref_len=63620)
-
+```
+	
 ## To Do
 
-- chrF score calculation
-- WER Calculation, check the top ten Error and make translation error analysis in details
+- chrF score calculation  
+- WER Calculation, check the top ten Error and make translation error analysis in details  
 
