@@ -2,6 +2,7 @@
 
 ## Original Data Info
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/original$ ls
 dataall.txt  km_KH.dic.txt  newdiction-kh.word.txt  SBBICkm_KH.txt
 ye@lst-gpu-3090:~/exp/kh-spell/data/original$ wc *
@@ -11,9 +12,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/original$ wc *
   75038   75063 2139159 SBBICkm_KH.txt
  158902  184079 7535795 total
 ye@lst-gpu-3090:~/exp/kh-spell/data/original$
+```
 
 File content/format:  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/original$ head -n 5 *
 ==> dataall.txt <==
 <អញ្ចឹង>ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន|||(អ៊ីចឹង/dia)ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន
@@ -43,6 +46,7 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/original$ head -n 5 *
 កកកុះ
 កកឈាម
 ye@lst-gpu-3090:~/exp/kh-spell/data/original$
+```
 
 ## To Do
 
@@ -51,11 +55,13 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/original$
 
 ## Testing with Code from Sokheang
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/code$ python3 ./simulat.py ./input.txt > out
+```
 
 Check the out file:  
 
-
+```
 how
 [('', 'how'), ('h', 'ow'), ('ho', 'w'), ('how', '')]
 ['ow', 'hw', 'ho']
@@ -63,14 +69,19 @@ how
 {'ឆ', 'ង', 'ស', 'ឋ', 'អ', 'យ', 'ហ', 'ព', 'ខ', 'ផ', 'ឃ', 'ឡ', 'ជ', 'ញ', 'ន', 'ឈ', 'ធ', 'ច', 'ថ', 'រ', 'ឌ', 'ប', 'ទ', 'ល', 'ភ', 'ក', 'ម', 'វ', 'ត', 'ឍ', 'ណ', 'គ', 'ដ'}
 ['ឆow', 'ងow', 'សow', 'ឋow', 'អow', 'យow', 'ហow', 'ពow', 'ខow', 'ផow', 'ឃow', 'ឡow', 'ជow', 'ញow', 'នow', 'ឈow', 'ធow', 'ចow', 'ថow', 'រow', 'ឌow', 'បow', 'ទow', 'លow', 'ភow', 'កow', 'មow', 'វow', 'តow', 'ឍow', 'ណow', 'គow', 'ដow', 'hឆw', 'hងw', 'hសw', 'hឋw', 'hអw', 'hយw', 'hហw', 'hពw', 'hខw', 'hផw', 'hឃw', 'hឡw', 'hជw', 'hញw', 'hនw', 'hឈw', 'hធw', 'hចw', 'hថw', 'hរw', 'hឌw', 'hបw', 'hទw', 'hលw', 'hភw', 'hកw', 'hមw', 'hវw', 'hតw', 'hឍw', 'hណw', 'hគw', 'hដw', 'hoឆ', 'hoង', 'hoស', 'hoឋ', 'hoអ', 'hoយ', 'hoហ', 'hoព', 'hoខ', 'hoផ', 'hoឃ', 'hoឡ', 'hoជ', 'hoញ', 'hoន', 'hoឈ', 'hoធ', 'hoច', 'hoថ', 'hoរ', 'hoឌ', 'hoប', 'hoទ', 'hoល', 'hoភ', 'hoក', 'hoម', 'hoវ', 'hoត', 'hoឍ', 'hoណ', 'hoគ', 'hoដ']
 ['ឆhow', 'ងhow',
+```
 
-I found that not read to use and I need to rewrite the simulation code.  
+I found that not ready to use and I need to rewrite the simulation code.  
 
 ## Writing Edit Distance Simulation Code
 
+```python
+
+```
 
 ## Compiling Marian on Server
 
+```
       |  ^~~~~
 In file included from /usr/include/cuda_runtime.h:83,
                  from <command-line>:
@@ -103,9 +114,11 @@ make[1]: *** Waiting for unfinished jobs....
 [ 49%] Built target SQLiteCpp
 make: *** [Makefile:152: all] Error 2
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$
+```
 
 ## Searching GCC Package Under Conda
 
+```
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$ conda search gcc_linux-64
 Loading channels: done
 # Name                       Version           Build  Channel
@@ -142,9 +155,11 @@ gcc_linux-64                   8.4.0     he201b7d_30  pkgs/main
 gcc_linux-64                   9.3.0     h1ee779e_30  pkgs/main
 gcc_linux-64                  11.2.0      h5c386dc_0  pkgs/main
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$
+```
 
 ## Install GCC Version < 8
 
+```
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$ conda install gcc_linux-64==7.5.0
 ...
 ...
@@ -202,10 +217,11 @@ Would you like conda to send this report to the core maintainers?
 Timeout reached. No report sent.
 
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$
-
+```
 
 Try with removed one equal sign as follows:  
 
+```
 If submitted, this report will be used by core maintainers to improve
 future releases of conda.
 Would you like conda to send this report to the core maintainers?
@@ -248,7 +264,9 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$
+```
 
+```
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$ which gcc && gcc --version
 /usr/bin/gcc
 gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
@@ -257,9 +275,11 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 (py3.10.6) yekyaw.thu@gpu:~/tool/marian/build$
+```
 
 ## Cmake with NO GPU
 
+```
 -- Detecting C compile features - done
 -- Project name: marian
 -- Project version: v1.11.0+f00d0621
@@ -292,9 +312,11 @@ CMake Warning at CMakeLists.txt:500 (message):
 -- Generating done
 -- Build files have been written to: /home/yekyaw.thu/tool/marian/build
 (py35) yekyaw.thu@gpu:~/tool/marian/build$ cmake .. -DCOMPILE_CUDA=off
+```
 
 Run make command:  
 
+```
 (py35) yekyaw.thu@gpu:~/tool/marian/build$ make -j24
 ...
 ...
@@ -331,11 +353,14 @@ Scanning dependencies of target marian_train
 [ 98%] Built target marian_scorer
 [100%] Linking CXX executable ../marian
 [100%] Built target marian_train
+```
 
-Installation without GPU success!
+Installation without GPU success!  
+Note: Installation was done on one of the CADT server.  
 
 ## Called --help
 
+```
 (py35) yekyaw.thu@gpu:~/tool/marian/build$ ./marian --help
 ...
 ...
@@ -365,15 +390,18 @@ Validation set options:
   --valid-translation-output TEXT       (Template for) path to store the translation. E.g., validation-output-after-{U}-updates-{T}-tokens.txt. Template parameters: {E} for epoch; {B} for No. of batches within epoch; {U} for total No. of updates; {T} for total No. of tokens seen.
   --keep-best                           Keep best model for each validation metric
   --valid-log TEXT                      Log validation scores to file given by arg
-
+```
 
 ## Data Preparation and Preprocessings
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ ls
 dataall.txt  khnormal2.py  km_KH.dic.txt  newdiction-kh.word.txt  SBBICkm_KH.txt
+```
 
 Create a small file for testing normalization program ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ shuf ./km_KH.dic.txt | head > 10lines.txt
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat 10lines.txt
 សហការី
@@ -387,6 +415,7 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat 10lines.txt
 ព្រែកព្នៅ
 គូសព្រាង
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Testing normalization program ...  
 
