@@ -657,8 +657,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
 
 ## Make Spelling Error Simulation and Parallel Data on Dictionary
 
-Run again ...  
+Run again ...   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 make-edit-error.py ./dict.all.normal.uniq.clean1.word
 r > dict.parallel
 Traceback (most recent call last):
@@ -672,32 +673,38 @@ real    0m0.044s
 user    0m0.040s
 sys     0m0.004s
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 I still got above Error!!!
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat ./dict.parallel
 ១០       ១
 ១៦       ៦
 ១៧
 ២០       ០
 ៣០       ០
+```
 
-I found one problem is that edit-distance 2 for 2 character words might cause error!!!
-As shown in above ...  
+I found one problem is that edit-distance 2 for 2 character words might cause error!!!  
+As shown in above ...   
 
-One more error in the code is around here:
+One more error in the code is around here:  
 
+```python
  70       if (random_edit == 1):
  71          edit1_word = random.choice(edit1(input_word))
  72          print(input_word, '\t', edit1_word)
  73       elif (random_edit ==2):
  74          edit2_word = random.choice(edit2(input_word))
  75          print(input_word, '\t', edit2_word)
- 
-I assume that random.choice give the error 
-because of the number of element return back from the edit1 or edit2 functions
+ ```
+I assume that random.choice give the error   
+because of the number of element return back from the edit1 or edit2 functions  
 
-Updated the Python Code:
+Updated the Python Code:  
+
+```python
 
       if (random_edit == 1):
          #edit1_word = random.choice(edit1(input_word))
@@ -711,49 +718,62 @@ Updated the Python Code:
          if edit2_list:
             edit2_word = random.choice(edit2_list)
             print(input_word, '\t', edit2_word)
-			
-Now running is OK. However, some strange spaces are found between two words.
-When I cleaned with khnormal2.py, the delimeter TAB removed ...
-I think I should use clean space perl script ... 
+```
 
-When I checked with cut commands, it looks OK ...  
+```
+Now running is OK. However, some strange spaces are found between two words.  
+When I cleaned with khnormal2.py, the delimeter TAB removed ...  
+I think I should use clean space perl script ...   
 
+When I checked with cut commands, it looks OK ...   
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cut -f1 ./dict.parallel | wc
   75788   75814 2145644
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cut -f2 ./dict.parallel | wc
   75788   78344 2140590
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-I updated the Python code and finally can run ...
+I updated the Python code and finally can run ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 make-edit-error.py ./dict.all.normal.uniq.clean1.word 1 > dict.parallel.edit1
 
 real    0m0.349s
 user    0m0.345s
 sys     0m0.004s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 make-edit-error.py ./dict.all.normal.uniq.clean1.word 2 > dict.parallel.edit2
 
 real    0m2.991s
 user    0m2.983s
 sys     0m0.009s
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-Check the edit-distance 1 dictionary size:  
+Check the edit-distance 1 dictionary size:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.all.normal.uniq.clean1.word
   75849   75875 2070394 ./dict.all.normal.uniq.clean1.word
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.parallel.edit1
   75784  153156 4286609 ./dict.parallel.edit1
-  
+```
 
-Check the edit-distance 2 dictionary size:  
+Check the edit-distance 2 dictionary size:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.parallel.edit2
   75737  155021 4286809 ./dict.parallel.edit2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 ## Check the Dictionary Parallel Data
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ shuf ./dict.parallel.edit1 | head -n 15
 ភេទបព្វជិត       េទបព្វជិត
 ឧបហាស    ឧបហាឧស
@@ -771,7 +791,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ shuf ./dict.parallel.edit1 | 
 ជរាមច្ចុ         ជរាុច្ចុ
 ហ៊ឺៈ!    ហឺ៊ៈ!
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ shuf ./dict.parallel.edit2 | head -n 15
 ស្លឹកគ្រៃត្រែ    ស្លឹក្គរៃ្ត្រែ
 អត់ឲ្យ   អត់្យឲ
@@ -789,15 +811,19 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ shuf ./dict.parallel.edit2 | 
 ឈឺខ្ទោកៗ         ្ឺខ្កទោកៗ
 នំដង្កូវ         ំនងដ្កូវ
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 ## Start Working With Manually Collected Data
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc dataall.normal
    8118   33251 3372117 dataall.normal
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-When I run I got following errors:  
+When I run I got following errors:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time perl ./mk-spelling-dict.pl ./dataall.normal text > dataall.normal.parallel
 
 Use of uninitialized value $correction in pattern match (m//) at ./mk-spelling-dict.pl line 43, <$inputFILE> line 510.
@@ -806,21 +832,27 @@ Use of uninitialized value $correction in pattern match (m//) at ./mk-spelling-d
 real    0m0.045s
 user    0m0.045s
 sys     0m0.000s
+```
 
-Check the line number 510 and 7801 sentences.
-I found as follows:  
+Check the line number 510 and 7801 sentences.  
+I found as follows:    
 
+```
  510 ជូនពរឲ្យបងប្អូនខ្មែរកម្ពុជាក្រោមរួចផុតពីគ្រោះនេះផងចុះ។
      ញ(ឲ្យ/dia)ទទួលកម្មពៀរដែលវាបានសាងមកលើខ្មែរយ៉ាងធ្ងន់ធ្ងរមួយ(សង/typo)មួយ(ម៉ឺន/seq)យ<ម៉ឺន>|||ជូនពរឲ្យបងប្អូនខ្មែរកម្ព
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ sed -n '510p' ./dataall.normal
 ជូនពរឲ្យបងប្អូនខ្មែរកម្ពុជាក្រោមរួចផុតពីគ្រោះនេះផងចុះ។
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ sed -n '7801p' ./dataall.normal
 
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-Found blank lines at the end of the dataall.normal file:  
+Found blank lines at the end of the dataall.normal file:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dataall.normal
 
 
@@ -833,18 +865,24 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dataall.normal
 
 
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dataall.normal
    8117   33250 3372116 ./dataall.normal
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ perl ./clean-space.pl ./dataall.normal > ./dataall.normal.clean
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dataall.normal.clean
    7734   33250 3369917 ./dataall.normal.clean
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ perl ./mk-spelling-dict.pl ./dataall.normal.clean text > ./dataall.parallel
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dataall.parallel
  19054  38142 538014 ./dataall.parallel
+ ```
+ 
+ ```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head ./dataall.parallel
 អញ្ចឹង  អ៊ីចឹង
 នឹង     និង
@@ -856,6 +894,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head ./dataall.parallel
 សរសើ    សរសើរ
 មើប្បី  ដើម្បី
 គាត     គាត់
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dataall.parallel
 បីដារ   បិតា
 កា      ការ
@@ -868,12 +909,14 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dataall.parallel
 បុរស់   បុរស
 តំរាប់  តម្រាប់
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 ## Splitting Training/Validation/Testing Data
 
-Important!!!
-We have following dataset in total and final data: 
+Important!!!  
+We have following dataset in total and final data:  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc dict.parallel.edit1
   75784  153156 4286609 dict.parallel.edit1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc dict.parallel.edit2
@@ -881,9 +924,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc dict.parallel.edit2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc dataall.parallel
  19054  38142 538014 dataall.parallel
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Check again the content:  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit1
 ១០       ១១
 ១៦       ១ ៦
@@ -896,7 +941,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit1
 កក់ក្តៅ          កក់ក្ៅត
 កក់ក្បាល         កក់កាបាល
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit2
 ១០       ១
 ១៦       ១៦៦
@@ -909,7 +956,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit2
 កកកុះ    កកកកុុ
 កកកុញ    ញកកកកុញ
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit2
 ១០       ១
 ១៦       ១៦៦
@@ -922,9 +971,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head dict.parallel.edit2
 កកកុះ    កកកកុុ
 កកកុញ    ញកកកកុញ
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-Make backup:  
+Make backup:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ mkdir final-data
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cp dataall.parallel ./final-data/
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cp dict.parallel.edit1 ./final-data/
@@ -935,29 +986,34 @@ Shuffling:
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ shuf ./dataall.parallel > dataall.parallel.shuf
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ shuf ./dict.parallel.edit1 > dict.parallel.edit1.shuf
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ shuf ./dict.parallel.edit2 > dict.parallel.edit2.shuf
+```
 
-Prepare three test data set.
-They are real word error test-set, edit-1 test-set and edit-2 test-set.
+Prepare three test data set.  
+They are real word error test-set, edit-1 test-set and edit-2 test-set.  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ tail -n 1500 ./dataall.parallel.shuf > test.manual
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ tail -n 1000 dict.parallel.edit1.shuf > test.edit1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ tail -n 1000 dict.parallel.edit2.shuf > test.edit2
+```
 
-Preparing three training data:  
+Preparing three training data:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ head -n 17554 ./dataall.parallel.shuf > train.manual
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ head -n 74784 ./dict.parallel.edit1.shuf > train.edit1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ head -n 74737 ./dict.parallel.edit2.shuf > train.edit2
+```
 
+Important!!!  
+Actually, column1 vs column2 are different between simulated data and manually collected data.  
+For simulated data: col1: correnct-word, col2: wrong-word.  
+For manually collected data: col1: wrong-word, col2: correct-word.  
+And thus, I have to swap dictionary data-sets.  
 
-Important!!!
-Actually, column1 vs column2 are different between simulated data and manually collected data.
-For simulated data: col1: correnct-word, col2: wrong-word.
-For manually collected data: col1: wrong-word, col2: correct-word.
-And thus, I have to swap dictionary data-sets.
+Swapping Col1 and Col2 for dictionary data:  
 
-Swapping Col1 and Col2 for dictionary data:
-
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ ls test*
 test.edit1  test.edit2  test.manual
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f1 test.edit1 > c1
@@ -967,6 +1023,7 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f1 test.edit2 > c1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f2 test.edit2 > c2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ paste c2 c1 > test.edit2.swap
+```
 
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ ls train*
 train.edit1  train.edit2  train.manual
