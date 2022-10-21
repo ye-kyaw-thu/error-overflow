@@ -785,7 +785,7 @@ One more error in the code is around here:
  73       elif (random_edit ==2):
  74          edit2_word = random.choice(edit2(input_word))
  75          print(input_word, '\t', edit2_word)
- ```
+```
 I assume that random.choice give the error   
 because of the number of element return back from the edit1 or edit2 functions  
 
@@ -807,7 +807,6 @@ Updated the Python Code:
             print(input_word, '\t', edit2_word)
 ```
 
-```
 Now running is OK. However, some strange spaces are found between two words.  
 When I cleaned with khnormal2.py, the delimeter TAB removed ...  
 I think I should use clean space perl script ...   
