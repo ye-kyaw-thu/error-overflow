@@ -419,16 +419,21 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
 
 Testing normalization program ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ python3 ./khnormal2.py 10lines.txt output.txt
+```
 
 Confirmation ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ diff 10lines.txt output.txt
 7c7
 < ថ្លៃផ្ដាច់មុខ
 ---
 > ថ្លៃផ្តាច់មុខ
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat output.txt
 សហការី
 រួមដៃ
@@ -441,75 +446,106 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat output.txt
 ព្រែកព្នៅ
 គូសព្រាង
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Running for km_KH.dict.txt file ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 ./khnormal2.py km_KH.dic.txt km_KH.dic.normal
 
 real    0m3.680s
 user    0m3.668s
 sys     0m0.012s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ diff -y --suppress-common-lines km_KH.dic.txt km_KH.dic.normal | wc -l
 3994
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Running for SBBICkm_KH.txt file ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 ./khnormal2.py SBBICkm_KH.txt SBBICkm_KH.normal
 
 real    0m3.753s
 user    0m3.744s
 sys     0m0.009s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ diff -y --suppress-common-lines SBBICkm_KH.txt SBBICkm_KH.normal | wc -l
 75039
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
-Running for newdiction-kh.word.txt ...  
+Running for newdiction-kh.word.txt ...   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 ./khnormal2.py newdiction-kh.word.txt newdiction-kh.word.normal
 
 real    0m0.037s
 user    0m0.033s
 sys     0m0.004s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ diff -y --suppress-common-lines newdiction-kh.word.txt newdiction-kh.word.normal | wc -l
 9
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Finally, normalization for our manually collected spelling error data ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 ./khnormal2.py ./dataall.txt ./dataall.normal
 
 real    0m6.068s
 user    0m6.063s
 sys     0m0.005s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ diff -y --suppress-common-lines ./dataall.txt ./dataall.normal | wc
  -l
 2070
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Combining some files ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ ls *.normal
 dataall.normal  km_KH.dic.normal  newdiction-kh.word.normal  SBBICkm_KH.normal
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat km_KH.dic.normal SBBICkm_KH.normal newdiction-kh.word.normal > dict.all.normal
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 Sorting and make unique ...  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time sort ./dict.all.normal | uniq > dict.all.normal.uniq
 
 real    0m0.868s
 user    0m1.520s
 sys     0m0.015s
+```
+
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.all.normal
  150787  150828 4075711 ./dict.all.normal
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.all.normal.uniq
   75910   75936 2070678 ./dict.all.normal.uniq
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 ## Make Error Simulation and Parallel Data on Dictionary
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ time python3 ./make-edit-error.py ./dict.all.normal.uniq r > ./dict.all.normal.uniq.parallel
 Traceback (most recent call last):
   File "/home/ye/exp/kh-spell/data/preprocessing/./make-edit-error.py", line 64, in <module>
@@ -522,21 +558,25 @@ real    0m0.045s
 user    0m0.033s
 sys     0m0.012s
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
+```
 
 To solve above error, I have to delete followings words:  
 
+```
 ១/a/P
 ២០
 ២/a/P
 ៣០
 ៣/a/P
+```
 
-And I need to remove 1 character words inside the dictionary ...  
+And I need to remove 1 character words inside the dictionary ...   
 
 ## Remove 1 Character Words from the Dictionary
 
-I wrote a perl script:  
+I wrote a perl script:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cat ./remove-one-char-lines.pl
 use strict;
 use warnings;
@@ -569,18 +609,22 @@ while (!eof($inputFILE)) {
 }
 
 close ($inputFILE);
+```
 
-Removing one character words:  
+Removing one character words:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ perl ./remove-one-char-lines.pl ./dict.all.normal.uniq.clean1 > ./dict.all.normal.uniq.clean1.word
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.all.normal.uniq.clean1
   75909   75936 2070637 ./dict.all.normal.uniq.clean1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ wc ./dict.all.normal.uniq.clean1.word
   75849   75875 2070394 ./dict.all.normal.uniq.clean1.word
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$  
+```
 
-Check the top lines ...  
+Check the top lines ...   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head ./dict.all.normal.uniq.clean1.word
 ១០
 ១៦
@@ -592,9 +636,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head ./dict.all.normal.uniq.c
 កក់
 កកកុះ
 កកកុញ
+```
 
 Check with the tail command:  
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dict.all.normal.uniq.clean1.word
 ឲ្យអំណាច
 ឲ្យអនុមតិ
@@ -607,7 +653,7 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ tail ./dict.all.normal.uniq.c
 ឲ្យឩបាយ
 ឳទក
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$
-
+```
 
 ## Make Spelling Error Simulation and Parallel Data on Dictionary
 
