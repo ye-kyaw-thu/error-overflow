@@ -1343,32 +1343,33 @@ sys     0m0.038s
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh
 ```
 
-Got above error!!!
+Got above error!!!  
 
-I think following is the reason:  
+I think following is the reason:   
 
+```
 [2022-10-21 16:37:45] [data] Loading vocabulary from JSON/Yaml file 4nmt/vocab/vocab.er.yml
 [2022-10-21 16:37:45] Error: Unhandled exception of type 'N4YAML15ParserExceptionE': yaml-cpp: error at line 1726, column 13: illegal map value
 [2022-10-21 16:37:45] Error: Aborted from void unhandledException() in /temp/marian/src/common/logging.cpp:113
+```
 
-Ha Haa Haa!!!
-I haven't build vocab file. I am tired ... :)
-Yes, I also have to make segmentation!!!
+Ha Haa Haa!!!  
+I haven't build vocab file. I am tired ... :)  
+Yes, I also have to make segmentation!!!  
 
 ## Character Segmentation
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh test.cr > ../test.cr
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh test.er > ../test.er
-root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh train.er > ../train.e
-r
-root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh train.cr > ../train.c
-r
-root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh valid.cr > ../valid.c
-r
-root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh valid.er > ../valid.e
-r
+root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh train.er > ../train.er
+root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh train.cr > ../train.cr
+root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh valid.cr > ../valid.cr
+root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# bash ./char-segmentation.sh valid.er > ../valid.er
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment#
+```
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit1# ls
 test.cr  test.er
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit1# bash ../char-segmentation.sh ./test.cr > ../../edit1/test.cr
@@ -1380,15 +1381,19 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit2# bash 
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit2# bash ../char-segmentation.sh ./test.er > ..
 /../edit2/test.er
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit2#
+```
 
 ## Building Vocab with Character Segmentation
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# mkdir vocab
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# cat train.er valid.er test.er ./edit1/test.er ./edit1/test.er > ./vocab/all.er
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# cat train.cr valid.cr test.cr ./edit1/test.cr ./edit1/test.c
 r > ./vocab/all.cr
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt#
+```
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# marian-vocab < ./all.cr > cr.vocab.yml
 [2022-10-21 16:58:01] Creating vocabulary...
 [2022-10-21 16:58:01] [data] Creating vocabulary stdout from stdin
@@ -1398,9 +1403,11 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# marian-vocab < .
 [2022-10-21 16:58:14] [data] Creating vocabulary stdout from stdin
 [2022-10-21 16:58:14] Finished
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab#
+```
 
-Check the vocab file content:  
+Check the vocab file content:   
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head ./er.vocab.yml
 </s>: 0
 <unk>: 1
@@ -1412,6 +1419,9 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head ./er.vocab.
 �: 7
 �: 8
 �: 9
+```
+
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head ./cr.vocab.yml
 </s>: 0
 <unk>: 1
@@ -1424,9 +1434,13 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head ./cr.vocab.
 �: 8
 �: 9
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab#
+```
 
 ## Training Khmer Spelling Checking Model with Transformer Archi
 
+Check 1 GPU Situation ...  
+
+```
 ye@lst-gpu-3090:~$ nvidia-smi
 Sat Oct 22 00:01:38 2022
 +-----------------------------------------------------------------------------+
@@ -1450,11 +1464,12 @@ Sat Oct 22 00:01:38 2022
 |    0   N/A  N/A      2469      G   /usr/bin/gnome-shell               58MiB |
 |    0   N/A  N/A     25414      C   marian                           2043MiB |
 +-----------------------------------------------------------------------------+
+```
 
-It looks OK ...   
-I should enjoy my late dinner ... now 0:02 in Phnom Penh.  
+It looks OK ...    
+I should enjoy my late dinner ... now 0:02 in Phnom Penh.   
 
-
+```
 [2022-10-21 17:34:33] Ep. 62 : Up. 94500 : Sen. 128,014 : Cost 0.78355324 * 1,280,045 @ 2,532 after 241,120,740 : Time 8.47s : 151075.54 words/s : gNorm 0.2031 : L.r. 1.2344e-04
 [2022-10-21 17:34:37] Seen 151,011 samples
 [2022-10-21 17:34:37] Starting data epoch 63 in logical epoch 63
@@ -1478,9 +1493,11 @@ real    34m39.034s
 user    35m4.287s
 sys     0m44.154s
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh
+```
 
 ## Preparing Testing Script
 
+```bash
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
@@ -1506,9 +1523,11 @@ echo "=" >> eval-best-result.txt;
 marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 >
 echo "Evaluation with hyp.best.edit2.${tgt}, Transformer dictionary model:" >> eval-best-result.txt;
 perl /home/ye/tool/multi-bleu.perl ${data_path}/edit2/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
+```
 
 ## Testing 
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/model.transformer.dict1# time bash ./test-eval-best.sh
 ...
 ...
@@ -1535,10 +1554,13 @@ It is not advisable to publish scores from multi-bleu.perl.  The scores depend o
 real    1m8.993s
 user    1m6.708s
 sys     0m3.060s
-
+```
 
 ## Test Results
 
+As I expected, the results are good as follows:   :)
+
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/model.transformer.dict1# cat eval-best-result.txt
 Evaluation with hyp.best.manual.cr, Transformer dictionary model:
 BLEU = 92.89, 96.3/94.6/92.7/90.7 (BP=0.993, ratio=0.993, hyp_len=20556, ref_len=20700)
@@ -1549,12 +1571,12 @@ BLEU = 95.34, 97.9/97.0/95.8/94.1 (BP=0.991, ratio=0.991, hyp_len=26314, ref_len
 Evaluation with hyp.best.edit2.cr, Transformer dictionary model:
 BLEU = 90.18, 96.6/94.8/92.1/88.4 (BP=0.971, ratio=0.971, hyp_len=26111, ref_len=26890)
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/model.transformer.dict1#
-
+```
 
 ## Reference
 
-https://stackoverflow.com/questions/27236891/diff-command-to-get-number-of-different-lines-only
-https://stackoverflow.com/questions/41076865/python-error-with-random-choice
+- https://stackoverflow.com/questions/27236891/diff-command-to-get-number-of-different-lines-only
+- https://stackoverflow.com/questions/41076865/python-error-with-random-choice
 
 
 
