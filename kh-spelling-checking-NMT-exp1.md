@@ -1025,6 +1025,7 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f2 test.edit2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ paste c2 c1 > test.edit2.swap
 ```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ ls train*
 train.edit1  train.edit2  train.manual
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f1 train.edit1 > c1
@@ -1034,19 +1035,24 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f1 train.edit2 > c1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cut -f2 train.edit2 > c2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ paste c2 c1 > train.edit2.swap
+```
 
+Combining all training data and split as training and valid:   
 
-Combining all training data and split as training and valid:  
-
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ mkdir final-data
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cat train.manual train.edit1.swap train.edit2.swap > ./final-data/train.pair
+```
 
-backup:  
+backup:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cp test.edit1.swap ./final-data/
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cp test.edit2.swap ./final-data/
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set$ cp test.manual ./final-data/
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ wc *
    1000    2027   56998 test.edit1.swap
    1000    2047   57596 test.edit2.swap
@@ -1054,16 +1060,20 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ wc *
  167075  339237 8954734 train.pair
  170575  346319 9111432 total
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ tail -n 16000 ./train.pair > valid.final
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ head -n 151075 ./train.pair > train.final
+```
 
-The following are the training/validation/test data-set for NMT modeling:
+The following are the training/validation/test data-set for NMT modeling:  
 
 ## Final Data Preprocessings
 
-Here, we will split parallel data into source and target pairs.  
+Here, we will split parallel data into source and target pairs.   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ head -n 3 *
 ==> 4nmt <==
 head: error reading '4nmt': Is a directory
@@ -1098,41 +1108,48 @@ head: error reading '4nmt': Is a directory
  គន្ថនចនរា      គន្ថចរនា
  ាសសិនិកជន      សាសនិកជន
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$
-
+```
 
 For training data:  
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 train.final > ./4nmt/train.er
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 train.final > ./4nmt/train.cr
+```
 
-For valid data:  
+For valid data:   
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 valid.final > ./4nmt/valid.er
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 valid.final > ./4nmt/valid.cr
-
-For manual test data:
-
+```
+For manual test data:  
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 test.manual > ./4nmt/test.er
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 test.manual > ./4nmt/test.cr
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ mkdir edit1
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ mkdir edit2
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ cd ..
+```
+For edit1 test data:   
 
-For edit1 test data:  
-
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 ./test.edit1.swap > ./4nmt/edit1/test.er
-ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 ./test.edit1.swap > ./4nmt/edit1/test
-.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 ./test.edit1.swap > ./4nmt/edit1/test.cr
+```
 
-For edit2 test data:  
+For edit2 test data:    
 
-ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 ./test.edit2.swap > ./4nmt/edit2/test
-.er
-ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 ./test.edit2.swap > ./4nmt/edit2/test
-.cr
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f1 ./test.edit2.swap > ./4nmt/edit2/test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ cut -f2 ./test.edit2.swap > ./4nmt/edit2/test.cr
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$
+```
 
-Folder Structure is as follows:  
+Folder Structure is as follows:   
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ tree ./4nmt/
 ./4nmt/
 ├── edit1
@@ -1150,9 +1167,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$ tree ./
 
 2 directories, 10 files
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data$
+```
 
 ## Check Final Train/Valid/Test Data Size
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ wc train.{er,cr}
  151075  155355 4008672 train.er
  151075  151121 4039905 train.cr
@@ -1166,7 +1185,9 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ wc
  1500  1500 22202 test.cr
  3000  3008 42104 total
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$
+```
 
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt/edit1$ wc *
  1000  1001 28552 test.cr
  1000  1026 28446 test.er
@@ -1177,15 +1198,19 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt/edi
  1000  1047 28706 test.er
  2000  2047 57596 total
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt/edit2$
+```
 
 ## Building vocab 
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# mkdir vocab
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# cat ./train.er valid.er ./test.er ./edit1/test.er ./edit2/test.er > ./vocab/vocab.er.yml
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# cat ./train.cr valid.cr ./test.cr ./edit1/test.cr ./edit2/te
 st.cr > ./vocab/vocab.cr.yml
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt#
+```
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head vocab.er.yml
 ក្រោយយ
 កំបត់
@@ -1197,6 +1222,9 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head vocab.er.ym
 ក៍
  ចិយ
 ក
+```
+
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head vocab.cr.yml
 ក្រោយ
 កំបុត
@@ -1209,15 +1237,19 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head vocab.cr.ym
  ចុយ
 ក៏
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt/vocab#
- 
+```
+
 ## Data Folder Path 
 
 Original Data Path:  
+```
 ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt$ pwd
 /home/ye/exp/kh-spell/data/preprocessing/split-3set/final-data/4nmt
+```
 
-Data Folder Path for your reference:  
+Data Folder Path for your reference:   
 
+```
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# tree
 .
 |-- edit1
@@ -1238,11 +1270,13 @@ root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt# tree
 
 3 directories, 12 files
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer/4nmt#
+```
 
 ## Preparing Shell Script for NMT Running
 
-/home/ye/exp/kh-spell/transformer/4nmt  
+/home/ye/exp/kh-spell/transformer/4nmt    
 
+```bash
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
@@ -1278,9 +1312,11 @@ marian \
     --dump-config > model.transformer.dict1/config.yml
 
 time marian -c model.transformer.dict1/config.yml  2>&1 | tee transformer.dict1.log
-
+```
 
 ## Training Kh-Spelling Checking NMT Model
+
+```
 
 [0x7fa3816822f7]                                                       + 0xae2f7
 [0x7fa381682558]                                                       + 0xae558
@@ -1305,6 +1341,7 @@ real    0m3.439s
 user    0m0.016s
 sys     0m0.038s
 root@2328f1decde9:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh
+```
 
 Got above error!!!
 
