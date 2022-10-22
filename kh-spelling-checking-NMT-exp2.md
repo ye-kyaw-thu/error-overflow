@@ -306,5 +306,48 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cat col2
 ចំណាស់ហ្នឹងហើយទៅរកត្រីទៀតអ៊ុំអើយ
 ```
 
+Split the whole file of manually prepared data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ perl ./split-col1-col2.pl ./dataall.normal.clean.rm col1 col2
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ wc dataall.normal.clean.rm col1 col2
+   7734   32952 2968174 dataall.normal.clean.rm
+   7734   17558 1339555 col1
+   7734   17957 1607162 col2
+  23202   68467 5914891 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
+```
+
+Check the col1 file:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ tail ./col1
+ប្រជាពលរដ្ឋទៅមើលតំបន់បំផ្លាញក្នុងតាមដានការពារ
+តែគាត់ទៅគាត់និយាយមិនដែលការពិតទេ​
+អរគុណ សន្តិភាព
+បដិសេដថាគ្មានរឿងកើតឡើងដូចចោទប្រកាន់ពីប្រជាពលរដ្ឋ
+ពេលខ្លះចាប់បានទាំងនៅជាថានេះជាជនក្លែងបន្លំ
+បាត់មុខៗមេសផុសរាល់ថ្ងៃមកបងខ្ញុំចាំ
+មិចមកងងុយតែដេកចឹង
+តែអ្នកអត់គូរ ពេលដើរលេងបានអ្នកណាជូនទៅ
+តើៗសុទ្ធតែនិយាយចឹងទាំងអស់មែនទេ?
+សូមអ្នកជំនាន់ក្រោយកុំយកតាមអី
+```
+
+Check the col2 file:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ tail ./col2
+ ប្រជាពលរដ្ឋទៅមើលតំបន់បំផ្លាញក្នុងបំណងតាមដានការពារ
+ ជឿតែគាត់ទៅគាត់និយាយមិនដែលការពិតទេ
+ អរគុណបិតា សន្តិភាព
+ បដិសេដថាគ្មានរឿងកើតឡើងដូចការចោទប្រកាន់ពីប្រជាពលរដ្ឋ
+ ពេលខ្លះចាប់បានទាំងនៅឯកសណ្ឋានបែរជាថាបុគ្គលនេះជាជនក្លែងបន្លំ
+ បាត់មុខយូរៗមេសផុសរាល់ថ្ងៃមកបងខ្ញុំចាំ
+ មិចមករៀនងងុយតែដេកចឹង
+ តែឆ្ងល់អ្នកអត់គូរ ពេលដើរលេងបានអ្នកណាជូនទៅ
+ តើបុរសៗសុទ្ធតែនិយាយចឹងទាំងអស់មែនទេ?
+ សូមអ្នកជំនាន់ក្រោយកុំយកតម្រាប់តាមអី
+```
 
 
