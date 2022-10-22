@@ -1296,6 +1296,82 @@ root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab# head
 root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab#
 ```
 
-## Prepare Shell Script
+## Prepare Shell Script for Edit1 Model
 
+Data Path:  
+/home/ye/exp/kh-spell/transformer/char-final/edit1  
 
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for Khmer Spelling Correction with NMT model, Sentence Level Experiment 1
+## Training with Edit Distance 1
+## Last updated: 22 Oct 2022
+
+mkdir model.transformer.sent.edit1;
+
+marian \
+    --model model.transformer.sent.edit1/model.npz --type transformer \
+    --train-sets char-final/edit1/train.er char-final/edit1/train.cr \
+    --max-length 300 \
+    --vocabs char-final/edit1/vocab/vocab.er.yml char-final/edit1/vocab/vocab.cr.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets char-final/edit1/valid.er char-final/edit1/valid.cr \
+    --valid-translation-output model.transformer.sent.edit1/valid.er-cr.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log model.transformer.sent.edit1/train.log --valid-log model.transformer.sent.edit1/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > model.transformer.sent.edit1/config.yml
+
+time marian -c model.transformer.sent.edit1/config.yml  2>&1 | tee transformer.sent.edit1.log
+```
+
+## Training edit-1 Model
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/transformer$ nvidia-smi
+Sat Oct 22 23:13:28 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.65.07    Driver Version: 515.65.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+| 39%   59C    P2   138W / 480W |   9030MiB / 24564MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1700      G   /usr/lib/xorg/Xorg                 59MiB |
+|    0   N/A  N/A      2469      G   /usr/bin/gnome-shell               11MiB |
+|    0   N/A  N/A     38105      C   marian                           8955MiB |
++-----------------------------------------------------------------------------+
+```
+
+```
+
+```
+
+```
+
+```
