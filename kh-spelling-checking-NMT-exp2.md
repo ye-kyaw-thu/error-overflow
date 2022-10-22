@@ -838,25 +838,132 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/
 ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$
 ```
 
-After simulation of edit1 and edit2, I should get the training data from the output file.   
+After simulation of edit1 and edit2, I should get the training data from the output file or error file.   
+
+## Recreating .cr Files for Word/  
+
+Recreating .cr files for edit1 and edit2 data ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ ls
+normalized  test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ rm *.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ ls
+normalized  test.er  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ mkdir original-err
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ mv *.er ./original-err/
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ cut -f1 ./original-err/test.er > ./test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ cut -f2 ./original-err/tes
+t.er > ./test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ cut -f1 ./original-err/train.er > ./train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ cut -f2 ./original-err/tra
+in.er > ./train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ wc *
+wc: normalized: Is a directory
+       0        0        0 normalized
+wc: original-err: Is a directory
+       0        0        0 original-err
+    4997    70463   991519 test.cr
+    4997    70307   991292 test.er
+   89981  1271358 17946793 train.cr
+   89981  1267963 17946779 train.er
+  189956  2680091 37876383 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$
+```
+
+recreating correct parallel data for edit1/normalized/ folder:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ mkdir original-err
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ mv *.er ./original-err/
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ ls
+original-err
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ cut -f1 ./original-err/test.er > ./test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ cut -f2 ./origi
+nal-err/test.er > ./test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ cut -f1 ./original-err/train.er > ./train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ cut -f2 ./origi
+nal-err/train.er > ./train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$ wc *
+wc: original-err: Is a directory
+       0        0        0 original-err
+    4997   140770  1976107 test.cr
+    4997   140770  1976107 test.er
+   89981  2539404 35774429 train.cr
+   89981  2539404 35774429 train.er
+  189956  5360348 75501072 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1/normalized$
+```
+
+recreating correct parallel data for edit2/ folder:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word$ cd edit2
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ ls
+normalized  test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ rm *.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ mkdir original-err
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ mv *.er ./original-err/
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f1 ./original-err/test.er > ./test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f2 ./original-err/tes
+t.er > ./test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f1 ./original-err/train.er > ./train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f2 ./original-err/tra
+in.er > ./train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ wc *
+wc: normalized: Is a directory
+       0        0        0 normalized
+wc: original-err: Is a directory
+       0        0        0 original-err
+    4998    70464   991524 test.cr
+    4998    70141   991542 test.er
+   89978  1271356 17946782 train.cr
+   89978  1265162 17946344 train.er
+  189952  2677123 37876192 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$
+```
+
+recreating correct parallel data for edit2/normalized/ folder data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word$ cd edit2
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ ls
+normalized  test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ rm *.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ mkdir original-err
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ mv *.er ./original-err/
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f1 ./original-err/test.er > ./test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f2 ./original-err/tes
+t.er > ./test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f1 ./original-err/train.er > ./train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cut -f2 ./original-err/tra
+in.er > ./train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ wc *
+wc: normalized: Is a directory
+       0        0        0 normalized
+wc: original-err: Is a directory
+       0        0        0 original-err
+    4998    70464   991524 test.cr
+    4998    70141   991542 test.er
+   89978  1271356 17946782 train.cr
+   89978  1265162 17946344 train.er
+  189952  2677123 37876192 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$
+```
+
+## Recreating .cr Files for char/
+
+Actually, recreating both cr and er files ... to make correct pairs ...  
+
+
+
+## Check the Data Again  
+
+for manual data:  
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 
 ```
 
