@@ -382,21 +382,33 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
 
 ## Prepare Training/Valid/Test Dataset
 
-```
+First I prepared test set from manually collected spelling error data:  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp col1 ./data-sent/manual/test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp col2 ./data-sent/manual/test.cr
 ```
 
-```
+Make edit-1 error simulation for edit-1 test data from the word segmented test-data ...  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ python3 ./make-edit-error.py ./5000-test-data.l
+ine.shuf 1 > ./data-sent/edit1/test.er
 ```
 
+Make edit-2 error simulation for edit-2 test data from word segmented test-data ...  
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ python3 ./make-edit-error.py ./5000-test-data.line.shuf 2 > ./data-sent/edit2/test.er
 ```
 
+Prepare target files for edit1 and edit2, from the word segmented test data ...  
+
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp 5000-test-data.line.shuf ./data-sent/edit1/test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp 5000-test-data.line.shuf ./data-sent/edit2/t
+est.cr
+```
+
 
 ```
 
