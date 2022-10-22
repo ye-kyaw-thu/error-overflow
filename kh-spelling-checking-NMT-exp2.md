@@ -32,4 +32,11 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ head ./dataall.normal.clean
 
 ## Thinking for the Training Data
 
+Decided to use "all-train-data.line.shuf" file.  
+Vichet and I used this file for Khmer word segmentation experiment at NICT.  
+
+I replaced following symbols with NULL to become a normal Khmer sentences.  
+
+- "_" found 165124  
+-   
 
