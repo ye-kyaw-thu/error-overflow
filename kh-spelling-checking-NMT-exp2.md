@@ -432,13 +432,78 @@ sys     0m33.351s
 ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
 ```
 
-```
+Preparing Training data for edit1 and edit2, the same ...   
+I hope you can follow the process ...  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp ./90000-train-data.line.shuf ./data-sent/edit1/train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp ./90000-train-data.line.shuf ./data-sent/edit2/train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
 ```
 
+Let's see once on current folder and file structure ...  
+
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ tree ./data-sent/
+./data-sent/
+├── edit1
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+├── edit2
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+└── manual
+    ├── test.cr
+    └── test.er
+
+3 directories, 10 files
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
+```
+
+The experimental setting is NMT model will be train with edit-1 error only and edit-2 error only.   
+Testing will be done with two test-sets. They are edit-x test-set and manual test-set.  
+   
+## Normalization
+
+Note: We have to do normalization ...  (i.e adjusting typing order and other errors based on the Unicode Rules)  
+
+
+Normalization for word level edit-1 data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ mkdir normalized
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ ls
+normalized  test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ python3 ../../khnormal2.py test.cr ./normalized/test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ python3 ../../khnormal2.py test.er ./normalized/test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ python3 ../../khnormal2.py train.cr ./normalized/train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$ python3 ../../khnormal2.py train.er ./normalized/train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit1$
+```
+
+Normalization for word level edit-2 data:
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ ls
+test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ mkdir normalized
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ python3 ../../khnormal2.py test.cr ./normalized/test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ python3 ../../khnormal2.py test.er ./normalized/test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ cp ../edit1/normalized/train.cr ./normalized/train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$ python3 ../../khnormal2.py ./train.er ./normalized/train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$
+```
+
+Note, current edit1 and edit2 data are word segmented data.  
+We wanna train with character segmentation because of spelling mistakes are generally happen among characters ... 
+For character level data, just copied normalized data into char/ folder ...  
+
+## Character Segmentation
+
+I will move above data under word/ folder ...  
 
 ```
 
