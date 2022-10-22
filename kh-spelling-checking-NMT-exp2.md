@@ -497,13 +497,59 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/
 ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/edit2$
 ```
 
+Normalization for the manual data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/manual$ ls
+test.cr  test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/manual$ mkdir normalized
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/manual$ python3 ../../khnormal2.py test.cr ./normalized/test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/word/manual$ python3 ../../khnormal2.py test.er ./normalized/test.er
+```
+
+Let's check the current folder structure ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent$ tree ./word/
+./word/
+├── edit1
+│   ├── normalized
+│   │   ├── test.cr
+│   │   ├── test.er
+│   │   ├── train.cr
+│   │   └── train.er
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+├── edit2
+│   ├── normalized
+│   │   ├── test.cr
+│   │   ├── test.er
+│   │   ├── train.cr
+│   │   └── train.er
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+└── manual
+    ├── normalized
+    │   ├── test.cr
+    │   └── test.er
+    ├── test.cr
+    └── test.er
+
+6 directories, 20 files
+```
+
+Above folder is for future usages ...  
 Note, current edit1 and edit2 data are word segmented data.  
 We wanna train with character segmentation because of spelling mistakes are generally happen among characters ... 
 For character level data, just copied normalized data into char/ folder ...  
 
 ## Character Segmentation
 
-I will move above data under word/ folder ...  
+We will work with character segmented data for NMT model training/testing. And thus, we have to make character segmentation ...  
 
 ```
 
