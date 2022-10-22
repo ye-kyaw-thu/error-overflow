@@ -37,6 +37,9 @@ Vichet and I used this file for Khmer word segmentation experiment at NICT.
 
 I replaced following symbols with NULL to become a normal Khmer sentences.  
 
-- "_" found 165124  
--   
+- "_" symbol found 165124  
+- "~" symbol found 42491
+- "^" symbol found 4933  
+
+
 
