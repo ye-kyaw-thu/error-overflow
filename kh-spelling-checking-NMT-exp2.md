@@ -79,7 +79,40 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell$ wc *
 ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell$
 ```
 
+Copy manually collected spelling data ...  
 
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/preprocessing$ cp dataall.normal.clean ../kh-segment/4khspell/
+```
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ wc *
+    5000    70465   986531 5000-test-data.line.shuf
+   90000  1271438 17857860 90000-train-data.line.shuf
+    7734    33250  3369917 dataall.normal.clean
+  102734  1375153 22214308 total
+```
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ head -n 3 *
+==> 5000-test-data.line.shuf <==
+អ្នក អាច បិទ កាតាប
+លោកស្រី ឈាន អ៊ីញ
+នេះ ជា បន្ទប់ បី សែសិប ប្រាំ
+
+==> 90000-train-data.line.shuf <==
+អ្នក អាច បិទ កាតាប
+លោកស្រី ឈាន អ៊ីញ
+នេះ ជា បន្ទប់ បី សែសិប ប្រាំ
+
+==> dataall.normal.clean <==
+<អញ្ចឹង>ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន|||(អ៊ីចឹង/dia)ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន
+សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្ម<នឹង>អក្សរ<បារាំ>|||សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្ម(និង/vow)អក្សរ(បារាំង/typo)
+ចង់មានបារាំងជួយ<ស្ទួច>ត្រីដូចលោកយាយដែរ|||ចង់មានបារាំងជួយ(ស្ទូច/vow)ត្រីដូចលោកយាយដែរ
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
+```
+
+## Preprocessing for NMT
 
 
 
