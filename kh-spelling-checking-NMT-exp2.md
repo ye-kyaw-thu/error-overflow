@@ -43,8 +43,12 @@ I replaced following symbols with NULL to become a normal Khmer sentences.
 
 And thus, after replacing ...  
 
-តើ អ្នក ទទួល_យក ការ~ពាណិជ្ជ^កម្ម ជំនួយ ?
-តើ អ្នក ទទួលយក ការពាណិជ្ជកម្ម ជំនួយ ?
+```
+តើ អ្នក ទទួល_យក ការ~ពាណិជ្ជ^កម្ម ជំនួយ ?  
+តើ អ្នក ទទួលយក ការពាណិជ្ជកម្ម ជំនួយ ?  
+```
+
+
 
 
 
