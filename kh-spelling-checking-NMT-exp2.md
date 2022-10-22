@@ -66,6 +66,18 @@ I replaced following symbols with NULL for Test Data
 - "~" 2182
 - "^" 238
 
+## Data Information
+
+After I uploaded to the Server, checked the datasize information ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell$ wc *
+    5000    70465   986531 5000-test-data.line.shuf
+   90000  1271438 17857860 90000-train-data.line.shuf
+   95210  1345277 18889815 all-train-data.line-no-symbol
+  190210  2687180 37734206 total
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell$
+```
 
 
 
