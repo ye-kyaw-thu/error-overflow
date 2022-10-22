@@ -1368,6 +1368,75 @@ Sat Oct 22 23:13:28 2022
 +-----------------------------------------------------------------------------+
 ```
 
+Check again after some minutes ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/transformer$ nvidia-smi
+Sat Oct 22 23:16:37 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.65.07    Driver Version: 515.65.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+| 35%   60C    P2   145W / 480W |  14534MiB / 24564MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1700      G   /usr/lib/xorg/Xorg                 59MiB |
+|    0   N/A  N/A      2469      G   /usr/bin/gnome-shell               11MiB |
+|    0   N/A  N/A     38105      C   marian                          14459MiB |
++-----------------------------------------------------------------------------+
+```
+
+For this time, I noted slow ... because of sentence level + character segmentation ...  
+
+```
+[2022-10-22 16:10:47] Ep. 1 : Up. 2000 : Sen. 55,937 : Cost 1.20876622 * 1,250,415 @ 2,803 after 5,001,838 : Time 8.51s : 146867.69 words/s : gNorm 0.9901 : L.r. 3.0000e-04
+[2022-10-22 16:10:55] Ep. 1 : Up. 2500 : Sen. 69,831 : Cost 0.99243867 * 1,248,123 @ 2,847 after 6,249,961 : Time 8.51s : 146588.79 words/s : gNorm 0.6245 : L.r. 3.0000e-04
+[2022-10-22 16:10:57] Seen 72,083 samples
+[2022-10-22 16:10:57] Starting data epoch 2 in logical epoch 2
+[2022-10-22 16:10:57] [data] Shuffling data
+[2022-10-22 16:10:57] [data] Done reading 80,000 sentences
+[2022-10-22 16:10:57] [data] Done shuffling 80,000 sentences to temp files
+[2022-10-22 16:11:04] Ep. 2 : Up. 3000 : Sen. 11,650 : Cost 0.91625762 * 1,248,821 @ 2,564 after 7,498,782 : Time 8.73s : 143006.84 words/s : gNorm 0.5931 : L.r. 3.0000e-04
+[2022-10-22 16:11:13] Ep. 2 : Up. 3500 : Sen. 25,832 : Cost 0.89091688 * 1,250,325 @ 2,215 after 8,749,107 : Time 8.54s : 146408.82 words/s : gNorm 0.5270 : L.r. 3.0000e-04
+[2022-10-22 16:11:21] Ep. 2 : Up. 4000 : Sen. 39,606 : Cost 0.88055176 * 1,248,212 @ 2,408 after 9,997,319 : Time 8.53s : 146349.93 words/s : gNorm 0.4775 : L.r. 3.0000e-04
+[2022-10-22 16:11:30] Ep. 2 : Up. 4500 : Sen. 53,582 : Cost 0.87474698 * 1,253,839 @ 2,821 after 11,251,158 : Time 8.55s : 146646.13 words/s : gNorm 0.4261 : L.r. 3.0000e-04
+[2022-10-22 16:11:38] Ep. 2 : Up. 5000 : Sen. 67,454 : Cost 0.87188166 * 1,247,536 @ 2,483 after 12,498,694 : Time 8.52s : 146409.83 words/s : gNorm 0.4728 : L.r. 3.0000e-04
+[2022-10-22 16:11:38] Saving model weights and runtime parameters to model.transformer.sent.edit1/model.iter5000.npz
+[2022-10-22 16:11:38] Saving model weights and runtime parameters to model.transformer.sent.edit1/model.npz
+[2022-10-22 16:11:38] Saving Adam parameters
+[2022-10-22 16:11:39] [training] Saving training checkpoint to model.transformer.sent.edit1/model.npz and model.transformer.sent.edit1/model.npz.optimizer.npz
+[2022-10-22 16:12:26] [valid] Ep. 2 : Up. 5000 : cross-entropy : 77.4693 : new best
+[2022-10-22 16:12:30] [valid] Ep. 2 : Up. 5000 : perplexity : 1.84213 : new best
+```
+
+Anyway, for today, I did my best ... I should enjoy my late dinner ... :)  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
