@@ -2,7 +2,7 @@
 
 Previous experiment, I did with word level and for this time, I wanna try with sentence level.  
 
-## Thinking for Test Data
+## Thinking for Open Test Data
 
 We already have manually collected spelling mistake data and I am considering to use that whole data as a test-set.  
 
@@ -47,6 +47,11 @@ And thus, after replacing ...
 តើ អ្នក ទទួល_យក ការ~ពាណិជ្ជ^កម្ម ជំនួយ ?  
 តើ អ្នក ទទួលយក ការពាណិជ្ជកម្ម ជំនួយ ?  
 ```
+
+## Thinking for the Closed Test Data
+
+I plan to use the test data of the Khmer word segmentation experiment.  
+
 
 
 
