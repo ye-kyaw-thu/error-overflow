@@ -1068,44 +1068,157 @@ wc: original-err: Is a directory
 
 ## Check the Data Again  
 
-for manual data:  
+See the char/ folder structure:   
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ ls *
+char-segmentation.sh
+
+edit1:
+normalized  original-err  test.cr  test.er  train.cr  train.er
+
+edit2:
+normalized  original-err  test.cr  test.er  train.cr  train.er
+
+manual:
+normalized  test.cr  test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$
 
 ```
 
+Actually, I have to used normalized data only and move to a new folder for easy to access:  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ mkdir char-final
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ cp -r ./edit1/normalized/ ./char-final/edit1
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ cp -r ./edit2/normalized/ ./char
+-final/edit2
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ cp -r ./manual/normalized/ ./cha
+r-final/manual
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$
 ```
 
-```
+check ...  
 
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char$ tree ./char-final/
+./char-final/
+├── edit1
+│   ├── original-err
+│   │   ├── test.er
+│   │   └── train.er
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+├── edit2
+│   ├── original-err
+│   │   ├── test.er
+│   │   └── train.er
+│   ├── test.cr
+│   ├── test.er
+│   ├── train.cr
+│   └── train.er
+└── manual
+    ├── test.cr
+    └── test.er
+
+5 directories, 14 files
+```
+Important!!!  
+Path of the final character segmented and also Normalized Data (in Preprocessing Step):  
+/home/ye/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/char-final  
+
+copy above folders to the NMT experiment folder:  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/transformer$ sudo cp -r /home/ye/exp/kh-spell/data/kh-segment/4khspell/preprocessing/da
+ta-sent/char/char-final/ .
 ```
 
-```
+## Adding Validation Data
+
+for edit1/  
 
 ```
-
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# head -n 80000 ./train-valid/train.cr > ./train.cr
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# tail -n 9981 ./train-valid/train.cr > ./valid.cr
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# head -n 80000 ./train-valid/train.er > ./train.e
+r
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# tail -n 9981 ./train-valid/train.er > ./valid.er
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1#
 ```
 
-```
+Final data size for edit1/  
 
 ```
-
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# wc {train,valid,test}.{cr,er}
+   80000    54660 39293638 train.cr
+   80000    54660 39293638 train.er
+    9981     6911  5024735 valid.cr
+    9981     6911  5024735 valid.er
+    4997     3416  2447409 test.cr
+    4997     3416  2447409 test.er
+  189956   129974 93531564 total
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1#
 ```
 
-```
+adding validation data for edit2/  
 
 ```
-
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# wc ./train-valid/*
+   89978    61584 44312694 ./train-valid/train.cr
+   89978    61584 44312694 ./train-valid/train.er
+  179956   123168 88625388 total
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# head -n 80000 ./train-valid/train.cr > ./train.cr
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# tail -n 9978 ./train-valid/train.cr > ./valid.cr
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# head -n 80000 ./train-valid/train.er > ./train.e
+r
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# tail -n 9978 ./train-valid/train.er > ./valid.er
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2#
 ```
 
-```
+check data size for edit2/  
 
 ```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# wc {train,valid,test}.{cr,er}
+   80000    54677 39289177 train.cr
+   80000    54677 39289177 train.er
+    9978     6907  5023517 valid.cr
+    9978     6907  5023517 valid.er
+    4998     3424  2447429 test.cr
+    4998     3424  2447429 test.er
+  189952   130016 93520246 total
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2#
+```
+
+manual test data:  
+
+```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/manual# wc *
+   7734    3204 2127990 test.cr
+   7734    3135 1768641 test.er
+  15468    6339 3896631 total
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/manual# head -n 2 *
+==> test.cr <==
+អ ៊ ី ច ឹ ង ក ៏ ថ ត គ ្ ន ា ដ ែ រ គ ្ រ ា ន ់ ត ែ គ ្ ន ា រ ក ស ៊ ី ម ក ព ស ់ រ ស ់ ម ួ យ ខ ្ ល ួ ន
+ស ម ័ យ ផ ្ ត ា ច ់ ស ង ្ គ រ ា ម ខ ្ ម ែ រ យ ើ ង រ ៀ ន អ ក ្ ខ រ ក ម ្ ម ន ិ ង អ ក ្ ស រ ប ា រ ា ំ ង
+
+==> test.er <==
+ក ៏ ថ ត គ ្ ន ា ដ ែ រ គ ្ រ ា ន ់ ត ែ គ ្ ន ា រ ក ស ៊ ី ម ក ព ស ់ រ ស ់ ម ួ យ ខ ្ ល ួ ន
+ស ម ័ យ ផ ្ ត ា ច ់ ស ង ្ គ រ ា ម ខ ្ ម ែ រ យ ើ ង រ ៀ ន អ ក ្ ខ រ ក ម ្ ម អ ក ្ ស រ
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/manual#
+```
+
+## Experimental Setting
+
+I will train two models. One is training with edit-distance 1 errors and another is edit-distance 2 errors.  
+For the testing, I will use three test-sets. They are as follows:  
+
+- edit-1 test-set (test set of Khmer word segmented data with edit-1)
+- edit-2 test-set (test set of Khmer word segmented data with edit-2)
+- manual test-set (the whole data that manually prepared)
+
 
 ```
 
