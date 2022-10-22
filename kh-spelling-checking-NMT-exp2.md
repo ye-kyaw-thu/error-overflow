@@ -210,8 +210,100 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ tail -n 3
 ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
 ```
 
+## Split into 2 Columns
+
+We need to split manually collected data into two files. I wrote a perl script as follows:  
+
+```perl 
+#!/usr/bin/env perl
+
+# Split column1, column2 and write into two output files
+# Ye Kyaw Thu, IDRI, CADT, Cambodia
+#
+# Last updated: 22 Oct 2022
+# Preparation for 4th NLP/AI Workshop 2022
+# e.g. $ perl split-col1-col2.pl <input-file> <column1-output-file> <column2-output-file2>
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+open (my $inputFILE,"<:encoding(utf8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+open (my $outputFILE1,">:encoding(utf8)", $ARGV[1]) or die "Couldn't open input file $ARGV[1]!, $!\n";
+open (my $outputFILE2,">:encoding(utf8)", $ARGV[2]) or die "Couldn't open input file $ARGV[2]!, $!\n";
+
+while (!eof($inputFILE)) {
+
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        my ($col1, $col2) = split(/\|\|\|/, $line);
+        print $outputFILE1 "$col1\n";
+        print $outputFILE2 "$col2\n";
+    }
+
+}
+
+close ($inputFILE);
+close ($outputFILE1);
+close ($outputFILE2);
 ```
 
+Prepare a small test file:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cat 10-clean.txt
+ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន|||អ៊ីចឹងក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន
+សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្មអក្សរ|||សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្មនិងអក្សរបារាំង
+ចង់មានបារាំងជួយត្រីដូចលោកយាយដែរ|||ចង់មានបារាំងជួយស្ទូចត្រីដូចលោកយាយដែរ
+ខ្ញុំវិញសុំឆ្លើយថាទេហើយ អ្នកណាថាប្រុសកំសាកក៏ថាទៅ|||សម្រាប់ខ្ញុំវិញសុំឆ្លើយថាទេហើយ អ្នកណាថាប្រុសកំសាកអ្វីក៏ថាទៅ
+បាតនឹងហើយបងជួយfollowed ស៊ែមួយផងបង|||បាតនឹងហើយបងជួយfollowed និងស៊ែមួយផងបង
+ម្តាយដើម្បីកូនហានធ្វើគ្រប់យ៉ាងសុំ|||ម្តាយដើម្បីកូនហានធ្វើគ្រប់យ៉ាងសុំសរសើរ
+កូនមើលចុះកូនចុះកូនៗវិញ|||កូនមើលចុះដើម្បីកូនចុះកូនៗវិញ
+ខ្ញុំវិញក៏ដូចជា|||ខ្ញុំវិញក៏ដូចជាគាត់ដែរ
+ទេពស់ត្រី|||មិនមែនទេពស់ត្រី
+ចំណាស់ហើយទៅរកត្រីអើយ|||ចំណាស់ហ្នឹងហើយទៅរកត្រីទៀតអ៊ុំអើយ
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
+```
+
+Test run ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ perl ./split-col1-col2.pl ./10-clean.txt col1 col2
+```
+
+Checked the output files and it looks OK ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cat col1
+ក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន
+សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្មអក្សរ
+ចង់មានបារាំងជួយត្រីដូចលោកយាយដែរ
+ខ្ញុំវិញសុំឆ្លើយថាទេហើយ អ្នកណាថាប្រុសកំសាកក៏ថាទៅ
+បាតនឹងហើយបងជួយfollowed ស៊ែមួយផងបង
+ម្តាយដើម្បីកូនហានធ្វើគ្រប់យ៉ាងសុំ
+កូនមើលចុះកូនចុះកូនៗវិញ
+ខ្ញុំវិញក៏ដូចជា
+ទេពស់ត្រី
+ចំណាស់ហើយទៅរកត្រីអើយ
+```
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cat col2
+អ៊ីចឹងក៏ថតគ្នាដែរគ្រាន់តែគ្នារកស៊ីមកពស់រស់មួយខ្លួន
+សម័យផ្តាច់សង្គរាមខ្មែរយើងរៀនអក្ខរកម្មនិងអក្សរបារាំង
+ចង់មានបារាំងជួយស្ទូចត្រីដូចលោកយាយដែរ
+សម្រាប់ខ្ញុំវិញសុំឆ្លើយថាទេហើយ អ្នកណាថាប្រុសកំសាកអ្វីក៏ថាទៅ
+បាតនឹងហើយបងជួយfollowed និងស៊ែមួយផងបង
+ម្តាយដើម្បីកូនហានធ្វើគ្រប់យ៉ាងសុំសរសើរ
+កូនមើលចុះដើម្បីកូនចុះកូនៗវិញ
+ខ្ញុំវិញក៏ដូចជាគាត់ដែរ
+មិនមែនទេពស់ត្រី
+ចំណាស់ហ្នឹងហើយទៅរកត្រីទៀតអ៊ុំអើយ
 ```
 
 
