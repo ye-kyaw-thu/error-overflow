@@ -551,33 +551,182 @@ For character level data, just copied normalized data into char/ folder ...
 
 We will work with character segmented data for NMT model training/testing. And thus, we have to make character segmentation ...  
 
+I used my old shell script named "char-segmentation.sh" under my GitHub, Tool/ ...  
+
+```bash
+#!/bin/bash
+
+# character segmentation
+# Written by Ye, LST Lab., NECTEC, Thailand
+# How to run: char-segmentation.sh <input-filename>
+# For example:
+# cat chk.tmp
+# နန် ကော်ဖီ သော့-က့့့််် ဟှို့လား ဆိုဟှီး ငါ  ပြော ဇာ ။
+#
+# ./char-segmentation.sh ./chk.tmp
+# န န ် က ေ ာ ် ဖ ီ သ ေ ာ ့ - က ် ့ ် ့ ် ့ ဟ ှ ိ ု ့ လ ာ း ဆ ိ ု ဟ ှ ီ း င ါ ပ ြ ေ ာ ဇ ာ ။ 
+# By using ./char-segmentation.sh, now you can clearly seen "three athat and auk-ka-myint" typing mistake of a Dawei sentence
+
+sed 's/\(.\)/\1 /g' $1 | sed 's/ \+/ /g';
+```
+
+Character segmentation ...  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ chmod +x ../char-segmentation.sh
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ ../char-segmentation.sh ./test.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ mv out test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ head test.cr
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+ត ើ ច ំ ណ ា យ រ ួ ម ទ ា ំ ង អ ស ់ ស ម ្ រ ា ប ់ ស ំ ភ ា រ ៈ ថ ្ ល ៃ ប ៉ ុ ន ្ ម ា ន ?
+ល ោ ក វ ណ ្ ណ រ ៉ ុ ង
+រ ូ ប ៩ . ៣ ៩ ស ្ ម ៅ រ ព ា ក ់ ទ ឹ ក ខ . ជ ម ្ រ ក ន ិ ង ស ា រ ស ំ ខ ា ន ់ ស ្ ម ៅ រ ព ា ក ់ ទ ឹ ក ជ ា ជ ម ្ រ ក ស ត ្ វ ល ្ អ ិ ត ន ិ ង ជ ំ ង ឺ ម ួ យ ច ំ ន ួ ន ល ើ ដ ំ ណ ា ំ ស ្ រ ូ វ ដ ូ ច ជ ា ដ ង ្ ក ូ វ ប ា ក ់ ខ ្ ន ង ខ ្ ញ ុ ង ប ន ្ ល ា ម េ អ ំ ប ៅ ដ ង ្ ក ូ វ ភ ្ ន ែ ក ឆ ្ ម ា ដ ង ្ ក ូ វ ម ូ រ ស ្ ល ឹ ក ជ ំ ង ឺ ត ឿ ល ឿ ង ណ េ ម ៉ ា ត ូ ត ល ើ ឫ ស ខ ្ យ ង ស ៊ ី ស ្ រ ូ វ ព ណ ៌ ម ា ស ជ ា ដ ើ ម
+ក ្ រ ុ ម ឃ ្ ល ា ំ ម ើ ល ន េ ះ ប ា ន ន ិ យ ា យ ថ ា ក ្ ន ុ ង ត ំ ប ន ់ ជ ា ច ្ រ ើ ន ន ៃ ខ េ ត ្ ត អ ា ឡ ិ ប ប ៉ ូ គ ្ រ ប ់ គ ្ រ ង ដ ោ យ ក ្ រ ុ ម ឧ ទ ្ ទ ា ម ក ្ ន ុ ង ន ោ ះ ម ា ន ក ្ រ ុ ង ន ោ ះ ផ ្ ទ ា ល ់ ផ ង « ជ ន ស ៊ ី វ ិ ល យ ៉ ា ង ត ិ ច ៧ ១ ន ា ក ់ ត ្ រ ូ វ ប ា ន ស ម ្ ល ា ប ់ » R ន ិ ង រ ា ប ់ ស ិ ប ន ា ក ់ ប ា ន រ ង រ ប ួ ស ន ៅ ព េ ល ឧ ទ ្ ធ ម ្ ភ ា គ ច ក ្ រ រ ប ប ន េ ះ ប ា ន ទ ម ្ ល ា ក ់ គ ្ រ ា ប ់ ប ែ ក ធ ុ ង » R ។
+ត ើ ប ូ ក រ ួ ម ប ញ ្ ច ូ ល ទ ា ំ ង អ ា ជ ្ ញ ា ប ណ ្ ណ ដ ែ រ ទ េ ?
+ខ ្ ញ ុ ំ ច ង ់ ទ ូ រ ស ័ ព ្ ទ ស ្ ថ ា ន ី យ ៍ ទ ៅ ស ្ ថ ា ន ី យ ៍ ទ ៅ ប ្ រ ទ េ ស ជ ប ៉ ុ ន
+ត ើ ណ ា ម ួ យ ដ ែ ល អ ្ ន ក ច ង ់ ប ា ន ត ែ រ ឺ ក ា ហ ្ វ េ ?
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$
 ```
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ ../char-segmentation.sh ./test.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ mv ./out ./test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ ../char-segmentation.sh ./train.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ mv ./out train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ ../char-segmentation.sh ./train.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ mv ./out train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$
 ```
 
-```
-
-
-```
+check all files under edit-1/   
 
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$ head -3 *
+==> normalized <==
+head: error reading 'normalized': Is a directory
 
+==> test.cr <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+
+==> test.er <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប    អ ្ ន ក អ ា ច ប ិ ទ ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ      ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ    ន េ ះ ជ ា ប ន ្ ទ ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+
+==> train.cr <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+
+==> train.er <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប    អ ្ ន ្ អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ      ល ោ ក ស ្ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ    ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ រ ំ
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1$
 ```
 
-```
+For edit-1, normalized/ folder ...  
 
 ```
-
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ ls
+test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ ../../char-segmentation.sh ./test.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ mv out test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ ../../char-segmentation.sh ./test.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ mv out test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ ../../char-segmentation.sh train.cr > out
+mye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ mv out train.r
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ ../../char-segmentation.sh train.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ mv out train.er
 ```
 
-```
+Checked the character segmented data with my eyeball: 
 
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$ head -n 3 *
+==> test.cr <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
 
+==> test.er <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប អ ្ ន ក អ ា ច ប ិ ទ ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ ន េ ះ ជ ា ប ន ្ ទ ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+
+==> train.cr <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ
+
+==> train.er <==
+អ ្ ន ក អ ា ច ប ិ ទ ក ា ត ា ប អ ្ ន ្ អ ា ច ប ិ ទ ក ា ត ា ប
+ល ោ ក ស ្ រ ី ឈ ា ន អ ៊ ី ញ ល ោ ក ស ្ ី ឈ ា ន អ ៊ ី ញ
+ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ ា ំ ន េ ះ ជ ា ប ន ្ ទ ប ់ ប ី ស ែ ស ិ ប ប ្ រ រ ំ
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit1/normalized$
 ```
 
+Character segmentation for edit-2 data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ ls
+normalized  test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ ../char-segmentation.sh ./test.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ mv out test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ ../char-segmentation.sh ./test.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ mv out test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ ../char-segmentation.sh ./train.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ mv out train.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ ../char-segmentation.sh ./train.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2$ mv out train.er
+```
+
+Character segmentation for edit-2, normalized data:  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ls
+test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ../../char-segmentation.sh ./test.cr > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ mv out test.cr
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ../../char-segmentation.sh test.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ mv out test.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ../../char-segmentation.sh ./train.cr > out
+mye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ mv out train.r
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ../../char-segmentation.sh ./train.er > out
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ mv out train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ ls
+test.cr  test.er  train.cr  train.er
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$
+```
+
+for training, I will used under normalized folder. And thus check with my eyeball :)  
+
+```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$ tail -n 3 *
+==> test.cr <==
+អ ្ ន ក អ ា ច ម ក ជ ួ យ ស ្ ទ ូ ច ទ ៅ ប ា ន ទ េ ?
+ស ូ ម យ ក ព ួ ក យ ើ ង ទ ៅ ជ ួ ប វ េ ជ ្ ជ ប ណ ្ ឌ ិ ត ន ិ យ ា យ ភ ា ស ា ជ ប ៉ ុ ន
+អ ្ ន ក ត ្ រ ូ វ ត ែ ប ំ ព េ ញ ក ន ្ ល ែ ង ដ ែ ល ខ ្ វ ះ ខ ា ត
+
+==> test.er <==
+អ ្ ន ក អ ា ច ម ក ជ ួ យ ស ្ ទ ូ ច ទ ៅ ប ា ន ទ េ ? អ ្ ន ក ា អ ា ច ម ក ជ ួ យ ស ្ ទ ូ ច ទ ៅ ប ន ា ទ េ ?
+ស ូ ម យ ក ព ួ ក យ ើ ង ទ ៅ ជ ួ ប វ េ ជ ្ ជ ប ណ ្ ឌ ិ ត ន ិ យ ា យ ភ ា ស ា ជ ប ៉ ុ ន ស ូ ម យ ក ព ួ ក យ ើ ង ទ ៅ ជ ួ ប វ េ ជ ្ ជ ប ណ ្ ឌ ិ ត ន ិ យ ា យ ា ភ ស ា ជ ឌ ៉ ុ ន
+អ ្ ន ក ត ្ រ ូ វ ត ែ ប ំ ព េ ញ ក ន ្ ល ែ ង ដ ែ ល ខ ្ វ ះ ខ ា ត អ ្ ន ក ត ្ រ ូ វ ត ែ ប ំ ព េ ញ ក ន ្ ែ ល ង ដ ែ ល ខ ្ វ ះ ខ ា ្
+
+==> train.cr <==
+ជ ា ម ួ យ គ ្ ន ា ន េ ះ ដ ែ រ ក ្ រ ុ ម រ ដ ្ ឋ អ ៊ ិ ស ្ ល ា ម ជ ្ រ ុ ល ន ិ យ ម ប ា ន ជ ំ រ ុ ញ ក ា រ វ ា យ ប ្ រ ហ ា រ រ ប ស ់ ខ ្ ល ួ ន ល ើ ក ្ រ ុ ង ស ៊ ី រ ី ភ ា គ ឦ ស ា ន ដ ោ យ ប ំ ផ ្ ទ ុ ះ គ ្ រ ា ប ់ ប ែ ក ក ្ ន ុ ង រ ថ យ ន ្ ត យ ៉ ា ង ត ិ ច ៥ គ ្ រ ឿ ង ខ ណ ៈ ព េ ល ខ ្ ល ួ ន ប ា ន រ ុ ល ទ ៅ ម ុ ខ ស ំ ដ ៅ ច ូ ល ក ្ រ ុ ង ។
+ក ា ល ប ុ រ ស ទ ា ំ ង ៤ ន ា ក ់ យ ក ឈ ើ ម ក ធ ្ វ ើ ឲ ្ យ ក ើ ត ជ ា រ ូ ប ម ន ុ ស ្ ស ស ្ ត រ ី ប ា ន ស ្ រ េ ច ហ ើ យ ក ៏ ដ ណ ្ ត ើ ម គ ្ ន ា យ ក ស ្ ត រ ី ន ោ ះ ធ ្ វ ើ ជ ា ភ រ ិ យ ា ត ែ រ ៀ ង ខ ្ ល ួ ន ប ្ រ ក ែ ក គ ្ ន ា ទ ៅ វ ិ ញ ទ ៅ ម ក គ ្ ម ា ន អ ្ ន ក ណ ា ជ ំ ន ុ ំ ជ ម ្ រ ះ ស ម ្ រ េ ច ឲ ្ យ ស ោ ះ ទ ើ ប ន ា ំ គ ្ ន ា ទ ៅ ប ្ ត ឹ ង ច ៅ ក ្ រ ម ត ា ម ដ ំ ណ ើ រ ទ ី ទ ៃ ៗ ។
+ខ ្ ញ ុ ំ ន ឹ ង យ ក ជ េ អ េ អ ែ ល
+
+==> train.er <==
+ជ ា ម ួ យ គ ្ ន ា ន េ ះ ដ ែ រ ក ្ រ ុ ម រ ដ ្ ឋ អ ៊ ិ ស ្ ល ា ម ជ ្ រ ុ ល ន ិ យ ម ប ា ន ជ ំ រ ុ ញ ក ា រ វ ា យ ប ្ រ ហ ា រ រ ប ស ់ ខ ្ ល ួ ន ល ើ ក ្ រ ុ ង ស ៊ ី រ ី ភ ា គ ឦ ស ា ន ដ ោ យ ប ំ ផ ្ ទ ុ ះ គ ្ រ ា ប ់ ប ែ ក ក ្ ន ុ ង រ ថ យ ន ្ ត យ ៉ ា ង ត ិ ច ៥ គ ្ រ ឿ ង ខ ណ ៈ ព េ ល ខ ្ ល ួ ន ប ា ន រ ុ ល ទ ៅ ម ុ ខ ស ំ ដ ៅ ច ូ ល ក ្ រ ុ ង ។ ជ ា ម ួ យ គ ្ ន ា ន េ ះ ដ ែ រ ក ្ រ ុ ម រ ដ ្ ឋ អ ៊ ិ ស ្ ល ា ម ជ ្ រ ុ ល ន ិ យ ម ប ា ន ជ ំ រ ុ ញ ក ា រ វ ា យ ប ្ រ ហ ា រ រ ប ស ់ ខ ្ ល ួ ន ល ើ ក ្ រ ុ ង ស ៊ ី រ ី ភ ា គ ឦ ស ា ន ដ ោ យ ប ំ ផ ្ ទ ុ ះ គ ្ រ ា ប ់ ប ែ ក ក ្ ន ុ ង រ ថ យ ន ្ ត យ ៉ ា ង ត ិ ច ៥ គ ្ រ ឿ ង ខ ណ ៈ ព េ ល ខ ្ ល ួ ន ប ា ន រ ុ ល ទ ៅ ម ុ ខ ស ំ ដ ៅ ច ូ ល ក ្ រ ុ ង ។
+ក ា ល ប ុ រ ស ទ ា ំ ង ៤ ន ា ក ់ យ ក ឈ ើ ម ក ធ ្ វ ើ ឲ ្ យ ក ើ ត ជ ា រ ូ ប ម ន ុ ស ្ ស ស ្ ត រ ី ប ា ន ស ្ រ េ ច ហ ើ យ ក ៏ ដ ណ ្ ត ើ ម គ ្ ន ា យ ក ស ្ ត រ ី ន ោ ះ ធ ្ វ ើ ជ ា ភ រ ិ យ ា ត ែ រ ៀ ង ខ ្ ល ួ ន ប ្ រ ក ែ ក គ ្ ន ា ទ ៅ វ ិ ញ ទ ៅ ម ក គ ្ ម ា ន អ ្ ន ក ណ ា ជ ំ ន ុ ំ ជ ម ្ រ ះ ស ម ្ រ េ ច ឲ ្ យ ស ោ ះ ទ ើ ប ន ា ំ គ ្ ន ា ទ ៅ ប ្ ត ឹ ង ច ៅ ក ្ រ ម ត ា ម ដ ំ ណ ើ រ ទ ី ទ ៃ ៗ ។ ក ា ល ប ុ រ ស ទ ា ំ ង ៤ ន ា ក ក ់ យ ក ឈ ើ ម ក ធ ្ វ ើ ឲ ្ យ ក ើ ត ជ ា រ ូ ប ម ន ុ ស ្ ស ស ្ ត រ ី ប ា ន ស ្ រ េ ច ហ ើ យ ក ៏ ដ ណ ្ ត ើ ម គ ្ ន ា យ ក ស ្ ត រ ី ន ោ ះ ្ ធ វ ើ ជ ា ភ រ ិ យ ា ត ែ រ ៀ ង ខ ្ ល ួ ន ប ្ រ ក ែ ក គ ្ ន ា ទ ៅ វ ិ ញ ទ ៅ ម ក គ ្ ម ា ន អ ្ ន ក ណ ា ជ ំ ន ុ ំ ជ ម ្ រ ះ ស ម ្ រ េ ច ឲ ្ យ ស ោ ះ ទ ើ ប ន ា ំ គ ្ ន ា ទ ៅ ប ្ ត ឹ ង ច ៅ ក ្ រ ម ត ា ម ដ ំ ណ ើ រ ទ ី ទ ៃ ៗ ។
+ខ ្ ញ ុ ំ ន ឹ ង យ ក ជ េ អ េ អ ែ ល ខ ្ ញ ុ ំ ន ឹ ង ក យ ជ េ អ េ អ ែ ល
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing/data-sent/char/edit2/normalized$
 ```
 
 ```
