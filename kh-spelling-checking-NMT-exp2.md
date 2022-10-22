@@ -409,14 +409,27 @@ ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ cp 5000-t
 est.cr
 ```
 
+Prepareing Training data-set for NMT model building ...  
+for edit-distance 1:  
 
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ time python3 ./make-edit-error.py ./90000-train
+-data.line.shuf 1 > ./data-sent/edit1/train.er
 
+real    0m2.858s
+user    0m2.635s
+sys     0m0.028s
 ```
 
+for edit-distance 2:  
 
 ```
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$ time python3 ./make-edit-error.py ./90000-train-data.line.shuf 2 > ./data-sent/edit2/train.er
 
+real    7m34.801s
+user    7m1.377s
+sys     0m33.351s
+ye@lst-gpu-3090:~/exp/kh-spell/data/kh-segment/4khspell/preprocessing$
 ```
 
 ```
