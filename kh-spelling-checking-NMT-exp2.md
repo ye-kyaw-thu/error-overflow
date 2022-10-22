@@ -1220,15 +1220,82 @@ For the testing, I will use three test-sets. They are as follows:
 - manual test-set (the whole data that manually prepared)
 
 
+## Make Vocab
+
+for edit1/  
+
+```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1# cd vocab/
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1/vocab# marian-vocab < ./all.cr > vocab.cr.yml
+[2022-10-22 15:57:28] Creating vocabulary...
+[2022-10-22 15:57:28] [data] Creating vocabulary stdout from stdin
+[2022-10-22 15:57:29] Finished
 ```
 
 ```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit1/vocab# marian-vocab < ./all.er > vocab.er.yml
+[2022-10-22 15:57:50] Creating vocabulary...
+[2022-10-22 15:57:50] [data] Creating vocabulary stdout from stdin
+[2022-10-22 15:57:51] Finished
+```
 
+
+for edit2/  
+
+```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# ls
+original-err  test.cr  test.er  train-valid  train.cr  train.er  valid.cr  valid.er
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# mkdir vocab
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# cat train.cr valid.cr test.cr ../edit1/test.cr ../manual/test.cr > ./vocab/all.cr
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2# cat train.er valid.er test.er ../edit1/test.er .
+./manual/test.er > ./vocab/all.er
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2#
 ```
 
 ```
-
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab# ls
+all.cr  all.er
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab# marian-vocab < all.cr > vocab.cr.yml
+[2022-10-22 16:01:06] Creating vocabulary...
+[2022-10-22 16:01:06] [data] Creating vocabulary stdout from stdin
+[2022-10-22 16:01:07] Finished
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab# marian-vocab < all.er > vocab.er.yml
+[2022-10-22 16:01:16] Creating vocabulary...
+[2022-10-22 16:01:16] [data] Creating vocabulary stdout from stdin
+[2022-10-22 16:01:17] Finished
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab#
 ```
 
+check vocab file:  
+
 ```
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab# head vocab.*
+==> vocab.cr.yml <==
+</s>: 0
+<unk>: 1                                                                                                              ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
+
+==> vocab.er.yml <==
+</s>: 0
+<unk>: 1                                                                                                              ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/char-final/edit2/vocab#
+```
+
+## Prepare Shell Script
+
 
