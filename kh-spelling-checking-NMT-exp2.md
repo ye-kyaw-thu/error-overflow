@@ -2,7 +2,7 @@
 
 Previous experiment, I did with word level and for this time, I wanna try with sentence level.  
 
-## Thinking for Open Test Data
+## Thinking for the Test Data
 
 We already have manually collected spelling mistake data and I am considering to use that whole data as a test-set.  
 
@@ -51,6 +51,22 @@ And thus, after replacing ...
 ## Thinking for the Closed Test Data
 
 I plan to use the test data of the Khmer word segmentation experiment.  
+
+## Preparing Training and Test Data for Sentence Level Spelling Checking 
+
+I replaced symbols with NULL for Training Data  
+
+- "_" 156201
+- "~" 40039
+- "^" 4653
+
+I replaced following symbols with NULL for Test Data  
+
+- "_" 8573
+- "~" 2182
+- "^" 238
+
+
 
 
 
