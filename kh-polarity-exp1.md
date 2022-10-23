@@ -17,7 +17,10 @@ Use of uninitialized value $col3 in concatenation (.) or string at ../cut-column
 ## Cleaned Data Information
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ ls700.txt  805.txt  8.5k.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat 8.5k.txt 700.txt 805.txt > ./kh-polar.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ wc ./kh-polar.txt 
+  10015  101462 5705194 ./kh-polar.txt
 ```
 
 ```
