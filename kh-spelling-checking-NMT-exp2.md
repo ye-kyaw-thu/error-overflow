@@ -1555,19 +1555,82 @@ sys     5m57.986s
 
 ## Testing with Edit-1 NMT Model
 
+Data folder path: /home/ye/exp/kh-spell/transformer/char-final  
+Preparing test-eval-best.sh bash sript ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliate Professor, CADT, Cambodia
+## for NMT Experiments for Khmer Spelling Checking with NMT Model
+## preparing to run with edit-distance 1 model
+## used Marian NMT Framework for training
+## Last updated: 23 Oct 2022
+
+data_path="/home/ye/exp/kh-spell/transformer/char-final/edit1";
+src="er"; tgt="cr";
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.manual.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/manual/test.${src};
+echo "Evaluation with hyp.best.manual.${tgt}, Transformer sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/manual/test.${tgt} \
+< ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit1.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.edit1.${tgt}, Transformer sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit1.${tgt} >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit1.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit2.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/edit2/test.${src};
+echo "Evaluation with hyp.best.edit2.${tgt}, Transformer sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/edit2/test.${tgt} \
+< ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
 ```
 
-```
+Running testing ...  
 
 ```
+[2022-10-23 02:09:28] Best translation 4918 : អ ្ វ ី ដ ែ ល ជ ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ? អ វ ្ ី ដ ែ ល ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ?
+[2022-10-23 02:09:28] Best translation 4919 : ខ ្ ញ ុ ំ ច ង ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់  ្ ង ៃ ស ្ អ ែ ក ខ ្ ញ ុ ំ ច ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់ ្ ង ៃ ស ្ អ ែ ក
+[2022-10-23 02:09:29] Best translation 4920 : ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ ទ េ ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ េ េ
+[2022-10-23 02:09:29] Best translation 4921 : ក ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។  ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ម ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។
+[2022-10-23 02:09:29] Best translation 4922 : ត ើ ន ៅ ហ ា វ ៉ ៃ ម ៉ ោ ង ជ ា ថ ្ ង ៃ អ ្ វ ី ? ត ើ ន ៅ ហ ៉ វ ៉ ៃ ម ៉ ោ ង ជ ា ថ                                                                                                               ្                                                                                                                     ្ ង ៃ អ ្ វ ី ? ្
+[2022-10-23 02:09:29] Best translation 4923 : ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ ស ុ វ ណ ្ ណ ី ស ូ ម ្ ប ី ម ួ យ ម                                                                                                           ៉                                                                                                                     ៉ ា ត ់ ន ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ា ំ ង ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ  ុ វ ណ ្ ណ ី ស ម ្ ប ូ ី ម ួ យ ម ៉ ា ត ់ ន ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ី ា ង
+[2022-10-23 02:09:29] Total time: 977.98775s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    38m57.998s
+user    38m51.370s
+sys     0m11.418s
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1# time ./test-eval-best.sh
 ```
 
-```
+Results are as follows:  
 
 ```
-
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1# cat eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Transformer sent, edit1 model:
+BLEU = 77.47, 99.5/96.5/93.2/90.0 (BP=0.818, ratio=0.833, hyp_len=442201, ref_len=531058)
+==========
+Evaluation with hyp.best.edit1.cr, Transformer sent, edit1 model:
+BLEU = 90.27, 95.4/94.4/93.9/93.6 (BP=0.957, ratio=0.958, hyp_len=576401, ref_len=601627)
+==========
+Evaluation with hyp.best.edit2.cr, Transformer sent, edit1 model:
+BLEU = 89.95, 97.0/96.2/95.8/95.5 (BP=0.936, ratio=0.938, hyp_len=564081, ref_len=601640)
+root@2541295674c9:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1#
 ```
+
+## Training Edit-2 Model 
+
+Training script is as follows:  
+
+```bash
 
 ```
 
