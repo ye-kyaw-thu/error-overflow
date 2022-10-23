@@ -1421,8 +1421,33 @@ For this time, I noted slow ... because of sentence level + character segmentati
 
 Anyway, for today, I did my best ... I should enjoy my late dinner ... :)  
 
-```
+## Training Finished for Edit-1
 
+Training finished with ./transformer.sent.edit1.sh ...  
+
+```
+[2022-10-22 19:35:36] Ep. 25 : Up. 64500 : Sen. 71,273 : Cost 0.85035706 * 1,252,505 @ 2,727 after 161,220,923 : Time 8.63s : 145114.49 words/s : gNorm 0.1926 : L.r. 1.4942e-04
+[2022-10-22 19:35:37] Seen 72,083 samples
+[2022-10-22 19:35:37] Starting data epoch 26 in logical epoch 26
+[2022-10-22 19:35:37] [data] Shuffling data
+[2022-10-22 19:35:37] [data] Done reading 80,000 sentences
+[2022-10-22 19:35:37] [data] Done shuffling 80,000 sentences to temp files
+[2022-10-22 19:35:45] Ep. 26 : Up. 65000 : Sen. 12,802 : Cost 0.85032624 * 1,243,154 @ 2,063 after 162,464,077 : Time 8.90s : 139713.63 words/s : gNorm 0.2408 : L.r. 1.4884e-04
+[2022-10-22 19:35:45] Saving model weights and runtime parameters to model.transformer.sent.edit1/model.iter65000.npz
+[2022-10-22 19:35:45] Saving model weights and runtime parameters to model.transformer.sent.edit1/model.npz
+[2022-10-22 19:35:46] Saving Adam parameters
+[2022-10-22 19:35:46] [training] Saving training checkpoint to model.transformer.sent.edit1/model.npz and model.transformer.sent.edit1/model.npz.optimizer.npz
+[2022-10-22 19:35:52] [valid] Ep. 26 : Up. 65000 : cross-entropy : 88.5425 : stalled 10 times (last best: 77.1247)
+[2022-10-22 19:35:57] [valid] Ep. 26 : Up. 65000 : perplexity : 2.01022 : stalled 10 times (last best: 1.83713)
+[2022-10-22 19:54:50] [valid] Ep. 26 : Up. 65000 : bleu : 84.2957 : stalled 3 times (last best: 89.5234)
+[2022-10-22 19:54:50] Training finished
+[2022-10-22 19:54:50] Saving model weights and runtime parameters to model.transformer.sent.edit1/model.npz
+[2022-10-22 19:54:51] Saving Adam parameters
+[2022-10-22 19:54:51] [training] Saving training checkpoint to model.transformer.sent.edit1/model.npz and model.transformer.sent.edit1/model.npz.optimizer.npz
+
+real    224m42.879s
+user    219m2.983s
+sys     5m57.986s
 ```
 
 ```
