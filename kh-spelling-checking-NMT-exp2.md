@@ -1503,6 +1503,56 @@ sys     5m57.986s
 [2022-10-22 19:54:50] [valid] Ep. 26 : Up. 65000 : bleu : 84.2957 : stalled 3 times (last best: 89.5234)
 ```
 
+## Recheck the Data Folder Structure
+
+```
+.
+|-- edit1
+|   |-- original-err
+|   |   |-- test.er
+|   |   `-- train.er
+|   |-- test.cr
+|   |-- test.er
+|   |-- train-valid
+|   |   |-- train.cr
+|   |   `-- train.er
+|   |-- train.cr
+|   |-- train.er
+|   |-- valid.cr
+|   |-- valid.er
+|   `-- vocab
+|       |-- all.cr
+|       |-- all.er
+|       |-- vocab.cr.yml
+|       `-- vocab.er.yml
+|-- edit2
+|   |-- original-err
+|   |   |-- test.er
+|   |   `-- train.er
+|   |   |-- test.er
+|   |   `-- train.er
+|   |-- test.cr
+|   |-- test.er
+|   |-- train-valid
+|   |   |-- train.cr
+|   |   `-- train.er
+|   |-- train.cr
+|   |-- train.er
+|   |-- valid.cr
+|   |-- valid.er
+|   `-- vocab
+|       |-- all.cr
+|       |-- all.er
+|       |-- vocab.cr.yml
+|       `-- vocab.er.yml
+|-- folder-struct.txt
+`-- manual
+    |-- test.cr
+    `-- test.er
+
+9 directories, 31 files
+```
+
 ## Testing with Edit-1 NMT Model
 
 ```
