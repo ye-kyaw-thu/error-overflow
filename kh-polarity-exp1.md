@@ -23,17 +23,52 @@ Use of uninitialized value $col3 in concatenation (.) or string at ../cut-column
   10015  101462 5705194 ./kh-polar.txt
 ```
 
-```
+## Shuffle the Corpus
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ shuf kh-polar.txt > kh-polar.txt.shuf
 ```
 
-```
+Checked the content ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ head ./kh-polar.txt.shuf 
+បារមី​មិន​ដល់ កុំ​លេង។​ ||| បារមី​មិន​ដល់ ||| negative
+ពុកម្តាយឬអាណាព្យាបាលយើងពួកគាត់ក៏កាន់តែចម្រើនវ័យទៅជាចាស់ទៅៗបន្តិចម្តងៗ ក្នុងនាមយើងជាកូនពិតប្រាកដណាស់ថាមានក្តីស្រឡាញ់ទៅលើពួកគាត់ដែលបានចិញ្ចឹមបីបាច់យើងតាំងពីតូចរហូតដល់ពេញវ័យ ||| ក្តីស្រឡាញ់ ||| positive
+រដ្ឋាភិបាល​ កំពុង​រៀបចំ​សៀវភៅ​ណែនាំ​អំពី​លទ្ធកម្ម​របស់​ភាព​ជា​ដៃគូ​រវាង​វិស័យ​ឯកជន​ និង​សារ​ធារ​ណៈ​ ដែល​ពេល​នេះ​សៀវភៅ​នេះ​នៅ​ជា​ឯកសារ​ព្រាង​នៅឡើយ​។ ||| ​រៀបចំ ||| neutral
+គេមើលទៅហាក់ដូចជាគ្រាំគ្រាខ្លាំងណាស់។ ||| គ្រាំគ្រាខ្លាំងណាស់ ||| negative
+កន្លងមកទៀត៥ផែនដី រហូតមកដល់រាជព្រះបាទសេណករាជ ប្រទេសខូចរបស់វិសេសទាំង ៥ ប្រការគឺ ព្រះកែវមរកតមួយ ព្រះត្រៃបិដក ជាមង្គលព្រះនគរមួយ គ្រឿងព្រះបញ្ចក្សេត្រ ២១ មុខ ជាសិរីសួស្ដីព្រះនគរមួយ ព្រះរាជគ្រូបុរោហិតទាំង៧នាក់ សម្រាប់ប្រក់ព្រំព្រះនគរ ជម្រះឧត្បាទមួយ សម្ដេចព្រះឥន្ទ្រគោរពការហោរា ជាភ្នែក ជាត្រចៀក ព្រះនគរមួយ។ ||| សិរីសួស្ដី ||| positive
+ដូច្នេះហើយ បញ្ហាហ្នឹង វាជា​កត្តាសំខាន់មួយដែរ ពីនយោបាយកម្ពុជា ក្នុងការផ្ទេរអំណាចហ្នឹង។​ ||| វាជា​កត្តាសំខាន់ ||| positive 
+មិនមែនជាបញ្ហានយោបាយ ហើយក៏មិនមែនជារឿងសន្តិសុខដែរ តែវីរុសកូវីដបានវាយលុករដ្ឋមន្រ្តីការបរទេសវៀតណាម បង្ខំឲ្យគាត់ចូលរួមប្រជុំតាមអនឡាញពីក្នុងបន្ទប់សណ្ឋាគារសូហ្វីតែលក្បែរផ្សារអ៊ីអន១ ដែលជាកន្លែងប្រជុំនេះតែម្ដង។ ||| បង្ខំ ||| negative
+លោក Koh Kok Meng ថ្លែងថា «​ខ្ញុំ​សូម​អរគុណ​ដល់​បុគ្គលិក​ទាំងអស់​, នេះ​គឺជា​មោទន​​ភាព​មួយ​សម្រាប់​ពួកយើង ដែលជា​បុគ្គលិក​​ដា​ណន់ A Proud Danoner!»​។​ ||| ខ្ញុំ​សូម​អរគុណ​ដល់​បុគ្គលិក​ទាំងអស់/​មោទន​​ភាព​ ||| positive 
+ផែនទីនេះហើយដែលកម្ពុជា យកធ្វើជាផែនទីឧបសម្ព័ន្ធ ក្នុងសំណុំរឿងប្រាសាទព្រះវិហារ នៅតុលាការ ICJ ដែលស្គាល់ជាទូទៅថា ផែនទីឧបសម្ព័ន្ធ១ (Annex I Map) និងជាមូលដ្ឋានច្បាប់មួយយ៉ាងសំខាន់ដែលធ្វើឲ្យកម្ពុជាឈ្នះកី្តនៅឆ្នាំ១៩៦២។ ||| មូលដ្ឋានច្បាប់មួយយ៉ាងសំខាន់/កម្ពុជាឈ្នះកី្ត ||| positive
+លោក សួន ឆាន បន្ថែម​ថា កន្លង​មក​នៅ​តំបន់​ពួក​គាត់​រស់នៅ​មិន​ដែល​ទទួល​បាន​ការ​ប្រឹក្សា​ពី​មន្ទីរ​កសិកម្ម​អំពី​របៀប​ចិញ្ចឹម​សត្វ​ឡើយ ដោយ​ពួក​លោក​តែង​រក​ពេទ្យ​សត្វ​ក្នុង​ភូមិ ឬ​ទិញ​ថ្នាំ​មក​ព្យាបាល​គោ​ក្របី​ដោយ​ខ្លួន​ឯង៖ «អា​រឿង​វា​ឈឺ​ជំងឺ​សារ​បង កាល​ពី​ឈឺ​ជំងឺ​សារ​ចាប់​មួយ​មិន​បាច់​ឆ្លង​ទេ​អា​នេះ ចាប់​ក្រោល​ណា ចាប់​ក្រោល​នោះ​តែ​ម្ដង អា​ជំងឺ​សារ​ទឹក​យើង​ហាស។​ ||| មិន​ដែល​ទទួល​បាន​ការ​ប្រឹក្សា​ពី​មន្ទីរ​កសិកម្ម​ ||| negative
+```
+
+## Normalization 
+
+For Khmer NLP tasks, I do suggest to make normalization ...  
+We used the khnormal.2.py of IDRI, CADT.   
+Slight modification of the original normalization code:  
+https://github.com/sillsdev/khmer-character-specification/blob/master/python/scripts/khnormal
+
+Run normalization on our polarity corpus as follows:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ python ./khnormal.2.py ./kh-polar.txt.shuf ./kh-polar.txt.shuf.normalized
+```
+
+Check the filesize after we did normalization ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ wc kh-polar.txt.shuf
+  10015  101462 5705194 kh-polar.txt.shuf
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ wc kh-polar.txt.shuf.normalized 
+  10015  101461 5700021 kh-polar.txt.shuf.normalized
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$
+```
+
+## Split Training and Testing 
 
 ```
 
