@@ -89,6 +89,47 @@ Not equal to 10015 ...
 
 ## Fixing the No. of Class Error
 
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.shuf.normalized 3 | sort | uniq -c
+     20 
+      1 ​
+      1 negataive
+   3199 negative
+      2 ​negative
+     20 ​ negative
+      1 ​​​ negative
+      3 negative ​
+      1 negative ​​
+      8 negative​
+      2 negatives
+    918 neutral
+      1 ​neutral
+      1 positiv
+   5617 positive
+      1 ​positive
+     27 ​ positive
+      1 ​ ​​positive
+      3 ​​ positive
+      1 ​​​ positive
+     18 positive ​
+      4 positive ​​
+    138 positive​
+      3 positive​ ​
+      2 positive​​
+      1 positive​​ ​
+      1 positiveនិយាយអោយចំគឺពួកគេអាចទទួលបានផលប្រយោជន៍ពីសម្មភាពទាំងនោះ។
+      8 positive negative
+```
+
+We have to fixed manually.  
+
+```
+
+```
+
+```
+
+```
 
 
 ## Split Training and Testing 
