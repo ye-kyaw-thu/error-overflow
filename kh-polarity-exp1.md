@@ -217,11 +217,33 @@ Now reduced errors as follows:
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ 
 ```
 
+for "4 positive​" replacing, I did as follows:  
+
+```
+perl -i -p -e "s/positive​/positive/g" ./kh-polar.txt.normalized.clean 
+```
+
+Now reach to followings:  
+
+```
+     20 
+   3239 negative
+      1 ​​ negative
+    920 neutral
+   5818 positive
+      3 ​ positive
+      1 ​ ​​positive
+      1 ​​ positive
+      1 positive
+ ```
+ 
 Totally invisible 20 ... and the final line ...   
 what are they?!   
 
+ ```
 
-      
+
+ ```
 
 ## Split Training and Testing 
 
