@@ -246,20 +246,6 @@ Manually clean, clean and reach as follows:
    5823 positive
       1 positive ​
  ```
-above positive tag, I try to use perl one liner to replace with the correct tag as follows:  
-
-```
-perl -i -p -e "s/positive ​/positive/g" ./kh-polar.txt.normalized.clean 
-```
-
-However, not working ...   
-
-```
-
-(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ./print-codepoint.pl ./evil-code.txt 
-positive ​
-p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65)   (32, U20) ​ (8203, U200b) , no. of char = 10
-```
 
 Totally invisible 20 ... and the final line ...   
 what are they?!   
@@ -425,6 +411,10 @@ Let's check the column3 again:
 
 Now I need to solve one more error (i.e. the last line) ...   
 
+## Removing tag<200b>
+
+Now, left following one error:  
+
 ```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat tag-error.txt 
    3249 negative
@@ -434,6 +424,29 @@ Now I need to solve one more error (i.e. the last line) ...
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ 
 ```
 
+above positive tag, I try to use perl one liner to replace with the correct tag as follows:  
+
+```
+perl -i -p -e "s/positive ​/positive/g" ./kh-polar.txt.normalized.clean 
+```
+
+However, not working ...   
+
+```
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ./print-codepoint.pl ./evil-code.txt 
+positive ​
+p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65)   (32, U20) ​ (8203, U200b) , no. of char = 10
+```
+
+Now, I know that evil character is 200b.  
+Trying to find in Vim text editor and finally I found by searchin: g/positive.*\%u200b  
+
+Found at Line no: 3338
+
+```
+ឯកឧត្តមអភិបាលខេត្ត បានដាក់ចេញនូវបទបញ្ជាដល់អាជ្ញាធរ កម្លាំង​មាន​សមត្ថកិច្ច ក្រុមការងារជួយសង្គរោះ និងមានការចូលរួមពីក្រុមហ៊ុនទូកទេស ចរណ៍​របស់​លោកឧកញ៉ា ទៀ វិចិត្រ ចេញល្បាតស្វែងរកជួយសង្គរោះជនរងគ្រោះបន្ទាន់ និងបានប្រកាស​ជូនដំណឹងដល់បងប្អូនប្រជានេសាទ និងក្រុមជួយសង្គរោះផ្សេងទៀត ក្នុងករណីសង្គរោះ​បានជនរង​គ្រោះចំនួន ០១នាក់ នឹងផ្តល់ថវិកាលើកទឹកចិត្តចំនួន ២លានរៀល។ ||| ដាក់ចេញនូវបទបញ្ជា ||| positive     ​
+```
 
 ## Split Training and Testing 
 
