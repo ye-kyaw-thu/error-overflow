@@ -261,9 +261,34 @@ positive ​
 p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65)   (32, U20) ​ (8203, U200b) , no. of char = 10
 ```
 
-
 Totally invisible 20 ... and the final line ...   
 what are they?!   
+
+Let's find the blank tag lines or try to solve the top 20 lines:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.normalized.clean 3 | grep -n '^$'
+1280:
+1452:
+1482:
+1565:
+1618:
+3149:
+4556:
+4571:
+4580:
+4627:
+4630:
+4665:
+4671:
+4708:
+4727:
+4737:
+4755:
+4775:
+4837:
+5359:
+```
 
  ```
 
