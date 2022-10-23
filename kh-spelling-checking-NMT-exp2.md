@@ -1736,18 +1736,17 @@ echo "Evaluation with hyp.best.edit2.${tgt}, Transformer sent, edit2 model:" >> 
 perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
 ```
 
-## Testing
-
-Testing with edit-2 model ...  
-
-```
-
-```
-
 ## Results with Edit-2 Model  
 
 ```
-
-
+ye@lst-gpu-3090:~/exp/kh-spell/transformer/model.transformer.sent.edit2$ cat eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Transformer sent, edit2 model:
+BLEU = 77.51, 99.4/96.4/93.1/89.9 (BP=0.819, ratio=0.834, hyp_len=442668, ref_len=531058)
+==========
+Evaluation with hyp.best.edit1.cr, Transformer sent, edit2 model:
+BLEU = 88.88, 90.2/89.1/88.3/87.9 (BP=1.000, ratio=1.023, hyp_len=615576, ref_len=601627)
+==========
+Evaluation with hyp.best.edit2.cr, Transformer sent, edit2 model:
+BLEU = 87.14, 88.6/87.4/86.6/86.0 (BP=1.000, ratio=1.046, hyp_len=629305, ref_len=601640)
 ```
 
