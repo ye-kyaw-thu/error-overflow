@@ -193,11 +193,39 @@ Above error, I think I can fixed it. first find "|||\s\s" and replaced with "|||
 អ្នកស្រាវជ្រាវជាច្រើនរកឃើញថា អ្នកហាត់ប្រាណទៀងទាត់ទទួលបានអត្ថប្រយោជន៍ជាច្រើនចំពោះសុខភាព។ ||| ទទួលបានអត្ថប្រយោជន៍ ||| positive negative
 ```
 
+Some error are difficult to find/replace with gedit editor and thus, I used perl one liner as follows:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl -i -p -e "s/positive​/positive/g" ./kh-polar.txt.normalized.c1
+```
+
+Now reduced errors as follows:  
+
+```
+     20 
+   3239 negative
+      1 ​​ negative
+    920 neutral
+   5798 positive
+      3 ​ positive
+      1 ​ ​​positive
+      1 ​​ positive
+     17 positive ​
+      4 positive 
+```
+
+Totally invisible 20 ... what are they?!   
+
+
+      
+
 ## Split Training and Testing 
 
 ```
 
 ```
+
+perl -i -p -e "s/positive​/positive/g"
 
 ```
 
