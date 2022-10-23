@@ -1626,7 +1626,7 @@ BLEU = 89.95, 97.0/96.2/95.8/95.5 (BP=0.936, ratio=0.938, hyp_len=564081, ref_le
 root@2541295674c9:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1#
 ```
 
-## Training Edit-2 Model 
+## Preparing a Bash Script for Edit-2 Model 
 
 Training script is as follows:  
 
@@ -1669,6 +1669,57 @@ marian \
 time marian -c model.transformer.sent.edit2/config.yml  2>&1 | tee transformer.sent.edit2.log
 ```
 
+## Training Edit-2 Model 
+
+start training Edit-2 model ...  
+
+```
+root@e69e52f4554e:/home/ye/exp/kh-spell/transformer# ./transformer.sent.edit2.sh
+...
+...
+...
+[2022-10-23 07:07:32] Ep. 25 : Up. 64500 : Sen. 70,046 : Cost 0.85009700 * 1,252,575 @ 1,529 after 161,199,345 : Time 8.63s : 145184.49 words/s : gNorm 0.1438 : L.r. 1.4942e-04
+[2022-10-23 07:07:33] Seen 72,097 samples
+[2022-10-23 07:07:33] Starting data epoch 26 in logical epoch 26
+[2022-10-23 07:07:33] [data] Shuffling data
+[2022-10-23 07:07:33] [data] Done reading 80,000 sentences
+[2022-10-23 07:07:33] [data] Done shuffling 80,000 sentences to temp files
+[2022-10-23 07:07:41] Ep. 26 : Up. 65000 : Sen. 11,967 : Cost 0.85020041 * 1,250,798 @ 2,485 after 162,450,143 : Time 8.86s : 141109.38 words/s : gNorm 0.1253 : L.r. 1.4884e-04
+[2022-10-23 07:07:41] Saving model weights and runtime parameters to model.transformer.sent.edit2/model.iter65000.npz
+[2022-10-23 07:07:41] Saving model weights and runtime parameters to model.transformer.sent.edit2/model.npz
+[2022-10-23 07:07:41] Saving Adam parameters
+[2022-10-23 07:07:41] [training] Saving training checkpoint to model.transformer.sent.edit2/model.npz and model.transformer.sent.edit2/model.npz.optimizer.npz
+[2022-10-23 07:07:48] [valid] Ep. 26 : Up. 65000 : cross-entropy : 84.9929 : stalled 10 times (last best: 71.2531)
+[2022-10-23 07:07:52] [valid] Ep. 26 : Up. 65000 : perplexity : 1.95465 : stalled 10 times (last best: 1.75394)
+[2022-10-23 07:31:53] [valid] Ep. 26 : Up. 65000 : bleu : 66.6193 : stalled 10 times (last best: 88.3613)
+[2022-10-23 07:31:53] Training finished
+[2022-10-23 07:31:53] Saving model weights and runtime parameters to model.transformer.sent.edit2/model.npz
+[2022-10-23 07:31:53] Saving Adam parameters
+[2022-10-23 07:31:54] [training] Saving training checkpoint to model.transformer.sent.edit2/model.npz and model.transformer.sent.edit2/model.npz.optimizer.npz
+
+real    272m34.139s
+user    266m16.627s
+sys     6m32.492s
+```
+
+## Preparing a Testing Bash Script
+
+```
+
+
+```
+
+## Testing
+
 ```
 
 ```
+
+
+## Results with Edit-2 Model  
+
+```
+
+
+```
+
