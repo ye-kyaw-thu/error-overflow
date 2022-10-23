@@ -1631,7 +1631,42 @@ root@2541295674c9:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1
 Training script is as follows:  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliate Professor, IDRI, CADT, Cambodia
+## Experiments for Khmer Spelling Correction with NMT model, Sentence Level Experiment 1
+## Training with Edit Distance 2
+## Last updated: 23 Oct 2022
+
+mkdir model.transformer.sent.edit2;
+
+marian \
+    --model model.transformer.sent.edit2/model.npz --type transformer \
+    --train-sets char-final/edit2/train.er char-final/edit2/train.cr \
+    --max-length 300 \
+    --vocabs char-final/edit2/vocab/vocab.er.yml char-final/edit2/vocab/vocab.cr.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets char-final/edit2/valid.er char-final/edit2/valid.cr \
+    --valid-translation-output model.transformer.sent.edit2/valid.er-cr.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log model.transformer.sent.edit2/train.log --valid-log model.transformer.sent.edit2/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > model.transformer.sent.edit2/config.yml
+
+time marian -c model.transformer.sent.edit2/config.yml  2>&1 | tee transformer.sent.edit2.log
 ```
 
 ```
