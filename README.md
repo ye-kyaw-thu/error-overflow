@@ -152,5 +152,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 145. [mySent-exp2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mySent-exp2.md)  
 146. [kh-spelling-checking-NMT-exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-spelling-checking-NMT-exp1.md)  
 147. [kh-spelling-checking-NMT-exp2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-spelling-checking-NMT-exp2.md)  
-148. [kh-polarity-exp1.txt](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-polarity-exp1.txt)  
+148. [kh-polarity-exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-polarity-exp1.md)  
 
