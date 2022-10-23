@@ -237,6 +237,31 @@ Now reach to followings:
       1 positive
  ```
  
+Manually clean, clean and reach as follows:  
+
+ ```
+     20 
+   3240 negative
+    920 neutral
+   5823 positive
+      1 positive ​
+ ```
+above positive tag, I try to use perl one liner to replace with the correct tag as follows:  
+
+```
+perl -i -p -e "s/positive ​/positive/g" ./kh-polar.txt.normalized.clean 
+```
+
+However, not working ...   
+
+```
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ./print-codepoint.pl ./evil-code.txt 
+positive ​
+p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65)   (32, U20) ​ (8203, U200b) , no. of char = 10
+```
+
+
 Totally invisible 20 ... and the final line ...   
 what are they?!   
 
