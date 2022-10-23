@@ -1704,17 +1704,45 @@ sys     6m32.492s
 
 ## Preparing a Testing Bash Script
 
-```
+```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliate Professor, CADT, Cambodia
+## for NMT Experiments for Khmer Spelling Checking with NMT Model
+## preparing to run with edit-distance 1 model
+## used Marian NMT Framework for training
+## Last updated: 23 Oct 2022
+data_path="/home/ye/exp/kh-spell/transformer/char-final/edit2";
+src="er"; tgt="cr";
 
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.manual.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/manual/test.${src};
+echo "Evaluation with hyp.best.manual.${tgt}, Transformer sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/manual/test.${tgt} \
+< ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit1.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/edit1/test.${src};
+echo "Evaluation with hyp.best.edit1.${tgt}, Transformer sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/edit1/test.${tgt} < ./hyp.best.edit1.>
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit2.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.edit2.${tgt}, Transformer sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
 ```
 
 ## Testing
 
-```
+Testing with edit-2 model ...  
 
 ```
 
+```
 
 ## Results with Edit-2 Model  
 
