@@ -132,9 +132,41 @@ into
 
 និយាយអោយចំគឺពួកគេអាចទទួលបានផលប្រយោជន៍ពីសម្មភាពទាំងនោះ។ ||| ទទួលបានផលប្រយោជន៍ ||| positive```
 
-```
+After fixing above error, removed shuf.normalized, make normalization on the original file and re-check ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.normalized 3 | sort | uniq -c
+     20 
+      1 ​
+      1 negataive
+   3200 negative
+      2 ​negative
+     20 ​ negative
+      1 ​​​ negative
+      3 negative ​
+      1 negative ​​
+      8 negative​
+      2 negatives
+    918 neutral
+      1 ​neutral
+      1 positiv
+   5618 positive
+      1 ​positive
+     27 ​ positive
+      1 ​ ​​positive
+      3 ​​ positive
+      1 ​​​ positive
+     18 positive ​
+      4 positive ​​
+    138 positive​
+      3 positive​ ​
+      2 positive​​
+      1 positive​​ ​
+      8 positive negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$
+```
+
+Above error, I think I can fixed it.  
 
 ```
 
