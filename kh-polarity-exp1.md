@@ -124,13 +124,15 @@ Not equal to 10015 ...
 We have to fixed manually.  
 For example:  
 
+```
 គោលគំនិតរបស់វីដេអូខាងលើគឺចង់ឆ្លុះបញ្ចាំងអំពីភាពខ្វះចន្លោះនៃការគិតរបស់បុគ្គលណាម្នាក់ចំពោះសកម្មភាពណាមួយនៅក្នងជីវិត ដោយពួកគេយល់ឃើញថាទង្វើទាំងនោះ អាចធ្វើអោយគេរីករាយ និងផ្តល់ផលចំណេញដល់រូបគេក្នុងរូបភាពណាមួយ។ |||  ||| positiveនិយាយអោយចំគឺពួកគេអាចទទួលបានផលប្រយោជន៍ពីសម្មភាពទាំងនោះ។ |||  ||| positive
 
 into
 
 គោលគំនិតរបស់វីដេអូខាងលើគឺចង់ឆ្លុះបញ្ចាំងអំពីភាពខ្វះចន្លោះនៃការគិតរបស់បុគ្គលណាម្នាក់ចំពោះសកម្មភាពណាមួយនៅក្នងជីវិត ដោយពួកគេយល់ឃើញថាទង្វើទាំងនោះ អាចធ្វើអោយគេរីករាយ និងផ្តល់ផលចំណេញដល់រូបគេក្នុងរូបភាពណាមួយ។ ||| ភាពខ្វះចន្លោះ ||| negative
 
-និយាយអោយចំគឺពួកគេអាចទទួលបានផលប្រយោជន៍ពីសម្មភាពទាំងនោះ។ ||| ទទួលបានផលប្រយោជន៍ ||| positive```
+និយាយអោយចំគឺពួកគេអាចទទួលបានផលប្រយោជន៍ពីសម្មភាពទាំងនោះ។ ||| ទទួលបានផលប្រយោជន៍ ||| positive
+```
 
 After fixing above error, removed shuf.normalized, make normalization on the original file and re-check ...  
 
@@ -166,10 +168,38 @@ After fixing above error, removed shuf.normalized, make normalization on the ori
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$
 ```
 
-Above error, I think I can fixed it.  
+Above error, I think I can fixed it. first find "|||\s\s" and replaced with "|||\s" and check again:  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.normalized 3 | sort | uniq -c
+     20 
+      1 ​
+      1 negataive
+   3200 negative
+      2 ​negative
+     20 ​ negative
+      1 ​​​ negative
+      3 negative ​
+      1 negative ​​
+      8 negative​
+      2 negatives
+    918 neutral
+      1 ​neutral
+      1 positiv
+   5618 positive
+      1 ​positive
+     27 ​ positive
+      1 ​ ​​positive
+      3 ​​ positive
+      1 ​​​ positive
+     18 positive ​
+      4 positive ​​
+    138 positive​
+      3 positive​ ​
+      2 positive​​
+      1 positive​​ ​
+      8 positive negative
+```
 
 ## Split Training and Testing 
 
