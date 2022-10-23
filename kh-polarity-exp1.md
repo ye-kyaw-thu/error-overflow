@@ -448,6 +448,26 @@ Found at Line no: 3338
 ឯកឧត្តមអភិបាលខេត្ត បានដាក់ចេញនូវបទបញ្ជាដល់អាជ្ញាធរ កម្លាំង​មាន​សមត្ថកិច្ច ក្រុមការងារជួយសង្គរោះ និងមានការចូលរួមពីក្រុមហ៊ុនទូកទេស ចរណ៍​របស់​លោកឧកញ៉ា ទៀ វិចិត្រ ចេញល្បាតស្វែងរកជួយសង្គរោះជនរងគ្រោះបន្ទាន់ និងបានប្រកាស​ជូនដំណឹងដល់បងប្អូនប្រជានេសាទ និងក្រុមជួយសង្គរោះផ្សេងទៀត ក្នុងករណីសង្គរោះ​បានជនរង​គ្រោះចំនួន ០១នាក់ នឹងផ្តល់ថវិកាលើកទឹកចិត្តចំនួន ២លានរៀល។ ||| ដាក់ចេញនូវបទបញ្ជា ||| positive     ​
 ```
 
+Now, we finished cleaning the corpus and the final statistical information of the Khmer Polarity Corpus is as follows:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.normalized.clean 3 | sort | uniq -c 
+   3249 negative
+    920 neutral
+   5835 positive
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ wc ./kh-polar.txt.normalized.clean 
+  10016  101732 5698893 ./kh-polar.txt.normalized.clean
+```
+
+## Shuffling the Corpus
+
+```
+
+```
+
 ## Split Training and Testing 
 
 ```
