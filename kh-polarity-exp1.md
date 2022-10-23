@@ -202,19 +202,23 @@ Some error are difficult to find/replace with gedit editor and thus, I used perl
 Now reduced errors as follows:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ perl ../rerun/cut-column.pl ./kh-polar.txt.normalized.clean 3 | sort | uniq -c > tag-error.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat tag-error.txt 
      20 
    3239 negative
       1 ​​ negative
     920 neutral
-   5798 positive
+   5814 positive
       3 ​ positive
       1 ​ ​​positive
       1 ​​ positive
-     17 positive ​
-      4 positive 
+      1 positive ​
+      4 positive​
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ 
 ```
 
-Totally invisible 20 ... what are they?!   
+Totally invisible 20 ... and the final line ...   
+what are they?!   
 
 
       
