@@ -68,6 +68,29 @@ Check the filesize after we did normalization ...
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$
 ```
 
+## Check the Classes
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat ./kh-polar.txt.shuf.normalized | grep positive | wc
+   5825   61511 3503873
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat ./kh-polar.txt.shuf.normalized | grep negative | wc
+   3244   31588 1794956
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cat ./kh-polar.txt.shuf.normalized | grep neutral | wc
+    919    8176  387966
+```
+
+Check the total number lines:  
+
+Not equal to 10015 ...  
+
+```
+5825+3244+919 = 9988
+```
+
+## Fixing the No. of Class Error
+
+
+
 ## Split Training and Testing 
 
 ```
