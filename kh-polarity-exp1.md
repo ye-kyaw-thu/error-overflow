@@ -739,20 +739,40 @@ Now, no blank fields in the corpus:
 However, I should remove blank lines and thus running with clean-space.pl ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ./clean-space.pl ./kh-polar.shuf.clean > ./kh-polar.shuf.clean.final
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ wc ./kh-polar.shuf.clean.final 
+  10004  101841 5697556 ./kh-polar.shuf.clean.final
 ```
 
-```
+Recounting the fields ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean.final 1 | wc
+  10004   61782 4792588
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean.final 2 | wc
+  10004   10344  736117
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean.final 3 | wc
+  10004   10004   89116
 ```
 
-```
+As you can seen in above, now no of fields (i.e. column1, column2 and column3) are equal and no blank fields.  
+OK. Let's count the frequency of three classes in our corpus.   
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean.final 3 | sort | uniq -c
+   3253 negative
+    920 neutral
+   5831 positive
+```
+
+Confirmation total classes:  
 
 ```
+$ echo "3253+920+5831" | bc
+10004
+```
+
+It looks I successfully cleaned the corpus and read to train.  
 
 ```
 
