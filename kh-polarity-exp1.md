@@ -1786,15 +1786,42 @@ Copied to SGD Program folder:
 original  sp-segmentation  test.csv  train.csv
 ```
 
-Strat training SGD classification models and the results are as follows:  
+Strat training SGD classification models and the results are as follows:   
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2$ time python ./kh-SGD-sentiment.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Traceback (most recent call last):
+  File "/home/ye/tool/anaconda3/envs/sentiment/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3800, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'text'
 ```
 
-```
+I got error because of header and thus, I added header (text,label) ...  
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ head -n 3 ./train.csv 
+text,label
+▁លោក ស ង្ក ត់ ធ ្ ង ន់ ថា ៖ ▁ « ខ ្ល ឹម សារ នៃ កិច្ច ស ន្យា ▁បើក ទូល ាយ ដែ រ ▁ដោយ យើង ទ ទ ួល គ ាត់ ជា គ ្រ ូ ប ង ្វ ឹក ទ ាំង ប ាល់ ទ ះ ឆ្ ន េរ ខ ្ស ាច់ ក ្ត ី ▁ប ាល់ ទ ះ ក្នុង សា ល ក ្ត ី ▁រយៈ ពេល ១ ឆ្ ន ាំ ▁បើ ង ា ក មើល ទៅ ក្រ ោ យ ស៊ី ហ្ គេ ម ▁ឆ្នាំ ២ ០ ២ ៣ ▁ច ប់ រយៈ ៣ ខ ែ ▁ទើប ផ ុត កិច្ច ស ន្យា ។,positive
+▁លោក ▁ Manele ▁បាន លើ ក ឡើង ថា ៖ « នៅក្នុង កិច្ច ព ្រ ម ព ្រ ៀង នោះ មាន ច ំ ណ ុ ច មួយ ចំនួ ន ដែ ល ប៉ ះ ព ាល់ ដល់ ក ោះ ស ូ ឡ ូ ម ៉ ុន ▁។,negative
+```
+
+checked for test data after adding the CSV header:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ head -n 3 ./test.csv 
+text,label
+▁ចំពោះ រ ម ណ ី ដ្ឋាន ដែ ល ភ ្ ញ ៀ វ ទេស ច រ ច ូល ចិត្ត ទៅ ច្រើន ជា ង គេ នោះ គ ឺ ▁ រ ម ណ ី ដ្ឋាន ឡ ូរ ី ជ ើ ង ភ ្ន ំ ប ា ណ ន់ ៕,positive
+▁អ្នក ដឹង ▁ទេ ▁ ? ▁ដោយសារ តែ ▁ក ញ្ញា ▁ស េង ▁ធ ារ ី ▁មាន ▁ឆ ន្ទ ៈ ▁និង ▁កម្លាំង ក ាយ ▁ រ ឹង មា ំ ▁ នេះ ▁ហើយ ▁ការ ណ៍ ▁ នេះ ▁បាន ▁ធ្វើ ▁ក ញ្ញា ▁អាច ▁យក ▁ឈ ្ន ះ ▁ចំពោះ ▁ ស្ថាន ភាព ▁អា ក្រ ក់ ▁បែប នេះ ▁ពី ▁មួយ ▁ថ្ងៃ ▁ទៅ ▁មួយ ▁ថ្ងៃ ▁បាន ។,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$
+```
+
+Training again ...  
 
 ```
 
