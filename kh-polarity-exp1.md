@@ -772,7 +772,7 @@ $ echo "3253+920+5831" | bc
 10004
 ```
 
-It looks I successfully cleaned the corpus and read to train.  
+It looks I successfully cleaned the corpus and ready to train.  
 
 ```
 
