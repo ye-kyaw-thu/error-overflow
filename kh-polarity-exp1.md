@@ -533,6 +533,61 @@ check the col3.code.uniq file:
    5835 positive
 ```
 
+Check the total:  
+```
+$ echo "5835+3249+920" | bc
+10004
+```
+
+check two file size again:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ wc ./kh-polar.shuf.clean 
+  10016  101732 5698885 ./kh-polar.shuf.clean
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ wc ./col3
+10004 10004 89116 ./col3
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
