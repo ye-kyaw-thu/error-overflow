@@ -242,31 +242,100 @@ sys     5m35.168s
 [2022-10-24 19:17:58] [valid] Ep. 431 : Up. 140000 : bleu : 93.9267 : stalled 8 times (last best: 99.7262)
 ```
 
-## Testing Sentence Model  
+## Preparing a Bash SCript
 
 Preparing a bash script ...  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for Seq2Seq Sentence-Only training,
+## Last updated: 25 Oct 2022
+
+data_path="/home/ye/exp/mysent/data-sent";
+src="my"; tgt="tg";
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.${tgt}, Seq2Seq, Sentence model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.${tgt} >> eval-best-result.txt;
 ```
 
+## Testing with Seq2Seq Sentence Model 
+
+Testing ...  
 
 ```
+Every 2.0s: nvidia-smi                                                                           lst-gpu-3090: Tue Oct 25 04:08:10 2022
+Tue Oct 25 04:08:10 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.65.07    Driver Version: 515.65.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+| 32%   64C    P2   255W / 480W |   1999MiB / 24564MiB |     82%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1700      G   /usr/lib/xorg/Xorg                 59MiB |
+|    0   N/A  N/A      2469      G   /usr/bin/gnome-shell               10MiB |
+|    0   N/A  N/A     97101      C   marian-decoder                   1925MiB |
++-----------------------------------------------------------------------------+
 ```
 
+Testing finished successfully as follows:   
 
 ```
+root@2328f1decde9:/home/ye/exp/mysent/model.seq2seq.sent1# time ./test-eval-best.sh
+...
+...
+...
+[2022-10-24 21:09:39] Best translation 4696 : B O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4697 : B O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4698 : B O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4699 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4700 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4701 : B O O O N N N E
+[2022-10-24 21:09:39] Best translation 4702 : B O O O N N N E
+[2022-10-24 21:09:39] Best translation 4703 : B O O O O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4704 : B O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4705 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4706 : B N N N E
+[2022-10-24 21:09:39] Best translation 4707 : B O N N N E
+[2022-10-24 21:09:39] Best translation 4708 : B N N E
+[2022-10-24 21:09:39] Best translation 4709 : B O O N N N E
+[2022-10-24 21:09:39] Best translation 4710 : B O O O O O O N N N E
+[2022-10-24 21:09:39] Best translation 4711 : B N N E
+[2022-10-24 21:09:39] Total time: 143.89282s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    2m26.053s
+user    2m21.522s
+sys     0m4.231s
 ```
 
+The BLEU score result is as follows:  
 
 ```
-
+root@2328f1decde9:/home/ye/exp/mysent/model.seq2seq.sent1# cat eval-best-result.txt
+Evaluation with hyp.best.tg, Seq2Seq, Sentence model:
+BLEU = 93.52, 95.0/94.2/93.1/91.8 (BP=1.000, ratio=1.050, hyp_len=66799, ref_len=63620)
+root@2328f1decde9:/home/ye/exp/mysent/model.seq2seq.sent1#
 ```
 
+## Preparing a Training Script for Sent+Para Model 
 
-```
+```bash
 
 ```
 
