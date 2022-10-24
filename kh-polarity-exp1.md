@@ -1392,6 +1392,15 @@ I plan to use Khmer word-segmentation data (the one that I and Vichet prepared a
 
 ### SentecePiece Model Building 
 
+I found that, I already installed sentencepiece ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ pip install sentencepiece
+Requirement already satisfied: sentencepiece in /home/ye/tool/anaconda3/lib/python3.7/site-packages (0.1.91)
+
+[notice] A new release of pip available: 22.2.2 -> 22.3
+[notice] To update, run: pip install --upgrade pip
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$
 ```
 
 ```
@@ -1478,5 +1487,9 @@ I plan to use Khmer word-segmentation data (the one that I and Vichet prepared a
 
 ```
 
-```
+## Reference
+
+- https://pypi.org/project/sentencepiece/
+- https://towardsdatascience.com/sentencepiece-tokenizer-demystified-d0a3aac19b15
+
 
