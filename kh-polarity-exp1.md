@@ -1824,7 +1824,36 @@ text,label
 Training again ...  
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2$ time python ./kh-SGD-sentiment.py
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2$ time python ./kh-SGD-sentiment.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Unigram Counts
+Train score: 0.64 ; Validation score: 0.59
 
+Unigram Tf-Idf
+Train score: 0.63 ; Validation score: 0.59
+
+Bigram Counts
+Train score: 0.79 ; Validation score: 0.57
+
+Bigram Tf-Idf
+Train score: 0.74 ; Validation score: 0.59
+...
+...
+...
+/home/ye/tool/anaconda3/envs/sentiment/lib/python3.10/site-packages/sklearn/linear_model/_stochastic_gradient.py:705: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  warnings.warn(
+Best params: {'eta0': 0.007976505020093241, 'learning_rate': 'adaptive', 'loss': 'hinge'}
+Best score: 0.5893059600382393
+Best params: {'alpha': 9.731795442956917e-05, 'penalty': 'l2'}
+Best score: 0.5865324964004376
+mkdir: cannot create directory ‘classifiers’: File exists
+0.6
+
+real	1m14.325s
+user	1m14.046s
+sys	0m0.445s 
 ```
 
 ```
