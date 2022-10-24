@@ -1761,14 +1761,32 @@ check ...
 ```
 
 We will use comma version for SGD training ...  
-
+Important: Final Data Folder ...  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece$ pwd
+/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece
 ```
 
-```
+I removed .comma for training with prepared Python code:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece$ ls
+preprocessing  test.csv  train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece$ wc {train,test}.csv
+   9014  698067 5188704 train.csv
+   1000   75892  563439 test.csv
+  10014  773959 5752143 total
+```
+
+Copied to SGD Program folder:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/*.csv .
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ ls
+original  sp-segmentation  test.csv  train.csv
+```
+
+Strat training SGD classification models and the results are as follows:  
 
 ```
 
