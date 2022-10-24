@@ -1592,6 +1592,41 @@ line 102: (រាជធានីភ្នំពេញ)៖ ក្រសួងស�
 ```
 
 I should combine with TAB and make cleaning ... Oh! God ...   
+For the last label, I can extract with following ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ rev train.raw.csv | cut -f1 -d"," | rev > ./train.raw.csv.label
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ head ./train.raw.csv.label 
+positive
+negative
+positive
+positive
+neutral
+negative
+positive
+negative
+positive
+neutral
+```
+
+label extraction for test data:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ rev test.raw.csv | cut -f1 -d"," | rev > ./test.raw.csv.label
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ head ./test.raw.csv.label 
+positive
+positive
+positive
+negative
+negative
+positive
+negative
+positive
+negative
+positive
+```
+
+Similarly, trying to extract text column by applying Linux command power :)   
 
 ```
 
@@ -1600,6 +1635,15 @@ I should combine with TAB and make cleaning ... Oh! God ...
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
 
 Segmentation for Training Data ...   
 
