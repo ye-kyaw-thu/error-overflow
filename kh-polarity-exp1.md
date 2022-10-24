@@ -1255,6 +1255,12 @@ test
 
 ```
 
+## Shuffle and Prepare for Classification Model
+
+Note: currently we have CSV files for each class ...  
+We need to combine positive, negative and neutral ...  
+Moreover, we have to make shuffle before we train a classification model ...  
+
 ```
 
 ```
