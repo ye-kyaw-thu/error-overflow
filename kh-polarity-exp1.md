@@ -910,7 +910,15 @@ Let's check the training CSV files:
 
 ```
 
+```
+
+```
+
 3rd working for training data, neutral.  
+
+```
+
+```
 
 ```
 
@@ -924,7 +932,7 @@ Let's check the training CSV files:
 
 Working for test-data, extracted all columns and combined as CSV format file:  
 
-```
+1st working for test, positive...  
 
 ```
 
@@ -938,7 +946,7 @@ Working for test-data, extracted all columns and combined as CSV format file:
 
 ```
 
-```
+2nd working for test, negative...  
 
 ```
 
@@ -947,6 +955,25 @@ Working for test-data, extracted all columns and combined as CSV format file:
 ```
 
 ```
+
+```
+
+```
+
+3rd working for test, neutral ...  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 
 ```
 
