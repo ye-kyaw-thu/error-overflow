@@ -1366,10 +1366,31 @@ kh_test = pd.read_csv('kh-data-csv/test.csv')
 Currently, no word-segmentation ...  
 We need to do segmentation with sub-word or syllable or character level unit ...  
 
+### Data Preparation
+
+I plan to use Khmer word-segmentation data (the one that I and Vichet prepared at NICT)  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ ls
+5000-test-data.line.shuf  90000-train-data.line.shuf  khnormal2.py
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ cat 90000-train-data.line.shuf 5000-test-data.line.shuf > segment-corpus.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ wc segment-corpus.txt 
+   95000  1341904 18844391 segment-corpus.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ head segment-corpus.txt 
+អ្នក អាច បិទ កាតាប
+លោកស្រី ឈាន អ៊ីញ
+នេះ ជា បន្ទប់ បី សែសិប ប្រាំ
+តើ ចំណាយ រួមទាំងអស់ សម្រាប់ សំភារៈ ថ្លៃ ប៉ុន្មាន ?
+លោក វណ្ណ រ៉ុង
+រូប ៩ . ៣៩ ស្មៅ រពាក់ ទឹក ខ. ជម្រក និង សារសំខាន់ ស្មៅ រពាក់ ទឹក ជា ជម្រក សត្វ ល្អិត និង ជំងឺ មួយចំនួន លើ ដំណាំ ស្រូវ ដូចជា ដង្កូវ បាក់ ខ្នង ខ្ញុង បន្លា មេអំបៅ ដង្កូវ ភ្នែក ឆ្មា ដង្កូវ មូរ ស្លឹក ជំងឺ តឿ លឿង ណេម៉ាតូត លើ ឫស ខ្យង ស៊ី ស្រូវ ពណ៌ មាស ជាដើម
+ក្រុម ឃ្លាំមើល នេះ បាន និយាយ ថា ក្នុង តំបន់ ជាច្រើន នៃ ខេត្ត អាឡិបប៉ូ គ្រប់គ្រង ដោយ ក្រុម ឧទ្ទាម ក្នុង នោះ មាន ក្រុង នោះ ផ្ទាល់ ផង « ជន ស៊ីវិល យ៉ាងតិច ៧១ នាក់ ត្រូវបាន សម្លាប់ »R និង រាប់ សិប នាក់ បាន រងរបួស នៅពេល ឧទ្ធម្ភាគចក្រ របប នេះ បាន ទម្លាក់ គ្រាប់បែក ធុង »R ។
+តើ បូករួមបញ្ចូល ទាំង អាជ្ញាបណ្ណ ដែរ ទេ ?
+ខ្ញុំ ចង់ ទូរស័ព្ទ ស្ថានីយ៍ ទៅ ស្ថានីយ៍ ទៅ ប្រទេស ជប៉ុន
+តើ ណាមួយ ដែល អ្នក ចង់បាន តែ រឺ កាហ្វេ ?
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$
 ```
+
+### SentecePiece Model Building 
 
 ```
 
