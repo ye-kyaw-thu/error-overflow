@@ -1026,8 +1026,27 @@ Working for test-data, extracted all columns and combined as CSV format file:
 1st working for test, positive...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.positive 1 > col1.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.positive 2 > col2.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.positive 3 > col3.positive
+```
 
 ```
+$ wc col{1,2,3}.positive
+   583   3623 281070 col1.positive
+   583    597  44185 col2.positive
+   583    583   5247 col3.positive
+  1749   4803 330502 total
+```
+
+create CSV file for test data, positive:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.positive col2.positive col3.positive > test.positive.all.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.positive col3.positive > test.positive.sentence.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col2.positive col3.positive > test.positive.key-word.csv
+```
+
 
 ```
 
