@@ -443,3 +443,72 @@ $seq2seq.para1.sh
 
 ```
 
+## Testing with New Test Data
+
+I got email from Thura-Aung and he updated some manual errors in test files. I plan to use that new test data for evaluation for our paper.  
+
+Here is the rough info of new test-data.  
+
+```
+root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data# ls
+test.para.my  test.para.tg  test.sent.my  test.sent.tg
+root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data# wc *
+   5512     758 1380192 test.para.my
+   5512   96641  193282 test.para.tg
+   4712     448  919477 test.sent.my
+   4712   63622  127244 test.sent.tg
+  20448  161469 2620195 total
+root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data# head -n 3 *
+==> test.para.my <==
+ရင်ဘတ် အောင့် လာ ရင် သတိထား ပါ
+ဘယ်လောက် နောက်ကျ သလဲ
+ကြိုပို့ ဘတ်စ်ကား က အဆင်အပြေဆုံး ပဲ
+
+==> test.para.tg <==
+B O N N N E
+B N E
+B N N N E
+
+==> test.sent.my <==
+အခု သန့်စင်ခန်း ကို သုံး ပါရစေ
+လူငယ် တွေ က ပုံစံတကျ ရှိ မှု ကို မ ကြိုက် ဘူး
+ဒီ တစ် ခေါက် ကိစ္စ ကြောင့် ကျွန်တော့် ရဲ့ သိက္ခာ အဖတ်ဆယ် လို့ မ ရ အောင် ကျ သွား တယ်
+
+==> test.sent.tg <==
+B N N N E
+B O O O O O N N N E
+B O O O O O O O O O O O N N N E
+root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data#
+```
+
+## Evaluations with NEW Test Data
+
+```
+
+```
+
+### Sentence Model with Sentence Only Test Data
+
+```
+
+```
+
+### Sentence Model with Sentence+Para Test Data
+
+```
+
+```
+
+## Para Model with Sentence Only Test Data
+
+```
+
+```
+
+## Para Model with Sentence+Para Test Data
+
+```
+
+```
+
+
