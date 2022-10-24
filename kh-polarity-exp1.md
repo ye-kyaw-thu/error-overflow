@@ -559,8 +559,11 @@ Re-count the columns:
   10004   10004   89116
 ```
 
-```
+check with grep ...  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ grep ".*\|\|\|.*\|\|\|.*\|\|\|.*" ./kh-polar.shuf.clean | wc
+  10016  101732 5698885
 ```
 
 ```
