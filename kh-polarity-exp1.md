@@ -779,7 +779,17 @@ It looks I successfully cleaned the corpus and ready to train.
 Here, I will prepare training and test dataset for classification process. Note, I have to work for each class (e.g. positive, negative and neutral)  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ grep "positive" ./kh-polar.shuf.clean.final > all.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ grep "negative" ./kh-polar.shuf.clean.final > all.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ grep "neutral" ./kh-polar.shuf.clean.final > all.neutral
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ wc kh-polar.shuf.clean.final 
+  10004  101841 5697556 kh-polar.shuf.clean.final
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ wc all.{positive,negative,neutral}
+   5831   61768 3506876 all.positive
+   3253   31863 1802458 all.negative
+    920    8210  388222 all.neutral
+  10004  101841 5697556 total
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ 
 ```
 
 ```
