@@ -1221,6 +1221,7 @@ train
 └── train.positive
 
 1 directory, 22 files
+```
 
 Check current folder structure of test data:  
 
@@ -1279,15 +1280,140 @@ for key-word:
   9014   9327 744276 train.key-word.combine.csv
 ```
 
+Shuffle:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ shuf ./train.sentence.combine.csv > ./train.sentence.combine.shuffle.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ shuf ./train.key-word.combine.csv > ./train.sentence.key-word.shuffle.csv
+```
+
 Combination for test-data, sentence:   
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ cat test.positive.sentence.csv test.negative.sentence.csv test.neutral.sentence.csv > test.sentence.combine.csv
 
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ wc ./test.sentence.combine.csv 
+  1000   6086 478200 ./test.sentence.combine.csv
 ```
 
 Combination for test-data, key-word:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ cat test.positive.key-word.csv test.negative.key-word.csv test.neutral.key-word.csv > test.key-word.combine.csv
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ wc ./test.key-word.combine.csv 
+ 1000  1028 81791 ./test.key-word.combine.csv
+```
+
+Shuffling ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ shuf ./test.sentence.combine.csv > ./test.sentence.combine.shuffle.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ shuf ./test.key-word.combine.csv > ./test.key-word.combine.shuffle.csv
+```
+
+The whole process for data preparation finished!!!  
+Now we are ready to train a model ...   
+
+## Training 
+
+```
+
 ```
 
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
