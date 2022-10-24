@@ -935,6 +935,29 @@ negative
 negative
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$
 ```
+```
+$ paste -d "," col1.negative col2.negative col3.negative > train.negative.all.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ paste -d "," col1.negative col3.negative > train.negative.sentence.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ paste -d "," col2.negative col3.negative > train.negative.key-word.csv
+```
+
+check CSV file content:  
+
+```
+$ head -n 2 train.negative.{all,sentence,key-word}.csv
+==> train.negative.all.csv <==
+ដរាបណាយើងមិនបានតាំងចិត្តខិតខំប្រឹងរៀន ប្រឹងធ្វើលំហាត់ជារៀងរាល់ថ្ងៃតាំងពីដើមឆ្នាំទេ នោះនិទ្ទេស A ក៏គ្មានថ្ងៃក្លាយជារបស់យើងដែរ។,មិនបានតាំងចិត្តខិតខំប្រឹងរៀន/គ្មានថ្ងៃក្លាយជារបស់យើង,negative
+សាលា​ដំបូង​រាជធានី​ភ្នំពេញ​បាន​ចោទ​ប្រកាន់​លោក សុន ឆ័យ ពី​បទបរិហាកេរ្តិ៍​ពាក់ព័ន្ធ​នឹង​ការ​អត្ថាធិប្បាយ​រិះគន់​ការ​បោះឆ្នោត​ក្រុម​ប្រឹក្សា​ឃុំ​សង្កាត់ តាម​ពាក្យ​បណ្តឹង​របស់​គណបក្ស​ប្រជាជន​កម្ពុជា ដែល​ទាមទារ​ឱ្យ​មេដឹកនាំ​គណបក្ស​ប្រឆាំង​បង់​សង​ជំងឺ​ចិត្ត​ចំនួន ​៤ ​ពាន់​លាន​រៀល គឺ​ប្រមាណ​ ១​ លាន​ដុល្លារ​អាមេរិក និង​ស្ថាប័ន​រៀបចំ​ការ​បោះឆ្នោត គ.ជ.ប ទាមទារ​ឱ្យ​លោក សុន ឆ័យ សុំទោស​ជា​សាធារណៈ។​,​អត្ថាធិប្បាយ​រិះគន់,negative
+
+==> train.negative.sentence.csv <==
+ដរាបណាយើងមិនបានតាំងចិត្តខិតខំប្រឹងរៀន ប្រឹងធ្វើលំហាត់ជារៀងរាល់ថ្ងៃតាំងពីដើមឆ្នាំទេ នោះនិទ្ទេស A ក៏គ្មានថ្ងៃក្លាយជារបស់យើងដែរ។,negative
+សាលា​ដំបូង​រាជធានី​ភ្នំពេញ​បាន​ចោទ​ប្រកាន់​លោក សុន ឆ័យ ពី​បទបរិហាកេរ្តិ៍​ពាក់ព័ន្ធ​នឹង​ការ​អត្ថាធិប្បាយ​រិះគន់​ការ​បោះឆ្នោត​ក្រុម​ប្រឹក្សា​ឃុំ​សង្កាត់ តាម​ពាក្យ​បណ្តឹង​របស់​គណបក្ស​ប្រជាជន​កម្ពុជា ដែល​ទាមទារ​ឱ្យ​មេដឹកនាំ​គណបក្ស​ប្រឆាំង​បង់​សង​ជំងឺ​ចិត្ត​ចំនួន ​៤ ​ពាន់​លាន​រៀល គឺ​ប្រមាណ​ ១​ លាន​ដុល្លារ​អាមេរិក និង​ស្ថាប័ន​រៀបចំ​ការ​បោះឆ្នោត គ.ជ.ប ទាមទារ​ឱ្យ​លោក សុន ឆ័យ សុំទោស​ជា​សាធារណៈ។​,negative
+
+==> train.negative.key-word.csv <==
+មិនបានតាំងចិត្តខិតខំប្រឹងរៀន/គ្មានថ្ងៃក្លាយជារបស់យើង,negative
+អត្ថាធិប្បាយ​រិះគន់,negative
+
+```
 
 3rd working for training data, neutral.  
 
@@ -969,6 +992,31 @@ check file content:
 ==> col3.neutral <==
 neutral
 neutral
+```
+
+paste with "," or creating CSV format file ...  
+
+```
+$ paste -d "," col1.neutral col2.neutral col3.neutral > train.neutral.all.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ paste -d "," col1.neutral col3.neutral > train.neutral.sentence.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ paste -d "," col2.neutral col3.neutral > train.neutral.key-word.csv
+```
+
+check the CSV files of neutral class:  
+
+```
+$ head -n 2 train.neutral.{all,sentence,key-word}.csv
+==> train.neutral.all.csv <==
+នាយិកា​មជ្ឈមណ្ឌល​សិទ្ធិមនុស្ស​កម្ពុជាអ្នកស្រី​ ចក់​ សុភាព​ បង្ហាញ​ខ្លួន​នៅ​តុលាការ​ក្រុងភ្នំពេញ​ ក្នុងនាម​ជាសាក្សីក្នុង​ចំណោម​សាក្សីផ្សេង​ទៀត​ ​ក្នុង​សំណុំ​រឿង​មេដឹកនាំ​នយោបាយ​ជំទាស់​លោក​ កឹម សុខា ទីក្រុង​ភ្នំពេញ​ ថ្ងៃទី​៥ ខែតុលា ឆ្នាំ​ ២០២២។​,បង្ហាញ​ខ្លួន​,neutral
+ប្រភព​បង្ហើប​ថា បន្ទប់​នោះមាន​ខ្ទង់​ចំណាយ​​ប្រមាណ​ជាង ១០ម៉ឺន​ដុល្លារ​អាមេរិក​ឯណោះ។​,បង្ហើប​,neutral
+
+==> train.neutral.sentence.csv <==
+នាយិកា​មជ្ឈមណ្ឌល​សិទ្ធិមនុស្ស​កម្ពុជាអ្នកស្រី​ ចក់​ សុភាព​ បង្ហាញ​ខ្លួន​នៅ​តុលាការ​ក្រុងភ្នំពេញ​ ក្នុងនាម​ជាសាក្សីក្នុង​ចំណោម​សាក្សីផ្សេង​ទៀត​ ​ក្នុង​សំណុំ​រឿង​មេដឹកនាំ​នយោបាយ​ជំទាស់​លោក​ កឹម សុខា ទីក្រុង​ភ្នំពេញ​ ថ្ងៃទី​៥ ខែតុលា ឆ្នាំ​ ២០២២។​,neutral
+ប្រភព​បង្ហើប​ថា បន្ទប់​នោះមាន​ខ្ទង់​ចំណាយ​​ប្រមាណ​ជាង ១០ម៉ឺន​ដុល្លារ​អាមេរិក​ឯណោះ។​,neutral
+
+==> train.neutral.key-word.csv <==
+បង្ហាញ​ខ្លួន​,neutral
+បង្ហើប​,neutral
 ```
 
 ### for Test Data
