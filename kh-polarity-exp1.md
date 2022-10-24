@@ -1856,29 +1856,10 @@ user	1m14.046s
 sys	0m0.445s 
 ```
 
-```
+## To Do
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+- Thinking to increase classification performance
+- Trying with other classification modeling approaches
 
 ## Reference
 
