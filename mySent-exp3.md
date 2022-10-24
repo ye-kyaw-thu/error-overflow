@@ -375,12 +375,71 @@ marian \
 time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.para.log1
 ```
 
+## Training Seq2Seq Model with Sent+Para
+
+Start training ...  
+
+```
+$seq2seq.para1.sh
+[2022-10-24 21:18:17] [marian] Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+[2022-10-24 21:18:17] [marian] Running on 2328f1decde9 as process 471 with command line:
+[2022-10-24 21:18:17] [marian] marian -c model.seq2seq.para1/config.yml
+[2022-10-24 21:18:17] [config] after: 0e
+[2022-10-24 21:18:17] [config] after-batches: 0
+[2022-10-24 21:18:17] [config] after-epochs: 0
+[2022-10-24 21:18:17] [config] all-caps-every: 0
+[2022-10-24 21:18:17] [config] allow-unk: false
+[2022-10-24 21:18:17] [config] authors: false
+[2022-10-24 21:18:17] [config] beam-size: 12
+[2022-10-24 21:18:17] [config] bert-class-symbol: "[CLS]"
+[2022-10-24 21:18:17] [config] bert-mask-symbol: "[MASK]"
+[2022-10-24 21:18:17] [config] bert-masking-fraction: 0.15
+[2022-10-24 21:18:17] [config] bert-sep-symbol: "[SEP]"
+[2022-10-24 21:18:17] [config] bert-train-type-embeddings: true
+[2022-10-24 21:18:17] [config] bert-type-vocab-size: 2
+[2022-10-24 21:18:17] [config] build-info: ""
+[2022-10-24 21:18:17] [config] check-gradient-nan: false
+[2022-10-24 21:18:17] [config] check-nan: false
+[2022-10-24 21:18:17] [config] cite: false
+[2022-10-24 21:18:17] [config] clip-norm: 1
+[2022-10-24 21:18:17] [config] cost-scaling:
+[2022-10-24 21:18:17] [config]   []
+[2022-10-24 21:18:17] [config] cost-type: ce-sum
+[2022-10-24 21:18:17] [config] cpu-threads: 0
+[2022-10-24 21:18:17] [config] data-threads: 8
+[2022-10-24 21:18:17] [config] data-weighting: ""
+[2022-10-24 21:18:17] [config] data-weighting-type: sentence
+[2022-10-24 21:18:17] [config] dec-cell: lstm
+[2022-10-24 21:18:17] [config] dec-cell-base-depth: 4
+[2022-10-24 21:18:17] [config] dec-cell-high-depth: 2
+[2022-10-24 21:18:17] [config] dec-depth: 3
+...
+...
+...
+
+```
+
+## Check Validation Log
 
 ```
 
 ```
 
+## Preparing a Bash Script for Testing with Sent+Para
 
 ```
 
 ```
+
+## Testing Seq2Seq with Sent+Para
+
+```
+
+```
+
+## Result with Seq2Seq with Sent+Para
+
+```
+
+```
+
