@@ -903,29 +903,72 @@ Let's check the training CSV files:
 2nd working for training data, negative.  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ perl ./cut-column.pl ../train.negative 1 > col1.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ perl ./cut-column.pl ../train.negative 2 > col2.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ perl ./cut-column.pl ../train.negative 3 > col3.negative
 ```
 
-```
+check filesize:  
 
 ```
-
+$ wc {col1,col2,col3}.negative
+   2933   16907 1350278 col1.negative
+   2933    3036  222088 col2.negative
+   2933    2933   26397 col3.negative
+   8799   22876 1598763 total
 ```
 
+check file content:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ head -n 2 *.negative
+==> col1.negative <==
+ដរាបណាយើងមិនបានតាំងចិត្តខិតខំប្រឹងរៀន ប្រឹងធ្វើលំហាត់ជារៀងរាល់ថ្ងៃតាំងពីដើមឆ្នាំទេ នោះនិទ្ទេស A ក៏គ្មានថ្ងៃក្លាយជារបស់យើងដែរ។
+សាលា​ដំបូង​រាជធានី​ភ្នំពេញ​បាន​ចោទ​ប្រកាន់​លោក សុន ឆ័យ ពី​បទបរិហាកេរ្តិ៍​ពាក់ព័ន្ធ​នឹង​ការ​អត្ថាធិប្បាយ​រិះគន់​ការ​បោះឆ្នោត​ក្រុម​ប្រឹក្សា​ឃុំ​សង្កាត់ តាម​ពាក្យ​បណ្តឹង​របស់​គណបក្ស​ប្រជាជន​កម្ពុជា ដែល​ទាមទារ​ឱ្យ​មេដឹកនាំ​គណបក្ស​ប្រឆាំង​បង់​សង​ជំងឺ​ចិត្ត​ចំនួន ​៤ ​ពាន់​លាន​រៀល គឺ​ប្រមាណ​ ១​ លាន​ដុល្លារ​អាមេរិក និង​ស្ថាប័ន​រៀបចំ​ការ​បោះឆ្នោត គ.ជ.ប ទាមទារ​ឱ្យ​លោក សុន ឆ័យ សុំទោស​ជា​សាធារណៈ។​
+
+==> col2.negative <==
+មិនបានតាំងចិត្តខិតខំប្រឹងរៀន/គ្មានថ្ងៃក្លាយជារបស់យើង
+អត្ថាធិប្បាយ​រិះគន់
+
+==> col3.negative <==
+negative
+negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$
 ```
 
 3rd working for training data, neutral.  
 
 ```
-
+$ perl ./cut-column.pl ../train.neutral 1 > col1.neutral
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ perl ./cut-column.pl ../train.neutral 2 > col2.neutral
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ perl ./cut-column.pl ../train.neutral 3 > col3.neutral
 ```
 
-```
+check filesize:  
 
 ```
-
+$ wc {col1,col2,col3}.neutral
+   830   4043 310285 col1.neutral
+   830    842  24288 col2.neutral
+   830    830   6640 col3.neutral
+  2490   5715 341213 total
 ```
 
+check file content:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ head -n 2 *.neutral
+==> col1.neutral <==
+នាយិកា​មជ្ឈមណ្ឌល​សិទ្ធិមនុស្ស​កម្ពុជាអ្នកស្រី​ ចក់​ សុភាព​ បង្ហាញ​ខ្លួន​នៅ​តុលាការ​ក្រុងភ្នំពេញ​ ក្នុងនាម​ជាសាក្សីក្នុង​ចំណោម​សាក្សីផ្សេង​ទៀត​ ​ក្នុង​សំណុំ​រឿង​មេដឹកនាំ​នយោបាយ​ជំទាស់​លោក​ កឹម សុខា ទីក្រុង​ភ្នំពេញ​ ថ្ងៃទី​៥ ខែតុលា ឆ្នាំ​ ២០២២។​
+ប្រភព​បង្ហើប​ថា បន្ទប់​នោះមាន​ខ្ទង់​ចំណាយ​​ប្រមាណ​ជាង ១០ម៉ឺន​ដុល្លារ​អាមេរិក​ឯណោះ។​
+
+==> col2.neutral <==
+បង្ហាញ​ខ្លួន​
+បង្ហើប​
+
+==> col3.neutral <==
+neutral
+neutral
 ```
 
 ### for Test Data
