@@ -774,6 +774,10 @@ $ echo "3253+920+5831" | bc
 
 It looks I successfully cleaned the corpus and ready to train.  
 
+## Split Training/Test for Classifiation
+
+Here, I will prepare training and test dataset for classification process. Note, I have to work for each class (e.g. positive, negative and neutral)  
+
 ```
 
 ```
