@@ -548,8 +548,15 @@ check two file size again:
 10004 10004 89116 ./col3
 ```
 
-```
+Re-count the columns:  
 
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean 1 | wc
+  10004   61711 4792799
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean 2 | wc
+  10004   10306  734796
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ../../../../cut-column.pl ./kh-polar.shuf.clean 3 | wc
+  10004   10004   89116
 ```
 
 ```
