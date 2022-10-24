@@ -1261,14 +1261,31 @@ Note: currently we have CSV files for each class ...
 We need to combine positive, negative and neutral ...  
 Moreover, we have to make shuffle before we train a classification model ...  
 
+Combine all three classes for training-data, for sentence:  
+
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ cat train.positive.sentence.csv train.negative.sentence.csv train.neutral.sentence.csv > train.sentence.combine.csv
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ wc train.sentence.combine.csv 
+   9014   55743 4407928 train.sentence.combine.csv
+```
+
+for key-word:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ cat train.positive.key-word.csv train.negative.key-word.csv train.neutral.key-word.csv > train.key-word.combine.csv
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ wc train.key-word.combine.csv 
+  9014   9327 744276 train.key-word.combine.csv
+```
+
+Combination for test-data, sentence:   
 
 ```
 
 ```
 
-```
-
+Combination for test-data, key-word:  
 ```
 
 ```
