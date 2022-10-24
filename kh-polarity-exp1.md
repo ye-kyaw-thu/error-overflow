@@ -1403,13 +1403,119 @@ Requirement already satisfied: sentencepiece in /home/ye/tool/anaconda3/lib/pyth
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$
 ```
 
+Prepare a python script for sentencepiece model for Khmer ...  
+
+```python
+import sentencepiece as spm
+
+spm.SentencePieceTrainer.train(input='segment-corpus.txt', model_prefix='kh-segment.model', vocab_size=1000, user_defined_symbols=['foo', 'bar'])
 ```
 
-```
+training a sentencepiece model ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ time python ./train-sentencepiece.py 2>&1 | tee train.log
 ```
+
+The following is the training log:  
+```
+sentencepiece_trainer.cc(75) LOG(INFO) Starts training with : 
+trainer_spec {
+  input: segment-corpus.txt
+  input_format: 
+  model_prefix: kh-segment.model
+  model_type: UNIGRAM
+  vocab_size: 1000
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  treat_whitespace_as_suffix: 0
+  user_defined_symbols: foo
+  user_defined_symbols: bar
+  required_chars: 
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+denormalizer_spec {}
+trainer_interface.cc(330) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(185) LOG(INFO) Loading corpus: segment-corpus.txt
+trainer_interface.cc(386) LOG(INFO) Loaded all 94996 sentences
+trainer_interface.cc(401) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(401) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(401) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(401) LOG(INFO) Adding meta_piece: foo
+trainer_interface.cc(401) LOG(INFO) Adding meta_piece: bar
+trainer_interface.cc(406) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(452) LOG(INFO) Found null character. The corpus must be encoded in utf-8.
+trainer_interface.cc(467) LOG(INFO) all chars count=7198532
+trainer_interface.cc(478) LOG(INFO) Done: 99.9547% characters are covered.
+trainer_interface.cc(488) LOG(INFO) Alphabet size=99
+trainer_interface.cc(489) LOG(INFO) Final character coverage=0.999547
+trainer_interface.cc(521) LOG(INFO) Done! preprocessed 94965 sentences.
+unigram_model_trainer.cc(134) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(138) LOG(INFO) Extracting frequent sub strings...
+unigram_model_trainer.cc(189) LOG(INFO) Initialized 41076 seed sentencepieces
+trainer_interface.cc(527) LOG(INFO) Tokenizing input sentences with whitespace: 94965
+trainer_interface.cc(537) LOG(INFO) Done! 26319
+unigram_model_trainer.cc(484) LOG(INFO) Using 26319 sentences for EM training
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=19800 obj=11.1743 num_tokens=54072 num_tokens/piece=2.73091
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=15327 obj=9.55962 num_tokens=54242 num_tokens/piece=3.53898
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=11492 obj=9.50421 num_tokens=56247 num_tokens/piece=4.89445
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=11473 obj=9.47246 num_tokens=56437 num_tokens/piece=4.91911
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=8604 obj=9.50603 num_tokens=61689 num_tokens/piece=7.1698
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=8604 obj=9.49259 num_tokens=61698 num_tokens/piece=7.17085
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=6453 obj=9.5628 num_tokens=67995 num_tokens/piece=10.537
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=6453 obj=9.54245 num_tokens=67984 num_tokens/piece=10.5353
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=4839 obj=9.671 num_tokens=74531 num_tokens/piece=15.4021
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=4839 obj=9.63848 num_tokens=74517 num_tokens/piece=15.3993
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=3629 obj=9.84913 num_tokens=81424 num_tokens/piece=22.437
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=3629 obj=9.79863 num_tokens=81424 num_tokens/piece=22.437
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=2721 obj=10.0869 num_tokens=88418 num_tokens/piece=32.4947
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=2721 obj=10.0198 num_tokens=88410 num_tokens/piece=32.4917
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=2040 obj=10.3672 num_tokens=94828 num_tokens/piece=46.4843
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=2040 obj=10.2875 num_tokens=94809 num_tokens/piece=46.475
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=1530 obj=10.7347 num_tokens=100928 num_tokens/piece=65.966
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=1530 obj=10.6335 num_tokens=100927 num_tokens/piece=65.9654
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=1147 obj=11.1673 num_tokens=107825 num_tokens/piece=94.0061
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=1147 obj=11.0505 num_tokens=107894 num_tokens/piece=94.0663
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=0 size=1100 obj=11.1193 num_tokens=109531 num_tokens/piece=99.5736
+unigram_model_trainer.cc(500) LOG(INFO) EM sub_iter=1 size=1100 obj=11.1 num_tokens=109543 num_tokens/piece=99.5845
+trainer_interface.cc(615) LOG(INFO) Saving model: kh-segment.model.model
+trainer_interface.cc(626) LOG(INFO) Saving vocabs: kh-segment.model.vocab
+```
+
+## Segmentation with SentencePiece Model
+
 
 ```
 
