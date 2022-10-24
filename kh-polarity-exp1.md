@@ -792,12 +792,20 @@ Here, I will prepare training and test dataset for classification process. Note,
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ 
 ```
 
-```
+Preparing test data:  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ tail -n 583 ./all.positive > ./test/test.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ tail -n 325 ./all.negative > ./test/test.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ tail -n 92 ./all.neutral > ./test/test.neutral
 ```
 
+Preparing training data:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ head -n 5251 ./all.positive > ./train/train.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ head -n 2933 ./all.negative > ./train/train.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class$ head -n 830 ./all.neutral > ./train/train.neutral
 ```
 
 ```
