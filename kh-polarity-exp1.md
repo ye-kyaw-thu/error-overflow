@@ -465,18 +465,31 @@ Now, we finished cleaning the corpus and the final statistical information of th
 ## Shuffling the Corpus
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ mkdir shuffle
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cp kh-polar.txt.normalized.clean ./shuffle/
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final$ cd shuffle
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle$ shuf ./kh-polar.txt.normalized.clean > kh-polar.shuf
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle$ 
 ```
 
 ## Split Training and Testing 
 
-```
+Extracting positive only, negative only and neutral sentences ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data$ grep "positive" ./kh-polar.shuf > kh-polar.shuf.positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data$ grep "negative" ./kh-polar.shuf > kh-polar.shuf.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data$ grep "neutral" ./kh-polar.shuf > kh-polar.shuf.neutral
+```
 
-perl -i -p -e "s/positive​/positive/g"
+When I check ..., change the value a little bit as follows ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data$ wc kh-polar.shuf.{positive,negative,neutral}
+   5835   61754 3511013 kh-polar.shuf.positive
+   3249   31797 1799579 kh-polar.shuf.negative
+    920    8181  388289 kh-polar.shuf.neutral
+  10004  101732 5698881 total
 
 ```
 
