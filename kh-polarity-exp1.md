@@ -1629,21 +1629,50 @@ positive
 Similarly, trying to extract text column by applying Linux command power :)   
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ rev test.raw.csv | cut -f2- -d"," | rev > ./test.raw.csv.text
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation$ rev train.raw.csv | cut -f2- -d"," | rev > ./train.raw.csv.text
+```
+
+Important: I used gedit editor for replacing all comma character with NULL.  
+35 replacement for test.raw.csv.text and 313 replacement for train.raw.csv.text ...   
+
+Combine with comma delimeter and extract field-1, field-2 for confirmation as follows:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ paste -d "," ./train.raw.csv.text ./train.raw.csv.label > train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ paste -d "," ./test.raw.csv.text ./test.raw.csv.label > test.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ wc ./train.csv
+   9014   55743 4407928 ./train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ wc ./test.csv
+  1000   6085 478165 ./test.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ 
+```
+
+Extract and counting lines for confirmation ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ cut -f1 -d"," ./train.csv > train.csv.f1
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ cut -f2 -d"," ./train.csv > train.csv.f2
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ wc *.{f1,f2}
+   9014   55742 4327319 train.csv.f1
+   9014    9014   80296 train.csv.f2
+  18028   64756 4407615 total
 
 ```
 
-```
+for testing file:  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ cut -f1 -d"," ./test.csv > test.csv.f1
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ cut -f2 -d"," ./test.csv > test.csv.f2
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/confirmation$ wc test.csv.{f1,f2}
+  1000   6085 469257 test.csv.f1
+  1000   1000   8908 test.csv.f2
+  2000   7085 478165 total
 ```
 
-```
-
-```
-
-```
-
+I also checed with my eyeball .... and it looks OK.  
 
 Segmentation for Training Data ...   
 
