@@ -1516,18 +1516,52 @@ trainer_interface.cc(626) LOG(INFO) Saving vocabs: kh-segment.model.vocab
 
 ## Segmentation with SentencePiece Model
 
+Segmentation our Polarity training/testing data with SentencePiece model ...  
+
+Check the model and vocab files:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ wc kh-segment.model.{model,vocab}
+  2399   2822 258622 kh-segment.model.model
+  1000   2000  21843 kh-segment.model.vocab
+  3399   4822 280465 total
+```
+
+Check vocab file format:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ head kh-segment.model.vocab 
+<unk>	0
+<s>	0
+</s>	0
+foo	0
+bar	0
+▁	-2.56557
+រ	-4.09144
+▁ខ្ញុំ	-4.19162
+ន	-4.52608
+ង	-4.53948
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$ tail ./kh-segment.model.vocab 
+▁អនុញ្ញាត	-9.11927
+	-9.84811
+ឍ	-9.96373
+ឱ	-10.3931
+។	-11.3361
+)	-12.944
+”	-12.9441
+ឥ	-12.9442
+ឬ	-12.9443
+ឲ	-12.9443
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/sub-word/4polarity$
+```
+
+Segmentation for Training Data ...   
 
 ```
 
 ```
 
-```
-
-```
-
-```
-
-```
+Segmentation for Testing Data ...   
 
 ```
 
