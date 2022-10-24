@@ -493,20 +493,44 @@ When I check ..., change the value a little bit as follows ...
 
 ```
 
-```
+## Cleaning Again
 
 ```
-
+9010: យើង​ណែនាំ​ភ្ញៀវ​ឱ្យទៅ​គេង​នៅ​ខេត្ត​។​​​ ||| positiveណែនាំ​ ||| positive 
 ```
 
-```
+prntout code points on column 3:  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ./print-codepoint.pl ./col3 > col3.code
 ```
 
+head command:  
+
+```
+$ head col3.code
+neutral
+n (110, U6e) e (101, U65) u (117, U75) t (116, U74) r (114, U72) a (97, U61) l (108, U6c) , no. of char = 7
+positive
+p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65) , no. of char = 8
+neutral
+n (110, U6e) e (101, U65) u (117, U75) t (116, U74) r (114, U72) a (97, U61) l (108, U6c) , no. of char = 7
+neutral
+n (110, U6e) e (101, U65) u (117, U75) t (116, U74) r (114, U72) a (97, U61) l (108, U6c) , no. of char = 7
+negative
+n (110, U6e) e (101, U65) g (103, U67) a (97, U61) t (116, U74) i (105, U69) v (118, U76) e (101, U65) , no. of char = 8
 ```
 
+$ sort ./col3.code | uniq -c > col3.code.uniq  
+check the col3.code.uniq file:  
+
+```
+   3249 n (110, U6e) e (101, U65) g (103, U67) a (97, U61) t (116, U74) i (105, U69) v (118, U76) e (101, U65) , no. of char = 8
+    920 n (110, U6e) e (101, U65) u (117, U75) t (116, U74) r (114, U72) a (97, U61) l (108, U6c) , no. of char = 7
+   3249 negative
+    920 neutral
+   5835 p (112, U70) o (111, U6f) s (115, U73) i (105, U69) t (116, U74) i (105, U69) v (118, U76) e (101, U65) , no. of char = 8
+   5835 positive
 ```
 
 ```
