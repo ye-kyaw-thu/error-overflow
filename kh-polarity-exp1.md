@@ -730,6 +730,94 @@ I requested Sokheng to update our corpus...
 
 ## Update the Corpus and Count Number of Classes
 
+Now, no blank fields in the corpus:  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ perl ./check-empty-field.pl < ./kh-polar.shuf.clean | wc
+      0       0       0
+```
+
+However, I should remove blank lines and thus running with clean-space.pl ...  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
