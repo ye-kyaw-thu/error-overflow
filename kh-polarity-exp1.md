@@ -1315,15 +1315,57 @@ Shuffling ...
 The whole process for data preparation finished!!!  
 Now we are ready to train a model ...   
 
-## Training 
+## Training a Polarity Classification Model
+
+We already prepared two training data types:  
+
+### (1) for Training with Raw or Full Sentence
 
 ```
-
+./train.sentence.combine.shuffle.csv
+./test.sentence.combine.shuffle.csv
 ```
 
-```
+### (2) for Training only with Key-words  
 
 ```
+./train.sentence.key-word.shuffle.csv
+./test.key-word.combine.shuffle.csv
+```
+
+I am still thinking experimental setting in details ...  
+As a 1st step, plan training/testing with sentence level.  
+
+## Training with SGD Model
+
+CSV Data Folder for Modeling:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ pwd
+/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv$ tree
+.
+├── original
+│   ├── test.sentence.combine.shuffle.csv
+│   └── train.sentence.combine.shuffle.csv
+├── test.csv
+└── train.csv
+
+1 directory, 4 files
+```
+
+Updating the python script kh-SGD-sentiment.py:  
+
+```python
+#kh_train = pd.read_csv('csv/train.csv')
+#kh_test = pd.read_csv('csv/test.csv')
+kh_train = pd.read_csv('kh-data-csv/train.csv')
+kh_test = pd.read_csv('kh-data-csv/test.csv')
+```
+
+Currently, no word-segmentation ...  
+We need to do segmentation with sub-word or syllable or character level unit ...  
+
 
 ```
 
