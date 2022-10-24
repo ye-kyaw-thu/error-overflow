@@ -567,7 +567,11 @@ check with grep ...
 ```
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/cleaning$ wc col{1,2,3}
+   10004    61711  4792799 col1
+   10004    61711  4792799 col2
+   10004    61711  4792799 col3
+   30012   185133 14378397 total
 ```
 
 ```
