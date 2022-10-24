@@ -1187,11 +1187,71 @@ check CSV file content:
 ក្រាបទូល,neutral
 ```
 
-## 
+CSV file creation for all finished!!!  
+
+## Check the Current Data Folder Structure
+
+for training data:  
 
 ```
+$ tree train
+train
+├── csv
+│   ├── col1.negative
+│   ├── col1.neutral
+│   ├── col1.positive
+│   ├── col2.negative
+│   ├── col2.neutral
+│   ├── col2.positive
+│   ├── col3.negative
+│   ├── col3.neutral
+│   ├── col3.positive
+│   ├── cut-column.pl
+│   ├── train.negative.all.csv
+│   ├── train.negative.key-word.csv
+│   ├── train.negative.sentence.csv
+│   ├── train.neutral.all.csv
+│   ├── train.neutral.key-word.csv
+│   ├── train.neutral.sentence.csv
+│   ├── train.positive.all.csv
+│   ├── train.positive.key-word.csv
+│   └── train.positive.sentence.csv
+├── train.negative
+├── train.neutral
+└── train.positive
+
+1 directory, 22 files
+
+Check current folder structure of test data:  
 
 ```
+$ tree test
+test
+├── csv
+│   ├── col1.negative
+│   ├── col1.neutral
+│   ├── col1.positive
+│   ├── col2.negative
+│   ├── col2.neutral
+│   ├── col2.positive
+│   ├── col3.negative
+│   ├── col3.neutral
+│   ├── col3.positive
+│   ├── cut-column.pl
+│   ├── test.negative.all.csv
+│   ├── test.negative.key-word.csv
+│   ├── test.negative.sentence.csv
+│   ├── test.neutral.all.csv
+│   ├── test.neutral.key-word.csv
+│   ├── test.neutral.sentence.csv
+│   ├── test.positive.all.csv
+│   ├── test.positive.key-word.csv
+│   └── test.positive.sentence.csv
+├── test.negative
+├── test.neutral
+└── test.positive
+
+1 directory, 22 files
 
 ```
 
