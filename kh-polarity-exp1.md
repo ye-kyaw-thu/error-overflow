@@ -1674,33 +1674,93 @@ for testing file:
 
 I also checed with my eyeball .... and it looks OK.  
 
+### SentencePiece Segmentation 
+
+I collected required files, programs and model:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ ls
+break.py                kh-segment.model.vocab  test.csv.f2   train.csv.f2
+kh-segment.model.model  test.csv.f1             train.csv.f1  train-sentencepiece.py
+```
+
 Segmentation for Training Data ...   
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ time python ./break.py ./kh-segment.model.model ./train.csv.f1 > ./train.csv.f1.sp
 
+real	0m1.665s
+user	0m0.889s
+sys	0m0.020s
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ head ./train.csv.f1.sp 
+▁លោក ស ង្ក ត់ ធ ្ ង ន់ ថា ៖ ▁ « ខ ្ល ឹម សារ នៃ កិច្ច ស ន្យា ▁បើក ទូល ាយ ដែ រ ▁ដោយ យើង ទ ទ ួល គ ាត់ ជា គ ្រ ូ ប ង ្វ ឹក ទ ាំង ប ាល់ ទ ះ ឆ្ ន េរ ខ ្ស ាច់ ក ្ត ី ▁ប ាល់ ទ ះ ក្នុង សា ល ក ្ត ី ▁រយៈ ពេល ១ ឆ្ ន ាំ ▁បើ ង ា ក មើល ទៅ ក្រ ោ យ ស៊ី ហ្ គេ ម ▁ឆ្នាំ ២ ០ ២ ៣ ▁ច ប់ រយៈ ៣ ខ ែ ▁ទើប ផ ុត កិច្ច ស ន្យា ។
+▁លោក ▁ Manele ▁បាន លើ ក ឡើង ថា ៖ « នៅក្នុង កិច្ច ព ្រ ម ព ្រ ៀង នោះ មាន ច ំ ណ ុ ច មួយ ចំនួ ន ដែ ល ប៉ ះ ព ាល់ ដល់ ក ោះ ស ូ ឡ ូ ម ៉ ុន ▁។
+▁ប៉ុន្ តែ ក្រ ៅ ពី ភាព ប ៃ ត ង ន ៅ អា ច មាន ច ំ ណ ុ ច ផ្ ស េង ទ ៀ ត ▁ដែល ស ម្តេច ក្រ ឡា ហ ោម ▁ស ▁ខ េង ▁ថ្លែង ថា ▁ប ៃ ត ង ហ្ នឹង ជា ច ំ ណ ុ ច ទ ាក់ ទ ាញ មួយ ▁ប៉ុន្ តែ វ ាន ៅ មាន ឥ រិយា ប ថ ▁អា ក ប្ប ក ិ រិយា ▁ភាព ទ ន់ ភ ្ល ន់ រ ួស រ ាយ រ ាក់ ទ ាក់ ▁សុ ភាព រ ាប សារ ▁ការ ទ ាក់ ទ ាញ រ ប ស់ យើង ជា ម្ចាស់ ផ្ ទ ះ ផ ង ដែ រ ។
+▁បន្ទាប់ពី ប ាញ់ ប ំ ប ុក រ ួ ច ▁ថ្មី ៗ នេះ ▁ NASA ▁បាន ប្រ កាស ពី ជ ោ គ ជ ័យ យ៉ា ង ធ ំ ធ េង រ ប ស់ ខ្លួន ▁ដោយ អា ច ម ៍ ផ្ ក ាយ ▁ Dimorphos ▁បាន ហោះ ខ ុស គ ន ្ល ង ▁តាម បំណង ប្រ ា ថ្នា ហើយ ។
+▁៣ . ▁ម ធ ្យ ម សិក្សា ▁ ៖ ▁ក្រ ស ួង ▁បាន ▁ផលិត ▁ខ្សែ ▁ វី ដ េ អ ូ ▁បង ្រ ៀន ▁សម្រាប់ ▁ ថ្នាក់ ▁ទី ▁ ៧ ▁ដល់ ▁១ ២ ▁និង ▁បាន ▁ជ ំ រ ុ ញ ▁ឱ្យ ▁សាលា រ ៀន ▁ផ្តល់ ▁លទ្ធ ភាព ▁ឱ្យ ▁ស ិ ស្ស ▁បាន ▁ខ្ ច ី ▁សៀវ ភ ៅ ▁ សិក្សា ▁គោល ▁ដើម្បី ▁ស្ វ ័យ ▁ សិក្សា ▁បន្ថែម ▁ រ ៀង ៗ ▁ខ្លួន ▁។
+▁អ ្ន ន ក ប្រ ើ ប្រាស់ ▁បណ្តា ញ ▁សង្គម ▁បញ្ច េញ ម តិ ▁ជុំ វិញ ▁ភ រិយា ▁លោក ន ាយ ក ▁រដ្ឋ ម ន្ត រី ▁ ហ៊ុន ▁ស ែន ▁សា ង ស ង់ ▁ច េ តិ យ ▁ទុក ▁ឲ្យ ▁ប ្ត ី ▁រួច ហើយ ▁គឺ ▁ស្ថិត ▁នៅ ▁ក្នុង ▁វ ត្ត ▁មុន ី ស ុ វ ណ្ណ ▁ឬ ▁វ ត្ត ▁ចំ ព ុះ ក្ អ ែក ▁ខ ណ្ឌ ▁ច្បា រ អ ំ ព ៅ ▁រាជ ធាន ី ▁ភ្នំពេ ញ ▁តែ ▁លោក ▁មិន ▁ទទួល ▁យក ▁ឡើ យ ។
+▁ការ ទ ទ ួល បាន គ ្រ ឿ ង ឥ ស្ស រ ិ យ យ ស រ ប ស់ ឯ ក ឧ ត្ត ម បណ្ឌិត ▁ធ្វើ ឡើង ក្នុង ពិ ធ ី ប ើ ក ម ហា ▁សន្ ន ិ ប ា ▁ ត ▁ក្រុមប្រឹក្សា អ ូ ឡា ំ ពិ ក អា ស៊ី ▁នៅ ថ ្ ង ៃ ទី ០ ៤ ▁ខែ ត ុល ា នេះ ▁ក ្រោម អ ធ ិ ប ត ី ភាព ▁ដ៏ ខ ្ ព ង់ ▁ខ្ពស់ ▁របស់ ▁ស ▁ ម្តេច ត េ ជ ោ ▁ ហ៊ុន ▁ស ែន ▁នា យ ករ ដ្ឋ ម ន្ត រី នៃ ក ម្ ព ុជា ▁។
+▁ដូច្នេះ ▁ការ ▁ចាំ ▁ដល់ ▁ពេល ▁ចាស់ ▁បាន ▁ សិក្សា ▁ពី ▁ ធម៌ ▁មែន ទ ែន ▁ទៅ ▁វា ▁ហ ាក់ ជា ▁ការ ▁ហ ួស ពេល ▁ទៅ ▁ហើយ ▁។
+▁អ្វី ដែ ល អ ្ន ក អា ច ធ ្វ ើ ន ៅ ថ ្ ង ៃ នេះ ▁ដើម្បី ធាន ា ថា ▁ថ្ងៃ ស្អែក សុខ ភាព រ ប ស់ អ ្ន ក ▁នឹង ល ្ អ ប្រ ស ើ រ នោះ ▁គឺ ការ ប្រ យ ័ ត ្ន ប្រ យ ែង ទៅ ន ិ ង រ ប ប អា ហា រ រ ប ស់ អ ្ន ក ▁។
+▁ស េ ត វិ មាន បាន លើ ក ឡើង ថា ▁ខ្លួន នឹង ពិ គ ្រ ោះ ជា មួយ សភា លើ ការ ផ្ គ ត់ ផ្ គ ង់ នេះ បន្ថ ែម ▁ដើម្បី ក ាត់ បន្ថ យ ការ គ ្រ ប់ គ ្រ ង រ ប ស់ ក្រ ុ ម ជ ួ ញ ដ ូរ លើ ត ម្ ល ៃ ថា ម ពល នៅក្នុង ស េ ច ក ្ត ី យ ោង ជ ាក់ ស្ត ែង មួយ ច ំ ព ោះ ច ្ ប ាប់ ▁។
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$
 ```
 
 Segmentation for Testing Data ...   
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ time python ./break.py ./kh-segment.model.model ./test.csv.f1 > ./test.csv.f1.sp
 
+real	0m0.551s
+user	0m0.150s
+sys	0m0.015s
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ head ./test.csv.f1.sp 
+▁ចំពោះ រ ម ណ ី ដ្ឋាន ដែ ល ភ ្ ញ ៀ វ ទេស ច រ ច ូល ចិត្ត ទៅ ច្រើន ជា ង គេ នោះ គ ឺ ▁ រ ម ណ ី ដ្ឋាន ឡ ូរ ី ជ ើ ង ភ ្ន ំ ប ា ណ ន់ ៕
+▁អ្នក ដឹង ▁ទេ ▁ ? ▁ដោយសារ តែ ▁ក ញ្ញា ▁ស េង ▁ធ ារ ី ▁មាន ▁ឆ ន្ទ ៈ ▁និង ▁កម្លាំង ក ាយ ▁ រ ឹង មា ំ ▁ នេះ ▁ហើយ ▁ការ ណ៍ ▁ នេះ ▁បាន ▁ធ្វើ ▁ក ញ្ញា ▁អាច ▁យក ▁ឈ ្ន ះ ▁ចំពោះ ▁ ស្ថាន ភាព ▁អា ក្រ ក់ ▁បែប នេះ ▁ពី ▁មួយ ▁ថ្ងៃ ▁ទៅ ▁មួយ ▁ថ្ងៃ ▁បាន ។
+▁បើ ▁ យ ោង ▁តាម ▁ការ ▁ចុះ ▁ ផ្សាយ ▁របស់ ▁អង្គកា រ ▁កសិក រ ▁ពិភព លោក ▁ ( WFO ) ▁អំឡុង ▁ពេល ▁ នៃ ▁ជំងឺ ▁ រា ត ត ្ ប ា ត ▁ក ូ ▁ វី ▁ដ ▁ - ១ ៩ ▁កសិក រ ▁ក្រ ី ក្រ ▁បាន ▁ជួប នឹង ▁បញ្ហា ▁ប្រ ឈ ម ▁ក្នុង ▁ការ ▁ប ែង ច ែក ▁ប្រាក់ ▁ចំណ ូល ▁ដើម្បី ▁ទុក ▁ ទិញ ▁ផលិត ផល ▁សុខ ា ភិបាល ▁គ ួ ប ▁ ផ្ ស ំ ▁ជាមួយ នឹង ▁ការ ▁ធ្លា ក់ ▁ចុះ ▁នូវ ▁វ ត្ត មាន ▁របស់ ▁ឈ ្ម ួ ញ ក ណ្តាល ▁និង ▁ក ង ្វ ះ ខាត ▁ម ធ ្ យោប ាយ ▁ក្នុង ▁ការ ▁ដ ឹក ▁ជ ញ្ជ ូន ▁កសិ ផល ▁ទៅ ▁កាន់ ▁ទីផ្សា រ ▁។
+▁វា មាន ភាព ប៉ ះ ព ាល់ នេះ ខ ្ល ាំង ▁នៅពេល ដែ ល យើង ប្រ ើ ឧ ប ករ ណ៍ ន ៅ ជ ិត ភ្នែ ក ។
+▁គ ាត់ ស្ត ាប់ តែ ម ន ុ ស្ស ន ិ យ ាយ ក្នុង ទូ រ ស ័ ព ្ ទ ▁ប៉ុន្ តែ គ ាត់ ម ិន ដែ ល ស្ត ាប់ រ ឿ ង ដែ ល ខ្ញុំ ច ង់ ន ិ យ ាយ ប្រ ាប់ ព ួ ក គ ាត់ នោះ ទ េ ▁ដូច្នេះ ហើយ ទ ើ ប ក ្ត ី ស ុ ប ិន រ ប ស់ ខ្ញុំ ▁គឺ ខ្ញុំ ច ង់ ក ្ល ាយ ជា ទូ រ ស ័ ព ្ ទ ។
+▁ក្នុង ន ័យ តែ មួយ គ ត់ ▁គឺ យើង ច ង់ បាន ម េ ដ ាយ មា ស ▁ពេល ក ម្ ព ុជា ធ ្វ ើ ជា ម្ចាស់ ផ្ ទ ះ ▁កីឡា ស៊ី ហ្ គេ ម ។
+▁ខ្ញុំ ខ ្ល ា ច ធ ្វ ើម ិន បាន
+▁ក៏ កាល នោះ ▁មាន ភ ិ ក្ខ ុ មួយ អ ង្គ ធ្វើដំណើរ ពី វ ត្ត ជ េ ត ព ន ▁ទៅ តា ម ល ំ ដ ាប់ ▁បាន ដល់ ក ន ្ល ែង ដែ ល ភ ិ ក្ខ ុក ម្ ល ោះ នោះ គ ង់ ន ៅ ▁ភិក្ខុ ក ម្ ល ោះ នោះ ▁ក៏ ▁បាន ▁ធ្វើ ▁ កិច្ច ▁វ ត្ត ▁ចំពោះ ▁លោក ▁ជា ▁អ្នក ▁មក ដល់ ថ ្ម ី ▁ឲ្យ គ ង់ ក្នុង ទី ស្រ ួល ▁សម រ ម្ យ ហើយ ក៏ ស ួរ ថា ៖
+▁ដោយ ▁ស្ នា ម ញ ញ ឹម ▁នាង ▁ Stone ▁ សារ ភាព ថា ▁នាង ▁ប ាក់ ▁ទឹក ចិត្ត ▁។
+▁អ រ គុណ ដែ ល បាន ផ្ គ ត់ ផ្ គ ង់ អោយ ក ូន រ ៀន បាន ច ប់ ▁មាន ការ ង ារ ល ្ អ ▁ប ្ត ូរ ដោយ ញ ើ ស ស្រ ក់ ជា ច្រើន ដ ំ ណ ក់ ក្នុង ការ ធ ្វ ើ ក ា ង ារ រ ក ល ុយ មក ផ្ គ ត់ ផ្ គ ង់ គ ្រ ួ សារ ▁មិន ដែ ល រ អ ៊ ូ ថា ហ ត់ ឡ ើយ ▁ ថ ែ រ ក្ស ា ក ូន ត ាំង ពី ច ាប់ ក ំ ណ ើ ត ▁ដឹង ក ្ត ី ▁រហូតដល់ ព េញ វ ័យ ▁តែ ង តែ អោយ អ ្វ ី ដែ ល ក ូន ច ង់ បាន ▁អ ប់ រ ំ ទូ ន ្ មាន ▁ប្រ ៀន ប្រ ដៅ អោយ ក ូន ធ ្វ ើ អ ំ ព ើ ល ្ អ ▁ស្ ម ោះ ត្រ ង់ ▁ប្រ ព ្រ ឹ ត្ត តែ រ ឿ ង ល ្ អ ៗ
+```
+
+### Combined SentencePice Sentences and Labels
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ paste -d"," ./train.csv.f1.sp ./train.csv.f2 > train.csv.comma
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ paste -d"," ./test.csv.f1.sp ./test.csv.f2 > test.csv.comma
+```
+
+I also prepared <TAB> separated version for future use ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ paste  ./train.csv.f1.sp ./train.csv.f2 > train.csv.tab
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ paste ./test.csv.f1.sp ./test.csv.f2 > test.csv.tab
+```
+
+check ...   
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ head -n 3 train.csv.comma 
+▁លោក ស ង្ក ត់ ធ ្ ង ន់ ថា ៖ ▁ « ខ ្ល ឹម សារ នៃ កិច្ច ស ន្យា ▁បើក ទូល ាយ ដែ រ ▁ដោយ យើង ទ ទ ួល គ ាត់ ជា គ ្រ ូ ប ង ្វ ឹក ទ ាំង ប ាល់ ទ ះ ឆ្ ន េរ ខ ្ស ាច់ ក ្ត ី ▁ប ាល់ ទ ះ ក្នុង សា ល ក ្ត ី ▁រយៈ ពេល ១ ឆ្ ន ាំ ▁បើ ង ា ក មើល ទៅ ក្រ ោ យ ស៊ី ហ្ គេ ម ▁ឆ្នាំ ២ ០ ២ ៣ ▁ច ប់ រយៈ ៣ ខ ែ ▁ទើប ផ ុត កិច្ច ស ន្យា ។,positive
+▁លោក ▁ Manele ▁បាន លើ ក ឡើង ថា ៖ « នៅក្នុង កិច្ច ព ្រ ម ព ្រ ៀង នោះ មាន ច ំ ណ ុ ច មួយ ចំនួ ន ដែ ល ប៉ ះ ព ាល់ ដល់ ក ោះ ស ូ ឡ ូ ម ៉ ុន ▁។,negative
+▁ប៉ុន្ តែ ក្រ ៅ ពី ភាព ប ៃ ត ង ន ៅ អា ច មាន ច ំ ណ ុ ច ផ្ ស េង ទ ៀ ត ▁ដែល ស ម្តេច ក្រ ឡា ហ ោម ▁ស ▁ខ េង ▁ថ្លែង ថា ▁ប ៃ ត ង ហ្ នឹង ជា ច ំ ណ ុ ច ទ ាក់ ទ ាញ មួយ ▁ប៉ុន្ តែ វ ាន ៅ មាន ឥ រិយា ប ថ ▁អា ក ប្ប ក ិ រិយា ▁ភាព ទ ន់ ភ ្ល ន់ រ ួស រ ាយ រ ាក់ ទ ាក់ ▁សុ ភាព រ ាប សារ ▁ការ ទ ាក់ ទ ាញ រ ប ស់ យើង ជា ម្ចាស់ ផ្ ទ ះ ផ ង ដែ រ ។,positive
 ```
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data-csv/sp-segmentation/final-data-for-modeling/sentencepiece/preprocessing$ head -n 3 test.csv.comma 
+▁ចំពោះ រ ម ណ ី ដ្ឋាន ដែ ល ភ ្ ញ ៀ វ ទេស ច រ ច ូល ចិត្ត ទៅ ច្រើន ជា ង គេ នោះ គ ឺ ▁ រ ម ណ ី ដ្ឋាន ឡ ូរ ី ជ ើ ង ភ ្ន ំ ប ា ណ ន់ ៕,positive
+▁អ្នក ដឹង ▁ទេ ▁ ? ▁ដោយសារ តែ ▁ក ញ្ញា ▁ស េង ▁ធ ារ ី ▁មាន ▁ឆ ន្ទ ៈ ▁និង ▁កម្លាំង ក ាយ ▁ រ ឹង មា ំ ▁ នេះ ▁ហើយ ▁ការ ណ៍ ▁ នេះ ▁បាន ▁ធ្វើ ▁ក ញ្ញា ▁អាច ▁យក ▁ឈ ្ន ះ ▁ចំពោះ ▁ ស្ថាន ភាព ▁អា ក្រ ក់ ▁បែប នេះ ▁ពី ▁មួយ ▁ថ្ងៃ ▁ទៅ ▁មួយ ▁ថ្ងៃ ▁បាន ។,positive
+▁បើ ▁ យ ោង ▁តាម ▁ការ ▁ចុះ ▁ ផ្សាយ ▁របស់ ▁អង្គកា រ ▁កសិក រ ▁ពិភព លោក ▁ ( WFO ) ▁អំឡុង ▁ពេល ▁ នៃ ▁ជំងឺ ▁ រា ត ត ្ ប ា ត ▁ក ូ ▁ វី ▁ដ ▁ - ១ ៩ ▁កសិក រ ▁ក្រ ី ក្រ ▁បាន ▁ជួប នឹង ▁បញ្ហា ▁ប្រ ឈ ម ▁ក្នុង ▁ការ ▁ប ែង ច ែក ▁ប្រាក់ ▁ចំណ ូល ▁ដើម្បី ▁ទុក ▁ ទិញ ▁ផលិត ផល ▁សុខ ា ភិបាល ▁គ ួ ប ▁ ផ្ ស ំ ▁ជាមួយ នឹង ▁ការ ▁ធ្លា ក់ ▁ចុះ ▁នូវ ▁វ ត្ត មាន ▁របស់ ▁ឈ ្ម ួ ញ ក ណ្តាល ▁និង ▁ក ង ្វ ះ ខាត ▁ម ធ ្ យោប ាយ ▁ក្នុង ▁ការ ▁ដ ឹក ▁ជ ញ្ជ ូន ▁កសិ ផល ▁ទៅ ▁កាន់ ▁ទីផ្សា រ ▁។,positive
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+We will use comma version for SGD training ...  
 
 ```
 
