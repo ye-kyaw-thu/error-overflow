@@ -1144,22 +1144,50 @@ check the CSV file content:
 
 3rd working for test, neutral ...  
 
-```
+extract col1, col2 and col3 for test, neutral ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.neutral 1 > col1.neutral
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.neutral 2 > col2.neutral
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.neutral 3 > col3.neutral
 ```
 
-```
+Make CSV Format files:  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.neutral col2.neutral col3.neutral > test.neutral.all.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.neutral col3.neutral > test.neutral.sentence.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col2.neutral col3.neutral > test.neutral.key-word.csv
 ```
 
+check filesize:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ wc test.neutral.{all,sentence,key-word}.csv
+   92   484 40018 test.neutral.all.csv
+   92   483 37089 test.neutral.sentence.csv
+   92    93  3665 test.neutral.key-word.csv
+  276  1060 80772 total
+```
+
+check CSV file content:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ head -n 2 test.neutral.{all,sentence,key-word}.csv
+==> test.neutral.all.csv <==
+គ្រឿងអេឡិចត្រូនិករបស់យើង បញ្ចេញពន្លឺខៀវ។,បញ្ចេញ,neutral
+ចោរនោះធ្វើពុំកើតក៏ក្រាបទូលថា“ខ្ញុំព្រះបាទអម្ចាស់បានពីប្រពន្ធ”,ក្រាបទូល,neutral
+
+==> test.neutral.sentence.csv <==
+គ្រឿងអេឡិចត្រូនិករបស់យើង បញ្ចេញពន្លឺខៀវ។,neutral
+ចោរនោះធ្វើពុំកើតក៏ក្រាបទូលថា“ខ្ញុំព្រះបាទអម្ចាស់បានពីប្រពន្ធ”,neutral
+
+==> test.neutral.key-word.csv <==
+បញ្ចេញ,neutral
+ក្រាបទូល,neutral
+```
+
+## 
 
 ```
 
