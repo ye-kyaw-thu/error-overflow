@@ -1089,17 +1089,57 @@ head: cannot open 'test.positive.sentene.csv' for reading: No such file or direc
 
 2nd working for test, negative...  
 
+extract each column ...  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.negative 1 > col1.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.negative 2 > col2.negative
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ perl ./cut-column.pl ../test.negative 3 > col3.negative
 ```
 
-```
+check ...  
 
 ```
-
+$ wc {col1,col2,col3}.negative
+   325   1980 151869 col1.negative
+   325    338  25769 col2.negative
+   325    325   2925 col3.negative
+   975   2643 180563 total
 ```
 
+make CSV file for test, negative:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.negative col2.negative col3.negative > test.negative.all.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col1.negative col3.negative > test.negative.sentence.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ paste -d "," col2.negative col3.negative > test.negative.key-word.csv
+```
+
+check size:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ wc test.negative.{all,sentence,key-word}.csv
+   325   1993 180563 test.negative.all.csv
+   325   1980 154794 test.negative.sentence.csv
+   325    338  28694 test.negative.key-word.csv
+   975   4311 364051 total
+```
+
+check the CSV file content:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ head -n 2 test.negative.{all,sentence,key-word}.csv
+==> test.negative.all.csv <==
+ពេលខ្លះអ្នកក៏មិនអាចដឹងថាអ្នកបានទទួលស្តរីល្អម្នាក់រួចទៅហើយ ដោយសារតែភាពក្មេងវ័យរបស់អ្នក និងការមានបទពិសោធតិចតួចក្នុងឆាកជីវិតរស់នៅដែលជាហេតុធ្វើឲ្យអ្នកមិនបានដឹងឡើយ។,មិនអាចដឹង,negative
+គួរបញ្ជាក់ថា កាល​ពី​ថ្ងៃ​ព្រហស្បតិ៍ លោក ពូទីន បាន​ជួប​ជាមួយ​មេដឹកនាំចិន ​លោក ស៊ី ជីនពីង (Xi Jinping) ហើយ​បាន​ទទួល​ស្គាល់​ថា​សម្ព័ន្ធមិត្ត​ដ៏​សំខាន់​របស់​លោក​គឺ​ក្រុង​ប៉េកាំង​ក៏​មាន​ការ​ព្រួយ​បារម្ភ​អំពី​ជម្លោះ​ដែរ៕,ការ​ព្រួយ​បារម្ភ​,negative
+
+==> test.negative.sentence.csv <==
+ពេលខ្លះអ្នកក៏មិនអាចដឹងថាអ្នកបានទទួលស្តរីល្អម្នាក់រួចទៅហើយ ដោយសារតែភាពក្មេងវ័យរបស់អ្នក និងការមានបទពិសោធតិចតួចក្នុងឆាកជីវិតរស់នៅដែលជាហេតុធ្វើឲ្យអ្នកមិនបានដឹងឡើយ។,negative
+គួរបញ្ជាក់ថា កាល​ពី​ថ្ងៃ​ព្រហស្បតិ៍ លោក ពូទីន បាន​ជួប​ជាមួយ​មេដឹកនាំចិន ​លោក ស៊ី ជីនពីង (Xi Jinping) ហើយ​បាន​ទទួល​ស្គាល់​ថា​សម្ព័ន្ធមិត្ត​ដ៏​សំខាន់​របស់​លោក​គឺ​ក្រុង​ប៉េកាំង​ក៏​មាន​ការ​ព្រួយ​បារម្ភ​អំពី​ជម្លោះ​ដែរ៕,negative
+
+==> test.negative.key-word.csv <==
+មិនអាចដឹង,negative
+ការ​ព្រួយ​បារម្ភ​,negative
 ```
 
 3rd working for test, neutral ...  
