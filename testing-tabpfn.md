@@ -801,40 +801,112 @@ Combination for testing data:
 ## Check the Combined Data
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ wc ./train.3col.csv 
+   9014   55723 5053854 ./train.3col.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ wc ./test.3col.csv 
+  1000   6079 548602 ./test.3col.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ head ./train.3col.csv 
+ការ​ឃុំខ្លួន​កញ្ញា សេង ធារី កាន់តែ​យូរ​ដោយ​រដ្ឋាភិបាល​លោក ហ៊ុន សែន នោះ​នឹង​ធ្វើ​ឱ្យ​មនុស្សម្នា​កាន់​តែ​ច្រើន​ដឹងឮ​កាន់តែ​ខ្លាំង​អំពី​របប​ផ្តាច់ការ​នេះ និង​ការណ៍​ដែល​របប​នេះ​ពុំ​មាន​ឆន្ទៈ​អនុញ្ញាត​ឱ្យ​មាន​សំឡេង​នយោបាយ​ប្រឆាំង ព្រមទាំង​វិធី​ដែល​លោក ហ៊ុន សែន រក្សា​អំណាច​ដោយ​ប្រើ​កណ្តាប់​ដៃ​ដែក​របស់​គាត់​។​,ដឹងឮ​កាន់តែ​ខ្លាំង,positive
+សូមបញ្ជាក់ថា ក្រុមការងារក្រសួងមហាផ្ទៃបានសហការជាមួយអាជ្ញាធរខេត្តព្រះ សីហនុ បានចុះបង្ករាបទីតាំងល្បែងខុសច្បាប់ចំនួន៥ទីតាំង នៅក្នុងក្រុងព្រះសីហនុ និងបាន រកឃើញជនបរទេសចម្រុះជាតិសាសន៍៕,សហការ,positive
+ក្នុងលិខិតបានបញ្ជាក់ថា ក្រុមការងារបង្ករាបមានតួនាទីភារកិច្ចក្នុងការរៀបចំផែនការ វិធានការ គោលការណ៍ណែនាំ ដើម្បីឱ្យអាជ្ញាធរមានសមត្ថកិច្ចគ្រប់លំដាប់ថ្នាក់ អនុវត្តបង្ករាបនូវរាល់ការលេងល្បែងស៊ីសងខុសច្បាប់គ្រប់ប្រភេទ និងត្រូវសហការជាមួយអាជ្ញាធរមានសមត្ថកិច្ចទាំងនៅថ្នាក់ជាតិ រដ្ឋបាលថ្នាក់ក្រោមជាតិ ដើម្បីធ្វើការស្រាវជ្រាវ និងចាត់វិធានការបង្ករាបនូវទីតាំងលេងល្បែងស៊ីសងខុសច្បាប់។,សហការជាមួយអាជ្ញាធរមានសមត្ថកិច្ច,positive
+យុវនារីណាដែលកាន់សៀវភៅពេលបច្ចុប្បន្ន គឺនឹងក្លាយទៅជាម្តាយដ៏ល្អនាពេលអនាគត។,ម្តាយដ៏ល្អ,positive
+-​ ខ្ញុំ​នៅតែ​នឹក​ នៅ​តែ​ស្រលាញ់​គេ​ ប៉ុន្តែ​ពេល​វេលា​បណ្តាល​ឲ្យ​ខ្ញុំ​បាន​ស្គាល់​មនុស្ស​ល្អ​ម្នាក់​ទៀត​ ដែល​ផ្តល់​រសជាតិ​ជីវិត​មួយ​បែប​ផ្សេង​..,ពេល​វេលា​បណ្តាល​ឲ្យ​ខ្ញុំ​បាន​ស្គាល់​មនុស្ស​ល្អ​,positive
+កសិករ​ភាគ​ច្រើន​ក្រៅ​ពី​របរ​ដាំដុះ ពួក​គាត់​តែងតែ​ធ្វើ​ការ​ចិញ្ចឹម​សត្វ គោ ក្របី ជ្រូក មាន់ ទា ពពែ និង​សត្វ​ចៀម​ជា​ដើម ដើម្បី​ជួយ​ដោះស្រាយ​ជីវភាព​គ្រួសារ។​,ជួយ​ដោះស្រាយ​ជីវភាព​គ្រួសារ,positive
+បច្ចុប្បន្ន ជនសង្ស័យ​ទាំង​០៣ នាក់ ខាង​លើ ត្រូវ​បាន​កម្លាំង​នគរ​បាល​ការិយាល័យ​ជំនាញ​បញ្ជូន​ទៅ​កាន់​សាលាដំបូង​ខេត្តសៀមរាប ដើម្បី​ចាត់ការ​បន្ត​តាម​នីតិវិធី​ច្បាប់ ។,​ចាត់ការ​បន្ត​តាម​នីតិវិធី​ច្បាប់,positive
+ទំនាយទាយថា លោកអ្នកមានរឿងរ៉ាវជាច្រើនដែលត្រូវដោះស្រាយ ប៉ុន្តែបើទោះបីជាដោះមិនបានល្អក្តី ក៏លោកអ្នកនៅតែរក្សាស្ថិរភាពបានជាធម្មតា មិនបង្កបញ្ហាធ្ងន់ធ្ងរអ្វីឡើយ​​​។,រក្សាស្ថិរភាពបានជាធម្មតា/មិនបង្កបញ្ហាធ្ងន់ធ្ងរអ្វីឡើយ​​​,positive
+អគ្គលេខាធិការ​ក្លឹប​អង្គ​រថា​យ​ហ្គឺ​រ ដែល​បាន​ដឹកនាំ​យុវជន​ទាំង២​រូប ទៅ​ហ្វឹកហាត់​នៅ​ជប៉ុន លោក អ៊ុំ ករុណា បាននិយាយថា គឺជា​ឱកាស​មាស​សម្រាប់​ពួកគេ ក្នុងការ​សិក្សា​រៀន​សូត្រ និង​ដកស្រង់​បទពិសោធ​ថ្មីៗ​លើ​ទឹកដី​ជប៉ុន ដែលជា​ប្រទេសមួយ​ មានការ​អភិវឌ្ឍ​ខ្លាំង​ផ្នែក​បាល់​ទាត់​​​។,ឱកាស​មាស/ការ​អភិវឌ្ឍ​ខ្លាំង​,positive
+ប្រជាពលរដ្ឋ​ខ្មែរ​តែង​មាន​ជំនឿ​ថា ក្នុង​កំឡុង​ពេល​ដែល​យមបាល​ដោះ​លែង​ប្រេត​នោះ ប្រសិនបើ​ប្រេត​ដើរ​រក​គ្រប់​៧​វត្ត​ហើយ​ពុំ​បានឃើញ​មាន​សាច់ញាតិ​របស់​ខ្លួន​ទៅ​វត្ត​ឧទ្ទិស​បុណ្យ​កុសល​ឱ្យ​ទេ​នោះ គឺ​ប្រេត​នឹង​ដាក់​ទំនាយ​ឱ្យ​សាច់ញាតិ​នោះ​ជួប​តែ​រឿង​អាក្រក់ និង​រស់នៅ​ដោយ​គ្មាន​សេចក្តីសុខ​ឡើយ​។,ដាក់​ទំនាយ​/ជួប​តែ​រឿង​អាក្រក់/​រស់នៅ​ដោយ​គ្មាន​សេចក្តីសុខ​,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ head test.3col.csv 
+ប៉ុន្តែ​នៅ​ពេល​នេះ​មានការ​សង្កេត​ឃើញ​ថា យុវជន និង​មនុស្ស​វ័យ​កណ្តាល​ដ​ច្រើន បាន​នាំ​គ្នា​សិក្សា​ស្វែង​យល់​ពី​ធម៌​ព្រះពុទ្ធ​ដើម្បី​យក​មក​អនុវត្ត​ផ្ទាល់​នៅ​ក្នុង​ជីវិត​រស់​ប្រចាំ​ថ្ងៃ​។,សិក្សា​ស្វែង​យល់/អនុវត្ត​ផ្ទាល់​,positive
+ចំពោះរឿងគ្រួសារ និងស្នេហា គឺល្អប្រសើរ គាប់ចិត្ត គាប់ភ្នែកអ្នកផង៕,ល្អប្រសើរ/គាប់ចិត្ត,positive
+បើ​យោង​តាម​ការ​ចុះ​ផ្សាយ​របស់​អង្គការ​កសិករ​ពិភពលោក​ (WFO)​ អំឡុង​ពេល​នៃ​ជំងឺ​រាតត្បាត​កូ​វី​ដ​-១៩​ កសិករ​ក្រីក្រ​បាន​ជួបនឹង​បញ្ហា​ប្រឈម​ក្នុង​ការ​បែងចែក​ប្រាក់​ចំណូល​ដើម្បី​ទុក​ទិញ​ផលិតផល​សុខាភិបាល​ គួប​ផ្សំ​ជាមួយនឹង​ការ​ធ្លាក់​ចុះ​នូវ​វត្តមាន​របស់​ឈ្មួញកណ្តាល​ និង​កង្វះខាត​មធ្យោបាយ​ក្នុង​ការ​ដឹក​ជញ្ជូន​កសិផល​ទៅ​កាន់​ទីផ្សារ​។,​ កសិករ​ក្រីក្រ​បាន​ជួបនឹង​បញ្ហា​ប្រឈម/កង្វះខាត​មធ្យោបាយ,positive
+(រាជធានីភ្នំពេញ)៖ ភាគីពាក់ព័ន្ធ ដែលកំពុងធ្វើការយ៉ាងសកម្មលើការលើកកម្ពស់បញ្ហាអាហារូបត្ថម្ភនៅកម្ពុជា បានប្តេជ្ញារួមគ្នា ប្រយុទ្ធនឹងបញ្ហាកង្វះអាហារូបត្ថម្ភគ្រប់ទម្រង់ ដើម្បីឈានទៅសម្រេចចក្ខុវិស័យ ស្តីពីប្រព័ន្ធស្បៀងឆ្នាំ២០៣០។,ប្រយុទ្ធនឹងបញ្ហាកង្វះអាហារូបត្ថម្ភ,positive
+ព្រះអង្គមិនដែលទាមទារអ្វីពីខ្ញុំឡើយ តែព្រះអង្គបានស្រឡាញ់ខ្ញុំជាមុន ហើយក្តីស្រឡាញ់របស់ទ្រង់គឺឥតលក្ខខណ្ឌ,ស្រឡាញ់,positive
+ប៉ុន្តែ នៅក្នុងទំនាក់ទំនងកម្រិតអ្វីក៏ដោយ បើគេមានភាពស្មោះត្រង់ក្នុងការកសាង «មិត្តភាព» នោះគេនឹងមានការថ្លឹងថ្លែង នឹងមានការក្រែងចំពោះយើង។,ភាពស្មោះត្រង់,positive
+ស្របពេលជាមួយគ្នានេះ លោក សេលេស្ត វ៉ាឡាដឺ (Celeste Wallander) មន្តរីជាន់ខ្ពស់មន្ទីរប៉ង់តាហ្គោន បានលើកឡើងថា អ៊ុយក្រែនហាក់ដូចជាកំពុងស្ថិតនៅលើផ្លូវដើម្បីសម្រេចបាននូវគោលដៅសមរភូមិជាច្រើនរបស់ខ្លួន និងបានរំដោះទីតាំងការពារប្រសើរជាងមុន ដើម្បីបញ្ចៀសការប្រយុទ្ធដ៏ក្តៅគគុកក្នុងរដូវរងាខាងមុខនេះ​​​។,បញ្ចៀសការប្រយុទ្ធដ៏ក្តៅគគុក,positive
+ប្រព័ន្ធនៃការរៀបចំរបស់អ្នកហុចផលល្អណាស់,ហុចផលល្អណាស់,positive
+ដើមឈើប្រណិត និងកម្រទាំងនោះ គួរតែទទួលបានការថែទាំ និងរក្សាទុកនៅកន្លែងដើមរបស់វា។,ទទួលបានការថែទាំ,positive
+ឯកឧត្តមបន្តថា កំពង់ផែដែលមានតម្លៃជិត២០លានដុល្លារនេះ នឹងក្លាយចលករដ៏សំខាន់មួយជួយស្រូបទាញអ្នកដំណើរតាមផ្លូវសមុទ្រ ហើយនឹងក្លាយជាច្រកទ្វារអន្តរជាតិដ៏សំខាន់ថ្មីមួយទៀតរបស់កម្ពុជា សម្រាប់ទទួលភ្ញៀវទេសចរជាតិ និងអន្តរជាតិ ដែលមានបំណងធ្វើដំណើររកម្សាន្តតាមផ្លូវទឹករវាងកម្ពុជា ជាមួយបណ្តាប្រទេសក្នុងតំបន់ និងអន្តរជាតិ។​,ចលករដ៏សំខាន់,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ 
+```
+
+Check tail part:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ tail -n 3 ./train.3col.csv 
+ទាំង​ភោជនីយដ្ឋាន និង​ណូរី​ ត្រូវបាន​សាងសង់​រួចហើយ​តាំងពី​ឆ្នាំ​ ២០២១ ដោយ​ផ្តើម​ទទួលភ្ញៀវ​ជា​ក្រុម​ឯកជន​សម្រាប់តែ​ការ​កក់​ទុក​មុន​។​​​,សាងសង់,neutral
+គ្រឿងអេឡិចត្រូនិករបស់យើង បញ្ចេញពន្លឺខៀវ។,បញ្ចេញ,neutral
+ចោរនោះធ្វើពុំកើតក៏ក្រាបទូលថា“ខ្ញុំព្រះបាទអម្ចាស់បានពីប្រពន្ធ”,ក្រាបទូល,neutral
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ tail -n 3 ./test.3col.csv 
+គណៈកម្មាធិការ​នេះ​ មាន​រួម​ប​ញ្ជូ​ល​មន្តរី​មក​ពី​ក្រសួង​ផ្សេងៗ​ ដែល​នឹង​ត្រួតពិនិត្យ​ព័ត៌មាន​ទាក់ទង​នឹង​សុខភាព​ និង​សុវត្ថិភាព​ការងារ​ និង​ផ្តល់​យោបល់​ជូន​រាជរដ្ឋាភិបាល​។,ត្រួតពិនិត្យ,neutral
+គ្រានោះមានទ្រមាក់ដំរីម្នាក់ជិះដំរីមកជិតនោះ,ជិះ,neutral
+ក្រសួងធនធានទឹក បានលើកឡើងថា៖ «បន្ទាប់ពីបានធ្វើការសង្កេតតាមដានលើស្ថានភាពអាកាសធាតុរួចមក ឃើញថាមានភ្លៀងធ្លាក់ពីតំបន់ជួរភ្នំក្រវាញ ស្ទឹងអារ៉ៃ ស្ទឹងព្រៃខ្លុង និងស្ទឹងធំ មានកម្រិតខ្ពស់ មកលើដងស្ទឹងពោធិ៍សាត់​​​។,សង្កេត,neutral
+```
+
+Shuffling:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ shuf ./train.3col.csv > train.3col.shuf.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ shuf ./test.3col.csv > test.3col.shuf.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ 
+```
+
+Final preparation:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp ./train.3col.shuf.csv ./final-data/
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp ./test.3col.shuf.csv ./final-data/
 
 ```
 
-```
+Preparing for two experimental setting:  
+1) 2 columns only (sentence, label)  
+2) 3 columns (sentence, key-word, label)  
 
 ```
-
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f1 -d',' ./train.3col.shuf.csv > train.col1
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f2 -d',' ./train.3col.shuf.csv > train.col2
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f3 -d',' ./train.3col.shuf.csv > train.col3
 ```
 
-```
+cutting for test data:  
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f1 -d',' ./test.3col.shuf.csv > test.col1
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f2 -d',' ./test.3col.shuf.csv > test.col2
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cut -f3 -d',' ./test.3col.shuf.csv > test.col3
 ```
 
-```
+saving under two new folders:  
 
 ```
-
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ paste -d',' ./train.col1 ./train.col3 > ./baseline-data/train.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ paste -d',' ./test.col1 ./test.col3 > ./baseline-data/test.csv
 ```
 
-```
+for experiment with both sentene, keyword:  
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cp ./train.3col.shuf.csv ./exp-data/train.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cp ./test.3col.shuf.csv ./exp-data/test.csv
 ```
 
-```
+filesize information:  
 
 ```
-  
-## Training with Three Columns Data
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data$ wc *
+   1000    6051  475719 test.csv
+   9014   55410 4389874 train.csv
+  10014   61461 4865593 total
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data$ cd ..
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data$ cd exp-data/
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/exp-data$ wc *
+   1000    6079  548602 test.csv
+   9014   55723 5053854 train.csv
+  10014   61802 5602456 total
+```
+
+## Training with Two Columns Data
   
 
 ```
