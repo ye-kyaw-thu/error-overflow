@@ -513,14 +513,36 @@ sys	0m4.356s
 Testing finished successfully!
   
 ## Preparing for Running on Server
+
+I copied data to server ... 
   
 ```
 
 ```
 
+## 1st Time Running with Khmer Data on Server
+  
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ time python ./khpolar-tabpfn1.py
+...
+...
+...
+Using a Transformer with 25.82 M parameters
+/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py:147: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y_ = column_or_1d(y, warn=True)
+⚠️ WARNING: TabPFN is not made for datasets with a trainingsize > 1024. Prediction might take a while and be less reliable.
+Accuracy 0.583
+
+real	1m27.571s
+user	12m17.147s
+sys	2m37.095s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$
 ```
 
-```
+I used only two columns and thus plan to add key-word for the next time training.  
+  
+## Training with Three Columns Data
+  
 
 ```
 
