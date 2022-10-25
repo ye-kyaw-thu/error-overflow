@@ -769,24 +769,36 @@ for test data copy path:
 
 ```
 
-three columns combination:  
+## Three Columns Combination:  
+
+Extract each column for training:  
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f1 -d',' ./train.sentence.combine.csv > ./train.sentence
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f2 -d',' ./train.sentence.combine.csv > ./train.label
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f1 -d',' ./train.key-word.combine.csv > ./train.keyword
 ```
 
+combination for training data:  
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ paste -d',' ./train.sentence ./train.keyword ./train.label > train.3col.csv
 ```
 
-```
+Extract each column for testing:  
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f1 -d',' ./test.sentence.combine.csv > ./test.sentence
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f2 -d',' ./test.sentence.combine.csv > ./test.label
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cut -f1 -d',' ./test.key-word.combine.csv > ./test.keyword
 ```
 
+Combination for testing data:  
 
 ```
-
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ paste -d',' ./test.sentence ./test.keyword ./test.label > test.3col.csv
 ```
+
+## Check the Combined Data
 
 ```
 
