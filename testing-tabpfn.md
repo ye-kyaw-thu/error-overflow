@@ -674,27 +674,102 @@ comparing with sentence:
 អរគុណដែលបានផ្គត់ផ្គង់អោយកូនរៀនបានចប់ មានការងារល្អ ប្តូរដោយញើសស្រក់ជាច្រើនដំណក់ក្នុងការធ្វើកាងាររកលុយមកផ្គត់ផ្គង់គ្រួសារ មិនដែលរអ៊ូថាហត់ឡើយ ថែរក្សាកូនតាំងពីចាប់កំណើត ដឹងក្តី រហូតដល់ពេញវ័យ តែងតែអោយអ្វីដែលកូនចង់បាន អប់រំទូន្មាន ប្រៀនប្រដៅអោយកូនធ្វើអំពើល្អ ស្មោះត្រង់ ប្រព្រឹត្តតែរឿងល្អៗ,positive
 ```
 
+After checking above, I think I only shuffle the sentence side and thus, difficult to rematch and I will took before shuffle pairs ...  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ wc ./train.sentence.combine.csv 
+   9014   55743 4407928 ./train.sentence.combine.csv
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ head -n 5 ./train.key-word.combine.csv 
+ដឹងឮ​កាន់តែ​ខ្លាំង,positive
+សហការ,positive
+សហការជាមួយអាជ្ញាធរមានសមត្ថកិច្ច,positive
+ម្តាយដ៏ល្អ,positive
+ពេល​វេលា​បណ្តាល​ឲ្យ​ខ្ញុំ​បាន​ស្គាល់​មនុស្ស​ល្អ​,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ head -n 5 ./train.sentence.combine.csv 
+ការ​ឃុំខ្លួន​កញ្ញា សេង ធារី កាន់តែ​យូរ​ដោយ​រដ្ឋាភិបាល​លោក ហ៊ុន សែន នោះ​នឹង​ធ្វើ​ឱ្យ​មនុស្សម្នា​កាន់​តែ​ច្រើន​ដឹងឮ​កាន់តែ​ខ្លាំង​អំពី​របប​ផ្តាច់ការ​នេះ និង​ការណ៍​ដែល​របប​នេះ​ពុំ​មាន​ឆន្ទៈ​អនុញ្ញាត​ឱ្យ​មាន​សំឡេង​នយោបាយ​ប្រឆាំង ព្រមទាំង​វិធី​ដែល​លោក ហ៊ុន សែន រក្សា​អំណាច​ដោយ​ប្រើ​កណ្តាប់​ដៃ​ដែក​របស់​គាត់​។​,positive
+សូមបញ្ជាក់ថា ក្រុមការងារក្រសួងមហាផ្ទៃបានសហការជាមួយអាជ្ញាធរខេត្តព្រះ សីហនុ បានចុះបង្ករាបទីតាំងល្បែងខុសច្បាប់ចំនួន៥ទីតាំង នៅក្នុងក្រុងព្រះសីហនុ និងបាន រកឃើញជនបរទេសចម្រុះជាតិសាសន៍៕,positive
+ក្នុងលិខិតបានបញ្ជាក់ថា ក្រុមការងារបង្ករាបមានតួនាទីភារកិច្ចក្នុងការរៀបចំផែនការ វិធានការ គោលការណ៍ណែនាំ ដើម្បីឱ្យអាជ្ញាធរមានសមត្ថកិច្ចគ្រប់លំដាប់ថ្នាក់ អនុវត្តបង្ករាបនូវរាល់ការលេងល្បែងស៊ីសងខុសច្បាប់គ្រប់ប្រភេទ និងត្រូវសហការជាមួយអាជ្ញាធរមានសមត្ថកិច្ចទាំងនៅថ្នាក់ជាតិ រដ្ឋបាលថ្នាក់ក្រោមជាតិ ដើម្បីធ្វើការស្រាវជ្រាវ និងចាត់វិធានការបង្ករាបនូវទីតាំងលេងល្បែងស៊ីសងខុសច្បាប់។,positive
+យុវនារីណាដែលកាន់សៀវភៅពេលបច្ចុប្បន្ន គឺនឹងក្លាយទៅជាម្តាយដ៏ល្អនាពេលអនាគត។,positive
+-​ ខ្ញុំ​នៅតែ​នឹក​ នៅ​តែ​ស្រលាញ់​គេ​ ប៉ុន្តែ​ពេល​វេលា​បណ្តាល​ឲ្យ​ខ្ញុំ​បាន​ស្គាល់​មនុស្ស​ល្អ​ម្នាក់​ទៀត​ ដែល​ផ្តល់​រសជាតិ​ជីវិត​មួយ​បែប​ផ្សេង​..,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ 
+
+```
+
+Confirmation with tail part:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ tail -n 5 ./train.key-word.combine.csv 
+ក្រាបទូល,neutral
+ស៊ុតបញ្ចូលទី,neutral
+សាងសង់,neutral
+បញ្ចេញ,neutral
+ក្រាបទូល,neutral
 ```
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ tail -n 5 ./train.sentence.combine.csv 
+ចៅកាំបិតបន្ទោះដងមួយក្រាបទូលថា«ទូលព្រះបង្គំកាប់នឹងកាំបិតបន្ទោះដងមួយ»,neutral
+Messi បានបង្ហាញខ្លួនឱ្យក្រុមជម្រើសជាតិ អាហ្សង់ទីន ចំនួន១៦៤ ប្រកួត និងស៊ុតបញ្ចូលទីបាន៩០គ្រាប់ ចាប់តាំងពីឆ្នាំ២០០៥ មកម្ល៉េះ​​​។,neutral
+ទាំង​ភោជនីយដ្ឋាន និង​ណូរី​ ត្រូវបាន​សាងសង់​រួចហើយ​តាំងពី​ឆ្នាំ​ ២០២១ ដោយ​ផ្តើម​ទទួលភ្ញៀវ​ជា​ក្រុម​ឯកជន​សម្រាប់តែ​ការ​កក់​ទុក​មុន​។​​​,neutral
+គ្រឿងអេឡិចត្រូនិករបស់យើង បញ្ចេញពន្លឺខៀវ។,neutral
+ចោរនោះធ្វើពុំកើតក៏ក្រាបទូលថា“ខ្ញុំព្រះបាទអម្ចាស់បានពីប្រពន្ធ”,neutral
 
 ```
 
-```
-
-
-```
+OK. Go to test data side:  
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ head -n 5 ./test.key-word.combine.csv 
+សិក្សា​ស្វែង​យល់/អនុវត្ត​ផ្ទាល់​,positive
+ល្អប្រសើរ/គាប់ចិត្ត,positive
+ កសិករ​ក្រីក្រ​បាន​ជួបនឹង​បញ្ហា​ប្រឈម/កង្វះខាត​មធ្យោបាយ,positive
+ប្រយុទ្ធនឹងបញ្ហាកង្វះអាហារូបត្ថម្ភ,positive
+ស្រឡាញ់,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ head -n 5 ./test.sentence.combine.csv 
+ប៉ុន្តែ​នៅ​ពេល​នេះ​មានការ​សង្កេត​ឃើញ​ថា យុវជន និង​មនុស្ស​វ័យ​កណ្តាល​ដ​ច្រើន បាន​នាំ​គ្នា​សិក្សា​ស្វែង​យល់​ពី​ធម៌​ព្រះពុទ្ធ​ដើម្បី​យក​មក​អនុវត្ត​ផ្ទាល់​នៅ​ក្នុង​ជីវិត​រស់​ប្រចាំ​ថ្ងៃ​។,positive
+ចំពោះរឿងគ្រួសារ និងស្នេហា គឺល្អប្រសើរ គាប់ចិត្ត គាប់ភ្នែកអ្នកផង៕,positive
+បើ​យោង​តាម​ការ​ចុះ​ផ្សាយ​របស់​អង្គការ​កសិករ​ពិភពលោក​ (WFO)​ អំឡុង​ពេល​នៃ​ជំងឺ​រាតត្បាត​កូ​វី​ដ​-១៩​ កសិករ​ក្រីក្រ​បាន​ជួបនឹង​បញ្ហា​ប្រឈម​ក្នុង​ការ​បែងចែក​ប្រាក់​ចំណូល​ដើម្បី​ទុក​ទិញ​ផលិតផល​សុខាភិបាល​ គួប​ផ្សំ​ជាមួយនឹង​ការ​ធ្លាក់​ចុះ​នូវ​វត្តមាន​របស់​ឈ្មួញកណ្តាល​ និង​កង្វះខាត​មធ្យោបាយ​ក្នុង​ការ​ដឹក​ជញ្ជូន​កសិផល​ទៅ​កាន់​ទីផ្សារ​។,positive
+(រាជធានីភ្នំពេញ)៖ ភាគីពាក់ព័ន្ធ ដែលកំពុងធ្វើការយ៉ាងសកម្មលើការលើកកម្ពស់បញ្ហាអាហារូបត្ថម្ភនៅកម្ពុជា បានប្តេជ្ញារួមគ្នា ប្រយុទ្ធនឹងបញ្ហាកង្វះអាហារូបត្ថម្ភគ្រប់ទម្រង់ ដើម្បីឈានទៅសម្រេចចក្ខុវិស័យ ស្តីពីប្រព័ន្ធស្បៀងឆ្នាំ២០៣០។,positive
+ព្រះអង្គមិនដែលទាមទារអ្វីពីខ្ញុំឡើយ តែព្រះអង្គបានស្រឡាញ់ខ្ញុំជាមុន ហើយក្តីស្រឡាញ់របស់ទ្រង់គឺឥតលក្ខខណ្ឌ,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$
+```
+
+How about tail?:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ tail -n 5 ./test.key-word.combine.csv 
+ឆ្លងកាត់,neutral
+ប្រឡាក់,neutral
+ត្រួតពិនិត្យ,neutral
+ជិះ,neutral
+សង្កេត,neutral
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ tail -n 5 ./test.sentence.combine.csv 
+លោកបានបន្ថែមថា រថយន្តបានឆ្លងកាត់ប្រទេសប៊ុលហ្គារី ហ្សកហ្ស៊ី អាមេនី អូសេទីខាងជើង និងតំបន់ Krasnodar របស់រុស្ស៊ី មុនពេលមកដល់លើស្ពាន។​,neutral
+ប្រឡាក់អំបិលឲ្យច្រើន ទៅនិងផ្លែម្រះដែលហាន់ជាចំណិតៗ។,neutral
+គណៈកម្មាធិការ​នេះ​ មាន​រួម​ប​ញ្ជូ​ល​មន្តរី​មក​ពី​ក្រសួង​ផ្សេងៗ​ ដែល​នឹង​ត្រួតពិនិត្យ​ព័ត៌មាន​ទាក់ទង​នឹង​សុខភាព​ និង​សុវត្ថិភាព​ការងារ​ និង​ផ្តល់​យោបល់​ជូន​រាជរដ្ឋាភិបាល​។,neutral
+គ្រានោះមានទ្រមាក់ដំរីម្នាក់ជិះដំរីមកជិតនោះ,neutral
+ក្រសួងធនធានទឹក បានលើកឡើងថា៖ «បន្ទាប់ពីបានធ្វើការសង្កេតតាមដានលើស្ថានភាពអាកាសធាតុរួចមក ឃើញថាមានភ្លៀងធ្លាក់ពីតំបន់ជួរភ្នំក្រវាញ ស្ទឹងអារ៉ៃ ស្ទឹងព្រៃខ្លុង និងស្ទឹងធំ មានកម្រិតខ្ពស់ មកលើដងស្ទឹងពោធិ៍សាត់​​​។,neutral
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ 
+```
+
+## Prepare Final Training/Test Data
+
+Copy path information: 
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv/train.key-word.combine.csv .
+
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv/train.sentence.combine.csv .
+```
+
+for test data copy path:  
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv/test.key-word.combine.csv .
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv/test.sentence.combine.csv .
 
 ```
 
-```
-
-```
-
-```
-
+three columns combination:  
 
 ```
 
