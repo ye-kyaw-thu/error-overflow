@@ -575,6 +575,130 @@ real	0m6.349s
 user	0m3.574s
 sys	0m3.142s 
 ```
+
+## Three Column Preparation
+
+Recheck, keyword, files: 
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv$ head test.key-word.combine.shuffle.csv 
+ច្បាស់លាស់,positive
+គួរឱ្យភ្ញាក់ផ្អើល,positive
+ភាពស្មោះត្រង់,positive
+យកឈ្នះលើឧបសគ្គ/ក្តីសង្ឃឹមនៃអនាគតរបស់មនុស្សជាតិ,positive
+ការ​ទទួល​បាន​នូវ​​មូលនិធិ​សប្បុរសជន​,positive
+វាកាន់តែធ្ងន់ធ្ងរឡើង,negative
+ទង្វើប្រកបដោយភាពកក់ក្តៅ/ជំនឿចិត្ត/ក្តីអង់អាចក្លាហាន,positive
+ការចាំបាច់​,positive
+ជំរុញឱ្យមានការព្រមាន,negative
+ចិត្ត​ជ្រះថ្លា,positive
+```
+
+for training side:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ head train.key-word.combine.csv 
+ដឹងឮ​កាន់តែ​ខ្លាំង,positive
+សហការ,positive
+សហការជាមួយអាជ្ញាធរមានសមត្ថកិច្ច,positive
+ម្តាយដ៏ល្អ,positive
+ពេល​វេលា​បណ្តាល​ឲ្យ​ខ្ញុំ​បាន​ស្គាល់​មនុស្ស​ល្អ​,positive
+ជួយ​ដោះស្រាយ​ជីវភាព​គ្រួសារ,positive
+ចាត់ការ​បន្ត​តាម​នីតិវិធី​ច្បាប់,positive
+រក្សាស្ថិរភាពបានជាធម្មតា/មិនបង្កបញ្ហាធ្ងន់ធ្ងរអ្វីឡើយ​​​,positive
+ឱកាស​មាស/ការ​អភិវឌ្ឍ​ខ្លាំង​,positive
+ដាក់​ទំនាយ​/ជួប​តែ​រឿង​អាក្រក់/​រស់នៅ​ដោយ​គ្មាន​សេចក្តីសុខ​,positive
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv$ wc ./train.key-word.combine.csv 
+  9014   9327 744276 ./train.key-word.combine.csv
+```
+
+I think, I prepared three columns files already ...  finding ...  
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
   
 ## Training with Three Columns Data
   
