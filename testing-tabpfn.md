@@ -156,11 +156,26 @@ Successfully installed charset-normalizer-2.1.1 cloudpickle-2.2.0 configspace-0.
 ## Install Two More Libraries 
 
 ```
-
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/data/test/neg$ pip install graphviz
+Collecting graphviz
+  Using cached graphviz-0.20.1-py3-none-any.whl (47 kB)
+Installing collected packages: graphviz
+Successfully installed graphviz-0.20.1
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/data/test/neg$ 
 ```
 
 ```
-
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/data/test/neg$ pip install click
+Collecting click
+  Using cached click-8.1.3-py3-none-any.whl (96 kB)
+Collecting importlib-metadata
+  Downloading importlib_metadata-5.0.0-py3-none-any.whl (21 kB)
+Requirement already satisfied: typing-extensions>=3.6.4 in /home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages (from importlib-metadata->click) (4.4.0)
+Collecting zipp>=0.5
+  Downloading zipp-3.10.0-py3-none-any.whl (6.2 kB)
+Installing collected packages: zipp, importlib-metadata, click
+Successfully installed click-8.1.3 importlib-metadata-5.0.0 zipp-3.10.0
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/data/test/neg$ 
 ```
 
 ```
