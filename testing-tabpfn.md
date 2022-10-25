@@ -540,6 +540,38 @@ sys	2m37.095s
 ```
 
 I used only two columns and thus plan to add key-word for the next time training.  
+
+## Training with GPU
+  
+Updated the code as follows:  
+  
+``` 
+#classifier = TabPFNClassifier(device='cpu')
+classifier = TabPFNClassifier(device='cuda')
+```
+
+When I run with CUDA, I got following errors:  
+  
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ time python ./khpolar-tabpfn1.py
+...
+...
+...
+     return forward_call(*input, **kwargs)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/torch/nn/modules/activation.py", line 1160, in forward
+    attn_mask=attn_mask, average_attn_weights=average_attn_weights)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/torch/nn/functional.py", line 5179, in multi_head_attention_forward
+    attn_output, attn_output_weights = _scaled_dot_product_attention(q, k, v, attn_mask, dropout_p)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/torch/nn/functional.py", line 4856, in _scaled_dot_product_attention
+    attn = softmax(attn, dim=-1)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/torch/nn/functional.py", line 1834, in softmax
+    ret = input.softmax(dim)
+RuntimeError: CUDA out of memory. Tried to allocate 7.27 GiB (GPU 0; 10.76 GiB total capacity; 8.24 GiB already allocated; 1.53 GiB free; 8.27 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+real	0m6.349s
+user	0m3.574s
+sys	0m3.142s 
+```
   
 ## Training with Three Columns Data
   
