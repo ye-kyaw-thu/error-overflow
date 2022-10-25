@@ -936,6 +936,69 @@ UN ជំរុញឱ្យស្រីលង្កាចាត់វិធា�
 (sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/exp-data$
 ```
 
+## SentencePiece Segmentation
+
+```
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ ls
+break.py  kh-segment.model.model  kh-segment.model.vocab  train-sentencepiece.py
+```
+
+SentencePiece segmentation for baseline-data:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ python ./break.py ./kh-segment.model.model ./train.col1 > train.col1.sp
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ python ./break.py ./kh-segment.model.model ./test.col1 > test.col1.sp
+
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ paste -d',' ./train.col1.sp ./train.col2 > ./train.sp
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ paste -d',' ./test.col1.sp ./test.col2 > ./test.sp
+
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ cp train.sp ../train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data/sentencepiece$ cp test.sp ../test.csv
+```
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data$ head -n3 ./train.csv 
+▁សេចក្តី ▁ ត ្ អ ូ ញ ត ្ អ ែ រ ▁សេចក្តី ▁ឈឺ ច ាប់ ▁សេចក្តី ▁ស ោក ▁ស ▁ ង ្រ ែ ▁ ង ▁ស ង ្រ ៃ ▁និង ▁សេចក្តី ▁អស់ សង្ឃ ឹម ▁ជា ▁ ទុក្ខ ▁។,negative
+▁ ង ូត ទឹក ធ ្ល ាក់ ត្រ ជ ាក់ ចិត្ត ▁ស្រ ូ ប ខ ្យ ល់ ប រ ិ ស ុទ្ធ ▁ ថ ត រ ូ ប ស្ អា ត ៗ ▁នៅ រ ម ណ ី យ ដ្ឋាន ទឹក ធ ្ល ាក់ អ ូរ ច ្រ ឡ ង់,positive
+▁លោក ▁ច្រ ឹ ▁ក ▁សុខ ▁ ន ី ▁ម ▁ប្រ ធាន ▁ស មា គ ម ▁អ្នក វ ាយ ត ម្ ល ៃ ▁និង ▁ភ ្ន ា ▁ ក់ ▁ ង ារ ▁អ ច ល ន វត្ថុ ▁កម្ព ុជា បាន ▁ប្រ ាប់ ▁ភ្នំពេ ញ ▁ប៉ ុ ស្ត ិ ៍ ▁ថា ▁ក្រៅ ពី ▁ច ិន ▁និង ▁ជប៉ុន ▁ដែល ▁បាន ▁ ចូលរួម ▁វិ ▁និ ▁ យ ោ គ ▁ច្រើន ▁ក្នុង ▁វិ ស ័យ ▁សំណ ង់ ▁នៅ ▁កម្ព ុជា ▁វិ ន ិ យ ោ គ ិន ▁នៅ ▁តំបន់ ▁អ ឺ រ ៉ ុ ប ▁ក៏ មាន ▁ការ វ ិន ិ យ ោ គ ▁ច្រើន ▁គួរ ឱ្យ ក ត់ ស ម្ គ ាល់ ▁ដែ រ ▁។,positive
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/final-data/baseline-data$ head -n3 ./test.csv 
+▁ទិន្ន ន ័យ គ យ បាន ប ង ្ ហា ញ ថា ▁នៅ ច ន ្ល ោះ ខ ែម ក រា ▁និង ខ ែ ស ី ហា ថា ▁ប្រទេស ច ិន បាន ន ាំ ចេញ ប្រ េង ច ម្ រ ាញ់ ប្រ ហ ែ ល ▁១ ៦,៤ លានតោន ក្នុងនោះរួមមានប្រេងសាំង ៧
+▁នោះ គ ឺ ▁ វី រ ៈ បុរស ខ ្ មែរ មួយ រ ូ ប ដែ ល ជា ស្ ថា ប ន ិក ស ន្ត ិ ភាព ឈ ្ម ោះ ▁ ត េ ជ ោ ▁ ហ៊ុន ▁ស ែន ▁បាន ទ ទ ួល ព ាន រ ង ្វ ាន់ ▁ « ស ន្ត ិ ភាព ▁ស៊ុ ន ហ ាក់ » ▁ឆ្នាំ ២ ០ ២ ២ ▁នៅ ទី ក្រុង ស េ អ ៊ ូល នៃ ▁សា ធ ារ ណ ៈ រ ដ្ឋ ក ូរ ៉ េ ។,positive
+▁ UN ▁ជ ំ រ ុ ញ ឱ្យ ស្រី ល ង្ក ា ច ាត់ វិ ធាន ការ លើ ▁បញ្ហា សិទ្ធិ ម ន ុ ស្ស ▁ខណៈ ប្រ ទេស នេះ ក ំ ព ុង ប្រ ឈ ម នឹង វិ ប ត្តិ ស េ ដ្ឋ កិច្ច,negative
+
+```
+
+SentencePiece segmentation for exp-data:  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+```
+
+```
+
+```
+
+```
+
 ## Training with Two Columns Data
   
 
