@@ -516,9 +516,11 @@ Testing finished successfully!
 ## Preparing for Running on Server
 
 I copied data to server ... 
-  
-```
 
+I hidden ip-address, port-no and path on purpose for the security reason:  
+
+```
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/tabpfn$ scp -r -P xxxx -i /xxx/id_rsa * yekyaw.thu@xxx.xx.xx.xxx:/home/yekyaw.thu/exp/kh-polar
 ```
 
 ## 1st Time Running with Khmer Data on Server
