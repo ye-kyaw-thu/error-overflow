@@ -416,6 +416,32 @@ $seq2seq.para1.sh
 ...
 ...
 ...
+[2022-10-25 03:07:34] Saving model weights and runtime parameters to model.seq2seq.para1/model.npz
+[2022-10-25 03:07:42] Saving Adam parameters
+[2022-10-25 03:07:46] [training] Saving training checkpoint to model.seq2seq.para1/model.npz and model.seq2seq.para1/model.npz.optimizer.npz
+[2022-10-25 03:08:32] [valid] Ep. 141 : Up. 65000 : cross-entropy : 1.67052 : stalled 6 times (last best: 1.42579)
+[2022-10-25 03:08:39] [valid] Ep. 141 : Up. 65000 : perplexity : 1.08252 : stalled 6 times (last best: 1.07002)
+[2022-10-25 03:08:39] Translating validation set...
+[2022-10-25 03:08:41] Best translation 0 : B N N N E
+[2022-10-25 03:08:41] Best translation 1 : B O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 2 : B N N N E
+[2022-10-25 03:08:41] Best translation 3 : B O O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 4 : B O O O O O O O O O O O O O N N N E B O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 5 : B O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 10 : B N E B O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 20 : B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 40 : B O N N N E
+[2022-10-25 03:08:41] Best translation 80 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 03:08:41] Best translation 160 : B O O N N N E
+[2022-10-25 03:08:42] Best translation 320 : B O O O O O O O O O O O O N N N E B O O O O O N N N E B O O O N N N E B O O O O O O O O O O N N N E
+[2022-10-25 03:08:44] Best translation 640 : B O O O O O O O O O O N N N E
+[2022-10-25 03:08:46] Best translation 1280 : B O N N N E
+[2022-10-25 03:08:53] Best translation 2560 : B O O O N N N E
+[2022-10-25 03:08:55] Total translation time: 15.59998s
+[2022-10-25 03:08:55] [valid] Ep. 141 : Up. 65000 : bleu : 94.2272 : new best
+...
+...
+...
 
 ```
 
