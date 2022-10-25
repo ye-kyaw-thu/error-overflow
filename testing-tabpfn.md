@@ -288,23 +288,232 @@ I got above error! on CPU.
 
 ## Installation of TabPFN on Server  
   
+Preparing a new enviroment and installation of tabpfn on server ...  
+  
+```
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.6-h5eee18b_0
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0
 
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+python-3.7.13        | 40.7 MB   | ########################################################## | 100% 
+setuptools-63.4.1    | 1.1 MB    | ########################################################## | 100% 
+zlib-1.2.13          | 103 KB    | ########################################################## | 100% 
+readline-8.2         | 357 KB    | ########################################################## | 100% 
+certifi-2022.9.24    | 154 KB    | ########################################################## | 100% 
+pip-22.2.2           | 2.3 MB    | ########################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate tabpfn
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) yekyaw.thu@gpu:~$ conda activate tabpfn
 ```
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~$ pip install tabpfn
+Collecting tabpfn
+  Downloading tabpfn-0.1.3-py3-none-any.whl (136 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136.1/136.1 kB 623.7 kB/s eta 0:00:00
+Collecting numpy>=1.21.2
+  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (15.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 29.6 MB/s eta 0:00:00
+Collecting scikit-learn>=0.24.2
+  Downloading scikit_learn-1.0.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (24.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.8/24.8 MB 27.6 MB/s eta 0:00:00
+Collecting hyperopt>=0.2.5
+  Downloading hyperopt-0.2.7-py2.py3-none-any.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 53.5 MB/s eta 0:00:00
+Collecting gpytorch>=1.5.0
+  Downloading gpytorch-1.8.1-py2.py3-none-any.whl (361 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 361.8/361.8 kB 64.4 MB/s eta 0:00:00
+Collecting seaborn>=0.11.2
+  Downloading seaborn-0.12.1-py3-none-any.whl (288 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 kB 56.3 MB/s eta 0:00:00
+Collecting torch>=1.9.0
+  Downloading torch-1.12.1-cp37-cp37m-manylinux1_x86_64.whl (776.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 776.3/776.3 MB 4.8 MB/s eta 0:00:00
+Collecting openml>=0.12.2
+  Downloading openml-0.12.2.tar.gz (119 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.9/119.9 kB 34.4 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting configspace>=0.4.21
+  Downloading ConfigSpace-0.6.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 23.6 MB/s eta 0:00:00
+Collecting tqdm>=4.62.1
+  Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 24.8 MB/s eta 0:00:00
+Collecting pyyaml>=5.4.1
+  Downloading PyYAML-6.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (596 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 596.3/596.3 kB 30.7 MB/s eta 0:00:00
+Collecting pyparsing
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 kB 25.8 MB/s eta 0:00:00
+Collecting scipy
+  Downloading scipy-1.7.3-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (38.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 38.1/38.1 MB 20.2 MB/s eta 0:00:00
+Collecting cython
+  Downloading Cython-0.29.32-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 29.9 MB/s eta 0:00:00
+Collecting typing-extensions
+  Downloading typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+Collecting cloudpickle
+  Downloading cloudpickle-2.2.0-py3-none-any.whl (25 kB)
+Collecting six
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting future
+  Downloading future-0.18.2.tar.gz (829 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 829.2/829.2 kB 30.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting py4j
+  Downloading py4j-0.10.9.7-py2.py3-none-any.whl (200 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.5/200.5 kB 27.2 MB/s eta 0:00:00
+Collecting networkx>=2.2
+  Downloading networkx-2.6.3-py3-none-any.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 29.9 MB/s eta 0:00:00
+Collecting liac-arff>=2.4.0
+  Downloading liac-arff-2.5.0.tar.gz (13 kB)
+  Preparing metadata (setup.py) ... done
+Collecting xmltodict
+  Downloading xmltodict-0.13.0-py2.py3-none-any.whl (10.0 kB)
+Collecting requests
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 16.3 MB/s eta 0:00:00
+Collecting python-dateutil
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 36.8 MB/s eta 0:00:00
+Collecting pandas>=1.0.0
+  Downloading pandas-1.3.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.3/11.3 MB 24.1 MB/s eta 0:00:00
+Collecting minio
+  Downloading minio-7.1.12-py3-none-any.whl (76 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.2/76.2 kB 23.2 MB/s eta 0:00:00
+Collecting pyarrow
+  Downloading pyarrow-9.0.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (35.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 22.8 MB/s eta 0:00:00
+Collecting joblib>=0.11
+  Downloading joblib-1.2.0-py3-none-any.whl (297 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 298.0/298.0 kB 29.6 MB/s eta 0:00:00
+Collecting threadpoolctl>=2.0.0
+  Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+Collecting matplotlib!=3.6.1,>=3.1
+  Downloading matplotlib-3.5.3-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl (11.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.2/11.2 MB 24.5 MB/s eta 0:00:00
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.4.4-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 28.8 MB/s eta 0:00:00
+Collecting packaging>=20.0
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 10.5 MB/s eta 0:00:00
+Collecting fonttools>=4.22.0
+  Downloading fonttools-4.38.0-py3-none-any.whl (965 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 965.4/965.4 kB 32.6 MB/s eta 0:00:00
+Collecting cycler>=0.10
+  Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting pillow>=6.2.0
+  Downloading Pillow-9.2.0-cp37-cp37m-manylinux_2_28_x86_64.whl (3.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 27.5 MB/s eta 0:00:00
+Collecting pytz>=2017.3
+  Downloading pytz-2022.5-py2.py3-none-any.whl (500 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 500.7/500.7 kB 37.6 MB/s eta 0:00:00
+Collecting urllib3
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 21.9 MB/s eta 0:00:00
+Requirement already satisfied: certifi in ./.conda/envs/tabpfn/lib/python3.7/site-packages (from minio->openml>=0.12.2->tabpfn) (2022.9.24)
+Collecting charset-normalizer<3,>=2
+  Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting idna<4,>=2.5
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 20.3 MB/s eta 0:00:00
+Building wheels for collected packages: openml, liac-arff, future
+  Building wheel for openml (setup.py) ... done
+  Created wheel for openml: filename=openml-0.12.2-py3-none-any.whl size=137310 sha256=643c0645a06a371778886bcfb2393a3357eb766533efbfe45c0f6b29bde88759
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/6a/20/88/cf4ac86aa18e2cd647ed16ebe274a5dacee9d0075fa02af250
+  Building wheel for liac-arff (setup.py) ... done
+  Created wheel for liac-arff: filename=liac_arff-2.5.0-py3-none-any.whl size=11716 sha256=2dac381cce9ff1b2755f6ad48176adbd4bc5d2451247571fb26fc72e16ec7348
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/1f/0f/15/332ca86cbebf25ddf98518caaf887945fbe1712b97a0f2493b
+  Building wheel for future (setup.py) ... done
+  Created wheel for future: filename=future-0.18.2-py3-none-any.whl size=491058 sha256=d7e9c4fb499a84ed8683e009c24882e9e80f653be83234fc50896c2d0353b71d
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/56/b0/fe/4410d17b32f1f0c3cf54cdfb2bc04d7b4b8f4ae377e2229ba0
+Successfully built openml liac-arff future
+Installing collected packages: pytz, py4j, xmltodict, urllib3, typing-extensions, tqdm, threadpoolctl, six, pyyaml, pyparsing, pillow, numpy, networkx, liac-arff, joblib, idna, future, fonttools, cython, cycler, cloudpickle, charset-normalizer, torch, scipy, requests, python-dateutil, pyarrow, packaging, minio, kiwisolver, scikit-learn, pandas, matplotlib, hyperopt, configspace, seaborn, openml, gpytorch, tabpfn
+Successfully installed charset-normalizer-2.1.1 cloudpickle-2.2.0 configspace-0.6.0 cycler-0.11.0 cython-0.29.32 fonttools-4.38.0 future-0.18.2 gpytorch-1.8.1 hyperopt-0.2.7 idna-3.4 joblib-1.2.0 kiwisolver-1.4.4 liac-arff-2.5.0 matplotlib-3.5.3 minio-7.1.12 networkx-2.6.3 numpy-1.21.6 openml-0.12.2 packaging-21.3 pandas-1.3.5 pillow-9.2.0 py4j-0.10.9.7 pyarrow-9.0.0 pyparsing-3.0.9 python-dateutil-2.8.2 pytz-2022.5 pyyaml-6.0 requests-2.28.1 scikit-learn-1.0.2 scipy-1.7.3 seaborn-0.12.1 six-1.16.0 tabpfn-0.1.3 threadpoolctl-3.1.0 torch-1.12.1 tqdm-4.64.1 typing-extensions-4.4.0 urllib3-1.26.12 xmltodict-0.13.0
+(tabpfn) yekyaw.thu@gpu:~$
 ```
 
+Successfully installed!!!  
+  
+## Test run on Server
+ 
+form the GitHub site, I took the example running python code of tabpfn and testing as follows:  
+  
+```
+from sklearn.metrics import accuracy_score
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+from tabpfn.scripts.transformer_prediction_interface import TabPFNClassifier
+
+X, y = load_breast_cancer(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+
+classifier = TabPFNClassifier(device='cpu')
+classifier.fit(X_train, y_train)
+y_eval, p_eval = classifier.predict(X_test, return_winning_probability=True)
+
+print('Accuracy', accuracy_score(y_test, y_eval))
 ```
 
+Test run on server ...  
+  
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ python ./test-tabpfn.py 
+^CTraceback (most recent call last):
+  File "./test-tabpfn.py", line 5, in <module>
+    from tabpfn.scripts.transformer_prediction_interface import TabPFNClassifier
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 7, in <module>
+    from tabpfn.utils import normalize_data, to_ranking_low_mem, remove_outliers
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/utils.py", line 124, in <module>
+    default_device = 'cuda:0' if torch.cuda.is_available() else 'cpu:0'
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/torch/cuda/__init__.py", line 83, in is_available
+    return torch._C._cuda_getDeviceCount() > 0
+KeyboardInterrupt
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ time python ./test-tabpfn.py 
+We have to download the TabPFN, as there is no checkpoint at  /home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/models_diff/prior_diff_real_checkpoint_n_0_epoch_100.cpkt
+It has about 100MB, so this might take a moment.
+Loading models_diff/prior_diff_real_checkpoint_n_0_epoch_100.cpkt
+Loading....
+Using style prior: True
+MODEL BUILDER <module 'tabpfn.priors.differentiable_prior' from '/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/priors/differentiable_prior.py'> <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6160952cb0>
+Using cpu device
+init dist
+Not using distributed
+DataLoader.__dict__ {'num_steps': 8192, 'get_batch_kwargs': {'batch_size': 1, 'eval_pos_seq_len_sampler': <function train.<locals>.eval_pos_seq_len_sampler at 0x7f616096a3b0>, 'seq_len_maximum': 10, 'device': 'cpu', 'num_features': 100, 'hyperparameters': {'lr': 0.0001, 'dropout': 0.0, 'emsize': 512, 'batch_size': 1, 'nlayers': 12, 'num_features': 100, 'nhead': 4, 'nhid_factor': 2, 'bptt': 10, 'eval_positions': [972], 'seq_len_used': 50, 'sampling': 'mixed', 'epochs': 400, 'num_steps': 8192, 'verbose': False, 'mix_activations': True, 'nan_prob_unknown_reason_reason_prior': 1.0, 'categorical_feature_p': 0.2, 'nan_prob_no_reason': 0.0, 'nan_prob_unknown_reason': 0.0, 'nan_prob_a_reason': 0.0, 'max_num_classes': 10, 'num_classes': 2, 'noise_type': 'Gaussian', 'balanced': False, 'normalize_to_ranking': False, 'set_value_to_nan': 0.1, 'normalize_by_used_features': True, 'num_features_used': <function load_model.<locals>.<lambda> at 0x7f6161f06710>, 'num_categorical_features_sampler_a': -1.0, 'differentiable_hyperparameters': {'distribution': 'uniform', 'min': 1000000.0, 'max': 1000001.0}, 'prior_type': 'prior_bag', 'differentiable': True, 'flexible': True, 'aggregate_k_gradients': 8, 'recompute_attn': True, 'bptt_extra_samples': None, 'dynamic_batch_size': False, 'multiclass_loss_type': 'nono', 'output_multiclass_ordered_p': 0.0, 'normalize_with_sqrt': False, 'new_mlp_per_example': True, 'prior_mlp_scale_weights_sqrt': True, 'batch_size_per_gp_sample': None, 'normalize_ignore_label_too': True, 'differentiable_hps_as_style': False, 'max_eval_pos': 1000, 'random_feature_rotation': True, 'rotate_normalized_labels': True, 'canonical_y_encoder': False, 'total_available_time_in_s': None, 'train_mixed_precision': True, 'efficient_eval_masking': True, 'multiclass_type': 'rank', 'done_part_in_training': 0.8425, 'categorical_features_sampler': <function load_model.<locals>.<lambda> at 0x7f620638ecb0>, 'num_features_used_in_training': '<function <lambda>.<locals>.<lambda> at 0x7fc575dfb5e0>', 'num_classes_in_training': '<function <lambda>.<locals>.<lambda> at 0x7fc575dfb550>', 'batch_size_in_training': 8, 'bptt_in_training': 1024, 'bptt_extra_samples_in_training': None, 'prior_bag_get_batch': (<function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6160952b90>, <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6160952c20>), 'prior_bag_exp_weights_1': 2.0, 'normalize_labels': True, 'check_is_compatible': True}, 'batch_size_per_gp_sample': None, 'get_batch': <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6160952cb0>, 'differentiable_hyperparameters': {'prior_bag_exp_weights_1': {'distribution': 'uniform', 'min': 1000000.0, 'max': 1000001.0}, 'num_layers': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 6, 'min_mean': 1, 'round': True, 'lower_bound': 2}, 'prior_mlp_hidden_dim': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 130, 'min_mean': 5, 'round': True, 'lower_bound': 4}, 'prior_mlp_dropout_prob': {'distribution': 'meta_beta', 'scale': 0.9, 'min': 0.1, 'max': 5.0}, 'noise_std': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 0.3, 'min_mean': 0.0001, 'round': False, 'lower_bound': 0.0}, 'init_std': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 0.01, 'round': False, 'lower_bound': 0.0}, 'num_causes': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 12, 'min_mean': 1, 'round': True, 'lower_bound': 1}, 'is_causal': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'pre_sample_weights': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'y_is_effect': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'prior_mlp_activations': {'distribution': 'meta_choice_mixed', 'choice_values': [<class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>], 'choice_values_used': ["<class 'torch.nn.modules.activation.Tanh'>", "<class 'torch.nn.modules.linear.Identity'>", '<function get_diff_causal.<locals>.<lambda> at 0x7fc575dfb670>', "<class 'torch.nn.modules.activation.ELU'>"]}, 'block_wise_dropout': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sort_features': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'in_clique': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sampling': {'distribution': 'meta_choice', 'choice_values': ['normal', 'mixed']}, 'pre_sample_causes': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'outputscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'lengthscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'noise': {'distribution': 'meta_choice', 'choice_values': [1e-05, 0.0001, 0.01]}, 'multiclass_type': {'distribution': 'meta_choice', 'choice_values': ['value', 'rank']}}}, 'num_features': 100, 'epoch_count': 0}
+Style definition of first 3 examples: None
+Using a Transformer with 25.82 M parameters
+Accuracy 0.9840425531914894
+
+real	0m21.072s
+user	1m0.861s
+sys	0m4.356s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ 
 ```
 
-```
-
-```
-
-```
-
+Testing finished successfully!
+  
+## Preparing for Running on Server
+  
 ```
 
 ```
