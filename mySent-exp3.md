@@ -633,31 +633,18 @@ root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data#
 ```
 
 
-## Evaluations with NEW Test Data
+## Run Cross Testing
 
 ```
 
 ```
 
-### Sentence Model with Sentence Only Test Data
+## Testing Result for Workshop Paper
 
 ```
 
 ```
 
-### Sentence Model with Sentence+Para Test Data
-
-```
-
-```
-
-## Para Model with Sentence Only Test Data
-
-```
-
-```
-
-## Para Model with Sentence+Para Test Data
 
 ```
 
