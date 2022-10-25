@@ -380,7 +380,7 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 Start training ...  
 
 ```
-$seq2seq.para1.sh
+root@2328f1decde9:/home/ye/exp/mysent# ./seq2seq.para1.sh
 [2022-10-24 21:18:17] [marian] Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
 [2022-10-24 21:18:17] [marian] Running on 2328f1decde9 as process 471 with command line:
 [2022-10-24 21:18:17] [marian] marian -c model.seq2seq.para1/config.yml
@@ -442,13 +442,92 @@ $seq2seq.para1.sh
 ...
 ...
 ...
+[2022-10-25 04:56:05] Best translation 2 : B N N N E
+[2022-10-25 04:56:05] Best translation 3 : B O O O O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 4 : B O O O O O O O O O O O O O N N N E B O O O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 5 : B O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 10 : B N E B O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 20 : B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 40 : B O N N N E
+[2022-10-25 04:56:05] Best translation 80 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 04:56:05] Best translation 160 : B O O N N N E
+[2022-10-25 04:56:05] Best translation 320 : B O O O O O O O O O O O O N N N E B O O O O O N N N E B O O O N N N E B O O O O O O O O O O N N N E
+[2022-10-25 04:56:07] Best translation 640 : B O O O O O O O O O O N N N E
+[2022-10-25 04:56:09] Best translation 1280 : B O N N N E
+[2022-10-25 04:56:14] Best translation 2560 : B O O O N N N E
+[2022-10-25 04:56:16] Total translation time: 12.74809s
+[2022-10-25 04:56:16] [valid] Ep. 184 : Up. 85000 : bleu : 94.858 : new best
+[2022-10-25 04:56:16] Training finished
+[2022-10-25 04:56:16] Saving model weights and runtime parameters to model.seq2seq.para1/model.npz
+[2022-10-25 04:56:25] Saving Adam parameters
+[2022-10-25 04:56:28] [training] Saving training checkpoint to model.seq2seq.para1/model.npz and model.seq2seq.para1/model.npz.optimizer.npz
 
+real    458m42.378s
+user    443m22.080s
+sys     6m8.382s
 ```
 
 ## Check Validation Log
 
-```
+Validation results are as follows:  
 
+vi valid.log   
+
+```
+[2022-10-24 21:44:50] [valid] Ep. 11 : Up. 5000 : cross-entropy : 4.45958 : new best
+[2022-10-24 21:44:58] [valid] Ep. 11 : Up. 5000 : perplexity : 1.23576 : new best
+[2022-10-24 21:44:59] [valid] First sentence's tokens as scored:
+[2022-10-24 21:44:59] [valid] DefaultVocab keeps original segments for scoring
+[2022-10-24 21:44:59] [valid]   Hyp: B O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-24 21:44:59] [valid]   Ref: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N>[2022-10-24 21:45:22] [valid] Ep. 11 : Up. 5000 : bleu : 67.8495 : new best
+[2022-10-24 22:11:54] [valid] Ep. 22 : Up. 10000 : cross-entropy : 2.43947 : new best
+[2022-10-24 22:12:01] [valid] Ep. 22 : Up. 10000 : perplexity : 1.12277 : new best
+[2022-10-24 22:12:34] [valid] Ep. 22 : Up. 10000 : bleu : 78.4694 : new best
+[2022-10-24 22:39:05] [valid] Ep. 33 : Up. 15000 : cross-entropy : 1.83003 : new best
+[2022-10-24 22:39:12] [valid] Ep. 33 : Up. 15000 : perplexity : 1.09075 : new best
+[2022-10-24 22:39:36] [valid] Ep. 33 : Up. 15000 : bleu : 80.3059 : new best
+[2022-10-24 23:06:11] [valid] Ep. 44 : Up. 20000 : cross-entropy : 1.62603 : new best
+[2022-10-24 23:06:19] [valid] Ep. 44 : Up. 20000 : perplexity : 1.08024 : new best
+[2022-10-24 23:06:40] [valid] Ep. 44 : Up. 20000 : bleu : 84.288 : new best
+[2022-10-24 23:33:15] [valid] Ep. 54 : Up. 25000 : cross-entropy : 1.45323 : new best
+[2022-10-24 23:33:22] [valid] Ep. 54 : Up. 25000 : perplexity : 1.07142 : new best
+[2022-10-24 23:33:42] [valid] Ep. 54 : Up. 25000 : bleu : 90.5269 : new best
+[2022-10-25 00:00:18] [valid] Ep. 65 : Up. 30000 : cross-entropy : 1.42771 : new best
+[2022-10-25 00:00:25] [valid] Ep. 65 : Up. 30000 : perplexity : 1.07012 : new best
+[2022-10-25 00:00:44] [valid] Ep. 65 : Up. 30000 : bleu : 89.3772 : stalled 1 times (last best: 90.5269)
+[2022-10-25 00:27:23] [valid] Ep. 76 : Up. 35000 : cross-entropy : 1.42579 : new best
+[2022-10-25 00:27:31] [valid] Ep. 76 : Up. 35000 : perplexity : 1.07002 : new best
+[2022-10-25 00:27:48] [valid] Ep. 76 : Up. 35000 : bleu : 90.5096 : stalled 2 times (last best: 90.5269)
+[2022-10-25 00:54:23] [valid] Ep. 87 : Up. 40000 : cross-entropy : 1.44595 : stalled 1 times (last best: 1.42579)
+[2022-10-25 00:54:30] [valid] Ep. 87 : Up. 40000 : perplexity : 1.07105 : stalled 1 times (last best: 1.07002)
+[2022-10-25 00:54:46] [valid] Ep. 87 : Up. 40000 : bleu : 90.7874 : new best
+[2022-10-25 01:21:15] [valid] Ep. 98 : Up. 45000 : cross-entropy : 1.50517 : stalled 2 times (last best: 1.42579)
+[2022-10-25 01:21:22] [valid] Ep. 98 : Up. 45000 : perplexity : 1.07406 : stalled 2 times (last best: 1.07002)
+[2022-10-25 01:21:38] [valid] Ep. 98 : Up. 45000 : bleu : 91.165 : new best
+[2022-10-25 01:48:06] [valid] Ep. 108 : Up. 50000 : cross-entropy : 1.57305 : stalled 3 times (last best: 1.42579)
+[2022-10-25 01:48:14] [valid] Ep. 108 : Up. 50000 : perplexity : 1.07753 : stalled 3 times (last best: 1.07002)
+[2022-10-25 01:48:30] [valid] Ep. 108 : Up. 50000 : bleu : 92.1532 : new best
+[2022-10-25 02:14:59] [valid] Ep. 119 : Up. 55000 : cross-entropy : 1.63186 : stalled 4 times (last best: 1.42579)
+[2022-10-25 02:15:07] [valid] Ep. 119 : Up. 55000 : perplexity : 1.08054 : stalled 4 times (last best: 1.07002)
+[2022-10-25 02:15:22] [valid] Ep. 119 : Up. 55000 : bleu : 92.6348 : new best
+[2022-10-25 02:41:44] [valid] Ep. 130 : Up. 60000 : cross-entropy : 1.66714 : stalled 5 times (last best: 1.42579)
+[2022-10-25 02:41:51] [valid] Ep. 130 : Up. 60000 : perplexity : 1.08235 : stalled 5 times (last best: 1.07002)
+[2022-10-25 02:42:07] [valid] Ep. 130 : Up. 60000 : bleu : 93.5468 : new best
+[2022-10-25 03:08:32] [valid] Ep. 141 : Up. 65000 : cross-entropy : 1.67052 : stalled 6 times (last best: 1.42579)
+[2022-10-25 03:08:39] [valid] Ep. 141 : Up. 65000 : perplexity : 1.08252 : stalled 6 times (last best: 1.07002)
+[2022-10-25 03:08:55] [valid] Ep. 141 : Up. 65000 : bleu : 94.2272 : new best
+[2022-10-25 03:35:23] [valid] Ep. 151 : Up. 70000 : cross-entropy : 1.71906 : stalled 7 times (last best: 1.42579)
+[2022-10-25 03:35:31] [valid] Ep. 151 : Up. 70000 : perplexity : 1.08502 : stalled 7 times (last best: 1.07002)
+[2022-10-25 03:35:46] [valid] Ep. 151 : Up. 70000 : bleu : 94.321 : new best
+[2022-10-25 04:02:12] [valid] Ep. 162 : Up. 75000 : cross-entropy : 1.76146 : stalled 8 times (last best: 1.42579)
+[2022-10-25 04:02:19] [valid] Ep. 162 : Up. 75000 : perplexity : 1.08721 : stalled 8 times (last best: 1.07002)
+[2022-10-25 04:02:34] [valid] Ep. 162 : Up. 75000 : bleu : 94.7692 : new best
+[2022-10-25 04:29:06] [valid] Ep. 173 : Up. 80000 : cross-entropy : 1.78734 : stalled 9 times (last best: 1.42579)
+[2022-10-25 04:29:14] [valid] Ep. 173 : Up. 80000 : perplexity : 1.08854 : stalled 9 times (last best: 1.07002)
+[2022-10-25 04:29:27] [valid] Ep. 173 : Up. 80000 : bleu : 94.6281 : stalled 1 times (last best: 94.7692)
+[2022-10-25 04:55:56] [valid] Ep. 184 : Up. 85000 : cross-entropy : 1.82934 : stalled 10 times (last best: 1.42579)
+[2022-10-25 04:56:03] [valid] Ep. 184 : Up. 85000 : perplexity : 1.09072 : stalled 10 times (last best: 1.07002)
+[2022-10-25 04:56:16] [valid] Ep. 184 : Up. 85000 : bleu : 94.858 : new best
 ```
 
 ## Preparing a Bash Script for Testing with Sent+Para
