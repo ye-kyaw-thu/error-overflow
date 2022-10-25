@@ -636,7 +636,30 @@ root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data#
 ## Run Cross Testing
 
 ```
+root@2328f1decde9:/home/ye/exp/mysent# time ./test4paper.sh
+...
+...
+...
+[2022-10-25 06:27:46] Best translation 5498 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5499 : B O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5500 : B O O O O O O O O O O N N N E B O O O O O O N N N E B O O O O O O N N N E B O O N N N E B O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5501 : B O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5502 : B O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5503 : B N N N E
+[2022-10-25 06:27:47] Best translation 5504 : B N N N E
+[2022-10-25 06:27:47] Best translation 5505 : B O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5506 : B O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5507 : B O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5508 : B O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5509 : B O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5510 : B O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Best translation 5511 : B O O O O O O O O O O O O O N N N E
+[2022-10-25 06:27:47] Total time: 199.27368s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    16m44.336s
+user    16m18.361s
+sys     0m33.635s
 ```
 
 ## Testing Result for Workshop Paper
