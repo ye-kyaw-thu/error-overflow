@@ -834,3 +834,29 @@ BLEU = 95.72, 97.2/96.6/96.0/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len
 root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1#
 ```
 
+## The Result for the Workshop Paper
+
+I decided to use following results for our workshop paper.  
+
+```
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# cat ./cross-evaluation-results.with-2vocabs.txt
+Evaluation on model.transformer.sent1, with sentence-only test-data:
+BLEU = 95.42, 96.0/95.6/95.3/94.8 (BP=1.000, ratio=1.035, hyp_len=65858, ref_len=63622)
+Evaluation on model.transformer.sent1, with sentence+parallel test-data:
+BLEU = 88.22, 90.7/89.1/87.5/85.7 (BP=1.000, ratio=1.013, hyp_len=97907, ref_len=96641)
+Evaluation on model.seq2seq.sent1, with sentence-only test-data:
+BLEU = 93.54, 95.0/94.2/93.1/91.8 (BP=1.000, ratio=1.050, hyp_len=66801, ref_len=63622)
+Evaluation on model.seq2seq.sent1, with sentence+parallel test-data:
+BLEU = 88.21, 91.1/89.3/87.3/85.1 (BP=1.000, ratio=1.012, hyp_len=97832, ref_len=96641)
+Evaluation on model.transformer.para1, with sentence-only test-data:
+BLEU = 98.29, 99.1/98.9/98.6/98.3 (BP=0.996, ratio=0.996, hyp_len=63346, ref_len=63622)
+Evaluation on model.transformer.para1, with sentence+parallel test-data:
+BLEU = 91.68, 95.1/93.9/92.7/91.4 (BP=0.983, ratio=0.983, hyp_len=95003, ref_len=96641)
+Evaluation on model.seq2seq.para1, with sentence-only test-data:
+BLEU = 99.33, 99.5/99.4/99.3/99.2 (BP=1.000, ratio=1.000, hyp_len=63641, ref_len=63622)
+Evaluation on model.seq2seq.para1, with sentence+parallel test-data:
+BLEU = 95.72, 97.2/96.6/96.0/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len=96641)
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1#
+```
+
+
