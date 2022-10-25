@@ -1089,6 +1089,138 @@ negative
 negative
 ```
 
+--------
+
+## Preparing 3 types of Training/Test Dataset
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv/train.sentence.combine.csv .
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/train/csv/train.key-word.combine.csv .
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv/test.sentence.combine.csv .
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ cp /media/ye/project1/cadt/student/Sokheang/data/demo2/kh-data/preprocessing/final/shuffle/split-data/split-class/test/csv/test.key-word.combine.csv .
+```
+
+check filesize:  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ wc *
+     10      22     992 note.txt
+   1000    1028   81791 test.key-word.combine.csv
+   1000    6086  478200 test.sentence.combine.csv
+   9014    9327  744276 train.key-word.combine.csv
+   9014   55743 4407928 train.sentence.combine.csv
+  20038   72206 5713187 total
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev train.key-word.combine.csv | cut -f1 -d',' | rev > train.label
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev test.key-word.combine.csv | cut -f1 -d',' | rev > test.label
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev train.key-word.combine.csv | cut -f2- -d"," | rev > train.keyword
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev test.key-word.combine.csv | cut -f2- -d"," | rev > test.keyword
+
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev train.sentence.combine.csv | cut -f2- -d"," | rev > train.sentence
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ rev test.sentence.combine.csv | cut -f2- -d"," | rev > test.sentence
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$
+```
+
+Cleaning process:  
+
+```
+313 comma inside train.sentence (replaced with NULL)
+35 comma inside test.sentence (replaced with NULL)
+```
+
+Combine:   
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ paste train.sentence train.keyword ./train.label > ./shuffle/train.combine
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ paste test.sentence test.keyword ./test.label > ./shuffle/test.combine
+```
+
+Shuffle:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ shuf ./train.combine > train.combine.shuf
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ shuf ./test.combine > test.combine.shuf
+```
+
+Extracted fields from shuffle data:  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f1 ./train.combine.shuf > train.combine.shuf.f1
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f2 ./train.combine.shuf > train.combine.shuf.f2
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f3 ./train.combine.shuf > train.combine.shuf.f3
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f1 ./test.combine.shuf > test.combine.shuf.f1
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f2 ./test.combine.shuf > test.combine.shuf.f2
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ cut -f3 ./test.combine.shuf > test.combine.shuf.f3
+```
+
+Check filesize:   
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ wc train.combine.shuf.{f1,f2,f3}
+   9014   55742 4327319 train.combine.shuf.f1
+   9014    9327  663980 train.combine.shuf.f2
+   9014    9014   80296 train.combine.shuf.f3
+  27042   74083 5071595 total
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ wc test.combine.shuf.{f1,f2,f3}
+  1000   6085 469257 test.combine.shuf.f1
+  1000   1028  72883 test.combine.shuf.f2
+  1000   1000   8908 test.combine.shuf.f3
+  3000   8113 551048 total
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ 
+```
+
+## Prepare Baseline and Experiment Dataset
+
+Prepare baseline-sentence data:  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' train.combine.shuf.f1 train.combine.shuf.f3 > ../baseline-sentence/train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' test.combine.shuf.f1 test.combine.shuf.f3 > ../baseline-sentence/test.csv
+```
+
+Prepare baseline-keyword data: 
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' train.combine.shuf.f2 train.combine.shuf.f3 > ../baseline-keyword/train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' test.combine.shuf.f2 test.combine.shuf.f3 > ../baseline-keyword/test.csv
+```
+
+Prepare experiment data:  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' train.combine.shuf.f1 train.combine.shuf.f2 train.combine.shuf.f3 > ../exp/train.csv
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess/shuffle$ paste -d',' test.combine.shuf.f1 test.combine.shuf.f2 test.combine.shuf.f3 > ../exp/test.csv
+```
+
+Check the folder structure: 
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ tree {baseline-keyword,baseline-sentence,exp}
+baseline-keyword
+├── test.csv
+└── train.csv
+baseline-sentence
+├── test.csv
+└── train.csv
+exp
+├── test.csv
+└── train.csv
+
+0 directories, 6 files
+```
+
+Check the filesize again:  
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/kh-final/preprocess$ wc {baseline-keyword,baseline-sentence,exp}/*.csv
+    1000     1028    81791 baseline-keyword/test.csv
+    9014     9327   744276 baseline-keyword/train.csv
+    1000     6085   478165 baseline-sentence/test.csv
+    9014    55742  4407615 baseline-sentence/train.csv
+    1000     6113   551048 exp/test.csv
+    9014    56055  5071595 exp/train.csv
+```
+
+----------------
+
+## Training with Baseline-Sentence on CADT Server
+
 ```
 
 ```
