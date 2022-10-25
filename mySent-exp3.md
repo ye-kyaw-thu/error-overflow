@@ -785,12 +785,52 @@ done
 ## Cross Testing with Only Big Vocab File (i.e. Sentence+Parallel Vocab File)  
 
 ```
+root@2328f1decde9:/home/ye/exp/mysent# time ./test4paper-with-para-vocab.sh
+...
+...
+...
+[2022-10-25 06:59:42] Best translation 5498 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5499 : B O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5500 : B O O O O O O O O O O N N N E B O O O O O O N N N E B O O O O O O N N N E B O O N N N E B O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5501 : B O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5502 : B O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5503 : B N N N E
+[2022-10-25 06:59:42] Best translation 5504 : B N N N E
+[2022-10-25 06:59:42] Best translation 5505 : B O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5506 : B O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5507 : B O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5508 : B O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5509 : B O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5510 : B O O O O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Best translation 5511 : B O O O O O O O O O O O O O N N N E
+[2022-10-25 06:59:42] Total time: 199.27261s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    16m39.906s
+user    16m17.455s
+sys     0m33.238s
 ```
 
 ## Cross Testing Result with Only Big Vocab File
 
 ```
-
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# cat ./cross-evaluation-results.txt
+Evaluation on model.transformer.sent1, with sentence-only test-data:
+BLEU = 95.74, 96.2/95.9/95.6/95.2 (BP=1.000, ratio=1.031, hyp_len=65577, ref_len=63622)
+Evaluation on model.transformer.sent1, with sentence+parallel test-data:
+BLEU = 88.48, 90.9/89.4/87.7/86.0 (BP=1.000, ratio=1.006, hyp_len=97261, ref_len=96641)
+Evaluation on model.seq2seq.sent1, with sentence-only test-data:
+BLEU = 93.01, 94.6/93.7/92.5/91.2 (BP=1.000, ratio=1.054, hyp_len=67075, ref_len=63622)
+Evaluation on model.seq2seq.sent1, with sentence+parallel test-data:
+BLEU = 87.86, 90.9/89.0/86.9/84.7 (BP=1.000, ratio=1.016, hyp_len=98184, ref_len=96641)
+Evaluation on model.transformer.para1, with sentence-only test-data:
+BLEU = 98.29, 99.1/98.9/98.6/98.3 (BP=0.996, ratio=0.996, hyp_len=63346, ref_len=63622)
+Evaluation on model.transformer.para1, with sentence+parallel test-data:
+BLEU = 91.68, 95.1/93.9/92.7/91.4 (BP=0.983, ratio=0.983, hyp_len=95003, ref_len=96641)
+Evaluation on model.seq2seq.para1, with sentence-only test-data:
+BLEU = 99.33, 99.5/99.4/99.3/99.2 (BP=1.000, ratio=1.000, hyp_len=63641, ref_len=63622)
+Evaluation on model.seq2seq.para1, with sentence+parallel test-data:
+BLEU = 95.72, 97.2/96.6/96.0/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len=96641)
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1#
 ```
 
