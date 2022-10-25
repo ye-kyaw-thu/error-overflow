@@ -716,7 +716,7 @@ user    16m18.361s
 sys     0m33.635s
 ```
 
-## Testing Result With Two Vocab Files 
+## Cross Testing Result With Two Vocab Files 
 
 Note: I used both sentence vocab and sentence+para vocab files ...  
 
@@ -741,7 +741,7 @@ BLEU = 95.72, 97.2/96.6/96.0/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len
 root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1#
 ```
 
-## Updating a Bash Script for Testing with Using Only Bigger Vocab File
+## Updating a Bash Script for Cross Testing with Using Only Bigger Vocab File
 
 ```bash
 #!/bin/bash
@@ -782,13 +782,13 @@ done
 
 ```
 
-## Testing with Only Big Vocab File (i.e. Sentence+Parallel Vocab File)  
+## Cross Testing with Only Big Vocab File (i.e. Sentence+Parallel Vocab File)  
 
 ```
 
 ```
 
-## Test Result with Only Big Vocab File
+## Cross Testing Result with Only Big Vocab File
 
 ```
 
