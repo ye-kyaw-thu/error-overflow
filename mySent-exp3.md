@@ -626,14 +626,68 @@ B O O O O O O O O O O O N N N E
 root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data#
 ```
 
-## Preparing a Bash Script for Cross-Testing with New Test Data
+## Preparing a Bash Script for Cross-Testing with New Test Data and Two Vocab Files
 
 ```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for Transformer and Seq2Seq modeling
+## this script is wrote for cross validation with the updated test-data by Thura Aung
+## Last updated: 25 Oct 2022
+
+data_path="/home/ye/exp/mysent/new-test-data";
+hyp_path="/home/ye/exp/mysent/results4ws1";
+src="my"; tgt="tg";
+
+# Testing for NMT models trained with sentence-only
+for model_path in {model.transformer.sent1,model.seq2seq.sent1}
+do
+
+# Evaluation with Sentence-Only Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-sent/vocab.${src}.yml ${data_path}/vocab-sent/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.sent.${tgt} < ${data_path}/test.sent.${src};
+   echo "Evaluation on ${model_path}, with sentence-only test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.sent.${tgt} \
+< ${hyp_path}/hyp.${model_path}.sent.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+# Evaluation with Sentence+Parallel Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-sent/vocab.${src}.yml ${data_path}/vocab-sent/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.para.${tgt} < ${data_path}/test.para.${src};
+   echo "Evaluation on ${model_path}, with sentence+parallel test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+      perl /home/ye/tool/multi-bleu.perl ${data_path}/test.para.${tgt} \
+< ${hyp_path}/hyp.${model_path}.para.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+done
+
+# Testing for NMT models that trained with sentence+parallel data
+for model_path in {model.transformer.para1,model.seq2seq.para1}
+do
+
+# Evaluation with Sentence-Only Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.sent.${tgt} < ${data_path}/test.sent.${src};
+   echo "Evaluation on ${model_path}, with sentence-only test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.sent.${tgt} \
+< ${hyp_path}/hyp.${model_path}.sent.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+# Evaluation with Sentence+Parallel Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.para.${tgt} < ${data_path}/test.para.${src};
+   echo "Evaluation on ${model_path}, with sentence+parallel test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.para.${tgt} \
+< ${hyp_path}/hyp.${model_path}.para.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+done
 
 ```
 
-
-## Run Cross Testing
+## Run Cross Testing With Two Vocab Files
 
 ```
 root@2328f1decde9:/home/ye/exp/mysent# time ./test4paper.sh
@@ -662,15 +716,81 @@ user    16m18.361s
 sys     0m33.635s
 ```
 
-## Testing Result for Workshop Paper
+## Testing Result With Two Vocab Files 
+
+Note: I used both sentence vocab and sentence+para vocab files ...  
+
+```
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1# cat ./cross-evaluation-results.with-2vocabs.txt
+Evaluation on model.transformer.sent1, with sentence-only test-data:
+BLEU = 95.42, 96.0/95.6/95.3/94.8 (BP=1.000, ratio=1.035, hyp_len=65858, ref_len=63622)
+Evaluation on model.transformer.sent1, with sentence+parallel test-data:
+BLEU = 88.22, 90.7/89.1/87.5/85.7 (BP=1.000, ratio=1.013, hyp_len=97907, ref_len=96641)
+Evaluation on model.seq2seq.sent1, with sentence-only test-data:
+BLEU = 93.54, 95.0/94.2/93.1/91.8 (BP=1.000, ratio=1.050, hyp_len=66801, ref_len=63622)
+Evaluation on model.seq2seq.sent1, with sentence+parallel test-data:
+BLEU = 88.21, 91.1/89.3/87.3/85.1 (BP=1.000, ratio=1.012, hyp_len=97832, ref_len=96641)
+Evaluation on model.transformer.para1, with sentence-only test-data:
+BLEU = 98.29, 99.1/98.9/98.6/98.3 (BP=0.996, ratio=0.996, hyp_len=63346, ref_len=63622)
+Evaluation on model.transformer.para1, with sentence+parallel test-data:
+BLEU = 91.68, 95.1/93.9/92.7/91.4 (BP=0.983, ratio=0.983, hyp_len=95003, ref_len=96641)
+Evaluation on model.seq2seq.para1, with sentence-only test-data:
+BLEU = 99.33, 99.5/99.4/99.3/99.2 (BP=1.000, ratio=1.000, hyp_len=63641, ref_len=63622)
+Evaluation on model.seq2seq.para1, with sentence+parallel test-data:
+BLEU = 95.72, 97.2/96.6/96.0/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len=96641)
+root@85e8e8d98a6e:/home/ye/exp/mysent/results4ws1#
+```
+
+## Updating a Bash Script for Testing with Using Only Bigger Vocab File
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for Transformer and Seq2Seq modeling
+## this script is wrote for cross validation with the updated test-data by Thura Aung
+## Important: for this time, I used only sent+para vocab file for all evaluation
+## Important: for exploring the results defferences between using two vocab files and using big-common vocab file
+## Last updated: 25 Oct 2022
+
+data_path="/home/ye/exp/mysent/new-test-data";
+hyp_path="/home/ye/exp/mysent/results4ws1";
+src="my"; tgt="tg";
+
+# Testing for NMT models trained with sentence-only
+for model_path in {model.transformer.sent1,model.seq2seq.sent1,model.transformer.para1,model.seq2seq.para1}
+do
+
+# Evaluation with Sentence-Only Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.sent.${tgt} < ${data_path}/test.sent.${src};
+   echo "Evaluation on ${model_path}, with sentence-only test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.sent.${tgt} \
+< ${hyp_path}/hyp.${model_path}.sent.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+# Evaluation with Sentence+Parallel Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.para.${tgt} < ${data_path}/test.para.${src};
+   echo "Evaluation on ${model_path}, with sentence+parallel test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.para.${tgt} \
+< ${hyp_path}/hyp.${model_path}.para.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+done
+
+```
+
+## Testing with Only Big Vocab File (i.e. Sentence+Parallel Vocab File)  
 
 ```
 
 ```
 
+## Test Result with Only Big Vocab File
 
 ```
 
 ```
-
 
