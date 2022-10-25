@@ -35,6 +35,7 @@ conda activate tabPFN
 
 ## Install TabPFN
 
+```
 (tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/data/test/neg$ pip install tabpfn
 Collecting tabpfn
   Downloading tabpfn-0.1.3-py3-none-any.whl (136 kB)
