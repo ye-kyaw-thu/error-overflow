@@ -532,20 +532,60 @@ vi valid.log
 
 ## Preparing a Bash Script for Testing with Sent+Para
 
-```
+```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for Seq2Seq Sentence-Only training,
+## Last updated: 25 Oct 2022
+
+data_path="/home/ye/exp/mysent/data-para";
+src="my"; tgt="tg";
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.${tgt}, Seq2Seq, Sentence+Para model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.${tgt} >> eval-best-result.txt;
 ```
 
 ## Testing Seq2Seq with Sent+Para
 
-```
+Testing with old test data ...  
 
+```
+root@2328f1decde9:/home/ye/exp/mysent/model.seq2seq.para1# time ./test-eval-best.sh
+...
+...
+...
+[2022-10-25 05:09:22] Best translation 5498 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 05:09:22] Best translation 5499 : B O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 05:09:22] Best translation 5500 : B O O O O O O O O O O N N N E B O O O O O O N N N E B O O O O O O N N N E B O O N N N E B O O O O O O O N N N E
+[2022-10-25 05:09:22] Best translation 5501 : B O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-10-25 05:09:22] Best translation 5502 : B O O O O O O O N N N E
+[2022-10-25 05:09:22] Best translation 5503 : B N N N E
+[2022-10-25 05:09:22] Best translation 5504 : B N N N E
+[2022-10-25 05:09:23] Best translation 5505 : B O O O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5506 : B O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5507 : B O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5508 : B O O O O O O O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5509 : B O O O O O O O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5510 : B O O O O O O O O O O O O O O N N N E
+[2022-10-25 05:09:23] Best translation 5511 : B O O O O O O O O O O O O O N N N E
+[2022-10-25 05:09:23] Total time: 197.97736s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+
+real    3m20.448s
+user    3m16.794s
+sys     0m5.194s
 ```
 
 ## Result with Seq2Seq with Sent+Para
 
 ```
-
+root@2328f1decde9:/home/ye/exp/mysent/model.seq2seq.para1# cat ./eval-best-result.txt
+Evaluation with hyp.best.tg, Seq2Seq, Sentence+Para model:
+BLEU = 95.71, 97.2/96.6/95.9/95.3 (BP=0.994, ratio=0.994, hyp_len=96098, ref_len=96641)
 ```
 
 ## Testing with New Test Data
@@ -585,6 +625,13 @@ B O O O O O N N N E
 B O O O O O O O O O O O N N N E
 root@b21bbf6bdba3:/home/ye/exp/mysent/new-test-data#
 ```
+
+## Preparing a Bash Script for Cross-Testing with New Test Data
+
+```bash
+
+```
+
 
 ## Evaluations with NEW Test Data
 
