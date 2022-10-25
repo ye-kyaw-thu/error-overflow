@@ -208,10 +208,86 @@ sys	0m3.628s
 
 It's Work!!!  
   
+## Testing with Our Data
+  
+Currently, our data that I used for SGD have only two columns. I plan to add keyword and thus made dummy three column (just copy col1 to col2) and made test run on CPU.  
+  
+```
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/tabpfn$ python ./khpolar-tabpfn1.py 
+training data format is as follows: 
+                                                  text1  ...     label
+8511  ▁ស ភាព ការ ណ៍ នេះ បាន ធ្វើឲ្យ ប្រ ជា ជន ស ប្ប ...  ...  positive
+4621  ▁ព ាន រ ង ្វ ាន់ ▁ធ នា គ ារ ក្នុង ស្រ ុក ឆ្ ន ...  ...  positive
+2236  ▁សូម អ ប អ រ សា ទ រ ទៅ ក ាន់ ក្រ ុ ម ជ ័យ ល ា ...  ...  positive
+6915  ▁ក្រោយ ពេល កើត ហេតុ ▁សម ត្ថ កិច្ច ជ ំ ន ាញ ▁បា...  ...  positive
+5658  ▁ចំពោះ ▁សណ្ឋាគា រ ▁ MH R ▁ការ ជ ួ យ ▁គឺជា ▁ក ា...  ...  positive
 
+[5 rows x 3 columns]
+Check after encoding ...
+   text1  text2     label
+0   7819   7819  positive
+1   7961   7961  negative
+2   5913   5913  positive
+3   5651   5651  positive
+4   9935   9935   neutral
+Loading models_diff/prior_diff_real_checkpoint_n_0_epoch_100.cpkt
+Loading....
+Using style prior: True
+MODEL BUILDER <module 'tabpfn.priors.differentiable_prior' from '/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/priors/differentiable_prior.py'> <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6d3272a7a0>
+Using cpu:0 device
+init dist
+Not using distributed
+DataLoader.__dict__ {'num_steps': 8192, 'get_batch_kwargs': {'batch_size': 1, 'eval_pos_seq_len_sampler': <function train.<locals>.eval_pos_seq_len_sampler at 0x7f6d3272ae60>, 'seq_len_maximum': 10, 'device': 'cpu:0', 'num_features': 100, 'hyperparameters': {'lr': 0.0001, 'dropout': 0.0, 'emsize': 512, 'batch_size': 1, 'nlayers': 12, 'num_features': 100, 'nhead': 4, 'nhid_factor': 2, 'bptt': 10, 'eval_positions': [972], 'seq_len_used': 50, 'sampling': 'mixed', 'epochs': 400, 'num_steps': 8192, 'verbose': False, 'mix_activations': True, 'nan_prob_unknown_reason_reason_prior': 1.0, 'categorical_feature_p': 0.2, 'nan_prob_no_reason': 0.0, 'nan_prob_unknown_reason': 0.0, 'nan_prob_a_reason': 0.0, 'max_num_classes': 10, 'num_classes': 2, 'noise_type': 'Gaussian', 'balanced': False, 'normalize_to_ranking': False, 'set_value_to_nan': 0.1, 'normalize_by_used_features': True, 'num_features_used': <function load_model.<locals>.<lambda> at 0x7f6d32742dd0>, 'num_categorical_features_sampler_a': -1.0, 'differentiable_hyperparameters': {'distribution': 'uniform', 'min': 1000000.0, 'max': 1000001.0}, 'prior_type': 'prior_bag', 'differentiable': True, 'flexible': True, 'aggregate_k_gradients': 8, 'recompute_attn': True, 'bptt_extra_samples': None, 'dynamic_batch_size': False, 'multiclass_loss_type': 'nono', 'output_multiclass_ordered_p': 0.0, 'normalize_with_sqrt': False, 'new_mlp_per_example': True, 'prior_mlp_scale_weights_sqrt': True, 'batch_size_per_gp_sample': None, 'normalize_ignore_label_too': True, 'differentiable_hps_as_style': False, 'max_eval_pos': 1000, 'random_feature_rotation': True, 'rotate_normalized_labels': True, 'canonical_y_encoder': False, 'total_available_time_in_s': None, 'train_mixed_precision': True, 'efficient_eval_masking': True, 'multiclass_type': 'rank', 'done_part_in_training': 0.8425, 'categorical_features_sampler': <function load_model.<locals>.<lambda> at 0x7f6d32742e60>, 'num_features_used_in_training': '<function <lambda>.<locals>.<lambda> at 0x7fc575dfb5e0>', 'num_classes_in_training': '<function <lambda>.<locals>.<lambda> at 0x7fc575dfb550>', 'batch_size_in_training': 8, 'bptt_in_training': 1024, 'bptt_extra_samples_in_training': None, 'prior_bag_get_batch': (<function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6d3272a680>, <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6d3272a710>), 'prior_bag_exp_weights_1': 2.0, 'normalize_labels': True, 'check_is_compatible': True}, 'batch_size_per_gp_sample': None, 'get_batch': <function get_model.<locals>.make_get_batch.<locals>.new_get_batch at 0x7f6d3272a7a0>, 'differentiable_hyperparameters': {'prior_bag_exp_weights_1': {'distribution': 'uniform', 'min': 1000000.0, 'max': 1000001.0}, 'num_layers': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 6, 'min_mean': 1, 'round': True, 'lower_bound': 2}, 'prior_mlp_hidden_dim': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 130, 'min_mean': 5, 'round': True, 'lower_bound': 4}, 'prior_mlp_dropout_prob': {'distribution': 'meta_beta', 'scale': 0.9, 'min': 0.1, 'max': 5.0}, 'noise_std': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 0.3, 'min_mean': 0.0001, 'round': False, 'lower_bound': 0.0}, 'init_std': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 0.01, 'round': False, 'lower_bound': 0.0}, 'num_causes': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 12, 'min_mean': 1, 'round': True, 'lower_bound': 1}, 'is_causal': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'pre_sample_weights': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'y_is_effect': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'prior_mlp_activations': {'distribution': 'meta_choice_mixed', 'choice_values': [<class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>, <class 'torch.nn.modules.activation.Tanh'>], 'choice_values_used': ["<class 'torch.nn.modules.activation.Tanh'>", "<class 'torch.nn.modules.linear.Identity'>", '<function get_diff_causal.<locals>.<lambda> at 0x7fc575dfb670>', "<class 'torch.nn.modules.activation.ELU'>"]}, 'block_wise_dropout': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sort_features': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'in_clique': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sampling': {'distribution': 'meta_choice', 'choice_values': ['normal', 'mixed']}, 'pre_sample_causes': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'outputscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'lengthscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'noise': {'distribution': 'meta_choice', 'choice_values': [1e-05, 0.0001, 0.01]}, 'multiclass_type': {'distribution': 'meta_choice', 'choice_values': ['value', 'rank']}}}, 'num_features': 100, 'epoch_count': 0}
+Style definition of first 3 examples: None
+Using a Transformer with 25.82 M parameters
+/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py:147: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y_ = column_or_1d(y, warn=True)
+⚠️ WARNING: TabPFN is not made for datasets with a trainingsize > 1024. Prediction might take a while and be less reliable.
+/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/amp/autocast_mode.py:198: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+Traceback (most recent call last):
+  File "./khpolar-tabpfn1.py", line 56, in <module>
+    y_eval, p_eval = classifier.predict(X_test, return_winning_probability=True)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 210, in predict
+    p = self.predict_proba(X, normalize_with_test=normalize_with_test)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 204, in predict_proba
+    , **get_params_from_config(self.c))
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 439, in transformer_predict
+    output_batch = checkpoint(predict, batch_input, batch_label, style_, softmax_temperature_, True)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/utils/checkpoint.py", line 235, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/utils/checkpoint.py", line 96, in forward
+    outputs = run_function(*args)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 274, in predict
+    single_eval_pos=eval_position)[:, :, 0:num_classes]
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/transformer.py", line 141, in forward
+    output = self.transformer_encoder(src, src_mask)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/transformer.py", line 227, in forward
+    output = mod(output, src_mask=mask, src_key_padding_mask=src_key_padding_mask)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/tabpfn/layer.py", line 109, in forward
+    src_left = self.self_attn(src_[:single_eval_position], src_[:single_eval_position], src_[:single_eval_position])[0]
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/modules/activation.py", line 1160, in forward
+    attn_mask=attn_mask, average_attn_weights=average_attn_weights)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/functional.py", line 5179, in multi_head_attention_forward
+    attn_output, attn_output_weights = _scaled_dot_product_attention(q, k, v, attn_mask, dropout_p)
+  File "/home/ye/tool/anaconda3/envs/tabPFN/lib/python3.7/site-packages/torch/nn/functional.py", line 4854, in _scaled_dot_product_attention
+    attn = torch.bmm(q, k.transpose(-2, -1))
+RuntimeError: [enforce fail at alloc_cpu.cpp:73] . DefaultCPUAllocator: can't allocate memory: you tried to allocate 15600421632 bytes. Error code 12 (Cannot allocate memory)
+(tabPFN) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/tabpfn$ python ./khpolar-tabpfn1.py 
 ```
 
-```
+I got above error! on CPU.
+
+## Installation of TabPFN on Server  
+  
 
 ```
 
