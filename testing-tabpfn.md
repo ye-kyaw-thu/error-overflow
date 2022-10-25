@@ -1026,17 +1026,67 @@ Copied to server ...
 
 ## Training with Two Columns Data
   
+When strat training with SentencePiece data, got following error:  
 
 ```
+<class 'torch.nn.modules.activation.Tanh'>], 'choice_values_used': ["<class 'torch.nn.modules.activation.Tanh'>", "<class 'torch.nn.modules.linear.Identity'>", '<function get_diff_causal.<locals>.<lambda> at 0x7fc575dfb670>', "<class 'torch.nn.modules.activation.ELU'>"]}, 'block_wise_dropout': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sort_features': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'in_clique': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'sampling': {'distribution': 'meta_choice', 'choice_values': ['normal', 'mixed']}, 'pre_sample_causes': {'distribution': 'meta_choice', 'choice_values': [True, False]}, 'outputscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'lengthscale': {'distribution': 'meta_trunc_norm_log_scaled', 'max_mean': 10.0, 'min_mean': 1e-05, 'round': False, 'lower_bound': 0}, 'noise': {'distribution': 'meta_choice', 'choice_values': [1e-05, 0.0001, 0.01]}, 'multiclass_type': {'distribution': 'meta_choice', 'choice_values': ['value', 'rank']}}}, 'num_features': 100, 'epoch_count': 0}
+Style definition of first 3 examples: None
+Using a Transformer with 25.82 M parameters
+/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py:147: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y_ = column_or_1d(y, warn=True)
+Traceback (most recent call last):
+  File "./khpolar-tabpfn-baseline.py", line 59, in <module>
+    classifier.fit(X_train, y_train)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 164, in fit
+    y = self._validate_targets(y)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/tabpfn/scripts/transformer_prediction_interface.py", line 148, in _validate_targets
+    check_classification_targets(y)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/utils/multiclass.py", line 189, in check_classification_targets
+    y_type = type_of_target(y)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/utils/multiclass.py", line 327, in type_of_target
+    if (len(np.unique(y)) > 2) or (y.ndim >= 2 and len(y[0]) > 1):
+  File "<__array_function__ internals>", line 6, in unique
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/numpy/lib/arraysetops.py", line 272, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/numpy/lib/arraysetops.py", line 333, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
 
+real	0m3.945s
+user	0m2.092s
+sys	0m2.309s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$
 ```
 
-```
+Recheck the no. of lines for each column:  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/final-data/baseline-data$ cut -f1 -d ',' ./train.csv | wc
+   9015  687601 5035452
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/final-data/baseline-data$ cut -f2 -d ',' ./train.csv | wc
+   9015    9662  123681
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/final-data/baseline-data$ cut -f1 -d ',' ./test.csv | wc
+   1001   74421  544057
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/final-data/baseline-data$ cut -f2 -d ',' ./test.csv | wc
+   1001    1085   15311
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/final-data/baseline-data$
 ```
 
+Although number of lines are equal, I found the problem as follows:  
+
+```
+label
+៤ លានតោន ក្នុងនោះរួមមានប្រេងសាំង ៧
+positive
+negative
+positive
+positive
+positive
+positive
+negative
+ លោកអគ្គលេខាធិការអាស៊ាន ពីការកើនឡើងនៃសេចក្តីត្រូវការថាមពល និងអស្ថិរភាពនៃថ្លៃប្រេងឥន្ធនៈ នៅលើទីផ្សារអន្តរជាតិ បាននិងកំពុងបង្កឱ្យមានអតិផរណាខ្ពស់
+negative
+negative
 ```
 
 ```
