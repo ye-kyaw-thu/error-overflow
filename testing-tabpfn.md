@@ -1277,22 +1277,92 @@ sys	5m7.098s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ time python ./khpolar-tabpfn-baseline.py 
 ```
 
-Strange!, I should learn about this framework more and check the code.  
+The results are strange and I am thinking ...  
+Currently, Using normal or natural Khmer sentence and I plan to use SentencePiece ...  
 
+## SentencePiece Data Info
+
+I did SentencePiece Segmentation and the updated data info is as follows:  
+
+for Baseline-keyword:  
+
+```
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-keyword$ ls
+test.csv  tmp  train.csv  word
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-keyword$ head -n 5 *.csv
+==> test.csv <==
+▁ប្រ សា ស ន៍,negative
+▁ប ន ្ល ំ ▁ការ ▁ពិ ត,negative
+▁មាន ស្ ថ ិ រ ភាព,positive
+▁កាត់ បន្ថ យ ការ វិ វ ត្ត ន៍ រ ប ស់ ជ ំ ង ឺ,positive
+▁លក្ខណៈ ធ ម្មតា,neutral
+
+==> train.csv <==
+▁ការ គ ំ រា មក ំ ហ ែង,negative
+▁ចាប់ ផ្តើម ប្រ ើ,neutral
+▁ហ ែ ល,neutral
+▁កាត់ បន្ថ យ អ ត្រា ស្លាប់ រ ប ស់ ក ្ម េង យ៉ា ង ច្រើន,positive
+▁ការ ចូលរួម ល ះ ប ង់ ជ ្រោម ជ ្រ ែង ទ ាំង ស ង ខាង / ស ុ ភ ម ង្គ ល,positive
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-keyword$
+```
+```
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-keyword$ wc *.csv
+  1000  12095  95315 test.csv
+  9014 109470 867024 train.csv
+ 10014 121565 962339 total
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-keyword$
+```
+
+for baseline-sentence:  
+```
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-sentence$ ls
+test.csv  tmp  train.csv  word
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-sentence$ head -n3 *.csv
+==> test.csv <==
+▁ នេះ ប ើ តា ម ប្រ សា ស ន៍ រ ប ស់ ▁ឯក ឧ ត្ត ម ▁ ន េ ត្រ ▁ភ ក ្ត រា ▁រដ្ឋ លេខ ា ធ ិ ការ ▁និង ជា អ ន ុ ប្រ ធាន អ ច ិ ន្ត រ ៃ យ ៍ ក្រ ុ ម ការ ង ារ ប្រឆាំង ការ ស ម្ អា ត ប្រ ាក់ នៃ ក្រ ស ួង ប រ ិ ស្ថាន ▁កាល ថ ្ ង ៃ ទី ៥ ▁ខែ ត ុល ា ▁ឆ្នាំ ២ ០ ២ ២ ▁។,negative
+▁ចំណ ែក ▁ម ន្ត រី ▁ សិទ្ធិ ម ន ុ ស្ស ▁និង ▁អ្នក វិ ភ ា គ ▁យល់ ▁ថា ▁អ្វី ▁ដែល ▁លោក ▁ ហ៊ុន ▁ស ែន ▁លើក ▁ឡើង ▁មក ▁នោះ ▁ជា ▁វ ោ ហា រ សា ស្ត រ ▁ ន យោប ាយ ▁ដើម្បី ▁ប ន ្ល ំ ▁ការ ▁ពិ ត ▁ប៉ុណ្ណ ោះ ។,negative
+▁ការងា រ មាន ស្ ថ ិ រ ភាព ▁ហើយ អ ្ន ក អា ច ទ ទ ួល បាន ស ម ិទ្ធ ផល ជ ាក់ ល ាក់ ក្នុង អា ជ ី ព រ ប ស់ អ ្ន ក ▁ ធាន ា ជ ី វ ិត រ ប ស់ អ ្ន ក ។,positive
+
+==> train.csv <==
+▁រដ្ឋ ម ន្ត រី ប រ ិ ស្ថាន អ ៊ ុយ ក្រ ែន បាន បញ្ជា ក់ កាល ពី ថ ្ ង ៃ ច ន្ទ ទី ▁៣ ▁ខែ ត ុល ា ថា ▁ការ ខ ូ ច ខាត ប រ ិ ស្ថាន ក្នុង ប្រ ទេស អ ៊ ុយ ក្រ ែន ដែ ល ប ណ្តាល មក ពី ការ ឈ ្ល ាន ព ាន រ ប ស់ រ ុ ស្ ស៊ី ត្រ ូវ បាន គេ ប៉ ាន់ ប្រ មា ណ ថា ▁មាន ទ ំ ហ ំ ជា ង ▁៣ ៥ ៣ ព ាន់ ល ាន ដ ុល ្ល ារ ▁ជាមួយ នឹង ត ំ ប ន់ អ ភ ិ រ ក្ស ធ ម្ ម ជាតិ រ ាប់ ល ាន ហ ិក តា ទ ៀ ត ស្ ថ ិត ន ៅ ក ្រោម ការ គ ំ រា មក ំ ហ ែង ▁។,negative
+▁ខ្ញុំ ច ង់ ច ាប់ ផ្តើម ប្រ ើ ផ ា ស ពិសេស ស ំ រ ាប់ អ ្ន ក ធ្វើដំណើរ,neutral
+▁ក្រោយ ពេល ដែ ល វា បាន ហ ែ ល ប ត់ ច ុះ ប ត់ ឡើង គ ្រ ប់ ៗ ក ន ្ល ែង វា ទៅ ដល់ ស្រ ុក ខ ោ ន ហើយ វា ស ំ ច ត ន ៅ ទី នោះ ២ . ២ ថ ្ ង ៃ ទ ើ ប វា ហ ែ ល ច ុះ មក វិញ ។,neutral
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-sentence$
+```
+
+filesize info:  
+
+```
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-sentence$ wc *.csv
+   1000   75892  563439 test.csv
+   9014  698067 5188704 train.csv
+  10014  773959 5752143 total
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/baseline-sentence$
+```
+
+for exp:  
+
+```
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/exp$ ls
+test.csv  tmp  train.csv  word
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/exp$ head -n3 *.csv
+==> test.csv <==
+▁ នេះ ប ើ តា ម ប្រ សា ស ន៍ រ ប ស់ ▁ឯក ឧ ត្ត ម ▁ ន េ ត្រ ▁ភ ក ្ត រា ▁រដ្ឋ លេខ ា ធ ិ ការ ▁និង ជា អ ន ុ ប្រ ធាន អ ច ិ ន្ត រ ៃ យ ៍ ក្រ ុ ម ការ ង ារ ប្រឆាំង ការ ស ម្ អា ត ប្រ ាក់ នៃ ក្រ ស ួង ប រ ិ ស្ថាន ▁កាល ថ ្ ង ៃ ទី ៥ ▁ខែ ត ុល ា ▁ឆ្នាំ ២ ០ ២ ២ ▁។,▁ប្រ សា ស ន៍,negative
+▁ចំណ ែក ▁ម ន្ត រី ▁ សិទ្ធិ ម ន ុ ស្ស ▁និង ▁អ្នក វិ ភ ា គ ▁យល់ ▁ថា ▁អ្វី ▁ដែល ▁លោក ▁ ហ៊ុន ▁ស ែន ▁លើក ▁ឡើង ▁មក ▁នោះ ▁ជា ▁វ ោ ហា រ សា ស្ត រ ▁ ន យោប ាយ ▁ដើម្បី ▁ប ន ្ល ំ ▁ការ ▁ពិ ត ▁ប៉ុណ្ណ ោះ ។,▁ប ន ្ល ំ ▁ការ ▁ពិ ត,negative
+▁ការងា រ មាន ស្ ថ ិ រ ភាព ▁ហើយ អ ្ន ក អា ច ទ ទ ួល បាន ស ម ិទ្ធ ផល ជ ាក់ ល ាក់ ក្នុង អា ជ ី ព រ ប ស់ អ ្ន ក ▁ ធាន ា ជ ី វ ិត រ ប ស់ អ ្ន ក ។,▁មាន ស្ ថ ិ រ ភាព,positive
+
+==> train.csv <==
+▁រដ្ឋ ម ន្ត រី ប រ ិ ស្ថាន អ ៊ ុយ ក្រ ែន បាន បញ្ជា ក់ កាល ពី ថ ្ ង ៃ ច ន្ទ ទី ▁៣ ▁ខែ ត ុល ា ថា ▁ការ ខ ូ ច ខាត ប រ ិ ស្ថាន ក្នុង ប្រ ទេស អ ៊ ុយ ក្រ ែន ដែ ល ប ណ្តាល មក ពី ការ ឈ ្ល ាន ព ាន រ ប ស់ រ ុ ស្ ស៊ី ត្រ ូវ បាន គេ ប៉ ាន់ ប្រ មា ណ ថា ▁មាន ទ ំ ហ ំ ជា ង ▁៣ ៥ ៣ ព ាន់ ល ាន ដ ុល ្ល ារ ▁ជាមួយ នឹង ត ំ ប ន់ អ ភ ិ រ ក្ស ធ ម្ ម ជាតិ រ ាប់ ល ាន ហ ិក តា ទ ៀ ត ស្ ថ ិត ន ៅ ក ្រោម ការ គ ំ រា មក ំ ហ ែង ▁។,▁ការ គ ំ រា មក ំ ហ ែង,negative
+▁ខ្ញុំ ច ង់ ច ាប់ ផ្តើម ប្រ ើ ផ ា ស ពិសេស ស ំ រ ាប់ អ ្ន ក ធ្វើដំណើរ,▁ចាប់ ផ្តើម ប្រ ើ,neutral
+▁ក្រោយ ពេល ដែ ល វា បាន ហ ែ ល ប ត់ ច ុះ ប ត់ ឡើង គ ្រ ប់ ៗ ក ន ្ល ែង វា ទៅ ដល់ ស្រ ុក ខ ោ ន ហើយ វា ស ំ ច ត ន ៅ ទី នោះ ២ . ២ ថ ្ ង ៃ ទ ើ ប វា ហ ែ ល ច ុះ មក វិញ ។,▁ហ ែ ល,neutral
 ```
 
 ```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/exp$ wc *.csv
+   1000   86987  649846 test.csv
+   9014  798523 5975432 train.csv
+  10014  885510 6625278 total
+yekyaw.thu@gpu:~/exp/kh-polar/kh-final-sp/exp$
 ```
 
 ```
