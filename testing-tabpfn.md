@@ -1587,10 +1587,10 @@ elif (filetype == "txt"):
 Building word2vec model ...  
 
 ```
-(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ python ./word2vec.py ./train.f1 train.f1.fasttext bin
-(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ python ./word2vec.py ./train.f1 train.f1.fasttext txt
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ python ./word2vec.py ./train.f1 train.f1.w2v bin
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ python ./word2vec.py ./train.f1 train.f1.w2v txt
 (sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ ls
-fasttext.model  sp2fasttext.py  train.f1  train.f1.fasttext  word2vec.py
+fasttext.model  sp2fasttext.py  train.f1  train.f1.w2v  word2vec.py
 ```
 
 Let's check the text format of Word2Vec model:  
