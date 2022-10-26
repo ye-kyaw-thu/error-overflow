@@ -1413,7 +1413,7 @@ user    12m14.297s
 sys     2m34.845s 
 ```
 
-See Not working ...  
+See Not improving ...  
 
 Training with sentence,keyword,label ...  
 
@@ -1793,6 +1793,8 @@ train.f1.w2v  train.f1.w2v.txt
 - https://towardsdatascience.com/word2vec-for-phrases-learning-embeddings-for-more-than-one-word-727b6cf723cf
 - https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/
 - https://github.com/rmadan16/TF-IDF
+- https://scikit-learn.org/stable/datasets/loading_other_datasets.html
+- https://stackabuse.com/text-classification-with-python-and-scikit-learn/
 
 
 
