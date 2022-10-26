@@ -1438,23 +1438,102 @@ sys     5m1.476s
 ## Write a Python Code for Khmer Text to tf-idf Conversion
 
 ```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+import sys
+import pandas as pd
+import re
 
+# Written by Ye Kyaw Thu, Affiliate Professor, IDRI, CADT, Cambodia
+# Calculating syllable tf-idf
+# Last updated: 25 Sept 2022
+# How to run:
+# $ python ./syl2tf-idf.py ./eg-corpus.txt
+#
+# References
+# https://github.com/gearmonkey/tfidf-python/blob/master/tfidf.py
+# https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#:~:text=The%20formula%20that%20is%20used,document%20frequency%20of%20t%3B%20the
+
+def dummy_break(line):
+   return line.split()
+
+with open(sys.argv[1]) as f:
+    corpus = f.read().splitlines()
+
+# Add a custom list of stopwords for punctuation
+# 'ៗ' 
+kh_stop_words = ['។', '៕', '៖', '«', '»', '&', '"', '!', '?', '(', ')', '-', '.', '/', ':', ';', '[', ']']
+
+vectorizer = TfidfVectorizer(tokenizer=dummy_break, stop_words=kh_stop_words, use_idf=True, norm='l2') # l2 normalizer is the default normalizer
+#vectorizer = TfidfVectorizer(stop_words=my_stop_words, tokenizer=sylbreak_my, use_idf=True, norm='l1') # for seeing with l1 normalizer result
+matrix = vectorizer.fit_transform(corpus)
+sp_tf_idf = pd.DataFrame(matrix.toarray(), columns=vectorizer.get_feature_names_out())
+print(sp_tf_idf)
 ```
 
-```
+Test run with above Python code:  
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/tfidf$ python ./sp2tf-idf.py ./test.f1 
+       %    2  202  2022  2023    5    a  ...  ▁១៩   ▁២  ▁២០១   ▁៣   ▁៤   ▁៥    ➎
+0    0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+1    0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+2    0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+3    0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+4    0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+..   ...  ...  ...   ...   ...  ...  ...  ...  ...  ...   ...  ...  ...  ...  ...
+995  0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+996  0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+997  0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+998  0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
+999  0.0  0.0  0.0   0.0   0.0  0.0  0.0  ...  0.0  0.0   0.0  0.0  0.0  0.0  0.0
 
+[1000 rows x 1152 columns]
 ```
 
-```
+Test run with big data (training data):  
 
 ```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/tfidf$ python ./sp2tf-idf.py ./train.f1 
+        #    $  $98    %   &d    *    +  ...   ▁៥    ➊    ➋    ➌    ➍    ➏    👉
+0     0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+1     0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+2     0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+3     0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+4     0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+...   ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...
+9010  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+9011  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+9012  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+9013  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+9014  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  0.0  0.0  0.0
 
+[9015 rows x 2453 columns]
 ```
 
+I updated the stop-word list as follows:  
+
+```python
+kh_stop_words = ['។', '៕', '៖', '«', '»', '&', '"', '!', '?', '(', ')', '-', '.', '/', ':', ';', '[', ']', '$', '#','*', '+', '➊', '➋', '➌', '➍', '➏', '👉', '&d']
 ```
 
+Run with big data file (i.e. training data) again:  
+
+```
+(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/tfidf$ python ./sp2tf-idf.py ./train.f1 
+      $98    %    0  000000    1   10  ...  ▁១៩   ▁២  ▁២០១        ▁៣        ▁៤   ▁៥
+0     0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+1     0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.228228  0.000000  0.0
+2     0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+3     0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+4     0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+...   ...  ...  ...     ...  ...  ...  ...  ...  ...   ...       ...       ...  ...
+9010  0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+9011  0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+9012  0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+9013  0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.218761  0.0
+9014  0.0  0.0  0.0     0.0  0.0  0.0  ...  0.0  0.0   0.0  0.000000  0.000000  0.0
+
+[9015 rows x 2442 columns]
 ```
 
 ```
