@@ -1962,57 +1962,341 @@ sys     0m0.000s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-```
+## Training with More Epoch  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model2 -epoch 25
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2127158 lr:  0.000000 avg.loss:  0.674152 ETA:   0h 0m 0s
+
+real    0m0.886s
+user    0m7.702s
+sys     0m0.072s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+Testing with Epoch 25 Model ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model2.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.685
+R@1     0.685
+
+real    0m0.015s
+user    0m0.010s
+sys     0m0.005s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+Wow! Now We reach to 68!!!   
+
+Training with Epch 30 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model3 -epoch 30
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2234201 lr:  0.000000 avg.loss:  0.645315 ETA:   0h 0m 0s
+
+real    0m0.986s
+user    0m9.196s
+sys     0m0.072s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model3.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.683
+R@1     0.683
+
+real    0m0.015s
+user    0m0.015s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Training with Epoch 35 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model4 -epoch 35
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2316818 lr:  0.000000 avg.loss:  0.634116 ETA:   0h 0m 0s
+
+real    0m1.090s
+user    0m10.464s
+sys     0m0.132s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model4.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.683
+R@1     0.683
+
+real    0m0.015s
+user    0m0.015s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Training with Epoch 40 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model5 -epoch 40
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2382689 lr:  0.000000 avg.loss:  0.618567 ETA:   0h 0m 0s
+
+real    0m1.187s
+user    0m12.051s
+sys     0m0.092s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model5.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.678
+R@1     0.678
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+Training with Epoch 45 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model6 -epoch 45
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2234529 lr:  0.000000 avg.loss:  0.641646 ETA:   0h 0m 0s
+
+real    0m1.383s
+user    0m13.540s
+sys     0m0.076s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model6.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.679
+R@1     0.679
+
+real    0m0.014s
+user    0m0.010s
+sys     0m0.004s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Training with Epoch 50 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model7 -epoch 50
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2291591 lr:  0.000000 avg.loss:  0.597095 ETA:   0h 0m 0s
+
+real    0m1.481s
+user    0m15.027s
+sys     0m0.108s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model7.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.673
+R@1     0.673
+
+real    0m0.015s
+user    0m0.010s
+sys     0m0.005s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Current Best Model is with Epoch 25!, got 685!!!  
+
+## Training with Various Learning Rate
+
+with lr 1.0  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 25 -lr 1.0
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2126836 lr:  0.000000 avg.loss:  0.646921 ETA:   0h 0m 0s
+
+real    0m0.882s
+user    0m7.579s
+sys     0m0.080s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.673
+R@1     0.673
+
+real    0m0.015s
+user    0m0.015s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+with lr 0.9  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 25 -lr 0.9
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2127778 lr:  0.000000 avg.loss:  0.650086 ETA:   0h 0m 0s
+
+real    0m0.882s
+user    0m7.760s
+sys     0m0.084s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.683
+R@1     0.683
+
+real    0m0.014s
+user    0m0.011s
+sys     0m0.004s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+with -lr 0.8
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 25 -lr 0.8
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2127017 lr:  0.000000 avg.loss:  0.557731 ETA:   0h 0m 0s
+
+real    0m0.884s
+user    0m7.662s
+sys     0m0.072s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.675
+R@1     0.675
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+## Playing with Both No. of Epoch and LR
+
+lr 0.8, epoch 50  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 50 -lr 0.8
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2291517 lr:  0.000000 avg.loss:  0.593896 ETA:   0h 0m 0s
+
+real    0m1.478s
+user    0m15.009s
+sys     0m0.100s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.68
+R@1     0.68
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 
 ```
 
-```
+lr 0.8, epoch 100  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 100 -lr 0.8
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2383831 lr:  0.000000 avg.loss:  0.587188 ETA:   0h 0m 0s
 
+real    0m2.683s
+user    0m29.755s
+sys     0m0.184s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.674
+R@1     0.674
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 ```
 
-```
+lr 0.1, epoch 100  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 100 -lr 0.1
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2384175 lr:  0.000000 avg.loss:  0.587857 ETA:   0h 0m 0s
 
+real    0m2.680s
+user    0m29.798s
+sys     0m0.176s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.675
+R@1     0.675
+
+real    0m0.014s
+user    0m0.011s
+sys     0m0.004s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 ```
 
-```
+lr 0.9, epoch 100  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 100 -lr 0.9
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2384266 lr:  0.000000 avg.loss:  0.556359 ETA:   0h 0m 0s
 
+real    0m2.684s
+user    0m29.800s
+sys     0m0.180s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.673
+R@1     0.673
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 ```
 
-```
+lr 1.0, epoch 100  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-dummy -epoch 100 -lr 1.0
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2383657 lr:  0.000000 avg.loss:  0.613141 ETA:   0h 0m 0s
 
-```
+real    0m2.690s
+user    0m29.956s
+sys     0m0.152s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model-dummy.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.669
+R@1     0.669
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-```(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ ls train.f1.w2v*
-train.f1.w2v  train.f1.w2v.txt
-
-
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
 ```
