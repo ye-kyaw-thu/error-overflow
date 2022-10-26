@@ -1786,3 +1786,8 @@ train.f1.w2v  train.f1.w2v.txt
 ```
 
 ```
+
+## Reference
+
+- https://stackoverflow.com/questions/22129943/how-to-calculate-the-sentence-similarity-using-word2vec-model-of-gensim-with-pyt
+
