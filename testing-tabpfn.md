@@ -1609,6 +1609,186 @@ Let's check the text format of Word2Vec model:
 ច -3.7456465 -1.5072535 -1.011736 0.88690436 -0.5847862 0.75158095 0.16340366 1.7767435 -0.9532801 -1.4987817 -1.3975681 -1.0931684 -1.0583178 -0.5232667 0.20088755 1.3870056 1.1607078 0.33519092 -1.6564399 -0.25144693 0.16582316 -0.49295524 0.40561834 -2.771357 1.9606735 0.11203313 1.0542929 1.9641887 -1.6691928 0.04361484 1.1389827 -1.9265649 -0.93734497 3.632479 -1.5121489 1.5146691 2.559222 1.1669554 -0.10814434 2.8006475 -0.055340677 3.0873923 -1.9301671 -0.61268634 -0.32021806 0.15503971 2.381948 0.93192315 0.08309442 3.5414186 1.5313773 1.1407022 0.09000539 -1.0371289 -1.6081599 -2.0814624 -3.259196 0.00038272954 -2.213208 -1.4500586 -1.3972253 2.4350145 2.7009528 -1.0170192 -0.7307917 1.2358148 -1.7369212 -1.6041955 1.2028383 -3.2289991 2.8295472 0.9547633 -0.96830374 1.546994 -1.8224638 -0.32026055 1.3590473 0.18506029 1.6421093 1.4044868 -1.6720839 -0.49007973 1.2167158 -0.41927156 0.1657303 -3.6424816 1.0526187 -0.2772258 1.23793 0.5646698 -0.97271097 2.4456038 3.8538184 -1.4540582 1.7952322 0.56579757 0.29333466 -1.3034163 2.362371 0.5890266
 ```
 
+## Testing fasttext Command Line
+
+Installation ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool$ git clone https://github.com/facebookresearch/fastText.git
+Cloning into 'fastText'...
+remote: Enumerating objects: 3930, done.
+remote: Counting objects: 100% (944/944), done.
+remote: Compressing objects: 100% (140/140), done.
+remote: Total 3930 (delta 854), reused 804 (delta 804), pack-reused 2986
+Receiving objects: 100% (3930/3930), 8.24 MiB | 12.75 MiB/s, done.
+Resolving deltas: 100% (2505/2505), done.
+(tabpfn) yekyaw.thu@gpu:~/tool$ cd fastText/
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText$ make
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/args.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/autotune.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/matrix.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/dictionary.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/loss.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/productquantizer.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/densematrix.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/quantmatrix.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/vector.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/model.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/utils.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/meter.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG -c src/fasttext.cc
+c++ -pthread -std=c++11 -march=native -O3 -funroll-loops -DNDEBUG args.o autotune.o matrix.o dictionary.o loss.o productquantizer.o densematrix.o quantmatrix.o vector.o model.o utils.o meter.o fasttext.o src/main.cc -o fasttext
+```
+
+call --help  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText$ ./fasttext --help
+usage: fasttext <command> <args>
+
+The commands supported by fasttext are:
+
+  supervised              train a supervised classifier
+  quantize                quantize a model to reduce the memory usage
+  test                    evaluate a supervised classifier
+  test-label              print labels with precision and recall scores
+  predict                 predict most likely labels
+  predict-prob            predict most likely labels with probabilities
+  skipgram                train a skipgram model
+  cbow                    train a cbow model
+  print-word-vectors      print word vectors given a trained model
+  print-sentence-vectors  print sentence vectors given a trained model
+  print-ngrams            print ngrams given a trained model and word
+  nn                      query for nearest neighbors
+  analogies               query for analogies
+  dump                    dump arguments,dictionary,input/output vectors
+
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText$ 
+```
+
+## Testing with Example Data  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ wget https://dl.fbaipublicfiles.com/fasttext/data/cooking.stackexchange.tar.gz && tar xvzf cooking.stackexchange.tar.gz
+```
+
+Check the data:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ ls
+cooking.stackexchange.id  cooking.stackexchange.tar.gz  cooking.stackexchange.txt  readme.txt
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ head cooking.stackexchange.txt 
+__label__sauce __label__cheese How much does potato starch affect a cheese sauce recipe?
+__label__food-safety __label__acidity Dangerous pathogens capable of growing in acidic environments
+__label__cast-iron __label__stove How do I cover up the white spots on my cast iron stove?
+__label__restaurant Michelin Three Star Restaurant; but if the chef is not there
+__label__knife-skills __label__dicing Without knife skills, how can I quickly and accurately dice vegetables?
+__label__storage-method __label__equipment __label__bread What's the purpose of a bread box?
+__label__baking __label__food-safety __label__substitutions __label__peanuts how to seperate peanut oil from roasted peanuts at home?
+__label__chocolate American equivalent for British chocolate terms
+__label__baking __label__oven __label__convection Fan bake vs bake
+__label__sauce __label__storage-lifetime __label__acidity __label__mayonnaise Regulation and balancing of readymade packed mayonnaise and other sauces
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$
+```
+The whole corpus size is as follows:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ wc cooking.stackexchange.txt
+  15404  169582 1401900 cooking.stackexchange.txt
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ 
+```
+
+Split training, validation data:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ tail -n 3000 cooking.stackexchange.txt > cooking.valid
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ head -n 12404 cooking.stackexchange.txt > cooking.train
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ wc cooking.train 
+  12404  136743 1129498 cooking.train
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ wc cooking.valid 
+  3000  32839 272402 cooking.valid
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$
+```
+
+Training ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ time ../fasttext supervised -input cooking.train -output model_cooking
+Read 0M words
+Number of words:  14543
+Number of labels: 735
+Progress: 100.0% words/sec/thread:   51717 lr:  0.000000 avg.loss: 10.162868 ETA:   0h 0m 0s
+
+real    0m1.805s
+user    0m14.153s
+sys     0m0.072s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$
+```
+
+Online testing ....  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ ../fasttext predict model_cooking.bin -
+Which baking dish is best to bake a banana bread ?
+__label__baking
+Why not put knives in the dishwasher?
+__label__food-safety
+```
+
+Testing with validation file ...  
+Note: The output of fastText are the precision at one (P@1) and the recall at one (R@1).  
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ ../fasttext test model_cooking.bin cooking.valid
+N       3000
+P@1     0.149
+R@1     0.0643
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$
+```
+
+For this time, let's calculate the precision at five and recall at five as follows:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ ../fasttext test model_cooking.bin cooking.valid 5
+N       3000
+P@5     0.0687
+R@5     0.148
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ 
+```
+
+One of the fasttext facility is getting the top X labels predicted by the model.   
+The following is trying to get top 3 labels ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/test$ ../fasttext predict model_cooking.bin - 3
+Why not put knives in the dishwasher?
+__label__food-safety __label__baking __label__bread
+```
+
+Details, refers following link:  
+https://fasttext.cc/docs/en/supervised-tutorial.html  
+
+## Khmer Polarity Classification with FastText  
+
+### Data Preparation  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -1629,6 +1809,55 @@ Let's check the text format of Word2Vec model:
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 ```(sentiment) ye@ykt-pro:/media/ye/project1/cadt/student/Sokheang/data/demo2/fasttext$ ls train.f1.w2v*
 train.f1.w2v  train.f1.w2v.txt
 
@@ -1796,6 +2025,9 @@ train.f1.w2v  train.f1.w2v.txt
 - https://scikit-learn.org/stable/datasets/loading_other_datasets.html
 - https://stackabuse.com/text-classification-with-python-and-scikit-learn/
 - https://pypi.org/project/fasttext/
+- https://github.com/bentrevett/pytorch-sentiment-analysis
+
+
 
 
 
