@@ -1795,6 +1795,9 @@ train.f1.w2v  train.f1.w2v.txt
 - https://github.com/rmadan16/TF-IDF
 - https://scikit-learn.org/stable/datasets/loading_other_datasets.html
 - https://stackabuse.com/text-classification-with-python-and-scikit-learn/
+- https://pypi.org/project/fasttext/
+
+
 
 
 
