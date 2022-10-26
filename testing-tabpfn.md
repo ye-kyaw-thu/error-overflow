@@ -1771,44 +1771,195 @@ https://fasttext.cc/docs/en/supervised-tutorial.html
 
 ### Data Preparation  
 
-```
+Copy the dataset ...  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar$ cp -r kh-final-sp /home/yekyaw.thu/tool/fastText/kh-polar
 ```
 
-```
+Create a new folder (i.e. I want to separate with Original Format and Fasttext Format)  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar$ cp -r ./kh-final-sp/baseline-keyword ./kh-final-fasttext/
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar$ cp -r ./kh-final-sp/baseline-sentence ./kh-final-fasttext/
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar$ cp -r ./kh-final-sp/exp ./kh-final-fasttext/
 ```
 
-```
+Change the Format ...  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ ls
+no-header  test.csv  tmp  train.csv  word
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ cut -f1 -d',' ./train.csv > train.f1
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ cut -f2 -d',' ./train.csv > train.label
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ cut -f1 -d',' ./test.csv > test.f1
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ cut -f2 -d',' ./test.csv > test.label
 ```
 
-```
+Removed top header line:  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed -i '1d' ./train.f1
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed -i '1d' ./train.label 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed -i '1d' ./test.label 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed -i '1d' ./test.f1 
 ```
 
-```
+Check/Confirm ...  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ wc train.f1 train.label
+   9014  698067 5108408 train.f1
+   9014    9014   80296 train.label
+  18028  707081 5188704 total
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ wc test.f1 test.label
+  1000  75892 554531 test.f1
+  1000   1000   8908 test.label
+  2000  76892 563439 total
 ```
 
-```
+Test for adding prefix ...  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed 's/^/__label__/;' ./test.label | head
+__label__negative
+__label__negative
+__label__positive
+__label__positive
+__label__neutral
+__label__negative
+__label__positive
+__label__positive
+__label__positive
+__label__positive
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$
 ```
 
+Adding prefix to train and test label files ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed 's/^/__label__/;' ./test.label > test.label.fasttext
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ sed 's/^/__label__/;' ./train.label > train.label.fasttext
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ tail ./test.label.fasttext 
+__label__positive
+__label__positive
+__label__negative
+__label__negative
+__label__positive
+__label__positive
+__label__negative
+__label__negative
+__label__positive
+__label__positive
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ tail ./train.label.fasttext 
+__label__positive
+__label__positive
+__label__negative
+__label__positive
+__label__positive
+__label__negative
+__label__negative
+__label__positive
+__label__positive
+__label__positive
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$
 ```
 
+paste text and label ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ paste -d " " ./train.label.fasttext train.f1 > train.sentence.fasttest
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ paste -d " " ./test.label.fasttext test.f1 > test.sentence.fasttest
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ head -n 3 ./train.sentence.fasttest 
+__label__negative ▁រដ្ឋ ម ន្ត រី ប រ ិ ស្ថាន អ ៊ ុយ ក្រ ែន បាន បញ្ជា ក់ កាល ពី ថ ្ ង ៃ ច ន្ទ ទី ▁៣ ▁ខែ ត ុល ា ថា ▁ការ ខ ូ ច ខាត ប រ ិ ស្ថាន ក្នុង ប្រ ទេស អ ៊ ុយ ក្រ ែន ដែ ល ប ណ្តាល មក ពី ការ ឈ ្ល ាន ព ាន រ ប ស់ រ ុ ស្ ស៊ី ត្រ ូវ បាន គេ ប៉ ាន់ ប្រ មា ណ ថា ▁មាន ទ ំ ហ ំ ជា ង ▁៣ ៥ ៣ ព ាន់ ល ាន ដ ុល ្ល ារ ▁ជាមួយ នឹង ត ំ ប ន់ អ ភ ិ រ ក្ស ធ ម្ ម ជាតិ រ ាប់ ល ាន ហ ិក តា ទ ៀ ត ស្ ថ ិត ន ៅ ក ្រោម ការ គ ំ រា មក ំ ហ ែង ▁។
+__label__neutral ▁ខ្ញុំ ច ង់ ច ាប់ ផ្តើម ប្រ ើ ផ ា ស ពិសេស ស ំ រ ាប់ អ ្ន ក ធ្វើដំណើរ
+__label__neutral ▁ក្រោយ ពេល ដែ ល វា បាន ហ ែ ល ប ត់ ច ុះ ប ត់ ឡើង គ ្រ ប់ ៗ ក ន ្ល ែង វា ទៅ ដល់ ស្រ ុក ខ ោ ន ហើយ វា ស ំ ច ត ន ៅ ទី នោះ ២ . ២ ថ ្ ង ៃ ទ ើ ប វា ហ ែ ល ច ុះ មក វិញ ។
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ head -n 3 ./test.sentence.fasttest 
+__label__negative ▁ នេះ ប ើ តា ម ប្រ សា ស ន៍ រ ប ស់ ▁ឯក ឧ ត្ត ម ▁ ន េ ត្រ ▁ភ ក ្ត រា ▁រដ្ឋ លេខ ា ធ ិ ការ ▁និង ជា អ ន ុ ប្រ ធាន អ ច ិ ន្ត រ ៃ យ ៍ ក្រ ុ ម ការ ង ារ ប្រឆាំង ការ ស ម្ អា ត ប្រ ាក់ នៃ ក្រ ស ួង ប រ ិ ស្ថាន ▁កាល ថ ្ ង ៃ ទី ៥ ▁ខែ ត ុល ា ▁ឆ្នាំ ២ ០ ២ ២ ▁។
+__label__negative ▁ចំណ ែក ▁ម ន្ត រី ▁ សិទ្ធិ ម ន ុ ស្ស ▁និង ▁អ្នក វិ ភ ា គ ▁យល់ ▁ថា ▁អ្វី ▁ដែល ▁លោក ▁ ហ៊ុន ▁ស ែន ▁លើក ▁ឡើង ▁មក ▁នោះ ▁ជា ▁វ ោ ហា រ សា ស្ត រ ▁ ន យោប ាយ ▁ដើម្បី ▁ប ន ្ល ំ ▁ការ ▁ពិ ត ▁ប៉ុណ្ណ ោះ ។
+__label__positive ▁ការងា រ មាន ស្ ថ ិ រ ភាព ▁ហើយ អ ្ន ក អា ច ទ ទ ួល បាន ស ម ិទ្ធ ផល ជ ាក់ ល ាក់ ក្នុង អា ជ ី ព រ ប ស់ អ ្ន ក ▁ ធាន ា ជ ី វ ិត រ ប ស់ អ ្ន ក ។
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/kh-final-fasttext/baseline-sentence$ 
+```
+
+## Training Kh Polarity with FastText 
+
+Exciting ... :)  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model1
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 1486212 lr:  0.000000 avg.loss:  0.805035 ETA:   0h 0m 0s
+
+real    0m0.388s
+user    0m1.712s
+sys     0m0.063s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Check the model and vector filesize ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ wc ./kh-polar.model1.bin
+   3722   20802 1058769 ./kh-polar.model1.bin
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ wc ./kh-polar.model1.vec 
+   2531  255532 2603288 ./kh-polar.model1.vec
+```
+
+## Testing the FastText Model  
+
+Testing with Validation data ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model1.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 
+N       1000
+P@1     0.665
+R@1     0.665
+
+real    0m0.015s
+user    0m0.011s
+sys     0m0.004s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+Testing with precision at X and recall at X ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model1.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 4
+N       1000
+P@4     0.333
+R@4     1
+
+real    0m0.013s
+user    0m0.013s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model1.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 3
+N       1000
+P@3     0.333
+R@3     1
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model1.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 2
+N       1000
+P@2     0.457
+R@2     0.914
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test ./kh-polar.model1.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest 5
+N       1000
+P@5     0.333
+R@5     1
+
+real    0m0.015s
+user    0m0.015s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
 ```
