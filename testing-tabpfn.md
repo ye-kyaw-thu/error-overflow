@@ -2485,15 +2485,43 @@ R@-1    1.000
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 ```
 
-As you can see in above, Precision and Recall are not balanced. Not good!  
+As you can see in above, Precision and Recall are not balanced. Not good! 
+
+## Comparison between Skipgram and Cbow
+
+Default Skipgram Failed as follows:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext skipgram -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-skipgram
+Read 0M words
+Number of words:  1083
+Number of labels: 3
+Progress: 100.0% words/sec/thread:  248297 lr:  0.000000 avg.loss:  2.565338 ETA:   0h 0m 0s
 
+real    0m2.691s
+user    0m15.982s
+sys     0m0.700s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-skipgram. ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+Aborted (core dumped)
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-```
+Default Training/Testing with cbow also failed ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext cbow -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-cbow
+Read 0M words
+Number of words:  1083
+Number of labels: 3
+Progress: 100.0% words/sec/thread:  496142 lr:  0.000000 avg.loss:  2.602888 ETA:   0h 0m 0s
+
+real    0m2.104s
+user    0m7.875s
+sys     0m0.754s
+```
+
+We need to explore more!!!   
+
 
 ```
 
@@ -2569,6 +2597,7 @@ As you can see in above, Precision and Recall are not balanced. Not good!
 - https://github.com/bentrevett/pytorch-sentiment-analysis
 - https://stackoverflow.com/questions/61768902/using-fasttext-sentence-vector-as-an-input-feature
 - https://towardsdatascience.com/building-a-sentence-embedding-index-with-fasttext-and-bm25-f07e7148d240
+- https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3
 
 
 
