@@ -165,8 +165,12 @@ Successfully installed transformers-4.24.0.dev0
 I still got the same error ...  
 Why?!  
 
-```
+When I tried to install tokenizer:  
 
+```
+(sentence-transformer) yekyaw.thu@gpu:~/exp/kh-polar/sentence-transformer$ pip install tokenizers
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: tokenizers in /home/yekyaw.thu/.local/lib/python3.7/site-packages (0.13.1)
 ```
 
 ```
