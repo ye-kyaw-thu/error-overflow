@@ -2315,6 +2315,7 @@ sys     0m0.000s
 - https://stackabuse.com/text-classification-with-python-and-scikit-learn/
 - https://pypi.org/project/fasttext/
 - https://github.com/bentrevett/pytorch-sentiment-analysis
+- https://stackoverflow.com/questions/61768902/using-fasttext-sentence-vector-as-an-input-feature
 
 
 
