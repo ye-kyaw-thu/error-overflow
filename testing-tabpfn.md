@@ -2730,6 +2730,10 @@ Let's see the output vector that represent the input Khmer sentence:
 ▁។ 0.11464 -0.52564 -0.63747 0.13847 -0.07863 0.036193 0.13942 0.091394 0.1091 -0.076042 -0.2681 0.0>
 ```
 
+Refer details in here:  
+https://fasttext.cc/docs/en/unsupervised-tutorial.html
+
+
 ```
 
 ```
@@ -2785,6 +2789,7 @@ Let's see the output vector that represent the input Khmer sentence:
 - https://stackoverflow.com/questions/61768902/using-fasttext-sentence-vector-as-an-input-feature
 - https://towardsdatascience.com/building-a-sentence-embedding-index-with-fasttext-and-bm25-f07e7148d240
 - https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3
+- https://fasttext.cc/docs/en/unsupervised-tutorial.html
 
 
 
