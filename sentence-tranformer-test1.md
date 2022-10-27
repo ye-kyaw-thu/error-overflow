@@ -118,13 +118,52 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import tokenizers
 ```
 
+## Installation of Transformers
+
+I think, I need to install Transformers ...  
+
+```
+(sentence-transformer) yekyaw.thu@gpu:~/tool$ git clone https://github.com/huggingface/transformers
+Cloning into 'transformers'...
+remote: Enumerating objects: 112685, done.
+remote: Counting objects: 100% (197/197), done.
+remote: Compressing objects: 100% (145/145), done.
+remote: Total 112685 (delta 79), reused 122 (delta 37), pack-reused 112488
+Receiving objects: 100% (112685/112685), 106.24 MiB | 13.67 MiB/s, done.
+Resolving deltas: 100% (83641/83641), done.
+(sentence-transformer) yekyaw.thu@gpu:~/tool$
 ```
 
 ```
-
+(sentence-transformer) yekyaw.thu@gpu:~/tool/transformers$ pip install .
+...
+...
+...
+-packages (from packaging>=20.0->transformers==4.24.0.dev0) (2.4.6)
+Requirement already satisfied: zipp>=0.5 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from importlib-metadata->transformers==4.24.0.dev0) (2.2.0)
+Requirement already satisfied: idna<3,>=2.5 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->transformers==4.24.0.dev0) (2.8)
+Requirement already satisfied: chardet<5,>=3.0.2 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->transformers==4.24.0.dev0) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->transformers==4.24.0.dev0) (2019.11.28)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->transformers==4.24.0.dev0) (1.25.8)
+Building wheels for collected packages: transformers
+  Building wheel for transformers (pyproject.toml) ... done
+  Created wheel for transformers: filename=transformers-4.24.0.dev0-py3-none-any.whl size=5426778 sha256=991ca58d95453e3967586ea511f81427571312c3a15e3940da245a684c7a4c4a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ym4z_a3w/wheels/1a/3d/4b/a9307de3a7b41a2264a45216a868980393403baf9b5cbe5d96
+Successfully built transformers
+Installing collected packages: transformers
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.23.1
+    Uninstalling transformers-4.23.1:
+      Successfully uninstalled transformers-4.23.1
+  WARNING: The script transformers-cli is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed transformers-4.24.0.dev0
 ```
 
-```
+## Try Test-Run Again
+
+I still got the same error ...  
+Why?!  
 
 ```
 
