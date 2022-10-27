@@ -2299,9 +2299,26 @@ sys     0m0.000s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-## Testing with test-label
+## Detail Study 
 
-Currently, as shown in above, the best model is with epoch 25 and default learning rate.  
+Currently, as shown in above, the best model is with epoch 25 and default learning rate.   
+We wanna see detail classification results ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model2 -epoch 25
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 2127158 lr:  0.000000 avg.loss:  0.674152 ETA:   0h 0m 0s
+
+real    0m0.886s
+user    0m7.702s
+sys     0m0.072s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+by using "-test-label" option  
+
 ```
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test-label ./kh-polar.model2.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
 F1-Score : 0.775081  Precision : 0.733538  Recall : 0.821612   __label__positive
@@ -2317,33 +2334,128 @@ sys     0m0.000s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
 ```
 
-```
+## Playing with Word N-gram
+
+Training with -wordNgrams 2  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-ep25-2ngram -epoch 25 -wordNgrams 2
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 1488623 lr:  0.000000 avg.loss:  0.382440 ETA:   0h 0m 0s
 
+real    0m2.491s
+user    0m12.746s
+sys     0m0.711s
 ```
 
-```
+The results increased as follows:  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep25-2ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.809603  Precision : 0.782400  Recall : 0.838765   __label__positive
+F1-Score : 0.671779  Precision : 0.669725  Recall : 0.673846   __label__negative
+F1-Score : 0.342857  Precision : 0.500000  Recall : 0.260870   __label__neutral
+N       1000
+P@1     0.732
+R@1     0.732
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-```
+Training with 3gram  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-ep25-3ngram -epoch 25 -wordNgrams 3
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 1063504 lr:  0.000000 avg.loss:  0.416603 ETA:   0h 0m 0s
 
+real    0m2.527s
+user    0m17.302s
+sys     0m0.790s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-```
+Wow! The results increased!!!  
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep25-3ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.815244  Precision : 0.788462  Recall : 0.843911   __label__positive
+F1-Score : 0.684848  Precision : 0.674627  Recall : 0.695385   __label__negative
+F1-Score : 0.330827  Precision : 0.536585  Recall : 0.239130   __label__neutral
+N       1000
+P@1     0.740
+R@1     0.740
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
-```
+I think, The reason is we are using sub-word unit (SentencePiece) ...  
+Let's try with 4 ngram ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-ep25-4ngram -epoch 25 -wordNgrams 4
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread:  930053 lr:  0.000000 avg.loss:  0.451212 ETA:   0h 0m 0s
+
+real    0m2.263s
+user    0m20.265s
+sys     0m0.420s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep25-4ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.000000  Precision : --------  Recall : 0.000000   __label__positive
+F1-Score : 0.000000  Precision : --------  Recall : 0.000000   __label__negative
+F1-Score : 0.168498  Precision : 0.092000  Recall : 1.000000   __label__neutral
+N       1000
+P@1     0.092
+R@1     0.092
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+Now the results are decreased ..., we might need more epoch ...  
+Try with epoch 50, 4-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-ep50-4ngram -epoch 50 -wordNgrams 4
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread:  930419 lr:  0.000000 avg.loss:  0.217324 ETA:   0h 0m 0s
+
+real    0m3.822s
+user    0m38.797s
+sys     0m0.480s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep50-4ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.000000  Precision : --------  Recall : 0.000000   __label__positive
+F1-Score : 0.000000  Precision : --------  Recall : 0.000000   __label__negative
+F1-Score : 0.168498  Precision : 0.092000  Recall : 1.000000   __label__neutral
+N       1000
+P@1     0.092
+R@1     0.092
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+For this time, I wanna try with 3-gram and epoch 50 ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext supervised -input ../kh-final-fasttext/baseline-sentence/train.sentence.fasttest -output kh-polar.model-ep50-3ngram -epoch 50 -wordNgrams 3
+Read 0M words
+Number of words:  2530
+Number of labels: 3
+Progress: 100.0% words/sec/thread: 1240652 lr:  0.000000 avg.loss:  0.210817 ETA:   0h 0m 0s
+
+real    0m2.885s
+user    0m29.252s
+sys     0m0.336s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep50-3ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+Aborted (core dumped)
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
+```
+
+2gram, epoch 30 also failed ...  
+
 
 ```
 
