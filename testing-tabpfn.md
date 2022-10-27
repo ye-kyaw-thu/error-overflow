@@ -2299,6 +2299,120 @@ sys     0m0.000s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$
 ```
 
+## Testing with test-label
+
+Currently, as shown in above, the best model is with epoch 25 and default learning rate.  
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ time ../../fasttext test-label ./kh-polar.model2.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.775081  Precision : 0.733538  Recall : 0.821612   __label__positive
+F1-Score : 0.588045  Precision : 0.619048  Recall : 0.560000   __label__negative
+F1-Score : 0.331034  Precision : 0.452830  Recall : 0.260870   __label__neutral
+N       1000
+P@1     0.685
+R@1     0.685
+
+real    0m0.015s
+user    0m0.014s
+sys     0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ## To Do
 
 - Currently we used SentencePiece Segmentation Unit, We can try with Word Unit, and also Word2Vec etc.  
