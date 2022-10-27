@@ -1,4 +1,4 @@
-# Testing with TabPFN
+# Testing with TabPFN and FastText
 
 ## Create a New Conda Environment
 
