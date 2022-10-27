@@ -71,17 +71,51 @@ RuntimeError: Failed to import transformers.models.auto because of the following
 cannot import name 'AddedToken' from 'tokenizers' (unknown location)
 ```
 
+## Make Installation from Source
 
+```
+(sentence-transformer) yekyaw.thu@gpu:~/tool$ git clone https://github.com/UKPLab/sentence-transformers
+Cloning into 'sentence-transformers'...
+remote: Enumerating objects: 6923, done.
+remote: Total 6923 (delta 0), reused 0 (delta 0), pack-reused 6923
+Receiving objects: 100% (6923/6923), 16.87 MiB | 12.24 MiB/s, done.
+Resolving deltas: 100% (4754/4754), done.
+(sentence-transformer) yekyaw.thu@gpu:~/tool$
 ```
 
 ```
-
+(sentence-transformer) yekyaw.thu@gpu:~/tool/sentence-transformers$ pip install -e .
+...
+...
+...
+es (from transformers<5.0.0,>=4.6.0->sentence-transformers==2.2.2) (2022.9.13)
+Requirement already satisfied: tokenizers!=0.11.3,<0.14,>=0.11.1 in /home/yekyaw.thu/.local/lib/python3.7/site-packages (from transformers<5.0.0,>=4.6.0->sentence-transformers==2.2.2) (0.13.1)
+Requirement already satisfied: six in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from nltk->sentence-transformers==2.2.2) (1.14.0)
+Requirement already satisfied: joblib>=0.11 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from scikit-learn->sentence-transformers==2.2.2) (0.14.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from torchvision->sentence-transformers==2.2.2) (7.0.0)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from packaging>=20.9->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (2.4.6)
+Requirement already satisfied: zipp>=0.5 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from importlib-metadata->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (2.2.0)
+Requirement already satisfied: idna<3,>=2.5 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (2.8)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (1.25.8)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (2019.11.28)
+Requirement already satisfied: chardet<5,>=3.0.2 in /opt/anaconda/anaconda3/lib/python3.7/site-packages (from requests->huggingface-hub>=0.4.0->sentence-transformers==2.2.2) (3.0.4)
+Installing collected packages: sentence-transformers
+  Attempting uninstall: sentence-transformers
+    Found existing installation: sentence-transformers 2.2.2
+    Uninstalling sentence-transformers-2.2.2:
+      Successfully uninstalled sentence-transformers-2.2.2
+  Running setup.py develop for sentence-transformers
+Successfully installed sentence-transformers
 ```
 
-```
+When I try to import tokenizers, it looks OK.  
 
 ```
-
+(sentence-transformer) yekyaw.thu@gpu:~/exp/kh-polar/sentence-transformer$ python
+Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tokenizers
 ```
 
 ```
