@@ -2456,10 +2456,36 @@ Aborted (core dumped)
 
 2gram, epoch 30 also failed ...  
 
+## Many Prediction as Possible
+
+Now let's have a look on our predictions, we want as many prediction as possible (argument -1) and we want only labels with probability higher or equal to 0.5 :
+
+Until now, Best Result is as follows:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep25-3ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest
+F1-Score : 0.815244  Precision : 0.788462  Recall : 0.843911   __label__positive
+F1-Score : 0.684848  Precision : 0.674627  Recall : 0.695385   __label__negative
+F1-Score : 0.330827  Precision : 0.536585  Recall : 0.239130   __label__neutral
+N       1000
+P@1     0.740
+R@1     0.740
+```
+
+How about testing with the argument -1:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ ../../fasttext test-label ./kh-polar.model-ep25-3ngram.bin ../kh-final-fasttext/baseline-sentence/test.sentence.fasttest -1
+F1-Score : 0.736576  Precision : 0.583000  Recall : 1.000000   __label__positive
+F1-Score : 0.490566  Precision : 0.325000  Recall : 1.000000   __label__negative
+F1-Score : 0.168498  Precision : 0.092000  Recall : 1.000000   __label__neutral
+N       1000
+P@-1    0.333
+R@-1    1.000
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/kh-polar/model$ 
+```
+
+As you can see in above, Precision and Recall are not balanced. Not good!  
 
 ```
 
