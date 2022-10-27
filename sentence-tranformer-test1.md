@@ -28,12 +28,49 @@ You should consider upgrading via the '/opt/anaconda/anaconda3/bin/python -m pip
 Updating pip ...  
 
 ```
-
+(sentence-transformer) yekyaw.thu@gpu:~$ pip install --upgrade pip
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /opt/anaconda/anaconda3/lib/python3.7/site-packages (21.3.1)
+Collecting pip
+  Downloading pip-22.3-py3-none-any.whl (2.1 MB)
+     |████████████████████████████████| 2.1 MB 528 kB/s            
+Installing collected packages: pip
+  WARNING: The scripts pip, pip3, pip3.10 and pip3.7 are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-22.3
+WARNING: You are using pip version 21.3.1; however, version 22.3 is available.
+You should consider upgrading via the '/opt/anaconda/anaconda3/bin/python -m pip install --upgrade pip' command.
+(sentence-transformer) yekyaw.thu@gpu:~$
 ```
 
-```
+## Test Run
+
+When I got test run, I got following error:  
 
 ```
+(sentence-transformer) yekyaw.thu@gpu:~/exp/kh-polar/sentence-transformer$ time python tst.py
+...
+...
+...
+y", line 3, in <module>
+    from .ParallelSentencesDataset import ParallelSentencesDataset
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/sentence_transformers/datasets/ParallelSentencesDataset.py", line 4, in <module>
+    from .. import SentenceTransformer
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/sentence_transformers/SentenceTransformer.py", line 27, in <module>
+    from .models import Transformer, Pooling, Dense
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/sentence_transformers/models/__init__.py", line 1, in <module>
+    from .Transformer import Transformer
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/sentence_transformers/models/Transformer.py", line 2, in <module>
+    from transformers import AutoModel, AutoTokenizer, AutoConfig, T5Config
+  File "<frozen importlib._bootstrap>", line 1032, in _handle_fromlist
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/transformers/utils/import_utils.py", line 1053, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/yekyaw.thu/.local/lib/python3.7/site-packages/transformers/utils/import_utils.py", line 1068, in _get_module
+    ) from e
+RuntimeError: Failed to import transformers.models.auto because of the following error (look up to see its traceback):
+cannot import name 'AddedToken' from 'tokenizers' (unknown location)
+```
+
 
 ```
 
