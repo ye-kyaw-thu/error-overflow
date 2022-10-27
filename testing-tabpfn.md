@@ -2790,7 +2790,9 @@ https://fasttext.cc/docs/en/unsupervised-tutorial.html
 - https://towardsdatascience.com/building-a-sentence-embedding-index-with-fasttext-and-bm25-f07e7148d240
 - https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3
 - https://fasttext.cc/docs/en/unsupervised-tutorial.html
-
+- https://towardsdatascience.com/fasttext-bag-of-tricks-for-efficient-text-classification-513ba9e302e7
+- FastText Paper: Bag of Tricks for Efficient Text Classification
+https://aclanthology.org/E17-2068.pdf  
 
 
 
