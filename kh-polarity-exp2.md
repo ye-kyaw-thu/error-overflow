@@ -1,6 +1,6 @@
 ## Khmer Polarity Classification with Traditional Machine Learning Algorithms
 
-## K-nearest Neighbors Result
+## K-nearest Neighbors (KNN) Result
 
 ```python
 ## KNN Classifier for Khmer Polarity
@@ -207,7 +207,7 @@ Error Rate: 0.54
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# 
 ```
 
-## Decision Tree
+## Decision Tree Result
 
 ```python
 ## Decision Tree Classifier for Khmer Polarity
@@ -416,7 +416,7 @@ Error Rate: 0.48
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
 ```
 
-## Random Forest
+## Random Forest Result
 
 ```python
 ## Random Forest Classifier for Khmer Polarity
@@ -625,7 +625,7 @@ Error Rate: 0.42
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
 ```
 
-## Support Vector Machine (SVM)
+## Support Vector Machine (SVM) Result
 
 ```python
 ## Support Vector Machine Classifier for Khmer Polarity
@@ -834,7 +834,7 @@ Error Rate: 0.39
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
 ```
 
-## Stochastic Gradient Descent (SGD)
+## Stochastic Gradient Descent (SGD) Result
 
 ```python
 ## Stochastic Gradient Descent Classifier for Khmer Polarity
