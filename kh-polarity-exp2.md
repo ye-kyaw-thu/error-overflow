@@ -29,6 +29,7 @@ Error Rate: 0.54
 
 ## Decision Tree
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python dtree-classifier.py
 DTREE, Unigram Counts
 Train score: 0.84 ; Validation score: 0.52
@@ -51,9 +52,11 @@ Error Rate: 0.43
 Decision Tree Test Result, Bigram Tf-Idf:  0.524
 Error Rate: 0.48
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
+```
 
 ## Random Forest
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python ./rforest-classifier.py
 RFOREST, Unigram Counts
 Train score: 0.83 ; Validation score: 0.58
@@ -76,9 +79,11 @@ Error Rate: 0.42
 Random Forest Test Result, Bigram Tf-Idf:  0.579
 Error Rate: 0.42
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
+```
 
 ## Support Vector Machine (SVM)
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python svm-classifier.py
 SVM, Unigram Counts
 Train score: 0.62 ; Validation score: 0.59
@@ -101,9 +106,11 @@ Error Rate: 0.42
 SVM Test Result, Bigram Tf-Idf:  0.608
 Error Rate: 0.39
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
+```
 
 ## Stochastic Gradient Descent (SGD)
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python sgd-classifier2.py
 SGD, Unigram Counts
 Train score: 0.64 ; Validation score: 0.58
@@ -126,10 +133,11 @@ Error Rate: 0.43
 SGD Test Result, Bigram Tf-Idf:  0.597
 Error Rate: 0.40
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
-
+```
 
 ## SGD Tuning Result
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python kh-sgd.py
 Unigram Counts
 Train score: 0.64 ; Validation score: 0.59
@@ -151,3 +159,4 @@ Best score: 0.5921915810558676
 Result with the Best SGD Classifier: 0.598
 Error Rate: 0.40
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd#
+```
