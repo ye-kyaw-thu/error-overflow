@@ -178,6 +178,8 @@ err_rate = (y_predict != y_test).mean()
 print('Error Rate: %.2f' % err_rate)
 ```
 
+Results are as follows:  
+
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python knn-classifier.py
 KNN, Unigram Counts
@@ -204,6 +206,12 @@ Error Rate: 0.54
 ```
 
 ## Decision Tree
+
+```python
+
+```
+
+Results are as follows:  
 
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python dtree-classifier.py
@@ -232,6 +240,12 @@ Error Rate: 0.48
 
 ## Random Forest
 
+```python
+
+```
+
+Results are as follows:  
+
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python ./rforest-classifier.py
 RFOREST, Unigram Counts
@@ -258,6 +272,12 @@ Error Rate: 0.42
 ```
 
 ## Support Vector Machine (SVM)
+
+```python
+
+```
+
+Results are as follows:  
 
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python svm-classifier.py
@@ -286,6 +306,12 @@ Error Rate: 0.39
 
 ## Stochastic Gradient Descent (SGD)
 
+```python
+
+```
+
+Results are as follows:  
+
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python sgd-classifier2.py
 SGD, Unigram Counts
@@ -312,6 +338,13 @@ Error Rate: 0.40
 ```
 
 ## SGD Tuning Result
+
+```python
+
+```
+
+Results are as follows:  
+
 
 ```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python kh-sgd.py
