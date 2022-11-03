@@ -2,6 +2,7 @@
 
 ## K-nearest Neighbors Result
 
+```
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# python knn-classifier.py
 KNN, Unigram Counts
 Train score: 0.64 ; Validation score: 0.52
@@ -24,6 +25,7 @@ Error Rate: 0.53
 KNN Test Result, Bigram Tf-Idf:  0.462
 Error Rate: 0.54
 (polar) root@e050ac832975:/home/ye/exp/kh-polar/sgd# 
+```
 
 ## Decision Tree
 
