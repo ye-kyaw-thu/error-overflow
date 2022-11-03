@@ -8,6 +8,8 @@
 ## Affiliate Professor, IDRI, CADT, Cambodia
 ## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
 ## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
 
 import pandas as pd
 import re
@@ -213,6 +215,8 @@ Error Rate: 0.54
 ## Affiliate Professor, IDRI, CADT, Cambodia
 ## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
 ## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
 
 import pandas as pd
 import re
@@ -420,6 +424,8 @@ Error Rate: 0.48
 ## Affiliate Professor, IDRI, CADT, Cambodia
 ## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
 ## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
 
 import pandas as pd
 import re
@@ -627,6 +633,8 @@ Error Rate: 0.42
 ## Affiliate Professor, IDRI, CADT, Cambodia
 ## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
 ## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
 
 import pandas as pd
 import re
@@ -834,6 +842,8 @@ Error Rate: 0.39
 ## Affiliate Professor, IDRI, CADT, Cambodia
 ## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
 ## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
 
 import pandas as pd
 import re
