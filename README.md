@@ -156,5 +156,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 149. [mySent-exp3.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mySent-exp3.md) 
 150. [testing-tabpfn.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/testing-tabpfn.md)  
 151. [kh-polarity-exp2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-polarity-exp2.md)  
+152. [Testing-log-of-ViT-Keras-with-CIFAR-10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Testing-log-of-ViT-Keras-with-CIFAR-10.md)  
 
 
