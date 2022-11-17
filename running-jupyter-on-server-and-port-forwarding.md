@@ -98,7 +98,7 @@ Accessing the Jupyter notebook with my local machine browser:
 http://localhost:8080/tree
 
 
-## Example Screenshots  
+### Example Screenshots  
   
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/access-remote-jupyter-notebook-screen1.png" alt="screenshot of accessing Jupyter Notebook from the local machine" width="1200"/>  
