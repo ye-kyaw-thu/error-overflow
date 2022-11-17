@@ -1,4 +1,6 @@
-## Log of Running
+## Log of Running ViT with Keras
+
+Create a new Anaconda environment ...  
 
 ```
 (base) yekyaw.thu@gpu:~$ conda create -n vit python=3.8
@@ -88,14 +90,14 @@ Executing transaction: done
 (base) yekyaw.thu@gpu:~$
 ```
 
-Enter into the new enviornment:  
+Entering into the new enviornment named "vit":   
 
 ```
 (base) yekyaw.thu@gpu:~$ conda activate vit
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Install Jupyter:  
+Install Jupyter Notebook on GPU server:   
 
 ```
 (vit) yekyaw.thu@gpu:~$ conda install jupyter
@@ -565,6 +567,7 @@ Executing transaction: done
 (vit) yekyaw.thu@gpu:~$
 ```
 
+Keep doing installation ...   
 
 ```
 (vit) yekyaw.thu@gpu:~$ conda install -n base nb_conda_kernels
@@ -613,16 +616,17 @@ EnvironmentNotWritableError: The current user does not have write permissions to
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Got error as shown in above!  
+Got error as shown in above!   
 
 ## Running Jupyter on Remote Server
 
+On GPU server side:  
 
 ```
 jupyter notebook --no-browser --port=8080
 ```
 
-output screen is as follows:
+output screen is as follows:  
 
 ```
 (vit) yekyaw.thu@gpu:~$ jupyter notebook --no-browser --port=8080
@@ -650,19 +654,21 @@ output screen is as follows:
 [I 13:13:18.248 NotebookApp] 302 POST /login?next=%2Ftree (127.0.0.1) 1.080000ms
 ```
 
-Note following information is the token to access from your local machine:  
+Note following information is the token to access from your local machine:   
 
 ```
         http://localhost:8080/?token=e6c91440cde3b109caa2f82912b4fcd177a263ce54123fb3
      or http://127.0.0.1:8080/?token=e6c91440cde3b109caa2f82912b4fcd177a263ce54123fb3
 ```
 
-open a new terminal and run like following command pattern:  
+open a new terminal and run like following command pattern:   
 
 ssh -L 8080:localhost:<PORT> <REMOTE_USER>@<REMOTE_HOST>  
 
+Actual running command is as follows:  
+  
 ```
-C:\Users\801680>ssh -p 2250 -L localhost:8080:localhost:8080 -i C:\Users\801680\.ssh\id_rsa-for-cadt-gpu-server yekyaw.thu@103.16.63.233
+C:\Users\801680>ssh -p xxxx -L localhost:8080:localhost:8080 -i C:\Users\801680\.ssh\id_rsa-for-cadt-gpu-server yekyaw.thu@103.16.63.233
 Enter passphrase for key 'C:\Users\801680\.ssh\id_rsa-for-cadt-gpu-server':
 Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-131-generic x86_64)
 
@@ -694,15 +700,10 @@ Last login: Thu Nov 17 13:08:43 2022 from 172.23.21.121
 yekyaw.thu@gpu:~$
 ```
 
-Access with your browser:  
+Access with my local browser:    
 
-http://localhost:8080/tree
+http://localhost:8080/tree  
 
-
-## Reference
-
-https://docs.anaconda.com/anaconda/user-guide/tasks/remote-jupyter-notebook/
-https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8
 
 ## Install Python Libraries
 
@@ -2377,4 +2378,8 @@ checked the output heatmap.png file under current running folder:
 
 Successfully testing ViT model building on Keras with CIFAR-10 dataset!!!  
 
+## Reference
+
+1. https://docs.anaconda.com/anaconda/user-guide/tasks/remote-jupyter-notebook/  
+2. https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8  
 
