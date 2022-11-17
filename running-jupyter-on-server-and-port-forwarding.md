@@ -9,7 +9,7 @@ If you haven't install Jupyter Notebook yet ...
 (vit) yekyaw.thu@gpu:~$ conda install -n base nb_conda_kernels
 ```
 
-## Running Jupyter on Remote Server
+## Running Jupyter on Remote GPU Server
 
 
 ```
@@ -89,7 +89,7 @@ Last login: Thu Nov 17 13:08:43 2022 from 172.23.21.121
 yekyaw.thu@gpu:~$
 ```
 
-Access the Jupyter notebook with local browser:    
+Accessing the Jupyter notebook with my local machine browser:    
 
 http://localhost:8080/tree
 
