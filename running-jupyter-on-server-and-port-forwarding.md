@@ -51,6 +51,8 @@ Note following information is the token to access from your local machine:
      or http://127.0.0.1:8080/?token=e6c91440cde3b109caa2f82912b4fcd177a263ce54123fb3
 ```
 
+## Login Remote Server and Port Forwarding
+
 open a new terminal and run like following command pattern:    
 
 ssh -L 8080:localhost:<PORT> <REMOTE_USER>@<REMOTE_HOST>    
@@ -88,6 +90,8 @@ Run 'do-release-upgrade' to upgrade to it.
 Last login: Thu Nov 17 13:08:43 2022 from 172.23.21.121
 yekyaw.thu@gpu:~$
 ```
+
+## Loading Remote Jupyter Notebook on Local Machine  
 
 Accessing the Jupyter notebook with my local machine browser:    
 
