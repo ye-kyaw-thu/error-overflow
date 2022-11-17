@@ -2380,4 +2380,4 @@ Successfully testing ViT model building on Keras with CIFAR-10 dataset!!!
 1. https://docs.anaconda.com/anaconda/user-guide/tasks/remote-jupyter-notebook/  
 2. https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8  
 3. https://github.com/suvoooo/Learn-TensorFlow/blob/master/ViT_TensorFlow/Understand%26Implement_VIT_TensorFlow.ipynb  
-
+4. https://en.wikipedia.org/wiki/CIFAR-10#:~:text=The%20CIFAR%2D10%20dataset%20contains,photos%20often%20learn%20by%20example.  
