@@ -97,7 +97,7 @@ http://localhost:8080/tree
 ## Example Screenshots  
   
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/access-remote-jupyter-notebook-screen1.png" alt="screenshot of accessing Jupyter Notebook from the local machine" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/access-remote-jupyter-notebook-screen1.png" alt="screenshot of accessing Jupyter Notebook from the local machine" width="1200"/>  
 </p>  
 <div align="center">
   Fig.1 Screenshot of running remote Jupyter notebook on your local machine.     
@@ -108,7 +108,7 @@ http://localhost:8080/tree
 After your create a new notebook ...  
     
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/access-remote-jupyter-notebook-screen2.png" alt="screenshot of accessing Jupyter Notebook from the local machine" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/access-remote-jupyter-notebook-screen2.png" alt="screenshot of accessing Jupyter Notebook from the local machine" width="1500"/>  
 </p>  
 <div align="center">
   Fig.2 Screenshot of running remote Jupyter notebook. Running "nvidia-smi" command for checking number of GPU on the server.   
