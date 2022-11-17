@@ -707,7 +707,7 @@ http://localhost:8080/tree
 
 ## Install Python Libraries
 
-Install numpy ...   
+Install numpy library ...   
 
 ```
 (vit) yekyaw.thu@gpu:~$ pip install numpy
@@ -719,7 +719,7 @@ Successfully installed numpy-1.23.4
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Install matplotlib ...  
+Install matplotlib library ...   
 
 ```
 (vit) yekyaw.thu@gpu:~$ pip install matplotlib
@@ -749,7 +749,7 @@ Successfully installed contourpy-1.0.6 cycler-0.11.0 fonttools-4.38.0 kiwisolver
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Upgrading the pip ...  
+Upgrading the pip ...   
 
 ```
 (vit) yekyaw.thu@gpu:~$ pip install --upgrade pip
@@ -766,7 +766,7 @@ Successfully installed pip-22.3.1
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Tensorflow Installation:  
+Tensorflow Installation:    
 
 ```
 (vit) yekyaw.thu@gpu:~$ pip install tensorflow
@@ -898,7 +898,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Installation of pydot ...  
+Installation of pydot ...   
 
 ```
 (vit) yekyaw.thu@gpu:~$ pip install pydot
@@ -908,7 +908,7 @@ Requirement already satisfied: pyparsing>=2.1.4 in ./.conda/envs/vit/lib/python3
 Installing collected packages: pydot
 ```
 
-Installation of graphviz ...  
+Installation of graphviz ...   
 
 ```
 Successfully installed pydot-1.4.2
@@ -921,8 +921,8 @@ Successfully installed graphviz-0.20.1
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Although, I installed above two libraries, not able to import inside Jupyter.  
-And thus, I tried with git clone and install ...  
+Although, I installed above two libraries, not able to import inside Jupyter.   
+And thus, I tried with git clone and install ...   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool$ git clone https://gitlab.com/graphviz/graphviz.git
@@ -947,7 +947,7 @@ config          DEVELOPERS.md      graphviz.7        loadimage_test.sh         r
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-Like normal installation in Linux ...  
+Like normal installation in Linux ...    
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ ./autogen.sh
@@ -1020,7 +1020,7 @@ autoreconf: Leaving directory `.'
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-Check the output "./configure" file ...  
+Check the output "./configure" file ...   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ ./config
@@ -1028,7 +1028,7 @@ config/    configure
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-Run ./configure  
+Run ./configure   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ ./configure
@@ -1713,7 +1713,7 @@ Testing utilities:
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-When I run "make", I got following errors:    
+When I run "make", I got following errors:     
 
 ```
 xdot.c:941:18: warning: conversion from ‘double’ to ‘float’ may change value [-Wfloat-conversion]
@@ -1745,11 +1745,9 @@ make: *** [Makefile:627: all] Error 2
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-This error ===> "/bin/bash: yacc: command not found" ?!   
+I think this is the main error ===> "/bin/bash: yacc: command not found" ?!    
 
-```
-
-Install bison with conda ...  
+And thus, for this time, I install bison with conda ...   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ conda install bison
@@ -1957,7 +1955,7 @@ Executing transaction: done
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-Install flex with conda ...  
+After the above installation, I did "flex" installation with conda ...    
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ conda install flex
@@ -2135,7 +2133,7 @@ Please update conda by running
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-Run "make" again and for this time no error! Great! :)  
+Run "make" again and for this time no error! Great! :)   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ make
@@ -2253,7 +2251,7 @@ make: *** [Makefile:1101: install] Error 2
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-No sudo right ... and thus ... confirm again ...  
+No sudo right ... and thus ... confirm again ...   
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ pip3 install pydot graphviz
@@ -2270,9 +2268,9 @@ You must install pydot (`pip install pydot`) and install graphviz (see instructi
 ```
 
 I run "conda install pydot" and "conda install graphviz".  
-And restart Jupyter kernel and now draw the graph. OK!!! :)  
+And restart Jupyter kernel and now draw the graph. OK!!! :)   
 
-Now training the ViT model ...  
+Now training the ViT model ...   
 
 ```
 Every 2.0s: nvidia-smi                                                               gpu.cadt.edu.kh: Thu Nov 17 18:11:10 2022
@@ -2309,8 +2307,7 @@ Thu Nov 17 18:11:10 2022
 ```
 
 I think the model finished between 20 min to 30 min.  
-
-Installation of seaborn library ...  
+Installation of seaborn python library ...  
 
 ```
 (vit) yekyaw.thu@gpu:~/tool/graphviz$ pip install seaborn
@@ -2336,15 +2333,15 @@ Successfully installed pandas-1.5.1 seaborn-0.12.1
 (vit) yekyaw.thu@gpu:~/tool/graphviz$
 ```
 
-I run following code:  
+I run following code:   
 
-```
+```python
 pred_class_resnet50 = ViT_model.predict(x_test)
 
 conf_matrix(pred_class_resnet50)
 ```
 
-got following results:  
+got following results:   
 
 ```
 313/313 [==============================] - 4s 9ms/step
@@ -2368,7 +2365,7 @@ Classification Report:
 weighted avg       0.62      0.62      0.62     10000
 ```
 
-checked the output heatmap.png file under current running folder:  
+checked the output heatmap.png file under current running folder:   
 
 ```
 (vit) yekyaw.thu@gpu:~$ ls
@@ -2376,10 +2373,11 @@ checked the output heatmap.png file under current running folder:
 (vit) yekyaw.thu@gpu:~$
 ```
 
-Successfully testing ViT model building on Keras with CIFAR-10 dataset!!!  
+Successfully testing ViT model building on Keras with CIFAR-10 dataset!!!   
 
 ## Reference
 
 1. https://docs.anaconda.com/anaconda/user-guide/tasks/remote-jupyter-notebook/  
 2. https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8  
+3. https://github.com/suvoooo/Learn-TensorFlow/blob/master/ViT_TensorFlow/Understand%26Implement_VIT_TensorFlow.ipynb  
 
