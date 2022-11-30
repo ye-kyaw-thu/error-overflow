@@ -449,17 +449,61 @@ Successfully installed MarkupSafe-2.1.1 absl-py-1.3.0 astunparse-1.6.3 cachetool
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-```
+Installation of tqdm...  
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tqdm
+Collecting tqdm
+  Using cached tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+Installing collected packages: tqdm
+Successfully installed tqdm-4.64.1
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-```
+Installation of seaborn ...  
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install seaborn
+Collecting seaborn
+  Using cached seaborn-0.12.1-py3-none-any.whl (288 kB)
+Requirement already satisfied: pandas>=0.25 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from seaborn) (1.5.2)
+Requirement already satisfied: numpy>=1.17 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from seaborn) (1.23.5)
+Collecting matplotlib!=3.6.1,>=3.1
+  Using cached matplotlib-3.6.2-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (9.4 MB)
+Requirement already satisfied: packaging>=20.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (21.3)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (3.0.9)
+Collecting kiwisolver>=1.0.1
+  Using cached kiwisolver-1.4.4-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.2 MB)
+Collecting contourpy>=1.0.1
+  Using cached contourpy-1.0.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (295 kB)
+Collecting fonttools>=4.22.0
+  Using cached fonttools-4.38.0-py3-none-any.whl (965 kB)
+Collecting pillow>=6.2.0
+  Using cached Pillow-9.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+Requirement already satisfied: python-dateutil>=2.7 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (2.8.2)
+Collecting cycler>=0.10
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Requirement already satisfied: pytz>=2020.1 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from pandas>=0.25->seaborn) (2022.6)
+Requirement already satisfied: six>=1.5 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.1->seaborn) (1.16.0)
+Installing collected packages: pillow, kiwisolver, fonttools, cycler, contourpy, matplotlib, seaborn
+Successfully installed contourpy-1.0.6 cycler-0.11.0 fonttools-4.38.0 kiwisolver-1.4.4 matplotlib-3.6.2 pillow-9.3.0 seaborn-0.12.1
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
+```
+
+Installation of jsonlines ...  
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install jsonlines
+Collecting jsonlines
+  Downloading jsonlines-3.1.0-py3-none-any.whl (8.6 kB)
+Collecting attrs>=19.2.0
+  Using cached attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+Installing collected packages: attrs, jsonlines
+Successfully installed attrs-22.1.0 jsonlines-3.1.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
+```
+
+## Training CNN model with QQP Dataset 
 
 ```
 
