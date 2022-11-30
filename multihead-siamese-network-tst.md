@@ -288,9 +288,49 @@ check for the test data format:
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$
 ```
 
+## Try with CPU
+
+Installation of requirements ...  
+
+Got error and I install manually:  
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install pandas
+Collecting pandas
+  Downloading pandas-1.5.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.2/12.2 MB 12.8 MB/s eta 0:00:00
+Collecting pytz>=2020.1
+  Downloading pytz-2022.6-py2.py3-none-any.whl (498 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 498.1/498.1 kB 8.3 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.1
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting numpy>=1.20.3
+  Downloading numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.1/17.1 MB 12.3 MB/s eta 0:00:00
+Collecting six>=1.5
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: pytz, six, numpy, python-dateutil, pandas
+Successfully installed numpy-1.23.5 pandas-1.5.2 python-dateutil-2.8.2 pytz-2022.6 six-1.16.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
+```
 
+comment out Panda and try again ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install -r requirements/requirements-cpu.txt 
+Collecting tqdm==4.15.0
+  Using cached tqdm-4.15.0-py2.py3-none-any.whl (46 kB)
+Collecting tflearn==0.3.2
+  Downloading tflearn-0.3.2.tar.gz (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.6/98.6 kB 1.4 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting numpy==1.14.2
+  Downloading numpy-1.14.2.zip (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 6.0 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+ERROR: Could not find a version that satisfies the requirement tensorflow==1.15.2 (from versions: 2.2.0, 2.2.1, 2.2.2, 2.2.3, 2.3.0, 2.3.1, 2.3.2, 2.3.3, 2.3.4, 2.4.0, 2.4.1, 2.4.2, 2.4.3, 2.4.4, 2.5.0, 2.5.1, 2.5.2, 2.5.3, 2.6.0rc0, 2.6.0rc1, 2.6.0rc2, 2.6.0, 2.6.1, 2.6.2, 2.6.3, 2.6.4, 2.6.5, 2.7.0rc0, 2.7.0rc1, 2.7.0, 2.7.1, 2.7.2, 2.7.3, 2.7.4, 2.8.0rc0, 2.8.0rc1, 2.8.0, 2.8.1, 2.8.2, 2.8.3, 2.8.4, 2.9.0rc0, 2.9.0rc1, 2.9.0rc2, 2.9.0, 2.9.1, 2.9.2, 2.9.3, 2.10.0rc0, 2.10.0rc1, 2.10.0rc2, 2.10.0rc3, 2.10.0, 2.10.1, 2.11.0rc0, 2.11.0rc1, 2.11.0rc2, 2.11.0)
+ERROR: No matching distribution found for tensorflow==1.15.2
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
