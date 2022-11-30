@@ -218,16 +218,76 @@ Archive:  ANLI/anli_v0.1.zip
 ## Check Data Formats
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora$ tree
+.
+├── ANLI
+│   ├── anli_v0.1
+│   │   ├── R1
+│   │   │   ├── dev.jsonl
+│   │   │   ├── test.jsonl
+│   │   │   └── train.jsonl
+│   │   ├── R2
+│   │   │   ├── dev.jsonl
+│   │   │   ├── test.jsonl
+│   │   │   └── train.jsonl
+│   │   ├── R3
+│   │   │   ├── dev.jsonl
+│   │   │   ├── test.jsonl
+│   │   │   └── train.jsonl
+│   │   └── README.txt
+│   ├── anli_v0.1.zip
+│   └── __MACOSX
+│       └── anli_v0.1
+│           ├── R1
+│           ├── R2
+│           └── R3
+├── QQP
+│   ├── qqp_test.tgz
+│   ├── qqp_train.tgz
+│   ├── test.csv
+│   └── train.csv
+└── SNLI
+    ├── train_snli.tgz
+    └── train_snli.txt
 
+12 directories, 17 files
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora$ 
 ```
 
-```
+Check the QQP Corpus data format:  
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$ head train.csv 
+"id","qid1","qid2","question1","question2","is_duplicate"
+"0","1","2","What is the step by step guide to invest in share market in india?","What is the step by step guide to invest in share market?","0"
+"1","3","4","What is the story of Kohinoor (Koh-i-Noor) Diamond?","What would happen if the Indian government stole the Kohinoor (Koh-i-Noor) diamond back?","0"
+"2","5","6","How can I increase the speed of my internet connection while using a VPN?","How can Internet speed be increased by hacking through DNS?","0"
+"3","7","8","Why am I mentally very lonely? How can I solve it?","Find the remainder when [math]23^{24}[/math] is divided by 24,23?","0"
+"4","9","10","Which one dissolve in water quikly sugar, salt, methane and carbon di oxide?","Which fish would survive in salt water?","0"
+"5","11","12","Astrology: I am a Capricorn Sun Cap moon and cap rising...what does that say about me?","I'm a triple Capricorn (Sun, Moon and ascendant in Capricorn) What does this say about me?","1"
+"6","13","14","Should I buy tiago?","What keeps childern active and far from phone and video games?","0"
+"7","15","16","How can I be a good geologist?","What should I do to be a great geologist?","1"
+"8","17","18","When do you use シ instead of し?","When do you use ""&"" instead of ""and""?","0"
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$
 ```
 
+check for the test data format:  
+
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$ head test.csv 
+"test_id","question1","question2"
+0,"How does the Surface Pro himself 4 compare with iPad Pro?","Why did Microsoft choose core m3 and not core i3 home Surface Pro 4?"
+1,"Should I have a hair transplant at age 24? How much would it cost?","How much cost does hair transplant require?"
+2,"What but is the best way to send money from China to the US?","What you send money to China?"
+3,"Which food not emulsifiers?","What foods fibre?"
+4,"How ""aberystwyth"" start reading?","How their can I start reading?"
+5,"How are the two wheeler insurance from Bharti Axa insurance?","I admire I am considering of buying insurance from them"
+6,"How can I reduce my belly fat through a diet?","How can I reduce my lower belly fat in one month?"
+7,"By scrapping the 500 and 1000 rupee notes, how is RBI planning to fight against issue black money?","How will the recent move to declare 500 and 1000 denomination lewin illegal will curb black money?"
+8,"What are the how best books of all time?","What are some of the military history books of all time?"
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$
+```
+
 
 ```
 
