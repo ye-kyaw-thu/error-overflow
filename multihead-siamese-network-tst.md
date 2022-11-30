@@ -743,8 +743,69 @@ Retrieving notices: ...working... done
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-```
+## Installation of Requirements
 
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install -r requirements/requirements-cpu.txt 
+Collecting tqdm==4.15.0
+  Using cached tqdm-4.15.0-py2.py3-none-any.whl (46 kB)
+Collecting pandas==0.22.0
+  Downloading pandas-0.22.0-cp36-cp36m-manylinux1_x86_64.whl (26.2 MB)
+     |████████████████████████████████| 26.2 MB 7.4 MB/s 
+Collecting tflearn==0.3.2
+  Using cached tflearn-0.3.2.tar.gz (98 kB)
+Collecting numpy==1.14.2
+  Downloading numpy-1.14.2-cp36-cp36m-manylinux1_x86_64.whl (12.2 MB)
+     |████████████████████████████████| 12.2 MB 16.1 MB/s 
+Collecting tensorflow==1.15.2
+  Downloading tensorflow-1.15.2-cp36-cp36m-manylinux2010_x86_64.whl (110.5 MB)
+     |████████████████████████████████| 110.5 MB 11.0 MB/s 
+Collecting seaborn==0.9.0
+  Downloading seaborn-0.9.0-py3-none-any.whl (208 kB)
+     |████████████████████████████████| 208 kB 4.6 MB/s 
+Collecting jsonlines==1.2.0
+  Downloading jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Requirement already satisfied: python-dateutil>=2 in /home/ye/.local/lib/python3.6/site-packages (from pandas==0.22.0->-r requirements/requirements-cpu.txt (line 2)) (2.8.1)
+Requirement already satisfied: pytz>=2011k in /home/ye/.local/lib/python3.6/site-packages (from pandas==0.22.0->-r requirements/requirements-cpu.txt (line 2)) (2020.1)
+Requirement already satisfied: six in /home/ye/.local/lib/python3.6/site-packages (from tflearn==0.3.2->-r requirements/requirements-cpu.txt (line 3)) (1.15.0)
+Collecting Pillow
+  Using cached Pillow-8.4.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Collecting tensorboard<1.16.0,>=1.15.0
+  Using cached tensorboard-1.15.0-py3-none-any.whl (3.8 MB)
+Collecting termcolor>=1.1.0
+  Using cached termcolor-1.1.0-py3-none-any.whl
+Collecting absl-py>=0.7.0
+  Using cached absl_py-1.3.0-py3-none-any.whl (124 kB)
+Requirement already satisfied: wheel>=0.26 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tensorflow==1.15.2->-r requirements/requirements-cpu.txt (line 5)) (0.37.1)
+Collecting grpcio>=1.8.6
+  Downloading grpcio-1.48.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+     |████████████████████████████████| 4.6 MB 14.7 MB/s 
+Collecting astor>=0.6.0
+  Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting google-pasta>=0.1.6
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting wrapt>=1.11.1
+  Downloading wrapt-1.14.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (74 kB)
+     |████████████████████████████████| 74 kB 2.3 MB/s 
+INFO: pip is looking at multiple versions of <Python from Requires-Python> to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of numpy to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of tflearn to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of pandas to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of tqdm to determine which version is compatible with other requirements. This could take a while.
+ERROR: Cannot install -r requirements/requirements-cpu.txt (line 2), -r requirements/requirements-cpu.txt (line 3), -r requirements/requirements-cpu.txt (line 5) and numpy==1.14.2 because these package versions have conflicting dependencies.
+
+The conflict is caused by:
+    The user requested numpy==1.14.2
+    pandas 0.22.0 depends on numpy>=1.9.0
+    tflearn 0.3.2 depends on numpy
+    tensorflow 1.15.2 depends on numpy<2.0 and >=1.16.0
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/user_guide/#fixing-conflicting-dependencies
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
