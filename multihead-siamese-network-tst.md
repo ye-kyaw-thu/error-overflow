@@ -333,8 +333,120 @@ ERROR: No matching distribution found for tensorflow==1.15.2
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-```
+As you can seen above, tensorflow version 1.15.2 installation error ...   
+I installed default for this env ...  
 
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ cat ./requirements/requirements-cpu.txt 
+tqdm==4.15.0
+# pandas==0.22.0
+tflearn==0.3.2
+numpy==1.14.2
+tensorflow==1.15.2
+seaborn==0.9.0
+jsonlines==1.2.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install numpy
+Requirement already satisfied: numpy in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (1.23.5)
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tensorflow
+Collecting tensorflow
+  Downloading tensorflow-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (588.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 588.3/588.3 MB 2.0 MB/s eta 0:00:00
+Collecting termcolor>=1.1.0
+  Downloading termcolor-2.1.1-py3-none-any.whl (6.2 kB)
+Collecting libclang>=13.0.0
+  Using cached libclang-14.0.6-py2.py3-none-manylinux2010_x86_64.whl (14.1 MB)
+Collecting astunparse>=1.6.0
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting absl-py>=1.0.0
+  Downloading absl_py-1.3.0-py3-none-any.whl (124 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.6/124.6 kB 6.2 MB/s eta 0:00:00
+Collecting wrapt>=1.11.0
+  Downloading wrapt-1.14.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (81 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.0/81.0 kB 3.7 MB/s eta 0:00:00
+Collecting google-pasta>=0.1.1
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Requirement already satisfied: six>=1.12.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tensorflow) (1.16.0)
+Collecting gast<=0.4.0,>=0.2.1
+  Using cached gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting tensorflow-estimator<2.12,>=2.11.0
+  Downloading tensorflow_estimator-2.11.0-py2.py3-none-any.whl (439 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 439.2/439.2 kB 8.3 MB/s eta 0:00:00
+Collecting tensorboard<2.12,>=2.11
+  Downloading tensorboard-2.11.0-py3-none-any.whl (6.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/6.0 MB 11.7 MB/s eta 0:00:00
+Collecting keras<2.12,>=2.11.0
+  Downloading keras-2.11.0-py2.py3-none-any.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 11.0 MB/s eta 0:00:00
+Collecting protobuf<3.20,>=3.9.2
+  Downloading protobuf-3.19.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 6.1 MB/s eta 0:00:00
+Requirement already satisfied: setuptools in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tensorflow) (65.5.0)
+Collecting h5py>=2.9.0
+  Downloading h5py-3.7.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 12.3 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.20 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tensorflow) (1.23.5)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting flatbuffers>=2.0
+  Downloading flatbuffers-22.11.23-py2.py3-none-any.whl (26 kB)
+Collecting packaging
+  Using cached packaging-21.3-py3-none-any.whl (40 kB)
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+  Downloading tensorflow_io_gcs_filesystem-0.28.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 10.7 MB/s eta 0:00:00
+Collecting typing-extensions>=3.6.6
+  Using cached typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.51.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 11.0 MB/s eta 0:00:00
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from astunparse>=1.6.0->tensorflow) (0.37.1)
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Using cached google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting requests<3,>=2.21.0
+  Using cached requests-2.28.1-py3-none-any.whl (62 kB)
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Using cached tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting tensorboard-plugin-wit>=1.6.0
+  Using cached tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+Collecting werkzeug>=1.0.1
+  Using cached Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+Collecting markdown>=2.6.8
+  Using cached Markdown-3.4.1-py3-none-any.whl (93 kB)
+Collecting google-auth<3,>=1.6.3
+  Downloading google_auth-2.14.1-py2.py3-none-any.whl (175 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 175.4/175.4 kB 8.1 MB/s eta 0:00:00
+Collecting pyparsing!=3.0.5,>=2.0.2
+  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+Collecting rsa<5,>=3.1.4
+  Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Collecting cachetools<6.0,>=2.0.0
+  Downloading cachetools-5.2.0-py3-none-any.whl (9.3 kB)
+Collecting pyasn1-modules>=0.2.1
+  Using cached pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting requests-oauthlib>=0.7.0
+  Using cached requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Collecting importlib-metadata>=4.4
+  Downloading importlib_metadata-5.1.0-py3-none-any.whl (21 kB)
+Collecting charset-normalizer<3,>=2
+  Using cached charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting idna<4,>=2.5
+  Using cached idna-3.4-py3-none-any.whl (61 kB)
+Collecting urllib3<1.27,>=1.21.1
+  Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 7.8 MB/s eta 0:00:00
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (2022.9.24)
+Collecting MarkupSafe>=2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.11.0-py3-none-any.whl (6.6 kB)
+Collecting pyasn1<0.5.0,>=0.4.6
+  Using cached pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting oauthlib>=3.0.0
+  Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 6.0 MB/s eta 0:00:00
+Installing collected packages: tensorboard-plugin-wit, pyasn1, libclang, flatbuffers, zipp, wrapt, urllib3, typing-extensions, termcolor, tensorflow-io-gcs-filesystem, tensorflow-estimator, tensorboard-data-server, rsa, pyparsing, pyasn1-modules, protobuf, opt-einsum, oauthlib, MarkupSafe, keras, idna, h5py, grpcio, google-pasta, gast, charset-normalizer, cachetools, astunparse, absl-py, werkzeug, requests, packaging, importlib-metadata, google-auth, requests-oauthlib, markdown, google-auth-oauthlib, tensorboard, tensorflow
+Successfully installed MarkupSafe-2.1.1 absl-py-1.3.0 astunparse-1.6.3 cachetools-5.2.0 charset-normalizer-2.1.1 flatbuffers-22.11.23 gast-0.4.0 google-auth-2.14.1 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.51.1 h5py-3.7.0 idna-3.4 importlib-metadata-5.1.0 keras-2.11.0 libclang-14.0.6 markdown-3.4.1 oauthlib-3.2.2 opt-einsum-3.3.0 packaging-21.3 protobuf-3.19.6 pyasn1-0.4.8 pyasn1-modules-0.2.8 pyparsing-3.0.9 requests-2.28.1 requests-oauthlib-1.3.1 rsa-4.9 tensorboard-2.11.0 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-2.11.0 tensorflow-estimator-2.11.0 tensorflow-io-gcs-filesystem-0.28.0 termcolor-2.1.1 typing-extensions-4.4.0 urllib3-1.26.13 werkzeug-2.2.2 wrapt-1.14.1 zipp-3.11.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
