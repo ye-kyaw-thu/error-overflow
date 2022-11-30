@@ -503,6 +503,27 @@ Successfully installed attrs-22.1.0 jsonlines-3.1.0
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
+Installation of tflearn ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tflearn
+Collecting tflearn
+  Downloading tflearn-0.5.0.tar.gz (107 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.3/107.3 kB 1.6 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: numpy in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tflearn) (1.23.5)
+Requirement already satisfied: six in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tflearn) (1.16.0)
+Requirement already satisfied: Pillow in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages (from tflearn) (9.3.0)
+Building wheels for collected packages: tflearn
+  Building wheel for tflearn (setup.py) ... done
+  Created wheel for tflearn: filename=tflearn-0.5.0-py3-none-any.whl size=127283 sha256=cffe2e504147a8c7e3e14d3bdbd70622847e32fbeaa51db4b64ab185ab1f86cf
+  Stored in directory: /home/ye/.cache/pip/wheels/65/9b/15/cb1e6b279c14ed897530d15cfd7da8e3df8a947e593f5cfe59
+Successfully built tflearn
+Installing collected packages: tflearn
+Successfully installed tflearn-0.5.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
+```
+
 ## Training CNN model with QQP Dataset 
 
 ```
