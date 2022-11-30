@@ -809,19 +809,107 @@ ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/user_g
 ```
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install numpy==1.16.0
+Collecting numpy==1.16.0
+  Using cached numpy-1.16.0-cp36-cp36m-manylinux1_x86_64.whl (17.3 MB)
+Installing collected packages: numpy
+Successfully installed numpy-1.16.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
 ```
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tensorflow==1.15.2
+Collecting tensorflow==1.15.2
+  Using cached tensorflow-1.15.2-cp36-cp36m-manylinux2010_x86_64.whl (110.5 MB)
+Collecting tensorflow-estimator==1.15.1
+  Using cached tensorflow_estimator-1.15.1-py2.py3-none-any.whl (503 kB)
+Requirement already satisfied: wheel>=0.26 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tensorflow==1.15.2) (0.37.1)
+Collecting tensorboard<1.16.0,>=1.15.0
+  Using cached tensorboard-1.15.0-py3-none-any.whl (3.8 MB)
+Requirement already satisfied: numpy<2.0,>=1.16.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tensorflow==1.15.2) (1.16.0)
+Collecting keras-applications>=1.0.8
+  Using cached Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+Collecting wrapt>=1.11.1
+  Using cached wrapt-1.14.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (74 kB)
+Collecting absl-py>=0.7.0
+  Using cached absl_py-1.3.0-py3-none-any.whl (124 kB)
+Collecting keras-preprocessing>=1.0.5
+  Using cached Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+Collecting grpcio>=1.8.6
+  Using cached grpcio-1.48.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+Collecting termcolor>=1.1.0
+  Using cached termcolor-1.1.0-py3-none-any.whl
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting astor>=0.6.0
+  Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Requirement already satisfied: six>=1.10.0 in /home/ye/.local/lib/python3.6/site-packages (from tensorflow==1.15.2) (1.15.0)
+Collecting protobuf>=3.6.1
+  Downloading protobuf-3.19.6-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+     |████████████████████████████████| 1.1 MB 1.6 MB/s 
+Collecting google-pasta>=0.1.6
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting gast==0.2.2
+  Using cached gast-0.2.2-py3-none-any.whl
+Collecting h5py
+  Using cached h5py-3.1.0-cp36-cp36m-manylinux1_x86_64.whl (4.0 MB)
+Requirement already satisfied: setuptools>=41.0.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tensorboard<1.16.0,>=1.15.0->tensorflow==1.15.2) (58.0.4)
+Collecting werkzeug>=0.11.15
+  Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+     |████████████████████████████████| 289 kB 14.6 MB/s 
+Collecting markdown>=2.6.8
+  Downloading Markdown-3.3.7-py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 2.3 MB/s 
+Collecting importlib-metadata>=4.4
+  Using cached importlib_metadata-4.8.3-py3-none-any.whl (17 kB)
+Collecting typing-extensions>=3.6.4
+  Using cached typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+Collecting zipp>=0.5
+  Using cached zipp-3.6.0-py3-none-any.whl (5.3 kB)
+Collecting dataclasses
+  Using cached dataclasses-0.8-py3-none-any.whl (19 kB)
+Collecting cached-property
+  Using cached cached_property-1.5.2-py2.py3-none-any.whl (7.6 kB)
+Installing collected packages: zipp, typing-extensions, importlib-metadata, dataclasses, cached-property, werkzeug, protobuf, markdown, h5py, grpcio, absl-py, wrapt, termcolor, tensorflow-estimator, tensorboard, opt-einsum, keras-preprocessing, keras-applications, google-pasta, gast, astor, tensorflow
+Successfully installed absl-py-1.3.0 astor-0.8.1 cached-property-1.5.2 dataclasses-0.8 gast-0.2.2 google-pasta-0.2.0 grpcio-1.48.2 h5py-3.1.0 importlib-metadata-4.8.3 keras-applications-1.0.8 keras-preprocessing-1.1.2 markdown-3.3.7 opt-einsum-3.3.0 protobuf-3.19.6 tensorboard-1.15.0 tensorflow-1.15.2 tensorflow-estimator-1.15.1 termcolor-1.1.0 typing-extensions-4.1.1 werkzeug-2.0.3 wrapt-1.14.1 zipp-3.6.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install seaborn==0.9.0
+Collecting seaborn==0.9.0
+  Using cached seaborn-0.9.0-py3-none-any.whl (208 kB)
+Collecting matplotlib>=1.4.3
+  Using cached matplotlib-3.3.4-cp36-cp36m-manylinux1_x86_64.whl (11.5 MB)
+Collecting pandas>=0.15.2
+  Downloading pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl (9.5 MB)
+     |████████████████████████████████| 9.5 MB 8.0 MB/s 
+Collecting scipy>=0.14.0
+  Using cached scipy-1.5.4-cp36-cp36m-manylinux1_x86_64.whl (25.9 MB)
+Requirement already satisfied: numpy>=1.9.3 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from seaborn==0.9.0) (1.16.0)
+Collecting cycler>=0.10
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Requirement already satisfied: python-dateutil>=2.1 in /home/ye/.local/lib/python3.6/site-packages (from matplotlib>=1.4.3->seaborn==0.9.0) (2.8.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in /home/ye/.local/lib/python3.6/site-packages (from matplotlib>=1.4.3->seaborn==0.9.0) (2.4.7)
+Collecting kiwisolver>=1.0.1
+  Using cached kiwisolver-1.3.1-cp36-cp36m-manylinux1_x86_64.whl (1.1 MB)
+Collecting pillow>=6.2.0
+  Using cached Pillow-8.4.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Requirement already satisfied: pytz>=2017.2 in /home/ye/.local/lib/python3.6/site-packages (from pandas>=0.15.2->seaborn==0.9.0) (2020.1)
+Requirement already satisfied: six>=1.5 in /home/ye/.local/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib>=1.4.3->seaborn==0.9.0) (1.15.0)
+Installing collected packages: pillow, kiwisolver, cycler, scipy, pandas, matplotlib, seaborn
+Successfully installed cycler-0.11.0 kiwisolver-1.3.1 matplotlib-3.3.4 pandas-1.1.5 pillow-8.4.0 scipy-1.5.4 seaborn-0.9.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install jsonlines==1.2.0
+Collecting jsonlines==1.2.0
+  Using cached jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Requirement already satisfied: six in /home/ye/.local/lib/python3.6/site-packages (from jsonlines==1.2.0) (1.15.0)
+Installing collected packages: jsonlines
+Successfully installed jsonlines-1.2.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
