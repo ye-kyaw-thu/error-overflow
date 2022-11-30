@@ -526,8 +526,96 @@ Successfully installed tflearn-0.5.0
 
 ## Training CNN model with QQP Dataset 
 
-```
+Got Some Errors because of the version conflict and some are as follows:  
 
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ time python3 run.py train cnn QQP
+2022-11-30 16:22:53.037170: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:22:53.037205: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-30 16:22:53.870707: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:22:53.870798: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:22:53.870814: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-11-30 16:22:54.675238: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:22:54.675267: W tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: UNKNOWN ERROR (303)
+2022-11-30 16:22:54.675294: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ykt-pro): /proc/driver/nvidia/version does not exist
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Scipy not supported!
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    from utils.other_utils import timer, set_visible_gpu, init_config
+  File "/home/ye/tool/multihead-siamese-nets/utils/other_utils.py", line 12, in <module>
+    tf.compat.v1.logging.set_verbosity(tf.logging.INFO)
+AttributeError: module 'tensorflow' has no attribute 'logging'
+
+real	0m2.347s
+user	0m2.268s
+sys	0m0.348s
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ time python3 run.py train cnn QQP
+2022-11-30 16:23:17.958158: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:23:17.958194: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-30 16:23:18.744670: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:23:18.744757: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:23:18.744770: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-11-30 16:23:19.603050: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:23:19.603079: W tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: UNKNOWN ERROR (303)
+2022-11-30 16:23:19.603110: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ykt-pro): /proc/driver/nvidia/version does not exist
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Scipy not supported!
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 274, in main
+    train(main_config, model_config, args.model, experiment_name, args.dataset)
+  File "run.py", line 43, in train
+    train_data = dataset.train_set_pairs()
+  File "/home/ye/tool/multihead-siamese-nets/data/qqp.py", line 28, in train_set_pairs
+    return self.train[['question1', 'question2']].as_matrix()
+  File "/home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages/pandas/core/generic.py", line 5902, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'as_matrix'
+
+real	0m3.819s
+user	0m3.488s
+sys	0m0.470s
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ gedit data/qqp.py 
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ time python3 run.py train cnn QQP
+2022-11-30 16:26:26.196624: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:26:26.196660: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-30 16:26:26.956798: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:26:26.956905: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:26:26.956924: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-11-30 16:26:27.775398: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ye/torch/install/lib:/usr/local/lib:/usr/local/lib/fst/
+2022-11-30 16:26:27.775425: W tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: UNKNOWN ERROR (303)
+2022-11-30 16:26:27.775453: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ykt-pro): /proc/driver/nvidia/version does not exist
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.8/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Scipy not supported!
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 274, in main
+    train(main_config, model_config, args.model, experiment_name, args.dataset)
+  File "run.py", line 43, in train
+    train_data = dataset.train_set_pairs()
+  File "/home/ye/tool/multihead-siamese-nets/data/qqp.py", line 29, in train_set_pairs
+    return self.train[['question1', 'question2']].values()
+TypeError: 'numpy.ndarray' object is not callable
+
+real	0m3.582s
+user	0m3.428s
+sys	0m0.433s
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
 ```
