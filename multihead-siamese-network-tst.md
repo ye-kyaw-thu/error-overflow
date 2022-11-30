@@ -288,6 +288,14 @@ check for the test data format:
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$
 ```
 
+```
+(base) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$ wc *.csv
+  2345806  49373483 314015127 test.csv
+   404302   8540953  63399110 train.csv
+  2750108  57914436 377414237 total
+(base) ye@ykt-pro:~/tool/multihead-siamese-nets/corpora/QQP$
+```
+
 ## Try with CPU
 
 Installation of requirements ...  
