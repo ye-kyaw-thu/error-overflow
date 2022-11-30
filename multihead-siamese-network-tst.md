@@ -913,8 +913,35 @@ Successfully installed jsonlines-1.2.0
 ```
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tqdm
+Collecting tqdm
+  Using cached tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-5.4.0-py3-none-any.whl (28 kB)
+Requirement already satisfied: zipp>=3.1.0 in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from importlib-resources->tqdm) (3.6.0)
+Installing collected packages: importlib-resources, tqdm
+Successfully installed importlib-resources-5.4.0 tqdm-4.64.1
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
+```
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ pip install tflearn
+Collecting tflearn
+  Using cached tflearn-0.5.0.tar.gz (107 kB)
+Requirement already satisfied: numpy in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tflearn) (1.16.0)
+Requirement already satisfied: six in /home/ye/.local/lib/python3.6/site-packages (from tflearn) (1.15.0)
+Requirement already satisfied: Pillow in /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages (from tflearn) (8.4.0)
+Building wheels for collected packages: tflearn
+  Building wheel for tflearn (setup.py) ... done
+  Created wheel for tflearn: filename=tflearn-0.5.0-py3-none-any.whl size=127299 sha256=98b1aa90e0524e000039a88f51243e0fde4d91edc365b667e5a806ef4554e783
+  Stored in directory: /home/ye/.cache/pip/wheels/b4/7f/53/2cc39cdcd4830aa8c962b88318a6d81b334fa00c9ef35b0923
+Successfully built tflearn
+Installing collected packages: tflearn
+Successfully installed tflearn-0.5.0
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
+```
+
+## Training CNN Model on CPU  
 
 ```
 
