@@ -496,9 +496,41 @@ qqp_test.tgz  qqp_train.tgz  test.csv  train.csv
 
 ## Training CNN Model with QQP Data
 
-```
+At first, check the GPU status ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ nvidia-smi
+Thu Dec  1 17:56:59 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.141.03   Driver Version: 470.141.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 26%   45C    P0    58W / 300W |      0MiB / 11019MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 68%   69C    P0    71W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 24%   64C    P0    83W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
 
 ```
 
