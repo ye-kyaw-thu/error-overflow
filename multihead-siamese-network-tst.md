@@ -1129,6 +1129,8 @@ governmentqVKJXapproxqWKKXtotalqXKLXamountqYKMXitqZKNXgetq[KOXpoliceq\KPXst
 
 ## Model Information
 
+Training/Validation log folder ...  
+
 ```
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$ tree
 .
@@ -1143,10 +1145,14 @@ governmentqVKJXapproxqWKKXtotalqXKLXamountqYKMXitqZKNXgetq[KOXpoliceq\KPXst
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
 ```
 
+model path ...  
+
 ```
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ ls
 cnn_64_MSE  vocab
 ```
+
+checkpoint models ...  
 
 ```
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ cd cnn_64_MSE/
@@ -1160,6 +1166,8 @@ model-6800.data-00000-of-00001  model-7000.data-00000-of-00001
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
 ```
 
+let's check the checkpoint ...  
+
 ```
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ cat checkpoint 
 model_checkpoint_path: "model-7020"
@@ -1169,6 +1177,8 @@ all_model_checkpoint_paths: "model-6900"
 all_model_checkpoint_paths: "model-7000"
 all_model_checkpoint_paths: "model-7020"
 ```
+
+let's check the evaluation.ini file ...  
 
 ```
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ cat evaluation.ini 
