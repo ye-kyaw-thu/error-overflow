@@ -358,16 +358,143 @@ Successfully installed cycler-0.11.0 kiwisolver-1.3.1 matplotlib-3.3.4 pyparsing
 ## Data Preparation 
 
 ```
-
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ cd bin
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/bin$ ls
+prepare_data.sh
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/bin$ chmod a+x prepare_data.sh
 ```
 
 ```
-
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/bin$ ls -lh ./prepare_data.sh
+-rwxr-xr-x 1 yekyaw.thu domain users 1.6K Dec  1 17:31 ./prepare_data.sh
 ```
 
-```
+run prepare_data.sh ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/bin$ time ./prepare_data.sh
+--2022-12-01 17:52:05--  https://drive.google.com/uc?export=download&id=1wkAjMu-Pqnm1l-92M7UEp5YEtT1cFgVz
+Resolving drive.google.com (drive.google.com)... 172.217.194.101, 172.217.194.113, 172.217.194.138, ...
+Connecting to drive.google.com (drive.google.com)|172.217.194.101|:443... connected.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-04-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/0dld5bd6v9um84r3chu88r2lgo9te3rj/1669891875000/05563007606908372189/*/1wkAjMu-Pqnm1l-92M7UEp5YEtT1cFgVz?e=download&uuid=ae761366-7537-4b32-93c6-a297ec7f4dac [following]
+Warning: wildcards not supported in HTTP.
+--2022-12-01 17:52:15--  https://doc-04-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/0dld5bd6v9um84r3chu88r2lgo9te3rj/1669891875000/05563007606908372189/*/1wkAjMu-Pqnm1l-92M7UEp5YEtT1cFgVz?e=download&uuid=ae761366-7537-4b32-93c6-a297ec7f4dac
+Resolving doc-04-8o-docs.googleusercontent.com (doc-04-8o-docs.googleusercontent.com)... 74.125.130.132, 2404:6800:4003:c01::84
+Connecting to doc-04-8o-docs.googleusercontent.com (doc-04-8o-docs.googleusercontent.com)|74.125.130.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7735242 (7.4M) [application/x-compressed-tar]
+Saving to: ‘SNLI/train_snli.tgz’
+
+SNLI/train_snli.tgz             100%[=====================================================>]   7.38M  16.9MB/s    in 0.4s
+
+2022-12-01 17:52:17 (16.9 MB/s) - ‘SNLI/train_snli.tgz’ saved [7735242/7735242]
+
+--2022-12-01 17:52:17--  https://drive.google.com/uc?export=download&id=1dnck-CCIyx8y2xg1vwFzcwXieZJB7ERC
+Resolving drive.google.com (drive.google.com)... 172.217.194.100, 172.217.194.139, 172.217.194.102, ...
+Connecting to drive.google.com (drive.google.com)|172.217.194.100|:443... connected.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-0o-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/jcc92is754h0ddrgeut03i1vonco8rqj/1669891875000/05563007606908372189/*/1dnck-CCIyx8y2xg1vwFzcwXieZJB7ERC?e=download&uuid=7792ecba-741d-4f70-85bf-515b61792b2f [following]
+Warning: wildcards not supported in HTTP.
+--2022-12-01 17:52:21--  https://doc-0o-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/jcc92is754h0ddrgeut03i1vonco8rqj/1669891875000/05563007606908372189/*/1dnck-CCIyx8y2xg1vwFzcwXieZJB7ERC?e=download&uuid=7792ecba-741d-4f70-85bf-515b61792b2f
+Resolving doc-0o-8o-docs.googleusercontent.com (doc-0o-8o-docs.googleusercontent.com)... 74.125.130.132, 2404:6800:4003:c01::84
+Connecting to doc-0o-8o-docs.googleusercontent.com (doc-0o-8o-docs.googleusercontent.com)|74.125.130.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 22176174 (21M) [application/x-gtar]
+Saving to: ‘QQP/qqp_train.tgz’
+
+QQP/qqp_train.tgz               100%[=====================================================>]  21.15M  18.0MB/s    in 1.2s
+
+2022-12-01 17:52:23 (18.0 MB/s) - ‘QQP/qqp_train.tgz’ saved [22176174/22176174]
+
+--2022-12-01 17:52:24--  https://docs.google.com/uc?export=download&confirm=t&id=1XD-HxzUCTHrzhfvIXOlgqN_MWiiAqM8h
+Resolving docs.google.com (docs.google.com)... 74.125.24.101, 74.125.24.113, 74.125.24.102, ...
+Connecting to docs.google.com (docs.google.com)|74.125.24.101|:443... connected.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-0g-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/3jnme6umnhm18to4i59gu2c8bbmlc329/1669891875000/05563007606908372189/*/1XD-HxzUCTHrzhfvIXOlgqN_MWiiAqM8h?e=download&uuid=3d776fdf-f37a-41f4-9eae-a6de7e0b71bc [following]
+Warning: wildcards not supported in HTTP.
+--2022-12-01 17:52:24--  https://doc-0g-8o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/3jnme6umnhm18to4i59gu2c8bbmlc329/1669891875000/05563007606908372189/*/1XD-HxzUCTHrzhfvIXOlgqN_MWiiAqM8h?e=download&uuid=3d776fdf-f37a-41f4-9eae-a6de7e0b71bc
+Resolving doc-0g-8o-docs.googleusercontent.com (doc-0g-8o-docs.googleusercontent.com)... 74.125.130.132, 2404:6800:4003:c01::84
+Connecting to doc-0g-8o-docs.googleusercontent.com (doc-0g-8o-docs.googleusercontent.com)|74.125.130.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 117792766 (112M) [application/x-gtar]
+Saving to: ‘QQP/qqp_test.tgz’
+
+QQP/qqp_test.tgz                100%[=====================================================>] 112.33M  24.9MB/s    in 4.8s
+
+2022-12-01 17:52:30 (23.6 MB/s) - ‘QQP/qqp_test.tgz’ saved [117792766/117792766]
+
+--2022-12-01 17:52:30--  https://dl.fbaipublicfiles.com/anli/anli_v0.1.zip
+Resolving dl.fbaipublicfiles.com (dl.fbaipublicfiles.com)... 104.22.75.142, 172.67.9.4, 104.22.74.142, ...
+Connecting to dl.fbaipublicfiles.com (dl.fbaipublicfiles.com)|104.22.75.142|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18621352 (18M) [application/zip]
+Saving to: ‘ANLI/anli_v0.1.zip’
+
+ANLI/anli_v0.1.zip              100%[=====================================================>]  17.76M  5.10MB/s    in 3.5s
+
+2022-12-01 17:52:35 (5.10 MB/s) - ‘ANLI/anli_v0.1.zip’ saved [18621352/18621352]
+
+train_snli.txt
+train.csv
+test.csv
+Archive:  ANLI/anli_v0.1.zip
+   creating: ANLI/anli_v0.1/
+   creating: ANLI/anli_v0.1/R1/
+  inflating: ANLI/anli_v0.1/R1/train.jsonl
+   creating: ANLI/__MACOSX/
+   creating: ANLI/__MACOSX/anli_v0.1/
+   creating: ANLI/__MACOSX/anli_v0.1/R1/
+  inflating: ANLI/__MACOSX/anli_v0.1/R1/._train.jsonl
+  inflating: ANLI/anli_v0.1/R1/test.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R1/._test.jsonl
+  inflating: ANLI/anli_v0.1/R1/dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R1/._dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/._R1
+  inflating: ANLI/anli_v0.1/README.txt
+  inflating: ANLI/__MACOSX/anli_v0.1/._README.txt
+   creating: ANLI/anli_v0.1/R3/
+  inflating: ANLI/anli_v0.1/R3/train.jsonl
+   creating: ANLI/__MACOSX/anli_v0.1/R3/
+  inflating: ANLI/__MACOSX/anli_v0.1/R3/._train.jsonl
+  inflating: ANLI/anli_v0.1/R3/test.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R3/._test.jsonl
+  inflating: ANLI/anli_v0.1/R3/dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R3/._dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/._R3
+   creating: ANLI/anli_v0.1/R2/
+  inflating: ANLI/anli_v0.1/R2/train.jsonl
+   creating: ANLI/__MACOSX/anli_v0.1/R2/
+  inflating: ANLI/__MACOSX/anli_v0.1/R2/._train.jsonl
+  inflating: ANLI/anli_v0.1/R2/test.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R2/._test.jsonl
+  inflating: ANLI/anli_v0.1/R2/dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/R2/._dev.jsonl
+  inflating: ANLI/__MACOSX/anli_v0.1/._R2
+  inflating: ANLI/__MACOSX/._anli_v0.1
+
+real    0m44.464s
+user    0m4.553s
+sys     0m2.959s
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/bin$
+```
+
+Check the example data folder ...  
+
+```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora$ ls
+ANLI  QQP  SNLI
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora$ cd QQP/
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$ ls
+qqp_test.tgz  qqp_train.tgz  test.csv  train.csv
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$ wc {train,test}.csv
+   404302   8540953  63399110 train.csv
+  2345806  49373483 314015127 test.csv
+  2750108  57914436 377414237 total
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$
+```
+
+## Training CNN Model with QQP Data
 
 ```
 
