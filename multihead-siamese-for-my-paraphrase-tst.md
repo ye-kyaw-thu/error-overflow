@@ -531,14 +531,33 @@ Thu Dec  1 17:56:59 2022
 (siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
+When I train, I got an error ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ time python run.py train cnn QQP --experiment_name exp-CNN-QQP
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'
 
+real    0m14.550s
+user    0m5.239s
+sys     0m1.148s
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
-```
+Installation of tqdm library ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install tqdm==4.15.0
+Collecting tqdm==4.15.0
+  Using cached tqdm-4.15.0-py2.py3-none-any.whl (46 kB)
+Installing collected packages: tqdm
+Successfully installed tqdm-4.15.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
+train again ...  
 
 ```
 
