@@ -1348,4 +1348,63 @@ main_config
 ```
 
 I might be my typing mistake ... I found that it is not contain in the original main.ini file.  
+When I run I still got an error as follows:  
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ python3 run.py predict cnn
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 276, in main
+    predict(main_config, model_config, args.model, experiment_name)
+  File "run.py", line 196, in predict
+    char_embeddings=main_cfg.char_embeddings,
+  File "/home/ye/tool/multihead-siamese-nets/utils/data_utils.py", line 16, in __init__
+    self.restore()
+  File "/home/ye/tool/multihead-siamese-nets/utils/data_utils.py", line 54, in restore
+    self.vocabulary = VocabularyProcessor.restore('{}/vocab'.format(self.model_dir))
+  File "/home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tflearn/data_utils.py", line 299, in restore
+    return self._vocabulary_processor.restore(filename)
+NameError: name 'self' is not defined
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
+```
+
+I guess the error is because of this:  
+
+```
+ char_embeddings=main_cfg.char_embeddings
+```
+
+## Try GUI
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ python3 ./gui_demo.py 
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Reading main configuration.
+Traceback (most recent call last):
+  File "./gui_demo.py", line 133, in <module>
+  File "./gui_demo.py", line 71, in __init__
+TypeError: __init__() missing 1 required positional argument: 'char_embeddings'
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
+```
 
