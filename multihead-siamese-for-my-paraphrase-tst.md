@@ -603,6 +603,15 @@ sys     0m1.526s
 
 I have to update data/qqp.py ...  
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/as_matrix-to-to_numpy.png" alt="replaced \"as_matrix\" with \"to_numpy\"" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Replaced "as_matrix" with "to_numpy"   
+</div> 
+
+<br />
+
 ```
 
 ```
