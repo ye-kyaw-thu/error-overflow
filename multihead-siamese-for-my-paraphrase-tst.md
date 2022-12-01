@@ -560,8 +560,48 @@ Successfully installed tqdm-4.15.0
 train again ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ time python run.py train cnn QQP --experiment_name exp-CNN-QQP
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
 
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/trainer.py:25: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/collections.py:13: The name tf.GraphKeys is deprecated. Please use tf.compat.v1.GraphKeys instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:123: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:129: The name tf.add_to_collection is deprecated. Please use tf.compat.v1.add_to_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:131: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 274, in main
+    train(main_config, model_config, args.model, experiment_name, args.dataset)
+  File "run.py", line 43, in train
+    train_data = dataset.train_set_pairs()
+  File "/home/yekyaw.thu/exp/siamese/multihead-siamese-nets/data/qqp.py", line 28, in train_set_pairs
+    return self.train[['question1', 'question2']].as_matrix()
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/core/generic.py", line 5141, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'as_matrix'
+
+real    0m30.465s
+user    0m10.760s
+sys     0m1.526s
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
+
+I have to update data/qqp.py ...  
 
 ```
 
