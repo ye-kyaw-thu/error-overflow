@@ -1042,39 +1042,6 @@ sys	14m46.168s
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-## Model Information
-
-```
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$ tree
-.
-└── QQP
-    └── cnn_64_MSE
-        ├── dev
-        │   └── events.out.tfevents.1669801630.ykt-pro
-        └── train
-            └── events.out.tfevents.1669801630.ykt-pro
-
-4 directories, 2 files
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
-```
-
-```
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ ls
-cnn_64_MSE  vocab
-```
-
-```
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ cd cnn_64_MSE/
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ ls
-checkpoint                      model-6800.index                model-7000.index
-evaluation.ini                  model-6800.meta                 model-7000.meta
-model-6700.data-00000-of-00001  model-6900.data-00000-of-00001  model-7020.data-00000-of-00001
-model-6700.index                model-6900.index                model-7020.index
-model-6700.meta                 model-6900.meta                 model-7020.meta
-model-6800.data-00000-of-00001  model-7000.data-00000-of-00001
-(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
-```
-
 ## Config Files
 
 for CNN model ...  
@@ -1159,3 +1126,61 @@ four-sidedq@K4XwhatqAK5XisqBK6X
 governmentqVKJXapproxqWKKXtotalqXKLXamountqYKMXitqZKNXgetq[KOXpoliceq\KPXstationq]KQXindiaq^KRXWhatq_KSXdoesq`KTXmeanqaKUXdreamqbKVXaboutqcKWXfindingqdKXXlostqeKYXlittleqfKZXboyqgK[XwearingqhK\XblueqiK]XbeingqjK^XveryqkK_X
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ 
 ```
+
+## Model Information
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$ tree
+.
+└── QQP
+    └── cnn_64_MSE
+        ├── dev
+        │   └── events.out.tfevents.1669801630.ykt-pro
+        └── train
+            └── events.out.tfevents.1669801630.ykt-pro
+
+4 directories, 2 files
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ ls
+cnn_64_MSE  vocab
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ cd cnn_64_MSE/
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ ls
+checkpoint                      model-6800.index                model-7000.index
+evaluation.ini                  model-6800.meta                 model-7000.meta
+model-6700.data-00000-of-00001  model-6900.data-00000-of-00001  model-7020.data-00000-of-00001
+model-6700.index                model-6900.index                model-7020.index
+model-6700.meta                 model-6900.meta                 model-7020.meta
+model-6800.data-00000-of-00001  model-7000.data-00000-of-00001
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ cat checkpoint 
+model_checkpoint_path: "model-7020"
+all_model_checkpoint_paths: "model-6700"
+all_model_checkpoint_paths: "model-6800"
+all_model_checkpoint_paths: "model-6900"
+all_model_checkpoint_paths: "model-7000"
+all_model_checkpoint_paths: "model-7020"
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ cat evaluation.ini 
+[EVALUATION]
+mean_dev_acc = 0.8330749979615213
+last_dev_acc = 0.8414999946951867
+test_acc = 0.8456930686341654
+epoch_time = 00:21:02.29
+num_trains = 359816
+num_devs = 4043
+num_tests = 40428
+
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
+```
+
