@@ -612,8 +612,6 @@ I have to update data/qqp.py ...
 
 <br />
 
-```
-
 I train again and check the GPU usage and found that using only one GPU (i.e. 0) as follows:  
 
 
