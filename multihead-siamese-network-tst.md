@@ -1307,4 +1307,33 @@ NameError: name 'self' is not defined
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/tmp/model_dir$ 
 ```
 
+I moved the pre-trained model folders under model_dir/ and run again. However I got still an error. For this time error is relating to configuration file ...  
 
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ python3 run.py predict cnn
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 264, in main
+    main_config = init_config()
+  File "/home/ye/tool/multihead-siamese-nets/utils/other_utils.py", line 45, in init_config
+    config.read(constants.MAIN_CONFIG_PATH)
+  File "/home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/configparser.py", line 697, in read
+    self._read(fp, filename)
+  File "/home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/configparser.py", line 1111, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: './config/main.ini'
+	[line 13]: 'main_config\n'
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
+```
