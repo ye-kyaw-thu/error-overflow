@@ -118,8 +118,79 @@ bin  colab  config  data  gui_demo.py  layers  LICENSE  models  pics  README.md 
 ## Installation of the Requirement Libraries  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install -r requirements/requirements-gpu.txt
+Collecting tqdm==4.15.0
+  Downloading tqdm-4.15.0-py2.py3-none-any.whl (46 kB)
+     |████████████████████████████████| 46 kB 203 kB/s
+Collecting pandas==0.22.0
+  Downloading pandas-0.22.0-cp36-cp36m-manylinux1_x86_64.whl (26.2 MB)
+     |████████████████████████████████| 26.2 MB 127.7 MB/s
+Collecting tflearn==0.3.2
+  Downloading tflearn-0.3.2.tar.gz (98 kB)
+     |████████████████████████████████| 98 kB 619 kB/s
+Collecting numpy==1.14.2
+  Downloading numpy-1.14.2-cp36-cp36m-manylinux1_x86_64.whl (12.2 MB)
+     |████████████████████████████████| 12.2 MB 73.9 MB/s
+Collecting tensorflow-gpu==1.15.2
+  Downloading tensorflow_gpu-1.15.2-cp36-cp36m-manylinux2010_x86_64.whl (411.0 MB)
+     |████████████████████████████████| 411.0 MB 21 kB/s
+Collecting jsonlines==1.2.0
+  Downloading jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Collecting seaborn==0.9.0
+  Downloading seaborn-0.9.0-py3-none-any.whl (208 kB)
+     |████████████████████████████████| 208 kB 53.3 MB/s
+Collecting pytz>=2011k
+  Downloading pytz-2022.6-py2.py3-none-any.whl (498 kB)
+     |████████████████████████████████| 498 kB 48.1 MB/s
+Collecting python-dateutil>=2
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting six
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting Pillow
+  Downloading Pillow-8.4.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     |████████████████████████████████| 3.1 MB 49.6 MB/s
+Collecting gast==0.2.2
+  Downloading gast-0.2.2.tar.gz (10 kB)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting astor>=0.6.0
+  Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting google-pasta>=0.1.6
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting wrapt>=1.11.1
+  Downloading wrapt-1.14.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (74 kB)
+     |████████████████████████████████| 74 kB 237 kB/s
+Collecting tensorboard<1.16.0,>=1.15.0
+  Downloading tensorboard-1.15.0-py3-none-any.whl (3.8 MB)
+     |████████████████████████████████| 3.8 MB 47.0 MB/s
+Collecting tensorflow-estimator==1.15.1
+  Downloading tensorflow_estimator-1.15.1-py2.py3-none-any.whl (503 kB)
+     |████████████████████████████████| 503 kB 47.9 MB/s
+Collecting protobuf>=3.6.1
+  Downloading protobuf-3.19.6-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+     |████████████████████████████████| 1.1 MB 49.0 MB/s
+INFO: pip is looking at multiple versions of <Python from Requires-Python> to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of numpy to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of tflearn to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of pandas to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of tqdm to determine which version is compatible with other requirements. This could take a while.
+ERROR: Cannot install -r requirements/requirements-gpu.txt (line 2), -r requirements/requirements-gpu.txt (line 3), -r requirements/requirements-gpu.txt (line 5) and numpy==1.14.2 because these package versions have conflicting dependencies.
 
+The conflict is caused by:
+    The user requested numpy==1.14.2
+    pandas 0.22.0 depends on numpy>=1.9.0
+    tflearn 0.3.2 depends on numpy
+    tensorflow-gpu 1.15.2 depends on numpy<2.0 and >=1.16.0
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/user_guide/#fixing-conflicting-dependencies
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
+
+I got some errors as you can see above ...  
 
 ```
 
