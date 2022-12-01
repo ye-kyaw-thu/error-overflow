@@ -952,45 +952,93 @@ Successfully installed tflearn-0.5.0
 ## Training CNN Model on CPU  
 
 ```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ time python3 run.py train cnn QQP
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
 
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/other_utils.py:11: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+INFO:tensorflow:Chosen word embeddings.
+INFO:tensorflow:Maximum sentence length : 237
+INFO:tensorflow:Processing sentences with word embeddings...
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tflearn/data_utils.py:211: VocabularyProcessor.__init__ (from tensorflow.contrib.learn.python.learn.preprocessing.text) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/contrib/learn/python/learn/preprocessing/text.py:154: CategoricalVocabulary.__init__ (from tensorflow.contrib.learn.python.learn.preprocessing.categorical_vocabulary) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+INFO:tensorflow:Sentences have been successfully processed.
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/contrib/learn/python/learn/preprocessing/text.py:170: tokenizer (from tensorflow.contrib.learn.python.learn.preprocessing.text) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:15: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:28: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:29: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/layers/convolution.py:21: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/layers/convolution.py:27: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/layers/basics.py:32: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/layers/losses.py:55: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
+
+WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/ops/losses/losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/layers/basics.py:66: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:42: The name tf.rint is deprecated. Please use tf.math.rint instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:43: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:47: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/models/base_model.py:49: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/model_saver.py:9: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+WARNING:tensorflow:From run.py:73: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From run.py:78: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-11-30 16:47:10.099051: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2893530000 Hz
+2022-11-30 16:47:10.099818: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55bfb332c530 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-11-30 16:47:10.099889: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:From run.py:80: The name tf.global_variables_initializer is deprecated. Please use tf.compat.v1.global_variables_initializer instead.
+
+WARNING:tensorflow:From /home/ye/tool/multihead-siamese-nets/utils/log_saver.py:12: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+INFO:tensorflow:Training model for 10 epochs
+Epochs:   0%|                                                                 | 0/10 [00:00<?, ?it/s2022-11-30 16:47:12.962526: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 62128128 exceeds 10% of system memory.
+2022-11-30 16:47:13.073528: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 245296896 exceeds 10% of system memory.
+2022-11-30 16:47:13.073534: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 245296896 exceeds 10% of system memory.
+2022-11-30 16:47:13.140362: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 190829600 exceeds 10% of system memory.
+2022-11-30 16:47:13.140362: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 189212400 exceeds 10% of system memory.
+                                                                                                    WARNING:tensorflow:From /home/ye/tool/anaconda3/envs/multihead-siamese/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:963: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+Epochs: 100%|████████████████████████████████████████████████████| 10/10 [3:31:57<00:00, 1271.76s/it]
+                                                                                                     
+real	212m50.967s
+user	789m10.450s
+sys	14m46.168s
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
