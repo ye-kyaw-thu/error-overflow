@@ -1337,3 +1337,13 @@ configparser.ParsingError: Source contains parsing errors: './config/main.ini'
 	[line 13]: 'main_config\n'
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ 
 ```
+
+When I checked the config/main.ini file, I noted that I might need to assign the config file name as follows:  
+
+```
+[DATA]
+logs_path = logs
+model_dir = model_dir
+main_config
+```
+
