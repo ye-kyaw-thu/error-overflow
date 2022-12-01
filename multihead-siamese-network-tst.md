@@ -1058,6 +1058,23 @@ sys	14m46.168s
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
 ```
 
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ ls
+cnn_64_MSE  vocab
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ cd cnn_64_MSE/
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ ls
+checkpoint                      model-6800.index                model-7000.index
+evaluation.ini                  model-6800.meta                 model-7000.meta
+model-6700.data-00000-of-00001  model-6900.data-00000-of-00001  model-7020.data-00000-of-00001
+model-6700.index                model-6900.index                model-7020.index
+model-6700.meta                 model-6900.meta                 model-7020.meta
+model-6800.data-00000-of-00001  model-7000.data-00000-of-00001
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
+```
+
 ## Config Files
 
 for CNN model ...  
