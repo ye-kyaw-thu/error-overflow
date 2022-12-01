@@ -814,11 +814,120 @@ sys     23m20.703s
 ## Testing
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ python run.py predict cnn
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
 
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/trainer.py:25: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/collections.py:13: The name tf.GraphKeys is deprecated. Please use tf.compat.v1.GraphKeys instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:123: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:129: The name tf.add_to_collection is deprecated. Please use tf.compat.v1.add_to_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:131: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:15: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:28: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:29: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:21: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:27: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:32: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/losses.py:55: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/ops/losses/losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:66: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:42: The name tf.rint is deprecated. Please use tf.math.rint instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:43: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:47: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:49: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From run.py:204: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-12-01 19:55:34.667316: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-12-01 19:55:35.803538: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.65
+pciBusID: 0000:0a:00.0
+2022-12-01 19:55:35.803648: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803689: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803740: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803796: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803843: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803884: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803923: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory
+2022-12-01 19:55:35.803932: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1662] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-12-01 19:55:35.822020: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-12-01 19:55:35.848950: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3499560000 Hz
+2022-12-01 19:55:35.850100: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a9213c1150 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-12-01 19:55:35.850138: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-12-01 19:55:36.094616: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a91f4aff00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-12-01 19:55:36.094668: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-12-01 19:55:36.094789: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-12-01 19:55:36.094803: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]
+WARNING:tensorflow:From run.py:205: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+Traceback (most recent call last):
+  File "run.py", line 280, in <module>
+    main()
+  File "run.py", line 276, in main
+    predict(main_config, model_config, args.model, experiment_name)
+  File "run.py", line 212, in predict
+    saver.restore(session, last_checkpoint)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py", line 1277, in restore
+    raise ValueError("Can't load save_path when it is None.")
+ValueError: Can't load save_path when it is None.
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
-```
+I updated the run.py, line no. 205 with tf.compat.v1.train.Saver and run again ...  
 
+```
+orm Host (this does not guarantee that XLA will be used). Devices:
+2022-12-01 19:59:34.042432: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-12-01 19:59:34.293683: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x557923918df0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-12-01 19:59:34.293735: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-12-01 19:59:34.293858: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-12-01 19:59:34.293872: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]
+Traceback (most recent call last):
+  File "run.py", line 281, in <module>
+    main()
+  File "run.py", line 277, in main
+    predict(main_config, model_config, args.model, experiment_name)
+  File "run.py", line 213, in predict
+    saver.restore(session, last_checkpoint)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py", line 1277, in restore
+    raise ValueError("Can't load save_path when it is None.")
+ValueError: Can't load save_path when it is None.
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
 ```
