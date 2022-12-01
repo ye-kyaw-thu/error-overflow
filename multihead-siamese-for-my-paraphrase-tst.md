@@ -614,9 +614,78 @@ I have to update data/qqp.py ...
 
 ```
 
-```
+I train again and check the GPU usage and found that using only one GPU (i.e. 0) as follows:  
+
 
 ```
+Every 2.0s: nvidia-smi                                                               gpu.cadt.edu.kh: Thu Dec  1 18:16:04 2022
+Thu Dec  1 18:16:05 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.141.03   Driver Version: 470.141.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+|  0%   47C    P8    14W / 300W |    154MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 46%   64C    P0    68W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 32%   62C    P0    82W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2136404      C   python                            151MiB |
++-----------------------------------------------------------------------------+
+```
+
+And thus, I train with the parameter --gpu 0,1,2 for running on 3 GPUs and now, it looks using 3 GPUs, Great! ...  
+
+```
+Every 2.0s: nvidia-smi                                                               gpu.cadt.edu.kh: Thu Dec  1 18:29:22 2022
+Thu Dec  1 18:29:22 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.141.03   Driver Version: 470.141.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+|  0%   49C    P8    15W / 300W |    154MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+|  7%   56C    P8    23W / 257W |    154MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 33%   50C    P8    30W / 250W |    154MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2738706      C   python                            151MiB |
+|    1   N/A  N/A   2738706      C   python                            151MiB |
+|    2   N/A  N/A   2738706      C   python                            151MiB |
++-----------------------------------------------------------------------------+
+```
+
+Training situation ...  
 
 ```
 
