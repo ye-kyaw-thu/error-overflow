@@ -1091,3 +1091,24 @@ hidden_size = 128
 cell_type = GRU
 bidirectional = True(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ 
 ```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config$ cat main.ini 
+[TRAINING]
+num_epochs = 10
+batch_size = 512
+eval_every = 20
+learning_rate = 0.001
+checkpoints_to_keep = 5
+save_every = 100
+log_device_placement = False
+
+[DATA]
+logs_path = logs
+model_dir = model_dir
+
+[PARAMS]
+embedding_size = 64
+loss_function = MSE
+char_embeddings = False(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config$
+```
