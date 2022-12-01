@@ -1184,6 +1184,22 @@ num_tests = 40428
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir/cnn_64_MSE$ 
 ```
 
+## Training/Testing Graph with Tensorboard
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$ tensorboard --logdir logs/QQP/
+TensorBoard 1.15.0 at http://ykt-pro:6006/ (Press CTRL+C to quit)
+```
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/cnn-siamese-training-log.png" alt="Accuracy and Loss Graph" width="800"/>  
+</p>  
+<div align="center">
+  Fig.3 Accuracy and loss graph for CNN Siamese model with QQP dataset  
+</div> 
+
+<br />
+
 ## Testing
 
 ```
