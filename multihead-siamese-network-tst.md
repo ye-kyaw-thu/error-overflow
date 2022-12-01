@@ -1058,4 +1058,36 @@ sys	14m46.168s
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
 ```
 
+## Config Files
 
+for CNN model ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ ls
+cnn.ini  multihead.ini  rnn.ini
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ cat cnn.ini
+[PARAMS]
+num_filters = 50,50,50
+filter_sizes = 2,3,4
+dropout_rate = 0.0
+```
+
+for Multihead Model ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ cat multihead.ini 
+[PARAMS]
+num_blocks = 2
+num_heads = 8
+use_residual = False
+```
+
+For RNN Model ...  
+
+```
+dropout_rate = 0.0(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ cat rnn.ini 
+[PARAMS]
+hidden_size = 128
+cell_type = GRU
+bidirectional = True(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config/model$ 
+```
