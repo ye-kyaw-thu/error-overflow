@@ -1242,3 +1242,69 @@ Traceback (most recent call last):
 NameError: name 'self' is not defined
 ```
 
+## Download and Check the Pre-trained Models
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/tmp/model_dir$ tree
+.
+├── cnn_64
+│   ├── checkpoint
+│   ├── evaluation.ini
+│   ├── model-6000.data-00000-of-00001
+│   ├── model-6000.index
+│   ├── model-6000.meta
+│   ├── model-6100.data-00000-of-00001
+│   ├── model-6100.index
+│   ├── model-6100.meta
+│   ├── model-6200.data-00000-of-00001
+│   ├── model-6200.index
+│   ├── model-6200.meta
+│   ├── model-6300.data-00000-of-00001
+│   ├── model-6300.index
+│   ├── model-6300.meta
+│   ├── model-6380.data-00000-of-00001
+│   ├── model-6380.index
+│   └── model-6380.meta
+├── multihead_64
+│   ├── checkpoint
+│   ├── evaluation.ini
+│   ├── model-6000.data-00000-of-00001
+│   ├── model-6000.index
+│   ├── model-6000.meta
+│   ├── model-6100.data-00000-of-00001
+│   ├── model-6100.index
+│   ├── model-6100.meta
+│   ├── model-6200.data-00000-of-00001
+│   ├── model-6200.index
+│   ├── model-6200.meta
+│   ├── model-6300.data-00000-of-00001
+│   ├── model-6300.index
+│   ├── model-6300.meta
+│   ├── model-6380.data-00000-of-00001
+│   ├── model-6380.index
+│   └── model-6380.meta
+├── rnn_64
+│   ├── checkpoint
+│   ├── evaluation.ini
+│   ├── model-6000.data-00000-of-00001
+│   ├── model-6000.index
+│   ├── model-6000.meta
+│   ├── model-6100.data-00000-of-00001
+│   ├── model-6100.index
+│   ├── model-6100.meta
+│   ├── model-6200.data-00000-of-00001
+│   ├── model-6200.index
+│   ├── model-6200.meta
+│   ├── model-6300.data-00000-of-00001
+│   ├── model-6300.index
+│   ├── model-6300.meta
+│   ├── model-6380.data-00000-of-00001
+│   ├── model-6380.index
+│   └── model-6380.meta
+└── vocab
+
+3 directories, 52 files
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/tmp/model_dir$ 
+```
+
+
