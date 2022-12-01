@@ -88,9 +88,34 @@ Executing transaction: done
 (base) yekyaw.thu@gpu:~/exp/siamese$
 ```
 
+Activate the Siamese...   
+
+```
+(base) yekyaw.thu@gpu:~/exp/siamese$ conda activate siamese
+(siamese) yekyaw.thu@gpu:~/exp/siamese$
+```
+
+## Git Clone
+
+```
+(siamese) yekyaw.thu@gpu:~/exp/siamese$ git clone https://github.com/tlatkowski/multihead-siamese-nets
+Cloning into 'multihead-siamese-nets'...
+remote: Enumerating objects: 982, done.
+remote: Counting objects: 100% (21/21), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 982 (delta 4), reused 3 (delta 0), pack-reused 961
+Receiving objects: 100% (982/982), 1.47 MiB | 5.61 MiB/s, done.
+Resolving deltas: 100% (557/557), done.
 ```
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese$ cd multihead-siamese-nets/
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ ls
+bin  colab  config  data  gui_demo.py  layers  LICENSE  models  pics  README.md  requirements  run.py  tests  utils
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
+## Installation of the Requirement Libraries  
 
 ```
 
