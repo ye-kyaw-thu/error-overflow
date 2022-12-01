@@ -193,20 +193,126 @@ ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/user_g
 I got some errors as you can see above ...  
 
 ```
-
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install numpy>=1.16.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ python
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> print(np.__version__)
+1.19.5
+>>>
 ```
 
-```
+install pandas library ...  
 
 ```
-
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install pandas
+Collecting pandas
+  Downloading pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl (9.5 MB)
+     |████████████████████████████████| 9.5 MB 6.7 kB/s
+Collecting python-dateutil>=2.7.3
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Requirement already satisfied: numpy>=1.15.4 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from pandas) (1.19.5)
+Collecting pytz>=2017.2
+  Using cached pytz-2022.6-py2.py3-none-any.whl (498 kB)
+Collecting six>=1.5
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, pytz, python-dateutil, pandas
+Successfully installed pandas-1.1.5 python-dateutil-2.8.2 pytz-2022.6 six-1.16.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
-```
+Install tflearn or make confirmation ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install tflearn==0.3.2
+Collecting tflearn==0.3.2
+  Using cached tflearn-0.3.2.tar.gz (98 kB)
+Requirement already satisfied: numpy in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tflearn==0.3.2) (1.19.5)
+Requirement already satisfied: six in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tflearn==0.3.2) (1.16.0)
+Collecting Pillow
+  Using cached Pillow-8.4.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Building wheels for collected packages: tflearn
+  Building wheel for tflearn (setup.py) ... done
+  Created wheel for tflearn: filename=tflearn-0.3.2-py3-none-any.whl size=128207 sha256=ed2a25985463f608a150270cb9258b61d25b53167128cbc58483c9f0df583bd3
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/14/e9/35/ac682b1d18f932dc39cf86f25b22bb70df2e80e45851e4f9f3
+Successfully built tflearn
+Installing collected packages: Pillow, tflearn
+Successfully installed Pillow-8.4.0 tflearn-0.3.2
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
+Installation of tensorflow-gpu==1.15.2  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install tensorflow-gpu==1.15.2
+Collecting tensorflow-gpu==1.15.2
+  Using cached tensorflow_gpu-1.15.2-cp36-cp36m-manylinux2010_x86_64.whl (411.0 MB)
+Collecting gast==0.2.2
+  Using cached gast-0.2.2.tar.gz (10 kB)
+Collecting google-pasta>=0.1.6
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting grpcio>=1.8.6
+  Downloading grpcio-1.48.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+     |████████████████████████████████| 4.6 MB 528 kB/s
+Requirement already satisfied: six>=1.10.0 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tensorflow-gpu==1.15.2) (1.16.0)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting keras-preprocessing>=1.0.5
+  Using cached Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+Collecting tensorflow-estimator==1.15.1
+  Using cached tensorflow_estimator-1.15.1-py2.py3-none-any.whl (503 kB)
+Collecting termcolor>=1.1.0
+  Downloading termcolor-1.1.0.tar.gz (3.9 kB)
+Collecting wrapt>=1.11.1
+  Using cached wrapt-1.14.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (74 kB)
+Collecting keras-applications>=1.0.8
+  Downloading Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+     |████████████████████████████████| 50 kB 952 kB/s
+Requirement already satisfied: wheel>=0.26 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tensorflow-gpu==1.15.2) (0.37.1)
+Collecting astor>=0.6.0
+  Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting tensorboard<1.16.0,>=1.15.0
+  Using cached tensorboard-1.15.0-py3-none-any.whl (3.8 MB)
+Collecting absl-py>=0.7.0
+  Using cached absl_py-1.3.0-py3-none-any.whl (124 kB)
+Requirement already satisfied: numpy<2.0,>=1.16.0 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tensorflow-gpu==1.15.2) (1.19.5)
+Collecting protobuf>=3.6.1
+  Using cached protobuf-3.19.6-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Collecting h5py
+  Downloading h5py-3.1.0-cp36-cp36m-manylinux1_x86_64.whl (4.0 MB)
+     |████████████████████████████████| 4.0 MB 53.2 MB/s
+Requirement already satisfied: setuptools>=41.0.0 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from tensorboard<1.16.0,>=1.15.0->tensorflow-gpu==1.15.2) (58.0.4)
+Collecting werkzeug>=0.11.15
+  Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+     |████████████████████████████████| 289 kB 88.9 MB/s
+Collecting markdown>=2.6.8
+  Downloading Markdown-3.3.7-py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 1.3 MB/s
+Collecting importlib-metadata>=4.4
+  Downloading importlib_metadata-4.8.3-py3-none-any.whl (17 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.6.0-py3-none-any.whl (5.3 kB)
+Collecting typing-extensions>=3.6.4
+  Downloading typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+Collecting dataclasses
+  Downloading dataclasses-0.8-py3-none-any.whl (19 kB)
+Collecting cached-property
+  Downloading cached_property-1.5.2-py2.py3-none-any.whl (7.6 kB)
+Building wheels for collected packages: gast, termcolor
+  Building wheel for gast (setup.py) ... done
+  Created wheel for gast: filename=gast-0.2.2-py3-none-any.whl size=7554 sha256=010e9d6b30d1a24aa3a5fbb07c93dd1b693c7b2fe7c32e5db1c6203addb2ee3f
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/19/a7/b9/0740c7a3a7d1d348f04823339274b90de25fbcd217b2ee1fbe
+  Building wheel for termcolor (setup.py) ... done
+  Created wheel for termcolor: filename=termcolor-1.1.0-py3-none-any.whl size=4848 sha256=ba32648f946b916d56239f5cb96a5310cce677e7d7b19d166df9de15b38785cc
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/93/2a/eb/e58dbcbc963549ee4f065ff80a59f274cc7210b6eab962acdc
+Successfully built gast termcolor
+Installing collected packages: zipp, typing-extensions, importlib-metadata, dataclasses, cached-property, werkzeug, protobuf, markdown, h5py, grpcio, absl-py, wrapt, termcolor, tensorflow-estimator, tensorboard, opt-einsum, keras-preprocessing, keras-applications, google-pasta, gast, astor, tensorflow-gpu
+Successfully installed absl-py-1.3.0 astor-0.8.1 cached-property-1.5.2 dataclasses-0.8 gast-0.2.2 google-pasta-0.2.0 grpcio-1.48.2 h5py-3.1.0 importlib-metadata-4.8.3 keras-applications-1.0.8 keras-preprocessing-1.1.2 markdown-3.3.7 opt-einsum-3.3.0 protobuf-3.19.6 tensorboard-1.15.0 tensorflow-estimator-1.15.1 tensorflow-gpu-1.15.2 termcolor-1.1.0 typing-extensions-4.1.1 werkzeug-2.0.3 wrapt-1.14.1 zipp-3.6.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
 
 ```
 
