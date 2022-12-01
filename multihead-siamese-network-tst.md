@@ -1112,3 +1112,33 @@ embedding_size = 64
 loss_function = MSE
 char_embeddings = False(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/config$
 ```
+
+## Vocab File Info
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ wc vocab
+  14305   62995 3889464 vocab
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ file vocab
+vocab: data
+```
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ head vocab 
+�ctensorflow.contrib.learn.python.learn.preprocessing.text
+VocabularyProcessor
+min_frequencyqKXcument_lengthqK�X
+                 vocabulary_qctensorflow.contrib.learn.python.learn.preprocessing.categorical_vocabulary
+CategoricalVocabulary
+q)�q}(X_unknown_tokenq	X<UNK>q
+_mappingq
+         }q
+           (h
+KXGqKXbasedqKXonqKXrealqKXeventsqKXEnoughqKXeventqXHowqK	XdidqK
+XmoviesqK
+           XlikeqK
+XNewqKXYearqKXearnqKX300qKXcroresqKXdoqKX	senselessq KXDILWALEq!KXorq"KXHAPPYq#KXNEWq$KXYEARq%KXanq&KXeasyq'KX100q(KXcroreq)KXinq*KXIndiaq+KXWhat'sq,K Xtheq-K!Xbestq.K"Xwayq/K#Xtoq0K$Xtellq1K%Xmyq2K&Xcrushq3K'XIq4K(Xhimq5K)Xaq6K*Xgirlq7K+Xherq8K,XIfq9K-Xyouq:K.Xrollq;K/Xfairq<K0X	six-sidedq=K1Xdieq>K2Xandq?K3X
+four-sidedq@K4XwhatqAK5XisqBK6X
+                                 probabilityqCK7XthatqDK8XatqEK9XleastqFK:XoneqGK;XshowsqHK<X4qIK=XdiceqJK>XaddqKK?X7qLK@XCanqMKAXanyoneqNKBXgiveqOKCXmeqPKDXlistqQKEXofqRKFXscamsqSKGXbyqTKHCongressqUKIX
+governmentqVKJXapproxqWKKXtotalqXKLXamountqYKMXitqZKNXgetq[KOXpoliceq\KPXstationq]KQXindiaq^KRXWhatq_KSXdoesq`KTXmeanqaKUXdreamqbKVXaboutqcKWXfindingqdKXXlostqeKYXlittleqfKZXboyqgK[XwearingqhK\XblueqiK]XbeingqjK^XveryqkK_X
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/model_dir$ 
+```
