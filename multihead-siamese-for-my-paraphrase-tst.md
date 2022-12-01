@@ -930,13 +930,159 @@ ValueError: Can't load save_path when it is None.
 (siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
-```
+I can solve or run by adding one more command line argument as follows:  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ python run.py predict cnn --experiment_name exp-CNN-QQP
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
 
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/trainer.py:25: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/collections.py:13: The name tf.GraphKeys is deprecated. Please use tf.compat.v1.GraphKeys instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:123: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:129: The name tf.add_to_collection is deprecated. Please use tf.compat.v1.add_to_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:131: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:15: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:28: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:29: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:21: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:27: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:32: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/losses.py:55: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/ops/losses/losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:66: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:42: The name tf.rint is deprecated. Please use tf.math.rint instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:43: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:47: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:49: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From run.py:204: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-12-01 22:01:52.960524: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-12-01 22:01:53.152543: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.65
+pciBusID: 0000:0a:00.0
+2022-12-01 22:01:53.152624: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152665: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152698: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152738: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152773: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152805: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152838: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory
+2022-12-01 22:01:53.152846: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1662] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-12-01 22:01:53.153132: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-12-01 22:01:53.158453: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3499560000 Hz
+2022-12-01 22:01:53.159136: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555a80ff7060 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-12-01 22:01:53.159165: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-12-01 22:01:53.422502: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555a7fc9ad70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-12-01 22:01:53.422537: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-12-01 22:01:53.422633: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-12-01 22:01:53.422647: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]
+INFO:tensorflow:Restoring parameters from model_dir/exp-CNN-QQP/model-7020
+First sentence:
 ```
 
+## Interactive Testing
+
+1st I checked the data:  
+
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$ head test.csv
+"test_id","question1","question2"
+0,"How does the Surface Pro himself 4 compare with iPad Pro?","Why did Microsoft choose core m3 and not core i3 home Surface Pro 4?"
+1,"Should I have a hair transplant at age 24? How much would it cost?","How much cost does hair transplant require?"
+2,"What but is the best way to send money from China to the US?","What you send money to China?"
+3,"Which food not emulsifiers?","What foods fibre?"
+4,"How ""aberystwyth"" start reading?","How their can I start reading?"
+5,"How are the two wheeler insurance from Bharti Axa insurance?","I admire I am considering of buying insurance from them"
+6,"How can I reduce my belly fat through a diet?","How can I reduce my lower belly fat in one month?"
+7,"By scrapping the 500 and 1000 rupee notes, how is RBI planning to fight against issue black money?","How will the recent move to declare 500 and 1000 denomination lewin illegal will curb black money?"
+8,"What are the how best books of all time?","What are some of the military history books of all time?"
+```
+
+I also checked the training data:  
+
+```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$ head train.csv
+"id","qid1","qid2","question1","question2","is_duplicate"
+"0","1","2","What is the step by step guide to invest in share market in india?","What is the step by step guide to invest in share market?","0"
+"1","3","4","What is the story of Kohinoor (Koh-i-Noor) Diamond?","What would happen if the Indian government stole the Kohinoor (Koh-i-Noor) diamond back?","0"
+"2","5","6","How can I increase the speed of my internet connection while using a VPN?","How can Internet speed be increased by hacking through DNS?","0"
+"3","7","8","Why am I mentally very lonely? How can I solve it?","Find the remainder when [math]23^{24}[/math] is divided by 24,23?","0"
+"4","9","10","Which one dissolve in water quikly sugar, salt, methane and carbon di oxide?","Which fish would survive in salt water?","0"
+"5","11","12","Astrology: I am a Capricorn Sun Cap moon and cap rising...what does that say about me?","I'm a triple Capricorn (Sun, Moon and ascendant in Capricorn) What does this say about me?","1"
+"6","13","14","Should I buy tiago?","What keeps childern active and far from phone and video games?","0"
+"7","15","16","How can I be a good geologist?","What should I do to be a great geologist?","1"
+"8","17","18","When do you use シ instead of し?","When do you use ""&"" instead of ""and""?","0"
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/QQP$
+```
+
+testing ...  
+
+```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ python run.py predict cnn --experiment_name exp-CNN-QQP
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
+...
+...
+...
+2022-12-01 22:01:53.422502: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555a7fc9ad70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-12-01 22:01:53.422537: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-12-01 22:01:53.422633: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-12-01 22:01:53.422647: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]
+INFO:tensorflow:Restoring parameters from model_dir/exp-CNN-QQP/model-7020
+First sentence:What is the step by step guide to invest in share market in india?
+Second sentence:What is the step by step guide to invest in share market?
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/contrib/learn/python/learn/preprocessing/text.py:203: tokenizer (from tensorflow.contrib.learn.python.learn.preprocessing.text) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+[array([[0.]], dtype=float32)]
+First sentence:Astrology: I am a Capricorn Sun Cap moon and cap rising...what does that say about me?
+Second sentence:I'm a triple Capricorn (Sun, Moon and ascendant in Capricorn) What does this say about me?
+[array([[0.]], dtype=float32)]
+First sentence:How can I be a good geologist?
+Second sentence:What should I do to be a great geologist?
+[array([[1.]], dtype=float32)]
+First sentence:
+```
+
+## GUI Testing 
+
+
+## Training with Myanmar Data  
 
 ```
 
