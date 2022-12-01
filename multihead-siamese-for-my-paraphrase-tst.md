@@ -313,14 +313,49 @@ Successfully installed absl-py-1.3.0 astor-0.8.1 cached-property-1.5.2 dataclass
 (siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
+Install jsonlines ...  
 
 ```
-
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install jsonlines==1.2.0
+Collecting jsonlines==1.2.0
+  Using cached jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Requirement already satisfied: six in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from jsonlines==1.2.0) (1.16.0)
+Installing collected packages: jsonlines
+Successfully installed jsonlines-1.2.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
 ```
 
-```
+Installation of seaborn ...  
 
 ```
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$ pip install seaborn==0.9.0
+Collecting seaborn==0.9.0
+  Using cached seaborn-0.9.0-py3-none-any.whl (208 kB)
+Collecting scipy>=0.14.0
+  Downloading scipy-1.5.4-cp36-cp36m-manylinux1_x86_64.whl (25.9 MB)
+     |████████████████████████████████| 25.9 MB 2.9 MB/s
+Requirement already satisfied: pandas>=0.15.2 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from seaborn==0.9.0) (1.1.5)
+Requirement already satisfied: numpy>=1.9.3 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from seaborn==0.9.0) (1.19.5)
+Collecting matplotlib>=1.4.3
+  Downloading matplotlib-3.3.4-cp36-cp36m-manylinux1_x86_64.whl (11.5 MB)
+     |████████████████████████████████| 11.5 MB 142 kB/s
+Collecting cycler>=0.10
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3
+  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+Requirement already satisfied: pillow>=6.2.0 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from matplotlib>=1.4.3->seaborn==0.9.0) (8.4.0)
+Requirement already satisfied: python-dateutil>=2.1 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from matplotlib>=1.4.3->seaborn==0.9.0) (2.8.2)
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.3.1-cp36-cp36m-manylinux1_x86_64.whl (1.1 MB)
+     |████████████████████████████████| 1.1 MB 26.1 MB/s
+Requirement already satisfied: pytz>=2017.2 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from pandas>=0.15.2->seaborn==0.9.0) (2022.6)
+Requirement already satisfied: six>=1.5 in /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib>=1.4.3->seaborn==0.9.0) (1.16.0)
+Installing collected packages: pyparsing, kiwisolver, cycler, scipy, matplotlib, seaborn
+Successfully installed cycler-0.11.0 kiwisolver-1.3.1 matplotlib-3.3.4 pyparsing-3.0.9 scipy-1.5.4 seaborn-0.9.0
+(siamese) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets$
+```
+
+## Data Preparation 
 
 ```
 
