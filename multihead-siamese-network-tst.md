@@ -1042,3 +1042,18 @@ sys	14m46.168s
 (multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets$
 ```
 
+## Model Information
+
+```
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$ tree
+.
+└── QQP
+    └── cnn_64_MSE
+        ├── dev
+        │   └── events.out.tfevents.1669801630.ykt-pro
+        └── train
+            └── events.out.tfevents.1669801630.ykt-pro
+
+4 directories, 2 files
+(multihead-siamese) ye@ykt-pro:~/tool/multihead-siamese-nets/logs$
+```
