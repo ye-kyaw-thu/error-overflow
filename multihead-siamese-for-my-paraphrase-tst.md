@@ -1176,6 +1176,28 @@ head command နဲ့ စစ်ကြည့်တဲ့အခါမှာ <200b
 9,ငါ ခိုင်းတာ မင်း လုပ် ခဲ့လား ။,ဒါက အသစ် တပ်ဆင်မှာ ဖြစ် တယ် ။,0
 ```
 
+I removed 200b from train.csv file ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ cat rm-200b-200d.sh 
+#!/bin/bash
+
+# for removing "\u200b" and "\u200d" characters
+
+sed -i -e "s/$(echo -ne '\u200b')//g; s/$(echo -ne '\u200d')//g;" $1;
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./rm-200b-200d.sh train.csv
+```
+
+Check the number of sentences ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ wc *.csv
+   1000   14906  206125 closed-test.csv
+   1000   10706  142470 open-test.final.manual.csv
+  40461  591452 8580488 train.csv
+  42461  617064 8929083 total
+```
+
 ## Training with Myanmar Data  
 
 ```
