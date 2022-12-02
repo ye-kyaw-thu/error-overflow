@@ -1521,7 +1521,7 @@ $pwd
 /home/yekyaw.thu/exp/siamese/multihead-siamese-nets
 ```
 
-## Training CNN Siamese with Myanmar Paraphrase Data 
+## Training CNN Siamese with Myanmar Paraphrase Dataset (version 1.0)
 
 ```
 time python run.py train cnn QQP --experiment_name exp-CNN-MYPARA
@@ -1886,7 +1886,30 @@ sys	0m8.997s
 
 ```
 
-## Training 
+## Accuracy and Loss Graph
+
+
+<p align="center">
+<img src="[https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/cnn-siamese-training-log.png](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/accuracy-CNN-Siamese-myParaphrase.png)" alt="Accuracy Graph for CNN" width="800"/>  
+</p>  
+<div align="center">
+  Fig.3 Accuracy graph for CNN Siamese model training/validation with myParaphrase dataset  
+</div> 
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/loss-CNN-Siamese-myParaphrase.png" alt="Loss Graph for CNN" width="800"/>  
+</p>  
+<div align="center">
+  Fig.3 Loss graph for CNN Siamese model training/validation with myParaphrase dataset  
+</div> 
+
+<br />
+
+
+## Training RNN Siamese Model with myParaphrase Dataset (version 1.0) 
+
 ```
 
 ```
