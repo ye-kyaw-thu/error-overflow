@@ -1365,6 +1365,23 @@ after conversion or the output format for training data is as follows:
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
 ```
 
+Preparation for the training with multihead-siamese ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release$ ls
+csv  csv-qqp  script  tsv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release$ mkdir 4multihead-siamese
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release$ cp ./csv-qqp/*qqp.csv ./4multihead-siamese/
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release$ cd 4multihead-siamese/
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/4multihead-siamese$ ls
+closed-test-qqp.csv  open-test.final.manual-qqp.csv  train-qqp.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/4multihead-siamese$ mv train-qqp.csv train.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/4multihead-siamese$ mv open-test.final.manual-qqp.csv test.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/4multihead-siamese$ ls
+closed-test-qqp.csv  test.csv  train.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/4multihead-siamese$ 
+```
+
 ## Training with Myanmar Data  
 
 
@@ -1372,10 +1389,9 @@ I copied Myanmar paraphrase data to the GPU server ...
 Here, test.csv file is the open test data.  
 
 ```
-(base) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/MYPARA$ ls
-closed-test.csv  test.csv  train.csv
-(base) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/MYPARA$
+
 ```
+
 
 ```
 
