@@ -1245,7 +1245,7 @@ close ($inputFILE);
 input or original file format က အောက်ပါအတိုင်း ...  
 
 ```
-(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 closed-test.csv 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 closed-test.csv
 0,ကောင်း လိုက် တဲ့ သတင်း လေး ပါ,ကောင်း သော သတင်း ပါ ပဲ,1
 1,ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။,ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။,0
 2,ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်,ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်,1
@@ -1270,7 +1270,7 @@ open test data အတွက်လည်း ပြင်ဆင်ခဲ့ ...
 input file format ...   
 
 ```
-(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual.csv 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual.csv
 0,၁၁ ဒေါ်လာ ကျ ပါ တယ် ။,၁၁ နာရီ လာ ခေါ် မယ် ။,0
 1,၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။,၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။,0
 2,၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။,၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။,0
@@ -1279,7 +1279,7 @@ input file format ...
 output file format ...  
 
 ```
-(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual-qqp.csv 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual-qqp.csv
 "test_id","paraphrase1","paraphrase2"
 0,"၁၁ ဒေါ်လာ ကျ ပါ တယ် ။","၁၁ နာရီ လာ ခေါ် မယ် ။"
 1,"၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။","၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။"
