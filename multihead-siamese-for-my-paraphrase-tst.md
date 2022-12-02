@@ -1202,11 +1202,11 @@ Check the number of sentences ...
 
 တကယ့် QQP format ကို ညှိဖို့အတွက် perl script နှစ်ပုဒ်ရေးပြင်ဆင်ခဲ့တယ်။ ပထမဆုံး test data အတွက် ရေးခဲ့တဲ့ perl script က အောက်ပါအတိုင်း ...  
 
-```
+```perl 
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ cat ./qqp-test-format.pl 
 #!/usr/bin/env perl
 
-# Change csv file to QQP csv format
+# Change csv file to QQP csv test data format
 # Ye Kyaw Thu, LST, NECTEC, Thailand
 
 use strict;
@@ -1299,6 +1299,71 @@ confirmation on number of sentences ...
   1001  10699 144369 open-test.final.manual-qqp.csv
 ```
 
+write a perl script for the QQP training data format conversion ...  
+
+```perl 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ cat ./qqp-train-format.pl 
+#!/usr/bin/env perl
+
+# Change csv file to QQP csv training data format
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+open (my $inputFILE,"<:encoding(utf8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+print("\"id\",\"pid1\",\"pid2\",\"paraphrase1\",\"paraphrase2\",\"is_paraphrase\",\n");
+my $pid1=1; my $pid2=2;
+
+while (!eof($inputFILE)) {
+    
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        my ($col1, $col2, $col3,$col4) = split(",", $line);
+        print("\"$col1\",\"$pid1\",\"$pid2\",\"$col2\",\"$col3\",\"$col4\"\n");
+        $pid1=$pid1+1; $pid2=$pid2+1;
+    }
+
+}
+
+close ($inputFILE);
+```
+
+run conversion perl script ...   
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ perl ./qqp-train-format.pl ./train.csv > train-qqp.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc train.csv
+  40461  591452 8580488 train.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc train-qqp.csv 
+  40462  591453 9529408 train-qqp.csv
+```
+
+before conversion or input file format is as follows:  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 train.csv
+0,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0
+1,ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0
+2,ကျေးဇူး အများကြီး တင် ပါ တယ် ။,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
+```
+
+after conversion or the output format for training data is as follows:  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 train-qqp.csv "id","pid1","pid2","paraphrase1","paraphrase2","is_paraphrase",
+"0","1","2","ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။","တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။","0"
+"1","2","3","ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။","ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။","0"
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
+```
 
 ## Training with Myanmar Data  
 
