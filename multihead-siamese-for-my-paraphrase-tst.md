@@ -1081,15 +1081,35 @@ First sentence:
 
 ## Installation of Jupyter
 
+Jupyter notebook နဲ့ run ဖို့အတွက် ပြင်ဆင်ခဲ့တာပါ။  
+
 pip3 install --upgrade pip  
 
 pip3 install jupyter  
 
 ## Testing with Port Forwarding
 
+နောက်ထပ် terminal တစ်ခု ဖွင့်ပြီး ကိုယ့် local စက်ကနေ run တာလည်း အဆင်ပြေပါတယ်။  
 
+## Datapreparation for Myanmar Data
 
-## GUI Testing 
+အရင် run ခဲ့တဲ့ Siamese မှာက TSV (Tab Separated Values) ဖိုင်ကို သုံးခဲ့တာမို့လို့ လက်ရှိ run ဖို့ ပြင်နေတဲ့ code မှာက CSV (Comma Separated Values) ဖိုင်မို့လို့ CSV ဖိုင် ပြောင်းဖို့အတွက် shell script တစ်ပုဒ် ရေးခဲ့တယ်။  
+
+```bash
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ cat ./tsv2csv.sh 
+#!/bin/bash
+
+baseName=`basename "$1"`
+
+cut -f1 $1 > col1.tmp
+cut -f2 $1 > col2.tmp
+cut -f3 $1 > col3.tmp
+
+paste -d "," col2.tmp col3.tmp col1.tmp > csv.tmp
+awk 'BEGIN{i=0} /.*/{printf "%d,% s\n",i,$0; i++}'  csv.tmp > $baseName.csv
+rm *.tmp;
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$
+```
 
 
 ## Training with Myanmar Data  
