@@ -1389,34 +1389,504 @@ I copied Myanmar paraphrase data to the GPU server ...
 Here, test.csv file is the open test data.  
 
 ```
+head -3 ./corpora/QQP/*.csv
+==> ./corpora/QQP/closed-test-qqp.csv <==
+"test_id","paraphrase1","paraphrase2"
+0,"ကောင်း လိုက် တဲ့ သတင်း လေး ပါ","ကောင်း သော သတင်း ပါ ပဲ"
+1,"ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။","ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။"
+
+==> ./corpora/QQP/test.csv <==
+"test_id","paraphrase1","paraphrase2"
+0,"၁၁ ဒေါ်လာ ကျ ပါ တယ် ။","၁၁ နာရီ လာ ခေါ် မယ် ။"
+1,"၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။","၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။"
+
+==> ./corpora/QQP/train.csv <==
+"id","pid1","pid2","paraphrase1","paraphrase2","is_paraphrase",
+"0","1","2","ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။","တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။","0"
+"1","2","3","ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။","ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။","0"
+```
+
+checked the GPU status ...  
+
+```
+$nvidia-smi
+Fri Dec  2 17:23:45 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.141.03   Driver Version: 470.141.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 29%   45C    P0    58W / 300W |      0MiB / 11019MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 62%   69C    P0    73W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 22%   64C    P0    69W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
 
 ```
 
+Start training ... and got error as follows:  
 
+```
+time python run.py train cnn QQP --experiment_name exp-CNN-MYPARA --gpu 1,2,3
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/trainer.py:25: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/collections.py:13: The name tf.GraphKeys is deprecated. Please use tf.compat.v1.GraphKeys instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:123: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:129: The name tf.add_to_collection is deprecated. Please use tf.compat.v1.add_to_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:131: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 1,2,3
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+Traceback (most recent call last):
+  File "run.py", line 281, in <module>
+    main()
+  File "run.py", line 275, in main
+    train(main_config, model_config, args.model, experiment_name, args.dataset)
+  File "run.py", line 41, in train
+    dataset = dataset_type.get_dataset(dataset_name)
+  File "/home/yekyaw.thu/exp/siamese/multihead-siamese-nets/data/dataset_type.py", line 21, in get_dataset
+    return DATASETS[dataset_name]()
+  File "/home/yekyaw.thu/exp/siamese/multihead-siamese-nets/data/qqp.py", line 12, in __init__
+    usecols=['question1', 'question2', 'is_duplicate'])
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 2056, in __init__
+    _validate_usecols_names(usecols, self.orig_names)
+  File "/home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/pandas/io/parsers.py", line 1305, in _validate_usecols_names
+    f"Usecols do not match columns, columns expected but not found: {missing}"
+ValueError: Usecols do not match columns, columns expected but not found: ['is_duplicate', 'question2', 'question1']
+
+real	0m1.905s
+user	0m2.199s
+sys	0m3.225s
+```
+
+## Adjust Column Names  
+
+As you can see in the above, I assumed the code is checking with the exact column names and thus, I updated the column names ...  
+
+```
+head -n 3 ./corpora/QQP/train.csv
+"id","qid1","qid2","question1","question2","is_duplicate"
+"0","1","2","ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။","တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။","0"
+"1","2","3","ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။","ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။","0"
+```
+
+for test.csv also ...  
+
+```
+head -n 3 ./corpora/QQP/test.csv 
+"test_id","question1","question2"
+0,"၁၁ ဒေါ်လာ ကျ ပါ တယ် ။","၁၁ နာရီ လာ ခေါ် မယ် ။"
+1,"၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။","၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။"
 ```
 
 ```
+$pwd
+/home/yekyaw.thu/exp/siamese/multihead-siamese-nets
+```
+
+## Training CNN Siamese with Myanmar Paraphrase Data 
+
+```
+time python run.py train cnn QQP --experiment_name exp-CNN-MYPARA
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/summarizer.py:9: The name tf.summary.merge is deprecated. Please use tf.compat.v1.summary.merge instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/helpers/trainer.py:25: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/collections.py:13: The name tf.GraphKeys is deprecated. Please use tf.compat.v1.GraphKeys instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:123: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:129: The name tf.add_to_collection is deprecated. Please use tf.compat.v1.add_to_collection instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/config.py:131: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/data_utils.py:7: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/other_utils.py:10: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+INFO:tensorflow:Setting visible GPU to 0
+INFO:tensorflow:Reading main configuration.
+INFO:tensorflow:Reading configuration for cnn model.
+INFO:tensorflow:Chosen word embeddings.
+INFO:tensorflow:Maximum sentence length : 41
+INFO:tensorflow:Processing sentences with word embeddings...
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tflearn/data_utils.py:201: VocabularyProcessor.__init__ (from tensorflow.contrib.learn.python.learn.preprocessing.text) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/contrib/learn/python/learn/preprocessing/text.py:154: CategoricalVocabulary.__init__ (from tensorflow.contrib.learn.python.learn.preprocessing.categorical_vocabulary) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+INFO:tensorflow:Sentences have been successfully processed.
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/contrib/learn/python/learn/preprocessing/text.py:170: tokenizer (from tensorflow.contrib.learn.python.learn.preprocessing.text) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use tensorflow/transform or tf.data.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:15: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:28: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:29: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:21: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/convolution.py:27: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:32: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/losses.py:55: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/ops/losses/losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/layers/basics.py:66: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:42: The name tf.rint is deprecated. Please use tf.math.rint instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:43: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:47: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/models/base_model.py:49: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From /home/yekyaw.thu/exp/siamese/multihead-siamese-nets/utils/model_saver.py:9: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+WARNING:tensorflow:From run.py:73: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From run.py:78: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-12-02 17:35:14.989470: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-12-02 17:35:15.169145: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3499560000 Hz
+2022-12-02 17:35:15.170532: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x558db4c53f20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-12-02 17:35:15.170568: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-12-02 17:35:15.184055: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-12-02 17:35:17.041716: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x558db3966010 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-12-02 17:35:17.041750: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2022-12-02 17:35:17.042913: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.65
+pciBusID: 0000:0a:00.0
+2022-12-02 17:35:17.043074: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043155: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043231: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043308: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043381: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043455: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043531: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory
+2022-12-02 17:35:17.043546: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1662] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-12-02 17:35:17.043568: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-12-02 17:35:17.043581: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0 
+2022-12-02 17:35:17.043590: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N 
+WARNING:tensorflow:From run.py:80: The name tf.global_variables_initializer is deprecated. Please use tf.compat.v1.global_variables_initializer instead.
+
+INFO:tensorflow:Training model for 10 epochs
+Epochs:   0%|                                            | 0/10 [00:00<?, ?it/s]
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   1%| | 1/70 [00:00<00:46,  1.49it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:   6%| | 4/70 [00:00<00:31,  2.08it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  10%| | 7/70 [00:00<00:21,  2.89it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  14%|▏| 10/70 [00:00<00:15,  3.95it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  19%|▏| 13/70 [00:01<00:10,  5.34it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  23%|▏| 16/70 [00:01<00:07,  7.07it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  27%|▎| 19/70 [00:01<00:05,  9.15it/s, dev_acc=0.64, epoch=0, loss=0.25, train_acc=0.66]
+Batches:  31%|▎| 22/70 [00:01<00:04, 11.37it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  36%|▎| 25/70 [00:01<00:03, 13.91it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  40%|▍| 28/70 [00:01<00:02, 16.50it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  44%|▍| 31/70 [00:01<00:02, 19.03it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  49%|▍| 34/70 [00:01<00:01, 21.36it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  53%|▌| 37/70 [00:01<00:01, 23.20it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  57%|▌| 40/70 [00:02<00:01, 24.68it/s, dev_acc=0.83, epoch=0, loss=0.14, train_acc=0.85]
+Batches:  61%|▌| 43/70 [00:02<00:01, 24.66it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  66%|▋| 46/70 [00:02<00:00, 25.79it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  70%|▋| 49/70 [00:02<00:00, 26.42it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  74%|▋| 52/70 [00:02<00:00, 27.21it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  79%|▊| 55/70 [00:02<00:00, 27.79it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  83%|▊| 58/70 [00:02<00:00, 28.15it/s, dev_acc=0.84, epoch=0, loss=0.11, train_acc=0.88]
+Batches:  87%|▊| 61/70 [00:02<00:00, 27.25it/s, dev_acc=0.85, epoch=0, loss=0.11, train_acc=0.90]
+Batches:  91%|▉| 64/70 [00:02<00:00, 27.89it/s, dev_acc=0.85, epoch=0, loss=0.11, train_acc=0.90]
+Batches:  96%|▉| 67/70 [00:02<00:00, 28.07it/s, dev_acc=0.85, epoch=0, loss=0.11, train_acc=0.90]
+Batches: 100%|█| 70/70 [00:03<00:00, 28.30it/s, dev_acc=0.85, epoch=0, loss=0.11, train_acc=0.90]
+Epochs:  10%|███▌                                | 1/10 [00:03<00:30,  3.42s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 24.83it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:   9%| | 6/70 [00:00<00:02, 25.91it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:  13%|▏| 9/70 [00:00<00:02, 26.89it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.15it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:  21%|▏| 15/70 [00:00<00:01, 27.74it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.08it/s, dev_acc=0.86, epoch=1, loss=0.11, train_acc=0.90]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.30it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  34%|▎| 24/70 [00:00<00:01, 27.90it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.43it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  43%|▍| 30/70 [00:01<00:01, 25.76it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  47%|▍| 33/70 [00:01<00:01, 26.56it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  51%|▌| 36/70 [00:01<00:01, 27.31it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  56%|▌| 39/70 [00:01<00:01, 27.83it/s, dev_acc=0.87, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  60%|▌| 42/70 [00:01<00:01, 27.16it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  64%|▋| 45/70 [00:01<00:00, 27.74it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.13it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.55it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  77%|▊| 54/70 [00:01<00:00, 28.75it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  81%|▊| 57/70 [00:02<00:00, 28.80it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  86%|▊| 60/70 [00:02<00:00, 28.81it/s, dev_acc=0.89, epoch=1, loss=0.10, train_acc=0.90]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.84it/s, dev_acc=0.88, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.30it/s, dev_acc=0.88, epoch=1, loss=0.09, train_acc=0.90]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.63it/s, dev_acc=0.88, epoch=1, loss=0.09, train_acc=0.90]
+Epochs:  20%|███████▏                            | 2/10 [00:05<00:25,  3.17s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.73it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:   9%| | 6/70 [00:00<00:02, 26.67it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.39it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:  17%|▏| 12/70 [00:00<00:02, 28.00it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:  21%|▏| 15/70 [00:00<00:01, 28.43it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.66it/s, dev_acc=0.87, epoch=2, loss=0.08, train_acc=0.91]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.70it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  34%|▎| 24/70 [00:00<00:01, 28.27it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.56it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.71it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.94it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.97it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  56%|▌| 39/70 [00:01<00:01, 29.00it/s, dev_acc=0.88, epoch=2, loss=0.10, train_acc=0.90]
+Batches:  60%|▌| 42/70 [00:01<00:01, 27.93it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.28it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.71it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.81it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  77%|▊| 54/70 [00:01<00:00, 29.04it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  81%|▊| 57/70 [00:01<00:00, 29.10it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  86%|▊| 60/70 [00:02<00:00, 26.01it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.90]
+Batches:  90%|▉| 63/70 [00:02<00:00, 25.94it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.91]
+Batches:  94%|▉| 66/70 [00:02<00:00, 26.86it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.91]
+Batches:  99%|▉| 69/70 [00:02<00:00, 27.59it/s, dev_acc=0.88, epoch=2, loss=0.09, train_acc=0.91]
+Epochs:  30%|██████████▊                         | 3/10 [00:08<00:20,  2.99s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.78it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:   9%| | 6/70 [00:00<00:02, 26.70it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.42it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.98it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  21%|▏| 15/70 [00:00<00:01, 28.46it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.49it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.41it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  34%|▎| 24/70 [00:00<00:01, 27.92it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.10it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.41it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.61it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.80it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  56%|▌| 39/70 [00:01<00:01, 28.99it/s, dev_acc=0.88, epoch=3, loss=0.08, train_acc=0.91]
+Batches:  60%|▌| 42/70 [00:01<00:01, 27.87it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.25it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.50it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.72it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  77%|▊| 54/70 [00:01<00:00, 28.74it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  81%|▊| 57/70 [00:02<00:00, 28.88it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  86%|▊| 60/70 [00:02<00:00, 28.92it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.91]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.96it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.92]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.50it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.92]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.63it/s, dev_acc=0.88, epoch=3, loss=0.09, train_acc=0.92]
+                                                                                                 WARNING:tensorflow:From /home/yekyaw.thu/.conda/envs/siamese/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:963: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+Epochs:  40%|██████████████▍                     | 4/10 [00:11<00:17,  2.85s/it]
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.22it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:   9%| | 6/70 [00:00<00:02, 26.18it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.08it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.71it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:  21%|▏| 15/70 [00:00<00:01, 27.93it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.22it/s, dev_acc=0.88, epoch=4, loss=0.09, train_acc=0.91]
+Batches:  30%|▎| 21/70 [00:00<00:02, 24.35it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  34%|▎| 24/70 [00:00<00:01, 25.56it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  39%|▍| 27/70 [00:01<00:01, 26.51it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  43%|▍| 30/70 [00:01<00:01, 27.27it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  47%|▍| 33/70 [00:01<00:01, 27.92it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.24it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  56%|▌| 39/70 [00:01<00:01, 28.57it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.92]
+Batches:  60%|▌| 42/70 [00:01<00:01, 27.50it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.10it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.41it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.69it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  77%|▊| 54/70 [00:01<00:00, 28.88it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  81%|▊| 57/70 [00:02<00:00, 29.03it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  86%|▊| 60/70 [00:02<00:00, 29.13it/s, dev_acc=0.89, epoch=4, loss=0.09, train_acc=0.92]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.98it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.91]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.28it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.91]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.14it/s, dev_acc=0.88, epoch=4, loss=0.08, train_acc=0.91]
+Epochs:  50%|██████████████████                  | 5/10 [00:13<00:13,  2.77s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.08it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:   9%| | 6/70 [00:00<00:02, 26.28it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.13it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.37it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  21%|▏| 15/70 [00:00<00:01, 27.85it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  26%|▎| 18/70 [00:00<00:01, 27.88it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.13it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  34%|▎| 24/70 [00:00<00:01, 27.70it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.02it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.47it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.68it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.94it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  56%|▌| 39/70 [00:01<00:01, 29.23it/s, dev_acc=0.88, epoch=5, loss=0.08, train_acc=0.92]
+Batches:  60%|▌| 42/70 [00:01<00:00, 28.25it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.42it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.78it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  73%|▋| 51/70 [00:01<00:00, 25.59it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  77%|▊| 54/70 [00:01<00:00, 26.68it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  81%|▊| 57/70 [00:02<00:00, 27.47it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  86%|▊| 60/70 [00:02<00:00, 28.08it/s, dev_acc=0.89, epoch=5, loss=0.07, train_acc=0.93]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.23it/s, dev_acc=0.89, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  94%|▉| 66/70 [00:02<00:00, 27.80it/s, dev_acc=0.89, epoch=5, loss=0.08, train_acc=0.93]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.27it/s, dev_acc=0.89, epoch=5, loss=0.08, train_acc=0.93]
+Epochs:  60%|█████████████████████▌              | 6/10 [00:16<00:10,  2.71s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 26.02it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:   9%| | 6/70 [00:00<00:02, 26.97it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.64it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:  17%|▏| 12/70 [00:00<00:02, 28.17it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:  21%|▏| 15/70 [00:00<00:01, 28.35it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.60it/s, dev_acc=0.89, epoch=6, loss=0.09, train_acc=0.93]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.67it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  34%|▎| 24/70 [00:00<00:01, 28.33it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.60it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.87it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.90it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.99it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  56%|▌| 39/70 [00:01<00:01, 29.10it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  60%|▌| 42/70 [00:01<00:00, 28.09it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.39it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.75it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.97it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  77%|▊| 54/70 [00:01<00:00, 29.05it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  81%|▊| 57/70 [00:01<00:00, 29.10it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  86%|▊| 60/70 [00:02<00:00, 29.13it/s, dev_acc=0.88, epoch=6, loss=0.08, train_acc=0.93]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.65it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.08it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.36it/s, dev_acc=0.89, epoch=6, loss=0.08, train_acc=0.92]
+Epochs:  70%|█████████████████████████▏          | 7/10 [00:18<00:07,  2.65s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.25it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:   9%| | 6/70 [00:00<00:02, 26.35it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.24it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  16%|▏| 11/70 [00:00<00:02, 23.02it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  20%|▏| 14/70 [00:00<00:02, 24.55it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  24%|▏| 17/70 [00:00<00:02, 25.88it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  29%|▎| 20/70 [00:00<00:01, 26.89it/s, dev_acc=0.89, epoch=7, loss=0.07, train_acc=0.93]
+Batches:  33%|▎| 23/70 [00:00<00:01, 26.45it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  37%|▎| 26/70 [00:00<00:01, 26.95it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  41%|▍| 29/70 [00:01<00:01, 27.68it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  46%|▍| 32/70 [00:01<00:01, 28.13it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  50%|▌| 35/70 [00:01<00:01, 28.49it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  54%|▌| 38/70 [00:01<00:01, 28.74it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.92]
+Batches:  59%|▌| 41/70 [00:01<00:01, 27.78it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  63%|▋| 44/70 [00:01<00:00, 28.18it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  67%|▋| 47/70 [00:01<00:00, 28.55it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  71%|▋| 50/70 [00:01<00:00, 28.78it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  76%|▊| 53/70 [00:01<00:00, 28.94it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  80%|▊| 56/70 [00:02<00:00, 28.93it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  84%|▊| 59/70 [00:02<00:00, 28.72it/s, dev_acc=0.89, epoch=7, loss=0.08, train_acc=0.91]
+Batches:  89%|▉| 62/70 [00:02<00:00, 27.75it/s, dev_acc=0.89, epoch=7, loss=0.09, train_acc=0.92]
+Batches:  93%|▉| 65/70 [00:02<00:00, 27.86it/s, dev_acc=0.89, epoch=7, loss=0.09, train_acc=0.92]
+Batches:  97%|▉| 68/70 [00:02<00:00, 28.28it/s, dev_acc=0.89, epoch=7, loss=0.09, train_acc=0.92]
+Epochs:  80%|████████████████████████████▊       | 8/10 [00:21<00:05,  2.63s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.57it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:   9%| | 6/70 [00:00<00:02, 26.56it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:  13%|▏| 9/70 [00:00<00:02, 27.19it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.62it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:  21%|▏| 15/70 [00:00<00:01, 28.09it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.34it/s, dev_acc=0.88, epoch=8, loss=0.08, train_acc=0.93]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.46it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  34%|▎| 24/70 [00:00<00:01, 28.04it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.47it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.65it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.72it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  51%|▌| 36/70 [00:01<00:01, 28.99it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  56%|▌| 39/70 [00:01<00:01, 29.08it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.92]
+Batches:  60%|▌| 42/70 [00:01<00:01, 24.61it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  64%|▋| 45/70 [00:01<00:00, 25.93it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  69%|▋| 48/70 [00:01<00:00, 26.83it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  73%|▋| 51/70 [00:01<00:00, 27.63it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  77%|▊| 54/70 [00:01<00:00, 28.09it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  81%|▊| 57/70 [00:02<00:00, 28.20it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  86%|▊| 60/70 [00:02<00:00, 28.37it/s, dev_acc=0.89, epoch=8, loss=0.09, train_acc=0.93]
+Batches:  90%|▉| 63/70 [00:02<00:00, 27.66it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.93]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.10it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.93]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.58it/s, dev_acc=0.89, epoch=8, loss=0.07, train_acc=0.93]
+Epochs:  90%|████████████████████████████████▍   | 9/10 [00:23<00:02,  2.61s/it]                 
+Batches:   0%|                                    | 0/70 [00:00<?, ?it/s, acc=0]
+Batches:   4%| | 3/70 [00:00<00:02, 25.37it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:   9%| | 6/70 [00:00<00:02, 26.11it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:  13%|▏| 9/70 [00:00<00:02, 26.96it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:  17%|▏| 12/70 [00:00<00:02, 27.71it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:  21%|▏| 15/70 [00:00<00:01, 28.17it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:  26%|▎| 18/70 [00:00<00:01, 28.34it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.94]
+Batches:  30%|▎| 21/70 [00:00<00:01, 27.55it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  34%|▎| 24/70 [00:00<00:01, 28.00it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  39%|▍| 27/70 [00:00<00:01, 28.25it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  43%|▍| 30/70 [00:01<00:01, 28.67it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  47%|▍| 33/70 [00:01<00:01, 28.89it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  51%|▌| 36/70 [00:01<00:01, 29.14it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  56%|▌| 39/70 [00:01<00:01, 28.99it/s, dev_acc=0.89, epoch=9, loss=0.08, train_acc=0.93]
+Batches:  60%|▌| 42/70 [00:01<00:01, 27.82it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  64%|▋| 45/70 [00:01<00:00, 28.42it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  69%|▋| 48/70 [00:01<00:00, 28.70it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  73%|▋| 51/70 [00:01<00:00, 28.60it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  77%|▊| 54/70 [00:01<00:00, 28.88it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  81%|▊| 57/70 [00:01<00:00, 29.07it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  86%|▊| 60/70 [00:02<00:00, 29.27it/s, dev_acc=0.89, epoch=9, loss=0.07, train_acc=0.93]
+Batches:  90%|▉| 63/70 [00:02<00:00, 28.18it/s, dev_acc=0.90, epoch=9, loss=0.09, train_acc=0.94]
+Batches:  94%|▉| 66/70 [00:02<00:00, 28.46it/s, dev_acc=0.90, epoch=9, loss=0.09, train_acc=0.94]
+Batches:  99%|▉| 69/70 [00:02<00:00, 28.76it/s, dev_acc=0.90, epoch=9, loss=0.09, train_acc=0.94]
+Epochs: 100%|███████████████████████████████████| 10/10 [00:26<00:00,  2.60s/it]                 
+
+real	0m33.637s
+user	8m27.152s
+sys	0m8.997s
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+## Training 
 ```
 
 ```
