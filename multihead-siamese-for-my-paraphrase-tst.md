@@ -1079,6 +1079,16 @@ Second sentence:What should I do to be a great geologist?
 First sentence:
 ```
 
+## Installation of Jupyter
+
+pip3 install --upgrade pip  
+
+pip3 install jupyter  
+
+## Testing with Port Forwarding
+
+
+
 ## GUI Testing 
 
 
