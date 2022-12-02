@@ -1116,7 +1116,6 @@ Run as follows:
 ```
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./closed-test 
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./open-test.final.manual 
-(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./train.txt 
 ```
 
 check the output file format and I found error on train.txt.csv file ...  
@@ -1132,12 +1131,49 @@ check the output file format and I found error on train.txt.csv file ...
 0,၁၁ ဒေါ်လာ ကျ ပါ တယ် ။,၁၁ နာရီ လာ ခေါ် မယ် ။,0
 1,၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။,၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။,0
 2,၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။,၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။,0
+```
 
-==> train.txt.csv <==
-0,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။
-1,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0,​ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။
-2,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0,​ ကျေးဇူး အများကြီး တင် ပါ တယ် ။
-(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ 
+Prepare a code for the training data ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ cat tsv2csv4train.sh 
+#!/bin/bash
+# this script is for the training data (i.e. different with test data tsv file format)  
+
+baseName=`basename "$1"`
+
+cut -f1 $1 > col1.tmp
+cut -f2 $1 > col2.tmp
+cut -f3 $1 > col3.tmp
+
+paste -d "," col1.tmp col2.tmp col3.tmp > csv.tmp
+awk 'BEGIN{i=0} /.*/{printf "%d,% s\n",i,$0; i++}'  csv.tmp > $baseName.csv
+rm *.tmp;
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$
+```
+
+running as follows:  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv4train.sh train 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ls
+closed-test.csv  open-test.final.manual.csv  train  train.csv  tsv2csv4train.sh  tsv2csv.sh
+```
+
+head command နဲ့ စစ်ကြည့်တဲ့အခါမှာ <200b> တွေ ရောပါနေသေးတယ် ဆိုတာကို တွေ့ရတယ်။  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ head train.csv
+0,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0
+1,​ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0
+2,​ ကျေးဇူး အများကြီး တင် ပါ တယ် ။,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0
+3,​ ကျောင်းအုပ်ကြီး က တော် တဲ့ ကျောင်းသား တွေ ကို ချီးကျူး ကြ တယ် ။,ကျောင်းအုပ်ကြီး က ဆိုး တဲ့ ကျောင်းသား တွေ ကို ဒဏ်ပေး ကြ တယ် ။,0
+4,​ ကောင်း ပြီ ကျွန်တော် လုပ် ပါ့ မယ် ။,ကောင်း ပြီ ကျွန်တော် ဒီ အလုပ် ကို လက်မခံ တော့ ဘူး ။,0
+5,​ ကောင်း သော ည ပါ ။,ကောင်း သော နေ့ ပါ ။,0
+6,ကောင်လေး က လူကြီး ကို ရှင်းရှင်းလင်းလင်း မြင် နေ တယ် ။,သာယာတဲ့ နေ့ကလေး ပါပဲ ။,0
+7,ခဏအကြာမှာ ကျွန်တော် ခင်ဗျား ကို ပြန်ဆက် ပါရစေ ။,ခဏ ကြာတော့ သူမ တည်ငြိမ် စပြုလာ ပြီး သူ ပြောတာကို နားထောင် နေတော့တယ် ။,0
+8,ခေါင်မိုး ပေါ်မှာ ကြောင် တစ်ကောင် ရှိ တယ် ။,အတန်း လွတ်သွားမှာ စိုးတယ် ။,0
+9,ငါ ခိုင်းတာ မင်း လုပ် ခဲ့လား ။,ဒါက အသစ် တပ်ဆင်မှာ ဖြစ် တယ် ။,0
 ```
 
 ## Training with Myanmar Data  
