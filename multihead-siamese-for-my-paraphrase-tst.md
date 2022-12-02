@@ -1200,8 +1200,14 @@ Check the number of sentences ...
 
 ## Training with Myanmar Data  
 
-```
 
+I copied Myanmar paraphrase data to the GPU server ...  
+Here, test.csv file is the open test data.  
+
+```
+(base) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/MYPARA$ ls
+closed-test.csv  test.csv  train.csv
+(base) yekyaw.thu@gpu:~/exp/siamese/multihead-siamese-nets/corpora/MYPARA$
 ```
 
 ```
