@@ -1286,9 +1286,17 @@ output file format ...
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
 ```
 
+confirmation on number of sentences ...  
 
 ```
-
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc closed-test.csv 
+  1000  14906 206125 closed-test.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc closed-test-qqp.csv 
+  1001  14907 208163 closed-test-qqp.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc open-test.final.manual.csv 
+  1000  10706 142470 open-test.final.manual.csv
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ wc open-test.final.manual-qqp.csv 
+  1001  10699 144369 open-test.final.manual-qqp.csv
 ```
 
 
