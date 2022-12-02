@@ -1111,6 +1111,34 @@ rm *.tmp;
 (multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$
 ```
 
+Run as follows:  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./closed-test 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./open-test.final.manual 
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ ./tsv2csv.sh ./train.txt 
+```
+
+check the output file format and I found error on train.txt.csv file ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ head -3 *.csv
+==> closed-test.csv <==
+0,ကောင်း လိုက် တဲ့ သတင်း လေး ပါ,ကောင်း သော သတင်း ပါ ပဲ,1
+1,ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။,ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။,0
+2,ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်,ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်,1
+
+==> open-test.final.manual.csv <==
+0,၁၁ ဒေါ်လာ ကျ ပါ တယ် ။,၁၁ နာရီ လာ ခေါ် မယ် ။,0
+1,၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။,၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။,0
+2,၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။,၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။,0
+
+==> train.txt.csv <==
+0,တစ်ခါတစ်ခါ ကျွန်တော်က ခင်ဗျား ကို အရမ်း အပြောင်းအလဲများတဲ့လူ လို့ ထင်မိတယ် ။,0,ကျွန်တော် စီး ဖို့ ချစ်စရာ ဖိနပ် တစ် ရံ ကို ရှာ မတွေ့လို့ပါ ။
+1,ကျေးဇူး နော် ၊ ဘယ်တော့ ပြန် တွေ့ ကြ မလဲ ။,0,​ ကျေးဇူး ပဲ ၊ ကျွန်တော် ဘယ်လောက် ပေး ရ မလဲ ။
+2,ကျေးဇူးတင် တယ် လို့ မ ပြော သွား ဘူး ။,0,​ ကျေးဇူး အများကြီး တင် ပါ တယ် ။
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv$ 
+```
 
 ## Training with Myanmar Data  
 
