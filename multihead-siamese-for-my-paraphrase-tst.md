@@ -1890,7 +1890,7 @@ sys	0m8.997s
 
 
 <p align="center">
-<img src="[https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/accuracy-CNN-Siamese-myParaphrase.png](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/accuracy-CNN-Siamese-myParaphrase.png)" alt="Accuracy Graph for CNN" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/accuracy-CNN-Siamese-myParaphrase.png" alt="Accuracy Graph for CNN" width="800"/>  
 </p>  
 <div align="center">
   Fig.3 Accuracy graph for CNN Siamese model training/validation with myParaphrase dataset  
