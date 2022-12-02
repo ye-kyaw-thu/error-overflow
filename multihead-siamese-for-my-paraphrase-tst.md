@@ -1198,6 +1198,100 @@ Check the number of sentences ...
   42461  617064 8929083 total
 ```
 
+## CSV to QQP Format
+
+တကယ့် QQP format ကို ညှိဖို့အတွက် perl script နှစ်ပုဒ်ရေးပြင်ဆင်ခဲ့တယ်။ ပထမဆုံး test data အတွက် ရေးခဲ့တဲ့ perl script က အောက်ပါအတိုင်း ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ cat ./qqp-test-format.pl 
+#!/usr/bin/env perl
+
+# Change csv file to QQP csv format
+# Ye Kyaw Thu, LST, NECTEC, Thailand
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+open (my $inputFILE,"<:encoding(utf8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+print("\"test_id\",\"paraphrase1\",\"paraphrase2\"\n");
+
+while (!eof($inputFILE)) {
+     
+    my $line = <$inputFILE>;
+    if (($line ne '') & ($line !~ /^ *$/)) {
+        chomp($line);
+        my ($col1, $col2, $col3) = split(",", $line);
+        print("$col1,\"$col2\",\"$col3\"\n");
+    }
+
+}
+
+close ($inputFILE);
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
+```
+
+အောက်ပါအတိုင်း run ခဲ့တယ်။  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ perl ./qqp-test-format.pl ./closed-test.csv > closed-test-qqp.csv
+```
+
+input or original file format က အောက်ပါအတိုင်း ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 closed-test.csv 
+0,ကောင်း လိုက် တဲ့ သတင်း လေး ပါ,ကောင်း သော သတင်း ပါ ပဲ,1
+1,ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။,ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။,0
+2,ကျွန်မ ဘက် က စ ပြီး ကျေအေး ပေး တယ် နော်,ကျွန်မ ဘက် က စ ပြီး ကျေလည် တာ နော်,1
+```
+
+convert လုပ်ပြီး ထွက်လာတဲ့ output format က အောက်ပါအတိုင်းပါ ....  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./closed-test-qqp.csv 
+"test_id","paraphrase1","paraphrase2"
+0,"ကောင်း လိုက် တဲ့ သတင်း လေး ပါ","ကောင်း သော သတင်း ပါ ပဲ"
+1,"ခု ဒီ တံဆိပ် က ဈေးလိုက် နေ တယ် ။","ဒီ တံဆိပ် က ဈေး အရမ်း တက် နေ တယ် ။"
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
+```
+
+open test data အတွက်လည်း ပြင်ဆင်ခဲ့ ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ perl ./qqp-test-format.pl ./open-test.final.manual.csv > ./open-test.final.manual-qqp.csv
+```
+
+input file format ...   
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual.csv 
+0,၁၁ ဒေါ်လာ ကျ ပါ တယ် ။,၁၁ နာရီ လာ ခေါ် မယ် ။,0
+1,၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။,၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။,0
+2,၁၁:၃၀ ပြန်ရောက် မယ် လို့ ထင် သလား ။,၁၁:၃၀ အတိ မှာ ပြန်ရောက် လာ ခဲ့ တယ် ။,0
+```
+
+output file format ...  
+
+```
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$ head -n 3 ./open-test.final.manual-qqp.csv 
+"test_id","paraphrase1","paraphrase2"
+0,"၁၁ ဒေါ်လာ ကျ ပါ တယ် ။","၁၁ နာရီ လာ ခေါ် မယ် ။"
+1,"၁၁ နာရီ ခွဲ အိမ် ပြန် မယ် ။","၁၁ နာရီ ခွဲ အရောက် လာ ပါ ။"
+(multihead-siamese) ye@ykt-pro:~/Downloads/2mmt/manual-my2/4release/csv-qqp$
+```
+
+
+```
+
+```
+
+
 ## Training with Myanmar Data  
 
 
