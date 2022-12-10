@@ -853,6 +853,7 @@ sys	0m0.320s
 
 ## Re-confirm Default 
 
+Running with default parameters ...  
 ```
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp 
 Read 0M words
@@ -871,6 +872,29 @@ R@1	0.954
 real	0m0.018s
 user	0m0.018s
 sys	0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+2-gram and default ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 2
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874454 lr:  0.000000 avg.loss:  0.137124 ETA:   0h 0m 0s
+
+real	0m5.143s
+user	0m4.242s
+sys	0m0.731s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.97
+R@1	0.97
+
+real	0m0.345s
+user	0m0.032s
+sys	0m0.313s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
 ```
 
