@@ -287,3 +287,35 @@ user	0m0.014s
 sys	0m0.004s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
 ```
+
+## Training with 3gram
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-3gram -wordNgrams 3
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874331 lr:  0.000000 avg.loss:  0.143056 ETA:   0h 0m 0s
+
+real	0m5.585s
+user	0m4.692s
+sys	0m0.681s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+Testing with 3-gram model ...  
+
+Wow! Now we got 97 precision and recall! :)  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-3gram.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.97
+R@1	0.97
+
+real	0m0.367s
+user	0m0.056s
+sys	0m0.310s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
