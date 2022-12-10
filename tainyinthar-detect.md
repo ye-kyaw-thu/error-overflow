@@ -319,3 +319,29 @@ sys	0m0.310s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
 ```
 
+## Training/Testing with 3-gram and 25 epoch
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-3gram-25epoch -wordNgrams 3 -epoch 25
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread: 1010528 lr:  0.000000 avg.loss:  0.053030 ETA:   0h 0m 0s
+
+real	0m6.342s
+user	0m16.184s
+sys	0m0.721s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-3gram-25epoch.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.968
+R@1	0.968
+
+real	0m0.365s
+user	0m0.056s
+sys	0m0.308s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
