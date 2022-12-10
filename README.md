@@ -159,5 +159,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 152. [Testing-log-of-ViT-Keras-with-CIFAR-10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Testing-log-of-ViT-Keras-with-CIFAR-10.md)  
 153. [running-jupyter-on-server-and-port-forwarding.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/running-jupyter-on-server-and-port-forwarding.md)  
 154. [multihead-siamese-network-tst.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/multihead-siamese-network-tst.md)  
+155. [tainyinthar-detect.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tainyinthar-detect.md)  
 
 
