@@ -345,3 +345,193 @@ user	0m0.056s
 sys	0m0.308s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
 ```
+
+## Playing with n-gram
+
+1-gram training/testing ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 1
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread: 1311308 lr:  0.000000 avg.loss:  0.172516 ETA:   0h 0m 0s
+
+real	0m0.375s
+user	0m2.481s
+sys	0m0.040s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.955
+R@1	0.955
+
+real	0m0.018s
+user	0m0.017s
+sys	0m0.000s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+2-gram training/testing ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 2
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874318 lr:  0.000000 avg.loss:  0.134431 ETA:   0h 0m 0s
+
+real	0m4.999s
+user	0m4.171s
+sys	0m0.692s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.97
+R@1	0.97
+
+real	0m0.343s
+user	0m0.052s
+sys	0m0.289s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+playing with 3-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 3
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  873795 lr:  0.000000 avg.loss:  0.145663 ETA:   0h 0m 0s
+
+real	0m4.870s
+user	0m4.760s
+sys	0m0.739s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.97
+R@1	0.97
+
+real	0m0.356s
+user	0m0.052s
+sys	0m0.303s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+training/testing with 4-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 4
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  873765 lr:  0.000000 avg.loss:  0.157056 ETA:   0h 0m 0s
+
+real	0m4.808s
+user	0m5.186s
+sys	0m0.727s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.968
+R@1	0.968
+
+real	0m0.367s
+user	0m0.068s
+sys	0m0.299s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+training/testing with 5-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 5
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  656184 lr:  0.000000 avg.loss:  0.182098 ETA:   0h 0m 0s
+
+real	0m5.020s
+user	0m5.771s
+sys	0m0.726s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.967
+R@1	0.967
+
+real	0m0.372s
+user	0m0.056s
+sys	0m0.315s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+training/testing with 6-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 6
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  655627 lr:  0.000000 avg.loss:  0.193838 ETA:   0h 0m 0s
+
+real	0m4.927s
+user	0m5.852s
+sys	0m0.725s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.966
+R@1	0.966
+
+real	0m0.376s
+user	0m0.064s
+sys	0m0.310s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+training/testing with 7-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 7
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  524682 lr:  0.000000 avg.loss:  0.211927 ETA:   0h 0m 0s
+
+real	0m5.050s
+user	0m6.637s
+sys	0m0.744s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean 
+N	4964
+P@1	0.966
+R@1	0.966
+
+real	0m0.380s
+user	0m0.076s
+sys	0m0.304s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+
+## Playing with Number of Epochs ...  
+
+```
+
+```
+
+
+```
+
+```
+
+
+```
+
+```
+
+
+```
+
+```
