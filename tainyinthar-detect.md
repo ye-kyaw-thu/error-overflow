@@ -1211,6 +1211,8 @@ sys	0m0.320s
 
 ## Summary Table
 
+### training/testing with default parameters
+
 <p align="center">
  Table.1 Precision and Recall of 1-gram to 7-gram models
 </p>
@@ -1229,8 +1231,10 @@ sys	0m0.320s
 </div>
 <br />
 
+### training/testing with various epochs
+
 <p align="center">
- Table.1 Precision and Recall of 1-gram to 3-gram models with various epochs
+ Table.2 Precision and Recall of 1-gram to 3-gram models with various epochs
 </p>
 
 <div align="center">
@@ -1240,6 +1244,56 @@ sys	0m0.320s
 | 1-gram | 0.957 | 0.956 | 0.955 | 0.956 | 0.956 |
 | 2-gram | 0.970 | 0.969 | 0.967 | 0.967 | 0.967 |
 | 3-gram | 0.968 | 0.968 | 0.969 | 0.968 | 0.968 |
+
+</div>
+<br />
+
+### F-1, precision and recall for each label or each class
+
+<p align="center">
+ Table.3 F-1 score, Precision and Recall of each class for 1-gram model
+</p>
+
+<div align="center">
+
+|Class-name| F-1 Score | Precision | Recall |
+|------|------:|------:|------:|
+| __label__rk | 0.974 | 0. | 0. |
+| __label__my | 0. | 0. | 0. |
+| __label__dw | 0. | 0. | 0. |
+| __label__bk | 0. | 0. | 0. |
+
+</div>
+<br />
+
+<p align="center">
+ Table.4 F-1 score, Precision and Recall of each class for 2-gram model
+</p>
+
+<div align="center">
+
+|Class-name| F-1 Score | Precision | Recall |
+|------|------:|------:|------:|
+| __label__rk | 0.974 | 0. | 0. |
+| __label__my | 0. | 0. | 0. |
+| __label__dw | 0. | 0. | 0. |
+| __label__bk | 0. | 0. | 0. |
+
+</div>
+<br />
+
+<p align="center">
+ Table.5 F-1 score, Precision and Recall of each class for 3-gram model
+</p>
+
+<div align="center">
+
+|Class-name| F-1 Score | Precision | Recall |
+|------|------:|------:|------:|
+| __label__rk | 0.974 | 0. | 0. |
+| __label__my | 0. | 0. | 0. |
+| __label__dw | 0. | 0. | 0. |
+| __label__bk | 0. | 0. | 0. |
 
 </div>
 <br />
