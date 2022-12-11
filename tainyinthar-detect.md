@@ -1209,7 +1209,7 @@ sys	0m0.320s
 ```
 
 
-## Summary Table
+## Summary
 
 ### training/testing with default parameters
 
