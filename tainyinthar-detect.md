@@ -917,3 +917,18 @@ sys	0m0.313s
 | 7-gram | 0.966 | 0.966 | 0m5.050s | 0m0.380s |
 </div>
 <br />
+
+<p align="center">
+ Table.1 Precision and Recall of 1-gram to 3-gram models with various epochs
+</p>
+
+<div align="center">
+
+|n-gram| 10 epochs | 20 epochs | 30 epochs| 40 epochs | 50 epochs |
+|------|------:|------:|------:|------:|
+| 1-gram | 0.957 | 0.956 | 0.955 | 0.956 | 0.956 |
+| 2-gram | 0.970 | 0.969 | 0.967 | 0.967 | 0.967 |
+| 3-gram | 0.968 | 0.968 | 0.969 | 0.968 | 0.968 |
+
+</div>
+<br />
