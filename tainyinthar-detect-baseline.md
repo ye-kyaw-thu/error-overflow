@@ -663,13 +663,10 @@ sys	0m0.760s
 (tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
 ```
 
-## SGD Tunning Result
-
-```
-
-```
 
 ## Summary  
+
+အချိန်ရတဲ့အခါမှာ အထက်က result တွေကို ဇယားဆောက်ပြီး compare လုပ်ကြည့်ရန် ...  
 
 ```
 
