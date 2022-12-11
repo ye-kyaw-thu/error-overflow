@@ -382,16 +382,109 @@ Check the converted file:
 (base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ 
 ```
 
-```
+## Replace train.csv, test.csv Files on Server
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/data/number-csv$ cp train.no.csv ../../scripts/csv/
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/data/number-csv$ cp test.no.csv ../../scripts/csv/
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/data/number-csv$ cd ../../scripts/csv/
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ ls
+test.csv  test.no.csv  train.csv  train.no.csv	without-header
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ rm train.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ rm test.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ ls
+test.no.csv  train.no.csv  without-header
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv train.no.csv train.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv test.no.csv test.csv
 ```
 
-```
+Add headers ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ head -n 3 train.csv 
+text	label
+နန့် ကီး မွန်း တည့် နူး ဟှ ကျန်် နော် တီ ဗီ ကေ့ နေ ဟှယ် ။	2
+ လတ် ဆတ် တဲ့ အ သီး များ နှ င့် ဟင်း သီး ဟင်း ရွက် များ က မင်း အ တွက် ကောင်း တယ် ။	3
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ head -n 3 test.csv 
+text	label
+ ဖြစ် နိုင် ကေ နောက် ကြာ သ ပ တေး နိ ။	4
+ ပြော ရ မှာ တော့ အား နာ ပါ ရဲ့ ကျွန် တော် ကွန် ပျူ တာ သိပ္ပံ နဲ့ ပတ် သက် လို့ များ များ စား စား မ သိ ဘူး ။	3
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ 
+```
 
+## KNN Train Again
+
+Training KNN ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python ./knn.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Traceback (most recent call last):
+  File "./knn.py", line 35, in <module>
+    unigram_vectorizer.fit(polar_train['text'].values)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1283, in fit
+    self.fit_transform(raw_documents)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1330, in fit_transform
+    vocabulary, X = self._count_vocab(raw_documents, self.fixed_vocabulary_)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1201, in _count_vocab
+    for feature in analyze(doc):
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 108, in _analyze
+    doc = decoder(doc)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 227, in decode
+    "np.nan is an invalid document, expected byte or unicode string."
+ValueError: np.nan is an invalid document, expected byte or unicode string.
+
+real	0m0.726s
+user	0m0.771s
+sys	0m0.515s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$
+```
+
+Found blank lines ...  
+
+```
+(sentiment) ye@ykt-pro:~/exp/dialect-detect/csv$ grep -n "^$" ./f1
+3715:
+4933:
+8634:
+8739:
+9764:
+11574:
+11743:
+18184:
+23604:
+24292:
+25407:
+26392:
+35382:
+37034:
+43843:
+(sentiment) ye@ykt-pro:~/exp/dialect-detect/csv$
+```
+
+Blank line တွေကို ရှင်ပြီးတော့ KNN ကို training လုပ်တာ ရပြီ ဒါပေမဲ့ အောက်ပါအတိုင်း error အသစ် ထပ်ရတယ်။  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python knn.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+KNN, Unigram Counts
+Train score: 0.65 ; Validation score: 0.62
+
+Traceback (most recent call last):
+  File "knn.py", line 121, in <module>
+    train_and_show_scores_KNN(X_train_unigram, y_train, 'KNN, Unigram Counts', 'knn_unigram_count.joblib')
+  File "knn.py", line 117, in train_and_show_scores_KNN
+    dump(clf, 'classifiers/' + model)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/joblib/numpy_pickle.py", line 552, in dump
+    with open(filename, 'wb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'classifiers/knn_unigram_count.joblib'
+
+real	0m25.647s
+user	0m19.971s
+sys	0m5.579s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$
 ```
 
 ```
