@@ -1019,6 +1019,8 @@ We got same results for 1-gram to 5-gram when evaluation make with five precisio
 
 ## Evaluation for Each Label
 
+for 1-gram ...  
+
 ```
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 1
 Read 0M words
@@ -1044,28 +1046,166 @@ sys	0m0.004s
 (tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
 ```
 
-```
+for 2-gram ...   
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 2
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874358 lr:  0.000000 avg.loss:  0.134418 ETA:   0h 0m 0s
 
+real	0m5.555s
+user	0m4.231s
+sys	0m0.682s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.982726  Precision : 0.976567  Recall : 0.988962   __label__rk
+F1-Score : 0.967159  Precision : 0.959283  Recall : 0.975166   __label__my
+F1-Score : 0.977307  Precision : 0.990798  Recall : 0.964179   __label__dw
+F1-Score : 0.930268  Precision : 0.955906  Recall : 0.905970   __label__bk
+N	4964
+P@1	0.969
+R@1	0.969
+
+real	0m0.343s
+user	0m0.048s
+sys	0m0.293s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
 ```
 
-```
+for 3-gram ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 3
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874590 lr:  0.000000 avg.loss:  0.136901 ETA:   0h 0m 0s
 
+real	0m5.592s
+user	0m4.692s
+sys	0m0.733s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.982398  Precision : 0.979167  Recall : 0.985651   __label__rk
+F1-Score : 0.968588  Precision : 0.958897  Recall : 0.978477   __label__my
+F1-Score : 0.979592  Precision : 0.992343  Recall : 0.967164   __label__dw
+F1-Score : 0.929664  Precision : 0.952978  Recall : 0.907463   __label__bk
+N	4964
+P@1	0.970
+R@1	0.970
+
+real	0m0.351s
+user	0m0.048s
+sys	0m0.302s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
 ```
 
-```
+for 4-gram ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 4
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  874480 lr:  0.000000 avg.loss:  0.161303 ETA:   0h 0m 0s
 
+real	0m5.717s
+user	0m5.095s
+sys	0m0.732s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.982678  Precision : 0.979178  Recall : 0.986203   __label__rk
+F1-Score : 0.967213  Precision : 0.957792  Recall : 0.976821   __label__my
+F1-Score : 0.975094  Precision : 0.986260  Recall : 0.964179   __label__dw
+F1-Score : 0.928025  Precision : 0.952830  Recall : 0.904478   __label__bk
+N	4964
+P@1	0.969
+R@1	0.969
+
+real	0m0.362s
+user	0m0.064s
+sys	0m0.298s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
 ```
 
-```
+for 5-gram ...  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 5
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  656396 lr:  0.000000 avg.loss:  0.181586 ETA:   0h 0m 0s
 
+real	0m5.010s
+user	0m5.848s
+sys	0m0.734s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.981848  Precision : 0.978618  Recall : 0.985099   __label__rk
+F1-Score : 0.966120  Precision : 0.956710  Recall : 0.975717   __label__my
+F1-Score : 0.974242  Precision : 0.989231  Recall : 0.959701   __label__dw
+F1-Score : 0.923780  Precision : 0.943925  Recall : 0.904478   __label__bk
+N	4964
+P@1	0.967
+R@1	0.967
+
+real	0m0.375s
+user	0m0.068s
+sys	0m0.307s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+for 6-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 6
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  655983 lr:  0.000000 avg.loss:  0.201369 ETA:   0h 0m 0s
+
+real	0m4.961s
+user	0m6.058s
+sys	0m0.742s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.982128  Precision : 0.978630  Recall : 0.985651   __label__rk
+F1-Score : 0.964178  Precision : 0.955556  Recall : 0.972958   __label__my
+F1-Score : 0.972686  Precision : 0.989198  Recall : 0.956716   __label__dw
+F1-Score : 0.916413  Precision : 0.933437  Recall : 0.900000   __label__bk
+N	4964
+P@1	0.966
+R@1	0.966
+
+real	0m0.377s
+user	0m0.060s
+sys	0m0.317s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
+```
+
+for 7-gram ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 7
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread:  656322 lr:  0.000000 avg.loss:  0.208479 ETA:   0h 0m 0s
+
+real	0m4.961s
+user	0m6.401s
+sys	0m0.744s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.982649  Precision : 0.980759  Recall : 0.984547   __label__rk
+F1-Score : 0.964841  Precision : 0.953150  Recall : 0.976821   __label__my
+F1-Score : 0.971125  Precision : 0.989164  Recall : 0.953731   __label__dw
+F1-Score : 0.916159  Precision : 0.936137  Recall : 0.897015   __label__bk
+N	4964
+P@1	0.966
+R@1	0.966
+
+real	0m0.381s
+user	0m0.060s
+sys	0m0.320s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$
 ```
 
 
