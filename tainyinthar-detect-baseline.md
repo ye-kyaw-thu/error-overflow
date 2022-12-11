@@ -160,14 +160,24 @@ swap two columns for test data:
 (base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$
 ```
 
+Moved to the Python scripts running folder:  
 
 ```
-
+(base) yekyaw.thu@gpu:~/exp/dialect-detection/data/txt-csv$ ls *.csv
+test.shuf-txt.csv  test.txt.csv  train.shuf-txt.csv  train.txt.csv
+(base) yekyaw.thu@gpu:~/exp/dialect-detection/data/txt-csv$ cp {test,train}.txt.csv ../../scripts/csv/
 ```
 
-```
+change filename according to the python code:  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ ls
+test.txt.csv  train.txt.csv
+(base) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv train.txt.csv train.csv
+(base) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv test.txt.csv test.csv
+```
+
+## KNN Result
 
 ```
 
