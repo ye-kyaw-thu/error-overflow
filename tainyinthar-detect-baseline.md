@@ -487,25 +487,75 @@ sys	0m5.579s
 (tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$
 ```
 
+classifier folder မရှိလို့ ပေးတဲ့ error ပါ။ အဲဒါကြောင့် folder ဆောက်ပေးလိုက်တဲ့အခါမှာ အဆင်ပြေသွားပါတယ်။  
+
+Blank lines in test file also:  
+
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ grep -n "^$" f1
+1051:
+4792:
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ 
+```
+
+## KNN Results 
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python knn.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+KNN, Unigram Counts
+Train score: 0.67 ; Validation score: 0.65
+
+KNN, Unigram Tf-Idf
+Train score: 0.66 ; Validation score: 0.63
+
+KNN, Bigram Counts
+Train score: 0.64 ; Validation score: 0.62
+
+KNN, Bigram Tf-Idf
+Train score: 0.66 ; Validation score: 0.62
+
+KNN Test Result, Unigram Counts:  0.579403466344216
+Error Rate: 0.42
+KNN Test Result, Unigram Tf-Idf:  0.6297863764611044
+Error Rate: 0.37
+KNN Test Result, Bigram Count:  0.5257960499798469
+Error Rate: 0.47
+KNN Test Result, Bigram Tf-Idf:  0.6299879081015719
+Error Rate: 0.37
+
+real	1m49.006s
+user	1m24.834s
+sys	0m24.650s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
+```
+
+## SVM Results
 
 ```
 
 ```
 
-```
+## Decision Tree Results
 
 ```
 
 ```
 
-```
+## Random Forest Results  
 
 ```
 
 ```
 
+## SGD Results  
+
 ```
+
+```
+
+## Summary  
 
 ```
 
