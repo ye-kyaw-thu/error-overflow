@@ -900,7 +900,7 @@ sys	0m0.313s
 
 ## Summary Table
 
-```
+
 |n-gram| Precision | Recall | Training Time | Testing Time |
 |------|------:|------:|------:|------:|
 | 1-gram | 0.955 | 0.955 | 0m0.375s | 0m0.018s |
@@ -910,5 +910,3 @@ sys	0m0.313s
 | 5-gram | 0.967 | 0.967 | 0m5.020s | 0m0.372s |
 | 6-gram | 0.966 | 0.966 | 0m4.927s | 0m0.376s | 
 | 7-gram | 0.966 | 0.966 | 0m5.050s | 0m0.380s |
-
-```
