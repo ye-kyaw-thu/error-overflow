@@ -179,33 +179,142 @@ test.txt.csv  train.txt.csv
 
 ## KNN Result
 
-```
+1st time running got error message as follows:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python ./knn.py 
+Traceback (most recent call last):
+  File "./knn.py", line 19, in <module>
+    polar_train = pd.read_csv('csv/train.csv')
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 488, in _read
+    return parser.read(nrows)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1047, in read
+    index, columns, col_dict = self._engine.read(nrows)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 224, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 801, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 857, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 843, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 1925, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 2 fields in line 819, saw 3
 
+
+real	0m0.320s
+user	0m0.360s
+sys	0m0.492s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
 ```
 
-```
+The reason is containing comman in the text or feature part at line no. 819 ...  
 
 ```
-
+ ကောင် လေး က သူ့ ကို မော့ ကြ ည့် ပြီး ပြော တယ် ၊ ကဲ ကျွန် တော် တို့ ဝေး ဝေး ပြေး ကြ စို့ , လာ လာ ။,my
 ```
 
-```
+## Cleaning
+
+Cleaning extra spaces ...  
 
 ```
-
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ ls
+test.shuf.all  test.shuf-txt.csv  test.txt.csv  train.shuf.all  train.shuf-txt.csv  train.txt.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ cut -f1 ./train.shuf-txt.csv > f1
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ cut -f2 ./train.shuf-txt.csv > f2
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ vi clean-space.pl
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ perl ./clean-space.pl ./f2 > f2.clean
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$
 ```
 
-```
+### cleaning of commas
+
+1st grep commas ...  
 
 ```
-
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ grep -n "," ./f2.clean 
+819:ကောင် လေး က သူ့ ကို မော့ ကြ ည့် ပြီး ပြော တယ် ၊ ကဲ ကျွန် တော် တို့ ဝေး ဝေး ပြေး ကြ စို့ , လာ လာ ။
+3412:မင်း ယင်း ချင့်် ကို ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ နဲ့ ဇာ ပိုင် ရ ခ လေ ။
+6507:မြို့ စား ကြီး က လယ် သ မား ကြီး ကို ဒေါ် လာ ၄ ၀ , ၀ ၀ ၀ ပေး လိ မ့် မယ် ။
+7156:ခြံ ရဲ့ တန် ဘိုး အ မှန် က ဒေါ် လာ ၄ ၀ , ၀ ၀ ၀ လား ။
+7492:မင်း အ ခန်း က နောက် တစ် ပတ် မှာ အ သ င့် ဖြစ် ဖို့ ၊ ယ ကေ လည်း ,င်း အ ချိန် ထိ ကျွန် တော် ရို့ နဲ့ နိန် နိုင် ပါ ယေ ။
+8533:ခြံ ရဲ့ ဈေး ဟာ ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ လား ။
+12854:မင်း ဒါ ကို ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ နဲ့ ဘယ် လို ရ ခဲ့ သ လဲ ။
+14034:မြိုး စား ကြီး က ဒေါ် လာ ၁ ၀ , ၀ ၀ ၀ ပို့ လိုက် တေ ။
+14410:​ ကျွန် တော် အဲ ဒါ ကို ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ နဲ့ ရ ခဲ့ ပါ တယ် ။
+14509:ငါ ယင်း ချင့် ကို ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ နန့် ရ ခ ရေ ။
+21574:လျော့ ဈီး က ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ လား ။
+24255:အင်္ဂ လိပ် အ ပြင် , ကို ရီး ယား ကို လည်း သူ ရို့ ကျွမ်း ကျွမ်း ကျင် ကျင် ပြော နိုင် တယ် ။
+26744:မြို့ စား ကြီး က ဒေါ် လာ ၁ ၀ , ၀ ၀ ၀ ပို့ လိုက် တယ် ။
+28156:အေ ခြံ ဈီး စွာ ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ လား ။
+30173:အင်္ဂ လိပ် အ ပြင် , ကို ရီး ယား ကို လည်း သူ ရို့ ကျွမ်း ကျွမ်း ကျင် ကျင် ပြော နိုင် ရေ ။
+30299:အ ကျိုး ဆောင် က ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ ပီး ခ ရေ ။
+32414:အ ကျိုး ဆောင် က ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ ပေး ခဲ့ တယ် ။
+32906:ခြံ တန် ဖိုး အ မှန် ဂ ပေါင် ၄ ၀ , ၀ ၀ ၀ ပါ ။
+34567:ခြံ ရဲ့ အ မှန် တ ကယ် တန် ဘိုး က ပေါင် ၄ ၀ , ၀ ၀ ၀ ပါ ။
+35936:လျှော့ ဈေး က ဒေါ် လာ ၃ ၀ , ၀ ၀ ၀ လား ။
+39243:အေ ခြံ တန် ဖိုး အ မှန် ဂ ဒေါ် လာ ၄ ၀ , ၀ ၀ ၀ လား ။
+39790:မြိုး စား ကြီး က လယ် သ မား ကြီး ကို ဒေါ် လာ ၄ ၀ , ၀ ၀ ၀ ပီး လိ မ့် မေ ။
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$
 ```
 
-```
+အထက်ပါအတိုင်း corpus ထဲမှာက comma တွေ တော်တော်ပါနေတာနဲ့ ပြီးတော့ "," ကို delimeter အဖြစ် သုံးရတာက ပြဿနာ ပေးတာများတာမို့လို့ .... comma အစား TAB ကိုပဲ သုံးဖို့ ဆုံးဖြတ်ခဲ့တယ်။  
+I decided to use TAB ...  
 
 ```
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ paste f2 f1 > train.tab.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ head -n ./train.tab.csv 
+head: invalid number of lines: ‘./train.tab.csv’
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ head -n 5 ./train.tab.csv 
+နန့် ကီး မွန်း တည့် နူး ဟှ ကျန်် နော် တီ ဗီ ကေ့ နေ ဟှယ် ။	dw
+ လတ် ဆတ် တဲ့ အ သီး များ နှ င့် ဟင်း သီး ဟင်း ရွက် များ က မင်း အ တွက် ကောင်း တယ် ။	my
+ သူ မ က သူ့ ကို သတ် ခဲ့ တာ လား ။	my
+ ဒါ ဘယ် သူ့ သွား တိုက် ဆေး လဲ ။	my
+ ဘယ် အ ချိန် ငွေ လာ ပေး ရ မ လဲ ဆို တာ ကျွန် တော် စဉ်း စား နေ တယ် ။	my
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$
+```
+
+cleaning spaces and prepare TAB separated file for test data:  
+
+```
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ cut -f1 ./test.shuf-txt.csv > f1
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ cut -f2 ./test.shuf-txt.csv > f2
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ perl ./clean-space.pl ./f2 > f2.clean 
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ paste f2 f1 > test.tab.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$ head -n 5 ./test.tab.csv 
+ ဖြစ် နိုင် ကေ နောက် ကြာ သ ပ တေး နိ ။	rk
+ ပြော ရ မှာ တော့ အား နာ ပါ ရဲ့ ကျွန် တော် ကွန် ပျူ တာ သိပ္ပံ နဲ့ ပတ် သက် လို့ များ များ စား စား မ သိ ဘူး ။	my
+ ယင်း ချင့် ကို မင်း အာ မ မ ခံ ခ ပါ ။	rk
+ကျွန် တော် မွန်း လန်း ဇာ စား နေ တူး ဟှ သူ ဖောင်း ပြော နေ ဟှယ် ။	dw
+အ မှား လုပ် ဝယ့် ကျောင်း သား ဒေ ဝို ဆ ရာ ဂ ရိုက် ရယ် ။	bk
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/txt-csv$
+```
+
+Copied zip file to server and prepared on server as follows:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/data/txt-csv$ cp {test,train}.tab.csv ../../scripts/csv/
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/data/txt-csv$ cd ../../scripts/csv/
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ ls
+test.tab.csv  train.tab.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ wc *
+   4964   65253  583500 test.tab.csv
+  45026  586952 5242761 train.tab.csv
+  49990  652205 5826261 total
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$
+```
+
+Change filename according to the Python code:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv test.tab.csv test.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts/csv$ mv train.tab.csv train.csv
+```
+
+## Update KNN and Other Scripts 
+
 
 ```
 
