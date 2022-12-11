@@ -349,6 +349,68 @@ real	0m0.755s
 user	0m0.767s
 sys	0m0.720s
 (tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
+```
+
+When I refered following link:  
+https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+
+I found that using number label ...  
+
+## Preparing Number Label
+
+```
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ sed -e 's/bk/1/' -e 's/dw/2/' -e 's/my/3/' -e 's/rk/4/' ./train.tab.csv > train.no.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ gedit train.no.csv 
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ sed -e 's/bk/1/' -e 's/dw/2/' -e 's/my/3/' -e 's/rk/4/' ./test.tab.csv > test.no.csv
+```
+
+Check the converted file:  
+
+```
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ head -n 5 ./train.no.csv 
+နန့် ကီး မွန်း တည့် နူး ဟှ ကျန်် နော် တီ ဗီ ကေ့ နေ ဟှယ် ။	2
+ လတ် ဆတ် တဲ့ အ သီး များ နှ င့် ဟင်း သီး ဟင်း ရွက် များ က မင်း အ တွက် ကောင်း တယ် ။	3
+ သူ မ က သူ့ ကို သတ် ခဲ့ တာ လား ။	3
+ ဒါ ဘယ် သူ့ သွား တိုက် ဆေး လဲ ။	3
+ ဘယ် အ ချိန် ငွေ လာ ပေး ရ မ လဲ ဆို တာ ကျွန် တော် စဉ်း စား နေ တယ် ။	3
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ head -n 5 ./test.no.csv 
+ ဖြစ် နိုင် ကေ နောက် ကြာ သ ပ တေး နိ ။	4
+ ပြော ရ မှာ တော့ အား နာ ပါ ရဲ့ ကျွန် တော် ကွန် ပျူ တာ သိပ္ပံ နဲ့ ပတ် သက် လို့ များ များ စား စား မ သိ ဘူး ။	3
+ ယင်း ချင့် ကို မင်း အာ မ မ ခံ ခ ပါ ။	4
+ကျွန် တော် မွန်း လန်း ဇာ စား နေ တူး ဟှ သူ ဖောင်း ပြော နေ ဟှယ် ။	2
+အ မှား လုပ် ဝယ့် ကျောင်း သား ဒေ ဝို ဆ ရာ ဂ ရိုက် ရယ် ။	1
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv/number-csv$ 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
 
