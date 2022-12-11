@@ -534,22 +534,136 @@ sys	0m24.650s
 ## SVM Results
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python svm.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+SVM, Unigram Counts
+Train score: 0.68 ; Validation score: 0.67
 
+SVM, Unigram Tf-Idf
+Train score: 0.68 ; Validation score: 0.68
+
+SVM, Bigram Counts
+Train score: 0.7 ; Validation score: 0.68
+
+SVM, Bigram Tf-Idf
+Train score: 0.7 ; Validation score: 0.68
+
+SVM Test Result, Unigram Counts:  0.6178960096735188
+Error Rate: 0.38
+SVM Test Result, Unigram Tf-Idf:  0.6704957678355502
+Error Rate: 0.33
+SVM Test Result, Bigram Count:  0.5689238210399032
+Error Rate: 0.43
+SVM Test Result, Bigram Tf-Idf:  0.6779524385328497
+Error Rate: 0.32
+
+real	1m44.737s
+user	1m44.475s
+sys	0m0.981s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
 ```
 
 ## Decision Tree Results
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python dtree.py
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+DTREE, Unigram Counts
+Train score: 0.71 ; Validation score: 0.66
 
+DTREE, Unigram Tf-Idf
+Train score: 0.71 ; Validation score: 0.66
+
+DTREE, Bigram Counts
+Train score: 0.72 ; Validation score: 0.67
+
+DTREE, Bigram Tf-Idf
+Train score: 0.72 ; Validation score: 0.66
+
+Decision Tree Test Result, Unigram Counts:  0.60378879484079
+Error Rate: 0.40
+Decision Tree Test Result, Unigram Tf-Idf:  0.6646513502619912
+Error Rate: 0.34
+Decision Tree Test Result, Bigram Count:  0.5016122531237405
+Error Rate: 0.50
+Decision Tree Test Result, Bigram Tf-Idf:  0.6652559451833938
+Error Rate: 0.33
+
+real	0m3.219s
+user	0m3.141s
+sys	0m0.629s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$
 ```
 
 ## Random Forest Results  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python rforest.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+RFOREST, Unigram Counts
+Train score: 0.71 ; Validation score: 0.68
 
+RFOREST, Unigram Tf-Idf
+Train score: 0.71 ; Validation score: 0.67
+
+RFOREST, Bigram Counts
+Train score: 0.71 ; Validation score: 0.68
+
+RFOREST, Bigram Tf-Idf
+Train score: 0.72 ; Validation score: 0.67
+
+Random Forest Test Result, Unigram Counts:  0.6064087061668681
+Error Rate: 0.39
+Random Forest Test Result, Unigram Tf-Idf:  0.6741233373639661
+Error Rate: 0.33
+Random Forest Test Result, Bigram Count:  0.5689238210399032
+Error Rate: 0.43
+Random Forest Test Result, Bigram Tf-Idf:  0.6743248690044337
+Error Rate: 0.33
+
+real	1m11.160s
+user	1m10.852s
+sys	0m0.814s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$
 ```
 
 ## SGD Results  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python ./sgd.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+SGD, Unigram Counts
+Train score: 0.67 ; Validation score: 0.67
+
+SGD, Unigram Tf-Idf
+Train score: 0.68 ; Validation score: 0.67
+
+SGD, Bigram Counts
+Train score: 0.69 ; Validation score: 0.68
+
+SGD, Bigram Tf-Idf
+Train score: 0.64 ; Validation score: 0.62
+
+SGD Test Result, Unigram Counts:  0.6626360338573156
+Error Rate: 0.34
+SGD Test Result, Unigram Tf-Idf:  0.666062071745264
+Error Rate: 0.33
+SGD Test Result, Bigram Count:  0.6690850463522773
+Error Rate: 0.33
+SGD Test Result, Bigram Tf-Idf:  0.6174929463925837
+Error Rate: 0.38
+
+real	0m2.169s
+user	0m2.156s
+sys	0m0.760s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
+```
+
+## SGD Tunning Result
 
 ```
 
