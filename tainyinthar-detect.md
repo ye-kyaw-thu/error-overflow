@@ -1017,6 +1017,58 @@ sys	0m0.318s
 
 We got same results for 1-gram to 5-gram when evaluation make with five precision and recall.  
 
+## Evaluation for Each Label
+
+```
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext supervised -input ../data/shuffle/clean/train.shuf.all.clean -output model-tmp -wordNgrams 1
+Read 0M words
+Number of words:  2430
+Number of labels: 4
+Progress: 100.0% words/sec/thread: 1310701 lr:  0.000000 avg.loss:  0.169431 ETA:   0h 0m 0s
+
+real	0m0.431s
+user	0m2.456s
+sys	0m0.107s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ time ../../fasttext test-label ./model-tmp.bin ../data/shuffle/clean/test.shuf.all.clean
+F1-Score : 0.973937  Precision : 0.968358  Recall : 0.979581   __label__rk
+F1-Score : 0.950246  Precision : 0.941495  Recall : 0.959161   __label__my
+F1-Score : 0.967449  Precision : 0.981567  Recall : 0.953731   __label__dw
+F1-Score : 0.894172  Precision : 0.919558  Recall : 0.870149   __label__bk
+N	4964
+P@1	0.954
+R@1	0.954
+
+real	0m0.018s
+user	0m0.014s
+sys	0m0.004s
+(tabpfn) yekyaw.thu@gpu:~/tool/fastText/dialect-detection/model$ 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
 ## Summary Table
 
 <p align="center">
