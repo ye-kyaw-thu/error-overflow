@@ -315,12 +315,40 @@ Change filename according to the Python code:
 
 ## Update KNN and Other Scripts 
 
+added "sep" parameter ...  
 
+```python
+polar_train = pd.read_csv('csv/train.csv', sep="\t")
+polar_test = pd.read_csv('csv/test.csv', sep="\t")
 ```
 
-```
+## Train KNN Again
+
+Train with TAB file and got following error:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ time python ./knn.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Traceback (most recent call last):
+  File "./knn.py", line 35, in <module>
+    unigram_vectorizer.fit(polar_train['text'].values)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1283, in fit
+    self.fit_transform(raw_documents)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1330, in fit_transform
+    vocabulary, X = self._count_vocab(raw_documents, self.fixed_vocabulary_)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 1201, in _count_vocab
+    for feature in analyze(doc):
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 108, in _analyze
+    doc = decoder(doc)
+  File "/home/yekyaw.thu/.conda/envs/tabpfn/lib/python3.7/site-packages/sklearn/feature_extraction/text.py", line 227, in decode
+    "np.nan is an invalid document, expected byte or unicode string."
+ValueError: np.nan is an invalid document, expected byte or unicode string.
+
+real	0m0.755s
+user	0m0.767s
+sys	0m0.720s
+(tabpfn) yekyaw.thu@gpu:~/exp/dialect-detection/scripts$ 
 
 ```
 
