@@ -67,13 +67,41 @@ Confirmation of filesize:
 (base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ 
 ```
 
-```
+## Swap Two Columns
+
+for training data:  
 
 ```
-
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ cut -f1 ./train.shuf.csv > f1.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ cut -f2 ./train.shuf.csv > f2.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ wc {f1,f2}.csv
+  45026   45026   90052 f1.csv
+  45026  541926 5107683 f2.csv
+  90052  586952 5197735 total
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ paste -d "," f2.csv f1.(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ paste -d "," f2.csv f1.csv > train.final.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ head -n 3 ./train.final.csv 
+နန့် ကီး မွန်း တည့် နူး ဟှ ကျန်် နော် တီ ဗီ ကေ့ နေ ဟှယ် ။,2
+ လတ် ဆတ် တဲ့ အ သီး များ နှ င့် ဟင်း သီး ဟင်း ရွက် များ က မင်း အ တွက် ကောင်း တယ် ။,3
+ သူ မ က သူ့ ကို သတ် ခဲ့ တာ လား ။,3
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$
 ```
 
+swap two columns for test data:  
+
 ```
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ cut -f1 ./test.shuf.csv > f1.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ cut -f2 ./test.shuf.csv > f2.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ paste -d "," f2.csv f1.csv > test.final.csv
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$ head -n 3 ./test.final.csv 
+ ဖြစ် နိုင် ကေ နောက် ကြာ သ ပ တေး နိ ။,4
+ ပြော ရ မှာ တော့ အား နာ ပါ ရဲ့ ကျွန် တော် ကွန် ပျူ တာ သိပ္ပံ နဲ့ ပတ် သက် လို့ များ များ စား စား မ သိ ဘူး ။,3
+ ယင်း ချင့် ကို မင်း အာ မ မ ခံ ခ ပါ ။,4
+(base) ye@ykt-pro:~/data/ethnic-parallel-data/4dialect-detect/preprocess/csv$
+```
+
+## Prepared Another CSV version
+
+လူအနေနဲ့ ကြည့်ရတာက 1,2,3,4 ထက် bk,dw,my,rk က ပိုအဆင်ပြေလို့ နောက်ထပ် format version တစ်ခုလည်း ပြင်ဆင်ထားခဲ့တယ်။  
 
 ```
 
