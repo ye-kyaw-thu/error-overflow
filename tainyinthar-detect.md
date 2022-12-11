@@ -900,6 +900,11 @@ sys	0m0.313s
 
 ## Summary Table
 
+<p align="center">
+ Table.1 Precision and Recall of 1-gram to 7-gram models
+</p>
+
+<div align="center">
 
 |n-gram| Precision | Recall | Training Time | Testing Time |
 |------|------:|------:|------:|------:|
@@ -910,3 +915,5 @@ sys	0m0.313s
 | 5-gram | 0.967 | 0.967 | 0m5.020s | 0m0.372s |
 | 6-gram | 0.966 | 0.966 | 0m4.927s | 0m0.376s | 
 | 7-gram | 0.966 | 0.966 | 0m5.050s | 0m0.380s |
+</div>
+<br />
