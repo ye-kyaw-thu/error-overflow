@@ -400,13 +400,38 @@ __label__E ငြီးငွေ့ လာ ပြီ
 (base) ye@ykt-pro:~/exp/mySent/data/pre-process$
 ```
 
-```
+## Preparing Labeled Data for the Sentence Level Dataset
+
+for train-valid dataset:  
 
 ```
-
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ perl ./change-ngram-label.pl ./train-valid.sent.my 2 > ./train-valid.sent.my.2gram
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ perl ./change-ngram-label.pl ./train-valid.sent.my 3 > ./train-valid.sent.my.3gram
 ```
 
+for test dataset:  
+
 ```
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ perl ./change-ngram-label.pl ./test.sent.my 2 > ./test.sent.my.2gram
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ perl ./change-ngram-label.pl ./test.sent.my 3 > ./test.sent.my.3gram
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$
+```
+
+Check the filesize:  
+
+```
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ wc *.2gram
+   58910   176730  2351938 test.sent.my.2gram
+  533442  1600326 21323463 train-valid.sent.my.2gram
+  592352  1777056 23675401 total
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ wc *.3gram
+   54226   216904  2966031 test.sent.my.3gram
+  491385  1965540 26913648 train-valid.sent.my.3gram
+  545611  2182444 29879679 total
+(base) ye@ykt-pro:~/exp/mySent/data/pre-process$ 
+```
+
+## Training FastText Model for 2gram
 
 ```
 
