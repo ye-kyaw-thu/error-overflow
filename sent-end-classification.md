@@ -1,4 +1,4 @@
-# စာကြောင်း အဆုံးပိုင်းကို classification problem အနေနဲ့ လုပ်ကြည့်ခဲ့တဲ့ experiment log
+# စာကြောင်း တစ်ကြောင်းချင်းစီ ဖြတ်တာကို classification problem အနေနဲ့ လုပ်ကြည့်ခဲ့တဲ့ experiment log
 
 ## preprocessing
 
@@ -431,34 +431,105 @@ Check the filesize:
 (base) ye@ykt-pro:~/exp/mySent/data/pre-process$ 
 ```
 
-## Training FastText Model for 2gram
+## Training/Testing FastText Model for 2gram Sentences
+
+အရင်ဆုံး memory များတဲ့ server ပေါ်ကို အထက်မှာပြင်ဆင်ခဲ့တဲ့ ဒေတာတွေကို copy ကူးပြီး ပြင်ဆင်ခဲ့ ....  
 
 ```
-
+(base) yekyaw.thu@gpu:~/exp/mySent/data$ cp ./pre-process/*.2gram ./sent/
+(base) yekyaw.thu@gpu:~/exp/mySent/data$ cp ./pre-process/*.3gram ./sent/
+(base) yekyaw.thu@gpu:~/exp/mySent/data$ cd ./sent/
+(base) yekyaw.thu@gpu:~/exp/mySent/data/sent$ ls
+test.sent.my.2gram  test.sent.my.3gram	train-valid.sent.my.2gram  train-valid.sent.my.3gram
+(base) yekyaw.thu@gpu:~/exp/mySent/data/sent$ 
 ```
 
-```
+Training with 2-gram model with default parameters for sentence level data:  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-default
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  682820 lr:  0.000000 avg.loss:  0.099836 ETA:   0h 0m 0s
 
+real	0m2.660s
+user	0m16.577s
+sys	0m0.136s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
 ```
 
+testing ...  
+
+```(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test ./sent-model-default.bin ../data/sent/test.sent.my.2gram 
+N	58910
+P@1	0.97
+R@1	0.97
+
+real	0m0.073s
+user	0m0.065s
+sys	0m0.008s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
 ```
 
-```
+Let's make evaluation in details ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-default.bin ../data/sent/test.sent.my.2gram 
+F1-Score : 0.983509  Precision : 0.981046  Recall : 0.985985   __label__O
+F1-Score : 0.802859  Precision : 0.827703  Recall : 0.779462   __label__E
+N	58910
+P@1	0.970
+R@1	0.970
 
+real	0m0.073s
+user	0m0.069s
+sys	0m0.004s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$
 ```
 
-```
+## Training/Testing FastText Model for 3-gram Sentences
+
+Training ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.3gram -output sent-model-3gram-default
+Read 2M words
+Number of words:  30529
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  851138 lr:  0.000000 avg.loss:  0.109665 ETA:   0h 0m 0s
 
+real	0m2.610s
+user	0m15.145s
+sys	0m0.104s
 ```
 
+Testing ...  
+
+```(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test ./sent-model-3gram-default.bin ../data/sent/test.sent.my.3gram 
+N	54226
+P@1	0.96
+R@1	0.96
+
+real	0m0.078s
+user	0m0.074s
+sys	0m0.004s
 ```
 
+Testing with test-label ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-3gram-default.bin ../data/sent/test.sent.my.3gram 
+F1-Score : 0.978155  Precision : 0.975011  Recall : 0.981318   __label__O
+F1-Score : 0.755316  Precision : 0.783613  Recall : 0.728990   __label__E
+N	54226
+P@1	0.960
+R@1	0.960
+
+real	0m0.078s
+user	0m0.067s
+sys	0m0.012s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
 ```
 
 ```
