@@ -535,7 +535,265 @@ sys	0m0.012s
 အထက်ပါ ရလဒ်တွေကနေ အခြေခံအားဖြင့် ငါနားလည်တာက 2-gram က classification အတွက် အတော်ပဲ။  
 3-gram ဖြစ်လာရင် decision making အတွက် noise ဖြစ်လာတယ်။  
 
+## Playing Number of Epoch for 2-gram Model
+
+2-gram model ကိုပဲ no. of epoch ကစားကြည့်ပြီး ရလဒ်က ဘယ်လောက်ထိ တက်လာနိုင်သလဲ ဆိုတာကို confirmation လုပ်ကြည့်ခဲ့တယ်။  
+
+for epoch=5 ...  
+
 ```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 5
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  682484 lr:  0.000000 avg.loss:  0.099706 ETA:   0h 0m 0s
+
+real	0m2.710s
+user	0m16.209s
+sys	0m0.108s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983390  Precision : 0.981448  Recall : 0.985339   __label__O
+F1-Score : 0.802797  Precision : 0.822108  Recall : 0.784372   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.075s
+user	0m0.071s
+sys	0m0.004s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=10 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 10
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  710068 lr:  0.000000 avg.loss:  0.095963 ETA:   0h 0m 0s
+
+real	0m4.539s
+user	0m31.060s
+sys	0m0.132s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983299  Precision : 0.980737  Recall : 0.985874   __label__O
+F1-Score : 0.800088  Precision : 0.825909  Recall : 0.775833   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.079s
+user	0m0.070s
+sys	0m0.009s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=15 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 15
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  700785 lr:  0.000000 avg.loss:  0.094026 ETA:   0h 0m 0s
+
+real	0m5.330s
+user	0m45.895s
+sys	0m0.172s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983099  Precision : 0.980907  Recall : 0.985302   __label__O
+F1-Score : 0.798685  Precision : 0.820536  Recall : 0.777968   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.078s
+user	0m0.066s
+sys	0m0.013s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=20 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 20
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  710204 lr:  0.000000 avg.loss:  0.094504 ETA:   0h 0m 0s
+
+real	0m6.528s
+user	1m0.864s
+sys	0m0.192s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983179  Precision : 0.980133  Recall : 0.986243   __label__O
+F1-Score : 0.797342  Precision : 0.828348  Recall : 0.768574   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.077s
+user	0m0.072s
+sys	0m0.004s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$
+```
+
+for epoch=25 ...
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 25
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  715853 lr:  0.000000 avg.loss:  0.091941 ETA:   0h 0m 0s
+
+real	0m7.709s
+user	1m15.622s
+sys	0m0.208s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983238  Precision : 0.981018  Recall : 0.985468   __label__O
+F1-Score : 0.800263  Precision : 0.822443  Recall : 0.779249   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.078s
+user	0m0.073s
+sys	0m0.004s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=30 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 30
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  719799 lr:  0.000000 avg.loss:  0.091004 ETA:   0h 0m 0s
+
+real	0m8.900s
+user	1m28.987s
+sys	0m0.232s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983531  Precision : 0.981931  Recall : 0.985136   __label__O
+F1-Score : 0.805353  Precision : 0.821167  Recall : 0.790137   __label__E
+N	58910
+P@1	0.970
+R@1	0.970
+
+real	0m0.077s
+user	0m0.069s
+sys	0m0.008s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=35 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 35
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  714253 lr:  0.000000 avg.loss:  0.090842 ETA:   0h 0m 0s
+
+real	0m10.192s
+user	1m44.749s
+sys	0m0.288s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983341  Precision : 0.981022  Recall : 0.985671   __label__O
+F1-Score : 0.801229  Precision : 0.824486  Recall : 0.779249   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.075s
+user	0m0.067s
+sys	0m0.008s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+for epoch=40 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 40
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  710179 lr:  0.000000 avg.loss:  0.090572 ETA:   0h 0m 0s
+
+real	0m11.538s
+user	2m0.216s
+sys	0m0.276s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983383  Precision : 0.982352  Recall : 0.984417   __label__O
+F1-Score : 0.805057  Precision : 0.815098  Recall : 0.795260   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.076s
+user	0m0.072s
+sys	0m0.004s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$
+```
+
+for epoch=45 ...  
+
+```(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 45
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  713455 lr:  0.000000 avg.loss:  0.088769 ETA:   0h 0m 0s
+
+real	0m12.840s
+user	2m14.916s
+sys	0m0.324s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983581  Precision : 0.982288  Recall : 0.984878   __label__O
+F1-Score : 0.806721  Precision : 0.819423  Recall : 0.794406   __label__E
+N	58910
+P@1	0.970
+R@1	0.970
+
+real	0m0.078s
+user	0m0.070s
+sys	0m0.009s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$
+```
+
+for epoch=50 ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext supervised -input ../data/sent/train-valid.sent.my.2gram -output sent-model-2gram-tmp -epoch 50
+Read 2M words
+Number of words:  30615
+Number of labels: 2
+Progress: 100.0% words/sec/thread:  715935 lr:  0.000000 avg.loss:  0.089110 ETA:   0h 0m 0s
+
+real	0m13.950s
+user	2m29.672s
+sys	0m0.360s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ time ../../../tool/fastText/fasttext test-label ./sent-model-2gram-tmp.bin ../data/sent/test.sent.my.2gram
+F1-Score : 0.983103  Precision : 0.981260  Recall : 0.984952   __label__O
+F1-Score : 0.799651  Precision : 0.817857  Recall : 0.782237   __label__E
+N	58910
+P@1	0.969
+R@1	0.969
+
+real	0m0.078s
+user	0m0.062s
+sys	0m0.016s
+(base) yekyaw.thu@gpu:~/exp/mySent/model$ 
+```
+
+အထက်ပါ playing with no. of epoch experiment ကနေ တွေ့ရတာက epoch 35, 45 ကပဲ ရလဒ် အပြောင်းအလဲ ဖြစ်တယ်။ ပိုကောင်းလာတယ်။ တကယ်ကတော့ အများကြီး အပြောင်းအလဲတော့ မဟုတ်ပေမဲ့ ....  
+လက်ရှိ အချိန်အထိ Precision, Recall အကောင်းဆုံးက 97.  
+
+## To Do
+
+paragraph level အတွက် စမ်းချင်တယ်။  
 
 ```
 
@@ -551,3 +809,12 @@ sys	0m0.012s
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
