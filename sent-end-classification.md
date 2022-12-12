@@ -532,6 +532,9 @@ sys	0m0.012s
 (base) yekyaw.thu@gpu:~/exp/mySent/model$ 
 ```
 
+အထက်ပါ ရလဒ်တွေကနေ အခြေခံအားဖြင့် ငါနားလည်တာက 2-gram က classification အတွက် အတော်ပဲ။  
+3-gram ဖြစ်လာရင် decision making အတွက် noise ဖြစ်လာတယ်။  
+
 ```
 
 ```
