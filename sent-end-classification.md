@@ -793,7 +793,10 @@ sys	0m0.016s
 
 ## To Do
 
+လက်ရှိ အထိ စမ်းထားတာက word segmentation နဲ့ syllable ဖြတ်ပြီးလည်း experiment လုပ်ကြည့်ချင်  
 paragraph level အတွက် စမ်းချင်တယ်။  
+baseline ကို ML approach တွေထဲက best-score ကို ထားတာမျိုးလည်း လုပ်လို့ရတယ် ...   
+
 
 ```
 
