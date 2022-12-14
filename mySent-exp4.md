@@ -471,6 +471,37 @@ start training ...
 ...
 ...
 ...
+[2022-12-14 15:06:09] Seen 39,999 samples
+[2022-12-14 15:06:09] Starting data epoch 82 in logical epoch 82
+[2022-12-14 15:06:09] [data] Shuffling data
+[2022-12-14 15:06:09] [data] Done reading 40,000 sentences
+[2022-12-14 15:06:09] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 15:06:45] Ep. 82 : Up. 26500 : Sen. 20,648 : Cost 0.10021749 * 895,289 @ 1,560 after 47,533,924 : Time 110.36s : 8112.12 words/s : gNorm 1.5826
+[2022-12-14 15:07:20] Seen 39,999 samples
+[2022-12-14 15:07:20] Starting data epoch 83 in logical epoch 83
+[2022-12-14 15:07:20] [data] Shuffling data
+[2022-12-14 15:07:20] [data] Done reading 40,000 sentences
+[2022-12-14 15:07:20] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 15:08:31] Seen 39,999 samples
+[2022-12-14 15:08:31] Starting data epoch 84 in logical epoch 84
+[2022-12-14 15:08:31] [data] Shuffling data
+[2022-12-14 15:08:31] [data] Done reading 40,000 sentences
+[2022-12-14 15:08:31] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 15:08:36] Ep. 84 : Up. 27000 : Sen. 1,990 : Cost 0.08448897 * 898,072 @ 2,001 after 48,431,996 : Time 110.08s : 8158.63 words/s : gNorm 1.3917
+[2022-12-14 15:09:43] Seen 39,999 samples
+[2022-12-14 15:09:43] Starting data epoch 85 in logical epoch 85
+[2022-12-14 15:09:43] [data] Shuffling data
+[2022-12-14 15:09:43] [data] Done reading 40,000 sentences
+[2022-12-14 15:09:43] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 15:10:26] Ep. 85 : Up. 27500 : Sen. 23,481 : Cost 0.07476421 * 895,516 @ 1,768 after 49,327,512 : Time 110.27s : 8121.41 words/s : gNorm 1.6711
+[2022-12-14 15:10:56] Seen 39,999 samples
+[2022-12-14 15:10:56] Starting data epoch 86 in logical epoch 86
+[2022-12-14 15:10:56] [data] Shuffling data
+[2022-12-14 15:10:56] [data] Done reading 40,000 sentences
+[2022-12-14 15:10:56] [data] Done shuffling 40,000 sentences to temp files
+...
+...
+...
 
 ```
 
