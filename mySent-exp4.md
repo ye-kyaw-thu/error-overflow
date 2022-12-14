@@ -1036,9 +1036,42 @@ D_RNG_PSEUDO_DEFAULT)
 ```
 
 I got above error for the 1st time training ...  
+Logout the LST GPU server and run again ...  
 
 ```
 
+...
+...
+...
+[2022-12-14 22:48:05] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:05] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:48:10] Seen 39,999 samples
+[2022-12-14 22:48:10] Starting data epoch 7 in logical epoch 7
+[2022-12-14 22:48:10] [data] Shuffling data
+[2022-12-14 22:48:10] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:10] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:48:11] Ep. 7 : Up. 1500 : Sen. 12,425 : Cost 0.65929031 * 1,219,768 @ 3,178 after 3,680,385 : Time 8.93s : 136585.49 words/s : gNorm 1.9825 : L.r. 3.0000e-04
+[2022-12-14 22:48:14] Seen 39,999 samples
+[2022-12-14 22:48:14] Starting data epoch 8 in logical epoch 8
+[2022-12-14 22:48:14] [data] Shuffling data
+[2022-12-14 22:48:14] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:14] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:48:18] Seen 39,999 samples
+[2022-12-14 22:48:18] Starting data epoch 9 in logical epoch 9
+[2022-12-14 22:48:18] [data] Shuffling data
+[2022-12-14 22:48:18] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:18] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:48:20] Ep. 9 : Up. 2000 : Sen. 16,159 : Cost 0.62157410 * 1,219,910 @ 2,016 after 4,900,295 : Time 8.97s : 136033.51 words/s : gNorm 2.0888 : L.r. 3.0000e-04
+[2022-12-14 22:48:22] Seen 39,999 samples
+[2022-12-14 22:48:22] Starting data epoch 10 in logical epoch 10
+[2022-12-14 22:48:22] [data] Shuffling data
+[2022-12-14 22:48:22] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:22] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:48:27] Seen 39,999 samples
+[2022-12-14 22:48:27] Starting data epoch 11 in logical epoch 11
+[2022-12-14 22:48:27] [data] Shuffling data
+[2022-12-14 22:48:27] [data] Done reading 40,000 sentences
+[2022-12-14 22:48:27] [data] Done shuffling 40,000 sentences to temp files
 ```
 
 ```
