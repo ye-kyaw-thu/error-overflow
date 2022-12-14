@@ -1072,6 +1072,40 @@ Logout the LST GPU server and run again ...
 [2022-12-14 22:48:27] [data] Shuffling data
 [2022-12-14 22:48:27] [data] Done reading 40,000 sentences
 [2022-12-14 22:48:27] [data] Done shuffling 40,000 sentences to temp files
+...
+...
+...
+[2022-12-14 22:49:14] Starting data epoch 22 in logical epoch 22
+[2022-12-14 22:49:14] [data] Shuffling data
+[2022-12-14 22:49:14] [data] Done reading 40,000 sentences
+[2022-12-14 22:49:14] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:49:14] Ep. 22 : Up. 5000 : Sen. 1,367 : Cost 0.55348921 * 1,221,496 @ 3,089 after 12,261,807 : Time 9.07s : 134679.56 words/s : gNorm 1.6216 : L.r. 3.0000e-04
+[2022-12-14 22:49:14] Saving model weights and runtime parameters to model.transformer.sent1/model.iter5000.npz
+[2022-12-14 22:49:14] Saving model weights and runtime parameters to model.transformer.sent1/model.npz
+[2022-12-14 22:49:14] Saving Adam parameters
+[2022-12-14 22:49:15] [training] Saving training checkpoint to model.transformer.sent1/model.npz and model.transformer.sent1/model.npz.optimizer.npz
+[2022-12-14 22:49:16] [valid] Ep. 22 : Up. 5000 : cross-entropy : 14.7751 : new best
+[2022-12-14 22:49:16] [valid] Ep. 22 : Up. 5000 : perplexity : 2.79271 : new best
+[2022-12-14 22:49:16] [valid] First sentence's tokens as scored:
+[2022-12-14 22:49:16] [valid] DefaultVocab keeps original segments for scoring
+[2022-12-14 22:49:16] [valid]   Hyp: B O O O O O O O O O O O O O O N N N E
+[2022-12-14 22:49:16] [valid]   Ref: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 22:49:17] [valid] Ep. 22 : Up. 5000 : bleu : 44.6635 : new best
+[2022-12-14 22:49:21] Seen 39,999 samples
+[2022-12-14 22:49:21] Starting data epoch 23 in logical epoch 23
+[2022-12-14 22:49:21] [data] Shuffling data
+[2022-12-14 22:49:21] [data] Done reading 40,000 sentences
+[2022-12-14 22:49:21] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:49:25] Seen 39,999 samples
+[2022-12-14 22:49:25] Starting data epoch 24 in logical epoch 24
+[2022-12-14 22:49:25] [data] Shuffling data
+[2022-12-14 22:49:25] [data] Done reading 40,000 sentences
+[2022-12-14 22:49:25] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 22:49:26] Ep. 24 : Up. 5500 : Sen. 4,930 : Cost 0.54646653 * 1,225,667 @ 1,602 after 13,487,474 : Time 11.91s : 102934.00 words/s : gNorm 1.5340 : L.r. 3.0000e-04
+...
+...
+...
+
 ```
 
 ```
