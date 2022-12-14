@@ -437,6 +437,41 @@ start training ...
 
 ```
 
+...
+...
+[2022-12-14 14:40:55] Seen 39,999 samples
+[2022-12-14 14:40:55] Starting data epoch 62 in logical epoch 62
+[2022-12-14 14:40:55] [data] Shuffling data
+[2022-12-14 14:40:55] [data] Done reading 40,000 sentences
+[2022-12-14 14:40:56] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 14:41:34] Ep. 62 : Up. 20000 : Sen. 21,587 : Cost 0.06380463 * 898,943 @ 2,380 after 35,885,885 : Time 111.22s : 8082.72 words/s : gNorm 0.6358
+[2022-12-14 14:41:34] Saving model weights and runtime parameters to model.seq2seq.sent1/model.iter20000.npz
+[2022-12-14 14:41:36] Saving model weights and runtime parameters to model.seq2seq.sent1/model.npz
+[2022-12-14 14:41:41] Saving Adam parameters
+[2022-12-14 14:41:44] [training] Saving training checkpoint to model.seq2seq.sent1/model.npz and model.seq2seq.sent1/model.npz.optimizer.npz
+[2022-12-14 14:42:05] [valid] Ep. 62 : Up. 20000 : cross-entropy : 0.243329 : new best
+[2022-12-14 14:42:08] [valid] Ep. 62 : Up. 20000 : perplexity : 1.01706 : new best
+[2022-12-14 14:42:08] Translating validation set...
+[2022-12-14 14:42:09] Best translation 0 : B O O O O O O O O O N N N E
+[2022-12-14 14:42:09] Best translation 1 : B O O N N N E
+[2022-12-14 14:42:09] Best translation 2 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 14:42:09] Best translation 3 : B O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 14:42:09] Best translation 4 : B O O N N N E
+[2022-12-14 14:42:09] Best translation 5 : B O O O N N N E
+[2022-12-14 14:42:09] Best translation 10 : B N N E
+[2022-12-14 14:42:09] Best translation 20 : B O O O N N N E
+[2022-12-14 14:42:09] Best translation 40 : B N N N E
+[2022-12-14 14:42:09] Best translation 80 : B O O O O O O O O O O N N N E
+[2022-12-14 14:42:09] Best translation 160 : B O O O O O O O O O O N N N E
+[2022-12-14 14:42:09] Best translation 320 : B O O O O O N N N E
+[2022-12-14 14:42:10] Best translation 640 : B O O O O O O O O O N N N E
+[2022-12-14 14:42:11] Best translation 1280 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 14:42:13] Total translation time: 5.00986s
+[2022-12-14 14:42:13] [valid] Ep. 62 : Up. 20000 : bleu : 99.5307 : new best
+...
+...
+...
+
 ```
 
 ```
