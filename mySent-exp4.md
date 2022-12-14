@@ -1108,8 +1108,32 @@ Logout the LST GPU server and run again ...
 
 ```
 
-```
+GPU usage information when training Transformer model ...  
 
+```
+Every 2.0s: nvidia-smi                                                                  lst-gpu-3090: Thu Dec 15 05:53:47 2022
+Thu Dec 15 05:53:47 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.86.01    Driver Version: 515.86.01    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+| 60%   80C    P2   388W / 480W |   2607MiB / 24564MiB |     91%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      3639      G   /usr/lib/xorg/Xorg                 46MiB |
+|    0   N/A  N/A      3771      G   /usr/bin/gnome-shell               11MiB |
+|    0   N/A  N/A   3958979      C   marian                           2545MiB |
++-----------------------------------------------------------------------------+
 ```
 
 ```
