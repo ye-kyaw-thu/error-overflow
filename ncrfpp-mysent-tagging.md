@@ -309,6 +309,19 @@ test training with demo configuration looks OK.
 
 ## Testing with Demo Configuration File  
 
+checck the demo decode configuration file:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ cat demo.decode.config
+### Decode ###
+status=decode
+raw_dir=sample_data/raw.bmes
+nbest=10
+decode_dir=sample_data/raw.out
+dset_dir=sample_data/lstmcrf.dset
+load_model_dir=sample_data/lstmcrf.0.model(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
 let's test ...  
 
 ```
@@ -399,16 +412,202 @@ sys     0m3.298s
 ## Check the Data Format 
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$ head -n 30 ./train.bmes
+EU S-ORG
+rejects O
+German S-MISC
+call O
+to O
+boycott O
+British S-MISC
+lamb O
+. O
 
+Peter B-PER
+Blackburn E-PER
+
+BRUSSELS S-LOC
+1996-08-22 O
+
+The O
+European B-ORG
+Commission E-ORG
+said O
+on O
+Thursday O
+it O
+disagreed O
+with O
+German S-MISC
+advice O
+to O
+consumers O
+to O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$
 ```
 
+Chek the training data format:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$ head -n 50 ./test.bmes
+Aziz S-PER
+said O
+Iraq S-LOC
+'s O
+military O
+intervention O
+, O
+the O
+first O
+on O
+such O
+scale O
+since O
+the O
+U.S. S-LOC
+and O
+allies O
+decided O
+to O
+protect O
+Iraqi B-MISC
+Kurds E-MISC
+against O
+Baghdad S-LOC
+, O
+was O
+in O
+response O
+to O
+a O
+plea O
+from O
+Barzani S-PER
+to O
+President O
+Saddam B-PER
+Hussein E-PER
+to O
+back O
+him O
+militarily O
+and O
+save O
+his O
+people O
+from O
+attacks O
+by O
+Iran S-LOC
+and O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$
 ```
 
-```
+Check the test data format:  
 
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$ head -n 100 ./test.bmes
+Aziz S-PER
+said O
+Iraq S-LOC
+'s O
+military O
+intervention O
+, O
+the O
+first O
+on O
+such O
+scale O
+since O
+the O
+U.S. S-LOC
+and O
+allies O
+decided O
+to O
+protect O
+Iraqi B-MISC
+Kurds E-MISC
+against O
+Baghdad S-LOC
+, O
+was O
+in O
+response O
+to O
+a O
+plea O
+from O
+Barzani S-PER
+to O
+President O
+Saddam B-PER
+Hussein E-PER
+to O
+back O
+him O
+militarily O
+and O
+save O
+his O
+people O
+from O
+attacks O
+by O
+Iran S-LOC
+and O
+Talabani S-PER
+. O
+
+He O
+said O
+Barzani S-PER
+sent O
+a O
+message O
+to O
+Saddam S-PER
+on O
+August O
+22 O
+in O
+which O
+he O
+said O
+: O
+" O
+The O
+conspiracy O
+is O
+beyond O
+our O
+capability O
+therefore O
+we O
+plead O
+with O
+your O
+excellency O
+to O
+order O
+Iraqi S-MISC
+armed O
+forces O
+to O
+interfere O
+to O
+help O
+us O
+to O
+evade O
+the O
+foreign O
+threat O
+and O
+put O
+an O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/sample_data$
 ```
 
 ```
