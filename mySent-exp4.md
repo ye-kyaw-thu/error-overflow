@@ -342,6 +342,14 @@ model.seq2seq.para1  model.seq2seq.sent1  model.transformer.para1  model.transfo
 root@57452252667f:/home/ye/exp/mysent#
 ```
 
+backup old log files also ...  
+
+```
+root@57452252667f:/home/ye/exp/mysent# ls *log*
+transformer.para1.log  transformer.para1.log.err1  transformer.sent1.log  transformer.sent1.log.err1
+root@57452252667f:/home/ye/exp/mysent# mv *log* ./backup/
+```
+
 ## Recheck the shell scripts for training marain 
 
 I think I used following shell scripts for the previous experiments ...  
