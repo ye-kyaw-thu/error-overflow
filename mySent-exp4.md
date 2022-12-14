@@ -436,7 +436,7 @@ root@57452252667f:/home/ye/exp/mysent#
 start training ...  
 
 ```
-
+root@57452252667f:/home/ye/exp/mysent# ./seq2seq.sent1.sh
 ...
 ...
 [2022-12-14 14:40:55] Seen 39,999 samples
@@ -588,10 +588,485 @@ start training ...
 ...
 ...
 ...
+[2022-12-14 21:58:25] Saving Adam parameters
+[2022-12-14 21:58:28] [training] Saving training checkpoint to model.seq2seq.sent1/model.npz and model.seq2seq.sent1/model.npz.optimizer.npz
+[2022-12-14 21:58:49] [valid] Ep. 416 : Up. 135000 : cross-entropy : 0.21255 : stalled 10 times (last best: 0.195737)
+[2022-12-14 21:58:52] [valid] Ep. 416 : Up. 135000 : perplexity : 1.01488 : stalled 10 times (last best: 1.0137)
+[2022-12-14 21:58:52] Translating validation set...
+[2022-12-14 21:58:53] Best translation 0 : B O O O O O O O O O N N N E
+[2022-12-14 21:58:53] Best translation 1 : B O O N N N E
+[2022-12-14 21:58:53] Best translation 2 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 21:58:53] Best translation 3 : B O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 21:58:53] Best translation 4 : B O O N N N E
+[2022-12-14 21:58:53] Best translation 5 : B O O O N N N E
+[2022-12-14 21:58:53] Best translation 10 : B N N E
+[2022-12-14 21:58:53] Best translation 20 : B O O O N N N E
+[2022-12-14 21:58:53] Best translation 40 : B N N N E
+[2022-12-14 21:58:53] Best translation 80 : B O O O O O O O O O O N N N E
+[2022-12-14 21:58:53] Best translation 160 : B O O O O O O O O O O N N N E
+[2022-12-14 21:58:53] Best translation 320 : B O O O O O N N N E
+[2022-12-14 21:58:54] Best translation 640 : B O O O O O O O O O N N N E
+[2022-12-14 21:58:55] Best translation 1280 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 21:58:57] Total translation time: 4.71705s
+[2022-12-14 21:58:57] [valid] Ep. 416 : Up. 135000 : bleu : 99.8157 : stalled 2 times (last best: 99.8297)
+[2022-12-14 21:58:57] Training finished
+[2022-12-14 21:58:57] Saving model weights and runtime parameters to model.seq2seq.sent1/model.npz
+[2022-12-14 21:59:02] Saving Adam parameters
+[2022-12-14 21:59:05] [training] Saving training checkpoint to model.seq2seq.sent1/model.npz and model.seq2seq.sent1/model.npz.optimizer.npz
+
+real    513m43.765s
+user    504m31.305s
+sys     5m17.232s
+root@57452252667f:/home/ye/exp/mysent#
+```
+
+Training of Seq2Seq model finished successfully!  
+
+Config yml file for reference:  
+
+```
+# Marian configuration file generated at 2022-12-14 13:25:39 +0000 with version v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+# General options
+authors: false
+cite: false
+build-info: ""
+workspace: 4500
+log: model.seq2seq.sent1/train.log
+log-level: info
+log-time-zone: ""
+quiet: false
+quiet-translation: false
+seed: 1111
+check-nan: false
+interpolate-env-vars: false
+relative-paths: false
+sigterm: save-and-exit
+# Model options
+model: model.seq2seq.sent1/model.npz
+pretrained-model: ""
+ignore-model-config: false
+type: s2s
+dim-vocabs:
+  - 0
+  - 0
+dim-emb: 512
+factors-dim-emb: 0
+factors-combine: sum
+lemma-dependency: ""
+lemma-dim-emb: 0
+dim-rnn: 1024
+enc-type: alternating
+enc-cell: lstm
+enc-cell-depth: 4
+enc-depth: 3
+dec-cell: lstm
+dec-cell-base-depth: 4
+dec-cell-high-depth: 2
+dec-depth: 3
+skip: true
+layer-normalization: true
+right-left: false
+input-types:
+  []
+best-deep: false
+tied-embeddings: true
+tied-embeddings-src: false
+tied-embeddings-all: false
+output-omit-bias: false
+transformer-heads: 8
+transformer-no-projection: false
+transformer-pool: false
+transformer-dim-ffn: 2048
+transformer-decoder-dim-ffn: 0
+transformer-ffn-depth: 2
+transformer-decoder-ffn-depth: 0
+transformer-ffn-activation: swish
+transformer-dim-aan: 2048
+transformer-aan-depth: 2
+transformer-aan-activation: swish
+transformer-aan-nogate: false
+transformer-decoder-autoreg: self-attention
+transformer-tied-layers:
+  []
+transformer-guided-alignment-layer: last
+transformer-preprocess: ""
+transformer-postprocess-emb: d
+transformer-postprocess: dan
+transformer-postprocess-top: ""
+transformer-train-position-embeddings: false
+transformer-depth-scaling: false
+bert-mask-symbol: "[MASK]"
+bert-sep-symbol: "[SEP]"
+bert-class-symbol: "[CLS]"
+bert-masking-fraction: 0.15
+bert-train-type-embeddings: true
+bert-type-vocab-size: 2
+dropout-rnn: 0.3
+dropout-src: 0.3
+dropout-trg: 0
+transformer-dropout: 0
+transformer-dropout-attention: 0
+transformer-dropout-ffn: 0
+# Training options
+cost-type: ce-sum
+multi-loss-type: sum
+unlikelihood-loss: false
+overwrite: false
+no-reload: false
+train-sets:
+  - /home/ye/exp/mysent/data-sent/train.my
+  - /home/ye/exp/mysent/data-sent/train.tg
+vocabs:
+  - /home/ye/exp/mysent/data-sent/vocab/vocab.my.yml
+  - /home/ye/exp/mysent/data-sent/vocab/vocab.tg.yml
+sentencepiece-alphas:
+  []
+sentencepiece-options: ""
+sentencepiece-max-lines: 2000000
+after-epochs: 0
+after-batches: 0
+after: 0e
+disp-freq: 500
+disp-first: 0
+disp-label-counts: true
+save-freq: 5000
+logical-epoch:
+  - 1e
+  - 0
+max-length: 200
+max-length-crop: false
+tsv: false
+tsv-fields: 0
+shuffle: data
+no-shuffle: false
+no-restore-corpus: false
+tempdir: /tmp
+sqlite: ""
+sqlite-drop: false
+devices:
+  - 0
+num-devices: 0
+no-nccl: false
+sharding: global
+sync-freq: 200u
+cpu-threads: 0
+mini-batch: 64
+mini-batch-words: 0
+mini-batch-fit: true
+mini-batch-fit-step: 10
+gradient-checkpointing: false
+maxi-batch: 100
+maxi-batch-sort: trg
+shuffle-in-ram: false
+data-threads: 8
+all-caps-every: 0
+english-title-case-every: 0
+mini-batch-words-ref: 0
+mini-batch-warmup: 0
+mini-batch-track-lr: false
+mini-batch-round-up: true
+optimizer: adam
+optimizer-params:
+  []
+optimizer-delay: 1
+sync-sgd: true
+learn-rate: 0.0001
+lr-report: false
+lr-decay: 0
+lr-decay-strategy: epoch+stalled
+lr-decay-start:
+  - 10
+  - 1
+lr-decay-freq: 50000
+lr-decay-reset-optimizer: false
+lr-decay-repeat-warmup: false
+lr-decay-inv-sqrt:
+  - 0
+lr-warmup: 0
+lr-warmup-start-rate: 0
+lr-warmup-cycle: false
+lr-warmup-at-reload: false
+label-smoothing: 0
+factor-weight: 1
+clip-norm: 1
+exponential-smoothing: 0.0001
+guided-alignment: none
+guided-alignment-cost: mse
+guided-alignment-weight: 0.1
+data-weighting: ""
+data-weighting-type: sentence
+embedding-vectors:
+  []
+embedding-normalization: false
+embedding-fix-src: false
+embedding-fix-trg: false
+fp16: false
+precision:
+  - float32
+  - float32
+cost-scaling:
+  []
+gradient-norm-average-window: 100
+dynamic-gradient-scaling:
+  []
+check-gradient-nan: false
+normalize-gradient: false
+train-embedder-rank:
+  []
+quantize-bits: 0
+quantize-optimization-steps: 0
+quantize-log-based: false
+quantize-biases: false
+ulr: false
+ulr-query-vectors: ""
+ulr-keys-vectors: ""
+ulr-trainable-transformation: false
+ulr-dim-emb: 0
+ulr-dropout: 0
+ulr-softmax-temperature: 1
+task:
+  []
+# Validation set options
+valid-sets:
+  - /home/ye/exp/mysent/data-sent/valid.my
+  - /home/ye/exp/mysent/data-sent/valid.tg
+valid-freq: 5000
+valid-metrics:
+  - cross-entropy
+  - perplexity
+  - bleu
+valid-reset-stalled: false
+early-stopping: 10
+early-stopping-on: first
+beam-size: 12
+normalize: 0
+max-length-factor: 3
+word-penalty: 0
+allow-unk: false
+n-best: false
+word-scores: false
+valid-mini-batch: 32
+valid-max-length: 1000
+valid-script-path: ""
+valid-script-args:
+  []
+valid-translation-output: ""
+keep-best: false
+valid-log: model.seq2seq.sent1/valid.log
+```
+
+Check the model folder:  
+
+```
+root@57452252667f:/home/ye/exp/mysent/model.seq2seq.sent1# ls
+config.yml            model.iter130000.npz  model.iter45000.npz  model.iter80000.npz      model.npz.yml
+model.iter10000.npz   model.iter135000.npz  model.iter5000.npz   model.iter85000.npz      s2s.my-tg.log1
+model.iter100000.npz  model.iter15000.npz   model.iter50000.npz  model.iter90000.npz      train.log
+model.iter105000.npz  model.iter20000.npz   model.iter55000.npz  model.iter95000.npz      valid.log
+model.iter110000.npz  model.iter25000.npz   model.iter60000.npz  model.npz
+model.iter115000.npz  model.iter30000.npz   model.iter65000.npz  model.npz.decoder.yml
+model.iter120000.npz  model.iter35000.npz   model.iter70000.npz  model.npz.optimizer.npz
+model.iter125000.npz  model.iter40000.npz   model.iter75000.npz  model.npz.progress.yml
+root@57452252667f:/home/ye/exp/mysent/model.seq2seq.sent1#
+```
+
+Check the validation log ...  
+
+```
+[2022-12-14 13:44:58] [valid] Ep. 16 : Up. 5000 : cross-entropy : 1.68563 : new best
+[2022-12-14 13:45:01] [valid] Ep. 16 : Up. 5000 : perplexity : 1.12431 : new best
+[2022-12-14 13:45:01] [valid] First sentence's tokens as scored:
+[2022-12-14 13:45:01] [valid] DefaultVocab keeps original segments for scoring
+[2022-12-14 13:45:01] [valid]   Hyp: B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 13:45:01] [valid]   Ref: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O >
+[2022-12-14 13:45:07] [valid] Ep. 16 : Up. 5000 : bleu : 86.874 : new best
+[2022-12-14 14:03:58] [valid] Ep. 31 : Up. 10000 : cross-entropy : 0.462362 : new best
+[2022-12-14 14:04:01] [valid] Ep. 31 : Up. 10000 : perplexity : 1.03266 : new best
+[2022-12-14 14:04:06] [valid] Ep. 31 : Up. 10000 : bleu : 98.3967 : new best
+[2022-12-14 14:23:01] [valid] Ep. 47 : Up. 15000 : cross-entropy : 0.290361 : new best
+[2022-12-14 14:23:05] [valid] Ep. 47 : Up. 15000 : perplexity : 1.02039 : new best
+[2022-12-14 14:23:10] [valid] Ep. 47 : Up. 15000 : bleu : 99.2319 : new best
+[2022-12-14 14:42:05] [valid] Ep. 62 : Up. 20000 : cross-entropy : 0.243329 : new best
+[2022-12-14 14:42:08] [valid] Ep. 62 : Up. 20000 : perplexity : 1.01706 : new best
+[2022-12-14 14:42:13] [valid] Ep. 62 : Up. 20000 : bleu : 99.5307 : new best
+[2022-12-14 15:01:06] [valid] Ep. 77 : Up. 25000 : cross-entropy : 0.36264 : stalled 1 times (last best: 0.243329)
+[2022-12-14 15:01:10] [valid] Ep. 77 : Up. 25000 : perplexity : 1.02553 : stalled 1 times (last best: 1.01706)
+[2022-12-14 15:01:15] [valid] Ep. 77 : Up. 25000 : bleu : 98.5923 : stalled 1 times (last best: 99.5307)
+[2022-12-14 15:20:08] [valid] Ep. 93 : Up. 30000 : cross-entropy : 0.472565 : stalled 2 times (last best: 0.243329)
+[2022-12-14 15:20:12] [valid] Ep. 93 : Up. 30000 : perplexity : 1.03339 : stalled 2 times (last best: 1.01706)
+[2022-12-14 15:20:17] [valid] Ep. 93 : Up. 30000 : bleu : 97.6784 : stalled 2 times (last best: 99.5307)
+[2022-12-14 15:39:10] [valid] Ep. 108 : Up. 35000 : cross-entropy : 0.30005 : stalled 3 times (last best: 0.243329)
+[2022-12-14 15:39:13] [valid] Ep. 108 : Up. 35000 : perplexity : 1.02108 : stalled 3 times (last best: 1.01706)
+[2022-12-14 15:39:18] [valid] Ep. 108 : Up. 35000 : bleu : 98.845 : stalled 3 times (last best: 99.5307)
+[2022-12-14 15:58:11] [valid] Ep. 124 : Up. 40000 : cross-entropy : 0.263489 : stalled 4 times (last best: 0.243329)
+[2022-12-14 15:58:14] [valid] Ep. 124 : Up. 40000 : perplexity : 1.01848 : stalled 4 times (last best: 1.01706)
+[2022-12-14 15:58:19] [valid] Ep. 124 : Up. 40000 : bleu : 99.1113 : stalled 4 times (last best: 99.5307)
+[2022-12-14 16:17:12] [valid] Ep. 139 : Up. 45000 : cross-entropy : 0.234904 : new best
+[2022-12-14 16:17:15] [valid] Ep. 139 : Up. 45000 : perplexity : 1.01646 : new best
+[2022-12-14 16:17:20] [valid] Ep. 139 : Up. 45000 : bleu : 99.3629 : stalled 5 times (last best: 99.5307)
+[2022-12-14 16:36:11] [valid] Ep. 154 : Up. 50000 : cross-entropy : 0.219318 : new best
+[2022-12-14 16:36:15] [valid] Ep. 154 : Up. 50000 : perplexity : 1.01536 : new best
+[2022-12-14 16:36:19] [valid] Ep. 154 : Up. 50000 : bleu : 99.4958 : stalled 6 times (last best: 99.5307)
+[2022-12-14 16:55:12] [valid] Ep. 170 : Up. 55000 : cross-entropy : 0.216073 : new best
+[2022-12-14 16:55:16] [valid] Ep. 170 : Up. 55000 : perplexity : 1.01513 : new best
+[2022-12-14 16:55:20] [valid] Ep. 170 : Up. 55000 : bleu : 99.6284 : new best
+[2022-12-14 17:14:12] [valid] Ep. 185 : Up. 60000 : cross-entropy : 0.200939 : new best
+[2022-12-14 17:14:15] [valid] Ep. 185 : Up. 60000 : perplexity : 1.01407 : new best
+[2022-12-14 17:14:20] [valid] Ep. 185 : Up. 60000 : bleu : 99.611 : stalled 1 times (last best: 99.6284)
+[2022-12-14 17:33:14] [valid] Ep. 200 : Up. 65000 : cross-entropy : 0.204643 : stalled 1 times (last best: 0.200939)
+[2022-12-14 17:33:17] [valid] Ep. 200 : Up. 65000 : perplexity : 1.01433 : stalled 1 times (last best: 1.01407)
+[2022-12-14 17:33:22] [valid] Ep. 200 : Up. 65000 : bleu : 99.6407 : new best
+[2022-12-14 17:52:14] [valid] Ep. 216 : Up. 70000 : cross-entropy : 0.208755 : stalled 2 times (last best: 0.200939)
+[2022-12-14 17:52:17] [valid] Ep. 216 : Up. 70000 : perplexity : 1.01462 : stalled 2 times (last best: 1.01407)
+[2022-12-14 17:52:22] [valid] Ep. 216 : Up. 70000 : bleu : 99.6003 : stalled 1 times (last best: 99.6407)
+[2022-12-14 18:11:13] [valid] Ep. 231 : Up. 75000 : cross-entropy : 0.208598 : stalled 3 times (last best: 0.200939)
+[2022-12-14 18:11:16] [valid] Ep. 231 : Up. 75000 : perplexity : 1.01461 : stalled 3 times (last best: 1.01407)
+[2022-12-14 18:11:21] [valid] Ep. 231 : Up. 75000 : bleu : 99.6204 : stalled 2 times (last best: 99.6407)
+[2022-12-14 18:30:14] [valid] Ep. 247 : Up. 80000 : cross-entropy : 0.208252 : stalled 4 times (last best: 0.200939)
+[2022-12-14 18:30:18] [valid] Ep. 247 : Up. 80000 : perplexity : 1.01458 : stalled 4 times (last best: 1.01407)
+[2022-12-14 18:30:22] [valid] Ep. 247 : Up. 80000 : bleu : 99.5666 : stalled 3 times (last best: 99.6407)
+[2022-12-14 18:49:12] [valid] Ep. 262 : Up. 85000 : cross-entropy : 0.195737 : new best
+[2022-12-14 18:49:16] [valid] Ep. 262 : Up. 85000 : perplexity : 1.0137 : new best
+[2022-12-14 18:49:20] [valid] Ep. 262 : Up. 85000 : bleu : 99.6938 : new best
+[2022-12-14 19:08:09] [valid] Ep. 277 : Up. 90000 : cross-entropy : 0.198068 : stalled 1 times (last best: 0.195737)
+[2022-12-14 19:08:13] [valid] Ep. 277 : Up. 90000 : perplexity : 1.01386 : stalled 1 times (last best: 1.0137)
+[2022-12-14 19:08:17] [valid] Ep. 277 : Up. 90000 : bleu : 99.7636 : new best
+[2022-12-14 19:27:06] [valid] Ep. 293 : Up. 95000 : cross-entropy : 0.210209 : stalled 2 times (last best: 0.195737)
+[2022-12-14 19:27:09] [valid] Ep. 293 : Up. 95000 : perplexity : 1.01472 : stalled 2 times (last best: 1.0137)
+[2022-12-14 19:27:14] [valid] Ep. 293 : Up. 95000 : bleu : 99.6863 : stalled 1 times (last best: 99.7636)
+[2022-12-14 19:46:03] [valid] Ep. 308 : Up. 100000 : cross-entropy : 0.214344 : stalled 3 times (last best: 0.195737)
+[2022-12-14 19:46:06] [valid] Ep. 308 : Up. 100000 : perplexity : 1.01501 : stalled 3 times (last best: 1.0137)
+[2022-12-14 19:46:11] [valid] Ep. 308 : Up. 100000 : bleu : 99.6619 : stalled 2 times (last best: 99.7636)
+[2022-12-14 20:05:03] [valid] Ep. 324 : Up. 105000 : cross-entropy : 0.212723 : stalled 4 times (last best: 0.195737)
+[2022-12-14 20:05:07] [valid] Ep. 324 : Up. 105000 : perplexity : 1.0149 : stalled 4 times (last best: 1.0137)
+[2022-12-14 20:05:11] [valid] Ep. 324 : Up. 105000 : bleu : 99.6977 : stalled 3 times (last best: 99.7636)
+[2022-12-14 20:24:02] [valid] Ep. 339 : Up. 110000 : cross-entropy : 0.214246 : stalled 5 times (last best: 0.195737)
+[2022-12-14 20:24:05] [valid] Ep. 339 : Up. 110000 : perplexity : 1.015 : stalled 5 times (last best: 1.0137)
+[2022-12-14 20:24:10] [valid] Ep. 339 : Up. 110000 : bleu : 99.7002 : stalled 4 times (last best: 99.7636)
+[2022-12-14 20:42:59] [valid] Ep. 354 : Up. 115000 : cross-entropy : 0.213579 : stalled 6 times (last best: 0.195737)
+[2022-12-14 20:43:03] [valid] Ep. 354 : Up. 115000 : perplexity : 1.01496 : stalled 6 times (last best: 1.0137)
+[2022-12-14 20:43:07] [valid] Ep. 354 : Up. 115000 : bleu : 99.7362 : stalled 5 times (last best: 99.7636)
+[2022-12-14 21:01:59] [valid] Ep. 370 : Up. 120000 : cross-entropy : 0.210968 : stalled 7 times (last best: 0.195737)
+[2022-12-14 21:02:03] [valid] Ep. 370 : Up. 120000 : perplexity : 1.01477 : stalled 7 times (last best: 1.0137)
+[2022-12-14 21:02:07] [valid] Ep. 370 : Up. 120000 : bleu : 99.7887 : new best
+[2022-12-14 21:20:56] [valid] Ep. 385 : Up. 125000 : cross-entropy : 0.206392 : stalled 8 times (last best: 0.195737)
+[2022-12-14 21:21:00] [valid] Ep. 385 : Up. 125000 : perplexity : 1.01445 : stalled 8 times (last best: 1.0137)
+[2022-12-14 21:21:04] [valid] Ep. 385 : Up. 125000 : bleu : 99.8297 : new best
+[2022-12-14 21:39:52] [valid] Ep. 400 : Up. 130000 : cross-entropy : 0.212311 : stalled 9 times (last best: 0.195737)
+[2022-12-14 21:39:56] [valid] Ep. 400 : Up. 130000 : perplexity : 1.01487 : stalled 9 times (last best: 1.0137)
+[2022-12-14 21:40:00] [valid] Ep. 400 : Up. 130000 : bleu : 99.8297 : stalled 1 times (last best: 99.8297)
+[2022-12-14 21:58:49] [valid] Ep. 416 : Up. 135000 : cross-entropy : 0.21255 : stalled 10 times (last best: 0.195737)
+[2022-12-14 21:58:52] [valid] Ep. 416 : Up. 135000 : perplexity : 1.01488 : stalled 10 times (last best: 1.0137)
+[2022-12-14 21:58:57] [valid] Ep. 416 : Up. 135000 : bleu : 99.8157 : stalled 2 times (last best: 99.8297)
+```
+
+## Training Transformer Model for Sentence Only Dataset  
+
+check the shell script ...  
+
+```bash
+root@57452252667f:/home/ye/exp/mysent# head -n 30 ./transformer.sent1.sh
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for mySent, also preparation for 4th NLP/AI Workshop 2022
+
+#     --mini-batch-fit -w 10000 --maxi-batch 1000 \
+#    --mini-batch-fit -w 1000 --maxi-batch 100 \
+#     --tied-embeddings-all \
+#     --tied-embeddings \
+#     --valid-metrics cross-entropy perplexity translation bleu \
+#     --transformer-dropout 0.1 --label-smoothing 0.1 \
+#     --learn-rate 0.0003 --lr-warmup 16000 --lr-decay-inv-sqrt 16000 --lr-report \
+#     --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 \
+
+mkdir model.transformer.sent1;
+
+marian \
+    --model model.transformer.sent1/model.npz --type transformer \
+    --train-sets data-sent/train.my data-sent/train.tg \
+    --max-length 200 \
+    --vocabs data-sent/vocab/vocab.my.yml data-sent/vocab/vocab.tg.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets data-sent/valid.my data-sent/valid.tg \
+    --valid-translation-output model.transformer.sent1/valid.my-tg.output --quiet-translation \
+    --valid-mini-batch 32 \
+    --beam-size 6 --normalize 0.6 \
+    --log model.transformer.sent1/train.log --valid-log model.transformer.sent1/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > model.transformer.sent1/config.yml
+
+time marian -c model.transformer.sent1/config.yml  2>&1 | tee transformer.sent1.log
+root@57452252667f:/home/ye/exp/mysent#
+```
+
+Start training ...  
+
+```
+[2022-12-14 22:41:12] [batching] Collecting statistics for batch fitting with step size 10
+[2022-12-14 22:41:12] Error: Curand error 203 - /temp/marian/src/tensors/rand.cpp:74: curandCreateGenerator(&generator_, CURAN
+D_RNG_PSEUDO_DEFAULT)
+[2022-12-14 22:41:12] Error: Aborted from marian::CurandRandomGenerator::CurandRandomGenerator(size_t, marian::DeviceId) in /temp/marian/src/tensors/rand.cpp:74
+
+[CALL STACK]
+[0x561f9e061050]    marian::CurandRandomGenerator::  CurandRandomGenerator  (unsigned long,  marian::DeviceId) + 0x750
+[0x561f9e061689]    marian::  createRandomGenerator  (unsigned long,  marian::DeviceId) + 0x69
+[0x561f9e05bf20]    marian::  BackendByDeviceId  (marian::DeviceId,  unsigned long) + 0xa0
+[0x561f9db4b220]    marian::ExpressionGraph::  setDevice  (marian::DeviceId,  std::shared_ptr<marian::Device>) + 0x80
+[0x561f9de44cd5]    marian::GraphGroup::  initGraphsAndOpts  ()        + 0x1e5
+[0x561f9de461f8]    marian::GraphGroup::  GraphGroup  (std::shared_ptr<marian::Options>,  std::shared_ptr<marian::IMPIWrapper>) + 0x548
+[0x561f9de24773]    marian::SyncGraphGroup::  SyncGraphGroup  (std::shared_ptr<marian::Options>,  std::shared_ptr<marian::IMPIWrapper>) + 0x83
+[0x561f9d97d8ab]    marian::Train<marian::SyncGraphGroup>::  run  ()   + 0x1c2b
+[0x561f9d8ab347]    mainTrainer  (int,  char**)                        + 0x147
+[0x7f01da7d5d90]                                                       + 0x29d90
+[0x7f01da7d5e40]    __libc_start_main                                  + 0x80
+[0x561f9d8a4995]    _start                                             + 0x25
+```
+
+I got above error for the 1st time training ...  
 
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+## Testing  
+
+check testing shell script ...  
+
+```bash
 
 ```
 
