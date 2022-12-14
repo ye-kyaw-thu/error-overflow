@@ -332,11 +332,73 @@ B: 5root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
 
 Vocab file creation finished for both sentence and sent+para dataset!   
 
-## recheck the shell script for training marain 
+## Backup the Old Models
 
 ```
+root@57452252667f:/home/ye/exp/mysent# mkdir backup
+root@57452252667f:/home/ye/exp/mysent# mv model.* ./backup/
+root@57452252667f:/home/ye/exp/mysent# ls ./backup/
+model.seq2seq.para1  model.seq2seq.sent1  model.transformer.para1  model.transformer.para1.bk  model.transformer.sent1
+root@57452252667f:/home/ye/exp/mysent#
+```
+
+## Recheck the shell scripts for training marain 
+
+I think I used following shell scripts for the previous experiments ...  
 
 ```
+root@57452252667f:/home/ye/exp/mysent# ls *.sh
+check-end-mark.sh  seq2seq.sent1.sh               test4paper.sh         transformer.sent1.sh
+seq2seq.para1.sh   test4paper-with-para-vocab.sh  transformer.para1.sh
+root@57452252667f:/home/ye/exp/mysent#
+```
+
+check the seq2seq training script ...  
+
+```bash
+root@57452252667f:/home/ye/exp/mysent# head -n 30 ./seq2seq.sent1.sh
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese dialects
+## used Marian NMT Framework for seq2seq training
+## Last updated: 24 Oct 2022
+
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.sent1";
+mkdir ${model_folder};
+data_path="/home/ye/exp/mysent/data-sent";
+src="my"; tgt="tg";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 200 \
+  --valid-sets ${data_path}/valid.${src} ${data_path}/valid.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 4500 \
+  --enc-depth 3 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 3 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log1
+root@57452252667f:/home/ye/exp/mysent#
+```
+
+## Training/Testing Seq2Seq for Sentence Only Dataset
+
 
 ```
 
