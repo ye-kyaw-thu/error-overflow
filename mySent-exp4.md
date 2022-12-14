@@ -407,10 +407,33 @@ root@57452252667f:/home/ye/exp/mysent#
 
 ## Training/Testing Seq2Seq for Sentence Only Dataset
 
+at first, check the GPU status:  
 
 ```
+root@57452252667f:/home/ye/exp/mysent# nvidia-smi
+Wed Dec 14 13:24:44 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.86.01    Driver Version: 515.86.01    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+|  0%   39C    P8    25W / 480W |     58MiB / 24564MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+root@57452252667f:/home/ye/exp/mysent#
 ```
+
+start training ...  
 
 ```
 
