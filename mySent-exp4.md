@@ -533,7 +533,29 @@ start training ...
 ...
 ...
 ...
-
+[2022-12-14 17:11:51] Ep. 184 : Up. 59500 : Sen. 836 : Cost 0.04712217 * 896,282 @ 2,142 after 106,723,761 : Time 109.18s : 8208.89 words/s : gNorm 0.7498
+[2022-12-14 17:13:02] Seen 39,999 samples
+[2022-12-14 17:13:02] Starting data epoch 185 in logical epoch 185
+[2022-12-14 17:13:02] [data] Shuffling data
+[2022-12-14 17:13:02] [data] Done reading 40,000 sentences
+[2022-12-14 17:13:02] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 17:13:42] Ep. 185 : Up. 60000 : Sen. 22,137 : Cost 0.04233031 * 898,372 @ 1,963 after 107,622,133 : Time 110.95s : 8096.90 words/s : gNorm 0.9273
+[2022-12-14 17:13:42] Saving model weights and runtime parameters to model.seq2seq.sent1/model.iter60000.npz
+[2022-12-14 17:13:43] Saving model weights and runtime parameters to model.seq2seq.sent1/model.npz
+[2022-12-14 17:13:48] Saving Adam parameters
+[2022-12-14 17:13:52] [training] Saving training checkpoint to model.seq2seq.sent1/model.npz and model.seq2seq.sent1/model.npz.optimizer.npz
+[2022-12-14 17:14:12] [valid] Ep. 185 : Up. 60000 : cross-entropy : 0.200939 : new best
+[2022-12-14 17:14:15] [valid] Ep. 185 : Up. 60000 : perplexity : 1.01407 : new best
+[2022-12-14 17:14:15] Translating validation set...
+[2022-12-14 17:14:16] Best translation 0 : B O O O O O O O O O N N N E
+[2022-12-14 17:14:16] Best translation 1 : B O O N N N E
+[2022-12-14 17:14:16] Best translation 2 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 17:14:16] Best translation 3 : B O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 17:14:16] Best translation 4 : B O O N N N E
+[2022-12-14 17:14:16] Best translation 5 : B O O O N N N E
+...
+...
+...
 
 ```
 
