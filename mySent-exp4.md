@@ -163,34 +163,176 @@ root@48e31407fc14:/home/ye/exp/mysent/data-para#
 for sent only dataset:  
 
 ```
-
+root@48e31407fc14:/home/ye/exp/mysent/data-sent# cat train.my valid.my test.my > ./vocab/all.my
+root@48e31407fc14:/home/ye/exp/mysent/data-sent# cat train.tg valid.tg test.tg > ./vocab/all.tg
+root@48e31407fc14:/home/ye/exp/mysent/data-sent# cd vocab
 ```
 
-for sent+paragraph dataset:  
+Practical engineering thing running under container env:  
 
 ```
-
-```
-
-```
-
-```
-
+root@48e31407fc14:/temp/build# cp marian* /usr/bin/
 ```
 
 ```
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# time marian-vocab < all.my > vocab.my.yml
+[2022-12-14 12:30:31] Creating vocabulary...
+[2022-12-14 12:30:31] [data] Creating vocabulary stdout from stdin
+[2022-12-14 12:30:31] Finished
 
+real    0m0.388s
+user    0m0.308s
+sys     0m0.033s
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab#
 ```
 
 ```
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# time marian-vocab < all.tg > vocab.tg.yml
+[2022-12-14 12:32:11] Creating vocabulary...
+[2022-12-14 12:32:11] [data] Creating vocabulary stdout from stdin
+[2022-12-14 12:32:11] Finished
 
+real    0m0.051s
+user    0m0.047s
+sys     0m0.004s
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab#
 ```
 
-```
+check the file content:  
 
 ```
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# head vocab.my.yml
+</s>: 0
+<unk>: 1
+ကို: 2
+သည်: 3
+တယ်: 4
+က: 5
+ပါ: 6
+မှာ: 7
+များ: 8
+ရှိ: 9
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# head vocab.tg.yml
+</s>: 0
+<unk>: 1
+O: 2
+N: 3
+E: 4
+B: 5root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab#
+```
+
+check the vocab filesize:  
 
 ```
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# head vocab.tg.yml
+</s>: 0
+<unk>: 1
+O: 2
+N: 3
+E: 4
+B: 5root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab# wc *.yml
+  32592   65186 1071971 vocab.my.yml
+      5      12      36 vocab.tg.yml
+  32597   65198 1072007 total
+root@48e31407fc14:/home/ye/exp/mysent/data-sent/vocab#
+```
+
+vocab preparation for sent+paragraph dataset:  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para# ls
+test.my  test.tg  train.my  train.tg  valid.my  valid.tg
+root@48e31407fc14:/home/ye/exp/mysent/data-para# mkdir vocab
+root@48e31407fc14:/home/ye/exp/mysent/data-para# cat train.my valid.my test.my > ./vocab/all.my
+root@48e31407fc14:/home/ye/exp/mysent/data-para# cat train.tg valid.tg test.tg > ./vocab/all.tg
+```
+
+check ...  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# ls
+all.my  all.tg
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# wc *
+   55593     7307 14202030 all.my
+   55593   992657  1985314 all.tg
+  111186   999964 16187344 total
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
+```
+
+make vocab ...  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# time marian-vocab < ./all.my > vocab.my.yml
+[2022-12-14 12:40:34] Creating vocabulary...
+[2022-12-14 12:40:34] [data] Creating vocabulary stdout from stdin
+[2022-12-14 12:40:34] Finished
+
+real    0m0.471s
+user    0m0.458s
+sys     0m0.012s
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# time marian-vocab < ./all.tg > vocab.tg.yml
+[2022-12-14 12:40:47] Creating vocabulary...
+[2022-12-14 12:40:47] [data] Creating vocabulary stdout from stdin
+[2022-12-14 12:40:47] Finished
+
+real    0m0.065s
+user    0m0.053s
+sys     0m0.012s
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
+```
+
+checck the vocab filesize:  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# wc *.yml
+  46104   92210 1559638 vocab.my.yml
+      5      12      36 vocab.tg.yml
+  46109   92222 1559674 total
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
+```
+
+check the voccab file content:  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# head vocab.my.yml
+</s>: 0
+<unk>: 1
+ကို: 2
+တယ်: 3
+က: 4
+သည်: 5
+ပါ: 6
+မှာ: 7
+တွေ: 8
+တဲ့: 9
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# tail ./vocab.my.yml
+⁠လုံးလျား⁠လျား: 46095
+−ရှင်: 46096
+−သမီးတော်: 46097
+新加坡: 46098
+昭南島: 46099
+昭和の時代に得た南の島: 46100
+禪: 46101
+缅甸: 46102
+"\ufeff": 46103
+"\ufeffတင်ပို့": 46104root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
+```
+
+checck the file content of tag vocab file:  
+
+```
+root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab# cat vocab.tg.yml
+</s>: 0
+<unk>: 1
+O: 2
+N: 3
+E: 4
+B: 5root@48e31407fc14:/home/ye/exp/mysent/data-para/vocab#
+```
+
+Vocab file creation finished for both sentence and sent+para dataset!   
+
+## recheck the shell script for training marain 
 
 ```
 
