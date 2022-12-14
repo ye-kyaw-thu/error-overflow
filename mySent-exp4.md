@@ -1039,7 +1039,7 @@ I got above error for the 1st time training ...
 Logout the LST GPU server and run again ...  
 
 ```
-
+root@d7ccd8169efe:/home/ye/exp/mysent# ./transformer.sent1.sh
 ...
 ...
 ...
@@ -1105,7 +1105,34 @@ Logout the LST GPU server and run again ...
 ...
 ...
 ...
+[2022-12-14 23:15:18] Ep. 355 : Up. 84500 : Sen. 30,247 : Cost 0.43526506 * 1,229,177 @ 3,415 after 206,866,413 : Time 9.15s : 134392.88 words/s : gNorm 1.0762 : L.r. 1.3054e-04
+[2022-12-14 23:15:19] Seen 39,999 samples
+[2022-12-14 23:15:19] Starting data epoch 356 in logical epoch 356
+[2022-12-14 23:15:19] [data] Shuffling data
+[2022-12-14 23:15:19] [data] Done reading 40,000 sentences
+[2022-12-14 23:15:19] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 23:15:23] Seen 39,999 samples
+[2022-12-14 23:15:23] Starting data epoch 357 in logical epoch 357
+[2022-12-14 23:15:23] [data] Shuffling data
+[2022-12-14 23:15:23] [data] Done reading 40,000 sentences
+[2022-12-14 23:15:23] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 23:15:27] Ep. 357 : Up. 85000 : Sen. 34,104 : Cost 0.43605182 * 1,225,329 @ 3,002 after 208,091,742 : Time 9.19s : 133277.71 words/s : gNorm 1.2420 : L.r. 1.3016e-04
+[2022-12-14 23:15:27] Saving model weights and runtime parameters to model.transformer.sent1/model.iter85000.npz
+[2022-12-14 23:15:27] Saving model weights and runtime parameters to model.transformer.sent1/model.npz
+[2022-12-14 23:15:28] Saving Adam parameters
+[2022-12-14 23:15:28] [training] Saving training checkpoint to model.transformer.sent1/model.npz and model.transformer.sent1/model.npz.optimizer.npz
+[2022-12-14 23:15:31] [valid] Ep. 357 : Up. 85000 : cross-entropy : 1.8711 : stalled 10 times (last best: 1.44142)
+[2022-12-14 23:15:32] [valid] Ep. 357 : Up. 85000 : perplexity : 1.1389 : stalled 10 times (last best: 1.10538)
+[2022-12-14 23:15:34] [valid] Ep. 357 : Up. 85000 : bleu : 70.8777 : stalled 10 times (last best: 74.3342)
+[2022-12-14 23:15:34] Training finished
+[2022-12-14 23:15:34] Saving model weights and runtime parameters to model.transformer.sent1/model.npz
+[2022-12-14 23:15:35] Saving Adam parameters
+[2022-12-14 23:15:35] [training] Saving training checkpoint to model.transformer.sent1/model.npz and model.transformer.sent1/model.npz.optimizer.npz
 
+real    27m56.728s
+user    28m38.814s
+sys     1m1.540s
+root@d7ccd8169efe:/home/ye/exp/mysent#
 ```
 
 GPU usage information when training Transformer model ...  
@@ -1136,13 +1163,115 @@ Thu Dec 15 05:53:47 2022
 +-----------------------------------------------------------------------------+
 ```
 
-```
+Training time is very quick and the result is not good compare with Seq2Seq ...  
+
+Check the validation results ...  
 
 ```
-
+  1 [2022-12-14 22:49:16] [valid] Ep. 22 : Up. 5000 : cross-entropy : 14.7751 : new best
+  2 [2022-12-14 22:49:16] [valid] Ep. 22 : Up. 5000 : perplexity : 2.79271 : new best
+  3 [2022-12-14 22:49:16] [valid] First sentence's tokens as scored:
+  4 [2022-12-14 22:49:16] [valid] DefaultVocab keeps original segments for scoring
+  5 [2022-12-14 22:49:16] [valid]   Hyp: B O O O O O O O O O O O O O O N N N E
+  6 [2022-12-14 22:49:16] [valid]   Ref: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O     O O O O O O O O O O O O N N N E
+  7 [2022-12-14 22:49:17] [valid] Ep. 22 : Up. 5000 : bleu : 44.6635 : new best
+  8 [2022-12-14 22:50:52] [valid] Ep. 43 : Up. 10000 : cross-entropy : 6.31625 : new best
+  9 [2022-12-14 22:50:52] [valid] Ep. 43 : Up. 10000 : perplexity : 1.55122 : new best
+ 10 [2022-12-14 22:50:54] [valid] Ep. 43 : Up. 10000 : bleu : 73.7783 : new best
+ 11 [2022-12-14 22:52:29] [valid] Ep. 64 : Up. 15000 : cross-entropy : 3.17262 : new best
+ 12 [2022-12-14 22:52:30] [valid] Ep. 64 : Up. 15000 : perplexity : 1.24673 : new best
+ 13 [2022-12-14 22:52:32] [valid] Ep. 64 : Up. 15000 : bleu : 70.1275 : stalled 1 times (last best: 73.7783)
+ 14 [2022-12-14 22:54:07] [valid] Ep. 84 : Up. 20000 : cross-entropy : 2.06925 : new best
+ 15 [2022-12-14 22:54:08] [valid] Ep. 84 : Up. 20000 : perplexity : 1.15469 : new best
+ 16 [2022-12-14 22:54:11] [valid] Ep. 84 : Up. 20000 : bleu : 71.7483 : stalled 2 times (last best: 73.7783)
+ 17 [2022-12-14 22:55:46] [valid] Ep. 105 : Up. 25000 : cross-entropy : 1.58498 : new best
+ 18 [2022-12-14 22:55:46] [valid] Ep. 105 : Up. 25000 : perplexity : 1.11647 : new best
+ 19 [2022-12-14 22:55:49] [valid] Ep. 105 : Up. 25000 : bleu : 73.7227 : stalled 3 times (last best: 73.7783)
+ 20 [2022-12-14 22:57:25] [valid] Ep. 126 : Up. 30000 : cross-entropy : 1.44841 : new best
+ 21 [2022-12-14 22:57:25] [valid] Ep. 126 : Up. 30000 : perplexity : 1.10592 : new best
+ 22 [2022-12-14 22:57:28] [valid] Ep. 126 : Up. 30000 : bleu : 72.4195 : stalled 4 times (last best: 73.7783)
+ 23 [2022-12-14 22:59:03] [valid] Ep. 147 : Up. 35000 : cross-entropy : 1.44142 : new best
+ 24 [2022-12-14 22:59:04] [valid] Ep. 147 : Up. 35000 : perplexity : 1.10538 : new best
+ 25 [2022-12-14 22:59:06] [valid] Ep. 147 : Up. 35000 : bleu : 74.3342 : new best
+ 26 [2022-12-14 23:00:42] [valid] Ep. 168 : Up. 40000 : cross-entropy : 1.5815 : stalled 1 times (last best: 1.44142)
+ 27 [2022-12-14 23:00:42] [valid] Ep. 168 : Up. 40000 : perplexity : 1.1162 : stalled 1 times (last best: 1.10538)
+ 28 [2022-12-14 23:00:45] [valid] Ep. 168 : Up. 40000 : bleu : 73.3137 : stalled 1 times (last best: 74.3342)
+ 29 [2022-12-14 23:02:20] [valid] Ep. 189 : Up. 45000 : cross-entropy : 1.68953 : stalled 2 times (last best: 1.44142)
+ 30 [2022-12-14 23:02:21] [valid] Ep. 189 : Up. 45000 : perplexity : 1.12461 : stalled 2 times (last best: 1.10538)
+  31 [2022-12-14 23:02:23] [valid] Ep. 189 : Up. 45000 : bleu : 71.7748 : stalled 2 times (last best: 74.3342)
+ 32 [2022-12-14 23:03:59] [valid] Ep. 210 : Up. 50000 : cross-entropy : 1.80328 : stalled 3 times (last best: 1.44142)
+ 33 [2022-12-14 23:04:00] [valid] Ep. 210 : Up. 50000 : perplexity : 1.13354 : stalled 3 times (last best: 1.10538)
+ 34 [2022-12-14 23:04:02] [valid] Ep. 210 : Up. 50000 : bleu : 70.4578 : stalled 3 times (last best: 74.3342)
+ 35 [2022-12-14 23:05:38] [valid] Ep. 231 : Up. 55000 : cross-entropy : 2.11138 : stalled 4 times (last best: 1.44142)
+ 36 [2022-12-14 23:05:38] [valid] Ep. 231 : Up. 55000 : perplexity : 1.15808 : stalled 4 times (last best: 1.10538)
+ 37 [2022-12-14 23:05:41] [valid] Ep. 231 : Up. 55000 : bleu : 69.7287 : stalled 4 times (last best: 74.3342)
+ 38 [2022-12-14 23:07:17] [valid] Ep. 252 : Up. 60000 : cross-entropy : 2.12543 : stalled 5 times (last best: 1.44142)
+ 39 [2022-12-14 23:07:17] [valid] Ep. 252 : Up. 60000 : perplexity : 1.15921 : stalled 5 times (last best: 1.10538)
+ 40 [2022-12-14 23:07:20] [valid] Ep. 252 : Up. 60000 : bleu : 70.613 : stalled 5 times (last best: 74.3342)
+ 41 [2022-12-14 23:08:56] [valid] Ep. 273 : Up. 65000 : cross-entropy : 2.0917 : stalled 6 times (last best: 1.44142)
+ 42 [2022-12-14 23:08:56] [valid] Ep. 273 : Up. 65000 : perplexity : 1.15649 : stalled 6 times (last best: 1.10538)
+ 43 [2022-12-14 23:08:59] [valid] Ep. 273 : Up. 65000 : bleu : 68.2936 : stalled 6 times (last best: 74.3342)
+ 44 [2022-12-14 23:10:35] [valid] Ep. 294 : Up. 70000 : cross-entropy : 1.87904 : stalled 7 times (last best: 1.44142)
+ 45 [2022-12-14 23:10:35] [valid] Ep. 294 : Up. 70000 : perplexity : 1.13953 : stalled 7 times (last best: 1.10538)
+ 46 [2022-12-14 23:10:38] [valid] Ep. 294 : Up. 70000 : bleu : 68.8524 : stalled 7 times (last best: 74.3342)
+ 47 [2022-12-14 23:12:14] [valid] Ep. 315 : Up. 75000 : cross-entropy : 1.97382 : stalled 8 times (last best: 1.44142)
+ 48 [2022-12-14 23:12:14] [valid] Ep. 315 : Up. 75000 : perplexity : 1.14706 : stalled 8 times (last best: 1.10538)
+ 49 [2022-12-14 23:12:16] [valid] Ep. 315 : Up. 75000 : bleu : 70.2999 : stalled 8 times (last best: 74.3342)
+ 50 [2022-12-14 23:13:52] [valid] Ep. 336 : Up. 80000 : cross-entropy : 2.10864 : stalled 9 times (last best: 1.44142)
+ 51 [2022-12-14 23:13:53] [valid] Ep. 336 : Up. 80000 : perplexity : 1.15786 : stalled 9 times (last best: 1.10538)
+ 52 [2022-12-14 23:13:55] [valid] Ep. 336 : Up. 80000 : bleu : 70.4615 : stalled 9 times (last best: 74.3342)
+ 53 [2022-12-14 23:15:31] [valid] Ep. 357 : Up. 85000 : cross-entropy : 1.8711 : stalled 10 times (last best: 1.44142)
+ 54 [2022-12-14 23:15:32] [valid] Ep. 357 : Up. 85000 : perplexity : 1.1389 : stalled 10 times (last best: 1.10538)
+ 55 [2022-12-14 23:15:34] [valid] Ep. 357 : Up. 85000 : bleu : 70.8777 : stalled 10 times (last best: 74.3342)
 ```
 
+Later I plan to make change the configuration file and try to get the better performance. At first, I wanna finished all 4 models.  
+
+## Training Seq2Seq Model with Sent+Para Dataset
+
+check the shell script ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for Myanmar Sentence Segmentation with NMT Seq2Seq Model
+## used Marian NMT Framework for seq2seq training with Sent+Para
+## Last updated: 25 Oct 2022
+
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.para1";
+mkdir ${model_folder};
+data_path="/home/ye/exp/mysent/data-para";
+src="my"; tgt="tg";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 200 \
+  --valid-sets ${data_path}/valid.${src} ${data_path}/valid.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 4500 \
+  --enc-depth 3 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 3 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+    --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.para.log1
 ```
+
+Start training ...  
 
 ```
 
