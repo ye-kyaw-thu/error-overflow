@@ -556,6 +556,38 @@ start training ...
 ...
 ...
 ...
+[2022-12-14 20:43:03] Best translation 80 : B O O O O O O O O O O N N N E
+[2022-12-14 20:43:03] Best translation 160 : B O O O O O O O O O O N N N E
+[2022-12-14 20:43:04] Best translation 320 : B O O O O O N N N E
+[2022-12-14 20:43:04] Best translation 640 : B O O O O O O O O O N N N E
+[2022-12-14 20:43:05] Best translation 1280 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-14 20:43:07] Total translation time: 4.74008s
+[2022-12-14 20:43:07] [valid] Ep. 354 : Up. 115000 : bleu : 99.7362 : stalled 5 times (last best: 99.7636)
+[2022-12-14 20:43:22] Seen 39,999 samples
+[2022-12-14 20:43:22] Starting data epoch 355 in logical epoch 355
+[2022-12-14 20:43:22] [data] Shuffling data
+[2022-12-14 20:43:22] [data] Done reading 40,000 sentences
+[2022-12-14 20:43:22] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 20:44:33] Seen 39,999 samples
+[2022-12-14 20:44:33] Starting data epoch 356 in logical epoch 356
+[2022-12-14 20:44:33] [data] Shuffling data
+[2022-12-14 20:44:33] [data] Done reading 40,000 sentences
+[2022-12-14 20:44:33] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 20:44:59] Ep. 356 : Up. 115500 : Sen. 13,546 : Cost 0.02967916 * 899,464 @ 1,762 after 207,218,356 : Time 149.92s : 5999.73 words/s : gNorm 0.6979
+[2022-12-14 20:45:45] Seen 39,999 samples
+[2022-12-14 20:45:45] Starting data epoch 357 in logical epoch 357
+[2022-12-14 20:45:45] [data] Shuffling data
+[2022-12-14 20:45:45] [data] Done reading 40,000 sentences
+[2022-12-14 20:45:45] [data] Done shuffling 40,000 sentences to temp files
+[2022-12-14 20:46:47] Ep. 357 : Up. 116000 : Sen. 35,249 : Cost 0.02715895 * 897,464 @ 960 after 208,115,820 : Time 108.33s : 8284.39 words/s : gNorm 0.5315
+[2022-12-14 20:46:56] Seen 39,999 samples
+[2022-12-14 20:46:56] Starting data epoch 358 in logical epoch 358
+[2022-12-14 20:46:56] [data] Shuffling data
+[2022-12-14 20:46:56] [data] Done reading 40,000 sentences
+[2022-12-14 20:46:56] [data] Done shuffling 40,000 sentences to temp files
+...
+...
+...
 
 ```
 
