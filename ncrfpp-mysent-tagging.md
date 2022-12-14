@@ -86,27 +86,317 @@ Successfully installed torch-1.4.0
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
+## Test Training with Demo Configuration
+
+Check the demo config file ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ cat demo.train.config
+### use # to comment out the configure item
 
+### I/O ###
+train_dir=sample_data/train.bmes
+dev_dir=sample_data/dev.bmes
+test_dir=sample_data/test.bmes
+model_dir=sample_data/lstmcrf
+word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=True
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=CNN
+#feature=[POS] emb_size=20
+#feature=[Cap] emb_size=20
+#nbest=1
+
+###TrainingSetting###
+status=train
+optimizer=SGD
+iteration=1
+batch_size=10
+ave_batch_loss=False
+
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+learning_rate=0.015
+lr_decay=0.05
+momentum=0
+l2=1e-8
+#gpu
+#clip=
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
+checck the GPU status:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ nvidia-smi
+Wed Dec 14 21:20:23 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 30%   45C    P0    58W / 300W |      0MiB / 11019MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 62%   69C    P0    72W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 22%   64C    P0    72W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+test training ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config demo.train.config
+Traceback (most recent call last):
+  File "main.py", line 12, in <module>
+    import torch
+  File "/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/__init__.py", line 81, in <module>
+    from torch._C import *
+ImportError: numpy.core.multiarray failed to import
 
+real    0m0.218s
+user    0m0.160s
+sys     0m0.017s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+numpy library required ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ pip install numpy
+Collecting numpy
+  Using cached numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+Installing collected packages: numpy
+Successfully installed numpy-1.23.5
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+test training again ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config demo.train.config
+Seed num: 42
+MODEL: train
+Load pretrained word embedding, norm: False, dir: sample_data/sample.word.emb
+Embedding:
+     pretrain word:15093, prefect match:847, case_match:433, oov:1834, oov%:0.5887640449438202
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: BMES
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 3115
+     Char  alphabet size: 71
+     Label alphabet size: 18
+     Word embedding  dir: sample_data/sample.word.emb
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: sample_data/train.bmes
+     Dev    file directory: sample_data/dev.bmes
+     Test   file directory: sample_data/test.bmes
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: sample_data/lstmcrf
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 484
+     Dev   instance number: 112
+     Test  instance number: 186
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 1
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+build CRF...
+Epoch: 0/1
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [1728, 131, 1661, 133]
+     Instance: 484; Time: 2.61s; loss: 5349.0192; acc: 5449/6640=0.8206
+Epoch: 0 training finished. Time: 2.62s, speed: 185.08st/s,  total loss: 5349.019195556641
+totalloss: 5349.019195556641
+Right token =  1225  All token =  1458  acc =  0.8401920438957476
+Dev: time: 0.13s, speed: 874.52st/s; acc: 0.8402, p: 0.6026, r: 0.2238, f: 0.3264
+Exceed previous best f score: -10
+Save current best model in file: sample_data/lstmcrf.0.model
+Right token =  3238  All token =  3610  acc =  0.8969529085872576
+Test: time: 0.30s, speed: 625.11st/s; acc: 0.8970, p: 0.6645, r: 0.2919, f: 0.4056
+
+real    0m7.784s
+user    0m5.019s
+sys     0m2.777s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+test training with demo configuration looks OK.  
+
+## Testing with Demo Configuration File  
+
+let's test ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config demo.decode.config
+Seed num: 42
+MODEL: decode
+sample_data/raw.bmes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: BMES
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 3115
+     Char  alphabet size: 71
+     Label alphabet size: 18
+     Word embedding  dir: sample_data/sample.word.emb
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: sample_data/train.bmes
+     Dev    file directory: sample_data/dev.bmes
+     Test   file directory: sample_data/test.bmes
+     Raw    file directory: sample_data/raw.bmes
+     Dset   file directory: sample_data/lstmcrf.dset
+     Model  file directory: sample_data/lstmcrf
+     Loadmodel   directory: sample_data/lstmcrf.0.model
+     Decode file directory: sample_data/raw.out
+     Train instance number: 484
+     Dev   instance number: 112
+     Test  instance number: 186
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 1
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: 10
+Load Model from file:  sample_data/lstmcrf
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+build CRF...
+Decode raw data, nbest: 10 ...
+Right token =  1225  All token =  1458  acc =  0.8401920438957476
+raw: time:0.22s, speed:511.40st/s; acc: 0.8402, p: 0.6026, r: 0.2238, f: 0.3264
+Predict raw 10-best result has been written into file. sample_data/raw.out
+
+real    0m5.310s
+user    0m1.903s
+sys     0m3.298s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+## Check the Data Format 
 
 ```
 
