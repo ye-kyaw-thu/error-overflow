@@ -1339,8 +1339,39 @@ Start training ...
 ...
 ...
 ...
+[2022-12-15 08:10:56] [valid] Ep. 216 : Up. 100000 : perplexity : 1.08698 : stalled 10 times (last best: 1.07082)
+[2022-12-15 08:10:56] Translating validation set...
+[2022-12-15 08:10:58] Best translation 0 : B N N N E
+[2022-12-15 08:10:58] Best translation 1 : B O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 2 : B N N N E
+[2022-12-15 08:10:58] Best translation 3 : B O O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 4 : B O O O O O O O O O O O O O N N N E B O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 5 : B O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 10 : B N E B O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 20 : B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 40 : B O N N N E
+[2022-12-15 08:10:58] Best translation 80 : B O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-12-15 08:10:58] Best translation 160 : B O O N N N E
+[2022-12-15 08:10:59] Best translation 320 : B O O O O O O O O O O O O N N N E B O O O O O N N N E B O O O N N N E B O O O O O O O O O O N N N E
+[2022-12-15 08:11:00] Best translation 640 : B O O O O O O O O O O N N N E
+[2022-12-15 08:11:02] Best translation 1280 : B O N N N E
+[2022-12-15 08:11:08] Best translation 2560 : B O O O N N N E
+[2022-12-15 08:11:10] Total translation time: 13.27260s
+[2022-12-15 08:11:10] [valid] Ep. 216 : Up. 100000 : bleu : 91.7906 : new best
+[2022-12-15 08:11:10] Training finished
+[2022-12-15 08:11:10] Saving model weights and runtime parameters to model.seq2seq.para1/model.npz
+[2022-12-15 08:11:15] Saving Adam parameters
+[2022-12-15 08:11:18] [training] Saving training checkpoint to model.seq2seq.para1/model.npz and model.seq2seq.para1/model.npz.optimizer.npz
+
+real    529m48.062s
+user    519m19.765s
+sys     7m9.349s
+root@d7ccd8169efe:/home/ye/exp/mysent#
 
 ```
+
+## Training Transformr Model for Sent+Paragraph Dataset
+
 
 ```
 
