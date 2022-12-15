@@ -1453,11 +1453,133 @@ check the validation scores ...
 
 ## Training Transformr Model for Sent+Paragraph Dataset
 
+check the shell script ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for mySent, also preparation for 4th NLP/AI Workshop 2022
+
+#     --mini-batch-fit -w 10000 --maxi-batch 1000 \
+#    --mini-batch-fit -w 1000 --maxi-batch 100 \
+#     --tied-embeddings-all \
+#     --tied-embeddings \
+#     --valid-metrics cross-entropy perplexity translation bleu \
+#     --transformer-dropout 0.1 --label-smoothing 0.1 \
+#     --learn-rate 0.0003 --lr-warmup 16000 --lr-decay-inv-sqrt 16000 --lr-report \
+#     --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 \
+
+mkdir model.transformer.para1;
+
+marian \
+    --model model.transformer.para1/model.npz --type transformer \
+    --train-sets data-para/train.my data-para/train.tg \
+    --max-length 200 \
+    --vocabs data-para/vocab/vocab.my.yml data-para/vocab/vocab.tg.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets data-para/valid.my data-para/valid.tg \
+    --valid-translation-output model.transformer.para1/valid.my-tg.output --quiet-translation \
+    --valid-mini-batch 16 \
+    --beam-size 6 --normalize 0.6 \
+    --log model.transformer.para1/train.log --valid-log model.transformer.para1/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > model.transformer.para1/config.yml
+
+time marian -c model.transformer.para1/config.yml  2>&1 | tee transformer.para1.log
+```
+
+start training ...  
+
+```
+[2022-12-15 15:13:45] Synced seed 1111
+[2022-12-15 15:13:45] [data] Loading vocabulary from JSON/Yaml file data-para/vocab/vocab.my.yml
+[2022-12-15 15:13:45] [data] Setting vocabulary size for input 0 to 46,105
+[2022-12-15 15:13:45] [data] Loading vocabulary from JSON/Yaml file data-para/vocab/vocab.tg.yml
+[2022-12-15 15:13:45] [data] Setting vocabulary size for input 1 to 6
+[2022-12-15 15:13:45] [batching] Collecting statistics for batch fitting with step size 10
+[2022-12-15 15:13:45] Error: Curand error 203 - /temp/marian/src/tensors/rand.cpp:74: curandCreateGenerator(&generator_, CURAND_RNG_PSEUDO_DEFAULT)
+[2022-12-15 15:13:45] Error: Aborted from marian::CurandRandomGenerator::CurandRandomGenerator(size_t, marian::DeviceId) in /temp/marian/src/tensors/rand.cpp:74
+
+[CALL STACK]
+[0x56178b94d050]    marian::CurandRandomGenerator::  CurandRandomGenerator  (unsigned long,  marian::DeviceId) + 0x750
+[0x56178b94d689]    marian::  createRandomGenerator  (unsigned long,  marian::DeviceId) + 0x69
+[0x56178b947f20]    marian::  BackendByDeviceId  (marian::DeviceId,  unsigned long) + 0xa0
+[0x56178b437220]    marian::ExpressionGraph::  setDevice  (marian::DeviceId,  std::shared_ptr<marian::Device>) + 0x80
+[0x56178b730cd5]    marian::GraphGroup::  initGraphsAndOpts  ()        + 0x1e5
+[0x56178b7321f8]    marian::GraphGroup::  GraphGroup  (std::shared_ptr<marian::Options>,  std::shared_ptr<marian::IMPIWrapper>) + 0x548
+[0x56178b710773]    marian::SyncGraphGroup::  SyncGraphGroup  (std::shared_ptr<marian::Options>,  std::shared_ptr<marian::IMPIWrapper>) + 0x83
+[0x56178b2698ab]    marian::Train<marian::SyncGraphGroup>::  run  ()   + 0x1c2b
+[0x56178b197347]    mainTrainer  (int,  char**)                        + 0x147
+[0x7fd5b7dd5d90]                                                       + 0x29d90
+[0x7fd5b7dd5e40]    __libc_start_main                                  + 0x80
+[0x56178b190995]    _start                                             + 0x25
+
+
+real    0m7.837s
+user    0m0.193s
+sys     0m0.057s
+root@d7ccd8169efe:/home/ye/exp/mysent#
+```
+
+got error ... and thus, logout and then train again ...  
+
+```
+[2022-12-15 15:18:50] [comm] NCCLCommunicators constructed successfully
+[2022-12-15 15:18:50] [training] Using 1 GPUs
+[2022-12-15 15:18:50] [logits] Applying loss function for 1 factor(s)
+[2022-12-15 15:18:50] [memory] Reserving 146 MB, device gpu0
+[2022-12-15 15:18:51] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-15 15:18:51] [memory] Reserving 146 MB, device gpu0
+[2022-12-15 15:18:52] [batching] Done. Typical MB size is 2,882 target words
+[2022-12-15 15:18:52] [memory] Extending reserved space to 1024 MB (device gpu0)
+[2022-12-15 15:18:52] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-15 15:18:52] [comm] Using global sharding
+[2022-12-15 15:18:52] [comm] NCCLCommunicators constructed successfully
+[2022-12-15 15:18:52] [training] Using 1 GPUs
+[2022-12-15 15:18:52] Training started
+[2022-12-15 15:18:52] [data] Shuffling data
+[2022-12-15 15:18:52] [data] Done reading 47,002 sentences
+[2022-12-15 15:18:52] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 15:18:52] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2022-12-15 15:18:52] [memory] Reserving 146 MB, device gpu0
+[2022-12-15 15:18:52] [memory] Reserving 146 MB, device gpu0
+[2022-12-15 15:18:52] Parameter type float32, optimization type float32, casting types false
+[2022-12-15 15:18:52] Allocating memory for general optimizer shards
+[2022-12-15 15:18:52] [memory] Reserving 146 MB, device gpu0
+[2022-12-15 15:18:52] Allocating memory for Adam-specific shards
+[2022-12-15 15:18:52] [memory] Reserving 292 MB, device gpu0
+[2022-12-15 15:18:59] Seen 46,972 samples
+[2022-12-15 15:18:59] Starting data epoch 2 in logical epoch 2
+[2022-12-15 15:18:59] [data] Shuffling data
+[2022-12-15 15:18:59] [data] Done reading 47,002 sentences
+[2022-12-15 15:18:59] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 15:19:02] Ep. 2 : Up. 500 : Sen. 20,430 : Cost 0.78880912 * 1,256,206 @ 2,707 after 1,256,206 : Time 9.80s : 128193.45 words/s : gNorm 2.0274 : L.r. 3.0000e-04
+...
+...
+...
 
 ```
 
 ```
 
+```
+
+```
+
+```
 
 ## Testing  
 
