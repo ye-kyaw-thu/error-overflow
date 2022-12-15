@@ -1537,6 +1537,10 @@ root@d7ccd8169efe:/home/ye/exp/mysent#
 got error ... and thus, logout and then train again ...  
 
 ```
+root@756efe2086e0:/home/ye/exp/mysent# ./transformer.para1.sh
+...
+...
+...
 [2022-12-15 15:18:50] [comm] NCCLCommunicators constructed successfully
 [2022-12-15 15:18:50] [training] Using 1 GPUs
 [2022-12-15 15:18:50] [logits] Applying loss function for 1 factor(s)
@@ -1601,15 +1605,139 @@ got error ... and thus, logout and then train again ...
 ...
 ...
 ...
+[2022-12-15 16:11:11] Seen 46,972 samples
+[2022-12-15 16:11:11] Starting data epoch 388 in logical epoch 388
+[2022-12-15 16:11:11] [data] Shuffling data
+[2022-12-15 16:11:11] [data] Done reading 47,002 sentences
+[2022-12-15 16:11:11] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 16:11:11] Ep. 388 : Up. 134500 : Sen. 895 : Cost 0.46053261 * 1,256,463 @ 2,443 after 338,112,857 : Time 9.54s : 131676.56 words/s : gNorm 0.6599 : L.r. 1.0347e-04
+[2022-12-15 16:11:17] Seen 46,972 samples
+[2022-12-15 16:11:17] Starting data epoch 389 in logical epoch 389
+[2022-12-15 16:11:17] [data] Shuffling data
+[2022-12-15 16:11:17] [data] Done reading 47,002 sentences
+[2022-12-15 16:11:17] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 16:11:20] Ep. 389 : Up. 135000 : Sen. 21,103 : Cost 0.45912629 * 1,256,251 @ 2,397 after 339,369,108 : Time 9.42s : 133381.78 words/s : gNorm 0.7578 : L.r. 1.0328e-04
+[2022-12-15 16:11:20] Saving model weights and runtime parameters to model.transformer.para1/model.iter135000.npz
+[2022-12-15 16:11:21] Saving model weights and runtime parameters to model.transformer.para1/model.npz
+[2022-12-15 16:11:22] Saving Adam parameters
+[2022-12-15 16:11:22] [training] Saving training checkpoint to model.transformer.para1/model.npz and model.transformer.para1/model.npz.optimizer.npz
+[2022-12-15 16:11:26] [valid] Ep. 389 : Up. 135000 : cross-entropy : 2.77554 : stalled 10 times (last best: 2.72421)
+[2022-12-15 16:11:27] [valid] Ep. 389 : Up. 135000 : perplexity : 1.14083 : stalled 10 times (last best: 1.13805)
+[2022-12-15 16:11:40] [valid] Ep. 389 : Up. 135000 : bleu : 86.2612 : stalled 3 times (last best: 86.8078)
+[2022-12-15 16:11:40] Training finished
+[2022-12-15 16:11:40] Saving model weights and runtime parameters to model.transformer.para1/model.npz
+[2022-12-15 16:11:41] Saving Adam parameters
+[2022-12-15 16:11:41] [training] Saving training checkpoint to model.transformer.para1/model.npz and model.transformer.para1/model.npz.optimizer.npz
 
+real    52m55.054s
+user    53m42.015s
+sys     1m29.806s
+root@756efe2086e0:/home/ye/exp/mysent#
 ```
 
-```
+checked the models ...  
 
 ```
-
+root@756efe2086e0:/home/ye/exp/mysent/model.transformer.para1# ls
+config.yml            model.iter130000.npz  model.iter45000.npz  model.iter80000.npz      model.npz.yml
+model.iter10000.npz   model.iter135000.npz  model.iter5000.npz   model.iter85000.npz      train.log
+model.iter100000.npz  model.iter15000.npz   model.iter50000.npz  model.iter90000.npz      valid.log
+model.iter105000.npz  model.iter20000.npz   model.iter55000.npz  model.iter95000.npz      valid.my-tg.output
+model.iter110000.npz  model.iter25000.npz   model.iter60000.npz  model.npz
+model.iter115000.npz  model.iter30000.npz   model.iter65000.npz  model.npz.decoder.yml
+model.iter120000.npz  model.iter35000.npz   model.iter70000.npz  model.npz.optimizer.npz
+model.iter125000.npz  model.iter40000.npz   model.iter75000.npz  model.npz.progress.yml
+root@756efe2086e0:/home/ye/exp/mysent/model.transformer.para1#
 ```
 
+check/learn the validation scores ...  
+
+```
+  1 [2022-12-15 15:20:29] [valid] Ep. 15 : Up. 5000 : cross-entropy : 4.96333 : new best
+  2 [2022-12-15 15:20:29] [valid] Ep. 15 : Up. 5000 : perplexity : 1.26568 : new best
+  3 [2022-12-15 15:20:30] [valid] First sentence's tokens as scored:
+  4 [2022-12-15 15:20:30] [valid] DefaultVocab keeps original segments for scoring
+  5 [2022-12-15 15:20:30] [valid]   Hyp: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O     O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O     O O O O O O O O O O O O O O O N N N E
+  6 [2022-12-15 15:20:30] [valid]   Ref: B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N     E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O     O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O     O N N N E
+  7 [2022-12-15 15:20:52] [valid] Ep. 15 : Up. 5000 : bleu : 80.883 : new best
+  8 [2022-12-15 15:22:32] [valid] Ep. 29 : Up. 10000 : cross-entropy : 3.60183 : new best
+  9 [2022-12-15 15:22:33] [valid] Ep. 29 : Up. 10000 : perplexity : 1.18647 : new best
+ 10 [2022-12-15 15:22:55] [valid] Ep. 29 : Up. 10000 : bleu : 58.3665 : stalled 1 times (last best: 80.883)
+ 11 [2022-12-15 15:24:35] [valid] Ep. 44 : Up. 15000 : cross-entropy : 3.22426 : new best
+ 12 [2022-12-15 15:24:36] [valid] Ep. 44 : Up. 15000 : perplexity : 1.16539 : new best
+ 13 [2022-12-15 15:24:57] [valid] Ep. 44 : Up. 15000 : bleu : 61.4487 : stalled 2 times (last best: 80.883)
+ 14 [2022-12-15 15:26:38] [valid] Ep. 58 : Up. 20000 : cross-entropy : 3.12394 : new best
+ 15 [2022-12-15 15:26:38] [valid] Ep. 58 : Up. 20000 : perplexity : 1.15986 : new best
+ 16 [2022-12-15 15:26:56] [valid] Ep. 58 : Up. 20000 : bleu : 77.1502 : stalled 3 times (last best: 80.883)
+ 17 [2022-12-15 15:28:37] [valid] Ep. 72 : Up. 25000 : cross-entropy : 2.99776 : new best
+ 18 [2022-12-15 15:28:38] [valid] Ep. 72 : Up. 25000 : perplexity : 1.15293 : new best
+ 19 [2022-12-15 15:28:56] [valid] Ep. 72 : Up. 25000 : bleu : 71.1581 : stalled 4 times (last best: 80.883)
+ 20 [2022-12-15 15:30:36] [valid] Ep. 87 : Up. 30000 : cross-entropy : 2.89711 : new best
+ 21 [2022-12-15 15:30:37] [valid] Ep. 87 : Up. 30000 : perplexity : 1.14743 : new best
+ 22 [2022-12-15 15:30:55] [valid] Ep. 87 : Up. 30000 : bleu : 62.7227 : stalled 5 times (last best: 80.883)
+ 23 [2022-12-15 15:32:36] [valid] Ep. 101 : Up. 35000 : cross-entropy : 2.83347 : new best
+ 24 [2022-12-15 15:32:36] [valid] Ep. 101 : Up. 35000 : perplexity : 1.14397 : new best
+ 25 [2022-12-15 15:32:54] [valid] Ep. 101 : Up. 35000 : bleu : 60.2647 : stalled 6 times (last best: 80.883)
+ 26 [2022-12-15 15:34:35] [valid] Ep. 116 : Up. 40000 : cross-entropy : 2.80151 : new best
+  27 [2022-12-15 15:34:36] [valid] Ep. 116 : Up. 40000 : perplexity : 1.14224 : new best
+ 28 [2022-12-15 15:34:54] [valid] Ep. 116 : Up. 40000 : bleu : 59.4293 : stalled 7 times (last best: 80.883)
+ 29 [2022-12-15 15:36:34] [valid] Ep. 130 : Up. 45000 : cross-entropy : 2.79327 : new best
+ 30 [2022-12-15 15:36:35] [valid] Ep. 130 : Up. 45000 : perplexity : 1.14179 : new best
+ 31 [2022-12-15 15:36:52] [valid] Ep. 130 : Up. 45000 : bleu : 63.1524 : stalled 8 times (last best: 80.883)
+ 32 [2022-12-15 15:38:33] [valid] Ep. 144 : Up. 50000 : cross-entropy : 2.7829 : new best
+ 33 [2022-12-15 15:38:34] [valid] Ep. 144 : Up. 50000 : perplexity : 1.14123 : new best
+ 34 [2022-12-15 15:38:50] [valid] Ep. 144 : Up. 50000 : bleu : 70.7739 : stalled 9 times (last best: 80.883)
+ 35 [2022-12-15 15:40:31] [valid] Ep. 159 : Up. 55000 : cross-entropy : 2.75332 : new best
+ 36 [2022-12-15 15:40:31] [valid] Ep. 159 : Up. 55000 : perplexity : 1.13963 : new best
+ 37 [2022-12-15 15:40:48] [valid] Ep. 159 : Up. 55000 : bleu : 72.2076 : stalled 10 times (last best: 80.883)
+ 38 [2022-12-15 15:42:28] [valid] Ep. 173 : Up. 60000 : cross-entropy : 2.74219 : new best
+ 39 [2022-12-15 15:42:29] [valid] Ep. 173 : Up. 60000 : perplexity : 1.13903 : new best
+ 40 [2022-12-15 15:42:45] [valid] Ep. 173 : Up. 60000 : bleu : 74.8474 : stalled 11 times (last best: 80.883)
+ 41 [2022-12-15 15:44:26] [valid] Ep. 188 : Up. 65000 : cross-entropy : 2.73809 : new best
+ 42 [2022-12-15 15:44:26] [valid] Ep. 188 : Up. 65000 : perplexity : 1.1388 : new best
+ 43 [2022-12-15 15:44:42] [valid] Ep. 188 : Up. 65000 : bleu : 74.8641 : stalled 12 times (last best: 80.883)
+ 44 [2022-12-15 15:46:23] [valid] Ep. 202 : Up. 70000 : cross-entropy : 2.73569 : new best
+ 45 [2022-12-15 15:46:24] [valid] Ep. 202 : Up. 70000 : perplexity : 1.13868 : new best
+ 46 [2022-12-15 15:46:40] [valid] Ep. 202 : Up. 70000 : bleu : 74.8497 : stalled 13 times (last best: 80.883)
+ 47 [2022-12-15 15:48:20] [valid] Ep. 216 : Up. 75000 : cross-entropy : 2.72687 : new best
+ 48 [2022-12-15 15:48:21] [valid] Ep. 216 : Up. 75000 : perplexity : 1.1382 : new best
+ 49 [2022-12-15 15:48:37] [valid] Ep. 216 : Up. 75000 : bleu : 77.1043 : stalled 14 times (last best: 80.883)
+ 50 [2022-12-15 15:50:17] [valid] Ep. 231 : Up. 80000 : cross-entropy : 2.72513 : new best
+ 51 [2022-12-15 15:50:18] [valid] Ep. 231 : Up. 80000 : perplexity : 1.1381 : new best
+ 52 [2022-12-15 15:50:33] [valid] Ep. 231 : Up. 80000 : bleu : 77.395 : stalled 15 times (last best: 80.883)
+ 53 [2022-12-15 15:52:14] [valid] Ep. 245 : Up. 85000 : cross-entropy : 2.72421 : new best
+ 54 [2022-12-15 15:52:15] [valid] Ep. 245 : Up. 85000 : perplexity : 1.13805 : new best
+ 55 [2022-12-15 15:52:30] [valid] Ep. 245 : Up. 85000 : bleu : 76.0898 : stalled 16 times (last best: 80.883)
+  56 [2022-12-15 15:54:11] [valid] Ep. 259 : Up. 90000 : cross-entropy : 2.72782 : stalled 1 times (last best: 2.72421)
+ 57 [2022-12-15 15:54:12] [valid] Ep. 259 : Up. 90000 : perplexity : 1.13825 : stalled 1 times (last best: 1.13805)
+ 58 [2022-12-15 15:54:26] [valid] Ep. 259 : Up. 90000 : bleu : 80.0508 : stalled 17 times (last best: 80.883)
+ 59 [2022-12-15 15:56:07] [valid] Ep. 274 : Up. 95000 : cross-entropy : 2.73926 : stalled 2 times (last best: 2.72421)
+ 60 [2022-12-15 15:56:08] [valid] Ep. 274 : Up. 95000 : perplexity : 1.13887 : stalled 2 times (last best: 1.13805)
+ 61 [2022-12-15 15:56:22] [valid] Ep. 274 : Up. 95000 : bleu : 79.8181 : stalled 18 times (last best: 80.883)
+ 62 [2022-12-15 15:58:03] [valid] Ep. 288 : Up. 100000 : cross-entropy : 2.7442 : stalled 3 times (last best: 2.72421)
+ 63 [2022-12-15 15:58:04] [valid] Ep. 288 : Up. 100000 : perplexity : 1.13914 : stalled 3 times (last best: 1.13805)
+ 64 [2022-12-15 15:58:18] [valid] Ep. 288 : Up. 100000 : bleu : 80.0516 : stalled 19 times (last best: 80.883)
+ 65 [2022-12-15 15:59:58] [valid] Ep. 303 : Up. 105000 : cross-entropy : 2.74089 : stalled 4 times (last best: 2.72421)
+ 66 [2022-12-15 15:59:59] [valid] Ep. 303 : Up. 105000 : perplexity : 1.13896 : stalled 4 times (last best: 1.13805)
+ 67 [2022-12-15 16:00:13] [valid] Ep. 303 : Up. 105000 : bleu : 82.1205 : new best
+ 68 [2022-12-15 16:01:54] [valid] Ep. 317 : Up. 110000 : cross-entropy : 2.75681 : stalled 5 times (last best: 2.72421)
+ 69 [2022-12-15 16:01:54] [valid] Ep. 317 : Up. 110000 : perplexity : 1.13982 : stalled 5 times (last best: 1.13805)
+ 70 [2022-12-15 16:02:07] [valid] Ep. 317 : Up. 110000 : bleu : 85.3491 : new best
+ 71 [2022-12-15 16:03:48] [valid] Ep. 331 : Up. 115000 : cross-entropy : 2.75465 : stalled 6 times (last best: 2.72421)
+ 72 [2022-12-15 16:03:49] [valid] Ep. 331 : Up. 115000 : perplexity : 1.1397 : stalled 6 times (last best: 1.13805)
+ 73 [2022-12-15 16:04:02] [valid] Ep. 331 : Up. 115000 : bleu : 86.5717 : new best
+ 74 [2022-12-15 16:05:43] [valid] Ep. 346 : Up. 120000 : cross-entropy : 2.75603 : stalled 7 times (last best: 2.72421)
+ 75 [2022-12-15 16:05:44] [valid] Ep. 346 : Up. 120000 : perplexity : 1.13977 : stalled 7 times (last best: 1.13805)
+ 76 [2022-12-15 16:05:57] [valid] Ep. 346 : Up. 120000 : bleu : 86.8078 : new best
+ 77 [2022-12-15 16:07:38] [valid] Ep. 360 : Up. 125000 : cross-entropy : 2.76371 : stalled 8 times (last best: 2.72421)
+ 78 [2022-12-15 16:07:39] [valid] Ep. 360 : Up. 125000 : perplexity : 1.14019 : stalled 8 times (last best: 1.13805)
+ 79 [2022-12-15 16:07:52] [valid] Ep. 360 : Up. 125000 : bleu : 84.1684 : stalled 1 times (last best: 86.8078)
+ 80 [2022-12-15 16:09:32] [valid] Ep. 375 : Up. 130000 : cross-entropy : 2.76916 : stalled 9 times (last best: 2.72421)
+ 81 [2022-12-15 16:09:33] [valid] Ep. 375 : Up. 130000 : perplexity : 1.14049 : stalled 9 times (last best: 1.13805)
+ 82 [2022-12-15 16:09:46] [valid] Ep. 375 : Up. 130000 : bleu : 85.0151 : stalled 2 times (last best: 86.8078)
+ 83 [2022-12-15 16:11:26] [valid] Ep. 389 : Up. 135000 : cross-entropy : 2.77554 : stalled 10 times (last best: 2.72421)
+ 84 [2022-12-15 16:11:27] [valid] Ep. 389 : Up. 135000 : perplexity : 1.14083 : stalled 10 times (last best: 1.13805)
+ 85 [2022-12-15 16:11:40] [valid] Ep. 389 : Up. 135000 : bleu : 86.2612 : stalled 3 times (last best: 86.8078)
 ```
 
 ## Testing  
