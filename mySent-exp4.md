@@ -1802,13 +1802,40 @@ do
 done
 ```
 
-```
+Backup the old results:  
 
 ```
-
+root@756efe2086e0:/home/ye/exp/mysent# mkdir old-results
+root@756efe2086e0:/home/ye/exp/mysent# mv results4ws1 ./old-results/
+root@756efe2086e0:/home/ye/exp/mysent# cd old-results/results4ws1/
+root@756efe2086e0:/home/ye/exp/mysent/old-results/results4ws1# ls
+cross-evaluation-results.txt               hyp.model.seq2seq.sent1.para.tg      hyp.model.transformer.sent1.para.tg
+cross-evaluation-results.with-2vocabs.txt  hyp.model.seq2seq.sent1.sent.tg      hyp.model.transformer.sent1.sent.tg
+hyp.model.seq2seq.para1.para.tg            hyp.model.transformer.para1.para.tg
+hyp.model.seq2seq.para1.sent.tg            hyp.model.transformer.para1.sent.tg
+root@756efe2086e0:/home/ye/exp/mysent/old-results/results4ws1#
 ```
 
+run testing ...  got error and I found that I have to update the test data ...  
+
 ```
+root@5d94c7834a47:/home/ye/exp/mysent# mv new-test-data/ ./old-exp1-data/
+root@5d94c7834a47:/home/ye/exp/mysent# mkdir new-test-data
+root@5d94c7834a47:/home/ye/exp/mysent# cp ./data-sent/test.my ./new-test-data/test.sent.my
+root@5d94c7834a47:/home/ye/exp/mysent# cp ./data-sent/test.tg ./new-test-data/test.sent.tg
+root@5d94c7834a47:/home/ye/exp/mysent# cp ./data-para/test.my ./new-test-data/test.para.my
+root@5d94c7834a47:/home/ye/exp/mysent# cp ./data-para/test.tg ./new-test-data/test.para.tg
+root@5d94c7834a47:/home/ye/exp/mysent# cp -r ./data-sent/vocab/ ./new-test-data/vocab-sent
+root@5d94c7834a47:/home/ye/exp/mysent# cp -r ./data-para/vocab/ ./new-test-data/vocab-para
+```
+
+and prepare the new result folder:  
+
+```
+root@5d94c7834a47:/home/ye/exp/mysent# mkdir results4ws1
+```
+
+run testing again ...  
 
 ```
 
