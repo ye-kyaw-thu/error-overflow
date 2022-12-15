@@ -1570,6 +1570,37 @@ got error ... and thus, logout and then train again ...
 ...
 ...
 ...
+[2022-12-15 15:51:51] Starting data epoch 243 in logical epoch 243
+[2022-12-15 15:51:51] [data] Shuffling data
+[2022-12-15 15:51:51] [data] Done reading 47,002 sentences
+[2022-12-15 15:51:51] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 15:51:58] Seen 46,972 samples
+[2022-12-15 15:51:58] Starting data epoch 244 in logical epoch 244
+[2022-12-15 15:51:58] [data] Shuffling data
+[2022-12-15 15:51:58] [data] Done reading 47,002 sentences
+[2022-12-15 15:51:58] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 15:51:59] Ep. 244 : Up. 84500 : Sen. 4,823 : Cost 0.46749362 * 1,261,481 @ 2,203 after 212,384,120 : Time 9.58s : 131618.29 words/s : gNorm 0.8245 : L.r. 1.3054e-04
+[2022-12-15 15:52:05] Seen 46,972 samples
+[2022-12-15 15:52:05] Starting data epoch 245 in logical epoch 245
+[2022-12-15 15:52:05] [data] Shuffling data
+[2022-12-15 15:52:05] [data] Done reading 47,002 sentences
+[2022-12-15 15:52:05] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 15:52:08] Ep. 245 : Up. 85000 : Sen. 25,565 : Cost 0.46630269 * 1,253,594 @ 2,742 after 213,637,714 : Time 9.43s : 132866.58 words/s : gNorm 0.8028 : L.r. 1.3016e-04
+[2022-12-15 15:52:08] Saving model weights and runtime parameters to model.transformer.para1/model.iter85000.npz
+[2022-12-15 15:52:08] Saving model weights and runtime parameters to model.transformer.para1/model.npz
+[2022-12-15 15:52:10] Saving Adam parameters
+[2022-12-15 15:52:10] [training] Saving training checkpoint to model.transformer.para1/model.npz and model.transformer.para1/model.npz.optimizer.npz
+[2022-12-15 15:52:14] [valid] Ep. 245 : Up. 85000 : cross-entropy : 2.72421 : new best
+[2022-12-15 15:52:15] [valid] Ep. 245 : Up. 85000 : perplexity : 1.13805 : new best
+[2022-12-15 15:52:30] [valid] Ep. 245 : Up. 85000 : bleu : 76.0898 : stalled 16 times (last best: 80.883)
+[2022-12-15 15:52:33] Seen 46,972 samples
+[2022-12-15 15:52:33] Starting data epoch 246 in logical epoch 246
+[2022-12-15 15:52:33] [data] Shuffling data
+[2022-12-15 15:52:33] [data] Done reading 47,002 sentences
+[2022-12-15 15:52:33] [data] Done shuffling 47,002 sentences to temp files
+...
+...
+...
 
 ```
 
