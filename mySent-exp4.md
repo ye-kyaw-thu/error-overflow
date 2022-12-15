@@ -1274,7 +1274,39 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 Start training ...  
 
 ```
-
+...
+...
+...
+[2022-12-15 02:54:07] [valid] Ep. 87 : Up. 40000 : perplexity : 1.38108 : stalled 1 times (last best: 1.07179)
+[2022-12-15 02:54:07] Translating validation set...
+[2022-12-15 02:54:09] Best translation 0 : B N N N E
+[2022-12-15 02:54:09] Best translation 1 : B O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 2 : B N N N E
+[2022-12-15 02:54:09] Best translation 3 : B O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 4 : B O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 5 : B O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 10 : B N E B O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 20 : B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 40 : B O N N N E
+[2022-12-15 02:54:09] Best translation 80 : B O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:09] Best translation 160 : B O O N N N E
+[2022-12-15 02:54:10] Best translation 320 : B O O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-12-15 02:54:11] Best translation 640 : B O O O O O O O O O O N N N E
+[2022-12-15 02:54:14] Best translation 1280 : B O N N N E
+[2022-12-15 02:54:21] Best translation 2560 : B O O O N N N E
+[2022-12-15 02:54:23] Total translation time: 16.00999s
+[2022-12-15 02:54:23] [valid] Ep. 87 : Up. 40000 : bleu : 76.9431 : stalled 2 times (last best: 88.5089)
+[2022-12-15 02:56:02] Seen 46,972 samples
+[2022-12-15 02:56:02] Starting data epoch 88 in logical epoch 88
+[2022-12-15 02:56:02] [data] Shuffling data
+[2022-12-15 02:56:02] [data] Done reading 47,002 sentences
+[2022-12-15 02:56:03] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 02:56:56] Ep. 88 : Up. 40500 : Sen. 17,517 : Cost 0.07111049 * 942,782 @ 2,216 after 76,337,432 : Time 211.42s : 4459.36 words/s : gNorm 0.7128
+[2022-12-15 02:58:23] Seen 46,972 samples
+[2022-12-15 02:58:23] Starting data epoch 89 in logical epoch 89
+[2022-12-15 02:58:23] [data] Shuffling data
+[2022-12-15 02:58:23] [data] Done reading 47,002 sentences
+[2022-12-15 02:58:23] [data] Done shuffling 47,002 sentences to temp files
 ```
 
 ```
