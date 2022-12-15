@@ -1307,6 +1307,39 @@ Start training ...
 [2022-12-15 02:58:23] [data] Shuffling data
 [2022-12-15 02:58:23] [data] Done reading 47,002 sentences
 [2022-12-15 02:58:23] [data] Done shuffling 47,002 sentences to temp files
+...
+...
+[2022-12-15 05:31:54] [data] Done reading 47,002 sentences
+[2022-12-15 05:31:54] [data] Done shuffling 47,002 sentences to temp files
+[2022-12-15 05:31:55] Ep. 152 : Up. 70000 : Sen. 1,116 : Cost 0.03759788 * 943,213 @ 1,910 after 131,931,354 : Time 153.02s : 6164.04 words/s : gNorm 0.5551
+[2022-12-15 05:31:55] Saving model weights and runtime parameters to model.seq2seq.para1/model.iter70000.npz
+[2022-12-15 05:31:57] Saving model weights and runtime parameters to model.seq2seq.para1/model.npz
+[2022-12-15 05:32:02] Saving Adam parameters
+[2022-12-15 05:32:05] [training] Saving training checkpoint to model.seq2seq.para1/model.npz and model.seq2seq.para1/model.npz.optimizer.npz
+[2022-12-15 05:32:31] [valid] Ep. 152 : Up. 70000 : cross-entropy : 1.51153 : stalled 4 times (last best: 1.44147)
+[2022-12-15 05:32:38] [valid] Ep. 152 : Up. 70000 : perplexity : 1.07439 : stalled 4 times (last best: 1.07082)
+[2022-12-15 05:32:38] Translating validation set...
+[2022-12-15 05:32:40] Best translation 0 : B N N N E
+[2022-12-15 05:32:40] Best translation 1 : B O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 2 : B N N N E
+[2022-12-15 05:32:40] Best translation 3 : B O O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 4 : B O O O O O O O O O O O O O N N N E B O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 5 : B O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 10 : B N E B O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 20 : B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 40 : B O N N N E
+[2022-12-15 05:32:40] Best translation 80 : B O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O N N N E
+[2022-12-15 05:32:40] Best translation 160 : B O O N N N E
+[2022-12-15 05:32:41] Best translation 320 : B O O O O O O O O O O O O N N N E B O O O O O N N N E B O O O N N N E B O O O O O O O O O O N N N E
+[2022-12-15 05:32:42] Best translation 640 : B O O O O O O O O O O N N N E
+[2022-12-15 05:32:45] Best translation 1280 : B O N N N E
+[2022-12-15 05:32:50] Best translation 2560 : B O O O N N N E
+[2022-12-15 05:32:52] Total translation time: 13.64662s
+[2022-12-15 05:32:52] [valid] Ep. 152 : Up. 70000 : bleu : 91.7101 : new best
+...
+...
+...
+
 ```
 
 ```
