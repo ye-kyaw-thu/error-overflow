@@ -1931,14 +1931,68 @@ do
 done
 ```
 
+before running change the previous results filename:  
+
+```
+root@5d94c7834a47:/home/ye/exp/mysent/results4ws1# mv cross-evaluation-results.txt cross-evaluation-results.with-2vocabs.txt
+```
+
 start testing ...  
 
 ```
+root@5d94c7834a47:/home/ye/exp/mysent# time ./test4paper-with-para-vocab.sh
+...
+...
+...
+[2022-12-15 19:07:14] Best translation 5493 : B O O O O O N N N E B O O O O N N N E B O O O O N N N E
+[2022-12-15 19:07:14] Best translation 5494 : B O O O O O O O O O O N N N E B O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5495 : B O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5496 : B O N N N E
+[2022-12-15 19:07:15] Best translation 5497 : B O N N N E
+[2022-12-15 19:07:15] Best translation 5498 : B O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5499 : B O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5500 : B O O O O O O O O O O O N N N E B O N N N E B N N N E B O O N N N E B O O N N N E B O O N N N E B N N N E
+[2022-12-15 19:07:15] Best translation 5501 : B O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O N N N E B O O O O O O O O O O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5502 : B O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5503 : B N N N E
+[2022-12-15 19:07:15] Best translation 5504 : B N N N E
+[2022-12-15 19:07:15] Best translation 5505 : B O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5506 : B O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5507 : B O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5508 : B O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5509 : B O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5510 : B O O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Best translation 5511 : B O O O O O O O O O O O O O N N N E
+[2022-12-15 19:07:15] Total time: 197.85991s wall
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 
+real    16m10.365s
+user    15m26.590s
+sys     0m33.291s
+root@5d94c7834a47:/home/ye/exp/mysent#
 ```
 
-```
+check the results with a big vocab (i.e. sent+para vocab file) ...  
 
+```
+root@5d94c7834a47:/home/ye/exp/mysent/results4ws1# cat cross-evaluation-results.txt
+Evaluation on model.transformer.sent1, with sentence-only test-data:
+BLEU = 64.52, 99.9/99.9/99.9/99.9 (BP=0.646, ratio=0.696, hyp_len=44273, ref_len=63622)
+Evaluation on model.transformer.sent1, with sentence+parallel test-data:
+BLEU = 42.08, 96.0/94.9/93.8/92.5 (BP=0.446, ratio=0.553, hyp_len=53482, ref_len=96632)
+Evaluation on model.seq2seq.sent1, with sentence-only test-data:
+BLEU = 99.79, 99.8/99.8/99.8/99.8 (BP=1.000, ratio=1.001, hyp_len=63662, ref_len=63622)
+Evaluation on model.seq2seq.sent1, with sentence+parallel test-data:
+BLEU = 90.92, 93.9/92.4/90.9/89.3 (BP=0.992, ratio=0.993, hyp_len=95909, ref_len=96632)
+Evaluation on model.transformer.para1, with sentence-only test-data:
+BLEU = 95.67, 99.4/99.3/99.2/99.0 (BP=0.964, ratio=0.965, hyp_len=61371, ref_len=63622)
+Evaluation on model.transformer.para1, with sentence+parallel test-data:
+BLEU = 69.88, 97.0/96.2/95.3/94.4 (BP=0.730, ratio=0.761, hyp_len=73517, ref_len=96632)
+Evaluation on model.seq2seq.para1, with sentence-only test-data:
+BLEU = 99.38, 99.5/99.4/99.3/99.3 (BP=1.000, ratio=1.000, hyp_len=63609, ref_len=63622)
+Evaluation on model.seq2seq.para1, with sentence+parallel test-data:
+BLEU = 94.21, 97.4/96.8/96.1/95.5 (BP=0.977, ratio=0.977, hyp_len=94426, ref_len=96632)
+root@5d94c7834a47:/home/ye/exp/mysent/results4ws1#
 ```
 
 ```
