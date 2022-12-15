@@ -1891,9 +1891,47 @@ Evaluation on model.seq2seq.para1, with sentence+parallel test-data:
 BLEU = 94.21, 97.4/96.8/96.1/95.5 (BP=0.977, ratio=0.977, hyp_len=94426, ref_len=96632)
 ```
 
+## Testing with Using Big Vocab (i.e. sent+para) File
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for Transformer and Seq2Seq modeling
+## this script is wrote for cross validation with the updated test-data by Thura Aung
+## Important: for this time, I used only sent+para vocab file for all evaluation
+## Important: for exploring the results defferences between using two vocab files and using big-common vocab file
+## Last updated: 25 Oct 2022
+
+data_path="/home/ye/exp/mysent/new-test-data";
+hyp_path="/home/ye/exp/mysent/results4ws1";
+src="my"; tgt="tg";
+
+# Testing for NMT models trained with sentence-only
+for model_path in {model.transformer.sent1,model.seq2seq.sent1,model.transformer.para1,model.seq2seq.para1}
+do
+
+# Evaluation with Sentence-Only Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.sent.${tgt} < ${data_path}/test.sent.${src};
+   echo "Evaluation on ${model_path}, with sentence-only test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.sent.${tgt} \
+< ${hyp_path}/hyp.${model_path}.sent.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+# Evaluation with Sentence+Parallel Test Data
+   marian-decoder -m ${model_path}/model.npz \
+-v ${data_path}/vocab-para/vocab.${src}.yml ${data_path}/vocab-para/vocab.${tgt}.yml \
+--devices 0 --output ${hyp_path}/hyp.${model_path}.para.${tgt} < ${data_path}/test.para.${src};
+   echo "Evaluation on ${model_path}, with sentence+parallel test-data:" >> ${hyp_path}/cross-evaluation-results.txt;
+   perl /home/ye/tool/multi-bleu.perl ${data_path}/test.para.${tgt} \
+< ${hyp_path}/hyp.${model_path}.para.${tgt} >> ${hyp_path}/cross-evaluation-results.txt;
+
+done
 ```
 
-```
+start testing ...  
 
 ```
 
