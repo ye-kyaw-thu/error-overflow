@@ -941,8 +941,37 @@ Shuffle: first input word list: [4022, 2988, 253, 81, 254]
 ...
 ...
 ...
+     Instance: 30000; Time: 0.76s; loss: 20.8148; acc: 406746/406922=0.9996
+     Instance: 30500; Time: 0.75s; loss: 7.8250; acc: 413750/413929=0.9996
+     Instance: 31000; Time: 0.72s; loss: 10.9805; acc: 420162/420344=0.9996
+     Instance: 31500; Time: 0.78s; loss: 25.2875; acc: 426838/427023=0.9996
+     Instance: 32000; Time: 0.73s; loss: 9.8244; acc: 433892/434078=0.9996
+     Instance: 32500; Time: 0.79s; loss: 7.2981; acc: 440924/441114=0.9996
+     Instance: 33000; Time: 0.70s; loss: 19.7985; acc: 447337/447533=0.9996
+     Instance: 33500; Time: 0.73s; loss: 28.0911; acc: 454349/454551=0.9996
+     Instance: 34000; Time: 0.75s; loss: 3.3515; acc: 461479/461681=0.9996
+     Instance: 34500; Time: 0.72s; loss: 2.3600; acc: 468072/468274=0.9996
+     Instance: 35000; Time: 0.75s; loss: 14.8842; acc: 474665/474870=0.9996
+     Instance: 35500; Time: 0.71s; loss: 3.6203; acc: 481233/481439=0.9996
+     Instance: 36000; Time: 0.71s; loss: 9.3795; acc: 487801/488010=0.9996
+     Instance: 36500; Time: 0.74s; loss: 4.0125; acc: 494715/494925=0.9996
+     Instance: 37000; Time: 0.72s; loss: 6.7776; acc: 501575/501787=0.9996
+     Instance: 37500; Time: 0.75s; loss: 11.1597; acc: 508596/508809=0.9996
+     Instance: 38000; Time: 0.75s; loss: 16.0169; acc: 515486/515702=0.9996
+     Instance: 38500; Time: 0.73s; loss: 11.6874; acc: 522166/522385=0.9996
+     Instance: 39000; Time: 0.74s; loss: 25.5515; acc: 529107/529333=0.9996
+     Instance: 39500; Time: 0.78s; loss: 14.5840; acc: 536122/536351=0.9996
+     Instance: 39999; Time: 0.75s; loss: 7.3349; acc: 542911/543142=0.9996
+Epoch: 99 training finished. Time: 59.62s, speed: 670.94st/s,  total loss: 854.5173244476318
+totalloss: 854.5173244476318
+Right token =  32284  All token =  32315  acc =  0.9990406931765434
+Dev: time: 2.00s, speed: 1218.49st/s; acc: 0.9990, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63580  All token =  63622  acc =  0.9993398509949388
+Test: time: 4.07s, speed: 1167.93st/s; acc: 0.9993, p: -1.0000, r: -1.0000, f: -1.0000
 
-
+real    111m21.157s
+user    110m30.263s
+sys     0m31.132s
 ```
 
 check GPU status during training time ...   
@@ -980,6 +1009,8 @@ Fri Dec 16 21:13:38 2022
 |    0   N/A  N/A   2702014      C   python                            905MiB |
 +-----------------------------------------------------------------------------+
 ```
+
+## Word-LSTM, Char-LSTM
 
 ```
 
