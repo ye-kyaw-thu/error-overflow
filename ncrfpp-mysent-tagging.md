@@ -1201,17 +1201,78 @@ Code debugging as follows:
 
 ```
 334                     #fout.write(content_list[idx][0][idy].encode('utf-8') + " " + predict_results[idx][idy] + '\n')
-335                     fout.write(content_list[idx][0][idy].encode('utf-8') + " " + predict_results[idx][idy].encode('utf-8')     + '\n')
+335                     fout.write(content_list[idx][0][idy] + " " + predict_results[idx][idy]     + '\n')
 ```
 
 test again ...  
 
 ```
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:4.19s, speed:1135.83st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charcnn.hyp
 
+real    0m12.621s
+user    0m9.839s
+sys     0m2.980s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
+check the hypothesis output file:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ wc wordlstm-charcnn.hyp
+  68334  127244 1051379 wordlstm-charcnn.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
+check the hyp file content:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ head -n 30 ./wordlstm-charcnn.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+ရှိ O
+မှု O
+ကကို N
+မ N
+ကြြိုက် N
+ဘူး E
+
+ဒီ B
+တစ် O
+ခေါက် O
+ကိစ္စ O
+ကြောင့် O
+ကျွန်တော့် O
+ရရဲ့ O
+သိက္ခာ O
+အဖတ်ဆယ် O
+လလိလို့ O
+မ O
+ရ O
+အောင် N
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
 ## Word-LSTM, Char-LSTM
