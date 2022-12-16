@@ -875,12 +875,77 @@ training log ...
 ...
 ...
 ...
+     Instance: 28000; Time: 0.68s; loss: 32.4567; acc: 287120/378246=0.7591
+     Instance: 28500; Time: 0.77s; loss: 44.5083; acc: 294180/385311=0.7635
+     Instance: 29000; Time: 0.72s; loss: 40.2403; acc: 300751/391890=0.7674
+     Instance: 29500; Time: 0.73s; loss: 22.6643; acc: 307435/398578=0.7713
+     Instance: 30000; Time: 0.77s; loss: 109.5681; acc: 314429/405583=0.7753
+     Instance: 30500; Time: 0.73s; loss: 15.8874; acc: 321077/412235=0.7789
+     Instance: 31000; Time: 0.79s; loss: 42.0999; acc: 328002/419166=0.7825
+     Instance: 31500; Time: 0.73s; loss: 51.8857; acc: 334597/425768=0.7859
+     Instance: 32000; Time: 0.82s; loss: 50.0649; acc: 341890/433072=0.7895
+     Instance: 32500; Time: 0.80s; loss: 129.4838; acc: 348910/440108=0.7928
+     Instance: 33000; Time: 0.79s; loss: 171.2889; acc: 355795/447015=0.7959
+     Instance: 33500; Time: 0.79s; loss: 155.8194; acc: 362839/454076=0.7991
+     Instance: 34000; Time: 0.73s; loss: 37.7461; acc: 369442/460685=0.8019
+     Instance: 34500; Time: 0.76s; loss: 110.5981; acc: 376426/467678=0.8049
+     Instance: 35000; Time: 0.81s; loss: 41.8031; acc: 383561/474819=0.8078
+     Instance: 35500; Time: 0.80s; loss: 18.3619; acc: 390800/482061=0.8107
+     Instance: 36000; Time: 0.76s; loss: 49.1879; acc: 397375/488644=0.8132
+     Instance: 36500; Time: 0.76s; loss: 41.6815; acc: 404113/495386=0.8158
+     Instance: 37000; Time: 0.77s; loss: 157.9075; acc: 410982/502268=0.8183
+     Instance: 37500; Time: 0.77s; loss: 181.8122; acc: 417884/509202=0.8207
+     Instance: 38000; Time: 0.71s; loss: 117.4134; acc: 424305/515634=0.8229
+     Instance: 38500; Time: 0.77s; loss: 19.4450; acc: 431182/522512=0.8252
+     Instance: 39000; Time: 0.77s; loss: 100.8025; acc: 437878/529223=0.8274
+     Instance: 39500; Time: 0.77s; loss: 13.4660; acc: 444810/536159=0.8296
+     Instance: 39999; Time: 0.77s; loss: 59.1358; acc: 451789/543142=0.8318
+Epoch: 0 training finished. Time: 60.55s, speed: 660.64st/s,  total loss: 238730.19521450996
+totalloss: 238730.19521450996
+Right token =  32287  All token =  32315  acc =  0.9991335293207488
+Dev: time: 1.98s, speed: 1230.65st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.0.model
+...
+...
+...
 
 ```
 
+check GPU status during training time ...   
+and it looks using only GPU. I should findout how to set number of GPU in config file ...  
+
 
 ```
+Every 2.0s: nvidia-smi                                                               gpu.cadt.edu.kh: Fri Dec 16 21:13:38 2022
+Fri Dec 16 21:13:38 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 46%   51C    P2    62W / 300W |    908MiB / 11019MiB |     18%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+|  0%   54C    P8    21W / 257W |      3MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 33%   44C    P8    29W / 250W |      3MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2702014      C   python                            905MiB |
++-----------------------------------------------------------------------------+
 ```
 
 ```
