@@ -859,13 +859,58 @@ YokoyamaAkihito O
 training config file:  
 
 ```
+### use # to comment out the configure item
 
-```
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
+#word_emb_dir=sample_data/sample.word.emb
 
-decode config file:  
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
 
-```
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
 
+###NetworkConfiguration###
+use_crf=False
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=CNN
+#feature=[POS] emb_size=20
+#feature=[Cap] emb_size=20
+#nbest=1
+
+###TrainingSetting###
+status=train
+# optimizer can be SGD/Adagrad/AdaDelta/RMSprop/Adam
+optimizer=SGD
+iteration=100
+batch_size=10
+ave_batch_loss=False
+
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+learning_rate=0.015
+lr_decay=0.05
+momentum=0
+l2=1e-8
+gpu=True
+#clip=
 ```
 
 training log ...  
@@ -1009,6 +1054,150 @@ Fri Dec 16 21:13:38 2022
 |    0   N/A  N/A   2702014      C   python                            905MiB |
 +-----------------------------------------------------------------------------+
 ```
+
+check the model file and output files:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$ ls
+wordlstm-charcnn.0.model  wordlstm-charcnn.dset
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$
+```
+
+decode config file:  
+
+```
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charcnn.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.0.model
+```
+
+testing ...  
+
+```
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 31439
+     Char  alphabet size: 274
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charcnn.hyp
+     Train instance number: 39999
+     Dev   instance number: 2414
+     Test  instance number: 4712
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:4.18s, speed:1137.11st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+```
+
+hyp file cannot write as follows:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ wc wordlstm-charcnn.hyp
+0 0 0 wordlstm-charcnn.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
+```
+
+Error message is as follows:  
+
+```
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:4.22s, speed:1128.19st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Traceback (most recent call last):
+  File "main.py", line 568, in <module>
+    data.write_decoded_results(decode_results, 'raw')
+  File "/home/yekyaw.thu/tool/NCRFpp/utils/data.py", line 334, in write_decoded_results
+    fout.write(content_list[idx][0][idy].encode('utf-8') + " " + predict_results[idx][idy] + '\n')
+TypeError: can't concat str to bytes
+
+real    0m12.807s
+user    0m10.013s
+sys     0m3.177s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+
 
 ## Word-LSTM, Char-LSTM
 
