@@ -1197,7 +1197,22 @@ sys     0m3.177s
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
+Code debugging as follows:  
 
+```
+334                     #fout.write(content_list[idx][0][idy].encode('utf-8') + " " + predict_results[idx][idy] + '\n')
+335                     fout.write(content_list[idx][0][idy].encode('utf-8') + " " + predict_results[idx][idy].encode('utf-8')     + '\n')
+```
+
+test again ...  
+
+```
+
+```
+
+```
+
+```
 
 ## Word-LSTM, Char-LSTM
 
