@@ -678,13 +678,60 @@ l2=1e-8    #float. L2-regulization.
 
 ## Preparing mySentence Data  
 
-```
+for sentence dataset:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ cp /home/yekyaw.thu/exp/mySent/ncrf/mySentence-data-crf-format/sent_data_crf_format/train-valid-test-style/* .
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ ls
+test.col  train.col  valid.col
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ wc *
+   68334   127244  1051379 test.col
+  583541  1087082  8995710 train.col
+   34729    64630   533580 valid.col
+  686604  1278956 10580669 total
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$
 ```
 
+check data format roughly ...  
+
 ```
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ head train.col
+ဘာ B
+ရယ် O
+လလိလို့ O
+တိတိကျကျ O
+ထောက်မပြ O
+နနိုင် O
+ပေမမဲ့ O
+ပြဿနာ O
+တစ် O
+ခု O
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ head valid.col
+ထထို B
+အချိန် O
+မှ O
+စ O
+၍ O
+စင်္ကာပူ O
+ကျွန်း O
+၏ O
+ခေတ်သစ် O
+တစ် O
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$ head test.col
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/sent$
+```
+
+preparing for sent+para dataset:  
 
 ```
 
