@@ -235,22 +235,89 @@ root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2# head -n 3 *.cr
 root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2#
 ```
 
+Check Vocab files for "edit1" ...  
 
+```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit1/vocab# ls
+all.cr  all.er  vocab.cr.yml  vocab.er.yml
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit1/vocab#
 ```
 
 ```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit1/vocab# head *.yml
+==> vocab.cr.yml <==
+</s>: 0
+<unk>: 1                                                                                                                      ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
 
+==> vocab.er.yml <==
+</s>: 0
+<unk>: 1                                                                                                                      ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit1/vocab# wc *.yml
+ 195  392 1522 vocab.cr.yml
+ 195  392 1522 vocab.er.yml
+ 390  784 3044 total
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit1/vocab#
+```
+
+check vocab file for "edit-2" ...  
+
+```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2/vocab# ls
+all.cr  all.er  vocab.cr.yml  vocab.er.yml
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2/vocab# head *.yml
+==> vocab.cr.yml <==
+</s>: 0
+<unk>: 1                                                                                                                      ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
+
+==> vocab.er.yml <==
+</s>: 0
+<unk>: 1                                                                                                                      ្
+: 2
+ា: 3
+ន: 4
+រ: 5
+ក: 6
+ប: 7
+ម: 8
+ស: 9
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2/vocab#
 ```
 
 ```
-
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2/vocab# wc *.yml
+ 195  392 1522 vocab.cr.yml
+ 195  392 1522 vocab.er.yml
+ 390  784 3044 total
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/char-final/edit2/vocab#
 ```
 
-```
+## Prepare Shell Script
 
-```
-
-```
+We need to prepare Seq2Seq shell script for training Seq2Seq NMT model and I prepared as follows:  
 
 ```
 
