@@ -162,5 +162,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 155. [tainyinthar-detect.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tainyinthar-detect.md)  
 156. [tainyinthar-detect-baseline.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tainyinthar-detect-baseline.md)  
 157. [mySent-exp4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/mySent-exp4.md)  
+158. [kh-spelling-checking-NMT-exp3.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-spelling-checking-NMT-exp3.md)  
 
 
