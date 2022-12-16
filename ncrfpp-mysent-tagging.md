@@ -734,20 +734,124 @@ check data format roughly ...
 preparing for sent+para dataset:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$ cp ../../mySentence-data-crf-format/sent+para_data_crf_format/train-valid-test-style/* .
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$ wc *
+  102144   193264  1578958 test.col
+  881245  1668486 13659721 train.col
+   64861   123564  1004217 valid.col
+ 1048250  1985314 16242896 total
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
 ```
 
-```
+check data format ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$ head -n 30 train.col
+နားလည် B
+ပါ N
+ပြီ E
 
+ဈေး B
+က O
+များ N
+လှ N
+ချေ N
+လား E
 
+သူ B
+ဒီ O
+နေ့ O
+နည်းနည်း O
+ပင်ပန်း O
+နေ N
+တယ် N
+ထင် N
+တယ် E
+
+ဘာ B
+ကြောင့် O
+လဲ O
+ဆဆို N
+စမ်း N
+ပါ N
+ဦး E
+
+စိတ်ကောက် B
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
 ```
 
-```
+check valid.col  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$ head -n 30 valid.col
+သူ B
+ဘယ်သူ N
+နနဲ့ N
+အရင်းနှီးဆဆုံး N
+လဲ E
 
+ဒီ B
+က O
+နေ O
+ရှေ့ O
+ကကို O
+တည့်တည့် O
+သွား O
+မီးပွွိုင့် O
+တွေ့ O
+ရင် O
+ဘယ်ဘက် O
+ကွေ့ O
+၂ O
+မှတ်တတိုင် O
+ဆက်လက် O
+သွား O
+ရင် O
+ရောက် N
+ပါ N
+လိမ့် N
+မယ် E
+
+ရေခဲ B
+မ N
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
+```
+
+check test.col file ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$ head -n 30 test.col
+ရင်ဘတ် B
+အောင့် O
+လာ N
+ရင် N
+သတိထား N
+ပါ E
+
+ဘယ်လောက် B
+နောက်ကျ N
+သလဲ E
+
+ကြြိုပပိပို့ B
+ဘတ်စ်ကား N
+က N
+အဆင်အပြေဆဆုံး N
+ပဲ E
+
+အဲဒီ B
+အဖွွဲ့ O
+ရရဲ့ O
+ဥက္ကဋ္ဌ O
+ဖြစ် O
+တတဲ့ O
+ယယို O
+ကကို O
+ယာမာ့ O
+အာကိဟီတတို O
+YokoyamaAkihito O
+က O
+တခြား O
+(ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
 ```
 
 ```
