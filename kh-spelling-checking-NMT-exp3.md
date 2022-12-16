@@ -2,6 +2,17 @@
 
 For this time, I will build Seq2Seq NMT model for Khmer spelling checking...  
 
+## Revist the Experimental Setting of the Previous 
+
+```
+I will train two models. One is training with edit-distance 1 errors and another is edit-distance 2 errors.  
+For the testing, I will use three test-sets. They are as follows:  
+
+edit-1 test-set (test set of Khmer word segmented data with edit-1)  
+edit-2 test-set (test set of Khmer word segmented data with edit-2)  
+manual test-set (the whole data that manually prepared)  
+```
+
 ## Preprocessing
 
 create a new folder for Seq2Seq experiment:  
@@ -9,69 +20,85 @@ create a new folder for Seq2Seq experiment:
 ```
 root@7a2ffa404585:/home/ye/exp/kh-spell# mkdir seq2seq
 root@7a2ffa404585:/home/ye/exp/kh-spell# cd seq2seq/
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq# cp -r ../transformer/4nmt/ .
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq# cd 4nmt
 ```
 
-data and vocab file info are as follows:  
+I copied char-final/ folder ...  
+data and vocab file info are as follows:   
 
 ```
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt# ls
-edit1  edit2  no-segment  test.cr  test.er  train.cr  train.er  valid.cr  valid.er  vocab
+char-final/
+|-- edit1
+|   |-- original-err
+|   |   |-- test.er
+|   |   `-- train.er
+|   |-- test.cr
+|   |-- test.er
+|   |-- train-valid
+|   |   |-- train.cr
+|   |   `-- train.er
+|   |-- train.cr
+|   |-- train.er
+|   |-- valid.cr
+|   |-- valid.er
+|   `-- vocab
+|       |-- all.cr
+|       |-- all.er
+|       |-- vocab.cr.yml
+|       `-- vocab.er.yml
+|-- edit2
+|   |-- original-err
+|   |   |-- test.er
+|   |   `-- train.er
+|   |-- test.cr
+|   |-- test.er
+|   |-- train-valid
+|   |   |-- train.cr
+|   |   `-- train.er
+|   |-- train.cr
+|   |-- train.er
+|   |-- valid.cr
+|   |-- valid.er
+|   `-- vocab
+|       |-- all.cr
+|       |-- all.er
+|       |-- vocab.cr.yml
+|       `-- vocab.er.yml
+|-- edit2
+|   |-- original-err
+|   |   |-- test.er
+|   |   `-- train.er
+|   |-- test.cr
+|   |-- test.er
+|   |-- train-valid
+|   |   |-- train.cr
+|   |   `-- train.er
+|   |-- train.cr
+|   |-- train.er
+|   |-- valid.cr
+|   |-- valid.er
+|   `-- vocab
+|       |-- all.cr
+|       |-- all.er
+|       |-- vocab.cr.yml
+|       `-- vocab.er.yml
+|-- folder-struct.txt
+`-- manual
+    |-- test.cr
+    `-- test.er
+
+9 directories, 31 files
 ```
 
-check no-segment data ...  
+check  ...  
 
 ```
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt# cd no-segment/
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment# ls
-char-segmentation.sh  edit1  edit2  test.cr  test.er  train.cr  train.er  valid.cr  valid.er  vocab
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment# head test.er
-រុស្សស៊ី
-បប៉ុនហ្នឹង
-ផស់
-ឆ្គួត
-អី
- សាម៉ាញ
-អី
- ខ្ទើយ
-ឧបត្ថម
-និសិត
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment# cd edit1
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment/edit1# ls
-test.cr  test.er
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment/edit1# head test.cr
-ក្រសារ
-វិត
-ក្របែល
-រាងបួនជ្រុង
-អមិត
-បង្កាត់ភ្លើង
-ស្រែក្រសាំង
-អ្នករកសស៊ីលក់ដូរដីធ្លីផ្ទះសំបែង
-ពង្វិល
-គណៈមហានិកាយ
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment/edit1#
+
 ```
 
 When I checked edit1 data ...  
 
 ```
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt# cd edit1
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1# ls
-test.cr  test.er
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1# head test.cr
-� � � � � � � � � � � � � � � � � �
-� � � � � � � � �
-� � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � �
-� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
-root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1#
+
 ```
 
 ```
