@@ -54,8 +54,24 @@ root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment/edit1# head test
 root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/no-segment/edit1#
 ```
 
-```
+When I checked edit1 data ...  
 
+```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt# cd edit1
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1# ls
+test.cr  test.er
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1# head test.cr
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq/4nmt/edit1#
 ```
 
 ```
