@@ -1277,11 +1277,60 @@ check the hyp file content:
 
 ## Word-LSTM, Char-LSTM
 
+update the config file: 
+
+```
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm
 ```
 
 ```
+###NetworkConfiguration###
+use_crf=False
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=LSTM
+```
+
+training log ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.char-lstm.train.config | tee ./mysent-model/wordlstm-charlstm.training.log
+...
+...
+...
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 0.98s; loss: 6763.9298; acc: 4315/6598=0.6540
+     Instance: 1000; Time: 0.99s; loss: 1224.9703; acc: 10795/13463=0.8018
+     Instance: 1500; Time: 0.96s; loss: 573.6215; acc: 17310/20100=0.8612
+     Instance: 2000; Time: 0.99s; loss: 255.3739; acc: 24278/27109=0.8956
+     Instance: 2500; Time: 0.96s; loss: 150.8403; acc: 30765/33628=0.9149
+     Instance: 3000; Time: 0.98s; loss: 82.3629; acc: 37755/40631=0.9292
+     Instance: 3500; Time: 0.98s; loss: 60.5309; acc: 44862/47745=0.9396
+     Instance: 4000; Time: 1.02s; loss: 48.2506; acc: 52091/54983=0.9474
+     Instance: 4500; Time: 0.96s; loss: 70.9716; acc: 58559/61461=0.9528
+     Instance: 5000; Time: 0.96s; loss: 127.8899; acc: 65131/68047=0.9571
+     Instance: 5500; Time: 1.03s; loss: 68.3554; acc: 72496/75417=0.9613
+     Instance: 6000; Time: 0.95s; loss: 37.4366; acc: 79385/82310=0.9645
+...
+...
+...
 
 ```
 
