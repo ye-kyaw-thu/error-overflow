@@ -362,6 +362,41 @@ time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}
 strat training ...  
 
 ```
+...
+...
+...
+[2022-12-16 12:57:03] [config] valid-script-path: ""
+[2022-12-16 12:57:03] [config] valid-sets:
+[2022-12-16 12:57:03] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit1//valid.er
+[2022-12-16 12:57:03] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit1//valid.cr
+[2022-12-16 12:57:03] [config] valid-translation-output: ""
+[2022-12-16 12:57:03] [config] vocabs:
+[2022-12-16 12:57:03] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit1//vocab/vocab.er.yml
+[2022-12-16 12:57:03] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit1//vocab/vocab.cr.yml
+[2022-12-16 12:57:03] [config] word-penalty: 0
+[2022-12-16 12:57:03] [config] word-scores: false
+[2022-12-16 12:57:03] [config] workspace: 4500
+[2022-12-16 12:57:03] [config] Model is being created with Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+[2022-12-16 12:57:03] Using synchronous SGD
+[2022-12-16 12:57:03] [comm] Compiled without MPI support. Running as a single process on 7a2ffa404585
+[2022-12-16 12:57:03] Synced seed 1111
+[2022-12-16 12:57:03] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/char-final/edit1//vocab/vocab.er.yml
+[2022-12-16 12:57:03] [data] Setting vocabulary size for input 0 to 196
+[2022-12-16 12:57:03] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/char-final/edit1//vocab/vocab.cr.yml
+[2022-12-16 12:57:03] [data] Setting vocabulary size for input 1 to 196
+[2022-12-16 12:57:03] [batching] Collecting statistics for batch fitting with step size 10
+[2022-12-16 12:57:03] [memory] Extending reserved space to 4608 MB (device gpu0)
+[2022-12-16 12:57:03] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-16 12:57:03] [comm] Using global sharding
+[2022-12-16 12:57:03] [comm] NCCLCommunicators constructed successfully
+[2022-12-16 12:57:03] [training] Using 1 GPUs
+[2022-12-16 12:57:03] [logits] Applying loss function for 1 factor(s)
+[2022-12-16 12:57:03] [memory] Reserving 704 MB, device gpu0
+[2022-12-16 12:57:04] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-16 12:57:04] [memory] Reserving 704 MB, device gpu0
+...
+...
+...
 
 ```
 
