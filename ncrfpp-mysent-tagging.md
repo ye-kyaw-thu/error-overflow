@@ -909,6 +909,39 @@ Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordl
 ...
 ...
 ...
+     Instance: 35500; Time: 0.76s; loss: 70.0287; acc: 481987/482390=0.9992
+     Instance: 36000; Time: 0.78s; loss: 25.3078; acc: 489048/489455=0.9992
+     Instance: 36500; Time: 0.72s; loss: 35.9397; acc: 495493/495907=0.9992
+     Instance: 37000; Time: 0.77s; loss: 10.8092; acc: 502462/502879=0.9992
+     Instance: 37500; Time: 0.78s; loss: 59.3640; acc: 509334/509759=0.9992
+     Instance: 38000; Time: 0.70s; loss: 14.0096; acc: 515855/516282=0.9992
+     Instance: 38500; Time: 0.73s; loss: 7.5072; acc: 522564/522993=0.9992
+     Instance: 39000; Time: 0.76s; loss: 19.6130; acc: 529289/529722=0.9992
+     Instance: 39500; Time: 0.77s; loss: 40.5207; acc: 536107/536545=0.9992
+     Instance: 39999; Time: 0.75s; loss: 48.6918; acc: 542695/543142=0.9992
+Epoch: 8 training finished. Time: 60.34s, speed: 662.91st/s,  total loss: 2759.536283969879
+totalloss: 2759.536283969879
+Right token =  32287  All token =  32315  acc =  0.9991335293207488
+Dev: time: 1.99s, speed: 1225.10st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63590  All token =  63622  acc =  0.9994970293294773
+Test: time: 4.08s, speed: 1166.49st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 9/100
+ Learning rate is set as: 0.010344827586206896
+Shuffle: first input word list: [4022, 2988, 253, 81, 254]
+     Instance: 500; Time: 0.77s; loss: 26.6937; acc: 7000/7005=0.9993
+     Instance: 1000; Time: 0.78s; loss: 27.5530; acc: 13928/13941=0.9991
+     Instance: 1500; Time: 0.75s; loss: 14.3770; acc: 20777/20792=0.9993
+     Instance: 2000; Time: 0.75s; loss: 46.9566; acc: 27451/27471=0.9993
+     Instance: 2500; Time: 0.74s; loss: 11.8214; acc: 34067/34089=0.9994
+     Instance: 3000; Time: 0.78s; loss: 44.0794; acc: 41062/41090=0.9993
+     Instance: 3500; Time: 0.71s; loss: 9.0670; acc: 47483/47512=0.9994
+     Instance: 4000; Time: 0.78s; loss: 52.0679; acc: 54581/54615=0.9994
+     Instance: 4500; Time: 0.77s; loss: 88.8468; acc: 61115/61161=0.9992
+     Instance: 5000; Time: 0.75s; loss: 20.6342; acc: 67838/67888=0.9993
+...
+...
+...
+
 
 ```
 
