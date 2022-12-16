@@ -854,15 +854,27 @@ YokoyamaAkihito O
 (ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
 ```
 
-```
+## Prepare Config File for Word-LSTM, Char-CNN Model
+
+training config file:  
 
 ```
 
 ```
 
+decode config file:  
+
 ```
 
 ```
+
+training log ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.char-cnn.train.config
+...
+...
+...
 
 ```
 
