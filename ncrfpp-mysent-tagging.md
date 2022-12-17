@@ -1555,13 +1555,55 @@ check the hype file:
 
 ## Word-LSTM, no-char  
 
-config file:  
+updated the config file as follows:  
 
 ```
-
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-nochar
+...
+...
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
 ```
 
+start training ...  
+
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.no-char.train.config | tee ./mysent-model/wordlstm-nochar.training.log
+...
+...
+...
+     Instance: 11500; Time: 0.68s; loss: 45.9094; acc: 153897/156911=0.9808
+     Instance: 12000; Time: 0.67s; loss: 17.9875; acc: 160434/163450=0.9815
+     Instance: 12500; Time: 0.69s; loss: 32.1635; acc: 167086/170107=0.9822
+     Instance: 13000; Time: 0.67s; loss: 62.4728; acc: 174158/177185=0.9829
+     Instance: 13500; Time: 0.75s; loss: 31.4787; acc: 180967/183998=0.9835
+     Instance: 14000; Time: 0.66s; loss: 38.0288; acc: 187571/190606=0.9841
+     Instance: 14500; Time: 0.61s; loss: 62.3357; acc: 193982/197025=0.9846
+     Instance: 15000; Time: 0.61s; loss: 33.2049; acc: 200684/203732=0.9850
+     Instance: 15500; Time: 0.60s; loss: 101.5641; acc: 207522/210579=0.9855
+     Instance: 16000; Time: 0.58s; loss: 23.6539; acc: 214113/217171=0.9859
+     Instance: 16500; Time: 0.60s; loss: 74.6310; acc: 220675/223739=0.9863
+     Instance: 17000; Time: 0.59s; loss: 81.2837; acc: 227171/230242=0.9867
+     Instance: 17500; Time: 0.60s; loss: 68.2723; acc: 233787/236869=0.9870
+     Instance: 18000; Time: 0.62s; loss: 55.4200; acc: 240566/243654=0.9873
+     Instance: 18500; Time: 0.61s; loss: 49.0099; acc: 247439/250533=0.9877
+     Instance: 19000; Time: 0.64s; loss: 59.5998; acc: 254512/257613=0.9880
+     Instance: 19500; Time: 0.60s; loss: 36.2397; acc: 261064/264169=0.9882
+     Instance: 20000; Time: 0.58s; loss: 42.1274; acc: 267386/270497=0.9885
+     Instance: 20500; Time: 0.61s; loss: 87.3023; acc: 274263/277384=0.9887
+     Instance: 21000; Time: 0.56s; loss: 34.6933; acc: 280519/283647=0.9890
+     Instance: 21500; Time: 0.62s; loss: 47.9778; acc: 287375/290511=0.9892
+     Instance: 22000; Time: 0.60s; loss: 21.2712; acc: 294173/297313=0.9894
+     Instance: 22500; Time: 0.60s; loss: 56.4415; acc: 300649/303798=0.9896
+     Instance: 23000; Time: 0.64s; loss: 50.0748; acc: 307477/310636=0.9898
+     Instance: 23500; Time: 0.65s; loss: 25.8181; acc: 314468/317630=0.9900
+...
+...
+...
 
 ```
 
