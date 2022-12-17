@@ -1363,15 +1363,95 @@ Shuffle: first input word list: [1628, 2225, 798, 42, 233, 290, 53, 855, 27796, 
 ...
 ...
 ...
-
+     Instance: 28000; Time: 0.98s; loss: 20.8923; acc: 379376/379527=0.9996
+     Instance: 28500; Time: 1.00s; loss: 2.7063; acc: 386696/386847=0.9996
+     Instance: 29000; Time: 0.96s; loss: 5.3790; acc: 393165/393317=0.9996
+     Instance: 29500; Time: 0.93s; loss: 16.8582; acc: 399616/399772=0.9996
+     Instance: 30000; Time: 0.97s; loss: 18.0675; acc: 406763/406922=0.9996
+     Instance: 30500; Time: 0.96s; loss: 9.8058; acc: 413767/413929=0.9996
+     Instance: 31000; Time: 0.94s; loss: 8.0381; acc: 420180/420344=0.9996
+     Instance: 31500; Time: 0.98s; loss: 19.3071; acc: 426855/427023=0.9996
+     Instance: 32000; Time: 0.99s; loss: 6.0914; acc: 433908/434078=0.9996
+     Instance: 32500; Time: 1.04s; loss: 4.9224; acc: 440942/441114=0.9996
+     Instance: 33000; Time: 0.94s; loss: 19.6826; acc: 447354/447533=0.9996
+     Instance: 33500; Time: 0.96s; loss: 26.5260; acc: 454367/454551=0.9996
+     Instance: 34000; Time: 0.99s; loss: 2.0317; acc: 461497/461681=0.9996
+     Instance: 34500; Time: 0.97s; loss: 3.3676; acc: 468089/468274=0.9996
+     Instance: 35000; Time: 1.00s; loss: 17.3917; acc: 474681/474870=0.9996
+     Instance: 35500; Time: 0.96s; loss: 2.8269; acc: 481250/481439=0.9996
+     Instance: 36000; Time: 0.95s; loss: 7.2310; acc: 487818/488010=0.9996
+     Instance: 36500; Time: 0.98s; loss: 1.7408; acc: 494733/494925=0.9996
+     Instance: 37000; Time: 0.96s; loss: 13.4167; acc: 501590/501787=0.9996
+     Instance: 37500; Time: 1.00s; loss: 8.8884; acc: 508611/508809=0.9996
+     Instance: 38000; Time: 0.96s; loss: 14.8639; acc: 515501/515702=0.9996
+     Instance: 38500; Time: 0.94s; loss: 10.9465; acc: 522181/522385=0.9996
+     Instance: 39000; Time: 1.00s; loss: 21.4621; acc: 529122/529333=0.9996
+     Instance: 39500; Time: 1.00s; loss: 19.4401; acc: 536137/536351=0.9996
+     Instance: 39999; Time: 0.94s; loss: 10.5016; acc: 542925/543142=0.9996
+Epoch: 99 training finished. Time: 77.20s, speed: 518.13st/s,  total loss: 828.0619547367096
+totalloss: 828.0619547367096
+Right token =  32283  All token =  32315  acc =  0.9990097477951416
+Dev: time: 2.32s, speed: 1049.03st/s; acc: 0.9990, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63579  All token =  63622  acc =  0.999324133161485
+Test: time: 4.72s, speed: 1005.92st/s; acc: 0.9993, p: -1.0000, r: -1.0000, f: -1.0000
 ```
 
-```
+prepare decoding configuration file:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-lstm.char-lstm.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charlstm.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
 ```
 
+manual decoding or testing ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.char-lstm.decode.config | tee ./mysent-model/wordlstm-charlstm.decode.log
+...
+...
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:4.96s, speed:957.04st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charlstm.hyp
+
+real    0m19.159s
+user    0m11.255s
+sys     0m3.997s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 
