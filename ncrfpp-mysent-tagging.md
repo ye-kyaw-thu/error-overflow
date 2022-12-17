@@ -1726,11 +1726,58 @@ check the output hyp file:
 
 ## Word-LSTM, CRF, Char-CNN
 
-```
+preparing config file:  
 
 ```
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn
+...
+###NetworkConfiguration###
+use_crf=True
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=CNN
+```
+
+training ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.crf.char-cnn.train.config | tee ./mysent-model/wordlstm-crf-charcnn.training.log
+...
+...
+...
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 2.63s; loss: 2854.2836; acc: 4935/6598=0.7480
+     Instance: 1000; Time: 2.62s; loss: 1355.7439; acc: 10843/13463=0.8054
+...
+...
+...
 
 ```
 
