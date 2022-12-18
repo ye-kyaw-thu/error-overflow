@@ -1778,7 +1778,37 @@ Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 25
 ...
 ...
 ...
+     Instance: 30500; Time: 2.58s; loss: 8.3659; acc: 413707/413929=0.9995
+     Instance: 31000; Time: 2.42s; loss: 18.4387; acc: 420118/420344=0.9995
+     Instance: 31500; Time: 2.63s; loss: 16.5659; acc: 426794/427023=0.9995
+     Instance: 32000; Time: 2.55s; loss: 17.0895; acc: 433845/434078=0.9995
+     Instance: 32500; Time: 2.74s; loss: 14.4164; acc: 440875/441114=0.9995
+     Instance: 33000; Time: 2.35s; loss: 22.5720; acc: 447285/447533=0.9994
+     Instance: 33500; Time: 2.51s; loss: 23.6950; acc: 454298/454551=0.9994
+     Instance: 34000; Time: 2.53s; loss: 5.4600; acc: 461427/461681=0.9994
+     Instance: 34500; Time: 2.40s; loss: 12.0142; acc: 468017/468274=0.9995
+     Instance: 35000; Time: 2.51s; loss: 22.8959; acc: 474610/474870=0.9995
+     Instance: 35500; Time: 2.27s; loss: 7.5930; acc: 481177/481439=0.9995
+     Instance: 36000; Time: 2.31s; loss: 19.3913; acc: 487743/488010=0.9995
+     Instance: 36500; Time: 2.47s; loss: 2.4894; acc: 494658/494925=0.9995
+     Instance: 37000; Time: 2.43s; loss: 8.1326; acc: 501518/501787=0.9995
+     Instance: 37500; Time: 2.56s; loss: 14.0385; acc: 508537/508809=0.9995
+     Instance: 38000; Time: 2.50s; loss: 11.3989; acc: 515426/515702=0.9995
+     Instance: 38500; Time: 2.41s; loss: 10.7767; acc: 522106/522385=0.9995
+     Instance: 39000; Time: 2.52s; loss: 28.8738; acc: 529046/529333=0.9995
+     Instance: 39500; Time: 2.54s; loss: 22.3990; acc: 536061/536351=0.9995
+     Instance: 39999; Time: 2.50s; loss: 8.9142; acc: 542850/543142=0.9995
+Epoch: 99 training finished. Time: 198.87s, speed: 201.13st/s,  total loss: 1062.7795715332031
+totalloss: 1062.7795715332031
+Right token =  32285  All token =  32315  acc =  0.9990716385579452
+Dev: time: 2.87s, speed: 846.90st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63580  All token =  63622  acc =  0.9993398509949388
+Test: time: 5.86s, speed: 809.12st/s; acc: 0.9993, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    347m13.584s
+user    346m31.274s
+sys     0m31.970s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 during the training time, check the GPU status and as follows:  
@@ -1815,24 +1845,167 @@ Sat Dec 17 16:04:18 2022
 +-----------------------------------------------------------------------------+
 ```
 
-```
+prepare config file for decoding ...  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-lstm.crf.char-cnn.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
 ```
 
-```
-
-
-```
+manual testing for wordlstm-crf-charcnn model ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.crf.char-cnn.decode.config | tee ./mysent-model/wordlstm-crf-charcnn.decode.log
+...
+...
+...
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  58547  All token =  63622  acc =  0.9202319952217787
+raw: time:5.92s, speed:801.76st/s; acc: 0.9202, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.hyp
 
+real    0m15.207s
+user    0m11.987s
+sys     0m3.684s
 ```
 
-```
+check the outpuot hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ head -n 30 ./wordlstm-crf-charcnn.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+ရှိ O
+မှု O
+ကကို O
+မ O
+ကြြိုက် N
+ဘူး E
+
+ဒီ B
+တစ် O
+ခေါက် O
+ကိစ္စ O
+ကြောင့် O
+ကျွန်တော့် O
+ရရဲ့ O
+သိက္ခာ O
+အဖတ်ဆယ် O
+လလိလို့ O
+မ O
+ရ O
+အောင် O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
+```
+
+check all hyp files so far:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ wc *.hyp
+  68334  127244 1051379 wordlstm-charcnn.hyp
+  68334  127244 1051379 wordlstm-charlstm.hyp
+  68334  127244 1051379 wordlstm-crf-charcnn.hyp
+  68334  127244 1051379 wordlstm-nochar.hyp
+ 273336  508976 4205516 total
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
+```
+
+## Word-LSTM, CRF, char-LSTM Training/Testing 
+
+prepare config file:  
+
+```
+### I/O ###
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charlstm
+...
+...
+###NetworkConfiguration###
+use_crf=True
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=LSTM
+```
+
+training start ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-lstm.crf.char-lstm.train.config | tee ./mysent-model/wordlstm-crf-charlstm.training.log
+...
+...
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 2.54s; loss: 2852.0717; acc: 4747/6598=0.7195
+     Instance: 1000; Time: 2.66s; loss: 1393.6742; acc: 10592/13463=0.7867
+...
+...
+...
 
 ```
 
