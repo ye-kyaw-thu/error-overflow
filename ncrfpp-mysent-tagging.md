@@ -2635,6 +2635,7 @@ char_seq_feature=LSTM
 training ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-config/word-cnn.char-lstm.train.config | tee ./mysent-model/wordcnn-charlstm.train.log
 ...
 ...
 ...
@@ -2670,26 +2671,184 @@ Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 25
 ...
 ...
 ...
+     Instance: 30500; Time: 0.93s; loss: 18.5849; acc: 413619/413929=0.9993
+     Instance: 31000; Time: 0.83s; loss: 33.5528; acc: 420028/420344=0.9992
+     Instance: 31500; Time: 0.87s; loss: 30.8974; acc: 426700/427023=0.9992
+     Instance: 32000; Time: 0.86s; loss: 60.9885; acc: 433746/434078=0.9992
+     Instance: 32500; Time: 0.87s; loss: 17.4721; acc: 440777/441114=0.9992
+     Instance: 33000; Time: 0.77s; loss: 35.3249; acc: 447189/447533=0.9992
+     Instance: 33500; Time: 0.83s; loss: 23.4311; acc: 454202/454551=0.9992
+     Instance: 34000; Time: 0.81s; loss: 11.1323; acc: 461329/461681=0.9992
+     Instance: 34500; Time: 0.84s; loss: 12.5343; acc: 467919/468274=0.9992
+     Instance: 35000; Time: 0.84s; loss: 23.8477; acc: 474511/474870=0.9992
+     Instance: 35500; Time: 0.83s; loss: 23.1941; acc: 481077/481439=0.9992
+     Instance: 36000; Time: 0.81s; loss: 33.4580; acc: 487642/488010=0.9992
+     Instance: 36500; Time: 0.86s; loss: 5.1792; acc: 494557/494925=0.9993
+     Instance: 37000; Time: 0.93s; loss: 18.1748; acc: 501416/501787=0.9993
+     Instance: 37500; Time: 0.93s; loss: 26.9669; acc: 508435/508809=0.9993
+     Instance: 38000; Time: 0.90s; loss: 17.9885; acc: 515324/515702=0.9993
+     Instance: 38500; Time: 0.84s; loss: 15.3559; acc: 522003/522385=0.9993
+     Instance: 39000; Time: 0.88s; loss: 80.9564; acc: 528934/529333=0.9992
+     Instance: 39500; Time: 0.87s; loss: 30.3917; acc: 535947/536351=0.9992
+     Instance: 39999; Time: 0.88s; loss: 15.3817; acc: 542734/543142=0.9992
+Epoch: 99 training finished. Time: 69.13s, speed: 578.58st/s,  total loss: 1997.4792351722717
+totalloss: 1997.4792351722717
+Right token =  32281  All token =  32315  acc =  0.9989478570323379
+Dev: time: 2.47s, speed: 987.04st/s; acc: 0.9989, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63576  All token =  63622  acc =  0.9992769796611235
+Test: time: 4.70s, speed: 1011.79st/s; acc: 0.9993, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    128m37.791s
+user    127m32.000s
+sys     0m37.373s
 ```
 
-```
+prepare decode config file:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-cnn.char-lstm.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charlstm.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
 ```
 
-```
+manual testing ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.char-lstm.decode.config | tee ./mysent-model/wordcnn-charlstm.decode.log
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: LSTM ...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:4.89s, speed:971.71st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charlstm.hyp
 
+real    0m13.496s
+user    0m11.743s
+sys     0m1.405s
 ```
 
-```
+check the output hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ head wordcnn-charlstm.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
+```
+
+## Word-CNN, No-Char
+
+prepare config file:  
 
 ```
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-nochar
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=False
+use_char=False
+word_seq_feature=CNN
+#char_seq_feature=LSTM
+#feature=[POS] emb_size=20
+...
+...
+```
+
+start training ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.no-char.train.config | tee ./mysent-model/wordcnn-nochar.train.log
+...
+...
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  False
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+CNN layer:  4
+Epoch: 0/100
+ Learning rate is set as: 0.01
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 0.72s; loss: 183879.1970; acc: 3662/6598=0.5550
+     Instance: 1000; Time: 0.62s; loss: 5917.1649; acc: 8716/13463=0.6474
+     Instance: 1500; Time: 0.57s; loss: 4383.6639; acc: 13737/20100=0.6834
+     Instance: 2000; Time: 0.53s; loss: 4228.5525; acc: 19241/27109=0.7098
+     Instance: 2500; Time: 0.53s; loss: 3214.0498; acc: 24515/33628=0.7290
+...
+...
+...
 
 ```
 
