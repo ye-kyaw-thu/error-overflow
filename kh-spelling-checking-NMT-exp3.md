@@ -418,17 +418,268 @@ sys     113m55.657s
 root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq#
 ```
 
-
-
-```
+check the model folder:  
 
 ```
-
+root@79c22d75525d:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit1# ls
+config.yml            model.iter135000.npz  model.iter20000.npz  model.iter60000.npz  model.npz.decoder.yml
+model.iter10000.npz   model.iter140000.npz  model.iter25000.npz  model.iter65000.npz  model.npz.optimizer.npz
+model.iter100000.npz  model.iter145000.npz  model.iter30000.npz  model.iter70000.npz  model.npz.progress.yml
+model.iter105000.npz  model.iter15000.npz   model.iter35000.npz  model.iter75000.npz  model.npz.yml
+model.iter110000.npz  model.iter150000.npz  model.iter40000.npz  model.iter80000.npz  s2s.er-cr.log1
+model.iter115000.npz  model.iter155000.npz  model.iter45000.npz  model.iter85000.npz  train.log
+model.iter120000.npz  model.iter160000.npz  model.iter5000.npz   model.iter90000.npz  valid.log
+model.iter125000.npz  model.iter165000.npz  model.iter50000.npz  model.iter95000.npz
+model.iter130000.npz  model.iter170000.npz  model.iter55000.npz  model.npz
+root@79c22d75525d:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit1#
 ```
 
-```
+check the valid log file:  
 
 ```
+[2022-12-16 14:24:14] [valid] Ep. 2 : Up. 5000 : cross-entropy : 22.1416 : new best
+[2022-12-16 14:26:22] [valid] Ep. 2 : Up. 5000 : perplexity : 1.19078 : new best
+[2022-12-16 14:26:57] [valid] First sentence's tokens as scored:
+[2022-12-16 14:26:57] [valid] DefaultVocab keeps original segments for scoring
+[2022-12-16 14:26:57] [valid]   Hyp:  ^~^`  ^=^r  ^~^s  ^~   ^~^d  ^~^`  ^~^z  ^~^n  ^~   ^~^j  ^=^b  ^~^{  ^~^x  ^~   ^~^s  >[2022-12-16 14:26:57] [valid]   Ref:  ^~^`  ^=^r  ^~^s  ^~   ^~^d  ^~^`  ^~^z  ^~^n  ^~   ^~^j  ^=^b  ^~^{  ^~^=  ^~^o  ^=^r >[2022-12-16 14:46:27] [valid] Ep. 2 : Up. 5000 : bleu : 21.4778 : new best
+[2022-12-16 16:13:00] [valid] Ep. 4 : Up. 10000 : cross-entropy : 2.43137 : new best
+[2022-12-16 16:15:08] [valid] Ep. 4 : Up. 10000 : perplexity : 1.01936 : new best
+[2022-12-16 16:23:53] [valid] Ep. 4 : Up. 10000 : bleu : 82.7636 : new best
+[2022-12-16 17:50:16] [valid] Ep. 6 : Up. 15000 : cross-entropy : 1.28409 : new best
+[2022-12-16 17:52:24] [valid] Ep. 6 : Up. 15000 : perplexity : 1.01018 : new best
+[2022-12-16 18:01:00] [valid] Ep. 6 : Up. 15000 : bleu : 92.5303 : new best
+[2022-12-16 19:27:44] [valid] Ep. 7 : Up. 20000 : cross-entropy : 0.78219 : new best
+[2022-12-16 19:29:52] [valid] Ep. 7 : Up. 20000 : perplexity : 1.00619 : new best
+[2022-12-16 19:37:24] [valid] Ep. 7 : Up. 20000 : bleu : 95.0214 : new best
+[2022-12-16 21:04:07] [valid] Ep. 9 : Up. 25000 : cross-entropy : 0.515372 : new best
+[2022-12-16 21:06:15] [valid] Ep. 9 : Up. 25000 : perplexity : 1.00407 : new best
+[2022-12-16 21:13:19] [valid] Ep. 9 : Up. 25000 : bleu : 96.1252 : new best
+[2022-12-16 22:40:11] [valid] Ep. 11 : Up. 30000 : cross-entropy : 0.375392 : new best
+[2022-12-16 22:42:18] [valid] Ep. 11 : Up. 30000 : perplexity : 1.00296 : new best
+[2022-12-16 22:49:04] [valid] Ep. 11 : Up. 30000 : bleu : 96.7862 : new best
+[2022-12-17 00:15:50] [valid] Ep. 13 : Up. 35000 : cross-entropy : 0.293978 : new best
+[2022-12-17 00:17:58] [valid] Ep. 13 : Up. 35000 : perplexity : 1.00232 : new best
+[2022-12-17 00:24:17] [valid] Ep. 13 : Up. 35000 : bleu : 96.6233 : stalled 1 times (last best: 96.7862)
+[2022-12-17 01:51:06] [valid] Ep. 14 : Up. 40000 : cross-entropy : 0.244644 : new best
+[2022-12-17 01:53:14] [valid] Ep. 14 : Up. 40000 : perplexity : 1.00193 : new best
+[2022-12-17 01:59:28] [valid] Ep. 14 : Up. 40000 : bleu : 96.0846 : stalled 2 times (last best: 96.7862)
+[2022-12-17 03:26:20] [valid] Ep. 16 : Up. 45000 : cross-entropy : 0.210326 : new best
+[2022-12-17 03:28:29] [valid] Ep. 16 : Up. 45000 : perplexity : 1.00166 : new best
+[2022-12-17 03:34:27] [valid] Ep. 16 : Up. 45000 : bleu : 96.3315 : stalled 3 times (last best: 96.7862)
+[2022-12-17 05:01:35] [valid] Ep. 18 : Up. 50000 : cross-entropy : 0.174407 : new best
+[2022-12-17 05:03:43] [valid] Ep. 18 : Up. 50000 : perplexity : 1.00138 : new best
+[2022-12-17 05:09:35] [valid] Ep. 18 : Up. 50000 : bleu : 96.9138 : new best
+[2022-12-17 06:36:20] [valid] Ep. 20 : Up. 55000 : cross-entropy : 0.136498 : new best
+[2022-12-17 06:38:29] [valid] Ep. 20 : Up. 55000 : perplexity : 1.00108 : new best
+[2022-12-17 06:44:24] [valid] Ep. 20 : Up. 55000 : bleu : 97.8289 : new best
+[2022-12-17 08:11:38] [valid] Ep. 21 : Up. 60000 : cross-entropy : 0.121526 : new best
+[2022-12-17 08:13:46] [valid] Ep. 21 : Up. 60000 : perplexity : 1.00096 : new best
+[2022-12-17 08:19:40] [valid] Ep. 21 : Up. 60000 : bleu : 98.4312 : new best
+[2022-12-17 09:46:37] [valid] Ep. 23 : Up. 65000 : cross-entropy : 0.11079 : new best
+[2022-12-17 09:48:46] [valid] Ep. 23 : Up. 65000 : perplexity : 1.00087 : new best
+[2022-12-17 09:54:39] [valid] Ep. 23 : Up. 65000 : bleu : 98.4936 : new best
+[2022-12-17 11:21:47] [valid] Ep. 25 : Up. 70000 : cross-entropy : 0.105662 : new best
+[2022-12-17 11:23:56] [valid] Ep. 25 : Up. 70000 : perplexity : 1.00083 : new best
+[2022-12-17 11:29:47] [valid] Ep. 25 : Up. 70000 : bleu : 98.8019 : new best
+[2022-12-17 12:56:42] [valid] Ep. 26 : Up. 75000 : cross-entropy : 0.107262 : stalled 1 times (last best: 0.105662)
+[2022-12-17 12:58:50] [valid] Ep. 26 : Up. 75000 : perplexity : 1.00085 : stalled 1 times (last best: 1.00083)
+[2022-12-17 13:04:39] [valid] Ep. 26 : Up. 75000 : bleu : 98.8604 : new best
+[2022-12-17 14:31:49] [valid] Ep. 28 : Up. 80000 : cross-entropy : 0.109629 : stalled 2 times (last best: 0.105662)
+[2022-12-17 14:33:57] [valid] Ep. 28 : Up. 80000 : perplexity : 1.00086 : stalled 2 times (last best: 1.00083)
+[2022-12-17 14:39:46] [valid] Ep. 28 : Up. 80000 : bleu : 98.8898 : new best
+[2022-12-17 16:06:46] [valid] Ep. 30 : Up. 85000 : cross-entropy : 0.115599 : stalled 3 times (last best: 0.105662)
+[2022-12-17 16:08:54] [valid] Ep. 30 : Up. 85000 : perplexity : 1.00091 : stalled 3 times (last best: 1.00083)
+[2022-12-17 16:14:37] [valid] Ep. 30 : Up. 85000 : bleu : 98.8323 : stalled 1 times (last best: 98.8898)
+[2022-12-17 17:41:45] [valid] Ep. 32 : Up. 90000 : cross-entropy : 0.113816 : stalled 4 times (last best: 0.105662)
+[2022-12-17 17:43:53] [valid] Ep. 32 : Up. 90000 : perplexity : 1.0009 : stalled 4 times (last best: 1.00083)
+[2022-12-17 17:49:38] [valid] Ep. 32 : Up. 90000 : bleu : 98.849 : stalled 2 times (last best: 98.8898)
+[2022-12-17 19:16:47] [valid] Ep. 33 : Up. 95000 : cross-entropy : 0.112386 : stalled 5 times (last best: 0.105662)
+[2022-12-17 19:18:55] [valid] Ep. 33 : Up. 95000 : perplexity : 1.00089 : stalled 5 times (last best: 1.00083)
+[2022-12-17 19:24:42] [valid] Ep. 33 : Up. 95000 : bleu : 98.8914 : new best
+[2022-12-17 20:51:49] [valid] Ep. 35 : Up. 100000 : cross-entropy : 0.116195 : stalled 6 times (last best: 0.105662)
+[2022-12-17 20:53:57] [valid] Ep. 35 : Up. 100000 : perplexity : 1.00092 : stalled 6 times (last best: 1.00083)
+[2022-12-17 20:59:43] [valid] Ep. 35 : Up. 100000 : bleu : 98.9387 : new best
+[2022-12-17 22:26:39] [valid] Ep. 37 : Up. 105000 : cross-entropy : 0.115279 : stalled 7 times (last best: 0.105662)
+[2022-12-17 22:28:47] [valid] Ep. 37 : Up. 105000 : perplexity : 1.00091 : stalled 7 times (last best: 1.00083)
+[2022-12-17 22:34:31] [valid] Ep. 37 : Up. 105000 : bleu : 99.0154 : new best
+[2022-12-18 00:01:40] [valid] Ep. 39 : Up. 110000 : cross-entropy : 0.103347 : new best
+[2022-12-18 00:03:48] [valid] Ep. 39 : Up. 110000 : perplexity : 1.00082 : new best
+[2022-12-18 00:09:31] [valid] Ep. 39 : Up. 110000 : bleu : 99.0962 : new best
+[2022-12-18 01:36:44] [valid] Ep. 40 : Up. 115000 : cross-entropy : 0.0971452 : new best
+[2022-12-18 01:38:52] [valid] Ep. 40 : Up. 115000 : perplexity : 1.00077 : new best
+[2022-12-18 01:44:36] [valid] Ep. 40 : Up. 115000 : bleu : 99.1454 : new best
+[2022-12-18 03:11:30] [valid] Ep. 42 : Up. 120000 : cross-entropy : 0.0947782 : new best
+[2022-12-18 03:13:38] [valid] Ep. 42 : Up. 120000 : perplexity : 1.00075 : new best
+[2022-12-18 03:19:24] [valid] Ep. 42 : Up. 120000 : bleu : 99.1544 : new best
+[2022-12-18 04:46:24] [valid] Ep. 44 : Up. 125000 : cross-entropy : 0.100008 : stalled 1 times (last best: 0.0947782)
+[2022-12-18 04:48:32] [valid] Ep. 44 : Up. 125000 : perplexity : 1.00079 : stalled 1 times (last best: 1.00075)
+[2022-12-18 04:54:16] [valid] Ep. 44 : Up. 125000 : bleu : 99.1728 : new best
+[2022-12-18 06:21:21] [valid] Ep. 46 : Up. 130000 : cross-entropy : 0.113115 : stalled 2 times (last best: 0.0947782)
+[2022-12-18 06:23:29] [valid] Ep. 46 : Up. 130000 : perplexity : 1.00089 : stalled 2 times (last best: 1.00075)
+[2022-12-18 06:29:14] [valid] Ep. 46 : Up. 130000 : bleu : 99.0146 : stalled 1 times (last best: 99.1728)
+[2022-12-18 07:56:15] [valid] Ep. 47 : Up. 135000 : cross-entropy : 0.112187 : stalled 3 times (last best: 0.0947782)
+[2022-12-18 07:58:23] [valid] Ep. 47 : Up. 135000 : perplexity : 1.00089 : stalled 3 times (last best: 1.00075)
+[2022-12-18 08:04:06] [valid] Ep. 47 : Up. 135000 : bleu : 99.0539 : stalled 2 times (last best: 99.1728)
+[2022-12-18 09:31:26] [valid] Ep. 49 : Up. 140000 : cross-entropy : 0.116024 : stalled 4 times (last best: 0.0947782)
+[2022-12-18 09:33:35] [valid] Ep. 49 : Up. 140000 : perplexity : 1.00092 : stalled 4 times (last best: 1.00075)
+[2022-12-18 09:39:17] [valid] Ep. 49 : Up. 140000 : bleu : 99.0565 : stalled 3 times (last best: 99.1728)
+[2022-12-18 11:06:39] [valid] Ep. 51 : Up. 145000 : cross-entropy : 0.118661 : stalled 5 times (last best: 0.0947782)
+[2022-12-18 11:08:47] [valid] Ep. 51 : Up. 145000 : perplexity : 1.00094 : stalled 5 times (last best: 1.00075)
+[2022-12-18 11:14:32] [valid] Ep. 51 : Up. 145000 : bleu : 99.0231 : stalled 4 times (last best: 99.1728)
+[2022-12-18 12:41:50] [valid] Ep. 52 : Up. 150000 : cross-entropy : 0.115153 : stalled 6 times (last best: 0.0947782)
+[2022-12-18 12:43:59] [valid] Ep. 52 : Up. 150000 : perplexity : 1.00091 : stalled 6 times (last best: 1.00075)
+[2022-12-18 12:49:42] [valid] Ep. 52 : Up. 150000 : bleu : 99.0496 : stalled 5 times (last best: 99.1728)
+[2022-12-18 14:17:06] [valid] Ep. 54 : Up. 155000 : cross-entropy : 0.108059 : stalled 7 times (last best: 0.0947782)
+[2022-12-18 14:19:14] [valid] Ep. 54 : Up. 155000 : perplexity : 1.00085 : stalled 7 times (last best: 1.00075)
+[2022-12-18 14:24:56] [valid] Ep. 54 : Up. 155000 : bleu : 99.1252 : stalled 6 times (last best: 99.1728)
+[2022-12-18 15:51:58] [valid] Ep. 56 : Up. 160000 : cross-entropy : 0.107755 : stalled 8 times (last best: 0.0947782)
+[2022-12-18 15:54:06] [valid] Ep. 56 : Up. 160000 : perplexity : 1.00085 : stalled 8 times (last best: 1.00075)
+[2022-12-18 15:59:48] [valid] Ep. 56 : Up. 160000 : bleu : 99.1286 : stalled 7 times (last best: 99.1728)
+[2022-12-18 17:27:02] [valid] Ep. 58 : Up. 165000 : cross-entropy : 0.108267 : stalled 9 times (last best: 0.0947782)
+[2022-12-18 17:29:11] [valid] Ep. 58 : Up. 165000 : perplexity : 1.00085 : stalled 9 times (last best: 1.00075)
+[2022-12-18 17:34:56] [valid] Ep. 58 : Up. 165000 : bleu : 99.1569 : stalled 8 times (last best: 99.1728)
+[2022-12-18 19:02:01] [valid] Ep. 59 : Up. 170000 : cross-entropy : 0.099185 : stalled 10 times (last best: 0.0947782)
+[2022-12-18 19:04:09] [valid] Ep. 59 : Up. 170000 : perplexity : 1.00078 : stalled 10 times (last best: 1.00075)
+[2022-12-18 19:09:57] [valid] Ep. 59 : Up. 170000 : bleu : 99.266 : new best
+```
+
+## Seq2Seq Edit-2 Model
+
+prepare a shell script for training Seq2Seq model ...  
+
+```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq# cp seq2seq.edit1.sh seq2seq.edit2.sh
+```
+
+the updated shell script is as follows:  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments between Burmese dialects
+## used Marian NMT Framework for seq2seq training for edit-2 data
+## Last updated: 19 Dec 2022
+
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.edit2";
+mkdir ${model_folder};
+data_path="/home/ye/exp/kh-spell/seq2seq/char-final/edit2/";
+src="er"; tgt="cr";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 300 \
+  --valid-sets ${data_path}/valid.${src} ${data_path}/valid.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 4500 \
+  --enc-depth 3 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 3 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.edit2.log1
+```
+
+check GPU status:  
+
+```
+root@7a2ffa404585:/home/ye/exp/kh-spell/seq2seq# nvidia-smi
+Failed to initialize NVML: Unknown Error
+```
+
+logout container accout, logout server etc. and then check again.  
+
+```
+ye@lst-gpu-3090:~$ nvidia-smi
+Mon Dec 19 07:57:28 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.86.01    Driver Version: 515.86.01    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+|  0%   45C    P8    36W / 480W |     63MiB / 24564MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      3639      G   /usr/lib/xorg/Xorg                 46MiB |
+|    0   N/A  N/A      3771      G   /usr/bin/gnome-shell               15MiB |
++-----------------------------------------------------------------------------+
+```
+
+re-login to container env:  
+
+```
+ye@lst-gpu-3090:~$ ./start-ye_conda.sh
+[sudo] password for ye:
+ye_conda
+root@79c22d75525d:/# cd temp/build
+root@79c22d75525d:/temp/build# ls
+CMakeCache.txt     CPackSourceConfig.cmake  libmarian.a  marian-conv     marian-vocab  spm_export_vocab  src
+CMakeFiles         Makefile                 local        marian-decoder  spm_decode    spm_normalize
+CPackConfig.cmake  cmake_install.cmake      marian       marian-scorer   spm_encode    spm_train
+root@79c22d75525d:/temp/build# cp marian* /usr/bin/
+```
+
+start training edit-2 model ...  
+
+```
+root@1be262fcefc6:/home/ye/exp/kh-spell/seq2seq# ./seq2seq.edit2.sh
+...
+...
+...
+[2022-12-19 01:04:50] [config] valid-script-path: ""
+[2022-12-19 01:04:50] [config] valid-sets:
+[2022-12-19 01:04:50] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit2//valid.er
+[2022-12-19 01:04:50] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit2//valid.cr
+[2022-12-19 01:04:50] [config] valid-translation-output: ""
+[2022-12-19 01:04:50] [config] vocabs:
+[2022-12-19 01:04:50] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit2//vocab/vocab.er.yml
+[2022-12-19 01:04:50] [config]   - /home/ye/exp/kh-spell/seq2seq/char-final/edit2//vocab/vocab.cr.yml
+[2022-12-19 01:04:50] [config] word-penalty: 0
+[2022-12-19 01:04:50] [config] word-scores: false
+[2022-12-19 01:04:50] [config] workspace: 4500
+[2022-12-19 01:04:50] [config] Model is being created with Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+[2022-12-19 01:04:50] Using synchronous SGD
+[2022-12-19 01:04:50] [comm] Compiled without MPI support. Running as a single process on 1be262fcefc6
+[2022-12-19 01:04:50] Synced seed 1111
+[2022-12-19 01:04:50] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/char-final/edit2//vocab/vocab.er.yml
+[2022-12-19 01:04:50] [data] Setting vocabulary size for input 0 to 196
+[2022-12-19 01:04:50] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/char-final/edit2//vocab/vocab.cr.yml
+[2022-12-19 01:04:50] [data] Setting vocabulary size for input 1 to 196
+[2022-12-19 01:04:50] [batching] Collecting statistics for batch fitting with step size 10
+[2022-12-19 01:04:50] [memory] Extending reserved space to 4608 MB (device gpu0)
+[2022-12-19 01:04:50] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-19 01:04:50] [comm] Using global sharding
+[2022-12-19 01:04:50] [comm] NCCLCommunicators constructed successfully
+[2022-12-19 01:04:50] [training] Using 1 GPUs
+[2022-12-19 01:04:50] [logits] Applying loss function for 1 factor(s)
+[2022-12-19 01:04:50] [memory] Reserving 704 MB, device gpu0
+[2022-12-19 01:04:51] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-19 01:04:51] [memory] Reserving 704 MB, device gpu0
+...
+...
+...
 
 ```
 
