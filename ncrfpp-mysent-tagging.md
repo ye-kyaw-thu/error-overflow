@@ -2427,10 +2427,51 @@ Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 25
 ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
 ```
 
-```
+update the learning rate:  
 
 ```
+#learning_rate=0.015
+learning_rate=0.010
+```
+
+train again and it looks working ...  
 
 ```
+...
+...
+...
+     Instance: 20500; Time: 0.67s; loss: 111.9535; acc: 271255/277384=0.9779
+     Instance: 21000; Time: 0.58s; loss: 37.9173; acc: 277511/283647=0.9784
+     Instance: 21500; Time: 0.64s; loss: 57.2896; acc: 284363/290511=0.9788
+     Instance: 22000; Time: 0.63s; loss: 39.8409; acc: 291155/297313=0.9793
+     Instance: 22500; Time: 0.62s; loss: 52.6794; acc: 297629/303798=0.9797
+     Instance: 23000; Time: 0.67s; loss: 40.9671; acc: 304457/310636=0.9801
+     Instance: 23500; Time: 0.66s; loss: 27.7918; acc: 311446/317630=0.9805
+     Instance: 24000; Time: 0.61s; loss: 118.8584; acc: 317936/324131=0.9809
+     Instance: 24500; Time: 0.62s; loss: 159.1228; acc: 324613/330820=0.9812
+     Instance: 25000; Time: 0.61s; loss: 56.5890; acc: 331645/337858=0.9816
+     Instance: 25500; Time: 0.59s; loss: 53.2868; acc: 338068/344286=0.9819
+     Instance: 26000; Time: 0.62s; loss: 60.5964; acc: 344780/351005=0.9823
+     Instance: 26500; Time: 0.62s; loss: 19.5004; acc: 351573/357800=0.9826
+     Instance: 27000; Time: 0.65s; loss: 79.3346; acc: 358649/364892=0.9829
+     Instance: 27500; Time: 0.66s; loss: 69.7029; acc: 365715/371969=0.9832
+     Instance: 28000; Time: 0.61s; loss: 25.8149; acc: 371987/378246=0.9835
+     Instance: 28500; Time: 0.68s; loss: 44.8137; acc: 379046/385311=0.9837
+     Instance: 29000; Time: 0.64s; loss: 72.8295; acc: 385613/391890=0.9840
+     Instance: 29500; Time: 0.63s; loss: 29.0705; acc: 392296/398578=0.9842
+     Instance: 30000; Time: 0.66s; loss: 82.0742; acc: 399292/405583=0.9845
+     Instance: 30500; Time: 0.64s; loss: 9.9670; acc: 405944/412235=0.9847
+     Instance: 31000; Time: 0.68s; loss: 34.5553; acc: 412869/419166=0.9850
+     Instance: 31500; Time: 0.65s; loss: 28.2391; acc: 419464/425768=0.9852
+     Instance: 32000; Time: 0.70s; loss: 41.5926; acc: 426758/433072=0.9854
+     Instance: 32500; Time: 0.69s; loss: 102.9158; acc: 433784/440108=0.9856
+     Instance: 33000; Time: 0.68s; loss: 126.6441; acc: 440679/447015=0.9858
+     Instance: 33500; Time: 0.68s; loss: 124.7159; acc: 447726/454076=0.9860
+     Instance: 34000; Time: 0.63s; loss: 43.2462; acc: 454325/460685=0.9862
+     Instance: 34500; Time: 0.68s; loss: 104.8425; acc: 461310/467678=0.9864
+     Instance: 35000; Time: 0.71s; loss: 44.8154; acc: 468443/474819=0.9866
+...
+...
+...
 
 ```
