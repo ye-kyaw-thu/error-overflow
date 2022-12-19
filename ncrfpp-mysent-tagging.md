@@ -2473,5 +2473,329 @@ train again and it looks working ...
 ...
 ...
 ...
+     Instance: 31500; Time: 0.66s; loss: 39.0150; acc: 426695/427023=0.9992
+     Instance: 32000; Time: 0.64s; loss: 98.0791; acc: 433741/434078=0.9992
+     Instance: 32500; Time: 0.68s; loss: 40.7073; acc: 440771/441114=0.9992
+     Instance: 33000; Time: 0.61s; loss: 39.6800; acc: 447183/447533=0.9992
+     Instance: 33500; Time: 0.65s; loss: 25.8624; acc: 454197/454551=0.9992
+     Instance: 34000; Time: 0.63s; loss: 37.1705; acc: 461324/461681=0.9992
+     Instance: 34500; Time: 0.47s; loss: 14.6737; acc: 467914/468274=0.9992
+     Instance: 35000; Time: 0.50s; loss: 27.9795; acc: 474506/474870=0.9992
+     Instance: 35500; Time: 0.47s; loss: 28.1497; acc: 481072/481439=0.9992
+     Instance: 36000; Time: 0.47s; loss: 36.1011; acc: 487637/488010=0.9992
+     Instance: 36500; Time: 0.55s; loss: 7.0099; acc: 494552/494925=0.9992
+     Instance: 37000; Time: 0.62s; loss: 22.0090; acc: 501411/501787=0.9993
+     Instance: 37500; Time: 0.65s; loss: 25.4751; acc: 508430/508809=0.9993
+     Instance: 38000; Time: 0.67s; loss: 22.8392; acc: 515319/515702=0.9993
+     Instance: 38500; Time: 0.66s; loss: 16.3963; acc: 521998/522385=0.9993
+     Instance: 39000; Time: 0.66s; loss: 141.7035; acc: 528928/529333=0.9992
+     Instance: 39500; Time: 0.68s; loss: 43.6660; acc: 535941/536351=0.9992
+     Instance: 39999; Time: 0.64s; loss: 18.7707; acc: 542728/543142=0.9992
+Epoch: 99 training finished. Time: 50.60s, speed: 790.49st/s,  total loss: 3005.427954673767
+totalloss: 3005.427954673767
+Right token =  32287  All token =  32315  acc =  0.9991335293207488
+Dev: time: 1.85s, speed: 1317.93st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+Test: time: 3.77s, speed: 1261.49st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+
+real    92m0.469s
+user    91m45.120s
+sys     0m15.266s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+check the model folder:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$ ls
+bk                                wordlstm-charlstm.dset             wordlstm-crf-charlstm.training.log
+wordcnn-charcnn.0.model           wordlstm-charlstm.training.log     wordlstm-crf-nochar.0.model
+wordcnn-charcnn.dset              wordlstm-crf-charcnn.0.model       wordlstm-crf-nochar.decode.log
+wordcnn-charcnn.training.errlog1  wordlstm-crf-charcnn.decode.log    wordlstm-crf-nochar.dset
+wordcnn-charcnn.training.log      wordlstm-crf-charcnn.dset          word-lstm.crf.nochar.training.log
+wordlstm-charcnn.0.model          wordlstm-crf-charcnn.training.log  wordlstm-nochar.0.model
+wordlstm-charcnn.dset             wordlstm-crf-charlstm.0.model      wordlstm-nochar.decode.log
+wordlstm-charlstm.0.model         wordlstm-crf-charlstm.decode.log   wordlstm-nochar.dset
+wordlstm-charlstm.decode.log      wordlstm-crf-charlstm.dset         wordlstm-nochar.training.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$
+```
+
+Prepare decode config ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-cnn.char-cnn.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charcnn.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
+```
+
+manual testing ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.char-cnn.decode.config | tee ./mysent-model/wordcnn-charcnn.decode.log
+...
+...
+...
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:5.43s, speed:874.26st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charcnn.hyp
+
+real    0m13.451s
+user    0m11.597s
+sys     0m1.538s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+check the output hyp file:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ head ./wordcnn-charcnn.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
+```
+
+## Word-CNN, Char-LSTM
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
