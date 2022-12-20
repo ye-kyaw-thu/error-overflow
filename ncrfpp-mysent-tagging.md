@@ -854,7 +854,7 @@ YokoyamaAkihito O
 (ncrfpp) yekyaw.thu@gpu:~/exp/mySent/ncrf/data/para$
 ```
 
-## Prepare Config File for Word-LSTM, Char-CNN Model
+## 1. Prepare Config File for Word-LSTM, Char-CNN Model
 
 training config file:  
 
@@ -1275,7 +1275,7 @@ check the hyp file content:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-LSTM, Char-LSTM
+## 2. Word-LSTM, Char-LSTM
 
 update the config file: 
 
@@ -1553,7 +1553,7 @@ check the hype file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-LSTM, no-char  
+## 3. Word-LSTM, no-char  
 
 updated the config file as follows:  
 
@@ -1724,7 +1724,7 @@ check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-LSTM, CRF, Char-CNN
+## 4. Word-LSTM, CRF, Char-CNN
 
 preparing config file:  
 
@@ -1950,7 +1950,7 @@ check all hyp files so far:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-LSTM, CRF, char-LSTM Training/Testing 
+## 5. Word-LSTM, CRF, char-LSTM Training/Testing 
 
 prepare config file:  
 
@@ -2107,7 +2107,7 @@ check the hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-## Word-LSTM, CRF, no-char
+## 6. Word-LSTM, CRF, no-char
 
 Preparing config file:  
 
@@ -2308,7 +2308,7 @@ check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-CNN, Char-CNN Model
+## 7. Word-CNN, Char-CNN Model
 
 prepare config file:  
 
@@ -2594,7 +2594,7 @@ check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-CNN, Char-LSTM
+## 8. Word-CNN, Char-LSTM
 
 prepare the config file:  
 
@@ -2773,7 +2773,7 @@ check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-CNN, No-Char
+## 9. Word-CNN, No-Char
 
 prepare config file:  
 
@@ -2938,7 +2938,7 @@ check the hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-## Word-CNN, CRF, Char-CNN
+## 10. Word-CNN, CRF, Char-CNN
 
 prepare training config file:  
 
@@ -3236,6 +3236,40 @@ start training Word-CNN, CRF, Char-LSTM ...
      Hyper             GPU: True
 DATA SUMMARY END.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+...
+...
+...
+     Instance: 33500; Time: 2.71s; loss: 89.1120; acc: 450743/454076=0.9927
+     Instance: 34000; Time: 2.47s; loss: 44.3172; acc: 457345/460685=0.9927
+     Instance: 34500; Time: 2.68s; loss: 61.8543; acc: 464330/467678=0.9928
+     Instance: 35000; Time: 2.80s; loss: 42.6160; acc: 471465/474819=0.9929
+     Instance: 35500; Time: 2.75s; loss: 18.5766; acc: 478705/482061=0.9930
+     Instance: 36000; Time: 2.65s; loss: 45.8868; acc: 485281/488644=0.9931
+     Instance: 36500; Time: 2.68s; loss: 35.7804; acc: 492016/495386=0.9932
+     Instance: 37000; Time: 2.61s; loss: 77.9952; acc: 498888/502268=0.9933
+     Instance: 37500; Time: 2.64s; loss: 77.2073; acc: 505813/509202=0.9933
+     Instance: 38000; Time: 2.51s; loss: 83.5568; acc: 512236/515634=0.9934
+     Instance: 38500; Time: 2.69s; loss: 25.0363; acc: 519113/522512=0.9935
+     Instance: 39000; Time: 2.68s; loss: 62.0210; acc: 525813/529223=0.9936
+     Instance: 39500; Time: 2.64s; loss: 18.2599; acc: 532746/536159=0.9936
+     Instance: 39999; Time: 2.72s; loss: 39.4828; acc: 539723/543142=0.9937
+Epoch: 0 training finished. Time: 204.92s, speed: 195.19st/s,  total loss: 43944.579750061035
+totalloss: 43944.579750061035
+Right token =  32287  All token =  32315  acc =  0.9991335293207488
+Dev: time: 3.12s, speed: 777.69st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm.0.model
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+Test: time: 6.39s, speed: 743.47st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.009523809523809523
+Shuffle: first input word list: [20733, 2180, 20734, 325, 130, 325, 872, 130, 872, 214]
+     Instance: 500; Time: 2.73s; loss: 23.1693; acc: 7006/7008=0.9997
+     Instance: 1000; Time: 2.47s; loss: 44.3065; acc: 13303/13314=0.9992
+     Instance: 1500; Time: 2.75s; loss: 86.1397; acc: 20303/20328=0.9988
+     Instance: 2000; Time: 2.71s; loss: 38.1606; acc: 26981/27011=0.9989
+     Instance: 2500; Time: 2.51s; loss: 59.5888; acc: 33237/33274=0.9989
+     Instance: 3000; Time: 2.75s; loss: 22.1511; acc: 40138/40177=0.9990
 ...
 ...
 ...
