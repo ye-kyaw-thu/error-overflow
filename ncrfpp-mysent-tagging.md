@@ -3050,26 +3050,195 @@ Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 25
 ...
 ...
 ...
+     Instance: 30000; Time: 0.47s; loss: 20.1497; acc: 406608/406922=0.9992
+     Instance: 30500; Time: 0.46s; loss: 15.6747; acc: 413610/413929=0.9992
+     Instance: 31000; Time: 0.43s; loss: 36.0379; acc: 420018/420344=0.9992
+     Instance: 31500; Time: 0.48s; loss: 46.1417; acc: 426688/427023=0.9992
+     Instance: 32000; Time: 0.58s; loss: 78.4269; acc: 433734/434078=0.9992
+     Instance: 32500; Time: 0.63s; loss: 52.6536; acc: 440763/441114=0.9992
+     Instance: 33000; Time: 0.54s; loss: 39.1081; acc: 447175/447533=0.9992
+     Instance: 33500; Time: 0.49s; loss: 35.3635; acc: 454189/454551=0.9992
+     Instance: 34000; Time: 0.45s; loss: 27.4643; acc: 461316/461681=0.9992
+     Instance: 34500; Time: 0.44s; loss: 13.7139; acc: 467906/468274=0.9992
+     Instance: 35000; Time: 0.46s; loss: 24.5363; acc: 474497/474870=0.9992
+     Instance: 35500; Time: 0.53s; loss: 31.6647; acc: 481061/481439=0.9992
+     Instance: 36000; Time: 0.53s; loss: 36.9760; acc: 487626/488010=0.9992
+     Instance: 36500; Time: 0.56s; loss: 8.3417; acc: 494539/494925=0.9992
+     Instance: 37000; Time: 0.55s; loss: 22.6988; acc: 501398/501787=0.9992
+     Instance: 37500; Time: 0.55s; loss: 25.0444; acc: 508417/508809=0.9992
+     Instance: 38000; Time: 0.46s; loss: 19.8509; acc: 515306/515702=0.9992
+     Instance: 38500; Time: 0.45s; loss: 16.7377; acc: 521985/522385=0.9992
+     Instance: 39000; Time: 0.46s; loss: 95.4117; acc: 528913/529333=0.9992
+     Instance: 39500; Time: 0.46s; loss: 46.7911; acc: 535924/536351=0.9992
+     Instance: 39999; Time: 0.45s; loss: 16.8303; acc: 542712/543142=0.9992
+Epoch: 99 training finished. Time: 42.67s, speed: 937.38st/s,  total loss: 2424.9977610111237
+totalloss: 2424.9977610111237
+Right token =  32285  All token =  32315  acc =  0.9990716385579452
+Dev: time: 1.88s, speed: 1298.77st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+Test: time: 4.00s, speed: 1189.38st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    84m37.016s
+user    83m56.073s
+sys     0m14.902s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+prepare manual checking. At 1st I need to create a decode configuration file as follows:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-cnn.crf.char-cnn.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charcnn.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
 ```
 
-```
+run manual testing ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.crf.char-cnn.decode.config | tee
+./mysent-model/wordcnn.crf.charcnn.decode.log
+...
+...
+...
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:5.57s, speed:852.53st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charcnn.hyp
 
+real    0m14.296s
+user    0m11.311s
+sys     0m3.144s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+check the output hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ head ./mysent-hyp/wordcnn-crf-charcnn.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
+
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+## 11. Word-CNN, CRF, Char-LSTM
+
+prepare the config file:  
 
 ```
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=True
+use_char=True
+word_seq_feature=CNN
+char_seq_feature=LSTM
+#feature=[POS] emb_size=20
+...
+...
+...
+```
+
+start training Word-CNN, CRF, Char-LSTM ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-config/word-cnn.crf.char-lstm.train.config | tee ./mysent-model/word-cnn.crf.char-lstm.training.log
+...
+...
+...
+     Dev   instance number: 2414
+     Test  instance number: 4712
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+...
+...
+...
 
 ```
 
