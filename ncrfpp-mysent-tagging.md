@@ -3273,30 +3273,195 @@ Shuffle: first input word list: [20733, 2180, 20734, 325, 130, 325, 872, 130, 87
 ...
 ...
 ...
+     Instance: 30500; Time: 2.65s; loss: 15.0507; acc: 413603/413929=0.9992
+     Instance: 31000; Time: 2.56s; loss: 43.8955; acc: 420011/420344=0.9992
+     Instance: 31500; Time: 2.74s; loss: 33.9988; acc: 426683/427023=0.9992
+     Instance: 32000; Time: 2.46s; loss: 41.7207; acc: 433729/434078=0.9992
+     Instance: 32500; Time: 2.50s; loss: 32.4494; acc: 440758/441114=0.9992
+     Instance: 33000; Time: 2.17s; loss: 38.8189; acc: 447170/447533=0.9992
+     Instance: 33500; Time: 2.30s; loss: 23.0599; acc: 454184/454551=0.9992
+     Instance: 34000; Time: 2.34s; loss: 16.5867; acc: 461311/461681=0.9992
+     Instance: 34500; Time: 2.20s; loss: 13.3369; acc: 467901/468274=0.9992
+     Instance: 35000; Time: 2.35s; loss: 24.9703; acc: 474493/474870=0.9992
+     Instance: 35500; Time: 2.16s; loss: 21.7741; acc: 481059/481439=0.9992
+     Instance: 36000; Time: 2.18s; loss: 34.5946; acc: 487624/488010=0.9992
+     Instance: 36500; Time: 2.38s; loss: 5.5450; acc: 494539/494925=0.9992
+     Instance: 37000; Time: 2.19s; loss: 21.1420; acc: 501398/501787=0.9992
+     Instance: 37500; Time: 2.39s; loss: 24.0189; acc: 508417/508809=0.9992
+     Instance: 38000; Time: 2.33s; loss: 19.6784; acc: 515306/515702=0.9992
+     Instance: 38500; Time: 2.27s; loss: 15.3549; acc: 521985/522385=0.9992
+     Instance: 39000; Time: 2.37s; loss: 77.0108; acc: 528915/529333=0.9992
+     Instance: 39500; Time: 2.39s; loss: 35.0670; acc: 535928/536351=0.9992
+     Instance: 39999; Time: 2.30s; loss: 16.1045; acc: 542715/543142=0.9992
+Epoch: 99 training finished. Time: 205.11s, speed: 195.01st/s,  total loss: 2097.350311279297
+totalloss: 2097.350311279297
+Right token =  32287  All token =  32315  acc =  0.9991335293207488
+Dev: time: 3.11s, speed: 780.27st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+Test: time: 6.36s, speed: 745.79st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    359m21.591s
+user    358m29.862s
+sys     0m33.201s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+Let's see the model folder:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ cd mysent-model/
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$ ls
+bk                                  wordcnn-crf-charlstm.0.model         wordlstm-crf-charcnn.dset
+wordcnn-charcnn.0.model             wordcnn-crf-charlstm.dset            wordlstm-crf-charcnn.training.log
+wordcnn-charcnn.decode.log          word-cnn.crf.char-lstm.training.log  wordlstm-crf-charlstm.0.model
+wordcnn-charcnn.dset                wordcnn-nochar.0.model               wordlstm-crf-charlstm.decode.log
+wordcnn-charcnn.training.errlog1    wordcnn-nochar.dset                  wordlstm-crf-charlstm.dset
+wordcnn-charcnn.training.log        wordcnn-nochar.train.log             wordlstm-crf-charlstm.training.log
+wordcnn-charlstm.0.model            wordlstm-charcnn.0.model             wordlstm-crf-nochar.0.model
+wordcnn-charlstm.decode.log         wordlstm-charcnn.dset                wordlstm-crf-nochar.decode.log
+wordcnn-charlstm.dset               wordlstm-charlstm.0.model            wordlstm-crf-nochar.dset
+wordcnn-charlstm.train.log          wordlstm-charlstm.decode.log         word-lstm.crf.nochar.training.log
+wordcnn-crf-charcnn.0.model         wordlstm-charlstm.dset               wordlstm-nochar.0.model
+wordcnn.crf.charcnn.decode.log      wordlstm-charlstm.training.log       wordlstm-nochar.decode.log
+wordcnn-crf-charcnn.dset            wordlstm-crf-charcnn.0.model         wordlstm-nochar.dset
+word-cnn.crf.char-cnn.training.log  wordlstm-crf-charcnn.decode.log      wordlstm-nochar.training.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-model$
 ```
 
-```
+prepare decoding config file for the Word-CNN, CRF, Char-LSTM model:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$ cat word-cnn.crf.char-lstm.decode.config
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charlstm.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config$
 ```
 
-```
+manual decoding of Word-CNN, CRF, Char-LSTM model ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.crf.char-lstm.decode.config | tee ./wordcnn.crf.charlstm.decode.log
+...
+...
+...
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: LSTM ...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+raw: time:6.37s, speed:744.10st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charlstm.hyp
 
+real    0m15.192s
+user    0m12.328s
+sys     0m3.150s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+## 12. Word-CNN, CRF, No-char 
+
+preparing config file:  
 
 ```
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-nochar
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=True
+use_char=False
+word_seq_feature=CNN
+#char_seq_feature=LSTM
+#feature=[POS] emb_size=20
+```
+
+start training Word-CNN, CRF, No-char Model ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.crf.nochar.train.config | tee word-cnn.crf.nochar.train.log
+...
+...
+...
+     Decode file directory: None
+     Train instance number: 39999
+     Dev   instance number: 2414
+     Test  instance number: 4712
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+...
+...
+...
 
 ```
 
