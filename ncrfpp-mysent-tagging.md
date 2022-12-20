@@ -2849,30 +2849,207 @@ Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 25
 ...
 ...
 ...
+     Instance: 31000; Time: 0.43s; loss: 36.0379; acc: 420018/420344=0.9992
+     Instance: 31500; Time: 0.48s; loss: 46.1417; acc: 426688/427023=0.9992
+     Instance: 32000; Time: 0.58s; loss: 78.4269; acc: 433734/434078=0.9992
+     Instance: 32500; Time: 0.63s; loss: 52.6536; acc: 440763/441114=0.9992
+     Instance: 33000; Time: 0.54s; loss: 39.1081; acc: 447175/447533=0.9992
+     Instance: 33500; Time: 0.49s; loss: 35.3635; acc: 454189/454551=0.9992
+     Instance: 34000; Time: 0.45s; loss: 27.4643; acc: 461316/461681=0.9992
+     Instance: 34500; Time: 0.44s; loss: 13.7139; acc: 467906/468274=0.9992
+     Instance: 35000; Time: 0.46s; loss: 24.5363; acc: 474497/474870=0.9992
+     Instance: 35500; Time: 0.53s; loss: 31.6647; acc: 481061/481439=0.9992
+     Instance: 36000; Time: 0.53s; loss: 36.9760; acc: 487626/488010=0.9992
+     Instance: 36500; Time: 0.56s; loss: 8.3417; acc: 494539/494925=0.9992
+     Instance: 37000; Time: 0.55s; loss: 22.6988; acc: 501398/501787=0.9992
+     Instance: 37500; Time: 0.55s; loss: 25.0444; acc: 508417/508809=0.9992
+     Instance: 38000; Time: 0.46s; loss: 19.8509; acc: 515306/515702=0.9992
+     Instance: 38500; Time: 0.45s; loss: 16.7377; acc: 521985/522385=0.9992
+     Instance: 39000; Time: 0.46s; loss: 95.4117; acc: 528913/529333=0.9992
+     Instance: 39500; Time: 0.46s; loss: 46.7911; acc: 535924/536351=0.9992
+     Instance: 39999; Time: 0.45s; loss: 16.8303; acc: 542712/543142=0.9992
+Epoch: 99 training finished. Time: 42.67s, speed: 937.38st/s,  total loss: 2424.9977610111237
+totalloss: 2424.9977610111237
+Right token =  32285  All token =  32315  acc =  0.9990716385579452
+Dev: time: 1.88s, speed: 1298.77st/s; acc: 0.9991, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63589  All token =  63622  acc =  0.9994813114960234
+Test: time: 4.00s, speed: 1189.38st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    84m37.016s
+user    83m56.073s
+sys     0m14.902s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+prepare decode config file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-config/word-cnn.nochar.decode.config
+...
+...
+...
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63572  All token =  63622  acc =  0.9992141083273082
+raw: time:3.75s, speed:1270.25st/s; acc: 0.9992, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-nochar.hyp
 
+real    0m12.432s
+user    0m9.680s
+sys     0m3.054s
 ```
 
-```
+check the hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$ head wordcnn-nochar.hyp
+အခု B
+သန့်စင်ခန်း N
+ကကို N
+သသုံး N
+ပါရစေ E
 
+လူငယ် B
+တွေ O
+က O
+ပပုံစံတကျ O
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-hyp$
 ```
 
-```
+## Word-CNN, CRF, Char-CNN
+
+prepare training config file:  
 
 ```
+### use # to comment out the configure item
 
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=True
+use_char=True
+word_seq_feature=CNN
+char_seq_feature=CNN
+#feature=[POS] emb_size=20
+...
+...
+...
 ```
 
-```
+start training word-cnn, crf, char-cnn model ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-config/word-cnn.crf.char-cnn.train.config | tee ./mysent-model/word-cnn.crf.char-cnn.training.log
+...
+...
+...
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 2.16s; loss: 14709.3444; acc: 3933/6598=0.5961
+     Instance: 1000; Time: 2.20s; loss: 679335847501542.1250; acc: 6127/13463=0.4551
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
+
+real    0m19.259s
+user    0m16.236s
+sys     0m3.266s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+Got ERROR as shown in above!  
+And thus, update the learning rate as follows:  
+
+```
+#learning_rate=0.015
+learning_rate=0.010
+```
+
+re-train again ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-config/word-cnn.crf.char-cnn.train.config | tee ./mysent-model/word-cnn.crf.char-cnn.training.log
+...
+...
+...
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.01
+Shuffle: first input word list: [8895, 45, 226, 207, 1037, 644, 18, 253, 208, 254]
+     Instance: 500; Time: 2.22s; loss: 9619.4552; acc: 4072/6598=0.6172
+     Instance: 1000; Time: 2.29s; loss: 3674.8943; acc: 9391/13463=0.6975
+...
+...
+...
 
 ```
 
