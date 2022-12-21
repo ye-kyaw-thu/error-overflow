@@ -778,9 +778,12 @@ sys     101m33.343s
 root@1be262fcefc6:/home/ye/exp/kh-spell/seq2seq#
 ```
 
-## Testing
+## Seq2Seq Model with Word Level
 
-```
+for this time, I will use 4nmt/ data ...  
+training shell script is as follows:  
+
+```bash
 
 ```
 
