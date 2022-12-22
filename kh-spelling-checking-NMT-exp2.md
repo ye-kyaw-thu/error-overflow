@@ -1922,26 +1922,175 @@ root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/vocab# head 
 root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/vocab#
 ```
 
+The problem is because of sed command based character segmentation shell script. I haven't check the current machine environmental setting ...  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment# ./char-segmentation.sh ./tmp.txt
+� � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � �
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment#
+```
+
+When I checked with another shell script, it is also not working:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment# cat print-char.sh
+#!/bin/bash
+
+# for printing character by character
+# Written by Ye Kyaw Thu, LST Lab., NECTEC, Thailand
+# How to run: ./print-char.sh <input-filename>
+
+inputFile=$1;
+
+while read -n1 char;
+do
+   echo $char;
+done < $inputFile
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment#
+```               
+                 
+**I am running NMT models under container env that cause the encoding input/output errors.  
+And thus, if I quit the container environment and run under my home folder looks OK as follows:  
+
+```
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./tmp.txt
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ណ ្ ន ឹ ង
+រ ប ស ់
+ឆ ្ ក ួ ត
+អ ្ វ ី
+ស ា ម ញ ្ ញ
+អ ្ វ ី
+ខ ្ ទ ើ យ
+ឧ ប ត ្ ថ ម ្ ភ
+ន ិ ស ្ ស ិ ត
+ye@lst-gpu-3090:~/char-segment$
+```
+
 ## Character Segmentation
 
-I need to do character segmentation again and then train Transformer model for dictionary again.  
+I need to do character segmentation again (i.e. not under container env) and then train Transformer model for dictionary again.  
 1st things 1st, the followings are making character segmentation process log:  
 
-```
+
+### character segmentation for original dictionary data 
 
 ```
-
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./train.cr > train.cr.char
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./train.er > train.er.char
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./valid.cr > valid.cr.char
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./valid.er > valid.er.char
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./test.cr > test.cr.char
+ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./test.er > test.er.char
 ```
 
-```
+check the char files:  
 
 ```
+ye@lst-gpu-3090:~/char-segment$ head -n 3 ./*.char
+==> ./test.cr.char <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ណ ្ ន ឹ ង
+រ ប ស ់
 
+==> ./test.er.char <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ន ហ ្ ន ឹ ង
+ផ ស ់
+
+==> ./train.cr.char <==
+ក ្ រ ោ យ
+ក ំ ប ុ ត
+អ ៊ ី ច ឹ ង
+
+==> ./train.er.char <==
+ក ្ រ ោ យ យ
+ក ំ ប ត ់
+ច ឹ ង
+
+==> ./valid.cr.char <==
+ក ្ រ ហ ម ឆ ្ អ ិ ន
+គ ន ្ ថ ច រ ន ា
+ស ា ស ន ិ ក ជ ន
+
+==> ./valid.er.char <==
+ ក ្ ហ ហ ម ឆ ្ ិ ន
+ គ ន ្ ថ ន ច ន រ ា
+ ា ស ស ិ ន ិ ក ជ ន
+ye@lst-gpu-3090:~/char-segment$
 ```
 
-```
+I need to make space cleaning also:  
 
 ```
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./train.cr.char > ./train.cr.char.clean
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./train.er.char > ./train.er.char.clean
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./valid.cr.char > ./valid.cr.char.clean
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./valid.er.char > ./valid.er.char.clean
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./test.cr.char > ./test.cr.char.clean
+ye@lst-gpu-3090:~/char-segment$ perl ./clean-space.pl ./test.er.char > ./test.er.char.clean
+```
+
+check the cleaned files:  
+
+```
+ye@lst-gpu-3090:~/char-segment$ head -n3 *.clean
+==> test.cr.char.clean <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ណ ្ ន ឹ ង
+រ ប ស ់
+
+==> test.er.char.clean <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ន ហ ្ ន ឹ ង
+ផ ស ់
+
+==> train.cr.char.clean <==
+ក ្ រ ោ យ
+ក ំ ប ុ ត
+អ ៊ ី ច ឹ ង
+
+==> train.er.char.clean <==
+ក ្ រ ោ យ យ
+ក ំ ប ត ់
+ច ឹ ង
+
+==> valid.cr.char.clean <==
+ក ្ រ ហ ម ឆ ្ អ ិ ន
+គ ន ្ ថ ច រ ន ា
+ស ា ស ន ិ ក ជ ន
+
+==> valid.er.char.clean <==
+ក ្ ហ ហ ម ឆ ្ ិ ន
+គ ន ្ ថ ន ច ន រ ា
+ា ស ស ិ ន ិ ក ជ ន
+ye@lst-gpu-3090:~/char-segment$
+```
+
+file renaming:  
+
+```
+ye@lst-gpu-3090:~/char-segment$ mv test.cr.char.clean test.cr
+ye@lst-gpu-3090:~/char-segment$ mv test.er.char.clean test.er
+ye@lst-gpu-3090:~/char-segment$ mv train.cr.char.clean train.cr
+ye@lst-gpu-3090:~/char-segment$ mv train.er.char.clean train.er
+ye@lst-gpu-3090:~/char-segment$ mv valid.cr.char.clean valid.cr
+ye@lst-gpu-3090:~/char-segment$ mv valid.er.char.clean valid.er
+```
+
+Finished character segmentation for original dictionary data!!!  
+
+### character segmentation for edit1 data  
+
 
 ```
 
