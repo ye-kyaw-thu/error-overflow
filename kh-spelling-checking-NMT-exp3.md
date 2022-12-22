@@ -70,24 +70,6 @@ char-final/
 |       |-- all.er
 |       |-- vocab.cr.yml
 |       `-- vocab.er.yml
-|-- edit2
-|   |-- original-err
-|   |   |-- test.er
-|   |   `-- train.er
-|   |-- test.cr
-|   |-- test.er
-|   |-- train-valid
-|   |   |-- train.cr
-|   |   `-- train.er
-|   |-- train.cr
-|   |-- train.er
-|   |-- valid.cr
-|   |-- valid.er
-|   `-- vocab
-|       |-- all.cr
-|       |-- all.er
-|       |-- vocab.cr.yml
-|       `-- vocab.er.yml
 |-- folder-struct.txt
 `-- manual
     |-- test.cr
