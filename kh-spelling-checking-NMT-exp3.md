@@ -878,6 +878,55 @@ root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit2
 root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit2#
 ```
 
+bash shell script for testing with Seq2Seq, sentence level, edit-2 model ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliate Professor, CADT, Cambodia
+## for NMT Experiments for Khmer Spelling Checking with NMT Models
+## preparing for testing with "sentence level, edit-distance 2 model"
+## used Marian NMT Framework for training
+## Last updated: 22 Dec 2022
+
+data_path="/home/ye/exp/kh-spell/seq2seq/char-final/edit2";
+#Note: test-data are same for both Transformer and Seq2Seq models,
+#and thus I am not updating the paths of the input test data and reference data.
+src="er"; tgt="cr";
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.manual.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/manual/test.${src};
+echo "Evaluation with hyp.best.manual.${tgt}, Seq2Seq sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/manual/test.${tgt} \
+< ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit1.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/edit1/test.${src};
+echo "Evaluation with hyp.best.edit1.${tgt}, Seq2Seq sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/edit1/test.${tgt} < ./hyp.best.edit1.${tgt} >>
+
+echo "=" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit2.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.edit2.${tgt}, Seq2Seq sent, edit2 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
+```
+
+start testing ...  
+
+```
+
+```
+
+evaluation results for edit-2 model is as follows:  
+
+```
+
+```
+
 ## Seq2Seq Model with Word Level
 
 for this time, I will use 4nmt/ data ...  
