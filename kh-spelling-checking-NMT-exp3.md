@@ -943,28 +943,97 @@ for this time, I will use 4nmt/ data ...
 copied word level or dictionary data:  
 
 ```
-root@1be262fcefc6:/home/ye/exp/kh-spell/transformer# cp -r 4nmt ../seq2seq/
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# cp ../transformer/4nmt/ . -r
 ```
 
-## I checked the data ,,,  
+copied seq2seq based shell script that I prepared for edit1 ...  
 
 ```
-
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# cp seq2seq.edit1.sh seq2seq.dict.sh
 ```
 
-copied dictioary based shell script that I prepared for the transformer to seq2seq/ folder for modification...  
-
-```
-root@1be262fcefc6:/home/ye/exp/kh-spell/transformer# cp transformer.dict1.sh ../seq2seq/seq2seq.dict1.sh
-```
-
-training shell script is as follows:  
+I updated the copied shell script.  
+training shell script of Seq2Seq, dictionary is as follows:  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## used for NMT Experiments for Khmer spelling correction
+## used Marian NMT Framework for seq2seq training
+## Last updated: 22 Dec 2022
+
+## Reference: https://marian-nmt.github.io/examples/mtm2017/complex/
+
+model_folder="model.seq2seq.dict";
+mkdir ${model_folder};
+data_path="/home/ye/exp/kh-spell/seq2seq/4nmt/char-segment/";
+src="er"; tgt="cr";
+
+
+marian \
+  --type s2s \
+  --train-sets ${data_path}/train.${src} ${data_path}/train.${tgt} \
+  --max-length 300 \
+  --valid-sets ${data_path}/valid.${src} ${data_path}/valid.${tgt} \
+  --vocabs  ${data_path}/vocab/vocab.${src}.yml  ${data_path}/vocab/vocab.${tgt}.yml \
+  --model ${model_folder}/model.npz \
+  --workspace 4500 \
+  --enc-depth 3 --enc-type alternating --enc-cell lstm --enc-cell-depth 4 \
+  --dec-depth 3 --dec-cell lstm --dec-cell-base-depth 4 --dec-cell-high-depth 2 \
+  --tied-embeddings --layer-normalization --skip \
+  --mini-batch-fit \
+  --valid-mini-batch 32 \
+  --valid-metrics cross-entropy perplexity bleu\
+  --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+  --dropout-rnn 0.3 --dropout-src 0.3 --exponential-smoothing \
+  --early-stopping 10 \
+  --log ${model_folder}/train.log --valid-log ${model_folder}/valid.log \
+  --devices 0 --sync-sgd --seed 1111  \
+  --dump-config > ${model_folder}/config.yml
+
+time marian -c ${model_folder}/config.yml  2>&1 | tee ${model_folder}/s2s.${src}-${tgt}.log1
 ```
 
+Start training for Seq2Seq Dictionary Model ...  
+
 ```
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# ./seq2seq.dict.sh
+...
+...
+...
+[2022-12-22 11:35:52] [config] valid-script-path: ""
+[2022-12-22 11:35:52] [config] valid-sets:
+[2022-12-22 11:35:52] [config]   - /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//valid.er
+[2022-12-22 11:35:52] [config]   - /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//valid.cr
+[2022-12-22 11:35:52] [config] valid-translation-output: ""
+[2022-12-22 11:35:52] [config] vocabs:
+[2022-12-22 11:35:52] [config]   - /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//vocab/vocab.er.yml
+[2022-12-22 11:35:52] [config]   - /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//vocab/vocab.cr.yml
+[2022-12-22 11:35:52] [config] word-penalty: 0
+[2022-12-22 11:35:52] [config] word-scores: false
+[2022-12-22 11:35:52] [config] workspace: 4500
+[2022-12-22 11:35:52] [config] Model is being created with Marian v1.11.0 f00d0621 2022-02-08 08:39:24 -0800
+[2022-12-22 11:35:52] Using synchronous SGD
+[2022-12-22 11:35:52] [comm] Compiled without MPI support. Running as a single process on 0d441b235700
+[2022-12-22 11:35:52] Synced seed 1111
+[2022-12-22 11:35:52] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//vocab/vocab.er.yml
+[2022-12-22 11:35:52] [data] Setting vocabulary size for input 0 to 114
+[2022-12-22 11:35:52] [data] Loading vocabulary from JSON/Yaml file /home/ye/exp/kh-spell/seq2seq/4nmt/char-segment//vocab/vocab.cr.yml
+[2022-12-22 11:35:52] [data] Setting vocabulary size for input 1 to 105
+[2022-12-22 11:35:52] [batching] Collecting statistics for batch fitting with step size 10
+[2022-12-22 11:35:52] [memory] Extending reserved space to 4608 MB (device gpu0)
+[2022-12-22 11:35:52] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-22 11:35:52] [comm] Using global sharding
+[2022-12-22 11:35:53] [comm] NCCLCommunicators constructed successfully
+[2022-12-22 11:35:53] [training] Using 1 GPUs
+[2022-12-22 11:35:53] [logits] Applying loss function for 1 factor(s)
+[2022-12-22 11:35:53] [memory] Reserving 704 MB, device gpu0
+[2022-12-22 11:35:53] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-22 11:35:53] [memory] Reserving 704 MB, device gpu0
+...
+...
+...
 
 ```
 
