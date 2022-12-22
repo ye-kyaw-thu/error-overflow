@@ -2,6 +2,13 @@
 
 For this time, I will build Seq2Seq NMT model for Khmer spelling checking...  
 
+Note: I need to build 3 models and they are as follows:  
+
+1. Seq2Seq Model with Word Dictionary
+2. Seq2Seq Model with Sentence-Edit1
+3. Seq2Seq Model with Sentence-Edit2
+
+
 ## Revist the Experimental Setting of the Previous 
 
 ```
@@ -543,6 +550,19 @@ check the valid log file:
 [2022-12-18 19:09:57] [valid] Ep. 59 : Up. 170000 : bleu : 99.266 : new best
 ```
 
+### Testing for Sentence, Edit-1 Model
+
+copied testing shell scripts ...  
+
+```
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1# cp test-eval-best.sh ../../seq2seq/model.seq
+2seq.edit1/
+```
+
+check/update the test shell scripts ...  
+
+
+
 ## Seq2Seq Edit-2 Model
 
 prepare a shell script for training Seq2Seq model ...  
@@ -776,6 +796,14 @@ real    2857m37.526s
 user    2751m21.755s
 sys     101m33.343s
 root@1be262fcefc6:/home/ye/exp/kh-spell/seq2seq#
+```
+
+### Testing Seq2Seq Sentence, Edit-2 Model
+
+```
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1# cd ../model.transformer.sent.edit2/
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit2# cp test-eval-best.sh ../../seq2seq/model.seq2seq.edit2/
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit2#
 ```
 
 ## Seq2Seq Model with Word Level
