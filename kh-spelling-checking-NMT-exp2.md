@@ -2211,11 +2211,21 @@ root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt#
 ## Make Vocab Files for Word Level or Dictionary Data
 
 ```
-
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment# cat train.cr valid.cr test.cr > ./vocab/all.cr
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment# cat train.er valid.er test.er > ./vocab/all.er
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment# cd vocab/
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# marian-vocab < all.cr > ./vocab.cr.yml
+[2022-12-22 06:24:05] Creating vocabulary...
+[2022-12-22 06:24:05] [data] Creating vocabulary stdout from stdin
+[2022-12-22 06:24:05] Finished
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# marian-vocab < all.er > ./vocab.er.yml
+[2022-12-22 06:24:12] Creating vocabulary...
+[2022-12-22 06:24:12] [data] Creating vocabulary stdout from stdin
+[2022-12-22 06:24:12] Finished
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab#
 ```
 
 ## Training Transformer Model for Word Level or Dictionary Data
-
 
 I updated the data paths ...  
 
@@ -2260,9 +2270,45 @@ time marian -c model.transformer.dict1/config.yml  2>&1 | tee transformer.dict1.
 
 ```
 
-```
+After checking the GPU status, I trained as follows:  
 
 ```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh | tee transformer.dict1.2ndtime.log
+...
+...
+...
+[2022-12-22 06:28:33] [memory] Extending reserved space to 1024 MB (device gpu0)
+[2022-12-22 06:28:33] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-22 06:28:33] [comm] Using global sharding
+[2022-12-22 06:28:33] [comm] NCCLCommunicators constructed successfully
+[2022-12-22 06:28:33] [training] Using 1 GPUs
+[2022-12-22 06:28:33] [logits] Applying loss function for 1 factor(s)
+[2022-12-22 06:28:33] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 06:28:33] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-22 06:28:33] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 06:28:34] [batching] Done. Typical MB size is 3,134 target words
+[2022-12-22 06:28:34] [memory] Extending reserved space to 1024 MB (device gpu0)
+[2022-12-22 06:28:34] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-22 06:28:34] [comm] Using global sharding
+[2022-12-22 06:28:34] [comm] NCCLCommunicators constructed successfully
+[2022-12-22 06:28:34] [training] Using 1 GPUs
+[2022-12-22 06:28:34] Training started
+[2022-12-22 06:28:34] [data] Shuffling data
+[2022-12-22 06:28:34] Error: Not all input files have the same number of lines
+[2022-12-22 06:28:34] Error: Aborted from void marian::data::Corpus::shuffleData(const std::vector<std::__cxx11::basic_string<char> >&) in /temp/marian/src/data/corpus.cpp:241
+
+[CALL STACK]
+[0x56185c1c281a]    marian::data::Corpus::  shuffleData  (std::vector<std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>,std::allocator<std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>>> const&) + 0x17ea
+[0x56185c09bed1]    marian::Train<marian::SyncGraphGroup>::  run  ()   + 0x1251
+[0x56185bfca347]    mainTrainer  (int,  char**)                        + 0x147
+[0x7f5e59fd5d90]                                                       + 0x29d90
+[0x7f5e59fd5e40]    __libc_start_main                                  + 0x80
+[0x56185bfc3995]    _start                                             + 0x25
+```
+
+I got above error ...   
+I think because of this error message "Not all input files have the same number of lines"    
+
 
 ```
 
