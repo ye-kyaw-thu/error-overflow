@@ -1982,7 +1982,7 @@ I need to do character segmentation again (i.e. not under container env) and the
 1st things 1st, the followings are making character segmentation process log:  
 
 
-### character segmentation for original dictionary data 
+### character segmentation for original dictionary (i.e. word level) data 
 
 ```
 ye@lst-gpu-3090:~/char-segment$ ./char-segmentation.sh ./train.cr > train.cr.char
@@ -2089,36 +2089,127 @@ ye@lst-gpu-3090:~/char-segment$ mv valid.er.char.clean valid.er
 
 Finished character segmentation for original dictionary data!!!  
 
-### character segmentation for edit1 data  
-
-
-```
+### character segmentation for dictionary or word level edit1 data  
 
 ```
+ye@lst-gpu-3090:~/char-segment/edit1$ ../char-segmentation.sh ./test.cr > test.cr.char
+ye@lst-gpu-3090:~/char-segment/edit1$ ../char-segmentation.sh ./test.er > test.er.char
+ye@lst-gpu-3090:~/char-segment/edit1$ perl ../clean-space.pl ./test.cr.char > test.cr.char.clean
+ye@lst-gpu-3090:~/char-segment/edit1$ perl ../clean-space.pl ./test.er.char > test.er.char.clean
+ye@lst-gpu-3090:~/char-segment/edit1$ head -n 3 *.clean
+==> test.cr.char.clean <==
+ក ្ រ ស ា រ
+វ ិ ត
+ក ្ រ ប ែ ល
 
+==> test.er.char.clean <==
+ក ក រ ស ា រ
+វ ត ត
+ក ្ រ ប ែ ល
+ye@lst-gpu-3090:~/char-segment/edit1$
 ```
 
-```
+after removing preprocessing files, I did file renaming:  
 
 ```
-
+ye@lst-gpu-3090:~/char-segment/edit1$ mv test.cr.char.clean test.cr
+ye@lst-gpu-3090:~/char-segment/edit1$ mv test.er.char.clean test.er
+ye@lst-gpu-3090:~/char-segment/edit1$ ls
+test.cr  test.er
 ```
 
-```
+### character segmentation for the dictionary or word level edit2 data
 
 ```
+ye@lst-gpu-3090:~/char-segment/edit2$ ls
+test.cr  test.er
+ye@lst-gpu-3090:~/char-segment/edit2$ ../char-segmentation.sh ./test.cr > test.cr.char
+ye@lst-gpu-3090:~/char-segment/edit2$ ../char-segmentation.sh ./test.er > test.er.char
+ye@lst-gpu-3090:~/char-segment/edit2$ perl ../clean-space.pl ./test.cr.char > test.cr.char.clean
+ye@lst-gpu-3090:~/char-segment/edit2$ perl ../clean-space.pl ./test.er.char > test.er.char.clean
+ye@lst-gpu-3090:~/char-segment/edit2$ head -n 3 ./*.clean
+==> ./test.cr.char.clean <==
+ប ញ ្ ហ ា ផ ្ ទ ៃ ក ្ ន ុ ង
+ច ្ រ ុ ង ម ិ ន ឡ ើ ង
+ផ ល ិ ត ផ ល ច េ ញ ព ី ទ ឹ ក ដ ោ ះ គ ោ
 
+==> ./test.er.char.clean <==
+ប ន ញ ហ ្ ា ផ ្ ទ ៃ ក ្ ន ុ ង
+ច រ ្ ុ ង ម ិ ន ឡ ើ ង ិ
+ផ ល ិ ផ ត ផ ល ច េ ញ ព ី ល ទ ឹ ក ដ ោ ះ គ ោ
+ye@lst-gpu-3090:~/char-segment/edit2$
 ```
 
-```
+after removing the preprocessing files, I rename the cleaned files as follows:  
 
 ```
-
+ye@lst-gpu-3090:~/char-segment/edit2$ ls
+test.cr  test.cr.char  test.cr.char.clean  test.er  test.er.char  test.er.char.clean
+ye@lst-gpu-3090:~/char-segment/edit2$ rm *.er
+ye@lst-gpu-3090:~/char-segment/edit2$ rm *.cr
+ye@lst-gpu-3090:~/char-segment/edit2$ rm *.char
+ye@lst-gpu-3090:~/char-segment/edit2$ ls
+test.cr.char.clean  test.er.char.clean
+ye@lst-gpu-3090:~/char-segment/edit2$ mv test.cr.char.clean test.cr
+ye@lst-gpu-3090:~/char-segment/edit2$ mv test.er.char.clean test.er
 ```
 
-```
+Check the filesize of all prepared data (i.e. character segmented data):  
+for original dictionary data:  
 
 ```
+ye@lst-gpu-3090:~/char-segment$ wc *.cr
+   1500    6900   27600 test.cr
+ 151075 1251873 5007132 train.cr
+  16000  140424  561644 valid.cr
+ 168575 1399197 5596376 total
+ye@lst-gpu-3090:~/char-segment$ wc *.er
+   1500    6134   24528 test.er
+ 151042 1239487 4957534 train.er
+  15992  139971  559826 valid.er
+ 168534 1385592 5541888 total
+ye@lst-gpu-3090:~/char-segment$
+```
+
+filesize info for edit-1 test data:  
+
+```
+ye@lst-gpu-3090:~/char-segment$ wc *.cr
+   1500    6900   27600 test.cr
+ 151075 1251873 5007132 train.cr
+  16000  140424  561644 valid.cr
+ 168575 1399197 5596376 total
+ye@lst-gpu-3090:~/char-segment$ wc *.er
+   1500    6134   24528 test.er
+ 151042 1239487 4957534 train.er
+  15992  139971  559826 valid.er
+ 168534 1385592 5541888 total
+ye@lst-gpu-3090:~/char-segment$
+```
+
+filesize info for edit-2 test data:  
+
+```
+ye@lst-gpu-3090:~/char-segment/edit2$ wc *
+ 1000  8964 35854 test.cr
+ 1000  8880 35518 test.er
+ 2000 17844 71372 total
+ye@lst-gpu-3090:~/char-segment/edit2$
+```
+
+### Moved to Transformer Model Training Folder
+
+copied char segmented data from the container root account:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt# cp -r /home/ye/char-segment/ .
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt# ls
+char-segment  no-segment
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt#
+```
+
+## Training Transformer Model for Word Level or Dictionary Data
+
 
 ```
 
