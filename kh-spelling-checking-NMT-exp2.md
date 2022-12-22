@@ -2468,7 +2468,33 @@ root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh
 ...
 ...
 ...
+[2022-12-22 08:10:15] [data] Shuffling data
+[2022-12-22 08:10:15] [data] Done reading 151,075 sentences
+[2022-12-22 08:10:15] [data] Done shuffling 151,075 sentences to temp files
+[2022-12-22 08:10:18] Ep. 111 : Up. 74000 : Sen. 47,840 : Cost 0.84302610 * 1,045,712 @ 2,052 after 154,769,004 : Time 7.94s : 131667.92 words/s : gNorm 0.4355 : L.r. 1.3950e-04
+[2022-12-22 08:10:25] Seen 151,075 samples
+[2022-12-22 08:10:25] Starting data epoch 112 in logical epoch 112
+[2022-12-22 08:10:25] [data] Shuffling data
+[2022-12-22 08:10:25] [data] Done reading 151,075 sentences
+[2022-12-22 08:10:26] [data] Done shuffling 151,075 sentences to temp files
+[2022-12-22 08:10:26] Ep. 112 : Up. 74500 : Sen. 9,788 : Cost 0.84251571 * 1,048,834 @ 1,527 after 155,817,838 : Time 7.94s : 132075.48 words/s : gNorm 0.4170 : L.r. 1.3903e-04
+[2022-12-22 08:10:34] Ep. 112 : Up. 75000 : Sen. 122,448 : Cost 0.84183943 * 1,048,840 @ 1,991 after 156,866,678 : Time 7.72s : 135833.76 words/s : gNorm 0.4380 : L.r. 1.3856e-04
+[2022-12-22 08:10:34] Saving model weights and runtime parameters to model.transformer.dict1/model.iter75000.npz
+[2022-12-22 08:10:34] Saving model weights and runtime parameters to model.transformer.dict1/model.npz
+[2022-12-22 08:10:35] Saving Adam parameters
+[2022-12-22 08:10:35] [training] Saving training checkpoint to model.transformer.dict1/model.npz and model.transformer.dict1/model.npz.optimizer.npz
+[2022-12-22 08:10:37] [valid] Ep. 112 : Up. 75000 : cross-entropy : 4.21014 : stalled 10 times (last best: 3.81616)
+[2022-12-22 08:10:38] [valid] Ep. 112 : Up. 75000 : perplexity : 1.53824 : stalled 10 times (last best: 1.47748)
+[2022-12-22 08:10:43] [valid] Ep. 112 : Up. 75000 : bleu : 81.0422 : stalled 1 times (last best: 81.0566)
+[2022-12-22 08:10:43] Training finished
+[2022-12-22 08:10:43] Saving model weights and runtime parameters to model.transformer.dict1/model.npz
+[2022-12-22 08:10:44] Saving Adam parameters
+[2022-12-22 08:10:44] [training] Saving training checkpoint to model.transformer.dict1/model.npz and model.transformer.dict1/model.npz.optimizer.npz
 
+real    21m55.733s
+user    22m49.127s
+sys     0m55.830s
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer#
 ```
 
 ```
