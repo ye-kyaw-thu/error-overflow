@@ -918,17 +918,44 @@ perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit2.$
 start testing ...  
 
 ```
+test-eval-best.sh | tee test1.log
+...
+...
+...
+ វ ដ ំ ណ េ ក ហ ើ យ ច ា ប ់ ផ ្ ត ើ ម ដ ុ ះ ផ ្ ទ ុ យ ដ ក វ ិ ញ ក ា រ ទ ុ ក ដ ា ដ ់ គ ្ រ ា ប ់ ព ូ ជ ក ្ ន ុ ង ក ន ្ ល ែ ង ដ ែ ល ម ា ន ក ម ្ ត ៅ ប រ ិ យ ា ក ា ស ព ី ៤ ០ ៥ ០ អ ង ្ ស ា ស េ គ ឺ ធ ្ វ ើ ឱ ្ យ គ ្ រ ា ប ់ ប ញ ្ ឈ ប ់ ន ូ វ ដ ំ ណ េ ក ហ ើ យ ច ា ប ់ ផ ្ ត ើ ម ដ ុ ះ
+[2022-12-22 04:02:22] Best translation 4918 : អ ្ វ ី ដ ែ ល ជ ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ? អ វ ្ ី ដ ែ ល ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ?
+[2022-12-22 04:02:23] Best translation 4919 : ខ ្ ញ ុ ំ ច ង ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់ ថ ្ ង ៃ  ្ អ ែ ក ខ ្ ញ ុ                                                                                                                ំ                                                                                                                             ំ ច ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់ ្ ង ៃ ស ្ អ ែ ក
+[2022-12-22 04:02:23] Best translation 4920 : ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ ទ េ ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ េ េ
+[2022-12-22 04:02:23] Best translation 4921 : ក ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។ ក ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ម ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។
+[2022-12-22 04:02:23] Best translation 4922 : ត ើ ន ៅ ហ ា វ ៉ ៃ ម ៉ ោ ង ជ ា ថ ្ ង ៃ អ ្ វ ី ? ត ើ ន ៅ ហ ៉ វ ៉ ៃ ម ៉ ោ ង ជ ា  ្ ង ៃ អ ្ វ ី ? ្
+[2022-12-22 04:02:23] Best translation 4923 : ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ ស ុ វ ណ ្ ណ ី ស ូ ម ្ ប ី ម ួ យ ម ៉ ា ត ់ ន                                                                                                                 ិ                                                                                                                             ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ា ំ ង ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ ស ុ វ ណ ្ ណ ី ស ម ្ ប ូ ី ម ួ យ ម ៉ ា ត                                                                                                           ់                                                                                                                             ់ ន ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ី ា ង
+[2022-12-22 04:02:23] Total time: 1157.84237s wall
 
+real    19m19.630s
+user    17m47.521s
+sys     1m32.631s
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+root@36ae92f960d5:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit2#
 ```
 
 evaluation results for edit-2 model is as follows:  
 
 ```
-
+root@41bd19a2fd56:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit2# cat eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Seq2Seq sent, edit2 model:
+BLEU = 77.19, 99.5/96.3/93.0/89.7 (BP=0.816, ratio=0.831, hyp_len=441423, ref_len=531058)
+==========
+Evaluation with hyp.best.edit1.cr, Seq2Seq sent, edit2 model:
+BLEU = 99.33, 100.0/100.0/100.0/100.0 (BP=0.994, ratio=0.994, hyp_len=597803, ref_len=601627)
+==========
+Evaluation with hyp.best.edit2.cr, Seq2Seq sent, edit2 model:
+BLEU = 99.31, 100.0/100.0/100.0/100.0 (BP=0.993, ratio=0.993, hyp_len=597672, ref_len=601640)
+root@41bd19a2fd56:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit2#
 ```
 
 ## Seq2Seq Model with Word Level
 
+Now, already finished for sentence level two models (edit-1 and edit-2) as shown in above.  
 for this time, I will use 4nmt/ data ...  
 
 copied word level or dictionary data:  
