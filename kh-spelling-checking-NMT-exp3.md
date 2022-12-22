@@ -781,6 +781,25 @@ root@1be262fcefc6:/home/ye/exp/kh-spell/seq2seq#
 ## Seq2Seq Model with Word Level
 
 for this time, I will use 4nmt/ data ...  
+
+copied word level or dictionary data:  
+
+```
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer# cp -r 4nmt ../seq2seq/
+```
+
+## I checked the data ,,,  
+
+```
+
+```
+
+copied dictioary based shell script that I prepared for the transformer to seq2seq/ folder for modification...  
+
+```
+root@1be262fcefc6:/home/ye/exp/kh-spell/transformer# cp transformer.dict1.sh ../seq2seq/seq2seq.dict1.sh
+```
+
 training shell script is as follows:  
 
 ```bash
