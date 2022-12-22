@@ -3462,16 +3462,48 @@ DATA SUMMARY END.
 ...
 ...
 ...
+     Instance: 32500; Time: 2.28s; loss: 24.5506; acc: 440783/441114=0.9992
+     Instance: 33000; Time: 2.02s; loss: 34.7561; acc: 447195/447533=0.9992
+     Instance: 33500; Time: 2.14s; loss: 21.3422; acc: 454209/454551=0.9992
+     Instance: 34000; Time: 2.19s; loss: 7.5556; acc: 461337/461681=0.9993
+     Instance: 34500; Time: 2.08s; loss: 12.9064; acc: 467926/468274=0.9993
+     Instance: 35000; Time: 2.22s; loss: 24.6565; acc: 474518/474870=0.9993
+     Instance: 35500; Time: 2.05s; loss: 14.1812; acc: 481084/481439=0.9993
+     Instance: 36000; Time: 2.04s; loss: 29.1913; acc: 487649/488010=0.9993
+     Instance: 36500; Time: 2.19s; loss: 5.1461; acc: 494564/494925=0.9993
+     Instance: 37000; Time: 2.10s; loss: 18.1655; acc: 501419/501787=0.9993
+     Instance: 37500; Time: 2.28s; loss: 19.7429; acc: 508438/508809=0.9993
+     Instance: 38000; Time: 2.24s; loss: 20.5841; acc: 515327/515702=0.9993
+     Instance: 38500; Time: 2.16s; loss: 15.2183; acc: 522006/522385=0.9993
+     Instance: 39000; Time: 2.22s; loss: 47.5378; acc: 528939/529333=0.9993
+     Instance: 39500; Time: 2.29s; loss: 36.6965; acc: 535948/536351=0.9992
+     Instance: 39999; Time: 2.19s; loss: 14.7860; acc: 542735/543142=0.9993
+Epoch: 99 training finished. Time: 175.37s, speed: 228.08st/s,  total loss: 1706.869140625
+totalloss: 1706.869140625
+Right token =  32283  All token =  32315  acc =  0.9990097477951416
+Dev: time: 2.80s, speed: 869.81st/s; acc: 0.9990, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63591  All token =  63622  acc =  0.999512747162931
+Test: time: 5.68s, speed: 835.87st/s; acc: 0.9995, p: -1.0000, r: -1.0000, f: -1.0000
+
+real    308m19.890s
+user    307m49.698s
+sys     0m23.073s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
+```
+
+Prepare decode/test config file ...  
 
 ```
 
 ```
 
-```
+manual testing log ...  
 
 ```
 
 ```
+
+Check the output hyp file:  
 
 ```
 
