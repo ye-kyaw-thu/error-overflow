@@ -2497,17 +2497,98 @@ sys     0m55.830s
 root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer#
 ```
 
-```
+## Testing on Transformer Dictionary Model
+
+copied old shell test-eval script to current Transformer model folder:  
 
 ```
-
+root@36ae92f960d5:/home/ye/exp/kh-spell/transformer# cp ./error-data/model.transformer.dict1/test-eval-best.sh ./model.transformer.dict1/
+root@36ae92f960d5:/home/ye/exp/kh-spell/transformer#
 ```
 
+preparing a shell script for testing/evaluation ... 
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Myanmar language sentence segmentation
+## used Marian NMT Framework for training
+## Last updated: 22 December 2022
+
+data_path="/home/ye/exp/kh-spell/transformer/4nmt/char-segment/";
+src="er"; tgt="cr";
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output>
+echo "Evaluation with hyp.best.manual.${tgt}, Transformer dictionary model (2dn time running):" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output>
+echo "Evaluation with hyp.best.edit1.${tgt}, Transformer dictionary model (2nd time running):" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/edit1/test.${tgt} < ./hyp.best.edit1.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output>
+echo "Evaluation with hyp.best.edit2.${tgt}, Transformer dictionary model (2nd time running):" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/edit2/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
 ```
 
-```
+testing/evaluation ...   
 
 ```
+root@0d441b235700:/home/ye/exp/kh-spell/transformer/model.transformer.dict1# ./test-eval-best.sh | tee ./test.log
+...
+...
+...
+[2022-12-22 11:08:50] Best translation 978 : ច ង ្ អ ា ម
+[2022-12-22 11:08:50] Best translation 979 : ផ ្ ល ូ វ ប ែ វ ក ា ប ួ ន
+[2022-12-22 11:08:50] Best translation 980 : ដ ា ក ់ ស ំ ញ ៉ ែ
+[2022-12-22 11:08:50] Best translation 981 : ជ ក ្ ម េ ង
+[2022-12-22 11:08:50] Best translation 982 : យ ុ ត ្ ត វ ា ទ ី
+[2022-12-22 11:08:50] Best translation 983 : ដ ា ក ់ ថ ្ ន ា ំ ខ ្ ល ា ំ ង
+[2022-12-22 11:08:50] Best translation 984 : ស ូ ម ៉ ា
+[2022-12-22 11:08:50] Best translation 985 : ភ ្ ញ ច ់
+[2022-12-22 11:08:50] Best translation 986 : ន ិ យ ា យ ប ៉ ប ៉ ា ច ់
+[2022-12-22 11:08:50] Best translation 987 : ក ្ ត ឿ ង ស ញ ្ ញ ី
+[2022-12-22 11:08:50] Best translation 988 : ច ំ ទ ែ ង
+[2022-12-22 11:08:50] Best translation 989 : ល ល ា ម
+[2022-12-22 11:08:50] Best translation 990 : ប ច ្ ជ ិ ម យ ា ម
+[2022-12-22 11:08:50] Best translation 991 : ល ែ ង ខ ្ ម ៅ
+[2022-12-22 11:08:50] Best translation 992 : អ ា ហ ា រ ប ្ រ អ ប ់
+[2022-12-22 11:08:50] Best translation 993 : រ ូ ប ព ូ ហ ្ ម
+[2022-12-22 11:08:50] Best translation 994 : អ ហ ិ ត ក ៈ
+[2022-12-22 11:08:51] Best translation 995 : ស ្ រ ម ក
+[2022-12-22 11:08:51] Best translation 996 : ប ៉ ប ៉ ិ ក ប ៉ ប ា ក ់
+[2022-12-22 11:08:51] Best translation 997 : ក ែ វ វ ែ ន ត ា
+[2022-12-22 11:08:51] Best translation 998 : ឧ ប ្ ប ត ្ ត ិ ភ ូ ម ិ
+[2022-12-22 11:08:51] Best translation 999 : ឡ េ ស ៊ ូ
+[2022-12-22 11:08:51] Total time: 9.22031s wall
+
+real    0m9.521s
+user    0m8.612s
+sys     0m0.936s
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+```
+
+check the results:  
+
+```
+root@0d441b235700:/home/ye/exp/kh-spell/transformer/model.transformer.dict1# cat eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Transformer dictionary model (2dn time running):
+BLEU = 85.90, 93.0/87.6/84.1/80.3 (BP=0.997, ratio=0.997, hyp_len=6880, ref_len=6900)
+==========
+Evaluation with hyp.best.edit1.cr, Transformer dictionary model (2nd time running):
+BLEU = 90.19, 96.5/91.6/88.4/85.8 (BP=0.997, ratio=0.997, hyp_len=8822, ref_len=8851)
+==========
+Evaluation with hyp.best.edit2.cr, Transformer dictionary model (2nd time running):
+BLEU = 79.94, 93.5/83.7/77.7/73.0 (BP=0.979, ratio=0.980, hyp_len=8781, ref_len=8964)
+root@0d441b235700:/home/ye/exp/kh-spell/transformer/model.transformer.dict1#
+```
+
+## Result Summary
 
 ```
 
