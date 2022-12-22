@@ -2208,10 +2208,55 @@ char-segment  no-segment
 root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt#
 ```
 
+## Make Vocab Files for Word Level or Dictionary Data
+
+```
+
+```
+
 ## Training Transformer Model for Word Level or Dictionary Data
 
 
-```
+I updated the data paths ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye Kyaw Thu, LST, NECTEC, Thailand
+## Experiments for Khmer Spelling Correction with NMT models
+## this script is used for character segmented, word level or dictionary data model training
+## architecture is transformer model
+## Last updated: 22 December 2022
+
+mkdir model.transformer.dict1;
+
+marian \
+    --model model.transformer.dict1/model.npz --type transformer \
+    --train-sets 4nmt/char-segment/train.er 4nmt/char-segment/train.cr \
+    --max-length 100 \
+    --vocabs 4nmt/char-segment/vocab/vocab.er.yml 4nmt/char-segment/vocab/vocab.cr.yml \
+    --mini-batch-fit -w 1000 --maxi-batch 100 \
+    --early-stopping 10 \
+    --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
+    --valid-metrics cross-entropy perplexity bleu \
+    --valid-sets 4nmt/char-segment/valid.er 4nmt/char-segment/valid.cr \
+    --valid-translation-output model.transformer.dict1/valid.er-cr.output --quiet-translation \
+    --valid-mini-batch 64 \
+    --beam-size 6 --normalize 0.6 \
+    --log model.transformer.dict1/train.log --valid-log model.transformer.dict1/valid.log \
+    --enc-depth 2 --dec-depth 2 \
+    --transformer-heads 8 \
+    --transformer-postprocess-emb d \
+    --transformer-postprocess dan \
+    --transformer-dropout 0.3 --label-smoothing 0.1 \
+    --learn-rate 0.0003 --lr-warmup 0 --lr-decay-inv-sqrt 16000 --lr-report \
+    --clip-norm 5 \
+    --tied-embeddings \
+    --devices 0 --sync-sgd --seed 1111 \
+    --exponential-smoothing \
+    --dump-config > model.transformer.dict1/config.yml
+
+time marian -c model.transformer.dict1/config.yml  2>&1 | tee transformer.dict1.log 
 
 ```
 
