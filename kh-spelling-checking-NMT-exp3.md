@@ -1,5 +1,7 @@
 # Seq2Seq Model Experiments
 
+## Experimental Setting
+
 For this time, I will build Seq2Seq NMT model for Khmer spelling checking...  
 
 Note: I need to build 3 models and they are as follows:  
@@ -7,6 +9,24 @@ Note: I need to build 3 models and they are as follows:
 1. Seq2Seq Model with Dictionary or Word level 
 2. Seq2Seq Model with Sentence-Edit1 
 3. Seq2Seq Model with Sentence-Edit2
+
+For the Evaluation, I used three test-sets as follows:  
+
+1. normal data
+2. edit distance-1 data
+3. edit distance-2 data
+
+In details:  
+
+for Dictionary (i.e. word level model) ...  
+1. dictionary test-data
+2. edit distance-1 word data
+3. edit distance-2 word data
+
+for Sentencce ...  
+1. manually collected sentence level spelling error data
+2. edit distance-1 sentence data
+3. edit distance-3 sentence data 
 
 
 ## Revist the Experimental Setting of the Previous 
