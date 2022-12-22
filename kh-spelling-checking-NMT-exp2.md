@@ -2416,7 +2416,58 @@ root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# mar
 root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab#
 ```
 
+vocab file info:  
+
 ```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# wc vocab.*
+ 104  210  832 vocab.cr.yml
+ 113  228  908 vocab.er.yml
+ 217  438 1740 total
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab#
+```
+
+
+## Training Transformer Model for Dictionary (i.e. word level) Data
+
+start training ...  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh
+...
+...
+...
+[2022-12-22 07:48:50] [logits] Applying loss function for 1 factor(s)
+[2022-12-22 07:48:50] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 07:48:50] [gpu] 16-bit TensorCores enabled for float32 matrix operations
+[2022-12-22 07:48:50] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 07:48:51] [batching] Done. Typical MB size is 3,134 target words
+[2022-12-22 07:48:51] [memory] Extending reserved space to 1024 MB (device gpu0)
+[2022-12-22 07:48:51] [comm] Using NCCL 2.8.3 for GPU communication
+[2022-12-22 07:48:51] [comm] Using global sharding
+[2022-12-22 07:48:51] [comm] NCCLCommunicators constructed successfully
+[2022-12-22 07:48:51] [training] Using 1 GPUs
+[2022-12-22 07:48:51] Training started
+[2022-12-22 07:48:51] [data] Shuffling data
+[2022-12-22 07:48:51] [data] Done reading 151,075 sentences
+[2022-12-22 07:48:51] [data] Done shuffling 151,075 sentences to temp files
+[2022-12-22 07:48:51] [training] Batches are processed as 1 process(es) x 1 devices/process
+[2022-12-22 07:48:51] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 07:48:51] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 07:48:51] Parameter type float32, optimization type float32, casting types false
+[2022-12-22 07:48:51] Allocating memory for general optimizer shards
+[2022-12-22 07:48:51] [memory] Reserving 56 MB, device gpu0
+[2022-12-22 07:48:51] Allocating memory for Adam-specific shards
+[2022-12-22 07:48:51] [memory] Reserving 113 MB, device gpu0
+[2022-12-22 07:48:59] Ep. 1 : Up. 500 : Sen. 112,814 : Cost 1.98056638 * 1,053,097 @ 2,664 after 1,053,097 : Time 7.84s : 134373.04 words/s : gNorm 1.2921 : L.r. 3.0000e-04
+[2022-12-22 07:49:02] Seen 151,075 samples
+[2022-12-22 07:49:02] Starting data epoch 2 in logical epoch 2
+[2022-12-22 07:49:02] [data] Shuffling data
+[2022-12-22 07:49:02] [data] Done reading 151,075 sentences
+[2022-12-22 07:49:02] [data] Done shuffling 151,075 sentences to temp files
+[2022-12-22 07:49:07] Ep. 2 : Up. 1000 : Sen. 74,740 : Cost 1.40057039 * 1,046,129 @ 1,382 after 2,099,226 : Time 7.77s : 134716.12 words/s : gNorm 0.8533 : L.r. 3.0000e-04
+...
+...
+...
 
 ```
 
