@@ -1054,6 +1054,37 @@ root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# ./seq2seq.dict.sh
 ...
 ...
 ...
+[2022-12-22 13:09:36] Ep. 39 : Up. 35000 : Sen. 19,558 : Cost 0.38018847 * 768,592 @ 1,731 after 53,493,899 : Time 72.90s : 10543.49 words/s : gNorm 0.6194
+[2022-12-22 13:09:36] Saving model weights and runtime parameters to model.seq2seq.dict/model.iter35000.npz
+[2022-12-22 13:09:38] Saving model weights and runtime parameters to model.seq2seq.dict/model.npz
+[2022-12-22 13:09:43] Saving Adam parameters
+[2022-12-22 13:09:46] [training] Saving training checkpoint to model.seq2seq.dict/model.npz and model.seq2seq.dict/model.npz.optimizer.npz
+[2022-12-22 13:10:17] [valid] Ep. 39 : Up. 35000 : cross-entropy : 2.21984 : new best
+[2022-12-22 13:10:31] [valid] Ep. 39 : Up. 35000 : perplexity : 1.2549 : new best
+[2022-12-22 13:10:31] Translating validation set...
+[2022-12-22 13:10:31] Best translation 0 : ក ្ រ ហ ម ឆ ្ អ ិ ន
+[2022-12-22 13:10:31] Best translation 1 : គ ន ្ ថ ច រ ន ា
+[2022-12-22 13:10:31] Best translation 2 : ស ា ស ន ិ ក ជ ន
+[2022-12-22 13:10:32] Best translation 3 : ក ោ ះ ឯ ក
+[2022-12-22 13:10:32] Best translation 4 : ព ្ រ ូ ន ព ា ន
+[2022-12-22 13:10:32] Best translation 5 : ឈ ូ ក ច ្ រ ា ល
+[2022-12-22 13:10:32] Best translation 10 : ស ្ ង ួ ន ព ្ រ ល ឹ ង
+[2022-12-22 13:10:32] Best translation 20 : ម ៉ ា ក ្ ម េ ក
+[2022-12-22 13:10:32] Best translation 40 : ម ុ យ រ ា ស ី
+[2022-12-22 13:10:32] Best translation 80 : អ ន ុ ព ័ ន ្ ធ ព ា ណ ិ ជ
+[2022-12-22 13:10:32] Best translation 160 : ឥ ត ប ី ប ្ រ ៀ ប
+[2022-12-22 13:10:32] Best translation 320 : ក ្ រ ង ជ រ
+[2022-12-22 13:10:32] Best translation 640 : ព េ ល ព ្ រ េ ន
+[2022-12-22 13:10:33] Best translation 1280 : ញ ា ក ់
+[2022-12-22 13:10:35] Best translation 2560 : គ ហ ប ត ី
+[2022-12-22 13:10:39] Best translation 5120 : ស ម ្ ប ុ ក
+[2022-12-22 13:10:46] Best translation 10240 : ត ្ រ ោ ះ
+[2022-12-22 13:10:54] Total translation time: 22.84298s
+[2022-12-22 13:10:54] [valid] Ep. 39 : Up. 35000 : bleu : 85.3889 : new best
+[2022-12-22 13:12:06] Ep. 39 : Up. 35500 : Sen. 102,400 : Cost 0.38027531 * 769,192 @ 1,904 after 54,263,091 : Time 149.83s : 5133.62 words/s : gNorm 0.6524
+...
+...
+...
 
 ```
 
