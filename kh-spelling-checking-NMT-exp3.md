@@ -561,7 +561,79 @@ root@1be262fcefc6:/home/ye/exp/kh-spell/transformer/model.transformer.sent.edit1
 
 check/update the test shell scripts ...  
 
+```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliate Professor, CADT, Cambodia
+## for NMT Experiments for Khmer Spelling Checking with NMT Models
+## preparing to testing with "sentence, edit-distance-1 model"
+## used Marian NMT Framework for training
+## Last updated: 22 Dec 2022
+
+data_path="/home/ye/exp/kh-spell/seq2seq/char-final/edit1";
+#Note: test-data are same for both Transformer and Seq2Seq models,
+#and thus I am not updating the paths of the input test data and reference data.
+
+src="er"; tgt="cr";
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.manual.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/manual/test.${src};
+echo "Evaluation with hyp.best.manual.${tgt}, Seq2Seq sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/manual/test.${tgt} \
+< ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit1.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.edit1.${tgt}, Seq2Seq sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.edit1.${tgt} >> eval-best-result.txt;
+
+echo "=" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml \
+--devices 0 --output hyp.best.edit2.${tgt} < /home/ye/exp/kh-spell/transformer/char-final/edit2/test.${src};
+echo "Evaluation with hyp.best.edit2.${tgt}, Seq2Seq sent, edit1 model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl /home/ye/exp/kh-spell/transformer/char-final/edit2/test.${tgt} \
+< ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
+```
+
+start testing ...  
+
+```
+root@36ae92f960d5:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit1# ./test-eval-best.sh | tee test1.log
+...
+...
+...
+ វ ដ ំ ណ េ ក ហ ើ យ ច ា ប ់ ផ ្ ត ើ ម ដ ុ ះ ផ ្ ទ ុ យ ដ ក វ ិ ញ ក ា រ ទ ុ ក ដ ា ដ ់ គ ្ រ ា ប ់ ព ូ ជ ក ្ ន ុ ង ក ន ្ ល ែ ង ដ ែ ល ម ា ន ក ម ្ ត ៅ ប រ ិ យ ា ក ា ស ព ី ៤ ០ ៥ ០ អ ង ្ ស ា ស េ គ ឺ ធ ្ វ ើ ឱ ្ យ គ ្ រ ា ប ់ ប ញ ្ ឈ ប ់ ន ូ វ ដ ំ ណ េ ក ហ ើ យ ច ា ប ់ ផ ្ ត ើ ម ដ ុ ះ
+[2022-12-22 02:29:30] Best translation 4918 : អ ្ វ ី ដ ែ ល ជ ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ? អ វ ្ ី ដ ែ ល ា ក ា រ ព េ ញ ន ិ យ ម ន ៅ ក ្ ន ុ ង ស ម ្ ល ៀ ក ប ំ ព ា ក ់ រ ប ស ់ ប ុ រ ស ?
+[2022-12-22 02:29:30] Best translation 4919 : ខ ្ ញ ុ ំ ច ង ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់ ថ ្ ង ៃ  ្ អ ែ ក ខ ្ ញ ុ                                                                                                                ំ                                                                                                                             ំ ច ់ ក ុ ម ្ ម ៉ ង ់ អ ា ហ ា រ ព េ ល ព ្ រ ឹ ក ស ំ រ ា ប ់ ្ ង ៃ ស ្ អ ែ ក
+[2022-12-22 02:29:30] Best translation 4920 : ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ ទ េ ខ ្ ញ ុ ំ ម ិ ន ប ា ន ហ ៅ ល េ ខ ន េ ះ េ េ
+[2022-12-22 02:29:30] Best translation 4921 : ក ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។ ក ្ រ ព ើ ថ ា “ ន ៅ ! ព ុ ំ ទ ា ន ់ ម ស ្ ម ើ ច ង ម ុ ន ន ោ ះ ទ េ ” R ។
+[2022-12-22 02:29:30] Best translation 4922 : ត ើ ន ៅ ហ ា វ ៉ ៃ ម ៉ ោ ង ជ ា ថ ្ ង ៃ អ ្ វ ី ? ត ើ ន ៅ ហ ៉ វ ៉ ៃ ម ៉ ោ ង ជ ា  ្ ង ៃ អ ្ វ ី ? ្
+[2022-12-22 02:29:30] Best translation 4923 : ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ ស ុ វ ណ ្ ណ ី ស ូ ម ្ ប ី ម ួ យ ម ៉ ា ត ់ ន                                                                                                                 ិ                                                                                                                             ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ា ំ ង ច ំ ណ ែ ក ព ្ រ ះ ន ា ង វ ិ ញ ម ិ ន ម ា ន ព ្ រ ះ ស ុ វ ណ ្ ណ ី ស ម ្ ប ូ ី ម ួ យ ម ៉ ា ត                                                                                                           ់                                                                                                                             ់ ន ិ ង ម ា ន ព ្ រ ះ ភ ក ្ ត រ ភ ិ ត ភ ័ យ ជ ា ខ ្ ល ី ា ង
+[2022-12-22 02:29:30] Total time: 1162.79029s wall
+
+real    19m24.607s
+user    17m51.990s
+sys     1m33.154s
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
+```
+
+check the results ...  
+
+```
+root@36ae92f960d5:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit1# cat ./eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Seq2Seq sent, edit1 model:
+BLEU = 76.06, 86.5/80.6/76.8/73.6 (BP=0.960, ratio=0.961, hyp_len=510108, ref_len=531058)
+==========
+Evaluation with hyp.best.edit1.cr, Seq2Seq sent, edit1 model:
+BLEU = 99.51, 100.0/100.0/100.0/100.0 (BP=0.995, ratio=0.995, hyp_len=598807, ref_len=601627)
+==========
+Evaluation with hyp.best.edit2.cr, Seq2Seq sent, edit1 model:
+BLEU = 99.52, 100.0/100.0/99.9/99.9 (BP=0.996, ratio=0.996, hyp_len=599063, ref_len=601640)
+root@36ae92f960d5:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.edit1#
+```
 
 ## Seq2Seq Edit-2 Model
 
