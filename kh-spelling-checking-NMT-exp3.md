@@ -4,8 +4,8 @@ For this time, I will build Seq2Seq NMT model for Khmer spelling checking...
 
 Note: I need to build 3 models and they are as follows:  
 
-1. Seq2Seq Model with Sentence-Manual (manually collected spelling data)
-2. Seq2Seq Model with Sentence-Edit1
+1. Seq2Seq Model with Dictionary or Word level 
+2. Seq2Seq Model with Sentence-Edit1 
 3. Seq2Seq Model with Sentence-Edit2
 
 
