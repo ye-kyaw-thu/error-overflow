@@ -2309,6 +2309,136 @@ root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer# ./transformer.dict1.sh | te
 I got above error ...   
 I think because of this error message "Not all input files have the same number of lines"    
 
+## Character Segmentation Again
+
+```
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./train.cr > train.cr.char
+ye@lst-gpu-3090:~/no-segment$ head -n3 ./train.cr.char
+ក ្ រ ោ យ
+ក ំ ប ុ ត
+អ ៊ ី ច ឹ ង
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./train.er > train.er.char
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./valid.cr > valid.cr.char
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./valid.er > valid.er.char
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./test.cr > test.cr.char
+ye@lst-gpu-3090:~/no-segment$ ./char-segmentation.sh ./test.er > test.er.char
+ye@lst-gpu-3090:~/no-segment$ wc *.char
+    1500     6900    29100 test.cr.char
+    1500     6134    26028 test.er.char
+  151075  1251873  5158211 train.cr.char
+  151075  1239487  5242134 train.er.char
+   16000   140424   577644 valid.cr.char
+   16000   139971   591826 valid.er.char
+  337150  2784789 11624943 total
+```
+
+```
+ye@lst-gpu-3090:~/no-segment$ head -n 3 *.cr
+==> test.cr <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ណ ្ ន ឹ ង
+រ ប ស ់
+
+==> train.cr <==
+ក ្ រ ោ យ
+ក ំ ប ុ ត
+អ ៊ ី ច ឹ ង
+
+==> valid.cr <==
+ក ្ រ ហ ម ឆ ្ អ ិ ន
+គ ន ្ ថ ច រ ន ា
+ស ា ស ន ិ ក ជ ន
+ye@lst-gpu-3090:~/no-segment$ head -n 3 *.er
+==> test.er <==
+រ ុ ស ្ ស ៊ ី
+ប ៉ ុ ន ហ ្ ន ឹ ង
+ផ ស ់
+
+==> train.er <==
+ក ្ រ ោ យ យ
+ក ំ ប ត ់
+ច ឹ ង
+
+==> valid.er <==
+ ក ្ ហ ហ ម ឆ ្ ិ ន
+ គ ន ្ ថ ន ច ន រ ា
+ ា ស ស ិ ន ិ ក ជ ន
+ye@lst-gpu-3090:~/no-segment$
+```
+
+for edit1  
+
+```
+ye@lst-gpu-3090:~/no-segment/edit1$ head -n 3 *
+==> test.cr <==
+ក ្ រ ស ា រ
+វ ិ ត
+ក ្ រ ប ែ ល
+
+==> test.er <==
+ក ក រ ស ា រ
+វ ត ត
+ក ្ រ ប ែ ល
+ye@lst-gpu-3090:~/no-segment/edit1$
+```
+
+for edit2
+
+```
+ye@lst-gpu-3090:~/no-segment/edit2$ wc *
+ 1000  8964 35854 test.cr
+ 1000  8880 35518 test.er
+ 2000 17844 71372 total
+ye@lst-gpu-3090:~/no-segment/edit2$ head -n 3 *
+==> test.cr <==
+ប ញ ្ ហ ា ផ ្ ទ ៃ ក ្ ន ុ ង
+ច ្ រ ុ ង ម ិ ន ឡ ើ ង
+ផ ល ិ ត ផ ល ច េ ញ ព ី ទ ឹ ក ដ ោ ះ គ ោ
+
+==> test.er <==
+ប ន ញ ហ ្ ា ផ ្ ទ ៃ ក ្ ន ុ ង
+ច រ ្ ុ ង ម ិ ន ឡ ើ ង ិ
+ផ ល ិ ផ ត ផ ល ច េ ញ ព ី ល ទ ឹ ក ដ ោ ះ គ ោ
+ye@lst-gpu-3090:~/no-segment/edit2$
+```
+
+copied to container folder and make vocab as follows:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# marian-vocab < all.cr > vocab.cr.yml
+[2022-12-22 07:43:54] Creating vocabulary...
+[2022-12-22 07:43:54] [data] Creating vocabulary stdout from stdin
+[2022-12-22 07:43:54] Finished
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab# marian-vocab < all.er > vocab.er.yml
+[2022-12-22 07:44:01] Creating vocabulary...
+[2022-12-22 07:44:01] [data] Creating vocabulary stdout from stdin
+[2022-12-22 07:44:01] Finished
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/char-segment/vocab#
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
 
