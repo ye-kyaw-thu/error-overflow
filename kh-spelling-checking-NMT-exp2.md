@@ -1750,3 +1750,251 @@ Evaluation with hyp.best.edit2.cr, Transformer sent, edit2 model:
 BLEU = 87.14, 88.6/87.4/86.6/86.0 (BP=1.000, ratio=1.046, hyp_len=629305, ref_len=601640)
 ```
 
+## Recheck the Data
+
+Date: 22 Dec 2022  
+After I run Seq2Seq Models for journal paper writing, I noticed that there is an encoding error on our "word level data" as follows:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt# head -n3 *.cr
+==> test.cr <==
+� � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+
+==> train.cr <==
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+
+==> valid.cr <==
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � �
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt#
+```
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/edit1# head -n3 *
+==> test.cr <==
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+
+==> test.er <==
+ � � � � � � � � � � � � � � � � � �
+ � � � � � � � � �
+ � � � � � � � � � � � � � � � � � �
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/edit1#
+```
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/edit2# head -3 *
+==> test.cr <==
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+
+==> test.er <==
+ � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+ � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+ � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+                                                               root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/edit2#
+```
+
+Vocab file also:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head all.cr
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � �
+� � � � � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � �
+� � � � � � � � �
+� � � � � �
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/vocab# head all.er
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � � � � � � � � � � � � � �
+� � � � � � � � � � � �
+� � � � � � � � � � � � � � �
+� � � � � �
+� � � � � � � � �
+� � �
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/vocab#
+```
+
+Unsugmented data looks OK:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# head -n2 *.er
+==> test.er <==
+រុស្សស៊ី
+បប៉ុនហ្នឹង
+
+==> train.er <==
+ក្រោយយ
+កំបត់
+
+==> valid.er <==
+ ក្ហហមឆឆ្ិន
+ គន្ថនចនរា
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment# head -n 2 *.cr
+==> test.cr <==
+រុស្សស៊ី
+បប៉ុណ្នឹង
+
+==> train.cr <==
+ក្រោយ
+កំបុត
+
+==> valid.cr <==
+ក្រហមឆ្អិន
+គន្ថចរនា
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment#
+```
+
+check for unsugmented edit1:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit1# head -n3 *
+==> test.cr <==
+ក្រសារ
+វិត
+ក្របែល
+
+==> test.er <==
+ កករសារ
+ វតត
+ ក្ របែល
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit1#
+```
+
+checked for edit2 data:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit2# head -n3 *
+==> test.cr <==
+បញ្ហាផ្ទៃក្នុង
+ច្រុងមិនឡើង
+ផលិតផលចេញពីទឹកដោះគោ
+
+==> test.er <==
+ បនញហ្ាផ្ទៃក្នុង
+ ចររ្ុងមិនឡើងិ
+ ផលិផតផលចេញពីលទឹកដោះគោ
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/edit2#
+```
+
+check unsegmented vocab file:  
+
+```
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/vocab# head *
+==> vocab.cr.yml <==
+ក្រោយ
+កំបុត
+អអ៊ីចឹង
+ទៅ
+សម្រាប់
+ម្ល៉េះ
+ស្មើ
+ក៏
+ ចុយ
+ក៏
+
+ ==> vocab.er.yml <==
+ក្រោយយ
+កំបត់
+ចឹង
+ទទ៊ទ៊៊៊ៅ
+សំរាប់
+ម៉េស
+ស្មើេ
+ក៍
+ ចិយ
+ក
+root@41bd19a2fd56:/home/ye/exp/kh-spell/transformer/4nmt/no-segment/vocab#
+```
+
+## Character Segmentation
+
+I need to do character segmentation again and then train Transformer model for dictionary again.  
+1st things 1st, the followings are making character segmentation process log:  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
