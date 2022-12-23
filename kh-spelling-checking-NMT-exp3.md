@@ -1085,6 +1085,7 @@ root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# ./seq2seq.dict.sh
 ...
 ...
 ...
+[2022-12-22 18:58:47] [valid] Ep. 180 : Up. 165000 : cross-entropy : 1.97484 : stalled 10 times (last best: 1.93207)
 [2022-12-22 18:59:02] [valid] Ep. 180 : Up. 165000 : perplexity : 1.22385 : stalled 10 times (last best: 1.2185)
 [2022-12-22 18:59:02] Translating validation set...
 [2022-12-22 18:59:02] Best translation 0 : ក ្ រ ហ ម ឆ ្ អ ិ ន
@@ -1117,7 +1118,133 @@ sys     5m34.948s
 root@0d441b235700:/home/ye/exp/kh-spell/seq2seq#
 ```
 
+check the output model folders:  
+
 ```
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.dict# ls
+config.yml            model.iter135000.npz  model.iter25000.npz  model.iter65000.npz    model.npz.optimizer.npz
+model.iter10000.npz   model.iter140000.npz  model.iter30000.npz  model.iter70000.npz    model.npz.progress.yml
+model.iter100000.npz  model.iter145000.npz  model.iter35000.npz  model.iter75000.npz    model.npz.yml
+model.iter105000.npz  model.iter15000.npz   model.iter40000.npz  model.iter80000.npz    s2s.er-cr.log1
+model.iter110000.npz  model.iter150000.npz  model.iter45000.npz  model.iter85000.npz    train.log
+model.iter115000.npz  model.iter155000.npz  model.iter5000.npz   model.iter90000.npz    valid.log
+model.iter120000.npz  model.iter160000.npz  model.iter50000.npz  model.iter95000.npz
+model.iter125000.npz  model.iter165000.npz  model.iter55000.npz  model.npz
+model.iter130000.npz  model.iter20000.npz   model.iter60000.npz  model.npz.decoder.yml
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.dict#
+```
+
+check the validation log file:  
+
+```
+[2022-12-22 11:50:06] [valid] Ep. 6 : Up. 5000 : cross-entropy : 5.20654 : new best
+[2022-12-22 11:50:20] [valid] Ep. 6 : Up. 5000 : perplexity : 1.70328 : new best
+[2022-12-22 11:50:20] [valid] First sentence's tokens as scored:
+[2022-12-22 11:50:20] [valid] DefaultVocab keeps original segments for scoring
+[2022-12-22 11:50:20] [valid]   Hyp:  ^~^`  ^~^t  ^=^r  ^~^o  ^~^z  ^~   ^~^t  ^~^o  ^=^r  ^~^o  ^~   ^~^`  ^~   ^~^z  ^~^t  >
+[2022-12-22 11:50:20] [valid]   Ref:  ^~^t  ^=^r  ^~^z  ^~^o  ^~   ^~^t  ^~^o  ^=^r  ^~^o  ^~   ^~^`  ^~   ^~^z  ^~^t  ^=^d  >
+[2022-12-22 11:50:43] [valid] Ep. 6 : Up. 5000 : bleu : 70.7407 : new best
+[2022-12-22 12:03:26] [valid] Ep. 11 : Up. 10000 : cross-entropy : 3.47888 : new best
+[2022-12-22 12:03:41] [valid] Ep. 11 : Up. 10000 : perplexity : 1.42738 : new best
+[2022-12-22 12:04:03] [valid] Ep. 11 : Up. 10000 : bleu : 78.3459 : new best
+[2022-12-22 12:16:47] [valid] Ep. 17 : Up. 15000 : cross-entropy : 2.9533 : new best
+[2022-12-22 12:17:01] [valid] Ep. 17 : Up. 15000 : perplexity : 1.35267 : new best
+[2022-12-22 12:17:24] [valid] Ep. 17 : Up. 15000 : bleu : 81.1392 : new best
+[2022-12-22 12:30:08] [valid] Ep. 22 : Up. 20000 : cross-entropy : 2.65802 : new best
+[2022-12-22 12:30:22] [valid] Ep. 22 : Up. 20000 : perplexity : 1.31243 : new best
+[2022-12-22 12:30:45] [valid] Ep. 22 : Up. 20000 : bleu : 82.7804 : new best
+[2022-12-22 12:43:30] [valid] Ep. 28 : Up. 25000 : cross-entropy : 2.45286 : new best
+[2022-12-22 12:43:44] [valid] Ep. 28 : Up. 25000 : perplexity : 1.28517 : new best
+[2022-12-22 12:44:07] [valid] Ep. 28 : Up. 25000 : bleu : 83.9255 : new best
+[2022-12-22 12:56:54] [valid] Ep. 33 : Up. 30000 : cross-entropy : 2.31424 : new best
+[2022-12-22 12:57:09] [valid] Ep. 33 : Up. 30000 : perplexity : 1.26708 : new best
+[2022-12-22 12:57:31] [valid] Ep. 33 : Up. 30000 : bleu : 84.6845 : new best
+[2022-12-22 13:10:17] [valid] Ep. 39 : Up. 35000 : cross-entropy : 2.21984 : new best
+[2022-12-22 13:10:31] [valid] Ep. 39 : Up. 35000 : perplexity : 1.2549 : new best
+[2022-12-22 13:10:54] [valid] Ep. 39 : Up. 35000 : bleu : 85.3889 : new best
+[2022-12-22 13:23:43] [valid] Ep. 44 : Up. 40000 : cross-entropy : 2.14479 : new best
+[2022-12-22 13:23:57] [valid] Ep. 44 : Up. 40000 : perplexity : 1.24531 : new best
+[2022-12-22 13:24:20] [valid] Ep. 44 : Up. 40000 : bleu : 85.8426 : new best
+[2022-12-22 13:37:10] [valid] Ep. 50 : Up. 45000 : cross-entropy : 2.0951 : new best
+[2022-12-22 13:37:24] [valid] Ep. 50 : Up. 45000 : perplexity : 1.23899 : new best
+[2022-12-22 13:37:47] [valid] Ep. 50 : Up. 45000 : bleu : 86.195 : new best
+[2022-12-22 13:50:35] [valid] Ep. 55 : Up. 50000 : cross-entropy : 2.05609 : new best
+[2022-12-22 13:50:49] [valid] Ep. 55 : Up. 50000 : perplexity : 1.23406 : new best
+[2022-12-22 13:51:12] [valid] Ep. 55 : Up. 50000 : bleu : 86.6915 : new best
+[2022-12-22 14:03:56] [valid] Ep. 60 : Up. 55000 : cross-entropy : 2.02559 : new best
+[2022-12-22 14:04:11] [valid] Ep. 60 : Up. 55000 : perplexity : 1.23022 : new best
+[2022-12-22 14:04:34] [valid] Ep. 60 : Up. 55000 : bleu : 86.9458 : new best
+[2022-12-22 14:17:18] [valid] Ep. 66 : Up. 60000 : cross-entropy : 2.00121 : new best
+[2022-12-22 14:17:32] [valid] Ep. 66 : Up. 60000 : perplexity : 1.22715 : new best
+[2022-12-22 14:17:55] [valid] Ep. 66 : Up. 60000 : bleu : 87.1345 : new best
+[2022-12-22 14:30:42] [valid] Ep. 71 : Up. 65000 : cross-entropy : 1.98565 : new best
+[2022-12-22 14:30:56] [valid] Ep. 71 : Up. 65000 : perplexity : 1.2252 : new best
+[2022-12-22 14:31:19] [valid] Ep. 71 : Up. 65000 : bleu : 87.2903 : new best
+[2022-12-22 14:44:05] [valid] Ep. 77 : Up. 70000 : cross-entropy : 1.97691 : new best
+[2022-12-22 14:44:20] [valid] Ep. 77 : Up. 70000 : perplexity : 1.2241 : new best
+[2022-12-22 14:44:43] [valid] Ep. 77 : Up. 70000 : bleu : 87.3984 : new best
+[2022-12-22 14:57:28] [valid] Ep. 82 : Up. 75000 : cross-entropy : 1.96783 : new best
+[2022-12-22 14:57:42] [valid] Ep. 82 : Up. 75000 : perplexity : 1.22297 : new best
+[2022-12-22 14:58:05] [valid] Ep. 82 : Up. 75000 : bleu : 87.6349 : new best
+[2022-12-22 15:10:50] [valid] Ep. 88 : Up. 80000 : cross-entropy : 1.95954 : new best
+[2022-12-22 15:11:05] [valid] Ep. 88 : Up. 80000 : perplexity : 1.22193 : new best
+[2022-12-22 15:11:28] [valid] Ep. 88 : Up. 80000 : bleu : 87.7728 : new best
+[2022-12-22 15:24:12] [valid] Ep. 93 : Up. 85000 : cross-entropy : 1.95082 : new best
+[2022-12-22 15:24:27] [valid] Ep. 93 : Up. 85000 : perplexity : 1.22084 : new best
+[2022-12-22 15:24:50] [valid] Ep. 93 : Up. 85000 : bleu : 87.9268 : new best
+[2022-12-22 15:37:35] [valid] Ep. 99 : Up. 90000 : cross-entropy : 1.94329 : new best
+[2022-12-22 15:37:49] [valid] Ep. 99 : Up. 90000 : perplexity : 1.2199 : new best
+[2022-12-22 15:38:12] [valid] Ep. 99 : Up. 90000 : bleu : 88.0939 : new best
+[2022-12-22 15:50:58] [valid] Ep. 104 : Up. 95000 : cross-entropy : 1.94034 : new best
+[2022-12-22 15:51:12] [valid] Ep. 104 : Up. 95000 : perplexity : 1.21954 : new best
+[2022-12-22 15:51:35] [valid] Ep. 104 : Up. 95000 : bleu : 88.1393 : new best
+[2022-12-22 16:04:23] [valid] Ep. 109 : Up. 100000 : cross-entropy : 1.93781 : new best
+[2022-12-22 16:04:37] [valid] Ep. 109 : Up. 100000 : perplexity : 1.21922 : new best
+[2022-12-22 16:05:00] [valid] Ep. 109 : Up. 100000 : bleu : 88.2966 : new best
+[2022-12-22 16:17:45] [valid] Ep. 115 : Up. 105000 : cross-entropy : 1.93377 : new best
+[2022-12-22 16:18:00] [valid] Ep. 115 : Up. 105000 : perplexity : 1.21872 : new best
+[2022-12-22 16:18:23] [valid] Ep. 115 : Up. 105000 : bleu : 88.3839 : new best
+[2022-12-22 16:31:10] [valid] Ep. 120 : Up. 110000 : cross-entropy : 1.93213 : new best
+[2022-12-22 16:31:24] [valid] Ep. 120 : Up. 110000 : perplexity : 1.21851 : new best
+[2022-12-22 16:31:47] [valid] Ep. 120 : Up. 110000 : bleu : 88.5008 : new best
+[2022-12-22 16:44:36] [valid] Ep. 126 : Up. 115000 : cross-entropy : 1.93207 : new best
+[2022-12-22 16:44:51] [valid] Ep. 126 : Up. 115000 : perplexity : 1.2185 : new best
+[2022-12-22 16:45:14] [valid] Ep. 126 : Up. 115000 : bleu : 88.6237 : new best
+[2022-12-22 16:58:01] [valid] Ep. 131 : Up. 120000 : cross-entropy : 1.93627 : stalled 1 times (last best: 1.93207)
+[2022-12-22 16:58:16] [valid] Ep. 131 : Up. 120000 : perplexity : 1.21903 : stalled 1 times (last best: 1.2185)
+[2022-12-22 16:58:39] [valid] Ep. 131 : Up. 120000 : bleu : 88.6263 : new best
+[2022-12-22 17:11:30] [valid] Ep. 137 : Up. 125000 : cross-entropy : 1.94097 : stalled 2 times (last best: 1.93207)
+[2022-12-22 17:11:45] [valid] Ep. 137 : Up. 125000 : perplexity : 1.21961 : stalled 2 times (last best: 1.2185)
+[2022-12-22 17:12:08] [valid] Ep. 137 : Up. 125000 : bleu : 88.731 : new best
+[2022-12-22 17:24:53] [valid] Ep. 142 : Up. 130000 : cross-entropy : 1.94501 : stalled 3 times (last best: 1.93207)
+[2022-12-22 17:25:07] [valid] Ep. 142 : Up. 130000 : perplexity : 1.22012 : stalled 3 times (last best: 1.2185)
+[2022-12-22 17:25:30] [valid] Ep. 142 : Up. 130000 : bleu : 88.7013 : stalled 1 times (last best: 88.731)
+[2022-12-22 17:38:16] [valid] Ep. 148 : Up. 135000 : cross-entropy : 1.95107 : stalled 4 times (last best: 1.93207)
+[2022-12-22 17:38:31] [valid] Ep. 148 : Up. 135000 : perplexity : 1.22087 : stalled 4 times (last best: 1.2185)
+[2022-12-22 17:38:54] [valid] Ep. 148 : Up. 135000 : bleu : 88.7047 : stalled 2 times (last best: 88.731)
+[2022-12-22 17:51:41] [valid] Ep. 153 : Up. 140000 : cross-entropy : 1.94985 : stalled 5 times (last best: 1.93207)
+[2022-12-22 17:51:55] [valid] Ep. 153 : Up. 140000 : perplexity : 1.22072 : stalled 5 times (last best: 1.2185)
+[2022-12-22 17:52:18] [valid] Ep. 153 : Up. 140000 : bleu : 88.7429 : new best
+[2022-12-22 18:05:06] [valid] Ep. 159 : Up. 145000 : cross-entropy : 1.95559 : stalled 6 times (last best: 1.93207)
+[2022-12-22 18:05:20] [valid] Ep. 159 : Up. 145000 : perplexity : 1.22144 : stalled 6 times (last best: 1.2185)
+[2022-12-22 18:05:43] [valid] Ep. 159 : Up. 145000 : bleu : 88.8451 : new best
+[2022-12-22 18:18:31] [valid] Ep. 164 : Up. 150000 : cross-entropy : 1.96081 : stalled 7 times (last best: 1.93207)
+[2022-12-22 18:18:45] [valid] Ep. 164 : Up. 150000 : perplexity : 1.22209 : stalled 7 times (last best: 1.2185)
+[2022-12-22 18:19:08] [valid] Ep. 164 : Up. 150000 : bleu : 88.9434 : new best
+[2022-12-22 18:31:57] [valid] Ep. 169 : Up. 155000 : cross-entropy : 1.96563 : stalled 8 times (last best: 1.93207)
+[2022-12-22 18:32:11] [valid] Ep. 169 : Up. 155000 : perplexity : 1.22269 : stalled 8 times (last best: 1.2185)
+[2022-12-22 18:32:34] [valid] Ep. 169 : Up. 155000 : bleu : 88.9658 : new best
+[2022-12-22 18:45:22] [valid] Ep. 175 : Up. 160000 : cross-entropy : 1.96813 : stalled 9 times (last best: 1.93207)
+[2022-12-22 18:45:36] [valid] Ep. 175 : Up. 160000 : perplexity : 1.22301 : stalled 9 times (last best: 1.2185)
+[2022-12-22 18:45:59] [valid] Ep. 175 : Up. 160000 : bleu : 89.0247 : new best
+[2022-12-22 18:58:47] [valid] Ep. 180 : Up. 165000 : cross-entropy : 1.97484 : stalled 10 times (last best: 1.93207)
+[2022-12-22 18:59:02] [valid] Ep. 180 : Up. 165000 : perplexity : 1.22385 : stalled 10 times (last best: 1.2185)
+[2022-12-22 18:59:24] [valid] Ep. 180 : Up. 165000 : bleu : 88.963 : stalled 1 times (last best: 89.0247)
+```
+
+## Testing/Evaluation for Seq2Seq Dictionary Model  
+
+```bash
 
 ```
 
