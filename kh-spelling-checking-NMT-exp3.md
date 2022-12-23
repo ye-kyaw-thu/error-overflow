@@ -1245,16 +1245,88 @@ check the validation log file:
 ## Testing/Evaluation for Seq2Seq Dictionary Model  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye Kyaw Thu, Affiliated Professor, CADT, Cambodia
+## for NMT Experiments for Khmer spelling correction
+## used Marian NMT Framework for training
+## Last updated: 23 December 2022
+
+data_path="/home/ye/exp/kh-spell/seq2seq/4nmt/char-segment/";
+src="er"; tgt="cr";
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output hyp.best.manual.${tgt} < ${data_path}/test.${src};
+echo "Evaluation with hyp.best.manual.${tgt}, Seq2Seq dictionary model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/test.${tgt} < ./hyp.best.manual.${tgt} >> eval-best-result.txt;
+
+echo "==========" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output hyp.best.edit1.${tgt} < ${data_path}/edit1/test.${src};
+echo "Evaluation with hyp.best.edit1.${tgt}, Seq2Seq dictionary model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/edit1/test.${tgt} < ./hyp.best.edit1.${tgt} >> eval-best-result.txt;
+
+echo "==========" >> eval-best-result.txt;
+
+time marian-decoder -m ./model.npz -v ${data_path}/vocab/vocab.${src}.yml ${data_path}/vocab/vocab.${tgt}.yml --devices 0 --output hyp.best.edit2.${tgt} < ${data_path}/edit2/test.${src};
+echo "Evaluation with hyp.best.edit2.${tgt}, Seq2Seq dictionary model:" >> eval-best-result.txt;
+perl /home/ye/tool/multi-bleu.perl ${data_path}/edit2/test.${tgt} < ./hyp.best.edit2.${tgt} >> eval-best-result.txt;
 ```
 
-```
+testing ...  
 
 ```
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.dict# ./test-eval-best.sh | tee test.log
+...
+...
+...
+[2022-12-23 01:20:26] Best translation 978 : ច ង ្ អ ា ម
+[2022-12-23 01:20:26] Best translation 979 : ផ ្ ល ូ វ ប ែ ក ជ ា ប ួ ន
+[2022-12-23 01:20:26] Best translation 980 : ដ ា ក ់ ស ំ ញ ៉ ែ ង
+[2022-12-23 01:20:26] Best translation 981 : ជ ា ក ្ ម េ ង
+[2022-12-23 01:20:26] Best translation 982 : យ ុ ត ្ ត វ ា ទ ី
+[2022-12-23 01:20:26] Best translation 983 : ដ ា ក ់ ថ ្ ន ា ំ ខ ្ ល ា ំ ង
+[2022-12-23 01:20:26] Best translation 984 : ស ូ ម
+[2022-12-23 01:20:26] Best translation 985 : ភ ្ ញ ច ់
+[2022-12-23 01:20:26] Best translation 986 : ន ិ យ ា យ ប ៉ ប ៉ ា ច ់
+[2022-12-23 01:20:26] Best translation 987 : ក ្ ត ឿ ង ខ ្ ញ ី
+[2022-12-23 01:20:26] Best translation 988 : ទ ំ ហ ែ ង
+[2022-12-23 01:20:26] Best translation 989 : ល ល ា ម
+[2022-12-23 01:20:26] Best translation 990 : ប ច ្ ជ ិ ម យ ា ម
+[2022-12-23 01:20:26] Best translation 991 : ល ្ ង ខ ្ ម ៅ
+[2022-12-23 01:20:26] Best translation 992 : អ ា ហ ា រ ប ្ រ អ ប ់
+[2022-12-23 01:20:26] Best translation 993 : រ ូ ប ព ្ រ ហ ្ ម
+[2022-12-23 01:20:26] Best translation 994 : អ ហ ិ ត ក ៈ
+[2022-12-23 01:20:26] Best translation 995 : ស ្ រ ម ក
+[2022-12-23 01:20:26] Best translation 996 : ប ៉ ប ៉ ិ ក ប ៉ ប ា ក ់
+[2022-12-23 01:20:26] Best translation 997 : ក ែ វ វ ៉ ែ ន ត ា
+[2022-12-23 01:20:26] Best translation 998 : ឧ ប ្ ប ត ្ ត ិ ភ ូ ម ិ
+[2022-12-23 01:20:26] Best translation 999 : ឡ េ ស ូ ត ូ
+[2022-12-23 01:20:26] Total time: 20.93162s wall
 
+real    0m22.714s
+user    0m20.762s
+sys     0m1.982s
+It is not advisable to publish scores from multi-bleu.perl.  The scores depend on your tokenizer, which is unlikely to be reproducible from your paper or consistent across research groups.  Instead you should detokenize then use mteval-v14.pl, which has a standard tokenization.  Scores from multi-bleu.perl can still be used for internal purposes when you have a consistent tokenizer.
 ```
 
+check the evaluation results with three test datasets:  
+
 ```
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.dict# cat eval-best-result.txt
+Evaluation with hyp.best.manual.cr, Seq2Seq dictionary model:
+BLEU = 87.97, 93.5/89.0/86.1/83.6 (BP=1.000, ratio=1.001, hyp_len=6910, ref_len=6900)
+==========
+Evaluation with hyp.best.edit1.cr, Seq2Seq dictionary model:
+BLEU = 92.57, 96.5/93.0/91.0/89.9 (BP=1.000, ratio=1.004, hyp_len=8883, ref_len=8851)
+==========
+Evaluation with hyp.best.edit2.cr, Seq2Seq dictionary model:
+BLEU = 88.30, 94.5/88.5/86.0/84.8 (BP=0.999, ratio=0.999, hyp_len=8954, ref_len=8964)
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq/model.seq2seq.dict#
+```
+
+## Results Summary
+
+To Do: When I have time, I wanna make a results summary ...  
 
 ```
 
