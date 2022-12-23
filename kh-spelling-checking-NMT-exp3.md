@@ -1085,7 +1085,36 @@ root@0d441b235700:/home/ye/exp/kh-spell/seq2seq# ./seq2seq.dict.sh
 ...
 ...
 ...
+[2022-12-22 18:59:02] [valid] Ep. 180 : Up. 165000 : perplexity : 1.22385 : stalled 10 times (last best: 1.2185)
+[2022-12-22 18:59:02] Translating validation set...
+[2022-12-22 18:59:02] Best translation 0 : ក ្ រ ហ ម ឆ ្ អ ិ ន
+[2022-12-22 18:59:02] Best translation 1 : គ ន ្ ថ ច រ ន ា
+[2022-12-22 18:59:02] Best translation 2 : ទ ស ្ ស ន ិ ក ជ ន
+[2022-12-22 18:59:02] Best translation 3 : ឯ ក ា ឯ ក ោ
+[2022-12-22 18:59:02] Best translation 4 : ព ្ រ ូ ឡ ា ន
+[2022-12-22 18:59:02] Best translation 5 : ឈ ូ ក ច ្ រ ា ល
+[2022-12-22 18:59:02] Best translation 10 : ស ្ ង ួ ន ព ្ រ ល ឹ ង
+[2022-12-22 18:59:02] Best translation 20 : ម ៉ ា ក ្ ម េ ក
+[2022-12-22 18:59:02] Best translation 40 : ម ុ យ រ ា ម
+[2022-12-22 18:59:02] Best translation 80 : អ ន ុ ព ័ ន ្ ធ ព ា ណ ិ ជ
+[2022-12-22 18:59:02] Best translation 160 : ឥ ត ប ី ប ្ រ ៀ ប
+[2022-12-22 18:59:02] Best translation 320 : ក ្ រ ង ជ រ
+[2022-12-22 18:59:03] Best translation 640 : ព េ ល ព ្ រ េ ច
+[2022-12-22 18:59:04] Best translation 1280 : ញ ា ត ក ា
+[2022-12-22 18:59:06] Best translation 2560 : គ ហ ប ត ី
+[2022-12-22 18:59:09] Best translation 5120 : ស ម ្ ប ុ ក
+[2022-12-22 18:59:17] Best translation 10240 : ត ្ រ ោ ះ
+[2022-12-22 18:59:24] Total translation time: 22.87907s
+[2022-12-22 18:59:24] [valid] Ep. 180 : Up. 165000 : bleu : 88.963 : stalled 1 times (last best: 89.0247)
+[2022-12-22 18:59:24] Training finished
+[2022-12-22 18:59:24] Saving model weights and runtime parameters to model.seq2seq.dict/model.npz
+[2022-12-22 18:59:30] Saving Adam parameters
+[2022-12-22 18:59:33] [training] Saving training checkpoint to model.seq2seq.dict/model.npz and model.seq2seq.dict/model.npz.optimizer.npz
 
+real    443m56.961s
+user    433m58.504s
+sys     5m34.948s
+root@0d441b235700:/home/ye/exp/kh-spell/seq2seq#
 ```
 
 ```
