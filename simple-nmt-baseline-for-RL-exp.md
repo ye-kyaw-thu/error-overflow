@@ -1,6 +1,7 @@
-# Preparing a Baseline for RL experiments
+# Summary of Baseline Results for RL experiments
 
-For this time, I wanna run for 100 epochs baselines ...  
+I planned to run 100 epochs again on LST server ... 
+Because, I run many many experiments of RL-NMT and difficult to find the baseline results ...  
 
 ## Preparing to Run
 
@@ -487,6 +488,7 @@ root@822ee7bdb9c8:/#
 ```
 
 It looks everythings OK!  
+Now, I already prepared simple-NMT running env on LST GPU server. I can run again when I need it. Great!!! :)  
 
 ## Prepare data
 
@@ -552,8 +554,12 @@ data
 ```
 
 I will use only syllable segmented datasets for RL-NMT experiments ...  
+I already prepared my-rk, rk-my, my-bk and bk-my language pairs on LST GPU server also.   
 
 ## Previous Experiment Logs
+
+It took time for summarize the baselines from the previous, previous experiments .... 
+The Summary is as follows:  
 
 ```
 % Transformer Error
