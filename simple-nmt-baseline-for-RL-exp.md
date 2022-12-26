@@ -76,18 +76,87 @@ You are using pip version 10.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 ```
 
+Installed torchtext library ...  
 
 ```
-
+(simple-nmt) root@69b2889746d7:/home/ye/tool/simple-nmt# pip install torchtext
+...
+...
+...
+Requirement already satisfied: torch==1.13.1 in /root/anaconda3/lib/python3.7/site-packages (from torchtext) (1.13.1)
+Requirement already satisfied: numpy in /root/anaconda3/lib/python3.7/site-packages (from torchtext) (1.15.1)
+Requirement already satisfied: requests in /root/anaconda3/lib/python3.7/site-packages (from torchtext) (2.19.1)
+Requirement already satisfied: tqdm in /root/anaconda3/lib/python3.7/site-packages (from torchtext) (4.26.0)
+Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch==1.13.1->torchtext) (11.10.3.66)
+Requirement already satisfied: typing-extensions in /root/anaconda3/lib/python3.7/site-packages (from torch==1.13.1->torchtext) (4.4.0)
+Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch==1.13.1->torchtext) (8.5.0.96)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch==1.13.1->torchtext) (11.7.99)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch==1.13.1->torchtext) (11.7.99)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /root/anaconda3/lib/python3.7/site-packages (from requests->torchtext) (3.0.4)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in /root/anaconda3/lib/python3.7/site-packages (from requests->torchtext) (1.23)
+Requirement already satisfied: certifi>=2017.4.17 in /root/anaconda3/lib/python3.7/site-packages (from requests->torchtext) (2018.8.24)
+Requirement already satisfied: idna<2.8,>=2.5 in /root/anaconda3/lib/python3.7/site-packages (from requests->torchtext) (2.7)
+Requirement already satisfied: setuptools in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch==1.13.1->torchtext) (40.2.0)
+Requirement already satisfied: wheel in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch==1.13.1->torchtext) (0.31.1)
+twisted 18.7.0 requires PyHamcrest>=1.9.0, which is not installed.
+Installing collected packages: torchtext
+Successfully installed torchtext-0.14.1
+You are using pip version 10.0.1, however version 22.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
 ```
 
-```
+Installed torch-optimizer ...  
 
 ```
-
+(simple-nmt) root@69b2889746d7:/home/ye/tool/simple-nmt# pip install torch-optimizer
+Collecting torch-optimizer
+  Downloading https://files.pythonhosted.org/packages/f6/54/bbb1b4c15afc2dac525c8359c340ade685542113394fd4c6564ee3c71da3/torch_optimizer-0.3.0-py3-none-any.whl (61kB)
+    100% |████████████████████████████████| 71kB 2.3MB/s
+Requirement already satisfied: torch>=1.5.0 in /root/anaconda3/lib/python3.7/site-packages (from torch-optimizer) (1.13.1)
+Collecting pytorch-ranger>=0.1.1 (from torch-optimizer)
+  Downloading https://files.pythonhosted.org/packages/0d/70/12256257d861bbc3e176130d25be1de085ce7a9e60594064888a950f2154/pytorch_ranger-0.1.1-py3-none-any.whl
+Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch>=1.5.0->torch-optimizer) (11.10.3.66)
+Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch>=1.5.0->torch-optimizer) (8.5.0.96)
+Requirement already satisfied: typing-extensions in /root/anaconda3/lib/python3.7/site-packages (from torch>=1.5.0->torch-optimizer) (4.4.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch>=1.5.0->torch-optimizer) (11.7.99)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch>=1.5.0->torch-optimizer) (11.7.99)
+Requirement already satisfied: setuptools in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch>=1.5.0->torch-optimizer) (40.2.0)
+Requirement already satisfied: wheel in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch>=1.5.0->torch-optimizer) (0.31.1)
+twisted 18.7.0 requires PyHamcrest>=1.9.0, which is not installed.
+Installing collected packages: pytorch-ranger, torch-optimizer
+Successfully installed pytorch-ranger-0.1.1 torch-optimizer-0.3.0
+You are using pip version 10.0.1, however version 22.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(simple-nmt) root@69b2889746d7:/home/ye/tool/simple-nmt#
 ```
 
+Installed pytorch-ignite ...  
+
 ```
+(simple-nmt) root@69b2889746d7:/home/ye/tool/simple-nmt# pip install pytorch-ignite
+Collecting pytorch-ignite
+  Downloading https://files.pythonhosted.org/packages/91/92/0a0f8c3cee2d837edd7521a6102e9913263d474de075dec207a10baff1c6/pytorch_ignite-0.4.10-py3-none-any.whl (264kB)
+    100% |████████████████████████████████| 266kB 5.1MB/s
+Requirement already satisfied: torch<2,>=1.3 in /root/anaconda3/lib/python3.7/site-packages (from pytorch-ignite) (1.13.1)
+Requirement already satisfied: packaging in /root/anaconda3/lib/python3.7/site-packages (from pytorch-ignite) (17.1)
+Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch<2,>=1.3->pytorch-ignite) (11.10.3.66)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch<2,>=1.3->pytorch-ignite) (11.7.99)
+Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch<2,>=1.3->pytorch-ignite) (8.5.0.96)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99; platform_system == "Linux" in /root/anaconda3/lib/python3.7/site-packages (from torch<2,>=1.3->pytorch-ignite) (11.7.99)
+Requirement already satisfied: typing-extensions in /root/anaconda3/lib/python3.7/site-packages (from torch<2,>=1.3->pytorch-ignite) (4.4.0)
+Requirement already satisfied: pyparsing>=2.0.2 in /root/anaconda3/lib/python3.7/site-packages (from packaging->pytorch-ignite) (2.2.0)
+Requirement already satisfied: six in /root/anaconda3/lib/python3.7/site-packages (from packaging->pytorch-ignite) (1.11.0)
+Requirement already satisfied: wheel in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch<2,>=1.3->pytorch-ignite) (0.31.1)
+Requirement already satisfied: setuptools in /root/anaconda3/lib/python3.7/site-packages (from nvidia-cublas-cu11==11.10.3.66; platform_system == "Linux"->torch<2,>=1.3->pytorch-ignite) (40.2.0)
+twisted 18.7.0 requires PyHamcrest>=1.9.0, which is not installed.
+Installing collected packages: pytorch-ignite
+Successfully installed pytorch-ignite-0.4.10
+You are using pip version 10.0.1, however version 22.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(simple-nmt) root@69b2889746d7:/home/ye/tool/simple-nmt#
+```
+
+try running train.py ...  
 
 ```
 
