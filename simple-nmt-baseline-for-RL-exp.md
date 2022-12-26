@@ -490,13 +490,166 @@ It looks everythings OK!
 
 ## Prepare data
 
+Following is the data folder structure:  
+
 ```
+data
+|-- my-bk
+|   `-- syl
+|       |-- dev.bk
+|       |-- dev.my
+|       |-- preparation
+|       |   |-- dev.bk
+|       |   |-- dev.my
+|       |   |-- test.bk
+|       |   |-- test.my
+|       |   |-- train.bk
+|       |   `-- train.my
+|       |-- script
+|       |   |-- clean-space.pl
+|       |   |-- find-blank-line.sh
+|       |   `-- sylbreak.pl
+|       |-- test.bk
+|       |-- test.my
+|       |-- train.bk
+|       `-- train.my
+|-- my-rk
+|   |-- find-blank-lines.sh
+|   |-- syl
+|   |   |-- dev.my
+|   |   |-- dev.rk
+|   |   |-- test.my
+|   |   |-- test.rk
+|   |   |-- train.my
+|   |   |-- train.rk
+|   |   |-- vocab
+|   |   |   |-- train-dev.my
+|   |   |   |-- train-dev.rk
+|   |   |   |-- vocab.my.yml
+|   |   |   `-- vocab.rk.yml
+|   |   `-- wfst-training
+|   |       |-- train.my
+|   |       `-- train.rk
+|   `-- word
+|       |-- dev.my
+|       |-- dev.rk
+|       |-- test.my
+|       |-- test.myrk
+|       |-- test.rk
+|       |-- train.my
+|       |-- train.rk
+|       |-- vocab
+|       |   |-- train-dev.my
+|       |   |-- train-dev.rk
+|       |   |-- vocab.my.yml
+|       |   `-- vocab.rk.yml
+|       `-- wfst-training
+|           |-- train.my
+|           `-- train.rk
+`-- note.txt
+
+11 directories, 42 files
+```
+
+I will use only syllable segmented datasets for RL-NMT experiments ...  
+
+## Previous Experiment Logs
+
+```
+% Transformer Error
+% python train.py --train /media/ye/project2/exp/myrk-transformer/data/syl/train \
+% --valid /media/ye/project2/exp/myrk-transformer/data/syl/dev --lang myrk \
+% --gpu_id 0 --batch_size 128 --n_epochs 30 --max_length 100 --dropout .2 \ 
+%--hidden_size 768 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 32 \
+%--lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 \
+%--model_fn ./model/transformer/myrk-transformer-model.pth
+
+%training လုပ်ကြည့်တော့ memory မနိုင်တဲ့ error ပေးတယ်...
+% batch_size နဲ့ hidden_size ကို လျှော့ n_layers ကိုလည်း လျှော့တာတွေ လုပ်ကြည့်ပြီး အောက်ပါ config နဲ့မှ စ training လုပ်နိုင်တယ်...
+% python train.py --train /media/ye/project2/exp/myrk-transformer/data/syl/train \ 
+%--valid /media/ye/project2/exp/myrk-transformer/data/syl/dev --lang myrk \
+%--gpu_id 0 --batch_size 16 --n_epochs 30 --max_length 100 --dropout .2 \
+%--hidden_size 32 --n_layers 2 --max_grad_norm 1e+8 --iteration_per_update 32 \
+%--lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 \
+%--model_fn ./model/transformer/myrk-transformer-model.pth
+
+% running seq2seq 100 epochs
+%(simple-nmt) ye@:~/exp/simple-nmt$ time python train.py --train /media/ye/project2/exp/myrk-transformer/data/syl/train --valid /media/ye/project2/exp/myrk-transformer/data/syl/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 100 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/100epoch/seq-model-myrk2.pth
+
+% Evaluation result for the model: seq-model-myrk2.88.0.24-1.27.0.38-1.47.pth
+%BLEU = 75.74, 88.1/79.3/71.9/65.5 (BP=1.000, ratio=1.026, hyp_len=23772, ref_len=23160)
+
+% forllowing hyperparameters for RL gave many 75 BLEU scores ... However < baseline score
+% time python continue_train.py --load_fn ./model/seq2seq/100epoch/seq-model-myrk2.88.0.24-1.27.0.38-1.47.pth --model_fn ./model/rl/seq2seq/100epoch/seq-rl-model-myrk.pth --init_epoch 88 --iteration_per_update 2 --max_grad_norm 2e+8 --n_epochs 138
+
+## Training Seq2Seq Baseline
+### for my-rk
+
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 64 --n_epochs 30 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/myrk-100epoch/seq-model-myrk.pth
+
+*** my-rk, 100 epoch training မှာ Best model က 96 epoch ဖြစ်ပြီးတော့ Best Score က 74.92
+
+### for rk-my
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 64 --n_epochs 30 --max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 --model_fn ./model/seq2seq/baseline/rkmy-100epoch/seq-model-rkmy.pth
+
+*** rk-my, 100 epoch training မှာ Best model က 66 epoch model ဖြစ်ပြီးတော့ Best score က 75.01
+
+## Training Transformer baseline
+### for my-rk
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang myrk --gpu_id 0 --batch_size 16 --n_epochs 100 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/myrk-100epoch/myrk-transformer-model.pth
+
+Best score of Transformer baseline, my-rk, 100 epoch
+Evaluation result for the model: myrk-transformer-model.99.1.10-3.00.1.00-2.73.pth
+BLEU = 57.03, 79.2/63.4/51.2/41.1 (BP=1.000, ratio=1.040, hyp_len=24095, ref_len=23160)
+
+*** my-rk baseline transformer ကို 100 epoch training လုပ်တာမှာ Best model က 100 epoch model, Best Score က 59.35
+
+## for rk-my
+time python train.py --train /home/ye/exp/simple-nmt/data/train --valid /home/ye/exp/simple-nmt/data/dev --lang rkmy --gpu_id 0 --batch_size 16 --n_epochs 100 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/rkmy-100epoch/rkmy-transformer-model.pth
+*** rk-my, baseline transformer ကို 100 epoch training လုပ်တာမှာ Best model က 98 epoch model, Best Score က 55.68
+
+## Seq2Seq Baseline
+### for my-bk, 100 epochs
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+--valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+--lang mybk --gpu_id 0 --batch_size 64 --n_epochs 100 \
+--max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 \
+--n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+--use_adam --rl_n_epochs 0 \
+--model_fn ./model/seq2seq/baseline/mybk-100epoch/seq-model-mybk.pth | tee ./model/seq2seq/baseline/mybk-100epoch/mybk-seq2seq-baseline-train.log;
+
+*** Best model is 81 epoch model (seq-model-mybk.81.1.49-4.42.2.16-8.63.pth) and Best BLEU Score: 18.99
+
+### for bk-my
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train \
+--valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev \
+--lang bkmy --gpu_id 0 --batch_size 64 --n_epochs 100 \
+--max_length 100 --dropout .2 --word_vec_size 128 --hidden_size 128 \
+--n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 --lr 1e-3 --lr_step 0 \
+--use_adam --rl_n_epochs 0 \
+--model_fn ./model/seq2seq/baseline/bkmy-100epoch/seq-model-bkmy.pth | tee ./model/seq2seq/baseline/bkmy-100epoch/bkmy-seq2seq-baseline-train.log;
+
+*** Best model is 95 epoch model and Best Score: 22.62
+
+## Preparing Transformer Baseline
+### for my-bk
+
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev --lang mybk --gpu_id 1 --batch_size 16 --n_epochs 100 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/mybk-100epoch/mybk-transformer-model.pth | tee ./model/transformer/baseline/mybk-100epoch/mybk-transformer-baseline-training.log
+
+*** Best model က 98 epoch model ဖြစ်ပြီးတော့ Best BLEU Score က 15.80
+
+### for bk-my
+
+time python train.py --train /home/ye/exp/simple-nmt/data/my-bk/syl/train --valid /home/ye/exp/simple-nmt/data/my-bk/syl/dev --lang bkmy --gpu_id 1 --batch_size 16 --n_epochs 100 --max_length 100 --dropout .2 --hidden_size 32 --n_layers 6 --max_grad_norm 1e+8 --iteration_per_update 32 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 --init_epoch 1 --model_fn ./model/transformer/baseline/bkmy-100epoch/bkmy-transformer-model.pth | tee ./model/transformer/baseline/bkmy-100epoch/bkmy-transformer-baseline-training.log
+
+*** epoch 100 မှာ အကောင်းဆုံး မော်ဒယ်က 99 epoch model ဖြစ်ပြီးတော့ Best BLEU score (baseline) က 17.58 ဖြစ်တယ်။
 
 ```
 
-```
+## Rerun on LST GPU Server
 
-```
+When I have time, I plan to re-run above baseline experiments again ...  
+
 
 ```
 
