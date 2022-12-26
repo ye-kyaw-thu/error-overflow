@@ -3,6 +3,9 @@
 I planned to run 100 epochs again on LST server ... 
 Because, I run many many experiments of RL-NMT and difficult to find the baseline results ...  
 
+Log Date: 26 December 2022  
+y@LST Lab  
+
 ## Preparing to Run
 
 ```
