@@ -266,27 +266,95 @@ SENTENCE 7:This string has 7 sentences.
 I update/wrote a perl program based on the above example as follows:  
 
 ```perl
+#!/usr/bin/env perl
+
+# English sentence splitting program with Lingua::EN::Sentence Perl Module
+# Ye Kyaw Thu, 
+# Visiting Professor, LST, NECTEC, Thailand
+# Ref: https://www.perl.com/article/21/2013/4/21/Read-an-entire-file-into-a-string/
+#
+# Demo program for my undergrad student Thura Aung.
+# e.g. $ perl eng-sentence-split.pl <input-file>
+
+use Lingua::EN::Sentence qw( get_sentences add_acronyms );
+add_acronyms('lt','gen');               ## adding support for 'Lt. Gen.'
+
+use strict;
+use warnings;
+use utf8;
+
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+open (my $inputFILE,"<:encoding(utf8)", $ARGV[0]) or die "Couldn't open input file $ARGV[0]!, $!\n";
+
+# Slurping: read an entire file into a string
+my $file_content = do { local $/; <$inputFILE> };
+close ($inputFILE);
+ 
+my $sentences=get_sentences($file_content);     # Get the sentences.
+foreach my $sent (@$sentences)
+{
+        print("$sent\n");
+}
 
 ```
 
-```
+Prepared the English text file (i.e. the one shown in the 1st example program) ...  
+For this time, I concatinated all sentences as one line.  
 
 ```
-
+(base) ye@ykt-pro:~/tmp$ cat ./7sentences.txt 
+A sentence usually ends with a dot, exclamation or question mark optionally followed by a space! A string followed by 2 carriage returns denotes a sentence, even though it doesn't end in a dot Dots after single letters such as U.S.A. or in numbers like -12.34 will not cause a split as well as common abbreviations such as Dr. I. Smith, Ms. A.B. Jones, Apr. Calif. Esq. and (some text) ellipsis such as ... or . . are ignored. Some valid cases canot be deteected, such as the answer is X. It cannot easily be differentiated from the single letter-dot sequence to abbreviate a person's given name. Numbered points within a sentence will not cause a split 1. Like this one. See the code for all the rules that apply. This string has 7 sentences.
+(base) ye@ykt-pro:~/tmp$ 
 ```
 
-```
+Test run with the updated perl script and for this time, I got 6 lines in total:  
 
 ```
-
+(base) ye@ykt-pro:~/tmp$ perl ./eng-sentence-split.pl ./7sentences.txt | cat -n
+     1	A sentence usually ends with a dot, exclamation or question mark optionally followed by a space!
+     2	A string followed by 2 carriage returns denotes a sentence, even though it doesn't end in a dot Dots after single letters such as U.S.A. or in numbers like -12.34 will not cause a split as well as common abbreviations such as Dr. I. Smith, Ms. A.B. Jones, Apr. Calif. Esq. and (some text) ellipsis such as ... or . . are ignored.
+     3	Some valid cases canot be deteected, such as the answer is X. It cannot easily be differentiated from the single letter-dot sequence to abbreviate a person's given name.
+     4	Numbered points within a sentence will not cause a split 1. Like this one.
+     5	See the code for all the rules that apply.
+     6	This string has 7 sentences.
+(base) ye@ykt-pro:~/tmp$
 ```
 
-```
+## Test Run 3  
+
+For this time, I wanna try with different English text sentences and I used the abstract of Thura Aung paper (draft version) ...  
 
 ```
+In recent years, text segmentation for the Myanmar language has been widely studied in the field of natural language processing (NLP). Myanmar word segmentation is an essential basis of preprocessing step for NLP tasks. There are several studies on Myanmar word segmentation. Most text segmentation problems have been approached as sequence tagging task. In this study, we approached Myanmar sentence segmentation not only from machine learning based sequence tagging but also from machine translation approach. Supervised machine learning algorithms namely Conditional Random Fields (CRFs), Hidden Markov Model (HMM), Ripple Down Rules based (RDR) and neural Machine Translation (NMT) models with Sequence-to-Sequence and Transformer architectures were used for conducting the experiments. We trained the models either on training data that includes only sentence-level data or on training data that contains both sentence-level and paragraph-level data. \textit{Machine Learning based sequence tagging} models were used as baseline models compared to \textit{neural machine translation} approach. Two different types of test data, i.e., one with only sentence-level data and the other with both sentence-level and paragraph-level data, were also used to evaluate our proposed models. The accuracies were measured in terms of Bilingual Evaluation Understudy (BLEU) and character n-gram F-score (chrF++) scores. Word Error Rate (WER) is also used to find the error rate. The experimental results show that Neural Machine Translation approach with the sequence-to-sequence architecture trained on both sentence-level and paragraph-level data achieved better BLEU and chrF++ scores than other models.
+```
+
+Sentence segmentation with cpan library is as follows:  
+
+```
+(base) ye@ykt-pro:~/tmp$ perl ./eng-sentence-split.pl ./abstract-draft.txt | cat -n
+     1	In recent years, text segmentation for the Myanmar language has been widely studied in the field of natural language processing (NLP).
+     2	Myanmar word segmentation is an essential basis of preprocessing step for NLP tasks.
+     3	There are several studies on Myanmar word segmentation.
+     4	Most text segmentation problems have been approached as sequence tagging task.
+     5	In this study, we approached Myanmar sentence segmentation not only from machine learning based sequence tagging but also from machine translation approach.
+     6	Supervised machine learning algorithms namely Conditional Random Fields (CRFs), Hidden Markov Model (HMM), Ripple Down Rules based (RDR) and neural Machine Translation (NMT) models with Sequence-to-Sequence and Transformer architectures were used for conducting the experiments.
+     7	We trained the models either on training data that includes only sentence-level data or on training data that contains both sentence-level and paragraph-level data.
+     8	\textit{Machine Learning based sequence tagging} models were used as baseline models compared to \textit{neural machine translation} approach.
+     9	Two different types of test data, i.e., one with only sentence-level data and the other with both sentence-level and paragraph-level data, were also used to evaluate our proposed models.
+    10	The accuracies were measured in terms of Bilingual Evaluation Understudy (BLEU) and character n-gram F-score (chrF++) scores.
+    11	Word Error Rate (WER) is also used to find the error rate.
+    12	The experimental results show that Neural Machine Translation approach with the sequence-to-sequence architecture trained on both sentence-level and paragraph-level data achieved better BLEU and chrF++ scores than other models.
+(base) ye@ykt-pro:~/tmp$
+```
+
+Not so bad ...  
 
 ## Reference
 
 1. https://metacpan.org/release/KIMRYAN/Lingua-EN-Sentence-0.29/view/lib/Lingua/EN/Sentence.pm
 2. https://metacpan.org/pod/Lingua::EN::Sentence
+3. https://www.perl.com/article/21/2013/4/21/Read-an-entire-file-into-a-string/
 
