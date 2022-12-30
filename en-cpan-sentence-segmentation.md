@@ -352,6 +352,130 @@ Sentence segmentation with cpan library is as follows:
 
 Not so bad ...  
 
+## Check the Module 
+
+အရင်ဆုံး pm ဖိုင် သို့မဟုတ် module ဖိုင်ရှိတဲ့ path ကို cpan command နဲ့ ရှာကြည့်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:~/tmp$ cpan -D Lingua::EN::Sentence
+CPAN: Storable loaded ok (v2.62)
+Reading '/home/ye/.local/share/.cpan/Metadata'
+  Database was generated on Fri, 30 Dec 2022 06:17:01 GMT
+Lingua::EN::Sentence
+-------------------------------------------------------------------------
+	CPAN: Module::CoreList loaded ok (v5.20170922_26)
+(no description)
+	K/KI/KIMRYAN/Lingua-EN-Sentence-0.33.tar.gz
+	/home/ye/perl5/lib/perl5/Lingua/EN/Sentence.pm
+	Installed: 0.33
+	CPAN:      0.33  up to date
+	Kim Ryan (KIMRYAN)
+	kimryan nospam@cpan.org
+
+(base) ye@ykt-pro:~/tmp$
+```
+
+check the code inside:  
+
+```perl
+...
+...
+our $EOS = "\001"; #"__EOS__";
+our $EOA = '__EOA__';
+
+our $P = q/[\.!?]/;			    # PUNCTUATION
+
+$AP =  q/(?:'|"|\?|\)|\]|\})?/;	# AFTER PUNCTUATION
+our $PAP = $P.$AP;
+
+# ACRONYMS AND ABBREVIATIONS
+my @PEOPLE = qw( Mr Mrs Ms Dr Prof Mme Ms?gr Sens? Reps? Gov Attys? Supt Insp Const Det Revd? Ald Rt Hon);
+my @TITLE_SUFFIXES = qw(PhD Jn?r Sn?r Esq MD LLB);
+my @MILITARY = qw( Col Gen Lt Cm?dr Adm Capt Sgt Cpl Maj Pte);
+my @INSTITUTES = qw( Dept Univ Assn Bros);
+my @COMPANIES = qw( Inc Pty Ltd Co Corp);
+my @PLACES =
+qw(
+	Arc Al Ave Blv?d Cl Ct Cres Dr Expy? Fw?y Hwa?y La Pde? Pl Plz Rd St Tce 
+	dist mt km in ft 	
+	Ala  Ariz Ark Cal Calif Col Colo Conn Del Fed  Fla Ga Ida Id Ill Ind Ia Kan Kans Ken Ky
+	La Me Md Is Mass Mich Minn Miss Mo Mont Neb Nebr Nev Mex Okla Ok Ore Penna Penn Pa Dak 
+	Tenn Tex Ut Vt Va Wash Wis Wisc Wy Wyo USAFA Alta Man Ont Qu? Sask Yuk
+	Aust Vic Qld Tas
+);
+my @MONTHS = qw(Jan Feb Mar Apr May Jun Jul Aug Sept? Oct Nov Dec);
+my @MISC = qw(no esp est);  # Established
+my @LATIN = qw(vs etc al ibid sic);
+my @MATH = qw(fig eq sec cf Thm Def Conj resp);
+
+our @ABBREVIATIONS = (@PEOPLE, @TITLE_SUFFIXES, @MILITARY, @INSTITUTES, @COMPANIES, @PLACES, @MONTHS, @MISC,@LATIN, @MATH);
+```
+
+check the splitting function ...  
+
+```perl
+#------------------------------------------------------------------------------
+# get_sentences - takes text input and splits it into sentences.
+# A regular expression viciously cuts the text into sentences, 
+# and then a list of rules (some of them consist of a list of abbreviations)
+# are applied on the marked text in order to fix end-of-sentence markings in 
+# places which are not indeed end-of-sentence.
+#------------------------------------------------------------------------------
+sub get_sentences {
+	my ($text) = @_;
+	return [] unless defined $text;
+	$VERBOSE and print("ORIGINAL\n$text\n");
+	
+	$text = mark_up_abbreviations($text);
+	$VERBOSE and print("mark_up_abbreviations\n$text\n");
+	
+	$text = first_sentence_breaking($text);
+	$VERBOSE and print("first_sentence_breaking\n$text\n");
+	
+	$text = remove_false_end_of_sentence($text);
+	$VERBOSE and print("remove_false_end_of_sentence\n$text\n");
+	
+	$text = split_unsplit_stuff($text);
+	$VERBOSE and print("split_unsplit_stuff\n$text\n");
+	
+	my @sentences = split(/$EOS/,$text);
+	my $cleaned_sentences = clean_sentences(\@sentences);
+	if ($VERBOSE) {
+		my $i;
+		foreach my $sent (@$cleaned_sentences) {
+			$i++;
+			print("SENTENCE $i >>>$sent<<<\n");
+		}
+	}
+	return $cleaned_sentences;
+}
+```
+
+ပထမဆုံး example program မှာလည်း ပါသလိုပဲ User က အတိုကောက် စာလုံးတွေကို အသစ်ထပ်ထည့်ဖို့လည်း ခွင့်ပြုထားတယ် ... 
+
+```
+#------------------------------------------------------------------------------
+# add_acronyms - user can add a list of acronyms/abbreviations.
+#------------------------------------------------------------------------------
+sub add_acronyms {
+	push @ABBREVIATIONS, @_;
+}
+
+#------------------------------------------------------------------------------
+# get_acronyms - get list of defined acronyms.
+#------------------------------------------------------------------------------
+sub get_acronyms {
+	return @ABBREVIATIONS;
+}
+
+#------------------------------------------------------------------------------
+# set_acronyms - replace the predefined acronyms list with your own list.
+#------------------------------------------------------------------------------
+sub set_acronyms {
+	@ABBREVIATIONS=@_;
+}
+```
+
 ## Reference
 
 1. https://metacpan.org/release/KIMRYAN/Lingua-EN-Sentence-0.29/view/lib/Lingua/EN/Sentence.pm
