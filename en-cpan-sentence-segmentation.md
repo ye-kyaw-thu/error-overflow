@@ -476,6 +476,21 @@ sub set_acronyms {
 }
 ```
 
+## Description and Algorithm of Lingua::EN::Sentence
+
+**Note: I took the following text from the original Lingua::EN::Sentence home page.** 
+
+DESCRIPTION
+The Lingua::EN::Sentence module contains the function get_sentences, which splits text into its constituent sentences, based on a regular expression and a list of abbreviations (built in and given).
+
+Certain well know exceptions, such as abreviations, may cause incorrect segmentations. But some of them are already integrated into this code and are being taken care of. Still, if you see that there are words causing the get_sentences() to fail, you can add those to the module, so it notices them.
+
+ALGORITHM
+Basically, I use a 'brute' regular expression to split the text into sentences. (Well, nothing is yet split - I just mark the end-of-sentence). Then I look into a set of rules which decide when an end-of-sentence is justified and when it's a mistake. In case of a mistake, the end-of-sentence mark is removed.
+
+What are such mistakes? Cases of abbreviations, for example. I have a list of such abbreviations (Please see `Acronym/Abbreviations list' section), and more general rules (for example, the abbreviations 'i.e.' and '.e.g.' need not to be in the list as a special rule takes care of all single letter abbreviations).
+
+
 ## Reference
 
 1. https://metacpan.org/release/KIMRYAN/Lingua-EN-Sentence-0.29/view/lib/Lingua/EN/Sentence.pm
