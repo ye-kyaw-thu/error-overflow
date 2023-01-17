@@ -292,17 +292,98 @@ cv2.destroyAllWindows()(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detect
 
 ```
 
-```
+## Prepareing a New Conda Environment
+
+No information relating to Python libraries ...  
+Anyway, plan to run in an new Conda environment. Let's create a new environment at first ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ python --version
+Python 3.7.6
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda create --name sl-mnist
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
 
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 22.11.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/yekyaw.thu/.conda/envs/sl-mnist
+
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate sl-mnist
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Entering to the sl-mnist conda environment ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda activate sl-mnist
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+## Python Library INstallation  
+
+I installed some libraries based on the above two python code and some screen logs are as follows:  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install matplotlib
+Collecting matplotlib
+  Downloading matplotlib-3.6.3-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (9.4 MB)
+     |████████████████████████████████| 9.4 MB 531 kB/s
+Collecting cycler>=0.10
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting python-dateutil>=2.7
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting pyparsing>=2.2.1
+  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+Requirement already satisfied: pillow>=6.2.0 in /usr/lib/python3/dist-packages (from matplotlib) (7.0.0)
+Collecting fonttools>=4.22.0
+  Using cached fonttools-4.38.0-py3-none-any.whl (965 kB)
+Collecting packaging>=20.0
+  Downloading packaging-23.0-py3-none-any.whl (42 kB)
+     |████████████████████████████████| 42 kB 302 kB/s
+Collecting contourpy>=1.0.1
+  Downloading contourpy-1.0.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+     |████████████████████████████████| 300 kB 54.6 MB/s
+Collecting numpy>=1.19
+  Downloading numpy-1.24.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+     |████████████████████████████████| 17.3 MB 73.3 MB/s
+Collecting kiwisolver>=1.0.1
+  Using cached kiwisolver-1.4.4-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.2 MB)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.7->matplotlib) (1.14.0)
+Installing collected packages: cycler, python-dateutil, pyparsing, fonttools, packaging, numpy, contourpy, kiwisolver, matplotlib
+  WARNING: The scripts fonttools, pyftmerge, pyftsubset and ttx are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts f2py, f2py3 and f2py3.8 are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed contourpy-1.0.7 cycler-0.11.0 fonttools-4.38.0 kiwisolver-1.4.4 matplotlib-3.6.3 numpy-1.24.1 packaging-23.0 pyparsing-3.0.9 python-dateutil-2.8.2
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
 
 ```
 
