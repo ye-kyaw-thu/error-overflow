@@ -609,6 +609,339 @@ Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetool
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+After installed tensorflow, train again and got following error:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install tensorflow
+Collecting tensorflow
+  Using cached tensorflow-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (588.3 MB)
+Requirement already satisfied: six>=1.12.0 in /usr/lib/python3/dist-packages (from tensorflow) (1.14.0)
+Collecting tensorflow-io-gcs-filesystem>=0.23.1; platform_machine != "arm64" or platform_system != "Darwin"
+  Downloading tensorflow_io_gcs_filesystem-0.29.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (2.4 MB)
+     |████████████████████████████████| 2.4 MB 531 kB/s
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.51.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
+     |████████████████████████████████| 4.8 MB 4.3 MB/s
+Collecting protobuf<3.20,>=3.9.2
+  Using cached protobuf-3.19.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Collecting tensorflow-estimator<2.12,>=2.11.0
+  Using cached tensorflow_estimator-2.11.0-py2.py3-none-any.whl (439 kB)
+Collecting libclang>=13.0.0
+  Downloading libclang-15.0.6.1-py2.py3-none-manylinux2010_x86_64.whl (21.5 MB)
+     |████████████████████████████████| 21.5 MB 2.8 MB/s
+Collecting astunparse>=1.6.0
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting h5py>=2.9.0
+  Using cached h5py-3.7.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (4.5 MB)
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from tensorflow) (45.2.0)
+Requirement already satisfied: numpy>=1.20 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.24.1)
+Collecting tensorboard<2.12,>=2.11
+  Downloading tensorboard-2.11.2-py3-none-any.whl (6.0 MB)
+     |████████████████████████████████| 6.0 MB 2.2 MB/s
+Collecting termcolor>=1.1.0
+  Downloading termcolor-2.2.0-py3-none-any.whl (6.6 kB)
+Collecting absl-py>=1.0.0
+  Downloading absl_py-1.4.0-py3-none-any.whl (126 kB)
+     |████████████████████████████████| 126 kB 2.6 MB/s
+Collecting wrapt>=1.11.0
+  Using cached wrapt-1.14.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (81 kB)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Requirement already satisfied: packaging in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (23.0)
+Collecting google-pasta>=0.1.1
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting flatbuffers>=2.0
+  Downloading flatbuffers-23.1.4-py2.py3-none-any.whl (26 kB)
+Collecting gast<=0.4.0,>=0.2.1
+  Using cached gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting typing-extensions>=3.6.6
+  Using cached typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+Collecting keras<2.12,>=2.11.0
+  Using cached keras-2.11.0-py2.py3-none-any.whl (1.7 MB)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /usr/lib/python3/dist-packages (from astunparse>=1.6.0->tensorflow) (0.34.2)
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Using cached google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting werkzeug>=1.0.1
+  Using cached Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Using cached tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting markdown>=2.6.8
+  Using cached Markdown-3.4.1-py3-none-any.whl (93 kB)
+Collecting tensorboard-plugin-wit>=1.6.0
+  Using cached tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+Collecting google-auth<3,>=1.6.3
+  Downloading google_auth-2.16.0-py2.py3-none-any.whl (177 kB)
+     |████████████████████████████████| 177 kB 2.5 MB/s
+Requirement already satisfied: requests<3,>=2.21.0 in /usr/lib/python3/dist-packages (from tensorboard<2.12,>=2.11->tensorflow) (2.22.0)
+Collecting requests-oauthlib>=0.7.0
+  Using cached requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Collecting MarkupSafe>=2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting importlib-metadata>=4.4; python_version < "3.10"
+  Downloading importlib_metadata-6.0.0-py3-none-any.whl (21 kB)
+Collecting cachetools<6.0,>=2.0.0
+  Downloading cachetools-5.2.1-py3-none-any.whl (9.3 kB)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/lib/python3/dist-packages (from google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.2.1)
+Collecting rsa<5,>=3.1.4; python_version >= "3.6"
+  Using cached rsa-4.9-py3-none-any.whl (34 kB)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.12,>=2.11->tensorflow) (3.1.0)
+Requirement already satisfied: zipp>=0.5 in /usr/lib/python3/dist-packages (from importlib-metadata>=4.4; python_version < "3.10"->markdown>=2.6.8->tensorboard<2.12,>=2.11->tensorflow) (1.0.0)
+Requirement already satisfied: pyasn1>=0.1.3 in /usr/lib/python3/dist-packages (from rsa<5,>=3.1.4; python_version >= "3.6"->google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.4.2)
+Installing collected packages: tensorflow-io-gcs-filesystem, grpcio, protobuf, tensorflow-estimator, libclang, astunparse, h5py, requests-oauthlib, cachetools, rsa, google-auth, google-auth-oauthlib, MarkupSafe, werkzeug, tensorboard-data-server, importlib-metadata, markdown, tensorboard-plugin-wit, absl-py, tensorboard, termcolor, wrapt, opt-einsum, google-pasta, flatbuffers, gast, typing-extensions, keras, tensorflow
+  WARNING: The scripts pyrsa-decrypt, pyrsa-encrypt, pyrsa-keygen, pyrsa-priv2pub, pyrsa-sign and pyrsa-verify are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script google-oauthlib-tool is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script markdown_py is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script tensorboard is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts estimator_ckpt_converter, import_pb_to_tensorboard, saved_model_cli, tensorboard, tf_upgrade_v2, tflite_convert, toco and toco_from_protos are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetools-5.2.1 flatbuffers-23.1.4 gast-0.4.0 google-auth-2.16.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.51.1 h5py-3.7.0 importlib-metadata-6.0.0 keras-2.11.0 libclang-15.0.6.1 markdown-3.4.1 opt-einsum-3.3.0 protobuf-3.19.6 requests-oauthlib-1.3.1 rsa-4.9 tensorboard-2.11.2 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-2.11.0 tensorflow-estimator-2.11.0 tensorflow-io-gcs-filesystem-0.29.0 termcolor-2.2.0 typing-extensions-4.4.0 werkzeug-2.2.2 wrapt-1.14.1
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+## Recreating the Conda Environment with Python3
+
+1st removed the current Conda Env with Python 2.7:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda deactivate
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda env remove --name sl-mnist
+
+Remove all packages in environment /home/yekyaw.thu/.conda/envs/sl-mnist:
+
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+creating a new Conda environment with specified Python version ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda create --name sl-mnist python=3.8
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 22.11.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/yekyaw.thu/.conda/envs/sl-mnist
+
+  added / updated specs:
+    - python=3.8
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2022.12.7          |   py38h06a4308_0         150 KB
+    libffi-3.4.2               |       h6a678d5_6         136 KB
+    python-3.8.15              |       h7a1cb2a_2        20.1 MB
+    setuptools-65.6.3          |   py38h06a4308_0         1.1 MB
+    sqlite-3.40.1              |       h5082296_0         1.2 MB
+    ------------------------------------------------------------
+                                           Total:        22.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2022.10.11-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2022.12.7-py38h06a4308_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+  libffi             pkgs/main/linux-64::libffi-3.4.2-h6a678d5_6
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  ncurses            pkgs/main/linux-64::ncurses-6.3-h5eee18b_3
+  openssl            pkgs/main/linux-64::openssl-1.1.1s-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-22.3.1-py38h06a4308_0
+  python             pkgs/main/linux-64::python-3.8.15-h7a1cb2a_2
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-65.6.3-py38h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.40.1-h5082296_0
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.8-h5eee18b_0
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+sqlite-3.40.1        | 1.2 MB    | ############################################################## | 100%
+certifi-2022.12.7    | 150 KB    | ############################################################## | 100%
+python-3.8.15        | 20.1 MB   | ############################################################## | 100%
+libffi-3.4.2         | 136 KB    | ############################################################## | 100%
+setuptools-65.6.3    | 1.1 MB    | ############################################################## | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate sl-mnist
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Entering to the new env:  
+
+```
+(base) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda activate sl-mnist
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Check the python version under current environment:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ python --version
+Python 3.8.15
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+## Library Installations  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install matplotlib
+Requirement already satisfied: matplotlib in /home/yekyaw.thu/.local/lib/python3.8/site-packages (3.6.3)
+Requirement already satisfied: contourpy>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: packaging>=20.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (23.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.4.4)
+Collecting pillow>=6.2.0
+  Downloading Pillow-9.4.0-cp38-cp38-manylinux_2_28_x86_64.whl (3.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 5.1 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.19 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.24.1)
+Requirement already satisfied: cycler>=0.10 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: fonttools>=4.22.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (4.38.0)
+Requirement already satisfied: python-dateutil>=2.7 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (2.8.2)
+Collecting six>=1.5
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, pillow
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+google-auth 2.16.0 requires pyasn1-modules>=0.2.1, which is not installed.
+Successfully installed pillow-9.4.0 six-1.16.0
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Because of the above error message, I installed pyans1-module as follows:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install pyasn1-modules
+Collecting pyasn1-modules
+  Using cached pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting pyasn1<0.5.0,>=0.4.6
+  Using cached pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Installing collected packages: pyasn1, pyasn1-modules
+Successfully installed pyasn1-0.4.8 pyasn1-modules-0.2.8
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Recheck/reinstall matplotlib ...  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install matplotlib
+Requirement already satisfied: matplotlib in /home/yekyaw.thu/.local/lib/python3.8/site-packages (3.6.3)
+Requirement already satisfied: cycler>=0.10 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: contourpy>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: python-dateutil>=2.7 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: numpy>=1.19 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.24.1)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: packaging>=20.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (23.0)
+Requirement already satisfied: fonttools>=4.22.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (4.38.0)
+Requirement already satisfied: pillow>=6.2.0 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: six>=1.5 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib) (1.16.0)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Installation of seaborn:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install seaborn
+Requirement already satisfied: seaborn in /home/yekyaw.thu/.local/lib/python3.8/site-packages (0.12.2)
+Requirement already satisfied: pandas>=0.25 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from seaborn) (1.5.2)
+Requirement already satisfied: numpy!=1.24.0,>=1.17 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from seaborn) (1.24.1)
+Requirement already satisfied: matplotlib!=3.6.1,>=3.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from seaborn) (3.6.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (1.4.4)
+Requirement already satisfied: cycler>=0.10 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (0.11.0)
+Requirement already satisfied: contourpy>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (1.0.7)
+Requirement already satisfied: python-dateutil>=2.7 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (2.8.2)
+Requirement already satisfied: packaging>=20.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (23.0)
+Requirement already satisfied: fonttools>=4.22.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (4.38.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (3.0.9)
+Requirement already satisfied: pillow>=6.2.0 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (9.4.0)
+Requirement already satisfied: pytz>=2020.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from pandas>=0.25->seaborn) (2022.7.1)
+Requirement already satisfied: six>=1.5 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.1->seaborn) (1.16.0)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+Check the keras ...  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install keras
+Requirement already satisfied: keras in /home/yekyaw.thu/.local/lib/python3.8/site-packages (2.11.0)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -652,3 +985,80 @@ Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetool
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
