@@ -473,20 +473,140 @@ Successfully installed sklearn-0.0.post1
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+start training and got following error:  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ time python ./model.py | tee train1.log
+Traceback (most recent call last):
+  File "./model.py", line 1, in <module>
+    import matplotlib.pyplot as plt
+ImportError: No module named matplotlib.pyplot
 
+real    0m0.012s
+user    0m0.013s
+sys     0m0.000s
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Doubting on Python versions and checked the current active python versions:  
 
 ```
-
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ python --version
+Python 2.7.18
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ python3 --version
+Python 3.8.10
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Training with Python3 and got tensorflow not exist error:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ time python3 ./model.py | tee train1.lo
+g
+Traceback (most recent call last):
+  File "./model.py", line 5, in <module>
+    import keras
+  File "/usr/local/lib/python3.8/dist-packages/keras/__init__.py", line 21, in <module>
+    from tensorflow.python import tf2
+ModuleNotFoundError: No module named 'tensorflow'
+
+real    0m0.927s
+user    0m0.934s
+sys     0m1.505s
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+OK. I will install tensorflow ...  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install tensorflow
+Collecting tensorflow
+  Using cached tensorflow-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (588.3 MB)
+Requirement already satisfied: six>=1.12.0 in /usr/lib/python3/dist-packages (from tensorflow) (1.14.0)
+Collecting tensorflow-io-gcs-filesystem>=0.23.1; platform_machine != "arm64" or platform_system != "Darwin"
+  Downloading tensorflow_io_gcs_filesystem-0.29.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (2.4 MB)
+     |████████████████████████████████| 2.4 MB 531 kB/s
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.51.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
+     |████████████████████████████████| 4.8 MB 4.3 MB/s
+Collecting protobuf<3.20,>=3.9.2
+  Using cached protobuf-3.19.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Collecting tensorflow-estimator<2.12,>=2.11.0
+  Using cached tensorflow_estimator-2.11.0-py2.py3-none-any.whl (439 kB)
+Collecting libclang>=13.0.0
+  Downloading libclang-15.0.6.1-py2.py3-none-manylinux2010_x86_64.whl (21.5 MB)
+     |████████████████████████████████| 21.5 MB 2.8 MB/s
+Collecting astunparse>=1.6.0
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting h5py>=2.9.0
+  Using cached h5py-3.7.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (4.5 MB)
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from tensorflow) (45.2.0)
+Requirement already satisfied: numpy>=1.20 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.24.1)
+Collecting tensorboard<2.12,>=2.11
+  Downloading tensorboard-2.11.2-py3-none-any.whl (6.0 MB)
+     |████████████████████████████████| 6.0 MB 2.2 MB/s
+Collecting termcolor>=1.1.0
+  Downloading termcolor-2.2.0-py3-none-any.whl (6.6 kB)
+Collecting absl-py>=1.0.0
+  Downloading absl_py-1.4.0-py3-none-any.whl (126 kB)
+     |████████████████████████████████| 126 kB 2.6 MB/s
+Collecting wrapt>=1.11.0
+  Using cached wrapt-1.14.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (81 kB)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Requirement already satisfied: packaging in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (23.0)
+Collecting google-pasta>=0.1.1
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting flatbuffers>=2.0
+  Downloading flatbuffers-23.1.4-py2.py3-none-any.whl (26 kB)
+Collecting gast<=0.4.0,>=0.2.1
+  Using cached gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting typing-extensions>=3.6.6
+  Using cached typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+Collecting keras<2.12,>=2.11.0
+  Using cached keras-2.11.0-py2.py3-none-any.whl (1.7 MB)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /usr/lib/python3/dist-packages (from astunparse>=1.6.0->tensorflow) (0.34.2)
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Using cached google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting werkzeug>=1.0.1
+  Using cached Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Using cached tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting markdown>=2.6.8
+  Using cached Markdown-3.4.1-py3-none-any.whl (93 kB)
+Collecting tensorboard-plugin-wit>=1.6.0
+  Using cached tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+Collecting google-auth<3,>=1.6.3
+  Downloading google_auth-2.16.0-py2.py3-none-any.whl (177 kB)
+     |████████████████████████████████| 177 kB 2.5 MB/s
+Requirement already satisfied: requests<3,>=2.21.0 in /usr/lib/python3/dist-packages (from tensorboard<2.12,>=2.11->tensorflow) (2.22.0)
+Collecting requests-oauthlib>=0.7.0
+  Using cached requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Collecting MarkupSafe>=2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting importlib-metadata>=4.4; python_version < "3.10"
+  Downloading importlib_metadata-6.0.0-py3-none-any.whl (21 kB)
+Collecting cachetools<6.0,>=2.0.0
+  Downloading cachetools-5.2.1-py3-none-any.whl (9.3 kB)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/lib/python3/dist-packages (from google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.2.1)
+Collecting rsa<5,>=3.1.4; python_version >= "3.6"
+  Using cached rsa-4.9-py3-none-any.whl (34 kB)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.12,>=2.11->tensorflow) (3.1.0)
+Requirement already satisfied: zipp>=0.5 in /usr/lib/python3/dist-packages (from importlib-metadata>=4.4; python_version < "3.10"->markdown>=2.6.8->tensorboard<2.12,>=2.11->tensorflow) (1.0.0)
+Requirement already satisfied: pyasn1>=0.1.3 in /usr/lib/python3/dist-packages (from rsa<5,>=3.1.4; python_version >= "3.6"->google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.4.2)
+Installing collected packages: tensorflow-io-gcs-filesystem, grpcio, protobuf, tensorflow-estimator, libclang, astunparse, h5py, requests-oauthlib, cachetools, rsa, google-auth, google-auth-oauthlib, MarkupSafe, werkzeug, tensorboard-data-server, importlib-metadata, markdown, tensorboard-plugin-wit, absl-py, tensorboard, termcolor, wrapt, opt-einsum, google-pasta, flatbuffers, gast, typing-extensions, keras, tensorflow
+  WARNING: The scripts pyrsa-decrypt, pyrsa-encrypt, pyrsa-keygen, pyrsa-priv2pub, pyrsa-sign and pyrsa-verify are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script google-oauthlib-tool is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script markdown_py is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script tensorboard is installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts estimator_ckpt_converter, import_pb_to_tensorboard, saved_model_cli, tensorboard, tf_upgrade_v2, tflite_convert, toco and toco_from_protos are installed in '/home/yekyaw.thu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetools-5.2.1 flatbuffers-23.1.4 gast-0.4.0 google-auth-2.16.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.51.1 h5py-3.7.0 importlib-metadata-6.0.0 keras-2.11.0 libclang-15.0.6.1 markdown-3.4.1 opt-einsum-3.3.0 protobuf-3.19.6 requests-oauthlib-1.3.1 rsa-4.9 tensorboard-2.11.2 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-2.11.0 tensorflow-estimator-2.11.0 tensorflow-io-gcs-filesystem-0.29.0 termcolor-2.2.0 typing-extensions-4.4.0 werkzeug-2.2.2 wrapt-1.14.1
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
