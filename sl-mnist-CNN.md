@@ -1286,8 +1286,16 @@ sys     0m9.880s
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Check the output model:  
 
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ ls
+camerahands.py  model.py  README.md  sign_mnist_test.csv  sign_mnist_train.csv  smnist.h5  train1.log
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ wc smnist.h5
+  10114   58513 3244748 smnist.h5
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ ls -lh ./smnist.h5
+-rw-r--r-- 1 yekyaw.thu domain users 3.1M Jan 17 17:29 ./smnist.h5
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
