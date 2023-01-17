@@ -901,17 +901,81 @@ Requirement already satisfied: keras in /home/yekyaw.thu/.local/lib/python3.8/si
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Check/Install Sklearn:  
 
 ```
-
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install sklearn
+Requirement already satisfied: sklearn in /home/yekyaw.thu/.local/lib/python3.8/site-packages (0.0.post1)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Check/Install pandas library ...  
 
 ```
-
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install sklearn
+Requirement already satisfied: sklearn in /home/yekyaw.thu/.local/lib/python3.8/site-packages (0.0.post1)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Installing the tensorflow framework ...  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install tensorflow
+Requirement already satisfied: tensorflow in /home/yekyaw.thu/.local/lib/python3.8/site-packages (2.11.0)
+Requirement already satisfied: h5py>=2.9.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (3.7.0)
+Requirement already satisfied: keras<2.12,>=2.11.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (2.11.0)
+Requirement already satisfied: six>=1.12.0 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from tensorflow) (1.16.0)
+Requirement already satisfied: tensorboard<2.12,>=2.11 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (2.11.2)
+Requirement already satisfied: protobuf<3.20,>=3.9.2 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (3.19.6)
+Requirement already satisfied: wrapt>=1.11.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.14.1)
+Requirement already satisfied: gast<=0.4.0,>=0.2.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (0.4.0)
+Requirement already satisfied: packaging in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (23.0)
+Requirement already satisfied: flatbuffers>=2.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (23.1.4)
+Requirement already satisfied: tensorflow-estimator<2.12,>=2.11.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (2.11.0)
+Requirement already satisfied: libclang>=13.0.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (15.0.6.1)
+Requirement already satisfied: setuptools in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from tensorflow) (65.6.3)
+Requirement already satisfied: astunparse>=1.6.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.6.3)
+Requirement already satisfied: opt-einsum>=2.3.2 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (3.3.0)
+Requirement already satisfied: grpcio<2.0,>=1.24.3 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.51.1)
+Requirement already satisfied: numpy>=1.20 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.24.1)
+Requirement already satisfied: termcolor>=1.1.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (2.2.0)
+Requirement already satisfied: tensorflow-io-gcs-filesystem>=0.23.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (0.29.0)
+Requirement already satisfied: typing-extensions>=3.6.6 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (4.4.0)
+Requirement already satisfied: google-pasta>=0.1.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (0.2.0)
+Requirement already satisfied: absl-py>=1.0.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorflow) (1.4.0)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from astunparse>=1.6.0->tensorflow) (0.37.1)
+Requirement already satisfied: markdown>=2.6.8 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (3.4.1)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (0.4.6)
+Requirement already satisfied: werkzeug>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (2.2.2)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (2.16.0)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (1.8.1)
+Collecting requests<3,>=2.21.0
+  Downloading requests-2.28.2-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 339.1 kB/s eta 0:00:00
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (0.6.1)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (4.9)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (5.2.1)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.2.8)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.12,>=2.11->tensorflow) (1.3.1)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from markdown>=2.6.8->tensorboard<2.12,>=2.11->tensorflow) (6.0.0)
+Collecting idna<4,>=2.5
+  Using cached idna-3.4-py3-none-any.whl (61 kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (2022.12.7)
+Collecting urllib3<1.27,>=1.21.1
+  Downloading urllib3-1.26.14-py2.py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 900.0 kB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.0.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (195 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 195.4/195.4 kB 2.7 MB/s eta 0:00:00
+Requirement already satisfied: MarkupSafe>=2.1.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from werkzeug>=1.0.1->tensorboard<2.12,>=2.11->tensorflow) (2.1.1)
+Collecting zipp>=0.5
+  Downloading zipp-3.11.0-py3-none-any.whl (6.6 kB)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /home/yekyaw.thu/.conda/envs/sl-mnist/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<2.12,>=2.11->tensorflow) (0.4.8)
+Collecting oauthlib>=3.0.0
+  Using cached oauthlib-3.2.2-py3-none-any.whl (151 kB)
+Installing collected packages: charset-normalizer, zipp, urllib3, oauthlib, idna, requests
+Successfully installed charset-normalizer-3.0.1 idna-3.4 oauthlib-3.2.2 requests-2.28.2 urllib3-1.26.14 zipp-3.11.0
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
