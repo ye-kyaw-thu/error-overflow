@@ -384,21 +384,73 @@ Successfully installed contourpy-1.0.7 cycler-0.11.0 fonttools-4.38.0 kiwisolver
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Installing the seaborn library ...  
 
 ```
-
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install seaborn
+Collecting seaborn
+  Downloading seaborn-0.12.2-py3-none-any.whl (293 kB)
+     |████████████████████████████████| 293 kB 482 kB/s
+Requirement already satisfied: numpy!=1.24.0,>=1.17 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from seaborn) (1.24.1)
+Collecting pandas>=0.25
+  Downloading pandas-1.5.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+     |████████████████████████████████| 12.2 MB 57 kB/s
+Requirement already satisfied: matplotlib!=3.6.1,>=3.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from seaborn) (3.6.3)
+Collecting pytz>=2020.1
+  Downloading pytz-2022.7.1-py2.py3-none-any.whl (499 kB)
+     |████████████████████████████████| 499 kB 72.5 MB/s
+Requirement already satisfied: python-dateutil>=2.8.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from pandas>=0.25->seaborn) (2.8.2)
+Requirement already satisfied: contourpy>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (1.0.7)
+Requirement already satisfied: fonttools>=4.22.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (4.38.0)
+Requirement already satisfied: pillow>=6.2.0 in /usr/lib/python3/dist-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (7.0.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (1.4.4)
+Requirement already satisfied: packaging>=20.0 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (23.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (3.0.9)
+Requirement already satisfied: cycler>=0.10 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn) (0.11.0)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.1->pandas>=0.25->seaborn) (1.14.0)
+Installing collected packages: pytz, pandas, seaborn
+Successfully installed pandas-1.5.2 pytz-2022.7.1 seaborn-0.12.2
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Checking the Keras framework:  
 
 ```
-
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install keras
+Requirement already satisfied: keras in /usr/local/lib/python3.8/dist-packages (2.9.0)
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Installing the sklearn library ...  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install sklearn
+Collecting sklearn
+  Using cached sklearn-0.0.post1.tar.gz (3.6 kB)
+Building wheels for collected packages: sklearn
+  Building wheel for sklearn (setup.py) ... done
+  Created wheel for sklearn: filename=sklearn-0.0.post1-py3-none-any.whl size=2342 sha256=ed2785c160d9e36ec0d1cd9647b555c4a1d42880b0e9ce374f5294e36ac2fec5
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/14/25/f7/1cc0956978ae479e75140219088deb7a36f60459df242b1a72
+Successfully built sklearn
+Installing collected packages: sklearn
+Successfully installed sklearn-0.0.post1
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
+```
 
+Checking the pandas library:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install sklearn
+Collecting sklearn
+  Using cached sklearn-0.0.post1.tar.gz (3.6 kB)
+Building wheels for collected packages: sklearn
+  Building wheel for sklearn (setup.py) ... done
+  Created wheel for sklearn: filename=sklearn-0.0.post1-py3-none-any.whl size=2342 sha256=ed2785c160d9e36ec0d1cd9647b555c4a1d42880b0e9ce374f5294e36ac2fec5
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/14/25/f7/1cc0956978ae479e75140219088deb7a36f60459df242b1a72
+Successfully built sklearn
+Installing collected packages: sklearn
+Successfully installed sklearn-0.0.post1
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
