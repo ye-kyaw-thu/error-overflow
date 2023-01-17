@@ -1632,16 +1632,39 @@ Successfully installed pandas-1.5.2 pytz-2022.7.1
 (sl-mnist) C:\Users\801680\exp>
 ```
 
-```
+Copied trained CNN model to the local path:  
 
 ```
-
+scp -P xxxx -i C:\Users\801680\.ssh\id_rsa-for-cadt-gpu-server yekyaw.thu@103.16.63.233:/home/yekyaw.thu//exp/sl-mnist/Sign-Language-Detection/smnist.h5 .
 ```
 
-```
+Check the current path ...  
 
 ```
+(sl-mnist) C:\Users\801680\exp>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9C54-A208
 
+ Directory of C:\Users\801680\exp
+
+01/17/2023  07:17 PM    <DIR>          .
+01/17/2023  07:17 PM    <DIR>          ..
+01/17/2023  06:53 PM             4,296 camerahands.py
+01/17/2023  07:17 PM         3,244,748 smnist.h5
+               2 File(s)      3,249,044 bytes
+               2 Dir(s)  75,203,239,936 bytes free
+
+(sl-mnist) C:\Users\801680\exp>
+```
+
+## Online Testing 
+
+```
+(sl-mnist) C:\Users\801680\exp>python camerahands.py
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Escape hit, closing...
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
 ```
