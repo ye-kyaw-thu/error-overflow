@@ -1116,8 +1116,174 @@ Tue Jan 17 17:28:19 2023
 (base) yekyaw.thu@gpu:~$
 ```
 
-```
+Training log is as follows:  
 
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ time python ./model.py | tee train1.log
+2023-01-17 17:26:59.920643: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-01-17 17:27:00.521122: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2023-01-17 17:27:00.521172: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2023-01-17 17:27:00.521182: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2023-01-17 17:27:03.975568: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:03.976268: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.036288: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.037529: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.039544: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.040538: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.041811: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-01-17 17:27:04.235717: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.236416: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.237758: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.238452: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.239778: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:04.240439: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.202207: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.202931: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.204273: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.204964: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.206241: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9637 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:0a:00.0, compute capability: 7.5
+2023-01-17 17:27:05.206679: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.207349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 9637 MB memory:  -> device: 1, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:42:00.0, compute capability: 7.5
+2023-01-17 17:27:05.207588: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-01-17 17:27:05.208258: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 9634 MB memory:  -> device: 2, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:43:00.0, compute capability: 7.5
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 28, 28, 75)        750
+
+ batch_normalization (BatchN  (None, 28, 28, 75)       300
+ ormalization)
+
+ max_pooling2d (MaxPooling2D  (None, 14, 14, 75)       0
+ )
+
+ conv2d_1 (Conv2D)           (None, 14, 14, 50)        33800
+
+ dropout (Dropout)           (None, 14, 14, 50)        0
+
+ batch_normalization_1 (Batc  (None, 14, 14, 50)       200
+ hNormalization)
+
+ max_pooling2d_1 (MaxPooling  (None, 7, 7, 50)         0
+ 2D)
+
+ conv2d_2 (Conv2D)           (None, 7, 7, 25)          11275
+
+ batch_normalization_2 (Batc  (None, 7, 7, 25)         100
+ hNormalization)
+
+ max_pooling2d_2 (MaxPooling  (None, 4, 4, 25)         0
+ 2D)
+
+ flatten (Flatten)           (None, 400)               0
+
+ dense (Dense)               (None, 512)               205312
+
+ dropout_1 (Dropout)         (None, 512)               0
+
+ dense_1 (Dense)             (None, 24)                12312
+
+=================================================================
+Total params: 264,049
+Trainable params: 263,749
+Non-trainable params: 300
+_________________________________________________________________
+Epoch 1/20
+2023-01-17 17:27:06.287942: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape insequential/dropout/dropout/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+2023-01-17 17:27:07.438560: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:428] Loaded cuDNN version 8204
+2023-01-17 17:27:08.511631: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:09.742436: I tensorflow/compiler/xla/service/service.cc:173] XLA service 0x7f94848e0030 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-01-17 17:27:09.742467: I tensorflow/compiler/xla/service/service.cc:181]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2023-01-17 17:27:09.742472: I tensorflow/compiler/xla/service/service.cc:181]   StreamExecutor device (1): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2023-01-17 17:27:09.742476: I tensorflow/compiler/xla/service/service.cc:181]   StreamExecutor device (2): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2023-01-17 17:27:09.745992: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-01-17 17:27:09.808758: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:09.848809: I tensorflow/compiler/jit/xla_compilation_cache.cc:477] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2023-01-17 17:27:09.909103: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:10.068346: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:10.174470: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:10.616927: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:10.776867: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:10.963754: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:11.122934: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-01-17 17:27:11.299162: W tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:115] *** WARNING *** You are using ptxas 10.1.243, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+215/215 [==============================] - 12s 28ms/step - loss: 1.0641 - accuracy: 0.6691 - val_loss: 3.4412 - val_accuracy: 0.1789 - lr: 0.0010
+Epoch 2/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.2056 - accuracy: 0.9319 - val_loss: 1.5670 - val_accuracy: 0.5618 - lr: 0.0010
+Epoch 3/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0984 - accuracy: 0.9672 - val_loss: 0.1545 - val_accuracy: 0.9441 - lr: 0.0010
+Epoch 4/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0619 - accuracy: 0.9808 - val_loss: 0.0464 - val_accuracy: 0.9884 - lr: 0.0010
+Epoch 5/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0423 - accuracy: 0.9867 - val_loss: 0.0735 - val_accuracy: 0.9731 - lr: 0.0010
+Epoch 6/20
+214/215 [============================>.] - ETA: 0s - loss: 0.0379 - accuracy: 0.9885
+Epoch 6: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+215/215 [==============================] - 6s 27ms/step - loss: 0.0378 - accuracy: 0.9886 - val_loss: 0.1312 - val_accuracy: 0.9495 - lr: 0.0010
+Epoch 7/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0219 - accuracy: 0.9930 - val_loss: 0.0175 - val_accuracy: 0.9929 - lr: 5.0000e-04
+Epoch 8/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0164 - accuracy: 0.9954 - val_loss: 0.0049 - val_accuracy: 0.9992 - lr: 5.0000e-04
+Epoch 9/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0137 - accuracy: 0.9956 - val_loss: 0.0044 - val_accuracy: 0.9993 - lr: 5.0000e-04
+Epoch 10/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0132 - accuracy: 0.9959 - val_loss: 0.0271 - val_accuracy: 0.9881 - lr: 5.0000e-04
+Epoch 11/20
+214/215 [============================>.] - ETA: 0s - loss: 0.0127 - accuracy: 0.9962
+Epoch 11: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+215/215 [==============================] - 6s 26ms/step - loss: 0.0126 - accuracy: 0.9962 - val_loss: 0.0227 - val_accuracy: 0.9943 - lr: 5.0000e-04
+Epoch 12/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0096 - accuracy: 0.9972 - val_loss: 0.0129 - val_accuracy: 0.9939 - lr: 2.5000e-04
+Epoch 13/20
+215/215 [==============================] - ETA: 0s - loss: 0.0083 - accuracy: 0.9975
+Epoch 13: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+215/215 [==============================] - 5s 25ms/step - loss: 0.0083 - accuracy: 0.9975 - val_loss: 0.0047 - val_accuracy: 0.9993 - lr: 2.5000e-04
+Epoch 14/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0063 - accuracy: 0.9985 - val_loss: 0.0030 - val_accuracy: 0.9996 - lr: 1.2500e-04
+Epoch 15/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0067 - accuracy: 0.9982 - val_loss: 0.0010 - val_accuracy: 1.0000 - lr: 1.2500e-04
+Epoch 16/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0061 - accuracy: 0.9983 - val_loss: 0.0010 - val_accuracy: 1.0000 - lr: 1.2500e-04
+Epoch 17/20
+214/215 [============================>.] - ETA: 0s - loss: 0.0050 - accuracy: 0.9986
+Epoch 17: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+215/215 [==============================] - 5s 25ms/step - loss: 0.0050 - accuracy: 0.9986 - val_loss: 0.0055 - val_accuracy: 0.9983 - lr: 1.2500e-04
+Epoch 18/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0044 - accuracy: 0.9989 - val_loss: 0.0012 - val_accuracy: 1.0000 - lr: 6.2500e-05
+Epoch 19/20
+215/215 [==============================] - ETA: 0s - loss: 0.0042 - accuracy: 0.9991
+Epoch 19: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+215/215 [==============================] - 6s 26ms/step - loss: 0.0042 - accuracy: 0.9991 - val_loss: 0.0014 - val_accuracy: 1.0000 - lr: 6.2500e-05
+Epoch 20/20
+215/215 [==============================] - 6s 26ms/step - loss: 0.0042 - accuracy: 0.9989 - val_loss: 0.0013 - val_accuracy: 1.0000 - lr: 3.1250e-05
+
+real    2m7.374s
+user    2m37.461s
+sys     0m9.880s
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
