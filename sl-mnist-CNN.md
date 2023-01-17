@@ -1526,20 +1526,110 @@ Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetool
 (sl-mnist) C:\Users\801680\exp>
 ```
 
-```
+Installing cv2 ...  
 
 ```
-
+(sl-mnist) C:\Users\801680\exp>pip install opencv-python
+Collecting opencv-python
+  Downloading opencv_python-4.7.0.68-cp37-abi3-win_amd64.whl (38.2 MB)
+     ---------------------------------------- 38.2/38.2 MB 2.5 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.17.0 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from opencv-python) (1.24.1)
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.7.0.68
 ```
 
-```
+check cv2 library by module loading ...  
 
 ```
+(sl-mnist) C:\Users\801680\exp>python
+Python 3.8.15 (default, Nov 24 2022, 14:38:14) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+>>> print(cv2.__version__)
+4.7.0
+>>> exit()
 
+(sl-mnist) C:\Users\801680\exp>
 ```
 
+It looks OK.  
+Installation of the mediapipe library ...  
+
+```
+(sl-mnist) C:\Users\801680\exp>pip install mediapipe
+Collecting mediapipe
+  Downloading mediapipe-0.9.0.1-cp38-cp38-win_amd64.whl (49.8 MB)
+     ---------------------------------------- 49.8/49.8 MB 2.5 MB/s eta 0:00:00
+Requirement already satisfied: absl-py in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from mediapipe) (1.4.0)
+Collecting opencv-contrib-python
+  Downloading opencv_contrib_python-4.7.0.68-cp37-abi3-win_amd64.whl (44.9 MB)
+     ---------------------------------------- 44.9/44.9 MB 2.5 MB/s eta 0:00:00
+Requirement already satisfied: protobuf<4,>=3.11 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from mediapipe) (3.19.6)
+Requirement already satisfied: numpy in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from mediapipe) (1.24.1)
+Collecting matplotlib
+  Downloading matplotlib-3.6.3-cp38-cp38-win_amd64.whl (7.2 MB)
+     ---------------------------------------- 7.2/7.2 MB 2.8 MB/s eta 0:00:00
+Collecting attrs>=19.1.0
+  Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+     ---------------------------------------- 60.0/60.0 kB 3.1 MB/s eta 0:00:00
+Requirement already satisfied: flatbuffers>=2.0 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from mediapipe) (23.1.4)
+Collecting contourpy>=1.0.1
+  Downloading contourpy-1.0.7-cp38-cp38-win_amd64.whl (162 kB)
+     ---------------------------------------- 163.0/163.0 kB ? eta 0:00:00
+Collecting cycler>=0.10
+  Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting python-dateutil>=2.7
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     ---------------------------------------- 247.7/247.7 kB 15.8 MB/s eta 0:00:00
+Requirement already satisfied: packaging>=20.0 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from matplotlib->mediapipe) (23.0)
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.4.4-cp38-cp38-win_amd64.whl (55 kB)
+     ---------------------------------------- 55.4/55.4 kB ? eta 0:00:00
+Collecting pyparsing>=2.2.1
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+     ---------------------------------------- 98.3/98.3 kB ? eta 0:00:00
+Collecting pillow>=6.2.0
+  Downloading Pillow-9.4.0-cp38-cp38-win_amd64.whl (2.5 MB)
+     ---------------------------------------- 2.5/2.5 MB 4.1 MB/s eta 0:00:00
+Collecting fonttools>=4.22.0
+  Downloading fonttools-4.38.0-py3-none-any.whl (965 kB)
+     ---------------------------------------- 965.4/965.4 kB 4.4 MB/s eta 0:00:00
+Requirement already satisfied: six>=1.5 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from python-dateutil>=2.7->matplotlib->mediapipe) (1.16.0)
+Installing collected packages: python-dateutil, pyparsing, pillow, opencv-contrib-python, kiwisolver, fonttools, cycler, contourpy, attrs, matplotlib, mediapipe
+Successfully installed attrs-22.2.0 contourpy-1.0.7 cycler-0.11.0 fonttools-4.38.0 kiwisolver-1.4.4 matplotlib-3.6.3 mediapipe-0.9.0.1 opencv-contrib-python-4.7.0.68 pillow-9.4.0 pyparsing-3.0.9 python-dateutil-2.8.2
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
+check for keras and numpy  ...  
+
+```
+(sl-mnist) C:\Users\801680\exp>pip install keras
+Requirement already satisfied: keras in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (2.11.0)
+
+(sl-mnist) C:\Users\801680\exp>pip install numpy
+Requirement already satisfied: numpy in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (1.24.1)
+
+(sl-mnist) C:\Users\801680\exp>
+```
+
+Pandas library installation ...  
+
+```
+(sl-mnist) C:\Users\801680\exp>pip install pandas
+Collecting pandas
+  Downloading pandas-1.5.2-cp38-cp38-win_amd64.whl (11.0 MB)
+     ---------------------------------------- 11.0/11.0 MB 2.7 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.20.3 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from pandas) (1.24.1)
+Requirement already satisfied: python-dateutil>=2.8.1 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from pandas) (2.8.2)
+Collecting pytz>=2020.1
+  Downloading pytz-2022.7.1-py2.py3-none-any.whl (499 kB)
+     ---------------------------------------- 499.4/499.4 kB 5.2 MB/s eta 0:00:00
+Requirement already satisfied: six>=1.5 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from python-dateutil>=2.8.1->pandas) (1.16.0)
+Installing collected packages: pytz, pandas
+Successfully installed pandas-1.5.2 pytz-2022.7.1
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
 ```
