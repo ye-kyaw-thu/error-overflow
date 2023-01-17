@@ -978,20 +978,142 @@ Successfully installed charset-normalizer-3.0.1 idna-3.4 oauthlib-3.2.2 requests
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+## Training CNN Model with SL-MNIST Dataset
+
+I hope for this time, the training program will work ...  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ time python ./model.py | tee train1.log
+2023-01-17 17:15:22.521463: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-01-17 17:15:23.131300: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2023-01-17 17:15:23.131355: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2023-01-17 17:15:23.131364: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Traceback (most recent call last):
+  File "./model.py", line 9, in <module>
+    from sklearn.model_selection import train_test_split
+ModuleNotFoundError: No module named 'sklearn'
 
+real    0m1.933s
+user    0m2.071s
+sys     0m1.589s
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+Updating the pip library with conda:  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ conda install -c anaconda pip
+Collecting package metadata (current_repodata.json): done
+Solving environment: |
+The environment is inconsistent, please check the package plan carefully
+The following packages are causing the inconsistency:
 
+  - defaults/linux-64::sqlite==3.40.1=h5082296_0
+  - defaults/linux-64::pip==22.3.1=py38h06a4308_0
+  - defaults/linux-64::tk==8.6.12=h1ccaba5_0
+  - defaults/linux-64::ncurses==6.3=h5eee18b_3
+  - defaults/linux-64::zlib==1.2.13=h5eee18b_0
+  - defaults/linux-64::libgcc-ng==11.2.0=h1234567_1
+  - defaults/linux-64::xz==5.2.8=h5eee18b_0
+  - defaults/linux-64::setuptools==65.6.3=py38h06a4308_0
+  - defaults/linux-64::certifi==2022.12.7=py38h06a4308_0
+  - defaults/linux-64::openssl==1.1.1s=h7f8727e_0
+  - defaults/linux-64::readline==8.2=h5eee18b_0
+  - defaults/linux-64::libffi==3.4.2=h6a678d5_6
+  - defaults/linux-64::python==3.8.15=h7a1cb2a_2
+  - defaults/linux-64::libstdcxx-ng==11.2.0=h1234567_1
+  - defaults/noarch::wheel==0.37.1=pyhd3eb1b0_0
+done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 22.11.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/yekyaw.thu/.conda/envs/sl-mnist
+
+  added / updated specs:
+    - pip
+
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    pkgs/main::ca-certificates-2022.10.11~ --> anaconda::ca-certificates-2022.07.19-h06a4308_0
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Installation with specific command as follows:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ python3 -m pip install scikit-learn
+Collecting scikit-learn
+  Downloading scikit_learn-1.2.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 10.2 MB/s eta 0:00:00
+Collecting scipy>=1.3.2
+  Downloading scipy-1.10.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.5/34.5 MB 11.6 MB/s eta 0:00:00
+Collecting joblib>=1.1.1
+  Using cached joblib-1.2.0-py3-none-any.whl (297 kB)
+Collecting threadpoolctl>=2.0.0
+  Using cached threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+Requirement already satisfied: numpy>=1.17.3 in /home/yekyaw.thu/.local/lib/python3.8/site-packages (from scikit-learn) (1.24.1)
+Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+Successfully installed joblib-1.2.0 scikit-learn-1.2.0 scipy-1.10.0 threadpoolctl-3.1.0
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
+Training again ...  
+Now training and check the GPU status ...  
+
+```
+(base) yekyaw.thu@gpu:~$ (base) yekyaw.thu@gpu:~$ nvidia-smi
+Tue Jan 17 17:28:19 2023
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 46%   53C    P2    73W / 300W |  10604MiB / 11019MiB |     17%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 39%   51C    P8    21W / 257W |    332MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 36%   52C    P8    30W / 250W |    332MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    691161      C   python                          10601MiB |
+|    1   N/A  N/A    691161      C   python                            329MiB |
+|    2   N/A  N/A    691161      C   python                            329MiB |
++-----------------------------------------------------------------------------+
+(base) yekyaw.thu@gpu:~$
 ```
 
 ```
