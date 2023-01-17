@@ -1298,20 +1298,232 @@ camerahands.py  model.py  README.md  sign_mnist_test.csv  sign_mnist_train.csv  
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+## Preparing for Online Testing
+
+I wanna try on Windows OS and thus I installed Anaconda on my Windows machine and then work under Anaconda Terminal.  
 
 ```
-
+(base) C:\Users\801680>mkdir exp
+(base) C:\Users\801680>cd exp
+(base) C:\Users\801680\exp>
 ```
 
-```
+Prepare camerahands.py source code ...  
 
 ```
-
+(base) C:\Users\801680\exp>move ..\Downloads\camerahands.py .
+        1 file(s) moved.
+(base) C:\Users\801680\exp>
 ```
 
+Crearing a new conda environment ...  
+
+```
+(base) C:\Users\801680\exp>conda create --name sl-mnist python=3.8
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 22.9.0
+  latest version: 22.11.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: C:\Users\801680\Anaconda3\envs\sl-mnist
+
+  added / updated specs:
+    - python=3.8
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2022.10.11 |       haa95532_0         125 KB
+    certifi-2022.12.7          |   py38haa95532_0         148 KB
+    libffi-3.4.2               |       hd77b12b_6         109 KB
+    openssl-1.1.1s             |       h2bbff1b_0         5.5 MB
+    pip-22.3.1                 |   py38haa95532_0         2.7 MB
+    python-3.8.15              |       h6244533_2        18.9 MB
+    setuptools-65.6.3          |   py38haa95532_0         1.1 MB
+    sqlite-3.40.1              |       h2bbff1b_0         889 KB
+    wincertstore-0.2           |   py38haa95532_2          15 KB
+    ------------------------------------------------------------
+                                           Total:        29.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  ca-certificates    pkgs/main/win-64::ca-certificates-2022.10.11-haa95532_0 None
+  certifi            pkgs/main/win-64::certifi-2022.12.7-py38haa95532_0 None
+  libffi             pkgs/main/win-64::libffi-3.4.2-hd77b12b_6 None
+  openssl            pkgs/main/win-64::openssl-1.1.1s-h2bbff1b_0 None
+  pip                pkgs/main/win-64::pip-22.3.1-py38haa95532_0 None
+  python             pkgs/main/win-64::python-3.8.15-h6244533_2 None
+  setuptools         pkgs/main/win-64::setuptools-65.6.3-py38haa95532_0 None
+  sqlite             pkgs/main/win-64::sqlite-3.40.1-h2bbff1b_0 None
+  vc                 pkgs/main/win-64::vc-14.2-h21ff451_1 None
+  vs2015_runtime     pkgs/main/win-64::vs2015_runtime-14.27.29016-h5e58377_2 None
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None
+  wincertstore       pkgs/main/win-64::wincertstore-0.2-py38haa95532_2 None
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+wincertstore-0.2     | 15 KB     | ############################################################################ | 100%
+openssl-1.1.1s       | 5.5 MB    | ############################################################################ | 100%
+libffi-3.4.2         | 109 KB    | ############################################################################ | 100%
+sqlite-3.40.1        | 889 KB    | ############################################################################ | 100%
+certifi-2022.12.7    | 148 KB    | ############################################################################ | 100%
+setuptools-65.6.3    | 1.1 MB    | ############################################################################ | 100%
+pip-22.3.1           | 2.7 MB    | ############################################################################ | 100%
+ca-certificates-2022 | 125 KB    | ############################################################################ | 100%
+python-3.8.15        | 18.9 MB   | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate sl-mnist
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Retrieving notices: ...working... done
+
+(base) C:\Users\801680\exp>conda activate sl-mnist
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
+Installation of tensorflow-cpu ...  
+
+```
+(sl-mnist) C:\Users\801680\exp>pip install tensorflow-cpu
+Collecting tensorflow-cpu
+  Downloading tensorflow_cpu-2.11.0-cp38-cp38-win_amd64.whl (1.9 kB)
+Collecting tensorflow-intel==2.11.0
+  Downloading tensorflow_intel-2.11.0-cp38-cp38-win_amd64.whl (266.3 MB)
+     ---------------------------------------- 266.3/266.3 MB 2.2 MB/s eta 0:00:00
+Collecting typing-extensions>=3.6.6
+  Downloading typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+Collecting protobuf<3.20,>=3.9.2
+  Downloading protobuf-3.19.6-cp38-cp38-win_amd64.whl (896 kB)
+     ---------------------------------------- 896.1/896.1 kB 7.1 MB/s eta 0:00:00
+Collecting gast<=0.4.0,>=0.2.1
+  Downloading gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting tensorboard<2.12,>=2.11
+  Downloading tensorboard-2.11.2-py3-none-any.whl (6.0 MB)
+     ---------------------------------------- 6.0/6.0 MB 3.0 MB/s eta 0:00:00
+Collecting numpy>=1.20
+  Downloading numpy-1.24.1-cp38-cp38-win_amd64.whl (14.9 MB)
+     ---------------------------------------- 14.9/14.9 MB 1.5 MB/s eta 0:00:00
+Collecting packaging
+  Downloading packaging-23.0-py3-none-any.whl (42 kB)
+     ---------------------------------------- 42.7/42.7 kB ? eta 0:00:00
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.51.1-cp38-cp38-win_amd64.whl (3.7 MB)
+     ---------------------------------------- 3.7/3.7 MB 3.5 MB/s eta 0:00:00
+Collecting opt-einsum>=2.3.2
+  Downloading opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+     ---------------------------------------- 65.5/65.5 kB 3.7 MB/s eta 0:00:00
+Collecting google-pasta>=0.1.1
+  Downloading google_pasta-0.2.0-py3-none-any.whl (57 kB)
+     ---------------------------------------- 57.5/57.5 kB 3.1 MB/s eta 0:00:00
+Collecting astunparse>=1.6.0
+  Downloading astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting keras<2.12,>=2.11.0
+  Downloading keras-2.11.0-py2.py3-none-any.whl (1.7 MB)
+     ---------------------------------------- 1.7/1.7 MB 4.5 MB/s eta 0:00:00
+Collecting termcolor>=1.1.0
+  Downloading termcolor-2.2.0-py3-none-any.whl (6.6 kB)
+Collecting libclang>=13.0.0
+  Downloading libclang-15.0.6.1-py2.py3-none-win_amd64.whl (23.2 MB)
+     ---------------------------------------- 23.2/23.2 MB 2.5 MB/s eta 0:00:00
+Requirement already satisfied: setuptools in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from tensorflow-intel==2.11.0->tensorflow-cpu) (65.6.3)
+Collecting h5py>=2.9.0
+  Downloading h5py-3.7.0-cp38-cp38-win_amd64.whl (2.6 MB)
+     ---------------------------------------- 2.6/2.6 MB 3.2 MB/s eta 0:00:00
+Collecting six>=1.12.0
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting tensorflow-estimator<2.12,>=2.11.0
+  Downloading tensorflow_estimator-2.11.0-py2.py3-none-any.whl (439 kB)
+     ---------------------------------------- 439.2/439.2 kB 5.5 MB/s eta 0:00:00
+Collecting wrapt>=1.11.0
+  Downloading wrapt-1.14.1-cp38-cp38-win_amd64.whl (35 kB)
+Collecting flatbuffers>=2.0
+  Downloading flatbuffers-23.1.4-py2.py3-none-any.whl (26 kB)
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+  Downloading tensorflow_io_gcs_filesystem-0.29.0-cp38-cp38-win_amd64.whl (1.5 MB)
+     ---------------------------------------- 1.5/1.5 MB 5.5 MB/s eta 0:00:00
+Collecting absl-py>=1.0.0
+  Downloading absl_py-1.4.0-py3-none-any.whl (126 kB)
+     ---------------------------------------- 126.5/126.5 kB ? eta 0:00:00
+Requirement already satisfied: wheel<1.0,>=0.23.0 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from astunparse>=1.6.0->tensorflow-intel==2.11.0->tensorflow-cpu) (0.37.1)
+Collecting requests<3,>=2.21.0
+  Downloading requests-2.28.2-py3-none-any.whl (62 kB)
+     ---------------------------------------- 62.8/62.8 kB 3.5 MB/s eta 0:00:00
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Downloading google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Downloading tensorboard_data_server-0.6.1-py3-none-any.whl (2.4 kB)
+Collecting markdown>=2.6.8
+  Downloading Markdown-3.4.1-py3-none-any.whl (93 kB)
+     ---------------------------------------- 93.3/93.3 kB 5.5 MB/s eta 0:00:00
+Collecting google-auth<3,>=1.6.3
+  Downloading google_auth-2.16.0-py2.py3-none-any.whl (177 kB)
+     ---------------------------------------- 177.8/177.8 kB 5.4 MB/s eta 0:00:00
+Collecting werkzeug>=1.0.1
+  Downloading Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+     ---------------------------------------- 232.7/232.7 kB 7.2 MB/s eta 0:00:00
+Collecting tensorboard-plugin-wit>=1.6.0
+  Downloading tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+     ---------------------------------------- 781.3/781.3 kB 5.5 MB/s eta 0:00:00
+Collecting cachetools<6.0,>=2.0.0
+  Downloading cachetools-5.2.1-py3-none-any.whl (9.3 kB)
+Collecting rsa<5,>=3.1.4
+  Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Collecting pyasn1-modules>=0.2.1
+  Downloading pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+     ---------------------------------------- 155.3/155.3 kB 1.0 MB/s eta 0:00:00
+Collecting requests-oauthlib>=0.7.0
+  Downloading requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Collecting importlib-metadata>=4.4
+  Downloading importlib_metadata-6.0.0-py3-none-any.whl (21 kB)
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.0.1-cp38-cp38-win_amd64.whl (95 kB)
+     ---------------------------------------- 95.8/95.8 kB 5.3 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     ---------------------------------------- 61.5/61.5 kB ? eta 0:00:00
+Collecting urllib3<1.27,>=1.21.1
+  Downloading urllib3-1.26.14-py2.py3-none-any.whl (140 kB)
+     ---------------------------------------- 140.6/140.6 kB 4.2 MB/s eta 0:00:00
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\801680\anaconda3\envs\sl-mnist\lib\site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow-intel==2.11.0->tensorflow-cpu) (2022.12.7)
+Collecting MarkupSafe>=2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-win_amd64.whl (17 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.11.0-py3-none-any.whl (6.6 kB)
+Collecting pyasn1<0.5.0,>=0.4.6
+  Downloading pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+     ---------------------------------------- 77.1/77.1 kB 285.9 kB/s eta 0:00:00
+Collecting oauthlib>=3.0.0
+  Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+     ---------------------------------------- 151.7/151.7 kB 1.5 MB/s eta 0:00:00
+Installing collected packages: tensorboard-plugin-wit, pyasn1, libclang, flatbuffers, charset-normalizer, zipp, wrapt, urllib3, typing-extensions, termcolor, tensorflow-io-gcs-filesystem, tensorflow-estimator, tensorboard-data-server, six, rsa, pyasn1-modules, protobuf, packaging, oauthlib, numpy, MarkupSafe, keras, idna, grpcio, gast, cachetools, absl-py, werkzeug, requests, opt-einsum, importlib-metadata, h5py, google-pasta, google-auth, astunparse, requests-oauthlib, markdown, google-auth-oauthlib, tensorboard, tensorflow-intel, tensorflow-cpu
+Successfully installed MarkupSafe-2.1.1 absl-py-1.4.0 astunparse-1.6.3 cachetools-5.2.1 charset-normalizer-3.0.1 flatbuffers-23.1.4 gast-0.4.0 google-auth-2.16.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.51.1 h5py-3.7.0 idna-3.4 importlib-metadata-6.0.0 keras-2.11.0 libclang-15.0.6.1 markdown-3.4.1 numpy-1.24.1 oauthlib-3.2.2 opt-einsum-3.3.0 packaging-23.0 protobuf-3.19.6 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-2.28.2 requests-oauthlib-1.3.1 rsa-4.9 six-1.16.0 tensorboard-2.11.2 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-cpu-2.11.0 tensorflow-estimator-2.11.0 tensorflow-intel-2.11.0 tensorflow-io-gcs-filesystem-0.29.0 termcolor-2.2.0 typing-extensions-4.4.0 urllib3-1.26.14 werkzeug-2.2.2 wrapt-1.14.1 zipp-3.11.0
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
 ```
