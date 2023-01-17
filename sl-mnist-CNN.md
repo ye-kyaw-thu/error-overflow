@@ -453,8 +453,24 @@ Successfully installed sklearn-0.0.post1
 (sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
-```
+I think necessary libraries are already installed and want to make confirmation by training the model ...  
 
+## Training the CNN Model with SL-MNIST Dataset
+
+before training copied the training/testing CSV files to the current path as follows:  
+
+```
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$ pip install sklearn
+Collecting sklearn
+  Using cached sklearn-0.0.post1.tar.gz (3.6 kB)
+Building wheels for collected packages: sklearn
+  Building wheel for sklearn (setup.py) ... done
+  Created wheel for sklearn: filename=sklearn-0.0.post1-py3-none-any.whl size=2342 sha256=ed2785c160d9e36ec0d1cd9647b555c4a1d42880b0e9ce374f5294e36ac2fec5
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/14/25/f7/1cc0956978ae479e75140219088deb7a36f60459df242b1a72
+Successfully built sklearn
+Installing collected packages: sklearn
+Successfully installed sklearn-0.0.post1
+(sl-mnist) yekyaw.thu@gpu:~/exp/sl-mnist/Sign-Language-Detection$
 ```
 
 ```
