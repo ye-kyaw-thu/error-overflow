@@ -1734,79 +1734,13 @@ For your reference:
 
 <br />
 
-```
 
-```
+## To Do
 
-```
+[1] testing for Khmer Fingerspelling
+[2] testing with Burmese Fingerspelling
 
-```
+## Reference
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+[1] https://github.com/mg343/Sign-Language-Detection  
+[2] https://www.kaggle.com/datasets/datamunge/sign-language-mnist?resource=download
