@@ -1729,7 +1729,7 @@ For your reference:
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/sl-sw/b.png" alt="ASL online testing from Windows OS local machine" width="800"/>  
 </p>  
 <div align="center">
-  Fig.1 An example of ASL online testing from Windows OS local machine
+  Fig.1 An example of ASL online testing from Windows OS local machine (signing of ASL "B" fingerspelling character)  
 </div> 
 
 <br />
