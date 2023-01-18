@@ -1667,8 +1667,60 @@ Escape hit, closing...
 (sl-mnist) C:\Users\801680\exp>
 ```
 
-```
+If you want to quit, press "Escape" key.  
+For the image classification, press "Space bar".  
+Testing with American SL output are as follows:  
 
+```
+(base) C:\Users\801680\exp>conda activate sl-mnist
+
+(sl-mnist) C:\Users\801680\exp>python ./camerahands.py
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+1/1 [==============================] - 0s 119ms/step
+Predicted Character 3:  B
+Confidence 3:  0.004512211307883263
+Predicted Character 2:  H
+Confidence 2:  5.307730287313461
+Predicted Character 1:  P
+Confidence 1:  94.68284845352173
+1/1 [==============================] - 0s 15ms/step
+Predicted Character 1:  B
+Confidence 1:  49.81687664985657
+Predicted Character 2:  F
+Confidence 2:  42.01692044734955
+Predicted Character 3:  P
+Confidence 3:  5.600017681717873
+1/1 [==============================] - 0s 15ms/step
+Predicted Character 1:  H
+Confidence 1:  99.98621940612793
+Predicted Character 2:  P
+Confidence 2:  0.013711376232095063
+Predicted Character 3:  Q
+Confidence 3:  6.605231419598567e-05
+1/1 [==============================] - 0s 17ms/step
+Predicted Character 3:  G
+Confidence 3:  27.6007741689682
+Predicted Character 2:  H
+Confidence 2:  29.149499535560608
+Predicted Character 1:  P
+Confidence 1:  40.616557002067566
+1/1 [==============================] - 0s 15ms/step
+Predicted Character 3:  B
+Confidence 3:  1.3087017461657524
+Predicted Character 1:  H
+Confidence 1:  71.47443294525146
+Predicted Character 2:  P
+Confidence 2:  26.61367654800415
+1/1 [==============================] - 0s 16ms/step
+Predicted Character 2:  H
+Confidence 2:  1.3375685550272465
+Predicted Character 3:  L
+Confidence 3:  0.05046534934081137
+Predicted Character 1:  P
+Confidence 1:  98.56514930725098
+Escape hit, closing...
+
+(sl-mnist) C:\Users\801680\exp>
 ```
 
 ```
