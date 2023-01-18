@@ -1871,8 +1871,8 @@ cv2.destroyAllWindows()
 
 ## To Do
 
-[1] testing for Khmer Fingerspelling
-[2] testing with Burmese Fingerspelling
+[1] testing for Khmer Fingerspelling  
+[2] testing with Burmese Fingerspelling  
 
 ## Reference
 
