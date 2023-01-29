@@ -880,17 +880,118 @@ traitlets        : 5.7.1
 
 ## Prepare ipython Notebook File for Data Collection  
 
+I prepared new ipython notebook for data collection. When I run following function,   
+
+```Python
+cap = cv2.VideoCapture(0)
+# Set mediapipe model 
+with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
+    while cap.isOpened():
 ```
 
-```
+I got following error:  
 
 ```
-
+AttributeError: module 'mediapipe.python.solutions.holistic' has no attribute 'FACE_CONNECTIONS'
 ```
 
-```
+I also noted that tensorflow cpu version was created as following message:  
 
 ```
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+```
+
+I am not sure and anyway, I installed tensorflow (i.e. CPU) version as follows on my notebook:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install tensorflow
+Collecting tensorflow
+  Using cached tensorflow-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (588.3 MB)
+Collecting tensorflow-estimator<2.12,>=2.11.0
+  Using cached tensorflow_estimator-2.11.0-py2.py3-none-any.whl (439 kB)
+Collecting astunparse>=1.6.0
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting protobuf<3.20,>=3.9.2
+  Using cached protobuf-3.19.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Collecting google-pasta>=0.1.1
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Requirement already satisfied: packaging in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (23.0)
+Collecting tensorboard<2.12,>=2.11
+  Downloading tensorboard-2.11.2-py3-none-any.whl (6.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/6.0 MB 2.9 MB/s eta 0:00:00
+Collecting termcolor>=1.1.0
+  Downloading termcolor-2.2.0-py3-none-any.whl (6.6 kB)
+Collecting keras<2.12,>=2.11.0
+  Using cached keras-2.11.0-py2.py3-none-any.whl (1.7 MB)
+Requirement already satisfied: setuptools in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (65.6.3)
+Requirement already satisfied: flatbuffers>=2.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (23.1.21)
+Requirement already satisfied: typing-extensions>=3.6.6 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (4.4.0)
+Collecting wrapt>=1.11.0
+  Using cached wrapt-1.14.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (81 kB)
+Collecting h5py>=2.9.0
+  Downloading h5py-3.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 3.1 MB/s eta 0:00:00
+Collecting libclang>=13.0.0
+  Downloading libclang-15.0.6.1-py2.py3-none-manylinux2010_x86_64.whl (21.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.5/21.5 MB 2.5 MB/s eta 0:00:00
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+  Downloading tensorflow_io_gcs_filesystem-0.30.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 3.6 MB/s eta 0:00:00
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting grpcio<2.0,>=1.24.3
+  Using cached grpcio-1.51.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
+Requirement already satisfied: six>=1.12.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (1.16.0)
+Requirement already satisfied: numpy>=1.20 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (1.24.1)
+Collecting gast<=0.4.0,>=0.2.1
+  Using cached gast-0.4.0-py3-none-any.whl (9.8 kB)
+Requirement already satisfied: absl-py>=1.0.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorflow) (1.4.0)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from astunparse>=1.6.0->tensorflow) (0.37.1)
+Requirement already satisfied: requests<3,>=2.21.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from tensorboard<2.12,>=2.11->tensorflow) (2.28.1)
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Using cached google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting tensorboard-plugin-wit>=1.6.0
+  Using cached tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+Collecting google-auth<3,>=1.6.3
+  Downloading google_auth-2.16.0-py2.py3-none-any.whl (177 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 177.8/177.8 kB 5.1 MB/s eta 0:00:00
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Using cached tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting markdown>=2.6.8
+  Using cached Markdown-3.4.1-py3-none-any.whl (93 kB)
+Collecting werkzeug>=1.0.1
+  Using cached Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+Collecting rsa<5,>=3.1.4
+  Using cached rsa-4.9-py3-none-any.whl (34 kB)
+Collecting cachetools<6.0,>=2.0.0
+  Downloading cachetools-5.3.0-py3-none-any.whl (9.3 kB)
+Collecting pyasn1-modules>=0.2.1
+  Using cached pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting requests-oauthlib>=0.7.0
+  Using cached requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from markdown>=2.6.8->tensorboard<2.12,>=2.11->tensorflow) (4.11.3)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (2022.12.7)
+Requirement already satisfied: idna<4,>=2.5 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (3.4)
+Requirement already satisfied: charset-normalizer<3,>=2 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (2.0.4)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard<2.12,>=2.11->tensorflow) (1.26.14)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from werkzeug>=1.0.1->tensorboard<2.12,>=2.11->tensorflow) (2.1.1)
+Requirement already satisfied: zipp>=0.5 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<2.12,>=2.11->tensorflow) (3.11.0)
+Collecting pyasn1<0.5.0,>=0.4.6
+  Using cached pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting oauthlib>=3.0.0
+  Using cached oauthlib-3.2.2-py3-none-any.whl (151 kB)
+Installing collected packages: tensorboard-plugin-wit, pyasn1, libclang, wrapt, werkzeug, termcolor, tensorflow-io-gcs-filesystem, tensorflow-estimator, tensorboard-data-server, rsa, pyasn1-modules, protobuf, opt-einsum, oauthlib, keras, h5py, grpcio, google-pasta, gast, cachetools, astunparse, requests-oauthlib, markdown, google-auth, google-auth-oauthlib, tensorboard, tensorflow
+  Attempting uninstall: protobuf
+    Found existing installation: protobuf 3.20.3
+    Uninstalling protobuf-3.20.3:
+      Successfully uninstalled protobuf-3.20.3
+Successfully installed astunparse-1.6.3 cachetools-5.3.0 gast-0.4.0 google-auth-2.16.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 grpcio-1.51.1 h5py-3.8.0 keras-2.11.0 libclang-15.0.6.1 markdown-3.4.1 oauthlib-3.2.2 opt-einsum-3.3.0 protobuf-3.19.6 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-oauthlib-1.3.1 rsa-4.9 tensorboard-2.11.2 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-2.11.0 tensorflow-estimator-2.11.0 tensorflow-io-gcs-filesystem-0.30.0 termcolor-2.2.0 werkzeug-2.2.2 wrapt-1.14.1
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
+```
+
+## Re-run the 1st Notebook
+
+I restarted the jupyter notebook and re-run the 1st notebook:  
 
 ```
 
