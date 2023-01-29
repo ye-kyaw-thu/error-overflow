@@ -1068,7 +1068,19 @@ Yes, it is a binary data file as follows:
 (base) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
+After I run folder building bash script:  
+
 ```
+(base) ye@ykt-pro:~/exp/fs-detection$ tree ./fs_data/
+./fs_data/
+├── ង
+├── ក
+├── គ
+├── ខ
+└── ឃ
+
+5 directories, 0 files
+(base) ye@ykt-pro:~/exp/fs-detection$ 
 
 ```
 
