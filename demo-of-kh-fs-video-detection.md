@@ -186,6 +186,14 @@ Default GPU Device: /device:GPU:0
 (sl-mnist) yekyaw.thu@gpu:~/exp/fs-detection$ 
 ```
 
+## Splitting the Original Code into Three Parts
+
+In the original tutorial code, using the camera of the GPU computer. For our case, we have to use the local notebook or computer for data preparation and train the model on the GPU computer. Moreover, testing also should have to make with our local notebook computer. And thus, I assumed that we need to split the original code ...  
+
+
+## Creating a New Anacoda Environment on Local Notebook
+
+
 ```
 
 ```
