@@ -991,7 +991,58 @@ Successfully installed astunparse-1.6.3 cachetools-5.3.0 gast-0.4.0 google-auth-
 
 ## Re-run the 1st Notebook
 
-I restarted the jupyter notebook and re-run the 1st notebook:  
+I restarted the jupyter notebook and re-run the 1st notebook and I got the same error as follows:  
+
+```
+AttributeError: module 'mediapipe.python.solutions.holistic' has no attribute 'FACE_CONNECTIONS'
+```
+
+Googling and try to fixed above error.  
+Reference link:  https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f  
+
+```
+FACE_CONNECTIONS seems to be renamed/replaced by FACEMESH_TESSELATION.
+```
+
+I updated the code as follows:  
+
+```Python
+# I updated FACE_CONNECTIONS with FACEMESH_TESSELATION
+def draw_landmarks(image, results):
+    mp_drawing.draw_landmarks(image, results.face_landmarks, mp_holistic.FACEMESH_TESSELATION) # Draw face connections
+    mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS) # Draw pose connections
+    mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS) # Draw left hand connections
+    mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS) # Draw right hand connections
+```
+
+I updated another python code as follows:  
+
+```Python
+def draw_styled_landmarks(image, results):
+    # Draw face connections
+    # I updated FACE_CONNECTIONS with FACEMESH_TESSELATION
+    mp_drawing.draw_landmarks(image, results.face_landmarks, mp_holistic.FACEMESH_TESSELATION, 
+                             mp_drawing.DrawingSpec(color=(80,110,10), thickness=1, circle_radius=1), 
+                             mp_drawing.DrawingSpec(color=(80,256,121), thickness=1, circle_radius=1)
+                             ) 
+    # Draw pose connections
+    mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS,
+                             mp_drawing.DrawingSpec(color=(80,22,10), thickness=2, circle_radius=4), 
+                             mp_drawing.DrawingSpec(color=(80,44,121), thickness=2, circle_radius=2)
+                             ) 
+    # Draw left hand connections
+    mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS, 
+                             mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4), 
+                             mp_drawing.DrawingSpec(color=(121,44,250), thickness=2, circle_radius=2)
+                             ) 
+    # Draw right hand connections  
+    mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS, 
+                             mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=4), 
+                             mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2)
+                             ) 
+```
+
+After updating with above code, run and now I can see mediapipe landmark detection points ...  
 
 ```
 
@@ -1089,18 +1140,9 @@ I restarted the jupyter notebook and re-run the 1st notebook:
 
 ```
 
-```
+## Reference
 
-```
+[1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
+[2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark
 
-```
 
-```
-
-```
-
-```
-
-```
-
-```
