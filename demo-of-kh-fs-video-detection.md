@@ -1084,8 +1084,50 @@ After I run folder building bash script:
 
 ```
 
-```
+## MTS to MP4 Video Conversion
 
+This is preprocessing. I learned Khmer 5 fingerspelling with MTS video but I cannot play MTS on linux machine.  
+And thus, I need to convert it to mp4 and I did with ffmpeg linux command as follows:  
+
+```
+(base) ye@ykt-pro:~/exp/fs-detection/ref-video$ ls
+00152.MTS
+(base) ye@ykt-pro:~/exp/fs-detection/ref-video$ ffmpeg -i 00152.MTS -c:v copy -c:a aac -strict experimental -b:a 128k 00152.mp4
+ffmpeg version 3.4.11-0ubuntu0.1 Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 7 (Ubuntu 7.5.0-3ubuntu1~18.04)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-librsvg --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared
+  libavutil      55. 78.100 / 55. 78.100
+  libavcodec     57.107.100 / 57.107.100
+  libavformat    57. 83.100 / 57. 83.100
+  libavdevice    57. 10.100 / 57. 10.100
+  libavfilter     6.107.100 /  6.107.100
+  libavresample   3.  7.  0 /  3.  7.  0
+  libswscale      4.  8.100 /  4.  8.100
+  libswresample   2.  9.100 /  2.  9.100
+  libpostproc    54.  7.100 / 54.  7.100
+Input #0, mpegts, from '00152.MTS':
+  Duration: 00:01:56.48, start: 1.040000, bitrate: 24029 kb/s
+  Program 1 
+    Stream #0:0[0x1011]: Video: h264 (High) (HDMV / 0x564D4448), yuv420p(top first), 1920x1080 [SAR 1:1 DAR 16:9], 25 fps, 50 tbr, 90k tbn, 50 tbc
+    Stream #0:1[0x1100]: Audio: pcm_bluray (HDMV / 0x564D4448), 48000 Hz, stereo, s16, 1536 kb/s
+    Stream #0:2[0x1200]: Subtitle: hdmv_pgs_subtitle ([144][0][0][0] / 0x0090), 1920x1080
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (pcm_bluray (native) -> aac (native))
+Press [q] to stop, [?] for help
+Output #0, mp4, to '00152.mp4':
+  Metadata:
+    encoder         : Lavf57.83.100
+    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(top first), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 25 fps, 50 tbr, 90k tbn, 90k tbc
+    Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s
+    Metadata:
+      encoder         : Lavc57.107.100 aac
+frame= 5824 fps=1303 q=-1.0 Lsize=  301677kB time=00:01:56.48 bitrate=21216.8kbits/s speed=26.1x    
+video:299733kB audio:1825kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.039325%
+[aac @ 0x5622f8afb760] Qavg: 646.826
+(base) ye@ykt-pro:~/exp/fs-detection/ref-video$ ls
+00152.mp4  00152.MTS
+(base) ye@ykt-pro:~/exp/fs-detection/ref-video$ 
 ```
 
 ```
