@@ -288,25 +288,156 @@ Retrieving notices: ...working... done
 (fs-video-recog) ye@ykt-pro:~/exp$
 ```
 
-```
+## Installation of Required Library on Local Notebook
+
+opencv installation ...  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp$ pip install opencv-python
+Collecting opencv-python
+  Downloading opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.8/61.8 MB 2.4 MB/s eta 0:00:00
+Collecting numpy>=1.17.0
+  Downloading numpy-1.24.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 2.5 MB/s eta 0:00:00
+Installing collected packages: numpy, opencv-python
+Successfully installed numpy-1.24.1 opencv-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp$ 
 ```
 
-```
+For this time, I will install mediapipe library ...  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp$ pip install mediapipe
+Collecting mediapipe
+  Downloading mediapipe-0.9.0.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (33.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 33.0/33.0 MB 2.4 MB/s eta 0:00:00
+Collecting opencv-contrib-python
+  Downloading opencv_contrib_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (67.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.9/67.9 MB 2.4 MB/s eta 0:00:00
+Collecting flatbuffers>=2.0
+  Downloading flatbuffers-23.1.21-py2.py3-none-any.whl (26 kB)
+Collecting absl-py
+  Downloading absl_py-1.4.0-py3-none-any.whl (126 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.5/126.5 kB 3.0 MB/s eta 0:00:00
+Collecting protobuf<4,>=3.11
+  Downloading protobuf-3.20.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 4.7 MB/s eta 0:00:00
+Requirement already satisfied: numpy in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from mediapipe) (1.24.1)
+Collecting attrs>=19.1.0
+  Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 kB 5.6 MB/s eta 0:00:00
+Collecting matplotlib
+  Downloading matplotlib-3.6.3-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (9.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 MB 2.8 MB/s eta 0:00:00
+Collecting fonttools>=4.22.0
+  Using cached fonttools-4.38.0-py3-none-any.whl (965 kB)
+Collecting cycler>=0.10
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting pyparsing>=2.2.1
+  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+Collecting kiwisolver>=1.0.1
+  Using cached kiwisolver-1.4.4-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.2 MB)
+Collecting packaging>=20.0
+  Downloading packaging-23.0-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 2.2 MB/s eta 0:00:00
+Collecting pillow>=6.2.0
+  Downloading Pillow-9.4.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 3.5 MB/s eta 0:00:00
+Collecting contourpy>=1.0.1
+  Downloading contourpy-1.0.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 300.0/300.0 kB 3.7 MB/s eta 0:00:00
+Collecting python-dateutil>=2.7
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting six>=1.5
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: flatbuffers, six, pyparsing, protobuf, pillow, packaging, opencv-contrib-python, kiwisolver, fonttools, cycler, contourpy, attrs, absl-py, python-dateutil, matplotlib, mediapipe
+Successfully installed absl-py-1.4.0 attrs-22.2.0 contourpy-1.0.7 cycler-0.11.0 flatbuffers-23.1.21 fonttools-4.38.0 kiwisolver-1.4.4 matplotlib-3.6.3 mediapipe-0.9.0.1 opencv-contrib-python-4.7.0.68 packaging-23.0 pillow-9.4.0 protobuf-3.20.3 pyparsing-3.0.9 python-dateutil-2.8.2 six-1.16.0
+(fs-video-recog) ye@ykt-pro:~/exp$
 ```
 
-```
+I installed sklearn library according to the original code and got error message as follows:  
 
 ```
+(fs-video-recog) ye@ykt-pro:~/exp$ pip install sklearn
+Collecting sklearn
+  Downloading sklearn-0.0.post1.tar.gz (3.6 kB)
+  Preparing metadata (setup.py) ... error
+  error: subprocess-exited-with-error
+  
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [18 lines of output]
+      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'
+      rather than 'sklearn' for pip commands.
+      
+      Here is how to fix this error in the main use cases:
+      - use 'pip install scikit-learn' rather than 'pip install sklearn'
+      - replace 'sklearn' by 'scikit-learn' in your pip requirements files
+        (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
+      - if the 'sklearn' package is used by one of your dependencies,
+        it would be great if you take some time to track which package uses
+        'sklearn' instead of 'scikit-learn' and report it to their issue tracker
+      - as a last resort, set the environment variable
+        SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
+      
+      More information is available at
+      https://github.com/scikit-learn/sklearn-pypi-package
+      
+      If the previous advice does not cover your use case, feel free to report it at
+      https://github.com/scikit-learn/sklearn-pypi-package/issues/new
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
 
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+(fs-video-recog) ye@ykt-pro:~/exp$
 ```
 
+And thus, I install scikit-learn as follows:  
+
 ```
+(fs-video-recog) ye@ykt-pro:~/exp$ pip install scikit-learn
+Collecting scikit-learn
+  Downloading scikit_learn-1.2.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.8/9.8 MB 2.6 MB/s eta 0:00:00
+Collecting threadpoolctl>=2.0.0
+  Using cached threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+Collecting joblib>=1.1.1
+  Using cached joblib-1.2.0-py3-none-any.whl (297 kB)
+Collecting scipy>=1.3.2
+  Downloading scipy-1.10.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.5/34.5 MB 2.4 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.17.3 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from scikit-learn) (1.24.1)
+Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+Successfully installed joblib-1.2.0 scikit-learn-1.2.1 scipy-1.10.0 threadpoolctl-3.1.0
+(fs-video-recog) ye@ykt-pro:~/exp$
+```
+
+Matplotlib looks no need to install as follows:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp$ pip install matplotlib
+Requirement already satisfied: matplotlib in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (3.6.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: numpy>=1.19 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (1.24.1)
+Requirement already satisfied: packaging>=20.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (23.0)
+Requirement already satisfied: pillow>=6.2.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: cycler>=0.10 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: python-dateutil>=2.7 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: contourpy>=1.0.1 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: fonttools>=4.22.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from matplotlib) (4.38.0)
+Requirement already satisfied: six>=1.5 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib) (1.16.0)
+(fs-video-recog) ye@ykt-pro:~/exp$
+```
+
+## Prepare ipython Notebook File for Data Collection  
 
 ```
 
