@@ -193,6 +193,176 @@ In the original tutorial code, using the camera of the GPU computer. For our cas
 
 ## Creating a New Anacoda Environment on Local Notebook
 
+I created the same Python version with the GPU server.  
+
+
+```
+(base) ye@ykt-pro:~/exp$ conda create --name fs-video-recog python=3.8.15
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.14.0
+  latest version: 23.1.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/ye/tool/anaconda3/envs/fs-video-recog
+
+  added / updated specs:
+    - python=3.8.15
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2023.01.10 |       h06a4308_0         120 KB
+    certifi-2022.12.7          |   py38h06a4308_0         150 KB
+    ncurses-6.4                |       h6a678d5_0         914 KB
+    pip-22.3.1                 |   py38h06a4308_0         2.7 MB
+    setuptools-65.6.3          |   py38h06a4308_0         1.1 MB
+    sqlite-3.40.1              |       h5082296_0         1.2 MB
+    xz-5.2.10                  |       h5eee18b_1         429 KB
+    ------------------------------------------------------------
+                                           Total:         6.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2023.01.10-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2022.12.7-py38h06a4308_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+  libffi             pkgs/main/linux-64::libffi-3.4.2-h6a678d5_6
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0
+  openssl            pkgs/main/linux-64::openssl-1.1.1s-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-22.3.1-py38h06a4308_0
+  python             pkgs/main/linux-64::python-3.8.15-h7a1cb2a_2
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-65.6.3-py38h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.40.1-h5082296_0
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.10-h5eee18b_1
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+ncurses-6.4          | 914 KB    | ########################################################## | 100% 
+xz-5.2.10            | 429 KB    | ########################################################## | 100% 
+sqlite-3.40.1        | 1.2 MB    | ########################################################## | 100% 
+pip-22.3.1           | 2.7 MB    | ########################################################## | 100% 
+setuptools-65.6.3    | 1.1 MB    | ########################################################## | 100% 
+certifi-2022.12.7    | 150 KB    | ########################################################## | 100% 
+ca-certificates-2023 | 120 KB    | ########################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate fs-video-recog
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Retrieving notices: ...working... done
+(base) ye@ykt-pro:~/exp$ conda activate fs-video-recog
+(fs-video-recog) ye@ykt-pro:~/exp$
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
 
