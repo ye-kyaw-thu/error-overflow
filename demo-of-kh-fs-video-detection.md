@@ -437,6 +437,447 @@ Requirement already satisfied: six>=1.5 in /home/ye/tool/anaconda3/envs/fs-video
 (fs-video-recog) ye@ykt-pro:~/exp$
 ```
 
+## Jupyter Notebook Installation on Local Notebook
+
+Jupyter notebook installation will take time ...  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp$ conda install jupyter
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.14.0
+  latest version: 23.1.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/ye/tool/anaconda3/envs/fs-video-recog
+
+  added / updated specs:
+    - jupyter
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    anyio-3.5.0                |   py38h06a4308_0         165 KB
+    argon2-cffi-21.3.0         |     pyhd3eb1b0_0          15 KB
+    argon2-cffi-bindings-21.2.0|   py38h7f8727e_0          33 KB
+    asttokens-2.0.5            |     pyhd3eb1b0_0          20 KB
+    attrs-22.1.0               |   py38h06a4308_0          85 KB
+    babel-2.11.0               |   py38h06a4308_0         6.8 MB
+    beautifulsoup4-4.11.1      |   py38h06a4308_0         185 KB
+    bleach-4.1.0               |     pyhd3eb1b0_0         123 KB
+    brotlipy-0.7.0             |py38h27cfd23_1003         323 KB
+    cffi-1.15.1                |   py38h5eee18b_3         241 KB
+    charset-normalizer-2.0.4   |     pyhd3eb1b0_0          35 KB
+    comm-0.1.2                 |   py38h06a4308_0          13 KB
+    cryptography-38.0.4        |   py38h9ce1e76_0         1.4 MB
+    debugpy-1.5.1              |   py38h295c915_0         1.7 MB
+    decorator-5.1.1            |     pyhd3eb1b0_0          12 KB
+    entrypoints-0.4            |   py38h06a4308_0          16 KB
+    executing-0.8.3            |     pyhd3eb1b0_0          18 KB
+    expat-2.4.9                |       h6a678d5_0         156 KB
+    flit-core-3.6.0            |     pyhd3eb1b0_0          42 KB
+    fontconfig-2.14.1          |       h52c9d5c_1         281 KB
+    freetype-2.12.1            |       h4a9f257_0         626 KB
+    giflib-5.2.1               |       h5eee18b_1          75 KB
+    glib-2.69.1                |       he621ea3_2         1.9 MB
+    gst-plugins-base-1.14.0    |       h8213a91_2         4.9 MB
+    gstreamer-1.14.0           |       h28cd5cc_2         3.2 MB
+    idna-3.4                   |   py38h06a4308_0          93 KB
+    importlib-metadata-4.11.3  |   py38h06a4308_0          40 KB
+    importlib_resources-5.2.0  |     pyhd3eb1b0_1          21 KB
+    ipykernel-6.19.2           |   py38hb070fc8_0         218 KB
+    ipython-8.8.0              |   py38h06a4308_0         1.0 MB
+    jedi-0.18.1                |   py38h06a4308_1         982 KB
+    jinja2-3.1.2               |   py38h06a4308_0         211 KB
+    jpeg-9e                    |       h7f8727e_0         240 KB
+    json5-0.9.6                |     pyhd3eb1b0_0          21 KB
+    jsonschema-4.16.0          |   py38h06a4308_0         128 KB
+    jupyter-1.0.0              |   py38h06a4308_8           7 KB
+    jupyter_client-7.4.8       |   py38h06a4308_0         205 KB
+    jupyter_console-6.4.4      |   py38h06a4308_0          42 KB
+    jupyter_core-5.1.1         |   py38h06a4308_0          89 KB
+    jupyter_server-1.23.4      |   py38h06a4308_0         382 KB
+    jupyterlab-3.5.2           |   py38h06a4308_0         4.2 MB
+    jupyterlab_server-2.16.5   |   py38h06a4308_0          80 KB
+    krb5-1.19.4                |       h568e23c_0         1.3 MB
+    lerc-3.0                   |       h295c915_0         196 KB
+    libclang-10.0.1            |default_hb85057a_2        10.8 MB
+    libdeflate-1.8             |       h7f8727e_5          51 KB
+    libedit-3.1.20221030       |       h5eee18b_0         181 KB
+    libevent-2.1.12            |       h8f2d780_0         425 KB
+    libllvm10-10.0.1           |       hbcb73fb_5        22.1 MB
+    libpq-12.9                 |       h16c4e8d_3         2.1 MB
+    libtiff-4.5.0              |       hecacb30_0         528 KB
+    libuuid-1.41.5             |       h5eee18b_0          27 KB
+    libwebp-1.2.4              |       h11a3e52_0          79 KB
+    libwebp-base-1.2.4         |       h5eee18b_0         347 KB
+    libxcb-1.15                |       h7f8727e_0         505 KB
+    libxkbcommon-1.0.1         |       hfa300c1_0         483 KB
+    libxml2-2.9.14             |       h74e7548_0         718 KB
+    libxslt-1.1.35             |       h4e12654_0         453 KB
+    lxml-4.9.1                 |   py38h1edc446_0         1.3 MB
+    lz4-c-1.9.4                |       h6a678d5_0         154 KB
+    markupsafe-2.1.1           |   py38h7f8727e_0          21 KB
+    matplotlib-inline-0.1.6    |   py38h06a4308_0          16 KB
+    mistune-0.8.4              |py38h7b6447c_1000          55 KB
+    nbclassic-0.4.8            |   py38h06a4308_0         5.8 MB
+    nbclient-0.5.13            |   py38h06a4308_0          91 KB
+    nbconvert-6.5.4            |   py38h06a4308_0         513 KB
+    nbformat-5.7.0             |   py38h06a4308_0         133 KB
+    nest-asyncio-1.5.6         |   py38h06a4308_0          14 KB
+    notebook-6.5.2             |   py38h06a4308_0         510 KB
+    notebook-shim-0.2.2        |   py38h06a4308_0          22 KB
+    nspr-4.33                  |       h295c915_0         222 KB
+    nss-3.74                   |       h0370c37_0         1.9 MB
+    packaging-22.0             |   py38h06a4308_0          68 KB
+    pandocfilters-1.5.0        |     pyhd3eb1b0_0          11 KB
+    parso-0.8.3                |     pyhd3eb1b0_0          70 KB
+    pkgutil-resolve-name-1.3.10|   py38h06a4308_0           9 KB
+    platformdirs-2.5.2         |   py38h06a4308_0          23 KB
+    ply-3.11                   |           py38_0          81 KB
+    prometheus_client-0.14.1   |   py38h06a4308_0          90 KB
+    prompt-toolkit-3.0.36      |   py38h06a4308_0         574 KB
+    prompt_toolkit-3.0.36      |       hd3eb1b0_0           5 KB
+    psutil-5.9.0               |   py38h5eee18b_0         330 KB
+    pure_eval-0.2.2            |     pyhd3eb1b0_0          14 KB
+    pygments-2.11.2            |     pyhd3eb1b0_0         759 KB
+    pyopenssl-22.0.0           |     pyhd3eb1b0_0          50 KB
+    pyqt-5.15.7                |   py38h6a678d5_1         5.1 MB
+    pyqt5-sip-12.11.0          |   py38h6a678d5_1          87 KB
+    pyrsistent-0.18.0          |   py38heee7806_0          94 KB
+    pysocks-1.7.1              |   py38h06a4308_0          31 KB
+    python-fastjsonschema-2.16.2|   py38h06a4308_0         230 KB
+    pytz-2022.7                |   py38h06a4308_0         209 KB
+    pyzmq-23.2.0               |   py38h6a678d5_0         448 KB
+    qt-main-5.15.2             |       h327a75a_7        45.1 MB
+    qt-webengine-5.15.9        |       hd2b0992_4        47.1 MB
+    qtconsole-5.4.0            |   py38h06a4308_0         190 KB
+    qtpy-2.2.0                 |   py38h06a4308_0          84 KB
+    qtwebkit-5.212             |       h4eab89a_4        14.3 MB
+    requests-2.28.1            |   py38h06a4308_0          92 KB
+    sip-6.6.2                  |   py38h6a678d5_0         425 KB
+    six-1.16.0                 |     pyhd3eb1b0_1          18 KB
+    sniffio-1.2.0              |   py38h06a4308_1          15 KB
+    soupsieve-2.3.2.post1      |   py38h06a4308_0          65 KB
+    stack_data-0.2.0           |     pyhd3eb1b0_0          22 KB
+    terminado-0.17.1           |   py38h06a4308_0          31 KB
+    tinycss2-1.2.1             |   py38h06a4308_0          40 KB
+    toml-0.10.2                |     pyhd3eb1b0_0          20 KB
+    tomli-2.0.1                |   py38h06a4308_0          24 KB
+    tornado-6.2                |   py38h5eee18b_0         590 KB
+    traitlets-5.7.1            |   py38h06a4308_0         200 KB
+    typing-extensions-4.4.0    |   py38h06a4308_0           8 KB
+    typing_extensions-4.4.0    |   py38h06a4308_0          46 KB
+    urllib3-1.26.14            |   py38h06a4308_0         196 KB
+    webencodings-0.5.1         |           py38_1          20 KB
+    websocket-client-0.58.0    |   py38h06a4308_4          66 KB
+    widgetsnbextension-3.5.2   |   py38h06a4308_0         651 KB
+    zipp-3.11.0                |   py38h06a4308_0          19 KB
+    zstd-1.5.2                 |       ha4553b6_0         488 KB
+    ------------------------------------------------------------
+                                           Total:       199.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  anyio              pkgs/main/linux-64::anyio-3.5.0-py38h06a4308_0
+  argon2-cffi        pkgs/main/noarch::argon2-cffi-21.3.0-pyhd3eb1b0_0
+  argon2-cffi-bindi~ pkgs/main/linux-64::argon2-cffi-bindings-21.2.0-py38h7f8727e_0
+  asttokens          pkgs/main/noarch::asttokens-2.0.5-pyhd3eb1b0_0
+  attrs              pkgs/main/linux-64::attrs-22.1.0-py38h06a4308_0
+  babel              pkgs/main/linux-64::babel-2.11.0-py38h06a4308_0
+  backcall           pkgs/main/noarch::backcall-0.2.0-pyhd3eb1b0_0
+  beautifulsoup4     pkgs/main/linux-64::beautifulsoup4-4.11.1-py38h06a4308_0
+  bleach             pkgs/main/noarch::bleach-4.1.0-pyhd3eb1b0_0
+  brotlipy           pkgs/main/linux-64::brotlipy-0.7.0-py38h27cfd23_1003
+  cffi               pkgs/main/linux-64::cffi-1.15.1-py38h5eee18b_3
+  charset-normalizer pkgs/main/noarch::charset-normalizer-2.0.4-pyhd3eb1b0_0
+  comm               pkgs/main/linux-64::comm-0.1.2-py38h06a4308_0
+  cryptography       pkgs/main/linux-64::cryptography-38.0.4-py38h9ce1e76_0
+  dbus               pkgs/main/linux-64::dbus-1.13.18-hb2f20db_0
+  debugpy            pkgs/main/linux-64::debugpy-1.5.1-py38h295c915_0
+  decorator          pkgs/main/noarch::decorator-5.1.1-pyhd3eb1b0_0
+  defusedxml         pkgs/main/noarch::defusedxml-0.7.1-pyhd3eb1b0_0
+  entrypoints        pkgs/main/linux-64::entrypoints-0.4-py38h06a4308_0
+  executing          pkgs/main/noarch::executing-0.8.3-pyhd3eb1b0_0
+  expat              pkgs/main/linux-64::expat-2.4.9-h6a678d5_0
+  flit-core          pkgs/main/noarch::flit-core-3.6.0-pyhd3eb1b0_0
+  fontconfig         pkgs/main/linux-64::fontconfig-2.14.1-h52c9d5c_1
+  freetype           pkgs/main/linux-64::freetype-2.12.1-h4a9f257_0
+  giflib             pkgs/main/linux-64::giflib-5.2.1-h5eee18b_1
+  glib               pkgs/main/linux-64::glib-2.69.1-he621ea3_2
+  gst-plugins-base   pkgs/main/linux-64::gst-plugins-base-1.14.0-h8213a91_2
+  gstreamer          pkgs/main/linux-64::gstreamer-1.14.0-h28cd5cc_2
+  icu                pkgs/main/linux-64::icu-58.2-he6710b0_3
+  idna               pkgs/main/linux-64::idna-3.4-py38h06a4308_0
+  importlib-metadata pkgs/main/linux-64::importlib-metadata-4.11.3-py38h06a4308_0
+  importlib_resourc~ pkgs/main/noarch::importlib_resources-5.2.0-pyhd3eb1b0_1
+  ipykernel          pkgs/main/linux-64::ipykernel-6.19.2-py38hb070fc8_0
+  ipython            pkgs/main/linux-64::ipython-8.8.0-py38h06a4308_0
+  ipython_genutils   pkgs/main/noarch::ipython_genutils-0.2.0-pyhd3eb1b0_1
+  ipywidgets         pkgs/main/noarch::ipywidgets-7.6.5-pyhd3eb1b0_1
+  jedi               pkgs/main/linux-64::jedi-0.18.1-py38h06a4308_1
+  jinja2             pkgs/main/linux-64::jinja2-3.1.2-py38h06a4308_0
+  jpeg               pkgs/main/linux-64::jpeg-9e-h7f8727e_0
+  json5              pkgs/main/noarch::json5-0.9.6-pyhd3eb1b0_0
+  jsonschema         pkgs/main/linux-64::jsonschema-4.16.0-py38h06a4308_0
+  jupyter            pkgs/main/linux-64::jupyter-1.0.0-py38h06a4308_8
+  jupyter_client     pkgs/main/linux-64::jupyter_client-7.4.8-py38h06a4308_0
+  jupyter_console    pkgs/main/linux-64::jupyter_console-6.4.4-py38h06a4308_0
+  jupyter_core       pkgs/main/linux-64::jupyter_core-5.1.1-py38h06a4308_0
+  jupyter_server     pkgs/main/linux-64::jupyter_server-1.23.4-py38h06a4308_0
+  jupyterlab         pkgs/main/linux-64::jupyterlab-3.5.2-py38h06a4308_0
+  jupyterlab_pygmen~ pkgs/main/noarch::jupyterlab_pygments-0.1.2-py_0
+  jupyterlab_server  pkgs/main/linux-64::jupyterlab_server-2.16.5-py38h06a4308_0
+  jupyterlab_widgets pkgs/main/noarch::jupyterlab_widgets-1.0.0-pyhd3eb1b0_1
+  krb5               pkgs/main/linux-64::krb5-1.19.4-h568e23c_0
+  lerc               pkgs/main/linux-64::lerc-3.0-h295c915_0
+  libclang           pkgs/main/linux-64::libclang-10.0.1-default_hb85057a_2
+  libdeflate         pkgs/main/linux-64::libdeflate-1.8-h7f8727e_5
+  libedit            pkgs/main/linux-64::libedit-3.1.20221030-h5eee18b_0
+  libevent           pkgs/main/linux-64::libevent-2.1.12-h8f2d780_0
+  libllvm10          pkgs/main/linux-64::libllvm10-10.0.1-hbcb73fb_5
+  libpng             pkgs/main/linux-64::libpng-1.6.37-hbc83047_0
+  libpq              pkgs/main/linux-64::libpq-12.9-h16c4e8d_3
+  libsodium          pkgs/main/linux-64::libsodium-1.0.18-h7b6447c_0
+  libtiff            pkgs/main/linux-64::libtiff-4.5.0-hecacb30_0
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0
+  libwebp            pkgs/main/linux-64::libwebp-1.2.4-h11a3e52_0
+  libwebp-base       pkgs/main/linux-64::libwebp-base-1.2.4-h5eee18b_0
+  libxcb             pkgs/main/linux-64::libxcb-1.15-h7f8727e_0
+  libxkbcommon       pkgs/main/linux-64::libxkbcommon-1.0.1-hfa300c1_0
+  libxml2            pkgs/main/linux-64::libxml2-2.9.14-h74e7548_0
+  libxslt            pkgs/main/linux-64::libxslt-1.1.35-h4e12654_0
+  lxml               pkgs/main/linux-64::lxml-4.9.1-py38h1edc446_0
+  lz4-c              pkgs/main/linux-64::lz4-c-1.9.4-h6a678d5_0
+  markupsafe         pkgs/main/linux-64::markupsafe-2.1.1-py38h7f8727e_0
+  matplotlib-inline  pkgs/main/linux-64::matplotlib-inline-0.1.6-py38h06a4308_0
+  mistune            pkgs/main/linux-64::mistune-0.8.4-py38h7b6447c_1000
+  nbclassic          pkgs/main/linux-64::nbclassic-0.4.8-py38h06a4308_0
+  nbclient           pkgs/main/linux-64::nbclient-0.5.13-py38h06a4308_0
+  nbconvert          pkgs/main/linux-64::nbconvert-6.5.4-py38h06a4308_0
+  nbformat           pkgs/main/linux-64::nbformat-5.7.0-py38h06a4308_0
+  nest-asyncio       pkgs/main/linux-64::nest-asyncio-1.5.6-py38h06a4308_0
+  notebook           pkgs/main/linux-64::notebook-6.5.2-py38h06a4308_0
+  notebook-shim      pkgs/main/linux-64::notebook-shim-0.2.2-py38h06a4308_0
+  nspr               pkgs/main/linux-64::nspr-4.33-h295c915_0
+  nss                pkgs/main/linux-64::nss-3.74-h0370c37_0
+  packaging          pkgs/main/linux-64::packaging-22.0-py38h06a4308_0
+  pandocfilters      pkgs/main/noarch::pandocfilters-1.5.0-pyhd3eb1b0_0
+  parso              pkgs/main/noarch::parso-0.8.3-pyhd3eb1b0_0
+  pcre               pkgs/main/linux-64::pcre-8.45-h295c915_0
+  pexpect            pkgs/main/noarch::pexpect-4.8.0-pyhd3eb1b0_3
+  pickleshare        pkgs/main/noarch::pickleshare-0.7.5-pyhd3eb1b0_1003
+  pkgutil-resolve-n~ pkgs/main/linux-64::pkgutil-resolve-name-1.3.10-py38h06a4308_0
+  platformdirs       pkgs/main/linux-64::platformdirs-2.5.2-py38h06a4308_0
+  ply                pkgs/main/linux-64::ply-3.11-py38_0
+  prometheus_client  pkgs/main/linux-64::prometheus_client-0.14.1-py38h06a4308_0
+  prompt-toolkit     pkgs/main/linux-64::prompt-toolkit-3.0.36-py38h06a4308_0
+  prompt_toolkit     pkgs/main/noarch::prompt_toolkit-3.0.36-hd3eb1b0_0
+  psutil             pkgs/main/linux-64::psutil-5.9.0-py38h5eee18b_0
+  ptyprocess         pkgs/main/noarch::ptyprocess-0.7.0-pyhd3eb1b0_2
+  pure_eval          pkgs/main/noarch::pure_eval-0.2.2-pyhd3eb1b0_0
+  pycparser          pkgs/main/noarch::pycparser-2.21-pyhd3eb1b0_0
+  pygments           pkgs/main/noarch::pygments-2.11.2-pyhd3eb1b0_0
+  pyopenssl          pkgs/main/noarch::pyopenssl-22.0.0-pyhd3eb1b0_0
+  pyqt               pkgs/main/linux-64::pyqt-5.15.7-py38h6a678d5_1
+  pyqt5-sip          pkgs/main/linux-64::pyqt5-sip-12.11.0-py38h6a678d5_1
+  pyrsistent         pkgs/main/linux-64::pyrsistent-0.18.0-py38heee7806_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py38h06a4308_0
+  python-dateutil    pkgs/main/noarch::python-dateutil-2.8.2-pyhd3eb1b0_0
+  python-fastjsonsc~ pkgs/main/linux-64::python-fastjsonschema-2.16.2-py38h06a4308_0
+  pytz               pkgs/main/linux-64::pytz-2022.7-py38h06a4308_0
+  pyzmq              pkgs/main/linux-64::pyzmq-23.2.0-py38h6a678d5_0
+  qt-main            pkgs/main/linux-64::qt-main-5.15.2-h327a75a_7
+  qt-webengine       pkgs/main/linux-64::qt-webengine-5.15.9-hd2b0992_4
+  qtconsole          pkgs/main/linux-64::qtconsole-5.4.0-py38h06a4308_0
+  qtpy               pkgs/main/linux-64::qtpy-2.2.0-py38h06a4308_0
+  qtwebkit           pkgs/main/linux-64::qtwebkit-5.212-h4eab89a_4
+  requests           pkgs/main/linux-64::requests-2.28.1-py38h06a4308_0
+  send2trash         pkgs/main/noarch::send2trash-1.8.0-pyhd3eb1b0_1
+  sip                pkgs/main/linux-64::sip-6.6.2-py38h6a678d5_0
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1
+  sniffio            pkgs/main/linux-64::sniffio-1.2.0-py38h06a4308_1
+  soupsieve          pkgs/main/linux-64::soupsieve-2.3.2.post1-py38h06a4308_0
+  stack_data         pkgs/main/noarch::stack_data-0.2.0-pyhd3eb1b0_0
+  terminado          pkgs/main/linux-64::terminado-0.17.1-py38h06a4308_0
+  tinycss2           pkgs/main/linux-64::tinycss2-1.2.1-py38h06a4308_0
+  toml               pkgs/main/noarch::toml-0.10.2-pyhd3eb1b0_0
+  tomli              pkgs/main/linux-64::tomli-2.0.1-py38h06a4308_0
+  tornado            pkgs/main/linux-64::tornado-6.2-py38h5eee18b_0
+  traitlets          pkgs/main/linux-64::traitlets-5.7.1-py38h06a4308_0
+  typing-extensions  pkgs/main/linux-64::typing-extensions-4.4.0-py38h06a4308_0
+  typing_extensions  pkgs/main/linux-64::typing_extensions-4.4.0-py38h06a4308_0
+  urllib3            pkgs/main/linux-64::urllib3-1.26.14-py38h06a4308_0
+  wcwidth            pkgs/main/noarch::wcwidth-0.2.5-pyhd3eb1b0_0
+  webencodings       pkgs/main/linux-64::webencodings-0.5.1-py38_1
+  websocket-client   pkgs/main/linux-64::websocket-client-0.58.0-py38h06a4308_4
+  widgetsnbextension pkgs/main/linux-64::widgetsnbextension-3.5.2-py38h06a4308_0
+  zeromq             pkgs/main/linux-64::zeromq-4.3.4-h2531618_0
+  zipp               pkgs/main/linux-64::zipp-3.11.0-py38h06a4308_0
+  zstd               pkgs/main/linux-64::zstd-1.5.2-ha4553b6_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+jupyterlab_server-2. | 80 KB     | ########################################################## | 100% 
+glib-2.69.1          | 1.9 MB    | ########################################################## | 100% 
+nspr-4.33            | 222 KB    | ########################################################## | 100% 
+importlib_resources- | 21 KB     | ########################################################## | 100% 
+pkgutil-resolve-name | 9 KB      | ########################################################## | 100% 
+packaging-22.0       | 68 KB     | ########################################################## | 100% 
+sniffio-1.2.0        | 15 KB     | ########################################################## | 100% 
+lz4-c-1.9.4          | 154 KB    | ########################################################## | 100% 
+zipp-3.11.0          | 19 KB     | ########################################################## | 100% 
+fontconfig-2.14.1    | 281 KB    | ########################################################## | 100% 
+prompt-toolkit-3.0.3 | 574 KB    | ########################################################## | 100% 
+debugpy-1.5.1        | 1.7 MB    | ########################################################## | 100% 
+pandocfilters-1.5.0  | 11 KB     | ########################################################## | 100% 
+bleach-4.1.0         | 123 KB    | ########################################################## | 100% 
+stack_data-0.2.0     | 22 KB     | ########################################################## | 100% 
+pyqt-5.15.7          | 5.1 MB    | ########################################################## | 100% 
+freetype-2.12.1      | 626 KB    | ########################################################## | 100% 
+libxslt-1.1.35       | 453 KB    | ########################################################## | 100% 
+typing_extensions-4. | 46 KB     | ########################################################## | 100% 
+argon2-cffi-bindings | 33 KB     | ########################################################## | 100% 
+jupyter_client-7.4.8 | 205 KB    | ########################################################## | 100% 
+pygments-2.11.2      | 759 KB    | ########################################################## | 100% 
+widgetsnbextension-3 | 651 KB    | ########################################################## | 100% 
+lerc-3.0             | 196 KB    | ########################################################## | 100% 
+libclang-10.0.1      | 10.8 MB   | ########################################################## | 100% 
+libxkbcommon-1.0.1   | 483 KB    | ########################################################## | 100% 
+soupsieve-2.3.2.post | 65 KB     | ########################################################## | 100% 
+nbconvert-6.5.4      | 513 KB    | ########################################################## | 100% 
+idna-3.4             | 93 KB     | ########################################################## | 100% 
+webencodings-0.5.1   | 20 KB     | ########################################################## | 100% 
+tinycss2-1.2.1       | 40 KB     | ########################################################## | 100% 
+python-fastjsonschem | 230 KB    | ########################################################## | 100% 
+pyqt5-sip-12.11.0    | 87 KB     | ########################################################## | 100% 
+babel-2.11.0         | 6.8 MB    | ########################################################## | 100% 
+jupyter-1.0.0        | 7 KB      | ########################################################## | 100% 
+nest-asyncio-1.5.6   | 14 KB     | ########################################################## | 100% 
+libuuid-1.41.5       | 27 KB     | ########################################################## | 100% 
+pyzmq-23.2.0         | 448 KB    | ########################################################## | 100% 
+entrypoints-0.4      | 16 KB     | ########################################################## | 100% 
+matplotlib-inline-0. | 16 KB     | ########################################################## | 100% 
+gstreamer-1.14.0     | 3.2 MB    | ########################################################## | 100% 
+pyrsistent-0.18.0    | 94 KB     | ########################################################## | 100% 
+sip-6.6.2            | 425 KB    | ########################################################## | 100% 
+qtconsole-5.4.0      | 190 KB    | ########################################################## | 100% 
+qt-webengine-5.15.9  | 47.1 MB   | ########################################################## | 100% 
+executing-0.8.3      | 18 KB     | ########################################################## | 100% 
+nss-3.74             | 1.9 MB    | ########################################################## | 100% 
+brotlipy-0.7.0       | 323 KB    | ########################################################## | 100% 
+cffi-1.15.1          | 241 KB    | ########################################################## | 100% 
+platformdirs-2.5.2   | 23 KB     | ########################################################## | 100% 
+libdeflate-1.8       | 51 KB     | ########################################################## | 100% 
+libllvm10-10.0.1     | 22.1 MB   | ########################################################## | 100% 
+pure_eval-0.2.2      | 14 KB     | ########################################################## | 100% 
+comm-0.1.2           | 13 KB     | ########################################################## | 100% 
+libtiff-4.5.0        | 528 KB    | ########################################################## | 100% 
+libpq-12.9           | 2.1 MB    | ########################################################## | 100% 
+jinja2-3.1.2         | 211 KB    | ########################################################## | 100% 
+terminado-0.17.1     | 31 KB     | ########################################################## | 100% 
+jupyter_core-5.1.1   | 89 KB     | ########################################################## | 100% 
+ipython-8.8.0        | 1.0 MB    | ########################################################## | 100% 
+asttokens-2.0.5      | 20 KB     | ########################################################## | 100% 
+six-1.16.0           | 18 KB     | ########################################################## | 100% 
+decorator-5.1.1      | 12 KB     | ########################################################## | 100% 
+importlib-metadata-4 | 40 KB     | ########################################################## | 100% 
+prompt_toolkit-3.0.3 | 5 KB      | ########################################################## | 100% 
+nbformat-5.7.0       | 133 KB    | ########################################################## | 100% 
+attrs-22.1.0         | 85 KB     | ########################################################## | 100% 
+nbclient-0.5.13      | 91 KB     | ########################################################## | 100% 
+charset-normalizer-2 | 35 KB     | ########################################################## | 100% 
+toml-0.10.2          | 20 KB     | ########################################################## | 100% 
+libxml2-2.9.14       | 718 KB    | ########################################################## | 100% 
+nbclassic-0.4.8      | 5.8 MB    | ########################################################## | 100% 
+jpeg-9e              | 240 KB    | ########################################################## | 100% 
+notebook-6.5.2       | 510 KB    | ########################################################## | 100% 
+libwebp-1.2.4        | 79 KB     | ########################################################## | 100% 
+psutil-5.9.0         | 330 KB    | ########################################################## | 100% 
+libxcb-1.15          | 505 KB    | ########################################################## | 100% 
+jsonschema-4.16.0    | 128 KB    | ########################################################## | 100% 
+jupyterlab-3.5.2     | 4.2 MB    | ########################################################## | 100% 
+websocket-client-0.5 | 66 KB     | ########################################################## | 100% 
+markupsafe-2.1.1     | 21 KB     | ########################################################## | 100% 
+urllib3-1.26.14      | 196 KB    | ########################################################## | 100% 
+anyio-3.5.0          | 165 KB    | ########################################################## | 100% 
+libevent-2.1.12      | 425 KB    | ########################################################## | 100% 
+zstd-1.5.2           | 488 KB    | ########################################################## | 100% 
+tornado-6.2          | 590 KB    | ########################################################## | 100% 
+tomli-2.0.1          | 24 KB     | ########################################################## | 100% 
+libedit-3.1.20221030 | 181 KB    | ########################################################## | 100% 
+jupyter_console-6.4. | 42 KB     | ########################################################## | 100% 
+qt-main-5.15.2       | 45.1 MB   | ########################################################## | 100% 
+expat-2.4.9          | 156 KB    | ########################################################## | 100% 
+lxml-4.9.1           | 1.3 MB    | ########################################################## | 100% 
+flit-core-3.6.0      | 42 KB     | ########################################################## | 100% 
+mistune-0.8.4        | 55 KB     | ########################################################## | 100% 
+krb5-1.19.4          | 1.3 MB    | ########################################################## | 100% 
+pyopenssl-22.0.0     | 50 KB     | ########################################################## | 100% 
+qtwebkit-5.212       | 14.3 MB   | ########################################################## | 100% 
+argon2-cffi-21.3.0   | 15 KB     | ########################################################## | 100% 
+jupyter_server-1.23. | 382 KB    | ########################################################## | 100% 
+pysocks-1.7.1        | 31 KB     | ########################################################## | 100% 
+ipykernel-6.19.2     | 218 KB    | ########################################################## | 100% 
+ply-3.11             | 81 KB     | ########################################################## | 100% 
+jedi-0.18.1          | 982 KB    | ########################################################## | 100% 
+qtpy-2.2.0           | 84 KB     | ########################################################## | 100% 
+giflib-5.2.1         | 75 KB     | ########################################################## | 100% 
+json5-0.9.6          | 21 KB     | ########################################################## | 100% 
+typing-extensions-4. | 8 KB      | ########################################################## | 100% 
+beautifulsoup4-4.11. | 185 KB    | ########################################################## | 100% 
+requests-2.28.1      | 92 KB     | ########################################################## | 100% 
+notebook-shim-0.2.2  | 22 KB     | ########################################################## | 100% 
+prometheus_client-0. | 90 KB     | ########################################################## | 100% 
+parso-0.8.3          | 70 KB     | ########################################################## | 100% 
+gst-plugins-base-1.1 | 4.9 MB    | ########################################################## | 100% 
+pytz-2022.7          | 209 KB    | ########################################################## | 100% 
+libwebp-base-1.2.4   | 347 KB    | ########################################################## | 100% 
+traitlets-5.7.1      | 200 KB    | ########################################################## | 100% 
+cryptography-38.0.4  | 1.4 MB    | ########################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Retrieving notices: ...working... done
+(fs-video-recog) ye@ykt-pro:~/exp$ 
+```
+
+Checking the installed Jupyter version and also for your ref:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp$ jupyter --version
+Selected Jupyter core packages...
+IPython          : 8.8.0
+ipykernel        : 6.19.2
+ipywidgets       : 7.6.5
+jupyter_client   : 7.4.8
+jupyter_core     : 5.1.1
+jupyter_server   : 1.23.4
+jupyterlab       : 3.5.2
+nbclient         : 0.5.13
+nbconvert        : 6.5.4
+nbformat         : 5.7.0
+notebook         : 6.5.2
+qtconsole        : 5.4.0
+traitlets        : 5.7.1
+(fs-video-recog) ye@ykt-pro:~/exp$ 
+```
+
 ## Prepare ipython Notebook File for Data Collection  
 
 ```
