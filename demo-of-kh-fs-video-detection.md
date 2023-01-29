@@ -1044,16 +1044,28 @@ def draw_styled_landmarks(image, results):
 
 After updating with above code, run and now I can see mediapipe landmark detection points ...  
 
+## Relating to np.save()
+
+After you run the following code inside Jupyter notebook:  
+
+```Python
+np.save('0', result_test)
 ```
 
-```
+It will save as file ...  
 
 ```
-
+(base) ye@ykt-pro:~/exp/fs-detection$ ls
+0.npy  1.data-preparation.ipynb  note.txt
+(base) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
-```
+Yes, it is a binary data file as follows:  
 
+```
+(base) ye@ykt-pro:~/exp/fs-detection$ file 0.npy 
+0.npy: data
+(base) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
 ```
