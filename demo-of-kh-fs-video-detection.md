@@ -1130,12 +1130,28 @@ video:299733kB audio:1825kB subtitle:0kB other streams:0kB global headers:0kB mu
 (base) ye@ykt-pro:~/exp/fs-detection/ref-video$ 
 ```
 
+I was stack in following code:  
+
+```python
+#The following code got an error
+for action in actions: 
+    dirmax = np.max(np.array(os.listdir(os.path.join(DATA_PATH, action))).astype(int))
+    for sequence in range(1,no_sequences+1):
+        try: 
+            os.makedirs(os.path.join(DATA_PATH, action, str(dirmax+sequence)))
+        except:
+            pass
 ```
 
-```
+And thus, I used the code from the Tutorial (i.e. not updated one):  
 
 ```
-
+for action in actions: 
+    for sequence in range(1,no_sequences+1):
+        try: 
+            os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
+        except:
+            pass
 ```
 
 ```
