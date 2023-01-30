@@ -1340,6 +1340,249 @@ Cell In[8], line 17
 error: OpenCV(4.7.0) /io/opencv/modules/highgui/src/window.cpp:1272: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Cocoa support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
 ```
 
+I removed opencv and made clean installation with conda as follows:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip uninstall opencv-python
+Found existing installation: opencv-python 4.7.0.68
+Uninstalling opencv-python-4.7.0.68:
+  Would remove:
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSans-Bold.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSans-BoldOblique.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSans-ExtraLight.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSans-Oblique.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSans.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSansCondensed-Bold.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSansCondensed-BoldOblique.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSansCondensed-Oblique.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/fonts/DejaVuSansCondensed.ttf
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/qt/plugins/platforms/libqxcb.so
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python-4.7.0.68.dist-info/*
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Core-b6e66ee2.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Gui-dd62182f.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Test-c38a5234.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Widgets-e69d94fb.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5XcbQpa-dcb826d0.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libX11-xcb-69166bdf.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libXau-00ec42fe.so.6.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavcodec-087c3416.so.59.37.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavformat-85e01647.so.59.27.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavutil-82c407cb.so.57.28.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libcrypto-9cee340d.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libgfortran-91cc3cb1.so.3.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libopenblas-r0-f650aae0.3.3.so
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libpng16-186fce2e.so.16.37.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libquadmath-96973f99.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libssl-16e42f2f.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libswresample-d02fa90a.so.4.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libswscale-9b504c0d.so.6.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libvpx-5d0a9e1a.so.7.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-icccm-413c9f41.so.4.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-image-e82a276d.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-keysyms-21015570.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-randr-a96a5a87.so.0.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-render-637b984a.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-render-util-43ce00f5.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-shape-25c2b258.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-shm-7a199f70.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-sync-89374f40.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-util-4d666913.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xfixes-9be3ba6f.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xinerama-ae147f87.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xkb-9ba31ab3.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxkbcommon-71ae2972.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxkbcommon-x11-c65ed502.so.0.0.0
+Proceed (Y/n)? Y
+  Successfully uninstalled opencv-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
+```
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip uninstall opencv-contrib-python
+Found existing installation: opencv-contrib-python 4.7.0.68
+Uninstalling opencv-contrib-python-4.7.0.68:
+  Would remove:
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python-4.7.0.68.dist-info/*
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libQt5Core-b6e66ee2.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libQt5Gui-dd62182f.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libQt5Test-c38a5234.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libQt5Widgets-e69d94fb.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libQt5XcbQpa-dcb826d0.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libX11-xcb-69166bdf.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libXau-00ec42fe.so.6.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libavcodec-087c3416.so.59.37.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libavformat-85e01647.so.59.27.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libavutil-82c407cb.so.57.28.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libcrypto-9cee340d.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libgfortran-91cc3cb1.so.3.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libopenblas-r0-f650aae0.3.3.so
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libpng16-186fce2e.so.16.37.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libquadmath-96973f99.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libssl-16e42f2f.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libswresample-d02fa90a.so.4.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libswscale-9b504c0d.so.6.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libvpx-5d0a9e1a.so.7.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-icccm-413c9f41.so.4.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-image-e82a276d.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-keysyms-21015570.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-randr-a96a5a87.so.0.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-render-637b984a.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-render-util-43ce00f5.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-shape-25c2b258.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-shm-7a199f70.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-sync-89374f40.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-util-4d666913.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-xfixes-9be3ba6f.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-xinerama-ae147f87.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxcb-xkb-9ba31ab3.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxkbcommon-71ae2972.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_contrib_python.libs/libxkbcommon-x11-c65ed502.so.0.0.0
+Proceed (Y/n)? Y
+  Successfully uninstalled opencv-contrib-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
+```
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ conda install -c conda-forge opencv
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.14.0
+  latest version: 23.1.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/ye/tool/anaconda3/envs/fs-video-recog
+
+  added / updated specs:
+    - opencv
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blas-1.0                   |         openblas          46 KB
+    bzip2-1.0.8                |       h7f98852_4         484 KB  conda-forge
+    ca-certificates-2022.12.7  |       ha878542_0         143 KB  conda-forge
+    cairo-1.16.0               |       hb05425b_3         1.2 MB
+    certifi-2022.12.7          |     pyhd8ed1ab_0         147 KB  conda-forge
+    eigen-3.4.0                |       h4bd325d_0         1.2 MB  conda-forge
+    ffmpeg-4.2.2               |       h20bf706_0        59.6 MB
+    gmp-6.2.1                  |       h58526e2_0         806 KB  conda-forge
+    gnutls-3.6.13              |       h85f3911_1         2.0 MB  conda-forge
+    graphite2-1.3.14           |       h295c915_1          97 KB
+    harfbuzz-4.3.0             |       hd55b92a_0         1.1 MB
+    hdf5-1.10.6                |       h3ffc7dd_1         3.6 MB
+    lame-3.100                 |    h7f98852_1001         496 KB  conda-forge
+    libblas-3.9.0              |15_linux64_openblas          12 KB  conda-forge
+    libcblas-3.9.0             |15_linux64_openblas          12 KB  conda-forge
+    libgfortran-ng-12.2.0      |      h69a702a_19          22 KB  conda-forge
+    libgfortran5-12.2.0        |      h337968e_19         1.8 MB  conda-forge
+    liblapack-3.9.0            |15_linux64_openblas          12 KB  conda-forge
+    libopenblas-0.3.20         |pthreads_h78a6416_0        10.1 MB  conda-forge
+    libopus-1.3.1              |       h7f98852_1         255 KB  conda-forge
+    libprotobuf-3.20.1         |       h4ff587b_0         2.1 MB
+    nettle-3.6                 |       he412f7d_0         6.5 MB  conda-forge
+    numpy-1.22.3               |   py38h99721a1_2         6.8 MB  conda-forge
+    opencv-4.6.0               |   py38hd653453_2        26.8 MB
+    openh264-2.1.1             |       h4ff587b_0         711 KB
+    pixman-0.40.0              |       h36c2ea0_0         627 KB  conda-forge
+    python_abi-3.8             |           2_cp38           4 KB  conda-forge
+    x264-1!157.20191217        |       h7b6447c_0         922 KB
+    ------------------------------------------------------------
+                                           Total:       127.4 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/linux-64::blas-1.0-openblas
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
+  cairo              pkgs/main/linux-64::cairo-1.16.0-hb05425b_3
+  eigen              conda-forge/linux-64::eigen-3.4.0-h4bd325d_0
+  ffmpeg             pkgs/main/linux-64::ffmpeg-4.2.2-h20bf706_0
+  gmp                conda-forge/linux-64::gmp-6.2.1-h58526e2_0
+  gnutls             conda-forge/linux-64::gnutls-3.6.13-h85f3911_1
+  graphite2          pkgs/main/linux-64::graphite2-1.3.14-h295c915_1
+  harfbuzz           pkgs/main/linux-64::harfbuzz-4.3.0-hd55b92a_0
+  hdf5               pkgs/main/linux-64::hdf5-1.10.6-h3ffc7dd_1
+  lame               conda-forge/linux-64::lame-3.100-h7f98852_1001
+  libblas            conda-forge/linux-64::libblas-3.9.0-15_linux64_openblas
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-15_linux64_openblas
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.2.0-h69a702a_19
+  libgfortran5       conda-forge/linux-64::libgfortran5-12.2.0-h337968e_19
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-15_linux64_openblas
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.20-pthreads_h78a6416_0
+  libopus            conda-forge/linux-64::libopus-1.3.1-h7f98852_1
+  libprotobuf        pkgs/main/linux-64::libprotobuf-3.20.1-h4ff587b_0
+  libvpx             pkgs/main/linux-64::libvpx-1.7.0-h439df22_0
+  nettle             conda-forge/linux-64::nettle-3.6-he412f7d_0
+  numpy              conda-forge/linux-64::numpy-1.22.3-py38h99721a1_2
+  opencv             pkgs/main/linux-64::opencv-4.6.0-py38hd653453_2
+  openh264           pkgs/main/linux-64::openh264-2.1.1-h4ff587b_0
+  openjpeg           pkgs/main/linux-64::openjpeg-2.4.0-h3ad879b_0
+  pixman             conda-forge/linux-64::pixman-0.40.0-h36c2ea0_0
+  python_abi         conda-forge/linux-64::python_abi-3.8-2_cp38
+  x264               pkgs/main/linux-64::x264-1!157.20191217-h7b6447c_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    pkgs/main::ca-certificates-2023.01.10~ --> conda-forge::ca-certificates-2022.12.7-ha878542_0
+  certifi            pkgs/main/linux-64::certifi-2022.12.7~ --> conda-forge/noarch::certifi-2022.12.7-pyhd8ed1ab_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+openh264-2.1.1       | 711 KB    | ########################################################## | 100% 
+gmp-6.2.1            | 806 KB    | ########################################################## | 100% 
+libopus-1.3.1        | 255 KB    | ########################################################## | 100% 
+numpy-1.22.3         | 6.8 MB    | ########################################################## | 100% 
+cairo-1.16.0         | 1.2 MB    | ########################################################## | 100% 
+x264-1!157.20191217  | 922 KB    | ########################################################## | 100% 
+libopenblas-0.3.20   | 10.1 MB   | ########################################################## | 100% 
+certifi-2022.12.7    | 147 KB    | ########################################################## | 100% 
+bzip2-1.0.8          | 484 KB    | ########################################################## | 100% 
+eigen-3.4.0          | 1.2 MB    | ########################################################## | 100% 
+gnutls-3.6.13        | 2.0 MB    | ########################################################## | 100% 
+libgfortran5-12.2.0  | 1.8 MB    | ########################################################## | 100% 
+hdf5-1.10.6          | 3.6 MB    | ########################################################## | 100% 
+graphite2-1.3.14     | 97 KB     | ########################################################## | 100% 
+opencv-4.6.0         | 26.8 MB   | ########################################################## | 100% 
+liblapack-3.9.0      | 12 KB     | ########################################################## | 100% 
+harfbuzz-4.3.0       | 1.1 MB    | ########################################################## | 100% 
+libcblas-3.9.0       | 12 KB     | ########################################################## | 100% 
+pixman-0.40.0        | 627 KB    | ########################################################## | 100% 
+ffmpeg-4.2.2         | 59.6 MB   | ########################################################## | 100% 
+libblas-3.9.0        | 12 KB     | ########################################################## | 100% 
+lame-3.100           | 496 KB    | ########################################################## | 100% 
+python_abi-3.8       | 4 KB      | ########################################################## | 100% 
+ca-certificates-2022 | 143 KB    | ########################################################## | 100% 
+libprotobuf-3.20.1   | 2.1 MB    | ########################################################## | 100% 
+libgfortran-ng-12.2. | 22 KB     | ########################################################## | 100% 
+blas-1.0             | 46 KB     | ########################################################## | 100% 
+nettle-3.6           | 6.5 MB    | ########################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Retrieving notices: ...working... done
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
+```
+
+current opencv information is as follows:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ conda list | grep opencv
+opencv                    4.6.0            py38hd653453_2  
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
 ```
@@ -1364,12 +1607,107 @@ error: OpenCV(4.7.0) /io/opencv/modules/highgui/src/window.cpp:1272: error: (-2:
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 ## Reference
 
 [1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
 [2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark
 [3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread
 [4] https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra
+[5] https://www.quora.com/How-do-I-fix-the-attribute-error-module-cv2-has-no-attribute-video-capture
+
 
 
 
