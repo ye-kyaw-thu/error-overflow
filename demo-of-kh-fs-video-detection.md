@@ -1253,16 +1253,42 @@ Cell In[8], line 17
 error: OpenCV(4.7.0) /io/opencv/modules/highgui/src/window.cpp:1272: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Cocoa support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
 ```
 
-```
+headless installation is not working?! I try to solve based on the following link:  
+
+https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra
+
+Uninstall headless version as follows:  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip uninstall opencv-python-headless -y
+Found existing installation: opencv-python-headless 4.7.0.68
+Uninstalling opencv-python-headless-4.7.0.68:
+  Successfully uninstalled opencv-python-headless-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
-```
+Install/Update as follows:  
 
 ```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install opencv-python --upgrade
+Collecting opencv-python
+  Using cached opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61.8 MB)
+Requirement already satisfied: numpy>=1.17.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from opencv-python) (1.24.1)
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
+```
 
+And then, rerun Jupyter and rerun the notebook again:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install opencv-python --upgrade
+Collecting opencv-python
+  Using cached opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61.8 MB)
+Requirement already satisfied: numpy>=1.17.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from opencv-python) (1.24.1)
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
 ```
@@ -1310,6 +1336,8 @@ error: OpenCV(4.7.0) /io/opencv/modules/highgui/src/window.cpp:1272: error: (-2:
 [1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
 [2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark
 [3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread
+[4] https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra
+
 
 
 
