@@ -1172,6 +1172,10 @@ Cannot move to target thread (0x2e84730)
 
 ```
 
+Google the above error and I got following link:  
+
+https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread  
+
 ```
 
 ```
@@ -1240,5 +1244,8 @@ Cannot move to target thread (0x2e84730)
 
 [1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
 [2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark
+[3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread
+
+
 
 
