@@ -1622,16 +1622,62 @@ opencv                    4.6.0            py38hd653453_2
 
 I did data collection for the Khmer consonant Ka to Ngo (i.e. 1st five consonants of Khmer language).  
 
-```
+
+## Copy Data to GPU Server
 
 ```
-
+(base) ye@ykt-pro:~$ scp -r -P xxxx -i /home/ye/.ssh/for-cadt-gpu/id_rsa yekyaw.thu@103.16.63.233  /home/ye/exp/fs-detection/fs_data yekyaw.thu@103.16.63.233:/home/yekyaw.thu/exp/fs-detection/
+...
+...
+...
+15.npy                                                             100%   13KB   1.2MB/s   00:00    
+6.npy                                                              100%   13KB   1.1MB/s   00:00    
+9.npy                                                              100%   13KB 973.0KB/s   00:00    
+28.npy                                                             100%   13KB 977.3KB/s   00:00    
+22.npy                                                             100%   13KB   1.7MB/s   00:00    
+5.npy                                                              100%   13KB   1.8MB/s   00:00    
+20.npy                                                             100%   13KB   1.9MB/s   00:00    
+21.npy                                                             100%   13KB   2.0MB/s   00:00    
+26.npy                                                             100%   13KB   1.4MB/s   00:00    
+18.npy                                                             100%   13KB   1.8MB/s   00:00    
+0.npy                                                              100%   13KB   2.0MB/s   00:00    
+4.npy                                                              100%   13KB   1.4MB/s   00:00    
+11.npy                                                             100%   13KB   1.9MB/s   00:00    
+12.npy                                                             100%   13KB   1.8MB/s   00:00    
+29.npy                                                             100%   13KB   1.6MB/s   00:00    
+3.npy                                                              100%   13KB   2.1MB/s   00:00    
+13.npy                                                             100%   13KB   2.2MB/s   00:00    
+1.npy                                                              100%   13KB   2.1MB/s   00:00    
+17.npy                                                             100%   13KB   1.4MB/s   00:00    
+24.npy                                                             100%   13KB   2.0MB/s   00:00    
+23.npy                                                             100%   13KB   1.8MB/s   00:00    
+16.npy                                                             100%   13KB   2.1MB/s   00:00    
+8.npy                                                              100%   13KB   1.9MB/s   00:00    
+2.npy                                                              100%   13KB   2.0MB/s   00:00    
+10.npy                                                             100%   13KB   2.1MB/s   00:00    
+19.npy                                                             100%   13KB   1.9MB/s   00:00    
+25.npy                                                             100%   13KB   1.9MB/s   00:00    
 ```
 
-```
+Check on server side:  
 
 ```
+(sl-mnist) yekyaw.thu@gpu:~/exp/fs-detection$ ls
+check-tensorflow-gpu.py  khmer-fingerspelling-detection-eg.ipynb  run-jupyter-on-server.sh
+fs_data			 ref
+(sl-mnist) yekyaw.thu@gpu:~/exp/fs-detection$
+```
 
+Run jupyter notebook on server side.  
+
+After that port forwarding on the local notebook computer and update the jupyter notebook for preparing training/test and labels etc.   
+
+
+## Training
+
+```
+(base) yekyaw.thu@gpu:~/exp/fs-detection$ wc kh-fs-5-consonant-2000epoch.h5 
+  21193  121985 7226328 kh-fs-5-consonant-2000epoch.h5
 ```
 
 ```
