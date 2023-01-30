@@ -1279,10 +1279,17 @@ Successfully installed opencv-python-4.7.0.68
 (fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
-And then, rerun Jupyter and rerun the notebook again:  
+And then, rerun Jupyter and rerun the notebook again, detection testing stage is OK, but when I prepare to collect online data I got the same error as follows:  
 
 ```
+QObject::moveToThread: Current thread (0x225ba00) is not the object's thread (0x24faba0).
+Cannot move to target thread (0x225ba00)
 
+QObject::moveToThread: Current thread (0x225ba00) is not the object's thread (0x24faba0).
+Cannot move to target thread (0x225ba00)
+
+QObject::moveToThread: Current thread (0x225ba00) is not the object's thread (0x24faba0).
+Cannot move to target thread (0x225ba00)
 ```
 
 ```
