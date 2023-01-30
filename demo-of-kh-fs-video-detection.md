@@ -1612,9 +1612,15 @@ FileNotFoundError: [Errno 2] No such file or directory: 'fs_data/ka/31/0.npy'
 
 I found that 31 also an error in the looping code ...  
 
-```
+Finally, I can solve the error, note I also updated the "start_folder = 1" and my OpenCV version on local notebook is as follows:  
 
 ```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ conda list | grep opencv
+opencv                    4.6.0            py38hd653453_2  
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
+```
+
+I did data collection for the Khmer consonant Ka to Ngo (i.e. 1st five consonants of Khmer language).  
 
 ```
 
