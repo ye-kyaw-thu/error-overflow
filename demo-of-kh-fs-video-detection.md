@@ -1176,13 +1176,67 @@ Google the above error and I got following link:
 
 https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread  
 
-```
+From the above link last answer, I tried to remove the opencv and install headless version as follows:  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip uninstall opencv-python
+Found existing installation: opencv-python 4.7.0.68
+Uninstalling opencv-python-4.7.0.68:
+  Would remove:
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/cv2/*
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python-4.7.0.68.dist-info/*
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Core-b6e66ee2.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Gui-dd62182f.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Test-c38a5234.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5Widgets-e69d94fb.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libQt5XcbQpa-dcb826d0.so.5.15.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libX11-xcb-69166bdf.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libXau-00ec42fe.so.6.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavcodec-087c3416.so.59.37.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavformat-85e01647.so.59.27.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libavutil-82c407cb.so.57.28.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libcrypto-9cee340d.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libgfortran-91cc3cb1.so.3.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libopenblas-r0-f650aae0.3.3.so
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libpng16-186fce2e.so.16.37.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libquadmath-96973f99.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libssl-16e42f2f.so.1.1
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libswresample-d02fa90a.so.4.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libswscale-9b504c0d.so.6.7.100
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libvpx-5d0a9e1a.so.7.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-icccm-413c9f41.so.4.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-image-e82a276d.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-keysyms-21015570.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-randr-a96a5a87.so.0.1.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-render-637b984a.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-render-util-43ce00f5.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-shape-25c2b258.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-shm-7a199f70.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-sync-89374f40.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-util-4d666913.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xfixes-9be3ba6f.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xinerama-ae147f87.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxcb-xkb-9ba31ab3.so.1.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxkbcommon-71ae2972.so.0.0.0
+    /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/opencv_python.libs/libxkbcommon-x11-c65ed502.so.0.0.0
+Proceed (Y/n)? Y
+  Successfully uninstalled opencv-python-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
+Install the headless version:  
+
 ```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install opencv-python-headless
+Collecting opencv-python-headless
+  Downloading opencv_python_headless-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (49.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.2/49.2 MB 2.4 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.17.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from opencv-python-headless) (1.24.1)
+Installing collected packages: opencv-python-headless
+Successfully installed opencv-python-headless-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
+```
+
 
 ```
 
