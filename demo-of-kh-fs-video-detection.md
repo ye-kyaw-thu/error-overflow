@@ -1585,9 +1585,32 @@ opencv                    4.6.0            py38hd653453_2
 (fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ 
 ```
 
-```
+Currently, I am facing with following error:  
 
 ```
+[ WARN:0@66.378] global /opt/conda/conda-bld/opencv-suite_1664548337286/work/modules/videoio/src/cap_gstreamer.cpp (862) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+---------------------------------------------------------------------------
+FileNotFoundError                         Traceback (most recent call last)
+Cell In[29], line 40
+     38 keypoints = extract_keypoints(results)
+     39 npy_path = os.path.join(DATA_PATH, action, str(sequence), str(frame_num))
+---> 40 np.save(npy_path, keypoints)
+     42 # Break gracefully
+     43 if cv2.waitKey(10) & 0xFF == ord('q'):
+
+File <__array_function__ internals>:180, in save(*args, **kwargs)
+
+File ~/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages/numpy/lib/npyio.py:515, in save(file, arr, allow_pickle, fix_imports)
+    513     if not file.endswith('.npy'):
+    514         file = file + '.npy'
+--> 515     file_ctx = open(file, "wb")
+    517 with file_ctx as fid:
+    518     arr = np.asanyarray(arr)
+
+FileNotFoundError: [Errno 2] No such file or directory: 'fs_data/ka/31/0.npy'
+```
+
+I found that 31 also an error in the looping code ...  
 
 ```
 
