@@ -1292,20 +1292,52 @@ QObject::moveToThread: Current thread (0x225ba00) is not the object's thread (0x
 Cannot move to target thread (0x225ba00)
 ```
 
-```
+Check the OpenCV current versions:  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip list | grep opencv
+opencv-contrib-python        4.7.0.68
+opencv-python                4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
-```
+I installed the opencv-headless version:  
 
 ```
-
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install opencv-python-headless
+Collecting opencv-python-headless
+  Using cached opencv_python_headless-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (49.2 MB)
+Requirement already satisfied: numpy>=1.17.3 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from opencv-python-headless) (1.24.1)
+Installing collected packages: opencv-python-headless
+Successfully installed opencv-python-headless-4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
+Now, on my conda env, as follows:  
+
+```
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip list | grep opencv
+opencv-contrib-python        4.7.0.68
+opencv-python                4.7.0.68
+opencv-python-headless       4.7.0.68
+(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
 ```
 
+When I deactivate, activate the conda env, rerun jupyter notebook and run the python notebook, I got following new error:  
+
+```
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+<class 'mediapipe.python.solution_base.SolutionOutputs'>
+---------------------------------------------------------------------------
+error                                     Traceback (most recent call last)
+Cell In[8], line 17
+     14 draw_styled_landmarks(image, results)
+     16 # Show to screen
+---> 17 cv2.imshow('OpenCV Feed', image)
+     19 # Break gracefully
+     20 if cv2.waitKey(10) & 0xFF == ord('q'):
+
+error: OpenCV(4.7.0) /io/opencv/modules/highgui/src/window.cpp:1272: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Cocoa support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
 ```
 
 ```
