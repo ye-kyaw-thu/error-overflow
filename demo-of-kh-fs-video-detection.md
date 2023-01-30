@@ -1154,7 +1154,21 @@ for action in actions:
             pass
 ```
 
+One more problem is when I try to start data collection, both of the source code (from the original Tutorial video and also the updated one) give an error and I have to wait for the long time ... 
+I got following errors:  
+
 ```
+QObject::moveToThread: Current thread (0x2e84730) is not the object's thread (0x2eddfb0).
+Cannot move to target thread (0x2e84730)
+
+QObject::moveToThread: Current thread (0x2e84730) is not the object's thread (0x2eddfb0).
+Cannot move to target thread (0x2e84730)
+
+QObject::moveToThread: Current thread (0x2e84730) is not the object's thread (0x2eddfb0).
+Cannot move to target thread (0x2e84730)
+
+...
+...
 
 ```
 
