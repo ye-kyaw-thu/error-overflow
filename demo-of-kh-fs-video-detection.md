@@ -1282,13 +1282,7 @@ Successfully installed opencv-python-4.7.0.68
 And then, rerun Jupyter and rerun the notebook again:  
 
 ```
-(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$ pip install opencv-python --upgrade
-Collecting opencv-python
-  Using cached opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61.8 MB)
-Requirement already satisfied: numpy>=1.17.0 in /home/ye/tool/anaconda3/envs/fs-video-recog/lib/python3.8/site-packages (from opencv-python) (1.24.1)
-Installing collected packages: opencv-python
-Successfully installed opencv-python-4.7.0.68
-(fs-video-recog) ye@ykt-pro:~/exp/fs-detection$
+
 ```
 
 ```
