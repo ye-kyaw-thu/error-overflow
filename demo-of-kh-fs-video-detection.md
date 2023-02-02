@@ -1687,7 +1687,7 @@ I splitted the original ipython notebook file into three parts and they are as f
   File2: 2.training-lstm.ipynb  (run on your GPU server)  
   File3: 3.real-time-test.ipynb  (run on your notebook)  
 
-The link for the notebooks:[https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection](https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection)  
+The link for the notebooks: [https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection](https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection)  
 Before your run, you have to prepare required libraries on both of your local notebook and GPU server.  
 
 ## To Do
