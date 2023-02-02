@@ -1699,9 +1699,9 @@ Before your run, you have to prepare required libraries on both of your local no
 
 ## Reference
 
-[1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
-[2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark
-[3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread
-[4] https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra
-[5] https://www.quora.com/How-do-I-fix-the-attribute-error-module-cv2-has-no-attribute-video-capture
+[1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f  
+[2] https://datascience.stackexchange.com/questions/110484/attributeerror-nonetype-object-has-no-attribute-landmark  
+[3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread  
+[4] https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra  
+[5] https://www.quora.com/How-do-I-fix-the-attribute-error-module-cv2-has-no-attribute-video-capture  
 
