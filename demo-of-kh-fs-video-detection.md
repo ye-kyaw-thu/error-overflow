@@ -1680,101 +1680,23 @@ After that port forwarding on the local notebook computer and update the jupyter
   21193  121985 7226328 kh-fs-5-consonant-2000epoch.h5
 ```
 
-```
+## Summary
 
-```
+I splitted the original ipython notebook file into three parts and they are as follows:  
+  File1: 1.data-preparation.ipynb  (run onou your notebook)  
+  File2: 2.training-lstm.ipynb  (run on your GPU server)  
+  File3: 3.real-time-test.ipynb  (run on your notebook)  
 
-```
+The link for the notebooks:[https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection](https://github.com/ye-kyaw-thu/error-overflow/tree/master/kh-sl-detection)  
+Before your run, you have to prepare required libraries on both of your local notebook and GPU server.  
 
-```
+## To Do
 
-```
+1. Training with 600 recorded fingerspelling words video data  
+2. Hyperparameter tuning with current LSTM model  
+3. Updating current LSTM network architecture 
+4. Considering other neural network architecture such as Transformer  
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 ## Reference
 
 [1]. https://stackoverflow.com/questions/69095372/attributeerror-module-mediapipe-python-solutions-holistic-has-no-attribute-f
@@ -1782,9 +1704,4 @@ After that port forwarding on the local notebook computer and update the jupyter
 [3] https://stackoverflow.com/questions/52337870/python-opencv-error-current-thread-is-not-the-objects-thread
 [4] https://stackoverflow.com/questions/67120450/error-2unspecified-error-the-function-is-not-implemented-rebuild-the-libra
 [5] https://www.quora.com/How-do-I-fix-the-attribute-error-module-cv2-has-no-attribute-video-capture
-
-
-
-
-
 
