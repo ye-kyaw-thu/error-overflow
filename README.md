@@ -167,5 +167,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 160. [en-cpan-sentence-segmentation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/en-cpan-sentence-segmentation.md)  
 161. [sl-mnist-CNN.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sl-mnist-CNN.md)  
 162. [demo-of-kh-fs-video-detection.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/demo-of-kh-fs-video-detection.md)  
+163. [kh-polarity-exp3.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kh-polarity-exp3.md)  
 
 
