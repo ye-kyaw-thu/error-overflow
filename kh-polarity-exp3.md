@@ -1274,12 +1274,93 @@ sys	0m0.766s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ 
 ```
 
-```
+## SVM Result with F1, P and R
+
+Updated code:  
+
+```python
 
 ```
 
-```
+SVM result with F1, P and R:  
 
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./svm-classifier.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+SVM, Unigram Counts
+Train score: 0.63 ; Validation score: 0.58
+
+SVM, Unigram Tf-Idf
+Train score: 0.6 ; Validation score: 0.58
+
+SVM, Bigram Counts
+Train score: 0.77 ; Validation score: 0.57
+
+SVM, Bigram Tf-Idf
+Train score: 0.69 ; Validation score: 0.59
+
+SVM Test Result, Unigram Counts:  0.586
+Error Rate: 0.41
+----------
+              precision    recall  f1-score   support
+
+    negative       0.62      0.02      0.05       325
+     neutral       0.00      0.00      0.00        92
+    positive       0.59      0.99      0.74       583
+
+    accuracy                           0.59      1000
+   macro avg       0.40      0.34      0.26      1000
+weighted avg       0.54      0.59      0.44      1000
+
+
+SVM Test Result, Unigram Tf-Idf:  0.583
+Error Rate: 0.42
+----------
+              precision    recall  f1-score   support
+
+    negative       0.48      0.09      0.15       325
+     neutral       0.00      0.00      0.00        92
+    positive       0.59      0.95      0.73       583
+
+    accuracy                           0.58      1000
+   macro avg       0.36      0.35      0.29      1000
+weighted avg       0.50      0.58      0.47      1000
+
+
+SVM Test Result, Bigram Count:  0.58
+Error Rate: 0.42
+----------
+              precision    recall  f1-score   support
+
+    negative       0.27      0.01      0.02       325
+     neutral       0.00      0.00      0.00        92
+    positive       0.58      0.99      0.73       583
+
+    accuracy                           0.58      1000
+   macro avg       0.29      0.33      0.25      1000
+weighted avg       0.43      0.58      0.43      1000
+
+
+SVM Test Result, Bigram Tf-Idf:  0.593
+Error Rate: 0.41
+----------
+              precision    recall  f1-score   support
+
+    negative       0.50      0.18      0.27       325
+     neutral       1.00      0.01      0.02        92
+    positive       0.60      0.91      0.73       583
+
+    accuracy                           0.59      1000
+   macro avg       0.70      0.37      0.34      1000
+weighted avg       0.61      0.59      0.51      1000
+
+
+
+real	0m16.666s
+user	0m16.601s
+sys	0m0.543s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
 ```
