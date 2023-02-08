@@ -2172,9 +2172,41 @@ sys	0m0.641s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
+## Summary of the Updating
+
+For the code, mainly I updated the followings:
+
+Updating the comments:  
+
+```python
+## Last updated: 8 Feb 2023
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+## https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
+## https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model
+## https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f
+## https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
+```
+
+Declare the libary:  
+
+```python
+from sklearn.metrics import classification_report
+```
+
+And adding following codes under the error rate print statement:  
+
+```python
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+```
+
 ## To Do
 
-- Presenting the above detail result in our paper
+- Study on Precision, Recall and F1 of each ML models
+- Updating the slide
+- Presenting the above detail results in our Khmer polarity classification paper
 
 ## Reference
 
