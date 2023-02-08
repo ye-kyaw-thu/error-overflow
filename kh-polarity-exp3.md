@@ -1558,13 +1558,278 @@ sys	0m0.543s
 updated python code:  
 
 ```python
+## Stochastic Gradient Descent Classifier for Khmer Polarity
+## Written by Ye Kyaw Thu, 
+## Affiliate Professor, IDRI, CADT, Cambodia
+## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
+## Last updated: 8 Feb 2023
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+## https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
+## https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model
+## https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f
+## https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
 
+import pandas as pd
+import re
+from os import system, listdir
+from os.path import isfile, join
+from random import shuffle
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+polar_train = pd.read_csv('csv/train.csv')
+polar_test = pd.read_csv('csv/test.csv')
+
+### Text Vectorization
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from joblib import dump, load # used for saving and loading sklearn objects
+from scipy.sparse import save_npz, load_npz # used for saving and loading sparse matrices
+
+system("mkdir 'data_preprocessors'")
+system("mkdir 'vectorized_data'")
+
+
+# Unigram Counts
+
+unigram_vectorizer = CountVectorizer(ngram_range=(1, 1))
+unigram_vectorizer.fit(polar_train['text'].values)
+
+dump(unigram_vectorizer, 'data_preprocessors/unigram_vectorizer.joblib')
+
+# unigram_vectorizer = load('data_preprocessors/unigram_vectorizer.joblib')
+
+X_train_unigram = unigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_unigram.npz', X_train_unigram)
+
+# X_train_unigram = load_npz('vectorized_data/X_train_unigram.npz')
+
+
+# Unigram Tf-Idf
+
+unigram_tf_idf_transformer = TfidfTransformer()
+unigram_tf_idf_transformer.fit(X_train_unigram)
+
+dump(unigram_tf_idf_transformer, 'data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+# unigram_tf_idf_transformer = load('data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+X_train_unigram_tf_idf = unigram_tf_idf_transformer.transform(X_train_unigram)
+
+save_npz('vectorized_data/X_train_unigram_tf_idf.npz', X_train_unigram_tf_idf)
+
+# X_train_unigram_tf_idf = load_npz('vectorized_data/X_train_unigram_tf_idf.npz')
+
+
+# Bigram Counts
+
+bigram_vectorizer = CountVectorizer(ngram_range=(1, 2))
+bigram_vectorizer.fit(polar_train['text'].values)
+
+dump(bigram_vectorizer, 'data_preprocessors/bigram_vectorizer.joblib')
+
+# bigram_vectorizer = load('data_preprocessors/bigram_vectorizer.joblib')
+
+X_train_bigram = bigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_bigram.npz', X_train_bigram)
+
+# X_train_bigram = load_npz('vectorized_data/X_train_bigram.npz')
+
+
+# Bigram Tf-Idf
+
+bigram_tf_idf_transformer = TfidfTransformer()
+bigram_tf_idf_transformer.fit(X_train_bigram)
+
+dump(bigram_tf_idf_transformer, 'data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+# bigram_tf_idf_transformer = load('data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+X_train_bigram_tf_idf = bigram_tf_idf_transformer.transform(X_train_bigram)
+
+save_npz('vectorized_data/X_train_bigram_tf_idf.npz', X_train_bigram_tf_idf)
+
+# X_train_bigram_tf_idf = load_npz('vectorized_data/X_train_bigram_tf_idf.npz')
+
+### Choosing the Data Format
+
+from sklearn.model_selection import train_test_split
+from scipy.sparse import csr_matrix
+import numpy as np
+
+# Import logistic regression library
+from sklearn.linear_model import SGDClassifier
+from sklearn.metrics import classification_report
+
+def train_and_show_scores_SGD(X: csr_matrix, y: np.array, title: str, model: str) -> None:
+    X_train, X_valid, y_train, y_valid = train_test_split(
+        X, y, train_size=0.75, stratify=y
+    )
+
+    clf = SGDClassifier()
+    clf.fit(X_train, y_train)
+    train_score = clf.score(X_train, y_train)
+    valid_score = clf.score(X_valid, y_valid)
+    print(f'{title}\nTrain score: {round(train_score, 2)} ; Validation score: {round(valid_score, 2)}\n')
+
+    #saving model
+    dump(clf, 'classifiers/' + model)
+
+y_train = polar_train['label'].values
+
+train_and_show_scores_SGD(X_train_unigram, y_train, 'SGD, Unigram Counts', 'sgd_unigram_count.joblib')
+train_and_show_scores_SGD(X_train_unigram_tf_idf, y_train, 'SGD, Unigram Tf-Idf', 'sgd_unigram_tf-idf.joblib')
+train_and_show_scores_SGD(X_train_bigram, y_train, 'SGD, Bigram Counts', 'sgd_bigram_count.joblib')
+train_and_show_scores_SGD(X_train_bigram_tf_idf, y_train, 'SGD, Bigram Tf-Idf', 'sgd_bigram_tf-idf.joblib')
+
+
+### Testing/Evaluation
+
+X_test = unigram_vectorizer.transform(polar_test['text'].values)
+X_test = unigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+sgd_unigram_counts = load('classifiers/sgd_unigram_count.joblib')
+score = sgd_unigram_counts.score(X_test, y_test)
+print('SGD Test Result, Unigram Counts: ', score)
+
+# Predict the class of test set
+y_predict = sgd_unigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+sgd_unigram_tfidf = load('classifiers/sgd_unigram_tf-idf.joblib')
+score = sgd_unigram_tfidf.score(X_test, y_test)
+print('SGD Test Result, Unigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = sgd_unigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+X_test = bigram_vectorizer.transform(polar_test['text'].values)
+X_test = bigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+sgd_bigram_counts = load('classifiers/sgd_bigram_count.joblib')
+score = sgd_bigram_counts.score(X_test, y_test)
+print('SGD Test Result, Bigram Count: ', score)
+
+# Predict the class of test set
+y_predict = sgd_bigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+sgd_bigram_tfidf = load('classifiers/sgd_bigram_tf-idf.joblib')
+score = sgd_bigram_tfidf.score(X_test, y_test)
+print('SGD Test Result, Bigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = sgd_bigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
 ```
 
 SGD result with F1, P and R are as follows:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./sgd-classifier2.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+SGD, Unigram Counts
+Train score: 0.63 ; Validation score: 0.59
 
+SGD, Unigram Tf-Idf
+Train score: 0.63 ; Validation score: 0.59
+
+SGD, Bigram Counts
+Train score: 0.78 ; Validation score: 0.59
+
+SGD, Bigram Tf-Idf
+Train score: 0.74 ; Validation score: 0.58
+
+SGD Test Result, Unigram Counts:  0.588
+Error Rate: 0.41
+----------
+              precision    recall  f1-score   support
+
+    negative       0.59      0.05      0.10       325
+     neutral       0.20      0.01      0.02        92
+    positive       0.59      0.98      0.74       583
+
+    accuracy                           0.59      1000
+   macro avg       0.46      0.35      0.28      1000
+weighted avg       0.55      0.59      0.46      1000
+
+
+SGD Test Result, Unigram Tf-Idf:  0.587
+Error Rate: 0.41
+----------
+              precision    recall  f1-score   support
+
+    negative       0.50      0.12      0.19       325
+     neutral       0.30      0.03      0.06        92
+    positive       0.60      0.94      0.73       583
+
+    accuracy                           0.59      1000
+   macro avg       0.47      0.36      0.33      1000
+weighted avg       0.54      0.59      0.49      1000
+
+
+SGD Test Result, Bigram Count:  0.567
+Error Rate: 0.43
+----------
+              precision    recall  f1-score   support
+
+    negative       0.36      0.08      0.14       325
+     neutral       0.50      0.04      0.08        92
+    positive       0.58      0.92      0.71       583
+
+    accuracy                           0.57      1000
+   macro avg       0.48      0.35      0.31      1000
+weighted avg       0.50      0.57      0.47      1000
+
+
+SGD Test Result, Bigram Tf-Idf:  0.583
+Error Rate: 0.42
+----------
+              precision    recall  f1-score   support
+
+    negative       0.45      0.25      0.32       325
+     neutral       0.17      0.01      0.02        92
+    positive       0.62      0.86      0.72       583
+
+    accuracy                           0.58      1000
+   macro avg       0.41      0.37      0.35      1000
+weighted avg       0.52      0.58      0.52      1000
+
+
+
+real	0m1.609s
+user	0m1.678s
+sys	0m0.679s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
 ```
