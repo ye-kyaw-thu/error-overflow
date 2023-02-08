@@ -299,13 +299,75 @@ sys	0m1.673s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
-```
+2nd time run the same code and check the scores:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ rm -r data_preprocessors/
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ rm -r vectorized_data/
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./knn-classifier.py 
+KNN, Unigram Counts
+Train score: 0.62 ; Validation score: 0.48
 
+KNN, Unigram Tf-Idf
+Train score: 0.62 ; Validation score: 0.51
+
+KNN, Bigram Counts
+Train score: 0.58 ; Validation score: 0.44
+
+KNN, Bigram Tf-Idf
+Train score: 0.62 ; Validation score: 0.48
+
+KNN Test Result, Unigram Counts:  0.474
+Error Rate: 0.53
+KNN Test Result, Unigram Tf-Idf:  0.503
+Error Rate: 0.50
+KNN Test Result, Bigram Count:  0.338
+Error Rate: 0.66
+KNN Test Result, Bigram Tf-Idf:  0.5
+Error Rate: 0.50
+
+real	0m6.914s
+user	0m6.013s
+sys	0m1.391s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
+3rd time running and check the KNN results:  
+
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./knn-classifier.py 
+KNN, Unigram Counts
+Train score: 0.62 ; Validation score: 0.51
+
+KNN, Unigram Tf-Idf
+Train score: 0.65 ; Validation score: 0.52
+
+KNN, Bigram Counts
+Train score: 0.61 ; Validation score: 0.48
+
+KNN, Bigram Tf-Idf
+Train score: 0.61 ; Validation score: 0.5
+
+KNN Test Result, Unigram Counts:  0.463
+Error Rate: 0.54
+KNN Test Result, Unigram Tf-Idf:  0.535
+Error Rate: 0.47
+KNN Test Result, Bigram Count:  0.363
+Error Rate: 0.64
+KNN Test Result, Bigram Tf-Idf:  0.51
+Error Rate: 0.49
+
+real	0m6.462s
+user	0m5.578s
+sys	0m1.373s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
+```
+
+As we can seen above, the results might be change according to the running time.  
+
+## KNN Results with F1, P and R
+
+Updated the KNN python code as follows:  
 
 ```
 
