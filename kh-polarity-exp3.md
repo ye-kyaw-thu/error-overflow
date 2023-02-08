@@ -999,13 +999,279 @@ sys	0m0.648s
 I updated the code as follows:  
 
 ```python
+## Random Forest Classifier for Khmer Polarity
+## Written by Ye Kyaw Thu, 
+## Affiliate Professor, IDRI, CADT, Cambodia
+## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
+## Last updated: 8 Feb 2023
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+## https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
+## https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model
+## https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f
+## https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
 
+import pandas as pd
+import re
+from os import system, listdir
+from os.path import isfile, join
+from random import shuffle
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+polar_train = pd.read_csv('csv/train.csv')
+polar_test = pd.read_csv('csv/test.csv')
+
+### Text Vectorization
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from joblib import dump, load # used for saving and loading sklearn objects
+from scipy.sparse import save_npz, load_npz # used for saving and loading sparse matrices
+
+system("mkdir 'data_preprocessors'")
+system("mkdir 'vectorized_data'")
+
+
+# Unigram Counts
+
+unigram_vectorizer = CountVectorizer(ngram_range=(1, 1))
+unigram_vectorizer.fit(polar_train['text'].values)
+
+dump(unigram_vectorizer, 'data_preprocessors/unigram_vectorizer.joblib')
+
+# unigram_vectorizer = load('data_preprocessors/unigram_vectorizer.joblib')
+
+X_train_unigram = unigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_unigram.npz', X_train_unigram)
+
+# X_train_unigram = load_npz('vectorized_data/X_train_unigram.npz')
+
+
+# Unigram Tf-Idf
+
+unigram_tf_idf_transformer = TfidfTransformer()
+unigram_tf_idf_transformer.fit(X_train_unigram)
+
+dump(unigram_tf_idf_transformer, 'data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+# unigram_tf_idf_transformer = load('data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+X_train_unigram_tf_idf = unigram_tf_idf_transformer.transform(X_train_unigram)
+
+save_npz('vectorized_data/X_train_unigram_tf_idf.npz', X_train_unigram_tf_idf)
+
+# X_train_unigram_tf_idf = load_npz('vectorized_data/X_train_unigram_tf_idf.npz')
+
+
+# Bigram Counts
+
+bigram_vectorizer = CountVectorizer(ngram_range=(1, 2))
+bigram_vectorizer.fit(polar_train['text'].values)
+
+dump(bigram_vectorizer, 'data_preprocessors/bigram_vectorizer.joblib')
+
+# bigram_vectorizer = load('data_preprocessors/bigram_vectorizer.joblib')
+
+X_train_bigram = bigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_bigram.npz', X_train_bigram)
+
+# X_train_bigram = load_npz('vectorized_data/X_train_bigram.npz')
+
+
+# Bigram Tf-Idf
+
+bigram_tf_idf_transformer = TfidfTransformer()
+bigram_tf_idf_transformer.fit(X_train_bigram)
+
+dump(bigram_tf_idf_transformer, 'data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+# bigram_tf_idf_transformer = load('data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+X_train_bigram_tf_idf = bigram_tf_idf_transformer.transform(X_train_bigram)
+
+save_npz('vectorized_data/X_train_bigram_tf_idf.npz', X_train_bigram_tf_idf)
+
+# X_train_bigram_tf_idf = load_npz('vectorized_data/X_train_bigram_tf_idf.npz')
+
+### Choosing the Data Format
+
+
+from sklearn.model_selection import train_test_split
+from scipy.sparse import csr_matrix
+import numpy as np
+
+# Import the Random Forests library
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+def train_and_show_scores_RFOREST(X: csr_matrix, y: np.array, title: str, model: str) -> None:
+    X_train, X_valid, y_train, y_valid = train_test_split(
+        X, y, train_size=0.75, stratify=y
+    )
+
+    clf = RandomForestClassifier()
+    clf.fit(X_train, y_train)
+    train_score = clf.score(X_train, y_train)
+    valid_score = clf.score(X_valid, y_valid)
+    print(f'{title}\nTrain score: {round(train_score, 2)} ; Validation score: {round(valid_score, 2)}\n')
+
+    #saving model
+    dump(clf, 'classifiers/' + model)
+
+y_train = polar_train['label'].values
+
+train_and_show_scores_RFOREST(X_train_unigram, y_train, 'RFOREST, Unigram Counts', 'rforest_unigram_count.joblib')
+train_and_show_scores_RFOREST(X_train_unigram_tf_idf, y_train, 'RFOREST, Unigram Tf-Idf', 'rforest_unigram_tf-idf.joblib')
+train_and_show_scores_RFOREST(X_train_bigram, y_train, 'RFOREST, Bigram Counts', 'rforest_bigram_count.joblib')
+train_and_show_scores_RFOREST(X_train_bigram_tf_idf, y_train, 'RFOREST, Bigram Tf-Idf', 'rforest_bigram_tf-idf.joblib')
+
+
+### Testing/Evaluation
+
+X_test = unigram_vectorizer.transform(polar_test['text'].values)
+X_test = unigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+rforest_unigram_counts = load('classifiers/rforest_unigram_count.joblib')
+score = rforest_unigram_counts.score(X_test, y_test)
+print('Random Forest Test Result, Unigram Counts: ', score)
+
+# Predict the class of test set
+y_predict = rforest_unigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+rforest_unigram_tfidf = load('classifiers/rforest_unigram_tf-idf.joblib')
+score = rforest_unigram_tfidf.score(X_test, y_test)
+print('Random Forest Test Result, Unigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = rforest_unigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+X_test = bigram_vectorizer.transform(polar_test['text'].values)
+X_test = bigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+rforest_bigram_counts = load('classifiers/rforest_bigram_count.joblib')
+score = rforest_bigram_counts.score(X_test, y_test)
+print('Random Forest Test Result, Bigram Count: ', score)
+
+# Predict the class of test set
+y_predict = rforest_bigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
+
+rforest_bigram_tfidf = load('classifiers/rforest_bigram_tf-idf.joblib')
+score = rforest_bigram_tfidf.score(X_test, y_test)
+print('Random Forest Test Result, Bigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = rforest_bigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
 ```
 
 The Random Forest results with F1, P and R are as follows:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./rforest-classifier.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+RFOREST, Unigram Counts
+Train score: 0.83 ; Validation score: 0.56
 
+RFOREST, Unigram Tf-Idf
+Train score: 0.83 ; Validation score: 0.57
+
+RFOREST, Bigram Counts
+Train score: 0.84 ; Validation score: 0.58
+
+RFOREST, Bigram Tf-Idf
+Train score: 0.84 ; Validation score: 0.58
+
+Random Forest Test Result, Unigram Counts:  0.565
+Error Rate: 0.43
+----------
+              precision    recall  f1-score   support
+
+    negative       0.44      0.22      0.30       325
+     neutral       0.09      0.02      0.04        92
+    positive       0.60      0.84      0.70       583
+
+    accuracy                           0.56      1000
+   macro avg       0.38      0.36      0.34      1000
+weighted avg       0.50      0.56      0.51      1000
+
+
+Random Forest Test Result, Unigram Tf-Idf:  0.588
+Error Rate: 0.41
+----------
+              precision    recall  f1-score   support
+
+    negative       0.46      0.23      0.31       325
+     neutral       0.43      0.03      0.06        92
+    positive       0.61      0.87      0.72       583
+
+    accuracy                           0.59      1000
+   macro avg       0.50      0.38      0.36      1000
+weighted avg       0.55      0.59      0.53      1000
+
+
+Random Forest Test Result, Bigram Count:  0.559
+Error Rate: 0.44
+----------
+              precision    recall  f1-score   support
+
+    negative       0.36      0.10      0.16       325
+     neutral       0.09      0.01      0.02        92
+    positive       0.59      0.90      0.71       583
+
+    accuracy                           0.56      1000
+   macro avg       0.35      0.34      0.30      1000
+weighted avg       0.47      0.56      0.47      1000
+
+
+Random Forest Test Result, Bigram Tf-Idf:  0.602
+Error Rate: 0.40
+----------
+              precision    recall  f1-score   support
+
+    negative       0.53      0.21      0.30       325
+     neutral       0.17      0.01      0.02        92
+    positive       0.62      0.91      0.74       583
+
+    accuracy                           0.60      1000
+   macro avg       0.44      0.38      0.35      1000
+weighted avg       0.55      0.60      0.53      1000
+
+
+
+real	0m30.863s
+user	0m30.592s
+sys	0m0.766s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ 
 ```
 
 ```
