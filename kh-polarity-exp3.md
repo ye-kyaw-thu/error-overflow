@@ -473,4 +473,7 @@ Updated the KNN python code as follows:
 
 ```
 
+## Reference
+
+[1]. https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
 
