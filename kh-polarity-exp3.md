@@ -2179,9 +2179,9 @@ sys	0m0.641s
 ## Reference
 
 [1] https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
-[2] https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model
-[3] https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f
-[4] https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
+[2] https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model  
+[3] https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f  
+[4] https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html  
 
 
 
