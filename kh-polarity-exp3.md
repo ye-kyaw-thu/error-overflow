@@ -56,17 +56,247 @@ sentence,label
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ 
 ```
 
+## KNN
 
+Original python code that I run with R^2 or score() is as follows:  
+
+```python
+## KNN Classifier for Khmer Polarity
+## Written by Ye Kyaw Thu, 
+## Affiliate Professor, IDRI, CADT, Cambodia
+## Used for 4th NLP/AI Workshop, Chiang Mai, Experiment
+## Last updated: 3 Nov 2022
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+
+import pandas as pd
+import re
+from os import system, listdir
+from os.path import isfile, join
+from random import shuffle
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+polar_train = pd.read_csv('csv/train.csv')
+polar_test = pd.read_csv('csv/test.csv')
+
+### Text Vectorization
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from joblib import dump, load # used for saving and loading sklearn objects
+from scipy.sparse import save_npz, load_npz # used for saving and loading sparse matrices
+
+system("mkdir 'data_preprocessors'")
+system("mkdir 'vectorized_data'")
+
+
+# Unigram Counts
+
+unigram_vectorizer = CountVectorizer(ngram_range=(1, 1))
+unigram_vectorizer.fit(polar_train['text'].values)
+
+dump(unigram_vectorizer, 'data_preprocessors/unigram_vectorizer.joblib')
+
+# unigram_vectorizer = load('data_preprocessors/unigram_vectorizer.joblib')
+
+X_train_unigram = unigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_unigram.npz', X_train_unigram)
+
+# X_train_unigram = load_npz('vectorized_data/X_train_unigram.npz')
+
+
+# Unigram Tf-Idf
+
+unigram_tf_idf_transformer = TfidfTransformer()
+unigram_tf_idf_transformer.fit(X_train_unigram)
+
+dump(unigram_tf_idf_transformer, 'data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+# unigram_tf_idf_transformer = load('data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+X_train_unigram_tf_idf = unigram_tf_idf_transformer.transform(X_train_unigram)
+
+save_npz('vectorized_data/X_train_unigram_tf_idf.npz', X_train_unigram_tf_idf)
+
+# X_train_unigram_tf_idf = load_npz('vectorized_data/X_train_unigram_tf_idf.npz')
+
+
+# Bigram Counts
+
+bigram_vectorizer = CountVectorizer(ngram_range=(1, 2))
+bigram_vectorizer.fit(polar_train['text'].values)
+
+dump(bigram_vectorizer, 'data_preprocessors/bigram_vectorizer.joblib')
+
+# bigram_vectorizer = load('data_preprocessors/bigram_vectorizer.joblib')
+
+X_train_bigram = bigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_bigram.npz', X_train_bigram)
+
+# X_train_bigram = load_npz('vectorized_data/X_train_bigram.npz')
+
+
+# Bigram Tf-Idf
+
+bigram_tf_idf_transformer = TfidfTransformer()
+bigram_tf_idf_transformer.fit(X_train_bigram)
+
+dump(bigram_tf_idf_transformer, 'data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+# bigram_tf_idf_transformer = load('data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+X_train_bigram_tf_idf = bigram_tf_idf_transformer.transform(X_train_bigram)
+
+save_npz('vectorized_data/X_train_bigram_tf_idf.npz', X_train_bigram_tf_idf)
+
+# X_train_bigram_tf_idf = load_npz('vectorized_data/X_train_bigram_tf_idf.npz')
+
+### Choosing the Data Format
+
+
+from sklearn.model_selection import train_test_split
+from scipy.sparse import csr_matrix
+import numpy as np
+
+# Import k-nearest neighbors library
+from sklearn.neighbors import KNeighborsClassifier
+
+def train_and_show_scores_KNN(X: csr_matrix, y: np.array, title: str, model: str) -> None:
+    X_train, X_valid, y_train, y_valid = train_test_split(
+        X, y, train_size=0.75, stratify=y
+    )
+
+    clf = KNeighborsClassifier(n_neighbors=5)
+    clf.fit(X_train, y_train)
+    train_score = clf.score(X_train, y_train)
+    valid_score = clf.score(X_valid, y_valid)
+    print(f'{title}\nTrain score: {round(train_score, 2)} ; Validation score: {round(valid_score, 2)}\n')
+
+    #saving model
+    dump(clf, 'classifiers/' + model)
+
+y_train = polar_train['label'].values
+
+train_and_show_scores_KNN(X_train_unigram, y_train, 'KNN, Unigram Counts', 'knn_unigram_count.joblib')
+train_and_show_scores_KNN(X_train_unigram_tf_idf, y_train, 'KNN, Unigram Tf-Idf', 'knn_unigram_tf-idf.joblib')
+train_and_show_scores_KNN(X_train_bigram, y_train, 'KNN, Bigram Counts', 'knn_bigram_count.joblib')
+train_and_show_scores_KNN(X_train_bigram_tf_idf, y_train, 'KNN, Bigram Tf-Idf', 'knn_bigram_tf-idf.joblib')
+
+
+### Testing/Evaluation
+
+X_test = unigram_vectorizer.transform(polar_test['text'].values)
+X_test = unigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+knn_unigram_counts = load('classifiers/knn_unigram_count.joblib')
+score = knn_unigram_counts.score(X_test, y_test)
+print('KNN Test Result, Unigram Counts: ', score)
+
+# Predict the class of test set
+y_predict = knn_unigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+
+knn_unigram_tfidf = load('classifiers/knn_unigram_tf-idf.joblib')
+score = knn_unigram_tfidf.score(X_test, y_test)
+print('KNN Test Result, Unigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = knn_unigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+
+X_test = bigram_vectorizer.transform(polar_test['text'].values)
+X_test = bigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+knn_bigram_counts = load('classifiers/knn_bigram_count.joblib')
+score = knn_bigram_counts.score(X_test, y_test)
+print('KNN Test Result, Bigram Count: ', score)
+
+# Predict the class of test set
+y_predict = knn_bigram_counts.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
+
+knn_bigram_tfidf = load('classifiers/knn_bigram_tf-idf.joblib')
+score = knn_bigram_tfidf.score(X_test, y_test)
+print('KNN Test Result, Bigram Tf-Idf: ', score)
+
+# Predict the class of test set
+y_predict = knn_bigram_tfidf.predict(X_test)
+
+err_rate = (y_predict != y_test).mean()
+print('Error Rate: %.2f' % err_rate)
 ```
 
-```
+1st, I create a new folder according to the data path inside the original python code.  
+
 
 ```
-
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ mkdir csv
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ mv *.csv ./csv
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ ls
+csv
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ ls ./csv
+test.csv  train.csv
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
+Moreover, according to the original code, I need to update the header label and thus ...  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ nano ./csv/train.csv 
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ nano ./csv/test.csv 
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ head -2 ./csv/train.csv 
+text,label
+▁រដ្ឋ ម ន្ត រី ប រ ិ ស្ថាន អ ៊ ុយ ក្រ ែន បាន បញ្ជា ក់ កាល ពី ថ ្ ង ៃ ច ន្ទ ទី ▁៣ ▁ខែ ត ុល ា ថា ▁ការ ខ ូ ច ខាត ប រ ិ ស្ថាន ក្នុង ប្រ ទេស អ ៊ ុយ ក្រ ែន ដែ ល ប ណ្តាល មក ពី ការ ឈ ្ល ាន ព ាន រ ប ស់ រ ុ ស្ ស៊ី ត្រ ូវ បាន គេ ប៉ ាន់ ប្រ មា ណ ថា ▁មាន ទ ំ ហ ំ ជា ង ▁៣ ៥ ៣ ព ាន់ ល ាន ដ ុល ្ល ារ ▁ជាមួយ នឹង ត ំ ប ន់ អ ភ ិ រ ក្ស ធ ម្ ម ជាតិ រ ាប់ ល ាន ហ ិក តា ទ ៀ ត ស្ ថ ិត ន ៅ ក ្រោម ការ គ ំ រា មក ំ ហ ែង ▁។,negative
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ head -2 ./csv/test.csv 
+text,label
+▁ នេះ ប ើ តា ម ប្រ សា ស ន៍ រ ប ស់ ▁ឯក ឧ ត្ត ម ▁ ន េ ត្រ ▁ភ ក ្ត រា ▁រដ្ឋ លេខ ា ធ ិ ការ ▁និង ជា អ ន ុ ប្រ ធាន អ ច ិ ន្ត រ ៃ យ ៍ ក្រ ុ ម ការ ង ារ ប្រឆាំង ការ ស ម្ អា ត ប្រ ាក់ នៃ ក្រ ស ួង ប រ ិ ស្ថាន ▁កាល ថ ្ ង ៃ ទី ៥ ▁ខែ ត ុល ា ▁ឆ្នាំ ២ ០ ២ ២ ▁។,negative
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
+I also need to create a new folder named classifier in advance.  
+After above preprocessings I run with the original code and check the results:  
+
+```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./knn-classifier.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+KNN, Unigram Counts
+Train score: 0.63 ; Validation score: 0.51
+
+KNN, Unigram Tf-Idf
+Train score: 0.62 ; Validation score: 0.5
+
+KNN, Bigram Counts
+Train score: 0.63 ; Validation score: 0.49
+
+KNN, Bigram Tf-Idf
+Train score: 0.62 ; Validation score: 0.47
+
+KNN Test Result, Unigram Counts:  0.491
+Error Rate: 0.51
+KNN Test Result, Unigram Tf-Idf:  0.517
+Error Rate: 0.48
+KNN Test Result, Bigram Count:  0.464
+Error Rate: 0.54
+KNN Test Result, Bigram Tf-Idf:  0.48
+Error Rate: 0.52
+
+real	0m6.956s
+user	0m6.056s
+sys	0m1.673s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
 ```
