@@ -1837,66 +1837,344 @@ sys	0m0.679s
 updated python code:  
 
 ```python
+## Original code from:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+## Used for Khmer Polarity Classification Baseline
+## Small modification by Ye Kyaw Thu, IDRI, CADT, Cambodia
+## Last updated: 8 Feb 2023
+## Reference:
+## https://towardsdatascience.com/building-a-sentiment-classifier-using-scikit-learn-54c8e7c5d2f0
+## https://vitalflux.com/accuracy-precision-recall-f1-score-python-example/  
+## https://stackoverflow.com/questions/62792001/precision-and-recall-are-the-same-within-a-model
+## https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f
+## https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
+
+import pandas as pd
+import re
+from os import system, listdir
+from os.path import isfile, join
+from random import shuffle
+
+import warnings
+warnings.filterwarnings("ignore")
+
+#system('wget "http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz"')
+#system('tar -xzf "aclImdb_v1.tar.gz"')
+
+def create_data_frame(folder: str) -> pd.DataFrame:
+    '''
+    folder - the root folder of train or test dataset
+    Returns: a DataFrame with the combined data from the input folder
+    '''
+    pos_folder = f'{folder}/pos' # positive reviews
+    neg_folder = f'{folder}/neg' # negative reviews
+    
+    def get_files(fld: str) -> list:
+        '''
+        fld - positive or negative reviews folder
+        Returns: a list with all files in input folder
+        '''
+        return [join(fld, f) for f in listdir(fld) if isfile(join(fld, f))]
+    
+    def append_files_data(data_list: list, files: list, label: int) -> None:
+        '''
+        Appends to 'data_list' tuples of form (file content, label)
+        for each file in 'files' input list
+        '''
+        for file_path in files:
+            with open(file_path, 'r') as f:
+                text = f.read()
+                data_list.append((text, label))
+    
+    pos_files = get_files(pos_folder)
+    neg_files = get_files(neg_folder)
+    
+    data_list = []
+    append_files_data(data_list, pos_files, 1)
+    append_files_data(data_list, neg_files, 0)
+    shuffle(data_list)
+    
+    text, label = tuple(zip(*data_list))
+    # replacing line breaks with spaces
+    text = list(map(lambda txt: re.sub('(<br\s*/?>)+', ' ', txt), text))
+    
+    return pd.DataFrame({'text': text, 'label': label})
+
+#imdb_train = create_data_frame('aclImdb/train')
+#imdb_test = create_data_frame('aclImdb/test')
+
+#system("mkdir 'csv'")
+#imdb_train.to_csv('csv/imdb_train.csv', index=False)
+#imdb_test.to_csv('csv/imdb_test.csv', index=False)
+
+# imdb_train = pd.read_csv('csv/imdb_train.csv')
+# imdb_test = pd.read_csv('csv/imdb_test.csv')
+
+polar_train = pd.read_csv('csv/train.csv')
+polar_test = pd.read_csv('csv/test.csv')
+
+### Text Vectorization
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from joblib import dump, load # used for saving and loading sklearn objects
+from scipy.sparse import save_npz, load_npz # used for saving and loading sparse matrices
+
+system("mkdir 'data_preprocessors'")
+system("mkdir 'vectorized_data'")
+
+
+# Unigram Counts
+
+unigram_vectorizer = CountVectorizer(ngram_range=(1, 1))
+unigram_vectorizer.fit(polar_train['text'].values)
+
+dump(unigram_vectorizer, 'data_preprocessors/unigram_vectorizer.joblib')
+
+# unigram_vectorizer = load('data_preprocessors/unigram_vectorizer.joblib')
+
+X_train_unigram = unigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_unigram.npz', X_train_unigram)
+
+# X_train_unigram = load_npz('vectorized_data/X_train_unigram.npz')
+
+
+# Unigram Tf-Idf
+
+unigram_tf_idf_transformer = TfidfTransformer()
+unigram_tf_idf_transformer.fit(X_train_unigram)
+
+dump(unigram_tf_idf_transformer, 'data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+# unigram_tf_idf_transformer = load('data_preprocessors/unigram_tf_idf_transformer.joblib')
+
+X_train_unigram_tf_idf = unigram_tf_idf_transformer.transform(X_train_unigram)
+
+save_npz('vectorized_data/X_train_unigram_tf_idf.npz', X_train_unigram_tf_idf)
+
+# X_train_unigram_tf_idf = load_npz('vectorized_data/X_train_unigram_tf_idf.npz')
+
+
+# Bigram Counts
+
+bigram_vectorizer = CountVectorizer(ngram_range=(1, 2))
+bigram_vectorizer.fit(polar_train['text'].values)
+
+dump(bigram_vectorizer, 'data_preprocessors/bigram_vectorizer.joblib')
+
+# bigram_vectorizer = load('data_preprocessors/bigram_vectorizer.joblib')
+
+X_train_bigram = bigram_vectorizer.transform(polar_train['text'].values)
+
+save_npz('vectorized_data/X_train_bigram.npz', X_train_bigram)
+
+# X_train_bigram = load_npz('vectorized_data/X_train_bigram.npz')
+
+
+# Bigram Tf-Idf
+
+bigram_tf_idf_transformer = TfidfTransformer()
+bigram_tf_idf_transformer.fit(X_train_bigram)
+
+dump(bigram_tf_idf_transformer, 'data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+# bigram_tf_idf_transformer = load('data_preprocessors/bigram_tf_idf_transformer.joblib')
+
+X_train_bigram_tf_idf = bigram_tf_idf_transformer.transform(X_train_bigram)
+
+save_npz('vectorized_data/X_train_bigram_tf_idf.npz', X_train_bigram_tf_idf)
+
+# X_train_bigram_tf_idf = load_npz('vectorized_data/X_train_bigram_tf_idf.npz')
+
+### Choosing the Data Format
+
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import train_test_split
+from scipy.sparse import csr_matrix
+import numpy as np
+from sklearn.metrics import classification_report
+
+def train_and_show_scores(X: csr_matrix, y: np.array, title: str) -> None:
+    X_train, X_valid, y_train, y_valid = train_test_split(
+        X, y, train_size=0.75, stratify=y
+    )
+
+    clf = SGDClassifier()
+    clf.fit(X_train, y_train)
+    train_score = clf.score(X_train, y_train)
+    valid_score = clf.score(X_valid, y_valid)
+    print(f'{title}\nTrain score: {round(train_score, 2)} ; Validation score: {round(valid_score, 2)}\n')
+
+y_train = polar_train['label'].values
+
+train_and_show_scores(X_train_unigram, y_train, 'Unigram Counts')
+train_and_show_scores(X_train_unigram_tf_idf, y_train, 'Unigram Tf-Idf')
+train_and_show_scores(X_train_bigram, y_train, 'Bigram Counts')
+train_and_show_scores(X_train_bigram_tf_idf, y_train, 'Bigram Tf-Idf')
+
+### Hyperparameter Tuning 1
+
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import uniform
+
+X_train = X_train_bigram_tf_idf
+
+
+# Phase 1: loss, learning rate and initial learning rate
+
+clf = SGDClassifier()
+
+distributions = dict(
+    loss=['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron'],
+    learning_rate=['optimal', 'invscaling', 'adaptive'],
+    eta0=uniform(loc=1e-7, scale=1e-2)
+)
+
+random_search_cv = RandomizedSearchCV(
+    estimator=clf,
+    param_distributions=distributions,
+    cv=5,
+    n_iter=50
+)
+random_search_cv.fit(X_train, y_train)
+print(f'Best params: {random_search_cv.best_params_}')
+print(f'Best score: {random_search_cv.best_score_}')
+
+### Hyperparameter Tuning 2
+
+# Phase 2: penalty and alpha
+
+clf = SGDClassifier()
+
+distributions = dict(
+    penalty=['l1', 'l2', 'elasticnet'],
+    alpha=uniform(loc=1e-6, scale=1e-4)
+)
+
+random_search_cv = RandomizedSearchCV(
+    estimator=clf,
+    param_distributions=distributions,
+    cv=5,
+    n_iter=50
+)
+random_search_cv.fit(X_train, y_train)
+print(f'Best params: {random_search_cv.best_params_}')
+print(f'Best score: {random_search_cv.best_score_}')
+
+### Saving the Best Classifier
+
+system("mkdir 'classifiers'")
+
+sgd_classifier = random_search_cv.best_estimator_
+
+dump(random_search_cv.best_estimator_, 'classifiers/sgd_classifier.joblib')
+
+# sgd_classifier = load('classifiers/sgd_classifier.joblib')
+
+### Testing/Evaluation
+
+X_test = bigram_vectorizer.transform(polar_test['text'].values)
+X_test = bigram_tf_idf_transformer.transform(X_test)
+y_test = polar_test['label'].values
+
+score = sgd_classifier.score(X_test, y_test)
+print(score)
+
+y_predict = sgd_classifier.predict(X_test)
+
+print('----------')
+print(classification_report(y_test, y_predict))
+print('')
 
 ```
 
 SGD Tuning result with F1, P and R:  
 
 ```
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./sgd-tune-classifier.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Unigram Counts
+Train score: 0.64 ; Validation score: 0.58
 
+Unigram Tf-Idf
+Train score: 0.63 ; Validation score: 0.59
+
+Bigram Counts
+Train score: 0.79 ; Validation score: 0.58
+
+Bigram Tf-Idf
+Train score: 0.74 ; Validation score: 0.6
+
+Best params: {'eta0': 0.0017198374377835506, 'learning_rate': 'adaptive', 'loss': 'modified_huber'}
+Best score: 0.5938555976812601
+Best params: {'alpha': 9.259614755308571e-05, 'penalty': 'elasticnet'}
+Best score: 0.592302507289922
+mkdir: cannot create directory ‘classifiers’: File exists
+0.598
+----------
+              precision    recall  f1-score   support
+
+    negative       0.51      0.22      0.31       325
+     neutral       0.33      0.01      0.02        92
+    positive       0.61      0.90      0.73       583
+
+    accuracy                           0.60      1000
+   macro avg       0.49      0.38      0.35      1000
+weighted avg       0.55      0.60      0.53      1000
+
+
+
+real	0m47.863s
+user	0m47.866s
+sys	0m0.694s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ ls
+classifiers	    dtree-classifier.py		result		       sgd-classifier2.py      vectorized_data
+csv		    knn-classifier-updated1.py	rforest-classifier.py  sgd-tune-classifier.py
+data_preprocessors  knn-classifier.py		score-code	       svm-classifier.py
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ rm -r classifiers/
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./sgd-tune-classifier.py 
+mkdir: cannot create directory ‘data_preprocessors’: File exists
+mkdir: cannot create directory ‘vectorized_data’: File exists
+Unigram Counts
+Train score: 0.64 ; Validation score: 0.58
+
+Unigram Tf-Idf
+Train score: 0.63 ; Validation score: 0.58
+
+Bigram Counts
+Train score: 0.79 ; Validation score: 0.58
+
+Bigram Tf-Idf
+Train score: 0.74 ; Validation score: 0.59
+
+Best params: {'eta0': 0.0033570103817734424, 'learning_rate': 'optimal', 'loss': 'log'}
+Best score: 0.5924129410656674
+Best params: {'alpha': 0.00010046074512258719, 'penalty': 'elasticnet'}
+Best score: 0.5916371961147502
+0.601
+----------
+              precision    recall  f1-score   support
+
+    negative       0.52      0.21      0.30       325
+     neutral       0.50      0.01      0.02        92
+    positive       0.61      0.91      0.73       583
+
+    accuracy                           0.60      1000
+   macro avg       0.55      0.38      0.35      1000
+weighted avg       0.57      0.60      0.53      1000
+
+
+
+real	0m53.343s
+user	0m53.092s
+sys	0m0.641s
+(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
-```
+## To Do
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+- Presenting the above detail result in our paper
 
 ## Reference
 
