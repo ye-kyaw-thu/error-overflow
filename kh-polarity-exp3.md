@@ -1832,9 +1832,15 @@ sys	0m0.679s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$
 ```
 
-```
+## SGD Tuning Result with F1, P and R
+
+updated python code:  
+
+```python
 
 ```
+
+SGD Tuning result with F1, P and R:  
 
 ```
 
