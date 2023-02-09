@@ -874,9 +874,6 @@ y_test = polar_test['label'].values
 dtree_bigram_counts = load('classifiers/dtree_bigram_count.joblib')
 score = dtree_bigram_counts.score(X_test, y_test)
 print('Decision Tree Test Result, Bigram Count: ', score)
-print('----------')
-print(classification_report(y_test, y_predict))
-print('')
 
 # Predict the class of test set
 y_predict = dtree_bigram_counts.predict(X_test)
@@ -948,18 +945,6 @@ weighted avg       0.49      0.52      0.50      1000
 
 
 Decision Tree Test Result, Bigram Count:  0.553
-----------
-              precision    recall  f1-score   support
-
-    negative       0.40      0.32      0.35       325
-     neutral       0.13      0.07      0.09        92
-    positive       0.60      0.71      0.65       583
-
-    accuracy                           0.52      1000
-   macro avg       0.37      0.36      0.36      1000
-weighted avg       0.49      0.52      0.50      1000
-
-
 Error Rate: 0.45
 ----------
               precision    recall  f1-score   support
