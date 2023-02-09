@@ -2076,43 +2076,6 @@ print('')
 SGD Tuning result with F1, P and R:  
 
 ```
-(tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ time python ./sgd-tune-classifier.py 
-mkdir: cannot create directory ‘data_preprocessors’: File exists
-mkdir: cannot create directory ‘vectorized_data’: File exists
-Unigram Counts
-Train score: 0.64 ; Validation score: 0.58
-
-Unigram Tf-Idf
-Train score: 0.63 ; Validation score: 0.59
-
-Bigram Counts
-Train score: 0.79 ; Validation score: 0.58
-
-Bigram Tf-Idf
-Train score: 0.74 ; Validation score: 0.6
-
-Best params: {'eta0': 0.0017198374377835506, 'learning_rate': 'adaptive', 'loss': 'modified_huber'}
-Best score: 0.5938555976812601
-Best params: {'alpha': 9.259614755308571e-05, 'penalty': 'elasticnet'}
-Best score: 0.592302507289922
-mkdir: cannot create directory ‘classifiers’: File exists
-0.598
-----------
-              precision    recall  f1-score   support
-
-    negative       0.51      0.22      0.31       325
-     neutral       0.33      0.01      0.02        92
-    positive       0.61      0.90      0.73       583
-
-    accuracy                           0.60      1000
-   macro avg       0.49      0.38      0.35      1000
-weighted avg       0.55      0.60      0.53      1000
-
-
-
-real	0m47.863s
-user	0m47.866s
-sys	0m0.694s
 (tabpfn) yekyaw.thu@gpu:~/exp/kh-polar/run-for-f1$ ls
 classifiers	    dtree-classifier.py		result		       sgd-classifier2.py      vectorized_data
 csv		    knn-classifier-updated1.py	rforest-classifier.py  sgd-tune-classifier.py
