@@ -193,6 +193,11 @@ sys	0m3.539s
 
 ```
 
+The error was caused by the folder not existing ... 
+we can solve by creating a new folder.  
+
+Training again:  
+
 ```
 
 ```
