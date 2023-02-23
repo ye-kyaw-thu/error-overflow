@@ -351,7 +351,34 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 39000; Time: 1.00s; loss: 8055.2369; acc: 446999/688416=0.6493
+     Instance: 39500; Time: 1.07s; loss: 8405.9689; acc: 452941/697512=0.6494
+     Instance: 40000; Time: 0.94s; loss: 7934.5509; acc: 457938/705583=0.6490
+     Instance: 40500; Time: 1.01s; loss: 8180.0877; acc: 463049/713889=0.6486
+     Instance: 41000; Time: 1.18s; loss: 9082.2049; acc: 469746/723934=0.6489
+     Instance: 41500; Time: 1.02s; loss: 7958.0003; acc: 475267/732499=0.6488
+     Instance: 42000; Time: 1.03s; loss: 8384.0976; acc: 480825/741220=0.6487
+     Instance: 42500; Time: 1.04s; loss: 8284.9904; acc: 487120/750561=0.6490
+     Instance: 43000; Time: 1.00s; loss: 7860.5160; acc: 492743/759167=0.6491
+     Instance: 43500; Time: 1.02s; loss: 7940.9433; acc: 498053/767562=0.6489
+     Instance: 44000; Time: 1.09s; loss: 8268.6946; acc: 503835/776526=0.6488
+     Instance: 44500; Time: 1.00s; loss: 8276.1509; acc: 509478/785275=0.6488
+     Instance: 45000; Time: 1.07s; loss: 7976.1302; acc: 515314/794097=0.6489
+     Instance: 45500; Time: 1.00s; loss: 7924.1464; acc: 520775/802609=0.6489
+     Instance: 46000; Time: 1.21s; loss: 8560.8406; acc: 527170/812146=0.6491
+     Instance: 46500; Time: 1.13s; loss: 8330.1233; acc: 533190/821309=0.6492
+     Instance: 46991; Time: 1.19s; loss: 8428.5512; acc: 539661/830865=0.6495
+Epoch: 99 training finished. Time: 96.87s, speed: 485.07st/s,  total loss: 770966.3493289948
+totalloss: 770966.3493289948
+Right token =  41293  All token =  61166  acc =  0.6750972762645915
+Dev: time: 4.36s, speed: 711.40st/s; acc: 0.6751, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  63320  All token =  95820  acc =  0.6608223752869965
+Test: time: 6.76s, speed: 822.24st/s; acc: 0.6608, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    178m12.415s
+user    177m29.905s
+sys     0m36.526s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 ```
