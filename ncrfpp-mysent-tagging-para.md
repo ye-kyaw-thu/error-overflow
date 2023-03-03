@@ -1341,6 +1341,36 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 40000; Time: 2.97s; loss: 1504.8323; acc: 585476/707610=0.8274
+     Instance: 40500; Time: 3.27s; loss: 1624.0425; acc: 592473/716015=0.8275
+     Instance: 41000; Time: 3.33s; loss: 2043.9598; acc: 599740/725002=0.8272
+     Instance: 41500; Time: 3.07s; loss: 1658.7612; acc: 606779/733507=0.8272
+     Instance: 42000; Time: 3.36s; loss: 1736.5604; acc: 614820/743196=0.8273
+     Instance: 42500; Time: 3.09s; loss: 1634.1801; acc: 622132/751968=0.8273
+     Instance: 43000; Time: 3.25s; loss: 1959.0534; acc: 629611/761065=0.8273
+     Instance: 43500; Time: 3.52s; loss: 1560.3316; acc: 637211/770039=0.8275
+     Instance: 44000; Time: 2.98s; loss: 1614.4415; acc: 644050/778323=0.8275
+     Instance: 44500; Time: 3.23s; loss: 1659.4012; acc: 651324/787054=0.8275
+     Instance: 45000; Time: 3.54s; loss: 2181.1871; acc: 658855/796341=0.8274
+     Instance: 45500; Time: 3.37s; loss: 1573.4761; acc: 665767/804592=0.8275
+     Instance: 46000; Time: 3.22s; loss: 1604.5508; acc: 672681/813030=0.8274
+     Instance: 46500; Time: 3.23s; loss: 1661.0756; acc: 679868/821589=0.8275
+     Instance: 46991; Time: 3.46s; loss: 1955.6072; acc: 687362/830865=0.8273
+Epoch: 42 training finished. Time: 322.57s, speed: 145.68st/s,  total loss: 164395.65701293945
+totalloss: 164395.65701293945
+Right token =  50337  All token =  61166  acc =  0.8229571984435797
+Dev: time: 6.27s, speed: 493.63st/s; acc: 0.8230, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  79652  All token =  95820  acc =  0.8312669588812357
+Test: time: 9.69s, speed: 571.89st/s; acc: 0.8313, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 43/100
+ Learning rate is set as: 0.0047619047619047615
+Shuffle: first input word list: [2157, 23545, 538, 7, 26767, 1112, 11, 136, 142, 3438, 1004, 148, 1994, 213, 40, 254, 354, 612, 33, 359, 538, 7, 26768, 1983, 16, 110, 43]
+     Instance: 500; Time: 3.43s; loss: 1736.1742; acc: 7021/8758=0.8017
+     Instance: 1000; Time: 3.36s; loss: 1708.7863; acc: 13775/17109=0.8051
+     Instance: 1500; Time: 3.21s; loss: 1576.8992; acc: 20965/25640=0.8177
+...
+...
+...
 
 ```
 
