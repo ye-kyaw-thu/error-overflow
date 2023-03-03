@@ -1045,6 +1045,37 @@ start training ...
 ...
 ...
 ...
+    Instance: 42000; Time: 0.90s; loss: 100.6102; acc: 738983/742050=0.9959
+     Instance: 42500; Time: 0.91s; loss: 94.4225; acc: 747586/750675=0.9959
+     Instance: 43000; Time: 0.95s; loss: 89.8823; acc: 756448/759558=0.9959
+     Instance: 43500; Time: 0.85s; loss: 136.5128; acc: 764588/767737=0.9959
+     Instance: 44000; Time: 0.93s; loss: 118.1706; acc: 773311/776491=0.9959
+     Instance: 44500; Time: 0.93s; loss: 131.3572; acc: 782306/785539=0.9959
+     Instance: 45000; Time: 1.00s; loss: 137.2240; acc: 791110/794393=0.9959
+     Instance: 45500; Time: 0.86s; loss: 131.9354; acc: 800389/803710=0.9959
+     Instance: 46000; Time: 0.86s; loss: 112.1066; acc: 809515/812873=0.9959
+     Instance: 46500; Time: 0.83s; loss: 140.0418; acc: 818168/821577=0.9959
+     Instance: 46991; Time: 0.85s; loss: 160.2210; acc: 827405/830865=0.9958
+Epoch: 64 training finished. Time: 88.40s, speed: 531.57st/s,  total loss: 11053.333110809326
+totalloss: 11053.333110809326
+Right token =  59610  All token =  61166  acc =  0.9745610306379361
+Dev: time: 4.29s, speed: 722.73st/s; acc: 0.9746, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93671  All token =  95820  acc =  0.9775725318305155
+Test: time: 6.64s, speed: 837.17st/s; acc: 0.9776, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 65/100
+ Learning rate is set as: 0.003529411764705882
+Shuffle: first input word list: [12, 13, 11, 136, 117, 1832, 652, 62, 928, 8127, 64, 213, 325, 43]
+     Instance: 500; Time: 1.04s; loss: 94.6396; acc: 9057/9088=0.9966
+     Instance: 1000; Time: 0.95s; loss: 123.1377; acc: 17824/17890=0.9963
+     Instance: 1500; Time: 0.96s; loss: 96.7923; acc: 26296/26394=0.9963
+     Instance: 2000; Time: 0.94s; loss: 138.5908; acc: 35206/35354=0.9958
+     Instance: 2500; Time: 1.05s; loss: 84.9632; acc: 44819/44994=0.9961
+     Instance: 3000; Time: 0.86s; loss: 100.2892; acc: 53209/53415=0.9961
+     Instance: 3500; Time: 0.96s; loss: 135.6386; acc: 62466/62717=0.9960
+     Instance: 4000; Time: 0.97s; loss: 129.2650; acc: 71108/71392=0.9960
+...
+...
+...
 
 ```
 
