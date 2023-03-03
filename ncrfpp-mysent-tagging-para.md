@@ -1021,7 +1021,30 @@ Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/myse
 
 ## 3. Word-LSTM, no-Char
 
+updated the configuration file path:  
+
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ head word-lstm.no-char.train.config 
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ 
+```
+
+start training ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-para-config/word-lstm.no-char.train.config | tee ./mysent-para-model/word-lstm.no-char.train.log
+...
+...
+...
 
 ```
 
@@ -1029,12 +1052,22 @@ Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/myse
 
 ```
 
-```
+updated the decode config file:  
 
 ```
-
-```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-lstm.no-char.decode.config 
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-nochar.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
 ```
 
 ```
