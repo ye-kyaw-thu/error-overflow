@@ -590,15 +590,224 @@ Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/myse
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
-```
+Check the output hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ head wordlstm-charcnn.hyp 
+ရင်ဘတ် O
+အောင့် O
+လာ O
+ရင် O
+သတိထား O
+ပါ E
 
+ဘယ်လောက် O
+နောက်ကျ O
+သလဲ E
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ tail ./wordlstm-charcnn.hyp 
+ကို O
+အာမခံ O
+ရင်းနှီးမြှုပ်နှံ O
+ခြင်း O
+၌ O
+သာ O
+ထည့်သွင်း O
+ခဲ့ N
+သည် E
+
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
-```
+## Word-LSTM, Char-LSTM 
+
+I updated the config file as follows:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat ./word-lstm.char-lstm.train.config 
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=False
+use_char=True
+word_seq_feature=LSTM
+char_seq_feature=LSTM
+#feature=[POS] emb_size=20
+#feature=[Cap] emb_size=20
+#nbest=1
+
+###TrainingSetting###
+status=train
+# optimizer can be SGD/Adagrad/AdaDelta/RMSprop/Adam
+optimizer=SGD
+iteration=100
+batch_size=10
+ave_batch_loss=False
+
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+learning_rate=0.015
+lr_decay=0.05
+momentum=0
+l2=1e-8
+gpu=True
+#clip=
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
+```
+
+start training:  
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-para-config/word-lstm.char-lstm.train.config
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-para-config/word-lstm.char-lstm.train.config 
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+     Instance: 500; Time: 1.31s; loss: 12459.2498; acc: 5275/8986=0.5870
+     Instance: 1000; Time: 1.36s; loss: 7661.1749; acc: 12354/18422=0.6706
+     Instance: 1500; Time: 1.35s; loss: 2991.5909; acc: 20766/27720=0.7491
+     Instance: 2000; Time: 1.24s; loss: 3997.3874; acc: 28880/36837=0.7840
+     Instance: 2500; Time: 1.26s; loss: 1826.3337; acc: 36817/45333=0.8121
+     Instance: 3000; Time: 1.36s; loss: 1742.7966; acc: 46067/55086=0.8363
+     Instance: 3500; Time: 1.29s; loss: 2150.3358; acc: 54374/64013=0.8494
+     Instance: 4000; Time: 1.20s; loss: 1296.2241; acc: 62521/72548=0.8618
+     Instance: 4500; Time: 1.22s; loss: 1327.6168; acc: 70932/81330=0.8722
+     Instance: 5000; Time: 1.23s; loss: 1656.5050; acc: 79165/90054=0.8791
+     Instance: 5500; Time: 1.29s; loss: 1381.3704; acc: 88050/99330=0.8864
+     Instance: 6000; Time: 1.17s; loss: 1194.8294; acc: 96003/107637=0.8919
+     Instance: 6500; Time: 1.38s; loss: 1941.5996; acc: 105267/117489=0.8960
+     Instance: 7000; Time: 1.28s; loss: 1316.4940; acc: 114096/126691=0.9006
+     Instance: 7500; Time: 1.04s; loss: 1075.1369; acc: 121751/134642=0.9043
+     Instance: 8000; Time: 1.32s; loss: 1062.4804; acc: 130331/143526=0.9081
+     Instance: 8500; Time: 1.43s; loss: 1092.1585; acc: 139625/153140=0.9117
+     Instance: 9000; Time: 1.25s; loss: 1375.8386; acc: 147656/161594=0.9137
+     Instance: 9500; Time: 1.26s; loss: 1353.0280; acc: 156065/170409=0.9158
+     Instance: 10000; Time: 1.26s; loss: 1090.4099; acc: 164344/179025=0.9180
+     Instance: 10500; Time: 1.34s; loss: 1158.3194; acc: 173017/188031=0.9202
+     Instance: 11000; Time: 1.23s; loss: 1477.3702; acc: 181083/196518=0.9215
+     Instance: 11500; Time: 1.20s; loss: 1125.6883; acc: 189535/205293=0.9232
+     Instance: 12000; Time: 1.36s; loss: 1177.8499; acc: 198580/214657=0.9251
+     Instance: 12500; Time: 1.25s; loss: 893.3073; acc: 206782/223137=0.9267
+     Instance: 13000; Time: 1.24s; loss: 894.4175; acc: 215221/231856=0.9283
+     Instance: 13500; Time: 1.26s; loss: 1466.7354; acc: 224104/241147=0.9293
+     Instance: 14000; Time: 1.18s; loss: 1029.9115; acc: 232005/249342=0.9305
+     Instance: 14500; Time: 1.29s; loss: 1182.0759; acc: 241057/258771=0.9315
+     Instance: 15000; Time: 1.31s; loss: 1198.8035; acc: 250204/268300=0.9326
+     Instance: 15500; Time: 1.34s; loss: 1227.4013; acc: 259330/277791=0.9335
+     Instance: 16000; Time: 1.25s; loss: 992.2340; acc: 267785/286523=0.9346
+     Instance: 16500; Time: 1.12s; loss: 744.5523; acc: 275656/294589=0.9357
+     Instance: 17000; Time: 1.22s; loss: 1117.0356; acc: 284025/303313=0.9364
+     Instance: 17500; Time: 1.29s; loss: 751.5129; acc: 292456/311971=0.9374
+     Instance: 18000; Time: 1.22s; loss: 1188.1151; acc: 300772/320643=0.9380
+     Instance: 18500; Time: 1.26s; loss: 1326.4613; acc: 309669/329931=0.9386
+     Instance: 19000; Time: 1.28s; loss: 839.9887; acc: 318428/338955=0.9394
+     Instance: 19500; Time: 1.24s; loss: 768.8566; acc: 326741/347494=0.9403
+     Instance: 20000; Time: 1.35s; loss: 1150.8768; acc: 335655/356767=0.9408
+     Instance: 20500; Time: 1.22s; loss: 970.0665; acc: 343975/365383=0.9414
+     Instance: 21000; Time: 1.18s; loss: 814.2408; acc: 352249/373870=0.9422
+     Instance: 21500; Time: 1.28s; loss: 1292.3664; acc: 360771/382752=0.9426
+     Instance: 22000; Time: 1.21s; loss: 816.5467; acc: 369048/391246=0.9433
+     Instance: 22500; Time: 1.23s; loss: 788.0702; acc: 377416/399868=0.9439
+     Instance: 23000; Time: 1.28s; loss: 939.2576; acc: 386082/408790=0.9445
+     Instance: 23500; Time: 1.26s; loss: 1186.4809; acc: 394754/417834=0.9448
+...
+...
+...
 
 ```
 
