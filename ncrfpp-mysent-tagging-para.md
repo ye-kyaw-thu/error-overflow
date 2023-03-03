@@ -508,8 +508,86 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/yekyaw.thu/tool/N
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+I just need to create a new folder named "mysent-para-hyp". After that testing process finished successfully.  
 
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ python main.py --config ./mysent-para-config/word-lstm.char-cnn.decode.config
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-charcnn.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+Decode raw data, nbest: None ...
+Right token =  71570  All token =  95820  acc =  0.7469213107910666
+raw: time:6.72s, speed:826.93st/s; acc: 0.7469, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-charcnn.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 ```
