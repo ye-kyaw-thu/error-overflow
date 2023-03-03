@@ -808,6 +808,33 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 36500; Time: 1.32s; loss: 444.2724; acc: 636573/647075=0.9838
+     Instance: 37000; Time: 1.22s; loss: 497.9287; acc: 644802/655461=0.9837
+     Instance: 37500; Time: 1.18s; loss: 357.5980; acc: 652760/663541=0.9838
+     Instance: 38000; Time: 1.25s; loss: 395.0356; acc: 661446/672356=0.9838
+     Instance: 38500; Time: 1.24s; loss: 636.2169; acc: 670075/681179=0.9837
+     Instance: 39000; Time: 1.26s; loss: 363.0957; acc: 678467/689699=0.9837
+     Instance: 39500; Time: 1.15s; loss: 473.6052; acc: 686551/697954=0.9837
+     Instance: 40000; Time: 1.19s; loss: 350.0457; acc: 694588/706106=0.9837
+     Instance: 40500; Time: 1.33s; loss: 472.1805; acc: 703502/715171=0.9837
+     Instance: 41000; Time: 1.23s; loss: 480.3558; acc: 712003/723841=0.9836
+     Instance: 41500; Time: 1.34s; loss: 507.1719; acc: 720772/732779=0.9836
+     Instance: 42000; Time: 1.34s; loss: 534.5273; acc: 729763/741925=0.9836
+     Instance: 42500; Time: 1.34s; loss: 412.0626; acc: 738721/751024=0.9836
+     Instance: 43000; Time: 1.28s; loss: 470.7889; acc: 747516/759995=0.9836
+     Instance: 43500; Time: 1.29s; loss: 427.7811; acc: 756098/768713=0.9836
+     Instance: 44000; Time: 1.32s; loss: 392.9026; acc: 765022/777781=0.9836
+     Instance: 44500; Time: 1.31s; loss: 487.6864; acc: 773994/786908=0.9836
+     Instance: 45000; Time: 1.20s; loss: 360.1833; acc: 782176/795196=0.9836
+     Instance: 45500; Time: 1.36s; loss: 578.3460; acc: 791479/804683=0.9836
+     Instance: 46000; Time: 1.38s; loss: 498.9690; acc: 800417/813771=0.9836
+     Instance: 46500; Time: 1.24s; loss: 384.5167; acc: 808807/822288=0.9836
+     Instance: 46991; Time: 1.31s; loss: 276.4893; acc: 817296/830865=0.9837
+Epoch: 7 training finished. Time: 119.63s, speed: 392.80st/s,  total loss: 41218.15336751938
+totalloss: 41218.15336751938
+...
+...
+...
 
 ```
 
