@@ -51,7 +51,7 @@ Paragraph level data folder path is here:
 /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para
 ```
 
-## 1.Word-LSTM, Char-CNN Model for Para
+## 1. Word-LSTM, Char-CNN Model for Para
 
 updated configuration file is as follows:  
 
@@ -618,7 +618,7 @@ Check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
-## 2.Word-LSTM, Char-LSTM for Para
+## 2. Word-LSTM, Char-LSTM for Para
 
 I updated the config file as follows:  
 
@@ -915,7 +915,7 @@ Testing word-lstm, char-lstm model ...
 
 ```
 
-## 3.Word-LSTM, no-Char
+## 3. Word-LSTM, no-Char
 
 ```
 
