@@ -51,7 +51,7 @@ Paragraph level data folder path is here:
 /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para
 ```
 
-## Prepare Config File for Word-LSTM, Char-CNN Model
+## 1.Word-LSTM, Char-CNN Model for Para
 
 updated configuration file is as follows:  
 
@@ -618,7 +618,7 @@ Check the output hyp file:
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
-## Word-LSTM, Char-LSTM 
+## 2.Word-LSTM, Char-LSTM for Para
 
 I updated the config file as follows:  
 
@@ -889,16 +889,33 @@ Fri Mar  3 11:00:33 2023
 |=============================================================================|
 |    0   N/A  N/A   1576443      C   python                            969MiB |
 +-----------------------------------------------------------------------------+
+```
+
+Updating the decoding config file:  
+
+```
+(base) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-lstm.char-lstm.decode.config 
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-charlstm.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm.0.model
+(base) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
+```
+
+Testing word-lstm, char-lstm model ...  
 
 ```
 
 ```
 
-```
-
-```
-
-```
+## 3.Word-LSTM, no-Char
 
 ```
 
