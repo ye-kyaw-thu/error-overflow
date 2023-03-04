@@ -1709,6 +1709,44 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 38000; Time: 3.84s; loss: 396.9952; acc: 631573/675031=0.9356
+     Instance: 38500; Time: 3.51s; loss: 373.7010; acc: 639807/683594=0.9359
+     Instance: 39000; Time: 4.04s; loss: 704.6858; acc: 648405/692759=0.9360
+     Instance: 39500; Time: 3.46s; loss: 367.8224; acc: 656689/701354=0.9363
+     Instance: 40000; Time: 3.24s; loss: 277.8111; acc: 664499/709420=0.9367
+     Instance: 40500; Time: 3.38s; loss: 222.3538; acc: 672090/717207=0.9371
+     Instance: 41000; Time: 3.37s; loss: 188.3755; acc: 680300/725578=0.9376
+     Instance: 41500; Time: 3.42s; loss: 283.8201; acc: 688614/734127=0.9380
+     Instance: 42000; Time: 3.76s; loss: 315.6052; acc: 697241/742998=0.9384
+     Instance: 42500; Time: 3.27s; loss: 298.0320; acc: 705132/751145=0.9387
+     Instance: 43000; Time: 3.58s; loss: 408.6880; acc: 713828/760169=0.9390
+     Instance: 43500; Time: 3.66s; loss: 331.0091; acc: 722236/768845=0.9394
+     Instance: 44000; Time: 3.60s; loss: 306.2902; acc: 730548/777474=0.9396
+     Instance: 44500; Time: 4.15s; loss: 337.7666; acc: 739474/786667=0.9400
+     Instance: 45000; Time: 3.75s; loss: 406.3377; acc: 748119/795694=0.9402
+     Instance: 45500; Time: 3.49s; loss: 190.1212; acc: 756625/804405=0.9406
+     Instance: 46000; Time: 3.43s; loss: 468.9996; acc: 764732/812921=0.9407
+     Instance: 46500; Time: 3.74s; loss: 386.0850; acc: 773455/821965=0.9410
+     Instance: 46991; Time: 3.74s; loss: 427.0599; acc: 781972/830865=0.9412
+Epoch: 0 training finished. Time: 344.35s, speed: 136.46st/s,  total loss: 78174.59733581543
+totalloss: 78174.59733581543
+Right token =  58492  All token =  61166  acc =  0.9562829022659648
+Dev: time: 7.16s, speed: 432.05st/s; acc: 0.9563, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.0.model
+Right token =  92576  All token =  95820  acc =  0.966144854936339
+Test: time: 11.09s, speed: 499.70st/s; acc: 0.9661, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.014285714285714285
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 3.63s; loss: 423.2202; acc: 8580/8917=0.9622
+     Instance: 1000; Time: 4.00s; loss: 349.2446; acc: 16851/17478=0.9641
+     Instance: 1500; Time: 3.84s; loss: 345.2303; acc: 25539/26480=0.9645
+     Instance: 2000; Time: 3.36s; loss: 312.0641; acc: 33458/34684=0.9647
+     Instance: 2500; Time: 3.67s; loss: 388.1206; acc: 42049/43631=0.9637
+...
+...
+...
 
 ```
 
