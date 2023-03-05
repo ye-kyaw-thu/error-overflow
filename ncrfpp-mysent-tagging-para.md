@@ -2471,106 +2471,38 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
-     Instance: 41000; Time: 3.51s; loss: 103.9572; acc: 714382/723858=0.9869
-     Instance: 41500; Time: 3.35s; loss: 140.9915; acc: 723565/733175=0.9869
-     Instance: 42000; Time: 3.43s; loss: 117.9139; acc: 732331/742009=0.9870
-     Instance: 42500; Time: 3.47s; loss: 143.1185; acc: 741658/751456=0.9870
-     Instance: 43000; Time: 3.25s; loss: 128.8434; acc: 750226/760143=0.9870
-     Instance: 43500; Time: 3.36s; loss: 166.1677; acc: 758891/768958=0.9869
-     Instance: 44000; Time: 3.15s; loss: 137.1515; acc: 767596/777785=0.9869
-     Instance: 44500; Time: 2.90s; loss: 110.8579; acc: 775920/786223=0.9869
-     Instance: 45000; Time: 3.04s; loss: 111.1360; acc: 784139/794564=0.9869
-     Instance: 45500; Time: 3.68s; loss: 103.7979; acc: 792973/803494=0.9869
-     Instance: 46000; Time: 3.90s; loss: 90.3679; acc: 802006/812620=0.9869
-     Instance: 46500; Time: 3.76s; loss: 178.4498; acc: 811413/822187=0.9869
-     Instance: 46991; Time: 3.63s; loss: 157.0522; acc: 819953/830865=0.9869
-Epoch: 24 training finished. Time: 325.25s, speed: 144.48st/s,  total loss: 11510.049591064453
-totalloss: 11510.049591064453
-Right token =  59559  All token =  61166  acc =  0.9737272340842952
-Dev: time: 6.40s, speed: 483.25st/s; acc: 0.9737, p: -1.0000, r: -1.0000, f: -1.0000
-Right token =  93730  All token =  95820  acc =  0.9781882696723022
-Test: time: 9.88s, speed: 560.99st/s; acc: 0.9782, p: -1.0000, r: -1.0000, f: -1.0000
-Epoch: 25/100
- Learning rate is set as: 0.006666666666666666
-Shuffle: first input word list: [135, 13, 1058, 331, 17, 1015, 727, 860, 412, 114, 23450, 55, 53, 17]
-     Instance: 500; Time: 3.60s; loss: 135.0324; acc: 8898/9049=0.9833
-     Instance: 1000; Time: 3.39s; loss: 131.6631; acc: 17712/17996=0.9842
-     Instance: 1500; Time: 3.63s; loss: 115.7544; acc: 26808/27201=0.9856
-     Instance: 2000; Time: 3.43s; loss: 148.4502; acc: 35743/36275=0.9853
-     Instance: 2500; Time: 3.40s; loss: 137.4811; acc: 44735/45421=0.9849
-     Instance: 3000; Time: 3.54s; loss: 143.8716; acc: 53446/54217=0.9858
-     Instance: 3500; Time: 3.24s; loss: 136.8199; acc: 61681/62542=0.9862
-     Instance: 4000; Time: 3.92s; loss: 107.3009; acc: 71175/72123=0.9869
-     Instance: 4500; Time: 3.34s; loss: 128.2175; acc: 79730/80810=0.9866
-     Instance: 5000; Time: 3.89s; loss: 123.8938; acc: 89359/90517=0.9872
-     Instance: 5500; Time: 3.43s; loss: 122.4153; acc: 97829/99126=0.9869
-     Instance: 6000; Time: 3.24s; loss: 112.2986; acc: 105894/107282=0.9871
-...
-...
-...
-     Instance: 45500; Time: 3.69s; loss: 81.6812; acc: 798474/805583=0.9912
-     Instance: 46000; Time: 3.70s; loss: 70.5582; acc: 807575/814750=0.9912
-     Instance: 46500; Time: 3.29s; loss: 95.3242; acc: 815625/822877=0.9912
-     Instance: 46991; Time: 3.18s; loss: 104.7987; acc: 823560/830865=0.9912
-Epoch: 50 training finished. Time: 327.20s, speed: 143.62st/s,  total loss: 8279.186210632324
-totalloss: 8279.186210632324
-Right token =  59652  All token =  61166  acc =  0.9752476866232874
-Dev: time: 6.39s, speed: 484.33st/s; acc: 0.9752, p: -1.0000, r: -1.0000, f: -1.0000
-Right token =  93768  All token =  95820  acc =  0.9785848465873512
-Test: time: 9.84s, speed: 563.30st/s; acc: 0.9786, p: -1.0000, r: -1.0000, f: -1.0000
-Epoch: 51/100
- Learning rate is set as: 0.004225352112676056
-Shuffle: first input word list: [1629, 6, 536, 238, 64, 211, 1630, 211, 537, 410, 227, 408, 917, 62, 227, 536, 1631, 62, 26, 4
-9, 84, 1632, 710, 64, 1633, 1634, 74, 270, 1635, 17, 75, 29, 3, 17]
-     Instance: 500; Time: 3.45s; loss: 61.7782; acc: 8593/8659=0.9924
-     Instance: 1000; Time: 3.27s; loss: 79.1613; acc: 17279/17415=0.9922
-     Instance: 1500; Time: 3.28s; loss: 71.8615; acc: 25420/25620=0.9922
-     Instance: 2000; Time: 3.35s; loss: 105.8004; acc: 34004/34319=0.9908
-     Instance: 2500; Time: 3.56s; loss: 41.8354; acc: 42585/42955=0.9914
-     Instance: 3000; Time: 3.31s; loss: 124.0212; acc: 51337/51793=0.9912
-     Instance: 3500; Time: 3.42s; loss: 79.8094; acc: 59772/60321=0.9909
-     Instance: 4000; Time: 3.35s; loss: 79.3859; acc: 68438/69053=0.9911
-     Instance: 4500; Time: 3.43s; loss: 88.5859; acc: 77697/78392=0.9911
-     Instance: 5000; Time: 3.61s; loss: 99.8133; acc: 86980/87754=0.9912
-...
-...
-...
+     Instance: 41000; Time: 0.73s; loss: 1644.6654; acc: 603011/725578=0.8311
+     Instance: 41500; Time: 0.74s; loss: 1704.5545; acc: 611119/734127=0.8324
+     Instance: 42000; Time: 0.80s; loss: 1727.4999; acc: 619504/742998=0.8338
+     Instance: 42500; Time: 0.72s; loss: 2012.2655; acc: 627086/751145=0.8348
+     Instance: 43000; Time: 0.76s; loss: 2030.3386; acc: 635561/760169=0.8361
+     Instance: 43500; Time: 0.80s; loss: 1938.1293; acc: 643729/768845=0.8373
+     Instance: 44000; Time: 0.76s; loss: 1901.8859; acc: 651846/777474=0.8384
+     Instance: 44500; Time: 0.85s; loss: 2161.1442; acc: 660449/786667=0.8396
+     Instance: 45000; Time: 0.79s; loss: 2216.6611; acc: 668872/795694=0.8406
+     Instance: 45500; Time: 0.77s; loss: 1605.2312; acc: 677122/804405=0.8418
+     Instance: 46000; Time: 0.76s; loss: 2369.1415; acc: 684949/812921=0.8426
+     Instance: 46500; Time: 0.82s; loss: 2102.9266; acc: 693448/821965=0.8436
+     Instance: 46991; Time: 0.80s; loss: 550244.1467; acc: 701721/830865=0.8446
+Epoch: 0 training finished. Time: 74.35s, speed: 632.01st/s,  total loss: 974517.9385282993
+totalloss: 974517.9385282993
+Right token =  41293  All token =  61166  acc =  0.6750972762645915
+Dev: time: 3.96s, speed: 785.13st/s; acc: 0.6751, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+Right token =  63320  All token =  95820  acc =  0.6608223752869965
+Test: time: 6.15s, speed: 905.94st/s; acc: 0.6608, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.009523809523809523
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 0.82s; loss: 134093576274095648.0000; acc: 3009/8917=0.3374
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
+```
+
+Got above error and update the config file:  
 
 ```
 
-check GPU usage during the training time:  
-
-```
-(base) yekyaw.thu@gpu:~$ nvidia-smi
-Sun Mar  5 14:32:19 2023       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
-| 46%   52C    P2    61W / 300W |    908MiB / 11019MiB |     18%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
-|  8%   60C    P8    22W / 257W |      3MiB / 11019MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
-| 30%   43C    P8    29W / 250W |      3MiB / 11016MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A   1712407      C   python                            905MiB |
-+-----------------------------------------------------------------------------+
-(base) yekyaw.thu@gpu:~$
 ```
 
 check the output model:  
