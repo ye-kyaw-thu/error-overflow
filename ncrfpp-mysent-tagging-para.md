@@ -1,4 +1,4 @@
-# Log of using NCRF++ for Burmese Sentence, Paragraph level Tokenization
+# Log of using NCRF++ for Burmese Sentence, Paragraph Level Tokenization
 
 ## Check the data
 
