@@ -2471,7 +2471,41 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 39000; Time: 0.85s; loss: 2954.5627; acc: 572059/692759=0.8258
+     Instance: 39500; Time: 0.76s; loss: 2007.4681; acc: 580127/701354=0.8272
+     Instance: 40000; Time: 0.72s; loss: 1817.0415; acc: 587739/709420=0.8285
+     Instance: 40500; Time: 0.75s; loss: 1589.0429; acc: 595102/717207=0.8297
+     Instance: 41000; Time: 0.73s; loss: 1644.6654; acc: 603011/725578=0.8311
+     Instance: 41500; Time: 0.74s; loss: 1704.5545; acc: 611119/734127=0.8324
+     Instance: 42000; Time: 0.80s; loss: 1727.4999; acc: 619504/742998=0.8338
+     Instance: 42500; Time: 0.72s; loss: 2012.2655; acc: 627086/751145=0.8348
+     Instance: 43000; Time: 0.76s; loss: 2030.3386; acc: 635561/760169=0.8361
+     Instance: 43500; Time: 0.80s; loss: 1938.1293; acc: 643729/768845=0.8373
+     Instance: 44000; Time: 0.76s; loss: 1901.8859; acc: 651846/777474=0.8384
+     Instance: 44500; Time: 0.85s; loss: 2161.1442; acc: 660449/786667=0.8396
+     Instance: 45000; Time: 0.79s; loss: 2216.6611; acc: 668872/795694=0.8406
+     Instance: 45500; Time: 0.77s; loss: 1605.2312; acc: 677122/804405=0.8418
+     Instance: 46000; Time: 0.76s; loss: 2369.1415; acc: 684949/812921=0.8426
+     Instance: 46500; Time: 0.82s; loss: 2102.9266; acc: 693448/821965=0.8436
+     Instance: 46991; Time: 0.80s; loss: 550244.1467; acc: 701721/830865=0.8446
+Epoch: 0 training finished. Time: 74.35s, speed: 632.01st/s,  total loss: 974517.9385282993
+totalloss: 974517.9385282993
+Right token =  41293  All token =  61166  acc =  0.6750972762645915
+Dev: time: 3.96s, speed: 785.13st/s; acc: 0.6751, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+Right token =  63320  All token =  95820  acc =  0.6608223752869965
+Test: time: 6.15s, speed: 905.94st/s; acc: 0.6608, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.009523809523809523
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 0.82s; loss: 134093576274095648.0000; acc: 3009/8917=0.3374
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
 
+real    1m44.501s
+user    1m43.291s
+sys     0m2.110s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 check the output model:  
