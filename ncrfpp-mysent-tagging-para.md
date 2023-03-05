@@ -2471,37 +2471,43 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
-     Instance: 41000; Time: 0.73s; loss: 1644.6654; acc: 603011/725578=0.8311
-     Instance: 41500; Time: 0.74s; loss: 1704.5545; acc: 611119/734127=0.8324
-     Instance: 42000; Time: 0.80s; loss: 1727.4999; acc: 619504/742998=0.8338
-     Instance: 42500; Time: 0.72s; loss: 2012.2655; acc: 627086/751145=0.8348
-     Instance: 43000; Time: 0.76s; loss: 2030.3386; acc: 635561/760169=0.8361
-     Instance: 43500; Time: 0.80s; loss: 1938.1293; acc: 643729/768845=0.8373
-     Instance: 44000; Time: 0.76s; loss: 1901.8859; acc: 651846/777474=0.8384
-     Instance: 44500; Time: 0.85s; loss: 2161.1442; acc: 660449/786667=0.8396
-     Instance: 45000; Time: 0.79s; loss: 2216.6611; acc: 668872/795694=0.8406
-     Instance: 45500; Time: 0.77s; loss: 1605.2312; acc: 677122/804405=0.8418
-     Instance: 46000; Time: 0.76s; loss: 2369.1415; acc: 684949/812921=0.8426
-     Instance: 46500; Time: 0.82s; loss: 2102.9266; acc: 693448/821965=0.8436
-     Instance: 46991; Time: 0.80s; loss: 550244.1467; acc: 701721/830865=0.8446
-Epoch: 0 training finished. Time: 74.35s, speed: 632.01st/s,  total loss: 974517.9385282993
-totalloss: 974517.9385282993
-Right token =  41293  All token =  61166  acc =  0.6750972762645915
-Dev: time: 3.96s, speed: 785.13st/s; acc: 0.6751, p: -1.0000, r: -1.0000, f: -1.0000
-Exceed previous best f score: -10
-Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
-Right token =  63320  All token =  95820  acc =  0.6608223752869965
-Test: time: 6.15s, speed: 905.94st/s; acc: 0.6608, p: -1.0000, r: -1.0000, f: -1.0000
-Epoch: 1/100
- Learning rate is set as: 0.009523809523809523
-Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
-     Instance: 500; Time: 0.82s; loss: 134093576274095648.0000; acc: 3009/8917=0.3374
-ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
-```
-
-Got above error and update the config file:  
-
-```
+     Instance: 39500; Time: 3.09s; loss: 83.8029; acc: 696020/701462=0.9922
+     Instance: 40000; Time: 3.34s; loss: 67.2991; acc: 704350/709833=0.9923
+     Instance: 40500; Time: 3.30s; loss: 80.1154; acc: 712771/718325=0.9923
+     Instance: 41000; Time: 3.26s; loss: 78.5268; acc: 721190/726819=0.9923
+     Instance: 41500; Time: 3.35s; loss: 65.1119; acc: 729272/734962=0.9923
+     Instance: 42000; Time: 3.25s; loss: 77.8246; acc: 737981/743738=0.9923
+     Instance: 42500; Time: 3.49s; loss: 87.3988; acc: 746619/752427=0.9923
+     Instance: 43000; Time: 3.51s; loss: 74.1756; acc: 755281/761149=0.9923
+     Instance: 43500; Time: 2.85s; loss: 95.3387; acc: 763183/769108=0.9923
+     Instance: 44000; Time: 3.23s; loss: 68.8041; acc: 771293/777282=0.9923
+     Instance: 44500; Time: 3.55s; loss: 83.9823; acc: 780066/786131=0.9923
+     Instance: 45000; Time: 3.77s; loss: 77.6759; acc: 789304/795428=0.9923
+     Instance: 45500; Time: 3.38s; loss: 68.5271; acc: 798153/804348=0.9923
+     Instance: 46000; Time: 3.50s; loss: 97.8295; acc: 807064/813341=0.9923
+     Instance: 46500; Time: 3.30s; loss: 74.5498; acc: 815049/821389=0.9923
+     Instance: 46991; Time: 3.55s; loss: 71.8594; acc: 824470/830865=0.9923
+Epoch: 61 training finished. Time: 321.37s, speed: 146.22st/s,  total loss: 7399.934005737305
+totalloss: 7399.934005737305
+Right token =  59630  All token =  61166  acc =  0.9748880096785796
+Dev: time: 6.36s, speed: 486.38st/s; acc: 0.9749, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93700  All token =  95820  acc =  0.9778751826341057
+Test: time: 9.83s, speed: 563.94st/s; acc: 0.9779, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 62/100
+ Learning rate is set as: 0.003658536585365854
+Shuffle: first input word list: [1365, 238, 115, 84, 21]
+     Instance: 500; Time: 3.51s; loss: 107.0089; acc: 8522/8590=0.9921
+     Instance: 1000; Time: 9236.14s; loss: 101.9697; acc: 17359/17487=0.9927
+     Instance: 1500; Time: 3.46s; loss: 63.9081; acc: 26445/26635=0.9929
+     Instance: 2000; Time: 3.34s; loss: 67.9844; acc: 34584/34816=0.9933
+     Instance: 2500; Time: 3.33s; loss: 71.7928; acc: 42985/43280=0.9932
+     Instance: 3000; Time: 3.82s; loss: 88.1224; acc: 52891/53253=0.9932
+     Instance: 3500; Time: 3.98s; loss: 87.3102; acc: 62268/62706=0.9930
+     Instance: 4000; Time: 3.67s; loss: 67.0410; acc: 71399/71890=0.9932
+     Instance: 4500; Time: 3.72s; loss: 55.0688; acc: 80334/80876=0.9933
+...
+...
+...
 
 ```
 
