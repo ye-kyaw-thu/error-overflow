@@ -2073,6 +2073,41 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 
 ```
 
+During the training time, GPU usage is as follows:  
+
+```
+(base) yekyaw.thu@gpu:~$ nvidia-smi
+Sun Mar  5 10:41:43 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 46%   51C    P2    61W / 300W |    908MiB / 11019MiB |     17%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+|  0%   55C    P8    21W / 257W |      3MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 32%   44C    P8    29W / 250W |      3MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   1712407      C   python                            905MiB |
++-----------------------------------------------------------------------------+
+(base) yekyaw.thu@gpu:~$
+```
+
 updated decode/testing config file is as follows:  
 
 ```
