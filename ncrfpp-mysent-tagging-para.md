@@ -2098,7 +2098,40 @@ Shuffle: first input word list: [3645, 339, 6, 1225, 62, 399, 26, 727, 6, 161, 6
 ...
 ...
 ...
+     Instance: 36000; Time: 3.76s; loss: 54.3616; acc: 630321/633543=0.9949
+     Instance: 36500; Time: 3.47s; loss: 50.9158; acc: 638890/642188=0.9949
+     Instance: 37000; Time: 4.00s; loss: 58.1296; acc: 648211/651553=0.9949
+     Instance: 37500; Time: 4.17s; loss: 74.5347; acc: 657883/661280=0.9949
+     Instance: 38000; Time: 3.60s; loss: 64.1405; acc: 666746/670190=0.9949
+     Instance: 38500; Time: 3.96s; loss: 85.0800; acc: 676037/679528=0.9949
+     Instance: 39000; Time: 3.65s; loss: 35.6143; acc: 684900/688416=0.9949
+     Instance: 39500; Time: 3.83s; loss: 51.0587; acc: 693941/697512=0.9949
+     Instance: 40000; Time: 3.31s; loss: 73.4226; acc: 701973/705583=0.9949
+     Instance: 40500; Time: 3.50s; loss: 51.0468; acc: 710220/713889=0.9949
+     Instance: 41000; Time: 4.16s; loss: 40.2164; acc: 720223/723934=0.9949
+     Instance: 41500; Time: 3.70s; loss: 86.1519; acc: 728722/732499=0.9948
+     Instance: 42000; Time: 3.70s; loss: 84.0823; acc: 737398/741220=0.9948
+     Instance: 42500; Time: 3.80s; loss: 44.1889; acc: 746693/750561=0.9948
+     Instance: 43000; Time: 3.58s; loss: 45.6605; acc: 755267/759167=0.9949
+     Instance: 43500; Time: 3.58s; loss: 54.0104; acc: 763590/767562=0.9948
+     Instance: 44000; Time: 3.82s; loss: 61.5463; acc: 772471/776526=0.9948
+     Instance: 44500; Time: 3.51s; loss: 61.1354; acc: 781163/785275=0.9948
+     Instance: 45000; Time: 3.76s; loss: 46.9988; acc: 789966/794097=0.9948
+     Instance: 45500; Time: 3.51s; loss: 44.3897; acc: 798439/802609=0.9948
+     Instance: 46000; Time: 4.18s; loss: 80.7507; acc: 807901/812146=0.9948
+     Instance: 46500; Time: 3.90s; loss: 77.7663; acc: 817012/821309=0.9948
+     Instance: 46991; Time: 4.22s; loss: 66.7824; acc: 826516/830865=0.9948
+Epoch: 99 training finished. Time: 347.41s, speed: 135.26st/s,  total loss: 5490.974273681641
+totalloss: 5490.974273681641
+Right token =  59562  All token =  61166  acc =  0.9737762809403917
+Dev: time: 7.11s, speed: 434.76st/s; acc: 0.9738, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93624  All token =  95820  acc =  0.9770820288040075
+Test: time: 11.02s, speed: 502.61st/s; acc: 0.9771, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    607m38.155s
+user    606m45.274s
+sys     0m52.858s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 During the training time, GPU usage is as follows:  
