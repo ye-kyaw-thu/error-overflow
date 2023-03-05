@@ -2498,13 +2498,21 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
 ```
 
-```
+testing/decoding ...  
 
 ```
 
 ```
 
+check the hyp files:  
+
 ```
+
+```
+
+## 8. Word-CNN, Char-LSTM
+
+updated the training config file for running with paragraph level data:  
 
 ```
 
