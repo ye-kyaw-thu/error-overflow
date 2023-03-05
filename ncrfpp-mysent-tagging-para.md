@@ -1785,7 +1785,28 @@ Shuffle: first input word list: [698, 1173, 6, 414, 2826, 17]
 ...
 ...
 ...
+     Instance: 42000; Time: 3.70s; loss: 84.0823; acc: 737398/741220=0.9948
+     Instance: 42500; Time: 3.80s; loss: 44.1889; acc: 746693/750561=0.9948
+     Instance: 43000; Time: 3.58s; loss: 45.6605; acc: 755267/759167=0.9949
+     Instance: 43500; Time: 3.58s; loss: 54.0104; acc: 763590/767562=0.9948
+     Instance: 44000; Time: 3.82s; loss: 61.5463; acc: 772471/776526=0.9948
+     Instance: 44500; Time: 3.51s; loss: 61.1354; acc: 781163/785275=0.9948
+     Instance: 45000; Time: 3.76s; loss: 46.9988; acc: 789966/794097=0.9948
+     Instance: 45500; Time: 3.51s; loss: 44.3897; acc: 798439/802609=0.9948
+     Instance: 46000; Time: 4.18s; loss: 80.7507; acc: 807901/812146=0.9948
+     Instance: 46500; Time: 3.90s; loss: 77.7663; acc: 817012/821309=0.9948
+     Instance: 46991; Time: 4.22s; loss: 66.7824; acc: 826516/830865=0.9948
+Epoch: 99 training finished. Time: 347.41s, speed: 135.26st/s,  total loss: 5490.974273681641
+totalloss: 5490.974273681641
+Right token =  59562  All token =  61166  acc =  0.9737762809403917
+Dev: time: 7.11s, speed: 434.76st/s; acc: 0.9738, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93624  All token =  95820  acc =  0.9770820288040075
+Test: time: 11.02s, speed: 502.61st/s; acc: 0.9771, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    607m38.155s
+user    606m45.274s
+sys     0m52.858s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 updated decode config file:  
@@ -1809,7 +1830,89 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charl
 decoding or testing ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-lstm.crf.char-lstm.decode.conf
+ig | tee ./mysent-para-hyp/word-lstm.crf.char-lstm.decode.log
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-crf-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  92576  All token =  95820  acc =  0.966144854936339
+raw: time:10.68s, speed:518.51st/s; acc: 0.9661, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-crf-charlstm.hyp
 
+real    0m20.819s
+user    0m18.107s
+sys     0m3.418s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 ## 6. Word-LSTM, CRF, no-char for Para
