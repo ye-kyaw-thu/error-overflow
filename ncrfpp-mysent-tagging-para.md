@@ -2309,19 +2309,193 @@ check the filesize of all hyp until now:
 update the training config file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-cnn.char-cnn.train.config
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=False
+use_char=True
+word_seq_feature=CNN
+char_seq_feature=CNN
+#feature=[POS] emb_size=20
+#feature=[Cap] emb_size=20
+#nbest=1
+
+###TrainingSetting###
+status=train
+# optimizer can be SGD/Adagrad/AdaDelta/RMSprop/Adam
+optimizer=SGD
+iteration=100
+batch_size=10
+ave_batch_loss=False
+
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+#learning_rate=0.015
+learning_rate=0.010
+lr_decay=0.05
+momentum=0
+l2=1e-8
+gpu=True
+#clip=
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ 
+```
+
+start training ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-para-config/word-cnn.char-cnn.train.config | tee 
+./mysent-para-model/word-cnn.char-cnn.train.log
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.01
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Epoch: 0/100
+ Learning rate is set as: 0.01
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 0.98s; loss: 21917.8533; acc: 5075/8986=0.5648
+     Instance: 1000; Time: 0.84s; loss: 8712.6092; acc: 11587/18422=0.6290
+     Instance: 1500; Time: 0.84s; loss: 7902.5994; acc: 18221/27720=0.6573
+     Instance: 2000; Time: 0.78s; loss: 7290.8950; acc: 24894/36837=0.6758
+     Instance: 2500; Time: 0.79s; loss: 7022.7807; acc: 30957/45333=0.6829
+     Instance: 3000; Time: 0.85s; loss: 7562.7922; acc: 38225/55086=0.6939
+     Instance: 3500; Time: 0.79s; loss: 7050.1962; acc: 44792/64013=0.6997
+     Instance: 4000; Time: 0.74s; loss: 6862.9593; acc: 51016/72548=0.7032
+     Instance: 4500; Time: 0.76s; loss: 6818.0427; acc: 57497/81330=0.7070
+     Instance: 5000; Time: 0.76s; loss: 7026.1879; acc: 63851/90054=0.7090
+     Instance: 5500; Time: 0.81s; loss: 7156.4938; acc: 70770/99330=0.7125
+     Instance: 6000; Time: 0.74s; loss: 6562.9919; acc: 76793/107637=0.7134
+     Instance: 6500; Time: 0.83s; loss: 7761.6377; acc: 84044/117489=0.7153
+     Instance: 7000; Time: 0.83s; loss: 7098.7576; acc: 90847/126691=0.7171
+     Instance: 7500; Time: 0.69s; loss: 6307.4122; acc: 96569/134642=0.7172
+     Instance: 8000; Time: 0.82s; loss: 6947.2950; acc: 103074/143526=0.7182
+     Instance: 8500; Time: 0.89s; loss: 7200.1042; acc: 110309/153140=0.7203
+     Instance: 9000; Time: 0.76s; loss: 7035.8102; acc: 116270/161594=0.7195
+     Instance: 9500; Time: 0.78s; loss: 6914.5889; acc: 122711/170409=0.7201
+     Instance: 10000; Time: 0.78s; loss: 6905.4336; acc: 128960/179025=0.7203
+     Instance: 10500; Time: 0.82s; loss: 7101.3592; acc: 135541/188031=0.7208
+     Instance: 11000; Time: 0.77s; loss: 6873.3247; acc: 141626/196518=0.7207
+...
+...
+...
+
+```
+
+check the output model:  
 
 ```
 
 ```
 
-```
+updated decode/test config file:  
 
 ```
-
-```
-
-```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-cnn.char-cnn.decode.config 
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordcnn-charcnn.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
 ```
 
 ```
