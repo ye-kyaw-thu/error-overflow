@@ -2190,16 +2190,123 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nocha
 decoding/testing results:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-lstm.crf.char-lstm.decode.config | tee ./mysent-para-hyp/word-lstm.crf.char-lstm.decode.log
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-crf-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  92576  All token =  95820  acc =  0.966144854936339
+raw: time:11.07s, speed:500.38st/s; acc: 0.9661, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-crf-charlstm.hyp
 
+real    0m19.461s
+user    0m18.891s
+sys     0m1.793s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 check the hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ head ./wordlstm-crf-charlstm.hyp 
+ရင်ဘတ် B
+အောင့် O
+လာ N
+ရင် N
+သတိထား N
+ပါ E
 
+ဘယ်လောက် B
+နောက်ကျ N
+သလဲ E
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ 
+```
+
+check the filesize of all hyp until now:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ wc *.hyp
+ 101330  191640 1565878 wordlstm-charcnn.hyp
+ 101330  191640 1565878 wordlstm-charlstm.hyp
+ 101330  191640 1565878 wordlstm-crf-charcnn.hyp
+ 101330  191640 1565878 wordlstm-crf-charlstm.hyp
+ 101330  191640 1565878 wordlstm-nochar.hyp
+ 506650  958200 7829390 total
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
 ## 7. Word-CNN, Char-CNN Model
+
+update the training config file:  
 
 ```
 
