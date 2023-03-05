@@ -1917,26 +1917,193 @@ sys     0m3.418s
 
 ## 6. Word-LSTM, CRF, no-char for Para
 
+update the training config file:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-lstm.crf.nochar.train.config
+### use # to comment out the configure item
+
+### I/O ###
+train_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+dev_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+test_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar
+#word_emb_dir=sample_data/sample.word.emb
+
+#raw_dir=
+#decode_dir=
+#dset_dir=
+#load_model_dir=
+#char_emb_dir=
+
+norm_word_emb=False
+norm_char_emb=False
+number_normalized=True
+seg=True
+word_emb_dim=50
+char_emb_dim=30
+
+###NetworkConfiguration###
+use_crf=True
+use_char=False
+word_seq_feature=LSTM
+#char_seq_feature=LSTM
+#feature=[POS] emb_size=20
+#feature=[Cap] emb_size=20
+#nbest=1
+
+###TrainingSetting###
+status=train
+# optimizer can be SGD/Adagrad/AdaDelta/RMSprop/Adam
+optimizer=SGD
+iteration=100
+batch_size=10
+ave_batch_loss=False
+
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+learning_rate=0.015
+lr_decay=0.05
+momentum=0
+l2=1e-8
+gpu=True
+#clip=
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ 
+```
+
+training NCRF++ model ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-lstm.crf.nochar.train.config | tee ./mysent-para-model/word-lstm.crf.nochar.train.log
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  False
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 3.56s; loss: 13380.8050; acc: 5623/8986=0.6258
+     Instance: 1000; Time: 3.80s; loss: 4842.2639; acc: 12699/18422=0.6893
+     Instance: 1500; Time: 3.79s; loss: 3626.8603; acc: 19884/27720=0.7173
+     Instance: 2000; Time: 3.43s; loss: 2728.5185; acc: 27408/36837=0.7440
+     Instance: 2500; Time: 3.46s; loss: 1655.6122; acc: 34731/45333=0.7661
+     Instance: 3000; Time: 3.85s; loss: 1923.1299; acc: 43319/55086=0.7864
+     Instance: 3500; Time: 3.40s; loss: 1829.0894; acc: 51205/64013=0.7999
+     Instance: 4000; Time: 3.21s; loss: 1283.5985; acc: 58936/72548=0.8124
+     Instance: 4500; Time: 3.27s; loss: 1050.9283; acc: 67028/81330=0.8241
+     Instance: 5000; Time: 3.31s; loss: 1151.1816; acc: 74993/90054=0.8328
+     Instance: 5500; Time: 3.60s; loss: 1038.9179; acc: 83622/99330=0.8419
+     Instance: 6000; Time: 3.11s; loss: 739.1563; acc: 91405/107637=0.8492
+     Instance: 6500; Time: 3.89s; loss: 1212.1253; acc: 100434/117489=0.8548
+     Instance: 7000; Time: 3.69s; loss: 1217.2444; acc: 108890/126691=0.8595
+     Instance: 7500; Time: 2.95s; loss: 554.1054; acc: 116489/134642=0.8652
+     Instance: 8000; Time: 3.55s; loss: 506.7917; acc: 124969/143526=0.8707
+     Instance: 8500; Time: 3.98s; loss: 781.1161; acc: 134083/153140=0.8756
+     Instance: 9000; Time: 3.29s; loss: 741.5675; acc: 141993/161594=0.8787
+...
+...
+...
+
+```
+
+updated decode/testing config file is as follows:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cat word-lstm.crf.nochar.decode.config 
+### Decode ###
+status=decode
+#raw_dir=sample_data/raw.bmes
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+#nbest=1
+#nbest=10
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordlstm-crf-nochar.hyp
+#dset_dir=sample_data/lstmcrf.dset
+dset_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar.dset
+#load_model_dir=sample_data/lstmcrf.0.model
+load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ 
+```
+
+decoding/testing results:  
 
 ```
 
 ```
 
-```
+check the hyp file:  
 
 ```
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
+## 7. Word-CNN, Char-CNN Model
 
 ```
 
