@@ -2508,8 +2508,32 @@ Shuffle: first input word list: [1365, 238, 115, 84, 21]
 ...
 ...
 ...
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Epoch: 0/100
+ Learning rate is set as: 0.015
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 0.89s; loss: 19156005918367067144192.0000; acc: 2789/8986=0.3104
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
 
+real    0m19.880s
+user    0m18.347s
+sys     0m2.110s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
+
+I got above error ...
+I have to update the config file.  
+
 
 check the output model:  
 
