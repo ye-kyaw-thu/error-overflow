@@ -2679,6 +2679,57 @@ sys     0m4.109s
 ```
 
 Got above error again ...  
+I checked the previous experiment for sentence level config file and found as follows:  
+
+```
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+#learning_rate=0.015
+learning_rate=0.010
+lr_decay=0.05
+momentum=0
+l2=1e-8
+gpu=True
+#clip=
+```
+
+It looks at that time, 0.010 worked.  
+I give 0.005 ...  
+
+```
+     Instance: 44000; Time: 0.80s; loss: 2484.2924; acc: 720218/777474=0.9264
+     Instance: 44500; Time: 0.89s; loss: 2778.7358; acc: 728791/786667=0.9264
+     Instance: 45000; Time: 0.84s; loss: 2804.0292; acc: 737187/795694=0.9265
+     Instance: 45500; Time: 0.81s; loss: 2036.2368; acc: 745479/804405=0.9267
+     Instance: 46000; Time: 0.78s; loss: 2882.3172; acc: 753330/812921=0.9267
+     Instance: 46500; Time: 0.84s; loss: 2821.5394; acc: 761750/821965=0.9267
+     Instance: 46991; Time: 0.81s; loss: 100558.7343; acc: 769895/830865=0.9266
+Epoch: 0 training finished. Time: 77.10s, speed: 609.51st/s,  total loss: 365949.233530283
+totalloss: 365949.233530283
+Right token =  41293  All token =  61166  acc =  0.6750972762645915
+Dev: time: 4.01s, speed: 774.83st/s; acc: 0.6751, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+Right token =  63320  All token =  95820  acc =  0.6608223752869965
+Test: time: 6.25s, speed: 894.24st/s; acc: 0.6608, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.0047619047619047615
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 0.82s; loss: 247533202.2734; acc: 4427/8917=0.4965
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
+
+real    1m49.922s
+user    1m46.260s
+sys     0m4.051s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
+```
+
+Not working and got same error as above ...  
 
 
 check the output model:  
