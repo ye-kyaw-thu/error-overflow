@@ -3755,6 +3755,17 @@ sys     0m3.798s
 
 Got error as shown in above. And thus, I need to change the learning rate ...  
 
+```
+learning_rate=0.0005
+lr_decay=0.05
+```
+
+training again ...  
+
+```
+
+```
+
 I also updated the decode config file:  
 
 ```
