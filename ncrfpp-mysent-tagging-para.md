@@ -2731,6 +2731,7 @@ sys     0m4.051s
 
 Not working and got same error as above ...  
 I updated the learning rate as follows and train again:  
+ဒီတစ်ခါတော့ အဆင်ပြေတဲ့ပုံရှိတယ်။   
 
 ```
 learning_rate=0.0005      
@@ -2740,6 +2741,168 @@ lr_decay=0.05
 train again ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-cnn.char-cnn.train.config | te
+e ./mysent-para-model/word-cnn.char-cnn.train.log5
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Epoch: 0/100
+ Learning rate is set as: 0.0005
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 0.90s; loss: 8585.3003; acc: 6063/8986=0.6747
+     Instance: 1000; Time: 0.91s; loss: 5433.2205; acc: 13802/18422=0.7492
+     Instance: 1500; Time: 0.88s; loss: 3905.7002; acc: 21966/27720=0.7924
+     Instance: 2000; Time: 0.83s; loss: 3192.6864; acc: 30204/36837=0.8199
+     Instance: 2500; Time: 0.84s; loss: 2521.7409; acc: 38044/45333=0.8392
+     Instance: 3000; Time: 0.88s; loss: 2640.4239; acc: 47107/55086=0.8552
+     Instance: 3500; Time: 0.81s; loss: 2564.5093; acc: 55393/64013=0.8653
+     Instance: 4000; Time: 0.77s; loss: 1899.8711; acc: 63457/72548=0.8747
+     Instance: 4500; Time: 0.83s; loss: 1977.8924; acc: 71727/81330=0.8819
+     Instance: 5000; Time: 0.82s; loss: 2159.7114; acc: 79918/90054=0.8874
+     Instance: 5500; Time: 0.87s; loss: 2007.2732; acc: 88696/99330=0.8929
+     Instance: 6000; Time: 0.78s; loss: 1789.9100; acc: 96529/107637=0.8968
+     Instance: 6500; Time: 0.92s; loss: 2759.7930; acc: 105616/117489=0.8989
+     Instance: 7000; Time: 0.87s; loss: 1847.5619; acc: 114295/126691=0.9022
+     Instance: 7500; Time: 0.75s; loss: 1504.0640; acc: 121845/134642=0.9050
+     Instance: 8000; Time: 0.86s; loss: 1686.0040; acc: 130294/143526=0.9078
+     Instance: 8500; Time: 0.93s; loss: 1643.8270; acc: 139499/153140=0.9109
+     Instance: 9000; Time: 0.82s; loss: 2056.9370; acc: 147368/161594=0.9120
+     Instance: 9500; Time: 0.83s; loss: 1880.4949; acc: 155669/170409=0.9135
+     Instance: 10000; Time: 0.82s; loss: 1841.5256; acc: 163785/179025=0.9149
+     Instance: 10500; Time: 0.86s; loss: 1467.9635; acc: 172366/188031=0.9167
+     Instance: 11000; Time: 0.84s; loss: 1920.9328; acc: 180337/196518=0.9177
+     Instance: 11500; Time: 0.81s; loss: 1672.3228; acc: 188661/205293=0.9190
+     Instance: 12000; Time: 0.94s; loss: 1664.6814; acc: 197600/214657=0.9205
+     Instance: 12500; Time: 0.84s; loss: 1469.9970; acc: 205645/223137=0.9216
+     Instance: 13000; Time: 0.82s; loss: 1179.8665; acc: 214006/231856=0.9230
+     Instance: 13500; Time: 0.82s; loss: 1921.6567; acc: 222762/241147=0.9238
+...
+...
+...
+     Instance: 46000; Time: 0.67s; loss: 1031.8306; acc: 783825/813061=0.9640
+     Instance: 46500; Time: 0.73s; loss: 1231.3961; acc: 792565/822151=0.9640
+     Instance: 46991; Time: 0.66s; loss: 728.5183; acc: 801055/830865=0.9641
+Epoch: 1 training finished. Time: 76.96s, speed: 610.56st/s,  total loss: 102591.59290361404
+totalloss: 102591.59290361404
+Right token =  58823  All token =  61166  acc =  0.9616944053886146
+Dev: time: 4.09s, speed: 758.10st/s; acc: 0.9617, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  92537  All token =  95820  acc =  0.9657378417866833
+Test: time: 6.35s, speed: 875.24st/s; acc: 0.9657, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 2/100
+ Learning rate is set as: 0.00045454545454545455
+Shuffle: first input word list: [443, 136, 151, 3227, 64, 3228, 11, 3229, 2694, 39, 59, 43]
+     Instance: 500; Time: 0.87s; loss: 923.8742; acc: 8761/9020=0.9713
+     Instance: 1000; Time: 0.89s; loss: 1135.4343; acc: 18002/18585=0.9686
+     Instance: 1500; Time: 0.75s; loss: 972.1685; acc: 25537/26418=0.9667
+     Instance: 2000; Time: 0.82s; loss: 762.5909; acc: 34265/35385=0.9683
+     Instance: 2500; Time: 0.80s; loss: 948.6560; acc: 42276/43710=0.9672
+     Instance: 3000; Time: 0.79s; loss: 1126.8299; acc: 50649/52427=0.9661
+     Instance: 3500; Time: 0.86s; loss: 1206.8917; acc: 58942/61041=0.9656
+     Instance: 4000; Time: 0.72s; loss: 1132.6899; acc: 66433/68840=0.9650
+     Instance: 4500; Time: 0.82s; loss: 905.0213; acc: 75142/77793=0.9659
+     Instance: 5000; Time: 0.81s; loss: 1067.3792; acc: 84040/87026=0.9657
+     Instance: 5500; Time: 0.79s; loss: 983.3950; acc: 92467/95765=0.9656
+     Instance: 6000; Time: 0.83s; loss: 1043.0312; acc: 101121/104716=0.9657
+     Instance: 6500; Time: 0.77s; loss: 1285.6504; acc: 109138/113127=0.9647
+...
+...
+...
+     Instance: 45000; Time: 0.89s; loss: 781.5592; acc: 771497/796203=0.9690
+     Instance: 45500; Time: 0.84s; loss: 749.0727; acc: 780358/805287=0.9690
+     Instance: 46000; Time: 0.73s; loss: 816.3146; acc: 787645/812805=0.9690
+     Instance: 46500; Time: 0.89s; loss: 1106.3000; acc: 796910/822417=0.9690
+     Instance: 46991; Time: 0.81s; loss: 795.8082; acc: 805124/830865=0.9690
+Epoch: 3 training finished. Time: 76.31s, speed: 615.79st/s,  total loss: 86954.75834441185
+totalloss: 86954.75834441185
+Right token =  59104  All token =  61166  acc =  0.9662884609096557
+Dev: time: 4.09s, speed: 758.40st/s; acc: 0.9663, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93312  All token =  95820  acc =  0.9738259236067627
+Test: time: 6.37s, speed: 872.82st/s; acc: 0.9738, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 4/100
+ Learning rate is set as: 0.0004166666666666667
+Shuffle: first input word list: [3645, 339, 6, 1225, 62, 399, 26, 727, 6, 161, 62, 209]
+     Instance: 500; Time: 0.80s; loss: 773.7539; acc: 8482/8724=0.9723
+     Instance: 1000; Time: 0.78s; loss: 795.3751; acc: 16959/17406=0.9743
+     Instance: 1500; Time: 0.86s; loss: 1064.4772; acc: 26023/26790=0.9714
+     Instance: 2000; Time: 0.75s; loss: 879.4716; acc: 34287/35328=0.9705
+     Instance: 2500; Time: 0.81s; loss: 1026.2727; acc: 43281/44602=0.9704
+     Instance: 3000; Time: 0.80s; loss: 775.6900; acc: 51896/53462=0.9707
+     Instance: 3500; Time: 0.82s; loss: 1121.2593; acc: 60266/62142=0.9698
+     Instance: 4000; Time: 0.81s; loss: 913.8526; acc: 68475/70661=0.9691
+     Instance: 4500; Time: 0.80s; loss: 847.8999; acc: 76854/79299=0.9692
+     Instance: 5000; Time: 0.78s; loss: 881.7406; acc: 84485/87169=0.9692
+...
+...
+...
 
 ```
 
