@@ -3469,7 +3469,40 @@ Shuffle: first input word list: [271, 355, 356, 11, 7, 56, 2279, 76, 11, 7, 84, 
 ...
 ...
 ...
+     Instance: 36000; Time: 1.04s; loss: 624.3588; acc: 620845/633543=0.9800
+     Instance: 36500; Time: 0.99s; loss: 680.1621; acc: 629284/642188=0.9799
+     Instance: 37000; Time: 1.10s; loss: 541.4936; acc: 638444/651553=0.9799
+     Instance: 37500; Time: 1.13s; loss: 585.7429; acc: 647963/661280=0.9799
+     Instance: 38000; Time: 1.02s; loss: 624.0655; acc: 656673/670190=0.9798
+     Instance: 38500; Time: 1.08s; loss: 650.8090; acc: 665812/679528=0.9798
+     Instance: 39000; Time: 1.03s; loss: 401.2834; acc: 674580/688416=0.9799
+     Instance: 39500; Time: 1.06s; loss: 518.2868; acc: 683502/697512=0.9799
+     Instance: 40000; Time: 0.96s; loss: 572.0539; acc: 691395/705583=0.9799
+     Instance: 40500; Time: 1.01s; loss: 576.5778; acc: 699529/713889=0.9799
+     Instance: 41000; Time: 1.14s; loss: 542.1192; acc: 709396/723934=0.9799
+     Instance: 41500; Time: 1.03s; loss: 467.8854; acc: 717813/732499=0.9800
+     Instance: 42000; Time: 1.04s; loss: 569.9144; acc: 726351/741220=0.9799
+     Instance: 42500; Time: 1.06s; loss: 577.7256; acc: 735497/750561=0.9799
+     Instance: 43000; Time: 1.01s; loss: 410.6599; acc: 743982/759167=0.9800
+     Instance: 43500; Time: 1.02s; loss: 573.7857; acc: 752172/767562=0.9799
+     Instance: 44000; Time: 1.08s; loss: 718.3493; acc: 760888/776526=0.9799
+     Instance: 44500; Time: 1.01s; loss: 422.8844; acc: 769510/785275=0.9799
+     Instance: 45000; Time: 1.07s; loss: 409.3544; acc: 778189/794097=0.9800
+     Instance: 45500; Time: 1.00s; loss: 476.0115; acc: 786540/802609=0.9800
+     Instance: 46000; Time: 1.14s; loss: 582.6927; acc: 795877/812146=0.9800
+     Instance: 46500; Time: 1.10s; loss: 618.9162; acc: 804851/821309=0.9800
+     Instance: 46991; Time: 1.14s; loss: 501.7796; acc: 814235/830865=0.9800
+Epoch: 99 training finished. Time: 97.77s, speed: 480.64st/s,  total loss: 50218.95497465134
+totalloss: 50218.95497465134
+Right token =  59649  All token =  61166  acc =  0.9751986397671909
+Dev: time: 4.73s, speed: 654.84st/s; acc: 0.9752, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93830  All token =  95820  acc =  0.9792318931329577
+Test: time: 7.38s, speed: 752.03st/s; acc: 0.9792, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    183m54.568s
+user    183m14.152s
+sys     0m35.895s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 I update the decode/testing config file as follows:  
@@ -3493,13 +3526,132 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm.0
 decoding/testing as follows:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-cnn.char-lstm.decode.config | 
+tee ./mysent-para-hyp/word-cnn.char-lstm.decode.log
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordcnn-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: LSTM ...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  92329  All token =  95820  acc =  0.9635671049885202
+raw: time:7.46s, speed:743.86st/s; acc: 0.9636, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordcnn-charlstm.hyp
 
+real    0m17.754s
+user    0m15.300s
+sys     0m3.586s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 check the hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ head ./wordcnn-charlstm.hyp 
+ရင်ဘတ် B
+အောင့် O
+လာ N
+ရင် N
+သတိထား N
+ပါ E
 
+ဘယ်လောက် B
+နောက်ကျ N
+သလဲ E
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ tail ./wordcnn-charlstm.hyp 
+ကို O
+အာမခံ O
+ရင်းှီးမှုပ်ှံ O
+ခြင်း O
+၌ O
+သာ N
+ထ့်သွင်း N
+ခဲ့ N
+သည် E
+
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
+```
+
+check the hyp filesize:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ wc *.hyp
+  101330   191640  1565878 wordcnn-charcnn.hyp
+  101330   191640  1565878 wordcnn-charlstm.hyp
+  101330   191640  1565878 wordlstm-charcnn.hyp
+  101330   191640  1565878 wordlstm-charlstm.hyp
+  101330   191640  1565878 wordlstm-crf-charcnn.hyp
+  101330   191640  1565878 wordlstm-crf-charlstm.hyp
+  101330   191640  1565878 wordlstm-nochar.hyp
+  709310  1341480 10961146 total
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
 ## 9. Word-CNN, No-Char
