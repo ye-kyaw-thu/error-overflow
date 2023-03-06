@@ -2531,9 +2531,127 @@ sys     0m2.110s
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-I got above error ...
+I got above error ...  
 I have to update the config file.  
+I changed the learning_rate as follows:  
 
+```
+###Hyperparameters###
+cnn_layer=4
+char_hidden_dim=50
+hidden_dim=200
+dropout=0.5
+lstm_layer=1
+bilstm=True
+#learning_rate=0.015
+#learning_rate=0.010
+learning_rate=0.008
+```
+
+training again ...  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ time python main.py --config ./mysent-para-config/word-cnn.char-cnn.
+train.config | tee ./mysent-para-model/word-cnn.char-cnn.train.log3^C
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$ cd ..
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python main.py --config ./mysent-para-config/word-cnn.char-cnn.train.config | tee 
+./mysent-para-model/word-cnn.char-cnn.train.log3
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.008
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/home/yekyaw.thu/.conda/envs/ncrfpp/lib/python3.8/site-packages/torch/nn/_reduction.py:43: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Epoch: 0/100
+ Learning rate is set as: 0.008
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 0.87s; loss: 110083.1091; acc: 4527/8986=0.5038
+     Instance: 1000; Time: 0.89s; loss: 13570.1252; acc: 10604/18422=0.5756
+     Instance: 1500; Time: 0.86s; loss: 8334.3684; acc: 17147/27720=0.6186
+     Instance: 2000; Time: 0.81s; loss: 7315.6183; acc: 23766/36837=0.6452
+     Instance: 2500; Time: 0.83s; loss: 7082.4920; acc: 29777/45333=0.6569
+     Instance: 3000; Time: 0.89s; loss: 7737.6215; acc: 36939/55086=0.6706
+     Instance: 3500; Time: 0.82s; loss: 7105.4827; acc: 43431/64013=0.6785
+     Instance: 4000; Time: 0.76s; loss: 6968.9652; acc: 49565/72548=0.6832
+     Instance: 4500; Time: 0.79s; loss: 6971.4447; acc: 55932/81330=0.6877
+     Instance: 5000; Time: 0.78s; loss: 7105.6136; acc: 62181/90054=0.6905
+     Instance: 5500; Time: 0.85s; loss: 7154.5048; acc: 69021/99330=0.6949
+     Instance: 6000; Time: 0.75s; loss: 6620.3812; acc: 74962/107637=0.6964
+     Instance: 6500; Time: 0.91s; loss: 7821.4159; acc: 82143/117489=0.6992
+     Instance: 7000; Time: 0.86s; loss: 7193.4735; acc: 88862/126691=0.7014
+     Instance: 7500; Time: 0.74s; loss: 6331.7904; acc: 94506/134642=0.7019
+     Instance: 8000; Time: 0.85s; loss: 7052.0173; acc: 100919/143526=0.7031
+...
+...
+...
+
+```
 
 check the output model:  
 
