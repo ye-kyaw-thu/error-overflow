@@ -2650,8 +2650,36 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 43500; Time: 0.86s; loss: 3837.8805; acc: 581991/768845=0.7570
+     Instance: 44000; Time: 0.82s; loss: 3261.6421; acc: 589781/777474=0.7586
+     Instance: 44500; Time: 0.94s; loss: 3375.3772; acc: 598126/786667=0.7603
+     Instance: 45000; Time: 0.87s; loss: 3361.6613; acc: 606316/795694=0.7620
+     Instance: 45500; Time: 0.80s; loss: 2425.5052; acc: 614465/804405=0.7639
+     Instance: 46000; Time: 0.81s; loss: 3266.1919; acc: 622202/812921=0.7654
+     Instance: 46500; Time: 0.88s; loss: 3104.7823; acc: 630540/821965=0.7671
+     Instance: 46991; Time: 0.85s; loss: 8282603.4120; acc: 638630/830865=0.7686
+Epoch: 0 training finished. Time: 78.25s, speed: 600.50st/s,  total loss: 8953630.858570099
+totalloss: 8953630.858570099
+Right token =  4119  All token =  61166  acc =  0.06734133342052774
+Dev: time: 4.14s, speed: 748.35st/s; acc: 0.0673, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+Right token =  6760  All token =  95820  acc =  0.07054894594030474
+Test: time: 6.48s, speed: 864.50st/s; acc: 0.0705, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.007619047619047619
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 0.85s; loss: 29253162709906552.0000; acc: 3689/8917=0.4137
+ERROR: LOSS EXPLOSION (>1e8) ! PLEASE SET PROPER PARAMETERS AND STRUCTURE! EXIT....
 
+real    1m51.686s
+user    1m47.588s
+sys     0m4.109s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
+
+Got above error again ...  
+
 
 check the output model:  
 
