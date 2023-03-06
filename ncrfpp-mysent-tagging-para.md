@@ -2730,7 +2730,18 @@ sys     0m4.051s
 ```
 
 Not working and got same error as above ...  
+I updated the learning rate as follows and train again:  
 
+```
+learning_rate=0.0005      
+lr_decay=0.05
+```
+
+train again ...  
+
+```
+
+```
 
 check the output model:  
 
