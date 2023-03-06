@@ -2903,6 +2903,38 @@ Shuffle: first input word list: [3645, 339, 6, 1225, 62, 399, 26, 727, 6, 161, 6
 ...
 ...
 ...
+     Instance: 41500; Time: 0.63s; loss: 553.3214; acc: 715881/736774=0.9716
+     Instance: 42000; Time: 0.69s; loss: 813.2179; acc: 724808/745960=0.9716
+     Instance: 42500; Time: 0.58s; loss: 670.4339; acc: 732688/754031=0.9717
+     Instance: 43000; Time: 0.68s; loss: 1004.7039; acc: 741293/762949=0.9716
+     Instance: 43500; Time: 0.64s; loss: 915.2277; acc: 749581/771485=0.9716
+     Instance: 44000; Time: 0.68s; loss: 860.0994; acc: 757828/779999=0.9716
+     Instance: 44500; Time: 0.65s; loss: 907.4215; acc: 766338/788792=0.9715
+     Instance: 45000; Time: 0.66s; loss: 746.0545; acc: 774685/797341=0.9716
+     Instance: 45500; Time: 0.64s; loss: 929.6202; acc: 782438/805408=0.9715
+     Instance: 46000; Time: 0.68s; loss: 1010.8860; acc: 790429/813714=0.9714
+     Instance: 46500; Time: 0.68s; loss: 686.8522; acc: 798840/822336=0.9714
+     Instance: 46991; Time: 0.66s; loss: 682.4202; acc: 807164/830865=0.9715
+Epoch: 6 training finished. Time: 74.12s, speed: 634.02st/s,  total loss: 78288.24773526192
+totalloss: 78288.24773526192
+Right token =  59309  All token =  61166  acc =  0.9696399960762515
+Dev: time: 4.07s, speed: 761.54st/s; acc: 0.9696, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93416  All token =  95820  acc =  0.9749112920058443
+Test: time: 6.32s, speed: 878.67st/s; acc: 0.9749, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 7/100
+ Learning rate is set as: 0.00037037037037037035
+Shuffle: first input word list: [372, 1100, 21]
+     Instance: 500; Time: 0.66s; loss: 799.9260; acc: 8272/8541=0.9685
+     Instance: 1000; Time: 0.71s; loss: 913.0689; acc: 16965/17484=0.9703
+     Instance: 1500; Time: 0.69s; loss: 885.6762; acc: 26047/26826=0.9710
+     Instance: 2000; Time: 0.63s; loss: 596.6385; acc: 34177/35131=0.9728
+     Instance: 2500; Time: 0.69s; loss: 769.2017; acc: 42765/43958=0.9729
+     Instance: 3000; Time: 0.67s; loss: 731.2803; acc: 51466/52921=0.9725
+     Instance: 3500; Time: 0.64s; loss: 783.3775; acc: 59522/61225=0.9722
+     Instance: 4000; Time: 0.68s; loss: 627.9854; acc: 67796/69694=0.9728
+...
+...
+...
 
 ```
 
