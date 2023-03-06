@@ -3892,6 +3892,41 @@ Shuffle: first input word list: [13261, 7650, 103, 26, 5730, 6, 13262, 4812, 16,
 
 ```
 
+GPU usage while training time is as follows:  
+
+```
+(base) yekyaw.thu@gpu:~$ nvidia-smi
+Mon Mar  6 22:15:34 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.161.03   Driver Version: 470.161.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 47%   52C    P2    63W / 300W |    944MiB / 11019MiB |     15%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+|  0%   56C    P8    21W / 257W |      3MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 31%   42C    P8    28W / 250W |      3MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   1768685      C   python                            941MiB |
++-----------------------------------------------------------------------------+
+(base) yekyaw.thu@gpu:~$
+```
+
 I also updated the decode config file:  
 
 ```
@@ -3910,29 +3945,45 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-nochar.0.m
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config$
 ```
 
-```
+decoding/testing ...  
 
 ```
 
 ```
 
-```
+check the hyp file:  
 
 ```
 
 ```
 
-```
+## 10. Word-CNN, CRF, Char-CNN
+
+prepared the training config file:  
 
 ```
 
 ```
 
-```
+start training ...  
 
 ```
 
 ```
+
+prepared the decoding config file:  
+
+```
+
+```
+
+decoding/testing ...  
+
+```
+
+```
+
+check the hyp file:  
 
 ```
 
