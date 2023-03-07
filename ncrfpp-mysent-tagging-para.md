@@ -4509,7 +4509,31 @@ Shuffle: first input word list: [10204, 29, 3]
 ...
 ...
 ...
+     Instance: 40500; Time: 2.91s; loss: 249.4176; acc: 696188/713889=0.9752
+     Instance: 41000; Time: 3.46s; loss: 225.6583; acc: 705984/723934=0.9752
+     Instance: 41500; Time: 3.04s; loss: 222.7090; acc: 714359/732499=0.9752
+     Instance: 42000; Time: 3.07s; loss: 252.8094; acc: 722845/741220=0.9752
+     Instance: 42500; Time: 3.10s; loss: 231.8928; acc: 731942/750561=0.9752
+     Instance: 43000; Time: 2.92s; loss: 187.9359; acc: 740364/759167=0.9752
+     Instance: 43500; Time: 2.96s; loss: 210.4030; acc: 748517/767562=0.9752
+     Instance: 44000; Time: 3.14s; loss: 274.2216; acc: 757206/776526=0.9751
+     Instance: 44500; Time: 2.89s; loss: 165.8084; acc: 765800/785275=0.9752
+     Instance: 45000; Time: 3.16s; loss: 180.6428; acc: 774461/794097=0.9753
+     Instance: 45500; Time: 2.86s; loss: 212.0535; acc: 782779/802609=0.9753
+     Instance: 46000; Time: 3.51s; loss: 256.0746; acc: 792065/812146=0.9753
+     Instance: 46500; Time: 3.22s; loss: 289.8148; acc: 800958/821309=0.9752
+     Instance: 46991; Time: 3.53s; loss: 229.0781; acc: 810285/830865=0.9752
+Epoch: 99 training finished. Time: 294.47s, speed: 159.58st/s,  total loss: 21425.590591430664
+totalloss: 21425.590591430664
+Right token =  59522  All token =  61166  acc =  0.9731223228591047
+Dev: time: 5.91s, speed: 524.06st/s; acc: 0.9731, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93599  All token =  95820  acc =  0.9768211229388437
+Test: time: 9.14s, speed: 606.59st/s; acc: 0.9768, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    508m27.259s
+user    503m13.144s
+sys     0m22.023s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 prepared the decoding config file:  
