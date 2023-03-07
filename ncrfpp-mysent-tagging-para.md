@@ -4278,6 +4278,96 @@ gpu=True
 start training ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-cnn.crf.char-cnn.train.config 
+| tee ./mysent-para-model/word-cnn.crf.char-cnn.train.log
+Seed num: 42
+MODEL: train
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+build CRF...
+Epoch: 0/100
+ Learning rate is set as: 0.0005
+Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
+     Instance: 500; Time: 3.16s; loss: 6929.8676; acc: 6155/8986=0.6850
+     Instance: 1000; Time: 3.35s; loss: 4352.8872; acc: 13972/18422=0.7584
+     Instance: 1500; Time: 3.37s; loss: 3015.8322; acc: 22158/27720=0.7994
+     Instance: 2000; Time: 3.05s; loss: 2344.8986; acc: 30395/36837=0.8251
+     Instance: 2500; Time: 3.12s; loss: 1913.9837; acc: 38191/45333=0.8425
+     Instance: 3000; Time: 3.55s; loss: 1886.4187; acc: 47271/55086=0.8581
+     Instance: 3500; Time: 3.12s; loss: 1778.8959; acc: 55565/64013=0.8680
+     Instance: 4000; Time: 2.93s; loss: 1326.1832; acc: 63617/72548=0.8769
+     Instance: 4500; Time: 2.96s; loss: 1409.3281; acc: 71892/81330=0.8840
+     Instance: 5000; Time: 3.05s; loss: 1431.0194; acc: 80097/90054=0.8894
+     Instance: 5500; Time: 3.31s; loss: 1320.7947; acc: 88872/99330=0.8947
+...
+...
+...
 
 ```
 
