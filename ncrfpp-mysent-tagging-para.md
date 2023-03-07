@@ -4368,6 +4368,43 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 39000; Time: 3.36s; loss: 772.1368; acc: 652567/692759=0.9420
+     Instance: 39500; Time: 2.83s; loss: 562.2374; acc: 660774/701354=0.9421
+     Instance: 40000; Time: 2.63s; loss: 470.1953; acc: 668485/709420=0.9423
+     Instance: 40500; Time: 2.76s; loss: 420.2751; acc: 675995/717207=0.9425
+     Instance: 41000; Time: 2.71s; loss: 432.5034; acc: 684067/725578=0.9428
+     Instance: 41500; Time: 2.76s; loss: 486.0373; acc: 692294/734127=0.9430
+     Instance: 42000; Time: 3.14s; loss: 489.1758; acc: 700845/742998=0.9433
+     Instance: 42500; Time: 2.69s; loss: 532.6120; acc: 708619/751145=0.9434
+     Instance: 43000; Time: 2.95s; loss: 646.0695; acc: 717195/760169=0.9435
+     Instance: 43500; Time: 3.04s; loss: 548.6318; acc: 725481/768845=0.9436
+     Instance: 44000; Time: 2.97s; loss: 522.9386; acc: 733705/777474=0.9437
+     Instance: 44500; Time: 3.47s; loss: 615.1402; acc: 742504/786667=0.9439
+     Instance: 45000; Time: 3.07s; loss: 633.2893; acc: 751056/795694=0.9439
+     Instance: 45500; Time: 2.85s; loss: 391.5775; acc: 759485/804405=0.9442
+     Instance: 46000; Time: 2.79s; loss: 714.1477; acc: 767554/812921=0.9442
+     Instance: 46500; Time: 3.04s; loss: 610.5478; acc: 776118/821965=0.9442
+     Instance: 46991; Time: 3.08s; loss: 631.7781; acc: 784604/830865=0.9443
+Epoch: 0 training finished. Time: 287.57s, speed: 163.41st/s,  total loss: 89235.01435852051
+totalloss: 89235.01435852051
+Right token =  58234  All token =  61166  acc =  0.9520648726416636
+Dev: time: 5.95s, speed: 520.89st/s; acc: 0.9521, p: -1.0000, r: -1.0000, f: -1.0000
+Exceed previous best f score: -10
+Save current best model in file: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn.0.model
+Right token =  92150  All token =  95820  acc =  0.9616990189939469
+Test: time: 9.21s, speed: 602.81st/s; acc: 0.9617, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 1/100
+ Learning rate is set as: 0.0004761904761904762
+Shuffle: first input word list: [2020, 2395, 1947, 75, 14205, 287, 213, 211, 10]
+     Instance: 500; Time: 2.97s; loss: 599.3589; acc: 8534/8917=0.9570
+     Instance: 1000; Time: 3.33s; loss: 630.3753; acc: 16653/17478=0.9528
+     Instance: 1500; Time: 3.16s; loss: 553.4618; acc: 25243/26480=0.9533
+     Instance: 2000; Time: 2.74s; loss: 534.5479; acc: 33106/34684=0.9545
+     Instance: 2500; Time: 3.01s; loss: 606.1016; acc: 41605/43631=0.9536
+     Instance: 3000; Time: 3.22s; loss: 650.6442; acc: 49871/52304=0.9535
+...
+...
+...
 
 ```
 
