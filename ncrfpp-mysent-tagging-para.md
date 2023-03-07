@@ -4401,25 +4401,39 @@ check the hyp file:
 
 ```
 
-```
+## 11. Word-CNN, CRF, Char-LSTM
+
+prepare the training config file:  
 
 ```
 
 ```
 
-```
+start training ...  
 
 ```
 
 ```
 
-```
+prepare the decode/test config file:  
 
 ```
 
 ```
 
+testing ...  
+
 ```
+
+```
+
+check the output hyp file:  
+
+```
+
+```
+
+## 12. Word-CNN, CRF, No-char  
 
 ```
 
