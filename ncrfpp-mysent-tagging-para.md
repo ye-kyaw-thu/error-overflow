@@ -5291,6 +5291,30 @@ Shuffle: first input word list: [38397, 2325, 64, 132, 213, 76, 578]
 ...
 ...
 ...
+     Instance: 44500; Time: 3.17s; loss: 252.9742; acc: 758745/786455=0.9648
+     Instance: 45000; Time: 3.29s; loss: 333.8195; acc: 767428/795418=0.9648
+     Instance: 45500; Time: 3.04s; loss: 336.0213; acc: 775682/803993=0.9648
+     Instance: 46000; Time: 3.03s; loss: 347.8872; acc: 784536/813151=0.9648
+     Instance: 46500; Time: 3.19s; loss: 389.6371; acc: 793223/822132=0.9648
+     Instance: 46991; Time: 2.87s; loss: 352.8563; acc: 801672/830865=0.9649
+Epoch: 5 training finished. Time: 282.59s, speed: 166.29st/s,  total loss: 33992.026233673096
+totalloss: 33992.026233673096
+Right token =  58718  All token =  61166  acc =  0.9599777654252363
+Dev: time: 5.82s, speed: 531.61st/s; acc: 0.9600, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  92752  All token =  95820  acc =  0.9679816322270924
+Test: time: 9.00s, speed: 615.66st/s; acc: 0.9680, p: -1.0000, r: -1.0000, f: -1.0000
+Epoch: 6/100
+ Learning rate is set as: 0.0003846153846153846
+Shuffle: first input word list: [520, 19060, 497, 463, 310, 4821, 3]
+     Instance: 500; Time: 3.08s; loss: 410.7527; acc: 8713/9045=0.9633
+     Instance: 1000; Time: 3.41s; loss: 419.6776; acc: 17875/18513=0.9655
+     Instance: 1500; Time: 2.91s; loss: 322.6770; acc: 26043/26957=0.9661
+     Instance: 2000; Time: 3.05s; loss: 342.1603; acc: 34432/35649=0.9659
+     Instance: 2500; Time: 3.07s; loss: 434.4520; acc: 43355/44919=0.9652
+     Instance: 3000; Time: 3.17s; loss: 358.2901; acc: 52286/54195=0.9648
+...
+...
+...
 
 ```
 
