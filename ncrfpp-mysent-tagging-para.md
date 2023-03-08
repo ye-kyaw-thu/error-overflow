@@ -4937,7 +4937,32 @@ Shuffle: first input word list: [675, 676, 43, 17477, 737, 4848, 304, 16149, 180
 ...
 ...
 ...
+     Instance: 40000; Time: 3.15s; loss: 245.3630; acc: 687738/705583=0.9747
+     Instance: 40500; Time: 3.36s; loss: 251.3463; acc: 695819/713889=0.9747
+     Instance: 41000; Time: 4.00s; loss: 235.6311; acc: 705611/723934=0.9747
+     Instance: 41500; Time: 3.48s; loss: 215.5747; acc: 714012/732499=0.9748
+     Instance: 42000; Time: 3.53s; loss: 265.9179; acc: 722501/741220=0.9747
+     Instance: 42500; Time: 3.53s; loss: 251.4269; acc: 731580/750561=0.9747
+     Instance: 43000; Time: 3.09s; loss: 167.7946; acc: 740027/759167=0.9748
+     Instance: 43500; Time: 3.09s; loss: 230.4916; acc: 748167/767562=0.9747
+     Instance: 44000; Time: 3.34s; loss: 285.5894; acc: 756838/776526=0.9746
+     Instance: 44500; Time: 3.03s; loss: 159.5050; acc: 765455/785275=0.9748
+     Instance: 45000; Time: 3.23s; loss: 179.3338; acc: 774109/794097=0.9748
+     Instance: 45500; Time: 2.96s; loss: 218.4384; acc: 782418/802609=0.9748
+     Instance: 46000; Time: 3.63s; loss: 246.9224; acc: 791720/812146=0.9748
+     Instance: 46500; Time: 3.33s; loss: 279.5434; acc: 800658/821309=0.9749
+     Instance: 46991; Time: 3.64s; loss: 238.1105; acc: 809992/830865=0.9749
+Epoch: 99 training finished. Time: 323.21s, speed: 145.39st/s,  total loss: 21597.695343017578
+totalloss: 21597.695343017578
+Right token =  59532  All token =  61166  acc =  0.9732858123794265
+Dev: time: 6.70s, speed: 461.56st/s; acc: 0.9733, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93595  All token =  95820  acc =  0.9767793780004175
+Test: time: 10.39s, speed: 533.02st/s; acc: 0.9768, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    1321m36.973s
+user    579m7.875s
+sys     0m44.654s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 GPU usage during the training time is as follows:  
