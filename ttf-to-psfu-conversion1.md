@@ -922,6 +922,6 @@ Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လ�
 
 - https://codeberg.org/gnarz/psftools/src/branch/master
 - https://www.seasip.info/Unix/PSF/
-
+- https://slackware.uk/~urchlay/repos/ttf-console-fonts/about/
 
 
