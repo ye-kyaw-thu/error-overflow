@@ -1,4 +1,4 @@
-# TTF Font to PSF Font Conversion
+# TTF Font to PSF/PSFU Font Conversion
 
 https://www.seasip.info/Unix/PSF/#download
 
@@ -923,5 +923,6 @@ Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လ�
 - https://codeberg.org/gnarz/psftools/src/branch/master
 - https://www.seasip.info/Unix/PSF/
 - https://slackware.uk/~urchlay/repos/ttf-console-fonts/about/
+- https://www.linux.com/topic/desktop/how-change-your-linux-console-fonts/
 
 
