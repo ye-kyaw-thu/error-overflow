@@ -404,6 +404,7 @@ Usage: otf2bdf [options below] font.ttf
 
 ## Try again
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make all
 sh conv.sh
 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf => dejavusansmono: 8conv.sh: line 43: psf2txt: command not found
@@ -435,16 +436,17 @@ conv.sh: line 44: psf2txt: command not found
 :x 
 touch .done
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ 
+```
 
-
-psf2txt command မတွေ့ဘူးလို့ အထက်ပါအတိုင်း error message ပေးတယ်။
-အဲဒါကြောင် psf2txt ကို install လုပ်ကြည့်မယ်။
+psf2txt command မတွေ့ဘူးလို့ အထက်ပါအတိုင်း error message ပေးတယ်။  
+အဲဒါကြောင် psf2txt ကို install လုပ်ကြည့်မယ်။  
 
 ## Installation of psf2txt, txt2psf Through NAFE
 
-NAFE မှာ psf2txt.c, txt2psf.c ဆိုတဲ့ source code တွေ ပါတာတွေ့လို့ ...
-NAFE ကို install လုပ်ကြည့်ခဲ့ ... 
+NAFE မှာ psf2txt.c, txt2psf.c ဆိုတဲ့ source code တွေ ပါတာတွေ့လို့ ...  
+NAFE ကို install လုပ်ကြည့်ခဲ့ ...  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ make all
 /usr/local/bin/ccache-gcc     txt2psf.c   -o txt2psf
 txt2psf.c: In function ‘error’:
@@ -476,39 +478,49 @@ psf2txt.c:43:4: warning: incompatible implicit declaration of built-in function 
    43 |    exit(1);
       |    ^~~~
 psf2txt.c:43:4: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+```
 
 Installation ပြီးသွားတဲ့အခါမှာ ls ခေါ်ကြည့်တော့ အောက်ပါအတိုင်း ...  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ ls
 ChangeLog  demo6x6.psfu  demofont.map  Makefile  psf2txt.c   txt2psf
 COPYING    demo8x6.psfu  demofont.txt  psf2txt   readme.txt  txt2psf.c
+```
 
 Check psf2txt command:  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ ./psf2txt --help
 NAFE v 0.1 -- not another font editor!
 Copyleft 2004 by Corvus Corax
 Distributed under GPL -- NO WARRANTY!
 Usage: ./psf2txt <fontfile.psf> <outfile.txt>
+```
 
 Check txt2psf command:  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ ./txt2psf --help
 NAFE v 0.1 -- not another font editor!
 Copyleft 2004 by Corvus Corax
 Distributed under GPL -- NO WARRANTY!
 Usage: ./txt2psf <fontfile.txt> <outfile.psf>
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ 
+```
 
-local folder မှာတော့ အလုပ်လုပ်တယ်။
+local folder မှာတော့ အလုပ်လုပ်တယ်။  
 
 ## copied two files
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ sudo cp psf2txt /usr/bin/
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/nafe-0.1$ sudo cp txt2psf /usr/bin/
+```
 
 ## Try again 
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make clean
 rm -f *.psfu *.psfu.gz *.log *.bdf .done
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make all
@@ -518,11 +530,13 @@ sh conv.sh
 /usr/share/fonts/truetype/liberation2/LiberationMono-Regular.ttf => liberationmono-regular: 8:x 12:x 15:x 19:x 
 touch .done
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ 
+```
 
-အထက်ပါအတိုင်း ဒီတစ်ခါတော့ make က error မပေးတော့ဘူး။
+အထက်ပါအတိုင်း ဒီတစ်ခါတော့ make က error မပေးတော့ဘူး။  
 
 ## Learn Makefile
 
+```bash
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cat Makefile 
 PROJECT=ttf-console-fonts
 PSFDIR=/usr/share/kbd/consolefonts
@@ -547,9 +561,11 @@ push: clean
 
 tarball: push
 	sh mktarball.sh $(PROJECT)
+```
 
 ## Learn the conv.sh
 
+```bash
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cat conv.sh
 #!/bin/bash
 
@@ -606,17 +622,21 @@ convfont() {
 cat fonts | while read font; do
 	convfont "$font"
 done
+```
 
 ## Update the Makefile path and run again
 
-path ကို အောက်ပါအတိုင်း ပြင်ကြည့်ခဲ့
+path ကို အောက်ပါအတိုင်း ပြင်ကြည့်ခဲ့  
 
+```
 PROJECT=ttf-console-fonts
 #PSFDIR=/usr/share/kbd/consolefonts
 PSFDIR=/usr/share/consolefonts
+```
 
-ပြီး make clean လုပ်ပြီး make ထပ် run ခဲ့တော့ အောက်ပါအတိုင်း
+ပြီး make clean လုပ်ပြီး make ထပ် run ခဲ့တော့ အောက်ပါအတိုင်း  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make clean
 rm -f *.psfu *.psfu.gz *.log *.bdf .done
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make
@@ -631,26 +651,32 @@ dejavusansmono.15.log  freemono.12.log           liberationmono-regular.12.log  
 dejavusansmono.19.log  freemono.15.log           liberationmono-regular.15.log  mktarball.sh
 dejavusansmono.8.log   freemono.19.log           liberationmono-regular.19.log  README
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$
+```
 
 မထူးခြားဘူး ...  
 အောက်ပါ font သုံးဖိုင်အတွက်တော့ လုပ်ပေးသွားတယ် ...  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ ls *.gz
 dejavusansmono-x.psfu.gz  freemono-x.psfu.gz  liberationmono-regular-x.psfu.gz
+```
 
 ## Check the filename fonts
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cat fonts
 DejaVu Sans Mono:style=Book
 FreeMono:style=Regular
 Liberation Mono:style=Regular
+```
 
-ဒီ fonts ဆိုတဲ့ ဖိုင်ထဲမှာ ပေးထားတဲ့ ဖိုင်နာမည်တွေကိုပဲ ဖတ်ပြီး ttf to psfu ဖိုင်အဖြစ် ပြောင်းပေးသွားပုံရတယ်။
+ဒီ fonts ဆိုတဲ့ ဖိုင်ထဲမှာ ပေးထားတဲ့ ဖိုင်နာမည်တွေကိုပဲ ဖတ်ပြီး ttf to psfu ဖိုင်အဖြစ် ပြောင်းပေးသွားပုံရတယ်။  
 
 ## Updating the "fonts" file
 
-အရင်ဆုံး မြန်မာဖောင့်တွေကို စစ်ကြည့်ခဲ့ .... 
+အရင်ဆုံး မြန်မာဖောင့်တွေကို စစ်ကြည့်ခဲ့ ....   
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ fc-list | grep "Myanmar"
 /usr/share/fonts/truetype/noto/NotoSansMyanmar-Bold.ttf: Noto Sans Myanmar:style=Bold
 /home/ye/.local/share/fonts/mm_Finger.ttf: Myanmar Finger Spelling (ver 2.0):style=Regular
@@ -660,57 +686,71 @@ Liberation Mono:style=Regular
 /usr/share/fonts/truetype/noto/NotoSansMyanmar-Regular.ttf: Noto Sans Myanmar:style=Regular
 /usr/share/fonts/truetype/noto/NotoSansMyanmarUI-Bold.ttf: Noto Sans Myanmar UI:style=Bold
 /usr/share/fonts/truetype/noto/NotoSerifMyanmar-Regular.ttf: Noto Serif Myanmar:style=Regular
+```
 
-ပြီးတော့ fonts ဖိုင်ကို fonts.original အဖြစ် နာမည်ပြောင်းသိမ်းခဲ့ ... 
+ပြီးတော့ fonts ဖိုင်ကို fonts.original အဖြစ် နာမည်ပြောင်းသိမ်းခဲ့ ...   
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ mv fonts fonts.original
+```
 
-ပြီးမှ fonts ဖိုင်အသစ်ကို ဖန်တီးခဲ့ ...
+ပြီးမှ fonts ဖိုင်အသစ်ကို ဖန်တီးခဲ့ ...  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cat ./fonts
 Myanmar3:style=Regular
+```
 
-make လုပ်ကြည့်တော့ Myanmar3 ဖောင့် ttf ဖိုင်ကို ပြောင်းပေးတာကို တွေ့ခဲ့ရ ... :)
+make လုပ်ကြည့်တော့ Myanmar3 ဖောင့် ttf ဖိုင်ကို ပြောင်းပေးတာကို တွေ့ခဲ့ရ ... :)  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make
 sh conv.sh
 /home/ye/.local/share/fonts/myanmar3.ttf => ye: 8:x 12:x 15:x 19:x 
 touch .done
+```
 
 ## Check the Converted File
 
-backup အရင်ကူး
+backup အရင်ကူး  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cp ye-x.psfu.gz ./bk/
+```
 
+gunzip ကို run  
 
-gunzip ကို run
-
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ gunzip ./ye-x.psfu.gz 
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ ls ./ye-x.psfu 
 ./ye-x.psfu
+```
 
+file command နဲ့ check လုပ်ကြည့်ခဲ့ ...   
 
-file command နဲ့ check လုပ်ကြည့်ခဲ့ ...  
-
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ file ./ye-x.psfu 
 ./ye-x.psfu: Linux/i386 PC Screen Font v2 data, 512 characters, Unicode directory, 32x16
+```
 
 ## Convert Myanmar3 psfu File into Text File
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ psfd ./ye-x.psfu ./ye-x.psfu.txt
+```
 
-
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ psfid ./ye-x.psfu
  v:2 w:16 h:32 n:512 u:1(base)
-
+```
 
 ## Check the Converted Text File
 
 လိုင်းက ထိုင်းဖိုင်ထက် အများကြီး ပိုတာကို တွေ့ရတယ်။   
-ပြီးတော့ မြန်မာစာ စာလုံးတွေကို ထင်ထင်ရှားရှား မတွေ့ရဘူး။
-x, y လည်း အများကြီး ပိုယူထားသလားလို့ .... 
+ပြီးတော့ မြန်မာစာ စာလုံးတွေကို ထင်ထင်ရှားရှား မတွေ့ရဘူး။  
+x, y လည်း အများကြီး ပိုယူထားသလားလို့ ....   
 
+```
 16867 ##.##...###.##.#
 16868 @511
 16869 #.#.###.##.##.#.
@@ -745,9 +785,11 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
 16898 .###..#..#..#..#
 16899 ##..#####.#...##
 16900 ...##........#.#
+```
 
-ဒါပေမဲ အင်္ဂလိပ်စာလုံး တချို့ကိုတော့ သေသေချာချာ တွေ့ရတယ်။ အောက်ပါအတိုင်း  
+ဒါပေမဲ အင်္ဂလိပ်စာလုံး တချို့ကိုတော့ သေသေချာချာ တွေ့ရတယ်။ အောက်ပါအတိုင်း    
 
+```
  1 @psf2
     2 Width: 16
     3 Height: 32
@@ -782,7 +824,9 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
    32 ................
    33 ................
    34 ................
+```
 
+```
 1191 ................
  1192 ................
  1193 @36: U+0024
@@ -811,7 +855,9 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
  1216 ....#######.....
  1217 ......##........
  1218 ......##........
+```
 
+```
 1626 ................
  1627 ......###.......
  1628 .....####.......
@@ -835,7 +881,9 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
  1646 ................
  1647 ................
  1648 ................
+```
 
+```
 2579 @78: U+004e U+039d U+24c3
  2580 ................
  2581 ................
@@ -863,7 +911,7 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
  2603 ................
  2604 ................
  2605 ................
-
+```
 
 ## Reference
 
