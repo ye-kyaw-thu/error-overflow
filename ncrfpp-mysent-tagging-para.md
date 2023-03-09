@@ -5372,7 +5372,34 @@ Shuffle: first input word list: [254, 6681, 216, 53, 62, 9047, 571, 1042, 762, 1
 ...
 ...
 ...
+     Instance: 39000; Time: 2.98s; loss: 177.5587; acc: 670671/688416=0.9742
+     Instance: 39500; Time: 3.14s; loss: 188.3122; acc: 679549/697512=0.9742
+     Instance: 40000; Time: 2.68s; loss: 249.6488; acc: 687393/705583=0.9742
+     Instance: 40500; Time: 2.87s; loss: 214.8193; acc: 695472/713889=0.9742
+     Instance: 41000; Time: 3.45s; loss: 258.7894; acc: 705245/723934=0.9742
+     Instance: 41500; Time: 3.00s; loss: 206.2385; acc: 713610/732499=0.9742
+     Instance: 42000; Time: 3.05s; loss: 267.2972; acc: 722102/741220=0.9742
+     Instance: 42500; Time: 3.08s; loss: 215.1903; acc: 731226/750561=0.9742
+     Instance: 43000; Time: 2.88s; loss: 191.1044; acc: 739662/759167=0.9743
+     Instance: 43500; Time: 2.90s; loss: 215.3420; acc: 747815/767562=0.9743
+     Instance: 44000; Time: 3.12s; loss: 289.2348; acc: 756481/776526=0.9742
+     Instance: 44500; Time: 2.84s; loss: 153.9749; acc: 765074/785275=0.9743
+     Instance: 45000; Time: 3.09s; loss: 167.1030; acc: 773771/794097=0.9744
+     Instance: 45500; Time: 2.83s; loss: 231.2982; acc: 782082/802609=0.9744
+     Instance: 46000; Time: 3.45s; loss: 262.9465; acc: 791372/812146=0.9744
+     Instance: 46500; Time: 3.21s; loss: 278.4796; acc: 800269/821309=0.9744
+     Instance: 46991; Time: 3.50s; loss: 241.7494; acc: 809610/830865=0.9744
+Epoch: 99 training finished. Time: 283.88s, speed: 165.53st/s,  total loss: 21776.540069580078
+totalloss: 21776.540069580078
+Right token =  59545  All token =  61166  acc =  0.9734983487558447
+Dev: time: 5.85s, speed: 529.05st/s; acc: 0.9735, p: -1.0000, r: -1.0000, f: -1.0000
+Right token =  93614  All token =  95820  acc =  0.9769776664579419
+Test: time: 9.04s, speed: 613.14st/s; acc: 0.9770, p: -1.0000, r: -1.0000, f: -1.0000
 
+real    1033m35.608s
+user    497m33.077s
+sys     0m26.581s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
 GPU usage information:  
@@ -5413,7 +5440,43 @@ Thu Mar  9 03:16:57 2023
 check the output models:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$ ls *.model
+wordcnn-charcnn.0.model       wordcnn-crf-nochar.0.model  wordlstm-crf-charcnn.0.model
+wordcnn-charlstm.0.model      wordcnn-nochar.0.model      wordlstm-crf-charlstm.0.model
+wordcnn-crf-charcnn.0.model   wordlstm-charcnn.0.model    wordlstm-crf-nochar.0.model
+wordcnn-crf-charlstm.0.model  wordlstm-charlstm.0.model   wordlstm-nochar.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$
+```
 
+check the model size:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$ ls -lh *.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  6 08:20 wordcnn-charcnn.0.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  6 11:09 wordcnn-charlstm.0.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  7 08:08 wordcnn-crf-charcnn.0.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  7 17:39 wordcnn-crf-charlstm.0.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  8 16:10 wordcnn-crf-nochar.0.model
+-rw-r--r-- 1 yekyaw.thu domain users  11M Mar  6 22:11 wordcnn-nochar.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.2M Feb 23 07:49 wordlstm-charcnn.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.3M Mar  3 10:55 wordlstm-charlstm.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.2M Mar  3 18:03 wordlstm-crf-charcnn.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.3M Mar  5 00:17 wordlstm-crf-charlstm.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.0M Mar  5 10:44 wordlstm-crf-nochar.0.model
+-rw-r--r-- 1 yekyaw.thu domain users 9.0M Mar  3 14:51 wordlstm-nochar.0.model
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$
+```
+
+training log files:  
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$ ls *.log*
+word-cnn.char-cnn.train.log   word-cnn.char-lstm.train.log      word-cnn.no-char.train.log
+word-cnn.char-cnn.train.log2  word-cnn.char-lstm.train.log2     word-lstm.crf.char-cnn.train.log
+word-cnn.char-cnn.train.log3  word-cnn.crf.char-cnn.train.log   word-lstm.crf.char-lstm.train.log
+word-cnn.char-cnn.train.log4  word-cnn.crf.char-lstm.train.log  word-lstm.crf.nochar.train.log
+word-cnn.char-cnn.train.log5  word-cnn.crf.nochar.train.log     word-lstm.no-char.train.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-model$ 
 ```
 
 prepared decode/testing config file:  
@@ -5437,15 +5500,142 @@ load_model_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar
 decode/testing ...  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ time python ./main.py --config ./mysent-para-config/word-cnn.c
+rf.nochar.decode.config | tee ./mysent-para-hyp/word-cnn.crf.nochar.decode.log
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  |||
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordcnn-crf-nochar.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  92224  All token =  95820  acc =  0.962471300354832
+raw: time:9.16s, speed:604.92st/s; acc: 0.9625, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/wordcnn-crf-nochar.hyp
 
+real    0m19.454s
+user    0m16.725s
+sys     0m3.846s
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
 ```
 
 check the output hyp file:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ head wordcnn-crf-nochar.hyp
+ရင်ဘတ် B
+အောင့် O
+လာ N
+ရင် N
+သတိထား N
+ပါ E
 
+ဘယ်လောက် B
+နောက်ကျ N
+သလဲ E
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$
 ```
 
-```
+check the hyp file size:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ wc *.hyp
+  101330   191640  1565878 wordcnn-charcnn.hyp
+  101330   191640  1565878 wordcnn-charlstm.hyp
+  101330   191640  1565878 wordcnn-crf-charcnn.hyp
+  101330   191640  1565878 wordcnn-crf-charlstm.hyp
+  101330   191640  1565878 wordcnn-crf-nochar.hyp
+  101330   191640  1565878 wordcnn-nochar.hyp
+  101330   191640  1565878 wordlstm-charcnn.hyp
+  101330   191640  1565878 wordlstm-charlstm.hyp
+  101330   191640  1565878 wordlstm-crf-charcnn.hyp
+  101330   191640  1565878 wordlstm-crf-charlstm.hyp
+  101330   191640  1565878 wordlstm-nochar.hyp
+ 1114630  2108040 17224658 total
+ ```
+ ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ ls -lh *.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  6 10:52 wordcnn-charcnn.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  6 21:44 wordcnn-charlstm.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  7 17:23 wordcnn-crf-charcnn.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  8 15:54 wordcnn-crf-charlstm.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  9 11:29 wordcnn-crf-nochar.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  7 07:50 wordcnn-nochar.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  3 10:44 wordlstm-charcnn.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  3 14:41 wordlstm-charlstm.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  5 00:01 wordlstm-crf-charcnn.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  5 13:21 wordlstm-crf-charlstm.hyp
+-rw-r--r-- 1 yekyaw.thu domain users 1.5M Mar  3 17:40 wordlstm-nochar.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ 
+```
+
+Training, testing, evaluation for paragraph-level sentence breaking finished successfully!!!  
+
+## To Do
+
+- Make comparison with sentence only results
+- Update the JIIST Journal paper
+
