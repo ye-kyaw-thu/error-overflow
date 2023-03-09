@@ -1,3 +1,4 @@
+# TTF Font to PSF Font Conversion
 
 https://www.seasip.info/Unix/PSF/#download
 
@@ -6,15 +7,18 @@ https://www.seasip.info/Unix/PSF/#download
 
 ## git clone
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ git clone https://codeberg.org/gnarz/psftools.git
 Cloning into 'psftools'...
 remote: Enumerating objects: 90, done.
 remote: Total 90 (delta 0), reused 0 (delta 0), pack-reused 90
 Unpacking objects: 100% (90/90), done.
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 ## make
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/psftools$ make
 gcc -Wall -Wextra -g -o psfc.o -c psfc.c
 gcc -Wall -Wextra -g -o psf.o -c psf.c
@@ -33,22 +37,27 @@ gcc -g -o psfid psfid.o psf.o
 gcc -Wall -Wextra -g -o psft.o -c psft.c
 gcc -g -o psft psft.o psf.o 
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/psftools$ 
+```
 
 ## make install
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/psftools$ sudo make install
 [sudo] password for ye: 
 cp psfc psfd psfid psft /usr/local/bin
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/psftools$ 
+```
 
 ## check
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/psftools$ psf
 psfaddtable    psfc           psfd           psfgettable    psfid          psfstriptable  psft           psfxtable
-
+```
 
 ## Check the demo file
 
+```
 @psf2
 Width: 6
 Height: 8
@@ -83,15 +92,20 @@ Pixel: #
 @3: U+2665
 ..#.#.
 .#####
+```
 
 ## good reference
 
-https://nafe.sourceforge.net/
+https://nafe.sourceforge.net/  
 
-I already downloaded:
+I already downloaded:  
+
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ mv /media/ye/project1/tmp-download/nafe-0.1.tar.gz .
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ tar -xzvf ./nafe-0.1.tar.gz 
 nafe-0.1/
 nafe-0.1/ChangeLog
@@ -105,18 +119,24 @@ nafe-0.1/psf2txt.c
 nafe-0.1/readme.txt
 nafe-0.1/txt2psf.c
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 ## console font folder
 
+```
 /usr/share/consolefonts
+```
 
 ## check Thai psf font
 
+```
 (base) ye@ykt-pro:/usr/share/consolefonts$ cp Thai-Fixed16.psf.gz /media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font/
 (base) ye@ykt-pro:/usr/share/consolefonts$ 
+```
 
-after copied to the local folder, run gunzip
+after copied to the local folder, run gunzip  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ gunzip ./Thai-Fixed16.psf.gz 
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ ls
 Thai-Fixed16.psf
@@ -124,9 +144,11 @@ Thai-Fixed16.psf
 
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ psfd ./Thai-Fixed16.psf ./Thai-Fixed16.psf.txt
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ 
+```
 
 ## Checked the converted text file
 
+```
    1 @psf1
    2 Width: 8
    3 Height: 16
@@ -161,9 +183,11 @@ Thai-Fixed16.psf
   32 .###.#.#
   33 .###.#.#
   34 .#.#.#.#
+```
 
 ## Check the number of lines
 
+```
 4323 @254: U+25a0 U+25ae
 4324 ........
 4325 ........
@@ -198,10 +222,11 @@ Thai-Fixed16.psf
 4354 ..####..
 4355 ........
 4356 ........
-
+```
 
 ## Testing psfid command
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ psfid ./Thai-Fixed16.psf
  v:1 w:8 h:16 n:256 u:1
 
@@ -215,9 +240,11 @@ print information about a psf font:
   * -n number of chars in font
   * -u presence of unicode translation table in font (1 for yes, 0 for no)
   * -l list table of encoded chars
+```
 
--l option ကို သုံးပြီး encoded character တွေကို list လုပ်ကြည့်လို့ ရ။ ထိုင်းအတွက်က အောက်ပါအတိုင်း
+-l option ကို သုံးပြီး encoded character တွေကို list လုပ်ကြည့်လို့ ရ။ ထိုင်းအတွက်က အောက်ပါအတိုင်း  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ psfid -l ./Thai-Fixed16.psf
 467 chars encoded:
 U+00020
@@ -236,22 +263,29 @@ U+0002c
 U+0002d
 U+0002e
 U+0002f
+```
 
-total char ကို wc နဲ့ confirm လုပ်ကြည့်ခဲ့တော့ အောက်ပါအတိုင်း ရ
+total char ကို wc နဲ့ confirm လုပ်ကြည့်ခဲ့တော့ အောက်ပါအတိုင်း ရ  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ psfid -l ./Thai-Fixed16.psf | wc
     468     470    3755
+```
 
--n option နဲ့ ကြည့်ရင် မြင်ရတဲ့ character အရေအတွက်နဲ့တော့ကွာတယ်။ လေ့လာရလိမ့်မယ်။
+-n option နဲ့ ကြည့်ရင် မြင်ရတဲ့ character အရေအတွက်နဲ့တော့ကွာတယ်။ လေ့လာရလိမ့်မယ်။  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/check-thai-font$ psfid -n ./Thai-Fixed16.psf
  n:256
-
+```
 
 ## Installation of bdf2psf
 
+```
 sudo apt-get install bdf2psf
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ sudo apt-get install bdf2psf
 [sudo] password for ye: 
 Reading package lists... Done
@@ -277,9 +311,11 @@ Unpacking bdf2psf (1.178ubuntu2.9) ...
 Setting up bdf2psf (1.178ubuntu2.9) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 Check the command:  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ bdf2psf --help
 Usage:
 bdf2psf [--fb|--raw][--log LOG] BDF{+BDF} EQUIV{+EQUIV} SYMB{+[:]SYMB} SIZE PSF [SFM]
@@ -303,11 +339,15 @@ PSF            The new font.  If a file with this name already exists,
 SFM            The SFM table of the PSF font.  If a file with this name already
                exists, it will be overwritten.  Optional.
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 ## Installation of otf2bdf
 
+```
 sudo apt-get install -y otf2bdf
+```
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ sudo apt-get install -y otf2bdf
 Reading package lists... Done
 Building dependency tree       
@@ -332,9 +372,10 @@ Unpacking otf2bdf (3.1-4) ...
 Setting up otf2bdf (3.1-4) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
-
+```
 Check the installed command:  
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ otf2bdf --help
 Usage: otf2bdf [options below] font.ttf
 -h		This message.
@@ -359,6 +400,7 @@ Usage: otf2bdf [options below] font.ttf
 -rv n		Set the vertical resolution (default: 100dpi)
 -o outfile	Set the output filename (default: stdout).
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ 
+```
 
 ## Try again
 
