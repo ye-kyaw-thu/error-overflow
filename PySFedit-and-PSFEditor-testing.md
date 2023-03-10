@@ -270,7 +270,7 @@ moc_mainwindow.cpp   psfeditor.png                         rc
 
 run ကြည့်ပြီး Thai psf font ဖိုင်ကို ဖွင့် ကြည့်ခဲ့ ...  
 
-
+![UI of PSFEditor](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/PSFEditor-screeen1.png "UI of PSFEditor")
 
 ## Reference
 
