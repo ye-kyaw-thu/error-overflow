@@ -458,16 +458,137 @@ consolefonts: /usr/share/consolefonts
 (base) ye@ykt-pro:~/tool/scalable-font/sfnconv$ 
 ```
 
-```
+## Testing monobit
+
+Installation
 
 ```
-
+(base) ye@ykt-pro:~/tool/monobit$ pip install monobit
+Collecting monobit
+  Downloading monobit-0.32.0-py3-none-any.whl (2.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 2.5 MB/s eta 0:00:00
+Collecting uniseg
+  Downloading uniseg-0.7.2-py2.py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.9/129.9 kB 7.1 MB/s eta 0:00:00
+Requirement already satisfied: pillow in /home/ye/tool/anaconda3/lib/python3.7/site-packages (from monobit) (6.2.0)
+Collecting python-bidi
+  Downloading python_bidi-0.4.2-py2.py3-none-any.whl (30 kB)
+Collecting arabic-reshaper
+  Downloading arabic_reshaper-3.0.0-py3-none-any.whl (20 kB)
+Collecting reportlab
+  Downloading reportlab-3.6.12-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 6.3 MB/s eta 0:00:00
+Requirement already satisfied: six in /home/ye/tool/anaconda3/lib/python3.7/site-packages (from python-bidi->monobit) (1.16.0)
+Collecting pillow
+  Downloading Pillow-9.4.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 9.1 MB/s eta 0:00:00
+Installing collected packages: uniseg, arabic-reshaper, python-bidi, pillow, reportlab, monobit
+  Attempting uninstall: pillow
+    Found existing installation: Pillow 6.2.0
+    Uninstalling Pillow-6.2.0:
+      Successfully uninstalled Pillow-6.2.0
+Successfully installed arabic-reshaper-3.0.0 monobit-0.32.0 pillow-9.4.0 python-bidi-0.4.2 reportlab-3.6.12 uniseg-0.7.2
+(base) ye@ykt-pro:~/tool/monobit$
 ```
 
-```
+called --help for monobit-convert command  
 
 ```
+(base) ye@ykt-pro:~/tool/monobit$ monobit-convert --help
+usage: monobit-convert [INFILE] [LOAD-OPTIONS] [--help] [--version] [--debug] [COMMAND [OPTION...]] ... [to [OUTFILE] [SAVE-OPTIONS]]
 
+Options
+=======
+
+--help                   Print a help message and exit.
+--version                Show monobit version and exit.
+--debug                  Enable debugging output.
+
+Commands
+========
+
+load                     Read font(s) from file.
+save                     Write font(s) to file.
+to                       Write font(s) to file.
+label                    Add character and codepoint labels.
+set                      Return a copy of the font with one or more recognised properties changed.
+set-property             Return a copy of the font with a property changed or added.
+set-comment              Return a copy of the font with a comment changed, added or removed.
+mirror                   Reverse horizontally.
+flip                     Reverse vertically.
+transpose                Swap horizontal and vertical directions.
+turn                     Rotate by 90-degree turns.
+crop                     Crop the raster.
+expand                   Add blank space to raster.
+reduce                   Reduce glyphs to their bounding box.
+inflate                  Pad glyphs to include positive bearings and line spacing.
+stretch                  Stretch by repeating rows and/or columns.
+shrink                   Shrink by removing rows and/or columns.
+smear                    Repeat inked pixels.
+underline                Add a line.
+shear                    Create a slant by dislocating diagonally, keeping
+outline                  Outline glyph.
+invert                   Reverse video.
+roll                     Cycle rows and/or columns in raster.
+(base) ye@ykt-pro:~/tool/monobit$
+```
+
+call --help for monobit-banner command  
+
+```
+(base) ye@ykt-pro:~/tool/monobit$ monobit-banner --help
+usage: monobit-banner [-h] [--font FONT] [--format FORMAT] [--ink INK]
+                      [--paper PAPER] [--border BORDER] [--margin MARGIN]
+                      [--scale SCALE] [--rotate ROTATE]
+                      [--direction DIRECTION] [--align ALIGN]
+                      [--encoding ENCODING] [--debug] [--output OUTPUT]
+                      [--bold] [--italic] [--underline] [--outline]
+                      [text [text ...]]
+
+positional arguments:
+  text                  text to be printed. multiple text arguments represent
+                        consecutive lines. if not given, read from standard
+                        input
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --font FONT, -f FONT  font file to use when printng text
+  --format FORMAT       format of file used in --font
+  --ink INK, --foreground INK, -fg INK
+                        character or colour to use for ink/foreground
+                        (default: @ or (0,0,0))
+  --paper PAPER, --background PAPER, -bg PAPER
+                        character or colour to use for paper/background
+                        (default: . or (255,255,255))
+  --border BORDER       character or colour to use for border (default: same
+                        as paper)
+  --margin MARGIN, -m MARGIN
+                        number of background characters to use as a margin in
+                        x and y direction (default: 0,0)
+  --scale SCALE, -s SCALE
+                        number of characters to use per pixel in x and y
+                        direction (default: 1,1)
+  --rotate ROTATE, -r ROTATE
+                        number of quarter turns to rotate (default: 0)
+  --direction DIRECTION
+                        writing direction (default: use bidirectional
+                        algorithm; other options: `l`==`left-to-right`,
+                        `r`==`right-to-left`, `t`==`top-to-bottom`,
+                        `b`==`bottom-to-top`). May be combined as primary,
+                        secondary direction separated by space.
+  --align ALIGN         text alignment. (default: left for left-to-right, etc.
+                        other options: `l`==`left`, `r`==`right`, `t`==`top`,
+                        `b`==`bottom`)
+  --encoding ENCODING   override encoding/codepage (default: infer from
+                        metadata in file)
+  --debug               show debugging output
+  --output OUTPUT       output file name. usee .txt extension for text output,
+                        or image format for image output
+  --bold                apply algorithmic bold effect
+  --italic              apply algorithmic italic effect
+  --underline           apply algorithmic underline effect
+  --outline             apply algorithmic glyph outline effect
+(base) ye@ykt-pro:~/tool/monobit$
 ```
 
 ```
