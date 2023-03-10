@@ -927,4 +927,5 @@ Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လ�
 - https://github.com/source-foundry/Hack/issues/119
 - https://wiki.archlinux.org/title/Fonts#Console_fonts 
 - https://en.wikipedia.org/wiki/PC_Screen_Font
+- https://www.win.tue.nl/~aeb/linux/kbd/font-formats.html#toc1
 
