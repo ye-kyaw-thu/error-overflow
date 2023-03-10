@@ -632,3 +632,4 @@ consolefonts: /usr/share/consolefonts
 - [Problem in ttf2sfn.c compilation](https://gitlab.com/bztsrc/scalable-font/-/issues/1)
 - [PC Screen Font](https://wiki.osdev.org/PC_Screen_Font)
 - [Simon Tatham's Fonts Page](https://www.chiark.greenend.org.uk/~sgtatham/fonts/)
+- [monobit: Tools for working with monochrome bitmap fonts.](https://pypi.org/project/monobit/0.30.0/)
