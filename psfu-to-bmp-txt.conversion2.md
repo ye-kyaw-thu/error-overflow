@@ -591,3 +591,8 @@ PSF file suggests 256 glyphs of size 8 x 16.
 ```
 
 ```
+
+## Reference
+
+- [nto the Mist: How Linux Console Fonts Work By En D Loozzr](https://linuxgazette.net/issue91/loozzr.html)
+- 
