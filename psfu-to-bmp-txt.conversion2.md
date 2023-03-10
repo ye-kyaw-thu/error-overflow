@@ -624,3 +624,4 @@ size |  ....:XX..XX.:....  | | |
 - [Fonts & Encodings by Yannis Haralambous](https://hal.science/hal-02112942/document)
 - [Simple font rendering library](https://forum.osdev.org/viewtopic.php?t=33719&p=290150)
 - [Scalable Font](https://gitlab.com/bztsrc/scalable-font)
+- [https://gitlab.com/bztsrc/scalable-font/blob/master/docs/ecosystem.md](https://gitlab.com/bztsrc/scalable-font/blob/master/docs/ecosystem.md)
