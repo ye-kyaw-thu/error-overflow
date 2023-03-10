@@ -416,6 +416,10 @@ PSF file suggests 256 glyphs of size 8 x 16.
 './Thai-Fixed16.8x16.txt' written. All Ok.
 ```
 
+ထွက်လာတဲ့ output bmp ဖိုင်က အောက်ပါအတိုင်း ...  
+
+![converted bmp file for Thai-Fixed16.psf] (https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/Thai-Fixed16.8x16.bmp "converted bmp file for Thai-Fixed16.psf")
+
 ```
 
 ```
