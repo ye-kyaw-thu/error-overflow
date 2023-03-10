@@ -926,5 +926,5 @@ Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လ�
 - https://www.linux.com/topic/desktop/how-change-your-linux-console-fonts/
 - https://github.com/source-foundry/Hack/issues/119
 - https://wiki.archlinux.org/title/Fonts#Console_fonts 
-
+- https://en.wikipedia.org/wiki/PC_Screen_Font
 
