@@ -419,9 +419,35 @@ PSF file suggests 256 glyphs of size 8 x 16.
 './Thai-Fixed16.8x16.txt' written. All Ok.
 ```
 
+## Font Metrics Information
+
+Referene link: [https://gitlab.com/bztsrc/scalable-font/blob/master/docs/API.md](https://gitlab.com/bztsrc/scalable-font/blob/master/docs/API.md)  
 
 ```
-
+   (0,0)................._______
+        .................      ^
+     ___.................      | bearing top
+     ^  ,,,,,,,,,,,,,,,,,______v
+     |  ....:.XXX.XX:....  ^ ^ ^
+size |  ....:XX..XX.:....  | | |
+     |  ....:XX..XX.:....  | | | horizontal baseline
+     |  ....:XX..XX.:....  | | |
+     |  ....:XX..XX.:....  | | |
+     |  ....:XX..XX.:....  | | |
+     v__,,,,;.XXXXX,;,,,,__|_|_v
+        ....:....XX.:....  | |
+        ....|XX..XX.:....  | | glyph height
+        ....:.XXXX..:....__|_v
+        ....:...:...:....  |
+        ....:...:...:....  | advance y
+        ....:...:...:....__v
+        |   |   |   | |  (font width, font height)
+        |   |   |   | |
+        |   |<->|   | |  vertical baseline (center of the glyph, always width / 2)
+        |   |<----->| |  glyph width
+        |   |<------->|  advance x
+        |   |<---->|     advance x with kerning x
+        |<->|            bearing left
 ```
 
 ```
