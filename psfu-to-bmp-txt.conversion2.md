@@ -396,8 +396,10 @@ PSF file suggests 256 glyphs of size 8 x 16.
 Creating an image.
 
 './Thai-Fixed16.8x16.bmp' written. All Ok.
-
 ```
+
+check the converted bmp file:  
+
 
 ## PSF to TXT Converion
 
