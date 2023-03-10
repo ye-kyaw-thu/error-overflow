@@ -450,8 +450,12 @@ size |  ....:XX..XX.:....  | | |
         |<->|            bearing left
 ```
 
-```
+## Console Font Info
 
+```
+(base) ye@ykt-pro:~/tool/scalable-font/sfnconv$ whereis consolefonts
+consolefonts: /usr/share/consolefonts
+(base) ye@ykt-pro:~/tool/scalable-font/sfnconv$ 
 ```
 
 ```
