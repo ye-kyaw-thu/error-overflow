@@ -359,20 +359,59 @@ output file ကို fig folder အောက်မှာ သိမ်းထာ�
 
 ## Test Conversion for Thai Font
 
+လက်ရှိ စက်မှာ ထိုင်းနဲ့ ပတ်သက်တဲ့ သို့မဟုတ် ဖိုင်နာမည်မှာ Thai ပါတဲ့ psf ဖိုင်က အောက်ပါအတိုင်း ၅ ဖိုင်ကို တွေ့ခဲ့ရ ...  
+
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ cat ./psf-file-info.txt | grep "Thai"
+/usr/share/consolefonts/Thai-Fixed18.psf.gz
+/usr/share/consolefonts/Thai-Fixed15.psf.gz
+/usr/share/consolefonts/Thai-Fixed14.psf.gz
+/usr/share/consolefonts/Thai-Fixed16.psf.gz
+/usr/share/consolefonts/Thai-Fixed13.psf.gz
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$
+```
+
+တစ်ဖိုင်ကို ကော်ပီကူး ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ cp /usr/share/consolefonts/Thai-Fixed16.psf.gz .
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ gunzip ./Thai-Fixed16.psf.gz 
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ ls
+psf-file-info.txt  readpsf  Thai-Fixed16.psf  writepsf  ye-x.16x32.bmp  ye-x.psfu  ye-x.psfu.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
+```
+
+psf to bmp conversion လုပ်ကြည့် ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ perl ./readpsf ./Thai-Fixed16.psf bmp
+Possible precedence issue with control flow operator at ./readpsf line 466.
+Possible precedence issue with control flow operator at ./readpsf line 472.
+Reading './Thai-Fixed16.psf'...
+Version 1 PSF file.
+Font has an unicode table. Use 'psfgettable' command to extract it.
+PSF file suggests 256 glyphs of size 8 x 16.
+256 glyphs found.
+
+Creating an image.
+
+'./Thai-Fixed16.8x16.bmp' written. All Ok.
 
 ```
 
-```
+## PSF to TXT Converion
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ perl ./readpsf ./Thai-Fixed16.psf txt
+Possible precedence issue with control flow operator at ./readpsf line 466.
+Possible precedence issue with control flow operator at ./readpsf line 472.
+Reading './Thai-Fixed16.psf'...
+Version 1 PSF file.
+Font has an unicode table. Use 'psfgettable' command to extract it.
+PSF file suggests 256 glyphs of size 8 x 16.
+256 glyphs found.
 
-```
-
-```
-
-```
-
+'./Thai-Fixed16.8x16.txt' written. All Ok.
 ```
 
 ```
