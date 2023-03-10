@@ -203,6 +203,9 @@ Finished processing dependencies for PySFedit==1.0.0
 (base) ye@ykt-pro:~/tool/scalable-font/pysfedit$
 ```
 
+ထိုင်းဖောင့်နဲ့ စမ်းဖွင့်ကြည့်တော့ အောက်ပါအတိုင်း UI ကို တွေ့ရ ...  
+
+![UI of PySFedit](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/pysfedit-screen1.png "PySFedit Editor UI")
 
 ## PSFEditor
 
