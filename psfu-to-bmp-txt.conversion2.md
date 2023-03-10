@@ -630,3 +630,4 @@ consolefonts: /usr/share/consolefonts
 - [Scalable Font](https://gitlab.com/bztsrc/scalable-font)
 - [Scalable Screen Font Ecosystem](https://gitlab.com/bztsrc/scalable-font/blob/master/docs/ecosystem.md)
 - [Problem in ttf2sfn.c compilation](https://gitlab.com/bztsrc/scalable-font/-/issues/1)
+- [PC Screen Font](https://wiki.osdev.org/PC_Screen_Font)
