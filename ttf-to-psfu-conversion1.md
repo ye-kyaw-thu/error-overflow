@@ -928,4 +928,7 @@ Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လ�
 - https://wiki.archlinux.org/title/Fonts#Console_fonts 
 - https://en.wikipedia.org/wiki/PC_Screen_Font
 - https://www.win.tue.nl/~aeb/linux/kbd/font-formats.html#toc1
+- https://git.kernel.org/pub/scm/linux/kernel/git/legion/kbd.git/tree/src/psf.h?id=6613abc26a853293c12f4e146a27606f02c8dd03
+
+
 
