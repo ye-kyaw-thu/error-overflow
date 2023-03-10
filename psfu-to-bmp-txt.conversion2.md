@@ -591,12 +591,18 @@ optional arguments:
 (base) ye@ykt-pro:~/tool/monobit$
 ```
 
-```
+copied Thai psf file to test folder that I created:  
 
 ```
-
+(base) ye@ykt-pro:~/tool/PSFEditor$ cp /media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv/Thai-Fixed16.psf ~/tool/monobit/ytest/
 ```
 
+made conversion and got following error:  
+
+```
+(base) ye@ykt-pro:~/tool/monobit/ytest$ monobit-convert ./Thai-Fixed16.psf to ./Thai-Fixed16.png
+ERROR: 'utf-16-le' codec can't decode byte 0xfd in position 4: truncated data
+(base) ye@ykt-pro:~/tool/monobit/ytest$ 
 ```
 
 ```
