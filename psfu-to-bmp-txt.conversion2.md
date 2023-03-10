@@ -39,6 +39,11 @@ Creating an image.
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
 ```
 
+output file ကို fig folder အောက်မှာ သိမ်းထားတယ်။  
+[ye-x.16x32.bmp](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp)  
+
+![converted bmp file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp "converted bmp file for Myanmar3")
+
 ```
 
 ```
