@@ -625,3 +625,4 @@ size |  ....:XX..XX.:....  | | |
 - [Simple font rendering library](https://forum.osdev.org/viewtopic.php?t=33719&p=290150)
 - [Scalable Font](https://gitlab.com/bztsrc/scalable-font)
 - [Scalable Screen Font Ecosystem](https://gitlab.com/bztsrc/scalable-font/blob/master/docs/ecosystem.md)
+- [Problem in ttf2sfn.c compilation](https://gitlab.com/bztsrc/scalable-font/-/issues/1)
