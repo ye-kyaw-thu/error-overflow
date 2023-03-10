@@ -40,7 +40,9 @@ Creating an image.
 ```
 
 output file ကို fig folder အောက်မှာ သိမ်းထားတယ်။  
-[ye-x.16x32.bmp](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp)  
+[https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp)  
+
+ပုံကတော့ အောက်ပါအတိုင်းမို့လို့ ttf ဖိုင်ကနေ psfu ပြောင်းတဲ့ နေရာမှာပဲ error ရှိသလားလို့ ... ?!  
 
 ![converted bmp file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/ye-x.16x32.bmp "converted bmp file for Myanmar3")
 
