@@ -744,6 +744,15 @@ KEYMAP=jp106
 (base) ye@ykt-pro:/usr/share/consolefonts$
 ```
 
+## Steps for Changing the Console Font
+
+Copied from this link: [https://wiki.alpinelinux.org/wiki/Fonts](https://wiki.alpinelinux.org/wiki/Fonts)  
+
+- apk add terminus-font
+- try out fonts in a virtual console using setfont /usr/share/consolefonts/ter-132n.psf.gz
+- edit /etc/conf.d/consolefont, set it to the font you choose, e.g. consolefont="ter-132n.psf.gz"
+- enable this using rc-update add consolefont boot
+
 ```
 
 ```
