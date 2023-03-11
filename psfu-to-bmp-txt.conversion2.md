@@ -867,13 +867,124 @@ CHARSET_REGISTRY "ISO10646"
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
 ```
 
-```
+## Installation of python-fontforg module
 
 ```
-
+(py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ sudo apt-get install -y python-fontforge
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libopen-trace-format1 libotfaux0 linux-hwe-5.4-headers-5.4.0-122 linux-hwe-5.4-headers-5.4.0-124
+  linux-hwe-5.4-headers-5.4.0-125 linux-hwe-5.4-headers-5.4.0-126 linux-hwe-5.4-headers-5.4.0-128
+  linux-hwe-5.4-headers-5.4.0-131 linux-hwe-5.4-headers-5.4.0-132 linux-hwe-5.4-headers-5.4.0-135
+  linux-hwe-5.4-headers-5.4.0-136 linux-hwe-5.4-headers-5.4.0-137
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  python-fontforge
+0 upgraded, 1 newly installed, 0 to remove and 146 not upgraded.
+Need to get 18.8 kB of archives.
+After this operation, 118 kB of additional disk space will be used.
+Get:1 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 python-fontforge amd64 1:20170731~dfsg-1 [18.8 kB]
+Fetched 18.8 kB in 1s (26.4 kB/s)           
+Selecting previously unselected package python-fontforge.
+(Reading database ... 665863 files and directories currently installed.)
+Preparing to unpack .../python-fontforge_1%3a20170731~dfsg-1_amd64.deb ...
+Unpacking python-fontforge (1:20170731~dfsg-1) ...
+Setting up python-fontforge (1:20170731~dfsg-1) ...
+(py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
 ```
 
+Python code that I found ...  
+
+```python
+#!/usr/bin/env python3
+# opentype-bitmap - generate opentype bitmap (.otb) from BDF/PCF fonts
+
+# NOTE
+# Greater than version 20190413 is needed.  Otherwise ensure your fontforge
+# has commit 79f9e0b8442631ac39ab907af20b813ac584298f
+
+import argparse
+import fontforge
+import gzip
+import os.path
+import sys
+
+from tempfile import NamedTemporaryFile
+
+
+def import_bitmap(font, filename):
+    if filename.endswith('.pcf.gz') or filename.endswith('.bdf.gz'):
+        ext = filename[-7:-3]  # .pcf or .bdf
+
+        with gzip.open(filename) as gz, NamedTemporaryFile(suffix=ext) as temp:
+            temp.write(gz.read())
+            font.importBitmaps(temp.name)
+
+    elif filename.endswith('.pcf') or filename.endswith('.bdf'):
+        font.importBitmaps(filename)
+
+    else:
+        raise ValueError('Unknown extension')
+
+
+def generate(fontname, files):
+    filename = fontname + '.otb'
+    newfont = fontforge.font()
+
+    for file in files:
+        if args.verbose:
+            print(f'{filename}: {file}: importing bitmap strikes',
+                  file=sys.stderr)
+
+        try:
+            import_bitmap(newfont, file)
+
+        except ValueError:
+            print(f'opentype-bitmap: warning: {file}: file must end with '
+                  '.pcf.gz, bdf.gz, .pcf, or .bdf', file=sys.stderr)
+
+        except OSError:
+            print(f'opentype-bitmap: warning: {file}: invalid bitmap font',
+                  file=sys.stderr)
+
+    if newfont.changed:
+        newfont.generate(filename, 'otb')
+        print(f'{filename}')
+
+
+parser = argparse.ArgumentParser(add_help=False)
+parser.add_argument('-v', dest='verbose', action='store_true')
+parser.add_argument('files', nargs='*')
+args = parser.parse_args()
+
+if not args.files:
+    args.files = (line.rstrip('\n') for line in sys.stdin)
+
+fontfiles = {}
+
+for file in args.files:
+    if os.path.isfile(file):
+
+        # Opening the file here to extract the fontname.  There may be a better
+        # way to do this.
+
+        # fontforge.open doesn't provide __enter__ and __exit__ attributes.
+        f = fontforge.open(file)
+
+        fontfiles.setdefault(f.fontname, []).append(file)
+        f.close()
+
+    else:
+        print(f'opentype-bitmap: warning: {line}: no such file',
+              file=sys.stderr)
+
+for fontname in fontfiles:
+    generate(fontname, fontfiles[fontname])
 ```
+
+ပြဿနာက fontforge module ကို installation လုပ်တဲ့ နေရာမှာ ...  
 
 ```
 
