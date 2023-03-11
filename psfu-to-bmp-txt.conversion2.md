@@ -878,3 +878,4 @@ wc command နဲ့ check ...
 - [Fonts and freeBSD](https://docs.freebsd.org/en/articles/fonts/)
 - [Charset / font in the Linux console
 ](https://unix.stackexchange.com/questions/9675/charset-font-in-the-linux-console)
+- [Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
