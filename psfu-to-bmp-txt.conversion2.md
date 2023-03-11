@@ -1113,3 +1113,4 @@ for fontname in fontfiles:
 #7](https://github.com/lucy/tewi-font/issues/7)
 - [A TrueType font in a TTY: Glass_TTY](https://darrengoossens.wordpress.com/tag/font-conversion/)
 - [Convert PCF and BDF files to bitmap only OpenType (.otb) using fontforge](https://gist.github.com/Earnestly/6bc5bad7666f7bf8816d054b7b76112e)
+- [How to convert a true type font into a bitmap font?](https://superuser.com/questions/714147/how-to-convert-a-true-type-font-into-a-bitmap-font)
