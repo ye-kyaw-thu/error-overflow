@@ -931,3 +931,4 @@ Setting up fonts-ubuntu-font-family-console (1:0.83-2) ...
 - [Reference for some commands](https://wiki.archlinux.org/title/Linux_console)
 - [Noto: A typeface for the world](https://fonts.google.com/noto)
 - [How to Change Your Linux Console Fonts](https://www.linux.com/topic/desktop/how-change-your-linux-console-fonts/)  
+- [GNU Unifont Glyphs of Unifoundry.com](https://unifoundry.com/unifont/)
