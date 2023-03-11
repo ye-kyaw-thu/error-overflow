@@ -823,8 +823,16 @@ output bmp ဖိုင်က အောက်ပါအတိုင်း ...
 
 ![Unifont-APL8x16 bmp file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/Unifont-APL8x16-15.0.01.8x16.bmp "Unifont-APL8x16 bmp file")
 
-```
+## bdf to psf Conversion
 
+Ref: https://unix.stackexchange.com/questions/21100/convert-bdf-pcf-font-to-psfu-for-using-as-consolefont  
+command syntax က အောက်ပါအတိုင်း ...  
+
+```
+./bdf2psf --fb yourbdffont.bdf \
+  /whateverpath/current/usr/share/bdf2psf/standard.equivalents \
+  /whateverpath/usr/share/bdf2psf/required.set+/whateverpath/usr/share/bdf2psf/useful.set \
+  512 /path/to/nameofpsf-uni-11.psf
 ```
 
 ```
