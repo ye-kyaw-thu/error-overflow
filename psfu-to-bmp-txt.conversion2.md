@@ -885,3 +885,4 @@ KEYMAP=jp106
 - [Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
 - [The Linux Console Tools](https://lct.sourceforge.net/)
 - [Reference for some commands](https://wiki.archlinux.org/title/Linux_console)
+- [Noto: A typeface for the world](https://fonts.google.com/noto)
