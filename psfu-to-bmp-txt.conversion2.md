@@ -876,3 +876,5 @@ wc command နဲ့ check ...
 - [How do I change the font or the font size in the TTY (console)?
 ](https://askubuntu.com/questions/173220/how-do-i-change-the-font-or-the-font-size-in-the-tty-console)
 - [Fonts and freeBSD](https://docs.freebsd.org/en/articles/fonts/)
+- [Charset / font in the Linux console
+](https://unix.stackexchange.com/questions/9675/charset-font-in-the-linux-console)
