@@ -870,3 +870,5 @@ wc command နဲ့ check ...
 - [Terminus Font Home Page](https://terminus-font.sourceforge.net/)
 - [Terminus Font Screenshots](https://terminus-font.sourceforge.net/shots.html)
 - [Fonts on Unix](https://venam.nixers.net/blog/unix/2017/06/04/fonts-on-unix.html)  
+- [monospace-font-list](https://github.com/dse/monospace-font-list)
+
