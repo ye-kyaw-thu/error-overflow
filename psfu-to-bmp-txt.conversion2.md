@@ -790,10 +790,33 @@ Setting up fonts-ubuntu-font-family-console (1:0.83-2) ...
 (base) ye@ykt-pro:~/tool/bitmapfont2ttf$
 ```
 
- 
+## psf to bmp Conversion Again
+
+Reference link: https://unifoundry.com/unifont/  
+
+ဒီတစ်ခါတော့ Unifont-APL ဖိုင်ကို သုံးပြီး bmp ဖိုင် ပြောင်းကြည့်တာ ...  
+download/unzip လုပ်ထားတဲ့ psf ဖိုင်ကို ကော်ပီကူးယူ ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ cp ../../ttf-console-fonts-20170403_abc5771/Unifont-APL8x16-15.0.01.psf .
+```
 
+conversion လုပ်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ perl ./readpsf ./Unifont-APL8x16-15.0.01.psf bmp
+Possible precedence issue with control flow operator at ./readpsf line 466.
+Possible precedence issue with control flow operator at ./readpsf line 472.
+Reading './Unifont-APL8x16-15.0.01.psf'...
+Version 1 PSF file.
+Font has an unicode table. Use 'psfgettable' command to extract it.
+PSF file suggests 512 glyphs of size 8 x 16.
+512 glyphs found.
+
+Creating an image.
+
+'./Unifont-APL8x16-15.0.01.8x16.bmp' written. All Ok.
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
 ```
 
 ```
