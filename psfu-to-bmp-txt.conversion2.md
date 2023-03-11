@@ -895,6 +895,7 @@ Setting up python-fontforge (1:20170731~dfsg-1) ...
 (py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
 ```
 
+Ref link: https://gist.github.com/Earnestly/6bc5bad7666f7bf8816d054b7b76112e  
 Python code that I found ...  
 
 ```python
