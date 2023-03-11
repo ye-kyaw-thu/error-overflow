@@ -753,9 +753,44 @@ Copied from this link: [https://wiki.alpinelinux.org/wiki/Fonts](https://wiki.al
 - edit /etc/conf.d/consolefont, set it to the font you choose, e.g. consolefont="ter-132n.psf.gz"
 - enable this using rc-update add consolefont boot
 
-```
+## Installation of Ubuntu Family Console Fonts
 
 ```
+(base) ye@ykt-pro:~/tool/bitmapfont2ttf$ sudo apt-get install fonts-ubuntu-font-family-console
+[sudo] password for ye: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libopen-trace-format1 libotfaux0 linux-hwe-5.4-headers-5.4.0-122 linux-hwe-5.4-headers-5.4.0-124
+  linux-hwe-5.4-headers-5.4.0-125 linux-hwe-5.4-headers-5.4.0-126 linux-hwe-5.4-headers-5.4.0-128
+  linux-hwe-5.4-headers-5.4.0-131 linux-hwe-5.4-headers-5.4.0-132 linux-hwe-5.4-headers-5.4.0-135
+  linux-hwe-5.4-headers-5.4.0-136 linux-hwe-5.4-headers-5.4.0-137
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  fonts-ubuntu-console
+The following NEW packages will be installed:
+  fonts-ubuntu-console fonts-ubuntu-font-family-console
+0 upgraded, 2 newly installed, 0 to remove and 146 not upgraded.
+Need to get 29.0 kB of archives.
+After this operation, 104 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mm.archive.ubuntu.com/ubuntu bionic/main amd64 fonts-ubuntu-console all 0.83-2 [18.7 kB]
+Get:2 http://mm.archive.ubuntu.com/ubuntu bionic/universe amd64 fonts-ubuntu-font-family-console all 1:0.83-2 [10.3 kB]
+Fetched 29.0 kB in 2s (14.4 kB/s)                           
+Selecting previously unselected package fonts-ubuntu-console.
+(Reading database ... 665412 files and directories currently installed.)
+Preparing to unpack .../fonts-ubuntu-console_0.83-2_all.deb ...
+Unpacking fonts-ubuntu-console (0.83-2) ...
+Selecting previously unselected package fonts-ubuntu-font-family-console.
+Preparing to unpack .../fonts-ubuntu-font-family-console_1%3a0.83-2_all.deb ...
+Unpacking fonts-ubuntu-font-family-console (1:0.83-2) ...
+Setting up fonts-ubuntu-console (0.83-2) ...
+Setting up fonts-ubuntu-font-family-console (1:0.83-2) ...
+(base) ye@ykt-pro:~/tool/bitmapfont2ttf$
+```
+
+ 
 
 ```
 
