@@ -645,17 +645,95 @@ Creating an image.
 
 conversion မှာ error ရှိတယ်။  
 
+အဲဒါကြောင့် readpsf perl script အထဲကို ဝင်ကြည့်ခဲ့တော့ line no. 88 ကနေ .... မှာ အောက်ပါအတိုင်း ဖော်ပြထားတာကို ဖတ်ခဲ့ရ ...  
 
+```perl
+
+Convert Linux Console Font to either Plain Text or BMP Image.
+
+Usage: $short0 [options] font.psf[u] (bmp|txt)
+
+Glyphs:
+  -cN  --chars=N      Override number of characters to be written.
+                      (Numbers 256 and 512 are the most portable.)
+Geometry:
+  -tN  --top=N        Override character geometry.
+  -lN  --left=N       (Top and left can be negative numbers.)
+  -wN  --width=N
+  -hN  --height=N
+
+Edge:
+  -ew  --edge=wrap    When running out of pixels: wrap character.
+  -er  --edge=repeat  When running out of pixels: repeat edge pixels.
+                      (Default action: use empty pixels.)
+Bitmap:
+  -brN       --bmp-row-width=N          How many glyphs on a row?
+  -bfFFFFFF  --bmp-foreground=FFFFFF    Foreground color.
+  -bb1FFFFFF --bmp-background-1=FFFFFF  First background color.
+  -bb2FFFFFF --bmp-background-2=FFFFFF  Second background color.
+  -bb3FFFFFF --bmp-background-3=FFFFFF  Background color for unused tiles.
+
+Examples:
+
+  $short0 -top=1 -er font.psf txt
+       Move the whole font 1 pixel up, duplicate the bottom pixel row.
+
+  $short0 -t-3 -h18 font.psf bmp
+       Add 3 empty pixel rows to the top of the font, force height.
+
+Please note that this program does not read the Unicode mapping table.
+It has to be manually read by running the 'psfgettable' command.
+___________________________________________________________
+```
+
+psfgettable command ကို သုံးကြည့်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ psfgettable
+Usage:
+	psfgettable infont [outtable]
+```
+
+psfgettable ကို သုံးပြီး table ကို extract လုပ်ကြည့်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ psfgettable ./notosansmyanmar-bold-x.psfu > notosansmyanmar-bold-x.psfu.table.txt
+```
+
+wc command နဲ့ check ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ wc ./notosansmyanmar-bold-x.psfu.table.txt 
+ 515  538 3770 ./notosansmyanmar-bold-x.psfu.table.txt
 ```
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ head ./notosansmyanmar-bold-x.psfu.table.txt 
+#
+# Character table extracted from font ./notosansmyanmar-bold-x.psfu
+#
+0x000	U+2018
+0x001	U+2019
+0x002	U+201c
+0x003	U+201d
+0x004	
+0x005	
+0x006	
 ```
 
 ```
-
-```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ tail ./notosansmyanmar-bold-x.psfu.table.txt 
+0x1f6	
+0x1f7	
+0x1f8	
+0x1f9	
+0x1fa	
+0x1fb	
+0x1fc	
+0x1fd	
+0x1fe	
+0x1ff	
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
 ```
 
 ```
