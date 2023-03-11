@@ -880,3 +880,4 @@ wc command နဲ့ check ...
 ](https://unix.stackexchange.com/questions/9675/charset-font-in-the-linux-console)
 - [Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
 - [The Linux Console Tools](https://lct.sourceforge.net/)
+- [Reference for some commands](https://wiki.archlinux.org/title/Linux_console)
