@@ -918,6 +918,72 @@ x, y လည်း အများကြီး ပိုယူထားသလာ�
 ငါဖြေထားတဲ့ ထိုင်းဖောင့် က 8x16, လက်ရှိ Myanmar3 ကို ဖြေထားတဲ့ text ဖိုင်မှာက 16x32 မတူတာကို တွေ့ရ။  
 Text editor နဲ့လည်း ကြည့်တာ ပြင်တာ လုပ်လို့ ရပေမဲ့ ဒီထက်ကောင်းတဲ့ UI ရှိရင်တော့ သုံးချင်တယ် ....  
 
+## Converting Noto Sans Myanmar TTF Font to PSF
+
+
+Noto Sans Myanmar:style=Bold ဆိုတဲ့ line ကို fonts ဖိုင်မှာ ဝင်ဖြည့်လိုက်တယ်။  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ gedit fonts
+```
+
+run make file ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ make
+sh conv.sh
+/home/ye/.local/share/fonts/myanmar3.ttf => ye: 8:x 12:x 15:x 19:x 
+/usr/share/fonts/truetype/noto/NotoSansMyanmar-Bold.ttf => notosansmyanmar-bold: 8:x 12:x 15:x 19:x 
+touch .done
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ 
+```
+
+output ဖိုင်တွေကတော့ အောက်ပါအတိုင်း ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ ls notosansmyanmar-bold*
+notosansmyanmar-bold.12.log  notosansmyanmar-bold.19.log  notosansmyanmar-bold-x.psfu.gz
+notosansmyanmar-bold.15.log  notosansmyanmar-bold.8.log
+```
+
+backup ကူးခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ cp notosansmyanmar-bold-x.psfu.gz ./bk/
+```
+
+gunzip လုပ်ပြီး၊ file command နဲ့ check လုပ်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ gunzip ./notosansmyanmar-bold-x.psfu.gz 
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ file ./notosansmyanmar-bold-x.psfu 
+./notosansmyanmar-bold-x.psfu: Linux/i386 PC Screen Font v2 data, 512 characters, Unicode directory, 56x21
+```
+
+psfid command နဲ့လည်း စစ်ကြည့်ခဲ့ ...  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ psfid ./notosansmyanmar-bold-x.psfu 
+ v:2 w:21 h:56 n:512 u:1
+```
+
+text ဖိုင်အဖြစ် ပြောင်းခဲ့ ....  
+
+```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ psfd ./notosansmyanmar-bold-x.psfu ./notosansmyanmar-bold-x.psfu.txt
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/ttf-console-fonts-20170403_abc5771$ wc ./notosansmyanmar-bold-x.psfu.txt 
+ 29188  29208 633394 ./notosansmyanmar-bold-x.psfu.txt
+```
+
+```
+
+```
+
+```
+
+```
+
+
 ## Reference
 
 - https://codeberg.org/gnarz/psftools/src/branch/master
