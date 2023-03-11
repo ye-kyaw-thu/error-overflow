@@ -969,3 +969,5 @@ command syntax က အောက်ပါအတိုင်း ...
 - [GNU Unifont Glyphs of Unifoundry.com](https://unifoundry.com/unifont/)
 - [Unifont](https://savannah.gnu.org/projects/unifont)
 - [What is the difference between Uni1, Uni2, and Uni3 terminal font codesets?](https://unix.stackexchange.com/questions/216184/what-is-the-difference-between-uni1-uni2-and-uni3-terminal-font-codesets)
+- [how to convert Tewi for using as *.psf consolefont?
+#7](https://github.com/lucy/tewi-font/issues/7)
