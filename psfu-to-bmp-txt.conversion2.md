@@ -819,6 +819,10 @@ Creating an image.
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
 ```
 
+output bmp ဖိုင်က အောက်ပါအတိုင်း ...  
+
+![Unifont-APL8x16 bmp file](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/Unifont-APL8x16-15.0.01.8x16.bmp "Unifont-APL8x16 bmp file")
+
 ```
 
 ```
