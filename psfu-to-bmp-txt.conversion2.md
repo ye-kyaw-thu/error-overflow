@@ -987,8 +987,28 @@ for fontname in fontfiles:
 
 ပြဿနာက fontforge module ကို installation လုပ်တဲ့ နေရာမှာ ...  
 
-```
+## Check the current Console Font Setting of my Notebook
 
+```
+(py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ cat /etc/default/console-setup 
+# CONFIGURATION FILE FOR SETUPCON
+
+# Consult the console-setup(5) manual page.
+
+ACTIVE_CONSOLES="/dev/tty[1-6]"
+
+CHARMAP="UTF-8"
+
+CODESET="guess"
+FONTFACE="Fixed"
+#FONTSIZE="8x16"
+FONTSIZE="16x32"
+
+VIDEOMODE=
+
+# The following is an example how to use a braille font
+# FONT='lat9w-08.psf.gz brl-8x8.psf'
+(py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ 
 ```
 
 ```
