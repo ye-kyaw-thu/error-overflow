@@ -605,17 +605,46 @@ ERROR: 'utf-16-le' codec can't decode byte 0xfd in position 4: truncated data
 (base) ye@ykt-pro:~/tool/monobit/ytest$ 
 ```
 
-```
+## psfu to bmp Conversion for Noto Sans Myanmar Font
+
+တရက် နားပြီး အစာမကျေတာနဲ့ ဒီတခါတော့ Noto Sans Myanmar ဖောင့်နဲ့ ပြောင်းစမ်းကြည့်ခဲ့တယ်။  
+အရင်ဆုံး ttf ကနေ psfu ပြောင်းထားတဲ့ ဖိုင်ကို local folder ဆီကို ကော်ပီကူးခဲ့တယ်။  
 
 ```
-
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ cp ../../ttf-console-fonts-20170403_abc5771/notosansmyanmar-bold-x.psfu .
 ```
 
-```
+psfu to bmp conversion was done as follows:  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ perl ./readpsf ./notosansmyanmar-bold-x.psfu bmp
+Possible precedence issue with control flow operator at ./readpsf line 466.
+Possible precedence issue with control flow operator at ./readpsf line 472.
+Reading './notosansmyanmar-bold-x.psfu'...
+Version 2 PSF file.
+Font has an unicode table. Use 'psfgettable' command to extract it.
+PSF file suggests 512 glyphs of size 21 x 56.
+512 glyphs found.
+
+Creating an image.
+
+'./notosansmyanmar-bold-x.21x56.bmp' written. All Ok.
+```
+
+အထက်က ပြောနေတဲ့ message တွေ အကုန်ကို နားလည်အောင် ငါ ကြိုးစားရလိမ့်မယ် ...  
+လောလောဆယ်တော့ ပြောင်းထားတဲ့ bmp ဖိုင် information ကို အောက်ပါအတိုင်း check လုပ်ကြည့်ခဲ့ ...  
 
 ```
+(base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ file ./notosansmyanmar-bold-x.21x56.bmp 
+./notosansmyanmar-bold-x.21x56.bmp: PC bitmap, Windows 3.x format, 336 x 1792 x 24
+```
+
+ပုံကတော့ အောက်ပါအတိုင်း ...  
+
+![bmp file for Noto Sans Myanmar TTF Font](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/psf2bmp/notosansmyanmar-bold-x.21x56.bmp "bmp file for Noto Sans Myanmar TTF Font")
+
+conversion မှာ error ရှိတယ်။  
+
 
 ```
 
