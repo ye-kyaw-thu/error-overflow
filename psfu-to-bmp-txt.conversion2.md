@@ -736,8 +736,12 @@ wc command နဲ့ check ...
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev/rw-psf/test-conv$ 
 ```
 
-```
+## Check vconsole.conf File
 
+```
+(base) ye@ykt-pro:/usr/share/consolefonts$ cat /etc/vconsole.conf
+KEYMAP=jp106
+(base) ye@ykt-pro:/usr/share/consolefonts$
 ```
 
 ```
