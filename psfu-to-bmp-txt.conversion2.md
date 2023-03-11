@@ -869,3 +869,4 @@ wc command နဲ့ check ...
 - [monobit: Tools for working with monochrome bitmap fonts.](https://pypi.org/project/monobit/0.30.0/)
 - [Terminus Font Home Page](https://terminus-font.sourceforge.net/)
 - [Terminus Font Screenshots](https://terminus-font.sourceforge.net/shots.html)
+- [Fonts on Unix](https://venam.nixers.net/blog/unix/2017/06/04/fonts-on-unix.html)  
