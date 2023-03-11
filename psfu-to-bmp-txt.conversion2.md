@@ -867,3 +867,5 @@ wc command နဲ့ check ...
 - [PC Screen Font](https://wiki.osdev.org/PC_Screen_Font)
 - [Simon Tatham's Fonts Page](https://www.chiark.greenend.org.uk/~sgtatham/fonts/)
 - [monobit: Tools for working with monochrome bitmap fonts.](https://pypi.org/project/monobit/0.30.0/)
+- [Terminus Font Home Page](https://terminus-font.sourceforge.net/)
+
