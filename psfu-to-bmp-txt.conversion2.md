@@ -871,4 +871,6 @@ wc command နဲ့ check ...
 - [Terminus Font Screenshots](https://terminus-font.sourceforge.net/shots.html)
 - [Fonts on Unix](https://venam.nixers.net/blog/unix/2017/06/04/fonts-on-unix.html)  
 - [monospace-font-list](https://github.com/dse/monospace-font-list)
+- [How can I make a psf font for the console from a otf one?
+](https://unix.stackexchange.com/questions/161890/how-can-i-make-a-psf-font-for-the-console-from-a-otf-one)
 
