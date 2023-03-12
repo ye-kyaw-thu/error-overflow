@@ -470,4 +470,5 @@ bind-key    -T root         WheelDownStatus   next-window
 - [https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
 - [https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/)  
 - [useful configurations for tmux](https://github.com/gpakosz/.tmux.git)
+- [https://www.reddit.com/r/unixporn/](https://www.reddit.com/r/unixporn/)
 
