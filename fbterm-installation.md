@@ -1,5 +1,6 @@
 ## Installation of fbterm
 
+```
 (py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ sudo apt-get install fbterm
 [sudo] password for ye: 
 Reading package lists... Done
@@ -66,9 +67,11 @@ Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
 /sbin/ldconfig.real: /usr/local/lib/libwx_baseu-3.0.so.0 is not a symbolic link
 
 (py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 ## Install Run getty
 
+```
 (py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$ sudo apt-get install rungetty
 Reading package lists... Done
 Building dependency tree       
@@ -93,29 +96,40 @@ Unpacking rungetty (1.2-16build1) ...
 Setting up rungetty (1.2-16build1) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (py3.8.10) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/code/console-font-dev$
+```
 
 ## Some Important Shortcut and Commands
 
 sudo chvt 3 (Change to tty3)
 Alt+F2 (return back to GUI)
 
-Reference: https://superuser.com/questions/438950/how-do-i-make-ubuntu-start-fbterm-in-the-tty-on-startup
+Reference: https://superuser.com/questions/438950/how-do-i-make-ubuntu-start-fbterm-in-the-tty-on-startup  
 
-/etc/inittab file
+```
+/etc/inittab file  
+```
+
 rungetty allows you to run programs on a TTY as a particular user.  
 fbterm requires you to be root to access the framebuffer, by the by. So you could run fbterm on TTY2 like so (double dashes signify the end of switches for rungetty):  
 
+```
 2:23:respawn:/sbin/rungetty -u root tty2 -- fbterm
+```
 
-Only one problem; you have a beautiful framebuffer-based terminal, but you're logged in as root! Having an unautheticated root prompt is about as bad for security as it gets. That won't do.
+Only one problem; you have a beautiful framebuffer-based terminal, but you're logged in as root! Having an unautheticated root prompt is about as bad for security as it gets. That won't do.  
 
 We can use a program called login to get around this by accepting another set of user credentials, and then starting bash or zsh or whatever your login shell happens to be. Luckily, fbterm can accept a command as its final argument (again, double dashes prevent fbterm and rungetty from getting arguments mixed up:  
 
+```
 2:23:respawn:/sbin/rungetty -u root tty2 -- fbterm -- login  
+```
 
+you can also update tty terminal with following command:  
 
-you can also update tty terminal with following command:
+``````
+
 /etc/init/tty1.conf
+```
 
 Note: /etc/inittab is not anymore used in debian distro.  
 inittab ဖိုင်ကို မသုံးတော့ဘူး။   
@@ -126,6 +140,7 @@ inittab ဖိုင်ကို မသုံးတော့ဘူး။
 
 # Configuration for FbTerm
 
+```
 # Lines starting with '#' are ignored.
 # Note that end-of-line comments are NOT supported, comments must be on a line of their own.
 
@@ -169,29 +184,33 @@ input-method=
 
 # treat ambiguous width characters as wide
 #ambiguous-wide=yes
+```
 
-----------
-
+```
 TERM="xterm-256color"
-
+```
 
 ## Some Example of FrameBuffer
 
-fbi xxx.jpg
-fbi xxx.png
-fbi xxx.gif (no animation but you can see the image at least)
 
-fbgs xxx.pdf (you can also view pdf file within terminal, resolution is not very good but you know it is great!)
+fbi xxx.jpg  
+fbi xxx.png  
+fbi xxx.gif (no animation but you can see the image at least)  
 
-mplayer -vo fbdev (for playing videos)
-(fbdev for Facebook Developer)
-you can use arrow keys ...
-q for exit
+fbgs xxx.pdf (you can also view pdf file within terminal, resolution is not very good but you know it is great!)  
 
--vf scale=640:480 (scaling the video frame)
+mplayer -vo fbdev (for playing videos)  
+(fbdev for Facebook Developer)  
+you can use arrow keys ...  
+q for exit  
+
+-vf scale=640:480 (scaling the video frame)  
 
 
+## Final Note
 
+fbterm မှာ Myanmar3 font နဲ့ display လုပ်လို့ ရတယ်။ terminal font ကို ttf font နဲ့ ပြောင်းလို့ ရတယ်။   
+သို့သော် မြန်မာစာဖိုင်တွေကိုဖွင့်ကြည့်တဲ့အခါမှာတော့ အဆင်မပြေဘူး။ monofont လုပ်ဖို့ လိုအပ်တယ်။  
 
 ## Reference
 
