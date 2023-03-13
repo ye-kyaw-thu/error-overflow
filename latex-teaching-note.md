@@ -1,3 +1,10 @@
+# Latex Teaching Note for My Students
+
+Date: 13 Mar 2023  
+
+## The 1st Latex Document
+
+```latex
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ ls
 doc1.tex
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ cat doc1.tex 
@@ -23,6 +30,7 @@ Transcript written on doc1.log.
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ ls
 doc1.aux  doc1.log  doc1.pdf  doc1.tex
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ 
+```
 
 ## Converting images into PDF file
 
