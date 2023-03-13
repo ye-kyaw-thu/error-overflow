@@ -1054,6 +1054,7 @@ Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/myse
 ```
 
 သူရအောင်ရေ အထက်ပါ log ဖိုင်ထဲက ရလဒ်တွေကို အမှားအယွင်းမရှိအောင် ကူယူပြီး စာတမ်းကို update လုပ်ပါ။  
+mySent model တစ်ခုပြီး တစ်ခု သုံးပြီး paragraph level test ဖိုင်နဲ့ run ခဲ့တာမို့လို့ model filename ကို confirm လုပ်ပြီး သွားမှ ဖြစ်လိမ့်မယ်။  
 
 ## Preparation for mySent-Para Model  
 
