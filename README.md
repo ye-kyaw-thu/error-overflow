@@ -176,5 +176,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 169. [PySFedit-and-PSFEditor-testing.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/PySFedit-and-PSFEditor-testing.md)  
 170. [fbterm-installation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fbterm-installation.md)  
 171. [tmux-installation4students.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tmux-installation4students.md)
+172. [latex-teaching-note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/latex-teaching-note.md)  
 
 
