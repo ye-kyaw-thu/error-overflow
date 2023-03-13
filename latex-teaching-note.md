@@ -99,6 +99,7 @@ As you can see in figure \ref{fig:mesh1}, the function grows near the origin. Th
 
 ## How to Add Myanmar Font with Xelatex compiler
 
+```
 % You have to declare the fontspec package
 %added by Ye
 \usepackage{fontspec}
@@ -106,9 +107,11 @@ As you can see in figure \ref{fig:mesh1}, the function grows near the origin. Th
 %for typing Myanmar text, you can also used with Myanmar3 font
 \newfontfamily {\padauktext}[Script=Myanmar]{Padauk}
 %\newfontinstance {\padauktext}[Script=Myanmar]{Padauk}
+```
 
 ## How to find Khmer fonts 
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/paper1$ fc-list | grep "Khmer"
 /usr/share/fonts/truetype/noto/NotoSansKhmer-Bold.ttf: Noto Sans Khmer:style=Bold
 /usr/share/fonts/truetype/noto/NotoSerifKhmer-Regular.ttf: Noto Serif Khmer:style=Regular
@@ -120,10 +123,11 @@ As you can see in figure \ref{fig:mesh1}, the function grows near the origin. Th
 /usr/share/fonts/truetype/noto/NotoSerifKhmer-Bold.ttf: Noto Serif Khmer:style=Bold
 /usr/share/fonts/truetype/noto/NotoSansKhmer-Regular.ttf: Noto Sans Khmer:style=Regular
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/paper1$ 
+```
 
 ## Math Equation Alignment Example
 
-
+```
 \documentclass[12pt, letterpaper]{article}
 \usepackage{amsmath,amssymb,amsfonts}
 
@@ -159,10 +163,11 @@ argmax_e \mathbf {P}(e|f)&=argmax_e \mathbf {P}(f|e) \mathbf{P}(e) \\
 \end{align}
 
 \end{document}
+```
 
 ## Some More Math Equation Example 
 
-
+```
 \documentclass[12pt, letterpaper]{article}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{bigints}
@@ -197,20 +202,24 @@ Let's try some more integral equations: \\
 \end{align}
 
 \end{document}
+```
 
 ## Relating to Adding Reference
 
-One Format:  
+### One Format  
 
+```
 \begin{thebibliography}{00}
 
 \bibitem{b1} Koehn, Philipp and Och, Franz Josef and Marcu, Daniel, ``Statistical phrase-based translation,'' Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics on Human Language Technology - Volume 1, 2003, pp. 48–54.
 \bibitem{b2} Koehn, Philipp and Hoang, Hieu and Birch, Alexandra and Callison-Burch, Chris and Federico, Marcello and Bertoldi, Nicola and Cowan, Brooke and Shen, Wade and Moran, Christine and Zens, Richard and Dyer, Chris and Bojar, Ond\v{r}ej and Constantin, Alexandra and Herbst, Evan, A. Constantin, and E. Herbst, ``Moses: Open source toolkit for statistical machine translation,'' Proceedings of the 45th Annual Meeting of the ACL on Interactive Poster and Demonstration Sessions, 2007, pp. 177–180.
+```
 
-Another Format:  
+### Another Format  
 
-You need to prepare bib file as follows:
+> You need to prepare bib file as follows:
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar/bib-demo2$ cat mybib.bib 
 @misc{ Nobody06,
        author = "Nobody Jr",
@@ -223,10 +232,11 @@ You need to prepare bib file as follows:
   booktitle={Interspeech},
   year={2015}
 }
+```
 
+> Then call inside from your latex source file:  
 
-Then call inside from your latex source file:
-
+```
 \documentclass[11pt]{article}
 \usepackage{cite}
 
@@ -242,9 +252,11 @@ Blablabla said Nobody ~\cite{Nobody06}. HMM based Myanmar language TTS was prpos
 \bibliography{mybib}{}
 \bibliographystyle{plain}
 \end{document}
+```
 
 ## Typing Unicode Asian Languages
 
+```
 % latex document မှာ မြန်မာစာ၊ ထိုင်း၊ ခမာ နဲ့ CJK စာတွေကို ပေါ်ဖို့ ဘယ်လို လုပ်ရသလဲ ဆိုတဲ့ example latex ပါ
 % Ye Kyaw Thu @LST, NECTEC, Thailand
 % Last Updated: 28 July 2022
@@ -325,5 +337,5 @@ For example: //
 서울에 다녀왔습니다. \\
 
 \end{document}
-
+```
 
