@@ -1125,14 +1125,16 @@ decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charc
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$
 ```
 
-
-
-```
+## Create a New Folder
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-hyp$ mkdir cross-test
 ```
 
+## Cross Testing for mySent-Para Model 
+
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/cross-test/ -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent-para.log
 ```
 
 
