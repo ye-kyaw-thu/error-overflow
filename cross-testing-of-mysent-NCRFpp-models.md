@@ -1088,14 +1088,44 @@ sed -i '7s#mysent-para-hyp#mysent-para-hyp/cross-test#' *.config
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$
 ```
 
+run above shell script as follows:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$ ./update-decode-config.sh 
 ```
 
-```
+after running, checked line no. 4 and 7 of all config files as follows:  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$ find . -type f -name '*.config' -exec sed -n '4p;7p'  {} \;
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charcnn.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-nochar.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charlstm.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charcnn.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charlstm.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-nochar.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-nochar.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charcnn.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-nochar.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charlstm.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charlstm.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charcnn.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$
+```
+
+
 
 ```
 
