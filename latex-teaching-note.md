@@ -94,7 +94,7 @@ As you can see in figure \ref{fig:mesh1}, the function grows near the origin. Th
 \end{document}
 ```
 
-**if you manually compile, you need to compile 2 times. Don't forget it!  
+**if you manually compile, you need to compile 2 times. Don't forget it!**  
 
 
 ## How to Add Myanmar Font with Xelatex compiler
