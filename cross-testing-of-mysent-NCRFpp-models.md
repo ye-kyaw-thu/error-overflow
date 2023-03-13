@@ -76,18 +76,56 @@ decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charcnn.hyp
 
 အထက်ပါအတိုင်း line no. 4 နဲ့ 7 က အားလုံး အတူတူပဲ ဆိုတာကို တွေ့ရတယ်။ အဲဒါဆိုရင် ငါ sed command ကိုပဲ ဖြစ်ဖြစ် သုံးပြီး decode confi ဖိုင်အားလုံးကို တစ်ခါတည်း ဝင်ပြင်ဖို့ ဖြစ်နိုင်တယ်။  
 
+bash shell script တစ်ပုဒ် အောက်ပါအတိုင်း ရေးခဲ့ ...  
+
+```bash
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$ cat update-decode-config.sh 
+#!/bin/bash
+
+sed -i '4s#^.*$#raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col#' *.config
+
+sed -i '7s#^.*$#decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp#' *.config
 ```
 
-```
+run the shell script:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$ chmod +x ./update-decode-config.sh 
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$ ./update-decode-config.sh 
 ```
 
+checked the update files:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$ find .  -maxdepth 1 -type f -name '*.config' -exec sed -n '4p;7p'  {} \;
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$
 ```
+
+အထက်ပါ မြင်ရတဲ့အတိုင်း decode config ဖိုင်အားလုံးကို အဆင်ပြေပြေနဲ့ update လုပ်ပေးသွားပုံ ရတယ်။  
 
 ```
 
