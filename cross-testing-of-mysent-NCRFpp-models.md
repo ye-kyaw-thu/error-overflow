@@ -150,7 +150,7 @@ run above shell script as follows:
 ```
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ chmod +x ./cross-test.sh 
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
-(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find /home/yekyaw.thu/tool/NCRFpp/mysent-config/cross-test/ -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find /home/yekyaw.thu/tool/NCRFpp/mysent-config/cross-test/ -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent.log2
 ```
 
 ## Cross-testing Result for mySent Model
@@ -186,7 +186,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charcnn.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charcnn.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -232,8 +232,8 @@ build char sequence feature extractor: CNN ...
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  83987  All token =  95820  acc =  0.8765080359006471
-raw: time:9.84s, speed:562.82st/s; acc: 0.8765, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:9.52s, speed:582.15st/s; acc: 0.8765, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charcnn.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -262,7 +262,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-nochar.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-nochar
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-nochar.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-nochar.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -304,8 +304,8 @@ build word representation...
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:9.45s, speed:586.45st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:9.38s, speed:590.77st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-nochar.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -334,7 +334,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charlstm.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charlstm.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -379,8 +379,8 @@ build word representation...
 build char sequence feature extractor: LSTM ...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:8.11s, speed:683.79st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:7.76s, speed:714.94st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charlstm.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -409,7 +409,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-nochar.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-nochar
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-nochar.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-nochar.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -451,8 +451,8 @@ build word representation...
 CNN layer:  4
 Decode raw data, nbest: None ...
 Right token =  89665  All token =  95820  acc =  0.9357649759966604
-raw: time:6.07s, speed:915.93st/s; acc: 0.9358, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:6.20s, speed:896.03st/s; acc: 0.9358, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-nochar.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -481,7 +481,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charcnn.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charcnn.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -528,8 +528,8 @@ CNN layer:  4
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:9.16s, speed:605.44st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:9.21s, speed:602.08st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charcnn.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -558,7 +558,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charlstm.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charlstm
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-crf-charlstm.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charlstm.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -604,8 +604,8 @@ build char sequence feature extractor: LSTM ...
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  89682  All token =  95820  acc =  0.9359423919849719
-raw: time:10.84s, speed:510.74st/s; acc: 0.9359, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:10.82s, speed:511.76st/s; acc: 0.9359, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charlstm.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -634,7 +634,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-nochar.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-nochar
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-nochar.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-nochar.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -677,8 +677,8 @@ CNN layer:  4
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:9.13s, speed:607.38st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:9.41s, speed:589.15st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-nochar.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -707,7 +707,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-charcnn.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charcnn.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -752,8 +752,8 @@ build word representation...
 build char sequence feature extractor: CNN ...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:6.72s, speed:826.67st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:6.70s, speed:828.88st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charcnn.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -782,7 +782,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-nochar.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-nochar
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordlstm-nochar.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-nochar.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -823,8 +823,8 @@ build word sequence feature extractor: LSTM...
 build word representation...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:6.62s, speed:839.00st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:6.55s, speed:848.15st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-nochar.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -853,7 +853,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-crf-charlstm.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charlstm.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -900,8 +900,8 @@ CNN layer:  4
 build CRF...
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:10.43s, speed:531.07st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:10.27s, speed:539.21st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charlstm.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -930,7 +930,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charlstm.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charlstm.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -976,8 +976,8 @@ build char sequence feature extractor: LSTM ...
 CNN layer:  4
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:7.45s, speed:744.86st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:7.44s, speed:745.85st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charlstm.hyp
 Seed num: 42
 MODEL: decode
 /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
@@ -1006,7 +1006,7 @@ DATA SUMMARY START:
      Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn.dset
      Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn
      Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-model/wordcnn-charcnn.0.model
-     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charcnn.hyp
      Train instance number: 39999
      Dev   instance number: 2414
      Test  instance number: 4712
@@ -1052,8 +1052,8 @@ build char sequence feature extractor: CNN ...
 CNN layer:  4
 Decode raw data, nbest: None ...
 Right token =  89713  All token =  95820  acc =  0.936265915257775
-raw: time:6.34s, speed:877.01st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
-Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp
+raw: time:6.29s, speed:884.17st/s; acc: 0.9363, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charcnn.hyp
 ```
 
 သူရအောင်ရေ အထက်ပါ log ဖိုင်ထဲက ရလဒ်တွေကို အမှားအယွင်းမရှိအောင် ကူယူပြီး စာတမ်းကို update လုပ်ပါ။  
