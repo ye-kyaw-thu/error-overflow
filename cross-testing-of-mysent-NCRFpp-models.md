@@ -1137,151 +1137,908 @@ decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charc
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/cross-test/ -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent-para.log
 ```
 
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+## Results for mySent-Para Testing with Sentence Level Data
+
+testing ရလဒ်တွေက အောက်ပါအတိုင်း ....   
+
+```
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charcnn.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  54994  All token =  63622  acc =  0.8643865329602968
+raw: time:5.82s, speed:814.44st/s; acc: 0.8644, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charcnn.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-nochar.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63266  All token =  63622  acc =  0.9944044512904341
+raw: time:5.57s, speed:852.22st/s; acc: 0.9944, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-nochar.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+Decode raw data, nbest: None ...
+Right token =  63295  All token =  63622  acc =  0.9948602684605954
+raw: time:4.87s, speed:975.18st/s; acc: 0.9949, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charlstm.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charcnn.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63160  All token =  63622  acc =  0.9927383609443274
+raw: time:5.65s, speed:839.97st/s; acc: 0.9927, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charcnn.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-crf-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  LSTM
+use crf:  True
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: LSTM ...
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63344  All token =  63622  acc =  0.9956304422998334
+raw: time:6.67s, speed:710.46st/s; acc: 0.9956, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-crf-charlstm.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-nochar.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-nochar
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-nochar.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-nochar.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63244  All token =  63622  acc =  0.9940586589544497
+raw: time:3.75s, speed:1270.56st/s; acc: 0.9941, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-nochar.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-nochar.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63254  All token =  63622  acc =  0.9942158372889881
+raw: time:5.43s, speed:874.27st/s; acc: 0.9942, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-nochar.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charcnn.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+build char sequence feature extractor: CNN ...
+Decode raw data, nbest: None ...
+Right token =  47596  All token =  63622  acc =  0.7481060010688126
+raw: time:4.06s, speed:1171.61st/s; acc: 0.7481, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-charcnn.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-nochar.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: LSTM
+     Model       use_char: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordlstm-nochar
+build sequence labeling network...
+use_char:  False
+word feature extractor:  LSTM
+use crf:  False
+build word sequence feature extractor: LSTM...
+build word representation...
+Decode raw data, nbest: None ...
+Right token =  63268  All token =  63622  acc =  0.9944358869573418
+raw: time:3.87s, speed:1228.48st/s; acc: 0.9944, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordlstm-nochar.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-crf-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  CNN
+use crf:  True
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: LSTM ...
+CNN layer:  4
+build CRF...
+Decode raw data, nbest: None ...
+Right token =  63300  All token =  63622  acc =  0.9949388576278646
+raw: time:6.46s, speed:734.59st/s; acc: 0.9949, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-crf-charlstm.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charlstm.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: LSTM
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charlstm
+build sequence labeling network...
+use_char:  True
+char feature extractor:  LSTM
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: LSTM ...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63404  All token =  63622  acc =  0.9965735123070636
+raw: time:4.56s, speed:1041.92st/s; acc: 0.9966, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charlstm.hyp
+Seed num: 42
+MODEL: decode
+/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Start   Sequence   Laebling   task...
+     Tag          scheme: NoSeg
+     Split         token:  ||| 
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 44645
+     Char  alphabet size: 289
+     Label alphabet size: 5
+     Word embedding  dir: None
+     Char embedding  dir: None
+     Word embedding size: 50
+     Char embedding size: 30
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Train  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/train.col
+     Dev    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/valid.col
+     Test   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-config/data/para/test.col
+     Raw    file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
+     Dset   file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.dset
+     Model  file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+     Loadmodel   directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn.0.model
+     Decode file directory: /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charcnn.hyp
+     Train instance number: 46991
+     Dev   instance number: 3077
+     Test  instance number: 5510
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: False
+     Model word extractor: CNN
+     Model       use_char: True
+     Model char extractor: CNN
+     Model char_hidden_dim: 50
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 100
+     BatchSize: 10
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.0005
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 1
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nbest: None
+Load Model from file:  /home/yekyaw.thu/tool/NCRFpp/mysent-para-model/wordcnn-charcnn
+build sequence labeling network...
+use_char:  True
+char feature extractor:  CNN
+word feature extractor:  CNN
+use crf:  False
+build word sequence feature extractor: CNN...
+build word representation...
+build char sequence feature extractor: CNN ...
+CNN layer:  4
+Decode raw data, nbest: None ...
+Right token =  63154  All token =  63622  acc =  0.9926440539436044
+raw: time:3.84s, speed:1240.06st/s; acc: 0.9926, p: -1.0000, r: -1.0000, f: -1.0000
+Predict raw result has been written into file. /home/yekyaw.thu/tool/NCRFpp/mysent-para-hyp/cross-test/wordcnn-charcnn.hyp
+```
+
+==== Fin ====
 
