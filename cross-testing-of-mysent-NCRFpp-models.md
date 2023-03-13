@@ -127,12 +127,26 @@ decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-te
 
 အထက်ပါ မြင်ရတဲ့အတိုင်း decode config ဖိုင်အားလုံးကို အဆင်ပြေပြေနဲ့ update လုပ်ပေးသွားပုံ ရတယ်။  
 
+## Prepare cross-test.sh
+
+cross testing လုပ်ဖို့ shell script ကို အောက်ပါအတိုင်း ရေးခဲ့ ...  
+
+```bash
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ cat cross-test.sh 
+#!/bin/bash
+
+time python ./main.py --config $1 | tee ./mysent-model/$1.cross.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$
 ```
 
-```
+## Cross-testing for mySent Model
+
+run above shell script as follows:  
 
 ```
-
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ chmod +x ./cross-test.sh 
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find ./mysent-config/cross-test/  -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent.log
 ```
 
 ```
