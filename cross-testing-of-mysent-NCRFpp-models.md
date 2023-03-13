@@ -87,7 +87,7 @@ sed -i '4s#^.*$#raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/tes
 # error
 #sed -i '7s#^.*$#decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.cross-test.hyp#' *.config
 
-sed -i '7s#mysent-hyp#decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test#' *.config
+sed -i '7s#mysent-hyp#mysent-hyp/cross-test#' *.config
 ```
 
 run the shell script:  
@@ -102,53 +102,30 @@ checked the update files:
 ```
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$ find . -type f -name '*.config' -exec sed -n '4p;7p'  {} \;
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charcnn.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charcnn.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-nochar.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-nochar.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charlstm.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charlstm.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-nochar.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-nochar.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charcnn.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charcnn.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charlstm.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-crf-charlstm.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-nochar.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-nochar.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charcnn.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charcnn.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-nochar.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charlstm.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-nochar.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charcnn.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-crf-charlstm.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-nochar.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-charcnn.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordlstm-nochar.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-crf-charlstm.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charlstm.hyp
-raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/wordcnn-charcnn.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-charcnn.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-nochar.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordlstm-nochar.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charlstm.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-crf-charlstm.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charlstm.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charlstm.hyp
 raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/para/test.col
-decode_dir=/home/yekyaw.thu/tool/NCRFpp/decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charcnn.hyp
+decode_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-hyp/cross-test/wordcnn-charcnn.hyp
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-config/cross-test$
 ```
 
 အထက်ပါ မြင်ရတဲ့အတိုင်း decode config ဖိုင်အားလုံးကို အဆင်ပြေပြေနဲ့ update လုပ်ပေးသွားပုံ ရတယ်။  
