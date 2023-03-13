@@ -1059,7 +1059,18 @@ mySent model တစ်ခုပြီး တစ်ခု သုံးပြီ�
 ## Preparation for mySent-Para Model  
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$ ls
+word-cnn.char-cnn.decode.config       word-lstm.char-cnn.decode.config
+word-cnn.char-lstm.decode.config      word-lstm.char-lstm.decode.config
+word-cnn.crf.char-cnn.decode.config   word-lstm.crf.char-cnn.decode.config
+word-cnn.crf.char-lstm.decode.config  word-lstm.crf.char-lstm.decode.config
+word-cnn.crf.nochar.decode.config     word-lstm.crf.nochar.decode.config
+word-cnn.no-char.decode.config	      word-lstm.no-char.decode.config
+```
 
+```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$ ls | wc
+     12      12     412
 ```
 
 
