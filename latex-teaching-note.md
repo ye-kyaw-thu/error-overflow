@@ -4,7 +4,7 @@ Date: 13 Mar 2023
 
 ## The 1st Latex Document
 
-```latex
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ ls
 doc1.tex
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar$ cat doc1.tex 
@@ -34,14 +34,17 @@ doc1.aux  doc1.log  doc1.pdf  doc1.tex
 
 ## Converting images into PDF file
 
+```
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar/fig$ ls
 universe.jpg
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar/fig$ convert ./universe.jpg ./universe.pdf
 (base) ye@ykt-pro:/media/ye/project1/cadt/student/internship/demo/latex/13mar/fig$ ls
 universe.jpg  universe.pdf
+```
 
 ## Embedding pdf file inside your latex source 
 
+```
 \documentclass{article}
 \usepackage{graphicx}% LaTeX package to import graphics
 \graphicspath{{images/}} % configuring the graphicx package
@@ -60,9 +63,11 @@ on a large scale, everywhere we look.
  
 There's a picture of a galaxy above.
 \end{document}
+```
 
 ## Adding One more figure and usage of \ref{}
 
+```
 \begin{document}
 
 Now I will add one more figure.  \\
@@ -87,8 +92,9 @@ As you can see in figure \ref{fig:mesh1}, the function grows near the origin. Th
 
 
 \end{document}
+```
 
-**** if you manually compile, you need to compile 2 times. Don't forget it!
+**if you manually compile, you need to compile 2 times. Don't forget it!  
 
 
 ## How to Add Myanmar Font with Xelatex compiler
