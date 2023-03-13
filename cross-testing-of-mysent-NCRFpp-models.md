@@ -146,7 +146,7 @@ run above shell script as follows:
 ```
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ chmod +x ./cross-test.sh 
 (ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ 
-(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find ./mysent-config/cross-test/  -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \; | tee cross-test-mysent.log
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp$ find ./mysent-config/cross-test/  -maxdepth 1 -type f -name '*.config' -exec ./cross-test.sh  {} \;
 ```
 
 ```
