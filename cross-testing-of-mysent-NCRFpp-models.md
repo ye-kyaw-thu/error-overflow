@@ -1076,11 +1076,18 @@ word-cnn.no-char.decode.config	      word-lstm.no-char.decode.config
      12      12     412
 ```
 
-
-
-```
+## Update the shell script
 
 ```
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$ cat ./update-decode-config.sh 
+#!/bin/bash
+
+sed -i '4s#^.*$#raw_dir=/home/yekyaw.thu/tool/NCRFpp/mysent-config/data/sent/test.col#' *.config
+
+sed -i '7s#mysent-para-hyp#mysent-para-hyp/cross-test#' *.config
+(ncrfpp) yekyaw.thu@gpu:~/tool/NCRFpp/mysent-para-config/cross-test$
+```
+
 
 ```
 
