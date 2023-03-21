@@ -1669,7 +1669,7 @@ pip နဲ့ install လုပ်ကြည့်တော့လည်း error 
 ပြဿနာက cmake, make တို့ run ခဲ့တုန်းက ကြုံခဲ့ရတဲ့ ပြဿနာနဲ့ အတူတူပဲလို့ ထင်တယ်။  
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ vi setup.py ကို ကြည့်တော့ line no. 82, 83 မှာ cmake, build အတွက် argument pass လုပ်လို့ ရနိုင်တာကို ရှာဖွေတွေ့ရှိခဲ့ ...  
 
-
+```
  75         if platform.system() == "Windows":
  76             # cmake_args += ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}'.format(cfg.upper(), extdir)]
  77             # if sys.maxsize > 2 * *32:
@@ -1679,23 +1679,28 @@ pip နဲ့ install လုပ်ကြည့်တော့လည်း error 
  81         else:
  82             cmake_args += ["-DCMAKE_BUILD_TYPE=" + cfg]
  83             build_args += ["--", "-j4"]
-
+```
 
 ငါ့အနေနဲ့ အထက်မှာ run ခဲ့တုန်းက parameter တွေက အောက်ပါအတိုင်းမို့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ cmake -DCMAKE_CUDA_ARCHITECTURES=72 -B build -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc .
+```
 
 အဲဒီ parameter နှစ်ခုကို ထပ်ဖြည့်ပေးလိုက်ရင် အဆင်ပြေနိုင်တယ်လို့ ယူဆခဲ့ ...  
 
+```
  82             #cmake_args += ["-DCMAKE_BUILD_TYPE=" + cfg]
  83             cmake_args += ["-DCMAKE_CUDA_ARCHITECTURES=72 -B build -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc . "     + "-DCMAKE_BUILD_TYPE=" + cfg]
  84             #build_args += ["--", "-j4"]
  85             build_args += ["--", "-j24"]
+```
 
 ## Run setup.py install Again
 
 အထက်ပါအတိုင်း setup.py ကို update လုပ်ပြီး run ကြည့်တော့ အောက်ပါအတိုင်း error ပေးခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ python setup.py install
 running install
 /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
@@ -1723,9 +1728,11 @@ CMake Error in CMakeLists.txt:
 
 -- Generating done (0.0s)
 CMake Generate step failed.  Build files cannot be regenerated correctly.
+```
 
 ## Remove -B option and Run setup.py install again
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ python setup.py install
 running install
 /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
@@ -1750,11 +1757,13 @@ CMake Warning:
 
 
 -- Building Python bindings.
+```
 
 ## Updating in Other Parts
 
 ဒီတစ်ခါတော့ cmake_args ဆိုတဲ့ နေရာမှာ ဝင်ပြင်ခဲ့၊ အထက်က ပြင်ခဲ့တဲ့ line ကို comment ပိတ်ထားခဲ့။ ပြင်ခဲ့တာက အောက်ပါအတိုင်း ...  
 
+```
  62         cmake_args = [
  63             "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + extdir,
  64             "-DPYTHON_EXECUTABLE=" + sys.executable,
@@ -1766,9 +1775,11 @@ CMake Warning:
  70             "-DCMAKE_CUDA_ARCHITECTURES=72",
  71             "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc .",
  72         ]
+```
 
 ## Run setup.py install Again
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ python setup.py install
 running install
 /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
@@ -1875,12 +1886,13 @@ Traceback (most recent call last):
     raise CalledProcessError(retcode, cmd)
 subprocess.CalledProcessError: Command '['cmake', '/home/rnd/tool/gtn/bindings/python/src', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/rnd/tool/gtn/bindings/python/build/lib.linux-x86_64-cpython-38/gtn/', '-DPYTHON_EXECUTABLE=/home/rnd/anaconda3/envs/gtn/bin/python', '-DPROJECT_SOURCE_DIR=/home/rnd/tool/gtn/bindings/python/src', '-DGTN_BUILD_PYTHON_BINDINGS=ON', '-DGTN_BUILD_EXAMPLES=OFF', '-DGTN_BUILD_BENCHMARKS=OFF', '-DGTN_BUILD_TESTS=OFF', '-DCMAKE_CUDA_ARCHITECTURES=72', '-DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc .', '-DCMAKE_BUILD_TYPE=Release']' returned non-zero exit status 1.
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ 
+```
 
 ## Update and Run Again
 
 အထက်က error ပေးနေတာက CMAKE_CUDER_COMPILER မှာ နောက်ဆုံး . (i.e. current path) ဆိုတာကြောင့်လို့ ခန့်မှန်းပြီး အဲဒီ path မှာ ပါနေတဲ့ . ကို အောက်ပါအတိုင်း ဖြုတ်ခဲ့ ...  
 
-
+```
         cmake_args = [
             "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + extdir,
             "-DPYTHON_EXECUTABLE=" + sys.executable,
@@ -1892,10 +1904,11 @@ subprocess.CalledProcessError: Command '['cmake', '/home/rnd/tool/gtn/bindings/p
             "-DCMAKE_CUDA_ARCHITECTURES=72",
             "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc",
         ]
-
+```
 
 ပြီးတော့ setup.py ကို နောက်တစ်ခေါက် ထပ် run ကြည့်ခဲ့တော့ ... အောက်ပါအတိုင်း အဆင်ပြေပြေနဲ့ python binding လုပ်သွားတာကို တွေ့ရ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ python setup.py install
 running install
 /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
@@ -2238,11 +2251,13 @@ Installed /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/gtn-0.0.1-py3
 Processing dependencies for gtn==0.0.1
 Finished processing dependencies for gtn==0.0.1
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ 
+```
 
 ## Install numpy Library
 
 လက်ရှိ စက်မှာ account အသစ်နဲ့ ပြီးတော့ environment အသစ်နဲ့ စမ်းနေတာမို့ numpy Library က မရှိသေးဘူး။ testing လုပ်ကြည့်ဖို့အတွက် လိုအပ်တဲ့ numpy Library ကို အောက်ပါအတိုင်း install လုပ်ခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ pip install numpy
 Collecting numpy
   Downloading numpy-1.24.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
@@ -2250,6 +2265,7 @@ Collecting numpy
 Installing collected packages: numpy
 Successfully installed numpy-1.24.2
 (gtn) rnd@gpu:~/tool/gtn$ 
+```
 
 ## Testing with Python
 
