@@ -2543,12 +2543,12 @@ union လုပ်ပြီး ထွက်လာတဲ့ နောက်ဆု
 
 ## Reference
 
-- https://github.com/NVlabs/instant-ngp/issues/747
-- https://askubuntu.com/questions/1301714/nvcc-fatal-value-sm-86-is-not-defined-for-option-gpu-architecture
-- https://github.com/NVIDIA/MinkowskiEngine/issues/207
-- https://github.com/gtn-org/gtn/issues/32
-- https://github.com/NVlabs/instant-ngp/issues/39
-- https://stackoverflow.com/questions/42585210/extending-setuptools-extension-to-use-cmake-in-setup-py
+- [https://github.com/NVlabs/instant-ngp/issues/747](https://github.com/NVlabs/instant-ngp/issues/747)
+- [https://askubuntu.com/questions/1301714/nvcc-fatal-value-sm-86-is-not-defined-for-option-gpu-architecture](https://askubuntu.com/questions/1301714/nvcc-fatal-value-sm-86-is-not-defined-for-option-gpu-architecture)
+- [https://github.com/NVIDIA/MinkowskiEngine/issues/207](https://github.com/NVIDIA/MinkowskiEngine/issues/207)
+- [https://github.com/gtn-org/gtn/issues/32](https://github.com/gtn-org/gtn/issues/32)
+- [https://github.com/NVlabs/instant-ngp/issues/39](https://github.com/NVlabs/instant-ngp/issues/39)
+- [https://stackoverflow.com/questions/42585210/extending-setuptools-extension-to-use-cmake-in-setup-py](https://stackoverflow.com/questions/42585210/extending-setuptools-extension-to-use-cmake-in-setup-py)
 
 
 
