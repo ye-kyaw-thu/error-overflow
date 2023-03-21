@@ -2269,6 +2269,7 @@ Successfully installed numpy-1.24.2
 
 ## Testing with Python
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ time python -m unittest discover bindings/python/test
 ...F.............................Es....F...........
 ======================================================================
@@ -2304,6 +2305,7 @@ real	0m2.169s
 user	0m1.976s
 sys	0m3.384s
 (gtn) rnd@gpu:~/tool/gtn$ 
+```
 
 အထက်ပါအတိုင်း Error ပေးပြီး ရပ်သွားခဲ့ ...  
 
@@ -2313,16 +2315,17 @@ Error ပေးနေတဲ့ ...
 /home/rnd/tool/gtn/bindings/python/test/test_cuda.py ပရိုဂရမ်ရဲ့ ...  
 line 39 ဆိုတာကို ဝင်လေ့လာခဲ့ ...  
 
+```
  37       if gtn.cuda.device_count() > 1:
  38         gpu1 = gtn.Device(gtn.CUDA, 1)
  39         self.assertTrue(gtn.equal(g.cuda(gpu1).cpu(), g))
  40         self.assertTrue(gtn.equal(gdev.cuda(gpu1).cpu(), g))
-
+```
 
 ပြီးတော့ ...  /home/rnd/tool/gtn/bindings/python/src/gtn/cuda/cuda.cu ပရိုဂရမ်ကိုလည်း ဝင်လေ့လာခဲ့ ...  
 line 88 မှာ error ပေးနေတာတဲ့ ...  
 
-
+```
  79 void subtract(const float* a, const float* b, float* out, size_t size) {
  80   transform(
  81     a, a + size, b, out,
@@ -2335,13 +2338,15 @@ line 88 မှာ error ပေးနေတာတဲ့ ...
  88   CUDA_CHECK(cudaMemcpyAsync(dst, src, size, cudaMemcpyDefault));
  89 }
  90 
-
+```
 
 တကယ် testing လုပ်ခဲ့တာက 51 ခု၊ အဲဒီအထဲမှာမှ နှစ်မျိုးက failed ဖြစ်ပြီး 1 error, 1 skipped မို့လို့ ...  
 
+```
 Ran 51 tests in 1.930s
 
 FAILED (failures=2, errors=1, skipped=1)
+```
 
 ခဏမေ့ထားပြီး တကယ် run ကြည့်ချင်တဲ့ example program တွေကို run ကြည့်ရင်ကော ....  
 မိုးလင်းတော့မယ်။ Lab ကနေ မပြန်ရသေး ....  
@@ -2350,6 +2355,7 @@ FAILED (failures=2, errors=1, skipped=1)
 
 Example program မှာက finite state ပုံတွေကို dot နဲ့ ဆွဲမှာမို့လို့ graphviz ကို install လုပ်ဖို့ လိုအပ်တယ်။   
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ time sudo apt-get install graphviz
 [sudo] password for rnd: 
 Reading package lists... Done
@@ -2430,12 +2436,15 @@ real	0m38.336s
 user	0m8.255s
 sys	0m2.362s
 (gtn) rnd@gpu:~/tool/gtn$
+```
 
 ## Check the dot Version
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ dot -V
 dot - graphviz version 2.43.0 (0)
 (gtn) rnd@gpu:~/tool/gtn$ 
+```
 
 It looks OK! ...  
 
@@ -2443,6 +2452,7 @@ It looks OK! ...
 
 Testing လုပ်ကြည့်မယ့် python program က အောက်ပါအတိုင်း ...  
 
+```python
 #!/usr/bin/env python3
 """
 Copyright (c) Facebook, Inc. and its affiliates.
@@ -2487,30 +2497,35 @@ gtn.draw(g3, "/tmp/union_g3.pdf", symbols, symbols)
 graph = gtn.union([g1, g2, g3])
 
 gtn.draw(graph, "/tmp/union_graph.pdf", symbols, symbols)
+```
 
 အဲဒါကြောင့် run ပြီးသွားရင် output pdf ဖိုင်တွေက /tmp/ အောက်မှာ ရှိလိမ့်မယ်။  
 
 Let's run ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ time python bindings/python/examples/simple_graph.py 
 
 real	0m0.261s
 user	0m0.088s
 sys	0m0.152s
 (gtn) rnd@gpu:~/tool/gtn$ 
+```
 
 output PDF ဖိုင်တွေကို စစ်ကြည့်တော့ အောက်ပါအတိုင်း pdf ဖိုင်တွေကို တွေ့ရလို့ ပျော်တယ် ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ ls /tmp/*.pdf
 /tmp/union_g1.pdf  /tmp/union_g2.pdf  /tmp/union_g3.pdf  /tmp/union_graph.pdf
 (gtn) rnd@gpu:~/tool/gtn$
+```
 
 ## Learning Output PDF Files
 
 PDF  ဖိုင်တွေကို local machine ပေါ်ကို copy ကူးယူခဲ့ပြီး markdown မှာ ပြဖို့အတွက် jpg ဖိုင်အဖြစ် ပြောင်းခဲ့ပြီး fig/ ဖိုလ်ဒါအောက်မှာ သိမ်းထားခဲ့ ...  
 
 
-https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.jpg
+![union_g1.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.jpg)
 
 
 
