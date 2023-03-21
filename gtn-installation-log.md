@@ -373,6 +373,7 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 ## Run cmake .. for GTN
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ cmake ..
 -- The CXX compiler identification is GNU 8.4.0
 -- Detecting CXX compiler ABI info
@@ -414,9 +415,11 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Generating done (0.0s)
 -- Build files have been written to: /home/rnd/tool/gtn/build
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Run make Got Error
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make -j24
 [  1%] Building CXX object CMakeFiles/gtn.dir/gtn/cpu/compose.cpp.o
 [  3%] Building CXX object CMakeFiles/gtn.dir/gtn/cpu/creations.cpp.o
@@ -448,23 +451,28 @@ make[2]: *** [CMakeFiles/gtn.dir/build.make:317: CMakeFiles/gtn.dir/gtn/cuda/sho
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Check nvcc Version
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ nvcc -V
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2019 NVIDIA Corporation
 Built on Sun_Jul_28_19:07:16_PDT_2019
 Cuda compilation tools, release 10.1, V10.1.243
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ which nvcc
 /usr/bin/nvcc
 (gtn) rnd@gpu:~/tool/gtn/build$
-
+```
 
 nvcc --help ဆိုတဲ့ command ကနေ လေ့လာကြည့်ခဲ့ ...  
 
+```
 --gpu-architecture <arch>                  (-arch)                         
         Specify the name of the class of NVIDIA 'virtual' GPU architecture for which
         the CUDA input files must be compiled.
@@ -509,11 +517,14 @@ nvcc --help ဆိုတဲ့ command ကနေ လေ့လာကြည့်�
         'compute_62','compute_70','compute_72','compute_75','sm_30','sm_32','sm_35',
         'sm_37','sm_50','sm_52','sm_53','sm_60','sm_61','sm_62','sm_70','sm_72',
         'sm_75'.
+```
 
-
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ ls /usr/local/
 bin  cuda  cuda-11  cuda-11.4  doc  etc  games  go  include  lib  man  sbin  share  src
+```
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ sudo find / -name nvcc
 [sudo] password for rnd: 
 /opt/cuda-11.4/bin/nvcc
@@ -527,18 +538,24 @@ bin  cuda  cuda-11  cuda-11.4  doc  etc  games  go  include  lib  man  sbin  sha
 /usr/bin/nvcc
 /usr/local/cuda-11.4/bin/nvcc
 (gtn) rnd@gpu:~/tool/gtn/build$
+```
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ which nvcc
 /usr/bin/nvcc
+```
 
 $PATH ကို ခေါ်ကြည့်တော့လည်း /usr/bin/ path က ပါပြီးသားမို့... ဘာပြဿနာလဲ ?!  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ echo $PATH
 /home/rnd/anaconda3/envs/gtn/bin:/home/rnd/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rnd/marian/build
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Run nvidia-smi Command
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ nvidia-smi
 Tue Mar 21 23:41:08 2023       
 +-----------------------------------------------------------------------------+
@@ -569,22 +586,25 @@ Tue Mar 21 23:41:08 2023
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 (gtn) rnd@gpu:~/tool/gtn/build$ 
-
+```
 
 ## Check
 
 ဒီ link: https://github.com/NVlabs/instant-ngp/issues/747 
 မှာ ပြောထားသလိုပဲ ... 
 
+```
 You might have an old installation of nvidia-cuda-toolkit installed via apt-get (like me). To check, run:
 apt-cache policy nvidia-cuda-toolkit
 
 I suspect you have that package installed and the version is 10.1, so you'll want to remove it.
 
 sudo apt remove nvidia-cuda-toolkit
+```
 
 check လုပ်ကြည့်တော့ version 10.1 ကို installation လုပ်ထားတာ တွေ့ရတယ် ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ apt-cache policy nvidia-cuda-toolkit
 nvidia-cuda-toolkit:
   Installed: 10.1.243-3
@@ -594,6 +614,7 @@ nvidia-cuda-toolkit:
         500 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages
         100 /var/lib/dpkg/status
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 သို့သော် remove လုပ်ဖို့က အလွယ်တကူနဲ့ မလုပ်သင့် ....  
 
@@ -601,16 +622,21 @@ nvidia-cuda-toolkit:
 
 Error ပေးနေတဲ့ /home/rnd/tool/gtn/build/CMakeFiles/gtn.dir/ folder အောက်က build.make ဖိုင်ရဲ့ line no. 258 ကို ဝင်စစ်ကြည့်တော့ အောက်ပါအတိုင်း တွေ့ရ ...  
 
+```
 258         /usr/bin/nvcc  $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -x cu -c /home/rnd/tool/gtn/gtn/cuda/creations.cu -o     CMakeFiles/gtn.dir/gtn/cuda/creations.cu.o
+```
 
 အောက်ပါ လင့်ကနေ
 
+```
 https://github.com/pytorch/vision/issues/2001
+```
 
 flags.make ဖိုင်ကို ဝင်ကြည့်ဖို့ အိုက်ဒီယာ ရခဲ့ ...  
 
 ## Check flags.make File
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build/CMakeFiles/gtn.dir$ cat flags.make
 # CMAKE generated file: DO NOT EDIT!
 # Generated by "Unix Makefiles" Generator, CMake Version 3.26
@@ -630,7 +656,7 @@ CXX_INCLUDES = -I/home/rnd/tool/gtn
 CXX_FLAGS = -std=gnu++14 -fPIC
 
 (gtn) rnd@gpu:~/tool/gtn/build/CMakeFiles/gtn.dir$ 
-
+```
 
 အထက်ပါ မြင်ရတဲ့ -arch=sm_80 ကို ဝင်ပြင်ပြီး run ကြည့်ဖို့ ဆုံးဖြတ်ခဲ့ ...  
 
@@ -638,6 +664,7 @@ CXX_FLAGS = -std=gnu++14 -fPIC
 
 ## Run make Again
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make -j24
 [  6%] Building CXX object CMakeFiles/gtn.dir/gtn/autograd.cpp.o
 [  6%] Building CXX object CMakeFiles/gtn.dir/gtn/cpu/compose.cpp.o
@@ -669,6 +696,7 @@ make[2]: *** [CMakeFiles/gtn.dir/build.make:317: CMakeFiles/gtn.dir/gtn/cuda/sho
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 အထက်ပါအတိုင်း Error အသစ်နဲ့ ရပ်သွားခဲ့ ...  
 
