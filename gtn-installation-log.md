@@ -702,6 +702,7 @@ make: *** [Makefile:146: all] Error 2
 
 ## Updating CMakeLists.txt File
 
+```
 cmake ကိုပါ setting ပြောင်းပြီး အရင် run မှ ဖြစ်မယ်လို့ ယူဆလို့ ...  
 /home/rnd/tool/gtn/ path အောက်က CMakeLists.txt ဖိုင်မှာ အောက်ပါအတိုင်း ရှိနေတဲ့အထဲကနေမှ ...  
 
@@ -713,6 +714,7 @@ cmake ကိုပါ setting ပြောင်းပြီး အရင် run
  40     $<$<COMPILE_LANGUAGE:CUDA>:-default-stream=per-thread>
  41     $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
  42 endif()
+```
 
 line no. 39 ရဲ့ sm_80 ကို လက်ရှိ nvcc က support လုပ်တဲ့ architecture တစ်ခု ဖြစ်တဲ့ sm_75 အနေနဲ့ ပြောင်းပြီး ဖိုင်ကို update လုပ်ခဲ့ ...  
 
@@ -720,6 +722,7 @@ line no. 39 ရဲ့ sm_80 ကို လက်ရှိ nvcc က support လု
 
 cmake .. ကို နောက်တစ်ခေါက် ပြန် run ခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ sudo rm -rf build
 [sudo] password for rnd: 
 (gtn) rnd@gpu:~/tool/gtn$ mkdir build
@@ -775,9 +778,11 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Generating done (0.0s)
 -- Build files have been written to: /home/rnd/tool/gtn/build
 (gtn) rnd@gpu:~/tool/gtn/build$
+```
 
 ## Run make Command Again
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make -j24
 [  5%] Building CXX object CMakeFiles/gtn.dir/gtn/autograd.cpp.o
 [  5%] Building CXX object CMakeFiles/gtn.dir/gtn/cpu/functions.cpp.o
@@ -809,18 +814,22 @@ make[2]: *** [CMakeFiles/gtn.dir/build.make:317: CMakeFiles/gtn.dir/gtn/cuda/sho
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 အထက်ပါအတိုင်း Error ပေးနေလို့ sm_80 တစ်ခုတည်း မကပဲ တစ်ခြား option တချို့ကိုပါ change ပေးရမလား တချို့ option တွေကို comment ပိတ်ပေးရမလား စဉ်းစားခဲ့ ...  
 
 ## Updating CMakeLists.txt
 
 အောက်ပါ link ကနေ
+
+```
 https://github.com/NVIDIA/MinkowskiEngine/issues/207 
+```
 
 Dont use --extended-lambda but rather --expt-extended-lambda ဆိုတဲ့ အချက်ကို တွေ့ရ ....  
-
 အဲဒါနဲ့ ဖိုင်ကို ဝင်ကြည့်တော့ ... 
 
+```
  36 if (GTN_BUILD_CUDA)
  37   # TODO, better way to set these arch flags
  38   add_compile_options(
@@ -828,11 +837,13 @@ Dont use --extended-lambda but rather --expt-extended-lambda ဆိုတဲ့ 
  40     $<$<COMPILE_LANGUAGE:CUDA>:-default-stream=per-thread>
  41     $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
  42 endif()
+```
 
 --extended-lambda အစား --expt-extended-lambda နဲ့ ပြောင်းခဲ့ ...  
 
 ## Rerun cmake and make Again
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ sudo rm -rf ./build
 (gtn) rnd@gpu:~/tool/gtn$ mkdir build
 (gtn) rnd@gpu:~/tool/gtn$ cd build
@@ -887,9 +898,11 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Generating done (0.0s)
 -- Build files have been written to: /home/rnd/tool/gtn/build
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 cmake run တာ ပြီးသွားလို့ make command ကို ဆက် run ခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make -j24
 [  1%] Building CXX object CMakeFiles/gtn.dir/gtn/autograd.cpp.o
 [  5%] Building CXX object CMakeFiles/gtn.dir/gtn/creations.cpp.o
@@ -921,11 +934,13 @@ make[2]: *** Waiting for unfinished jobs....
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 အထက်ပါအတိုင်း Error Message အသစ်က ကြိုဆိုနေခဲ့ ... :)  
 
 ##  Trying with -DCMAKE_CUDA_ARCHITECTURES
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ sudo rm -rf ./build
 (gtn) rnd@gpu:~/tool/gtn$ nano CMakeLists.txt 
 (gtn) rnd@gpu:~/tool/gtn$ mkdir build
@@ -993,11 +1008,13 @@ make[2]: *** Waiting for unfinished jobs....
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Removed --extended-lambda Option
 
 --extended-lambda သို့မဟုတ် --expt-extended-lambda ရေးရတဲ့ line တစ်ခုလုံးကို comment ပိတ်ပြီး compile လုပ်ကြည့်တော့ အောက်ပါအတိုင်း error ပေးခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make -j24
 [  1%] Building CXX object CMakeFiles/gtn.dir/gtn/autograd.cpp.o
 [  3%] Building CXX object CMakeFiles/gtn.dir/gtn/cpu/compose.cpp.o
@@ -1047,6 +1064,7 @@ make[2]: *** Waiting for unfinished jobs....
 make[1]: *** [CMakeFiles/Makefile2:174: CMakeFiles/gtn.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Solution
 
@@ -1054,6 +1072,7 @@ make: *** [Makefile:146: all] Error 2
 
 အဲဒီတော့ nvcc path ကို assign လုပ်ပေးမှ ရတာနဲ့ architecture က 72 နဲ့ လက်ရှိ GPU စက်မှာ အဆင်ပြေတယ် ဆိုတဲ့ သဘောပေါ့။ running log က အောက်ပါအတိုင်းပါ ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn$ rm -rf build
 (gtn) rnd@gpu:~/tool/gtn$ cmake -DCMAKE_CUDA_ARCHITECTURES=72 -B build -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.4/bin/nvcc .
 -- The CXX compiler identification is GNU 8.4.0
@@ -1163,9 +1182,11 @@ make: *** [Makefile:146: all] Error 2
 [100%] Linking CXX executable tests
 [100%] Built target tests
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## make test
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ make test
 Running tests...
 Test project /home/rnd/tool/gtn/build
@@ -1173,11 +1194,13 @@ Test project /home/rnd/tool/gtn/build
 ...
 ...
 ...
+```
 
 ကြာတယ် ...  
 
 testing လုပ်နေတဲ့အချိန်မှာ nvidia-smi command ကို run ကြည့်တော့ အောက်ပါ condition ...  
 
+```
 (base) rnd@gpu:~/tool/gtn/build$ nvidia-smi
 Wed Mar 22 02:12:33 2023       
 +-----------------------------------------------------------------------------+
@@ -1208,6 +1231,7 @@ Wed Mar 22 02:12:33 2023
 |    0   N/A  N/A   2283342      C   ...tool/gtn/build/test/tests      243MiB |
 |    2   N/A  N/A   2283342      C   ...tool/gtn/build/test/tests      207MiB |
 +-----------------------------------------------------------------------------+
+```
 
 Ctrl+C နဲ့ ရပ်တော့လည်း မရ ဖြစ်နေတဲ့ condition ...  
 
@@ -1215,6 +1239,7 @@ Ctrl+C နဲ့ ရပ်တော့လည်း မရ ဖြစ်နေတ�
 
 ## Run make install
 
+```
 (gtn) rnd@gpu:~/tool/gtn/build$ sudo make install
 [sudo] password for rnd: 
 [ 32%] Built target gtn
@@ -1262,11 +1287,13 @@ Install the project...
 -- Installing: /usr/local/include/gtn/parallel/thread_pool.h
 -- Installing: /usr/local/share/gtn/cmake/gtnConfig.cmake
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Python Binding from Source
 
 binding folder ရှိတဲ့ နေရာကို ဝင် ...  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ ls
 CMakeLists.txt  Manifest.in  README.md  benchmarks  examples  gtn  setup.py  src  test
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ 
@@ -1308,9 +1335,11 @@ Please update conda by running
 # All requested packages already installed.
 
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ 
+```
 
 setup run တော့ CMakeList.txt ကြောင့် error ပဲလို့ ထင်တယ်။ အောက်ပါအတိုင်း error ပေးပြီး ထွက်သွားတယ် ....  
 
+```
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ python setup.py install
 running install
 /home/rnd/anaconda3/envs/gtn/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
@@ -1468,11 +1497,13 @@ Traceback (most recent call last):
     raise CalledProcessError(retcode, cmd)
 subprocess.CalledProcessError: Command '['cmake', '--build', '.', '--config', 'Release', '--', '-j4']' returned non-zero exit status 2.
 (gtn) rnd@gpu:~/tool/gtn/bindings/python$ 
+```
 
 ## Python Installation With pip
 
 အထက်ပါအတိုင်း source ကနေ setup ကို run တာမှာ error ပေးနေတာကြောင့် pip နဲ့ အဆင်ပြေမလား စမ်းကြည့်ခဲ့ ...  
 
+```
 (gtn) rnd@gpu:~/tool$ pip install gtn
 Collecting gtn
   Using cached gtn-0.0.1.tar.gz (14 kB)
@@ -1628,6 +1659,7 @@ error: legacy-install-failure
 note: This is an issue with the package mentioned above, not pip.
 hint: See above for output from the failure.
 (gtn) rnd@gpu:~/tool$ 
+```
 
 အထက်ပါအတိုင်းပဲ ...  
 pip နဲ့ install လုပ်ကြည့်တော့လည်း error ပေးတာကို တွေ့ရ ...  
