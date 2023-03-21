@@ -1,6 +1,8 @@
+# gtn (Gaph Transformer Network) Installation Log 
 
 ## Got Error
 
+```
 -- The CXX compiler identification is GNU 8.4.0
 -- Check for working CXX compiler: /usr/bin/c++
 -- Check for working CXX compiler: /usr/bin/c++ -- works
@@ -35,9 +37,11 @@ Call Stack (most recent call first):
 See also "/home/rnd/tool/gtn/build/CMakeFiles/CMakeOutput.log".
 See also "/home/rnd/tool/gtn/build/CMakeFiles/CMakeError.log".
 (gtn) rnd@gpu:~/tool/gtn/build$ 
+```
 
 ## Download cmake Higher Version
 
+```
 (gtn) rnd@gpu:~/tool$ wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0.tar.gz
 --2023-03-21 21:09:10--  https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0.tar.gz
 Resolving github.com (github.com)... 20.205.243.166
@@ -54,13 +58,17 @@ Saving to: ‘cmake-3.26.0.tar.gz’
 cmake-3.26.0.tar.gz             100%[=====================================================>]  10.17M  25.8MB/s    in 0.4s    
 
 2023-03-21 21:09:13 (25.8 MB/s) - ‘cmake-3.26.0.tar.gz’ saved [10667656/10667656]
+```
 
+```
 (gtn) rnd@gpu:~/tool$ ls
 cmake-3.26.0.tar.gz  gtn
 (gtn) rnd@gpu:~/tool$
+```
 
 ## Unzip and Installation of cmake 3.26.0
 
+```
 (gtn) rnd@gpu:~/tool$ tar -xzvf ./cmake-3.26.0.tar.gz 
 ...
 ...
@@ -76,9 +84,11 @@ cmake-3.26.0/bootstrap
 cmake-3.26.0/cmake_uninstall.cmake.in
 cmake-3.26.0/configure
 cmake-3.26.0/doxygen.config
+```
 
 Check the folder content:  
 
+```
 (gtn) rnd@gpu:~/tool$ cd cmake-3.26.0/
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ ls
 Auxiliary                   CMakeLogo.gif         Copyright.txt     Packaging   Utilities
@@ -87,9 +97,11 @@ CMakeCPackOptions.cmake.in  CTestConfig.cmake     Help              Source      
 CMakeGraphVizOptions.cmake  CTestCustom.cmake.in  Licenses          Templates   configure
 CMakeLists.txt              CompileFlags.cmake    Modules           Tests       doxygen.config
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
+```
 
 Run ./bootstrap and got following error:  
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ ./bootstrap
 ...
 ...
@@ -118,9 +130,11 @@ Error when bootstrapping CMake:
 Problem while running initial CMake
 ---------------------------------------------
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$
+```
 
 Running with sudo right:  
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ sudo ./bootstrap
 [sudo] password for rnd: 
 ---------------------------------------------
@@ -149,11 +163,13 @@ Error when bootstrapping CMake:
 Problem while running initial CMake
 ---------------------------------------------
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$
+```
 
 အထက်ပါအတိုင်း same error ကို ပေးတယ်။  
 
 ## Installation of libssl-dev
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ sudo apt-get install libssl-dev
 Reading package lists... Done
 Building dependency tree       
@@ -173,7 +189,7 @@ Preparing to unpack .../libssl-dev_1.1.1f-1ubuntu2.17_amd64.deb ...
 Unpacking libssl-dev:amd64 (1.1.1f-1ubuntu2.17) ...
 Setting up libssl-dev:amd64 (1.1.1f-1ubuntu2.17) ...
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
-
+```
 
 ## Retry ./bootstrap
 
