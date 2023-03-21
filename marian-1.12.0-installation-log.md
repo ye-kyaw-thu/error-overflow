@@ -1,6 +1,10 @@
+# Marian Version 1.12.0 Installation Log
+
+sudo right ရှိတဲ့ အကောင့်နဲ့ installation လုပ်ခဲ့တာမို့ အရမ်းတော့ အခက်အခဲ မရှိခဲ့ပေမဲ့ GCC version error က ထုံးစံအတိုင်း တက်တာမို့ solution ကို ကျောင်းသားများ လေ့လာနိုင်ဖို့အတွက် log မှတ်ပေးခဲ့ ...  
 
 ## make error
 
+```
 In file included from /usr/include/cuda_runtime.h:83,
                  from <command-line>:
 /usr/include/crt/host_config.h:138:2: error: #error -- unsupported GNU version! gcc versions later than 8 are not supported!
@@ -35,10 +39,11 @@ make[1]: *** Waiting for unfinished jobs....
 [ 49%] Built target SQLiteCpp
 make: *** [Makefile:152: all] Error 2
 (base) rnd@gpu:~/marian/build$ 
-
+```
 
 ## Check GCC Version
 
+```
 (base) rnd@gpu:~/marian/build$ gcc --version
 gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
 Copyright (C) 2019 Free Software Foundation, Inc.
@@ -46,7 +51,7 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 (base) rnd@gpu:~/marian/build$ 
-
+```
 
 အထက်ပါအတိုင်း 9.4.0 ဖြစ်နေတာကို တွေ့ရ ...  
 
