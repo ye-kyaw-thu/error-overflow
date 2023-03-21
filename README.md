@@ -178,5 +178,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 171. [tmux-installation4students.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tmux-installation4students.md)
 172. [latex-teaching-note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/latex-teaching-note.md)  
 173. [cross-testing-of-mysent-NCRFpp-models.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/cross-testing-of-mysent-NCRFpp-models.md)
+174. [marian-1.12.0-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/marian-1.12.0-installation-log.md)
 
 
