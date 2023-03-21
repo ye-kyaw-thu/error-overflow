@@ -2527,13 +2527,14 @@ PDF  ဖိုင်တွေကို local machine ပေါ်ကို copy 
 
 ![union_g1.jpg]()
 
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.png" alt="union_g1.jpg" width="50%" height="50%" title="union_g1.png">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.png" alt="union_g1.png" width="50%" height="50%" title="union_g1.png">
 
-![union_g2.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g2.png)
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g2.png" alt="union_g2.png" width="50%" height="50%" title="union_g2.png">
 
-![union_g3.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g3.png)
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g3.png" alt="union_g3.png" width="50%" height="50%" title="union_g3.png">
 
-![union_graph.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_graph.png)
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_graph.png" alt="union_graph.png" width="50%" height="50%" title="union_graph.png">
+
 
 ## Reference
 
