@@ -57,25 +57,32 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ## Check Installed GCC
 
+```
 (base) rnd@gpu:~/marian/build$ ls /usr/bin/gcc*
 /usr/bin/gcc    /usr/bin/gcc-9   /usr/bin/gcc-ar-8  /usr/bin/gcc-nm    /usr/bin/gcc-nm-9    /usr/bin/gcc-ranlib-8
 /usr/bin/gcc-8  /usr/bin/gcc-ar  /usr/bin/gcc-ar-9  /usr/bin/gcc-nm-8  /usr/bin/gcc-ranlib  /usr/bin/gcc-ranlib-9
 (base) rnd@gpu:~/marian/build$ 
+```
 
 ## Rerun cmake with parameter
 
 အရင်ဆုံး build folder ကို ဖျက်ခဲ့တယ်။  
 
+```
 (base) rnd@gpu:~/marian$ rm -rf build
+```
 
 ပြီးတော့ folder အသစ် ပြန်ဆောက်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian$ mkdir build
 (base) rnd@gpu:~/marian$ cd build
 (base) rnd@gpu:~/marian/build$
+```
 
 gcc version ကို 8 ပဲ ထားပြီး cmake command ကို ပြန် run ခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian/build$ cmake .. -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_C_COMPILER=/usr/bin/gcc-8
 -- The CXX compiler identification is GNU 9.4.0
 -- The C compiler identification is GNU 8.4.0
@@ -119,9 +126,11 @@ gcc version ကို 8 ပဲ ထားပြီး cmake command ကို ပ
 -- Generating done
 -- Build files have been written to: /home/rnd/marian/build
 (base) rnd@gpu:~/marian/build$
+```
 
 ## Run make Again
 
+```
 (base) rnd@gpu:~/marian/build$ make -j24
 ...
 ...
@@ -199,24 +208,28 @@ make[1]: *** Waiting for unfinished jobs....
 [ 49%] Built target SQLiteCpp
 make: *** [Makefile:152: all] Error 2
 (base) rnd@gpu:~/marian/build$
-
+```
 
 ## Trying with update-alternative
 
+```
 (base) rnd@gpu:~/marian/build$ which update-alternatives
 /usr/bin/update-alternatives
 (base) rnd@gpu:~/marian/build$ 
-
+```
 
 Check existing gcc versions:  
 
+```
 (base) rnd@gpu:~/marian/build$ ls /usr/bin/gcc-
 gcc-8         gcc-ar        gcc-ar-9      gcc-nm-8      gcc-ranlib    gcc-ranlib-9  
 gcc-9         gcc-ar-8      gcc-nm        gcc-nm-9      gcc-ranlib-8  
 (base) rnd@gpu:~/marian/build$
+```
 
 update-alternatives tool ကို သုံးပြီးတော့ multiple GCC, G++ compiler list ကို အောက်ပါအတိုင်း create လုပ်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian/build$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
 update-alternatives: using /usr/bin/gcc-8 to provide /usr/bin/gcc (gcc) in auto mode
 (base) rnd@gpu:~/marian/build$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
@@ -225,9 +238,11 @@ update-alternatives: using /usr/bin/g++-8 to provide /usr/bin/g++ (g++) in auto 
 update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto mode
 (base) rnd@gpu:~/marian/build$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
 update-alternatives: using /usr/bin/g++-9 to provide /usr/bin/g++ (g++) in auto mode
+```
 
 အောက်ပါအတိုင်း gcc version ကို 8 အဖြစ် ရွေးထားခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian/build$ sudo update-alternatives --config gcc
 There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
 
@@ -239,9 +254,11 @@ There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
 
 Press <enter> to keep the current choice[*], or type selection number: 1
 update-alternatives: using /usr/bin/gcc-8 to provide /usr/bin/gcc (gcc) in manual mode
+```
 
 အောက်ပါအတိုင်း g++ (C++ compiler) ကိုလည်း version 8 အဖြစ် manual ရွေးထားခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian/build$ sudo update-alternatives --config g++
 There are 2 choices for the alternative g++ (providing /usr/bin/g++).
 
@@ -254,15 +271,19 @@ There are 2 choices for the alternative g++ (providing /usr/bin/g++).
 Press <enter> to keep the current choice[*], or type selection number: 1
 update-alternatives: using /usr/bin/g++-8 to provide /usr/bin/g++ (g++) in manual mode
 (base) rnd@gpu:~/marian/build$ 
+```
 
 ## Make Confirmation
 
+```
 (base) rnd@gpu:~/marian/build$ gcc --version
 gcc (Ubuntu 8.4.0-3ubuntu2) 8.4.0
 Copyright (C) 2018 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
 
+```
 (base) rnd@gpu:~/marian/build$ g++ --version
 g++ (Ubuntu 8.4.0-3ubuntu2) 8.4.0
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -270,18 +291,22 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 (base) rnd@gpu:~/marian/build$ 
+```
 
 ## Run cmake, make Again 
 
 marain compilation ကို ထပ် ကြိုးစားကြည့်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~/marian/build$ cd ..
 (base) rnd@gpu:~/marian$ rm -rf ./build
 (base) rnd@gpu:~/marian$ mkdir build
 (base) rnd@gpu:~/marian$ cd build
+```
 
 Run cmake as follows:  
 
+```
 (base) rnd@gpu:~/marian/build$ cmake ..
 -- The CXX compiler identification is GNU 8.4.0
 -- The C compiler identification is GNU 8.4.0
@@ -329,9 +354,11 @@ CMake Warning at CMakeLists.txt:79 (message):
 -- Generating done
 -- Build files have been written to: /home/rnd/marian/build
 (base) rnd@gpu:~/marian/build$ 
+```
 
 Run make again as follows ...  
 
+```
 (base) rnd@gpu:~/marian/build$ make -j24
 ...
 ...
@@ -380,29 +407,37 @@ Scanning dependencies of target marian_vocab
 [100%] Linking CXX executable ../marian
 [100%] Built target marian_train
 (base) rnd@gpu:~/marian/build$
+```
 
 ## Check the build/ Folder
 
+```
 (base) rnd@gpu:~/marian/build$ ls
 CMakeCache.txt     CPackSourceConfig.cmake  libmarian.a  marian-conv     marian-vocab  spm_export_vocab  src
 CMakeFiles         Makefile                 local        marian-decoder  spm_decode    spm_normalize
 CPackConfig.cmake  cmake_install.cmake      marian       marian-scorer   spm_encode    spm_train
 (base) rnd@gpu:~/marian/build$ 
+```
 
 ## Update $PATH
 
 .bashrc ဖိုင်မှာ ဝင်ဖြည့်ခဲ့ ...  
 
+```
 export PATH=$PATH:/home/rnd/marian/build
+```
 
 ## Check marian commands
 
 logout လုပ်ပြီး login ပြန်ဝင်ပြီး marian command တချို့ကို စမ်းကြည့်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~$ marian --version
 v1.12.0 65bf82ff 2023-02-21 09:56:29 -0800
 (base) rnd@gpu:~$ 
+```
 
+```
 (base) rnd@gpu:~$ marian --help
 Marian: Fast Neural Machine Translation in C++
 Usage: marian [OPTIONS]
@@ -628,9 +663,11 @@ Validation set options:
   --keep-best                           Keep best model for each validation metric
   --valid-log TEXT                      Log validation scores to file given by arg
 (base) rnd@gpu:~$
+```
 
 vocab ဆောက်တဲ့ command ကိုလည်း confirm လုပ်ကြည့်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~$ marian-vocab --help
 Create a vocabulary from text corpora given on STDIN
 Usage: marian-vocab [OPTIONS]
@@ -644,9 +681,11 @@ Examples:
   ./marian-vocab < text.src > vocab.yml
   cat text.src text.trg | ./marian-vocab > vocab.yml
 (base) rnd@gpu:~$
+```
 
 sentencepiece train command ကိုလည်း checking ...  
 
+```
 (base) rnd@gpu:~$ spm_train --help
 sentencepiece
 
@@ -706,9 +745,11 @@ Usage: spm_train [options] files
 
 
 (base) rnd@gpu:~$
+```
 
 spm_encode နဲ့ spm_decode command တွေကိုလည်း --help ခေါ်ကြည့်ခဲ့ ...  
 
+```
 (base) rnd@gpu:~$ spm_encode --help
 sentencepiece
 
@@ -728,8 +769,9 @@ Usage: spm_encode [options] files
    --help (show help)  type: bool default: false
    --version (show version)  type: bool default: false
    --minloglevel (Messages logged at a lower level than this don't actually get logged anywhere)  type: int default: 0
+```
 
-
+```
 (base) rnd@gpu:~$ spm_decode --help
 sentencepiece
 
@@ -747,6 +789,7 @@ Usage: spm_decode [options] files
 
 
 (base) rnd@gpu:~$
+```
 
 ## Reference
 
