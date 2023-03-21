@@ -193,6 +193,7 @@ Setting up libssl-dev:amd64 (1.1.1f-1ubuntu2.17) ...
 
 ## Retry ./bootstrap
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ ./bootstrap
 ...
 ...
@@ -230,11 +231,13 @@ Setting up libssl-dev:amd64 (1.1.1f-1ubuntu2.17) ...
 -- Build files have been written to: /home/rnd/tool/cmake-3.26.0
 ---------------------------------------------
 CMake has bootstrapped.  Now run make.
+```
 
 ဒီတစ်ခါတော့ ./bootstrap ကို run တာ OK.  
 
 ## run make
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ make
 ...
 ...
@@ -271,9 +274,11 @@ CMake has bootstrapped.  Now run make.
 [ 99%] Building CXX object Tests/FindPackageModeMakefileTest/CMakeFiles/foo.dir/foo.cpp.o
 [100%] Linking CXX static library libfoo.a
 [100%] Built target foo
+```
 
 ## Check Current cmake Version
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ which cmake
 /usr/bin/cmake
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ cmake --version
@@ -281,9 +286,11 @@ cmake version 3.16.3
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
+```
 
 ## Run make install
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ sudo make install
 ...
 ...
@@ -321,9 +328,11 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 -- Installing: /usr/local/share/bash-completion/completions/cmake
 -- Installing: /usr/local/share/bash-completion/completions/cpack
 -- Installing: /usr/local/share/bash-completion/completions/ctest
+```
 
 ## Check
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ cmake --version
 CMake Error: Could not find CMAKE_ROOT !!!
 CMake has most likely not been installed correctly.
@@ -333,25 +342,34 @@ cmake version 3.16.3
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
+```
 
 ## Run Source and then Check Version Again
 
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ . ~/.bashrc
+```
+
+```
 (base) rnd@gpu:~/tool/cmake-3.26.0$ cmake --version
 cmake version 3.26.0
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 (base) rnd@gpu:~/tool/cmake-3.26.0$ source activate gtn
+```
+
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ cmake --version
 cmake version 3.26.0
-
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
+```
 
-
+```
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ which cmake
 /usr/local/bin/cmake
 (gtn) rnd@gpu:~/tool/cmake-3.26.0$ 
+```
 
 ## Run cmake .. for GTN
 
