@@ -793,6 +793,9 @@ Usage: spm_decode [options] files
 
 ## Installation Fin
 
+Marian ကို Compilation/Building လုပ်တာ 100% အောင်မြင်သွားရင် မြင်ရမဲ့ screen ပါ။  
+Cheers! my students ...  
+
 ![Memo Photo of v1.12.0 Marian Installation](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/marian-installation-fin.png "Happiness of marian compilation success!")
 
 ## Reference
