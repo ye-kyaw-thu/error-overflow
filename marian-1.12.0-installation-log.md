@@ -791,6 +791,10 @@ Usage: spm_decode [options] files
 (base) rnd@gpu:~$
 ```
 
+## Installation Fin
+
+![Memo Photo of v1.12.0 Marian Installation](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/marian-installation-fin.png "Happiness of marian compilation success!")
+
 ## Reference
 
 - https://marian-nmt.github.io/quickstart/
