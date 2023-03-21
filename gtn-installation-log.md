@@ -2525,9 +2525,13 @@ output PDF ဖိုင်တွေကို စစ်ကြည့်တော�
 PDF  ဖိုင်တွေကို local machine ပေါ်ကို copy ကူးယူခဲ့ပြီး markdown မှာ ပြဖို့အတွက် jpg ဖိုင်အဖြစ် ပြောင်းခဲ့ပြီး fig/ ဖိုလ်ဒါအောက်မှာ သိမ်းထားခဲ့ ...  
 
 
-![union_g1.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.jpg)
+![union_g1.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g1.png)
 
+![union_g2.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g2.png)
 
+![union_g3.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_g3.png)
+
+![union_graph.jpg](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_graph.png)
 
 ## Reference
 
