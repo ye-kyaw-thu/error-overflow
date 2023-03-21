@@ -2540,6 +2540,21 @@ union လုပ်ပြီး ထွက်လာတဲ့ နောက်ဆု
 
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/gtn-graphs/union_graph.png" alt="union_graph.png" width="50%" height="50%" title="union_graph.png">
 
+## Final Confirmation
+
+```
+(gtn) rnd@gpu:~/tool/gtn$ python
+Python 3.8.16 (default, Mar  2 2023, 03:21:46) 
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import gtn
+>>> print(gtn.__version__)
+0.0.1
+>>> exit()
+(gtn) rnd@gpu:~/tool/gtn$
+```
+
+Note: gtn installation is not very easy. I hope this installation log will be useful for you.   
 
 ## Reference
 
