@@ -2,6 +2,7 @@
 
 ## git clone ESPnet
 
+```
 (base) rnd@gpu:~/tool$ git clone https://github.com/espnet/espnet
 Cloning into 'espnet'...
 remote: Enumerating objects: 194932, done.
@@ -9,11 +10,13 @@ remote: Total 194932 (delta 0), reused 0 (delta 0), pack-reused 194932
 Receiving objects: 100% (194932/194932), 669.42 MiB | 13.22 MiB/s, done.
 Resolving deltas: 100% (139637/139637), done.
 (base) rnd@gpu:~/tool$ 
+```
 
 ## git clone Kaldi
 
 ESPnet 1 ကို သုံးမယ် ဆိုရင် Kaldi က လိုအပ်တာမို့လို့ ...  
 
+```
 (base) rnd@gpu:~/tool$ git clone https://github.com/kaldi-asr/kaldi.git
 Cloning into 'kaldi'...
 remote: Enumerating objects: 115158, done.
@@ -21,23 +24,29 @@ remote: Total 115158 (delta 0), reused 0 (delta 0), pack-reused 115158
 Receiving objects: 100% (115158/115158), 121.90 MiB | 12.49 MiB/s, done.
 Resolving deltas: 100% (88752/88752), done.
 (base) rnd@gpu:~/tool$ 
+```
 
 ## Create a New Anaconda Environment
 
+```
 (base) rnd@gpu:~/tool$ cd espnet/tools/
 (base) rnd@gpu:~/tool/espnet/tools$ ls
 Makefile   check_install.py  installers              setup_anaconda.sh  setup_python.sh
 README.md  extra_path.sh     sentencepiece_commands  setup_cuda_env.sh  setup_venv.sh
 (base) rnd@gpu:~/tool/espnet/tools$
+```
 
 Anaconda Environment က လက်ရှိ GPU စက်မှာ ရှိပြီးသားမို့လို့ Option A) Setup conda environment ဆိုတာကို skip လုပ်ခဲ့တယ်။  
 
+```
 (base) rnd@gpu:~/tool/espnet/tools$ echo $CONDA_EXE
 /home/rnd/anaconda3/bin/conda
 (base) rnd@gpu:~/tool/espnet/tools$
+```
 
 espnet ဆိုတဲ့ နာမည်နဲ့ env အသစ်ကို အောက်ပါအတိုင်း create လုပ်ခဲ့တယ်...  
 
+```
 (base) rnd@gpu:~/tool/espnet/tools$ conda create --name espnet python=3.8
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -101,20 +110,25 @@ Executing transaction: done
 
 (base) rnd@gpu:~/tool/espnet/tools$ conda activate espnet
 (espnet) rnd@gpu:~/tool/espnet/tools$
+```
 
 Python version ကိုလည်း စစ်ကြည့်ခဲ့ ...  
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ python --version
 Python 3.8.16
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
 ## Installation of ESPnet
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ make
 test -f activate_python.sh || { echo "Error: Run ./setup_python.sh or ./setup_anaconda.sh"; exit 1; }
 Error: Run ./setup_python.sh or ./setup_anaconda.sh
 make: *** [Makefile:35: activate_python.sh] Error 1
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
 အထက်ပါအတိုင်း Error ပေး ....  
 
@@ -122,6 +136,7 @@ make: *** [Makefile:35: activate_python.sh] Error 1
 
 ဒီအဆင့်က မလုပ်လို့ မရ ...  
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ ./setup_python.sh $(command -v python3)
 Warning: Setting PYTHONUSERBASE
 Requirement already satisfied: pip in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (23.0.1)
@@ -135,9 +150,11 @@ Installing collected packages: wheel
       Successfully uninstalled wheel-0.38.4
 Successfully installed wheel-0.40.0
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
 ## Installation of ESPnet
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ make
 INFO:
 Use 'installers/install_warp-transducer.sh' to install warprnnt_pytorch
@@ -165,14 +182,18 @@ Type 'git clone --depth 1 https://github.com/kaldi-asr/kaldi' and see 'kaldi/too
 Use 'installers/install_pesq.sh' to install PESQ
 Use 'installers/install_beamformit.sh' to install BeamformIt
 (espnet) rnd@gpu:~/tool/espnet/tools$
+```
 
 ## Install Custom Tools
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ . activate_python.sh 
 (espnet) rnd@gpu:~/tool/espnet/tools$ . ./setup_cuda_env.sh /usr/local/cuda
 CUDA_HOME=/usr/local/cuda
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ ./installers/install_warp-transducer.sh
 ...
 ...
@@ -201,9 +222,11 @@ Installing collected packages: warprnnt-pytorch
   Running setup.py develop for warprnnt-pytorch
 Successfully installed warprnnt-pytorch-0.1
 (espnet) rnd@gpu:~/tool/espnet/tools$
+```
 
 PyOpenJtalk ကိုလည်း installation လုပ်ကြည့်ခဲ့ ...  
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ ./installers/install_pyopenjtalk.sh
 ...
 ...
@@ -229,9 +252,11 @@ Downloading: "https://github.com/r9y9/open_jtalk/releases/download/v1.11.1/open_
 dic.tar.gz: 100%|████████████████████████████████████████████████| 22.6M/22.6M [00:40<00:00, 583kB/s]
 Extracting tar file /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages/pyopenjtalk/dic.tar.gz
 (espnet) rnd@gpu:~/tool/espnet/tools$
+```
 
 ## Check ESPnet Installation 
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ bash -c ". ./activate_python.sh; . ./extra_path.sh; python3 check_install.py" | tee check_install.log
 /home/rnd/tool/espnet/tools/chainer/chainer/backends/cuda.py:142: UserWarning: cuDNN is not enabled.
 Please reinstall CuPy after you install cudnn
@@ -313,11 +338,13 @@ Type 'git clone --depth 1 https://github.com/kaldi-asr/kaldi' and see 'kaldi/too
 Use 'installers/install_pesq.sh' to install PESQ
 Use 'installers/install_beamformit.sh' to install BeamformIt
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
 ## Installation of Some More Tools for ESPnet
 
 ### Beamformit
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_beamformit.sh
 ...
 ...
@@ -345,9 +372,11 @@ In file included from /usr/include/stdio.h:867,
 [100%] Linking CXX executable BeamformIt
 [100%] Built target BeamformIt
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### Fairscale
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_fairscale.sh 
 [INFO] torch_version=1.13.1+cu117
 Requirement already satisfied: fairscale in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (0.4.13)
@@ -355,9 +384,11 @@ Requirement already satisfied: torch>=1.8.0 in /home/rnd/anaconda3/envs/espnet/l
 Requirement already satisfied: numpy>=1.22.0 in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (from fairscale) (1.23.5)
 Requirement already satisfied: typing-extensions in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (from torch>=1.8.0->fairscale) (4.5.0)
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### FairSequcne
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_fairseq.sh 
 [INFO] torch_version=1.13.1+cu117
 Cloning into 'fairseq'...
@@ -421,9 +452,11 @@ Installing collected packages: antlr4-python3-runtime, omegaconf, hydra-core, fa
 Successfully installed antlr4-python3-runtime-4.8 fairseq-1.0.0a0+313ff05 hydra-core-1.0.7 omegaconf-2.0.6
 Requirement already satisfied: filelock in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (3.10.6)
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### ffmpeg
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_ffmpeg.sh
 ...
 ...
@@ -446,9 +479,11 @@ ffmpeg-6.0-amd64-static/model/vmaf_float_v0.6.1.pkl.model
 ffmpeg-6.0-amd64-static/readme.txt
 ffmpeg-6.0-amd64-static/ffmpeg
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### GSS
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_gss.sh
 ...
 ...
@@ -472,9 +507,11 @@ Installing collected packages: sortedcontainers, dataclasses, cached_property, t
       Successfully uninstalled numpy-1.23.5
 Successfully installed cached_property-1.5.2 cytoolz-0.12.1 dataclasses-0.6 gss-0.6.1 intervaltree-3.1.0 lhotse-1.13.0 lilcom-1.6 numpy-1.22.4 sortedcontainers-2.4.0 toolz-0.12.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### gtn
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_gtn.sh 
 Collecting gtn==0.0.0
   Downloading gtn-0.0.0.tar.gz (45 kB)
@@ -488,15 +525,18 @@ Successfully built gtn
 Installing collected packages: gtn
 Successfully installed gtn-0.0.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### k2
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_k2.sh 
 [INFO] torch_version=1.13.1
 [INFO] cuda_version=11.7
 [INFO] libc_version=2.31
 [WARNING] k2=1.10.dev20211112 for pip doesn't provide pytorch=1.13.1 binary. Skip k2-installation
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 pytorch version 1.13.1 နဲ့ မကိုက်လို့ skip လုပ်ခဲ့လိုက် ...  
 
