@@ -998,3 +998,34 @@ Use 'installers/install_beamformit.sh' to install BeamformIt
 ဒီတစ်ခါတော့ Kaldi ရဲ့ checkbox မှာ on သွားပြီမို့ အဆင်ပြေပြီလို့ ယူဆ ...  
 PyOpenJtalk ရဲ့ checkbox ကတော့ on မဖြစ်ဘူး။ ဒါကတော့ ဂျပန်စာ သုံးမှပဲ လိုတာမို့ ... 
 
+## Check ESPnet-1 bin/ Folder
+
+```
+(espnet) rnd@gpu:~/tool/espnet$ cd espnet/bin/
+(espnet) rnd@gpu:~/tool/espnet/espnet/bin$ ls
+__init__.py   asr_enhance.py  asr_train.py  mt_train.py  st_train.py  tts_decode.py  vc_decode.py
+asr_align.py  asr_recog.py    lm_train.py   mt_trans.py  st_trans.py  tts_train.py   vc_train.py
+(espnet) rnd@gpu:~/tool/espnet/espnet/bin$ 
+```
+
+## Check ESPnet-2 bin/ Folder
+
+```
+(espnet) rnd@gpu:~/tool/espnet/espnet/bin$ ls ../../espnet2/bin/
+__init__.py                  enh_train.py                       split_scps.py
+aggregate_stats_dirs.py      enh_tse_inference.py               st_inference.py
+asr_align.py                 enh_tse_train.py                   st_inference_streaming.py
+asr_inference.py             gan_svs_train.py                   st_train.py
+asr_inference_k2.py          gan_tts_train.py                   svs_inference.py
+asr_inference_maskctc.py     hubert_train.py                    svs_train.py
+asr_inference_streaming.py   hugging_face_export_vocabulary.py  tokenize_text.py
+asr_train.py                 launch.py                          tts_inference.py
+asr_transducer_inference.py  lm_calc_perplexity.py              tts_train.py
+asr_transducer_train.py      lm_train.py                        uasr_extract_feature.py
+diar_inference.py            mt_inference.py                    uasr_inference.py
+diar_train.py                mt_train.py                        uasr_inference_k2.py
+enh_inference.py             pack.py                            uasr_train.py
+enh_s2t_train.py             slu_inference.py                   whisper_export_vocabulary.py
+enh_scoring.py               slu_train.py
+(espnet) rnd@gpu:~/tool/espnet/espnet/bin$ 
+```
