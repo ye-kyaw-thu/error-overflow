@@ -386,7 +386,7 @@ Requirement already satisfied: typing-extensions in /home/rnd/anaconda3/envs/esp
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
 ```
 
-### FairSequcne
+### FairSequence
 
 ```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_fairseq.sh 
@@ -542,6 +542,7 @@ pytorch version 1.13.1 နဲ့ မကိုက်လို့ skip လုပ�
 
 ### kenlm
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_kenlm.sh 
 ...
 ...
@@ -573,9 +574,11 @@ Successfully built kenlm
 Installing collected packages: kenlm
 Successfully installed kenlm-0.0.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### longformer
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_longformer.sh
 ...
 ...
@@ -598,9 +601,11 @@ Successfully built nlg-eval Theano
 Installing collected packages: xdg, smart-open, Theano, gensim, nlg-eval
 Successfully installed Theano-1.0.5 gensim-3.8.3 nlg-eval-2.3 smart-open-6.3.0 xdg-6.0.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### muskits.sh
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_muskits.sh
 ...
 ...
@@ -621,9 +626,11 @@ Requirement already satisfied: six>=1.5 in /home/rnd/anaconda3/envs/espnet/lib/p
 Installing collected packages: webcolors, more-itertools, jsonpickle, chardet, music21
 Successfully installed chardet-5.1.0 jsonpickle-3.0.1 more-itertools-9.1.0 music21-8.1.0 webcolors-1.12
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### NKF
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_nkf.sh 
 --2023-03-26 14:27:07--  https://ja.osdn.net/dl/nkf/nkf-2.1.4.tar.gz
 Resolving ja.osdn.net (ja.osdn.net)... 52.10.189.44, 54.213.47.89
@@ -691,9 +698,11 @@ nkf.c:5713:2: note: ...this statement, but the latter is misleadingly indented a
 cc -g -O2 -Wall -pedantic -c utf8tbl.c
 cc -g -O2 -Wall -pedantic  -o nkf nkf.o utf8tbl.o
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### openface
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_openface.sh 
 ./install_openface.sh: line 24: [: too many arguments
 ./install_openface.sh: line 24: [: too many arguments
@@ -706,9 +715,11 @@ Resolving deltas: 100% (11225/11225), done.
 Updating files: 100% (3672/3672), done.
 cp: cannot stat 'CMakeLists.txt': No such file or directory
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 ### SpeechBrain
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_speechbrain.sh 
 ...
 ...
@@ -735,9 +746,11 @@ Installing collected packages: torch, ruamel.yaml.clib, torchaudio, ruamel.yaml,
       Successfully uninstalled torchaudio-0.13.1+cu117
 Successfully installed hyperpyyaml-1.1.0 ruamel.yaml-0.17.21 ruamel.yaml.clib-0.2.7 speechbrain-0.5.11 torch-1.11.0 torchaudio-0.11.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### Transformers
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_transformers.sh 
 ...
 ...
@@ -753,9 +766,11 @@ Requirement already satisfied: charset-normalizer<4,>=2 in /home/rnd/anaconda3/e
 Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (from requests->transformers>=4.9.1) (1.26.15)
 Requirement already satisfied: certifi>=2017.4.17 in /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages (from requests->transformers>=4.9.1) (2022.12.7)
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$
+```
 
 ### Whisper
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ ./install_whisper.sh
 ...
 ...
@@ -776,12 +791,13 @@ Successfully built openai-whisper
 Installing collected packages: lit, cmake, triton, openai-whisper
 Successfully installed cmake-3.26.1 lit-16.0.0 openai-whisper-20230308 triton-2.0.0
 (espnet) rnd@gpu:~/tool/espnet/tools/installers$ 
+```
 
 သုံးချင်တဲ့ tools တွေ အားလုံးမဟုတ်ပေမဲ့ တော်တော်များများ ကို install လုပ်ထားခဲ့ ...  
 
-
 ## Installation of Kaldi Tools
 
+```
 (espnet) rnd@gpu:~/tool/kaldi/tools$ make
 ...
 ...
@@ -814,9 +830,11 @@ Warning: IRSTLM is not installed by default anymore. If you need IRSTLM
 Warning: use the script extras/install_irstlm.sh
 All done OK.
 (espnet) rnd@gpu:~/tool/kaldi/tools$
+```
 
 ## Installation of Kaldi
 
+```
 (espnet) rnd@gpu:~/tool/kaldi/tools$ cd ../src
 (espnet) rnd@gpu:~/tool/kaldi/src$ ./configure
 Configuring KALDI to use MKL.
@@ -849,9 +867,11 @@ to stay within safe limits. 'make -j' without the numeric value may not limit
 the number of parallel jobs at all, and overwhelm even a powerful workstation,
 since Kaldi build is highly parallelized.
 (espnet) rnd@gpu:~/tool/kaldi/src$
+```
 
 Run make ...  
 
+```
 (espnet) rnd@gpu:~/tool/kaldi/src$ time make
 ...
 ...
@@ -871,14 +891,17 @@ real	61m59.103s
 user	57m46.424s
 sys	3m34.796s
 (espnet) rnd@gpu:~/tool/kaldi/src$ 
-
+```
 
 ## Create Soft-link for Kaldi
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ ln -s /home/rnd/tool/kaldi .
+```
 
 ## Recheck After Installation of Some More Tools
 
+```
 (espnet) rnd@gpu:~/tool/espnet/tools$ bash -c ". ./activate_python.sh; . ./extra_path.sh; python3 check_install.py" | tee check_install.log
 /home/rnd/anaconda3/envs/espnet/lib/python3.8/site-packages/cupy/_environment.py:399: UserWarning: 
 nccl library could not be loaded.
@@ -970,6 +993,7 @@ Use 'installers/install_muskits.sh' to install muskits
 Use 'installers/install_pesq.sh' to install PESQ
 Use 'installers/install_beamformit.sh' to install BeamformIt
 (espnet) rnd@gpu:~/tool/espnet/tools$ 
+```
 
 ဒီတစ်ခါတော့ Kaldi ရဲ့ checkbox မှာ on သွားပြီမို့ အဆင်ပြေပြီလို့ ယူဆ ...  
 PyOpenJtalk ရဲ့ checkbox ကတော့ on မဖြစ်ဘူး။ ဒါကတော့ ဂျပန်စာ သုံးမှပဲ လိုတာမို့ ... 
