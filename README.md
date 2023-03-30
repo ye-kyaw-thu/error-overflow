@@ -181,5 +181,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 174. [marian-1.12.0-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/marian-1.12.0-installation-log.md)
 175. [gtn-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/gtn-installation-log.md)  
 178. [ESPnet-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ESPnet-installation-log.md)  
-
+179. [gpt4all-test1-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/gpt4all-test1-log.md)  
 
