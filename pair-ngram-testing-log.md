@@ -272,20 +272,77 @@ python -m train \
 Start training ...  
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ time ./run-train.sh 
+INFO:   Compiling FARs
+INFO:   Compiling covering grammar
+INFO:   Training aligner
+INFO:   Aligning data
+INFO:   Encoding alignments
+INFO:   Compiling pair n-gram model
 
+real    2m47.816s
+user    43m21.813s
+sys     0m3.468s
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
 ```
 
-```
+## Prediction
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cat run-predict.sh 
+#!/bin/bash
 
+python -m predict \
+--rule ./data-bk/plm.fst \
+--input <(cut -f1 ./data-bk/dev.tsv) \
+--output ./data-bk/hypo.txt
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ time ./run-predict.sh 
+
+real    0m39.231s
+user    7m16.964s
+sys     0m1.493s
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
 ```
 
-```
+## Evaluation
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cat ./run-score.sh 
+#!/bin/bash
+
+python -m error \
+--gold <(cut -f2 ./data-bk/dev.tsv) \
+--hypo ./data-bk/hypo.txt
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ ./run-score.sh 
+Error rate:     40.14
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$
+```
+
+Eror rate က များတယ်။  
+
+## Prediction with Lexicon Constraint
+
+Preparing a new script:  
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cat ./predict-score-with-lexicon-constraint.sh 
+#!/bin/bash
+
+## running with lexicon constraint
+
+python -m predict_lexicon \
+--rule ./data-bk/plm.fst \
+--lexicon ./data-bk/lexicon.txt \
+--input <(cut -f1 ./data-bk/dev.tsv) \
+--output ./data-bk/hypo-lexicon.txt
+  
+python -m error \
+--gold <(cut -f2 ./data-bk/dev.tsv) \
+--hypo ./data-bk/hypo-lexicon.txt
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$
+```
+
+predict and scoring or evaluation:  
 
 ```
 
