@@ -121,24 +121,118 @@ done
 (base) rnd@gpu:~/tool/pair_ngram$ 
 ```
 
+## Activate
+
+```
+(base) rnd@gpu:~/tool/pair_ngram$ conda activate pair_ngram
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
+```
+
+## Create Temp Directory
+
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ readonly TEMPDATA="$(mktemp --directory)"
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ echo $TEMPDATA 
+/tmp/tmp.Msn7f6i7pz
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
+```
+
+## Prepare a Shell Script for Downloading Data
+
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cat ./download-data.sh 
+#!/bin/bash
+
+curl \
+--output "${TEMPDATA}/pairs.tsv" \
+"https://gist.githubusercontent.com/kylebgorman/01adff5799edb0edf3bcce20187c833a/raw/fb0e66d31e021fca7adec4c2104ffea0e879f2e4/pairs.tsv"
+
+curl \
+--output "${TEMPDATA}/lexicon.txt" \
+"http://cvsweb.netbsd.org/bsdweb.cgi/src/share/dict/web2?rev=1.54"
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
+```
+
+## Run the Script
+
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ sudo ./download-data.sh 
+[sudo] password for rnd: 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  807k  100  807k    0     0  2905k      0 --:--:-- --:--:-- --:--:-- 2894k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2435k    0 2435k    0     0   146k      0 --:--:--  0:00:16 --:--:--  138k
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
+```
+
+## Backup The Data and Check
+
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ ./backup-data.sh 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  807k  100  807k    0     0  1409k      0 --:--:-- --:--:-- --:--:-- 1409k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2435k    0 2435k    0     0   160k      0 --:--:--  0:00:15 --:--:--  148k
 ```
 
 ```
-
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ ls ./data-bk/
+lexicon.txt  pairs.tsv
 ```
 
 ```
-
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cd data-bk/
+(pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$ wc *
+ 235974  235974 2493871 lexicon.txt
+  26381   65954  827013 pairs.tsv
+ 262355  301928 3320884 total
 ```
 
 ```
-
+(pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$ head lexicon.txt 
+A
+a
+aa
+aal
+aalii
+aam
+Aani
+aardvark
+aardwolf
+Aaron
 ```
 
 ```
-
+(pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$ head pairs.tsv 
+フルーツサラダ	fruits salad
+クリッパーチップ	clipper chip
+ライフサイクル	life cycle
+ボイストレーニング	voice training
+オップアート	op art
+ノーズコーン	nose cone
+インカムタックス	income tax
+エグゼクティブフロア	executive floor
+ウェブフォーム	web form
+ハムサンド	ham sand
 ```
 
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$ tail pairs.tsv 
+ブルマーズ	bloomers
+スパーテル	spatula
+ドルフィン	dolphin
+リットル	liter
+ロケート	locate
+スカイラーク	skylark
+ウオッカ	vodka
+ラゲッジ	luggage
+コレスポンデント	correspondent
+メード	maid
+(pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$
 ```
 
 ```
