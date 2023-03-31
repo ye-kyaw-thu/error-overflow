@@ -235,13 +235,41 @@ Aaron
 (pair_ngram) rnd@gpu:~/tool/pair_ngram/data-bk$
 ```
 
+## Data Splitting
+
+temp ဖိုလ်ဒါအောက်မှာ အလုပ်လုပ်ရတာ အရမ်းအဆင်ပြေကြီး မဟုတ်လို့ backup ဆိုပြီး ကူးထားတဲ့ data path ကိုပဲ ပြောင်းသုံးခဲ့ ...  
+```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ python -m split --seed 10037 --input ./data-bk/pairs.tsv --train ./data-bk/train.tsv --dev ./data-bk/dev.tsv --test ./data-bk/test.tsv
+INFO:	Total set:	26,381 lines
+INFO:	Train set:	21,104 lines
+INFO:	Dev set:	2,638 lines
+INFO:	Test set:	2,639 lines
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$
 ```
 
-```
+## Training 
+
+Original README ဖိုင်မှာ က --batch-size, --max-iters ဆိုပြီး လုပ်ထားလို့ Error ပေးတာကိုလည်း ပြင်ဆင်ခဲ့။  
+Prepared a shell script as follows:  
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ cat ./run-train.sh 
+#!/bin/bash
 
+python -m train \
+--seed 10037 \
+--batch_size 128 \
+--max_iters 10 \
+--order 6 \
+--size 100000 \
+--tsv ./data-bk/train.tsv \
+--fst ./data-bk/plm.fst
+
+
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$
 ```
+
+Start training ...  
 
 ```
 
