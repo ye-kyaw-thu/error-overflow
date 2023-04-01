@@ -345,14 +345,15 @@ python -m error \
 predict and scoring or evaluation:  
 
 ```
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ time ./predict-score-with-lexicon-constraint.sh
+Error rate:     32.34
 
+real    45m12.209s
+user    1036m12.073s
+sys     2m28.922s
+(pair_ngram) rnd@gpu:~/tool/pair_ngram$ 
 ```
 
-```
+OK. ဒီတစ်ခါတော့ 32.34 အထိ error rate က ကျသွားတယ်။ သို့သော် အချိန်ကတော့ အများကြီး ပိုကြာတယ်။  
 
-```
-
-```
-
-```
 
