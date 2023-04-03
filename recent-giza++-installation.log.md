@@ -4,6 +4,7 @@ I installed this GIZA++ on CADT Server for alignment tutorial to my ITC students
 
 ## git clone
 
+```
 (base) rnd@gpu:~/tool$ git clone https://github.com/moses-smt/giza-pp
 Cloning into 'giza-pp'...
 remote: Enumerating objects: 328, done.
@@ -13,14 +14,18 @@ remote: Total 328 (delta 5), reused 9 (delta 3), pack-reused 301
 Receiving objects: 100% (328/328), 314.48 KiB | 498.00 KiB/s, done.
 Resolving deltas: 100% (212/212), done.
 (base) rnd@gpu:~/tool$ cd giza-pp/
+```
 
 ## Check the folder
 
+```
 (base) rnd@gpu:~/tool/giza-pp$ ls
 GIZA++-v2  Makefile  README  mkcls-v2
+```
 
 ## run make
 
+```
 (base) rnd@gpu:~/tool/giza-pp$ time make | tee make.log
 make -C GIZA++-v2
 make[1]: Entering directory '/home/rnd/tool/giza-pp/GIZA++-v2'
@@ -47,3 +52,4 @@ make[1]: Leaving directory '/home/rnd/tool/giza-pp/mkcls-v2'
 real	0m47.004s
 user	0m43.957s
 sys	0m2.659s
+```
