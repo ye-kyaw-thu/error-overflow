@@ -185,3 +185,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 178. [pair-ngram-testing-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/pair-ngram-testing-log.md)  
 179. [recent-giza++-installation.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/recent-giza%2B%2B-installation.log.md)  
 180. [alignment-tutorial.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/alignment-tutorial.md)  
+181. [tldr-introduction.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/tldr-introduction.md)  
