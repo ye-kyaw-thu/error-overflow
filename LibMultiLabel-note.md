@@ -464,4 +464,5 @@ sys     0m5.295s
 ## Reference
 
 1. https://www.csie.ntu.edu.tw/~cjlin/libmultilabel/cli/linear.html#cli-quickstart
+2. https://www.csie.ntu.edu.tw/~cjlin/papers/libsvm.pdf  
 
