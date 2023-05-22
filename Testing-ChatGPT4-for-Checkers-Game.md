@@ -1,3 +1,17 @@
+# Testing ChatGPT4 for Coding of Checkers Game
+
+ChatGPT4 ကို မြန်မာလိုတော့ ကျားကစားတဲ့ game ကို ရေးဖို့အတွက် ဘယ်လောက် အထိ coding လုပ်ပေးနိုင်သလဲ ဆိုတာကို testing လုပ်ကြည့်ထားတဲ့ log file ပါ။  
+Note: ဒီ ChatGPT4 က အလားသုံးလို့ ရတဲ့ ဗားရှင်းမဟုတ်ပဲ၊ လစဉ်ကြေးပေးသုံးရတဲ့ ဗားရှင်းပါ။  
+
+ဒီ testing ကနေ လေ့လာတွေ့ရှိတာက ChatGPT က Checkers game development အတွက် ဆိုရင်တော့ coding ကို ဘယ်လို ရေးလို့ ရနိုင်တယ်၊ ဘယ်လို library တွေကို သုံးလို့ ရနိုင်တယ် ဆိုတာလောက်ကိုပဲ တိုင်ပင်လို့ ရပါတယ်။ တကယ်တမ်း play လုပ်လို့ ရတဲ့အထိ၊ ကစားလို့ ရတဲ့အထိ coding လုပ်မပေးနိုင်တာကို တွေ့ရပါတယ်။ အကြမ်း algorithm လိုမျိုးတော့ အိုက်ဒီယာ ပေးနိုင်ပါတယ်။ တခု ဆိုးတာက အတိုင်းအတာ တစ်ခုအထိ ကောင်းထားပြီးသား code ကိုတောင် function အသစ်ထပ်ဖြည့်ရေးခိုင်းတဲ့အခါမှာ အခုအချိန်အထိ အလုပ်လုပ်တဲ့ function တချို့ကိုပါ ပြောင်းပစ်လိုက်တာကြောင့် အလုပ်မလုပ်တော့တာမျိုးတွေ ဖြစ်တတ်ပါတယ်။ အဲဒါကတော့ Language Model တွေရဲ့ nature ကို အဲဒီအတိုင်းထားထားတာကြောင့်လို့ နားလည်တယ်။ တစ်ခေါက် အလုပ်တစ်ခုခိုင်းလိုက်ရင် သူက မတူအောင် အသစ်ပြန်ပြန် ရေးတာ လုပ်တာမျိုး လုပ်တတ်တဲ့ ဘဘာဝကြောင့်လို့ ငါနားလည်တယ်။
+
+၃နာရီလောက်လား မသိဘူး အချိန်ကြာကြာ အမျိုးမျိုး instruction/guide လုပ်ပြီး coding လုပ်ခိုင်းထားတဲ့ logfile ဖိုင်မို့လို့ တချို့ ChatGPT4/LLM နဲ့ ပတ်သက်ပြီးလေ့လာချင်သူတွေအတွက် information တော့ ရပါလိမ့်မယ်။
+
+ရဲကျော်သူ
+22 May 2023
+
+## The Whoe Chatting Log with ChatGPT4  
+
 Can you write a code for Checkers or Draughts GUI games? You can use Python flask and HTML or Python and PyQt library. I wanna get the complete playable or runnable games. Can you write?
 
 Certainly! I can provide you with a Python code example for a Checkers or Draughts game with a graphical user interface (GUI) using the PyQt library. The following code implements a basic Checkers game with a GUI interface.
