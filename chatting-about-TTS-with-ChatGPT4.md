@@ -309,3 +309,39 @@ Please note that this is a high-level and simplified overview of the domain. For
 
 Do you have an idea/suggestion for developing/implementing TTS model for a new language. However, I wanna focus on low-resourced languages. 
 
+Developing a TTS model for a low-resourced language can be challenging due to the lack of comprehensive and quality datasets. However, various strategies can be employed to overcome these challenges:
+
+**1. Transfer Learning:**
+
+In the absence of a substantial amount of data in the target language, transfer learning can be a powerful tool. You can train a model on a high-resourced language and then fine-tune it on the limited data available in the target language. This approach assumes that the model can generalize some learned features from the high-resourced language to the low-resourced language.
+
+**2. Data Augmentation:**
+
+Data augmentation is a technique used to enhance the quantity and diversity of training data. For speech data, this could involve changing the speed or pitch of the audio, adding background noise, or other similar transformations. This technique can help improve the model's robustness and generalization capability.
+
+**3. Multilingual Models:**
+
+Multilingual models are trained on data from multiple languages, allowing them to learn shared representations across languages. These models can be particularly useful for low-resourced languages, as they can leverage knowledge from high-resourced languages. BERT, XLM, and mBART are examples of multilingual models that have shown success in various NLP tasks.
+
+**4. Phonetic Representation:**
+
+Consider using a phonetic representation of the text, rather than the raw characters. This can help the model generalize better, especially when data is limited.
+
+**5. Utilizing Crowd-Sourcing:**
+
+For data collection, consider utilizing crowd-sourcing platforms to gather speech data in the target language. This could involve setting up a platform where speakers of the language can contribute audio samples and their transcriptions.
+
+**6. Utilizing Text Normalization:**
+
+Text normalization can help improve the performance of TTS models for low-resourced languages. This involves converting written text into a form that can be understood by the TTS system, like expanding abbreviations or converting numbers into words.
+
+**7. Collaborative Training:**
+
+In collaborative training, models trained independently on different datasets are combined to produce a single model. This can help improve the performance on low-resourced languages by combining the strengths of different models.
+
+For implementation, most of the popular TTS architectures like Tacotron and FastSpeech can be adapted for low-resourced languages using the strategies mentioned above. There are various open-source implementations available on GitHub that can serve as a starting point for your model implementation.
+
+Remember that building TTS systems for low-resourced languages is an active area of research, and there are ongoing advancements in this field. Staying updated with the latest research can provide you with new techniques and strategies to improve your model.
+
+## Question: 8
+
