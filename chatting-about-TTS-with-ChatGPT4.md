@@ -404,3 +404,42 @@ Vol. 1, pp. 125-128).
 
 Could you please explain to me how to apply MOS score for the TTS evaluation? Including do"s and don't s
 
+**Mean Opinion Score (MOS)** is a common method used in the evaluation of the quality of speech in Text-to-Speech (TTS) systems. It involves a group of human listeners who rate the quality of speech samples on a scale. Here's a step-by-step guide on how to apply it:
+
+**1. Collection of Speech Samples:**
+
+Collect a set of speech samples from your TTS system. Ensure that the content is diverse to cover various aspects of speech such as intonation, stress, rhythm, etc. Make sure the samples are of manageable length (a few sentences long) to maintain listener attention and focus.
+
+**2. Listener Recruitment:**
+
+Recruit a group of listeners for the evaluation. It's essential to have a diverse group of evaluators to account for individual differences in perception. The listeners should be fluent in the language of the synthesized speech.
+
+**3. Listener Instructions:**
+
+Provide clear instructions to the listeners. They should understand the MOS scale (typically 1 to 5, where 1 is 'Bad' and 5 is 'Excellent') and the criteria for evaluation (naturalness, intelligibility, etc.).
+
+**4. Conduct the Evaluation:**
+
+Listeners listen to the samples and assign a score on the MOS scale. It's recommended to randomize the order of the samples for each listener to avoid order bias.
+
+**5. Calculate the MOS:**
+
+Once all listeners have rated all the samples, calculate the average score for each sample and then the average of these averages. This final average is your MOS.
+
+**Do's:**
+
+- Do ensure the evaluators are familiar with the language of the speech samples.
+- Do randomize the presentation order of speech samples to avoid bias.
+- Do instruct your evaluators clearly about the rating process and scale.
+- Do have a large and diverse group of evaluators to increase the reliability of your scores.
+
+**Don'ts:**
+
+- Don't use overly long speech samples. This could lead to evaluator fatigue, affecting the reliability of the scores.
+- Don't use evaluators who aren't fluent in the language of the speech samples. This could lead to incorrect evaluations.
+- Don't rush the evaluation process. Evaluators should have enough time to listen to and assess each sample thoroughly.
+
+Please note that while MOS provides a measure of perceived quality, it is a subjective metric and might not fully capture the nuances of different TTS systems. It's recommended to use MOS in conjunction with other objective metrics (such as Word Error Rate or Mel Cepstral Distortion) for a more comprehensive evaluation.
+
+## Question: 10
+
