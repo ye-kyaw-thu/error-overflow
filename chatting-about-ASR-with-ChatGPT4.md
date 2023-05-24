@@ -542,7 +542,7 @@ Additionally, consider seeking ethical approval and informed consent from partic
 
 This guide provides a general overview, but the specific requirements and considerations may vary based on the target language and the intended use of the speech corpus. Adapting the process to the specific linguistic characteristics and requirements of your target language is essential.
 
-## Question: 13**
+## Question: 13
 
 **Q: Can you guide me the different preparation steps of speech corpus building between ASR and TTS in details?**
 
