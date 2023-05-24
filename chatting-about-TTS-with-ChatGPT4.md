@@ -307,3 +307,5 @@ Please note that this is a high-level and simplified overview of the domain. For
 
 ## Question: 7
 
+Do you have an idea/suggestion for developing/implementing TTS model for a new language. However, I wanna focus on low-resourced languages. 
+
