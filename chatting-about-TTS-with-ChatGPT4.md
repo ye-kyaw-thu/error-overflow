@@ -108,4 +108,49 @@ Please note that this is a high-level overview of the domain. For a more detaile
  
  ## Question: 3
  
- 
+Can you explain to me about FastSpeech 2+ in details? And related works and also implementation steps for a new language ...  
+
+As of my knowledge cutoff in September 2021, FastSpeech 2+ is a hypothetical model. The most recent model in this series is FastSpeech 2, which was introduced following FastSpeech and FastSpeech 1.5. 
+
+Let's review FastSpeech 2 and discuss how it could potentially be extended to a new language, which would likely be similar to implementing a hypothetical FastSpeech 2+ model.
+
+**FastSpeech 2:**
+
+FastSpeech 2 is an extension of FastSpeech, which was designed to overcome the limitations of autoregressive models like Tacotron by avoiding error accumulation and slow inference times. FastSpeech achieved this by using a non-autoregressive approach that directly predicted the target mel spectrogram in parallel.
+
+FastSpeech 2 introduced several advancements over the original FastSpeech:
+
+1. **Variance Adaptive Training:** In contrast to FastSpeech, which used teacher-student training with fixed-length prediction, FastSpeech 2 introduced variance-adaptive training to better learn prosodic information. This allows it to match the duration, pitch, and energy of the ground truth speech more accurately.
+
+2. **Multiple Decoder Heads:** To better model fine-grained prosody, FastSpeech 2 introduced multiple decoder heads in the Transformer-based model, allowing it to focus on different aspects of the speech.
+
+**Related Works:**
+
+FastSpeech 2 is related to several previous works in TTS, including:
+
+1. **Tacotron:** Tacotron and its successor Tacotron 2 are sequence-to-sequence models that use an autoregressive decoder to generate speech. These models served as a starting point for FastSpeech and FastSpeech 2.
+
+2. **Transformer TTS:** Transformer models have been adapted for TTS tasks due to their ability to model long-range dependencies and parallelization capabilities. FastSpeech 2 uses a Transformer-based model.
+
+**Implementing FastSpeech 2 for a New Language:**
+
+The implementation steps for a new language would be similar to those required for any TTS system. Here are the general steps:
+
+1. **Data Collection:** Collect a large dataset of speech audio and corresponding transcriptions in the target language. The quality and quantity of this data will directly influence the performance of the final model.
+
+2. **Preprocessing:** Convert the audio data into a suitable format for model input, usually mel spectrograms or other spectral representations. The transcriptions should be converted into a sequence of linguistic features or phonemes.
+
+3. **Model Training:** Train the FastSpeech 2 model on this data. This involves several steps, including training the duration, pitch, and energy predictors and the mel-spectrogram generator.
+
+4. **Fine-Tuning:** Fine-tune the model, if necessary. This may involve additional training with specific data or adjusting certain model parameters.
+
+5. **Testing and Evaluation:** Evaluate the performance of the model on unseen data. Consider using objective metrics (e.g., Mel Cepstral Distortion) and subjective listening tests.
+
+Please note that these steps could require significant computational resources and expertise in machine learning and speech synthesis.
+
+For the actual code, open-source implementations of FastSpeech 2 (such as [this one](https://github.com/ming024/FastSpeech2)) could be used as a starting point. The code would need to be adapted to handle the specific features of the new language.
+
+## Question: 4
+
+Can you write a code or usage of API relating to Mozilla TTS in details?
+
