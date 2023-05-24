@@ -347,3 +347,58 @@ Remember that building TTS systems for low-resourced languages is an active area
 
 For the TTS, generally we used MOS (Mean Opinion Scores) method for evaluation. ChatGPT can you write a survey paper of important evaluation metrics? Including the available open-source tools ... 
 
+**Title:** An In-depth Examination of Evaluation Metrics in Text-to-Speech Systems: A Review and Open-source Tools
+
+**Abstract:**
+This paper presents a comprehensive review of the essential evaluation metrics used in Text-To-Speech (TTS) systems, including their strengths, weaknesses, and suitable use-cases. This study also highlights available open-source tools for implementing these metrics, offering a detailed guide for practitioners and researchers in the field.
+
+**1. Introduction:**
+
+Evaluating the performance of TTS systems is an essential task to ensure the quality and usability of synthesized speech. Various metrics have been developed and utilized for this purpose, each having its own strengths and drawbacks. 
+
+**2. Evaluation Metrics:**
+
+**2.1 Mean Opinion Score (MOS):**
+
+MOS is a subjective measure often used to evaluate the quality of speech systems. It involves human listeners rating the naturalness of generated speech on a scale typically ranging from 1 (bad) to 5 (excellent). However, it's time-consuming and requires a diverse group of evaluators for reliable results^[1^].
+
+**2.2 Word Error Rate (WER):**
+
+WER measures the number of insertions, deletions, and substitutions needed to transform the system output into the reference. However, it does not consider semantic accuracy and is sensitive to slight deviations in word choice or order^[2^].
+
+**2.3 Perceptual Evaluation of Speech Quality (PESQ):**
+
+PESQ is an objective measure used to assess speech quality. It compares the original and degraded speech signals, producing a score typically ranging from -0.5 (bad) to 4.5 (excellent). However, it doesn’t work well for wideband signals and isn't designed for end-to-end TTS evaluation^[3^].
+
+**2.4 Mel Cepstral Distortion (MCD):**
+
+MCD is an objective metric used to measure the difference between the synthesized speech and original speech in the cepstral domain. It provides a good indication of the speech's spectral quality, but does not reflect prosody or naturalness^[4^].
+
+**3. Open-source Tools for Evaluation:**
+
+Several open-source tools exist to facilitate the implementation of these evaluation metrics:
+
+- [**parselmouth**](https://github.com/YannickJadoul/Parselmouth): A Python interface to Praat software, used for various speech analyses and synthesis tasks.
+- [**jiwer**](https://github.com/jitsi/jiwer): A Python package designed to calculate WER with ease.
+- [**pesq**](https://github.com/ludlows/python-pesq): A Python wrapper for the PESQ measurement tool.
+
+**4. Conclusion:**
+
+The selection of an evaluation metric depends on the specific requirements of a TTS system. Practitioners and researchers need to understand the strengths and weaknesses of each metric and choose the one that best suits their objectives.
+
+**References:**
+
+[1] ITU-T P.800: Methods for subjective determination of transmission quality.
+
+[2] Morris, A., Maier, V., & Green, P. (2004). From WER and RIL to MER and WIL: improved evaluation measures for connected speech recognition.
+
+[3] Rix, A. W., Beerends, J. G., Hollier, M. P., & Hekstra, A. P. (2001). Perceptual evaluation of speech quality (PESQ)-a new method for speech quality assessment of telephone networks and codecs.
+
+[4] Kubichek, R. (1993). Mel-cepstral distance measure for objective speech quality assessment. In Proc. Pacific Rim Conference on Communications, Computers, and Signal Processing (
+
+Vol. 1, pp. 125-128).
+
+**Please note** that this survey paper provides a high-level overview of evaluation metrics in TTS. Each of the points mentioned can be further expanded with more in-depth discussions, case studies, and additional references to provide a thorough understanding.
+
+## Question 9
+
