@@ -444,3 +444,58 @@ Please note that while MOS provides a measure of perceived quality, it is a subj
 ## Question: 10
 
 Write a survey paper relating to objective metrics including Mel Cepstral Distortion! Introduce some open-source evaluation tools also ... 
+
+**Title:** Objective Metrics in Text-to-Speech Evaluation: An In-depth Look at Mel Cepstral Distortion and Other Measures
+
+**Abstract:**
+This paper presents a comprehensive analysis of objective metrics used in the evaluation of Text-To-Speech (TTS) systems, with a particular focus on Mel Cepstral Distortion (MCD). Additionally, it discusses available open-source tools for implementing these metrics, serving as a valuable resource for researchers and developers in the field.
+
+**1. Introduction:**
+
+Objective metrics are essential for quantifying the performance of TTS systems. Among these, MCD has emerged as a valuable tool in measuring the spectral distortion between original and synthesized speech signals.
+
+**2. Objective Evaluation Metrics:**
+
+**2.1 Mel Cepstral Distortion (MCD):**
+
+MCD provides an objective measure of the spectral distortion between two speech signals, making it suitable for comparing original and synthesized speech. It has proven to be an effective measure of speech quality, particularly in capturing the spectral characteristics of the speech signal^[1^].
+
+**2.2 Word Error Rate (WER):**
+
+WER calculates the minimum number of substitutions, insertions, and deletions required to match the synthesized speech transcript to the original. However, it does not consider semantic accuracy and is sensitive to slight deviations in word choice or order^[2^].
+
+**2.3 Perceptual Evaluation of Speech Quality (PESQ):**
+
+PESQ compares the original and degraded speech signals to assess speech quality. It works well for narrowband signals but is less effective for wideband signals and doesn't specifically target end-to-end TTS evaluation^[3^].
+
+**2.4 Log Spectral Distortion (LSD):**
+
+Like MCD, LSD measures the spectral distortion between two speech signals. It's sensitive to spectral shape, making it a useful tool for evaluating spectral details in synthesized speech^[4^].
+
+**3. Open-source Tools for Evaluation:**
+
+Several open-source tools have been developed to facilitate the implementation of these evaluation metrics:
+
+- [**librosa**](https://github.com/librosa/librosa): A Python package for music and audio analysis, which can calculate MCD.
+- [**jiwer**](https://github.com/jitsi/jiwer): A Python package designed to calculate WER.
+- [**pesq**](https://github.com/ludlows/python-pesq): A Python wrapper for the PESQ measurement tool.
+- [**pypesq**](https://github.com/vBaiCai/python-pesq): Another Python implementation of PESQ.
+
+**4. Conclusion:**
+
+Objective metrics like MCD, WER, PESQ, and LSD play an indispensable role in evaluating TTS systems. Understanding their strengths and limitations is crucial for researchers and developers aiming to advance the field of TTS synthesis.
+
+**References:**
+
+[1] Kubichek, R. (1993). Mel-cepstral distance measure for objective speech quality assessment. In Proc. Pacific Rim Conference on Communications, Computers, and Signal Processing (Vol. 1, pp. 125-128).
+
+[2] Morris, A., Maier, V., & Green, P. (2004). From WER and RIL to MER and WIL: improved evaluation measures for connected speech recognition.
+
+[3] Rix, A. W., Beerends, J. G., Hollier, M. P., & Hekstra, A. P. (2001). Perceptual evaluation of speech quality (PESQ)-a new method for speech quality assessment of telephone networks and codecs.
+
+[4] Gray Jr, R. M., & Markel, J. D. (1976). Distance
+
+ measures for speech processing. IEEE Transactions on Acoustics, Speech, and Signal Processing, 24(5), 380-391.
+
+**Please note** that this survey paper provides a high-level overview of objective evaluation metrics in TTS. Each of the points mentioned can be further expanded with more in-depth discussions, case studies, and additional references to provide a thorough understanding.
+
