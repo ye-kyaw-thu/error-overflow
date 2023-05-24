@@ -402,3 +402,5 @@ Vol. 1, pp. 125-128).
 
 ## Question 9
 
+Could you please explain to me how to apply MOS score for the TTS evaluation? Including do"s and don't s
+
