@@ -345,3 +345,5 @@ Remember that building TTS systems for low-resourced languages is an active area
 
 ## Question: 8
 
+For the TTS, generally we used MOS (Mean Opinion Scores) method for evaluation. ChatGPT can you write a survey paper of important evaluation metrics? Including the available open-source tools ... 
+
