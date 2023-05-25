@@ -237,3 +237,73 @@ I hope this helps illustrate how a simple problem could be approached from diffe
 
 Can you write a pseudo code or coding approach step by step on 5 programming language paradigms with another well known example problem?
 
+Certainly, let's take the classic "Hello, World!" problem as our example. The goal here is to output the string "Hello, World!".
+
+**1. Procedural Paradigm**
+
+In the procedural paradigm, we can create a function to output the string.
+
+Pseudocode:
+```
+function printHelloWorld()
+    print "Hello, World!"
+end function
+
+call printHelloWorld()
+```
+
+**2. Object-Oriented Paradigm**
+
+In the object-oriented paradigm, we can create a class with a method to print the string.
+
+Pseudocode:
+```
+class HelloWorldPrinter
+    method printHelloWorld()
+        print "Hello, World!"
+    end method
+end class
+
+printer = new HelloWorldPrinter()
+printer.printHelloWorld()
+```
+
+**3. Functional Paradigm**
+
+In the functional paradigm, we can create a function that returns the string.
+
+Pseudocode:
+```
+function getHelloWorld()
+    return "Hello, World!"
+end function
+
+print getHelloWorld()
+```
+
+**4. Logical Paradigm**
+
+Logical programming paradigm is not typically used for a simple problem like printing "Hello, World!", since it is mostly used for problems that involve logical inference. However, in Prolog (a logic programming language), we could still accomplish it as follows:
+
+Pseudocode (Prolog):
+```
+hello_world :-
+    write('Hello, World!').
+```
+Then, we could query `hello_world.` to print "Hello, World!".
+
+**5. Scripting Paradigm**
+
+In scripting languages like Python, we could simply print the string.
+
+Python Code:
+```python
+print("Hello, World!")
+```
+
+These examples illustrate how the "Hello, World!" problem can be approached from different programming paradigms.
+
+## Question: 5
+
+Ha Ha Ha! :) You are smart. Though "Hello World" is a well known and the first program for all of the programming languages, I prefer better well known problem or an algorithm or a math related formula etc. Can you write another pseudo code with 5 programming language paradigms ...  
+
