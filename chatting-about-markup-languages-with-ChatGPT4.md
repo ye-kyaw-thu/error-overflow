@@ -711,3 +711,4 @@ In this example, we're using the `material` theme and specifying the navigation 
 
 MkDocs is a flexible and straightforward static site generator that allows you to focus on writing content in Markdown while providing an elegant and customizable documentation website. For more information and advanced features, refer to the official [MkDocs documentation](https://www.mkdocs.org/).
 
+
