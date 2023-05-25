@@ -269,3 +269,52 @@ I would recommend using an existing library like `markdown` unless you have a ve
 
 I already know about that markdown Python library. Hey! Don't be lazy. I wanna know your coding knowledge, ChatGPT. Can you write a parser for markdown language with a Python or Perl language for me?
 
+Creating a full Markdown parser is quite complex as it involves handling many intricate rules and edge cases of Markdown syntax. Nevertheless, here's a very simplified version of a Markdown parser written in Python that handles headers, bold, italic, and links.
+
+Note: It's a demonstration of basic parsing principles, and doesn't handle all the nuances of Markdown syntax. For a production-grade parser, you should use a well-tested library like the Python markdown module or a similar tool.
+
+```python
+import re
+
+def parse(markdown_text):
+    lines = markdown_text.split('\n')
+    
+    result = []
+    for line in lines:
+        # Headers
+        header_match = re.match("(#{1,6}) (.*)", line)
+        if header_match:
+            header_level = len(header_match.group(1))
+            result.append(f"<h{header_level}>{header_match.group(2)}</h{header_level}>")
+            continue
+        
+        # Bold
+        line = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', line)
+
+        # Italics
+        line = re.sub(r'\*(.*?)\*', r'<em>\1</em>', line)
+        
+        # Links
+        line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', line)
+
+        result.append(f'<p>{line}</p>')
+
+    return '\n'.join(result)
+
+# Usage:
+markdown_text = """
+# Header1
+## Header2
+*italic*
+**bold**
+[link](https://example.com)
+"""
+print(parse(markdown_text))
+```
+
+This will convert headers from `# Header` to `<h1>Header</h1>`, italicized text from `*italic*` to `<em>italic</em>`, bold text from `**bold**` to `<strong>bold</strong>`, and links from `[link](https://example.com)` to `<a href="https://example.com">link</a>`.
+
+Note: This is an overly simplified markdown parser. Markdown has many more features such as nested formatting, lists, blockquotes, images, code blocks, inline code, and more. A real markdown parser would need to handle all these cases correctly.
+
+## Question: 9
+
