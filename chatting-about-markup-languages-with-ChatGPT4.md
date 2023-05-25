@@ -366,3 +366,51 @@ Creating a complete Markdown parser would require additional code to handle othe
 
 Creating a complete, fully-featured Markdown parser from scratch is a significant task that would require a deep understanding of both the Markdown syntax and the parsing techniques, and probably is beyond the scope of this platform. However, if you're interested in doing so, I would recommend looking at the source code of an existing parser (like Python-Markdown or Mistune) to get an idea of what's involved.
 
+## Question: 10
+
+Can you convert above Python code to Perl code?
+
+Sure, here's a simple equivalent Perl script to the Python one that parses simple markdown syntax. This Perl script will also handle headers and emphasis.
+
+```perl
+use strict;
+use warnings;
+
+sub parse_simple_markdown {
+    my $text = shift;
+
+    # Split the input text into lines
+    my @lines = split "\n", $text;
+
+    # Process each line
+    for my $line (@lines) {
+        # Headers
+        if ($line =~ /^(#{1,6}) (.*)$/) {
+            my $level = length $1;
+            $line = "<h$level>$2</h$level>";
+        }
+
+        # Emphasis
+        $line =~ s/\*(.*?)\*/<em>$1<\/em>/g;
+        $line =~ s/_(.*?)_/<em>$1<\/em>/g;
+    }
+
+    # Join the lines back together and return the result
+    return join "\n", @lines;
+}
+
+# Test the function
+my $markdown_text = "
+# Header 1
+## Header 2
+Some *emphasized* text.
+Some _emphasized_ text.
+";
+my $html = parse_simple_markdown($markdown_text);
+print "$html\n";
+```
+
+Please note that as with the Python example, this is a very basic script and does not cover all features of Markdown. It's a simplified parser which only handles headers and emphasis. For a complete, robust Markdown parser in Perl, consider using a dedicated library like `Text::Markdown`.
+
+Also, to execute this script, ensure that Perl is properly installed on your machine, then save the script to a file, and run it using the `perl` command on a terminal.
+
