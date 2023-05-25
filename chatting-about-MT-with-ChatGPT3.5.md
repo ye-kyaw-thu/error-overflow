@@ -67,4 +67,6 @@ This survey paper aims to provide researchers, practitioners, and language techn
 
 ## Question: 2
 
+You are just write down the section and subsection titles. What I want is R&D information of low-resourced SMT/NMT in details. Including citations.
+
 
