@@ -414,3 +414,25 @@ Please note that as with the Python example, this is a very basic script and doe
 
 Also, to execute this script, ensure that Perl is properly installed on your machine, then save the script to a file, and run it using the `perl` command on a terminal.
 
+## Question: 11
+
+Are there any recent R&D or invention relating to a new markdown language? Can you write a survey report relating to markdown language R&D including the future research trends. 
+
+As an AI language model developed by OpenAI, I don't have real-time capabilities or the ability to provide live or current data, as my training only includes knowledge up until September 2021. However, I can give you some insight into potential research and development areas within the Markdown language field based on patterns and trends up to that point.
+
+**R&D Trends in Markdown and Lightweight Markup Languages**
+
+1. **Extensions and Variations**: Markdown has numerous flavors, such as CommonMark and GitHub Flavored Markdown, that extend the base syntax to include features like tables, footnotes, and task lists. We may see more of these tailored markdown versions in the future, addressing more specific use-cases and communities.
+
+2. **Integration with Other Technologies**: Markdown's simplicity and ease of use make it an ideal choice for embedding within other technologies. For instance, the R programming language has the R Markdown format, which allows executable R code to be embedded within Markdown documents. Expect to see more innovations and integrations that leverage Markdown's simplicity to blend text and code or other types of content.
+
+3. **Collaboration and Real-Time Editing**: Online platforms like HackMD and StackEdit allow collaborative real-time editing of Markdown documents. Future R&D may continue to push the boundaries of collaborative Markdown editing, possibly incorporating features such as version control, conflict resolution, and real-time rendering and previewing of Markdown.
+
+4. **Automatic Conversion and Rendering Tools**: Tools that convert Markdown into other formats (e.g., Pandoc) or render it into HTML (e.g., Markdown-it) are constantly being improved and expanded. Future R&D may focus on improving these tools' performance, versatility, and consistency.
+
+5. **Markdown for Education**: With the rise of online education and coding bootcamps, Markdown has become a popular choice for creating educational content. Its simplicity makes it easy for students to learn and use, and its plain text format is compatible with version control systems like Git. Expect to see further R&D around using Markdown in an educational context, perhaps with extensions or tools specifically designed to support learning and teaching.
+
+6. **Semantic Markdown**: As we move towards a more semantic web, there's growing interest in ways to include semantic information within Markdown. For instance, ScholarlyMarkdown is a Markdown variant designed for scholarly writing, with features for semantic tagging and cross-referencing. Future R&D in this area might explore other ways to include semantic information within the simple Markdown syntax.
+
+However, for the latest updates and recent advancements in Markdown language R&D, you should refer to the most recent literature, web searches, or tech articles post-2021.
+
