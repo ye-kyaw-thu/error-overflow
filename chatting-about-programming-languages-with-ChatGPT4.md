@@ -537,3 +537,91 @@ Sure, here's a discussion and comparison of syntax between C, C++, Java, Python,
 
 I hope this gives a helpful comparison between these five languages!
 
+## Question: 8
+
+Could you make a discussion on programming languages relating to math or science?
+
+Many programming languages are used in various fields of mathematics and science due to their specific features and libraries that cater to these domains. Here are a few examples:
+
+1. **Python**: Python has become one of the leading languages in scientific computing. It's easy to learn, has clean syntax, and has numerous libraries for scientific computation, data analysis, and visualization, such as NumPy, SciPy, Pandas, and Matplotlib. Python is widely used in data analysis, machine learning, AI, and many areas of academic research.
+
+2. **R**: R is primarily used for statistical analysis. It has a wide array of packages for statistics, graphics, and machine learning. R is also used for bioinformatics and is often used in the field of genetics for gene sequencing and the like.
+
+3. **MATLAB**: MATLAB (MATrix LABoratory) is designed specifically for mathematical modeling and simulation, and is widely used in engineering and academia. It provides powerful tools for matrix operations, which are essential in various fields of science and engineering.
+
+4. **Julia**: Julia is a high-level, high-performance programming language for technical computing. It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library. Julia’s Base library, largely written in Julia itself, also integrates mature, best-of-breed open source C and Fortran libraries for linear algebra, random number generation, signal processing, and string processing.
+
+5. **Haskell**: Haskell is a pure functional language that's well suited to mathematical reasoning. Its type system and syntax naturally represent mathematical functions and operations. It's used in fields like cryptology and formal verification, where correctness of algorithms is paramount.
+
+6. **Mathematica (Wolfram Language)**: It's a high-level language mainly used in technical, symbolic and numerical computing. It's very popular in the field of theoretical physics due to its capabilities of symbolic computing and solving differential equations.
+
+7. **Fortran**: It's one of the oldest programming languages that's still used today, mainly in the field of high-performance computing and numerical computation. Fortran's array handling and mathematical library made it popular for scientific calculations.
+
+Each of these languages has its own strengths and weaknesses. The choice of programming language largely depends on the specific requirements of the project or research in question.
+
+## Question: 9
+
+Could your write a long report relating to probabilistic programming languages including Stan and PyMC? 
+
+Sure, here's a discussion on probabilistic programming languages with a focus on Stan and PyMC.
+
+**Probabilistic Programming Languages (PPLs)**
+
+Probabilistic Programming Languages (PPLs) are programming languages designed to describe probabilistic models and then perform inference in those models. PPLs are increasingly used in statistical modeling and machine learning to manage uncertainty, learn from data, and make predictions.
+
+The premise of probabilistic programming is that building and reasoning about probabilistic models should not require a deep understanding of the details of the specific inference method used. Rather, practitioners should specify the model and let the PPL handle the inference.
+
+Examples of PPLs include BUGS, JAGS, Stan, PyMC, Infer.NET, and Turing.jl among others.
+
+**Stan**
+
+Stan is a state-of-the-art PPL designed for Bayesian statistical inference, particularly Markov chain Monte Carlo (MCMC) and variational inference methods. It's written in C++, which makes it rather fast. It supports a range of data types and allows for a lot of model flexibility. 
+
+Stan's language is statistically oriented with built-in functions for statistical distributions, which makes it convenient for specifying complex probabilistic models. Its MCMC sampling is considered to be particularly efficient due to the implementation of the Hamiltonian Monte Carlo (HMC) and its adaptive variant, the No-U-Turn Sampler (NUTS).
+
+Stan has interfaces for several popular programming languages, including R (RStan), Python (PyStan), Julia (Stan.jl), and others.
+
+**PyMC**
+
+PyMC is a python library that implements MCMC, variational inference, and other algorithms for Bayesian analysis. PyMC3, the current version as of my knowledge cutoff in 2021, allows model specification directly in Python code, which makes it very flexible and easy to use for those familiar with Python.
+
+PyMC's backend is Theano, which allows it to efficiently compute gradients, an essential component for modern MCMC methods like HMC and NUTS, as well as for variational inference.
+
+Unlike Stan, PyMC doesn't have its own modeling language. Instead, models are defined using Python code, which can be a boon for ease of use and flexibility, especially if the user is already familiar with Python. However, it could be less efficient than Stan for complex models.
+
+**Comparison between Stan and PyMC**
+
+Both Stan and PyMC have their strengths and weaknesses. The choice between them largely depends on the user's needs and familiarity with Python or Stan's modeling language.
+
+Stan's main advantage lies in its efficiency, particularly for complex models, due to its HMC and NUTS samplers and its implementation in C++. If speed and efficiency are a concern, Stan might be the better choice.
+
+On the other hand, PyMC's strength lies in its ease of use and flexibility due to its Python-based model specification. If you're already proficient in Python and your models are not overly complex, PyMC might be a better choice.
+
+It's also worth noting that both Stan and PyMC are open-source projects with active development and user communities. They both have extensive documentation and many examples available, making it easier for new users to get started with probabilistic programming.
+
+**Future of Probabilistic Programming**
+
+The field of probabilistic programming is developing rapidly. As computational power increases and more efficient algorithms for inference are developed, the use of PPLs will likely become even more widespread.
+
+PPLs are being applied in a growing number of areas, from traditional statistics and machine learning to fields such as cognitive science, systems biology, and artificial intelligence.
+
+One potential future direction is the development of PPLs tailored to specific application domains, making it easier to build and infer complex models relevant to these fields.
+
+Further integration with deep learning frameworks is another promising direction. PyMC4, for example, is being built on top of TensorFlow Probability, which will allow for the use of deep learning models within a Bayesian framework.
+
+**References**
+
+1. Carpenter, B., Gelman, A., Hoffman, M. D., Lee, D., Goodrich, B., Betancourt, M., ... & Riddell, A. (2017). Stan: A probabilistic programming language. Journal of statistical software, 76(1).
+   
+2. Salvatier, J., Wiecki, T. V., & Fonnesbeck, C. (2016). Probabilistic programming in Python using PyMC3. PeerJ Computer Science, 2, e55.
+
+3. Goodman, N. D., & Stuhlmüller, A. (2014). The Design and Implementation of Probabilistic Programming Languages. http://dippl.org/.
+
+4. Ghahramani, Z. (2015). Probabilistic machine learning and artificial intelligence. Nature, 521(7553), 452-459.
+
+5. Tran, D., Hoffman, M. D., Saurous, R. A., Brevdo, E., Murphy, K., & Blei, D. M. (2017). Deep probabilistic programming. arXiv preprint arXiv:1701.03757.
+
+## Question: 10
+
+Could you solve a well known or one of the good example problems by modeling with PyMC language? I wanna get the runnable or complete PyMC code from you. 
+
