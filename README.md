@@ -194,5 +194,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 187. [chatting-about-markup-languages-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-markup-languages-with-ChatGPT4.md)  
 188. [chatting-about-MT-with-ChatGPT3.5.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-MT-with-ChatGPT3.5.md)  
 189. [chatting-about-programming-languages-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-programming-languages-with-ChatGPT4.md)  
-
+190. [chatting-about-learning-a-new-language-with-ChatGPT.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-learning-a-new-language-with-ChatGPT.md)  
 
