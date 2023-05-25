@@ -273,3 +273,46 @@ Please let me know if you have any further questions or need additional assistan
 
 ## Question: 8 
 
+Can you make a table of Thai numbers and their pronunciation from 1 to 100?
+
+Certainly! Here's a table of Thai numbers from 1 to 100 along with their pronunciation:
+
+| Number | Thai Word | Pronunciation |
+|--------|-----------|---------------|
+| 1      | หนึ่ง      | nèung         |
+| 2      | สอง        | sǎawng        |
+| 3      | สาม        | sǎam          |
+| 4      | สี่        | sìi           |
+| 5      | ห้า        | hâa           |
+| 6      | หก        | hòk           |
+| 7      | เจ็ด       | jèt           |
+| 8      | แปด       | bpàet         |
+| 9      | เก้า       | gâo           |
+| 10     | สิบ        | sìp           |
+| 11     | สิบเอ็ด    | sìp èt        |
+| 12     | สิบสอง    | sìp sǎawng    |
+| 13     | สิบสาม    | sìp sǎam      |
+| 14     | สิบสี่    | sìp sìi       |
+| 15     | สิบห้า    | sìp hâa       |
+| 16     | สิบหก    | sìp hòk       |
+| 17     | สิบเจ็ด   | sìp jèt       |
+| 18     | สิบแปด   | sìp bpàet     |
+| 19     | สิบเก้า   | sìp gâo       |
+| 20     | ยี่สิบ    | yîi sìp       |
+| 21     | ยี่สิบเอ็ด | yîi sìp èt    |
+| 22     | ยี่สิบสอง | yîi sìp sǎawng |
+| 30     | สามสิบ    | sǎam sìp      |
+| 40     | สี่สิบ    | sìi sìp       |
+| 50     | ห้าสิบ    | hâa sìp       |
+| 60     | หกสิบ    | hòk sìp       |
+| 70     | เจ็ดสิบ   | jèt sìp       |
+| 80     | แปดสิบ   | bpàet sìp     |
+| 90     | เก้าสิบ   | gâo sìp       |
+| 100    | หนึ่งร้อย | nèung rói     |
+
+I hope this table helps you with the pronunciation and understanding of Thai numbers from 1 to 100. If you have any further questions, feel free to ask!
+
+## Question 9
+
+Similarly, Can you make a table of all Thai consonants, vowels and other characters with their pronunciation?
+
