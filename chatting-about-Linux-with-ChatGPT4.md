@@ -2681,3 +2681,62 @@ This table lists the basic, equivalent commands between Linux and Windows. Some 
 Repeating the above question, actually ...  
 The above table not including the example usages. Can you regenerate the comparison table of 50 equal commands between Linux and Windows. I want 50 command at least. Do your best!
 
+Sure, I understand you'd like to see more command pairs and their usage examples. Here are 50 command pairs with similar functionality in Linux and Windows:
+
+| Linux Command     | Usage example                                | Windows Command     | Usage example                                         |
+|-------------------|----------------------------------------------|---------------------|-------------------------------------------------------|
+| ls                | `ls -l` List files/directories in long format| dir                 | `dir` List files/directories                         |
+| cd                | `cd /home` Change directory                  | cd                  | `cd \Windows` Change directory                       |
+| pwd               | `pwd` Print working directory                | cd                  | `cd` Display the current directory                   |
+| cp                | `cp source.txt dest.txt` Copy files          | copy                | `copy source.txt dest.txt` Copy files                |
+| mv                | `mv old.txt new.txt` Rename file             | rename              | `rename old.txt new.txt` Rename file                 |
+| rm                | `rm file.txt` Remove file                    | del                 | `del file.txt` Delete file                           |
+| cat               | `cat file.txt` Display file content          | type                | `type file.txt` Display file content                 |
+| echo              | `echo "Hello"` Display a line of text        | echo                | `echo Hello` Display a line of text                  |
+| mkdir             | `mkdir newdir` Create a new directory        | mkdir               | `mkdir newdir` Create a new directory                |
+| rmdir             | `rmdir dir` Remove directory                 | rmdir               | `rmdir dir` Remove directory                         |
+| touch             | `touch new.txt` Create a new empty file      | echo.>              | `echo.> new.txt` Create a new empty file             |
+| find              | `find / -name "*.txt"` Find all .txt files   | dir /s              | `dir /s *.txt` Find all .txt files                   |
+| history           | `history` Display command history            | doskey /history     | `doskey /history` Display command history            |
+| man               | `man ls` Display command manual              | help                | `help dir` Display command help                      |
+| grep              | `grep "hello" file.txt` Search text          | findstr             | `findstr "hello" file.txt` Search strings in text    |
+| clear             | `clear` Clear terminal screen                | cls                 | `cls` Clear command prompt screen                    |
+| exit              | `exit` Exit the shell                        | exit                | `exit` Exit the command prompt                       |
+| ping              | `ping -c 4 google.com` Send network request  | ping                | `ping -n 4 google.com` Send network request          |
+| ifconfig          | `ifconfig` Network interface configuration    | ipconfig            | `ipconfig` Network interface configuration           |
+| netstat           | `netstat -a` Network statistics              | netstat             | `netstat -a` Network statistics                      |
+| ps                | `ps -aux` Process status                     | tasklist            | `tasklist` List all running tasks                    |
+| top               | `top` Monitor system, tasks                  | taskmgr             | `taskmgr` Open Task Manager GUI                      |
+| chmod             | `chmod 755 file.txt` Change file permissions | icacls              | `icacls file.txt /grant Everyone:F` Change file ACLs |
+| sudo              | `sudo apt-get update` Execute command as superuser | runas  | `runas /user:administrator cmd` Execute command as different user |
+| apt-get/yum
+
+       | `sudo apt-get install git` Install a package | msiexec             | `msiexec /i package.msi` Install a package           |
+| du                | `du -sh /home` Disk usage                    | dir /s              | `dir /s C:\Windows` Directory size                   |
+| df                | `df -h` Disk free                            | wmic logicaldisk    | `wmic logicaldisk get size,freespace` Disk free      |
+| passwd            | `passwd` Change password                     | net user            | `net user username *` Change password                |
+| whoami            | `whoami` Who is the current user             | whoami              | `whoami` Who is the current user                     |
+| shutdown          | `shutdown -h now` Shutdown system            | shutdown            | `shutdown /s /t 0` Shutdown system                   |
+| reboot            | `reboot` Reboot system                       | shutdown            | `shutdown /r /t 0` Reboot system                     |
+| alias             | `alias ll='ls -l'` Create an alias           | doskey              | `doskey ls=dir` Create an alias                      |
+| chown             | `chown user:group file.txt` Change file ownership | takeown         | `takeown /F file.txt` Change file ownership          |
+| tar               | `tar -cvf file.tar /home` Archive files      | makecab             | `makecab /D CompressionType=LZX /L dir file.cab` Compress files |
+| gzip              | `gzip file.txt` Compress file                | compact             | `compact /C file.txt` Compress file                  |
+| gunzip            | `gunzip file.txt.gz` Decompress file         | compact             | `compact /U file.txt` Decompress file                |
+| wc                | `wc -l file.txt` Word, line, character, and byte count | find /c /v ""   | `find /c /v "" < file.txt` Count lines in a file     |
+| diff              | `diff file1.txt file2.txt` Compare files     | fc                  | `fc file1.txt file2.txt` Compare files               |
+| head              | `head -n 10 file.txt` Display start of file  | more                | `more +10 file.txt` Display start of file            |
+| tail              | `tail -n 10 file.txt` Display end of file    | more /e             | `more /e +10 file.txt` Display end of file           |
+| date              | `date` Display or set the system date        | date                | `date` Display or set the system date                |
+| time              | `time` Display or set the system time        | time                | `time` Display or set the system time                |
+| uname             | `uname -a` Display system information        | ver                 | `ver` Display system information                     |
+| mount             | `mount /dev/sda1 /mnt` Mount a file system   | mountvol            | `mountvol E: \\?\Volume{xxx}\` Mount a volume        |
+| umount            | `umount /mnt` Unmount a file system          | mountvol /p         | `mountvol E: /p` Unmount a volume                    |
+| export            | `export VAR=value` Set an environment variable | set                | `set VAR=value` Set an environment variable          |
+| printenv          | `printenv VAR` Print an environment variable | echo                | `echo %VAR%` Print an environment variable           |
+| crontab           | `
+
+crontab -l` Schedule tasks to run           | schtasks            | `schtasks /Query` Schedule tasks to run              |
+
+This table lists basic, similar commands between Linux and Windows. Some of these commands have different options and can behave differently, but the general usage is similar.
+
