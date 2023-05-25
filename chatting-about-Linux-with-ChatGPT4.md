@@ -2709,9 +2709,7 @@ Sure, I understand you'd like to see more command pairs and their usage examples
 | top               | `top` Monitor system, tasks                  | taskmgr             | `taskmgr` Open Task Manager GUI                      |
 | chmod             | `chmod 755 file.txt` Change file permissions | icacls              | `icacls file.txt /grant Everyone:F` Change file ACLs |
 | sudo              | `sudo apt-get update` Execute command as superuser | runas  | `runas /user:administrator cmd` Execute command as different user |
-| apt-get/yum
-
-       | `sudo apt-get install git` Install a package | msiexec             | `msiexec /i package.msi` Install a package           |
+| apt-get/yum       | `sudo apt-get install git` Install a package | msiexec             | `msiexec /i package.msi` Install a package           |
 | du                | `du -sh /home` Disk usage                    | dir /s              | `dir /s C:\Windows` Directory size                   |
 | df                | `df -h` Disk free                            | wmic logicaldisk    | `wmic logicaldisk get size,freespace` Disk free      |
 | passwd            | `passwd` Change password                     | net user            | `net user username *` Change password                |
