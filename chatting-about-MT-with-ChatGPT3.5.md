@@ -820,3 +820,7 @@ To run the program, use command-line arguments to specify the paths for training
 
 Remember to update the code with the appropriate data loading, preprocessing, and translation components specific to your task and data format.
 
+## Question: 19 
+
+Similarly, Can you write a sequence to sequence NMT model with DyNet framework? Including command line options such as --help, --train, --dev, --test, --epoch, --output, and evaluation metrics etc.
+
