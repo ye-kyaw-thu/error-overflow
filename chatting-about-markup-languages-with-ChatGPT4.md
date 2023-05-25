@@ -797,3 +797,124 @@ Please note that the conversion from Word to LaTeX may not be perfect, as there 
 
 ## Question: 19
 
+It looks, PanDoc is really useful. Is it only to run under Linux OS? Can you introduce me about PanDoc usage in details?
+
+Pandoc is a versatile document converter that is not limited to Linux but works across various operating systems, including Windows, macOS, and Linux. It allows you to convert files between different formats, such as Markdown, HTML, LaTeX, PDF, and more. Pandoc is a command-line tool, meaning it is primarily used through the terminal or command prompt. Here's an introduction to Pandoc usage:
+
+**1. Installation:**
+
+To use Pandoc, you need to install it on your system. Visit the Pandoc website (https://pandoc.org/installing.html) and download the appropriate installer for your operating system. Follow the installation instructions specific to your platform.
+
+**2. Basic Conversion:**
+
+To perform a basic conversion with Pandoc, you typically use the following command structure:
+
+```bash
+pandoc [OPTIONS] [INPUT_FILES] -o OUTPUT_FILE
+```
+
+- `[OPTIONS]` represent various options you can use to customize the conversion behavior, such as specifying the input format (`-f`) or the output format (`-t`).
+- `[INPUT_FILES]` refers to the file(s) you want to convert. You can specify multiple input files, separated by spaces.
+- `-o OUTPUT_FILE` is used to specify the output file name.
+
+For example, to convert a Markdown file (`input.md`) to HTML, you can use the following command:
+
+```bash
+pandoc -f markdown -t html input.md -o output.html
+```
+
+This command instructs Pandoc to convert the `input.md` file from Markdown to HTML format and save the output in `output.html`.
+
+**3. Customizing Conversion:**
+
+Pandoc offers various options to customize the conversion process, such as specifying additional command-line flags or providing a YAML metadata file with additional configuration. For example, you can use the `-s` flag to produce standalone output, including header and footer information, or use the `--metadata` flag to provide additional metadata to the output file.
+
+**4. Supported Input and Output Formats:**
+
+Pandoc supports a wide range of input and output formats. Some commonly used formats include:
+
+- Input Formats: Markdown, HTML, LaTeX, Microsoft Word (.docx), EPUB, reStructuredText, and more.
+- Output Formats: HTML, LaTeX, PDF, EPUB, Microsoft Word (.docx), plain text, and more.
+
+You can check the Pandoc documentation (https://pandoc.org/) for a comprehensive list of supported formats and their associated command-line options.
+
+**5. Advanced Features:**
+
+Pandoc offers several advanced features, such as:
+
+- Cross-referencing: Pandoc allows you to insert cross-references to figures, tables, equations, and sections within your document.
+- Bibliographies and Citations: You can use Pandoc with citation styles and bibliographic databases to generate citations and bibliographies in your output files.
+- Templates: Pandoc supports custom templates for output formats like LaTeX and HTML, allowing you to control the appearance and layout of your documents.
+
+These advanced features can be explored in the Pandoc documentation, which provides detailed explanations and examples.
+
+Pandoc is a powerful and flexible tool for converting documents between formats. Its extensive range of options and supported formats make it a popular choice for content transformation and publishing workflows.
+
+## Question: 20
+
+Can you show me some example usages of PanDoc commands? I appreciate if you introduce around 30 commands with explanations
+
+Certainly! Here are some example usages of Pandoc commands with explanations:
+
+1. Convert Markdown to HTML:
+   ```bash
+   pandoc -f markdown -t html input.md -o output.html
+   ```
+   This command converts the Markdown file `input.md` to HTML format and saves the output as `output.html`.
+
+2. Convert LaTeX to PDF:
+   ```bash
+   pandoc -f latex -t pdf input.tex -o output.pdf
+   ```
+   This command converts the LaTeX file `input.tex` to PDF format and saves the output as `output.pdf`.
+
+3. Convert HTML to Markdown:
+   ```bash
+   pandoc -f html -t markdown input.html -o output.md
+   ```
+   This command converts the HTML file `input.html` to Markdown format and saves the output as `output.md`.
+
+4. Convert Word to PDF:
+   ```bash
+   pandoc -f docx -t pdf input.docx -o output.pdf
+   ```
+   This command converts the Word document `input.docx` to PDF format and saves the output as `output.pdf`.
+
+5. Generate Table of Contents in HTML:
+   ```bash
+   pandoc --toc -f markdown -t html input.md -o output.html
+   ```
+   This command adds a table of contents to the HTML output generated from the Markdown file `input.md`.
+
+6. Convert Markdown to LaTeX with LaTeX template:
+   ```bash
+   pandoc -f markdown -t latex --template=mytemplate.tex input.md -o output.tex
+   ```
+   This command converts the Markdown file `input.md` to LaTeX format using the custom LaTeX template `mytemplate.tex` and saves the output as `output.tex`.
+
+7. Convert Markdown to EPUB:
+   ```bash
+   pandoc -f markdown -t epub -s input.md -o output.epub
+   ```
+   This command converts the Markdown file `input.md` to EPUB format and creates a standalone EPUB file `output.epub` (including title page, CSS, etc.).
+
+8. Convert LaTeX to HTML with MathJax support:
+   ```bash
+   pandoc -f latex -t html --mathjax input.tex -o output.html
+   ```
+   This command converts the LaTeX file `input.tex` to HTML format, including MathJax support for rendering mathematical equations, and saves the output as `output.html`.
+
+9. Convert Markdown to Word with a reference docx template:
+   ```bash
+   pandoc -f markdown -t docx --reference-doc=mytemplate.docx input.md -o output.docx
+   ```
+   This command converts the Markdown file `input.md` to Word format using the reference docx template `mytemplate.docx` and saves the output as `output.docx`.
+
+10. Include Bibliography and Citations in LaTeX:
+    ```bash
+    pandoc -f markdown -t latex input.md --citeproc --bibliography=mybibfile.bib -o output.tex
+    ```
+    This command converts the Markdown file `input.md` to LaTeX format, adds bibliography and citation support using the bibliographic file `mybibfile.bib`, and saves the output as `output.tex`.
+
+These are just a few examples of the many commands and options available with Pandoc. You can explore more options, such as cross-references, templates, and advanced styling, by referring to the Pandoc documentation (https://pandoc.org/).
+
