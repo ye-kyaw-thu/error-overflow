@@ -1011,3 +1011,132 @@ With these scripts in place, you should be able to interpret BrainFriend code. N
 
 ## Question: 16
 
+Based on the above answer, Can you make a demo running of BrainFriend parser together with an example BrainFriend code step by step?
+
+Sure, let's try a step-by-step demonstration. For this, we'll use Python and ANTLR. We'll assume you've installed ANTLR according to the previous instructions.
+
+**Step 1: Define the Grammar**
+
+First, we'll create the grammar definition for the BrainFriend language. 
+
+Create a new file `BrainFriend.g4` and write the following grammar:
+
+```antlr
+grammar BrainFriend;
+
+program: statement* EOF;
+
+statement
+    : 'move_right'
+    | 'move_left'
+    | 'increment'
+    | 'decrement'
+    | 'print'
+    | 'input'
+    | 'loop_start' statement* 'loop_end'
+    ;
+```
+
+**Step 2: Generate the Lexer and Parser**
+
+After defining the grammar, run the following command:
+
+```bash
+java -jar /path/to/antlr.jar -Dlanguage=Python3 BrainFriend.g4
+```
+
+This command generates `BrainFriendLexer.py`, `BrainFriendParser.py`, `BrainFriendListener.py`, and `BrainFriendVisitor.py` files in the current directory.
+
+**Step 3: Create the Listener**
+
+Now, we need to write the listener that will interpret the BrainFriend commands. We'll create a new file `BrainFriendExecuter.py`:
+
+```python
+from BrainFriendListener import BrainFriendListener
+from BrainFriendParser import BrainFriendParser
+
+class BrainFriendExecuter(BrainFriendListener):
+    def __init__(self):
+        self.memory = [0] * 30000
+        self.pointer = 0
+
+    def run_command(self, command):
+        if command == 'move_right':
+            self.pointer += 1
+        elif command == 'move_left':
+            self.pointer -= 1
+        elif command == 'increment':
+            self.memory[self.pointer] += 1
+        elif command == 'decrement':
+            self.memory[self.pointer] -= 1
+        elif command == 'print':
+            print(chr(self.memory[self.pointer]), end="")
+        elif command == 'input':
+            self.memory[self.pointer] = ord(input())
+        
+    def enterStatement(self, ctx:BrainFriendParser.StatementContext):
+        self.run_command(ctx.getText())
+```
+
+**Step 4: Run the Parser**
+
+Finally, we'll create a main Python file to run the parser, which we'll call `run_parser.py`:
+
+```python
+import sys
+from antlr4 import *
+from BrainFriendLexer import BrainFriendLexer
+from BrainFriendParser import BrainFriendParser
+from BrainFriendExecuter import BrainFriendExecuter
+
+def main():
+    # Read the input from a file
+    input_stream = FileStream(sys.argv[1])
+    
+    # Lexer and Parser
+    lexer = BrainFriendLexer(input_stream)
+    stream = CommonTokenStream(lexer)
+    parser = BrainFriendParser(stream)
+    tree = parser.program()
+
+    # Create and run the listener
+    executor = BrainFriendExecuter()
+    walker = ParseTreeWalker()
+    walker.walk(executor, tree)
+
+if __name__ == '__main__':
+    main()
+```
+
+**Step 5: Test with a BrainFriend Code**
+
+Now, we'll create a BrainFriend program. Let's create a program that prints the first few letters of the alphabet:
+
+```txt
+increment
+increment
+increment
+loop_start
+print
+move_right
+increment
+move_left
+decrement
+loop_end
+```
+
+Save it as `alphabet.bf`.
+
+To run this program, execute the following command:
+
+```bash
+python run_parser.py alphabet.bf
+```
+
+The output should be `ABC`.
+
+This completes a step-by-step guide to running a BrainFriend program using ANTLR and Python. Note that this BrainFriend language and interpreter are simplistic and are meant for illustrative
+
+ purposes only. They might not handle more complex programs or edge cases.
+ 
+ 
