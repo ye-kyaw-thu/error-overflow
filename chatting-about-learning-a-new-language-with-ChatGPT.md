@@ -867,24 +867,49 @@ Please note that the table contains the numbers from 1 to 50, but the randomly g
 
 Can you translate following English sentences into Thai correctly? Including pronunciation ... and translate line by line and show me as a table format.  
 
-My name is Ye Kyaw Thu.
-I am a Myanmar.
-I am a NLP researcher and working at a Lab of Thai government.
-Living in Thai almost 5 years.
-I love Thai foods.
-I got my master and doctoral degree in Japan.
-Yes, I can speak Japanese fluently.
-I start learning Thai language and currently, very poor.
-I hope I can talk well Thai within one year study.
-I am a very hard worker.
-Now 12:50 (early morning) in Thailand, but still working at the Lab.
-Recently, I am very busy about learning about ChatGPT models.
-See you again!
-Have a nice weekend!
-We had a nice conversation.
-Happy Birthday!
-Best wishes to you!
-Bye! Bye!
+My name is Ye Kyaw Thu.  
+I am a Myanmar.  
+I am a NLP researcher and working at a Lab of Thai government.  
+Living in Thai almost 5 years.  
+I love Thai foods.  
+I got my master and doctoral degree in Japan.  
+Yes, I can speak Japanese fluently.  
+I start learning Thai language and currently, very poor.  
+I hope I can talk well Thai within one year study.  
+I am a very hard worker.  
+Now 12:50 (early morning) in Thailand, but still working at the Lab.  
+Recently, I am very busy about learning about ChatGPT models.  
+See you again!  
+Have a nice weekend!  
+We had a nice conversation.  
+Happy Birthday!  
+Best wishes to you!  
+Bye! Bye!  
+
+Sure! Here's a table format with English sentences translated into Thai, including pronunciation:
+
+| English Sentence                                                   | Thai Translation                                                                                               | Pronunciation (Thai)                                                                                                                       |
+|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| My name is Ye Kyaw Thu.                                            | ผมชื่อ Ye Kyaw Thu                                                                                           | Phom chue Ye Kyaw Thu                                                                                                                      |
+| I am a Myanmar.                                                    | ฉันเป็นคนพม่า                                                                                               | Chan pen khon Pama                                                                                                                         |
+| I am a NLP researcher and working at a Lab of Thai government.     | ฉันเป็นนักวิจัยด้านประมวลภาษาธรรมชาติและทำงานที่หน่วยงานของรัฐบาลไทย                     | Chan pen nak wijaai daan bpramuan phasa tham-ma-chat lae tham-ngan thi nuay ngan kong ratthaban Thai                                        |
+| Living in Thai almost 5 years.                                     | อาศัยอยู่ในประเทศไทยเกือบ 5 ปี                                                                                 | A-sai yoo nai prathet Thai geuap ha pyi                                                                                                     |
+| I love Thai foods.                                                 | ผมรักอาหารไทย                                                                                               | Phom rak a-han Thai                                                                                                                        |
+| I got my master and doctoral degree in Japan.                      | ผมได้รับปริญญาโทและปริญญาเอกในประเทศญี่ปุ่น                                                       | Phom dai rap pari-yat-tho lae pari-yat-ek nai prathet Yipun                                                                              |
+| Yes, I can speak Japanese fluently.                                | ใช่ ผมสามารถพูดภาษาญี่ปุ่นได้เป็นอย่างคล่อง                                                   | Chai, phom sa-ma-tor phut phasa Yipun dai pen yang klong                                                                                  |
+| I start learning Thai language and currently, very poor.           | ผมเริ่มเรียนภาษาไทยและตอนนี้ยังไม่เก่งมาก                                                             | Phom reum rian phasa Thai lae dton ni yang mai kaeng maak                                                                                 |
+| I hope I can talk well Thai within one year study.                 | ผมหวังว่าในเวลาศึกษา 1 ปีจะสามารถพูดภาษาไทยได้ดีและเก่งขึ้น                                       | Phom wang wa nai welaa seuk-sa 1 pi ja sa-ma-tor phut phasa Thai dai dee lae kaeng khuen                                                  |
+| I am a very hard worker.                                           | ผมเป็นคนที่ทำงานหนักมาก                                                                                   | Phom pen khon thi tham-ngan nak maak                                                                                                        |
+| Now 12:
+
+50 (early morning) in Thailand, but still working at the Lab. | ขณะนี้เวลา 12:50 ในประเทศไทย แต่ก็ยังทำงานอยู่ที่ห้องทดลอง                                                      | Kha-na ni wa-laa sip song mong sip (neung sip) nai prathet Thai, dtae ko yang tham-ngan yoo thi hong thot-long                             |
+| Recently, I am very busy about learning about ChatGPT models.      | ช่วงนี้ผมยุ่งเกี่ยวกับการเรียนรู้เกี่ยวกับแบบจำลอง ChatGPT                                          | Chua-ngi ni phom yung giau gap gaan rian-ruu giau gap bae-jam-long ChatGPT                                                                 |
+| See you again!                                                     | แล้วพบกันอีกนะ                                                                                              | Laew phop gan eek na                                                                                                                        |
+| Have a nice weekend!                                               | ขอให้มีความสุขในวันหยุดสุดสัปดาห์                                                                       | Khor hai mee khwam suk nai wan yoot soot-sap-da                                                                                             |
+| We had a nice conversation.                                        | เราคุยกันสนุกดีนะ                                                                                           | Rao khui gan sanuk dee na                                                                                                                  |
+| Happy Birthday!                                                    | สุขสันต์วันเกิด                                                                                              | Suk-san wan geert                                                                                                                          |
+| Best wishes to you!                                                | ขอให้โชคดีกับคุณ                                                                                             | Khor hai chok dee gap khun                                                                                                                  |
+| Bye! Bye!                                                          | ลาก่อน                                                                                                       | Laa-gon                                                                                                                                    |
 
 
 
