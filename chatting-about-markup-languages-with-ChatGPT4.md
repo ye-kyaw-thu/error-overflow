@@ -318,3 +318,51 @@ Note: This is an overly simplified markdown parser. Markdown has many more featu
 
 ## Question: 9
 
+Regenarate the above question (i.e. Question: 8) again and I got following response:  
+
+Writing a complete Markdown parser from scratch in either Python or Perl is a complex task that would take quite a bit of code and time to get right. However, I can certainly show you how to create a basic Markdown-like parser using Python, which you can then expand upon to suit your specific needs.
+
+In this simplified version, we'll support two basic features of Markdown: headers (lines beginning with `#`) and emphasis (text enclosed in `*` or `_`). We'll use regular expressions to identify these patterns in the text.
+
+```python
+import re
+
+def parse_simple_markdown(text):
+    # Split the input text into lines
+    lines = text.split('\n')
+
+    # Process each line
+    for i, line in enumerate(lines):
+        # Headers
+        match = re.match(r'(#{1,6}) (.*)', line)
+        if match:
+            level = len(match.group(1))
+            lines[i] = '<h{0}>{1}</h{0}>'.format(level, match.group(2))
+            continue
+
+        # Emphasis
+        line = re.sub(r'\*(.*?)\*', r'<em>\1</em>', line)
+        line = re.sub(r'_(.*?)_', r'<em>\1</em>', line)
+
+        lines[i] = line
+
+    # Join the lines back together and return the result
+    return '\n'.join(lines)
+
+# Test the function
+markdown_text = """
+# Header 1
+## Header 2
+Some *emphasized* text.
+Some _emphasized_ text.
+"""
+html = parse_simple_markdown(markdown_text)
+print(html)
+```
+
+In this code, we're using regular expressions to match patterns in the text and replace them with HTML tags. Note that this is a very basic example and doesn't cover many aspects of the Markdown syntax.
+
+Creating a complete Markdown parser would require additional code to handle other features of Markdown such as links, images, blockquotes, lists, code blocks, and more. Also, Markdown has some complex rules for handling things like nested emphasis (e.g., `*outer _inner_*`), which aren't handled by this simple example.
+
+Creating a complete, fully-featured Markdown parser from scratch is a significant task that would require a deep understanding of both the Markdown syntax and the parsing techniques, and probably is beyond the scope of this platform. However, if you're interested in doing so, I would recommend looking at the source code of an existing parser (like Python-Markdown or Mistune) to get an idea of what's involved.
+
