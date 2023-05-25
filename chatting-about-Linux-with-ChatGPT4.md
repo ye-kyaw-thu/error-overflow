@@ -1,4 +1,4 @@
-# Log of Chatting with ChatGPT4 about Linux Commands ant Others
+# Log of Chatting with ChatGPT4 about Linux Commands and Others
 
 ## Question: 1
 
