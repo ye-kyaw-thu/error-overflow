@@ -595,3 +595,14 @@ This is just a basic guide, and there's a lot more you can do with Jupyter Book.
 
 ## Question: 16
 
+Thanks! Could you explain to me in details about GitBook also? Are there any restrictions if I am not a paid user for using GitBook? Explain to me how to use it in details to create a new book?
+
+I got following error message from ChatGPT4 paid usage:  
+
+You've reached the current usage cap for GPT-4. You can continue with the default model now, or try again after 7:43 PM. Learn more
+Use default model  
+
+And thus, I changed to default mode (i.e. ChatGPT 3.5) ...  
+
+
+
