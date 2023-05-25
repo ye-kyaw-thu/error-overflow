@@ -2048,5 +2048,7 @@ Certainly! Here are the remaining commands from 31 to 100 with example usages:
 
 Please note that these commands are essential for NLP researchers and Data Scientists, and each command has numerous options and additional functionalities. I hope you find this information useful!
 
+Note: အထက်မှာ ပြခဲ့တဲ့ command number တွေနဲ့ လွဲသွားတာ ရှိတာတွေကို တွေ့ရပါလိမ့်မယ်။ man command ကိုလည်း နှစ်ခါ ထပ်ရှင်းပြထားတာကို တွေ့ရတယ်။ နံပါတ် ၅၇ မှာ တစ်ခေါက် ရှင်းခဲ့ပြီးသားကို နံပါတ် ၁၀၀ မှာလည်း ထပ်ရှင်းနေတာကို တွေ့ခဲ့ရတယ်။  
+
 ## Question: 9
 
