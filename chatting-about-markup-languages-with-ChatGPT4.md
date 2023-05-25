@@ -196,3 +196,32 @@ Textile offers a balance between ease of use and power, making it a good choice 
 
 Can you explain to me about Org-mode usages in details? including cheat sheet of Org-mode language
 
+Org-mode is a powerful and versatile mode for Emacs, a widely-used text editor. Org-mode allows you to maintain to-do lists, plan projects, and author documents with a fast and effective plain-text system. Here's a brief introduction to some of the commands and syntax used in Org-mode:
+
+| Syntax | Description | Example |
+|---|---|---|
+| * Title | Document title (also **, ***, etc. for subsections) | `* My Document` |
+| /emphasis/ | Emphasize text | `/emphasis/` |
+| *bold* | Bold text | `*bold*` |
+| =code= | Inline code | `=code=` |
+| [[link][description]] | Inline links | `[[http://example.com][Example]]` |
+| [[file:img.jpg]] | Image | `[[file:img.jpg]]` |
+| #+BEGIN_SRC language | Code block | `#+BEGIN_SRC python\nprint("Hello, World!")\n#+END_SRC` |
+| - | Unordered list | `- List item` |
+| 1. | Ordered list | `1. List item` |
+| |+| | Table | `| Cell 1 | Cell 2 |\n|-|\n| Cell 3 | Cell 4 |` |
+| TODO | Task item | `* TODO Write a paper` |
+| DONE | Completed task | `* DONE Write a paper` |
+
+These are only the very basics. Org-mode can do much more, including but not limited to:
+
+- Time tracking: You can use `C-c C-x C-i` to start the clock on a task, and `C-c C-x C-o` to stop it.
+- Agendas: You can get an overview of all your tasks using `C-c a`.
+- Literate programming: You can write code within your Org documents that can be executed and have their results included in the document.
+- Exporting: Org documents can be exported to a variety of formats, including HTML, PDF (via LaTeX), Markdown, and more.
+- Spreadsheets: You can perform calculations on tables within Org documents.
+
+For more detailed information, refer to the official Org-mode manual: https://orgmode.org/manual/index.html
+
+It's also worth noting that Emacs, the text editor that Org-mode is a part of, has a steep learning curve, but is also very powerful and customizable. If you're interested in using Org-mode, it might be worth spending some time getting to know Emacs first.
+
