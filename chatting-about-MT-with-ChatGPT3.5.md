@@ -1,4 +1,4 @@
-# Log of Chatting About Machine Translation with ChatGPT (mainly version 3.5)
+# Log of Chatting About Machine Translation with ChatGPT (mainly version 3.5, some are with version 4)
 
 ## Question: 1
 
