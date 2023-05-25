@@ -824,3 +824,139 @@ Remember to update the code with the appropriate data loading, preprocessing, an
 
 Similarly, Can you write a sequence to sequence NMT model with DyNet framework? Including command line options such as --help, --train, --dev, --test, --epoch, --output, and evaluation metrics etc.
 
+Certainly! Here's an example of a sequence-to-sequence Neural Machine Translation (NMT) model using the DyNet framework, including command line options and evaluation metrics:
+
+```python
+import argparse
+import dynet as dy
+
+# Define your sequence-to-sequence NMT model
+class NMTModel:
+    def __init__(self, input_size, hidden_size, output_size):
+        self.model = dy.ParameterCollection()
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+
+        # Encoder parameters
+        self.enc_fw_lstm = dy.LSTMBuilder(1, input_size, hidden_size, self.model)
+        self.enc_bw_lstm = dy.LSTMBuilder(1, input_size, hidden_size, self.model)
+
+        # Decoder parameters
+        self.dec_lstm = dy.LSTMBuilder(1, hidden_size*2, hidden_size, self.model)
+        self.W = self.model.add_parameters((output_size, hidden_size))
+        self.b = self.model.add_parameters((output_size))
+
+    def encode(self, input_seq):
+        fw_lstm = self.enc_fw_lstm.initial_state()
+        bw_lstm = self.enc_bw_lstm.initial_state()
+
+        fw_outputs = fw_lstm.transduce(input_seq)
+        bw_outputs = bw_lstm.transduce(reversed(input_seq))
+
+        return [dy.concatenate([fw, bw]) for fw, bw in zip(fw_outputs, reversed(bw_outputs))]
+
+    def decode(self, encoded_seq, target_seq):
+        dec_lstm = self.dec_lstm.initial_state()
+
+        W = dy.parameter(self.W)
+        b = dy.parameter(self.b)
+
+        losses = []
+        for encoded, target in zip(encoded_seq, target_seq):
+            decoder_input = dy.concatenate([encoded, target])
+            dec_state = dec_lstm.add_input(decoder_input)
+            output = W * dec_state.output() + b
+            loss = dy.pickneglogsoftmax(output, target)
+            losses.append(loss)
+
+        return losses
+
+    def generate(self, encoded_seq):
+        dec_lstm = self.dec_lstm.initial_state()
+
+        W = dy.parameter(self.W)
+        b = dy.parameter(self.b)
+
+        generated_seq = []
+        decoder_input = dy.concatenate([encoded_seq[0], dy.vecInput(self.hidden_size).set(0)])
+        dec_state = dec_lstm.add_input(decoder_input)
+        output = W * dec_state.output() + b
+        generated_seq.append(dy.argmax(output).value())
+
+        for encoded in encoded_seq[1:]:
+            decoder_input = dy.concatenate([encoded, dy.lookup(self.embeddings, generated_seq[-1])])
+            dec_state = dec_lstm.add_input(decoder_input)
+            output = W * dec_state.output() + b
+            generated_seq.append(dy.argmax(output).value())
+
+        return generated_seq
+
+
+# Command line argument parser
+parser = argparse.ArgumentParser(description="Sequence-to-Sequence Neural Machine Translation with DyNet")
+parser.add_argument("--train", help="Training file path", required=True)
+parser.add_argument("--dev", help="Development file path", required=True)
+parser.add_argument("--test", help="Test file path", required=True)
+parser.add_argument("--output", help="Output model file path", default="model.dy")
+parser.add_argument("--epochs", type=int, help="Number of training epochs", default=10)
+# Add more hyperparameters and options as needed
+
+# Parse command line arguments
+args = parser.parse_args()
+
+# Model parameters
+input_size = 100  # Modify as per your input sequence size
+hidden_size = 128  # Modify as per your desired hidden layer size
+output_size = 5000  # Modify as per your output vocabulary size
+
+# Create the model
+model = NMTModel(input_size, hidden_size, output_size)
+
+
+
+# DyNet computation graph and trainer
+trainer = dy.SimpleSGDTrainer(model.model)
+
+# Training loop
+for epoch in range(args.epochs):
+    # Training
+    with open(args.train, 'r') as train_file:
+        for line in train_file:
+            input_seq, target_seq = process_data(line)  # Modify this function to process your training data
+            dy.renew_cg()
+            encoded_seq = model.encode(input_seq)
+            losses = model.decode(encoded_seq, target_seq)
+            batch_loss = dy.esum(losses)
+            batch_loss.backward()
+            trainer.update()
+
+    # Evaluation on development set
+    dev_loss = 0.0
+    dev_samples = 0
+    with open(args.dev, 'r') as dev_file:
+        for line in dev_file:
+            input_seq, target_seq = process_data(line)  # Modify this function to process your development data
+            dy.renew_cg()
+            encoded_seq = model.encode(input_seq)
+            losses = model.decode(encoded_seq, target_seq)
+            dev_loss += dy.esum(losses).value()
+            dev_samples += len(target_seq)
+
+    avg_dev_loss = dev_loss / dev_samples
+    print("Epoch {}, Average Dev Loss: {}".format(epoch + 1, avg_dev_loss))
+
+# Save the trained model
+model.model.save(args.output)
+
+# Example usage: generating translations for test set
+# Load the saved model and perform translation on the test set
+# Modify this section to read and process your test data and perform translations
+```
+
+This code includes the necessary command line options such as `--train`, `--dev`, `--test`, `--output`, and `--epochs`. You can customize the code further by adding more hyperparameters and options as needed. Additionally, you can modify the `process_data` function to appropriately preprocess and tokenize your training, development, and test data according to your specific requirements.
+
+Remember to update the code with the appropriate data loading, preprocessing, and translation components specific to your task and data format.
+
+## Question: 20
+
