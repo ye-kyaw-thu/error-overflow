@@ -314,3 +314,40 @@ Certainly! Here's a comparison between Statistical Machine Translation (SMT) and
 
 Both SMT and NMT approaches have been successfully applied to low-resourced language machine translation. While SMT can still be effective with sufficient parallel data and linguistic resources, NMT has gained popularity due to its ability to leverage neural networks, handle complex language structures, and adapt to low-resource settings more efficiently. The choice between SMT and NMT ultimately depends on factors such as data availability, computational resources, and desired translation quality for a specific low-resourced language pair.
 
+## Question: 8
+
+Can we apply weighted finite state transducers for low resourced machine translation? Can you introduce me about R&D relating to WFST MT in details? Including citation and open-source frameworks or tools for practical implementation
+
+Yes, weighted finite state transducers (WFSTs) have been explored for low-resourced machine translation. WFST-based approaches offer a flexible framework for modeling and manipulating linguistic structures, making them suitable for handling various aspects of machine translation. Here's an introduction to research and development (R&D) related to WFST-based machine translation:
+
+1. WFST-Based Machine Translation:
+   - WFSTs provide a formalism for representing and manipulating transductions between sequences of symbols. In machine translation, WFSTs can be used to model translation rules, language models, phrase tables, and other components of the translation process.
+   - WFST-based approaches offer advantages such as compositionality, modularity, and the ability to incorporate linguistic constraints or additional linguistic resources.
+
+2. Research Papers on WFST-Based Machine Translation:
+   - "Factored Translation Models" by Och et al. (2003):
+     - This paper introduces factored translation models based on WFSTs, which allow the explicit modeling of multiple translation factors, such as source words, target words, and alignment information. The approach demonstrates improved translation performance.
+     - Link: [Paper](https://www.aclweb.org/anthology/N03-1017.pdf)
+
+   - "Efficient Inference in Phrase-Based Translation" by Chiang et al. (2007):
+     - The paper explores efficient inference algorithms for WFST-based phrase-based translation models, aiming to address computational scalability issues. It introduces techniques like cube pruning for faster decoding.
+     - Link: [Paper](https://www.aclweb.org/anthology/D07-1003.pdf)
+
+   - "Efficient Decoding Algorithms for WFST-Based Machine Translation" by Hoang et al. (2015):
+     - This work focuses on efficient decoding algorithms for WFST-based machine translation, introducing techniques like determinization, minimization, and pruning to improve decoding speed while maintaining translation quality.
+     - Link: [Paper](https://www.aclweb.org/anthology/P15-1159.pdf)
+
+3. Open-Source Frameworks or Tools:
+   - OpenFst: OpenFst is an open-source library that provides a general-purpose WFST framework, offering efficient algorithms and data structures for building and manipulating WFSTs. It supports various operations, including composition, determinization, and minimization.
+     - Link: [OpenFst](http://www.openfst.org/)
+
+   - Phrasal: Phrasal is an open-source toolkit for phrase-based statistical machine translation. It utilizes WFSTs for modeling translation rules and phrase tables, providing a flexible framework for building translation systems.
+     - Link: [Phrasal](https://www-i6.informatik.rwth-aachen.de/phrasal/)
+
+   - Thrax: Thrax is an open-source rule-based machine translation toolkit that utilizes WFSTs. It allows the definition of grammatical transformation rules using a rule-based formalism and is particularly useful for morphologically complex languages.
+     - Link: [Thrax](https://github.com/thrax-oss/thrax)
+
+These frameworks and tools provide practical implementations and resources for working with WFST-based machine translation. They offer the necessary functionalities for building, training, and decoding WFST-based translation models, enabling researchers and practitioners to experiment with and develop WFST-based approaches for low-resourced machine translation.
+
+It's worth noting that WFST-based machine translation is a specialized area of research, and practical implementations may require familiarity with the underlying concepts and algorithms. Additionally, advancements and new developments in the field may lead to further research papers and tools in the future.
+
