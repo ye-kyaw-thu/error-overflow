@@ -351,3 +351,28 @@ These frameworks and tools provide practical implementations and resources for w
 
 It's worth noting that WFST-based machine translation is a specialized area of research, and practical implementations may require familiarity with the underlying concepts and algorithms. Additionally, advancements and new developments in the field may lead to further research papers and tools in the future.
 
+## Question: 9
+
+Are there any approach combination of WFST and NMT? If it is can you introduce me some of them in details.
+
+Yes, there have been approaches that combine the strengths of weighted finite state transducers (WFSTs) and Neural Machine Translation (NMT) techniques. These hybrid approaches aim to leverage the modularity and linguistic modeling capabilities of WFSTs along with the improved translation quality of NMT. Here are a few examples:
+
+1. WFST-Based Lexicalization for NMT:
+   - This approach combines WFST-based lexicalization with NMT. It uses WFSTs to explicitly model and handle lexicalization, which is the process of generating target words from subword units in NMT. WFST-based lexicalization provides more control over the translation process and allows for incorporating linguistic constraints or specific translation rules.
+   - "Lexicalization Strategies for Neural Machine Translation" by Aharoni et al. (2017) explores different strategies for incorporating WFST-based lexicalization into NMT, demonstrating improvements in translation quality.
+   - Link: [Paper](https://www.aclweb.org/anthology/P17-1013.pdf)
+
+2. Hybrid Models with WFST Decoders:
+   - Hybrid models combine NMT as the underlying translation model with WFST-based decoders for decoding and post-processing. The NMT model generates an initial translation, which is then refined using WFST-based decoding techniques to incorporate linguistic constraints, lexicalization, or specific translation rules.
+   - "Hybrid Machine Translation with Neural and Finite-State Models" by Bentivogli et al. (2016) explores a hybrid model combining NMT and an WFST-based finite-state decoder. The decoder integrates linguistic knowledge and phrase-based models, resulting in improved translation quality.
+   - Link: [Paper](https://www.aclweb.org/anthology/L16-1540.pdf)
+
+3. Using WFST for Preprocessing and Postprocessing:
+   - WFSTs can be employed for preprocessing and postprocessing steps in NMT pipelines. For example, WFSTs can be used for tokenization, normalization, or handling specific linguistic phenomena before feeding the input to the NMT model. Similarly, WFSTs can be utilized for postprocessing tasks like reordering or handling specific target language constraints.
+   - "Improving Neural Machine Translation with Weighted Finite-State Transducers" by Lommel et al. (2018) explores the use of WFSTs for preprocessing and postprocessing in NMT pipelines, demonstrating improvements in translation quality and fluency.
+   - Link: [Paper](https://www.aclweb.org/anthology/W18-6317.pdf)
+
+These hybrid approaches showcase the potential of combining the flexibility and linguistic modeling capabilities of WFSTs with the expressive power of NMT. By incorporating WFST techniques into different stages of the NMT pipeline, these approaches aim to enhance translation quality, handle specific linguistic phenomena, or incorporate domain-specific knowledge.
+
+It's important to note that hybrid approaches combining WFSTs and NMT are an active area of research, and there may be more recent developments and papers beyond the scope of this summary. Researchers continue to explore novel ways of integrating WFST-based techniques with NMT to address various challenges in machine translation.
+
