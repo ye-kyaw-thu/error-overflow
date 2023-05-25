@@ -225,3 +225,47 @@ For more detailed information, refer to the official Org-mode manual: https://or
 
 It's also worth noting that Emacs, the text editor that Org-mode is a part of, has a steep learning curve, but is also very powerful and customizable. If you're interested in using Org-mode, it might be worth spending some time getting to know Emacs first.
 
+## Question: 7
+
+Can you write a python code for markdown parser?  
+
+Creating a markdown parser is a complex task, as Markdown has a very rich syntax. However, Python already has a library called `markdown` which can be used to parse markdown content into HTML. Here is a simple example of how to use it:
+
+First, you need to install the markdown library. You can do it using pip:
+
+```
+pip install markdown
+```
+
+Then, you can parse markdown text into HTML like this:
+
+```python
+import markdown
+
+def parse_markdown(markdown_text):
+    html = markdown.markdown(markdown_text)
+    return html
+
+# Example usage:
+markdown_text = """
+# Hello, world!
+
+This is a simple Markdown document.
+
+* Item 1
+* Item 2
+"""
+html = parse_markdown(markdown_text)
+print(html)
+```
+
+In this code, the `parse_markdown` function takes a string of markdown text and returns a string of HTML.
+
+If you want to write your own parser from scratch, you would need to implement all the rules of the Markdown syntax, which is a substantial task. You would need to write functions to handle headers, lists, links, emphasis, strong emphasis, code blocks, and more, as well as considering nested elements and escaping rules. 
+
+I would recommend using an existing library like `markdown` unless you have a very specific need that it can't meet, as writing your own parser would be a significant amount of work and could potentially introduce bugs or inconsistencies with the official Markdown specification.
+
+## Question: 8
+
+I already know about that markdown Python library. Hey! Don't be lazy. I wanna know your coding knowledge, ChatGPT. Can you write a parser for markdown language with a Python or Perl language for me?
+
