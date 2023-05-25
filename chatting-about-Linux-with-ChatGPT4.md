@@ -1774,3 +1774,279 @@ These are just the first 30 commands with example usages. If you find this helpf
 
 ## Question: 8
 
+Go ahead for command no. 31 to 100. 
+
+Certainly! Here are the remaining commands from 31 to 100 with example usages:
+
+31. **gunzip:**
+   - Decompress a gzipped file: `gunzip file.txt.gz`
+   - Decompress multiple files: `gunzip file1.txt.gz file2.txt.gz`
+
+32. **unzip:**
+   - Extract files from a zip archive: `unzip archive.zip`
+   - Extract files to a specific directory: `unzip archive.zip -d destination_dir/`
+
+33. **wc:**
+   - Count the number of lines in a file: `wc -l file.txt`
+   - Count the number of words in a file: `wc -w file.txt`
+
+34. **diff:**
+   - Compare two files and show the differences: `diff file1.txt file2.txt`
+   - Compare two directories and show the differences: `diff -r dir1/ dir2/`
+
+35. **diff3:**
+   - Compare three files and show the differences: `diff3 file1.txt file2.txt file3.txt`
+
+36. **diffstat:**
+   - Show statistics about changes in a diff file: `diffstat diff_file.diff`
+
+37. **paste:**
+   - Merge lines from multiple files side by side: `paste file1.txt file2.txt`
+   - Merge lines from multiple files with a custom delimiter: `paste -d "," file1.txt file2.txt`
+
+38. **tr:**
+   - Translate or delete characters: `tr 'a-z' 'A-Z' < file.txt`
+   - Delete specific characters from a file: `tr -d 'aeiou' < file.txt`
+
+39. **uniq:**
+   - Remove duplicate adjacent lines from a file: `uniq file.txt`
+   - Count the occurrences of each line in a file: `uniq -c file.txt`
+
+40. **du:**
+   - Estimate file and directory space usage: `du file.txt`
+   - Estimate total disk usage of a directory: `du -sh directory/`
+
+41. **df:**
+   - Report file system disk space usage: `df`
+   - Display disk space usage in human-readable format: `df -h`
+
+42. **free:**
+   - Display memory usage information: `free`
+   - Display memory usage in human-readable format: `free -h`
+
+43. **mount:**
+   - Mount a file system or device: `mount /dev/sdb1 /mnt/usb`
+   - List all mounted file systems: `mount`
+
+44. **umount:**
+   - Unmount a file system: `umount /mnt/usb`
+
+45. **scp:**
+   - Copy files securely between hosts: `scp file.txt user@remote:/path/to/destination`
+   - Copy a directory and its contents: `scp -r directory/ user@remote:/path/to/destination`
+
+46. **rsync:**
+   - Sync files and directories between locations: `rsync -avz source/ destination/`
+   - Sync files and directories using SSH: `rsync -avz -e ssh source/ user@remote:/path/to/destination`
+
+47. **ssh:**
+   - Securely log into a remote machine: `ssh user@remote`
+   - Execute a command on a remote machine: `ssh user@remote 'command'`
+
+48. **tailf:**
+   - Output the contents of a file as it grows: `tailf file.log`
+
+49. **tee:**
+   - Read from standard input and write to standard output and files: `command | tee output.txt`
+   - Append to a file while also printing to standard output: `command | tee -a output.txt
+
+`
+
+50. **echo:**
+   - Print a message: `echo "Hello, World!"`
+   - Assign a value to a variable: `echo "variable=value" >> .bashrc`
+
+51. **date:**
+   - Display the current date and time: `date`
+   - Format and display the current date: `date +"%Y-%m-%d"`
+
+52. **cal:**
+   - Display a calendar for the current month: `cal`
+   - Display a calendar for a specific year: `cal 2023`
+
+53. **uptime:**
+   - Show how long the system has been running: `uptime`
+
+54. **whoami:**
+   - Display the current user: `whoami`
+
+55. **uname:**
+   - Display system information: `uname -a`
+   - Display the operating system name: `uname -s`
+
+56. **hostname:**
+   - Display the hostname of the system: `hostname`
+
+57. **man:**
+   - Display the manual page for a command: `man ls`
+   - Search for a specific keyword in the manual: `man -k keyword`
+
+58. **info:**
+   - Display information about a command: `info command`
+
+59. **tar:**
+   - Create a tar archive of a directory: `tar -cvf archive.tar directory/`
+   - Extract files from a tar archive: `tar -xvf archive.tar`
+
+60. **gzip:**
+   - Compress a file: `gzip file.txt`
+   - Decompress a gzipped file: `gzip -d file.txt.gz`
+
+61. **gunzip:**
+   - Decompress a gzipped file: `gunzip file.txt.gz`
+
+62. **unzip:**
+   - Extract files from a zip archive: `unzip archive.zip`
+   - Extract files to a specific directory: `unzip archive.zip -d destination_dir/`
+
+63. **md5sum:**
+   - Calculate the MD5 hash value of a file: `md5sum file.txt`
+
+64. **sha1sum:**
+   - Calculate the SHA-1 hash value of a file: `sha1sum file.txt`
+
+65. **file:**
+   - Determine the file type: `file file.txt`
+
+66. **wc:**
+   - Count the number of lines in a file: `wc -l file.txt`
+   - Count the number of words in a file: `wc -w file.txt`
+
+67. **diff:**
+   - Compare two files and show the differences: `diff file1.txt file2.txt`
+   - Compare two directories and show the differences: `diff -r dir1/ dir2/`
+
+68. **tr:**
+   - Translate or delete characters: `tr 'a-z' 'A-Z' < file.txt`
+   - Delete specific characters from a file: `tr -d 'aeiou' < file.txt`
+
+69. **sed:**
+   - Replace a specific pattern with another in a file: `sed 's/pattern/replacement/' file.txt`
+   - Delete a specific line from a file: `sed '10d' file.txt`
+
+70. **awk:**
+   - Print the first field of each line in a file: `awk '{print $1}' file.txt`
+   - Sum the values of a specific column in a CSV file: `awk -F "," '{sum+=$2} END {print sum}' file.csv`
+
+71. **cut:**
+   - Extract specific fields from a file using a delimiter: `cut -d "," -f 1,2 file.csv`
+   - Extract the first 10 characters from each line of a file: `cut -c
+
+ 1-10 file.txt`
+
+72. **join:**
+   - Join lines from two files based on a common field: `join file1.txt file2.txt`
+   - Join lines from two files based on a specific field: `join -1 2 -2 1 file1.txt file2.txt`
+
+73. **paste:**
+   - Merge lines from multiple files side by side: `paste file1.txt file2.txt`
+   - Merge lines from multiple files with a custom delimiter: `paste -d "," file1.txt file2.txt`
+
+74. **sort:**
+   - Sort the lines of a file in ascending order: `sort file.txt`
+   - Sort the lines of a file in descending order: `sort -r file.txt`
+
+75. **uniq:**
+   - Remove duplicate adjacent lines from a file: `uniq file.txt`
+   - Count the occurrences of each line in a file: `uniq -c file.txt`
+
+76. **head:**
+   - Display the first 10 lines of a file: `head file.txt`
+   - Display the first 5 lines of a file: `head -n 5 file.txt`
+
+77. **tail:**
+   - Display the last 10 lines of a file: `tail file.txt`
+   - Display the last 5 lines of a file: `tail -n 5 file.txt`
+
+78. **grep:**
+   - Search for a specific pattern in a file: `grep "pattern" file.txt`
+   - Search for a pattern recursively in a directory: `grep -r "pattern" directory/`
+
+79. **curl:**
+   - Fetch the content of a webpage: `curl http://example.com`
+   - Download a file from a URL: `curl -O http://example.com/file.txt`
+
+80. **wget:**
+   - Download a file from a URL: `wget http://example.com/file.txt`
+   - Download a file and save it with a different name: `wget -O output.txt http://example.com/file.txt`
+
+81. **diff:**
+   - Compare two files and show the differences: `diff file1.txt file2.txt`
+   - Compare two directories and show the differences: `diff -r dir1/ dir2/`
+
+82. **tar:**
+   - Create a tar archive of a directory: `tar -cvf archive.tar directory/`
+   - Extract files from a tar archive: `tar -xvf archive.tar`
+
+83. **gzip:**
+   - Compress a file: `gzip file.txt`
+   - Decompress a gzipped file: `gzip -d file.txt.gz`
+
+84. **gunzip:**
+   - Decompress a gzipped file: `gunzip file.txt.gz`
+
+85. **unzip:**
+   - Extract files from a zip archive: `unzip archive.zip`
+   - Extract files to a specific directory: `unzip archive.zip -d destination_dir/`
+
+86. **mount:**
+   - Mount a file system or device: `mount /dev/sdb1 /mnt/usb`
+   - List all mounted file systems: `mount`
+
+87. **umount:**
+   - Unmount a file system: `umount /mnt/usb`
+
+88. **scp:**
+   - Copy files securely between hosts: `scp file.txt user@remote:/path/to/destination`
+   - Copy a directory and its contents: `scp -r directory/ user@remote:/path/to/destination`
+
+89. **rsync:**
+   - Sync files and directories between locations: `rsync -avz source/ destination/`
+   - Sync files and directories using SSH: `rsync -avz -e
+
+ ssh source/ user@remote:/path/to/destination`
+
+90. **ssh:**
+   - Securely log into a remote machine: `ssh user@remote`
+   - Execute a command on a remote machine: `ssh user@remote 'command'`
+
+91. **tailf:**
+   - Output the contents of a file as it grows: `tailf file.log`
+
+92. **tee:**
+   - Read from standard input and write to standard output and files: `command | tee output.txt`
+   - Append to a file while also printing to standard output: `command | tee -a output.txt`
+
+93. **echo:**
+   - Print a message: `echo "Hello, World!"`
+   - Assign a value to a variable: `echo "variable=value" >> .bashrc`
+
+94. **date:**
+   - Display the current date and time: `date`
+   - Format and display the current date: `date +"%Y-%m-%d"`
+
+95. **cal:**
+   - Display a calendar for the current month: `cal`
+   - Display a calendar for a specific year: `cal 2023`
+
+96. **uptime:**
+   - Show how long the system has been running: `uptime`
+
+97. **whoami:**
+   - Display the current user: `whoami`
+
+98. **uname:**
+   - Display system information: `uname -a`
+   - Display the operating system name: `uname -s`
+
+99. **hostname:**
+   - Display the hostname of the system: `hostname`
+
+100. **man:**
+   - Display the manual page for a command: `man ls`
+   - Search for a specific keyword in the manual: `man -k keyword`
+
+Please note that these commands are essential for NLP researchers and Data Scientists, and each command has numerous options and additional functionalities. I hope you find this information useful!
+
+## Question: 9
+
