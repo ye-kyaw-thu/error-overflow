@@ -168,3 +168,27 @@ The flexibility and extensibility of reStructuredText makes it a powerful tool f
 
 Can you explain to me about Textile markup language? Including cheat sheet of it's command usages ... 
 
+Textile is a lightweight markup language that uses a text-based syntax to provide an easy way to structure and format text. It was originally developed by Dean Allen and is used for writing articles, READMEs, and other types of web content.
+
+Here's a brief introduction to the Textile syntax:
+
+| Syntax | Description | Example |
+|---|---|---|
+| h1. Title | Document title (also h2., h3., etc.) | `h1. My Document` |
+| _emphasis_ | Emphasize text | `_emphasis_` |
+| *bold* | Bold text | `*bold*` |
+| @code@ | Monospace text (inline code) | `@code@` |
+| "text":url | Inline links | `"Example":http://example.com` |
+| !image_url! | Image | `!http://example.com/image.jpg!` |
+| bc.. code | Block code | `bc.. print("Hello, World!")` |
+| bq.. quote | Blockquote | `bq.. This is a quote.` |
+| * | Unordered list | `* List item` |
+| # | Ordered list | `# List item` |
+| |. | Table | `|. Cell 1.|\n|. Cell 2.|` |
+
+Textile also supports more advanced features, such as attributes for controlling the style and alignment of elements, footnotes, citations, and more.
+
+For the complete syntax and more detailed explanation, you can refer to the official Textile Documentation: https://textile-lang.com/
+
+Textile offers a balance between ease of use and power, making it a good choice for those who need more control over their text formatting than Markdown provides, but don't need the complexity of something like reStructuredText or AsciiDoc.
+
