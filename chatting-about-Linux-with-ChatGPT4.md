@@ -1008,3 +1008,8 @@ dump:** Dump traffic on a network.
     ```
    
 These commands should cover most of the basic needs of an NLP researcher using Linux. Always remember to check the man page (`man command`) or use `command --help` to get more information about each command's usage and options.
+
+## Question: 3
+
+Teach me essential Linux commands for the Data Scientist? Show 5 example usages of each command.
+
