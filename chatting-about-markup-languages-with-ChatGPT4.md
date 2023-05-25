@@ -505,8 +505,9 @@ In this example, `{#intro}` is an example of a feature `Bookdown` adds to Markdo
 The `[@R-bookdown]` syntax is a citation. You can store your bibliographic data in a BibTeX file, and `Bookdown` will automatically format your citations and create a bibliography for your book.
 
 For more details on using `Bookdown`, see the [Bookdown Book](https://bookdown.org/yihui/bookdown/), which is, fittingly, written using `Bookdown`. It covers the package's features in detail and is a great resource for getting started.
+```
 
-## Question: 14
+## Question: 14  
 
 If I don't want to use R, are there any alternatives instead of BookDown? If it is introduce them in details. Thanks!
 
