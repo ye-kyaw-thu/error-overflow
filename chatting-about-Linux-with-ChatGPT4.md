@@ -2595,3 +2595,48 @@ Sure, here are 50 essential commands for the Windows Command Prompt (CMD):
 
 50. **RUNAS**: Allows a user to run specific tools and programs with different permissions than the user's current logon provides. Example: `runas /user:administrator cmd`
 
+## Question: 16
+
+Can you write 3 example of batch programs for the Windows 10 OS?
+
+Sure, here are three simple examples of batch programs that can be run on Windows 10:
+
+1. **Creating multiple directories**:
+This script will create multiple directories named "Dir1", "Dir2", "Dir3", and "Dir4" in the current directory.
+
+```batch
+@echo off
+mkdir Dir1
+mkdir Dir2
+mkdir Dir3
+mkdir Dir4
+echo Directories created successfully.
+pause
+```
+Save this file with a `.bat` extension and double-click to run it. The `pause` command at the end is used to keep the Command Prompt window open until the user presses a key.
+
+2. **Listing files and saving output to a text file**:
+This script lists all files in the current directory and outputs the result to a text file called "files.txt".
+
+```batch
+@echo off
+dir /b > files.txt
+echo File list has been saved to files.txt
+pause
+```
+The `dir /b` command is used to list all files in the current directory in bare format. The `>` operator is used to redirect the output to a file.
+
+3. **Checking internet connectivity**:
+This script uses the `ping` command to check if Google's server can be reached, indicating that internet connectivity is likely available.
+
+```batch
+@echo off
+ping www.google.com -n 1
+IF ERRORLEVEL 1 echo No internet connectivity.
+IF NOT ERRORLEVEL 1 echo Internet connectivity is available.
+pause
+```
+The `-n 1` option is used with the `ping` command to send only one packet. The `IF ERRORLEVEL` command is used to check if the `ping` command was successful.
+
+Remember to save these scripts with a `.bat` extension to run them. You can run a batch file by double-clicking it, or by typing its name in the Command Prompt (if you're in the same directory as the batch file).
+
