@@ -2735,9 +2735,7 @@ Sure, I understand you'd like to see more command pairs and their usage examples
 | umount            | `umount /mnt` Unmount a file system          | mountvol /p         | `mountvol E: /p` Unmount a volume                    |
 | export            | `export VAR=value` Set an environment variable | set                | `set VAR=value` Set an environment variable          |
 | printenv          | `printenv VAR` Print an environment variable | echo                | `echo %VAR%` Print an environment variable           |
-| crontab           | `
-
-crontab -l` Schedule tasks to run           | schtasks            | `schtasks /Query` Schedule tasks to run              |
+| crontab           | `crontab -l` Schedule tasks to run           | schtasks            | `schtasks /Query` Schedule tasks to run              |
 ```
 
 This table lists basic, similar commands between Linux and Windows. Some of these commands have different options and can behave differently, but the general usage is similar.
