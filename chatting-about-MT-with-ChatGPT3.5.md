@@ -282,3 +282,35 @@ Certainly! Pivot translation approaches are often employed in low-resource langu
 
 These research papers focus on pivot translation approaches specifically designed to address the challenges of low-resource languages, including minority dialects. They highlight the potential of using intermediate languages as pivots to improve translation quality and expand language coverage. It's important to note that each paper presents its own unique contributions and experimentation results, showcasing the efficacy of pivot translation in low-resource language scenarios.
 
+## Question: 7
+
+Can you make a comparison between SMT and NMT approaches for low-resourced language machine translation? 
+
+Certainly! Here's a comparison between Statistical Machine Translation (SMT) and Neural Machine Translation (NMT) approaches for low-resourced language machine translation:
+
+1. Model Architecture:
+   - SMT: SMT models traditionally use statistical models that involve separate components for translation and language modeling. These models rely on handcrafted features and phrase-based alignments.
+   - NMT: NMT models employ neural networks, typically based on the transformer architecture, which captures the context and dependencies of words more effectively. NMT models are end-to-end, eliminating the need for manual feature engineering.
+
+2. Data Requirements:
+   - SMT: SMT typically requires a large parallel corpus for training, consisting of aligned sentence pairs in the source and target languages. The performance of SMT models heavily depends on the availability and quality of parallel data.
+   - NMT: NMT models also benefit from parallel data, but they can be trained effectively even with smaller datasets. NMT models can leverage monolingual data for pretraining or data augmentation, enabling better performance in low-resource scenarios.
+
+3. Translation Quality:
+   - SMT: SMT has been widely used for low-resourced language translation and can provide reasonable translation quality, especially with sufficient parallel data. However, the quality may degrade when dealing with complex or morphologically rich languages due to limited context modeling capabilities.
+   - NMT: NMT models have shown significant improvements in translation quality, surpassing SMT in many language pairs. NMT's ability to capture contextual information and handle longer-range dependencies leads to more fluent and accurate translations.
+
+4. Adaptability to Low-Resource Settings:
+   - SMT: SMT models are more flexible in adapting to low-resource settings as they can incorporate linguistic resources, such as dictionaries or rule-based approaches, to handle specific language characteristics. However, manual engineering efforts are required for adapting SMT models.
+   - NMT: NMT models excel in learning from data, making them well-suited for low-resource scenarios. They can leverage transfer learning, pretrained models, and unsupervised or semi-supervised learning techniques to overcome data scarcity challenges.
+
+5. Training Efficiency:
+   - SMT: SMT models typically require significant computational resources and time for training, especially with large-scale parallel data. The training process involves multiple steps, including phrase extraction, alignment estimation, and language modeling.
+   - NMT: NMT models are computationally more efficient during training due to parallelization opportunities offered by neural networks. Training an NMT model can be faster compared to SMT, enabling quicker experimentation and model iterations.
+
+6. Continuous Improvement:
+   - SMT: The development of SMT models is relatively mature, with a rich set of established techniques and tools. However, further improvements may require more manual feature engineering and domain-specific customization.
+   - NMT: NMT models have witnessed rapid advancements in recent years, benefitting from ongoing research and innovation. Continuous improvements in model architectures, training techniques, and transfer learning approaches contribute to enhanced translation quality.
+
+Both SMT and NMT approaches have been successfully applied to low-resourced language machine translation. While SMT can still be effective with sufficient parallel data and linguistic resources, NMT has gained popularity due to its ability to leverage neural networks, handle complex language structures, and adapt to low-resource settings more efficiently. The choice between SMT and NMT ultimately depends on factors such as data availability, computational resources, and desired translation quality for a specific low-resourced language pair.
+
