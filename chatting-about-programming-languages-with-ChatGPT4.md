@@ -725,3 +725,58 @@ Esolangs, despite their impracticality, represent an important aspect of compute
 
 ## Question: 12
 
+Based on the Brainfuck language, Can you create a new user friendly Brainfuck variance programming language? Including the Python or Perl code for parsing your new language. Do your best!
+
+Creating a new programming language is a complex task that often takes considerable time and effort. However, I can provide an idea for a more user-friendly version of Brainfuck which I'll call "BrainFriend". The goal of BrainFriend is to make Brainfuck more readable and approachable while preserving its core principles. 
+
+Here's the mapping from Brainfuck to BrainFriend commands:
+
+| Brainfuck | BrainFriend | Meaning |
+| --- | --- | --- |
+| `>` | `move_right` | Increment the data pointer |
+| `<` | `move_left` | Decrement the data pointer |
+| `+` | `increment` | Increment the byte at the data pointer |
+| `-` | `decrement` | Decrement the byte at the data pointer |
+| `.` | `print` | Output the byte at the data pointer |
+| `,` | `input` | Accept one byte of input, storing its value in the byte at the data pointer |
+| `[` | `loop_start` | Jump forward to the corresponding `loop_end` if the byte at the data pointer is zero |
+| `]` | `loop_end` | Jump back to the corresponding `loop_start` if the byte at the data pointer is nonzero |
+
+The following Python code is a simple parser for the BrainFriend language. The parser reads the BrainFriend commands from a file and translates them to Brainfuck commands:
+
+```python
+# Mapping from BrainFriend to Brainfuck commands
+command_mapping = {
+    'move_right': '>',
+    'move_left': '<',
+    'increment': '+',
+    'decrement': '-',
+    'print': '.',
+    'input': ',',
+    'loop_start': '[',
+    'loop_end': ']'
+}
+
+# Open the BrainFriend file
+with open('brainfriend.bf', 'r') as f:
+    # Read the file line by line
+    lines = f.readlines()
+
+# Initialize the Brainfuck code
+brainfuck_code = ''
+
+# Translate BrainFriend commands to Brainfuck
+for line in lines:
+    line = line.strip()  # Remove leading/trailing white spaces
+    if line in command_mapping:
+        brainfuck_code += command_mapping[line]
+
+# Save the translated Brainfuck code to a file
+with open('brainfuck.bf', 'w') as f:
+    f.write(brainfuck_code)
+
+print('BrainFriend code was successfully translated to Brainfuck!')
+```
+
+This is a rudimentary BrainFriend to Brainfuck translator. To make BrainFriend a fully featured language, there are many other considerations such as adding syntax for functions, adding comments, error handling, etc. Nevertheless, this should give you a starting point.
+
