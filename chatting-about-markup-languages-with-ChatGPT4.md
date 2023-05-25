@@ -136,3 +136,33 @@ It's also worth noting that AsciiDoc documents are just plain text, so you can o
 ## Question: 4
 
 Can you explain to me about reStructuredText language? Including cheat sheet of it's command usages ... 
+
+reStructuredText (also known as reST) is a markup language developed by the Docutils project. It's widely used in the Python community for software documentation. Like other lightweight markup languages, reStructuredText is designed to be both easy to read in plain text and easy to parse into other formats like HTML or LaTeX.
+
+Here's a brief introduction to the reStructuredText syntax:
+
+| Syntax | Description | Example |
+|---|---|---|
+| = Title = | Document title (also -, ~, #, etc.) | `= My Document =` |
+| == Section title == | Section headings (also --, ~~, ##, etc.) | `== My Section ==` |
+| *emphasis* | Emphasize text | `*emphasis*` |
+| **bold** | Bold text | `**bold**` |
+| ``monospace`` | Monospace text | `` `monospace` `` |
+| | Quoted literal | `` :``monospace``: `` |
+| .. [note] | Footnote | `.. [1] This is a footnote.` |
+| .. image:: path | Image | `.. image:: example.jpg` |
+| `.. code:: language` | Code block | `.. code:: python\n\n   def hello():\n       print("Hello, world!")` |
+| - | Unordered list | `- List item` |
+| 1. | Ordered list | `1. List item` |
+| .. table:: title | Table | `.. table:: My Table\n\n   +-------+-------+\n   | Cell 1 | Cell 2 |\n   +-------+-------+` |
+| `target <http://example.com>`_ | Inline links | `Visit `Example <http://example.com>`_ for more info.` |
+| .. include:: filename | Include another file | `.. include:: example.txt` |
+
+reStructuredText is much more than this, it supports a wide variety of directives for things like including external documents, syntax highlighting code blocks, creating tables of contents, and more. It can be extended by Sphinx (a documentation generation tool) to support linking between documents, automatic documentation of Python classes and functions, and more.
+
+For the complete syntax and more detailed explanation, you can refer to the official reStructuredText Documentation: http://docutils.sourceforge.net/rst.html
+
+The flexibility and extensibility of reStructuredText makes it a powerful tool for writing technical documentation, especially in the Python ecosystem.
+
+## Question: 5
+
