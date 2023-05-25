@@ -169,4 +169,35 @@ Please note that while the techniques mentioned above have been explored in the 
 
 I have zero knowledge about back translation. Can you explain to me how to do back translation approach step by step?
 
+Certainly! Back translation is a technique used in machine translation to generate synthetic parallel data for training by translating monolingual data from the target language into a high-resource language and then translating it back to the target language. Here's a step-by-step explanation of the back translation approach:
+
+1. Gather Monolingual Data:
+Collect a substantial amount of monolingual data in the target language for which you want to improve translation quality. This can be general text from various sources like books, articles, websites, or any other relevant data.
+
+2. Train a Translation Model:
+Train a translation model (e.g., an NMT model) using a large parallel corpus between a high-resource language pair. For example, if English is the high-resource language, you could use a parallel corpus of English-French translations.
+
+3. Translate Monolingual Data:
+Use the trained translation model to translate the collected monolingual data from the target language into the high-resource language. In this example, the target language data would be translated into English.
+
+4. Create Synthetic Parallel Data:
+Now, take the translated data from step 3 (in English) and align it with the original monolingual data in the target language. By aligning the translations with the original target language sentences, you create synthetic parallel data, where the target language sentences act as the source, and the translated English sentences act as the target.
+
+5. Combine with Existing Parallel Data:
+Combine the synthetic parallel data generated in step 4 with any existing parallel data you may have for the target language pair. This augmented parallel data can now be used to train your translation model, providing additional training examples and improving translation quality.
+
+6. Train and Fine-Tune the Translation Model:
+Train or fine-tune your translation model using the augmented parallel data from step 5. This training process helps the model learn from the synthetic parallel data and the existing parallel data, leading to improved translation performance for the target language pair.
+
+7. Evaluate and Iterate:
+Evaluate the performance of the trained model on a held-out validation or test set to measure the improvement in translation quality. If necessary, iterate the process by refining the model architecture, adjusting training parameters, or collecting additional monolingual or parallel data to further enhance translation performance.
+
+Back translation allows you to leverage the power of a high-resource language to generate synthetic parallel data and improve translation quality for under-resourced languages. It has proven to be an effective technique in scenarios where limited or no parallel data is available for a specific language pair.
+
+Please note that while the steps provided above give a general overview of the back translation approach, implementation details and specific considerations may vary depending on the machine translation system or framework being used.
+
+## Question: 5
+
+Recently, I know applying pretrained models for low-resourced language machine translation also popular research trends. Could you introduce about applying pretrained models for low-resourced language pairs?
+
 
