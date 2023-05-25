@@ -640,3 +640,74 @@ While GitBook offers a free plan, there are some limitations compared to their p
 Keep in mind that GitBook's plans and features may evolve over time, so it's always best to check their website for the most up-to-date information on the specific restrictions of their free plan.
 
 Overall, GitBook provides an intuitive and user-friendly platform for creating and hosting books or documentation sites. It offers a range of features to help you organize, write, and publish your content, even with the free plan.
+
+## Question: 17
+
+Can you explain to me about MkDocs usage in details? I have zero knowledge about it. Including an example of creating a new book with MkDocs ...  
+
+MkDocs is a popular open-source static site generator specifically designed for creating documentation websites. It uses Markdown files and a simple configuration file to generate a static HTML website. Here's a detailed overview of how to use MkDocs to create a new book:
+
+**Prerequisites:**
+
+Before starting, make sure you have Python installed on your machine. You can check if Python is installed by running `python --version` in your terminal.
+
+**Getting Started:**
+
+1. **Installation**: Start by installing MkDocs using pip, the Python package manager:
+
+   ```bash
+   pip install mkdocs
+   ```
+
+2. **Create a New Project**: In your desired working directory, create a new MkDocs project using the following command:
+
+   ```bash
+   mkdocs new mybook
+   ```
+
+   This will create a new project directory called `mybook` with the basic structure for your book.
+
+3. **Navigate to Project Directory**: Move into the project directory:
+
+   ```bash
+   cd mybook
+   ```
+
+4. **Edit the Configuration**: The `mkdocs.yml` file contains the configuration settings for your book. Open it in a text editor and modify the file as needed. You can specify the book's title, add custom themes, configure navigation, and more.
+
+5. **Edit Content**: Inside the `docs` folder, you will find the Markdown files that make up your book's content. Edit the existing files or add new ones as needed. Each Markdown file will become a separate page in your book.
+
+6. **Preview Your Book**: Start a local development server to preview your book using the following command:
+
+   ```bash
+   mkdocs serve
+   ```
+
+   This command starts a web server, and you can access your book by opening the provided URL in your browser. As you make changes to the Markdown files, the server will automatically rebuild the site, allowing you to see your changes in real-time.
+
+7. **Customize Your Theme**: MkDocs comes with several themes that you can choose from. You can customize the look and feel of your book by modifying the theme or by creating a custom theme. Refer to the MkDocs documentation for more details on theme customization.
+
+8. **Build Your Book**: Once you're satisfied with the content and theme, you can build your book using the following command:
+
+   ```bash
+   mkdocs build
+   ```
+
+   This will generate a static HTML website in the `site` directory. You can deploy this directory to a web server or hosting platform of your choice.
+
+**Example Structure of `mkdocs.yml` Configuration File:**
+
+```yaml
+site_name: My Book
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Chapter 1: chapter1.md
+  - Chapter 2: chapter2.md
+```
+
+In this example, we're using the `material` theme and specifying the navigation structure for the book with links to `index.md`, `chapter1.md`, and `chapter2.md`. You can customize this structure to match the chapters and pages of your book.
+
+MkDocs is a flexible and straightforward static site generator that allows you to focus on writing content in Markdown while providing an elegant and customizable documentation website. For more information and advanced features, refer to the official [MkDocs documentation](https://www.mkdocs.org/).
+
