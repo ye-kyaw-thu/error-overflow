@@ -509,3 +509,31 @@ while b <= 10:
 
 Each of these examples presents a different paradigm's approach to solving the Fibonacci series problem in the corresponding programming language.
 
+## Question: 7
+
+Could you make discussion on syntax of C, C++, Java, Python and Haskell? You can also use a table to show the differences among those 5 languages. 
+
+Sure, here's a discussion and comparison of syntax between C, C++, Java, Python, and Haskell. Please note that each of these languages has a significant number of features and specifics, so this table can only highlight some basic differences and similarities:
+
+| Syntax Element | C                     | C++                  | Java                      | Python             | Haskell             |
+|----------------|-----------------------|----------------------|---------------------------|--------------------|---------------------|
+| Comment        | // or /* */           | // or /* */          | // or /* */ or /** */     | # or """ """       | -- or {- -}         |
+| Variable Declaration | int x;               | int x;                | int x;                     | x = 0              | let x = 0 in ...    |
+| Function       | int foo() {...}       | int foo() {...}      | public int foo() {...}    | def foo():         | foo = ...           |
+| If-else        | if (cond) {...} else {...} | if (cond) {...} else {...} | if (cond) {...} else {...} | if cond: ... else: ... | if cond then ... else ... |
+| For loop       | for (i=0; i<n; i++) {...} | for (i=0; i<n; i++) {...} | for (int i=0; i<n; i++) {...} | for i in range(n): ... | map function over a list |
+| While loop     | while (cond) {...}    | while (cond) {...}   | while (cond) {...}        | while cond: ...    | recursion           |
+| Class          | struct                | class MyClass {...}  | public class MyClass {...} | class MyClass: ... | data declaration    |
+
+1. **C**: As a procedural language, C has simple syntax. It does not support classes natively, but you can create complex data types with `struct`. Functions are declared with their return type, and for-loop syntax includes the initializer, condition, and increment directly.
+
+2. **C++**: Inherits a lot from C, but includes support for classes with the `class` keyword. It also introduces new features like function overloading, exceptions, and namespaces.
+
+3. **Java**: Has a more verbose syntax and is fully object-oriented. All code resides within classes, and variables must be declared with their type. Java also supports documentation comments with `/** */`.
+
+4. **Python**: Python's syntax is clean and easy to read. It doesn't require variable type declarations, and uses indentation to delimit blocks of code instead of braces `{}`. It also has list comprehension features, which can replace loops for simple cases.
+
+5. **Haskell**: As a functional language, Haskell is significantly different from the others. It uses `let .. in ..` for local definitions and uses `=` for function definition. It also treats control flow constructs like `if .. then .. else ..` as expressions rather than statements. Moreover, loops are handled via recursion or high-level operations like `map`.
+
+I hope this gives a helpful comparison between these five languages!
+
