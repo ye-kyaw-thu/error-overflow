@@ -2054,3 +2054,162 @@ Note: အထက်မှာ ပြခဲ့တဲ့ command number တွေန
 
 I wanna know essential 50 commands of Vi text editor. Could you make a command list for me including example usages. Thanks!  
 
+Certainly! Here's a list of 50 essential commands in the Vi text editor (also applicable to Vim) along with example usages:
+
+1. **vi:**
+   - Open a file in Vi: `vi file.txt`
+
+2. **i:**
+   - Enter insert mode to start editing: Press `i`
+
+3. **Esc:**
+   - Exit insert mode and return to command mode: Press `Esc`
+
+4. **:w:**
+   - Save the file: `:w`
+
+5. **:q:**
+   - Quit the editor: `:q`
+
+6. **:wq:**
+   - Save and quit: `:wq`
+
+7. **x:**
+   - Delete the character under the cursor: Press `x`
+
+8. **dd:**
+   - Delete the current line: Press `dd`
+
+9. **yy:**
+   - Copy (yank) the current line: Press `yy`
+
+10. **p:**
+    - Paste the copied line below the cursor: Press `p`
+
+11. **u:**
+    - Undo the last change: Press `u`
+
+12. **Ctrl-R:**
+    - Redo the last change: Press `Ctrl-R`
+
+13. **:set nu:**
+    - Display line numbers: `:set nu`
+
+14. **/pattern:**
+    - Search for a pattern: `/pattern`
+    - Move to the next occurrence: Press `n`
+    - Move to the previous occurrence: Press `N`
+
+15. **?pattern:**
+    - Search backward for a pattern: `?pattern`
+
+16. **:%s/old/new/g:**
+    - Replace all occurrences of a string: `:%s/old/new/g`
+
+17. **:n:**
+    - Go to line n: `:n`
+
+18. **G:**
+    - Go to the last line of the file: Press `G`
+    - Go to a specific line number: Press `nG`
+
+19. **0:**
+    - Move to the beginning of the line: Press `0`
+
+20. **$:**
+    - Move to the end of the line: Press `$`
+
+21. **H:**
+    - Move to the top of the screen: Press `H`
+
+22. **M:**
+    - Move to the middle of the screen: Press `M`
+
+23. **L:**
+    - Move to the bottom of the screen: Press `L`
+
+24. **Ctrl-F:**
+    - Scroll forward one screen: Press `Ctrl-F`
+
+25. **Ctrl-B:**
+    - Scroll backward one screen: Press `Ctrl-B`
+
+26. **Ctrl-D:**
+    - Scroll down half a screen: Press `Ctrl-D`
+
+27. **Ctrl-U:**
+    - Scroll up half a screen: Press `Ctrl-U`
+
+28. **o:**
+    - Open a new line below the current line and enter insert mode: Press `o`
+
+29. **O:**
+    - Open a new line above the current line and enter insert mode: Press `O`
+
+30. **a:**
+    - Append text after the cursor: Press `a`
+
+31. **A:**
+    - Append text at the end of the line: Press `A`
+
+32. **r:**
+    - Replace the character under the cursor: Press `r` followed by the new character
+
+33. **s:**
+    - Substitute the character under the cursor and enter insert mode: Press `s`
+
+34. **.**
+    - Repeat the last command: Press `.`
+
+35. **:r filename:**
+    - Read the contents of another file into the current file: `:r
+
+ filename`
+
+36. **:w filename:**
+    - Save the current file with a new name: `:w filename`
+
+37. **:q!:**
+    - Quit and discard changes: `:q!`
+
+38. **:set ignorecase:**
+    - Enable case-insensitive searching: `:set ignorecase`
+
+39. **:set paste:**
+    - Enable paste mode to prevent auto-indenting: `:set paste`
+
+40. **:set number:**
+    - Display line numbers: `:set number`
+
+41. **:set nonumber:**
+    - Disable line numbers: `:set nonumber`
+
+42. **:set autoindent:**
+    - Enable auto-indenting: `:set autoindent`
+
+43. **:set expandtab:**
+    - Convert tabs to spaces: `:set expandtab`
+
+44. **:set tabstop=n:**
+    - Set the number of spaces for a tab character to n: `:set tabstop=4`
+
+45. **:set colorcolumn=n:**
+    - Highlight column n: `:set colorcolumn=80`
+
+46. **Ctrl-G:**
+    - Display current file name and status: Press `Ctrl-G`
+
+47. **:help:**
+    - Open the help documentation: `:help`
+
+48. **:help topic:**
+    - Open help for a specific topic: `:help topic`
+
+49. **:e filename:**
+    - Open another file for editing in a new buffer: `:e filename`
+
+50. **:bnext:**
+    - Switch to the next buffer: `:bnext`
+
+These are some of the essential commands in Vi/Vim, but there are many more features and commands available. Experimenting with them will help you become more proficient in using the editor.
+
