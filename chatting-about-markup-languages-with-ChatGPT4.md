@@ -525,3 +525,7 @@ Absolutely, there are several alternatives to Bookdown that do not require the R
 
 Remember, the best tool depends on your specific needs, such as the complexity of your book, the programming languages you're comfortable with, and whether you prefer to work in a text editor or a graphical user interface.
 
+## Question: 15
+
+I wanna study about Jupyter Book. Could you explain to me how to use it for writing a book with some example writing including book index creating, list of figures, list of tables, citations and formatting for chapters etc. 
+
