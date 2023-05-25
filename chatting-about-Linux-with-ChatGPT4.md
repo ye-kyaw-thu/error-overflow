@@ -1013,3 +1013,224 @@ These commands should cover most of the basic needs of an NLP researcher using L
 
 Teach me essential Linux commands for the Data Scientist? Show 5 example usages of each command.
 
+Sure, let's go over some commands that might be particularly useful for a Data Scientist. 
+
+1. **ls:** List information about file(s). For a Data Scientist, you'll often be checking your files and directories, so `ls` becomes a frequently used command.
+
+    Example Usage:
+    ```
+    ls            # list files in the current directory
+    ls -l         # list files in 'long format', which contains the detailed information about the files
+    ls -a         # list all files, including hidden ones
+    ls -lh        # list files with file size
+    ls -R         # list all files in the directory and its subdirectories
+    ```
+
+2. **cd:** Change directory. This command helps in navigating to different directories from the command line.
+
+    Example Usage:
+    ```
+    cd Documents     # change to 'Documents' directory
+    cd ..            # move one level up in directory
+    cd ~             # change to home directory
+    cd /             # change to root directory
+    cd -             # change to previous directory
+    ```
+
+3. **pwd:** Print Working Directory. It's often important to know what directory you're currently in.
+
+    Example Usage:
+    ```
+    pwd              # print the current working directory
+    ```
+
+4. **mkdir:** Make directories. This command helps in creating a new directory.
+
+    Example Usage:
+    ```
+    mkdir new_folder          # create a new directory named 'new_folder'
+    mkdir -p dir1/dir2        # create nested directories
+    mkdir dir{1,2,3}          # create multiple directories
+    mkdir dir{1..10}          # create a sequence of directories
+    ```
+
+5. **rm:** Remove files or directories. It's essential for cleaning up files that are no longer needed.
+
+    Example Usage:
+    ```
+    rm file.txt                     # remove a file
+    rm -r directory_name            # remove a directory and its contents
+    rm -f file.txt                  # forcefully remove a file
+    rm -rf directory_name           # forcefully remove a directory and its contents
+    rm file{1,2,3}.txt              # remove multiple files
+    ```
+
+6. **cp:** Copy files and directories.
+
+    Example Usage:
+    ```
+    cp file1.txt file2.txt             # copy file1.txt to file2.txt
+    cp file.txt directory/             # copy file to a directory
+    cp -r directory1/ directory2/      # copy directory1 to directory2
+    cp * /destination                  # copy all files to destination directory
+    cp file{1..3}.txt /destination     # copy a sequence of files to destination directory
+    ```
+
+7. **mv:** Move or rename files and directories.
+
+    Example Usage:
+    ```
+    mv file1.txt file2.txt          # rename file1.txt to file2.txt
+    mv file.txt directory/          # move file to a directory
+    mv directory1/ directory2/      # move/rename directory1 to directory2
+    mv file*.txt /destination       # move all .txt files to destination directory
+    mv file{1..3}.txt /destination  # move a sequence of files to destination directory
+    ```
+
+8. **find:** Search for files in a directory hierarchy. This command is really useful when you are dealing with large codebases or dataset directories.
+
+    Example Usage:
+    ```
+    find . -name file.txt                  # find a file in the current directory or its subdirectories
+    find / -name file.txt                  # find a file in the root directory or its subdirectories
+    find . -name "*.txt"                   # find all .txt
+
+ files in the current directory or its subdirectories
+    find . -type d -name "dir"             # find a directory in the current directory or its subdirectories
+    find . -type f -mtime -7               # find all files modified in the last 7 days
+    ```
+
+9. **cat:** Concatenate files and print on the standard output. This is particularly useful for quick inspection of file contents.
+
+    Example Usage:
+    ```
+    cat file.txt                   # display content of a file
+    cat file1.txt file2.txt        # display content of multiple files
+    cat -n file.txt                # display content of a file with line numbers
+    cat file.txt > new_file.txt    # copy content of a file to a new file
+    cat file1.txt >> file2.txt     # append content of file1.txt to file2.txt
+    ```
+
+10. **less:** View file content with backward navigation. This is especially useful when dealing with large files.
+
+    Example Usage:
+    ```
+    less file.txt                  # view file content with less
+    ```
+
+11. **head:** Output the first part of files. Useful for getting a quick view of the initial part of files.
+
+    Example Usage:
+    ```
+    head file.txt                  # output the first 10 lines of a file
+    head -n 20 file.txt            # output the first 20 lines of a file
+    head -n 20 file1.txt file2.txt # output the first 20 lines of multiple files
+    head -c 20 file.txt            # output the first 20 bytes of a file
+    head -v file.txt               # always print headers with file names
+    ```
+
+12. **tail:** Output the last part of files. This is often used for reading the end of log files.
+
+    Example Usage:
+    ```
+    tail file.txt                  # output the last 10 lines of a file
+    tail -n 20 file.txt            # output the last 20 lines of a file
+    tail -n 20 file1.txt file2.txt # output the last 20 lines of multiple files
+    tail -c 20 file.txt            # output the last 20 bytes of a file
+    tail -f file.txt               # output the content of file as it grows
+    ```
+
+13. **grep:** Print lines that match patterns. It's very useful for finding information in files.
+
+    Example Usage:
+    ```
+    grep "pattern" file.txt               # search for a pattern in a file
+    grep -i "pattern" file.txt            # case-insensitive search
+    grep -r "pattern" directory/          # recursive search for a pattern in a directory
+    grep -v "pattern" file.txt            # print lines not matching the pattern
+    grep -A 3 -B 2 "pattern" file.txt     # print 2 lines before and 3 lines after the pattern
+    ```
+
+14. **wc:** Print newline, word, and byte counts for each file.
+
+    Example Usage:
+    ```
+    wc file.txt                    # print newline, word, and byte counts for a file
+    wc -l file.txt                 # print newline counts
+    wc -w file.txt                 # print word counts
+    wc -c file.txt                 # print byte counts
+    wc -m file.txt                 # print character counts
+    ```
+
+15. **sort:** Sort lines in text files.
+
+    Example Usage:
+    ```
+    sort file.txt                  # sort a file in alphabetical order
+    sort -r file.txt               # sort a file in reverse order
+    sort -n file.txt               # sort a file numerically
+    sort -
+
+k 2 file.txt             # sort a file based on the second field
+    sort -u file.txt               # remove duplicate lines
+    ```
+
+16. **uniq:** Report or omit repeated lines.
+
+    Example Usage:
+    ```
+    uniq file.txt                  # print unique lines
+    uniq -d file.txt               # print only duplicated lines
+    uniq -c file.txt               # print unique lines with the number of occurrences
+    uniq -u file.txt               # print only unique lines
+    uniq -i file.txt               # ignore differences in case when comparing lines
+    ```
+
+17. **cut:** Remove sections from each line of files.
+
+    Example Usage:
+    ```
+    cut -d ":" -f 1 /etc/passwd    # cut by delimiter ':' and get first field
+    cut -d "," -f 1,2 file.txt     # get the first and second fields
+    cut -c 1-10 file.txt           # get the first 10 characters of each line
+    cut -b 1-4 file.txt            # get the first 4 bytes of each line
+    ```
+
+18. **awk:** Pattern scanning and processing language.
+
+    Example Usage:
+    ```
+    awk '{print $1}' file.txt      # print the first field of each line
+    awk -F "," '{print $1, $2}' file.txt  # specify field separator and print the first and second fields
+    awk '{sum+=$1} END {print sum}' file.txt  # sum of the first field values
+    awk '/pattern/ {print $0}' file.txt  # print lines matching a pattern
+    awk 'NR==10' file.txt  # print the 10th line of a file
+    ```
+
+19. **sed:** Stream editor for filtering and transforming text.
+
+    Example Usage:
+    ```
+    sed 's/pattern/replacement/' file.txt   # replace first occurrence of a pattern with a replacement in each line
+    sed 's/pattern/replacement/g' file.txt  # replace all occurrences of a pattern with a replacement
+    sed '10d' file.txt                      # delete the 10th line of a file
+    sed -n '10p' file.txt                   # print the 10th line of a file
+    sed -i 's/pattern/replacement/g' file.txt  # replace a pattern with a replacement in-place
+    ```
+
+20. **curl:** Transfer data from or to a server.
+
+    Example Usage:
+    ```
+    curl http://website.com           # fetch the content of a webpage
+    curl -o file.html http://website.com   # save the webpage to a file
+    curl -I http://website.com        # fetch the HTTP-headers of a webpage
+    curl -u user:pass ftp://ftp_server/public_html/  # download a file from an FTP server with a username and password
+    curl -T file.txt ftp://ftp_server/public_html/  # upload a file to an FTP server
+    ```
+
+These are just the tip of the iceberg. Depending on your specific requirements as a Data Scientist, you might find other Linux commands more useful. For instance, commands related to system monitoring (like `top`, `vmstat`), network debugging (like `ping`, `netstat`), and text processing (like `grep`, `awk`, `sed`) could be quite useful. Remember, you can always use `man command` or `command --help` to learn more about a particular command.
+
+## Question: 4
+
+Teach me essential 150 Linux commands for the NLP researcher, Data Scientist? Show 5 example usages of each command with explanations.
