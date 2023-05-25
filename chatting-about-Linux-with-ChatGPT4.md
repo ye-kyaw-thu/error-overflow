@@ -2683,7 +2683,6 @@ The above table not including the example usages. Can you regenerate the compari
 
 Sure, I understand you'd like to see more command pairs and their usage examples. Here are 50 command pairs with similar functionality in Linux and Windows:
 
-```
 | Linux Command     | Usage example                                | Windows Command     | Usage example                                         |
 |-------------------|----------------------------------------------|---------------------|-------------------------------------------------------|
 | ls                | `ls -l` List files/directories in long format| dir                 | `dir` List files/directories                         |
@@ -2736,7 +2735,6 @@ Sure, I understand you'd like to see more command pairs and their usage examples
 | export            | `export VAR=value` Set an environment variable | set                | `set VAR=value` Set an environment variable          |
 | printenv          | `printenv VAR` Print an environment variable | echo                | `echo %VAR%` Print an environment variable           |
 | crontab           | `crontab -l` Schedule tasks to run           | schtasks            | `schtasks /Query` Schedule tasks to run              |
-```
 
 This table lists basic, similar commands between Linux and Windows. Some of these commands have different options and can behave differently, but the general usage is similar.
 
