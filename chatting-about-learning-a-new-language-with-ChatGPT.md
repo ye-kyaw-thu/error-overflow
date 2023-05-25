@@ -72,3 +72,43 @@ If you're serious about learning Thai, you will need to learn to read and write 
 
 ## Question 3
 
+You mentioned as follows:
+
+It's important to remember that the Thai script is written without spaces between words, instead spaces in a Thai text indicate the end of a sentence or clause.
+
+Could you explain to me with some real Thai sentence, paragraph examples? Of course, please put English translation for that example Thai sentences or paragraphs for me. 
+
+Sure, let's consider an example Thai sentence and see how it works. 
+
+Thai sentence: ผมชื่อจอห์นและผมมาจากอเมริกา
+
+Transliteration: Phom cheu John lae phom ma jak Amerika.
+
+English translation: My name is John and I come from America.
+
+The above Thai sentence doesn't have spaces between words. It would be separated as follows:
+
+- ผม (Phom: I)
+- ชื่อ (cheu: name)
+- จอห์น (John: John)
+- และ (lae: and)
+- ผม (Phom: I)
+- มาจาก (ma jak: come from)
+- อเมริกา (Amerika: America)
+
+Spaces in Thai are used to indicate the end of a sentence or clause. For example:
+
+Thai sentence: ผมชื่อจอห์น ผมมาจากอเมริกา
+
+Transliteration: Phom cheu John. Phom ma jak Amerika.
+
+English translation: My name is John. I come from America.
+
+In the example above, we have two separate sentences, and that's why there's a space between them. Thai doesn't use spaces between words within the same sentence or clause like in English or many other languages. 
+
+This may seem confusing at first, but with consistent practice, it becomes easier to identify individual words in a string of Thai script. Just like with the rest of the language learning process, patience and practice are key.
+
+## Question: 4
+
+My native language is Burmese. How about the similarity and differences in terms of linguistic perspective between Burmese and Thai? Can you explain to me in details? No page limitation, please ! 
+
