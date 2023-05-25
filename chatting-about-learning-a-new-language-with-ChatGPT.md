@@ -482,5 +482,120 @@ i/           |
 
 I hope this updated table with Romanization makes it easier for you to understand the pronunciation of Thai consonants, vowels, and other characters. If you have any further questions, feel free to ask!
 
-## Question: 9
+## Question: 11
+
+Can you teach me essential 100 sentences or conversation of Thai for the foreigner? Including pronunciation and English translation ...  
+
+Certainly! Here are 100 essential sentences and conversations in Thai for foreigners, along with pronunciation and English translations:
+
+1. สวัสดี (sa-wat-dee) - Hello.
+2. ขอโทษ (khor-thot) - Excuse me.
+3. ขอบคุณ (khop-khun) - Thank you.
+4. ไม่เป็นไร (mai pen rai) - You're welcome / It's okay.
+5. ชื่ออะไร (cheu a-rai) - What is your name?
+6. ฉันชื่อ... (chan cheu...) - My name is...
+7. ท่านมาจากไหน (than ma jak nai) - Where are you from?
+8. ฉันมาจาก... (chan ma jak...) - I am from...
+9. คุณพูดอังกฤษได้ไหม (khun phut ang-krít dai mai) - Can you speak English?
+10. ฉันพูดอังกฤษได้นิดหน่อย (chan phut ang-krít dai nit noi) - I can speak a little English.
+11. ขอเมนูหน่อย (khor menu noi) - Can I have the menu, please?
+12. ฉันต้องการอาหาร...(chan dtong gaan a-han...) - I would like to order...(food)
+13. ขอบัญชีด้วย (khop ban-chi duay) - Check, please.
+14. นี่ราคาเท่าไหร่ (ni raa-ka tao rai) - How much does this cost?
+15. สวยมาก (suay maak) - You look beautiful.
+16. กินข้าวกันไหม (gin khao gan mai) - Shall we eat together?
+17. ขอโทษครับ/ค่ะ (khor-thot khrap/kha) - I'm sorry.
+18. วันนี้อากาศดี (wan-ni akat dee) - The weather is nice today.
+19. กำลังทำอะไรอยู่ (kam-lang tham a-rai yoo) - What are you doing?
+20. คุยกับเพื่อนได้ไหม (khui gap phuean dai mai) - Can I talk to my friend?
+21. อยากไปเที่ยวที่ไหน (yak pai tiao ti nai) - Where would you like to go sightseeing?
+22. อยากไปช้อปปิ้ง (yak pai shopping) - I want to go shopping.
+23. สบายดีไหม (sabai dee mai) - Are you feeling well?
+24. หิวข้าว (hiu khao) - I'm hungry.
+25. ขอความช่วยเหลือหน่อย (khor khwam-chuai leu noi) - Can you help me, please?
+26. ฉันเป็นคนไทย
+
+ (chan pen khon Thai) - I am Thai.
+27. ต้องการไป... (dtong gaan pai...) - I want to go to...
+28. ใช่ครับ/ค่ะ (chai khrap/kha) - Yes.
+29. ไม่ใช่ครับ/ค่ะ (mai chai khrap/kha) - No.
+30. คุณเก่งมาก (khun geng maak) - You are very skilled.
+31. ฉันเข้าใจ (chan khao jai) - I understand.
+32. ฉันไม่เข้าใจ (chan mai khao jai) - I don't understand.
+33. ฉันต้องการซื้อ... (chan dtong gaan seu...) - I want to buy...
+34. ขอใบเสร็จหน่อย (khor bai-set noi) - Can I have the receipt, please?
+35. ช่วยแนะนำหน่อยได้ไหม (chuay nae-nam noi dai mai) - Can you give me some advice, please?
+36. รักคุณ (rak khun) - I love you.
+37. ตื่นเช้า (tuen chao) - Wake up early.
+38. ลุกขึ้นมา (luk kheun ma) - Get up.
+39. ดูทีวี (du TV) - Watch TV.
+40. อ่านหนังสือ (an nang-sue) - Read a book.
+41. ฉันเหนื่อย (chan nua-yoi) - I'm tired.
+42. ฉันกำลังหิว (chan kam-lang hiu) - I'm hungry.
+43. ฉันเหนื่อยจัง (chan nua-yoi jang) - I'm very tired.
+44. ฉันต้องการพักผ่อน (chan dtong gaan phak-pon) - I need to rest.
+45. ฉันรู้สึกเบื่อ (chan ruu-suek bue) - I feel bored.
+46. ชอบดนตรี (chop don-trii) - I like music.
+47. นอนหลับ (non lap) - Go to sleep.
+48. ขอบคุณมาก (khop-khun maak) - Thank you very much.
+49. โทรศัพท์มือถือ (tho-ra-sap mue thu) - Mobile phone.
+50. กลับบ้าน (klap ban) - Go home.
+51. สนุกกับการเรียน (sanuk gap gaan rian) - Enjoy studying.
+52. ฉันเพลินโตใจ (chan plern-toh-jai) - I am happy.
+53. ชอบอาหารไทย (chop a-han Thai) - I like Thai food.
+54. กินข้าวเที่ยง (gin khao tiang) - Have lunch.
+55. คุณเก่งมาก (khun geng maak) - You are very talented
+
+.
+56. รับประทานอาหาร (rap bprathaan a-han) - Have a meal.
+57. ฉันหิวแล้ว (chan hiu laew) - I am hungry now.
+58. รู้สึกเสียใจ (ruu-suek sii-jai) - Feel sad.
+59. หยุดรถ (yut roht) - Stop the car.
+60. ฉันอายุกี่ปี (chan a-yu gii bpii) - How old are you?
+61. ฉันอยากกลับบ้าน (chan yak klap ban) - I want to go home.
+62. ฉันหลับไม่หล่อนาน (chan lap mai lao nan) - I didn't sleep long.
+63. ทำงานที่ไหน (tham-ngaan ti nai) - Where do you work?
+64. ฉันทำงานที่...(chan tham-ngaan ti...) - I work at...
+65. มีความสุข (mii khwaam-suk) - Be happy.
+66. คุณมีแฟนหรือยัง (khun mii faen reu yang) - Do you have a boyfriend/girlfriend?
+67. ชอบที่นี่มาก (chop ti ni maak) - I like it here very much.
+68. กินอาหารไทยที่ร้านนี้ (gin a-han Thai thi ran ni) - Eat Thai food at this restaurant.
+69. ชอบการเดินทาง (chop gaan dern thang) - I like traveling.
+70. คุยกับเพื่อนได้มั้ย (khui gap phuean dai mai) - Can I talk to my friend?
+71. ฉันต้องการของกิน (chan dtong gaan kong gin) - I want something to eat.
+72. มาที่นี่ยังไง (ma ti ni yang ngai) - How do I get here?
+73. ฉันเพลินใจมาก (chan plern-jai maak) - I am very happy.
+74. ใครมาพบหรือติดต่อกับคุณ (khrai maa phop reu dtit-dtaawp gap khun) - Who came to meet or contact you?
+75. รู้สึกเหนื่อย (ruu-suek nua-yoi) - Feel exhausted.
+76. ฉันตื่นเช้าเกือบทุ่ง (chan tuen chao geuap tung) - I woke up early.
+77. สวัสดีตอนเช้า (sa-wat-dee dtawn chao) - Good morning.
+78. กินอาหารเช้า (gin a-han chao) - Have breakfast.
+79. ฉันรู้สึกเจ็บป่วย (chan ruu-suek jep bpuay) - I feel sick.
+80. ฉันรู้สึกเศ
+
+ร้า (chan ruu-suek serao) - I feel sad.
+81. ฉันขอโทษที่สาย (chan khor-thot thi sai) - Sorry for being late.
+82. ฉันชอบดูหนัง (chan chop duu nang) - I like watching movies.
+83. ฉันมีอาการปวดหัว (chan mii a-gaan buat hua) - I have a headache.
+84. ฉันมีเวลาว่าง (chan mii wa-laa-waang) - I have free time.
+85. ฉันมีนัดหมาย (chan mii nat-maai) - I have an appointment.
+86. ฉันรู้สึกกลัว (chan ruu-suek gluua) - I feel scared.
+87. ฉันต้องการหางาน (chan dtong gaan haa-ngaan) - I need to find a job.
+88. ฉันรู้สึกเหงา (chan ruu-suek ngao) - I feel lonely.
+89. ฉันขออนุญาต (chan khor-anu-yaat) - I request permission.
+90. สวัสดีตอนเย็น (sa-wat-dee dtawn yen) - Good evening.
+91. สบายดีไหมทุกคน (sabai dee mai thuk khon) - Is everyone doing well?
+92. ฉันอยากได้ข้อมูล (chan yak dai kha-mong) - I want to get information.
+93. ต้องการช่วยเหลือ (dtong gaan chuay leu) - Need help.
+94. ฉันกำลังรอ (chan kam-lang raw) - I am waiting.
+95. ขอโทษที่รบกวน (khor-thot thi ro-buan) - Sorry for bothering you.
+96. ฉันหิวมาก (chan hiu maak) - I am very hungry.
+97. ฉันมีคำถาม (chan mii kam-tam) - I have a question.
+98. มีของซื่ออื่นไหม (mii kong seu-uen dai mai) - Do you have anything else?
+99. อย่างนี้ถูกไหม (yang ni thuuk mai) - Is this correct?
+100. สิ่งที่น่าสนใจมาก (sing thi naa son-jai maak) - Very interesting.
+
+I hope these sentences and conversations in Thai are helpful for you. Practice them and you'll become more confident in speaking Thai. If you have any further questions, feel free to ask!
+
+## Question: 12
 
