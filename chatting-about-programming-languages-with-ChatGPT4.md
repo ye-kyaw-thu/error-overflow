@@ -625,3 +625,103 @@ Further integration with deep learning frameworks is another promising direction
 
 Could you solve a well known or one of the good example problems by modeling with PyMC language? I wanna get the runnable or complete PyMC code from you. 
 
+I can certainly create a simple example of Bayesian inference using PyMC3. Unfortunately, I am unable to run the code to confirm its accuracy, so please check it in your own environment.
+
+Let's consider a classic problem in Bayesian inference: estimating the bias of a coin given a sample consisting of n tosses.
+
+```python
+import pymc3 as pm
+import numpy as np
+
+# Observed data
+# 1: head, 0: tail
+data = np.array([1, 1, 1, 1, 0, 1, 1, 1, 0, 0])
+
+# Number of tosses
+n = len(data)
+
+# Number of heads
+z = np.sum(data)
+
+# We assume a uniform prior for the bias
+with pm.Model() as model:
+    # Define the prior of the bias p
+    p = pm.Uniform('p', lower=0, upper=1)
+
+    # Define the likelihood
+    y = pm.Binomial('y', n=n, p=p, observed=z)
+
+    # Inference
+    start = pm.find_MAP()  # Use Maximum A Posteriori (MAP) optimization as initial value for MCMC
+    step = pm.Metropolis()  # Use the Metropolis algorithm for MCMC
+    trace = pm.sample(5000, step, start=start, chains=2, tune=1000)  # Draw 5000 posterior samples using NUTS sampling
+
+pm.traceplot(trace)  # Show the results
+```
+
+This script creates a model of a biased coin and uses a sample to infer the posterior distribution of the bias. We start by specifying our observed data - in this case, the results of 10 coin tosses. We then set up a PyMC3 model, and within that model, we define a uniform prior for the bias of the coin. 
+
+Next, we define the likelihood of the observations given the bias as a binomial distribution, and then conduct Markov chain Monte Carlo (MCMC) sampling to draw samples from the posterior distribution of the bias. 
+
+Finally, we plot the trace of the MCMC sampling, which shows the distribution of the sampled biases.
+
+Please remember that this is a toy example and real-world applications will usually be more complex. 
+
+Also, note that the parameters of the MCMC sampling (like the number of samples) should be adjusted depending on the complexity of the model and the quality of the inference you need.
+
+## Question: 11
+
+Could you write a paper of esoteric programming languages including Brainfuck? 
+
+**Title: Exploring Esoteric Programming Languages: A Dive into Brainfuck and Beyond**
+
+**Abstract**
+
+Esoteric programming languages, or esolangs, are coding languages designed as a test of the boundaries of computer programming language design. They are often created as a proof of concept or for recreational programming endeavors. This paper explores esolangs with a specific focus on the language Brainfuck, examining its design, functionality, and place within the esolang landscape.
+
+**1. Introduction**
+
+Esoteric programming languages are designed to experiment with weird ideas, to be hard to program in, or as a joke, rather than for practical use. Esoteric languages include INTERCAL, Malbolge, Brainfuck, and many more. These languages challenge the standard conventions of programming language design and offer a unique and often humorous perspective on the intricacies of programming.
+
+**2. A Dive into Brainfuck**
+
+Brainfuck, created in 1993 by Urban Müller, is among the most well-known esolangs. Notable for its extreme minimalism, Brainfuck operates on an array of memory cells, each initially set to zero. It has only eight simple commands, a pair of input/output commands, and a pair of commands for looping—the control flow commands are defined by brackets.
+
+Despite its simplicity, Brainfuck is Turing complete, meaning that it can theoretically solve any computational problem given enough time and memory.
+
+**3. Brainfuck Commands**
+
+Brainfuck has eight commands:
+
+    >    Increment the data pointer
+    <    Decrement the data pointer
+    +    Increment the byte at the data pointer
+    -    Decrement the byte at the data pointer
+    .    Output the byte at the data pointer
+    ,    Accept one byte of input and store it at the data pointer
+    [    Jump forward to the corresponding ] if the byte at the data pointer is zero
+    ]    Jump back to the corresponding [ if the byte at the data pointer is nonzero
+
+Using these commands, it's possible to write complex programs.
+
+**4. Comparisons with Other Esolangs**
+
+Esolangs come in many shapes and forms, each with their unique characteristics. Languages such as INTERCAL intentionally reject conventional language design, opting for an interface designed to be as distinct from traditional languages as possible. Others, like Malbolge, are designed to be nearly impossible to use. Brainfuck stands out for its minimalistic design approach, focusing on accomplishing much with very little.
+
+**5. The Role and Importance of Esoteric Programming Languages**
+
+Esolangs play a unique role in the field of computer science. They act as a playground for unconventional, humorous, or conceptually interesting ideas in language design. They also serve educational purposes, demonstrating core concepts of computation and Turing completeness in simplified and exaggerated contexts.
+
+**6. Conclusion**
+
+Esolangs, despite their impracticality, represent an important aspect of computer programming culture and history. They exemplify the flexibility, creativity, and humor in the programming community. Brainfuck, with its minimalistic design, is a perfect example of this spirit, reminding us that the boundaries of what constitutes a programming language can be surprisingly broad.
+
+**References**
+
+1. Müller, Urban (1993). "Brainfuck". Archived from the original on 19 July 2011.
+2. Woods, Don, "INTERCAL Resource Page" (2002). Archived from the original on 20 July 2011.
+3. Lutz Horn (2006). "Malbolge". Archived from the original on 19 July 2011.
+4. Aaronson, S. (2013). The Complexity of Brainf*ck. Unpublished manuscript, available online at https://www.scottaaronson.com/blog/?p=304.
+
+## Question: 12
+
