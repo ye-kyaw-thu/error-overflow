@@ -2449,3 +2449,45 @@ Conclusion:
 
 Please note that this is a high-level outline for a tutorial, and each topic can be expanded into multiple pages with detailed explanations, examples, and exercises.
 
+## Question: 13
+
+Can you make a comparison between Windows and Linux? Which one should I use? I plan to be a NLP researcher in the near future ...  
+
+Sure, I'll compare Windows and Linux on a few key aspects, and then give you my recommendations based on your specific use case as a future NLP (Natural Language Processing) researcher.
+
+1. **Usability**: Windows is typically considered to be more user-friendly, especially for non-technical users. Its graphical user interface is easy to understand, and installing software is usually as simple as downloading and running an installer. Linux, on the other hand, often requires more technical knowledge, particularly if you're using a distribution without a focus on user-friendliness. Some tasks may need to be done from the command line. However, many modern distributions like Ubuntu have worked hard to make Linux more approachable for non-technical users.
+
+2. **Flexibility and control**: Linux is more flexible than Windows. It's an open-source operating system, meaning you can modify it as much as you like. There are many different distributions, or 'distros', of Linux that cater to different needs. If you're a power user who likes to tweak and customize your operating system, Linux is a great choice. Windows, while it offers some customization options, is not as flexible.
+
+3. **Stability and reliability**: Linux is often praised for its stability and reliability. It's less prone to crashes than Windows and is less likely to slow down over time. Linux systems are also generally faster and more efficient than Windows systems.
+
+4. **Security**: Linux is generally more secure than Windows. It's less targeted by malware, partly due to its smaller user base and partly due to its security model, which restricts the damage that malware can do. However, no operating system is immune to all threats, so good security practices are essential regardless of your choice.
+
+5. **Software and compatibility**: Windows has a wider range of commercial software and games available. If you rely on specific Windows-only software, this may influence your choice. Linux has plenty of free and open-source software available, but there may be fewer options for specific use cases, particularly for commercial software. On the other hand, much of the software used for development and data science is Linux-first.
+
+6. **Cost**: Windows typically comes pre-installed on new PCs, but purchasing a standalone copy can be expensive. Linux, being open-source, is free to download and install on any machine.
+
+For an NLP researcher, Linux might be a better choice for a number of reasons. Many of the tools and libraries used in NLP and machine learning research are developed primarily for Unix-like systems, which includes Linux. This means they often run better and are easier to install on Linux. Python, a programming language commonly used in NLP research, also tends to work better on Linux.
+
+Also, if you plan to run experiments on a server or high-performance computing cluster, it's highly likely that the server will be running some version of Linux. Familiarity with Linux would be beneficial in this case.
+
+In the end, the best choice depends on your personal needs and comfort. If you're comfortable with Windows and all the tools you need are available and work well, there's no need to switch. If you're willing to climb the learning curve and the tools you plan to use are better supported on Linux, making the switch could be beneficial. You can also consider dual-booting your machine with both operating systems, or using a virtual machine or Windows Subsystem for Linux (WSL) to run Linux on your Windows machine.
+
+## Question: 14
+
+How about learning curve between Linux and Windows?
+
+The learning curve for each operating system will vary depending on your past experiences and familiarity with similar systems.
+
+**Windows**: If you have used previous versions of Windows or other graphical user interface (GUI)-based systems, the learning curve for newer versions of Windows is relatively gentle. The system is designed with user-friendliness in mind, and it has a familiar and intuitive GUI. Most of the tasks can be performed using the mouse and there are plenty of guides available online if you encounter difficulties.
+
+**Linux**: The learning curve for Linux is steeper, especially if you have never used command-line interface (CLI) based systems. Even though many modern Linux distributions (like Ubuntu, Fedora) have a user-friendly GUI, a lot of powerful functions in Linux are accessed through the command line. This is especially true for programming, system administration, and other advanced tasks. 
+
+Learning to use the command line can be challenging if you're used to graphical interfaces, but it's also very powerful. You have more control over your system and can automate tasks more easily. There are a lot of resources online to help you learn, including tutorials and forums where you can ask questions.
+
+In summary, Windows is easier to pick up initially, especially for non-technical users. Linux has a steeper learning curve but offers more flexibility and control over your system. As a potential NLP researcher, you might find that the initial investment in learning Linux pays off in terms of the control, flexibility, and compatibility with development tools it offers.
+
+## Question: 15
+
+List 50 essential commands of the Windows command prompt (e.g. Windows 10) including example usages.
+
