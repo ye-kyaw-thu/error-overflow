@@ -208,3 +208,5 @@ Please let me know if there's anything else I can assist you with!
 
 ## Question: 7
 
+Currently, I am living in Thai. However, I don't know anything about Thai numbers and thus facing some difficulty when I make shopping and negotiating prices in here. Can you teach me how to pronounce Thai numbers and Thai number system with some examples in details? Thanks in advance!
+
