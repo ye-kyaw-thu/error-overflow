@@ -307,3 +307,104 @@ These examples illustrate how the "Hello, World!" problem can be approached from
 
 Ha Ha Ha! :) You are smart. Though "Hello World" is a well known and the first program for all of the programming languages, I prefer better well known problem or an algorithm or a math related formula etc. Can you write another pseudo code with 5 programming language paradigms ...  
 
+Absolutely, let's use the classic problem of finding the Fibonacci series up to a certain number `n`. The Fibonacci series is a sequence of numbers in which each number after the first two is the sum of the two preceding ones, typically starting with 0 and 1.
+
+**1. Procedural Paradigm**
+
+In the procedural paradigm, we can create a function to calculate and print the Fibonacci series up to `n`.
+
+Pseudocode:
+```plaintext
+function printFibonacci(n)
+    a = 0
+    b = 1
+    print a
+    print b
+    while b < n
+        temp = b
+        b = a + b
+        a = temp
+        print b
+    end while
+end function
+
+call printFibonacci(10)
+```
+
+**2. Object-Oriented Paradigm**
+
+In the object-oriented paradigm, we can create a class with a method to print the Fibonacci series up to `n`.
+
+Pseudocode:
+```plaintext
+class FibonacciSeries
+    method printFibonacci(n)
+        a = 0
+        b = 1
+        print a
+        print b
+        while b < n
+            temp = b
+            b = a + b
+            a = temp
+            print b
+        end while
+    end method
+end class
+
+fibonacciSeries = new FibonacciSeries()
+fibonacciSeries.printFibonacci(10)
+```
+
+**3. Functional Paradigm**
+
+In the functional paradigm, we can create a recursive function to calculate the Fibonacci series up to `n`. 
+
+Pseudocode:
+```plaintext
+function printFibonacci(a, b, n)
+    if b <= n then
+        print b
+        printFibonacci(b, a + b, n)
+    end if
+end function
+
+call printFibonacci(0, 1, 10)
+```
+
+**4. Logical Paradigm**
+
+Logical programming isn't ideally suited to this kind of problem, but here's how you could define Fibonacci series in Prolog, a logical programming language.
+
+Pseudocode (Prolog):
+```plaintext
+fibonacci(0, 0).
+fibonacci(1, 1).
+fibonacci(N, F) :-
+    N > 1,
+    N1 is N - 1,
+    N2 is N - 2,
+    fibonacci(N1, F1),
+    fibonacci(N2, F2),
+    F is F1 + F2.
+```
+In Prolog, you could then query `fibonacci(10, F).` to get the 10th Fibonacci number.
+
+**5. Scripting Paradigm**
+
+In scripting languages like Python, we could write a simple script to print the Fibonacci series up to `n`.
+
+Python Code:
+```python
+a, b = 0, 1
+while b <= 10:
+    print(b)
+    a, b = b, a + b
+```
+
+These examples illustrate how the Fibonacci series problem can be approached from different programming paradigms.
+
+## Question: 6
+
+For this time, I wanna you to use the real programming language instead of pseudo code. Yes, you can use Fibonacci series problem. Can you do that? 
+
