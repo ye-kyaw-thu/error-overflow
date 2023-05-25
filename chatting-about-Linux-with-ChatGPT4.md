@@ -415,3 +415,596 @@ um. This command is the next-generation version of yum.
 100. **chmod:** Change Mode. This command is used to set permissions.
     
     `chmod 755 /var/www/html/index.html`  (Set read, write, execute permissions for user, and read and execute permissions for group and others for the specific file)
+
+## Question: 2
+
+Can you guide essential 100 Linux commands for Natural Language Processing (NLP) researcher? Including three example usages of commands.
+
+Sure, here are 100 commands that are essential for an NLP researcher. It includes a variety of commands useful for file manipulation, text processing, package management, and installing common NLP tools.
+
+1. **ls:** List directory contents.
+    ```
+    ls /path/to/directory
+    ls -l
+    ls -a
+    ```
+
+2. **cd:** Change the shell working directory.
+    ```
+    cd /path/to/directory
+    cd ..
+    cd ~
+    ```
+
+3. **pwd:** Print name of current/working directory.
+    ```
+    pwd
+    ```
+
+4. **cp:** Copy files and directories.
+    ```
+    cp source.txt destination.txt
+    cp -r source_dir/ destination_dir/
+    cp file.txt /path/to/directory/
+    ```
+
+5. **mv:** Move or rename files.
+    ```
+    mv source.txt destination.txt
+    mv file.txt /path/to/directory/
+    mv old_name.txt new_name.txt
+    ```
+
+6. **rm:** Remove files or directories.
+    ```
+    rm file.txt
+    rm -r directory/
+    rm -f file.txt
+    ```
+
+7. **touch:** Change file timestamps or create new file.
+    ```
+    touch file.txt
+    ```
+
+8. **cat:** Concatenate files and print on the standard output.
+    ```
+    cat file.txt
+    cat file1.txt file2.txt > combined.txt
+    cat *.txt > all.txt
+    ```
+
+9. **less:** View file contents with easy navigation.
+    ```
+    less file.txt
+    ```
+
+10. **head:** Output the first part of files.
+    ```
+    head file.txt
+    head -n 5 file.txt
+    ```
+
+11. **tail:** Output the last part of files.
+    ```
+    tail file.txt
+    tail -n 5 file.txt
+    tail -f /var/log/syslog
+    ```
+
+12. **grep:** Print lines matching a pattern.
+    ```
+    grep "pattern" file.txt
+    grep -ri "pattern" /path/to/directory
+    grep -v "pattern" file.txt
+    ```
+
+13. **wc:** Print newline, word, and byte counts for each file.
+    ```
+    wc file.txt
+    wc -l file.txt
+    wc -w file.txt
+    ```
+
+14. **cut:** Remove sections from each line of files.
+    ```
+    cut -d':' -f1 /etc/passwd
+    cut -f1,3,4 file.txt
+    cut -c1-10 file.txt
+    ```
+
+15. **sort:** Sort lines in text files.
+    ```
+    sort file.txt
+    sort -r file.txt
+    sort -n file.txt
+    ```
+
+16. **uniq:** Report or omit repeated lines.
+    ```
+    sort file.txt | uniq
+    uniq -c file.txt
+    uniq -d file.txt
+    ```
+
+17. **find:** Search for files in a directory hierarchy.
+    ```
+    find / -name file.txt
+    find / -type d -name "*dir"
+    find / -size +100M
+    ```
+
+18. **which:** Shows the full path of shell commands.
+    ```
+    which python
+    which pip
+    ```
+
+19. **alias:** Create an alias for a command.
+    ```
+    alias ll='ls -l'
+    ```
+
+20. **history:** Show command history.
+    ```
+    history
+    ```
+
+21. **wget:** Download files from the web.
+    ```
+    wget http://example.com/file.txt
+    wget -P /path/to/directory http://example.com/file.txt
+
+
+    wget -c http://example.com/file.zip
+    ```
+
+22. **curl:** Transfer data from or to a server.
+    ```
+    curl http://example.com
+    curl -O http://example.com/file.txt
+    curl -o file.txt http://example.com/file.txt
+    ```
+
+23. **chmod:** Change file permissions.
+    ```
+    chmod 755 script.sh
+    chmod +x script.sh
+    chmod u=rw,g=r,o=r file.txt
+    ```
+
+24. **chown:** Change file owner and group.
+    ```
+    chown user:group file.txt
+    chown -R user:group /path/to/directory
+    ```
+
+25. **tar:** An archiving utility.
+    ```
+    tar -cvf archive.tar /path/to/directory/
+    tar -xvf archive.tar
+    tar -zcvf archive.tar.gz /path/to/directory/
+    ```
+
+26. **gzip:** Compress or expand files.
+    ```
+    gzip file.txt
+    gzip -d file.txt.gz
+    ```
+
+27. **gunzip:** Compress or expand files.
+    ```
+    gunzip file.txt.gz
+    ```
+
+28. **zip:** Package and compress (archive) files.
+    ```
+    zip archive.zip file1.txt file2.txt
+    zip -r archive.zip /path/to/directory/
+    ```
+
+29. **unzip:** List, test and extract compressed files in a ZIP archive.
+    ```
+    unzip archive.zip
+    unzip -l archive.zip
+    ```
+
+30. **df:** Report file system disk space usage.
+    ```
+    df -h
+    df -h /path/to/directory/
+    ```
+
+31. **du:** Estimate file and directory space usage.
+    ```
+    du -sh /path/to/directory/
+    du -ah /path/to/directory/ | sort -n -r | head -n 5
+    ```
+
+32. **ps:** Report a snapshot of the current processes.
+    ```
+    ps aux
+    ps -ef | grep python
+    ```
+
+33. **top:** Display Linux processes.
+    ```
+    top
+    ```
+
+34. **kill:** Send a signal to a process.
+    ```
+    kill -9 1234
+    killall python
+    ```
+
+35. **bg:** Put a process in the background.
+    ```
+    bg %1
+    ```
+
+36. **fg:** Bring a process to the foreground.
+    ```
+    fg %1
+    ```
+
+37. **ssh:** Remote login into a machine.
+    ```
+    ssh user@hostname
+    ssh -i /path/to/key.pem user@hostname
+    ```
+
+38. **scp:** Secure copy (remote file copy).
+    ```
+    scp file.txt user@hostname:/path/to/directory/
+    scp user@hostname:/path/to/directory/file.txt /local/directory/
+    scp -i /path/to/key.pem file.txt user@hostname:/path/to/directory/
+    ```
+
+39. **rsync:** Remote file and directory synchronization.
+    ```
+    rsync -avz /local/directory/ user@hostname:/remote/directory/
+    rsync -avz user@hostname:/remote/directory/ /local/directory/
+    ```
+
+40. **sed:** Stream editor for filtering and transforming text.
+    ```
+    sed 's/foo/bar/g' file.txt
+    sed '3d' file.txt
+    sed '/foo/d' file.txt
+    ```
+
+41. **awk:** Pattern scanning and processing language.
+    ```
+    awk '{print $1}' file.txt
+    awk '/foo/ {print $2}' file.txt
+    awk
+
+ '{sum+=$1} END {print sum}' file.txt
+    ```
+
+42. **perl:** Practical Extraction and Report Language.
+    ```
+    perl -pe 's/foo/bar/g' file.txt
+    perl -lane 'print $F[0]' file.txt
+    perl -lane 'BEGIN {sum=0} {sum+=$F[0]} END {print sum}' file.txt
+    ```
+
+43. **python:** Python scripting language.
+    ```
+    python script.py
+    python -m http.server
+    ```
+
+44. **pip:** Python package installer.
+    ```
+    pip install numpy
+    pip install -r requirements.txt
+    pip uninstall numpy
+    ```
+
+45. **conda:** An open-source package management system and environment management system.
+    ```
+    conda install numpy
+    conda create -n env_name python=3.6
+    conda activate env_name
+    ```
+
+46. **jupyter notebook:** An open-source web application to create and share documents.
+    ```
+    jupyter notebook
+    jupyter notebook --no-browser --port=8889
+    ```
+
+47. **git:** Version control system.
+    ```
+    git clone https://github.com/user/repo.git
+    git add -A
+    git commit -m "commit message"
+    ```
+
+48. **gcc:** GNU Compiler Collection.
+    ```
+    gcc -o output source.c
+    ```
+
+49. **g++:** GNU C++ Compiler.
+    ```
+    g++ -o output source.cpp
+    ```
+
+50. **make:** Utility to maintain groups of programs.
+    ```
+    make
+    make install
+    make clean
+    ```
+
+51. **docker:** A platform to develop, deploy, and run applications with containers.
+    ```
+    docker run image
+    docker ps
+    docker build .
+    ```
+
+52. **kubernetes/kubectl:** A platform to manage containerized workloads and services.
+    ```
+    kubectl get pods
+    kubectl apply -f config.yaml
+    kubectl delete deployment name
+    ```
+
+53. **screen:** Allows you to manage multiple terminal sessions.
+    ```
+    screen -S sessionname
+    screen -ls
+    screen -r sessionname
+    ```
+
+54. **tmux:** Terminal multiplexer.
+    ```
+    tmux new -s sessionname
+    tmux attach -t sessionname
+    tmux ls
+    ```
+
+55. **watch:** Execute a program periodically.
+    ```
+    watch -n 1 'command'
+    ```
+
+56. **bc:** An arbitrary precision calculator language.
+    ```
+    echo "scale=2; 3/7" | bc
+    ```
+
+57. **date:** Print or set the system date and time.
+    ```
+    date
+    date -u
+    date +%Y%m%d
+    ```
+
+58. **cal:** Display a calendar.
+    ```
+    cal
+    cal 12 2023
+    ```
+
+59. **uptime:** Tell how long the system has been running.
+    ```
+    uptime
+    ```
+
+60. **whoami:** Print the user name associated with the current effective user ID.
+    ```
+    whoami
+    ```
+
+61. **uname:** Print system information.
+    ```
+    uname -a
+    ```
+
+62. **hostname:** Show or set the system's host name.
+    ```
+    hostname
+    ```
+
+63. **man:** Interface to the on-line reference manuals.
+    ```
+    man command
+    ```
+
+64. **df:** Report file system disk space usage.
+    ```
+    df -h
+    ```
+
+65. **free:** Display amount of free and used memory in
+
+ the system.
+    ```
+    free -m
+    ```
+
+66. **top:** Display Linux processes.
+    ```
+    top
+    ```
+
+67. **vmstat:** Report virtual memory statistics.
+    ```
+    vmstat 1
+    ```
+
+68. **iostat:** Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
+    ```
+    iostat
+    ```
+
+69. **ss:** Another utility to investigate sockets.
+    ```
+    ss -ltn
+    ```
+
+70. **dmesg:** Print or control the kernel ring buffer.
+    ```
+    dmesg
+    ```
+
+71. **systemctl:** Control the systemd system and service manager.
+    ```
+    systemctl status servicename
+    systemctl stop servicename
+    ```
+
+72. **journalctl:** Query the systemd journal.
+    ```
+    journalctl -u servicename
+    ```
+
+73. **useradd:** Create a new user or update default new user information.
+    ```
+    useradd username
+    ```
+
+74. **userdel:** Delete a user account and related files.
+    ```
+    userdel username
+    ```
+
+75. **passwd:** Update a user's authentication tokens(s).
+    ```
+    passwd username
+    ```
+
+76. **su:** Substitute user identity.
+    ```
+    su - username
+    ```
+
+77. **sudo:** Execute a command as another user.
+    ```
+    sudo command
+    ```
+
+78. **chown:** Change file owner and group.
+    ```
+    chown username:groupname filename
+    ```
+
+79. **chmod:** Change file mode bits.
+    ```
+    chmod 755 filename
+    ```
+
+80. **crontab:** Schedule tasks in the background.
+    ```
+    crontab -e
+    crontab -l
+    ```
+
+81. **ssh-keygen:** Authentication key generation, management and conversion.
+    ```
+    ssh-keygen -t rsa
+    ```
+
+82. **ssh-copy-id:** Install your public key in a remote machine's authorized_keys.
+    ```
+    ssh-copy-id username@hostname
+    ```
+
+83. **rsync:** Remote file copy (Synchronize file trees across local/remote).
+    ```
+    rsync -avz source_dir/ user@hostname:/destination_dir/
+    ```
+
+84. **dd:** Copy a file, converting and formatting according to the operands.
+    ```
+    dd if=/dev/zero of=/path/to/your/output bs=1M count=100
+    ```
+
+85. **file:** Determine file type.
+    ```
+    file filename
+    ```
+
+86. **locate:** Find files by name.
+    ```
+    locate filename
+    ```
+
+87. **lsof:** List open files.
+    ```
+    lsof -u username
+    ```
+
+88. **nc:** TCP/IP swiss army knife.
+    ```
+    nc -zv hostname 80
+    ```
+
+89. **telnet:** User interface to the TELNET protocol.
+    ```
+    telnet hostname port
+    ```
+
+90. **dig:** DNS lookup utility.
+    ```
+    dig domainname
+    ```
+
+91. **nslookup:** Query Internet name servers interactively.
+    ```
+    nslookup domainname
+    ```
+
+92. **host:** DNS lookup utility.
+    ```
+    host domainname
+    ```
+
+93. **uptime:** Tell how long the system has been running.
+    ```
+    uptime
+    ```
+
+94. **sar:** Collect, report, or save system activity information.
+    ```
+    sar
+    ```
+
+95. **netstat:** Network statistics.
+    ```
+    netstat -an
+    ```
+
+96. **tcp
+
+dump:** Dump traffic on a network.
+    ```
+    tcpdump -i eth0
+    ```
+
+97. **ping:** Send ICMP ECHO_REQUEST to network hosts.
+    ```
+    ping hostname
+    ```
+
+98. **traceroute:** Print the route packets take to network host.
+    ```
+    traceroute hostname
+    ```
+
+99. **mtr:** Network diagnostic tool.
+    ```
+    mtr hostname
+    ```
+
+100. **nmap:** Network exploration tool and security / port scanner.
+    ```
+    nmap hostname
+    ```
+   
+These commands should cover most of the basic needs of an NLP researcher using Linux. Always remember to check the man page (`man command`) or use `command --help` to get more information about each command's usage and options.
