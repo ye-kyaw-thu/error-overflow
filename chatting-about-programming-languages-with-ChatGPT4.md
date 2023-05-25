@@ -898,3 +898,116 @@ The power of ANTLR comes from its flexibility and the control it provides to lan
 
 [^3^]: Parr, T. (2013). The Definitive ANTLR 4 Reference: Building Domain-Specific Languages. Pragmatic Bookshelf.
 
+## Question: 15
+
+Based on the above conversation, Could you write a step by step explanation of writing a complete parser for the BrainFriend language? I am looking forward to get the practical runnable parser. 
+
+Here's a step-by-step guide to creating a parser for the BrainFriend language using ANTLR and Python.
+
+**1. Install ANTLR**
+
+First, you need to install ANTLR. This can be done using the following command:
+
+```bash
+pip install antlr4-python3-runtime
+```
+
+**2. Define the Grammar**
+
+Next, create a new file named `BrainFriend.g4` and define the grammar for BrainFriend:
+
+```antlr
+grammar BrainFriend;
+
+program: statement* EOF;
+
+statement
+    : 'move_right'
+    | 'move_left'
+    | 'increment'
+    | 'decrement'
+    | 'print'
+    | 'input'
+    | 'loop_start' statement* 'loop_end'
+    ;
+```
+
+**3. Generate the Lexer and Parser**
+
+Now you need to generate the lexer and parser from your grammar. You'll need to download the ANTLR jar file to do this. Once you've downloaded it, run the following command:
+
+```bash
+java -jar /path/to/antlr.jar -Dlanguage=Python3 BrainFriend.g4
+```
+
+This will generate several Python files: `BrainFriendLexer.py`, `BrainFriendParser.py`, `BrainFriendListener.py`, and `BrainFriendVisitor.py`.
+
+**4. Create a Listener**
+
+The listener is what will handle the actual interpretation of the BrainFriend commands. Create a new Python file named `BrainFriendExecuter.py`:
+
+```python
+from BrainFriendListener import BrainFriendListener
+from BrainFriendParser import BrainFriendParser
+
+class BrainFriendExecuter(BrainFriendListener):
+    def __init__(self):
+        self.memory = [0] * 30000
+        self.pointer = 0
+
+    def run_command(self, command):
+        if command == 'move_right':
+            self.pointer += 1
+        elif command == 'move_left':
+            self.pointer -= 1
+        elif command == 'increment':
+            self.memory[self.pointer] += 1
+        elif command == 'decrement':
+            self.memory[self.pointer] -= 1
+        elif command == 'print':
+            print(chr(self.memory[self.pointer]), end="")
+        elif command == 'input':
+            self.memory[self.pointer] = ord(input())
+        
+    def enterStatement(self, ctx:BrainFriendParser.StatementContext):
+        self.run_command(ctx.getText())
+```
+
+This listener maintains a memory array and a pointer, just like in a Brainfuck interpreter. It defines a `run_command` method to execute BrainFriend commands.
+
+**5. Run the Parser**
+
+Now you can create a main Python file to run the parser:
+
+```python
+import sys
+from antlr4 import *
+from BrainFriendLexer import BrainFriendLexer
+from BrainFriendParser import BrainFriendParser
+from BrainFriendExecuter import BrainFriendExecuter
+
+def main():
+    # Read the input from a file
+    input_stream = FileStream(sys.argv[1])
+    
+    # Lexer and Parser
+    lexer = BrainFriendLexer(input_stream)
+    stream = CommonTokenStream(lexer)
+    parser = BrainFriendParser(stream)
+    tree = parser.program()
+
+    # Create and run the listener
+    executor = BrainFriendExecuter()
+    walker = ParseTreeWalker()
+    walker.walk(executor, tree)
+
+if __name__ == '__main__':
+    main()
+```
+
+This Python script reads a BrainFriend file, runs the lexer and parser to generate a parse tree, and then walks the parse tree with the `BrainFriendExecuter`.
+
+With these scripts in place, you should be able to interpret BrainFriend code. Note that this implementation is simplified and may not handle all edge cases.
+
+## Question: 16
+
