@@ -408,3 +408,104 @@ These examples illustrate how the Fibonacci series problem can be approached fro
 
 For this time, I wanna you to use the real programming language instead of pseudo code. Yes, you can use Fibonacci series problem. Can you do that? 
 
+Absolutely! Here are examples of how the Fibonacci series problem could be solved in several different programming languages:
+
+**1. Procedural Paradigm (C)**
+
+In the procedural paradigm, we use functions and loops. Here's how you could do it in C:
+
+```c
+#include <stdio.h>
+
+void printFibonacci(int n) {
+    int a = 0, b = 1, temp;
+    printf("%d\n", a);
+    printf("%d\n", b);
+    while (b < n) {
+        temp = b;
+        b = a + b;
+        a = temp;
+        printf("%d\n", b);
+    }
+}
+
+int main() {
+    printFibonacci(10);
+    return 0;
+}
+```
+
+**2. Object-Oriented Paradigm (Java)**
+
+In the object-oriented paradigm, we use classes and objects. Here's how you could do it in Java:
+
+```java
+public class FibonacciSeries {
+    void printFibonacci(int n) {
+        int a = 0, b = 1;
+        System.out.println(a);
+        System.out.println(b);
+        while (b < n) {
+            int temp = b;
+            b = a + b;
+            a = temp;
+            System.out.println(b);
+        }
+    }
+    
+    public static void main(String[] args) {
+        FibonacciSeries fibonacciSeries = new FibonacciSeries();
+        fibonacciSeries.printFibonacci(10);
+    }
+}
+```
+
+**3. Functional Paradigm (Haskell)**
+
+In the functional paradigm, we avoid changing-state and mutable data. Here's how you could do it in Haskell:
+
+```haskell
+fibonacciSeries :: Integer -> Integer -> Integer -> IO ()
+fibonacciSeries a b n 
+    | b <= n = do 
+        print b 
+        fibonacciSeries b (a+b) n
+    | otherwise = return ()
+
+main = fibonacciSeries 0 1 10
+```
+
+**4. Logical Paradigm (Prolog)**
+
+In the logic programming paradigm, the program is a set of facts and rules. Here's how you could do it in Prolog:
+
+```prolog
+fibonacci(0, 0).
+fibonacci(1, 1).
+fibonacci(N, F) :-
+    N > 1,
+    N1 is N - 1,
+    N2 is N - 2,
+    fibonacci(N1, F1),
+    fibonacci(N2, F2),
+    F is F1 + F2.
+
+printFibonacci(N) :-
+    fibonacci(N, F),
+    write(F), nl.
+```
+In Prolog, you could then query `?- printFibonacci(10).` to get the 10th Fibonacci number.
+
+**5. Scripting Paradigm (Python)**
+
+In scripting languages like Python, we could write a simple script to print the Fibonacci series up to `n`.
+
+```python
+a, b = 0, 1
+while b <= 10:
+    print(b)
+    a, b = b, a + b
+```
+
+Each of these examples presents a different paradigm's approach to solving the Fibonacci series problem in the corresponding programming language.
+
