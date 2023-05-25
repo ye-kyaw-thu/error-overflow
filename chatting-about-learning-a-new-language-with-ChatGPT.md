@@ -210,3 +210,66 @@ Please let me know if there's anything else I can assist you with!
 
 Currently, I am living in Thai. However, I don't know anything about Thai numbers and thus facing some difficulty when I make shopping and negotiating prices in here. Can you teach me how to pronounce Thai numbers and Thai number system with some examples in details? Thanks in advance!
 
+Certainly! Understanding Thai numbers will be very helpful for shopping and negotiating prices in Thailand. Here's a guide to the Thai number system along with pronunciation and examples:
+
+**1. Basic Thai Numbers:**
+- 0: ศูนย์ (sǔun)
+- 1: หนึ่ง (nèung)
+- 2: สอง (sǎawng)
+- 3: สาม (sǎam)
+- 4: สี่ (sìi)
+- 5: ห้า (hâa)
+- 6: หก (hòk)
+- 7: เจ็ด (jèt)
+- 8: แปด (bpàet)
+- 9: เก้า (gâo)
+- 10: สิบ (sìp)
+
+**2. Counting from 11 to 99:**
+In Thai, numbers from 11 to 99 are formed by combining the units digit with the word for ten (สิบ, sìp).
+
+Examples:
+- 11: สิบเอ็ด (sìp èt)
+- 27: ยี่สิบเจ็ด (yîi sìp jèt)
+- 49: สี่สิบเก้า (sìi sìp gâo)
+- 68: หกสิบแปด (hòk sìp bpàet)
+- 99: เก้าสิบเก้า (gâo sìp gâo)
+
+**3. Counting in Hundreds:**
+To form numbers in hundreds, the number word comes before the word for hundred (ร้อย, rói).
+
+Examples:
+- 100: หนึ่งร้อย (nèung rói)
+- 200: สองร้อย (sǎawng rói)
+- 500: ห้าร้อย (hâa rói)
+- 900: เก้าร้อย (gâo rói)
+- 1,000: หนึ่งพัน (nèung phan)
+- 10,000: หนึ่งหมื่น (nèung mèun)
+
+**4. Combining Hundreds and Tens:**
+When combining hundreds and tens, the word for hundred (ร้อย, rói) is followed by the tens digit and the units digit.
+
+Examples:
+- 125: หนึ่งร้อยยี่สิบห้า (nèung rói yîi sìp hâa)
+- 378: สามร้อยเจ็ดสิบแปด (sǎam rói jèt sìp bpàet)
+- 526: ห้าร้อยยี่สิบหก (hâa rói yîi sìp hòk)
+- 945: เก้าร้อยสี่สิบห้า (gâo rói sìi sìp hâa)
+
+**5. Large Numbers:**
+For larger numbers, the same pattern of combining units, tens, hundreds, and so on continues.
+
+Examples:
+- 1,000,000: หนึ่งล้าน (nèung lán)
+- 5,000,000: ห้าล้า
+
+น (hâa lán)
+- 10,000,000: สิบล้าน (sìp lán)
+- 100,000,000: หนึ่งร้อยล้าน (nèung rói lán)
+- 1,000,000,000: หนึ่งพันล้าน (nèung phan lán)
+
+These examples should give you a good foundation for pronouncing Thai numbers and understanding the Thai number system. With practice, you will become more comfortable using Thai numbers in everyday situations.
+
+Please let me know if you have any further questions or need additional assistance!
+
+## Question: 8 
+
