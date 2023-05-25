@@ -529,3 +529,69 @@ Remember, the best tool depends on your specific needs, such as the complexity o
 
 I wanna study about Jupyter Book. Could you explain to me how to use it for writing a book with some example writing including book index creating, list of figures, list of tables, citations and formatting for chapters etc. 
 
+Jupyter Book is an open-source project that facilitates building books with computational content. Jupyter Book uses Jupyter Notebook, Markdown files, and MyST (Markedly Structured Text) for building your book. Here's a basic outline of how to use it.
+
+1. **Installation**: First, you need to install Jupyter Book. You can do this via pip:
+
+```bash
+pip install jupyter-book
+```
+
+2. **Create a New Book**: You can create a new book structure via the command line using the command:
+
+```bash
+jupyter-book create mybookname
+```
+
+This will create a new directory with all the necessary files and structure for your book.
+
+3. **Write Your Content**: The main content of your book will be written in either Jupyter notebooks (`.ipynb` files) or Markdown files. You write text and code in these files. For example, a Jupyter notebook might contain:
+
+```markdown
+# My Section
+
+This is some text.
+
+```python
+# This is some code
+print("Hello, world!")
+```
+
+When your book is built, the code will be executed and the output will be included in your book.
+
+4. **Configure Your Book**: The `_config.yml` file is where you set the configuration for your book. This includes the title, logo, and whether to use certain features, among other things. Here's an example:
+
+```yaml
+title: My Book
+logo: images/logo.png
+execute:
+  execute_notebooks: "off"
+```
+
+5. **Organize Your Book**: The `_toc.yml` file is where you specify the order of the files in your book. Here's an example:
+
+```yaml
+- file: my_file
+- file: my_other_file
+  sections:
+  - file: my_subsection
+```
+
+6. **Build Your Book**: Once you've written your content and set your configuration, you can build your book using the following command:
+
+```bash
+jupyter-book build mybookname
+```
+
+7. **Citations**: Citations in Jupyter Book use the Sphinx bibliographic style. In order to include a citation, you'll first need to include a reference in a `bibliography.bib` file. Then, in the text, you can cite this reference using `{cite}` followed by the `key` in your `bibliography.bib` file. Here is an example:
+
+```markdown
+Here is some text with a citation {cite}`mycitation`.
+```
+
+8. **List of Figures/Tables**: While there's no built-in way to create a list of figures or tables as you might in a LaTeX document, you can manually create these lists by using internal links. 
+
+This is just a basic guide, and there's a lot more you can do with Jupyter Book. You can find more detailed information and examples in the [Jupyter Book documentation](https://jupyterbook.org/intro.html).
+
+## Question: 16
+
