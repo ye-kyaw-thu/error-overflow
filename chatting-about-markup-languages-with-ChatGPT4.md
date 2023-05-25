@@ -106,4 +106,33 @@ Including metadata in your documents can provide several benefits. It can make y
 
 Explain to me in details about AsciiDoc including a table of it's all commands or cheat sheet table.
 
+AsciiDoc is a text document format for writing notes, documentation, articles, books, slideshows, web pages, and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, man page.
 
+Here's a brief introduction to the AsciiDoc syntax:
+
+| Syntax | Description | Example |
+|---|---|---|
+| = Title | Document title | `= My Document` |
+| == Section title | Section headings (also ===, ====, ...) | `== My Section` |
+| _emphasis_ | Emphasize text | `_emphasis_` |
+| *bold* | Bold text | `*bold*` |
+| `monospace` | Monospace text | `` `monospace` `` |
+| +monospace+ | Monospace text (preserves spaces) | `+monospace+` |
+| [quote, Author, Source] | Blockquote with attribution | `[quote, John Doe, Source]\n____\nQuote here\n____` |
+| .... | Literal block | `....\nLiteral text\n....` |
+| '' | Unconstrained quotes (word boundaries do not matter) | `*'bold'*_emphasis_'monospace'` |
+| -- | Open block (generic container, like HTML div) | `--\nSome content\n--` |
+| - \| * | Unordered list | `- List item` or `* List item` |
+| . | Ordered list | `. List item` |
+| [cols="1,2,3"] \| | Table (specify column proportion) | `[cols="1,2,3"]\n|===\n|Cell in column 1|Cell in column 2|Cell in column 3\n|===` |
+| [link] | Inline links | `https://www.example.com[Example]` |
+| image::path[Alt Text] | Image | `image::example.jpg[Example Image]` |
+| include::filename[] | Include another file | `include::example.txt[]` |
+
+Note that AsciiDoc is very feature-rich and provides many more options and features not included in this short table, like macros, footnotes, bibliography, indexes, table of contents, and many others. For the complete syntax and more detailed explanation, you can refer to the official AsciiDoc User Guide: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/ 
+
+It's also worth noting that AsciiDoc documents are just plain text, so you can open and edit them with any text editor. The AsciiDoc format is simple to learn and does not require any special software. The syntax was designed to be easy to read and write, so it can be used intuitively and effectively even by people who are not familiar with AsciiDoc.
+
+## Question: 4
+
+Can you explain to me about reStructuredText language? Including cheat sheet of it's command usages ... 
