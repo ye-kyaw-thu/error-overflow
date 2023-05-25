@@ -235,3 +235,5 @@ I hope this helps illustrate how a simple problem could be approached from diffe
 
 ## Question: 4
 
+Can you write a pseudo code or coding approach step by step on 5 programming language paradigms with another well known example problem?
+
