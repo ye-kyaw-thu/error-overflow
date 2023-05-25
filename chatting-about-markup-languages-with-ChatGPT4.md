@@ -192,3 +192,7 @@ For the complete syntax and more detailed explanation, you can refer to the offi
 
 Textile offers a balance between ease of use and power, making it a good choice for those who need more control over their text formatting than Markdown provides, but don't need the complexity of something like reStructuredText or AsciiDoc.
 
+## Question: 6
+
+Can you explain to me about Org-mode usages in details? including cheat sheet of Org-mode language
+
