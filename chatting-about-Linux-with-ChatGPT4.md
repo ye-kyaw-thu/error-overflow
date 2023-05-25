@@ -1652,3 +1652,125 @@ Please note that these commands cover a wide range of functionalities and are es
 ## Question: 7 
 
 You just show me the commands, not including two usage examples in the above answer. For this time, Can you write down two example usages for me?
+
+Certainly! Here are two example usages for each of the 100 commands:
+
+1. **ls:**
+   - List files in the current directory: `ls`
+   - List all files, including hidden ones: `ls -a`
+
+2. **cd:**
+   - Change to the home directory: `cd ~`
+   - Go up one directory: `cd ..`
+
+3. **pwd:**
+   - Print the current working directory: `pwd`
+
+4. **touch:**
+   - Create a new file: `touch file.txt`
+   - Update the access and modification times of a file: `touch -a -m file.txt`
+
+5. **cp:**
+   - Copy a file to a different location: `cp source.txt destination.txt`
+   - Copy a directory and its contents recursively: `cp -r source_dir/ destination_dir/`
+
+6. **mv:**
+   - Move a file to a different location: `mv file.txt new_location/`
+   - Rename a file: `mv old_name.txt new_name.txt`
+
+7. **rm:**
+   - Remove a file: `rm file.txt`
+   - Remove a directory and its contents recursively: `rm -r directory/`
+
+8. **find:**
+   - Find all files with a specific name in the current directory: `find . -name "file.txt"`
+   - Find all empty directories in a specific directory: `find directory/ -type d -empty`
+
+9. **cat:**
+   - Display the contents of a file: `cat file.txt`
+   - Concatenate two files and display the result: `cat file1.txt file2.txt`
+
+10. **more:**
+    - View the contents of a file page by page: `more file.txt`
+
+11. **less:**
+    - View the contents of a file with backward navigation: `less file.txt`
+
+12. **head:**
+    - Display the first 10 lines of a file: `head file.txt`
+    - Display the first 5 lines of a file: `head -n 5 file.txt`
+
+13. **tail:**
+    - Display the last 10 lines of a file: `tail file.txt`
+    - Display the last 5 lines of a file: `tail -n 5 file.txt`
+
+14. **chmod:**
+    - Change the permissions of a file to read, write, and execute for the owner: `chmod 700 file.txt`
+    - Add execute permission for the group and others: `chmod go+x file.txt`
+
+15. **chown:**
+    - Change the owner of a file: `chown user file.txt`
+    - Change the owner and group of a file: `chown user:group file.txt`
+
+16. **ps:**
+    - Display a snapshot of the current processes: `ps`
+    - Display all processes: `ps -e`
+
+17. **top:**
+    - Monitor real-time system processes: `top`
+
+18. **kill:**
+    - Terminate a process with a specific process ID: `kill 1234`
+    - Send a specific signal to a process: `kill -SIGSTOP 1234`
+
+19. **bg:**
+    - Move a process to the background: `bg %1`
+
+20. **fg:**
+    - Bring a background process to the foreground: `fg %1`
+
+21. **&:**
+    - Run a command in the background: `command &`
+
+22. **grep:**
+    - Search for a specific pattern in a file: `grep "pattern" file.txt`
+    - Search for a pattern recursively in a directory: `grep -r "pattern" directory/`
+
+23. **
+
+sort:**
+    - Sort the lines of a file in ascending order: `sort file.txt`
+    - Sort the lines of a file in descending order: `sort -r file.txt`
+
+24. **cut:**
+    - Extract specific fields from a file using a delimiter: `cut -d "," -f 1,2 file.csv`
+    - Extract the first 10 characters from each line of a file: `cut -c 1-10 file.txt`
+
+25. **awk:**
+    - Print the first field of each line in a file: `awk '{print $1}' file.txt`
+    - Sum the values of a specific column in a CSV file: `awk -F "," '{sum+=$2} END {print sum}' file.csv`
+
+26. **sed:**
+    - Replace a specific pattern with another in a file: `sed 's/pattern/replacement/' file.txt`
+    - Delete a specific line from a file: `sed '10d' file.txt`
+
+27. **curl:**
+    - Fetch the content of a webpage: `curl http://example.com`
+    - Download a file from a URL: `curl -O http://example.com/file.txt`
+
+28. **wget:**
+    - Download a file from a URL: `wget http://example.com/file.txt`
+    - Download a file and save it with a different name: `wget -O output.txt http://example.com/file.txt`
+
+29. **tar:**
+    - Create a tar archive of a directory: `tar -cvf archive.tar directory/`
+    - Extract files from a tar archive: `tar -xvf archive.tar`
+
+30. **gzip:**
+    - Compress a file: `gzip file.txt`
+    - Decompress a gzipped file: `gzip -d file.txt.gz`
+
+These are just the first 30 commands with example usages. If you find this helpful, please let me know, and I'll continue with the remaining commands.
+
+## Question: 8
+
