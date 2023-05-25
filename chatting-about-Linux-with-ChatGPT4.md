@@ -2675,3 +2675,9 @@ Creating a table with 100 command pairs might be a bit overwhelming, so I'll pro
 | apt-get/yum       | Package handling utility in Linux        | msiexec            | Package handling utility in Windows         |
 
 This table lists the basic, equivalent commands between Linux and Windows. Some of these commands have different options and can behave differently, but the general usage is similar.
+
+## Question: 18
+
+Repeating the above question, actually ...  
+The above table not including the example usages. Can you regenerate the comparison table of 50 equal commands between Linux and Windows. I want 50 command at least. Do your best!
+
