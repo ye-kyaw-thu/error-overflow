@@ -599,10 +599,44 @@ Thanks! Could you explain to me in details about GitBook also? Are there any res
 
 I got following error message from ChatGPT4 paid usage:  
 
+```
 You've reached the current usage cap for GPT-4. You can continue with the default model now, or try again after 7:43 PM. Learn more
 Use default model  
+```  
 
 And thus, I changed to default mode (i.e. ChatGPT 3.5) ...  
 
+GitBook is a platform for creating and hosting documentation. It provides a user-friendly interface for writing and organizing content, making it easy to create professional-looking books or documentation sites. GitBook offers both free and paid plans, each with its own set of features and limitations. Here's a detailed overview of GitBook and how to use it to create a new book:
 
+**Creating a New Book on GitBook:**
 
+1. **Sign Up**: Start by signing up for a GitBook account. You can use your GitHub or Google account to sign up or create a new account directly on GitBook.
+
+2. **Create a New Book**: After signing in, click on the "New" button to create a new book. Choose the "Book" option from the dropdown menu.
+
+3. **Configure Your Book**: Provide a name and a unique URL for your book. You can also select the visibility (public or private) and the book's language.
+
+4. **Choose a Template**: GitBook offers several templates to choose from. You can select a template that suits your needs or start with a blank book.
+
+5. **Editing Your Book**: Once your book is created, you can start writing and organizing your content. GitBook provides a user-friendly editor with support for Markdown syntax. You can create new chapters, sections, and pages, and add text, images, code snippets, and more.
+
+6. **Organize Your Content**: Use the drag-and-drop interface to rearrange the chapters and sections in your book. You can also create a table of contents and set the order of your content.
+
+7. **Customize the Look**: GitBook allows you to customize the appearance of your book. You can choose a theme, change fonts and colors, and add a cover image to personalize your book.
+
+8. **Collaboration and Version Control**: GitBook provides collaboration features, allowing multiple contributors to work on the same book simultaneously. You can also integrate your GitBook project with a Git repository (GitHub, GitLab, or Bitbucket) to manage version control.
+
+9. **Publishing Your Book**: Once you're ready to publish your book, you can click on the "Publish" button. GitBook will generate a web version of your book that can be accessed via the provided URL. You can also export your book in various formats, including PDF, ePub, and mobi.
+
+**GitBook Free Plan Restrictions:**
+
+While GitBook offers a free plan, there are some limitations compared to their paid plans. Here are a few notable restrictions:
+
+- The free plan has a limited number of collaborators and contributors.
+- Some advanced features and integrations may be restricted.
+- Custom domains and branding options are not available.
+- GitBook branding may be displayed on your book.
+
+Keep in mind that GitBook's plans and features may evolve over time, so it's always best to check their website for the most up-to-date information on the specific restrictions of their free plan.
+
+Overall, GitBook provides an intuitive and user-friendly platform for creating and hosting books or documentation sites. It offers a range of features to help you organize, write, and publish your content, even with the free plan.
