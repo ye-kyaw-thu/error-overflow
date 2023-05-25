@@ -2491,3 +2491,107 @@ In summary, Windows is easier to pick up initially, especially for non-technical
 
 List 50 essential commands of the Windows command prompt (e.g. Windows 10) including example usages.
 
+Sure, here are 50 essential commands for the Windows Command Prompt (CMD):
+
+1. **CD**: Change directory. Example: `cd Documents`
+
+2. **DIR**: List contents of the current directory. Example: `dir`
+
+3. **CLS**: Clear the command prompt screen. Example: `cls`
+
+4. **HELP**: Provides help information for Windows commands. Example: `help`
+
+5. **EXIT**: Close the command prompt. Example: `exit`
+
+6. **COPY**: Copy files from one location to another. Example: `copy source.txt destination.txt`
+
+7. **MOVE**: Move files from one location to another. Example: `move source.txt C:\destination_folder`
+
+8. **DEL**: Delete one or more files. Example: `del myfile.txt`
+
+9. **RENAME**: Rename a file. Example: `rename oldname.txt newname.txt`
+
+10. **TYPE**: Display the contents of a text file. Example: `type myfile.txt`
+
+11. **FIND**: Search for a text string in a file. Example: `find "hello" myfile.txt`
+
+12. **SORT**: Sort the input and display the result on the screen. Example: `sort myfile.txt`
+
+13. **MD**: Make a new directory. Example: `md myfolder`
+
+14. **RD**: Remove a directory. Example: `rd myfolder`
+
+15. **CHKDSK**: Check a disk and display the status report. Example: `chkdsk`
+
+16. **DISKPART**: Opens the disk partitioning software. Example: `diskpart`
+
+17. **FORMAT**: Format a disk. Example: `format E: /FS:NTFS`
+
+18. **SYSTEMINFO**: Display information about the system. Example: `systeminfo`
+
+19. **IPCONFIG**: Display the IP configuration for all network interfaces. Example: `ipconfig`
+
+20. **PING**: Send a network request to a specific address to test connectivity. Example: `ping www.google.com`
+
+21. **NETSTAT**: Display active network connections. Example: `netstat`
+
+22. **TRACERT**: Trace and display the path that a packet takes to reach a destination. Example: `tracert www.google.com`
+
+23. **NSLOOKUP**: Look up the IP address of a domain. Example: `nslookup www.google.com`
+
+24. **SFC**: Scan system files for errors. Example: `sfc /scannow`
+
+25. **TASKLIST**: Display a list of running processes. Example: `tasklist`
+
+26. **TASKKILL**: Kill a task or process. Example: `taskkill /IM notepad.exe`
+
+27. **GPUPDATE**: Force an immediate update of Group Policy. Example: `gpupdate /force`
+
+28. **MSCONFIG**: Open the System Configuration utility. Example: `msconfig`
+
+29. **REGEDIT**: Open the Windows Registry Editor. Example: `regedit`
+
+30. **CMD**: Open a new instance of the Windows command prompt. Example: `cmd`
+
+31. **SHUTDOWN**: Shut down or restart the computer. Example: `shutdown /r /t 0` (restarts the computer immediately)
+
+32. **SCHTASKS**: Schedule tasks in the Task Scheduler. Example: `schtasks /create /tn "My Task" /tr C:\path\to\program.exe`
+
+33. **XCOPY**: Copy directories including subdirectories. Example: `xcopy source_folder destination_folder /E`
+
+34. **ROBOCOPY**: Robust file copy for Windows. Example: `robocopy source_folder destination_folder /E`
+
+35. **TITLE**: Changes the title text of the CMD window. Example: `title My
+
+ Command Prompt`
+
+36. **ECHO**: Display messages and enable or disable echoing. Example: `echo Hello, world!`
+
+37. **DATE**: Display or set the system date. Example: `date`
+
+38. **TIME**: Display or set the system time. Example: `time`
+
+39. **SET**: Display or set environment variables. Example: `set`
+
+40. **PATH**: Display or set the command path. Example: `path`
+
+41. **PROMPT**: Change the command prompt. Example: `prompt $P$G`
+
+42. **VER**: Display the operating system version. Example: `ver`
+
+43. **ASSOC**: View or modify file extension associations. Example: `assoc .txt`
+
+44. **FC**: Compare files and display the differences. Example: `fc file1.txt file2.txt`
+
+45. **TREE**: Display the directory structure in a tree format. Example: `tree`
+
+46. **ATTRIB**: Change file attributes. Example: `attrib +h myfile.txt` (makes myfile.txt a hidden file)
+
+47. **COMP**: Compare the contents of two files or sets of files. Example: `comp file1.txt file2.txt`
+
+48. **MORE**: Display output one screen at a time. Example: `dir | more`
+
+49. **WMIC**: Windows Management Instrumentation Command line. Example: `wmic process list`
+
+50. **RUNAS**: Allows a user to run specific tools and programs with different permissions than the user's current logon provides. Example: `runas /user:administrator cmd`
+
