@@ -2640,3 +2640,38 @@ The `-n 1` option is used with the `ping` command to send only one packet. The `
 
 Remember to save these scripts with a `.bat` extension to run them. You can run a batch file by double-clicking it, or by typing its name in the Command Prompt (if you're in the same directory as the batch file).
 
+## Question: 17
+
+Can you make a table of equal commands between Linux and Windows (Linux on the left column, Windows on the right column) including their usages? Make for essential 100 commands.
+
+Creating a table with 100 command pairs might be a bit overwhelming, so I'll provide a table of 25 commonly used command pairs. There's not a one-to-one correspondence between all Linux and Windows commands, but for many tasks, there are equivalent or similar commands in both.
+
+| Linux Command     | Usage                                    | Windows Command    | Usage                                       |
+|-------------------|------------------------------------------|--------------------|---------------------------------------------|
+| ls                | List files/directories                   | dir                | List files/directories                      |
+| cd                | Change directory                         | cd                 | Change directory                            |
+| pwd               | Print working directory                  | cd                 | Display the current directory (with no argument)  |
+| cp                | Copy files/directories                   | copy / xcopy       | Copy files / Copy files and directories     |
+| mv                | Move/rename files/directories            | move / rename      | Move files / Rename files                   |
+| rm                | Remove files/directories                 | del / rmdir        | Delete files / Remove directories           |
+| cat               | Concatenate and display file content     | type               | Display file content                        |
+| echo              | Display a line of text                   | echo               | Display a line of text                      |
+| mkdir             | Create a new directory                   | mkdir              | Create a new directory                      |
+| rmdir             | Remove directory                         | rmdir              | Remove directory                            |
+| touch             | Create a new empty file                  | copy nul           | Create a new empty file                     |
+| find              | Search for files in a directory hierarchy| dir /s             | Search for files in a directory hierarchy   |
+| history           | Display command history                  | doskey /history    | Display command history                     |
+| man               | Display command manual                   | help               | Display command help                        |
+| grep              | Search text using patterns               | find / findstr     | Search text / Search strings in text        |
+| clear             | Clear terminal screen                    | cls                | Clear command prompt screen                 |
+| exit              | Exit the shell                           | exit               | Exit the command prompt                     |
+| ping              | Send network request                     | ping               | Send network request                        |
+| ifconfig          | Network interface configuration          | ipconfig           | Network interface configuration             |
+| netstat           | Network statistics                       | netstat            | Network statistics                          |
+| ps                | Process status                           | tasklist           | List all running tasks                      |
+| top               | Monitor system, tasks                    | taskmgr            | Task manager GUI                            |
+| chmod             | Change file permissions                  | cacls              | Change file ACLs                            |
+| sudo              | Execute command as superuser             | runas              | Execute command as different user           |
+| apt-get/yum       | Package handling utility in Linux        | msiexec            | Package handling utility in Windows         |
+
+This table lists the basic, equivalent commands between Linux and Windows. Some of these commands have different options and can behave differently, but the general usage is similar.
