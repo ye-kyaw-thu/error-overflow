@@ -2213,3 +2213,7 @@ Certainly! Here's a list of 50 essential commands in the Vi text editor (also ap
 
 These are some of the essential commands in Vi/Vim, but there are many more features and commands available. Experimenting with them will help you become more proficient in using the editor.
 
+## Question: 10
+
+I wanna know essential 50 commands of emacs text editor. Could you make a command list for me including example usages. 
+
