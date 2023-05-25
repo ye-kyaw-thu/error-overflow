@@ -1110,3 +1110,68 @@ This code includes the necessary command line options such as `--train`, `--dev`
 
 Remember to update the code with the appropriate data loading, preprocessing, and translation components specific to your task and data format.
 
+## Question: 21
+
+Relating to evaluation metrics of machine translation system can you write a survey report for me? Can you recommend which metrics are suitable for evaluations? Including introduction of evaluation tools
+
+Certainly! Here's a survey report on evaluation metrics for machine translation systems and an introduction to evaluation tools:
+
+Title: Evaluation Metrics for Machine Translation: A Survey
+
+1. Introduction
+   - Briefly introduce the importance of evaluating machine translation systems.
+   - Highlight the need for reliable and comprehensive evaluation metrics.
+   - Mention the challenges associated with evaluating machine translation systems.
+
+2. Evaluation Metrics
+   2.1. BLEU (Bilingual Evaluation Understudy)
+       - Explain the concept of BLEU and its popularity in machine translation evaluation.
+       - Discuss the calculation of precision, brevity penalty, and BLEU score.
+       - Mention the limitations of BLEU, such as its focus on n-gram precision and insensitivity to word order.
+
+   2.2. METEOR (Metric for Evaluation of Translation with Explicit ORdering)
+       - Describe the key features of METEOR, including stemming, synonym matching, and word order alignment.
+       - Explain the computation of the unigram-based F-measure and the penalty term for unaligned words.
+       - Discuss the advantages of METEOR, such as its ability to handle morphologically rich languages and address word order issues.
+
+   2.3. TER (Translation Edit Rate)
+       - Introduce TER as a metric that measures the edit distance between the reference and translation.
+       - Discuss the benefits of TER in capturing word ordering, phrase reordering, and fluency issues.
+       - Highlight the limitations of TER, such as sensitivity to minor changes and lack of alignment information.
+
+   2.4. NIST (Normalized Word Error Rate)
+       - Explain the concept of NIST, which computes the average n-gram precision weighted by their frequency of occurrence.
+       - Discuss how NIST addresses the shortcomings of BLEU by considering frequency-based weighting.
+       - Mention the limitations of NIST, including the use of fixed n-gram orders and insensitivity to word order.
+
+   2.5. Other Metrics
+       - Briefly mention other metrics like GLEU, WER (Word Error Rate), and RIBES (Rank-based Intuitive Bilingual Evaluation Score).
+       - Discuss their specific characteristics, strengths, and limitations.
+
+3. Evaluation Tools
+   3.1. BLEU Score Calculation
+       - Introduce widely-used tools such as the `nltk` library in Python and the `multi-bleu.perl` script from the Moses toolkit.
+       - Provide code examples for calculating BLEU scores using these tools.
+
+   3.2. METEOR Score Calculation
+       - Discuss the METEOR implementation available in the Meteor toolkit.
+       - Provide instructions for using the toolkit to compute METEOR scores.
+
+   3.3. TER Score Calculation
+       - Introduce the `tercom.jar` tool, which is commonly used for TER calculation.
+       - Explain how to use `tercom.jar` to obtain TER scores for machine translations.
+
+4. Considerations in Metric Selection
+   - Discuss the factors to consider when selecting evaluation metrics, such as language pairs, specific translation tasks, and resource availability.
+   - Emphasize the importance of using multiple metrics for a comprehensive evaluation.
+
+5. Conclusion
+   - Summarize the key points discussed in the survey report.
+   - Highlight the importance of choosing appropriate evaluation metrics based on specific requirements and considerations.
+
+Note: The survey report should include proper citations and references to the original research papers and tools mentioned. Additionally, it is essential to update the survey with recent advancements and emerging evaluation metrics to provide the most up-to-date information.
+
+## Question: 22
+
+According to my knowledge, there are some more evaluation metrics such as ChrF++ evaluations. Can you write a Python code for me for calculating and comparing several machine translation performance evaluation metrics? Provide command line arguments for easy to use such as arguments for reference file, hypothesis file, evaluation metric or method selection etc. If the user select "all" for evaluation method option, the program will show as a table output for all evaluation metric results. Can you do that?
+
