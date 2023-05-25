@@ -2052,3 +2052,5 @@ Note: အထက်မှာ ပြခဲ့တဲ့ command number တွေန
 
 ## Question: 9
 
+I wanna know essential 50 commands of Vi text editor. Could you make a command list for me including example usages. Thanks!  
+
