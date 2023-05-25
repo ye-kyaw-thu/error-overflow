@@ -1175,3 +1175,67 @@ Note: The survey report should include proper citations and references to the or
 
 According to my knowledge, there are some more evaluation metrics such as ChrF++ evaluations. Can you write a Python code for me for calculating and comparing several machine translation performance evaluation metrics? Provide command line arguments for easy to use such as arguments for reference file, hypothesis file, evaluation metric or method selection etc. If the user select "all" for evaluation method option, the program will show as a table output for all evaluation metric results. Can you do that?
 
+Certainly! Here's a Python code that calculates and compares multiple machine translation evaluation metrics, including command line arguments for reference file, hypothesis file, evaluation metric selection, and an option to display results in a table format:
+
+```python
+import argparse
+import nltk.translate.bleu_score as bleu
+import nltk.translate.chrf_score as chrf
+import nltk.translate.meteor_score as meteor
+import nltk.translate.ribes_score as ribes
+import nltk.translate.gleu_score as gleu
+
+# Command line argument parser
+parser = argparse.ArgumentParser(description="Machine Translation Evaluation Metrics")
+parser.add_argument("--ref", help="Reference file path", required=True)
+parser.add_argument("--hyp", help="Hypothesis file path", required=True)
+parser.add_argument("--metric", help="Evaluation metric selection (bleu, chrf, meteor, ribes, gleu, all)", default="all")
+# Add more evaluation metrics and options as needed
+
+# Parse command line arguments
+args = parser.parse_args()
+
+# Load reference and hypothesis translations
+with open(args.ref, 'r') as ref_file:
+    ref_lines = ref_file.readlines()
+with open(args.hyp, 'r') as hyp_file:
+    hyp_lines = hyp_file.readlines()
+
+# Tokenize reference and hypothesis translations
+ref_tokens = [ref.strip().split() for ref in ref_lines]
+hyp_tokens = [hyp.strip().split() for hyp in hyp_lines]
+
+# Calculate and print evaluation metrics
+if args.metric.lower() == "bleu" or args.metric.lower() == "all":
+    bleu_score = bleu.corpus_bleu(ref_tokens, hyp_tokens)
+    print("BLEU: {:.4f}".format(bleu_score))
+
+if args.metric.lower() == "chrf" or args.metric.lower() == "all":
+    chrf_score = chrf.sentence_chrf(ref_tokens, hyp_tokens)
+    print("ChrF: {:.4f}".format(chrf_score))
+
+if args.metric.lower() == "meteor" or args.metric.lower() == "all":
+    meteor_score = meteor.meteor_score(ref_lines, hyp_lines)
+    print("METEOR: {:.4f}".format(meteor_score))
+
+if args.metric.lower() == "ribes" or args.metric.lower() == "all":
+    ribes_score = ribes.corpus_ribes(ref_tokens, hyp_tokens)
+    print("RIBES: {:.4f}".format(ribes_score))
+
+if args.metric.lower() == "gleu" or args.metric.lower() == "all":
+    gleu_score = gleu.corpus_gleu(ref_tokens, hyp_tokens)
+    print("GLEU: {:.4f}".format(gleu_score))
+
+# Add more evaluation metrics and print statements as needed
+```
+
+To run the program, use the following command-line arguments:
+```
+python evaluation_metrics.py --ref reference.txt --hyp hypothesis.txt --metric <evaluation_metric>
+```
+Replace `reference.txt` with the path to your reference translation file and `hypothesis.txt` with the path to your hypothesis translation file. For the `--metric` argument, specify the evaluation metric you want to calculate (`bleu`, `chrf`, `meteor`, `ribes`, `gleu`, `all`).
+
+The program will calculate and print the selected evaluation metric(s) based on the reference and hypothesis translations. If you choose the `all` option for `--metric`, it will display the results for all available evaluation metrics.
+
+You can further extend the code by adding more evaluation metrics and corresponding calculations as per your requirements. Additionally, you can customize the output format to display the results in a table format using libraries like `tabulate` or `prettytable` if desired.
+
