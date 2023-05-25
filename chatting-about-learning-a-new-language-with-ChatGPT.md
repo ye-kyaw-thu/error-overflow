@@ -836,9 +836,7 @@ Certainly! Here's a table of Thai numbers from 1 to 50, followed by randomly gen
 | 40          | ๔๐            | Forty         | See Sip        |
 | 50          | ๕๐            | Fifty         | Ha Sip        |
 | 51          | ๕๑            | Fifty-One     | Ha Sip Et      |
-| 52          | ๕๒            | Fifty-Two     | Ha S
-
-ip Song    |
+| 52          | ๕๒            | Fifty-Two     | Ha Sip Song    |
 | 53          | ๕๓            | Fifty-Three   | Ha Sip Sam     |
 | 54          | ๕๔            | Fifty-Four    | Ha Sip See     |
 | 55          | ๕๕            | Fifty-Five    | Ha Sip Ha      |
