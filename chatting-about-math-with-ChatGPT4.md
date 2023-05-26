@@ -37,4 +37,35 @@ I will be happy to provide
 
 I am glad to see remaining 80 equations. Go ahead!
 
+Sure, here are the next 20 equations:
+
+| No | Equation | Name of Mathematician | Brief Explanation | Area of Use |
+| --- | --- | --- | --- | --- |
+| 21 | y = mx + c | René Descartes | The equation of a straight line in the Cartesian plane | Geometry |
+| 22 | Sn = n/2 (a + l) | Carl Friedrich Gauss | The sum of an arithmetic series | Sequences and Series |
+| 23 | a_n = a + (n - 1)d | Various | The nth term of an arithmetic sequence | Sequences and Series |
+| 24 | x = [-b ± sqrt(b² - 4ac)] / (2a) | Bhaskara I | The quadratic formula, solutions to quadratic equations | Algebra |
+| 25 | y = a * e^(bx) | Various | The formula for exponential growth/decay | Physics, Biology, Finance |
+| 26 | ∆y/∆x = f'(x) | Newton, Leibniz | The derivative gives the slope of the tangent line to the graph of a function at any point | Calculus |
+| 27 | P(A ∪ B) = P(A) + P(B) - P(A ∩ B) | Kolmogorov | The formula for the probability of the union of two events | Probability |
+| 28 | P(A ∩ B) = P(A)P(B|A) | Kolmogorov | The formula for the probability of the intersection of two events | Probability |
+| 29 | P(A|B) = P(A ∩ B) / P(B) | Bayes | Bayes' theorem, relates the conditional and marginal probabilities of two random events | Probability, Statistics |
+| 30 | (a + b)² = a² + 2ab + b² | Al Khwarizmi | Binomial theorem for power 2 | Algebra |
+| 31 | (a - b)² = a² - 2ab + b² | Al Khwarizmi | Binomial theorem for power 2 with negative sign | Algebra |
+| 32 | (a + b)³ = a³ + 3a²b + 3ab² + b³ | Al Khwarizmi | Binomial theorem for power 3 | Algebra |
+| 33 | S = ∫v dt | Newton, Leibniz | The displacement of an object is the integral of its velocity over time | Physics |
+| 34 | v = ∫a dt | Newton, Leibniz | The velocity of an object is the integral of its acceleration over time | Physics |
+| 35 | y = log_b(x) | John Napier | The logarithm function, inverse to the function of exponentiation | Algebra, Computer Science |
+| 36 | a^log_b(c) = c^log_b(a) | John Napier | Change of base formula for logarithms | Algebra |
+| 37 | sin²θ + cos²θ = 1 | Various | Pythagorean identity in trigonometry | Trigonometry |
+| 38 | 1 + cot²θ = csc²θ | Various | Pythagorean identity in trigonometry | Trigonometry |
+| 39 | 1 + tan²θ = sec²θ | Various | Pythagorean identity in trigonometry | Trigonometry |
+| 40 | e^ix = cosx + isinx | Euler | Euler's formula, establishes a deep link between trigonometry and complex exponential function | Complex Numbers, Physics |
+
+Let's continue with the next set:
+
+## Question: 3
+
+Yes, please!
+
 
