@@ -1120,3 +1120,85 @@ plt.show()
 
 This code snippet performs PCA on the Iris dataset, reducing its dimensionality from 4 to 2. It then plots the data in this 2-dimensional space, with each of the 3 species of Iris flowers represented by a different color. Despite the reduction in dimensionality, the PCA-transformed data still clearly separate the three classes, highlighting the power of linear algebra in data analysis.
 
+## Question: 19
+
+Can you write one more example code?
+
+Certainly! Here's an example of how you might use linear algebra to perform image compression with Singular Value Decomposition (SVD), a prominent linear algebra technique. This example assumes you have the libraries numpy, matplotlib, and PIL (Python Imaging Library) installed.
+
+The Singular Value Decomposition allows us to approximate an image using fewer bits of information than the original image, effectively compressing the image.
+
+```python
+# Import necessary libraries
+import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# Open the image file
+img = Image.open('path_to_your_image_file.jpg')  # replace with your image file path
+
+# Convert the image to grayscale
+imggray = img.convert('L')
+
+# Convert the image data into a numpy matrix
+imgmat = np.array(imggray, dtype=float)
+
+# Perform SVD on the image matrix
+U, sigma, V = np.linalg.svd(imgmat)
+
+# Approximate the image with different numbers of singular values
+for i in [5, 15, 30, 50]:
+
+    reconstimg = np.matrix(U[:, :i]) * np.diag(sigma[:i]) * np.matrix(V[:i, :])
+    plt.imshow(reconstimg, cmap='gray')
+    title = "n = %s" % i
+    plt.title(title)
+    plt.show()
+```
+
+In this code, we load an image, convert it to grayscale, and perform SVD on the resulting matrix. The SVD decomposes the image into three matrices: U, sigma (Σ), and V. We then reconstruct the image using only the first 'n' singular values and vectors from the SVD. The reconstructed image retains the most significant features of the original image, even when 'n' is relatively small, demonstrating the efficiency of SVD as a compression technique.
+
+Please note that you need to replace `'path_to_your_image_file.jpg'` with the actual path to the image file you want to use in this demonstration.
+
+As with any lossy compression technique, using fewer singular values results in a lower-quality approximation of the original image. However, the compressed image requires less storage space, and often the difference in quality is acceptable.
+
+This kind of image compression algorithm has many practical uses, for example in digital cameras, online image sharing, and satellite imagery.
+
+## Question: 20
+
+Can you write one more interesting example code for me?
+
+Absolutely! In this example, I'll demonstrate how to use the cosine similarity from linear algebra to find semantic similarity between sentences. This is a common technique used in Natural Language Processing (NLP).
+
+This technique is based on transforming sentences into vectors, where each dimension corresponds to a distinct word from the sentence. By calculating the cosine of the angle between these vectors, we can quantify how similar the sentences are in terms of their semantic content.
+
+We'll use the CountVectorizer from sklearn to convert sentences into vectors. This simple approach represents sentences as 'bags of words', ignoring order of words but keeping track of their frequency.
+
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Two sentences for comparison
+sentence_1 = "I love programming in Python."
+sentence_2 = "Python is my favorite programming language."
+
+# Create the CountVectorizer
+vectorizer = CountVectorizer().fit_transform([sentence_1, sentence_2])
+
+# Transform the CountVectorizer into a matrix
+vectors = vectorizer.toarray()
+
+# Compute the cosine similarity
+csim = cosine_similarity(vectors)
+
+print(f"Cosine similarity between '{sentence_1}' and '{sentence_2}' is: {csim[0,1]}")
+```
+
+In this example, the CountVectorizer transforms the sentences into vectors, where each dimension corresponds to a unique word and the value in each dimension is the frequency of that word. The cosine similarity is then computed using these vectors.
+
+The resulting cosine similarity is a measure of how semantically similar the sentences are to one another, with a value of 1 indicating identical sentences and a value of 0 indicating no overlap.
+
+It's important to note that this is a basic approach and may not always yield perfect results, as it does not take into account the order of words and semantic nuances. However, it is a simple yet effective way to demonstrate the principles of cosine similarity, and is a fundamental concept in more advanced NLP techniques such as Word2Vec and BERT.
+
+## Question: 21
+
