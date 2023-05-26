@@ -1069,3 +1069,54 @@ Linear algebra is not just a part of data science - it forms the core of the eng
 
 ## Question: 18
 
+Can you write an example Python code applying linear algebra for data science field? Try to write a complete source code that able to run for demo prupose.
+
+Absolutely! Below is a simple Python code snippet that applies Principal Component Analysis (PCA), a popular technique in linear algebra, using the scikit-learn library. This example assumes that you have the Python libraries numpy, pandas, matplotlib, and scikit-learn installed. 
+
+PCA is used for dimensionality reduction and is often useful in visualizing high-dimensional data. In this example, we'll use the popular Iris dataset, which has four dimensions, and we'll reduce it to two dimensions for visualization.
+
+```python
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+import pandas as pd
+
+# Load the Iris dataset
+iris = load_iris()
+
+# Store features matrix in X
+X = iris.data
+
+# Create PCA object, for transforming 4-dimensional data into 2 dimensions
+pca = PCA(n_components=2)
+
+# Apply PCA to the data
+X_pca = pca.fit_transform(X)
+
+# Create a DataFrame that will hold the PCA-transformed data
+df = pd.DataFrame(data=X_pca, columns=["Principal Component 1", "Principal Component 2"])
+
+# Add a new 'Target' column to the DataFrame, containing the class labels (flower species)
+df['Target'] = iris.target
+
+# Visualize the PCA-transformed data
+plt.figure(figsize=(6,6))
+targets = ['Setosa', 'Versicolor', 'Virginica']
+colors = ['r', 'g', 'b']
+for target, color in zip(targets,colors):
+    indicesToKeep = df['Target'] == targets.index(target)
+    plt.scatter(df.loc[indicesToKeep, 'Principal Component 1'], 
+                df.loc[indicesToKeep, 'Principal Component 2'], 
+                c=color, 
+                s=50)
+plt.legend(targets)
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('2D PCA visualization of Iris dataset')
+plt.show()
+```
+
+This code snippet performs PCA on the Iris dataset, reducing its dimensionality from 4 to 2. It then plots the data in this 2-dimensional space, with each of the 3 species of Iris flowers represented by a different color. Despite the reduction in dimensionality, the PCA-transformed data still clearly separate the three classes, highlighting the power of linear algebra in data analysis.
+
