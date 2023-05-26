@@ -418,9 +418,7 @@ Certainly! Here's an extended table with 100 additional math symbols, their name
 | ≍ | Similar to or congruent to | ∆ABC ≍ ∆DEF | "Triangle ABC is similar to or congruent to triangle DEF" |
 | ≅ | Congruent to | ∆ABC ≅ ∆DEF | "Triangle ABC is congruent to triangle DEF" |
 | ≐ | Congruent to | AB ≐ CD | "Line segment AB is congruent to line segment CD" |
-| ≑ | Equiangular to | ∠ABC ≑ ∠
-
-DEF | "Angle ABC is equiangular to angle DEF" |
+| ≑ | Equiangular to | ∠ABC ≑ ∠DEF | "Angle ABC is equiangular to angle DEF" |
 | ≒ | Approximate to | π ≒ 3.14 | "Pi is approximate to 3.14" |
 | ≓ | Approximately equal to | AB ≓ CD | "Line segment AB is approximately equal to line segment CD" |
 | ≔ | Defined as | f(x) ≔ x² | "f(x) is defined as x squared" |
@@ -448,9 +446,7 @@ DEF | "Angle ABC is equiangular to angle DEF" |
 | ≲ | Less than or equivalent to | a ≲ b | "a is less than or equivalent to b" |
 | ≳ | Greater than or equivalent to | b ≳ a | "b is greater than or equivalent to a" |
 | ≴ | Neither less than nor equivalent to | a ≴ b | "a is neither less than nor equivalent to b" |
-| ≵ | Neither greater than nor equivalent to | b ≵ a | "b is neither greater than nor
-
- equivalent to a" |
+| ≵ | Neither greater than nor equivalent to | b ≵ a | "b is neither greater than nor equivalent to a" |
 | ≶ | Less than or not equivalent to | a ≶ b | "a is less than or not equivalent to b" |
 | ≷ | Greater than or not equivalent to | b ≷ a | "b is greater than or not equivalent to a" |
 | ≸ | Neither less than nor not equivalent to | a ≸ b | "a is neither less than nor not equivalent to b" |
@@ -482,9 +478,7 @@ DEF | "Angle ABC is equiangular to angle DEF" |
 | ⊓ | Meet | A ⊓ B | "Meet of sets A and B" |
 | ⊔ | Join | A ⊔ B | "Join of sets A and B" |
 | ⊕ | Direct sum | A ⊕ B | "Direct sum of sets A and B" |
-| ⊖ | Circled minus | a ⊖ b | "a
-
- circled minus b" |
+| ⊖ | Circled minus | a ⊖ b | "a circled minus b" |
 | ⊗ | Tensor product | A ⊗ B | "Tensor product of sets A and B" |
 | ⊘ | Circled division | a ⊘ b | "a circled division b" |
 | ⊙ | Circled dot | a ⊙ b | "a circled dot b" |
@@ -516,9 +510,7 @@ DEF | "Angle ABC is equiangular to angle DEF" |
 | ⋸ | Precedes or equal to with dot inside | A ⋸ B | "A precedes or is equal to B with dot inside" |
 | ⋹ | Succeeds or equal to with dot inside | A ⋹ B | "A succeeds or is equal to B with dot inside" |
 | ⋺ | Precedes or equivalent to with dot inside | A ⋺ B | "A precedes or is equivalent to B with dot inside" |
-|
-
- ⋻ | Succeeds or equivalent to with dot inside | A ⋻ B | "A succeeds or is equivalent to B with dot inside" |
+| ⋻ | Succeeds or equivalent to with dot inside | A ⋻ B | "A succeeds or is equivalent to B with dot inside" |
 | ⋼ | Precedes or less-than-equal-to with dot inside | A ⋼ B | "A precedes or is less than or equal to B with dot inside" |
 | ⋽ | Succeeds or less-than-equal-to with dot inside | A ⋽ B | "A succeeds or is less than or equal to B with dot inside" |
 | ⋾ | Precedes or greater-than-equal-to with dot inside | A ⋾ B | "A precedes or is greater than or equal to B with dot inside" |
@@ -544,8 +536,6 @@ DEF | "Angle ABC is equiangular to angle DEF" |
 | ⍂ | APL functional symbol quad greater-than | ⍂x | "APL functional symbol quad greater-than x" |
 | ⍃ | APL functional symbol quad less-than-or-equal-to | ⍃x | "APL functional symbol quad less-than-or-equal-to x" |
 | ⍄ | APL functional symbol quad greater-than-or-equal-to | ⍄x | "APL functional symbol quad greater-than-or-equal-to x" |
-
-
 | ⍅ | APL functional symbol quad equals | ⍅x | "APL functional symbol quad equals x" |
 | ⍆ | APL functional symbol quad divide | ⍆x | "APL functional symbol quad divide x" |
 | ⍇ | APL functional symbol quad backslash | ⍇x | "APL functional symbol quad backslash x" |
