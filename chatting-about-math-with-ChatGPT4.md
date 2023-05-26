@@ -784,9 +784,7 @@ Certainly! Here's a revised table focusing specifically on math symbols, excludi
 | ~      | Tilde | x ~ y | Similarity or approximation |
 | ≈      | Approximately equal to | x ≈ y | Approximation |
 | ≡      | Equivalent to | x ≡ y | Equivalent |
-| ≣
-
-      | Defined as | x ≣ 5 | Defined as |
+| ≣      | Defined as | x ≣ 5 | Defined as |
 | ∼      | Similar to | A ∼ B | Similarity |
 | ≅      | Congruent to | A ≅ B | Congruence |
 | ∝      | Proportional to | y ∝ x | Proportionality |
@@ -827,9 +825,7 @@ Certainly! Here's a revised table focusing specifically on math symbols, excludi
 | ⊕      | Circled plus operator | A ⊕ B | Circled plus operator |
 | ⊗      | Circled times operator | A ⊗ B | Circled times operator |
 | ⊞      | Circled division operator | A ⊞ B | Circled division operator |
-| ⊠      | Circled square operator | A ⊠ B | Circled
-
- square operator |
+| ⊠      | Circled square operator | A ⊠ B | Circled square operator |
 | ⊡      | Circled triangle operator | A ⊡ B | Circled triangle operator |
 | ⊻      | Circled XOR operator | A ⊻ B | Circled XOR operator |
 | ⌒      | Arc | ⌒AB | Arc symbol |
@@ -860,9 +856,7 @@ Certainly! Here's a revised table focusing specifically on math symbols, excludi
 | ⍊      | APL functional symbol circle stile-tilde | ⍊x | APL functional symbol circle stile-tilde |
 | ⍋      | APL functional symbol circle backslash-tilde | ⍋x | APL functional symbol circle backslash-tilde |
 | ⍌      | APL functional symbol circle star-tilde | ⍌x | APL functional symbol circle star-tilde |
-| ⍍      | APL functional symbol circle greater-than | ⍍x | APL functional symbol circle greater
-
--than |
+| ⍍      | APL functional symbol circle greater-than | ⍍x | APL functional symbol circle greater-than |
 | ⍎      | APL functional symbol circle less-than | ⍎x | APL functional symbol circle less-than |
 | ⍏      | APL functional symbol circle stile-diaeresis | ⍏x | APL functional symbol circle stile-diaeresis |
 | ⍐      | APL functional symbol circle backslash-diaeresis | ⍐x | APL functional symbol circle backslash-diaeresis |
@@ -886,9 +880,7 @@ Certainly! Here's a revised table focusing specifically on math symbols, excludi
 | ⍢      | APL functional symbol quad circle star | ⍢x | APL functional symbol quad circle star |
 | ⍣      | APL functional symbol quad circle jot | ⍣x | APL functional symbol quad circle jot |
 | ⍤      | APL functional symbol quad circle backslash | ⍤x | APL functional symbol quad circle backslash |
-| ⍥      | APL functional symbol quad up arrowhead | ⍥x | APL functional symbol quad up arrowhead
-
- |
+| ⍥      | APL functional symbol quad up arrowhead | ⍥x | APL functional symbol quad up arrowhead |
 | ⍦      | APL functional symbol quad down arrowhead | ⍦x | APL functional symbol quad down arrowhead |
 | ⍧      | APL functional symbol quad stile | ⍧x | APL functional symbol quad stile |
 | ⍨      | APL functional symbol quad not equal | ⍨x | APL functional symbol quad not equal |
