@@ -387,3 +387,5 @@ This table includes various math symbols and their respective names, along with 
  
 ## Question: 9
 
+Can you extend above table? At least 100 new math symbols ...  
+
