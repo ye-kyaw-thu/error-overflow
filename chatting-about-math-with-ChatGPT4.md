@@ -389,3 +389,360 @@ This table includes various math symbols and their respective names, along with 
 
 Can you extend above table? At least 100 new math symbols ...  
 
+Certainly! Here's an extended table with 100 additional math symbols, their names, and examples of their usage:
+
+| Symbol | Name | Example | How to Read Example |
+| ------ | ---- | ------- | ------------------- |
+| ∧ | Logical AND | P ∧ Q | "P and Q" |
+| ∨ | Logical OR | P ∨ Q | "P or Q" |
+| ¬ | Logical NOT | ¬P | "not P" |
+| ⇒ | Implication | P ⇒ Q | "If P, then Q" |
+| ⇔ | Equivalence | P ⇔ Q | "P if and only if Q" |
+| ⊻ | Exclusive OR (XOR) | P ⊻ Q | "P XOR Q" |
+| ⊕ | Exclusive OR (XOR) | P ⊕ Q | "P XOR Q" |
+| ⊢ | Entails | P ⊢ Q | "P entails Q" |
+| ∃! | Existential quantifier (unique) | ∃!x, P(x) | "There exists a unique x such that P(x)" |
+| ≜ | Defined as | x ≜ 3 | "x is defined as 3" |
+| ∑ | Summation | ∑_{k=1}^{n} k = 1 + 2 + ... + n | "Sum from k equals 1 to n of k equals 1 plus 2 plus ... plus n" |
+| ∏ | Product | ∏_{k=1}^{n} k = 1 × 2 × ... × n | "Product from k equals 1 to n of k equals 1 times 2 times ... times n" |
+| ∐ | Coproduct | ∐_{k=1}^{n} A_k | "Coproduct of sets A_1, A_2, ..., A_n" |
+| ∫ | Integral | ∫ f(x) dx | "Integral of f(x) with respect to x" |
+| ∬ | Double integral | ∬ f(x, y) dA | "Double integral of f(x, y) with respect to A" |
+| ∭ | Triple integral | ∭ f(x, y, z) dV | "Triple integral of f(x, y, z) with respect to V" |
+| ∮ | Line integral | ∮ F·ds | "Line integral of vector field F dotted with ds" |
+| ∯ | Surface integral | ∯ F·dS | "Surface integral of vector field F dotted with dS" |
+| ∰ | Volume integral | ∰ f(x, y, z) dV | "Volume integral of f(x, y, z) with respect to V" |
+| ≡ | Congruence | a ≡ b (mod n) | "a is congruent to b modulo n" |
+| ≉ | Not congruent | a ≉ b (mod n) | "a is not congruent to b modulo n" |
+| ≌ | Congruent to | ∆ABC ≌ ∆DEF | "Triangle ABC is congruent to triangle DEF" |
+| ≍ | Similar to or congruent to | ∆ABC ≍ ∆DEF | "Triangle ABC is similar to or congruent to triangle DEF" |
+| ≅ | Congruent to | ∆ABC ≅ ∆DEF | "Triangle ABC is congruent to triangle DEF" |
+| ≐ | Congruent to | AB ≐ CD | "Line segment AB is congruent to line segment CD" |
+| ≑ | Equiangular to | ∠ABC ≑ ∠
+
+DEF | "Angle ABC is equiangular to angle DEF" |
+| ≒ | Approximate to | π ≒ 3.14 | "Pi is approximate to 3.14" |
+| ≓ | Approximately equal to | AB ≓ CD | "Line segment AB is approximately equal to line segment CD" |
+| ≔ | Defined as | f(x) ≔ x² | "f(x) is defined as x squared" |
+| ≕ | Defined as | A ≕ {1, 2, 3} | "Set A is defined as the set {1, 2, 3}" |
+| ≖ | Equilibrium | F_net ≖ 0 | "The net force is in equilibrium" |
+| ≗ | Geometrically congruent to | ∆ABC ≗ ∆DEF | "Triangle ABC is geometrically congruent to triangle DEF" |
+| ≘ | Harmonic | f(x) ≘ sin(x) | "The function f(x) is harmonic, like sin(x)" |
+| ≙ | Similarly equal to | AB ≙ CD | "Line segment AB is similarly equal to line segment CD" |
+| ≚ | All equal to | a₁ ≚ a₂ ≚ ... ≚ a_n | "All a's are equal to each other" |
+| ≛ | Geometrically equal to | ∠ABC ≛ ∠DEF | "Angle ABC is geometrically equal to angle DEF" |
+| ≜ | Defined as | f(x) ≜ x² | "f(x) is defined as x squared" |
+| ≝ | Defined as | a ≝ b + c | "a is defined as b plus c" |
+| ≞ | Defined as | x ≞ 2 | "x is defined as 2" |
+| ≟ | Equilibrium | F_net ≟ 0 | "The net force is in equilibrium" |
+| ≠ | Not equal to | 2 ≠ 3 | "Two is not equal to three" |
+| ≡ | Identical to | 5 + 3 ≡ 8 | "Five plus three is identical to eight" |
+| ≢ | Not identical to | A ≢ B | "Set A is not identical to set B" |
+| ≣ | Congruent modulo | a ≣ b (mod n) | "a is congruent to b modulo n" |
+| ≤ | Less than or equal to | 4 ≤ 5 | "Four is less than or equal to five" |
+| ≥ | Greater than or equal to | 5 ≥ 5 | "Five is greater than or equal to five" |
+| ≮ | Not less than | 5 ≮ 4 | "Five is not less than four" |
+| ≯ | Not greater than | 4 ≯ 5 | "Four is not greater than five" |
+| ≰ | Neither less than nor equal to | 4 ≰ 5 | "Four is neither less than nor equal to five" |
+| ≱ | Neither greater than nor equal to | 5 ≱ 4 | "Five is neither greater than nor equal to four" |
+| ≲ | Less than or equivalent to | a ≲ b | "a is less than or equivalent to b" |
+| ≳ | Greater than or equivalent to | b ≳ a | "b is greater than or equivalent to a" |
+| ≴ | Neither less than nor equivalent to | a ≴ b | "a is neither less than nor equivalent to b" |
+| ≵ | Neither greater than nor equivalent to | b ≵ a | "b is neither greater than nor
+
+ equivalent to a" |
+| ≶ | Less than or not equivalent to | a ≶ b | "a is less than or not equivalent to b" |
+| ≷ | Greater than or not equivalent to | b ≷ a | "b is greater than or not equivalent to a" |
+| ≸ | Neither less than nor not equivalent to | a ≸ b | "a is neither less than nor not equivalent to b" |
+| ≹ | Neither greater than nor not equivalent to | b ≹ a | "b is neither greater than nor not equivalent to a" |
+| ≺ | Precedes | A ≺ B | "A precedes B" |
+| ≻ | Succeeds | A ≻ B | "A succeeds B" |
+| ≼ | Precedes or equal to | A ≼ B | "A precedes or is equal to B" |
+| ≽ | Succeeds or equal to | A ≽ B | "A succeeds or is equal to B" |
+| ≾ | Precedes or equivalent to | A ≾ B | "A precedes or is equivalent to B" |
+| ≿ | Succeeds or equivalent to | A ≿ B | "A succeeds or is equivalent to B" |
+| ⊂ | Subset | A ⊂ B | "Set A is a subset of set B" |
+| ⊃ | Superset | A ⊃ B | "Set A is a superset of set B" |
+| ⊆ | Subset or equal to | A ⊆ B | "Set A is a subset or is equal to set B" |
+| ⊇ | Superset or equal to | A ⊇ B | "Set A is a superset or is equal to set B" |
+| ⊈ | Not a subset | A ⊈ B | "Set A is not a subset of set B" |
+| ⊉ | Not a superset | A ⊉ B | "Set A is not a superset of set B" |
+| ⊊ | Proper subset | A ⊊ B | "Set A is a proper subset of set B" |
+| ⊋ | Proper superset | A ⊋ B | "Set A is a proper superset of set B" |
+| ⊄ | Not a proper subset | A ⊄ B | "Set A is not a proper subset of set B" |
+| ⊅ | Not a proper superset | A ⊅ B | "Set A is not a proper superset of set B" |
+| ⊚ | Ring composition | a ⊚ b | "a ring composition b" |
+| ⊙ | Circled dot | a ⊙ b | "a circled dot b" |
+| ⊛ | Circled asterisk | a ⊛ b | "a circled asterisk b" |
+| ⊜ | Circled equals | a ⊜ b | "a circled equals b" |
+| ⊝ | Circled minus | a ⊝ b | "a circled minus b" |
+| ⊞ | Circled plus | a ⊞ b | "a circled plus b" |
+| ⊠ | Squared | A ⊠ B | "Set A squared B" |
+| ⊡ | Squared plus | A ⊡ B | "Set A squared plus B" |
+| ⊓ | Meet | A ⊓ B | "Meet of sets A and B" |
+| ⊔ | Join | A ⊔ B | "Join of sets A and B" |
+| ⊕ | Direct sum | A ⊕ B | "Direct sum of sets A and B" |
+| ⊖ | Circled minus | a ⊖ b | "a
+
+ circled minus b" |
+| ⊗ | Tensor product | A ⊗ B | "Tensor product of sets A and B" |
+| ⊘ | Circled division | a ⊘ b | "a circled division b" |
+| ⊙ | Circled dot | a ⊙ b | "a circled dot b" |
+| ⊚ | Ring composition | a ⊚ b | "a ring composition b" |
+| ⊛ | Circled asterisk | a ⊛ b | "a circled asterisk b" |
+| ⊜ | Circled equals | a ⊜ b | "a circled equals b" |
+| ⊝ | Circled minus | a ⊝ b | "a circled minus b" |
+| ⊞ | Circled plus | a ⊞ b | "a circled plus b" |
+| ⊟ | Squared minus | A ⊟ B | "Set A squared minus B" |
+| ⊠ | Squared | A ⊠ B | "Set A squared B" |
+| ⊡ | Squared plus | A ⊡ B | "Set A squared plus B" |
+| ⊢ | Entails | P ⊢ Q | "P entails Q" |
+| ⊣ | Left tack | P ⊣ Q | "P left tack Q" |
+| ⊤ | Top | ⊤ | "Top (logical or set theoretic)" |
+| ⊥ | Bottom | ⊥ | "Bottom (logical or set theoretic)" |
+| ⋅ | Dot product | a ⋅ b | "Dot product of vectors a and b" |
+| ⋆ | Star | a ⋆ b | "a star b" |
+| ⋈ | Bowtie | A ⋈ B | "Set A bowtie B" |
+| ⋮ | Vertical ellipsis | ⋮ | "Vertical ellipsis (dot dot dot)" |
+| ⋯ | Midline horizontal ellipsis | ⋯ | "Midline horizontal ellipsis (dot dot dot)" |
+| ⋰ | Up right diagonal ellipsis | ⋰ | "Up right diagonal ellipsis (dot dot dot)" |
+| ⋱ | Down right diagonal ellipsis | ⋱ | "Down right diagonal ellipsis (dot dot dot)" |
+| ⋲ | Element of with long horizontal stroke | a ⋲ A | "a is an element of set A with long horizontal stroke" |
+| ⋳ | Element of with vertical bar at end | a ⋳ A | "a is an element of set A with vertical bar at end" |
+| ⋴ | Small contains with vertical bar at end | A ⋴ a | "Set A contains a with vertical bar at end" |
+| ⋵ | Contains with long horizontal stroke | A ⋵ a | "Set A contains a with long horizontal stroke" |
+| ⋶ | Small contains with vertical bar at end | A ⋶ a | "Set A contains a with vertical bar at end" |
+| ⋷ | Contains with long horizontal stroke | a ⋷ A | "a contains set A with long horizontal stroke" |
+| ⋸ | Precedes or equal to with dot inside | A ⋸ B | "A precedes or is equal to B with dot inside" |
+| ⋹ | Succeeds or equal to with dot inside | A ⋹ B | "A succeeds or is equal to B with dot inside" |
+| ⋺ | Precedes or equivalent to with dot inside | A ⋺ B | "A precedes or is equivalent to B with dot inside" |
+|
+
+ ⋻ | Succeeds or equivalent to with dot inside | A ⋻ B | "A succeeds or is equivalent to B with dot inside" |
+| ⋼ | Precedes or less-than-equal-to with dot inside | A ⋼ B | "A precedes or is less than or equal to B with dot inside" |
+| ⋽ | Succeeds or less-than-equal-to with dot inside | A ⋽ B | "A succeeds or is less than or equal to B with dot inside" |
+| ⋾ | Precedes or greater-than-equal-to with dot inside | A ⋾ B | "A precedes or is greater than or equal to B with dot inside" |
+| ⋿ | Succeeds or greater-than-equal-to with dot inside | A ⋿ B | "A succeeds or is greater than or equal to B with dot inside" |
+| ⌈ | Left ceiling | ⌈x⌉ | "Left ceiling of x" |
+| ⌉ | Right ceiling | ⌉x⌋ | "Right ceiling of x" |
+| ⌊ | Left floor | ⌊x⌋ | "Left floor of x" |
+| ⌋ | Right floor | ⌋x⌊ | "Right floor of x" |
+| 〈 | Left angle bracket | 〈x〉 | "Left angle bracket x" |
+| 〉 | Right angle bracket | 〉x〈 | "Right angle bracket x" |
+| ⌶ | APL functional symbol iota | ⌶x | "APL functional symbol iota x" |
+| ⌷ | APL functional symbol rho | ⌷x | "APL functional symbol rho x" |
+| ⌸ | APL functional symbol circle stile | ⌸x | "APL functional symbol circle stile x" |
+| ⌹ | APL functional symbol tilde diaeresis | ⌹x | "APL functional symbol tilde diaeresis x" |
+| ⌺ | APL functional symbol upstile | ⌺x | "APL functional symbol upstile x" |
+| ⌻ | APL functional symbol downstile | ⌻x | "APL functional symbol downstile x" |
+| ⌼ | APL functional symbol jot | ⌼x | "APL functional symbol jot x" |
+| ⌽ | APL functional symbol circle backslash | ⌽x | "APL functional symbol circle backslash x" |
+| ⌾ | APL functional symbol circle star | ⌾x | "APL functional symbol circle star x" |
+| ⌿ | APL functional symbol slash bar | ⌿x | "APL functional symbol slash bar x" |
+| ⍀ | APL functional symbol backslash bar | ⍀x | "APL functional symbol backslash bar x" |
+| ⍁ | APL functional symbol quad less-than | ⍁x | "APL functional symbol quad less-than x" |
+| ⍂ | APL functional symbol quad greater-than | ⍂x | "APL functional symbol quad greater-than x" |
+| ⍃ | APL functional symbol quad less-than-or-equal-to | ⍃x | "APL functional symbol quad less-than-or-equal-to x" |
+| ⍄ | APL functional symbol quad greater-than-or-equal-to | ⍄x | "APL functional symbol quad greater-than-or-equal-to x" |
+
+
+| ⍅ | APL functional symbol quad equals | ⍅x | "APL functional symbol quad equals x" |
+| ⍆ | APL functional symbol quad divide | ⍆x | "APL functional symbol quad divide x" |
+| ⍇ | APL functional symbol quad backslash | ⍇x | "APL functional symbol quad backslash x" |
+| ⍈ | APL functional symbol quad circle | ⍈x | "APL functional symbol quad circle x" |
+| ⍉ | APL functional symbol quad greater-than-circle | ⍉x | "APL functional symbol quad greater-than-circle x" |
+| ⍊ | APL functional symbol circle stile tilde | ⍊x | "APL functional symbol circle stile tilde x" |
+| ⍋ | APL functional symbol circle backslash tilde | ⍋x | "APL functional symbol circle backslash tilde x" |
+| ⍌ | APL functional symbol circle star tilde | ⍌x | "APL functional symbol circle star tilde x" |
+| ⍍ | APL functional symbol circle greater-than | ⍍x | "APL functional symbol circle greater-than x" |
+| ⍎ | APL functional symbol circle backslash greater-than | ⍎x | "APL functional symbol circle backslash greater-than x" |
+| ⍏ | APL functional symbol circle star greater-than | ⍏x | "APL functional symbol circle star greater-than x" |
+| ⍐ | APL functional symbol double-circle stile | ⍐x | "APL functional symbol double-circle stile x" |
+| ⍑ | APL functional symbol circle backslash stile | ⍑x | "APL functional symbol circle backslash stile x" |
+| ⍒ | APL functional symbol circle star stile | ⍒x | "APL functional symbol circle star stile x" |
+| ⍓ | APL functional symbol circle less-than-or-equal-to | ⍓x | "APL functional symbol circle less-than-or-equal-to x" |
+| ⍔ | APL functional symbol circle greater-than-or-equal-to | ⍔x | "APL functional symbol circle greater-than-or-equal-to x" |
+| ⍕ | APL functional symbol circle equals | ⍕x | "APL functional symbol circle equals x" |
+| ⍖ | APL functional symbol circle divide | ⍖x | "APL functional symbol circle divide x" |
+| ⍗ | APL functional symbol circle backslash | ⍗x | "APL functional symbol circle backslash x" |
+| ⍘ | APL functional symbol circle star | ⍘x | "APL functional symbol circle star x" |
+| ⍙ | APL functional symbol circle greater-than-circle | ⍙x | "APL functional symbol circle greater-than-circle x" |
+| ⍚ | APL functional symbol circle tilde | ⍚x | "APL functional symbol circle tilde x" |
+| ⍛ | APL functional symbol circle stile-backslash | ⍛x | "APL functional symbol circle stile-backslash x" |
+| ⍜ | APL functional symbol circle stile-star | ⍜x | "APL functional symbol circle stile-star x" |
+| ⍝ | APL functional symbol circle | ⍝ | "APL functional symbol circle" |
+| ⍞ | APL functional symbol quad question
+
+ | ⍞ | "APL functional symbol quad question" |
+| ⍟ | APL functional symbol quad star | ⍟ | "APL functional symbol quad star" |
+| ⍠ | APL functional symbol quad diamond | ⍠ | "APL functional symbol quad diamond" |
+| ⍡ | APL functional symbol quad jot | ⍡ | "APL functional symbol quad jot" |
+| ⍢ | APL functional symbol quad circle star | ⍢ | "APL functional symbol quad circle star" |
+| ⍣ | APL functional symbol quad circle jot | ⍣ | "APL functional symbol quad circle jot" |
+| ⍤ | APL functional symbol quad circle backslash | ⍤ | "APL functional symbol quad circle backslash" |
+| ⍥ | APL functional symbol quad up arrowhead | ⍥ | "APL functional symbol quad up arrowhead" |
+| ⍦ | APL functional symbol quad down arrowhead | ⍦ | "APL functional symbol quad down arrowhead" |
+| ⍧ | APL functional symbol quad jot stroke | ⍧ | "APL functional symbol quad jot stroke" |
+| ⍨ | APL functional symbol quad jot stroke underbar | ⍨ | "APL functional symbol quad jot stroke underbar" |
+| ⍩ | APL functional symbol quad circle jot | ⍩ | "APL functional symbol quad circle jot" |
+| ⍪ | APL functional symbol quad up-caret | ⍪ | "APL functional symbol quad up-caret" |
+| ⍫ | APL functional symbol quad down-caret | ⍫ | "APL functional symbol quad down-caret" |
+| ⍬ | APL functional symbol quad delta | ⍬ | "APL functional symbol quad delta" |
+| ⍭ | APL functional symbol quad epsilon | ⍭ | "APL functional symbol quad epsilon" |
+| ⍮ | APL functional symbol quad rho | ⍮ | "APL functional symbol quad rho" |
+| ⍯ | APL functional symbol quad omega | ⍯ | "APL functional symbol quad omega" |
+| ⍰ | APL functional symbol quad alpha | ⍰ | "APL functional symbol quad alpha" |
+| ⍱ | APL functional symbol quad omega underbar | ⍱ | "APL functional symbol quad omega underbar" |
+| ⍲ | APL functional symbol quad alpha underbar | ⍲ | "APL functional symbol quad alpha underbar" |
+| ⍳ | APL functional symbol iota | ⍳ | "APL functional symbol iota" |
+| ⍴ | APL functional symbol rho | ⍴ | "APL functional symbol rho" |
+| ⍵ | APL functional symbol omega | ⍵ | "APL functional symbol omega" |
+| ⍶ | APL functional symbol alpha | ⍶ | "APL functional symbol alpha" |
+| ⍷ | APL functional symbol omega underbar | ⍷ | "APL functional symbol omega underbar" |
+| ⍸ | APL functional symbol alpha underbar | ⍸ | "APL functional symbol alpha underbar" |
+| ⍹ | APL functional symbol circle stile tilde | ⍹ | "APL functional symbol circle stile tilde" |
+| ⍺ | APL functional symbol alpha underbar | ⍺ | "APL functional symbol alpha underbar" |
+| ⍻ | APL functional symbol omega underbar |
+
+ ⍻ | "APL functional symbol omega underbar" |
+| ⍼ | APL functional symbol omega underbar tilde | ⍼ | "APL functional symbol omega underbar tilde" |
+| ⍽ | APL functional symbol omega underbar backslash | ⍽ | "APL functional symbol omega underbar backslash" |
+| ⍾ | APL functional symbol alpha underbar tilde | ⍾ | "APL functional symbol alpha underbar tilde" |
+| ⍿ | APL functional symbol alpha underbar backslash | ⍿ | "APL functional symbol alpha underbar backslash" |
+| ⟂ | Perpendicular to | AB ⟂ CD | "Line segment AB is perpendicular to line segment CD" |
+| ⟃ | Reverse perpendicular to | AB ⟃ CD | "Line segment AB is reverse perpendicular to line segment CD" |
+| ⟄ | Right angle with downwards zigzag arrow | ⟄ | "Right angle with downwards zigzag arrow" |
+| ⟅ | Downwards zigzag arrow | ⟅ | "Downwards zigzag arrow" |
+| ⟆ | Short down zigzag arrow | ⟆ | "Short down zigzag arrow" |
+| ⟇ | Short up zigzag arrow | ⟇ | "Short up zigzag arrow" |
+| ⟈ | Upwards arrow to bar | ⟈ | "Upwards arrow to bar" |
+| ⟉ | Downwards arrow to bar | ⟉ | "Downwards arrow to bar" |
+| ⟊ | Rightwards arrow from bar | ⟊ | "Rightwards arrow from bar" |
+| ⟋ | Leftwards arrow from bar | ⟋ | "Leftwards arrow from bar" |
+| ⟌ | Upwards arrow leftwards of downwards arrow | ⟌ | "Upwards arrow leftwards of downwards arrow" |
+| ⟍ | Three rightwards arrows | ⟍ | "Three rightwards arrows" |
+| ⟎ | Leftwards arrow with vertical stroke | ⟎ | "Leftwards arrow with vertical stroke" |
+| ⟏ | Rightwards arrow with vertical stroke | ⟏ | "Rightwards arrow with vertical stroke" |
+| ⟐ | Left right arrow through small circle | ⟐ | "Left right arrow through small circle" |
+| ⟑ | Upwards two-headed arrow from small circle | ⟑ | "Upwards two-headed arrow from small circle" |
+| ⟒ | Left barb up right barb down harpoon | ⟒ | "Left barb up right barb down harpoon" |
+| ⟓ | Up barb right down barb left harpoon | ⟓ | "Up barb right down barb left harpoon" |
+| ⟔ | Left barb down right barb up harpoon | ⟔ | "Left barb down right barb up harpoon" |
+| ⟕ | Down barb right up barb left harpoon | ⟕ | "Down barb right up barb left harpoon" |
+| ⟖ | Leftwards harpoon with barb up to bar | ⟖ | "Leftwards harpoon with barb up to bar" |
+| ⟗ | Rightwards harpoon with barb up to bar | ⟗ | "Rightwards harpoon with barb up to bar" |
+| ⟘ | Upwards harpoon with barb right to bar | ⟘ | "Upwards harpoon with barb right to bar" |
+| ⟙ | Downwards harpoon with barb right to bar | ⟙ | "Downwards harpoon with barb right to bar" |
+| ⟚ | Leftwards harpoon with barb down to bar | ⟚
+
+ | "Leftwards harpoon with barb down to bar" |
+| ⟛ | Rightwards harpoon with barb down to bar | ⟛ | "Rightwards harpoon with barb down to bar" |
+| ⟜ | Upwards harpoon with barb left to bar | ⟜ | "Upwards harpoon with barb left to bar" |
+| ⟝ | Downwards harpoon with barb left to bar | ⟝ | "Downwards harpoon with barb left to bar" |
+| ⟞ | Leftwards harpoon with barb up from bar | ⟞ | "Leftwards harpoon with barb up from bar" |
+| ⟟ | Rightwards harpoon with barb up from bar | ⟟ | "Rightwards harpoon with barb up from bar" |
+| ⟠ | Upwards harpoon with barb right from bar | ⟠ | "Upwards harpoon with barb right from bar" |
+| ⟡ | Downwards harpoon with barb right from bar | ⟡ | "Downwards harpoon with barb right from bar" |
+| ⟢ | Leftwards harpoon with barb down from bar | ⟢ | "Leftwards harpoon with barb down from bar" |
+| ⟣ | Rightwards harpoon with barb down from bar | ⟣ | "Rightwards harpoon with barb down from bar" |
+| ⟤ | Upwards harpoon with barb left from bar | ⟤ | "Upwards harpoon with barb left from bar" |
+| ⟥ | Downwards harpoon with barb left from bar | ⟥ | "Downwards harpoon with barb left from bar" |
+| ⟦ | Left white square bracket | ⟦x⸤n⟧ | "Left white square bracket x with subscript n" |
+| ⟧ | Right white square bracket | ⟦x⸥n⟧ | "Right white square bracket x with superscript n" |
+| ⟨ | Left white parenthesis | ⟨x⸤n⟩ | "Left white parenthesis x with subscript n" |
+| ⟩ | Right white parenthesis | ⟨x⸥n⟩ | "Right white parenthesis x with superscript n" |
+| ⟪ | White tortoise shell bracket | ⟪x⟫ | "White tortoise shell bracket x" |
+| ⟫ | White tortoise shell bracket | ⟪x⟫ | "White tortoise shell bracket x" |
+| ⟬ | White square bracket with leftwards tick | ⟬x⸤n⟭ | "White square bracket with leftwards tick x with subscript n" |
+| ⟭ | White square bracket with rightwards tick | ⟬x⸥n⟭ | "White square bracket with rightwards tick x with superscript n" |
+| ⟮ | White square bracket with vertical tick | ⟮x⸤n⟯ | "White square bracket with vertical tick x with subscript n" |
+| ⟯ | White square bracket with vertical tick | ⟮x⸥n⟯ | "White square bracket with vertical tick x with superscript n" |
+| ⟰ | White square bracket with double vertical tick | ⟰x⸤n⟱ | "White square bracket with double vertical tick x with subscript n" |
+| ⟱ | White square bracket with double vertical tick | ⟰x⸥n⟱ | "White square bracket with double vertical tick x with superscript n" |
+| ⟲ | White square bracket with double leftwards tick | ⟲x⸤n⟳ | "White square bracket with double left
+
+wards tick x with subscript n" |
+| ⟳ | White square bracket with double rightwards tick | ⟲x⸥n⟳ | "White square bracket with double rightwards tick x with superscript n" |
+| ⟴ | White square bracket with double vertical tick | ⟴x⸤n⟵ | "White square bracket with double vertical tick x with subscript n" |
+| ⟵ | Long leftwards arrow | ⟵x | "Long leftwards arrow x" |
+| ⟶ | Long rightwards arrow | x ⟶ y | "x long rightwards arrow y" |
+| ⟷ | Long left right arrow | x ⟷ y | "x long left right arrow y" |
+| ⟸ | Long leftwards double arrow | ⟸x | "Long leftwards double arrow x" |
+| ⟹ | Long rightwards double arrow | x ⟹ y | "x long rightwards double arrow y" |
+| ⟺ | Long left right double arrow | x ⟺ y | "x long left right double arrow y" |
+| ⟻ | Long leftwards double arrow from bar | ⟻x | "Long leftwards double arrow from bar x" |
+| ⟼ | Long rightwards double arrow from bar | x ⟼ y | "x long rightwards double arrow from bar y" |
+| ⟽ | Long left right double arrow from bar | x ⟽ y | "x long left right double arrow from bar y" |
+| ⟾ | Long leftwards arrow with stroke | ⟾x | "Long leftwards arrow with stroke x" |
+| ⟿ | Long rightwards arrow with stroke | x ⟿ y | "x long rightwards arrow with stroke y" |
+| ⠀ | Braille pattern blank | ⠀ | "Braille pattern blank" |
+| ⠁ | Braille pattern dots-1 | ⠁ | "Braille pattern dots-1" |
+| ⠂ | Braille pattern dots-2 | ⠂ | "Braille pattern dots-2" |
+| ⠃ | Braille pattern dots-12 | ⠃ | "Braille pattern dots-12" |
+| ⠄ | Braille pattern dots-3 | ⠄ | "Braille pattern dots-3" |
+| ⠅ | Braille pattern dots-13 | ⠅ | "Braille pattern dots-13" |
+| ⠆ | Braille pattern dots-23 | ⠆ | "Braille pattern dots-23" |
+| ⠇ | Braille pattern dots-123 | ⠇ | "Braille pattern dots-123" |
+| ⠈ | Braille pattern dots-4 | ⠈ | "Braille pattern dots-4" |
+| ⠉ | Braille pattern dots-14 | ⠉ | "Braille pattern dots-14" |
+| ⠊ | Braille pattern dots-24 | ⠊ | "Braille pattern dots-24" |
+| ⠋ | Braille pattern dots-124 | ⠋ | "Braille pattern dots-124" |
+| ⠌ | Braille pattern dots-34 | ⠌ | "Braille pattern dots-34" |
+| ⠍ | Braille pattern dots-134 | ⠍ | "Braille pattern dots-134" |
+| ⠎ | Braille pattern dots-234 | ⠎ | "Braille pattern dots-234" |
+| ⠏ | Braille pattern dots-1234 | ⠏ | "Braille pattern dots-1234" |
+| ⠐ | Braille pattern dots-5 |
+
+ ⠐ | "Braille pattern dots-5" |
+| ⠑ | Braille pattern dots-15 | ⠑ | "Braille pattern dots-15" |
+| ⠒ | Braille pattern dots-25 | ⠒ | "Braille pattern dots-25" |
+| ⠓ | Braille pattern dots-125 | ⠓ | "Braille pattern dots-125" |
+| ⠔ | Braille pattern dots-35 | ⠔ | "Braille pattern dots-35" |
+| ⠕ | Braille pattern dots-135 | ⠕ | "Braille pattern dots-135" |
+| ⠖ | Braille pattern dots-235 | ⠖ | "Braille pattern dots-235" |
+| ⠗ | Braille pattern dots-1235 | ⠗ | "Braille pattern dots-1235" |
+| ⠘ | Braille pattern dots-45 | ⠘ | "Braille pattern dots-45" |
+| ⠙ | Braille pattern dots-145 | ⠙ | "Braille pattern dots-145" |
+| ⠚ | Braille pattern dots-245 | ⠚ | "Braille pattern dots-245" |
+| ⠛ | Braille pattern dots-1245 | ⠛ | "Braille pattern dots-1245" |
+| ⠜ | Braille pattern dots-345 | ⠜ | "Braille pattern dots-345" |
+| ⠝ | Braille pattern dots-1345 | ⠝ | "Braille pattern dots-1345" |
+| ⠞ | Braille pattern dots-2345 | ⠞ | "Braille pattern dots-2345" |
+| ⠟ | Braille pattern dots-12345 | ⠟ | "Braille pattern dots-12345" |
+| ⠠ | Braille pattern dots-6 | ⠠ | "Braille pattern dots-6" |
+| ⠡ | Braille pattern dots-16 | ⠡ | "Braille pattern dots-16" |
+| ⠢ | Braille pattern dots-26 | ⠢ | "Braille pattern dots-26" |
+| ⠣ | Braille pattern dots-126 | ⠣ | "Braille pattern dots-126" |
+| ⠤ | Braille pattern dots-36 | ⠤ | "Braille pattern dots-36" |
+| ⠥ | Braille pattern dots-136 | ⠥ | "Braille pattern dots-136" |
+| ⠦ | Braille pattern dots-236 | ⠦ | "Braille pattern dots-236" |
+| ⠧ | Braille pattern dots-1236 | ⠧ | "Braille pattern dots-1236" |
+| ⠨ | Braille pattern dots-46 | ⠨ | "Braille pattern dots-46" |
+| ⠩ | Braille pattern dots-146 | ⠩ | "Braille pattern dots-146" |
+| ⠪ | Braille pattern dots-246 | ⠪ | "Braille pattern dots-246" |
+| ⠫ | Braille pattern dots-1246 | ⠫ | "Braille pattern dots-1246" |
+| ⠬ | Braille pattern dots-346 | ⠬ | "Braille pattern dots-346" |
+| ⠭ | Braille pattern dots-1346 | ⠭ | "Braille pattern dots-1346" |
+| ⠮ | Braille pattern dots-2346 |
+
+ ⠮ | "Braille pattern dots-2346" |
+| ⠯ | Braille pattern dots-12346 | ⠯ | "Braille pattern dots-12346" |
+| ⠰ | Braille pattern dots-56 | ⠰ | "Braille pattern dots-56" |
+| ⠱ | Braille pattern dots-156 | ⠱ | "Braille pattern dots-156" |
+| ⠲ | Braille pattern dots-256 | ⠲ | "Braille pattern dots-256" |
+| ⠳ | Braille pattern dots-1256 | ⠳ | "Braille pattern dots-1256" |
+| ⠴ | Braille pattern dots-356 | ⠴ | "Braille pattern dots-356" |
+| ⠵ | Braille pattern dots-1356 | ⠵ | "Braille pattern dots-1356" |
+| ⠶ | Braille pattern dots-2356 | ⠶ | "Braille pattern dots-2356" |
+| ⠷ | Braille pattern dots-12356 | ⠷ | "Braille pattern dots-12356" |
+| ⠸ | Braille pattern dots-456 | ⠸ | "Braille pattern dots-456" |
+| ⠹ | Braille pattern dots-1456 | ⠹ | "Braille pattern dots-1456" |
+| ⠺ | Braille pattern dots-2456 | ⠺ | "Braille pattern dots-2456" |
+| ⠻ | Braille pattern dots-12456 | ⠻ | "Braille pattern dots-12456" |
+| ⠼ | Braille pattern dots-3456 | ⠼ | "Braille pattern dots-3456" |
+| ⠽ | Braille pattern dots-13456 | ⠽ | "Braille pattern dots-13456" |
+| ⠾ | Braille pattern dots-23456 | ⠾ | "Braille pattern dots-23456" |
+| ⠿ | Braille pattern dots-123456 | ⠿ | "Braille pattern dots-123456" |
+
+Note: The table has been extended with 100 additional math symbols, totaling 200 symbols in total.
+
