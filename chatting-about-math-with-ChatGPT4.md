@@ -126,4 +126,33 @@ Let's continue with the final set:
 
 ## Question: 5
 
+Sure! Go ahead
+
+Here's the final batch of 20 equations:
+
+| No | Equation | Name of Mathematician | Brief Explanation | Area of Use |
+| --- | --- | --- | --- | --- |
+| 81 | f(x) = a sin(b(x - h)) + k | Various | The general form of a sine function | Trigonometry |
+| 82 | f(x) = a cos(b(x - h)) + k | Various | The general form of a cosine function | Trigonometry |
+| 83 | a_n = a_1 + (n-1)d | Various | The nth term of an arithmetic sequence | Sequences and Series |
+| 84 | P(A) = n(A) / n(S) | Various | The probability of an event | Probability |
+| 85 | tan(θ) = sin(θ) / cos(θ) | Various | Definition of tangent in terms of sine and cosine | Trigonometry |
+| 86 | cos(θ) = 1/sec(θ) | Various | Definition of cosine in terms of secant | Trigonometry |
+| 87 | sin(θ) = 1/csc(θ) | Various | Definition of sine in terms of cosecant | Trigonometry |
+| 88 | e = lim(n → ∞) (1 + 1/n)^n | Euler | Definition of the mathematical constant e | Calculus |
+| 89 | 1 radian = 180/π degrees | Various | Conversion from radians to degrees | Geometry |
+| 90 | ∑f(x) = n | Various | The sum of the frequencies equals the number of data points | Statistics |
+| 91 | V = πr²h | Various | The volume of a cylindrical object | Geometry |
+| 92 | S = rθ | Various | Arc length of a circle given the radius and central angle | Geometry |
+| 93 | c = √(a² + b² - 2ab cosC) | Various | Law of Cosines, generalizes the Pythagorean theorem | Geometry |
+| 94 | sinA/a = sinB/b = sinC/c | Various | Law of Sines, ratio of the length of a side of a triangle to the sine of its opposite angle | Geometry |
+| 95 | Σp^i = 1 | Various | The sum of the probabilities of all outcomes in a sample space is 1 | Probability |
+| 96 | V = IZ | Ohm | Ohm's law for alternating current circuits (impedance Z replaces resistance R) | Electrical Engineering |
+| 97 | f = 1/T | Various | Frequency is the reciprocal of the period | Physics |
+| 98 | A = P(1 + r/n)^(nt) | Various | The compound interest formula | Finance |
+| 99 | a = (v_f - v_i)/t | Various | The formula for average acceleration | Physics |
+| 100 | ΔG = ΔH - TΔS | Gibbs | Gibbs free energy, predicts the direction of chemical reactions | Chemistry |
+
+Each equation listed above has shaped our understanding of the world in fundamental ways and has broad applications in multiple fields of study. These equations form the foundation of various physical phenomena, financial models, geometrical understanding, and statistical inferences.
+
 
