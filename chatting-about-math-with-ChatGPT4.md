@@ -1013,3 +1013,5 @@ Examples of sequences covered in the book include simple sequences like the natu
 
 ## Question: 16
 
+Could you introduce me about mysterious patterns in Pascal's triangle?
+
