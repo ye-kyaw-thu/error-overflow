@@ -97,4 +97,33 @@ Let's continue with the next set:
 
 ## Question: 4
 
+Certainly! Here's the next batch of 20 equations:
+
+| No | Equation | Name of Mathematician | Brief Explanation | Area of Use |
+| --- | --- | --- | --- | --- |
+| 61 | F = kx | Robert Hooke | Hooke's law, the force needed to extend or compress a spring by distance x scales linearly with x | Physics |
+| 62 | T = 2π √(L/g) | Galileo Galilei | The period of a simple pendulum of length L in the small angle approximation | Physics |
+| 63 | A = ∫ a dx | Newton, Leibniz | The area under a curve is given by an integral | Calculus |
+| 64 | C = 2πr | Archimedes | The circumference of a circle | Geometry |
+| 65 | V = 1/3 Bh | Various | The volume of a pyramid or cone | Geometry |
+| 66 | y = ab^x | Various | Exponential growth | Physics, Biology, Finance |
+| 67 | r = √(x² + y²) | Various | Polar coordinates conversion from Cartesian | Geometry |
+| 68 | θ = tan⁻¹(y/x) | Various | Polar coordinates conversion from Cartesian | Geometry |
+| 69 | y = mx + c | René Descartes | Equation of a straight line in slope-intercept form | Geometry |
+| 70 | ∑(xi - μ)²/n | Various | The formula for the variance of a set of data | Statistics |
+| 71 | σ = √(∑(xi - μ)²/n) | Various | The formula for the standard deviation of a set of data | Statistics |
+| 72 | p = mv | Various | The formula for momentum | Physics |
+| 73 | f = ma | Newton | The second law of motion | Physics |
+| 74 | v² = u² + 2as | Newton | The third equation of motion | Physics |
+| 75 | λv = c | James Clerk Maxwell | The wavelength times the frequency of an electromagnetic wave equals the speed of light | Physics |
+| 76 | pV = nRT | Clapeyron | Ideal gas law | Thermodynamics |
+| 77 | F = μN | Coulomb | The force of friction is equal to the coefficient of friction times the normal force | Physics |
+| 78 | I = Q/t | Various | Current is the rate of flow of electric charge | Electrical Engineering |
+| 79 | y = ax^2 + bx + c | Various | Standard form of a quadratic equation | Algebra |
+| 80 | y = a/(1 + e^(b - x)) | Pierre François Verhulst | The logistic growth model | Biology, Statistics |
+
+Let's continue with the final set:
+
+## Question: 5
+
 
