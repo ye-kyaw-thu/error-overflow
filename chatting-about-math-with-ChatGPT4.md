@@ -1580,3 +1580,197 @@ As we continue to live in an increasingly interconnected world, the significance
 
  makes it an essential area of study and research in the 21st century.
  
+## Question: 26
+
+Certainly! One area where graph theory can be applied in Natural Language Processing (NLP) is in text summarization. One popular method for this is the TextRank algorithm, which is a graph-based ranking algorithm for text processing. It's based on the PageRank algorithm used in the Google search engine.
+
+Here's a simple implementation of TextRank for keyword extraction using the Python library gensim:
+
+```python
+from gensim.summarization import keywords
+import nltk
+nltk.download('punkt')
+
+text = """
+Natural language processing (NLP) is a field of artificial intelligence that gives the machines the ability to read, 
+understand, and derive meaning from human languages. It's a discipline that focuses on the interaction between data science 
+and human language, and is scaling to lots of industries. Today NLP is booming thanks to huge improvements in the access 
+to data, computational power, and meaningful improvements in the dominant NLP model architectures. 
+Due to these advancements, NLP has found its application in numerous areas, including translation, sentiment analysis, 
+semantic search, content extraction, summarization, named entity recognition, relationship extraction, topic modeling, 
+content recommendation, speech recognition, and more.
+"""
+
+# Extract keywords from the text
+print(keywords(text, words=5).split('\n'))
+```
+
+In this script, we first import the necessary functions from the gensim and nltk libraries. Then, we define a block of text to extract keywords from. The `keywords()` function from gensim is then used to extract the top 5 keywords from the text. The output will be a list of the top keywords, which represent the main topics or themes of the text.
+
+This example demonstrates how a graph-based method can be used to automatically extract important information from a block of text, which is a crucial task in many NLP applications. The TextRank algorithm treats each sentence (or word, in the case of keyword extraction) as a node in a graph and uses the connections between them to determine their importance.
+
+## Question: 27
+
+Can you write one more example program of applying graph theory for NLP R&D?
+
+Absolutely! Here's an example of how we can use graph theory to create a Named Entity Recognition (NER) system. This is a more complex example, but it should give you an idea of how graph theory can be applied in a real-world NLP context.
+
+Named Entity Recognition (NER) is the task of locating and classifying named entities present in text into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, percentages, etc.
+
+In this example, we'll use the Spacy library's built-in named entity recognition capabilities, and NetworkX to build a graph of entities. 
+
+```python
+import spacy
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Load Spacy's English NLP model
+nlp = spacy.load('en_core_web_sm')
+
+# Define a large block of text
+text = """
+London is the capital and largest city of England and the United Kingdom.
+Standing on the River Thames in the south-east of England, at the head of 
+its 50-mile (80 km) estuary leading to the North Sea, London has been a major
+settlement for two millennia. Londinium was founded by the Romans. The City 
+of London, London's ancient core and financial centre − an area of just 1.12
+square miles (2.9 km2) and colloquially known as the Square Mile − retains 
+boundaries that closely follow its medieval limits. The adjacent City of 
+Westminster has for centuries been the location of much of the national government.
+"""
+
+# Apply Spacy's NER
+doc = nlp(text)
+
+# Create a directed graph
+G = nx.DiGraph()
+
+# Add edges to the graph (only for entities)
+for token in doc:
+    if token.ent_type_:
+        G.add_edge(token.text, token.head.text, label=token.dep_)
+
+# Draw the graph
+pos = nx.spring_layout(G)
+plt.figure()
+nx.draw(G, pos, edge_color='black', width=1, linewidths=1,
+        node_size=500, node_color='pink', alpha=0.9,
+        labels={node: node for node in G.nodes()})
+nx.draw_networkx_edge_labels(G, pos, edge_labels=nx.get_edge_attributes(G, 'label'))
+plt.axis('off')
+plt.show()
+```
+
+In this script, we first import the necessary libraries (Spacy for NLP, NetworkX for graph theory, and Matplotlib for plotting) and load Spacy's English NLP model. Then we define a block of text about London, apply Spacy's named entity recognition to it, and add the identified entities as edges in a graph. Finally, we draw the graph, with nodes representing entities and edges representing relationships between entities.
+
+Please note that you will need to have the 'en_core_web_sm' Spacy model downloaded for the above script to work. You can download it using the following command:
+
+```python
+python -m spacy download en_core_web_sm
+```
+
+Also, this script provides a basic demonstration and the NER can be more accurate with larger and more complex texts. The graph-based method can help visualize relationships and connections between different entities in the text, which can be used in various NLP tasks such as information extraction, summarization, and more.
+
+## Question: 28
+
+Could you write an essay about some important math formulae for signal processing?
+
+**Title: Key Mathematical Formulas in Signal Processing**
+
+**Introduction**
+
+Signal processing is a branch of mathematics, electrical engineering, and computer science that deals with the analysis, synthesis, and modification of signals. Signals are a stream of data in various formats such as sound, images, and sensor data that carry information. In signal processing, mathematical formulas are instrumental as they facilitate these operations. Below are some of the key mathematical formulas used in signal processing.
+
+**Fourier Transform**
+
+The Fourier Transform is a mathematical technique used in signal processing to decompose a signal into its constituent frequencies. In other words, it transforms a signal from the time domain into the frequency domain. The formula for the continuous-time Fourier Transform of a signal x(t) is:
+
+X(ω) = ∫ x(t) e^-jωt dt, over the range -∞ < t < ∞
+
+where j is the imaginary unit, ω is the frequency, and X(ω) is the Fourier transform of x(t).
+
+**Inverse Fourier Transform**
+
+The inverse Fourier Transform is used to retrieve the original signal from its Fourier transform. It's expressed as:
+
+x(t) = (1 / 2π) ∫ X(ω) e^jωt dω, over the range -∞ < ω < ∞
+
+**Laplace Transform**
+
+The Laplace transform is another crucial tool in signal processing. It is particularly useful for solving linear differential equations, such as those used in systems analysis and control theory. The Laplace transform of a function f(t), defined for all real numbers t ≥ 0, is given by:
+
+F(s) = ∫ f(t) e^-st dt, over the range 0 ≤ t < ∞
+
+**Z-Transform**
+
+In discrete-time signal processing, the Z-transform is a key mathematical tool. It's the discrete equivalent of the Laplace transform and is used to analyze and solve difference equations. Given a discrete sequence x[n], the Z-transform is defined as:
+
+X(z) = ∑ x[n] z^-n, over the range -∞ < n < ∞
+
+where z is a complex number.
+
+**Convolution**
+
+Convolution is a mathematical operation used to express the impact of one function on another. In terms of signals, it's used to find the output of a system, given the input and the impulse response. For continuous time signals x(t) and h(t), their convolution is given by:
+
+(y * h)(t) = ∫ x(τ) h(t - τ) dτ, over the range -∞ < τ < ∞
+
+For discrete signals x[n] and h[n], the convolution is:
+
+(y * h)[n] = ∑ x[k] h[n - k], over the range -∞ < k < ∞
+
+**Conclusion**
+
+These are just a few of the many mathematical formulas used in signal processing. Understanding these formulas is critical to understanding and implementing signal processing techniques. It's also crucial to know that these are tools to handle idealized models, and real-world signals may require more sophisticated models and techniques. Therefore, further reading and practice are encouraged to have a comprehensive grasp of signal processing.
+
+## Question: 29
+
+Could you write a Python code of applying Fourier Transform for signal processing?
+
+Sure, let's create a Python program using the `numpy` and `matplotlib` libraries to apply the Fourier Transform to a simple sine wave.
+
+Here is the Python code:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Time array
+t = np.linspace(0.0, 1.0, 500, endpoint=False)
+
+# Create a simple signal with two frequencies
+sig = np.sin(2 * np.pi * 50 * t) + np.sin(2 * np.pi * 120 * t)
+
+# Compute the Fast Fourier Transform (FFT)
+fft = np.fft.fft(sig)
+
+# Frequencies for the FFT
+freqs = np.fft.fftfreq(len(sig), t[1] - t[0])
+
+# Plot the signal
+plt.figure(figsize=(12, 6))
+
+plt.subplot(2, 1, 1)
+plt.plot(t, sig)
+plt.title('Original Signal')
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
+
+# Plot the FFT
+plt.subplot(2, 1, 2)
+plt.plot(freqs, np.abs(fft))
+plt.title('Fourier Transform')
+plt.xlabel('Frequency [Hz]')
+plt.ylabel('Magnitude')
+plt.tight_layout()
+plt.show()
+```
+
+In this code, we first create a time array using numpy's `linspace` function. Then we create a signal that consists of two sine waves of different frequencies. We use the `numpy.fft.fft` function to calculate the Fast Fourier Transform (FFT) of the signal. Then we calculate the frequencies for each FFT value with `numpy.fft.fftfreq`.
+
+Finally, we use `matplotlib` to plot the original signal and its FFT. The FFT plot shows two peaks at the frequencies we used to create the sine waves, indicating that our Fourier Transform correctly identified the frequencies in our signal.
+
+## Question: 30
+
+Could you write an essay about important mathematical formulas and theory for data encryption?
+
