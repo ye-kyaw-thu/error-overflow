@@ -561,9 +561,7 @@ Certainly! Here's an extended table with 100 additional math symbols, their name
 | ⍛ | APL functional symbol circle stile-backslash | ⍛x | "APL functional symbol circle stile-backslash x" |
 | ⍜ | APL functional symbol circle stile-star | ⍜x | "APL functional symbol circle stile-star x" |
 | ⍝ | APL functional symbol circle | ⍝ | "APL functional symbol circle" |
-| ⍞ | APL functional symbol quad question
-
- | ⍞ | "APL functional symbol quad question" |
+| ⍞ | APL functional symbol quad question | ⍞ | "APL functional symbol quad question" |
 | ⍟ | APL functional symbol quad star | ⍟ | "APL functional symbol quad star" |
 | ⍠ | APL functional symbol quad diamond | ⍠ | "APL functional symbol quad diamond" |
 | ⍡ | APL functional symbol quad jot | ⍡ | "APL functional symbol quad jot" |
@@ -592,9 +590,7 @@ Certainly! Here's an extended table with 100 additional math symbols, their name
 | ⍸ | APL functional symbol alpha underbar | ⍸ | "APL functional symbol alpha underbar" |
 | ⍹ | APL functional symbol circle stile tilde | ⍹ | "APL functional symbol circle stile tilde" |
 | ⍺ | APL functional symbol alpha underbar | ⍺ | "APL functional symbol alpha underbar" |
-| ⍻ | APL functional symbol omega underbar |
-
- ⍻ | "APL functional symbol omega underbar" |
+| ⍻ | APL functional symbol omega underbar | ⍻ | "APL functional symbol omega underbar" |
 | ⍼ | APL functional symbol omega underbar tilde | ⍼ | "APL functional symbol omega underbar tilde" |
 | ⍽ | APL functional symbol omega underbar backslash | ⍽ | "APL functional symbol omega underbar backslash" |
 | ⍾ | APL functional symbol alpha underbar tilde | ⍾ | "APL functional symbol alpha underbar tilde" |
@@ -623,9 +619,7 @@ Certainly! Here's an extended table with 100 additional math symbols, their name
 | ⟗ | Rightwards harpoon with barb up to bar | ⟗ | "Rightwards harpoon with barb up to bar" |
 | ⟘ | Upwards harpoon with barb right to bar | ⟘ | "Upwards harpoon with barb right to bar" |
 | ⟙ | Downwards harpoon with barb right to bar | ⟙ | "Downwards harpoon with barb right to bar" |
-| ⟚ | Leftwards harpoon with barb down to bar | ⟚
-
- | "Leftwards harpoon with barb down to bar" |
+| ⟚ | Leftwards harpoon with barb down to bar | ⟚ | "Leftwards harpoon with barb down to bar" |
 | ⟛ | Rightwards harpoon with barb down to bar | ⟛ | "Rightwards harpoon with barb down to bar" |
 | ⟜ | Upwards harpoon with barb left to bar | ⟜ | "Upwards harpoon with barb left to bar" |
 | ⟝ | Downwards harpoon with barb left to bar | ⟝ | "Downwards harpoon with barb left to bar" |
@@ -649,9 +643,7 @@ Certainly! Here's an extended table with 100 additional math symbols, their name
 | ⟯ | White square bracket with vertical tick | ⟮x⸥n⟯ | "White square bracket with vertical tick x with superscript n" |
 | ⟰ | White square bracket with double vertical tick | ⟰x⸤n⟱ | "White square bracket with double vertical tick x with subscript n" |
 | ⟱ | White square bracket with double vertical tick | ⟰x⸥n⟱ | "White square bracket with double vertical tick x with superscript n" |
-| ⟲ | White square bracket with double leftwards tick | ⟲x⸤n⟳ | "White square bracket with double left
-
-wards tick x with subscript n" |
+| ⟲ | White square bracket with double leftwards tick | ⟲x⸤n⟳ | "White square bracket with double leftwards tick x with subscript n" |
 | ⟳ | White square bracket with double rightwards tick | ⟲x⸥n⟳ | "White square bracket with double rightwards tick x with superscript n" |
 | ⟴ | White square bracket with double vertical tick | ⟴x⸤n⟵ | "White square bracket with double vertical tick x with subscript n" |
 | ⟵ | Long leftwards arrow | ⟵x | "Long leftwards arrow x" |
@@ -681,9 +673,7 @@ wards tick x with subscript n" |
 | ⠍ | Braille pattern dots-134 | ⠍ | "Braille pattern dots-134" |
 | ⠎ | Braille pattern dots-234 | ⠎ | "Braille pattern dots-234" |
 | ⠏ | Braille pattern dots-1234 | ⠏ | "Braille pattern dots-1234" |
-| ⠐ | Braille pattern dots-5 |
-
- ⠐ | "Braille pattern dots-5" |
+| ⠐ | Braille pattern dots-5 | ⠐ | "Braille pattern dots-5" |
 | ⠑ | Braille pattern dots-15 | ⠑ | "Braille pattern dots-15" |
 | ⠒ | Braille pattern dots-25 | ⠒ | "Braille pattern dots-25" |
 | ⠓ | Braille pattern dots-125 | ⠓ | "Braille pattern dots-125" |
@@ -713,9 +703,7 @@ wards tick x with subscript n" |
 | ⠫ | Braille pattern dots-1246 | ⠫ | "Braille pattern dots-1246" |
 | ⠬ | Braille pattern dots-346 | ⠬ | "Braille pattern dots-346" |
 | ⠭ | Braille pattern dots-1346 | ⠭ | "Braille pattern dots-1346" |
-| ⠮ | Braille pattern dots-2346 |
-
- ⠮ | "Braille pattern dots-2346" |
+| ⠮ | Braille pattern dots-2346 | ⠮ | "Braille pattern dots-2346" |
 | ⠯ | Braille pattern dots-12346 | ⠯ | "Braille pattern dots-12346" |
 | ⠰ | Braille pattern dots-56 | ⠰ | "Braille pattern dots-56" |
 | ⠱ | Braille pattern dots-156 | ⠱ | "Braille pattern dots-156" |
