@@ -906,3 +906,8 @@ Certainly! Here's a revised table focusing specifically on math symbols, excludi
 
 Note: The table has been extended to include 200 math symbols.
 
+## Question: 12
+
+In modern mathematics, how many areas that we can divide? Can you introduce me each area of modern mathematics ... 
+
+
