@@ -1,4 +1,4 @@
-# Chatting Log with ChatGPT About Learning a New Language
+# Chatting Log with ChatGPT About Learning a New Language (Thai language)
 
 ## Question: 1
 
@@ -942,9 +942,7 @@ Sure, here's a list of Thai food, dishes, fishes, traditional sweets, and fruits
 25. กุ้งแช่น้ำปลา (Goong Chae Nam Pla) - Raw Shrimp in Fish Sauce
 26. ผัดกะเพราเนื้อ (Pad Kaprao Nua) - Beef with Holy Basil
 27. ปูผัดผงกระหรี่ (Poo Pad Pong Kari) - Crab in Curry Sauce
-28. หมึกผัดไข่เค
-
-็ม (Muek Pad Khai Khem) - Squid Stir-fried with Salted Egg
+28. หมึกผัดไข่เค็ม (Muek Pad Khai Khem) - Squid Stir-fried with Salted Egg
 29. ข้าวผัดปู (Khao Pad Poo) - Fried Rice with Crab
 30. ปลาหมึกยัดไส้ (Pla Muek Yat Sai) - Stuffed Squid
 31. ลาบหมู (Larb Moo) - Pork Larb
@@ -978,9 +976,7 @@ Sure, here's a list of Thai food, dishes, fishes, traditional sweets, and fruits
 59. ละมุด (Lamut) - Sapodilla
 60. ขนมถ้วย (Khanom Thuai) - Coconut Milk Custard
 61. ขนมครก (Khanom Krok) - Coconut Rice Pancakes
-62. ขนม
-
-จีบ (Khanom Jeeb) - Thai Dumplings
+62. ขนมจีบ (Khanom Jeeb) - Thai Dumplings
 63. ทับทิมกรอบ (Thapthim Krop) - Water Chestnuts in Coconut Milk
 64. ขนมเปี๊ยะไทย (Khanom Pia) - Thai Macaroon
 65. ข้าวเหนียวดำ (Khao Niew Dam) - Black Sticky Rice
@@ -1009,9 +1005,7 @@ Sure, here's a list of Thai food, dishes, fishes, traditional sweets, and fruits
 88. น้ำพริกกะปิ (Nam Prik Kapi) - Shrimp Paste Chili Dip
 89. ไก่ย่าง (Kai Yang) - Grilled Chicken
 90. น้ำพริกหนุ่ม (Nam Prik Num) - Northern Thai Green Chili Dip
-91. ส้มตำไทย (Som Tam Thai
-
-) - Thai Papaya Salad
+91. ส้มตำไทย (Som Tam Thai) - Thai Papaya Salad
 92. แกงส้มชะอมทอดกุ้งสด (Kaeng Som Cha Om Tod Kung Sot) - Sour Curry with Acacia Omelette and Fresh Shrimp
 93. แกงจืดวุ้นเส้น (Kaeng Jued Woon Sen) - Glass Noodle Soup
 94. ปูม้านึ่ง (Poo Ma Nung) - Steamed Horse Crab
