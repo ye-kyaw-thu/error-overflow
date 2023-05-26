@@ -265,3 +265,8 @@ Sure, I apologize for the repeated entries. Let's revise and gather them all tog
 | 100 | e^ix = cos(x) + i sin(x) | Euler | 18th century | Euler's formula, links trigonometric functions with complex exponential function | Complex Analysis |
 
 I hope this table provides the information you were looking for. Please let me know if you have any questions about any of these equations.
+
+## Question: 7
+
+Good job! For this I wanna you to make a list of table for all math symbols. Also containing, how to read them and example formula of using each symbol. Don't separate as 20, 30 etc. I wanna get a big list for teaching my student. Can you?
+
