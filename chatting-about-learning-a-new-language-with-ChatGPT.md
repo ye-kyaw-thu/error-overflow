@@ -909,5 +909,118 @@ Sure! Here's a table format with English sentences translated into Thai, includi
 | Best wishes to you!                                                | ขอให้โชคดีกับคุณ                                                                                             | Khor hai chok dee gap khun                                                                                                                  |
 | Bye! Bye!                                                          | ลาก่อน                                                                                                       | Laa-gon                                                                                                                                    |
 
+## Question: 16
 
+I start learning Thai language. Could you make a table of Thai food, dishes, fishes, traditional sweets, fruits etc.? Including their pronunciation (in alphabetic and not with IPA symbols) and English translations.
+
+Sure, here's a list of Thai food, dishes, fishes, traditional sweets, and fruits. Note that Thai language pronunciation might not be entirely accurate when rendered in English, but I've tried my best to give you an approximate pronunciation guide.
+
+1. กะเพราไก่ (Kaprao Kai) - Chicken with Holy Basil
+2. ข้าวผัด (Khao Pad) - Fried Rice
+3. ส้มตำ (Som Tam) - Green Papaya Salad
+4. ต้มยำกุ้ง (Tom Yum Goong) - Spicy Shrimp Soup
+5. ผัดไทย (Pad Thai) - Thai style fried noodles
+6. ผัดซีอิ๊ว (Pad See Ew) - Stir-fried noodles with soy sauce
+7. ข้าวหน้าเป็ด (Khao Na Ped) - Duck with Rice
+8. ยำวุ้นเส้น (Yam Woon Sen) - Glass noodle salad
+9. หมูกรอบ (Moo Grob) - Crispy Pork Belly
+10. มัสมั่นไก่ (Massaman Kai) - Chicken Massaman Curry
+11. แกงเขียวหวาน (Gaeng Keow Wan) - Green Curry
+12. ข้าวหมกไก่ (Khao Mok Kai) - Chicken Biryani
+13. แกงส้มชะอมกุ้ง (Gaeng Som Cha-om Goong) - Sour Curry with Acacia Omelette and Shrimps
+14. แกงเผ็ดไก่ (Gaeng Phet Kai) - Red Curry with Chicken
+15. หอยนางรม (Hoy Nang Rom) - Oysters
+16. ปลาเผา (Pla Pao) - Grilled Fish
+17. ปลาดุกฟู (Pla Dook Foo) - Fried Catfish with Green Mango Salad
+18. ปลานิลทอดกระเทียม (Pla Nil Tod Krathiam) - Fried Tilapia with Garlic
+19. ข้าวมันไก่ (Khao Man Kai) - Chicken with Rice
+20. ไข่เจียว (Khai Jeow) - Thai-style Omelette
+21. ตับหวาน (Tab Wan) - Sweet Liver
+22. ปูนิ่มทอดกระเทียม (Poo Nim Tod Krathiam) - Soft-shell Crab Fried with Garlic
+23. กุ้งอบวุ้นเส้น (Goong Ob Woon Sen) - Prawns Baked with Glass Noodles
+24. หมูปิ้ง (Moo Ping) - Grilled Pork Skewers
+25. กุ้งแช่น้ำปลา (Goong Chae Nam Pla) - Raw Shrimp in Fish Sauce
+26. ผัดกะเพราเนื้อ (Pad Kaprao Nua) - Beef with Holy Basil
+27. ปูผัดผงกระหรี่ (Poo Pad Pong Kari) - Crab in Curry Sauce
+28. หมึกผัดไข่เค
+
+็ม (Muek Pad Khai Khem) - Squid Stir-fried with Salted Egg
+29. ข้าวผัดปู (Khao Pad Poo) - Fried Rice with Crab
+30. ปลาหมึกยัดไส้ (Pla Muek Yat Sai) - Stuffed Squid
+31. ลาบหมู (Larb Moo) - Pork Larb
+32. น้ำพริกเผา (Nam Prik Pao) - Roasted Chili Paste
+33. ต้มข่าไก่ (Tom Kha Kai) - Chicken in Coconut Soup
+34. ไก่ทอด (Kai Tod) - Fried Chicken
+35. หมูสามชั้นทอดน้ำปลา (Moo Sam Chan Tod Nam Pla) - Pork Belly Fried with Fish Sauce
+36. ผัดพริกแกงปลาดุก (Pad Prik Gaeng Pla Dook) - Catfish Stir-fried with Red Curry
+37. แกงป่า (Gaeng Pa) - Jungle Curry
+38. ไส้อั่ว (Sai Oua) - Northern Thai Sausage
+39. ข้าวซอย (Khao Soi) - Northern Thai Noodle Soup
+40. ขนมจีนน้ำเงี้ยว (Khanom Chin Nam Ngiao) - Northern Thai Noodle Soup with Pork and Tomato
+41. แกงฮังเล (Gaeng Hang Lay) - Northern Thai Pork Curry
+42. กุ้งทอดกระเทียม (Goong Tod Krathiam) - Fried Shrimp with Garlic
+43. แกงเลียง (Gaeng Liang) - Spicy Mixed Vegetable Soup
+44. มะม่วง (Ma-Muang) - Mango
+45. ทุเรียน (Tu-Rian) - Durian
+46. สับปะรด (Sapparot) - Pineapple
+47. มังคุด (Mangkut) - Mangosteen
+48. ลิ้นจี่ (Lin-Jee) - Lychee
+49. ขนุน (Khanun) - Jackfruit
+50. ลำไย (Lamyai) - Longan
+51. ชมพู่ (Chom-Poo) - Rose Apple
+52. แตงโม (Taeng-Mo) - Watermelon
+53. แก้วมังกร (Kaew Mangkon) - Dragon Fruit
+54. ทับทิม (Thapthim) - Pomegranate
+55. น้อยหน่า (Noi-Na) - Custard Apple
+56. ส้มโอ (Som-O) - Pomelo
+57. พุทรา (Phutaa) - Guava
+58. มะขาม (Ma-Kham) - Tamarind
+59. ละมุด (Lamut) - Sapodilla
+60. ขนมถ้วย (Khanom Thuai) - Coconut Milk Custard
+61. ขนมครก (Khanom Krok) - Coconut Rice Pancakes
+62. ขนม
+
+จีบ (Khanom Jeeb) - Thai Dumplings
+63. ทับทิมกรอบ (Thapthim Krop) - Water Chestnuts in Coconut Milk
+64. ขนมเปี๊ยะไทย (Khanom Pia) - Thai Macaroon
+65. ข้าวเหนียวดำ (Khao Niew Dam) - Black Sticky Rice
+66. สาลี่ (Saralee) - Thai Sponge Cake
+67. ขนมชั้น (Khanom Chan) - Layer Cake
+68. ลอดช่อง (Lod Chong) - Rice Noodles in Coconut Milk
+69. ขนมเข่ง (Khanom Kheng) - Candle Cake
+70. ขนมฝอยทอง (Khanom Foy Thong) - Golden Threads
+71. ขนมเบื้อง (Khanom Beuang) - Thai Crispy Pancakes
+72. ขนมตาล (Khanom Tan) - Toddy Palm Cake
+73. ขนมบัวลอย (Khanom Bua Loi) - Glutinous Rice Balls in Coconut Milk
+74. ฟักทองแกงบวด (Fak Thong Kaeng Buad) - Pumpkin in Coconut Milk
+75. ขนมปังครีม (Khanom Pang Krim) - Creamed Bread
+76. ขนมจีน (Khanom Jeen) - Rice Vermicelli with Curry
+77. แกงคั่ว (Kaeng Kua) - Roasted Curry
+78. คั่วกลิ้ง (Kua Kling) - Dry Meat Curry
+79. หอยลายผัดพริกเผา (Hoi Lai Pad Prik Pao) - Stir-Fried Spotted Babylon with Roasted Chili Paste
+80. คอหมูย่าง (Kho Moo Yang) - Grilled Pork Neck
+81. ผัดหมี่ซีอิ๊ว (Pad Mee See Ew) - Stir-Fried Noodles with Soy Sauce
+82. แกงส้มปลาขูด (Kaeng Som Pla Kod) - Sour Curry with Gourami Fish
+83. กะเพราไข่เจียว (Kaprao Khai Jeow) - Fried Egg with Holy Basil
+84. ปาท่องโก๋ (Pa Thong Ko) - Thai Doughnuts
+85. ยำปลาดุกฟู (Yam Pla Dook Foo) - Crispy Catfish Salad with Green Mango
+86. ปลาร้า (Pla Raa) - Fermented Fish
+87. หมูสะเต๊ะ (Moo Satae) - Pork Satay
+88. น้ำพริกกะปิ (Nam Prik Kapi) - Shrimp Paste Chili Dip
+89. ไก่ย่าง (Kai Yang) - Grilled Chicken
+90. น้ำพริกหนุ่ม (Nam Prik Num) - Northern Thai Green Chili Dip
+91. ส้มตำไทย (Som Tam Thai
+
+) - Thai Papaya Salad
+92. แกงส้มชะอมทอดกุ้งสด (Kaeng Som Cha Om Tod Kung Sot) - Sour Curry with Acacia Omelette and Fresh Shrimp
+93. แกงจืดวุ้นเส้น (Kaeng Jued Woon Sen) - Glass Noodle Soup
+94. ปูม้านึ่ง (Poo Ma Nung) - Steamed Horse Crab
+95. คอหมูย่าง (Kho Moo Yang) - Grilled Pork Neck
+96. หอยแมลงภู่ทอดกระเทียม (Hoi Malang Poo Tod Krathiam) - Fried Mussels with Garlic
+97. ข้าวปุ้น (Khao Pun) - Rice Vermicelli
+98. แกงเขียวหวานไก่ (Kaeng Khiao Wan Kai) - Chicken Green Curry
+99. ยำแซลมอน (Yam Salmon) - Salmon Salad
+100. ขนมหม้อแกง (Khanom Mo Kaeng) - Thai Custard Dessert
+
+I hope you find this list helpful and it aids in your journey to learning Thai!
 
