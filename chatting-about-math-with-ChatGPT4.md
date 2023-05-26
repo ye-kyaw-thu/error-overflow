@@ -944,4 +944,31 @@ In modern mathematics, there are numerous areas of study and specialization. Her
 
 These are just some of the many areas of modern mathematics. Each area has its own subfields, specialized techniques, and ongoing research. Mathematics is a vast and evolving field with applications in various scientific, technological, and practical domains.
 
+## Question: 13
+
+Let's talk about applied math. Let's say if I want to study applied math, do you recommend some books, freely available online courses, other suggestions ... 
+
+Certainly! If you're interested in studying applied mathematics, here are some recommendations for books, online courses, and other resources to get you started:
+
+Books:
+1. "Numerical Recipes: The Art of Scientific Computing" by William H. Press, Saul A. Teukolsky, William T. Vetterling, and Brian P. Flannery.
+2. "Applied Mathematics: Body and Soul" by Kenneth Eriksson, Donald Estep, Claes Johnson, and Mats G. Larson.
+3. "Mathematical Methods in the Physical Sciences" by Mary L. Boas.
+4. "Introduction to Applied Mathematics" by Gilbert Strang.
+5. "Applied Mathematics for Engineers and Physicists" by Louis A. Pipes and Lawrence R. Harvill.
+
+Online Courses:
+1. Coursera: Offers various applied math courses from top universities. Check out courses like "Applied Data Science with Python" and "Applied Mathematics for Engineers" offered by various institutions.
+2. edX: Provides courses in applied math topics such as "Introduction to Linear Models and Matrix Algebra" and "Discrete Optimization" offered by prestigious universities.
+3. MIT OpenCourseWare: Offers free online access to course materials from MIT's applied math courses, including lectures, notes, and assignments.
+4. Khan Academy: Provides a wide range of math courses and tutorials, including topics relevant to applied mathematics.
+
+Other Suggestions:
+1. Join math communities and forums like Math Stack Exchange or Reddit's r/math to connect with other math enthusiasts and professionals who can provide guidance and resources.
+2. Practice solving real-world problems using mathematical models and techniques. Look for opportunities to apply math in fields like engineering, physics, finance, or computer science.
+3. Explore open-access journals and research publications in applied math, such as the SIAM Journal on Applied Mathematics and the Journal of Applied Mathematics and Computing.
+4. Seek out research projects or internships in applied math to gain hands-on experience and practical knowledge.
+
+Remember, applied mathematics is a broad field, so it's important to identify specific areas of interest within applied math and tailor your studies accordingly. Continuously engaging with math problems, seeking out practical applications, and staying up to date with the latest developments in the field will help you excel in applied mathematics.
+
 
