@@ -1015,3 +1015,21 @@ Examples of sequences covered in the book include simple sequences like the natu
 
 Could you introduce me about mysterious patterns in Pascal's triangle?
 
+Pascal's Triangle is a triangular array of binomial coefficients, and it holds numerous fascinating patterns. Here are a few:
+
+1. **The Triangle Itself:** Each number in Pascal's Triangle is the sum of the two numbers directly above it. Starting from the top with 1, the next line is 1 1, then 1 2 1, then 1 3 3 1, and so on. Each row represents the coefficients of the binomial expansion.
+
+2. **Triangle of Powers:** The nth row sums to 2^n. For example, the fourth row is 1 3 3 1, and 1+3+3+1 = 8, which is 2^3.
+
+3. **Fibonacci Sequence:** If you sum the numbers along shallow diagonals of the triangle, you get the Fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...). The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones.
+
+4. **Hockey Stick Pattern:** If you choose a number in the triangle and then move diagonally down and to the right, then change direction to move diagonally down and to the left, the numbers along the initial path sum up to the number where you change direction. This is known as the hockey stick theorem because of the shape traced out by the sequence of numbers.
+
+5. **Sierpinski Triangle:** If you highlight all of the odd numbers and leave the even numbers blank, you get a fractal known as Sierpinski's Triangle.
+
+6. **Catalan Numbers:** These appear as a diagonal running parallel to one of the sides of the triangle. Catalan numbers are used in various counting problems in combinatorics.
+
+These are just some of the intriguing patterns found in Pascal's Triangle, and many of these patterns have deep connections to various areas of mathematics.
+
+## Question: 17
+
