@@ -155,4 +155,7 @@ Here's the final batch of 20 equations:
 
 Each equation listed above has shaped our understanding of the world in fundamental ways and has broad applications in multiple fields of study. These equations form the foundation of various physical phenomena, financial models, geometrical understanding, and statistical inferences.
 
+## Question: 6
+
+Hi! I wanna revised all of your above answers. I think you did some mistakes such as repeating. For example no. 21 and no. 69 are the same formula i.e. y = mx + c. And thus, Please make 100 unique formulae for me. Put the invention year if you know and I wanna get all 100 unique formulae as one table. (don't separate it)
 
