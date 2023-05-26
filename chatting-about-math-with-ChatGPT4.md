@@ -68,4 +68,33 @@ Let's continue with the next set:
 
 Yes, please!
 
+Alright, here's the next batch of 20 equations:
+
+| No | Equation | Name of Mathematician | Brief Explanation | Area of Use |
+| --- | --- | --- | --- | --- |
+| 41 | x^n + y^n ≠ z^n for n > 2 | Fermat | Fermat's Last Theorem, no three positive integers a, b, and c satisfy the equation for any integer value of n greater than 2 | Number Theory |
+| 42 | x = a cosθ + b sinθ | Various | Parameterized form of a circle's equation | Geometry |
+| 43 | 1 = sin²θ + cos²θ | Pythagoras, Various | The Pythagorean trigonometric identity | Trigonometry |
+| 44 | i = V / R | Ohm | Ohm's law, the current through a conductor between two points is directly proportional to the voltage across the two points | Electrical Engineering |
+| 45 | P = IV | Joule | Joule's first law, the power of an electric circuit is the product of its voltage and current | Electrical Engineering |
+| 46 | V = IR | Ohm | Ohm's law, voltage is the product of current and resistance | Electrical Engineering |
+| 47 | F = G (m1*m2) / r² | Newton | Newton's law of universal gravitation | Physics |
+| 48 | p = mv | Various | Momentum is the product of mass and velocity | Physics |
+| 49 | E = hf | Planck | Energy of a photon is the product of Planck's constant and the frequency of the photon | Quantum Physics |
+| 50 | ∆p ∆x ≥ ħ/2 | Heisenberg | Heisenberg's uncertainty principle | Quantum Physics |
+| 51 | A = Pe^rt | Various | The formula for continuously compounded interest | Finance |
+| 52 | s = rθ | Various | The length of an arc of a circle | Geometry |
+| 53 | A = 1/2bh | Various | The area of a triangle | Geometry |
+| 54 | A = bh | Various | The area of a rectangle | Geometry |
+| 55 | V = Bh | Various | The volume of a cylinder | Geometry |
+| 56 | A = 4πr² | Archimedes | Surface area of a sphere | Geometry |
+| 57 | A = πd | Archimedes | The circumference of a circle | Geometry |
+| 58 | a_n = a_1 * r^(n-1) | Various | The formula for the nth term of a geometric sequence | Sequences and Series |
+| 59 | x = (−b ± √(b² − 4ac)) / 2a | Al-Khwārizmī | The solution to the quadratic equation | Algebra |
+| 60 | ∑f(xi)/n | Various | The formula for the mean of a set of data | Statistics |
+
+Let's continue with the next set:
+
+## Question: 4
+
 
