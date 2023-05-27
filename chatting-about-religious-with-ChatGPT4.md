@@ -64,3 +64,5 @@ There are also many smaller or less well-known religions and belief systems arou
 
 ## Question: 3
 
+OK. How about making a 50 religious  table? Can you do that?
+
