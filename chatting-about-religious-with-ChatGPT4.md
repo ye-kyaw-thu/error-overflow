@@ -132,3 +132,5 @@ Remember, these categorizations are broad and simplified. Many religions may not
 
 ## Question: 5
 
+Thanks! I heard that Buddhism have two main branches one is Theravada Buddhism and Mahayana Buddhism. Could you write down an essay about this? Make well discussion! 
+
