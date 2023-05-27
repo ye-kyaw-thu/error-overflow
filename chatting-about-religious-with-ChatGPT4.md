@@ -407,3 +407,27 @@ OK. Keep writing for followings:
 
 6.2 Challenges and Future of Jainism
 
+**6. Jainism in the Modern World**
+
+In the face of rapid globalization and societal changes, Jainism continues to evolve and adapt. Today, it offers a counter-narrative to the often unsustainable pace of modern life and provides ethical guidance that resonates with contemporary issues.
+
+**6.1 The Role of Jainism in Contemporary Society**
+
+Jainism plays a critical role in promoting peace, tolerance, and sustainability in contemporary society. Its principles of non-violence and non-attachment resonate with current global concerns such as environmental degradation, violence, and the over-consumption of resources. 
+
+Moreover, Jainism's emphasis on spiritual development and the pursuit of inner peace offers a counterbalance to the focus on material wealth and success prevalent in modern societies. The rigorous practice of ethical principles by Jains also sets a precedent for personal integrity and moral responsibility.
+
+**6.2 Challenges and Future of Jainism**
+
+Despite its timeless appeal, Jainism faces several challenges in the modern world. The rigorous asceticism and strict ethical code required by Jainism are at odds with the comfort-seeking, consumerist ethos of modern societies. This has resulted in decreased adherence to Jain practices among the younger generations, particularly in the diaspora.
+
+Additionally, as a minority religion primarily confined to India, Jainism also grapples with the challenge of maintaining its distinct identity and traditions in a rapidly globalizing world. 
+
+However, the future of Jainism also holds potential. There's an increasing global interest in Indian philosophies, meditation practices, and vegetarianism – all areas where Jainism has much to offer. Moreover, Jainism's commitment to non-violence, respect for all forms of life, and focus on personal ethics aligns well with emerging global discourses on peace, sustainability, and ethical living. These intersections offer opportunities for the expansion of Jain thought and the adaptation of Jain principles to address contemporary global challenges. 
+
+In conclusion, Jainism, with its rich philosophical tradition and strong ethical framework, continues to be a beacon of peace and sustainability in the modern world. Despite the challenges it faces, its principles hold significant relevance, offering insights and guidance for the pressing issues of our time.
+
+## Question: 13
+
+Go ahead for Conclusion section ... 
+
