@@ -32,3 +32,7 @@ Sure, I can help you with that. However, please note that religion is a vast top
 
 These are just a few examples. There are also many other belief systems, like Taoism, Zoroastrianism, Animism, Paganism, and countless indigenous and tribal religions with their own unique traditions and beliefs.
 
+## Question: 2
+
+I know it is really countless of our world religious. However, I wanna you to make a big list for various religious at least 100.  Including brief introduction or history, how many believers, the original country, the name of God and so on. You can also use the Table format. No page limitation please. 
+
