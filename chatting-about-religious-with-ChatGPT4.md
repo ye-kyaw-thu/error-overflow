@@ -102,9 +102,7 @@ Here are more religions, many of which are smaller or less well-known than those
 |47. Kemeticism | Unknown | Egypt and worldwide | Ancient Egyptian gods | A revival of ancient Egyptian religion.|
 |48. Romuva | 5,000 | Lithuania | Ancient Baltic gods | A revival of the traditional ethnic religion of the Baltic people, promoting the worship of Baltic deities.|
 |49. Shabakism | 200,000-500,000 | Iraq | Single God, Prophet Mohammed, and twelve Imams | A syncretic, monotheistic religion practiced by the Shabak people, primarily in Iraq.|
-|50. Manichaeism | None (ancient religion) | Persia (Iran) | Single God and dualistic elements | An ancient Gnostic religion that
-
- incorporated elements of Christianity, Zoroastrianism, and Buddhism, teaching an elaborate dualistic cosmology.|
+|50. Manichaeism | None (ancient religion) | Persia (Iran) | Single God and dualistic elements | An ancient Gnostic religion that incorporated elements of Christianity, Zoroastrianism, and Buddhism, teaching an elaborate dualistic cosmology.|
 
 This table should give you a good idea of the wide range of religious beliefs and practices around the world. However, keep in mind that this is still a simplification, and the reality of each of these religions can be much more complex and nuanced.
 
