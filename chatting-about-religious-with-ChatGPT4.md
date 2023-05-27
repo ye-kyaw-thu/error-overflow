@@ -86,9 +86,7 @@ Here are more religions, many of which are smaller or less well-known than those
 |31. Ifá | 300,000 | Nigeria | Orishas | A religion and system of divination based on the stories and wisdom of the Odu Ifa, a collection of 256 verses.|
 |32. Ahmadiyya | 10-20 million | India (now Pakistan) | Allah | A movement within Islam founded by Mirza Ghulam Ahmad, emphasizing peace and tolerance.|
 |33. Alevism | 15-20 million | Turkey | Allah | A branch of Shia Islam with unique theological doctrines and spiritual practices.|
-|34. Yârsânism | 2-3 million | Iran/Iraq | Single Creator God |
-
- A syncretic religion influenced by Zoroastrianism, Shi'a Islam, and Sufism, with reincarnation as a core belief.|
+|34. Yârsânism | 2-3 million | Iran/Iraq | Single Creator God | A syncretic religion influenced by Zoroastrianism, Shi'a Islam, and Sufism, with reincarnation as a core belief.|
 |35. Yazidism | 700,000-1 million | Iraq | God and seven Angels, with Malak Taus (Peacock Angel) as the primary one | An ancient, monotheistic, and syncretic Kurdish religion with elements from Zoroastrianism, Christianity, Judaism, and Islam.|
 |36. Mandaeism | 60,000-100,000 | Iraq/Iran | One supreme God, known as Hayyi Rabbi | An ancient, Gnostic religion that reveres John the Baptist as the true messiah.|
 |37. Zunism | Unknown (ancient religion) | Afghanistan | Zun (sun god) | The ancient religion of the Zunbil dynasty in the region of modern Afghanistan and Pakistan, revolved around the worship of the sun god Zun.|
