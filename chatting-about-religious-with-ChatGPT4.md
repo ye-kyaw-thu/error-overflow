@@ -308,3 +308,31 @@ Despite the growth of Hinduism and Islam in India, Jainism has persisted, adapti
 
 Keep continue for the 3. Fundamental Principles and Beliefs of Jainism section
 
+**3. Fundamental Principles and Beliefs of Jainism**
+
+Jainism posits a complex and nuanced understanding of reality, deeply rooted in its foundational principles and beliefs. The fundamental tenets of Jainism emphasize non-violence, truth, and a nuanced understanding of reality, setting it apart from many other religious traditions.
+
+**3.1 Anekantavada (Doctrine of Many Sides)**
+
+Anekantavada, or the Doctrine of Many Sides, is a cornerstone of Jain philosophy. It affirms that reality is multifaceted and can be perceived in various ways. This principle encourages tolerance and pluralism, urging individuals to consider multiple perspectives before forming judgments. 
+
+**3.2 Syadvada (Theory of Maybe)**
+
+Closely related to Anekantavada is Syadvada, or the Theory of Maybe. This principle recognizes that truth can be expressed in several ways, each contingent on a particular standpoint or condition. It reinforces the relativistic nature of truth and discourages dogmatic thinking.
+
+**3.3 Ahimsa (Non-violence)**
+
+Ahimsa, or non-violence, is perhaps the most recognized principle of Jainism. It extends beyond physical harm, encompassing violence in thought and speech. Ahimsa is not merely a passive state of harmlessness, but an active state of love and compassion towards all beings. It informs Jains' dietary practices, lifestyle choices, and professional conduct.
+
+**3.4 Aparigraha (Non-attachment)**
+
+Aparigraha, or non-attachment, is another fundamental principle in Jainism. It emphasizes detachment from material possessions and emotional entanglements, as these are believed to generate karma that binds the soul to the cycle of birth and death. Aparigraha encourages a minimalist lifestyle and promotes contentment.
+
+**3.5 Karma and Reincarnation**
+
+Jainism presents a unique theory of karma, where it is perceived not just as action and consequence, but as subtle matter that attaches to the soul due to one's actions, thoughts, and desires. This karma-laden soul reincarnates in the cycle of birth and death until all karma is shed through right knowledge, right faith, and right conduct, leading to liberation (Moksha).
+
+These principles provide the moral and philosophical framework guiding Jains in their pursuit of a virtuous life and spiritual liberation. They encourage individuals to live with mindfulness, compassion, and a deep respect for the plurality of perspectives.
+
+## Question: 10
+
