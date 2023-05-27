@@ -336,3 +336,15 @@ These principles provide the moral and philosophical framework guiding Jains in 
 
 ## Question: 10
 
+Keep writing for followings:
+
+4. Rituals, Practices, and Symbols in Jainism
+
+4.1 The Five Great Vows
+
+4.2 Jain Meditation Practices
+
+4.3 Festivals and Pilgrimages
+
+4.4 Symbols and Icons in Jainism
+
