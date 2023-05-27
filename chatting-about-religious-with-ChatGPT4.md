@@ -539,3 +539,7 @@ Certainly, I'd be happy to provide a brief introduction to the primary religions
 
 In summary, Theravada Buddhism is the prevailing religion in Cambodia, Thailand, Laos, and Myanmar, deeply influencing the culture, traditions, and daily life in these countries. Other religions, such as Islam, Christianity, and various folk religions, also play significant roles in the region's spiritual landscape.
 
+## Question: 17
+
+Could you write a good article relating to Filipinos crucified on Good Friday?
+
