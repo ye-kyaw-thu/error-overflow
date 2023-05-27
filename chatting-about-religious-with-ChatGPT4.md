@@ -108,3 +108,5 @@ This table should give you a good idea of the wide range of religious beliefs an
 
 ## Question: 4
 
+Good Job! According to my knowledge, when we study of various religious in deeply, there are some common parts and also specific practices or identities or believes. Could you make discussion on this? I wanna you to make a several groups based on your understanding. 
+
