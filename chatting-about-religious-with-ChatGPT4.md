@@ -166,3 +166,5 @@ Despite their differences, both branches are
  
 ## Question: 6
 
+Could you write a research paper about Jainism?  Note: not only abstract, and section, subsection titles. Try to write a complete research paper. 
+
