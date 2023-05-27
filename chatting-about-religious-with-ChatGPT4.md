@@ -374,3 +374,25 @@ Other significant Jain icons include images of the Tirthankaras, the Swastika sy
 
 These rituals, practices, and symbols form a significant part of a Jain's life, instilling a sense of discipline, fostering a deeper understanding of Jain philosophy, and strengthening the bonds of community.
 
+## Question: 11
+
+Interesting! Keep writing on 5. Jainism and Ethics section
+
+**5. Jainism and Ethics**
+
+Jainism's ethical system is deeply interwoven with its philosophical principles and religious practices. The core ethical teachings of Jainism revolve around the principle of non-violence (Ahimsa) and extend into areas of environmental ethics, dietary restrictions, and business practices.
+
+**5.1 Jain Dietary Restrictions**
+
+Perhaps the most well-known aspect of Jain ethics is their dietary practices. Rooted in the principle of Ahimsa, Jains follow a strict vegetarian diet, avoiding harm to living beings to the greatest extent possible. Some Jains also follow the practice of Sallekhana, voluntary fasting unto death, considered the ultimate expression of non-attachment and spiritual purity.
+
+**5.2 Environmental Ethics**
+
+The tenets of Ahimsa and Aparigraha also translate into a profound respect for the environment. Jainism advocates for a harmonious co-existence with nature and promotes the minimization of harm to all forms of life. In recent years, this aspect of Jain ethics has found resonance with global movements towards sustainability and environmental consciousness.
+
+**5.3 Business Ethics**
+
+In the realm of business and commerce, Jain ethics emphasizes honesty, fair trade, and non-exploitation. The Jain community, though small, has a significant presence in the business sector, particularly in India. Their business practices are guided by the principles of Ahimsa (causing no harm to others through business activities), Asteya (non-stealing, or fairness in business transactions), and Aparigraha (non-attachment, avoiding greed and excessive accumulation of wealth).
+
+The principles of Ahimsa, Aparigraha, and Asteya in Jainism have given rise to a unique ethical framework. This framework not only guides the personal lives of Jains but also has broader societal implications, advocating for a world marked by peace, sustainability, and fairness.
+
