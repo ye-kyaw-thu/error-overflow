@@ -53,9 +53,7 @@ Creating a list of 100 religions with detailed descriptions would be quite a tas
 |11. Judaism | 15 million | Israel | God (also known as Yahweh or Jehovah) | One of the oldest monotheistic religions, centered around the laws and prophets of the Hebrew Bible.|
 |12. Baháʼí | 7.3 million | Persia (Iran) | God (referred to by many names, the essence of which is unknowable) | Based on the teachings of Baha'u'llah, emphasizes the unity of God, religion, and humanity.|
 |13. Jainism | 4.2 million | India | No creator god; veneration of Tirthankaras | An ancient Indian religion that emphasizes non-violence, truth, and asceticism.|
-|14. Shinto | 4 million | Japan | Kami (numerous gods
-
-/spirits/natural forces and revered spirits of deceased individuals) | The indigenous spirituality of Japan, focusing on ritual practice and harmonious coexistence with nature.|
+|14. Shinto | 4 million | Japan | Kami (numerous gods/spirits/natural forces and revered spirits of deceased individuals) | The indigenous spirituality of Japan, focusing on ritual practice and harmonious coexistence with nature.|
 |15. Cao Dai | 4 million | Vietnam | God, various other figures | A syncretic religion that combines elements from many world religions, including Buddhism, Confucianism, Taoism, Christianity, and Islam.|
 |16. Zoroastrianism | 2.6 million | Persia (Iran) | Ahura Mazda | One of the world's oldest still-practiced religions, it focuses on the cosmic conflict between good and evil.|
 |17. Tenrikyo | 2 million | Japan | Tenri-O-no-Mikoto | Founded in the 19th century, it teaches the Joyous Life, which is cultivated through acts of charity and mindfulness called hinokishin.|
