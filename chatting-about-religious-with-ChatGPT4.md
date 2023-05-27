@@ -681,3 +681,37 @@ While there may not be an exact parallel to the Taungbyone Spirit Festival in ot
 
 These festivals, like the Taungbyone Spirit Festival, reflect the universal human experience of honoring the dead and the unseen, often serving as important community bonding events.
 
+## Question: 22
+
+I hope you already know about human sacrifice in Maya culture. Are there similar culture in old Asian countries? Could you write an essay about this?
+
+**Title: Human Sacrifice in Ancient Asian Cultures**
+
+**Introduction**
+
+Human sacrifice is one of the most controversial and fascinating aspects of ancient cultures. Just as we find evidence of this practice in the Americas, notably in Maya culture, there are numerous historical records indicating its prevalence in ancient Asian societies as well. This essay explores the evidence and context of human sacrifice in a selection of ancient Asian cultures.
+
+**Human Sacrifice in Ancient China**
+
+Human sacrifice was practiced in ancient China, particularly during the Shang Dynasty (c. 1600–1046 BCE). The victims were usually prisoners of war but could also include slaves and servants. Archaeological sites, such as the royal tombs at Yinxu, have revealed a great number of human sacrificial victims who were buried with the deceased elites, presumably to serve them in the afterlife.
+
+In the Zhou Dynasty (c. 1046–256 BCE) that followed, the practice of human sacrifice became less frequent, with animals taking the place of humans in most sacrificial rites. Confucianism's rise in later periods condemned human sacrifice, labeling it as inhumane.
+
+**Human Sacrifice in Ancient Korea**
+
+In ancient Korea, especially during the Three Kingdoms period (57 BCE–668 CE), human sacrifice was not uncommon. There are historical and archaeological evidences from this period showing that servants, slaves, or captives were often buried with the deceased to accompany them in the afterlife. The practice gradually disappeared with the adoption of Buddhism as the state religion, which advocated non-violence and respect for all forms of life.
+
+**Human Sacrifice in Ancient India**
+
+In ancient India, human sacrifice appears in the context of Vedic rituals and later as part of tantric practices. The Purushamedha was a Vedic ritual that symbolically involved the sacrifice of a man (Purusha), though it's not clear if actual human sacrifice occurred or if it was purely symbolic. However, evidence of actual human sacrifice surfaces in later periods, connected to the worship of certain deities like Kali.
+
+By the medieval period, certain tantric cults are known to have practiced human sacrifice, a practice condemned by mainstream Hindu society. The tradition of Sati, where a widow was expected to self-immolate on her husband's funeral pyre, has been considered a form of human sacrifice by some scholars.
+
+**Conclusion**
+
+Human sacrifice, as a cultural practice in ancient Asian societies, reflected the beliefs, values, and social structures of the time. The phenomenon was typically rooted in religious or ritualistic contexts, often associated with notions of the afterlife, appeasement of deities, or fertility of the land.
+
+Over time, as philosophical, religious, and social perspectives evolved, the practice of human sacrifice was largely abandoned and condemned across these societies. Nevertheless, understanding this aspect of ancient cultures provides valuable insights into the historical development of these societies and the evolution of their moral and ethical systems. 
+
+Despite the disturbing nature of these practices to modern sensibilities, it's essential to approach such topics with an understanding that cultural norms and values have changed considerably over the millennia, and what was acceptable then is not necessarily so now. Such is the nature of human cultural evolution.
+
