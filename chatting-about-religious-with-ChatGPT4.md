@@ -396,3 +396,14 @@ In the realm of business and commerce, Jain ethics emphasizes honesty, fair trad
 
 The principles of Ahimsa, Aparigraha, and Asteya in Jainism have given rise to a unique ethical framework. This framework not only guides the personal lives of Jains but also has broader societal implications, advocating for a world marked by peace, sustainability, and fairness.
 
+## Question: 12
+
+Great! I was reading your writings. 
+OK. Keep writing for followings:
+
+6. Jainism in the Modern World
+
+6.1 The Role of Jainism in Contemporary Society
+
+6.2 Challenges and Future of Jainism
+
