@@ -196,5 +196,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 189. [chatting-about-programming-languages-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-programming-languages-with-ChatGPT4.md)  
 190. [chatting-about-learning-a-new-language-with-ChatGPT.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-learning-a-new-language-with-ChatGPT.md)  
 191. [chatting-about-math-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-math-with-ChatGPT4.md)  
-192. [chatting-about-religious-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-religious-with-ChatGPT4.md)
+192. [chatting-about-religious-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-religious-with-ChatGPT4.md)  
+193. [how-to-read-parquet-file.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/how-to-read-parquet-file.md)  
 
