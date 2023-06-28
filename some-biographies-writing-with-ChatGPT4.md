@@ -148,3 +148,26 @@ In addition to the companies he has already founded, Musk has discussed various 
 
 It's important to emphasize that while Musk is a key figure in these companies and projects, they are the result of the hard work of many talented individuals. Musk's role as a leader and innovator is crucial, but these technological advancements are truly team efforts.
 
+## Prompt
+
+Have you heard about a Myanmar NLP researcher Dr. Ye Kyaw Thu? If you know his R&D and publications relating to under resource languages, write down in details with some publication dates ... 
+
+Dr. Ye Kyaw Thu is a prominent figure in the field of Natural Language Processing (NLP), particularly known for his work on under-resourced languages. He is currently a faculty member at the Faculty of Information and Communication Technology at the University of Technology (Yatanarpon Cyber City), Myanmar, and an adjunct senior fellow at the Faculty of Information, Media and Electrical Engineering, Cologne University of Applied Sciences, Germany. He is also affiliated with the University of Tsukuba, Japan​1​.
+
+Dr. Ye's research interests are extensive and include automatic speech recognition, machine translation, language modeling, and the processing of under-resourced languages, particularly those from the Sino-Tibetan, Tai-Kadai, and Mon-Khmer families​2​.
+
+Dr. Ye has made significant contributions to the NLP research community in Myanmar. He developed a Burmese language model and has made substantial strides in machine translation efforts. He has also contributed to the Asian Language Processing (IALP) conference, serving as a steering committee member, and was a local organization committee member for the Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC) in 2014 and the Asian Institute of Technology in 2016​3​.
+
+In recognition of his contributions, Dr. Ye received the Young Researcher Award from the Information Processing Society of Japan in 2019​4​.
+
+Here are a few of his notable publications:
+
+"Integrating ASR Errors for Improving Burmese Word Segmentation and POS Tagging" (2019), co-authored with Zin Mar Win and Masao Utiyama. Published in Transactions of the Asian and Low-Resource Language Information Processing, 19(4), 1-22​5​.
+"Proposal of Open-Source Khmer Word Segmentation and Named Entity Recognition" (2014), co-authored with Andrew Finch and Eiichiro Sumita. Published in Proceedings of the 10th Workshop on Spoken Language Technology (SLTU-2014), 118-125​6​.
+"Part-of-Speech Tagging and Chunking with CRF and Transformation-Based Learning" (2011), co-authored with Yoshinori Sagisaka. Published in Proceedings of the 5th International Joint Conference on Natural Language Processing (IJCNLP-2011), 152-160​7​.
+Unfortunately, due to some limitations in accessing certain academic databases, I was not able to retrieve a comprehensive list of his research papers and publications. For a more complete record of his work, I would recommend directly visiting academic databases like Google Scholar or ResearchGate, or Dr. Ye Kyaw Thu's profile on his affiliated university websites if available.
+
+Please note that the dates for some publications could not be provided due to limitations in the available information.
+
+***ရေးချင်တာတွေ ရေးနေပြီ :)** 
+
