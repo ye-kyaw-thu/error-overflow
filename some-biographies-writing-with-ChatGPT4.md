@@ -70,3 +70,25 @@ Each of these works has been influential in shaping the literary and political l
 
 I hope this biography serves as a good starting point for your writing. I regret that I couldn't provide the Burmese text of Tin Moe's poems in this response. It might be beneficial to consult a library or an online bookstore that specializes in Burmese literature for more comprehensive access to his works in the original language.
 
+## Prompt
+
+Do you wanna try to write the biography of Burmese Poet in Burmese? I wanna read ...
+
+I apologize for any confusion, but as an artificial intelligence, I am unable to write biographies or any other type of text in Burmese at the moment. My primary language is English, and while I can understand and generate text in several other languages, I'm not currently equipped to write in Burmese with the level of fluency and cultural understanding that would be necessary for a biography. I recommend consulting a Burmese language expert or a translator for assistance with this.
+
+## Prompt
+
+How about in Japanese? Could you write the biography of the Japanese politician and stateman Shinzo Abe in Japanese?
+
+Certainly, I can help with that. Here's a brief biography of Shinzo Abe in Japanese:
+
+安倍 晋三（あべ しんぞう、1954年9月21日 - ）は、日本の政治家、元自由民主党総裁、第90・96・97・98・99代内閣総理大臣である。山口県出身。父親は第71・72・74代内閣総理大臣の安倍晋太郎、祖父は第57・58・60代内閣総理大臣の岸信介である。
+
+安倍は青山学院大学法学部を卒業後、1979年に自由民主党から出馬し、初当選。以来、連続当選を重ねてきた。2006年には自由民主党の総裁に選ばれ、第90代内閣総理大臣に就任。しかし翌年には健康問題で辞任を余儀なくされた。
+
+その後、2012年に自由民主党の総裁に再選され、第96代内閣総理大臣に就任。2014年と2017年の自由民主党総裁選挙でも勝利し、日本の歴史上最も長く在任した内閣総理大臣となった。しかし、2020年に再び健康問題が表面化し、8月28日に辞任を発表した。
+
+安倍晋三は日本の経済再生を目指した「アベノミクス」の推進や、日本の憲法改正を目指すなど、数々の政策課題に取り組んできた。また、彼のリーダーシップ下で、日本は北朝鮮の核問題や中国の台頭など、地域の安全保障環境に対応してきた。
+
+以上は、安倍晋三の概略的な伝記であり、彼の生涯と業績を完全に網羅しているわけではありません。より詳細な情報は、彼の著作や信頼性の高い報道機関から得られます。
+
