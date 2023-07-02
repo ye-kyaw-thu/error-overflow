@@ -2,21 +2,26 @@
 
 ## Data Format
 
+```
 metadata.txt
 audio1|This is my sentence.
 audio2|This is maybe my sentence.
 audio3|This is certainly my sentence.
 audio4|Let this be your sentence.
 ...
+```
 
 In details:  
 
+```
 DUMMY/LJ022-0023.wav|The overwhelming majority of people in this country know how to sift the wheat from the chaff in what they hear and what they read.
 DUMMY/LJ043-0030.wav|If somebody did that to me, a lousy trick like that, to take my wife away, and all the furniture, I would be mad as hell, too.
 DUMMY/LJ005-0201.wav|as is shown by the report of the Commissioners to inquire into the state of the municipal corporations in eighteen thirty-five.
+```
 
-We have to prepare following folder structure:
+We have to prepare following folder structure:  
 
+```
 /MyTTSDataset
       |
       | -> metadata.txt
@@ -24,7 +29,7 @@ We have to prepare following folder structure:
               | -> audio1.wav
               | -> audio2.wav
               | ...
-
+```
 
 ## Git Clone
 
