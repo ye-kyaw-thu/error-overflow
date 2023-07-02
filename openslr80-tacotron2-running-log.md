@@ -544,6 +544,29 @@ WARNING: Running pip as the 'root' user can result in broken permissions and con
 
 ## 1st Time Training
 
+--help  of the train.py  
+
+```
+usage: train.py [-h] [-o OUTPUT_DIRECTORY] [-l LOG_DIRECTORY] [-c CHECKPOINT_PATH] [--warm_start]
+                [--n_gpus N_GPUS] [--rank RANK] [--group_name GROUP_NAME] [--hparams HPARAMS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT_DIRECTORY, --output_directory OUTPUT_DIRECTORY
+                        directory to save checkpoints
+  -l LOG_DIRECTORY, --log_directory LOG_DIRECTORY
+                        directory to save tensorboard logs
+  -c CHECKPOINT_PATH, --checkpoint_path CHECKPOINT_PATH
+                        checkpoint path
+  --warm_start          load model weights only, ignore specified layers
+  --n_gpus N_GPUS       number of gpus
+  --rank RANK           rank of current gpu
+  --group_name GROUP_NAME
+                        Distributed group name
+  --hparams HPARAMS
+(tacotron2) root@500e9f8181d8:/home/ye/exp/tts
+```
+
 ```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# time python train.py --output_directory=openslr80 --log_directory=openslr80_log
 ...
