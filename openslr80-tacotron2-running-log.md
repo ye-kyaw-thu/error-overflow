@@ -80,7 +80,9 @@ Set load_mel_from_disk=True in hparams.py and update mel-spectrogram paths.
 
 ## Check hparams.py
 
-We need to update following parts:
+We need to update following parts:  
+
+```
 
         ################################
         # Data Parameters             #
@@ -89,41 +91,56 @@ We need to update following parts:
         training_files='filelists/ljs_audio_text_train_filelist.txt',
         validation_files='filelists/ljs_audio_text_val_filelist.txt',
         text_cleaners=['english_cleaners'],
+```
 
 ## Example Training/Val/Test
 
+```
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/filelists# wc *
     500    8494   60834 ljs_audio_text_test_filelist.txt
   12500  212377 1524164 ljs_audio_text_train_filelist.txt
     100    1653   11911 ljs_audio_text_val_filelist.txt
   13100  222524 1596909 total
+```
 
-For me, I will use 5% of the OpenSLR-80 data for 1st time Tacotron2 TTS model building as follows:
+For me, I will use 5% of the OpenSLR-80 data for 1st time Tacotron2 TTS model building as follows:  
 
-
+```
 t@500e9f8181d8:/home/ye/exp/speech_data# wc line_index_female.txt
   2530   2531 541101 line_index_female.txt
+```
 
-Training Data: 
+Training Data:  
+
+```
 root@500e9f8181d8:/home/ye/exp/speech_data# head -n 2303 ./line_index_female.txt > openslr80_train.txt
+```
 
-Test Data:
+Test Data:  
+
+```
 root@500e9f8181d8:/home/ye/exp/speech_data# tail -n 127 ./line_index_female.txt > openslr80_test.txt
+```
 
-Validation Data:
+Validation Data:  
+
+```
 root@500e9f8181d8:/home/ye/exp/speech_data# head -n 2403 ./line_index_female.txt | tail -n 100 > openslr80_val.txt
+```
 
 Rechecking:  
 
+```
 root@500e9f8181d8:/home/ye/exp/speech_data# wc openslr80_*
    127    127  27143 openslr80_test.txt
   2303   2304 493421 openslr80_train.txt
    100    100  20537 openslr80_val.txt
   2530   2531 541101 total
+```
 
 ## Folder Structure for Myanmar Data
 
-
+```
 /home/ye/exp/speech_data/MyanmarSpeech/
 .
 |-- openslr80_test.txt
@@ -136,9 +153,11 @@ root@500e9f8181d8:/home/ye/exp/speech_data# wc openslr80_*
     |-- my_0366_0235517782.wav
     |-- my_0366_0432235369.wav
     |-- my_0366_0445549145.wav 
+```
 
 ## Format of Sample Transcriptions
 
+```
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/filelists# ls
 ljs_audio_text_test_filelist.txt  ljs_audio_text_train_filelist.txt  ljs_audio_text_val_filelist.txt
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/filelists# head -n 3 ljs_audio_text_*.txt
@@ -157,9 +176,11 @@ DUMMY/LJ022-0023.wav|The overwhelming majority of people in this country know ho
 DUMMY/LJ043-0030.wav|If somebody did that to me, a lousy trick like that, to take my wife away, and all the furniture, I would be mad as hell, too.
 DUMMY/LJ005-0201.wav|as is shown by the report of the Commissioners to inquire into the state of the municipal corporations in eighteen thirty-five.
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/filelists#
+```
 
 ## Preparing Transcription Files for OpenSLR-80 Data
 
+```
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# sed -i -- 's,^,/home/ye/exp/speech_data/MyanmarSpeech/wavs/,g' *.txt
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# head -n 3 *.txt
 ==> openslr80_test.txt <==
@@ -177,18 +198,17 @@ root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# head -n 3 *.txt
 /home/ye/exp/speech_data/MyanmarSpeech/wavs/bur_6118_4929981963 မြြိြို့လယ်ခေါင် ကတ္တရာ လမ်းမကြီး ပေါ် ဗြစ် ဆဆိုပြီး ဒီအတတိုင်း ထွေးချလလိုက်တာ ပါ
 /home/ye/exp/speech_data/MyanmarSpeech/wavs/bur_4632_8001334672 ဒီ ပစ္စည်းလေး တစ်ခု ထဲ မှာ သက်ဝင်နေတတဲ့ မေတ္တာတရားတွေ က အများကြီး ပဲ
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech#
-
+```
  
+I need to make search and replace for TAB:  
 
-I need to make search and replace for TAB:
-
+```
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# sed -i "s/$(echo '\t')/.wav\|/g" *.txt
+```
 
-Checking:
+Checking:  
 
-
-Checking:
-
+```
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# head -n 2 *.txt
 ==> openslr80_test.txt <==
 /home/ye/exp/speech_data/MyanmarSpeech/wavs/bur_7447_7747402294.wav|အောင်မြင်နနဲ့ လုပ်ငန်း တစ်ခု ကကို ရှိလာနနိုင်မှာ ဖြစ်တယ် လလိလို့ မခခိုင်လွင်ခြူး က ပြောပါတယ်
@@ -202,9 +222,11 @@ root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech# head -n 2 *.txt
 /home/ye/exp/speech_data/MyanmarSpeech/wavs/bur_5903_5153800262.wav|ယခု လတ်တလော တွင် အာရှ စိမ်းလန်းမှု ွံ့ဖြြိုးရေး ဘဏ် လီမိတက် ၏ ငွေအပ်နှံသူများ ကြား ဂယက် ရရိုက်ခတ်မှုများ ရှိနေသည်
 /home/ye/exp/speech_data/MyanmarSpeech/wavs/bur_6118_4929981963.wav|မြြိြို့လယ်ခေါင် ကတ္တရာ လမ်းမကြီး ပေါ် ဗြစ် ဆ                                                                                                ဆိ                                                                                                       ဆို                                                                                                      ဆိုပြီး ဒီအတတိုင်း ထွေးချလလိုက်တာ ပါ
 root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech#
+```
 
 ## Updated
 
+```
         ################################
         # Data Parameters             #
         ################################
@@ -212,19 +234,22 @@ root@500e9f8181d8:/home/ye/exp/speech_data/MyanmarSpeech#
         training_files='/home/ye/exp/speech_data/MyanmarSpeech/openslr80_train.txt',
         validation_files='/home/ye/exp/speech_data/MyanmarSpeech/openslr80_val.txt',
         text_cleaners=['basic_cleaners'],
-
+```
 
 ## Updating the Symbols List 
 
 At 1st, backup symbol file.  
 
+```
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/text# ls
 LICENSE  __init__.py  cleaners.py  cmudict.py  numbers.py  symbols.py
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/text# mkdir backup
 root@500e9f8181d8:/home/ye/exp/tts/tacotron2/text# cp symbols.py ./backup/
+```
 
-The following is the original symbols.py file:
+The following is the original symbols.py file:  
 
+```python
 """ from https://github.com/keithito/tacotron """
 
 '''
@@ -243,26 +268,29 @@ _arpabet = ['@' + s for s in cmudict.valid_symbols]
 
 # Export all symbols:
 symbols = [_pad] + list(_special) + list(_punctuation) + list(_letters) + _arpabet
+```
 
+Then I updated as follows:  
 
-Then I updated as follows:
-
-  
+```python
 _pad        = '_'
 _punctuation = '၊။!\'(),.:;? '
 _special = '-'
 _letters = 'ကခဂဃငစဆဇဈဉညဋဌဍဎဏတထဒဓနပဖဗဘမယရလဝသဟဠအဣဤဥဦဧဩဪါာိီုူေဲံး္်ျြှဿ၌၍၎၏'
-
+```
 
 ## Creating a New Conda Environment
 
- 
+```
 conda create --name tacotron2 python=3.8
 conda activate tacotron2
+```
 
-
+```
 pip install -r requirements.txt
+```
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/backup# cat requirements.txt
 #matplotlib==2.1.0
 #numpy==1.13.3
@@ -271,22 +299,29 @@ librosa==0.6.0
 scipy==1.0.0
 Unidecode==1.0.22
 pillow
+```
+ငါက original requirements.txt မှာပါတဲ့ tensorflow ကို မလိုဘူးထင်လို့ ဖြုတ်ထားခဲ့တာ။ ဘာကြောင့်လဲ ဆိုတော့ Tacotron2 က Pytorch ကို သုံးတာမို့လို့။ သို့သော် တကယ်တမ်းက tensorflow ကိုလည်း installation လုပ်ဖို့ လိုအပ်တယ်။ hyperparameter စတာတွေကို setting လုပ်ထားတဲ့ config ဖိုင်ကို ဖတ်တာက tensorflow library ကို သုံးပြီးဖတ်ဖို့ ရေးထားတာမို့လို့ ...  
 
-I have to install matplotlib separately.
+I have to install matplotlib separately.  
 
-Pytorch Installation:
+Pytorch Installation:  
+
+```
 conda install mkl mkl-include
+```
 
-Check the cuda version:
+Check the cuda version:  
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/backup# nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2022 NVIDIA Corporation
 Built on Wed_Jun__8_16:49:14_PDT_2022
 Cuda compilation tools, release 11.7, V11.7.99
 Build cuda_11.7.r11.7/compiler.31442593_0
+```
 
-
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/backup# conda install -c pytorch magma-cuda110
 ...
 ...
@@ -317,12 +352,14 @@ magma-cuda110-2.5.2  | 65.2 MB   | #############################################
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
+```
 
 Reference:
-https://github.com/pytorch/pytorch#installation
+https://github.com/pytorch/pytorch#installation  
 
 ## Pytorch Installation
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts# pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117
 
 ...
@@ -346,10 +383,11 @@ Successfully built lit
 Installing collected packages: mpmath, lit, cmake, urllib3, typing-extensions, sympy, networkx, MarkupSafe, idna, filelock, charset-normalizer, certifi, requests, jinja2, triton, torch, torchvision, torchaudio
 Successfully installed MarkupSafe-2.1.3 certifi-2023.5.7 charset-normalizer-3.1.0 cmake-3.26.4 filelock-3.12.2 idna-3.4 jinja2-3.1.2 lit-16.0.6 mpmath-1.3.0 networkx-3.1 requests-2.31.0 sympy-1.12 torch-2.0.1+cu117 torchaudio-2.0.2+cu117 torchvision-0.15.2+cu117 triton-2.0.0 typing-extensions-4.7.0 urllib3-2.0.3
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+```
 
+Check ...   
 
-Check ...  
-
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/apex# python
 Python 3.8.13 (default, Mar 28 2022, 11:38:47)
 [GCC 7.5.0] :: Anaconda, Inc. on linux
@@ -357,14 +395,18 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
 >>> print(torch.__version__)
 2.0.1+cu117
+```
 
-Reference:  
-https://www.scaler.com/topics/pytorch/install-pytorch/
+Reference:   
+https://www.scaler.com/topics/pytorch/install-pytorch/  
 
 ## Apex Installation
 
+```
 git clone https://github.com/NVIDIA/apex
+```
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/apex# pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext" ./
 ...
 ...
@@ -387,13 +429,14 @@ Successfully built apex
 Installing collected packages: apex
 Successfully installed apex-0.1
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+```
 
-
-Reference:
-https://github.com/nvidia/apex  
+Reference:  
+https://github.com/nvidia/apex   
 
 ## Installation of Librosa Library
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# pip install librosa
 ...
 ...
@@ -415,9 +458,11 @@ Requirement already satisfied: zipp>=0.5 in /root/anaconda3/envs/tacotron2/lib/p
 Installing collected packages: msgpack, appdirs, threadpoolctl, soxr, pycparser, llvmlite, lazy-loader, joblib, importlib-metadata, decorator, audioread, scikit-learn, pooch, numba, cffi, soundfile, librosa
 Successfully installed appdirs-1.4.4 audioread-3.0.0 cffi-1.15.1 decorator-5.1.1 importlib-metadata-6.7.0 joblib-1.3.1 lazy-loader-0.3 librosa-0.10.0.post2 llvmlite-0.40.1 msgpack-1.0.5 numba-0.57.1 pooch-1.6.0 pycparser-2.21 scikit-learn-1.3.0 soundfile-0.12.1 soxr-0.3.5 threadpoolctl-3.1.0
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+```
 
 ## Installation of unidecode
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# pip install unidecode
 Collecting unidecode
   Downloading Unidecode-1.3.6-py3-none-any.whl (235 kB)
@@ -426,9 +471,11 @@ Installing collected packages: unidecode
 Successfully installed unidecode-1.3.6
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2#
+```
 
 ## Installation of inflact
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# pip install inflect
 Collecting inflect
   Downloading inflect-6.0.4-py3-none-any.whl (34 kB)
@@ -445,25 +492,28 @@ Installing collected packages: pydantic-core, annotated-types, pydantic, inflect
 Successfully installed annotated-types-0.5.0 inflect-6.0.4 pydantic-2.0 pydantic-core-2.0.1
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2#
-
+```
 
 ## Installation of Tensorboard
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# conda install -c anaconda tensorboardw
-
+```
 
 ## Installation of Tensorflow
 
-According to the GitHub source, requirement, when I tried to install specific version, I got following error: 
+According to the GitHub source, requirement, when I tried to install specific version, I got following error:  
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# pip install tensorflow==1.15.2
 ERROR: Could not find a version that satisfies the requirement tensorflow==1.15.2 (from versions: 2.2.0, 2.2.1, 2.2.2, 2.2.3, 2.3.0, 2.3.1, 2.3.2, 2.3.3, 2.3.4, 2.4.0, 2.4.1, 2.4.2, 2.4.3, 2.4.4, 2.5.0, 2.5.1, 2.5.2, 2.5.3, 2.6.0rc0, 2.6.0rc1, 2.6.0rc2, 2.6.0, 2.6.1, 2.6.2, 2.6.3, 2.6.4, 2.6.5, 2.7.0rc0, 2.7.0rc1, 2.7.0, 2.7.1, 2.7.2, 2.7.3, 2.7.4, 2.8.0rc0, 2.8.0rc1, 2.8.0, 2.8.1, 2.8.2, 2.8.3, 2.8.4, 2.9.0rc0, 2.9.0rc1, 2.9.0rc2, 2.9.0, 2.9.1, 2.9.2, 2.9.3, 2.10.0rc0, 2.10.0rc1, 2.10.0rc2, 2.10.0rc3, 2.10.0, 2.10.1, 2.11.0rc0, 2.11.0rc1, 2.11.0rc2, 2.11.0, 2.11.1, 2.12.0rc0, 2.12.0rc1, 2.12.0, 2.13.0rc0, 2.13.0rc1, 2.13.0rc2)
 ERROR: No matching distribution found for tensorflow==1.15.2
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2#
+```
 
-So, try installation again without version information as follows:  
+So, try installation again without version information as follows:   
 
-
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# pip install tensorflown
 ...
 ...
@@ -490,10 +540,15 @@ So, try installation again without version information as follows:
       Successfully uninstalled tensorboard-2.10.0
 Successfully installed astunparse-1.6.3 flatbuffers-23.5.26 gast-0.4.0 google-auth-2.21.0 google-auth-oauthlib-1.0.0 google-pasta-0.2.0 grpcio-1.56.0 h5py-3.9.0 jax-0.4.13 keras-2.12.0 libclang-16.0.0 ml-dtypes-0.2.0 opt-einsum-3.3.0 protobuf-4.23.3 tensorboard-2.12.3 tensorboard-data-server-0.7.1 tensorflow-2.12.0 tensorflow-estimator-2.12.0 tensorflow-io-gcs-filesystem-0.32.0 termcolor-2.3.0 wrapt-1.14.1
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-
+```
 
 ## 1st Time Training
 
+```
+(tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# time python train.py --output_directory=openslr80 --log_directory=openslr80_log
+...
+...
+...
 Train loss 7082 0.412546 Grad Norm 1.326766 1.15s/it
 Train loss 7083 0.442348 Grad Norm 0.439335 1.29s/it
 Train loss 7084 0.502699 Grad Norm 1.721761 0.94s/it
@@ -519,10 +574,14 @@ real    192m24.442s
 user    307m19.798s
 sys     362m3.455s
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2#
-(tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# time python train.py --output_directory=openslr80 --log_directory=openslr80_log
+```
+
+Tacotron2 ကို OpenSLR-80 ဒေတာနည်းနည်းနဲ့ 100 epochs training လုပ်တာတော့ အောင်အောင်မြင်မြင်နဲ့ ပြီးစီးသွားခဲ့တယ်။  
+
 
 ## Checing Checkpoints
 
+```
 checkpoint_1830  checkpoint_2900  checkpoint_3980  checkpoint_5040  checkpoint_6110  checkpoint_800
 checkpoint_1840  checkpoint_2910  checkpoint_3990  checkpoint_5050  checkpoint_6120  checkpoint_810
 checkpoint_1850  checkpoint_2920  checkpoint_40    checkpoint_5060  checkpoint_6130  checkpoint_820
@@ -549,21 +608,30 @@ checkpoint_2020  checkpoint_310   checkpoint_4170  checkpoint_5240  checkpoint_6
 checkpoint_2030  checkpoint_3100  checkpoint_4180  checkpoint_5250  checkpoint_6320
 checkpoint_2040  checkpoint_3110  checkpoint_4190  checkpoint_5260  checkpoint_6330
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/openslr80# ls
+```
+
 
 ## Checking Logs
 
+```
 n2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/openslr80/openslr80_log# ls
 events.out.tfevents.1688288713.500e9f8181d8.7074.0  events.out.tfevents.1688290682.500e9f8181d8.7484.0
 events.out.tfevents.1688288779.500e9f8181d8.7192.0  events.out.tfevents.1688294164.500e9f8181d8.7983.0
 events.out.tfevents.1688288927.500e9f8181d8.7309.0
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2/openslr80/openslr80_log#
+```
 
 ## Disk Usage
 
+```
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# du ./openslr80/ -h
 461M    ./openslr80/openslr80_log
 225G    ./openslr80/
 (tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2#
+```
+
+HDD size ကတော့ တော်တော်ယူတယ်။  
+အဲဒါကြောင့် checkpoint ကို အများကြီး မသိမ်းအောင် setting လုပ်မယ်။  
 
 ## Testing
 
