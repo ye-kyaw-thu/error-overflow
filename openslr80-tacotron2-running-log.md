@@ -1,4 +1,4 @@
-Note for preparing quick TTS with OpenSLR-80 dataset
+# Note for preparing quick TTS with OpenSLR-80 dataset
 
 ## Data Format
 
@@ -9,7 +9,7 @@ audio3|This is certainly my sentence.
 audio4|Let this be your sentence.
 ...
 
-In details:
+In details:  
 
 DUMMY/LJ022-0023.wav|The overwhelming majority of people in this country know how to sift the wheat from the chaff in what they hear and what they read.
 DUMMY/LJ043-0030.wav|If somebody did that to me, a lousy trick like that, to take my wife away, and all the furniture, I would be mad as hell, too.
@@ -28,7 +28,8 @@ We have to prepare following folder structure:
 
 ## Git Clone
 
-git clone https://github.com/NVIDIA/tacotron2.git
+```
+git clone https://github.com/NVIDIA/tacotron2.git  
 
 root@7a5711b4fb3e:/home/ye/exp/tts/tacotron2# ls
 Dockerfile           data_utils.py   hparams.py       loss_function.py  plotting_utils.py  text
@@ -36,22 +37,28 @@ LICENSE              demo.wav        inference.ipynb  loss_scaler.py    requirem
 README.md            distributed.py  layers.py        model.py          stft.py            utils.py
 audio_processing.py  filelists       logger.py        multiproc.py      tensorboard.png    waveglow
 root@7a5711b4fb3e:/home/ye/exp/tts/tacotron2#
+```
 
 ## Initialize Submodule
 
+```
 root@7a5711b4fb3e:/home/ye/exp/tts/tacotron2# git submodule init; git submodule update
 Submodule 'waveglow' (https://github.com/NVIDIA/waveglow) registered for path 'waveglow'
 Cloning into '/home/ye/exp/tts/tacotron2/waveglow'...
 Submodule path 'waveglow': checked out '5bc2a53e20b3b533362f974cfa1ea0267ae1c2b1'
 root@7a5711b4fb3e:/home/ye/exp/tts/tacotron2#
+```
 
 ## Updating .wav Paths
 
-If you are using LJSpeech dataset:
+If you are using LJSpeech dataset:  
 
+```
 sed -i -- 's,DUMMY,ljs_dataset_folder/wavs,g' filelists/*.txt 
+```
 
-The `sed` command is a stream editor for filtering and transforming text. Here is a breakdown of the command you provided:
+```
+The `sed` command is a stream editor for filtering and transforming text. Here is a breakdown of the command you provided:  
 
 - `sed`: This invokes the stream editor utility.
 - `-i`: This option means "in-place", i.e., it will edit files in place (makes backup if an extension is supplied).
@@ -64,6 +71,7 @@ So, in short, this command replaces every occurrence of the word "DUMMY" with "l
 Or Alternatively, 
 
 Set load_mel_from_disk=True in hparams.py and update mel-spectrogram paths.
+```
 
 ## Check hparams.py
 
@@ -1280,4 +1288,7 @@ Sample Encoding: 16-bit Signed Integer PCM
 
 
 
--
+## Reference
+
+1. https://github.com/NVIDIA/tacotron2/issues/321  
+
