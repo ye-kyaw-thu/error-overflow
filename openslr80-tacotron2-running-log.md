@@ -1363,5 +1363,12 @@ Sample Encoding: 16-bit Signed Integer PCM
 
 ## Reference
 
-1. https://github.com/NVIDIA/tacotron2/issues/321  
+1. https://github.com/NVIDIA/tacotron2/issues/321
+2. https://tts.readthedocs.io/en/latest/models/tacotron1-2.html
+
+For tts testing reference:  
+
+1. https://tts.readthedocs.io/en/latest/inference.html#synthesizing-speech
+2. https://tts.readthedocs.io/en/latest/tutorial_for_nervous_beginners.html
+3. https://tts.readthedocs.io/en/latest/faq.html
 
