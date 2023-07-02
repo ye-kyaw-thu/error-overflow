@@ -1409,3 +1409,4 @@ For tts testing reference:
 3. https://tts.readthedocs.io/en/latest/faq.html
 4. https://github.com/r9y9/tacotron_pytorch/blob/master/notebooks/Test%20Tacotron.ipynb
 5. https://medium.com/nectec/tacotron2-thai-tts-b5d26a015465
+6. https://colab.research.google.com/gist/sayakmisra/2bf6e72fb9eed2f8cfb2fb47143726b6/-e2e-tts.ipynb#scrollTo=3lMJyJcLCsd4
