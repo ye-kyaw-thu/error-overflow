@@ -1386,8 +1386,21 @@ Sample Encoding: 16-bit Signed Integer PCM
 
 ## Reference
 
-1. https://github.com/NVIDIA/tacotron2/issues/321
+1. https://github.com/NVIDIA/tacotron2/issues/321  
 2. https://tts.readthedocs.io/en/latest/models/tacotron1-2.html
+3. https://keithito.com/LJ-Speech-Dataset/  
+
+Quick Start:  
+
+[https://github.com/keithito/tacotron](https://github.com/keithito/tacotron)  
+
+Paper:  
+
+TACOTRON: TOWARDS END-TO-END SPEECH SYNTHESIS:  
+[https://arxiv.org/pdf/1703.10135.pdf](https://arxiv.org/pdf/1703.10135.pdf)  
+
+Tacotron2:  
+
 
 For tts testing reference:  
 
