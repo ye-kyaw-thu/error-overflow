@@ -601,7 +601,6 @@ sys     362m3.455s
 
 Tacotron2 ကို OpenSLR-80 ဒေတာနည်းနည်းနဲ့ 100 epochs training လုပ်တာတော့ အောင်အောင်မြင်မြင်နဲ့ ပြီးစီးသွားခဲ့တယ်။  
 
-
 ## Checing Checkpoints
 
 ```
@@ -658,8 +657,43 @@ HDD size ကတော့ တော်တော်ယူတယ်။
 
 ## Testing
 
+Still got error in output wavefiles ...  
 
+## Training (for 500 epochs)
 
+Testing လုပ်ကြည့်ဖို့အတွက်က Jupyter notebook နဲ့ ပြထားတာကော၊ ပြီးတော့ အဲဒီ notebook မှာ သုံးထားတဲ့ library တွေရဲ့ ပိုင်သွန်ဗားရှင်းတွေက မတူတာကောကြောင့် testing.py ဆိုပြီး script ကို အစအဆုံးလိုလို ပြန်ရေးခဲ့ရတယ်။ သို့သော် tesging လုပ်ပြီးတော့ ရလာတဲ့ output wave file တွေမှာ ပြဿနာရှိနေသေးတယ်။ အဲဒါနဲ့ ကျောင်းသူ နှစ်ယောက်ရဲ့ ဒေတာနဲ့ training လုပ်မယ်ဆိုရင်လည်း ဘယ်လောက်ကြာမလဲဆိုတာကိုလည်း ပိုအတိအကျ ခန့်မှန်းနိုင်အောင်လို့ openslr ဒေတာနဲ့ပဲ epoch 500 အထိ training နောက်တစ်ခေါက် လုပ်ကြည့်ခဲ့တယ်။  
+
+(tacotron2) root@500e9f8181d8:/home/ye/exp/tts/tacotron2# time python train.py --output_directory=openslr80 --log_directory=openslr80_log2
+...
+...
+...
+Train loss 35479 0.290018 Grad Norm 0.304541 1.17s/it
+Train loss 35480 0.303260 Grad Norm 0.784043 1.22s/it
+Train loss 35481 0.303583 Grad Norm 0.335501 1.05s/it
+Train loss 35482 0.292122 Grad Norm 0.830861 1.28s/it
+Train loss 35483 0.296945 Grad Norm 0.697048 1.09s/it
+Train loss 35484 0.269489 Grad Norm 0.199639 1.44s/it
+Train loss 35485 0.295312 Grad Norm 0.532426 1.14s/it
+Train loss 35486 0.296445 Grad Norm 1.264659 1.16s/it
+Train loss 35487 0.289710 Grad Norm 0.346991 1.09s/it
+Train loss 35488 0.282089 Grad Norm 0.859849 1.30s/it
+Train loss 35489 0.309729 Grad Norm 0.553891 1.14s/it
+Train loss 35490 0.244908 Grad Norm 0.227702 1.24s/it
+Train loss 35491 0.250027 Grad Norm 0.494088 1.13s/it
+Train loss 35492 0.268798 Grad Norm 0.349192 1.24s/it
+Train loss 35493 0.291858 Grad Norm 0.588458 1.13s/it
+Train loss 35494 0.292340 Grad Norm 0.548000 1.12s/it
+Train loss 35495 0.307799 Grad Norm 0.288330 1.08s/it
+Train loss 35496 0.278712 Grad Norm 0.288818 1.20s/it
+Train loss 35497 0.282973 Grad Norm 0.378105 1.17s/it
+Train loss 35498 0.287030 Grad Norm 0.547096 1.14s/it
+Train loss 35499 0.321029 Grad Norm 0.804215 1.01s/it
+
+real    745m39.197s
+user    936m6.811s
+sys     451m30.500s
+
+## Testing
 
 
 
