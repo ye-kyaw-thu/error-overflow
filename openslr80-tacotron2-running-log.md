@@ -1434,7 +1434,7 @@ TACOTRON: TOWARDS END-TO-END SPEECH SYNTHESIS:
 [https://arxiv.org/pdf/1703.10135.pdf](https://arxiv.org/pdf/1703.10135.pdf)  
 
 Tacotron2:  
-
+[1712.05884.pdf](https://arxiv.org/pdf/1712.05884.pdf)
 
 For tts testing reference:  
 
