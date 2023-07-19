@@ -1,5 +1,8 @@
 # Testing Code Interpreter
 
+Experiment Date: 19 July 2023   
+Beta Version, that I tested on GPT4 paid account.  
+
 ## Q  
 What is code interpreter? How it works? and How should I apply for what? Could explain to me about the code interpreter of ChatGPT in details including usage examples?
 
