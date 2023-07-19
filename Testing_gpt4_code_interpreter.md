@@ -34,7 +34,7 @@ ChatGPT's code interpreter is a tool that allows for the execution of Python cod
 #### Usage Examples:
 
 1. **Simple Calculations**:
-   If you ask, "What's $$\(2 + 3?\)$$", I can use the interpreter to compute the result.
+   If you ask, "What's $\(2 + 3?\)$", I can use the interpreter to compute the result.
 2. **Data Analysis**:
    You can provide a dataset, and I can use libraries like Pandas and NumPy to analyze the data and provide insights.
 3. **Visualization**:
