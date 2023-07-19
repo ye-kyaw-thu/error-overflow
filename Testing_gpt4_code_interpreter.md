@@ -61,6 +61,8 @@ Can you plot a sine and cosine waves for me?
   Fig. Sine and Cosine wave graph   
 </div> 
 
+</br>
+
 Here's the plot showing both the sine (in blue) and cosine (in red) waves over one full period. The x-axis represents the angle in radians, and the y-axis represents the value of the sine or cosine function for that angle.
 
 Would you like to explore anything else related to this or another topic?
