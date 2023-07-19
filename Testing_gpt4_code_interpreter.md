@@ -54,7 +54,12 @@ Would you like to try out the code interpreter with a specific example or have a
 ## Q
 Can you plot a sine and cosine waves for me?
 
-Pic (I already downloaded)
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/chatGPT4/sine_and_cosine_waves.png" alt="Sine and Cosine Waves Figure" width="800"/>  
+
+</p>  
+<div align="center">
+  Fig. Sine and Cosine wave graph   
+</div> 
 
 Here's the plot showing both the sine (in blue) and cosine (in red) waves over one full period. The x-axis represents the angle in radians, and the y-axis represents the value of the sine or cosine function for that angle.
 
