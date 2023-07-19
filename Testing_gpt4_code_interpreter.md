@@ -199,7 +199,7 @@ svc_test_acc = accuracy_score(labels_test, svc_test_preds)
 svc_train
 ```
 
-##Q
+## Q
 
 I need the complete source code for both SVC and deep learning approaches and the comparison results with my own CSV data. Can you try again?
 
@@ -361,25 +361,25 @@ Would you like to dive deeper into any of these examples, or perhaps see one of 
 
 Can you make a simulation of Monte Carlo method? I wanna see your simulation demo and results ...
 
-Certainly! The Monte Carlo method is a probabilistic method used to estimate numerical results using random sampling. A classic demonstration of the Monte Carlo method is to estimate the value of \(\pi\).
+Certainly! The Monte Carlo method is a probabilistic method used to estimate numerical results using random sampling. A classic demonstration of the Monte Carlo method is to estimate the value of $\(\pi\)$.
 
-### Monte Carlo method to estimate \(\pi\):
+### Monte Carlo method to estimate $\(\pi\)$:
 
 Imagine a square with a side length of 2 units. Inside this square, we inscribe a circle with a radius of 1 unit. If we randomly throw darts at this square, the ratio of darts that land inside the circle to the total darts thrown should approach the ratio of the area of the circle to the area of the square as the number of darts increases.
 
 Given that:
-- Area of the square = \(side^2 = 2^2 = 4\)
-- Area of the circle = \(\pi \times radius^2 = \pi \times 1^2 = \pi\)
+- Area of the square = $\(side^2 = 2^2 = 4\)$
+- Area of the circle = $\(\pi \times radius^2 = \pi \times 1^2 = \pi\)$
 
 The ratio of the areas is:
-\(\frac{\pi}{4}\)
+$\(\frac{\pi}{4}\)$
 
-So, if we randomly throw \(N\) darts at the square, and \(M\) of them land inside the circle, then:
-\(\frac{M}{N} \approx \frac{\pi}{4}\)
+So, if we randomly throw \(N\) darts at the square, and $\(M\)$ of them land inside the circle, then:
+$$\(\frac{M}{N} \approx \frac{\pi}{4}\)$$
 Which implies:
-\(\pi \approx 4 \times \frac{M}{N}\)
+$$\(\pi \approx 4 \times \frac{M}{N}\)$$
 
-I'll now run a simulation where we'll "throw" a large number of darts (points) randomly within the square and count how many land inside the circle. From this, we'll estimate \(\pi\). Let's see this in action.
+I'll now run a simulation where we'll "throw" a large number of darts (points) randomly within the square and count how many land inside the circle. From this, we'll estimate $\(\pi\)$. Let's see this in action.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -454,13 +454,13 @@ plt.show()
 pi_estimate
 ```
 
-Here's a brief overview of how the Monte Carlo method to estimate \(\pi\) works:
+Here's a brief overview of how the Monte Carlo method to estimate $\(\pi\)$ works:
 
 1. Imagine a square of side length 2 units, with a quarter circle inscribed inside.
 2. Randomly generate points (or "throw darts") within this square.
 3. Count the number of points that fall inside the quarter circle.
 4. The ratio of points inside the quarter circle to the total number of points thrown is approximately the ratio of the area of the quarter circle to the area of the square.
-5. Using this ratio, we can estimate \(\pi\).
+5. Using this ratio, we can estimate $\(\pi\)$.
 
 I'd recommend running the provided code in a local Python environment or using a cloud-based platform like Google Colab to see the simulation in action.
 
