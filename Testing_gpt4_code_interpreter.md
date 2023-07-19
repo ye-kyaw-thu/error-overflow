@@ -1,6 +1,6 @@
 # Testing Code Interpreter
 
-##Q
+## Q  
 What is code interpreter? How it works? and How should I apply for what? Could explain to me about the code interpreter of ChatGPT in details including usage examples?
 
 Certainly! Let's dive into the concept of code interpreters, how they work, and then we'll explore the specifics of the code interpreter in ChatGPT.
@@ -48,7 +48,7 @@ You simply provide a task or a question, and if it requires code execution, I'll
 
 Would you like to try out the code interpreter with a specific example or have any other questions about it?
 
-##Q
+## Q
 Can you plot a sine and cosine waves for me?
 
 Pic (I already downloaded)
@@ -57,7 +57,7 @@ Here's the plot showing both the sine (in blue) and cosine (in red) waves over o
 
 Would you like to explore anything else related to this or another topic?
 
-##Q
+## Q
 Are there any more good example of interpreter usage from ChatGPT? Could you introduce 3 more examples.
 
 Of course! The interpreter in ChatGPT can be used for a variety of tasks due to the flexibility of the Python programming language and the libraries available. Here are three more diverse examples of its capabilities:
@@ -79,10 +79,11 @@ Of course! The interpreter in ChatGPT can be used for a variety of tasks due to 
 
 Would you like to dive deeper into any of these examples, or perhaps see one of them in action?
 
-##Q
+## Q
 
 I have following CSV dataset of Burmese sentiment analysis:
 
+```
 text,sentiment
 အရမ်း လှ နေ ပါလား,positive
 ရုပ်ဆိုး ကြီး,negative
@@ -133,7 +134,7 @@ text,sentiment
 ကင်ဆာ ရောဂါ ဖြစ် နေ တယ်,negative
 ရောဂါ မရှိ ဘူး လို့ ဆရာဝန် က ပြော ပါ တယ်,positive
 ကြိုးစား တယ် ဒါပေမဲ့ အောင်မြင် သင့် သလောက် မအောင်မြင် တာ,negative
-
+```
 Can you make a machine learning comparison demo between SVC and one good deep learning approach? (in terms of both training/testing classification results and also training/testing time)
 
 Certainly! For this task, we'll take the following steps:
@@ -178,7 +179,7 @@ I apologize for the oversight. It appears I forgot to import the `time` module. 
 
 I apologize for the oversight. It seems I forgot to import the `SVC` class from `sklearn.svm`. Let's correct that mistake and continue with the SVC training.
 
-```
+```Python
 # Importing the SVC class
 from sklearn.svm import SVC
 
@@ -241,7 +242,7 @@ I'm sorry for the oversight. My current environment does not have TensorFlow ins
 
 Would that be acceptable for you?
 
-##Q
+## Q
 You said:
 
 I'm sorry for the oversight. My current environment does not have TensorFlow installed. Instead, I can use PyTorch, another deep learning library, to implement the LSTM model.
@@ -270,7 +271,7 @@ To address this, I'll make the following modifications:
 
 Let's try training the LSTM model with these modifications.
 
-```
+```Python
 # Define a simpler LSTM model
 class SimpleLSTMModel(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_dim, n_layers, dropout_rate):
@@ -346,7 +347,7 @@ We were unable to obtain results for the LSTM model due to memory constraints.
 
 Would you like the code for the PyTorch LSTM model to run on your local machine or any other assistance?
 
-##Q
+## Q
 You said as follows:
 
 Simulations and Algorithm Visualizations:
@@ -380,7 +381,7 @@ Which implies:
 
 I'll now run a simulation where we'll "throw" a large number of darts (points) randomly within the square and count how many land inside the circle. From this, we'll estimate \(\pi\). Let's see this in action.
 
-```
+```Python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -421,7 +422,7 @@ Let's try the simulation again with a reduced number of points.
 
 I'm truly sorry for the inconvenience. The current environment seems to be experiencing resource constraints, which is causing memory errors even with a reduced number of points.
 
-```
+```Python
 # Reduce the number of darts (points) to be thrown
 N = 5000
 
