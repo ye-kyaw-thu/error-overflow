@@ -1,8 +1,6 @@
 # Testing Code Interpreter
-(gpt-4-code-interpreter)
 
 ##Q
-
 What is code interpreter? How it works? and How should I apply for what? Could explain to me about the code interpreter of ChatGPT in details including usage examples?
 
 Certainly! Let's dive into the concept of code interpreters, how they work, and then we'll explore the specifics of the code interpreter in ChatGPT.
