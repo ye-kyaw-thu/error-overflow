@@ -199,6 +199,7 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 192. [chatting-about-learning-a-new-language-with-ChatGPT.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-learning-a-new-language-with-ChatGPT.md)  
 193. [chatting-about-math-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-math-with-ChatGPT4.md)  
 194. [chatting-about-religious-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-religious-with-ChatGPT4.md)
-195. [some-biographies-writing-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/some-biographies-writing-with-ChatGPT4.md)  
+195. [some-biographies-writing-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/some-biographies-writing-with-ChatGPT4.md)
+196. [Testing_gpt4_code_interpreter.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Testing_gpt4_code_interpreter.md)  
 
 
