@@ -201,6 +201,7 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 194. [chatting-about-religious-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/chatting-about-religious-with-ChatGPT4.md)
 195. [some-biographies-writing-with-ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/some-biographies-writing-with-ChatGPT4.md)
 196. [Testing_gpt4_code_interpreter.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Testing_gpt4_code_interpreter.md)
-197. [ruby_installation_note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ruby_installation_note.md)  
+197. [ruby_installation_note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ruby_installation_note.md)
+198. [sgpt_testing_note.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sgpt_testing_note.md)  
 
 
