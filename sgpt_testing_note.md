@@ -448,5 +448,6 @@ I did find learn that access to the API is not included in the ChatGPTplus subsc
 ## Reference
 
 1. https://github.com/TheR1D/shell_gpt
-2. https://beebom.com/how-use-chatgpt-linux-terminal/
+2. https://medium.com/@abraaorl/using-chatgpt-in-the-terminal-f992815d7ab0  
+3. https://beebom.com/how-use-chatgpt-linux-terminal/
 
