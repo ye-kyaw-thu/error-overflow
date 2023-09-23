@@ -2,6 +2,7 @@
 
 ## git clone
 
+```
 (base) ye@lst-gpu-3090:~/exp$ git clone https://github.com/jeffchy/RE2NN-SEQ
 Cloning into 'RE2NN-SEQ'...
 remote: Enumerating objects: 112, done.
@@ -11,9 +12,11 @@ remote: Total 112 (delta 20), reused 90 (delta 12), pack-reused 0
 Receiving objects: 100% (112/112), 1.55 MiB | 631.00 KiB/s, done.
 Resolving deltas: 100% (20/20), done.
 (base) ye@lst-gpu-3090:~/exp$
+```
 
 ## Create New Conda Env
 
+```
 (base) ye@lst-gpu-3090:~/exp$ conda create --name re2nn_seq python=3.8
 ...
 ...
@@ -43,14 +46,18 @@ Executing transaction: done
 #     $ conda deactivate
 
 (base) ye@lst-gpu-3090:~/exp$
+```
 
 ## Activate
 
+```
 (base) ye@lst-gpu-3090:~/exp$ conda activate re2nn_seq
 (re2nn_seq) ye@lst-gpu-3090:~/exp$
+```
 
 ## Check the requirements.txt
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp$ cd RE2NN-SEQ/
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ$ cd src_seq/
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ ls
@@ -66,9 +73,11 @@ __init__.py               rule_utils              train_onehot.py
 torch==1.3.1
 automata-tools==2.0.1
 tqdm(re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
 ## Installation of Requirements
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install -r requirements.txt
 Obtaining tensorly from git+https://github.com/tensorly/tensorly@dc67ac6353e2d97dc516671dd9e64d254fa495b5#egg=tensorly (from -r requirements.txt (line 1))
   Cloning https://github.com/tensorly/tensorly (to revision dc67ac6353e2d97dc516671dd9e64d254fa495b5) to ./src/tensorly
@@ -81,11 +90,11 @@ Obtaining tensorly from git+https://github.com/tensorly/tensorly@dc67ac6353e2d97
 ERROR: Could not find a version that satisfies the requirement torch==1.3.1 (from versions: 1.4.0, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.7.1, 1.8.0, 1.8.1, 1.9.0, 1.9.1, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.12.0, 1.12.1, 1.13.0, 1.13.1, 2.0.0, 2.0.1)
 ERROR: No matching distribution found for torch==1.3.1
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
-Got ERROR as shown above!!
-
-Original source က run ထားတဲ့ environment/condition နဲ့ သိပ်မကွာအောင် torch ကို 1.4.0 နဲ့ပဲ install လုပ်ကြည့်ခဲ့ ...  
-
+Got ERROR as shown above!!  
+Original source က run ထားတဲ့ environment/condition နဲ့ သိပ်မကွာအောင် torch ကို 1.4.0 နဲ့ပဲ install လုပ်ကြည့်ခဲ့ ...   
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install -r requirements.txt
 Obtaining tensorly from git+https://github.com/tensorly/tensorly@dc67ac6353e2d97dc516671dd9e64d254fa495b5#egg=tensorly (from -r requirements.txt (line 1))
   Skipping because already up-to-date.
@@ -112,23 +121,29 @@ Installing collected packages: nose, tqdm, torch, numpy, automata-tools, scipy, 
   Running setup.py develop for tensorly
 Successfully installed automata-tools-2.0.1 nose-1.3.7 numpy-1.24.4 scipy-1.10.1 tensorly-0.4.5 torch-1.4.0 tqdm-4.66.1
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
-ဒီတစ်ခါတော့ requirements installation OK!!
+ဒီတစ်ခါတော့ requirements installation OK!!  
 
 ## Download Data
 
+```
 C:\Users\801680>scp Downloads\data_seq.zip ye@xx.xxx.xx.xx:/home/ye/exp/RE2NN-SEQ/data
-ye@10.222.41.24's password:
+ye@xx.xxx.xx.xx's password:
 data_seq.zip
+```
 
 Check on server:  
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$ ls -lh data_seq.zip
 -rw-rw-r-- 1 ye ye 138M ก.ย.  23 14:02 data_seq.zip
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$
+```
 
 ## Unzipping
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$ unzip data_seq.zip
 Archive:  data_seq.zip
    creating: ATIS-BIO/
@@ -179,9 +194,11 @@ Archive:  data_seq.zip
   inflating: SNIPS-BIO/glove.100.emb
   inflating: SNIPS-BIO/automata/IIID.automata.0323152125-1616512885.4562736.svd.2best.104states.random.1splits.200-0.0025250-0.0026300-0.0022.bio.rules.v1.config.pkl
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$
+```
 
 ## Check the folders/Files
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$ ls
 ATIS-BIO  ATIS-ZH-BIO  data_seq.zip  README.md  SNIPS-BIO
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$ cd ATIS-BIO
@@ -190,7 +207,9 @@ atis.dev.new.pkl    atis.train.new.pkl  bert_decontext.emb       dataset.pkl    
 atis.dicts.new.pkl  automata            bio.rules.config         fasttext.100.emb  glove.300.emb
 atis.test.new.pkl   bert_aggregate.emb  bio.rules.config.parsed  fasttext.300.emb
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$
+```
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$ tree
 .
 ├── atis.dev.new.pkl
@@ -211,9 +230,11 @@ atis.test.new.pkl   bert_aggregate.emb  bio.rules.config.parsed  fasttext.300.em
 
 1 directory, 14 files
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$
+```
 
 ## Check bio.rules.config file:  
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$ cat bio.rules.config
 //['BOS', 'i', 'would', 'like', 'a', 'nonstop', 'flight', 'from', 'new', 'york', 'to', 'las', 'vegas', 'on', 'march', 'second', 'EOS']
 //['O', 'O', 'O', 'O', 'O', 'B-flight_stop', 'O', 'O', 'B-fromloc.city_name', 'I-fromloc.city_name', 'O', 'B-toloc.city_name', 'I-toloc.city_name', 'O', 'B-arrive_date.month_name', 'B-arrive_date.day_number', 'O']
@@ -504,9 +525,11 @@ $<:>OO * from<:>O $<:>OO * to<:>O $<:>B-toloc.city_name $<:>I-toloc.city_name ? 
 $<:>OO * from<:>O $<:>OO * to<:>O washington<:>O ? dc<:>B-toloc.state_code $<:>OO *
 $<:>OO * ( taxi<:>B-transport_type | train<:>B-transport_type | limousine<:>B-transport_type | air<:>B-transport_type taxi<:>I-transport_type operation<:>I-transport_type | car<:>B-transport_type | car<:>B-transport_type rental<:>I-transport_type | rental<:>B-transport_type car<:>I-transport_type | car<:>B-transport_type rentals<:>I-transport_type | limo<:>B-transport_type | rental<:>B-transport_type cars<:>I-transport_type | limousines<:>B-transport_type ) $<:>OO *
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$
+```
 
 ## Check SNIPS-BIO Folder
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$ tree SNIPS-BIO/
 SNIPS-BIO/
 ├── automata
@@ -526,9 +549,11 @@ SNIPS-BIO/
 
 1 directory, 13 files
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data$
+```
 
 ## Check the  bio.rules.v1.config File
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$ cat bio.rules.v1.config
 // object_type
 
@@ -599,16 +624,20 @@ $<:>OO * @cond<:>condition_description@ $<:>OO *
 @current_location@=(here | current position | current location | current place | current spot)
 $<:>OO * @current_location<:>current_location@ $<:>OO *
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$
+```
 
 ## Check Raw Text Files
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$ wc train.txt
  143868  248484 1748639 train.txt
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$ wc test.txt
  7754 13408 93957 test.txt
- 
+ ```
+
 Check the train file format:  
- 
+
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$ head -n 30 train.txt
 listen O
 to O
@@ -641,9 +670,11 @@ rating O
 value O
 of O
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$
+```
 
 Check the test file format:  
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$ head -n 30 test.txt
 add O
 sabrina B-artist
@@ -676,9 +707,11 @@ cuisine O
 BookRestaurant
 
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/SNIPS-BIO$
+```
 
 ## Check ATIS-BIO .pkl File
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$ python -mpickle ./dataset.pkl > ./dataset.txt
 
 
@@ -738,15 +771,19 @@ BookRestaurant
        ...,
        array([128, 128, 128, 128, 128, 128,  48, 128,  78, 128,  26,  33, 128]),
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$
+```
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/data/ATIS-BIO$ python ./open_pkl.py ./atis.dicts.new.pkl | head -n 30
 ...
 ...
 ...
 'B-return_time.period_of_day': 65, 'B-round_trip': 66, 'B-state_code': 67, 'B-state_name': 68, 'B-stoploc.airport_code': 69, 'B-stoploc.airport_name': 70, 'B-stoploc.city_name': 71, 'B-stoploc.state_code': 72, 'B-time': 73, 'B-time_relative': 74, 'B-today_relative': 75, 'B-toloc.airport_code': 76, 'B-toloc.airport_name': 77, 'B-toloc.city_name': 78, 'B-toloc.country_name': 79, 'B-toloc.state_code': 80, 'B-toloc.state_name': 81, 'B-transport_type': 82, 'I-airline_name': 83, 'I-airport_name': 84, 'I-arrive_date.day_number': 85, 'I-arrive_time.end_time': 86, 'I-arrive_time.period_of_day': 87, 'I-arrive_time.start_time': 88, 'I-arrive_time.time': 89, 'I-arrive_time.time_relative': 90, 'I-city_name': 91, 'I-class_type': 92, 'I-cost_relative': 93, 'I-depart_date.day_name': 94, 'I-depart_date.day_number': 95, 'I-depart_date.today_relative': 96, 'I-depart_time.end_time': 97, 'I-depart_time.period_of_day': 98, 'I-depart_time.start_time': 99, 'I-depart_time.time': 100, 'I-depart_time.time_relative': 101, 'I-economy': 102, 'I-fare_amount': 103, 'I-fare_basis_code': 104, 'I-flight_mod': 105, 'I-flight_number': 106, 'I-flight_stop': 107, 'I-flight_time': 108, 'I-fromloc.airport_name': 109, 'I-fromloc.city_name': 110, 'I-fromloc.state_name': 111, 'I-meal_code': 112, 'I-meal_description': 113, 'I-mod': 114, 'I-restriction_code': 115, 'I-return_date.date_relative': 116, 'I-return_date.day_number': 117, 'I-return_date.today_relative': 118, 'I-round_trip': 119, 'I-state_name': 120, 'I-stoploc.city_name': 121, 'I-time': 122, 'I-today_relative': 123, 'I-toloc.airport_name': 124, 'I-toloc.city_name': 125, 'I-toloc.state_name': 126, 'I-transport_type': 127, 'O': 128}, 'intent_ids': {'abbreviation': 0, 'aircraft': 1, 'aircraft+flight+flight_no': 2, 'airfare': 3, 'airfare+flight': 4, 'airfare+flight_time': 5, 'airline': 6, 'airline+flight_no': 7, 'airport': 8, 'capacity': 9, 'cheapest': 10, 'city': 11, 'day_name': 12, 'distance': 13, 'flight': 14, 'flight+airfare': 15, 'flight+airline': 16, 'flight_no': 17, 'flight_no+airline': 18, 'flight_time': 19, 'ground_fare': 20, 'ground_service': 21, 'ground_service+ground_fare': 22, 'meal': 23, 'quantity': 24, 'restriction': 25}})
+```
 
 ## Pandas Library Required
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install pandas
 Collecting pandas
   Obtaining dependency information for pandas from https://files.pythonhosted.org/packages/f8/7f/5b047effafbdd34e52c9e2d7e44f729a0655efafb22198c45cf692cdc157/pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
@@ -767,9 +804,11 @@ Downloading pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
 Installing collected packages: pytz, tzdata, six, python-dateutil, pandas
 Successfully installed pandas-2.0.3 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.16.0 tzdata-2023.3
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
 ## pydash also Required
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ time python main.py --args_path ../model_seq/config_file_path.res
 Traceback (most recent call last):
   File "main.py", line 5, in <module>
@@ -786,7 +825,9 @@ real    0m0.289s
 user    0m0.442s
 sys     0m0.792s
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install pydash
 Collecting pydash
   Obtaining dependency information for pydash from https://files.pythonhosted.org/packages/1b/8c/b0b1c3ed6eff8ef50e396084a0d0d8e82eeae44027c18cff9aef705f8eb0/pydash-7.0.6-py3-none-any.whl.metadata
@@ -801,9 +842,11 @@ Downloading typing_extensions-4.8.0-py3-none-any.whl (31 kB)
 Installing collected packages: typing-extensions, pydash
 Successfully installed pydash-7.0.6 typing-extensions-4.8.0
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
 ## FastText Installation
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ time python main.py --args_path ../model_seq/config_file_path.res
 Traceback (most recent call last):
   File "main.py", line 5, in <module>
@@ -818,7 +861,9 @@ real    0m0.301s
 user    0m0.549s
 sys     0m0.657s
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install fasttext
 Collecting fasttext
   Using cached fasttext-0.9.2-cp38-cp38-linux_x86_64.whl
@@ -831,9 +876,11 @@ Using cached pybind11-2.11.1-py3-none-any.whl (227 kB)
 Installing collected packages: pybind11, fasttext
 Successfully installed fasttext-0.9.2 pybind11-2.11.1
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
 ## Transformer Required
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ time python main.py --args_path ../model_seq/config_file_path.res
 Traceback (most recent call last):
   File "main.py", line 5, in <module>
@@ -850,8 +897,9 @@ real    0m0.317s
 user    0m0.517s
 sys     0m0.736s
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
-
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install transformers
 ...
 ...
@@ -866,10 +914,11 @@ Downloading fsspec-2023.9.2-py3-none-any.whl (173 kB)
 Installing collected packages: tokenizers, safetensors, urllib3, regex, pyyaml, packaging, idna, fsspec, filelock, charset-normalizer, certifi, requests, huggingface-hub, transformers
 Successfully installed certifi-2023.7.22 charset-normalizer-3.2.0 filelock-3.12.4 fsspec-2023.9.2 huggingface-hub-0.17.2 idna-3.4 packaging-23.1 pyyaml-6.0.1 regex-2023.8.8 requests-2.31.0 safetensors-0.3.3 tokenizers-0.13.3 transformers-4.33.2 urllib3-2.0.5
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
-
+```
 
 ## Try Again
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ time python main.py --args_path ../model_seq/config_file_path.res
 ...
 ...
@@ -886,9 +935,11 @@ No module named 'torch.utils._pytree'
 real    0m0.389s
 user    0m0.555s
 sys     0m0.702s
+```
 
 ## Upgrading Torch
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ pip install torch --upgrade
 ...
 ...
@@ -909,9 +960,11 @@ Installing collected packages: mpmath, lit, cmake, sympy, nvidia-nvtx-cu11, nvid
       Successfully uninstalled torch-1.4.0
 Successfully installed MarkupSafe-2.1.3 cmake-3.27.5 jinja2-3.1.2 lit-16.0.6 mpmath-1.3.0 networkx-3.1 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 sympy-1.12 torch-2.0.1 triton-2.0.0
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
 ## Try Again
 
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ python main.py --help
 usage: main.py [-h] [--dataset DATASET] [--seq_max_len SEQ_MAX_LEN] [--bz BZ]
                [--embed_dim EMBED_DIM] [--embed_type EMBED_TYPE] [--epoch EPOCH]
@@ -1044,9 +1097,9 @@ optional arguments:
   --bert_init_embed BERT_INIT_EMBED
                         embed used to initializing G, [random, aggregate, decontext]
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
+```
 
-
-
+```
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$ python main.py --args_path ../model_seq/example/ATIS-ZH.FSTRNN.10%.crf.8313.res
 {'dataset': 'ATIS-ZH-BIO', 'seq_max_len': 30, 'bz': 300, 'embed_dim': 300, 'embed_type': 'fasttext', 'epoch': 60, 'train_portion': 0.1, 'automata_path': '../data/ATIS-ZH-BIO/automata/IIID.automata.0308133803-1615210683.6103313.svd.2best.104states.random.3splits.100-0.1496150-0.0934200-0.0541.bio.rules.v1.config.pkl', 'seed': 1, 'run': 'final_222', 'random_embed': 0, 'optimizer': 'ADAM', 'lr': 0.005, 'train_mode': 'sum', 'local_loss_func': 'CE1', 'rand_constant': 1e-05, 'threshold': 0.1, 'margin': 0.5, 'select_level': 'entity-level', 'method': 'decompose', 'data_type': 'all', 'train_word_embed': 0, 'rnn_hidden_dim': 100, 'rnn': 'RNN', 'bidirection': 0, 'marryup_type': 'none', 're_tag_dim': 20, 'c1_kdpr': 1, 'c2_kdpr': 1, 'c3_pr': 1.0, 'normalize_automata': 'l2-rank', 'train_V_embed': 0, 'beta': 0.5, 'rank': 150, 'rank_wildcard': 100, 'additional_nonlinear': 'none', 'additional_states': 0, 'use_priority': 0, 'train_wildcard': 1, 'train_wildcard_wildcard': 1, 'train_c_output': 1, 'train_h0': 0, 'train_hT': 1, 'train_beta': 1, 'random': 0, 'random_pad_func': 'xavier', 'save_model': 0, 'independent': 2, 'use_unlabel': 0, 'farnn': 2, 'xavier': 1, 'bias_init': 1, 'sigmoid_exponent': 1, 'use_crf': 0, 'update_nonlinear': 'tanh', 'args_path': 'none', 'bert_finetune': 0, 'use_bert': 0, 'warm_up': 0, 'bert_lr_down_factor': 1, 'bert_init_embed': 'aggregate'}
 max_len: 42, avg_len: 10.959819186338523
@@ -1090,7 +1143,7 @@ AttributeError: module 'numpy' has no attribute 'int'.
 The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
     https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
 (re2nn_seq) ye@lst-gpu-3090:~/exp/RE2NN-SEQ/src_seq$
-
+```
 
 
 ## Reference
