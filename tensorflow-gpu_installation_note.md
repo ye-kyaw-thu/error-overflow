@@ -1,5 +1,8 @@
 # Tensorflow-GPU Installation
 
+တခါတလေ Python library ကို installation လုပ်လို့ မရတာက ကိုယ်သုံးနေတဲ့ server ရဲ့ network condition နဲ့လည်း ဆိုင်တတ်တယ်။  
+ဒီ log မှာ ဖြစ်နေတဲ့ tensorflow-gpu installation နဲ့ ပတ်သက်တဲ့ error ကိုတော့ နောက်ဆုံးမှာ တွေ့ရတဲ့အတိုင်းပါပဲ pip command ရဲ့ option တစ်ခုဖြစ်တဲ့ `--default-timeout=1000` နဲ့ ပြေလည်သွားပါတယ်။  
+
 ## Create New Conda Environment
 
 ```
