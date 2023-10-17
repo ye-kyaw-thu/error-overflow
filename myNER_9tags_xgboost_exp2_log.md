@@ -409,18 +409,152 @@ Analysis of './test.txt'
 
 အကြမ်းစစ်ကြည့်ခဲ့တာ experiment လုပ်ဖို့ အဆင်ပြေပြီလို့ assumption လုပ်ပြီး train, test လုပ်မယ်။ Workshop အတွက် draft paper ရေးပြီးနောက်ပိုင်းမှပဲ ကောင်းလွင်သန့်နဲ့ corpus တစ်ခုလုံးကို update လုပ်ရင်း ပြန်စစ်ကြည့်မယ် စိတ်ကူးခဲ့ ...  
 
+## Backup
+
+ပထမဆုံး စမ်းခဲ့တဲ့ စာကြောင်းရေ 999 ကြောင်း test-data နဲ့ experiment ဖိုင်တွေကို backup ကူးထားခဲ့ ...  
+
+
+```
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost/bk$ mkdir 999_testdata
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost/bk$ cd ..
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ mv exp1_* ./bk/999_testdata/
+```
+
 ## XGBoost Training 
+
+Anaconda environment ကို change ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ conda activate xgboost
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 Training and Validation Result is as follows:  
 
 ```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ time python ./xgboost_ner.py --task train --input_corpus train.txt --feature_filename exp1_features.csv --model_filename model.xgb
+Read 0M words
+Number of words:  2398
+Number of labels: 0
+Progress:  60.5% words/sec/thread:  191438 lr:  0.019725 avg.loss:  2.566964 ETA:   0h 0m Progress: 100.0% words/sec/thread:  158717 lr: -0.000017 avg.loss:  2.537227 ETA:   0h 0m Progress: 100.0% words/sec/thread:  158493 lr:  0.000000 avg.loss:  2.537227 ETA:   0h 0m 0s
+FastText model saved to fasttext_model.bin
+No NaN found in data
+Validation Results:
+               precision    recall  f1-score   support
 
+      B-DATE       0.63      0.53      0.58        98
+     B-EVENT       1.00      0.07      0.12        15
+       B-LOC       0.41      0.49      0.45       183
+       B-NUM       0.00      0.00      0.00        21
+       B-ORG       0.25      0.04      0.07        50
+       B-PER       0.58      0.54      0.56        39
+   B-PRODUCT       0.00      0.00      0.00         3
+      B-TIME       0.28      0.28      0.28        18
+      E-DATE       0.76      0.56      0.64        95
+     E-EVENT       0.44      0.31      0.36        13
+       E-LOC       0.61      0.67      0.64       211
+       E-NUM       0.65      0.33      0.43        40
+       E-ORG       0.41      0.16      0.23        57
+       E-PER       0.82      0.49      0.61        55
+   E-PRODUCT       0.00      0.00      0.00         3
+      E-TIME       0.63      0.82      0.71        33
+      I-DATE       0.64      0.33      0.44        84
+     I-EVENT       0.00      0.00      0.00        11
+       I-LOC       0.00      0.00      0.00        36
+       I-NUM       0.00      0.00      0.00         4
+       I-ORG       0.33      0.02      0.04        47
+       I-PER       0.00      0.00      0.00         3
+   I-PRODUCT       0.00      0.00      0.00         2
+      I-TIME       0.00      0.00      0.00        15
+           O       0.98      0.99      0.98     25860
+      S-DATE       0.40      0.22      0.29        27
+     S-EVENT       0.00      0.00      0.00         1
+       S-LOC       0.55      0.36      0.43       184
+       S-NUM       0.55      0.73      0.63       135
+       S-ORG       0.58      0.34      0.43        32
+       S-PER       0.84      0.36      0.50       147
+   S-PRODUCT       0.50      0.25      0.33         4
+      S-TIME       0.86      0.43      0.57        14
+
+    accuracy                           0.96     27540
+   macro avg       0.41      0.28      0.31     27540
+weighted avg       0.95      0.96      0.95     27540
+
+Model and label encoder saved to model.xgb and model.xgb.label_encoder
+
+real    0m52.125s
+user    13m33.657s
+sys     0m5.465s
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
+
+Some file information:  
+
+```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ ls
+10k_NER_draft_version1_KaungLwinThant.txt  note.txt
+bk                                         running_log_7Oct2023.txt
+chk_features.py                            test.hyp
+exp1_features.csv                          test.txt
+fasttext_model.bin                         train_test.sh
+feature_importance_plot.png                train.txt
+features.csv                               t-SNE_visualization.py
+model.xgb                                  xgboost_ner.py
+model.xgb.label_encoder
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 ## XGBoost Testing
 
-```
+Testing with 1K test data. The result is as follows:  
 
+```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ time python ./xgboost_ner.py --task test --test_filename test.txt --model_filename model.xgb --feature_filename exp1_features.csv --output_filename test.hyp
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Model and label encoder loaded from model.xgb and model.xgb.label_encoder
+
+Evaluation Results on Test Data:
+              precision    recall  f1-score   support
+
+      B-DATE       0.65      0.55      0.60        56
+     B-EVENT       1.00      0.17      0.29         6
+       B-LOC       0.39      0.48      0.43       107
+       B-NUM       0.00      0.00      0.00        24
+       B-ORG       0.00      0.00      0.00        36
+       B-PER       0.81      0.78      0.79        27
+   B-PRODUCT       0.00      0.00      0.00         1
+      B-TIME       0.30      0.27      0.29        11
+      E-DATE       0.58      0.50      0.54        56
+     E-EVENT       0.33      0.17      0.22         6
+       E-LOC       0.53      0.60      0.56       107
+       E-NUM       0.50      0.17      0.25        24
+       E-ORG       0.43      0.17      0.24        36
+       E-PER       0.72      0.67      0.69        27
+   E-PRODUCT       0.00      0.00      0.00         1
+      E-TIME       0.57      0.73      0.64        11
+      I-DATE       0.62      0.27      0.37        60
+     I-EVENT       0.00      0.00      0.00         3
+       I-LOC       1.00      0.06      0.11        17
+       I-NUM       1.00      0.20      0.33         5
+       I-ORG       0.00      0.00      0.00        14
+      I-TIME       0.00      0.00      0.00         5
+           O       0.98      0.99      0.98     14033
+      S-DATE       0.29      0.29      0.29        14
+       S-LOC       0.40      0.35      0.37        72
+       S-NUM       0.46      0.70      0.55        67
+       S-ORG       0.58      0.55      0.56        20
+       S-PER       0.87      0.46      0.60        74
+      S-TIME       1.00      0.20      0.33         5
+
+    accuracy                           0.95     14925
+   macro avg       0.48      0.32      0.35     14925
+weighted avg       0.95      0.95      0.95     14925
+
+
+real    0m7.052s
+user    1m48.252s
+sys     0m4.372s
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 ## Prepared Training/Testing/Feature_Extration Bash Script
@@ -478,14 +612,6 @@ case $1 in
         ;;
 esac
 
-
-```
-
-```
-
-```
-
-```
 
 ```
 
