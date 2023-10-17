@@ -489,18 +489,23 @@ Unique Tags in the Testing Data is as follows:
    TIME: 0.21%
 ```
 
-Training data မှာ အောက်ပါလိုမျိုး LCO ဆိုပြီး မှားရိုက်ထားတာတွေ့ခဲ့ ...
+Training data မှာ အောက်ပါလိုမျိုး LCO ဆိုပြီး မှားရိုက်ထားတာတွေ့ခဲ့ ...  
 
+```
 ကယ်ဆယ်/O ရေး/O သမား/O များ/O သည်/O ပိုက်လော့/O ဝေလငါး/O ၁၃/S-NUM ကောင်/O တစ်/O အုပ်/O ကို/O အနောက်/B-LCO ဩစတြေးလျ/E-LOC ၊/O ပါသ်/S-LOC ၏/O တောင်ဘက်/O ၊/O ဘူဆယ်လ်တန်/S-LOC အနီး/O ဂျီအိုဂရပ်ဖီ/B-LOC ပင်လယ်အော်/E-LOC သမုဒ္ဒရာ/O ထဲ/O သို့/O ယနေ့/O ပြန်/O လွှတ်/O ခဲ့/O သည်/O ။/O
+```
 
-အဲဒါကို ပြန်ပြင်ပြီး server ပေါ်ကို ကော်ပီကူး ...  
+Manual ပြင်တာက remote နဲ့ လှမ်းသုံးနေတဲ့ server ပေါ်မှာက လုပ်လို့ အဆင်မပြေလို့ တကယ်တမ်းက local notebook ဆီကို ကော်ပီကူးပြင်ရတယ်။ ပြန်ပြင်ပြီးရင်တော့ server ပေါ်ကို ကော်ပီကူး ... practical လုပ်ရတဲ့ အခက်အခဲတွေပါ ...  
 
+```
 C:\Users\801680>scp Downloads\new_train.txt ye@10.222.41.24:/home/ye/exp/myNER/data/exp1/
 ye@10.222.41.24's password:
 new_train.txt                                           100% 2144KB 497.4KB/s   00:04
+```
 
-xgboost ဆီကို ပြန် copy ကူး ...
+xgboost run မယ့် ဖိုလ်ဒါဆီကို ပြန် copy ကူး ...  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ ls
 10k_NER_draft_version1_KaungLwinThant.txt  original              train.txt
 new_train.txt                              sample_200_sentences
@@ -508,13 +513,19 @@ new_train.txt                              sample_200_sentences
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cd ../../xgboost/
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ mv new_train.txt train.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
-bi-LSTM ဆီကိုလည်း copy ကူးထည့်ခဲ့ ...  
+bi-LSTM run ဖို့အတွက် python script ဘာညာရေးထားတဲ့ ဖိုလ်ဒါဆီကိုလည်း copy ကူးထည့်ခဲ့ ...  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ cp train.txt ../bi-LSTM/
+```
 
 ## Recheck the Corpus
 
+updated corpus ကို ပြန်စစ်...  
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt
 Analysis of './train.txt'
 ----------------------------------------
@@ -587,7 +598,9 @@ Analysis of './train.txt'
    S-PER: 0.49%
    S-PRODUCT: 0.01%
    S-TIME: 0.04%
+```
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt --format abstract
 Analysis of './train.txt'
 ----------------------------------------
@@ -614,9 +627,11 @@ Analysis of './train.txt'
    TIME: 0.28%
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 Test data ကိုလည်း စစ်ကြည့်မယ်။ အောက်ပါအတိုင်း output က ...  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt
 Analysis of './test.txt'
 ----------------------------------------
@@ -681,7 +696,9 @@ Analysis of './test.txt'
    S-ORG: 0.13%
    S-PER: 0.50%
    S-TIME: 0.03%
+```
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
 Analysis of './test.txt'
 ----------------------------------------
@@ -708,9 +725,13 @@ Analysis of './test.txt'
    TIME: 0.21%
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 ## Training for xgboost
 
+Finally, I can train ... 
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ time python ./xgboost_ner.py --task train -i ./train.txt -m exp1_xgboost.model -f exp1_xgboost.feature | tee exp1_training.log
 Read 0M words
 Number of words:  2398
@@ -763,6 +784,7 @@ real    0m45.335s
 user    12m59.195s
 sys     0m4.948s
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 Training ရလဒ်က အထက်မှာ တွေ့ရတဲ့ အတိုင်းပါပဲ။  
 ဒီနေရာမှာ label_encoder ဆိုတာက label dictionary ပါ။  
@@ -771,6 +793,7 @@ Training ရလဒ်က အထက်မှာ တွေ့ရတဲ့ အတ�
 
 Testing command က အောက်ပါအတိုင်း ...  
 
+```
 python ./xgboost_ner.py -m ./exp1_xgboost.model -f ./exp1_xgboost.feature -t ./test.txt -o test.hyp --task test
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ time python ./xgboost_ner.py -m ./exp1_xgboost.model -f ./exp1_xgboost.feature -t ./test.txt -o test.hyp --task test
@@ -820,3 +843,5 @@ real    0m10.422s
 user    3m35.947s
 sys     0m3.813s
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
+
