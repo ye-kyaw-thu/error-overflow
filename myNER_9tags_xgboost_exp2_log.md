@@ -19,8 +19,10 @@ sed -i '$d' train.txt
 echo "$last_line" >> test.txt
 ```
 
-```
+run လို့ရအောင် chmod command နဲ့ executable file အဖြစ်ပြောင်း ...  
 
+```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ chmod +x ./add_one_line_to_test_data.sh
 ```
 
 ```
