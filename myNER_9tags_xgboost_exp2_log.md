@@ -411,16 +411,73 @@ Analysis of './test.txt'
 
 ## XGBoost Training 
 
+Training and Validation Result is as follows:  
 
 ```
 
 ```
 
-```
+## XGBoost Testing
 
 ```
 
 ```
+
+## Prepared Training/Testing/Feature_Extration Bash Script
+
+နောက်ပိုင်း experiment တွေအတွက် shell script ပြင်ထားတာကိုလည်း update လုပ်ခဲ့ ...  
+filename: train_test.sh  
+
+```bash
+#!/bin/bash
+
+# Function for training
+train_model() {
+    echo "Training..."
+    time python ./xgboost_ner.py --task train --input_corpus train.txt --feature_filename exp1_features.csv --model_filename model.xgb
+}
+
+# Function for testing
+test_model() {
+    echo "Testing..."
+    time python ./xgboost_ner.py --task test --test_filename test.txt --model_filename model.xgb --feature_filename exp1_features.csv --output_filename test.hyp
+
+    # Check the hyp file
+    echo "Check the tagged output or hyp file"
+    #shuf ./test.hyp | head -n 50
+    paste -d "\n" ./test.txt ./test.hyp | head -n 50
+}
+
+# Function for building fasttext model only
+build_fasttext_model() {
+    echo "Building FastText model task"
+    time python ./xgboost_ner.py --task build_fasttext --input_corpus ./train.txt --feature_filename fasttext_features.csv
+}
+
+# Check command-line arguments
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 {train|test|build_fasttext}"
+    exit 1
+fi
+
+# Run the requested task
+case $1 in
+    train)
+        train_model
+        ;;
+    test)
+        test_model
+        ;;
+    build_fasttext)
+        build_fasttext_model
+        ;;
+    *)
+        echo "Unknown task: $1"
+        echo "Usage: $0 {train|test|build_fasttext}"
+        exit 1
+        ;;
+esac
+
 
 ```
 
