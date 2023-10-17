@@ -123,7 +123,7 @@ tail command ...
 (base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
-## Checking Tag Distributions 
+## Checking Tag Distributions for Training Data 
 
 python code for tag distributions, frequency analysis ...  
 
@@ -198,20 +198,221 @@ if __name__ == "__main__":
 for the training data ... 
 
 ```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./train.txt
+Analysis of './train.txt'
+----------------------------------------
+1. Number of sentences without named entities: 6788
+2. Frequency of each tag:
+   B-DATE: 514
+   B-EVENT: 67
+   B-LOC: 1061
+   B-NUM: 161
+   B-ORG: 304
+   B-PER: 243
+   B-PRODUCT: 19
+   B-TIME: 124
+   E-DATE: 514
+   E-EVENT: 67
+   E-LOC: 1060
+   E-NUM: 161
+   E-ORG: 305
+   E-PER: 244
+   E-PRODUCT: 19
+   E-TIME: 124
+   I-DATE: 399
+   I-EVENT: 59
+   I-LOC: 173
+   I-NUM: 27
+   I-ORG: 232
+   I-PER: 19
+   I-PRODUCT: 5
+   I-TIME: 84
+   O: 129091
+   S-DATE: 123
+   S-EVENT: 13
+   S-LOC: 890
+   S-NUM: 691
+   S-ORG: 160
+   S-PER: 669
+   S-PRODUCT: 17
+   S-TIME: 58
+3. Distribution of each tag:
+   B-DATE: 0.37%
+   B-EVENT: 0.05%
+   B-LOC: 0.77%
+   B-NUM: 0.12%
+   B-ORG: 0.22%
+   B-PER: 0.18%
+   B-PRODUCT: 0.01%
+   B-TIME: 0.09%
+   E-DATE: 0.37%
+   E-EVENT: 0.05%
+   E-LOC: 0.77%
+   E-NUM: 0.12%
+   E-ORG: 0.22%
+   E-PER: 0.18%
+   E-PRODUCT: 0.01%
+   E-TIME: 0.09%
+   I-DATE: 0.29%
+   I-EVENT: 0.04%
+   I-LOC: 0.13%
+   I-NUM: 0.02%
+   I-ORG: 0.17%
+   I-PER: 0.01%
+   I-PRODUCT: 0.00%
+   I-TIME: 0.06%
+   O: 93.75%
+   S-DATE: 0.09%
+   S-EVENT: 0.01%
+   S-LOC: 0.65%
+   S-NUM: 0.50%
+   S-ORG: 0.12%
+   S-PER: 0.49%
+   S-PRODUCT: 0.01%
+   S-TIME: 0.04%
 
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
-```
+S, B, I, E ဆိုတဲ့ အပိုင်းတွေမပါပဲ analysis လုပ်ကြည့်ချင်လို့ --format option ကို abstract အဖြစ်ထားပြီး run ကြည့်ခဲ့ ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./train.txt --format abstract
+Analysis of './train.txt'
+----------------------------------------
+1. Number of sentences without named entities: 6788
+2. Frequency of each tag:
+   DATE: 1550
+   EVENT: 206
+   LOC: 3184
+   NUM: 1040
+   O: 129091
+   ORG: 1001
+   PER: 1175
+   PRODUCT: 60
+   TIME: 390
+3. Distribution of each tag:
+   DATE: 1.13%
+   EVENT: 0.15%
+   LOC: 2.31%
+   NUM: 0.76%
+   O: 93.75%
+   ORG: 0.73%
+   PER: 0.85%
+   PRODUCT: 0.04%
+   TIME: 0.28%
 
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
-```
+## Checking Tag Distributions for the Test Data
+
+S, B, I, E တွေပါ အပါအဝင် ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./test.txt
+Analysis of './test.txt'
+----------------------------------------
+1. Number of sentences without named entities: 743
+2. Frequency of each tag:
+   B-DATE: 56
+   B-EVENT: 6
+   B-LOC: 107
+   B-NUM: 24
+   B-ORG: 36
+   B-PER: 27
+   B-PRODUCT: 1
+   B-TIME: 11
+   E-DATE: 56
+   E-EVENT: 6
+   E-LOC: 107
+   E-NUM: 24
+   E-ORG: 36
+   E-PER: 27
+   E-PRODUCT: 1
+   E-TIME: 11
+   I-DATE: 60
+   I-EVENT: 3
+   I-LOC: 17
+   I-NUM: 5
+   I-ORG: 14
+   I-TIME: 5
+   O: 14033
+   S-DATE: 14
+   S-LOC: 72
+   S-NUM: 67
+   S-ORG: 20
+   S-PER: 74
+   S-TIME: 5
+3. Distribution of each tag:
+   B-DATE: 0.38%
+   B-EVENT: 0.04%
+   B-LOC: 0.72%
+   B-NUM: 0.16%
+   B-ORG: 0.24%
+   B-PER: 0.18%
+   B-PRODUCT: 0.01%
+   B-TIME: 0.07%
+   E-DATE: 0.38%
+   E-EVENT: 0.04%
+   E-LOC: 0.72%
+   E-NUM: 0.16%
+   E-ORG: 0.24%
+   E-PER: 0.18%
+   E-PRODUCT: 0.01%
+   E-TIME: 0.07%
+   I-DATE: 0.40%
+   I-EVENT: 0.02%
+   I-LOC: 0.11%
+   I-NUM: 0.03%
+   I-ORG: 0.09%
+   I-TIME: 0.03%
+   O: 94.02%
+   S-DATE: 0.09%
+   S-LOC: 0.48%
+   S-NUM: 0.45%
+   S-ORG: 0.13%
+   S-PER: 0.50%
+   S-TIME: 0.03%
+
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+```
+
+sub-tag တွေ မပါပဲ distribution ကို စစ်ကြည့်ခဲ့ ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
+Analysis of './test.txt'
+----------------------------------------
+1. Number of sentences without named entities: 743
+2. Frequency of each tag:
+   DATE: 186
+   EVENT: 15
+   LOC: 303
+   NUM: 120
+   O: 14033
+   ORG: 106
+   PER: 128
+   PRODUCT: 2
+   TIME: 32
+3. Distribution of each tag:
+   DATE: 1.25%
+   EVENT: 0.10%
+   LOC: 2.03%
+   NUM: 0.80%
+   O: 94.02%
+   ORG: 0.71%
+   PER: 0.86%
+   PRODUCT: 0.01%
+   TIME: 0.21%
+
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+```
+
+အကြမ်းစစ်ကြည့်ခဲ့တာ experiment လုပ်ဖို့ အဆင်ပြေပြီလို့ assumption လုပ်ပြီး train, test လုပ်မယ်။ Workshop အတွက် draft paper ရေးပြီးနောက်ပိုင်းမှပဲ ကောင်းလွင်သန့်နဲ့ corpus တစ်ခုလုံးကို update လုပ်ရင်း ပြန်စစ်ကြည့်မယ် စိတ်ကူးခဲ့ ...  
+
+## XGBoost Training 
+
 
 ```
 
