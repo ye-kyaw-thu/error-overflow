@@ -155,8 +155,20 @@ sys     0m42.212s
 (bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
-```
+Check the model folder:  
 
+```
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ tree ./exp1_bilstm.model/
+./exp1_bilstm.model/
+├── assets
+├── keras_metadata.pb
+├── saved_model.pb
+└── variables
+    ├── variables.data-00000-of-00001
+    └── variables.index
+
+2 directories, 4 files
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
 ```
