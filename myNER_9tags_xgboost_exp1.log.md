@@ -1,9 +1,19 @@
 # Experiment 1 Log
 
+ဒီ experiment log ကတော့ လက်ရှိ ပြင်ဆင်နေဆဲ myNER tag 9 ခုဒေတာ (work together with Kaung Lwin Thant) နဲ့ ပထမဆုံး အကြိမ် tagging training/testing ကို xgboost approach လုပ်ထားတဲ့ log ပါ။    
+
 ## Check the data
 
+အသစ်ထပ်ဝင်လာတဲ့ စာကြောင်းရေ ၂၀၀ ဖိုင်ကို စစ်ကြည့်...  
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ wc sample_200_sentences
    200   6772 115626 sample_200_sentences
+```
+
+format က အောက်ပါအတိုင်း ...  
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ head sample_200_sentences
 ေနာက်/O မှ/O လာ ေသာ/O ဒုတိယ/O မြောက်/O တိုင်တမသရီး/O ဒုံးပျံ/O ကို/O အမေရိကန်/B-ORG လေ/I-ORG တပ်/E-ORG ၏/O ကမ္ဘာပတ်လမ်းကြောင်း/O အတိုင်း/O လည်ပတ်/O နေ/O သော/O လူ/O လိုက်/O ပါ/O သည့်/O အာကာသ/O ဓါတ်ခွဲခန်း/O (/O အမ်အိုအယ်လ်/S-LOC )/O အတွက်/O ဒုံးပျံ/O ပစ်/O စင်/O အဖြစ်/O အသုံးပြု/O ရန်/O မွမ်းမံ/O ပြုပြင်/O ခဲ့/O ပါ/O သည်/O ။/O
 အခြား/O သူ/O များ/O ၏/O တီထွင်ဆန်းသစ်/O မှု/O များ/O မှ/O သူ/O တို့/O အကျိုးကျေးဇူး/O များ/O ရ/O ရှိ/O နိုင်/O လိမ့်/O မည်/O ဟု/O ဖေ့စ်ဘွတ်/S-ORG က/O မျှော်လင့်/O သည်/O ။/O
@@ -16,13 +26,20 @@
 ကော်မရှင်/O အဖွဲ့/O ၏/O ကြိုးပမ်း/O အား/O ထုတ်/O မှု/O ကြောင့်/O အသေးစိတ်/O အစီရင်ခံစာ/O (/O မူကြမ်း/O )/O ကို/O စုစည်း/O ရေး/O သား/O ပြီး/O ဖြစ်/O သည်/O ။/O
 နိုင်ငံတော်/O ၏/O အတိုင်ပင်ခံ/O ပုဂ္ဂိုလ်/O ဒေါ်/B-PER အောင်ဆန်း/I-PER စုကြည်/E-PER အနေဖြင့်/O နိုင်ငံတကာ/O မျက်နှာ/O စာ/O များ/O နိုင်ငံတကာ/O ကိစ္စရပ်/O များ/O တွင်/O အာဆီယံ/S-ORG ကိုယ်/O စား/O တက်ကြွ/O စွာ/O ဦးဆောင်/O မှု/O ပေး/O ရေး/O ကို/O လည်း/O ဆွေးနွေး/O ခဲ့/O ကြ/O သည်/O ။/O
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$
+```
 
 # Combine with the 10K data
-ost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cp ../10k_NER_draft_version1_KaungLwinThant.txt .
+
+ရှေ့မှာ ပြင်ထားပြီးသား 10K (i.e. 10,000 sentences) ဒေတာနဲ့ အသစ်ထပ်ဝင်လာတဲ့ စာကြောင်းရေ ၂၀၀ ကို ပေါင်းတဲ့ အလုပ်ပါ ...  
+
+```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cp ../10k_NER_draft_version1_KaungLwinThant.txt .
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ wc 10k_NER_draft_version1_KaungLwinThant.txt
   10002  145867 2317130 10k_NER_draft_version1_KaungLwinThant.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$
+```
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ cp train.txt ../data/exp1/
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ cd ../data/exp1/
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ ls
@@ -32,22 +49,60 @@ exp1.log.txt                               sample_200_sentences
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ wc new_train.txt
    9202  137739 2195956 new_train.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$
+```
 
-I will use this new_train.txt for training
+I will use this new_train.txt for training  
 
 ## Data Cleaning
 
-I found some errors on new 200 sentences and some are as follows:
+I found some errors on new 200 sentences and some are as follows:  
 
+လက်တွေ့မှာ ထုံးစံအတိုင်းပါပဲ manual tagging လုပ်ထားတာမို့လို့ ကျောင်းသားရဲ့ အတွေ့အကြုံပေါ်မူတည်ပြီး မှားတာတွေ ပါတတ်ပါတယ်။ ဒီ cleaning အဆင့်က ရေးထားတဲ့ python code နဲ့ စစ်ကြည့်လိုက်၊ လက်နဲ့ ပြန်ပြင်လိုက်နဲ့ လေးငါးခြောက်ခါ ထပ်လုပ်ရတာမို့လို့ training လုပ်တဲ့အဆင့်အထိက တော်တော် ကြာခဲ့ပါတယ်။  
+
+အမှားတွေထဲက example တချို့က အောက်ပါအတိုင်းပါ။  
+
+```
 စတန်/B-PER လီ/E-PER နှင့်/O သူ/O ၏/O မိသားစု/O အတွက်/O အပြုသဘော/O ဆုံးဖြတ်/O ချက်/O ကို/O ကျွန်တော်/O တို့ ေမျှာ်/O လင့်/O သည်/O ဟု/O လီ/S-PER ၏/O ရှေ့နေ/O ၊/O မကဝီလီလျှံ/S-PER က/O ပြော/O ခဲ့/O သည်/O ။/O
 
 မင်းလှ/B-LOC မြို့နယ်/E-LOC ၊/O စိန်ကန့်လန့်/B-LOC ကျေးရွာ/E-LOC အနီး/O ရှိ/O မက္ခာ/B-LOC ရေတံခွန်/E-LOC ဆင်/O စခန်း/O စတင်/O ဖွင့်လှစ် ။/O
 
 ပုလော/B-LOC မြို့နယ်/E-LOC တွင်/O မောင်/O ဖြစ်/O သူ/O သေဆုံး/O ခဲ့/O တဲ့/O ဖြစ်/O စဉ်/O ကို/O မသင်္ကာ/O သ/O ဖြင်/O အစ်မ/O ဖြစ်/O သူ/O က/O အမှု/O ဖွင်/O ရာ/O အလောင်း/O ကို/O ပြန်လည်/O ဖော်/O ယူ/O စစ်ဆေး/O ခဲ့/O ပြီး/O လူ/O သတ်/O မှု/O ဖြစ်/O ကြောင်း/O စစ်ဆေး/O တွေ့/O ရှိ/O ခဲ့
-
+```
 
 ## Check Tags
 
+ဒီ analyze_NER_corpus.py code က github ရဲ့ tools အောက်မှာ တင်ပေးထားမို့ စိတ်ဝင်စားရင် လေ့လာကြည့်ပါ။  
+အစပိုင်းမှာ error ကတော်တော်များများ ရှိပါတယ်။ အောက်ပါအတိုင်းပါ။  
+
+```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt
+Analysis of './train.txt'
+----------------------------------------
+1. Number of sentences without named entities: 6788
+2. Frequency of each tag:
+   B-DATE: 514
+   B-EVENT: 67
+   B-LCO: 1
+   B-LOC: 1060
+   B-NUM: 161
+   B-ORG: 305
+...
+...
+...
+   က: 0.00%
+   ကျယ်ပြန့်: 0.00%
+   ခဲ့: 0.00%
+   တို့: 0.00%
+   ဖွင့်လှစ်: 0.00%
+   မ: 0.00%
+   ရ: 0.00%
+   လာ: 0.00%
+   သည်: 0.00%
+```
+
+အကြောင်း ၂၀၀ ဖိုင်ကို ဖွင့် ဝင်ပြင်လိုက် ပြန်စစ်လိုက်နဲ့ နောက်ဆုံး data cleaning အပိုင်းက ပြီးခါနီးတဲ့ အခြေအနေမှာတော့ အောက်ပါအတိုင်း ပါ။  
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py train.txt
 Analysis of 'train.txt'
 ----------------------------------------
@@ -124,23 +179,28 @@ Analysis of 'train.txt'
    S-PRODUCT: 0.01%
    S-TIME: 0.04%
    SNUM: 0.00%
+```
 
-Why SNUM?!
+Why SNUM?!  
 
+After error fixing SNUM to S-NUM, I combined again (hope this is the final error fixing ...)  
 
-After error fixing SNUM to S-NUM, I combined again (hope this is the final error fixing ...)
-
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cat train.txt sample_200_sentences > new_train.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ wc new_train.txt
    9202  137734 2195960 new_train.txt
+```
 
-Remake or Update train.txt as follows:  
+Remake or Update train.txt as follows:   
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cp new_train.txt ../../xgboost/
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ cp new_train.txt ../../bi-LSTM/
+```
 
 Recheck again:  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$ python ../analyze_NER_corpus.py ./new_train.txt
 Analysis of './new_train.txt'
 ----------------------------------------
@@ -217,10 +277,11 @@ Analysis of './new_train.txt'
    S-TIME: 0.04%
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/data/exp1$
+```
 
+Check with --format abstract  
 
-Check with --format abstract
-
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt --format abstract
 Analysis of './train.txt'
 ----------------------------------------
@@ -249,9 +310,13 @@ Analysis of './train.txt'
    TIME: 0.28%
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 ## Checking Testing Data
 
+Training data ကို စစ်ကြည့်ခဲ့သလို testing data ကိုလည်း analyze_NER_corpus.py နဲ့ပဲ စစ်ကြည့်ခဲ့ပါတယ်။  
+
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt
 Analysis of './test.txt'
 ----------------------------------------
@@ -316,9 +381,10 @@ Analysis of './test.txt'
    S-ORG: 0.13%
    S-PER: 0.50%
    S-TIME: 0.03%
+```
 
-xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
-ost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
+```
+(xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
 Analysis of './test.txt'
 ----------------------------------------
 1. Number of sentences without named entities: 744
@@ -344,20 +410,24 @@ Analysis of './test.txt'
    TIME: 0.21%
 
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
-
+```
 
 ## xgboost Training
 
 Data size info:  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ wc ./train.txt
    9202  137734 2195960 ./train.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ wc ./test.txt
    999  14889 236610 ./test.txt
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
 Training start ...  
+မနေ့က ညက မအိပ်ခင် ဒေတာကို တဖြတ်စစ်တာ လုပ်ပြီး အခု မနက်မိုးလင်း ဆက်လုပ်နဲ့ ခုမှပဲ formal experiment ကို စလုပ်နိုင်ပါတယ်။  
 
+```
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$ time python ./xgboost_ner.py --task train -i ./train.txt -m exp1_xgboost.model -f exp1_xgboost.feature
 Read 0M words
 Number of words:  2398
@@ -382,12 +452,15 @@ real    0m20.510s
 user    0m14.985s
 sys     0m5.318s
 (xgboost) ye@lst-gpu-3090:~/exp/myNER/xgboost$
+```
 
-I got above Error Message!
+I got above Error Message!  
+အထက်မှာ မြင်ရတဲ့အတိုင်းပါပဲ Error က ရှိတုန်းပါပဲ။  
+ဒီတခါတော့ training data ထဲမှာ ရှိတဲ့ unique tag အရေအတွက်နဲ့ testing data ထဲမှာ ရှိနေတဲ့ unique tag အရေအတွက်က မတူတာကြောင့် error ပေးတာလို့ ထင်ပါတယ်။ တကယ်ကတော့ testing data မှာက ပါတဲ့ စာကြောင်းပေါ်မူတည်ပြီးတော့ training data ထဲက tag အရေအတွက်နဲ့ မတူတာမျိုးလည်း ရှိနိုင်ပါတယ်။ သို့သော် တကယ်တမ်း စာတမ်း ရေးဖို့အတွက်၊ ပြီးတော့ formal experiment လုပ်ချင်တာမို့လို့ test data ထဲမှာက training data ထဲကလိုပဲ သတ်မှတ်ထားတဲ့ tag အပြည့်အစုံ ပါစေချင်တာမို့လို့ training လုပ်တဲ့ python code ထဲမှာ တမင်တကာကို ထည့်စစ်ထားတာမို့လို့ပါ။ အဲဒီလိုမှ မလုတ်ရင် ကိုယ့်မော်ဒယ်က bias ဖြစ်နိုင်လို့ပါ။  
 
 ## Debugging xgboost Training Part
 
-
+```
 Unique Tags in the Training Data is as follows:  
 
    DATE: 1.13%
@@ -400,9 +473,11 @@ Unique Tags in the Training Data is as follows:
    PER: 0.85%
    PRODUCT: 0.04%
    TIME: 0.28%
+```
    
 Unique Tags in the Testing Data is as follows:  
 
+```
    DATE: 1.25%
    EVENT: 0.10%
    LOC: 2.03%
@@ -412,7 +487,8 @@ Unique Tags in the Testing Data is as follows:
    PER: 0.85%
    PRODUCT: 0.01%
    TIME: 0.21%
-   
+```
+
 Training data မှာ အောက်ပါလိုမျိုး LCO ဆိုပြီး မှားရိုက်ထားတာတွေ့ခဲ့ ...
 
 ကယ်ဆယ်/O ရေး/O သမား/O များ/O သည်/O ပိုက်လော့/O ဝေလငါး/O ၁၃/S-NUM ကောင်/O တစ်/O အုပ်/O ကို/O အနောက်/B-LCO ဩစတြေးလျ/E-LOC ၊/O ပါသ်/S-LOC ၏/O တောင်ဘက်/O ၊/O ဘူဆယ်လ်တန်/S-LOC အနီး/O ဂျီအိုဂရပ်ဖီ/B-LOC ပင်လယ်အော်/E-LOC သမုဒ္ဒရာ/O ထဲ/O သို့/O ယနေ့/O ပြန်/O လွှတ်/O ခဲ့/O သည်/O ။/O
