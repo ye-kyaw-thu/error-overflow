@@ -89,6 +89,130 @@ tail command နဲ့လည်း ရိုက်ထုတ်ကြည့်၊
 
 ## Test Data Information
 
+check with head command ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ head test.txt
+အပေါ်ထပ်/O မှာ/O ပြင်/O ထား/O ပါ/O တယ်/O ။/O လိုက်/O ပို့/O ပေး/O ပါ/O မယ်/O ။/O
+လွယ်/O တဲ့/O စကား/O တွေ/O ရှိ/O သလို/O ခက်ခဲ/O တဲ့/O စကား/O လည်း/O ရှိ/O တာ/O သဘာဝ/O ပဲ/O ။/O
+သခင်/B-PER အောင်ဆန်း/E-PER သည်/O ကိုယ်ခန္ဓာ/O ညှက်/O ပြီး/O အားကောင်း/O သန်မာ/O လှ/O ခြင်း/O မ/O ရှိ/O သော်လည်း/O တိုက်ရေးခိုက်ရေး/O ကျွမ်းကျင်/O ကာ/O သတ္တိ/O ရှိ/O ၍/O အပင်ပန်း/O ခံ/O နိုင်/O သော/O စစ်သား/O တစ်/O ဦး/O ဖြစ်/O လာ/O ၏/O ။/O
+အရင်/O တုန်း/O က/O သူ/O မကြာခဏ/O အလည်လာ/O လေ့/O ရှိ/O ပေမဲ့/O အခုတလော/O တော့/O လုံးဝ/O သူ့/O မျက်နှာ/O ကို/O မ/O မြင်/O ရ/O ဘူး/O ။/O
+ဥပဒေ/O အရ/O ထိမ်းမြား/O ခြင်း/O ဖြင့်/O ဖြစ်စေ/O အခြား/O နည်း/O ဖြင့်/O ဖြစ်စေ/O မွေးဖွား/O သော/O ကလေး/O အားလုံး/O သည်/O တူညီ/O သော/O လူမှု/O ကာကွယ်/O စောင့်ရှောက်/O ရေး/O ကို/O ရယူ/O ခံစား/O ကြ/O ရ/O မည်/O ။/O
+စျေး/O က/O နေ/O အဝတ်/O ဝယ်/O ပါ/O တယ်/O ။/O
+အခု/O ဘာ/O တွေ/O များ/O ပြ/O နေ/O သလဲ/O ။/O
+ဝမ်/O ၅/B-NUM သောင်း/E-NUM လောက်/O ကလေး/O ဘဲ/O စု/O ခဲ့/O တယ်/O ။/O
+ကျွန်တော်/O လည်း/O နေ့လယ်/O က/O ကိုဇော်နိုင်/S-PER နဲ့/O တွေ့/O လို့/O ဒေါ်ဒေါ်/O နေမကောင်းမှန်း/O သိ/O ရ/O တာ/O ။/O
+ကျွန်တော်/O က/O သူငယ်ချင်း/O ပုံပြော/O တာ/O ခံ/O လိုက်/O ရ/O လို့/O စိတ်တို/O နေ/O တယ်/O ။/O
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+```
+
+tail command ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ tail test.txt
+တောင်/O ပေါ်/O က/O နေ/O အနောက်ဘက်/O မျှော်/O ကြည့်/O လိုက်/O ရင်/O တိမ်ဖြူ/O မိုးပြာ/O အောက်/O မှာ/O မြစမ်းတောင်/S-LOC ပေါ်/O က/O စေတီတော်/O ကို/O ကောင်းကောင်း/O မြင်/O ရ/O ပါ/O တယ်/O ။/O
+နားလည်/O ပါ/O တယ်/O ။/O
+သူ/O စာတိုက်/O မှ/O ပြန်လာ/O လိမ့်/O မယ်/O ။/O
+သစ်ပင်/O က/O နေ/O ပြုတ်ကျ/O နေ/O ဦး/O မယ်/O ။/O
+ပြီး/O ခဲ့/O တဲ့/O အခေါက်/O က/O ပေး/O လိုက်/O တဲ့/O ဆေး/O ကျွန်တော့်/O အတွက်/O အရာမရောက်/O သလို/O ပဲ/O ။/O
+ဒီ/O အညိုရောင်/O လေး/O ပြော/O တာ/O လား/O ။/O
+ညှပ်/O ပြီး/O ရိတ်/O ပေး/O ပါ/O ။/O
+ပူတောင်း/O ဆို/O သည်/O မှာ/O ရှမ်း/O ဘာသာ/O အားဖြင့်/O ပူ/O အဘိုး/O ၊/O တောင်း/O စောင့်/O သည်/O အဘိုး/O မျှော်/O မြို့/O ဟု/O အဓိပ္ပါယ်ရ/O သည်/O ။/O
+အဲဒီ/O လူ/O ရဲ့/O စကား/O က/O တချက်/O မှ/O မ/O မှား/O ဘူး/O ။/O
+အတော်/O ပါ/O ပဲ/O ။/Oဒါပေမဲ့/O အမှန်/O မှာ/O သူ/O တို့/O သည်/O ဘာသာ/O ရေး/O သမား/O များ/O ဖြစ်/O တယ်/O လို့/O ဒင်ဗာ/S-LOC ၏/O ဘာသာ/O ရေး/O လေ့လာ/O မှု/O တက္ကသိုလ်/O ပါမောက္ခ/B-PER ကားရပ်ချက်ခ်/E-PER က/O ဝေါစထရစ်/B-ORG ဂျာနယ်/E-ORG မှ/O ကြေညာ/O ချက်/O တစ်/O ခု/O ထဲ/O မှာ/O ဖော်ပြ/O ထား/O ပါ/O တယ်/O ။/O
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+```
+
+## Checking Tag Distributions 
+
+python code for tag distributions, frequency analysis ...  
+
+```python
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ cat ../data/analyze_NER_corpus.py
+## Written by Ye, LU Lab., Myanmar
+## for checking NER tagged data
+## Last updated: 28 Sept 2023
+
+import sys
+import argparse
+
+def analyze_corpus(filename, format_option):
+    # Initialize counters and dictionaries
+    sentences_without_entities = 0
+    tag_frequency = {}
+    total_tags = 0
+
+    # Open and read the corpus file line by line
+    with open(filename, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue  # skip empty lines
+
+            tags = [token.split('/')[-1] for token in line.split()]
+
+            if format_option == "abstract":
+                # Converting the B, I, E and S tags to the general category
+                #tags = ['O' if tag == 'O' else tag.split('-')[1] for tag in tags]
+                tags = ['O' if tag == 'O' else (tag.split('-')[1] if '-' in tag else 'UNKNOWN') for tag in tags]
+
+
+            unique_tags = set(tags)
+
+            # Check if only the O tag is present in the sentence
+            if unique_tags == {'O'}:
+                sentences_without_entities += 1
+
+            # Count the frequency of each tag
+            for tag in tags:
+                tag_frequency[tag] = tag_frequency.get(tag, 0) + 1
+                total_tags += 1
+
+    # Generate the report
+    report = f"Analysis of '{filename}'\n"
+    report += "-" * 40 + "\n"
+    report += f"1. Number of sentences without named entities: {sentences_without_entities}\n"
+    report += "2. Frequency of each tag:\n"
+    for tag, count in sorted(tag_frequency.items()):
+        report += f"   {tag}: {count}\n"
+    report += "3. Distribution of each tag:\n"
+    for tag, count in sorted(tag_frequency.items()):
+        percentage = (count / total_tags) * 100
+        report += f"   {tag}: {percentage:.2f}%\n"
+
+    return report
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Analyze NER tagged data.')
+    parser.add_argument('filename', type=str, help='Path to the input file.')
+    parser.add_argument('-f', '--format', type=str, choices=['abstract', 'detailed'], default='detailed', help='Output format. "abstract" to consider all B, I, E, S tags as one tag; "detailed" for detailed tags.')
+
+    args = parser.parse_args()
+
+    result = analyze_corpus(args.filename, args.format)
+    print(result)
+
+(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+```
+
+for the training data ... 
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
