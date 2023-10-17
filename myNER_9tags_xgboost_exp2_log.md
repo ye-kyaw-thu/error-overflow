@@ -615,3 +615,8 @@ esac
 
 ```
 
+## To Do List
+
+- လက်ရှိ ရေးထားတဲ့ XGBoost python script ကို ပြန်စစ်ရန်၊ update လုပ်ရန်
+- Manual Error Analysis လုပ်ရန်
+
