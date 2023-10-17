@@ -22,7 +22,7 @@ echo "$last_line" >> test.txt
 run လို့ရအောင် chmod command နဲ့ executable file အဖြစ်ပြောင်း ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ chmod +x ./add_one_line_to_test_data.sh
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ chmod +x ./add_one_line_to_test_data.sh
 ```
 
 ## Make 1K Test Data
@@ -30,33 +30,33 @@ run လို့ရအောင် chmod command နဲ့ executable file အ�
 လက်ရှိ ရှိနေတဲ့ training, testing data ရဲ့ filesize က အောက်ပါအတိုင်း ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ wc {train,test}.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ wc {train,test}.txt
    9202  137734 2195960 train.txt
     999   14889  236610 test.txt
   10201  152623 2432570 total
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 bash shell script ကို run ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ ./add_one_line_to_test_data.sh
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ ./add_one_line_to_test_data.sh
 ```
 
 စာတမ်းရေးတဲ့အခါမှာ workshop မှာ စကားပြောတဲ့အခါမှာ အဆင်ပြေအောင်လို့ test data ကိုတော့ စာကြောင်းရေ တစ်ထောင်တိတိအဖြစ် ပြင်ဆင်တာ ပြီးသွားပြီ ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ wc {train,test}.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ wc {train,test}.txt
    9201  137697 2195376 train.txt
    1000   14925  237194 test.txt
   10201  152622 2432570 total
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 ## Training Data Information
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ head train.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ head train.txt
 ပစ္စည်း/O ကောင်း/O ဝယ်/O ချင်/O ရင်/O ဘယ်/O ကို/O သွား/O ရ/O မ/O လဲ/O ။/O
 သူ/O ဟာ/O လူသတ်/O မှု/O ကို/O မြင်/O ခဲ့/O တယ်/O ။/O
 ကျွန်တော်/O က/O ကြိုးစားပမ်းစား/O သီဆို/O နေ/O တဲ့/O အဆိုတော်/O ကို/O လက်ခုပ်သြဘာ/O ပေး/O ခဲ့/O တယ်/O ။/O
@@ -67,13 +67,13 @@ bash shell script ကို run ...
 သူ/O က/O ကျွန်တော့်/O စကား/O နဲ့/O ပတ်သက်/O လို့/O စိတ်ခု/O ပြီး/O စကား/O မ/O ပြော/O ဘူး/O ။/O
 ထို/O ခေတ်/O အခါ/O လောက်/O တွင်/O ပင်/O အိန္ဒိယ/B-LOC ပြည်/E-LOC ၌/O ဗေဒ/O ကျမ်း/O ကြီး/O များ/O ပေါ်ထွန်း/O ခဲ့/O သည်/O ။/O
 မိဘ/O တွေ/O က/O ပညာသင်/O သွား/O တဲ့/O သမီး/O ကိုယ့်/O နိုင်ငံ/O ကို/O ပြန်လာ/O မယ့်/O ရက်/O ကို/O လက်ချိုး/O စောင့်/O နေ/O တယ်/O ။/O
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 tail command နဲ့လည်း ရိုက်ထုတ်ကြည့်၊ နောက်ပိုင်း စာတမ်းရေးတဲ့အခါမှာ ဥပမာစာကြောင်းတွေအဖြစ် ပြချင်တဲ့အခါမှာလည်း အလွယ်တကူနဲ့ ကော်ပီကူးယူလို့ ရအောင်လို့ ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ tail ./train.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ tail ./train.txt
 ကစားပွဲ/O ပထမ/O ပိုင်း/O တွင်/O ၄/S-NUM ဂိုး/O နှင့်/O ဖွင့်/O ခဲ့/O ပြီး/O ၊/O ညာ/O ဘက်/O တောင်ပံ/O ကစားသမား/O ဒန်ကိုလင်/S-PER သည်/O ဝေလာ/S-ORG အတွက်/O နှစ်/O ဂိုးသွင်း/O ခဲ့/O သည်/O ။/O
 ကျူဗာ/S-LOC ၊/O ဆာဘီးရီးယား/S-LOC နှင့်/O ဘိုရပ်တီရာ/B-LOC မြို့/E-LOC အနီး/O တွင်/O လူ/O ၁ဝဝဝဝဝ/S-NUM မှာ/O ၇၇/S-NUM ယောက်/O နှင့်/O ၁၂ဝ/S-NUM ယောက်/O နှုန်း/O များ/O အထိ/O အသီးသီး/O ရှိ/O ကြ/O သည်/O ။/O
 မြန်မာ/B-LOC နိုင်ငံ/E-LOC ၏/O မူးယစ်ဆေးဝါး/O ပြဿနာ/O သည်/O ပြည်တွင်း/O လက်နက်ကိုင်/O ပဋိပက္ခ/O များ/O နှင့်/O နက်နက်ရှိုင်းရှိုင်း/O ဆက်နွယ်/O ပတ်သက်/O သည့်/O ရှုပ်ထွေး/O လှ/O သော/O နောက်/O ခံ/O အခြေအနေ/O များ/O အရ/O ရောင်းဝယ်ဖောက်ကား/O မှု/O များ/O ကြီးထွား/O နေ/O ခဲ့/O သည်/O မှာ/O နှစ်/O ပေါင်း/O များ/O စွာ/O ကြာမြင့်/O ခဲ့/O ပြီ/O ဖြစ်/O ပါ/O သည်/O ။/O
@@ -84,7 +84,7 @@ tail command နဲ့လည်း ရိုက်ထုတ်ကြည့်၊
 ပြည်ပ/O နိုင်ငံ/O များ/O ၏/O ယဉ်ကျေး/O မှု/O များ/O စိမ့်ဝင်/O ပျံ့နှံ/O လာ/O ခြင်း/O ကို/O တိုက်ဖျက်/O ရန်/O မြောက်ကိုရီးယား/S-LOC က/O ပြီး/O ခဲ့/O သည့်/O နှစ်/O က/O ဥပဒေ/O သစ်/O တစ်/O ရပ်/O ပြဌာန်း/O ထား/O ပြီး/O ၎င်း/O ဥပဒေ/O အရ/O တောင်ကိုရီးယား/S-LOC ဇာတ်ကား/O ဗီဒီယို/O များ/O ဖြန့်ဝေ/O ပါ/O က/O သေဒဏ်/O အထိ/O အပြစ်/O ပေး/O နိုင်/O ပြီး/O ကြည့်ရှု/O လျှင်/O လည်း/O ထောင်ဒဏ်/O ၁၅/S-NUM နှစ်/O အထိ/O အပြစ်/O ပေး/O နိုင်/O သည်/O ။/O
 ထို/O ရောဂါ/O ခံစား/O နေ/O ရ/O သူ/O များ/O မှ/O အနည်းဆုံး/O ၈၀/S-NUM ရာခိုင်နှုန်း/O သည်/O အခြား/O ဆေး/O များ/O အား/O ခံနိုင်ရည်/O ရှိ/O မှု/O ကို/O ပြသ/O ခဲ့/O ပြီး/O ပြီ/O ဖြစ်/O သည်/O ။/O
 ဝီကီ/B-ORG နယူး/E-ORG မှ/O ပထမဆုံး/O ဖော်ပြ/O ခဲ့/O သည့်/O စုံစမ်း/O စစ်ဆေး/O ခြင်း/O တစ်/O ခု/O တွင်/O ဝီကီလိခ်/S-ORG က/O ယနေ့/O ဂွမ်တာနာမို/B-LOC စခန်း/E-LOC မှာ/O မြစ်ဝကျွန်းပေါ်/O စက်ရုံ/O များ/O အတွက်/O အဆင့်/O မီ/O သော/O လုပ်ငန်းစဉ်/O များ/O (/O အက်စ်အိုပီ/O )/O ကို/O ယင်း/O အကြောင်းအရာ/O ၏/O အခြား/O အခန်း/O တွင်/O ဖော်ပြ/O ထား/O သည်/O ။/O
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 ## Test Data Information
@@ -92,7 +92,7 @@ tail command နဲ့လည်း ရိုက်ထုတ်ကြည့်၊
 check with head command ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ head test.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ head test.txt
 အပေါ်ထပ်/O မှာ/O ပြင်/O ထား/O ပါ/O တယ်/O ။/O လိုက်/O ပို့/O ပေး/O ပါ/O မယ်/O ။/O
 လွယ်/O တဲ့/O စကား/O တွေ/O ရှိ/O သလို/O ခက်ခဲ/O တဲ့/O စကား/O လည်း/O ရှိ/O တာ/O သဘာဝ/O ပဲ/O ။/O
 သခင်/B-PER အောင်ဆန်း/E-PER သည်/O ကိုယ်ခန္ဓာ/O ညှက်/O ပြီး/O အားကောင်း/O သန်မာ/O လှ/O ခြင်း/O မ/O ရှိ/O သော်လည်း/O တိုက်ရေးခိုက်ရေး/O ကျွမ်းကျင်/O ကာ/O သတ္တိ/O ရှိ/O ၍/O အပင်ပန်း/O ခံ/O နိုင်/O သော/O စစ်သား/O တစ်/O ဦး/O ဖြစ်/O လာ/O ၏/O ။/O
@@ -103,13 +103,13 @@ check with head command ...
 ဝမ်/O ၅/B-NUM သောင်း/E-NUM လောက်/O ကလေး/O ဘဲ/O စု/O ခဲ့/O တယ်/O ။/O
 ကျွန်တော်/O လည်း/O နေ့လယ်/O က/O ကိုဇော်နိုင်/S-PER နဲ့/O တွေ့/O လို့/O ဒေါ်ဒေါ်/O နေမကောင်းမှန်း/O သိ/O ရ/O တာ/O ။/O
 ကျွန်တော်/O က/O သူငယ်ချင်း/O ပုံပြော/O တာ/O ခံ/O လိုက်/O ရ/O လို့/O စိတ်တို/O နေ/O တယ်/O ။/O
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 tail command ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ tail test.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ tail test.txt
 တောင်/O ပေါ်/O က/O နေ/O အနောက်ဘက်/O မျှော်/O ကြည့်/O လိုက်/O ရင်/O တိမ်ဖြူ/O မိုးပြာ/O အောက်/O မှာ/O မြစမ်းတောင်/S-LOC ပေါ်/O က/O စေတီတော်/O ကို/O ကောင်းကောင်း/O မြင်/O ရ/O ပါ/O တယ်/O ။/O
 နားလည်/O ပါ/O တယ်/O ။/O
 သူ/O စာတိုက်/O မှ/O ပြန်လာ/O လိမ့်/O မယ်/O ။/O
@@ -120,7 +120,7 @@ tail command ...
 ပူတောင်း/O ဆို/O သည်/O မှာ/O ရှမ်း/O ဘာသာ/O အားဖြင့်/O ပူ/O အဘိုး/O ၊/O တောင်း/O စောင့်/O သည်/O အဘိုး/O မျှော်/O မြို့/O ဟု/O အဓိပ္ပါယ်ရ/O သည်/O ။/O
 အဲဒီ/O လူ/O ရဲ့/O စကား/O က/O တချက်/O မှ/O မ/O မှား/O ဘူး/O ။/O
 အတော်/O ပါ/O ပဲ/O ။/Oဒါပေမဲ့/O အမှန်/O မှာ/O သူ/O တို့/O သည်/O ဘာသာ/O ရေး/O သမား/O များ/O ဖြစ်/O တယ်/O လို့/O ဒင်ဗာ/S-LOC ၏/O ဘာသာ/O ရေး/O လေ့လာ/O မှု/O တက္ကသိုလ်/O ပါမောက္ခ/B-PER ကားရပ်ချက်ခ်/E-PER က/O ဝေါစထရစ်/B-ORG ဂျာနယ်/E-ORG မှ/O ကြေညာ/O ချက်/O တစ်/O ခု/O ထဲ/O မှာ/O ဖော်ပြ/O ထား/O ပါ/O တယ်/O ။/O
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 ## Checking Tag Distributions for Training Data 
@@ -128,7 +128,7 @@ tail command ...
 python code for tag distributions, frequency analysis ...  
 
 ```python
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ cat ../data/analyze_NER_corpus.py
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ cat ../data/analyze_NER_corpus.py
 ## Written by Ye, LU Lab., Myanmar
 ## for checking NER tagged data
 ## Last updated: 28 Sept 2023
@@ -192,13 +192,13 @@ if __name__ == "__main__":
     result = analyze_corpus(args.filename, args.format)
     print(result)
 
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 for the training data ... 
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./train.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt
 Analysis of './train.txt'
 ----------------------------------------
 1. Number of sentences without named entities: 6788
@@ -271,13 +271,13 @@ Analysis of './train.txt'
    S-PRODUCT: 0.01%
    S-TIME: 0.04%
 
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 S, B, I, E ဆိုတဲ့ အပိုင်းတွေမပါပဲ analysis လုပ်ကြည့်ချင်လို့ --format option ကို abstract အဖြစ်ထားပြီး run ကြည့်ခဲ့ ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./train.txt --format abstract
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./train.txt --format abstract
 Analysis of './train.txt'
 ----------------------------------------
 1. Number of sentences without named entities: 6788
@@ -302,7 +302,6 @@ Analysis of './train.txt'
    PRODUCT: 0.04%
    TIME: 0.28%
 
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
 ## Checking Tag Distributions for the Test Data
@@ -310,7 +309,7 @@ Analysis of './train.txt'
 S, B, I, E တွေပါ အပါအဝင် ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./test.txt
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt
 Analysis of './test.txt'
 ----------------------------------------
 1. Number of sentences without named entities: 743
@@ -375,13 +374,12 @@ Analysis of './test.txt'
    S-PER: 0.50%
    S-TIME: 0.03%
 
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
 sub-tag တွေ မပါပဲ distribution ကို စစ်ကြည့်ခဲ့ ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$ python ../data/analyze_NER_corpus.py ./test.txt --format abstract
 Analysis of './test.txt'
 ----------------------------------------
 1. Number of sentences without named entities: 743
@@ -406,7 +404,7 @@ Analysis of './test.txt'
    PRODUCT: 0.01%
    TIME: 0.21%
 
-(base) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
+(base) ye@lst-gpu-3090:~/exp/myNER/xgboost$
 ```
 
 အကြမ်းစစ်ကြည့်ခဲ့တာ experiment လုပ်ဖို့ အဆင်ပြေပြီလို့ assumption လုပ်ပြီး train, test လုပ်မယ်။ Workshop အတွက် draft paper ရေးပြီးနောက်ပိုင်းမှပဲ ကောင်းလွင်သန့်နဲ့ corpus တစ်ခုလုံးကို update လုပ်ရင်း ပြန်စစ်ကြည့်မယ် စိတ်ကူးခဲ့ ...  
