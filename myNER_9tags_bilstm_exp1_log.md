@@ -171,8 +171,103 @@ Check the model folder:
 (bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
-```
+## Testing Bi-LSTM Model with Test Data
 
+```
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ time python ./bi-lstm_ner.py test -t test.txt -m ./exp1_bilstm.model -o ./test.hyp
+2023-10-17 16:08:32.321635: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+Loaded Tag Map during testing: {'<PAD>': 0, 'B-DATE': 1, 'B-EVENT': 2, 'B-LOC': 3, 'B-NUM': 4, 'B-ORG': 5, 'B-PER': 6, 'B-PRODUCT': 7, 'B-TIME': 8, 'E-DATE': 9, 'E-EVENT': 10, 'E-LOC': 11, 'E-NUM': 12, 'E-ORG': 13, 'E-PER': 14, 'E-PRODUCT': 15, 'E-TIME': 16, 'I-DATE': 17, 'I-EVENT': 18, 'I-LOC': 19, 'I-NUM': 20, 'I-ORG': 21, 'I-PER': 22, 'I-PRODUCT': 23, 'I-TIME': 24, 'O': 25, 'S-DATE': 26, 'S-EVENT': 27, 'S-LOC': 28, 'S-NUM': 29, 'S-ORG': 30, 'S-PER': 31, 'S-PRODUCT': 32, 'S-TIME': 33}
+Tag Map with string keys during testing: {'<PAD>': 0, 'B-DATE': 1, 'B-EVENT': 2, 'B-LOC': 3, 'B-NUM': 4, 'B-ORG': 5, 'B-PER': 6, 'B-PRODUCT': 7, 'B-TIME': 8, 'E-DATE': 9, 'E-EVENT': 10, 'E-LOC': 11, 'E-NUM': 12, 'E-ORG': 13, 'E-PER': 14, 'E-PRODUCT': 15, 'E-TIME': 16, 'I-DATE': 17, 'I-EVENT': 18, 'I-LOC': 19, 'I-NUM': 20, 'I-ORG': 21, 'I-PER': 22, 'I-PRODUCT': 23, 'I-TIME': 24, 'O': 25, 'S-DATE': 26, 'S-EVENT': 27, 'S-LOC': 28, 'S-NUM': 29, 'S-ORG': 30, 'S-PER': 31, 'S-PRODUCT': 32, 'S-TIME': 33}
+2023-10-17 16:08:32.825147: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcuda.so.1
+2023-10-17 16:08:32.827865: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-10-17 16:08:32.827946: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 3090 Ti computeCapability: 8.6
+coreClock: 1.95GHz coreCount: 84 deviceMemorySize: 23.68GiB deviceMemoryBandwidth: 938.86GiB/s
+2023-10-17 16:08:32.827956: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2023-10-17 16:08:32.830056: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublas.so.11
+2023-10-17 16:08:32.830084: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublasLt.so.11
+2023-10-17 16:08:32.843618: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcufft.so.10
+2023-10-17 16:08:32.843797: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcurand.so.10
+2023-10-17 16:08:32.844182: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusolver.so.11
+2023-10-17 16:08:32.845526: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusparse.so.11
+2023-10-17 16:08:32.845649: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-11.8/lib64:
+2023-10-17 16:08:32.845656: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1766] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2023-10-17 16:08:32.845771: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-17 16:08:32.846485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2023-10-17 16:08:32.846490: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]
+2023-10-17 16:08:33.585440: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:33.597466: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:33.603740: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:33.726138: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.073401: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.078007: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.086495: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.092902: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.097477: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.179191: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.183968: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.314127: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.318986: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.498684: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.508617: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.615186: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.784551: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.896635: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.954568: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:34.963419: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.079653: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.140347: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.181130: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.231110: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond/while' has 14 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.235736: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.396925: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.406706: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:35.502051: W tensorflow/core/common_runtime/graph_constructor.cc:809] Node 'cond' has 5 outputs but the _output_shapes attribute specifies shapes for 48 outputs. Output shapes may be inaccurate.
+2023-10-17 16:08:36.285213: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2023-10-17 16:08:36.285422: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2419200000 Hz
+              precision    recall  f1-score   support
+
+      B-DATE     0.6250    0.8036    0.7031        56
+     B-EVENT     0.0000    0.0000    0.0000         6
+       B-LOC     0.6218    0.6916    0.6549       107
+       B-NUM     0.0000    0.0000    0.0000        24
+       B-ORG     0.3750    0.0833    0.1364        36
+       B-PER     0.8000    0.4444    0.5714        27
+   B-PRODUCT     0.0000    0.0000    0.0000         1
+      B-TIME     1.0000    0.0909    0.1667        11
+      E-DATE     0.7966    0.8393    0.8174        56
+     E-EVENT     0.0000    0.0000    0.0000         6
+       E-LOC     0.7172    0.6636    0.6893       107
+       E-NUM     0.0000    0.0000    0.0000        24
+       E-ORG     0.0000    0.0000    0.0000        36
+       E-PER     0.8333    0.3704    0.5128        27
+   E-PRODUCT     0.0000    0.0000    0.0000         1
+      E-TIME     0.8750    0.6364    0.7368        11
+      I-DATE     0.7246    0.8333    0.7752        60
+     I-EVENT     0.0000    0.0000    0.0000         3
+       I-LOC     0.0000    0.0000    0.0000        17
+       I-NUM     0.0000    0.0000    0.0000         5
+       I-ORG     0.7500    0.2143    0.3333        14
+      I-TIME     0.0000    0.0000    0.0000         5
+           O     0.9778    0.9933    0.9855     14033
+      S-DATE     0.0000    0.0000    0.0000        14
+       S-LOC     0.5469    0.4861    0.5147        72
+       S-NUM     0.5068    0.5522    0.5286        67
+       S-ORG     0.0000    0.0000    0.0000        20
+       S-PER     0.5185    0.3784    0.4375        74
+      S-TIME     0.0000    0.0000    0.0000         5
+
+    accuracy                         0.9623     14925
+   macro avg     0.3679    0.2787    0.2953     14925
+weighted avg     0.9507    0.9623    0.9554     14925
+
+
+real    0m5.944s
+user    0m7.356s
+sys     0m2.424s
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
 ```
