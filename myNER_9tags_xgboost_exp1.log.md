@@ -1,6 +1,6 @@
 # Experiment 1 Log
 
-ဒီ experiment log ကတော့ လက်ရှိ ပြင်ဆင်နေဆဲ myNER tag 9 ခုဒေတာ (work together with Kaung Lwin Thant) နဲ့ ပထမဆုံး အကြိမ် tagging training/testing ကို xgboost approach လုပ်ထားတဲ့ log ပါ။    
+ဒီ experiment log ကတော့ လက်ရှိ ပြင်ဆင်နေဆဲ myNER corpus ရဲ့ တစ်ပိုင်း tag 9 ခုဒေတာ (work together with Kaung Lwin Thant) နဲ့ ပထမဆုံး အကြိမ် tagging training/testing ကို xgboost approach လုပ်ထားတဲ့ log ပါ။    
 
 ## Check the data
 
