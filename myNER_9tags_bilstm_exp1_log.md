@@ -98,9 +98,61 @@ optional arguments:
 (bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
+Start training ...  
 
 ```
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$ time python ./bi-lstm_ner.py train -i train.txt -m ./exp1_bilstm.model
+2023-10-17 15:54:50.669012: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+Saved Tag Map during training: {'<PAD>': 0, 'B-DATE': 1, 'B-EVENT': 2, 'B-LOC': 3, 'B-NUM': 4, 'B-ORG': 5, 'B-PER': 6, 'B-PRODUCT': 7, 'B-TIME': 8, 'E-DATE': 9, 'E-EVENT': 10, 'E-LOC': 11, 'E-NUM': 12, 'E-ORG': 13, 'E-PER': 14, 'E-PRODUCT': 15, 'E-TIME': 16, 'I-DATE': 17, 'I-EVENT': 18, 'I-LOC': 19, 'I-NUM': 20, 'I-ORG': 21, 'I-PER': 22, 'I-PRODUCT': 23, 'I-TIME': 24, 'O': 25, 'S-DATE': 26, 'S-EVENT': 27, 'S-LOC': 28, 'S-NUM': 29, 'S-ORG': 30, 'S-PER': 31, 'S-PRODUCT': 32, 'S-TIME': 33}
+2023-10-17 15:54:51.442871: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcuda.so.1
+2023-10-17 15:54:51.482662: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-10-17 15:54:51.483015: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 3090 Ti computeCapability: 8.6
+coreClock: 1.95GHz coreCount: 84 deviceMemorySize: 23.68GiB deviceMemoryBandwidth: 938.86GiB/s
+2023-10-17 15:54:51.483112: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2023-10-17 15:54:51.928175: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublas.so.11
+2023-10-17 15:54:51.928278: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublasLt.so.11
+2023-10-17 15:54:52.265716: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcufft.so.10
+2023-10-17 15:54:52.369599: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcurand.so.10
+2023-10-17 15:54:52.431944: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusolver.so.11
+2023-10-17 15:54:52.725307: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusparse.so.11
+2023-10-17 15:54:52.726032: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-11.8/lib64:
+2023-10-17 15:54:52.726063: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1766] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2023-10-17 15:54:52.726642: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-17 15:54:52.730907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2023-10-17 15:54:52.730955: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]
+2023-10-17 15:54:53.583429: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 182424960 exceeds 10% of free system memory.
+2023-10-17 15:54:53.694903: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2023-10-17 15:54:53.702268: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2419200000 Hz
+Epoch 1/10
+130/130 [==============================] - 10s 56ms/step - loss: 0.0906 - accuracy: 0.9223 - val_loss: 0.0375 - val_accuracy: 0.9365
+Epoch 2/10
+130/130 [==============================] - 6s 48ms/step - loss: 0.0296 - accuracy: 0.9376 - val_loss: 0.0283 - val_accuracy: 0.9365
+Epoch 3/10
+130/130 [==============================] - 6s 48ms/step - loss: 0.0235 - accuracy: 0.9377 - val_loss: 0.0252 - val_accuracy: 0.9372
+Epoch 4/10
+130/130 [==============================] - 7s 52ms/step - loss: 0.0205 - accuracy: 0.9403 - val_loss: 0.0234 - val_accuracy: 0.9417
+Epoch 5/10
+130/130 [==============================] - 7s 55ms/step - loss: 0.0183 - accuracy: 0.9475 - val_loss: 0.0220 - val_accuracy: 0.9468
+Epoch 6/10
+130/130 [==============================] - 7s 52ms/step - loss: 0.0161 - accuracy: 0.9551 - val_loss: 0.0202 - val_accuracy: 0.9525
+Epoch 7/10
+130/130 [==============================] - 7s 52ms/step - loss: 0.0139 - accuracy: 0.9623 - val_loss: 0.0192 - val_accuracy: 0.9563
+Epoch 8/10
+130/130 [==============================] - 7s 52ms/step - loss: 0.0119 - accuracy: 0.9673 - val_loss: 0.0182 - val_accuracy: 0.9587
+Epoch 9/10
+130/130 [==============================] - 7s 53ms/step - loss: 0.0102 - accuracy: 0.9716 - val_loss: 0.0174 - val_accuracy: 0.9608
+Epoch 10/10
+130/130 [==============================] - 7s 52ms/step - loss: 0.0087 - accuracy: 0.9756 - val_loss: 0.0174 - val_accuracy: 0.9619
+2023-10-17 15:56:06.334223: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_1_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_1_layer_call_fn while saving (showing 5 of 10). These functions will not be directly callable after loading.
 
+real    1m22.599s
+user    8m32.847s
+sys     0m42.212s
+(bi_lstm_ner) ye@lst-gpu-3090:~/exp/myNER/bi-LSTM$
 ```
 
 ```
