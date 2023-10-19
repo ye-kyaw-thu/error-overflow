@@ -2081,12 +2081,106 @@ iter 10: loss 4.0368, time 17676.57ms, mfu 0.85%
 
 ```
 
+training လုပ်တာ တအားနှေးနေလို့ GPU ကို စစ်ကြည့်တော့ ERR! ဖြစ်နေတာတွေ့ရလို့ GPU server စက်ကို reboot လုပ်ချလိုက်ပြီး ပြန် training လုပ်ခဲ့ ... 
+
 ```
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT$ time torchrun ./train.py ./config/train_myHatesp
+eech_char.py | tee myHatespeech_char_exp1.log
+Overriding config with ./config/train_myHatespeech_char.py:
+# train a miniature character-level Myanmar Hatepeech model
+
+out_dir = 'out-myHatespeech-char'
+eval_interval = 250 # keep frequent because we'll overfit
+eval_iters = 200
+log_interval = 10 # don't print too too often
+
+# we expect to overfit on this small dataset, so only save when val improves
+always_save_checkpoint = False
+
+wandb_log = False # override via command line if you like
+wandb_project = 'myHatespeech-char'
+wandb_run_name = 'mini-gpt'
+
+dataset = 'myHatespeech_char'
+batch_size = 64
+block_size = 256 # context of up to 256 previous characters
+
+# baby GPT model :)
+n_layer = 6
+n_head = 6
+n_embd = 384
+dropout = 0.2
+
+learning_rate = 1e-3 # with baby networks can afford to go a bit higher
+max_iters = 5000
+lr_decay_iters = 5000 # make equal to max_iters usually
+min_lr = 1e-4 # learning_rate / 10 usually
+beta2 = 0.99 # make a bit bigger because number of tokens per iter is small
+
+warmup_iters = 100 # not super necessary potentially
+
+# on macbook also add
+# device = 'cpu'  # run on cpu only
+# compile = False # do not torch compile the model
+
+tokens per iteration will be: 655,360
+found vocab_size = 343 (inside data/myHatespeech_char/meta.pkl)
+Initializing a new model from scratch
+number of parameters: 10.75M
+num decayed parameter tensors: 26, with 10,846,848 parameters
+num non-decayed parameter tensors: 13, with 4,992 parameters
+using fused AdamW: True
+compiling the model... (takes a ~minute)
+step 0: train loss 5.9544, val loss 5.9531
+iter 0: loss 5.9471, time 31860.03ms, mfu -100.00%
+iter 10: loss 4.0368, time 1113.83ms, mfu 13.50%
+iter 20: loss 3.0333, time 1118.86ms, mfu 13.50%
+iter 30: loss 2.5062, time 1118.83ms, mfu 13.49%
+iter 40: loss 2.2987, time 1124.79ms, mfu 13.48%
+iter 50: loss 2.1806, time 1124.80ms, mfu 13.47%
+iter 60: loss 2.1559, time 1124.98ms, mfu 13.46%
+iter 70: loss 2.1709, time 1125.21ms, mfu 13.45%
+iter 80: loss 2.1324, time 1125.11ms, mfu 13.44%
+iter 90: loss 2.1409, time 1131.22ms, mfu 13.43%
+iter 100: loss 2.1276, time 1131.26ms, mfu 13.41%
+iter 110: loss 2.0870, time 1130.97ms, mfu 13.40%
+iter 120: loss 2.0193, time 1130.88ms, mfu 13.39%
+iter 130: loss 1.9595, time 1130.92ms, mfu 13.38%
+...
+...
+...
 
 ```
 
-```
+training လုပ်နေစဉ်မှာ nvidia-smi command နဲ့ စစ်ကြည့်တော့ GPU ကို သုံးနေတာကို အောက်ပါအတိုင်း တွေ့ခဲ့ရ ...  
+သေချာသွားပြီး စောစောက training က multiple CPU ကို သုံးပြီး training လုပ်နေတာ...  
 
+```
+(base) ye@lst-gpu-3090:~$ (base) ye@lst-gpu-3090:~$ nvidia-smi
+Thu Oct 19 23:28:28 2023
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
+| 31%   67C    P2   416W / 480W |   5110MiB / 24564MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1993      G   /usr/lib/xorg/Xorg                 59MiB |
+|    0   N/A  N/A      2359      G   /usr/bin/gnome-shell              123MiB |
+|    0   N/A  N/A      8378      C   python                           1716MiB |
+|    0   N/A  N/A     10700      C   ...3/envs/nanoGPT/bin/python     3206MiB |
++-----------------------------------------------------------------------------+
+(base) ye@lst-gpu-3090:~$
 ```
 
 ```
