@@ -810,14 +810,13 @@ Executing transaction: done
 (nanoGPT) yekyaw.thu@gpu:~$
 ```
 
-```
+Check the notebook version:  
 
 ```
-
+(nanoGPT) yekyaw.thu@gpu:~$ jupyter notebook --version
+6.5.4
+(nanoGPT) yekyaw.thu@gpu:~$
 ```
-
-```
-
 
 ## Relating to Port-forwarding
 
