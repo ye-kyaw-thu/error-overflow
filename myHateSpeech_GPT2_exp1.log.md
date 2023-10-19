@@ -1580,6 +1580,8 @@ sys     0m2.694s
 
 ```
 
+## Check PyTorch
+
 Check torch version ...  
 
 ```
@@ -1594,7 +1596,19 @@ Type "help", "copyright", "credits" or "license" for more information.
 (nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$
 ```
 
+Check GPU is available or not ...  
+
 ```
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$ python
+Python 3.8.18 (default, Sep 11 2023, 13:40:15)
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> torch.cuda.is_available()
+/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+False
+>>>
 
 ```
 
