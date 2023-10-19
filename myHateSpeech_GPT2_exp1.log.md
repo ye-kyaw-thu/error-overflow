@@ -2212,6 +2212,30 @@ iter 3050: loss 0.1247, time 1125.65ms, mfu 12.71%
 ...
 ...
 ...
+iter 3720: loss 0.1129, time 1125.41ms, mfu 13.25%
+iter 3730: loss 0.1069, time 1125.64ms, mfu 13.26%
+iter 3740: loss 0.1107, time 1125.51ms, mfu 13.27%
+step 3750: train loss 0.0616, val loss 3.4785
+iter 3750: loss 0.1065, time 4728.09ms, mfu 12.26%
+iter 3760: loss 0.1067, time 1125.68ms, mfu 12.37%
+iter 3770: loss 0.1134, time 1125.63ms, mfu 12.47%
+iter 3780: loss 0.1075, time 1125.70ms, mfu 12.56%
+iter 3790: loss 0.1083, time 1125.69ms, mfu 12.64%
+iter 3800: loss 0.1104, time 1125.53ms, mfu 12.71%
+iter 3810: loss 0.1134, time 1125.57ms, mfu 12.78%
+iter 3820: loss 0.1083, time 1125.62ms, mfu 12.84%
+iter 3830: loss 0.1062, time 1125.15ms, mfu 12.89%
+iter 3840: loss 0.1032, time 1125.74ms, mfu 12.94%
+iter 3850: loss 0.1103, time 1125.66ms, mfu 12.98%
+iter 3860: loss 0.1027, time 1125.94ms, mfu 13.02%
+iter 3870: loss 0.1084, time 1125.26ms, mfu 13.05%
+iter 3880: loss 0.1087, time 1125.57ms, mfu 13.08%
+iter 3890: loss 0.1114, time 1125.45ms, mfu 13.11%
+iter 3900: loss 0.1077, time 1125.39ms, mfu 13.14%
+iter 3910: loss 0.1104, time 1125.42ms, mfu 13.16%
+...
+...
+...
 
 ```
 
