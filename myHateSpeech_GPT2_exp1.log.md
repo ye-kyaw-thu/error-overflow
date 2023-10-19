@@ -398,10 +398,21 @@ doc  mypoetry-corpus-notitle-ver1.0.txt  mypoetry-corpus-ver1.0.txt
 (nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus/version1.0$
 ```
 
-```
+အဲဒီတုန်းက Jupyter Notebook နဲ့ run ခဲ့တာလို့ မှတ်မိနေတယ် ...  
 
 ```
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry$ ls
+corpus  notebooks  README.md
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry$ cd notebooks/
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/notebooks$ ls
+kabyarGPT2-building-experiment1.ipynb         srilm
+kabyarGPT-notitle-building-experiment2.ipynb
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/notebooks$
+```
 
+## Relating to Port-forwarding
+
+Server ပေါ်မှာ Jupyter notebook ကို run ထားပြီးတော့ အဲဒီ Jupyter notebook ကို ကိုယ့် local စက်ထဲက browser နဲ့ ခေါ်ကြည့်မယ်ဆိုရင်တော့ port-forwarding ကိစ္စကို သိဖို့ လိုအပ်တယ်။  
 ```
 
 ```
