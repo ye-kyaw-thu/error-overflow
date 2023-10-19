@@ -2261,7 +2261,29 @@ iter 4400: loss 0.1000, time 1125.47ms, mfu 13.14%
 ...
 ...
 ...
+iter 4840: loss 0.0975, time 1125.78ms, mfu 12.94%
+iter 4850: loss 0.1012, time 1125.65ms, mfu 12.98%
+iter 4860: loss 0.0944, time 1125.76ms, mfu 13.02%
+iter 4870: loss 0.0976, time 1125.52ms, mfu 13.05%
+iter 4880: loss 0.0924, time 1125.53ms, mfu 13.08%
+iter 4890: loss 0.1005, time 1125.38ms, mfu 13.11%
+iter 4900: loss 0.1001, time 1125.48ms, mfu 13.14%
+iter 4910: loss 0.0951, time 1125.49ms, mfu 13.16%
+iter 4920: loss 0.0995, time 1125.52ms, mfu 13.18%
+iter 4930: loss 0.0998, time 1125.86ms, mfu 13.20%
+iter 4940: loss 0.1007, time 1125.64ms, mfu 13.21%
+iter 4950: loss 0.1005, time 1125.59ms, mfu 13.23%
+iter 4960: loss 0.0966, time 1125.53ms, mfu 13.24%
+iter 4970: loss 0.0942, time 1125.58ms, mfu 13.25%
+iter 4980: loss 0.0982, time 1125.69ms, mfu 13.26%
+iter 4990: loss 0.0937, time 1125.62ms, mfu 13.27%
+step 5000: train loss 0.0585, val loss 3.6645
+iter 5000: loss 0.0992, time 4749.53ms, mfu 12.26%
 
+real    95m46.108s
+user    53m32.433s
+sys     42m14.771s
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT$
 ```
 
 training လုပ်နေစဉ်မှာ nvidia-smi command နဲ့ စစ်ကြည့်တော့ GPU ကို သုံးနေတာကို အောက်ပါအတိုင်း တွေ့ခဲ့ရ ...  
