@@ -2236,6 +2236,31 @@ iter 3910: loss 0.1104, time 1125.42ms, mfu 13.16%
 ...
 ...
 ...
+iter 4200: loss 0.1068, time 1126.03ms, mfu 13.23%
+iter 4210: loss 0.1011, time 1125.61ms, mfu 13.24%
+iter 4220: loss 0.0970, time 1125.76ms, mfu 13.25%
+iter 4230: loss 0.1012, time 1125.38ms, mfu 13.26%
+iter 4240: loss 0.1024, time 1125.39ms, mfu 13.27%
+step 4250: train loss 0.0600, val loss 3.5678
+iter 4250: loss 0.1014, time 4747.28ms, mfu 12.26%
+iter 4260: loss 0.1043, time 1125.54ms, mfu 12.37%
+iter 4270: loss 0.1029, time 1125.64ms, mfu 12.47%
+iter 4280: loss 0.1039, time 1125.74ms, mfu 12.56%
+iter 4290: loss 0.0969, time 1125.31ms, mfu 12.64%
+iter 4300: loss 0.0993, time 1125.43ms, mfu 12.71%
+iter 4310: loss 0.1030, time 1125.69ms, mfu 12.78%
+iter 4320: loss 0.0983, time 1125.59ms, mfu 12.84%
+iter 4330: loss 0.1025, time 1125.57ms, mfu 12.89%
+iter 4340: loss 0.1023, time 1125.66ms, mfu 12.94%
+iter 4350: loss 0.1033, time 1125.80ms, mfu 12.98%
+iter 4360: loss 0.0998, time 1125.62ms, mfu 13.02%
+iter 4370: loss 0.1066, time 1125.46ms, mfu 13.05%
+iter 4380: loss 0.0955, time 1125.31ms, mfu 13.08%
+iter 4390: loss 0.1031, time 1125.53ms, mfu 13.11%
+iter 4400: loss 0.1000, time 1125.47ms, mfu 13.14%
+...
+...
+...
 
 ```
 
