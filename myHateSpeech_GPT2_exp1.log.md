@@ -1433,11 +1433,46 @@ Thu Oct 19 20:33:31 2023
 
 လောလောဆယ် run နေတဲ့ process တစ်ခုမှ မရှိလို့ OK တယ်။  
 
-```
+## Training GPT-2 Model with myHatespeech Corpus
+
+Note: I run with character unit ...  
+
+Current Path:  
 
 ```
+(base) yekyaw.thu@gpu:~/tool/nanoGPT$ pwd
+/home/yekyaw.thu/tool/nanoGPT
+```
+
+Training command ပေးတော့ အောက်ပါအတိုင်း Error message ရခဲ့ ...  
 
 ```
+(base) yekyaw.thu@gpu:~/tool/nanoGPT$ time python -m torch.distributed.launch --use-env train.py ./config/train_myHatespeech_char.py | tee train-myHatespeech-char.log
+/home/yekyaw.thu/.local/lib/python3.7/site-packages/torch/distributed/launch.py:186: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See
+https://pytorch.org/docs/stable/distributed.html#launch-utility for
+further instructions
+
+  FutureWarning,
+usage: launch.py [-h] [--nnodes NNODES] [--nproc_per_node NPROC_PER_NODE]
+                 [--rdzv_backend RDZV_BACKEND] [--rdzv_endpoint RDZV_ENDPOINT]
+                 [--rdzv_id RDZV_ID] [--rdzv_conf RDZV_CONF] [--standalone]
+                 [--max_restarts MAX_RESTARTS]
+                 [--monitor_interval MONITOR_INTERVAL]
+                 [--start_method {spawn,fork,forkserver}] [--role ROLE] [-m]
+                 [--no_python] [--run_path] [--log_dir LOG_DIR] [-r REDIRECTS]
+                 [-t TEE] [--node_rank NODE_RANK] [--master_addr MASTER_ADDR]
+                 [--master_port MASTER_PORT] [--use_env]
+                 training_script ...
+launch.py: error: unrecognized arguments: --use-env
+
+real    0m6.533s
+user    0m1.593s
+sys     0m0.281s
+(base) yekyaw.thu@gpu:~/tool/nanoGPT$
 
 ```
 
