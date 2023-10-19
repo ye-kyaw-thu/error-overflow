@@ -849,11 +849,94 @@ hs_data_4Oct2023.txt                                    100% 2199KB   2.0MB/s   
 C:\Users\ye>
 ```
 
-```
+server ပေါ်မှာ ကူးခဲ့တဲ့ ဒေတာကို check လုပ် ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ ls
+hs_data_4Oct2023.txt
+```
+
+filesize ကို စစ်ကြည့်ခဲ့ ...  
 
 ```
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ wc hs_data_4Oct2023.txt
+  10140  181428 2252181 hs_data_4Oct2023.txt
+```
+
+ဖိုင်ထဲက စာကြောင်းတွေကို check လုပ် ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ head hs_data_4Oct2023.txt
+ဖော်လော်မော်/ab မ ဟုတ် လို့ ပေါ့ 🤣 🤣   ab
+နား ကို မ လည် တာ   no
+ဆောက်မြင်ကပ်/ab ထင် တာ ပဲ    ab
+ကွမ်းယာ မှာ ထည့် စား တဲ့ စမုန်စပါး ထင် တယ် no
+ဖလော်မော်/ab next version ab
+ငါ လည်း သိ ချင် နေ တာ 😁 အဲ့လို စကား တွေ ကျ နားမလည် လို့ သင် ပေး ကြ ပါ ဦး 😂 no
+ငါ မ သိ လို့ ကိုကို့ ကို မေး ကြည့် တာ ကိုကို က လည်း baby က လွဲ ရင် မ သိ ဘူး တဲ့ 🥺       no
+ဖော်လော်မော်/ab နဲ့ ညီမ တော် တယ် လေ 😬  ab
+sမွေး/ab ကြီး တဲ့ 😂        ab
+$မွှေး/ab ပါ      ab
+```
+
+ဖိုင်ရဲ့ နောက်ဆုံးပိုင်းကိုလည်း tail command နဲ့ စစ်ကြည့်ခဲ့ ...  
+
+```
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ tail hs_data_4Oct2023.txt
+သူ့ ကို ဘာ ကြည့် ပြီး vote ပေး ကြ တာ ပါ လိမ့် $ရူးမ/ab ဘာ မ ဟုတ် တဲ့ ကိစ္စ ကြောင့် ရွှေကြို အခွင့်အရေး ကို ဆုံးရှုံး မ ခံ နိုင် လို့ ဆို ပြီး ပြော တဲ့ $ရူးမ/ab       ab
+ဖင်အရှည်ကြီးခံလိုက်/ab တစ်ခါတည်း အကုန် ကြို ပြီး သား ပဲ 🦭      ab
+အိပ်မက် က အမ တစ် ယောက် ပဲ ရှိ တာ လား 🥲 no
+SattPatt/ab !! ဘာ မ ဟုတ် တဲ့ ပြဿနာ တဲ့ PayloeeeMaaaGGG/ab     ab
+စောက်ဆင့်မရှိ/ab တဲ့ ဟာ တွေ က လည်း အခုတလော ခပ်စိပ်စိပ် တွေ့ လာ ရ တယ် 🤣🤣🤣🤣🤣 ရေး ချင် လွန်း လို့ မ ဟုတ် ဘူး နော် ရှက် တတ် ဦး မ လား လို့ ဝင့် မန့် တာ       ab
+ဘာ မ ဟုတ် တာ လေး တဲ့ အာ့ ဆို ဟုတ် တဲ့ ဟာ ဘောပဲမနေ/ab နော် အမကြီး      ab
+ထမင်းစားတိုင်းလူမဖြစ်နိုင်ဘူး/ab ဆို တာ ခု မှ အရှင်လတ်လတ် မြင် ဖူး တော့ တယ် ကောင်မ/ab မွေးကတည်းကအသေလေးမွေးလာရမှာ/le        le
+အော် ဘာ မ ဟုတ် တာ တဲ့ လား ပြောထွက်တဲ့ပါးစပ်လေးကိုအက်ဆစ်လေးနဲ့သွားဆေးစေချင်/ab     ab
+ဗန်းကိုင် နဲ့ မအလ/ab|po ဘောကိုင်/ab      ab
+စိတ်မပူ နဲ့ ရွှေကြို ပြီး ရင် ဖင်ခံ/ab ရ မှာ ညီမလေး fighting 22 နှစ် က ငါ 25 နှစ် ထက် အို/bo နေ တော့ အား တောင် နာ တယ် 😂 😂      bo
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$
+```
+
+## Change File Format
+
+LLM ဆောက်ပြီးတော့ hatespeech generation လုပ်ကြည့်ချင်တာမို့လို့ tag တွေကို ဖြုတ်ဖို့ လိုအပ်တယ်။ file format ကို စာသားချည်းပဲ ဖြစ်အောင် ပြင်ဆင်ဖို့ လိုအပ်တယ်။  
+
+Write a Python script:  
+
+```python
+## Writen by Ye Kyaw Thu, LU Lab., Myanmar
+## for removing hatespeech tags
+## last updated: 19 Oct 2023
+
+import argparse
+import re
+
+def process_text(input_file, output_file=None):
+    with open(input_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    cleaned_lines = []
+    for line in lines:
+        # Split the line by tabs and take the first column
+        sentence = line.split('\t')[0]
+        # Use regex to remove the tags following "/"
+        cleaned_sentence = re.sub(r'/[a-zA-Z|]*', '', sentence)
+        cleaned_lines.append(cleaned_sentence)
+
+    if output_file:
+        with open(output_file, 'w', encoding='utf-8') as file:
+            file.write('\n'.join(cleaned_lines))
+    else:
+        for cleaned_line in cleaned_lines:
+            print(cleaned_line)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process a text file to remove tags.')
+    parser.add_argument('-i', '--input_file', required=True, help='Path to the input file.')
+    parser.add_argument('-o', '--output_file', help='Path to the output file. If not provided, result will be printed to the screen.')
+
+    args = parser.parse_args()
+
+    process_text(args.input_file, args.output_file)
 
 ```
 
