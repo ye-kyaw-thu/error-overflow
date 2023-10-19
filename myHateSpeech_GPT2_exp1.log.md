@@ -2755,6 +2755,11 @@ Loading meta from data/myHatespeech_char/meta.pkl...
 (nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT$
 ```
 
+## To Do
+
+- When I have time, preparing a Jupyter Notebook for some testing
+- I also wish to do, manual evaluation
+  
 ## Reference
 
 1. [https://github.com/ye-kyaw-thu/myPoetry](https://github.com/ye-kyaw-thu/myPoetry)
