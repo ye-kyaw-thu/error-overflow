@@ -337,6 +337,8 @@ Successfully installed Click-8.1.7 GitPython-3.1.40 aiohttp-3.8.6 aiosignal-1.3.
 
 ## Cloning nanoGPT Repository 
 
+လိုအပ်ရင် ပြန် refer လုပ်ဖို့အတွက် ...  
+
 ```
 (nanoGPT) yekyaw.thu@gpu:~/tool$ git clone https://github.com/karpathy/nanoGPT
 Cloning into 'nanoGPT'...
@@ -352,8 +354,20 @@ config    LICENSE          sample.py  transformer_sizing.ipynb
 (nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$
 ```
 
-```
+## Cloning myPoetry Repository
 
+တကယ်တမ်းက အထက်ပါ nanoGPT repository ကို အခြေခံပြီးတော့ မြန်မာကဗျာအတွက် စမ်းထားတဲ့ repository က ရှိပြီးသားမို့ အဲဒါပဲ clone လုပ်တာနဲ့တင် အိုကေမယ်လို့ ထင်တယ်။  
+
+```
+(nanoGPT) yekyaw.thu@gpu:~/exp$ git clone https://github.com/ye-kyaw-thu/myPoetry
+Cloning into 'myPoetry'...
+remote: Enumerating objects: 188, done.
+remote: Counting objects: 100% (74/74), done.
+remote: Compressing objects: 100% (71/71), done.
+remote: Total 188 (delta 20), reused 0 (delta 0), pack-reused 114
+Receiving objects: 100% (188/188), 3.58 MiB | 12.64 MiB/s, done.
+Resolving deltas: 100% (52/52), done.
+(nanoGPT) yekyaw.thu@gpu:~/exp$
 ```
 
 ```
