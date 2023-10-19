@@ -1580,8 +1580,18 @@ sys     0m2.694s
 
 ```
 
-```
+Check torch version ...  
 
+```
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$ python
+Python 3.8.18 (default, Sep 11 2023, 13:40:15)
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> print(torch.__version__)
+2.1.0+cu121
+>>> exit()
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$
 ```
 
 ```
