@@ -1476,7 +1476,107 @@ sys     0m0.281s
 
 ```
 
+Conda environment ကို activate လုပ်ဖို့ မေ့နေလို့ activate လုပ်ပြီး run ကြည့်တော့လည်း အောက်ပါအတိုင်း error message ရခဲ့ ...  
+
 ```
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$ time python -m torch.distributed.launch --use-env train.py ./config/train_myHatespeech_char.py | tee train-myHatespeech-char.log
+/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launch.py:181: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use-env is set by default in torchrun.
+If your script expects `--local-rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See
+https://pytorch.org/docs/stable/distributed.html#launch-utility for
+further instructions
+
+  warnings.warn(
+/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+Overriding config with ./config/train_myHatespeech_char.py:
+# train a miniature character-level Myanmar Hatepeech model
+
+out_dir = 'out-myHatespeech-char'
+eval_interval = 250 # keep frequent because we'll overfit
+eval_iters = 200
+log_interval = 10 # don't print too too often
+
+# we expect to overfit on this small dataset, so only save when val improves
+always_save_checkpoint = False
+
+wandb_log = False # override via command line if you like
+wandb_project = 'myHatespeech-char'
+wandb_run_name = 'mini-gpt'
+
+dataset = 'myHatespeech_char'
+batch_size = 64
+block_size = 256 # context of up to 256 previous characters
+
+# baby GPT model :)
+n_layer = 6
+n_head = 6
+n_embd = 384
+dropout = 0.2
+
+learning_rate = 1e-3 # with baby networks can afford to go a bit higher
+max_iters = 5000
+lr_decay_iters = 5000 # make equal to max_iters usually
+min_lr = 1e-4 # learning_rate / 10 usually
+beta2 = 0.99 # make a bit bigger because number of tokens per iter is small
+
+warmup_iters = 100 # not super necessary potentially
+
+# on macbook also add
+# device = 'cpu'  # run on cpu only
+# compile = False # do not torch compile the model
+
+Traceback (most recent call last):
+  File "train.py", line 84, in <module>
+    init_process_group(backend=backend)
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/c10d_logger.py", line 74, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 1148, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 1279, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(backend_prefix_store, group_rank, group_size, pg_options)
+RuntimeError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+[2023-10-19 20:45:35,890] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 2143781) of binary: /home/yekyaw.thu/.conda/envs/nanoGPT/bin/python
+Traceback (most recent call last):
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launch.py", line 196, in <module>
+    main()
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launch.py", line 192, in main
+    launch(args)
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launch.py", line 177, in launch
+    run(args)
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/yekyaw.thu/.conda/envs/nanoGPT/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError:
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-10-19_20:45:35
+  host      : gpu.cadt.edu.kh
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2143781)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+
+real    0m8.606s
+user    0m4.174s
+sys     0m2.694s
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$
 
 ```
 
