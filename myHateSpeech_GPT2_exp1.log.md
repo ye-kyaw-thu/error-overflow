@@ -100,6 +100,8 @@ Activate the nanoGPT Anaconda environment ...
 
 ## Installation of Python Libraries
 
+Reference link: [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)  
+
 ```
 (nanoGPT) yekyaw.thu@gpu:~$ pip install torch numpy transformers datasets tiktoken wandb tqdm
 Collecting torch
