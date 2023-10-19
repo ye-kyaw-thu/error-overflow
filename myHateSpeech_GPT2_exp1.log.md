@@ -335,8 +335,21 @@ Successfully installed Click-8.1.7 GitPython-3.1.40 aiohttp-3.8.6 aiosignal-1.3.
 (nanoGPT) yekyaw.thu@gpu:~$
 ```
 
-```
+## Cloning nanoGPT Repository 
 
+```
+(nanoGPT) yekyaw.thu@gpu:~/tool$ git clone https://github.com/karpathy/nanoGPT
+Cloning into 'nanoGPT'...
+remote: Enumerating objects: 649, done.
+remote: Total 649 (delta 0), reused 0 (delta 0), pack-reused 649
+Receiving objects: 100% (649/649), 936.46 KiB | 3.32 MiB/s, done.
+Resolving deltas: 100% (371/371), done.
+(nanoGPT) yekyaw.thu@gpu:~/tool$ cd nanoGPT/
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$ ls
+assets    configurator.py  model.py   scaling_laws.ipynb
+bench.py  data             README.md  train.py
+config    LICENSE          sample.py  transformer_sizing.ipynb
+(nanoGPT) yekyaw.thu@gpu:~/tool/nanoGPT$
 ```
 
 ```
