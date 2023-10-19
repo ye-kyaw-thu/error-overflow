@@ -1612,24 +1612,347 @@ False
 
 ```
 
+Checked on LST Server:  
+
+```
+(base) ye@lst-gpu-3090:~$ python
+Python 3.9.12 (main, Apr  5 2022, 06:56:58)
+[GCC 7.5.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> torch.cuda.is_available()
+True
+```
+
+## Preparation on LST Server
+
+Create new env ...  
+
+```
+(base) ye@lst-gpu-3090:~$ conda create --name nanoGPT python=3.8
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 23.9.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/ye/anaconda3/envs/nanoGPT
+
+  added / updated specs:
+    - python=3.8
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2023.08.22-h06a4308_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_0
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0
+  openssl            pkgs/main/linux-64::openssl-3.0.11-h7f8727e_2
+  pip                pkgs/main/linux-64::pip-23.3-py38h06a4308_0
+  python             pkgs/main/linux-64::python-3.8.18-h955ad1f_0
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-68.0.0-py38h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.41.2-h5eee18b_0
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+  wheel              pkgs/main/linux-64::wheel-0.41.2-py38h06a4308_0
+  xz                 pkgs/main/linux-64::xz-5.4.2-h5eee18b_0
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate nanoGPT
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) ye@lst-gpu-3090:~$ conda activate nanoGPT
+(nanoGPT) ye@lst-gpu-3090:~$
+```
+
+nanoGPT နဲ့ run ဖို့အတွက် လိုအပ်တဲ့ python library တွေကို install လုပ်ခဲ့ ...  
+
+```
+(nanoGPT) ye@lst-gpu-3090:~/tool$ pip install torch numpy transformers datasets tiktoken wandb tqdm
+Collecting torch
+  Using cached torch-2.1.0-cp38-cp38-manylinux1_x86_64.whl.metadata (25 kB)
+Collecting numpy
+  Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+Collecting transformers
+  Downloading transformers-4.34.1-py3-none-any.whl.metadata (121 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.5/121.5 kB 664.9 kB/s eta 0:00:00
+Collecting datasets
+  Downloading datasets-2.14.5-py3-none-any.whl.metadata (19 kB)
+Collecting tiktoken
+  Downloading tiktoken-0.5.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting wandb
+  Downloading wandb-0.15.12-py3-none-any.whl.metadata (9.8 kB)
+Collecting tqdm
+  Downloading tqdm-4.66.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.6/57.6 kB 852.3 kB/s eta 0:00:00
+Collecting filelock (from torch)
+  Using cached filelock-3.12.4-py3-none-any.whl.metadata (2.8 kB)
+Collecting typing-extensions (from torch)
+  Using cached typing_extensions-4.8.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting sympy (from torch)
+  Using cached sympy-1.12-py3-none-any.whl (5.7 MB)
+Collecting networkx (from torch)
+  Using cached networkx-3.1-py3-none-any.whl (2.1 MB)
+Collecting jinja2 (from torch)
+  Using cached Jinja2-3.1.2-py3-none-any.whl (133 kB)
+Collecting fsspec (from torch)
+  Using cached fsspec-2023.9.2-py3-none-any.whl.metadata (6.7 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+Collecting nvidia-cudnn-cu12==8.9.2.26 (from torch)
+  Using cached nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu12==12.1.3.1 (from torch)
+  Using cached nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+Collecting nvidia-cufft-cu12==11.0.2.54 (from torch)
+  Using cached nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+Collecting nvidia-curand-cu12==10.3.2.106 (from torch)
+  Using cached nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch)
+  Using cached nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch)
+  Using cached nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+Collecting nvidia-nccl-cu12==2.18.1 (from torch)
+  Using cached nvidia_nccl_cu12-2.18.1-py3-none-manylinux1_x86_64.whl (209.8 MB)
+Collecting nvidia-nvtx-cu12==12.1.105 (from torch)
+  Using cached nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+Collecting triton==2.1.0 (from torch)
+  Using cached triton-2.1.0-0-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.3 kB)
+Collecting nvidia-nvjitlink-cu12 (from nvidia-cusolver-cu12==11.4.5.107->torch)
+  Using cached nvidia_nvjitlink_cu12-12.2.140-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting huggingface-hub<1.0,>=0.16.4 (from transformers)
+  Downloading huggingface_hub-0.18.0-py3-none-any.whl.metadata (13 kB)
+Collecting packaging>=20.0 (from transformers)
+  Using cached packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pyyaml>=5.1 (from transformers)
+  Downloading PyYAML-6.0.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting regex!=2019.12.17 (from transformers)
+  Downloading regex-2023.10.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.9/40.9 kB 328.6 kB/s eta 0:00:00
+Collecting requests (from transformers)
+  Downloading requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting tokenizers<0.15,>=0.14 (from transformers)
+  Downloading tokenizers-0.14.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting safetensors>=0.3.1 (from transformers)
+  Downloading safetensors-0.4.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting pyarrow>=8.0.0 (from datasets)
+  Downloading pyarrow-13.0.0-cp38-cp38-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting dill<0.3.8,>=0.3.0 (from datasets)
+  Downloading dill-0.3.7-py3-none-any.whl.metadata (9.9 kB)
+Collecting pandas (from datasets)
+  Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting xxhash (from datasets)
+  Downloading xxhash-3.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting multiprocess (from datasets)
+  Downloading multiprocess-0.70.15-py38-none-any.whl.metadata (7.1 kB)
+Collecting fsspec (from torch)
+  Downloading fsspec-2023.6.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting aiohttp (from datasets)
+  Downloading aiohttp-3.8.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Collecting Click!=8.0.0,>=7.1 (from wandb)
+  Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting GitPython!=3.1.29,>=1.0.0 (from wandb)
+  Downloading GitPython-3.1.40-py3-none-any.whl.metadata (12 kB)
+Collecting psutil>=5.0.0 (from wandb)
+  Downloading psutil-5.9.6-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (21 kB)
+Collecting sentry-sdk>=1.0.0 (from wandb)
+  Downloading sentry_sdk-1.32.0-py2.py3-none-any.whl.metadata (9.8 kB)
+Collecting docker-pycreds>=0.4.0 (from wandb)
+  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+Collecting pathtools (from wandb)
+  Downloading pathtools-0.1.2.tar.gz (11 kB)
+  Preparing metadata (setup.py) ... done
+Collecting setproctitle (from wandb)
+  Downloading setproctitle-1.3.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.9 kB)
+Requirement already satisfied: setuptools in /home/ye/anaconda3/envs/nanoGPT/lib/python3.8/site-packages (from wandb) (68.0.0)
+Collecting appdirs>=1.4.3 (from wandb)
+  Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Collecting protobuf!=4.21.0,<5,>=3.12.0 (from wandb)
+  Downloading protobuf-4.24.4-cp37-abi3-manylinux2014_x86_64.whl.metadata (540 bytes)
+Collecting six>=1.4.0 (from docker-pycreds>=0.4.0->wandb)
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting attrs>=17.3.0 (from aiohttp->datasets)
+  Downloading attrs-23.1.0-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 915.1 kB/s eta 0:00:00
+Collecting charset-normalizer<4.0,>=2.0 (from aiohttp->datasets)
+  Downloading charset_normalizer-3.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (32 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp->datasets)
+  Downloading multidict-6.0.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (121 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.3/121.3 kB 1.7 MB/s eta 0:00:00
+Collecting async-timeout<5.0,>=4.0.0a3 (from aiohttp->datasets)
+  Downloading async_timeout-4.0.3-py3-none-any.whl.metadata (4.2 kB)
+Collecting yarl<2.0,>=1.0 (from aiohttp->datasets)
+  Downloading yarl-1.9.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (266 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 266.9/266.9 kB 2.0 MB/s eta 0:00:00
+Collecting frozenlist>=1.1.1 (from aiohttp->datasets)
+  Downloading frozenlist-1.4.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
+Collecting aiosignal>=1.1.2 (from aiohttp->datasets)
+  Downloading aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+Collecting gitdb<5,>=4.0.1 (from GitPython!=3.1.29,>=1.0.0->wandb)
+  Downloading gitdb-4.0.10-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.7/62.7 kB 626.6 kB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests->transformers)
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 589.8 kB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1 (from requests->transformers)
+  Downloading urllib3-2.0.7-py3-none-any.whl.metadata (6.6 kB)
+Collecting certifi>=2017.4.17 (from requests->transformers)
+  Downloading certifi-2023.7.22-py3-none-any.whl.metadata (2.2 kB)
+Collecting huggingface-hub<1.0,>=0.16.4 (from transformers)
+  Downloading huggingface_hub-0.17.3-py3-none-any.whl.metadata (13 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Using cached MarkupSafe-2.1.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+Collecting python-dateutil>=2.8.2 (from pandas->datasets)
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting pytz>=2020.1 (from pandas->datasets)
+  Using cached pytz-2023.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.1 (from pandas->datasets)
+  Using cached tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+Collecting mpmath>=0.19 (from sympy->torch)
+  Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->GitPython!=3.1.29,>=1.0.0->wandb)
+  Downloading smmap-5.0.1-py3-none-any.whl.metadata (4.3 kB)
+Using cached torch-2.1.0-cp38-cp38-manylinux1_x86_64.whl (670.2 MB)
+Using cached nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl (731.7 MB)
+Using cached triton-2.1.0-0-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89.2 MB)
+Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+Downloading transformers-4.34.1-py3-none-any.whl (7.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.7/7.7 MB 22.7 MB/s eta 0:00:00
+Downloading datasets-2.14.5-py3-none-any.whl (519 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 519.6/519.6 kB 2.7 MB/s eta 0:00:00
+Downloading tiktoken-0.5.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 3.6 MB/s eta 0:00:00
+Downloading wandb-0.15.12-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 20.4 MB/s eta 0:00:00
+Downloading tqdm-4.66.1-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.3/78.3 kB 966.2 kB/s eta 0:00:00
+Downloading click-8.1.7-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 1.1 MB/s eta 0:00:00
+Downloading dill-0.3.7-py3-none-any.whl (115 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.3/115.3 kB 1.3 MB/s eta 0:00:00
+Downloading fsspec-2023.6.0-py3-none-any.whl (163 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 kB 1.9 MB/s eta 0:00:00
+Downloading aiohttp-3.8.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 13.8 MB/s eta 0:00:00
+Downloading GitPython-3.1.40-py3-none-any.whl (190 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 190.6/190.6 kB 3.0 MB/s eta 0:00:00
+Using cached packaging-23.2-py3-none-any.whl (53 kB)
+Downloading protobuf-4.24.4-cp37-abi3-manylinux2014_x86_64.whl (311 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 311.6/311.6 kB 4.3 MB/s eta 0:00:00
+Downloading psutil-5.9.6-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (283 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 283.6/283.6 kB 3.8 MB/s eta 0:00:00
+Downloading pyarrow-13.0.0-cp38-cp38-manylinux_2_28_x86_64.whl (40.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.1/40.1 MB 21.6 MB/s eta 0:00:00
+Downloading PyYAML-6.0.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (736 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 736.6/736.6 kB 4.9 MB/s eta 0:00:00
+Downloading regex-2023.10.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (776 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 777.0/777.0 kB 11.1 MB/s eta 0:00:00
+Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 957.5 kB/s eta 0:00:00
+Downloading safetensors-0.4.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 18.5 MB/s eta 0:00:00
+Downloading sentry_sdk-1.32.0-py2.py3-none-any.whl (240 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.0/241.0 kB 4.3 MB/s eta 0:00:00
+Downloading tokenizers-0.14.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 21.7 MB/s eta 0:00:00
+Downloading huggingface_hub-0.17.3-py3-none-any.whl (295 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 295.0/295.0 kB 4.1 MB/s eta 0:00:00
+Using cached typing_extensions-4.8.0-py3-none-any.whl (31 kB)
+Using cached filelock-3.12.4-py3-none-any.whl (11 kB)
+Downloading multiprocess-0.70.15-py38-none-any.whl (132 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.6/132.6 kB 1.8 MB/s eta 0:00:00
+Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+Downloading setproctitle-1.3.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (31 kB)
+Downloading xxhash-3.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.6/194.6 kB 2.3 MB/s eta 0:00:00
+Downloading async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+Downloading certifi-2023.7.22-py3-none-any.whl (158 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 158.3/158.3 kB 2.3 MB/s eta 0:00:00
+Downloading charset_normalizer-3.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (137 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.9/137.9 kB 2.0 MB/s eta 0:00:00
+Downloading frozenlist-1.4.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (220 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.1/220.1 kB 2.9 MB/s eta 0:00:00
+Using cached MarkupSafe-2.1.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Using cached pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
+Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 kB 1.8 MB/s eta 0:00:00
+Using cached nvidia_nvjitlink_cu12-12.2.140-py3-none-manylinux1_x86_64.whl (20.2 MB)
+Downloading smmap-5.0.1-py3-none-any.whl (24 kB)
+Building wheels for collected packages: pathtools
+  Building wheel for pathtools (setup.py) ... done
+  Created wheel for pathtools: filename=pathtools-0.1.2-py3-none-any.whl size=8791 sha256=79a081eb07be7390f6d7a7d0d272a8f747cd5aead38c57cdda69e120844b5209
+  Stored in directory: /home/ye/.cache/pip/wheels/4c/8e/7e/72fbc243e1aeecae64a96875432e70d4e92f3d2d18123be004
+Successfully built pathtools
+Installing collected packages: pytz, pathtools, mpmath, appdirs, xxhash, urllib3, tzdata, typing-extensions, tqdm, sympy, smmap, six, setproctitle, safetensors, regex, pyyaml, psutil, protobuf, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, multidict, MarkupSafe, idna, fsspec, frozenlist, filelock, dill, Click, charset-normalizer, certifi, attrs, async-timeout, yarl, triton, sentry-sdk, requests, python-dateutil, pyarrow, nvidia-cusparse-cu12, nvidia-cudnn-cu12, multiprocess, jinja2, gitdb, docker-pycreds, aiosignal, tiktoken, pandas, nvidia-cusolver-cu12, huggingface-hub, GitPython, aiohttp, wandb, torch, tokenizers, transformers, datasets
+Successfully installed Click-8.1.7 GitPython-3.1.40 MarkupSafe-2.1.3 aiohttp-3.8.6 aiosignal-1.3.1 appdirs-1.4.4 async-timeout-4.0.3 attrs-23.1.0 certifi-2023.7.22 charset-normalizer-3.3.0 datasets-2.14.5 dill-0.3.7 docker-pycreds-0.4.0 filelock-3.12.4 frozenlist-1.4.0 fsspec-2023.6.0 gitdb-4.0.10 huggingface-hub-0.17.3 idna-3.4 jinja2-3.1.2 mpmath-1.3.0 multidict-6.0.4 multiprocess-0.70.15 networkx-3.1 numpy-1.24.4 nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-8.9.2.26 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.18.1 nvidia-nvjitlink-cu12-12.2.140 nvidia-nvtx-cu12-12.1.105 packaging-23.2 pandas-2.0.3 pathtools-0.1.2 protobuf-4.24.4 psutil-5.9.6 pyarrow-13.0.0 python-dateutil-2.8.2 pytz-2023.3.post1 pyyaml-6.0.1 regex-2023.10.3 requests-2.31.0 safetensors-0.4.0 sentry-sdk-1.32.0 setproctitle-1.3.3 six-1.16.0 smmap-5.0.1 sympy-1.12 tiktoken-0.5.1 tokenizers-0.14.1 torch-2.1.0 tqdm-4.66.1 transformers-4.34.1 triton-2.1.0 typing-extensions-4.8.0 tzdata-2023.3 urllib3-2.0.7 wandb-0.15.12 xxhash-3.4.1 yarl-1.9.2
+(nanoGPT) ye@lst-gpu-3090:~/tool$
+```
+
+## Cloning nanoGPT on LST Server
+
+```
+(nanoGPT) ye@lst-gpu-3090:~/tool$ git clone https://github.com/karpathy/nanoGPT
+Cloning into 'nanoGPT'...
+remote: Enumerating objects: 649, done.
+remote: Total 649 (delta 0), reused 0 (delta 0), pack-reused 649
+Receiving objects: 100% (649/649), 936.46 KiB | 5.41 MiB/s, done.
+Resolving deltas: 100% (371/371), done.
+(nanoGPT) ye@lst-gpu-3090:~/tool$
+```
+
+## Copying Prepared Data/Scripts to LST Server
+
+ဟိုးအထက်မှာ ပြင်ဆင်ခဲ့တဲ့ data တွေနဲ့ scripts တွေကို CADT GPU server ပေါ်ကနေ ကိုယ့် local စက်ထဲကို အရင်ဆုံး download လုပ်ခဲ့တယ်။ ပြီးတော့မှ ကိုယ့် local Windows OS စက်ကနေ LST GPU server ပေါ်ဆီကို အောက်ပါအတိုင်း copy ကူးယူခဲ့တယ်။ ip address စတာတွေကိုတော့ ဒီ note မှာ security reason အရ x နဲ့ အစားထိုးထားခဲ့တယ်။  
+
+```
+C:\Users\801680>scp Downloads\data.zip ye@xx.xxx.xx.xx:/home/ye/exp/myHatespeech/nanoGPT/
+ye@xx.xxx.xx.xx's password:
+data.zip                                                100% 1208KB 166.5KB/s   00:07
 ```
 
 ```
-
+C:\Users\801680>scp Downloads\myHatespeech_char.zip ye@xx.xxx.xx.xx:/home/ye/exp/myHatespeech/nanoGPT/
+ye@xx.xxx.xx.xx's password:
+myHatespeech_char.zip                                   100%  775KB 276.1KB/s   00:02
 ```
 
 ```
+C:\Users\801680>scp Downloads\train_myHatespeech_char.py ye@xx.xxx.xx.xx:/home/ye/exp/myHatespeech/nanoGPT/
+ye@xx.xxx.xx.xx's password:
+train_myHatespeech_char.py                              100% 1055    15.2KB/s   00:00
 
-```
-
-```
-
-```
-
-```
-
-```
-
+C:\Users\801680>
 ```
 
 ```
