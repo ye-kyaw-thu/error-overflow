@@ -337,7 +337,7 @@ Successfully installed Click-8.1.7 GitPython-3.1.40 aiohttp-3.8.6 aiosignal-1.3.
 
 ## Cloning nanoGPT Repository 
 
-လိုအပ်ရင် ပြန် refer လုပ်ဖို့အတွက် ...  
+GPT2 model training source code တွေကို ကိုယ့်စက်ထဲကို clone လုပ်ခဲ့ ...  
 
 ```
 (nanoGPT) yekyaw.thu@gpu:~/tool$ git clone https://github.com/karpathy/nanoGPT
@@ -356,7 +356,7 @@ config    LICENSE          sample.py  transformer_sizing.ipynb
 
 ## Cloning myPoetry Repository
 
-တကယ်တမ်းက အထက်ပါ nanoGPT repository ကို အခြေခံပြီးတော့ မြန်မာကဗျာအတွက် စမ်းထားတဲ့ repository က ရှိပြီးသားမို့ အဲဒါပဲ clone လုပ်တာနဲ့တင် အိုကေမယ်လို့ ထင်တယ်။  
+အထက်ပါ nanoGPT repository ကို အခြေခံပြီးတော့ မြန်မာကဗျာအတွက် စမ်းထားတဲ့ repository ကိုလည်း ကိုယ့်လက်ရှိ run မယ့် server စက်ထဲကို clone လုပ်ခဲ့။ ဒီ ထဲမှာက မြန်မာစာကို run ဖို့အတွက် ရှေ့မှာ သုံးထားတဲ့ preprocessing code လည်း ရှိနေတာမို့လို့ ...  
 
 ```
 (nanoGPT) yekyaw.thu@gpu:~/exp$ git clone https://github.com/ye-kyaw-thu/myPoetry
@@ -1300,19 +1300,30 @@ sys     0m0.059s
 (base) yekyaw.thu@gpu:~/exp/myHatespeech/data$
 ```
 
-
-
-```
+Check the bin files ... 
 
 ```
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ wc train.bin
+    139     594 1519718 train.bin
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$
+```
+Check the val.bin file ... 
 
 ```
-
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$ wc val.bin
+    11    100 168858 val.bin
+(base) yekyaw.thu@gpu:~/exp/myHatespeech/data$
 ```
 
-```
+ဒေတာ ပြင်ဆင်တာတော့ ပြီးသွားပြီ၊ ပြီးရင် configuration ဖိုင်ကို ပြင်ရမယ်။ အရင်ဆုံး nanoGPT clone လုပ်ထားတဲ့ path ကိုသွားပြီး လေ့လာခဲ့ ...  
 
 ```
+(base) yekyaw.thu@gpu:~/tool/nanoGPT$ ls
+assets    config           data     model.py   sample.py           train.py
+bench.py  configurator.py  LICENSE  README.md  scaling_laws.ipynb  transformer_sizing.ipynb
+(base) yekyaw.thu@gpu:~/tool/nanoGPT$
+```
+
 
 ```
 
