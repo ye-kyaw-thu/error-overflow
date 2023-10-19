@@ -2198,6 +2198,20 @@ iter 2640: loss 0.1516, time 1125.48ms, mfu 13.11%
 ...
 ...
 ...
+iter 2960: loss 0.1256, time 1125.61ms, mfu 13.24%
+iter 2970: loss 0.1326, time 1125.72ms, mfu 13.25%
+iter 2980: loss 0.1251, time 1125.53ms, mfu 13.26%
+iter 2990: loss 0.1332, time 1125.78ms, mfu 13.27%
+step 3000: train loss 0.0646, val loss 3.3001
+iter 3000: loss 0.1231, time 4756.76ms, mfu 12.26%
+iter 3010: loss 0.1280, time 1126.02ms, mfu 12.37%
+iter 3020: loss 0.1291, time 1125.21ms, mfu 12.47%
+iter 3030: loss 0.1308, time 1125.49ms, mfu 12.56%
+iter 3040: loss 0.1249, time 1125.60ms, mfu 12.64%
+iter 3050: loss 0.1247, time 1125.65ms, mfu 12.71%
+...
+...
+...
 
 ```
 
