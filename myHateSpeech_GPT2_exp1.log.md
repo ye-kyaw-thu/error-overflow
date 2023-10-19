@@ -1955,15 +1955,126 @@ train_myHatespeech_char.py                              100% 1055    15.2KB/s   
 C:\Users\801680>
 ```
 
+အရင်ဆုံး dummy ကူးထားခဲ့တဲ့ folder ကို ပြန်စစ်ခဲ့ ...  
+
+```
+(nanoGPT) ye@lst-gpu-3090:~/exp/myHatespeech/nanoGPT$ ls
+data.zip  myHatespeech_char.zip  train_myHatespeech_char.py
+(nanoGPT) ye@lst-gpu-3090:~/exp/myHatespeech/nanoGPT$
+```
+
+အဲဒီကနေ tool/nanoGPT/ folder အောက်ကို copy ပြန်ကူးပြီး ပြင်ဆင်ခဲ့တယ်။  
+
+```
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/data$ ls
+openwebtext  shakespeare  shakespeare_char
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/data$ cp -r /home/ye/exp/myHatespeech/nanoGPT/myHatespeech_char .
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/data$ ls
+myHatespeech_char  openwebtext  shakespeare  shakespeare_char
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/data$ ls ./myHatespeech_char/
+hs_data_4Oct2023.clean.txt  meta.pkl  prepare-my-char.py  train.bin  val.bin
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/data$
 ```
 
 ```
-
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/config$ cp /home/ye/exp/myHatespeech/nanoGPT/train_myHatespeech_char.py .
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/config$
 ```
 
-```
+## Training myHatespeech GPT2 Model
+
+check the config file again:  
 
 ```
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/config$ cat ./train_myHatespeech_char.py
+# train a miniature character-level Myanmar Hatepeech model
+
+out_dir = 'out-myHatespeech-char'
+eval_interval = 250 # keep frequent because we'll overfit
+eval_iters = 200
+log_interval = 10 # don't print too too often
+
+# we expect to overfit on this small dataset, so only save when val improves
+always_save_checkpoint = False
+
+wandb_log = False # override via command line if you like
+wandb_project = 'myHatespeech-char'
+wandb_run_name = 'mini-gpt'
+
+dataset = 'myHatespeech_char'
+batch_size = 64
+block_size = 256 # context of up to 256 previous characters
+
+# baby GPT model :)
+n_layer = 6
+n_head = 6
+n_embd = 384
+dropout = 0.2
+
+learning_rate = 1e-3 # with baby networks can afford to go a bit higher
+max_iters = 5000
+lr_decay_iters = 5000 # make equal to max_iters usually
+min_lr = 1e-4 # learning_rate / 10 usually
+beta2 = 0.99 # make a bit bigger because number of tokens per iter is small
+
+warmup_iters = 100 # not super necessary potentially
+
+# on macbook also add
+# device = 'cpu'  # run on cpu only
+# compile = False # do not torch compile the model
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT/config$
+```
+
+Start training GPT2 model with hatespeech data:  
+
+```
+(nanoGPT) ye@lst-gpu-3090:~/tool/nanoGPT$ time torchrun ./train.py ./config/train_myHatesp
+eech_char.py | tee myHatespeech_char_exp1.log
+Overriding config with ./config/train_myHatespeech_char.py:
+# train a miniature character-level Myanmar Hatepeech model
+
+out_dir = 'out-myHatespeech-char'
+eval_interval = 250 # keep frequent because we'll overfit
+eval_iters = 200
+log_interval = 10 # don't print too too often
+
+# we expect to overfit on this small dataset, so only save when val improves
+always_save_checkpoint = False
+
+wandb_log = False # override via command line if you like
+wandb_project = 'myHatespeech-char'
+wandb_run_name = 'mini-gpt'
+
+dataset = 'myHatespeech_char'
+batch_size = 64
+block_size = 256 # context of up to 256 previous characters
+
+# baby GPT model :)
+n_layer = 6
+n_head = 6
+n_embd = 384
+dropout = 0.2
+
+learning_rate = 1e-3 # with baby networks can afford to go a bit higher
+max_iters = 5000
+lr_decay_iters = 5000 # make equal to max_iters usually
+min_lr = 1e-4 # learning_rate / 10 usually
+beta2 = 0.99 # make a bit bigger because number of tokens per iter is small
+
+warmup_iters = 100 # not super necessary potentially
+
+# on macbook also add
+# device = 'cpu'  # run on cpu only
+# compile = False # do not torch compile the model
+
+tokens per iteration will be: 655,360
+found vocab_size = 343 (inside data/myHatespeech_char/meta.pkl)
+Initializing a new model from scratch
+number of parameters: 10.75M
+num decayed parameter tensors: 26, with 10,846,848 parameters
+num non-decayed parameter tensors: 13, with 4,992 parameters
+using fused AdamW: True
+compiling the model... (takes a ~minute)
 
 ```
 
