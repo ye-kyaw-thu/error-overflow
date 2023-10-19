@@ -370,8 +370,32 @@ Resolving deltas: 100% (52/52), done.
 (nanoGPT) yekyaw.thu@gpu:~/exp$
 ```
 
-```
+## Recalling myPoetry Experiment
 
+အရင် လုပ်ထားခဲ့တဲ့ myPoetry experiment နဲ့ ပတ်သက်ပြီး ပြန်စဉ်းစား၊ ဟိုဖိုင် ဝင်ကြည့်၊ ဒီဖိုင် ဝင်ကြည့် ... ဘာတွေ လုပ်ခဲ့တာလည်း ဆိုတာကို ပြန်နွှေး ...  
+
+```
+(nanoGPT) yekyaw.thu@gpu:~/exp$ cd myPoetry
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry$ ls
+corpus  notebooks  README.md
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry$ cd corpus
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus$ ls
+version1.0
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus$ cd version1.0/
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus/version1.0$ ls
+doc  mypoetry-corpus-notitle-ver1.0.txt  mypoetry-corpus-ver1.0.txt
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus/version1.0$ head mypoetry-corpus-notitle-ver1.0.txt
+ကြက်ဖ သာလျှင်
+အာရုဏ်ရောင်လှ ၊ ဝင်းဝါကြ၏ ။
+ဥဩ သာလျှင်
+ရာသီနွေလ ၊ ဖူးပွင့်ကြ၏ ။
+ဖားငယ် သာလျှင်
+အာကာမိုးက ၊ မိုးရွာကြ၏ ။
+တက်လူ သာလျှင်
+မြန်မာပြည်လှ ၊ အားသစ်ရ၍
+ဇေယျအောင်လံ ထူမည်တည်း ။
+
+(nanoGPT) yekyaw.thu@gpu:~/exp/myPoetry/corpus/version1.0$
 ```
 
 ```
