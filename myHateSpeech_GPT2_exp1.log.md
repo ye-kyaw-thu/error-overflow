@@ -824,12 +824,29 @@ Server ပေါ်မှာ Jupyter notebook ကို run ထားပြီ�
 
 Explanation about port-forwarding: [https://github.com/ye-kyaw-thu/error-overflow/blob/master/running-jupyter-on-server-and-port-forwarding.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/running-jupyter-on-server-and-port-forwarding.md)  
 
-```
+## Preparation
+
+kabyarGPT တုန်းက သုံးခဲ့တဲ့ notebook ကို copy ကူးယူပြီး rename လုပ် ...  
 
 ```
-
+(nanoGPT) yekyaw.thu@gpu:~/exp$ cp ./myPoetry/notebooks/kabyarGPT-notitle-building-experiment2.ipynb ./myHatespeech/
+(nanoGPT) yekyaw.thu@gpu:~/exp$ cd ./myHatespeech/
+(nanoGPT) yekyaw.thu@gpu:~/exp/myHatespeech$ ls
+kabyarGPT-notitle-building-experiment2.ipynb
+(nanoGPT) yekyaw.thu@gpu:~/exp/myHatespeech$ mv kabyarGPT-notitle-building-experiment2.ipynb myHatespeech-GPT2-exp1.ipynb
+(nanoGPT) yekyaw.thu@gpu:~/exp/myHatespeech$ ls
+myHatespeech-GPT2-exp1.ipynb
+(nanoGPT) yekyaw.thu@gpu:~/exp/myHatespeech$
 ```
 
+Data ကိုလည်း local စက်ကနေ server ပေါ်ကို ကော်ပီကူယူခဲ့ ...  
+
+```
+C:\Users\ye>scp -P XXX -i C:\Users\801680\.ssh\xxxx Downloads\hs_data_4Oct2023.txt yekyaw.thu@xxx.xx.xx.xxx:/home/yekyaw.thu/exp/myHatespeech/data
+Enter passphrase for key 'C:/Users/801680/.ssh/xxx':
+hs_data_4Oct2023.txt                                    100% 2199KB   2.0MB/s   00:01
+
+C:\Users\ye>
 ```
 
 ```
