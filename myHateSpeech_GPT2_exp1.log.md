@@ -1324,22 +1324,114 @@ bench.py  configurator.py  LICENSE  README.md  scaling_laws.ipynb  transformer_s
 (base) yekyaw.thu@gpu:~/tool/nanoGPT$
 ```
 
+data/ အောက်မှာ လက်ရှိ run ချင်တဲ့ hatespeech နဲ့ ဆိုင်တဲ့ ဖိုင်တွေအားလုံးကို ကူးယူခဲ့။ တကယ်က train.bin, val.bin, meta.pkl သုံးဖိုင်ကိုပဲ ကူးရင် လုံလောက်တယ်လို့ ထင်ပေမဲ့ ... နောက်ပိုင်း ပြန်ကြည့်ရင် လွယ်အောင်လို့ ကြိုပြင်ထားခဲ့ ...  
 
 ```
-
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data$ mkdir myHatespeech_char
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data$ cd myHatespeech_char/
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ cp ~/exp/myHatespeech/data/
+bk/                         get_text.py                 meta.pkl                    train.bin
+cleaning_test/              hs_data_4Oct2023.clean.txt  prepare-my-char.py          val.bin
+diff_line_identifier.py     hs_data_4Oct2023.txt        print-blank-lines.pl
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ cp ~/exp/myHatespeech/data/*.bin .
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ cp ~/exp/myHatespeech/data/prepare-my-char.py .
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ cp ~/exp/myHatespeech/data/hs_data_4Oct2023.clean.txt .
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ cp ~/exp/myHatespeech/data/meta.pkl .
 ```
 
-```
+လက်ရှိ ကူးထည့်ထားတဲ့ ဖိုင်တွေကို ls လုပ်ကြည့်ခဲ့ ...  
 
 ```
-
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ ls
+hs_data_4Oct2023.clean.txt  meta.pkl  prepare-my-char.py  train.bin  val.bin
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$
 ```
 
-```
+Data path for our experiment:  
 
 ```
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/data/myHatespeech_char$ pwd
+/home/yekyaw.thu/tool/nanoGPT/data/myHatespeech_char
+```
+
+## Preparing the Config File
+
+Training မလုပ်ခင်မှာ configuration file (filename: train_myHatespeech_char.py) ကိုလည်း ပြင်ဆင်ဖို့ လိုအပ်လို့ ပြင်ခဲ့ ...  
+
+```python
+# train a miniature character-level Myanmar Hatepeech model
+
+out_dir = 'out-myHatespeech-char'
+eval_interval = 250 # keep frequent because we'll overfit
+eval_iters = 200
+log_interval = 10 # don't print too too often
+
+# we expect to overfit on this small dataset, so only save when val improves
+always_save_checkpoint = False
+
+wandb_log = False # override via command line if you like
+wandb_project = 'myHatespeech-char'
+wandb_run_name = 'mini-gpt'
+
+dataset = 'myHatespeech_char'
+batch_size = 64
+block_size = 256 # context of up to 256 previous characters
+
+# baby GPT model :)
+n_layer = 6
+n_head = 6
+n_embd = 384
+dropout = 0.2
+
+learning_rate = 1e-3 # with baby networks can afford to go a bit higher
+max_iters = 5000
+lr_decay_iters = 5000 # make equal to max_iters usually
+min_lr = 1e-4 # learning_rate / 10 usually
+beta2 = 0.99 # make a bit bigger because number of tokens per iter is small
+
+warmup_iters = 100 # not super necessary potentially
+
+# on macbook also add
+# device = 'cpu'  # run on cpu only
+# compile = False # do not torch compile the model
+```
+
+## Check the Current GPU Status
 
 ```
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/config$ nvidia-smi
+Thu Oct 19 20:33:31 2023
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.199.02   Driver Version: 470.199.02   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 29%   43C    P0    58W / 300W |      0MiB / 11019MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 62%   69C    P0    72W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 22%   64C    P0    72W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+(base) yekyaw.thu@gpu:~/tool/nanoGPT/config$
+```
+
+လောလောဆယ် run နေတဲ့ process တစ်ခုမှ မရှိလို့ OK တယ်။  
 
 ```
 
