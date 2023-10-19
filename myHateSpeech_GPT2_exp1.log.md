@@ -414,6 +414,9 @@ kabyarGPT-notitle-building-experiment2.ipynb
 ## Relating to Port-forwarding
 
 Server ပေါ်မှာ Jupyter notebook ကို run ထားပြီးတော့ အဲဒီ Jupyter notebook ကို ကိုယ့် local စက်ထဲက browser နဲ့ ခေါ်ကြည့်မယ်ဆိုရင်တော့ port-forwarding ကိစ္စကို သိဖို့ လိုအပ်တယ်။  
+
+Explanation about port-forwarding: [https://github.com/ye-kyaw-thu/error-overflow/blob/master/running-jupyter-on-server-and-port-forwarding.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/running-jupyter-on-server-and-port-forwarding.md)  
+
 ```
 
 ```
