@@ -2075,6 +2075,9 @@ num decayed parameter tensors: 26, with 10,846,848 parameters
 num non-decayed parameter tensors: 13, with 4,992 parameters
 using fused AdamW: True
 compiling the model... (takes a ~minute)
+step 0: train loss 5.9544, val loss 5.9531
+iter 0: loss 5.9471, time 1210102.02ms, mfu -100.00%
+iter 10: loss 4.0368, time 17676.57ms, mfu 0.85%
 
 ```
 
