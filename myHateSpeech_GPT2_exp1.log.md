@@ -372,6 +372,7 @@ Resolving deltas: 100% (52/52), done.
 
 ## Recalling myPoetry Experiment
 
+myPoetry Link: [https://github.com/ye-kyaw-thu/myPoetry](https://github.com/ye-kyaw-thu/myPoetry)  
 အရင် လုပ်ထားခဲ့တဲ့ myPoetry experiment နဲ့ ပတ်သက်ပြီး ပြန်စဉ်းစား၊ ဟိုဖိုင် ဝင်ကြည့်၊ ဒီဖိုင် ဝင်ကြည့် ... ဘာတွေ လုပ်ခဲ့တာလည်း ဆိုတာကို ပြန်နွှေး ...  
 
 ```
