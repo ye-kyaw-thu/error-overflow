@@ -1,20 +1,34 @@
+# Log File of Evaluation on GPT-2 Model Generated Myanmar Hatespeech Sentences with PPL
+
+Hatespeech စာကြောင်း တစ်သောင်းခန့် နဲ့ ဆောက်ထားတဲ့ GPT-2 model ကို သုံးပြီး မြန်မာစာ hatespeech စာကြောင်းတွေကို generate လုပ်ကြည့်ခဲ့ပါတယ်။ အဲဒီ testset ၅စုံကို Language Model တစ်ခု ဆောက်ပြီး PPL တိုင်းကြည့်တဲ့ log ဖိုင် ပါ။  
 
 ## Corpus Information
 
+syllable segmentation လုပ်ထားတဲ့ Lab. in-house corpus ရဲ့ information က အောက်ပါအတိုင်းပါ။  
+
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ ls
 segmentation-data-updated2.cleaned.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ head -n 3 ./segmentation-data-updated2.cleaned.syl
 လု သာ မောင်း ပြိုင် သာ ပြိုင် ကို ယ့် ကိုယ် ပိုင် ကား မ ဟုတ် ပြ ဿ နာ ဖြစ် ရင် ထွက် ပြေး အေး အေး ဆေး ဆေး ဖြစ် သွား ရင် ပြန် မောင်း လု သာ မောင်း
 သမ္မ တ ဦး ထင် ကျော်
 အင်း လေး သူ ဆို လည်း ကောင်း တာ ပဲ ကစ် ကစ် က ဖြူ ဖြူ ဖွေး ဖွေး လေး ဆို တော့ ရှမ်း မ လေး တွေ တော့ ထိုင် ငို နေ တော့ မှာ ပဲ အင်း လေး ကို အ ရမ်း ချစ် တယ် အင်း လေး နဲ့ ကစ် နဲ့ လိုက် ပါ တယ် တ သက် လုံး တ ကယ် လာ နေ ရင် အ ရမ်း ကောင်း မှာ ပဲ ချစ် တယ် မ ကစ် ဇင် ဇင် တို့ မွန် ပြည် နယ် လာ လည် ပါ လား ဖိတ် ခေါ် ပါ တယ် ကျိုက် ထီး ရိုး ဘု ရား ဖူး ရင် မော် လ မြိုင် မြို့ ကို လာ လည် ပါ ရှမ်း က မဲ တာ လား အင်း သူ မ က မဲ တာ လား မူ ကြို က လေး မေး တောင် သိ တယ် အင်း သူ မ က ဘယ် လောက် ပဲ ပိုက် ဆံ ရှိ ပါ စေ အ လောင်း စည် သူ မင်း ကျိန် စာ တိုက် ခဲ့ လို့ ရေ ခြံ ရော ကုန်း ခြံ ရော ကုန်း နေ အောင် လုပ် ရ တာ ဖြူ နေ ဦး မယ် အ သား က ကြ ည့် ပြော အင်း သူ မ လုပ် ရင် ရေ ကူး တတ် ရ မယ် နော် ရေ မ ကူး တတ် ရင် အ လောင်း တွေ ခု ချိန် ထိ ဆယ် မ ကုန် သေး ဘူး အ သဲ မ မ ကစ် ချစ် လိုက် တာ ကောင်း တယ် လုပ် ပစ် လိုက် အ မ ကစ် သာ နေ ရင် ရှမ်း ပြည် အ ပြီး ပြန် လာ မယ် နေ နိုင် လား ဘ ဝ ကို ဖြတ် သန်း တဲ့ အ ခါ အ ရိုး ဆုံး က အ ကောင်း ဆုံး ပါ ပဲ မ လုပ် ပါ နဲ့ ကစ် လေး ရယ် ရန် ကုန် ကို အ မြန် ပြန် လာ ပါ ကိုယ် အ ရမ်း သ တိ ရ လို့ ပါ ကွာ ချစ် တာ ချစ် စ ရာ လေး အ ရမ်း ကြိုက် မ မ နေ ပါ ကစ် လေး ရယ် သာ ယာ လိုက် တာ အဲ့ နား မှာ အိမ် တစ် လုံး သွား ဝယ် လိုက် မှာ ပေါ့
+```
+
+filesize information:  
+
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ wc ./segmentation-data-updated2.cleaned.syl
   212836  7094461 69535996 ./segmentation-data-updated2.cleaned.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## Hatespeech Corpus Information
 
-I also need to add Hatespeech data ...
+I also need to add Hatespeech data ...  
+မဟာတန်းကျောင်းသူ နန်းဣန္ဒြေကျော် စုပေးထားတဲ့ hatespeech corpus ကိုလည်း corpus မှာ ပေါင်းထည့်မှ အဆင်ပြေမှာမို့ အဲဒီ corpus ကိုလည်း အထက်က corpus နဲ့ ပေါင်းဖို့ပြင်ဆင်ခဲ့တယ်။  
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/nanoGPT/myHatespeech_char$ head hs_data_4Oct2023.clean.txt
 ဖော်လော်မော် မ ဟုတ် လို့ ပေါ့ 🤣 🤣
 နား ကို မ လည် တာ
@@ -26,6 +40,9 @@ I also need to add Hatespeech data ...
 ဖော်လော်မော် နဲ့ ညီမ တော် တယ် လေ 😬
 sမွေး ကြီး တဲ့ 😂
 $မွှေး ပါ
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/nanoGPT/myHatespeech_char$ tail hs_data_4Oct2023.clean.txt
 သူ့ ကို ဘာ ကြည့် ပြီး vote ပေး ကြ တာ ပါ လိမ့် $ရူးမ ဘာ မ ဟုတ် တဲ့ ကိစ္စ ကြောင့် ရွှေကြို အခွင့်အရေး ကို ဆုံးရှုံး မ ခံ နိုင် လို့ ဆို ပြီး ပြော တဲ့ $ရူးမ
 ဖင်အရှည်ကြီးခံလိုက် တစ်ခါတည်း အကုန် ကြို ပြီး သား ပဲ 🦭
@@ -38,19 +55,24 @@ SattPatt !! ဘာ မ ဟုတ် တဲ့ ပြဿနာ တဲ့ Payloeee
 ဗန်းကိုင် နဲ့ မအလ ဘောကိုင်
 စိတ်မပူ နဲ့ ရွှေကြို ပြီး ရင် ဖင်ခံ ရ မှာ ညီမလေး fighting 22 နှစ် က ငါ 25 နှစ် ထက် အို နေ တော့ အား တောင် နာ တယ် 😂 😂
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/nanoGPT/myHatespeech_char$
+```
 
-Copied above file to the LM building folder.
+Copied above file to the LM building folder.  
+ppl တွက်မယ့် ဖိုလ်ဒါဆီကို ကော်ပီကူးယူခဲ့တယ်။  
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ cp /home/ye/exp/myHatespeech/nanoGPT/myHatespeech_char/hs_data_4Oct2023.clean.txt .
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ wc ./hs_data_4Oct2023.clean.txt
   10140  171358 2172104 ./hs_data_4Oct2023.clean.txt
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## Syllable Breaking for Hatespeech Data
 
+ထုံးစံအတိုင်းပဲ မြန်မာစာရဲ့ word segmentation မှာက 100% မှန်တာ မရှိလို့ syllable နဲ့ပဲဖြတ်ပြီး language model ဆောက်မယ်လို့ ဆုံးဖြတ်ခဲ့တယ်။  
+Downloading sylbreak.pl to the server machine:   
 
-Downloading sylbreak.pl to the server machine:  
-
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ wget https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
 --2023-10-23 16:03:43--  https://raw.githubusercontent.com/ye-kyaw-thu/sylbreak/master/perl/sylbreak.pl
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
@@ -64,11 +86,18 @@ sylbreak.pl            100%[==========================>]   2.30K  --.-KB/s    in
 2023-10-23 16:03:43 (33.2 MB/s) - ‘sylbreak.pl’ saved [2356/2356]
 
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
-Syllable breaking ...  
+Syllable breaking ...   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ perl ./sylbreak.pl -i ./hs_data_4Oct2023.clean.txt -s " " > ./hs_data_4Oct2023.clean.txt.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
+
+make confirmation ...  
+
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ head ./hs_data_4Oct2023.clean.txt.syl
 ဖော် လော် မော် မ ဟုတ် လို့ ပေါ့ 🤣 🤣
 နား ကို မ လည် တာ
@@ -81,19 +110,22 @@ Syllable breaking ...
 s မွေး ကြီး တဲ့ 😂
 $ မွှေး ပါ
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## Combining Two Datasets
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ cat segmentation-data-updated2.cleaned.syl hs_data_4Oct2023.clean.txt.syl > seg_hs_corpus.txt
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ wc seg_hs_corpus.txt
   222976  7335893 71778129 seg_hs_corpus.txt
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## KenLM Installation
 
-
 Clone KenLM ...  
 
+```
 (base) ye@lst-gpu-3090:~/tool$ git clone https://github.com/kpu/kenlm
 Cloning into 'kenlm'...
 remote: Enumerating objects: 14161, done.
@@ -103,9 +135,11 @@ remote: Total 14161 (delta 162), reused 406 (delta 132), pack-reused 13687
 Receiving objects: 100% (14161/14161), 5.91 MiB | 5.57 MiB/s, done.
 Resolving deltas: 100% (8042/8042), done.
 (base) ye@lst-gpu-3090:~/tool$
+```
 
-Check the folder:  
+Check the folder:   
 
+```
 (base) ye@lst-gpu-3090:~/tool$ cd kenlm/
 (base) ye@lst-gpu-3090:~/tool/kenlm$ ls
 BUILDING             compile_query_only.sh  Doxyfile     pyproject.toml  util
@@ -113,9 +147,11 @@ clean_query_only.sh  COPYING                LICENSE      python
 cmake                COPYING.3              lm           README.md
 CMakeLists.txt       COPYING.LESSER.3       MANIFEST.in  setup.py
 (base) ye@lst-gpu-3090:~/tool/kenlm$
+```
 
 Installation of KenLM on Server machine:  
 
+```
 (base) ye@lst-gpu-3090:~/tool/kenlm$ mkdir -p build
 (base) ye@lst-gpu-3090:~/tool/kenlm$ cd build
 (base) ye@lst-gpu-3090:~/tool/kenlm/build$ cmake ..
@@ -159,9 +195,11 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Generating done (0.0s)
 -- Build files have been written to: /home/ye/tool/kenlm/build
 (base) ye@lst-gpu-3090:~/tool/kenlm/build$
+```
 
-Check number of CPU ...
+Check number of CPU ...  
 
+```
 (base) ye@lst-gpu-3090:~/tool/kenlm/build$ lscpu | grep CPU
 CPU op-mode(s):                     32-bit, 64-bit
 CPU(s):                             24
@@ -171,9 +209,11 @@ CPU max MHz:                        5100.0000
 CPU min MHz:                        800.0000
 NUMA node0 CPU(s):                  0-23
 (base) ye@lst-gpu-3090:~/tool/kenlm/build$
+```
 
-Run make ...
+Run make ...  
 
+```
 make -j 24
 
 ...
@@ -197,10 +237,11 @@ CMakeCache.txt  cmake_install.cmake  lib                Makefile
 build_binary  filter    kenlm_benchmark  phrase_table_vocab            query
 count_ngrams  fragment  lmplz            probing_hash_table_benchmark
 (base) ye@lst-gpu-3090:~/tool/kenlm/build/bin$
-
+```
 
 ## 5-gram Statistical LM Building
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ time lmplz -o 5 < ./seg_hs_corpus
 .txt > lm.5gram.arpa
 === 1/5 Counting and sorting n-grams ===
@@ -241,9 +282,11 @@ real    0m6.600s
 user    0m4.883s
 sys     0m2.962s
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## Check the Statistical LM
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ head -n 50 ./lm.5gram.arpa
 \data\
 ngram 1=6390
@@ -296,30 +339,36 @@ ngram 5=4835909
 -3.0944793      ဖြူ     -0.5175369
 -3.502761       ဖွေး    -0.5039096
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
 
 ## Preparing Test Datasets
 
-I already have 5 test outputs with GPT-2 Hatespeech Model.  
-At first, I have to make syllable segmentation on these 5 files.
+I already have 5 test outputs with GPT-2 Hatespeech Model.    
+At first, I have to make syllable segmentation on these 5 files.  
 
 
-Copying test data to the current PPL calculation folder as follows:  
+Copying test data to the current PPL calculation folder as follows:   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/script/sentence$ ls
 Test-1  Test-2  Test-3  Test-4  Test-5
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/script/sentence$ cp * ../../ppl_calc/testdata/
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/script/sentence$
+```
 
-I need only 1st column of these files for evaluation with LM.  
+I need only 1st column of these files for evaluation with LM.   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ head -n 3 Test-1
 မနက် ၅ နာရီ ခု ထိ မ လာ ဘူး ၅ မိနစ် ၅ နာရီ ထိ ပျက် သွား အောင် ပေး တာ လား လီး ပဲ ဟေ့ မအေလိုး တွေပျက် သွား ပြီ ပြန် ဖျက် သလို ပဲောင် မ ပြည့် တော့ ဘူး မအေလိုး တွေ မီး နာရီ ပြန် ပျက် တယ် ဆို တော့ မ သိဝက် လည်း ပျက် ပြီ လီး ပဲ ဟေ့     ab
 မအေလိုး တွေ မီတာခ ကျတော့ ပြည်သူ တွေ အကုန်လုံး ခု မီး လာ မယ့် အချိန် မှန် အိပ် ပေး ပြီ နော် မီး ပျက် နေ တာေ ရေ     ab
 မအေလိုး တွေ တစ် နေကုန် ပျက် ၉ နာရီ လာ ပြီး ၉ နာရီ တော့ မှာ လာ ဖြတ် နေ တာ ပဲ     ab
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$
+```
 
-Cut Column-1 only ...  
+Cut Column-1 only ...   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ cut -f1 ./original/Test-
 1 > ./Test-1
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ cut -f1 ./original/Test-2 > ./Test-2
@@ -327,9 +376,11 @@ Cut Column-1 only ...
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ cut -f1 ./original/Test-4 > ./Test-4
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ cut -f1 ./original/Test-5 > ./Test-5
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$
+```
 
-Check the file contents before syllable breaking ...  
+Check the file contents before syllable breaking ...   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ head -n 3 Test-1
 မနက် ၅ နာရီ ခု ထိ မ လာ ဘူး ၅ မိနစ် ၅ နာရီ ထိ ပျက် သွား အောင် ပေး တာ လား လီး ပဲ ဟေ့ မအေလိုး တွေပျက် သွား ပြီ ပြန် ဖျက် သလို ပဲောင် မ ပြည့် တော့ ဘူး မအေလိုး တွေ မီး နာရီ ပြန် ပျက် တယ် ဆို တော့ မ သိဝက် လည်း ပျက် ပြီ လီး ပဲ ဟေ့
 မအေလိုး တွေ မီတာခ ကျတော့ ပြည်သူ တွေ အကုန်လုံး ခု မီး လာ မယ့် အချိန် မှန် အိပ် ပေး ပြီ နော် မီး ပျက် နေ တာေ ရေ
@@ -343,18 +394,22 @@ Check the file contents before syllable breaking ...
 လူ က ရော နင် တို့ တစ် ယောက် က အစား ဖူး တုန်း က ကိုယ့် အများကြီး လို့ ရ တယ် ရှင်း ပေါ် က နေ မြန်မာ လူမျိုး တွေ က သူ တို့ နိုင်ငံ လေး တွေ က လုပ် ခဲ့ ရ လေ နေ လို့ အမေ မ ဟုတ် ဘူး တဲ့ သူ တွေ သူ တို့ အတွက် တောင် မ စား လို့ လား နော်
 အခု မှ သန့် တာ ပဲ မြန်မာ ပြည် မှာ ပဲ လေ မအလ ကြီး ရာ ချင် စရာ
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$
+```
 
 ## Syllable Breaking on Testsets
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ perl ../sylbreak.pl -i ./f1/Test-1 -s " " > Test-1.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ perl ../sylbreak.pl -i ./f1/Test-2 -s " " > Test-2.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ perl ../sylbreak.pl -i ./f1/Test-3 -s " " > Test-3.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ perl ../sylbreak.pl -i ./f1/Test-4 -s " " > Test-4.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ perl ../sylbreak.pl -i ./f1/Test-5 -s " " > Test-5.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$
+```
 
-Check the syllable breaked test data:  
+Check the syllable breaked test data:   
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ ls
 f1  original  Test-1.syl  Test-2.syl  Test-3.syl  Test-4.syl  Test-5.syl
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$ head -n 3 ./Test-1.syl
@@ -374,10 +429,14 @@ f1  original  Test-1.syl  Test-2.syl  Test-3.syl  Test-4.syl  Test-5.syl
 လူ က ရော နင် တို့ တစ် ယောက် က အ စား ဖူး တုန်း က ကိုယ့် အ များ ကြီး လို့ ရ တယ် ရှင်း ပေါ် က နေ မြန် မာ လူ မျိုး တွေ က သူ တို့ နိုင် ငံ လေး တွေ က လုပ် ခဲ့ ရ လေ နေ လို့ အ မေ မ ဟုတ် ဘူး တဲ့ သူ တွေ သူ တို့ အ တွက် တောင် မ စား လို့ လား နော်
 အ ခု မှ သန့် တာ ပဲ မြန် မာ ပြည် မှာ ပဲ လေ မ အ လ ကြီး ရာ ချင် စ ရာ
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc/testdata$
+```
 
 ## Writing a Bash Shell Script
 
-(base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ cat ./eval_with_ppl.sh
+
+(base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ cat ./eval_with_ppl.sh  
+
+```bash
 #!/bin/bash
 
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
@@ -407,9 +466,11 @@ for file in $(find "$1" -name '*.syl' | sort); do
     echo "==========";
     echo "";
 done
+```
 
 ## Evaluation with PPL
 
+```
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$ ./eval_with_ppl.sh ./testdata/
 Evaluation on: ./testdata/Test-1.syl
 Running: query -v summary ./lm.5gram.arpa < ./testdata/Test-1.syl
@@ -477,6 +538,8 @@ Name:query      VmPeak:238648 kB        VmRSS:4372 kB   RSSMax:233484 kB        
 ==========
 
 (base) ye@lst-gpu-3090:~/exp/myHatespeech/eval/ppl_calc$
+```
+
 
 
 
