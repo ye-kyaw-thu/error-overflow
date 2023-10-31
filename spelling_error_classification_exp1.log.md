@@ -1,5 +1,8 @@
 # Spelling Error Type Classification Log
 
+Experiment date: 31st Oct 2023  
+For 5th NLP/AI workshop paper with my master student Ms. Ei Thandar Phyu.  
+
 ## Data Cleaning
 
 Python script + Manual label cleaning ...  
