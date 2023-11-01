@@ -1334,8 +1334,18 @@ Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46
 ## Training/Testing with All Data
 ### Experiment No. 1 with Tsetlin Machine
 
-```
+အရင်ဆုံး Experiment no. 1 အနေနဲ့ 100 epoch နဲ့ run မယ်။  
+bash shell ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
 
+```bash
+#!/bin/bash
+
+echo "Training with 97K data ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.exp1.model --epoch 100
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.exp1.model --test_data ./error_type.valid --hypothesis_filename ./error_type.exp1.hyp
 ```
 
 ```
