@@ -1474,6 +1474,25 @@ Test results saved as ./error_type.exp1.hyp
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
 ```
 
+Hypothesis ဖိုင်ကို အကြမ်းစစ်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$ wc error_type.exp1.hyp
+ 10794  10794 146562 error_type.exp1.hyp
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$ head error_type.exp1.hyp
+__label__pho
+__label__typo
+__label__pho
+__label__pho
+__label__typo
+__label__typo
+__label__typo
+__label__dialect
+__label__pho
+__label__pho
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
+```
+
 ## Experiment No. 2 (Epoch 200)  
 
 Epoch value ကို လိုအပ်ရင် အခေါက်ခေါက် အခါခါ run ရမှာမို့ shell script အသစ်ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
