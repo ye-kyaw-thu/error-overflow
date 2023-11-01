@@ -1646,6 +1646,19 @@ Epoch 117/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
 Epoch 118/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
 Epoch 119/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
 Epoch 120/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
+Epoch 121/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Epoch 122/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 123/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 124/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
+Epoch 125/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 126/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 127/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Epoch 128/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 129/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
+Epoch 130/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
+Epoch 131/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Epoch 132/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.56, Recall: 0.54
+Epoch 133/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
 
 ```
 
@@ -1657,6 +1670,14 @@ Epoch 120/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
 
 ```
 
+## Thinking
+
+ရလဒ် ပိုကောင်းဖို့ လောလောဆယ် ခေါင်းထဲမှာ ရှိတာတွေက အောက်ပါအတိုင်း ...
+
+- ngram ကို လက်ရှိမှာ 3 ထားထားတယ်။ အဲဒါထက် ပိုတိုးကြည့်တာမျိုး
+- Tsetline Machine ရဲ့ အရေးကြီးတဲ့ parameter နှစ်ခုဖြစ်တဲ့ ...  T, S ကို ကစားကြည့်တာမျိုး
+- feature ထုတ်တာကို CountVectorizer အစား FAIR ရဲ့ fastText ကို သုံးကြည့်တာမျိုး လုပ်လို့ ရလိမ့်မယ်
+  
 ```
 
 ```
