@@ -1616,6 +1616,36 @@ Epoch 87/200, Accuracy: 0.53, F1 Score: 0.53, Precision: 0.53, Recall: 0.53
 Epoch 88/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.54, Recall: 0.55
 Epoch 89/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
 Epoch 90/200, Accuracy: 0.55, F1 Score: 0.55, Precision: 0.57, Recall: 0.55
+Epoch 91/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.58, Recall: 0.56
+Epoch 92/200, Accuracy: 0.56, F1 Score: 0.54, Precision: 0.55, Recall: 0.56
+Epoch 93/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.54, Recall: 0.54
+Epoch 94/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.56, Recall: 0.54
+Epoch 95/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.56, Recall: 0.54
+Epoch 96/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
+Epoch 97/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 98/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
+Epoch 99/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 100/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.57, Recall: 0.54
+Epoch 101/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
+Epoch 102/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 103/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.54, Recall: 0.55
+Epoch 104/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
+Epoch 105/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.54, Recall: 0.55
+Epoch 106/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
+Epoch 107/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.53, Recall: 0.54
+Epoch 108/200, Accuracy: 0.54, F1 Score: 0.52, Precision: 0.53, Recall: 0.54
+Epoch 109/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
+Epoch 110/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 111/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.56, Recall: 0.54
+Epoch 112/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.54, Recall: 0.55
+Epoch 113/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.56, Recall: 0.54
+Epoch 114/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 115/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 116/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 117/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 118/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 119/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 120/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.56, Recall: 0.56
 
 ```
 
