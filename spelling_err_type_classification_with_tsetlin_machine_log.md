@@ -990,8 +990,346 @@ time python ./tsetlin_classifier.py --mode test --model_name error_type.5k.model
 Running log for 300 epoch is as follows ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$ ./train_test.sh | tee 5K_train300ep_test.log
+Training with 5K data ...
+Epoch 1/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.45, Recall: 0.48
+Epoch 2/300, Accuracy: 0.45, F1 Score: 0.44, Precision: 0.42, Recall: 0.45
+Epoch 3/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.48, Recall: 0.46
+Epoch 4/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 5/300, Accuracy: 0.50, F1 Score: 0.45, Precision: 0.42, Recall: 0.50
+Epoch 6/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 7/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.41, Recall: 0.45
+Epoch 8/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.39, Recall: 0.46
+Epoch 9/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.41, Recall: 0.47
+Epoch 10/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.42, Recall: 0.47
+Epoch 11/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.42, Recall: 0.46
+Epoch 12/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 13/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.46, Recall: 0.45
+Epoch 14/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.40, Recall: 0.46
+Epoch 15/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.45, Recall: 0.49
+Epoch 16/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 17/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 18/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.45, Recall: 0.44
+Epoch 19/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.45, Recall: 0.47
+Epoch 20/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.46, Recall: 0.44
+Epoch 21/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.46, Recall: 0.48
+Epoch 22/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.43, Recall: 0.44
+Epoch 23/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.42, Recall: 0.47
+Epoch 24/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.42, Recall: 0.47
+Epoch 25/300, Accuracy: 0.51, F1 Score: 0.47, Precision: 0.44, Recall: 0.51
+Epoch 26/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 27/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.41, Recall: 0.48
+Epoch 28/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 29/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.44, Recall: 0.46
+Epoch 30/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 31/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.38, Recall: 0.44
+Epoch 32/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 33/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 34/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.40, Recall: 0.46
+Epoch 35/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.48, Recall: 0.47
+Epoch 36/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 37/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 38/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.41, Recall: 0.45
+Epoch 39/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.43, Recall: 0.49
+Epoch 40/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.44, Recall: 0.48
+Epoch 41/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 42/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.44, Recall: 0.46
+Epoch 43/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.40, Recall: 0.44
+Epoch 44/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 45/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.41, Recall: 0.45
+Epoch 46/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.41, Recall: 0.47
+Epoch 47/300, Accuracy: 0.46, F1 Score: 0.39, Precision: 0.40, Recall: 0.46
+Epoch 48/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.40, Recall: 0.44
+Epoch 49/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 50/300, Accuracy: 0.48, F1 Score: 0.42, Precision: 0.40, Recall: 0.48
+Epoch 51/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 52/300, Accuracy: 0.43, F1 Score: 0.42, Precision: 0.43, Recall: 0.43
+Epoch 53/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.44, Recall: 0.47
+Epoch 54/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.42, Recall: 0.49
+Epoch 55/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.39, Recall: 0.45
+Epoch 56/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.42, Recall: 0.46
+Epoch 57/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+Epoch 58/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.44, Recall: 0.47
+Epoch 59/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.44, Recall: 0.47
+Epoch 60/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.43, Recall: 0.46
+Epoch 61/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.42, Recall: 0.48
+Epoch 62/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.44, Recall: 0.49
+Epoch 63/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.40, Recall: 0.45
+Epoch 64/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.46, Recall: 0.48
+Epoch 65/300, Accuracy: 0.49, F1 Score: 0.47, Precision: 0.46, Recall: 0.49
+Epoch 66/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.41, Recall: 0.48
+Epoch 67/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.45, Recall: 0.48
+Epoch 68/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 69/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.44, Recall: 0.49
+Epoch 70/300, Accuracy: 0.43, F1 Score: 0.41, Precision: 0.41, Recall: 0.43
+Epoch 71/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.42, Recall: 0.44
+Epoch 72/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.43, Recall: 0.48
+Epoch 73/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 74/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.42, Recall: 0.44
+Epoch 75/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.40, Recall: 0.44
+Epoch 76/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.41, Recall: 0.48
+Epoch 77/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.41, Recall: 0.48
+Epoch 78/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46
+Epoch 79/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.43, Recall: 0.48
+Epoch 80/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.44, Recall: 0.46
+Epoch 81/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.44, Recall: 0.49
+Epoch 82/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 83/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.40, Recall: 0.44
+Epoch 84/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 85/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.41, Recall: 0.48
+Epoch 86/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.43, Recall: 0.47
+Epoch 87/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 88/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.40, Recall: 0.46
+Epoch 89/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 90/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 91/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.43, Recall: 0.48
+Epoch 92/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.44, Recall: 0.48
+Epoch 93/300, Accuracy: 0.42, F1 Score: 0.40, Precision: 0.39, Recall: 0.42
+Epoch 94/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 95/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.40, Recall: 0.46
+Epoch 96/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.40, Recall: 0.46
+Epoch 97/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.44, Recall: 0.49
+Epoch 98/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.42, Recall: 0.48
+Epoch 99/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 100/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+Epoch 101/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 102/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.46, Recall: 0.47
+Epoch 103/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 104/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.40, Recall: 0.46
+Epoch 105/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 106/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 107/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.45, Recall: 0.47
+Epoch 108/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.41, Recall: 0.47
+Epoch 109/300, Accuracy: 0.49, F1 Score: 0.44, Precision: 0.42, Recall: 0.49
+Epoch 110/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.42, Recall: 0.46
+Epoch 111/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.47, Recall: 0.46
+Epoch 112/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 113/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 114/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.46, Recall: 0.47
+Epoch 115/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.45, Recall: 0.47
+Epoch 116/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 117/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.47, Recall: 0.48
+Epoch 118/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.40, Recall: 0.46
+Epoch 119/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 120/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.42, Recall: 0.45
+Epoch 121/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.39, Recall: 0.44
+Epoch 122/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 123/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 124/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.40, Recall: 0.46
+Epoch 125/300, Accuracy: 0.42, F1 Score: 0.41, Precision: 0.39, Recall: 0.42
+Epoch 126/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 127/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.44, Recall: 0.47
+Epoch 128/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.46, Recall: 0.46
+Epoch 129/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 130/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.50, Recall: 0.48
+Epoch 131/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.38, Recall: 0.44
+Epoch 132/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.40, Recall: 0.44
+Epoch 133/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.42, Recall: 0.49
+Epoch 134/300, Accuracy: 0.42, F1 Score: 0.40, Precision: 0.42, Recall: 0.42
+Epoch 135/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46
+Epoch 136/300, Accuracy: 0.43, F1 Score: 0.42, Precision: 0.41, Recall: 0.43
+Epoch 137/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 138/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 139/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 140/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 141/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.43, Recall: 0.47
+Epoch 142/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.40, Recall: 0.45
+Epoch 143/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 144/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.42, Recall: 0.45
+Epoch 145/300, Accuracy: 0.49, F1 Score: 0.44, Precision: 0.51, Recall: 0.49
+Epoch 146/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.44, Recall: 0.45
+Epoch 147/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 148/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.47, Recall: 0.46
+Epoch 149/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 150/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.44, Recall: 0.49
+Epoch 151/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.50, Recall: 0.47
+Epoch 152/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.43, Recall: 0.46
+Epoch 153/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.40, Recall: 0.45
+Epoch 154/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.38, Recall: 0.46
+Epoch 155/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.48, Recall: 0.48
+Epoch 156/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.46, Recall: 0.46
+Epoch 157/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.42, Recall: 0.45
+Epoch 158/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 159/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 160/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.43, Recall: 0.48
+Epoch 161/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.48, Recall: 0.47
+Epoch 162/300, Accuracy: 0.43, F1 Score: 0.39, Precision: 0.38, Recall: 0.43
+Epoch 163/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 164/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46
+Epoch 165/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.44, Recall: 0.47
+Epoch 166/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.39, Recall: 0.45
+Epoch 167/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 168/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.41, Recall: 0.47
+Epoch 169/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.47, Recall: 0.49
+Epoch 170/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 171/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.43, Recall: 0.46
+Epoch 172/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.45, Recall: 0.48
+Epoch 173/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 174/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.46, Recall: 0.48
+Epoch 175/300, Accuracy: 0.49, F1 Score: 0.44, Precision: 0.44, Recall: 0.49
+Epoch 176/300, Accuracy: 0.45, F1 Score: 0.40, Precision: 0.40, Recall: 0.45
+Epoch 177/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 178/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.42, Recall: 0.44
+Epoch 179/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 180/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.41, Recall: 0.44
+Epoch 181/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.42, Recall: 0.48
+Epoch 182/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 183/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.39, Recall: 0.46
+Epoch 184/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.45, Recall: 0.48
+Epoch 185/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.40, Recall: 0.45
+Epoch 186/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.43, Recall: 0.47
+Epoch 187/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 188/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.41, Recall: 0.47
+Epoch 189/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 190/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.43, Recall: 0.47
+Epoch 191/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.42, Recall: 0.49
+Epoch 192/300, Accuracy: 0.43, F1 Score: 0.41, Precision: 0.46, Recall: 0.43
+Epoch 193/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.43, Recall: 0.45
+Epoch 194/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+Epoch 195/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 196/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 197/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.44, Recall: 0.46
+Epoch 198/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 199/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 200/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.45, Recall: 0.46
+Epoch 201/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 202/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.42, Recall: 0.47
+Epoch 203/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.43, Recall: 0.46
+Epoch 204/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 205/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 206/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.42, Recall: 0.45
+Epoch 207/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.44, Recall: 0.48
+Epoch 208/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 209/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 210/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 211/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.39, Recall: 0.45
+Epoch 212/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.45, Recall: 0.45
+Epoch 213/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 214/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 215/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.42, Recall: 0.45
+Epoch 216/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.39, Recall: 0.46
+Epoch 217/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 218/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.40, Recall: 0.46
+Epoch 219/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.41, Recall: 0.47
+Epoch 220/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 221/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.43, Recall: 0.49
+Epoch 222/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.42, Recall: 0.44
+Epoch 223/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 224/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.44, Recall: 0.48
+Epoch 225/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.45, Recall: 0.46
+Epoch 226/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+Epoch 227/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.41, Recall: 0.44
+Epoch 228/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 229/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.43, Recall: 0.44
+Epoch 230/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.44, Recall: 0.47
+Epoch 231/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 232/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.43, Recall: 0.48
+Epoch 233/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.43, Recall: 0.48
+Epoch 234/300, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.43, Recall: 0.46
+Epoch 235/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.45, Recall: 0.44
+Epoch 236/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.48, Recall: 0.48
+Epoch 237/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.42, Recall: 0.49
+Epoch 238/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.40, Recall: 0.46
+Epoch 239/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.50, Recall: 0.49
+Epoch 240/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 241/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.40, Recall: 0.45
+Epoch 242/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 243/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.46, Recall: 0.48
+Epoch 244/300, Accuracy: 0.45, F1 Score: 0.44, Precision: 0.44, Recall: 0.45
+Epoch 245/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.47, Recall: 0.46
+Epoch 246/300, Accuracy: 0.50, F1 Score: 0.46, Precision: 0.47, Recall: 0.50
+Epoch 247/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.41, Recall: 0.47
+Epoch 248/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 249/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.43, Recall: 0.49
+Epoch 250/300, Accuracy: 0.45, F1 Score: 0.43, Precision: 0.42, Recall: 0.45
+Epoch 251/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.44, Recall: 0.44
+Epoch 252/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.43, Recall: 0.48
+Epoch 253/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.45, Recall: 0.48
+Epoch 254/300, Accuracy: 0.45, F1 Score: 0.41, Precision: 0.39, Recall: 0.45
+Epoch 255/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.45, Recall: 0.49
+Epoch 256/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.45, Recall: 0.46
+Epoch 257/300, Accuracy: 0.43, F1 Score: 0.40, Precision: 0.44, Recall: 0.43
+Epoch 258/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 259/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.42, Recall: 0.46
+Epoch 260/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.44, Recall: 0.47
+Epoch 261/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 262/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.44, Recall: 0.49
+Epoch 263/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.45, Recall: 0.47
+Epoch 264/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.45, Recall: 0.47
+Epoch 265/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 266/300, Accuracy: 0.49, F1 Score: 0.46, Precision: 0.45, Recall: 0.49
+Epoch 267/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.46, Recall: 0.44
+Epoch 268/300, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.41, Recall: 0.46
+Epoch 269/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 270/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.43, Recall: 0.48
+Epoch 271/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.39, Recall: 0.47
+Epoch 272/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.40, Recall: 0.47
+Epoch 273/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.42, Recall: 0.46
+Epoch 274/300, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.40, Recall: 0.46
+Epoch 275/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.45, Recall: 0.47
+Epoch 276/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 277/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.47, Recall: 0.44
+Epoch 278/300, Accuracy: 0.48, F1 Score: 0.43, Precision: 0.41, Recall: 0.48
+Epoch 279/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 280/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.47, Recall: 0.48
+Epoch 281/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.46, Recall: 0.47
+Epoch 282/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.40, Recall: 0.45
+Epoch 283/300, Accuracy: 0.47, F1 Score: 0.45, Precision: 0.43, Recall: 0.47
+Epoch 284/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.43, Recall: 0.46
+Epoch 285/300, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.46, Recall: 0.48
+Epoch 286/300, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.39, Recall: 0.45
+Epoch 287/300, Accuracy: 0.50, F1 Score: 0.46, Precision: 0.44, Recall: 0.50
+Epoch 288/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Epoch 289/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.44, Recall: 0.47
+Epoch 290/300, Accuracy: 0.43, F1 Score: 0.40, Precision: 0.41, Recall: 0.43
+Epoch 291/300, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.43, Recall: 0.49
+Epoch 292/300, Accuracy: 0.44, F1 Score: 0.41, Precision: 0.39, Recall: 0.44
+Epoch 293/300, Accuracy: 0.47, F1 Score: 0.43, Precision: 0.40, Recall: 0.47
+Epoch 294/300, Accuracy: 0.44, F1 Score: 0.42, Precision: 0.41, Recall: 0.44
+Epoch 295/300, Accuracy: 0.44, F1 Score: 0.43, Precision: 0.42, Recall: 0.44
+Epoch 296/300, Accuracy: 0.47, F1 Score: 0.42, Precision: 0.44, Recall: 0.47
+Epoch 297/300, Accuracy: 0.46, F1 Score: 0.43, Precision: 0.41, Recall: 0.46
+Epoch 298/300, Accuracy: 0.48, F1 Score: 0.44, Precision: 0.42, Recall: 0.48
+Epoch 299/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.45, Recall: 0.47
+Epoch 300/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+Model trained and saved as error_type.5k.model.joblib
+
+real    10m27.904s
+user    10m11.006s
+sys     0m19.253s
+===============
+Testing with 100 errors ...
+Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46
+Test results saved as ./error_type.100.hyp
+
+real    0m0.682s
+user    0m0.717s
+sys     0m1.141s
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
+```
+
+100 epoch နဲ့ training လုပ်ထားတဲ့ model နဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
+Training result:  
+Epoch 100/100, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+
+Testing result:  
+Testing with 100 errors ...
+Accuracy: 0.49, F1 Score: 0.48, Precision: 0.47, Recall: 0.49
+```
+
+300 epoch နဲ့ training လုပ်ထားတဲ့ model နဲ့ ရလဒ်က အထက်က log မှာလည်း ကြည့်လို့ ရသလို အောက်ပါအတိုင်းပါ။   
+
+```
+Training result:  
+Epoch 300/300, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.42, Recall: 0.47
+
+Testing result:  
+Accuracy: 0.46, F1 Score: 0.42, Precision: 0.41, Recall: 0.46  
+```
+
+အထက်ပါ နှိုင်းယှဉ်မှုကနေ epoch တိုးတိုင်းလည်း ရလဒ်က မကောင်းနိုင်ဘူး။ over learning ဖြစ်သွားနိုင်တယ်။  
 
 ## Training/Testing with All Data
 ### Experiment No. 1 with Tsetlin Machine
