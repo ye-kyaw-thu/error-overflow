@@ -1613,6 +1613,9 @@ Epoch 84/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
 Epoch 85/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
 Epoch 86/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
 Epoch 87/200, Accuracy: 0.53, F1 Score: 0.53, Precision: 0.53, Recall: 0.53
+Epoch 88/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.54, Recall: 0.55
+Epoch 89/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 90/200, Accuracy: 0.55, F1 Score: 0.55, Precision: 0.57, Recall: 0.55
 
 ```
 
