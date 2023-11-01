@@ -780,7 +780,7 @@ def main():
             recall = recall_score(np.argmax(train_labels, axis=1), predictions, average='weighted', zero_division=0)
             print(f'Epoch {epoch + 1}/{args.epoch}, Accuracy: {accuracy:.2f}, F1 Score: {f1:.2f}, Precision: {precision:.2f}, Recall: {recall:.2f}')
 
-        save_model(args.model_name + '.joblib', tm)  # Updated line
+        save_model(args.model_name + '.joblib', tm)  
         joblib.dump(vectorizer, args.model_name + '_vectorizer.pkl')  # Save the vectorizer
         joblib.dump(mlb, args.model_name + '_mlb.pkl')  # Save the multi-label binarizer
 
