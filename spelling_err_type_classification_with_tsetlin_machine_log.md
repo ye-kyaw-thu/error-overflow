@@ -1659,6 +1659,17 @@ Epoch 130/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
 Epoch 131/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
 Epoch 132/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.56, Recall: 0.54
 Epoch 133/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Epoch 134/200, Accuracy: 0.57, F1 Score: 0.56, Precision: 0.58, Recall: 0.57
+Epoch 135/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
+Epoch 136/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 137/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.58, Recall: 0.56
+Epoch 138/200, Accuracy: 0.55, F1 Score: 0.55, Precision: 0.55, Recall: 0.55
+Epoch 139/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
+Epoch 140/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.56, Recall: 0.55
+Epoch 141/200, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.57, Recall: 0.55
+Epoch 142/200, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 143/200, Accuracy: 0.53, F1 Score: 0.53, Precision: 0.57, Recall: 0.53
+Epoch 144/200, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.57, Recall: 0.54
 
 ```
 
