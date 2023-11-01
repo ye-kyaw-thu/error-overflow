@@ -1476,11 +1476,33 @@ Test results saved as ./error_type.exp1.hyp
 
 ## Experiment No. 2 (Epoch 200)  
 
+Epoch value ကို လိုအပ်ရင် အခေါက်ခေါက် အခါခါ run ရမှာမို့ shell script အသစ်ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
 prepare a shell script:  
 
 ```bash
+#!/bin/bash
 
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 1 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.hyp
 ```
+
+running with epoch 200, named experiment no. 2.  
 
 ```
 
