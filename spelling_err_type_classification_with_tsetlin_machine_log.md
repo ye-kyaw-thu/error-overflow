@@ -1376,3 +1376,7 @@ MiB Swap: 286102.0 total, 286081.2 free,     20.8 used.  49865.1 avail Mem
 ```
 
 ```
+
+## Reference
+
+1. [pyTsetlinMachine Link: https://github.com/cair/pyTsetlinMachine](https://github.com/cair/pyTsetlinMachine)
