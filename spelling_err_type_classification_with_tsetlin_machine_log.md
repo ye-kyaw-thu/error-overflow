@@ -1620,6 +1620,42 @@ Epoch 87/200, Accuracy: 0.53, F1 Score: 0.53, Precision: 0.53, Recall: 0.53
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ## Reference
 
 1. [pyTsetlinMachine Link: https://github.com/cair/pyTsetlinMachine](https://github.com/cair/pyTsetlinMachine)
