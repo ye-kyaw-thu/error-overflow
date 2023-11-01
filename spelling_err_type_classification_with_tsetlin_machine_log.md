@@ -1348,8 +1348,17 @@ echo "Testing with 10K errors ..."
 time python ./tsetlin_classifier.py --mode test --model_name tsetlin.exp1.model --test_data ./error_type.valid --hypothesis_filename ./error_type.exp1.hyp
 ```
 
-```
+Running လုပ်နေတဲ့ အချိန်မှာ server ပေါ်မှာ top command နဲ့ ခေါ်ကြည့်တဲ့အခါမှာတော့ အောက်ပါအတိုင်း memory က 8GB ကျော် ယူတာကို လေ့လာရတယ်။  
 
+```
+top - 15:57:55 up  6:17,  4 users,  load average: 0.94, 2.33, 4.09
+Tasks: 622 total,   2 running, 619 sleeping,   0 stopped,   1 zombie
+%Cpu(s):  5.4 us,  0.2 sy,  0.0 ni, 94.1 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+MiB Mem :  64127.2 total,   9083.7 free,  13264.9 used,  41778.5 buff/cache
+MiB Swap: 286102.0 total, 286081.2 free,     20.8 used.  49865.1 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  54619 ye        20   0   14.6g   8.5g  34944 R 100.0  13.6   0:20.08 python
 ```
 
 ```
