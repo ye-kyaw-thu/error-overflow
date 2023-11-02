@@ -847,12 +847,57 @@ Paper Link:  [https://link.springer.com/chapter/10.1007/978-3-030-63799-6_5#:~:t
 လက်ရှိ ငါတို့ လုပ်နေတာက multiclass classification မို့လို့ T-value ကို မြှင့်ကြည့်မယ်။
 
 ```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ python ./fasttext_tsetlin.py --help
+usage: fasttext_tsetlin.py [-h] [--mode MODE] [--train_data TRAIN_DATA]
+                           [--test_data TEST_DATA] [--model_name MODEL_NAME]
+                           [--hypothesis_filename HYPOTHESIS_FILENAME]
+                           [--clauses CLAUSES] [--T T] [--s S] [--epoch EPOCH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mode MODE           train or test
+  --train_data TRAIN_DATA
+                        path to training data file
+  --test_data TEST_DATA
+                        path to test data file
+  --model_name MODEL_NAME
+                        path to save/load model
+  --hypothesis_filename HYPOTHESIS_FILENAME
+                        path to save hypothesis file
+  --clauses CLAUSES     number of clauses
+  --T T                 threshold
+  --s S                 s
+  --epoch EPOCH         number of epochs
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
+```
+
+Updating bash shell script for playing with T value:  
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 2 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+time python ./fasttext_tsetlin.py --mode train --T 800 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T800.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}.T800.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T800.hyp
 
 ```
 
-```
-
-```
+အထက်က shell script မှာက T value ကို 800 ထားခဲ့တယ်။ ပြီးတော့ မော်ဒယ်ဖိုင်နာမည်ကိုလည်း ခွဲခြားပြီး ထားချင်လို့ T800.model ဆိုပြီး extension ကို ပြင်ခဲ့တယ်။ Testing output ကိုလည်း T800.hyp ဆိုတဲ့ extension နဲ့ ထားခဲ့တယ်။  
 
 ```
 
