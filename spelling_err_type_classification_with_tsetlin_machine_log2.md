@@ -175,8 +175,132 @@ sklearn.exceptions.NotFittedError: This MultiLabelBinarizer instance is not fitt
 Code debugging and run again ...  
 
 ```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ ./test_run.sh 100 | tee test.log1
+Training with 97K data ...
+Read 0M words
+Number of words:  561
+Number of labels: 3
+Progress: 100.1% words/sec/thread:   42344 lr: -0.000027 avg.loss:  4.126272 ETA:   0h 0m Progress: 100.0% words/sec/thread:   42128 lr:  0.000000 avg.loss:  4.126272 ETA:   0h 0m 0s
+Epoch 1/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 2/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 3/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 4/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 5/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 6/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 7/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 8/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 9/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 10/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 11/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 12/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 13/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 14/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 15/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 16/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 17/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 18/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 19/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 20/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 21/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 22/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 23/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 24/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 25/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 26/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 27/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 28/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 29/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 30/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 31/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 32/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 33/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 34/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 35/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 36/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 37/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 38/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 39/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 40/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 41/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 42/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 43/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 44/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 45/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 46/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 47/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 48/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 49/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 50/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 51/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 52/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 53/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 54/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 55/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 56/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 57/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 58/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 59/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 60/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 61/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 62/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 63/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 64/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 65/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 66/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 67/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 68/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 69/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 70/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 71/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 72/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 73/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 74/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 75/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 76/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 77/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 78/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 79/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 80/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 81/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 82/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 83/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 84/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 85/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 86/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 87/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 88/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 89/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 90/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 91/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 92/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 93/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 94/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 95/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 96/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 97/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 98/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 99/100, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 100/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
 
+real    0m9.511s
+user    0m6.626s
+sys     0m3.940s
+===============
+Testing with 10K errors ...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Accuracy: 0.50, F1 Score: 0.33, Precision: 0.25, Recall: 0.50
+Test results saved as ./error_type.epoch100.hyp
+
+real    0m0.618s
+user    0m1.285s
+sys     0m3.494s
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
+
+the 1st test run with fasttext feature successs! :)
+
+## 2nd Test Run with More Epochs
+
 
 ```
 
