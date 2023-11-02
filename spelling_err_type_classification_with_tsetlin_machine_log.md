@@ -1776,9 +1776,39 @@ epoch 100 နဲ့ 200 အကြားမှာ result က တိုးတက�
 
 ## Playing with T Value
 
+updating shell script for adding --T 50  
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 1 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+time python ./tsetlin_classifier.py --mode train --T 50 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T50.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.T50.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T50.hyp
+
+```
+
+Running result with 100 epochs, T=50:  
+
 ```
 
 ```
+
+Running result with 100 epochs, T=800:  
 
 ```
 
