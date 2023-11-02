@@ -1024,9 +1024,34 @@ sys     0m3.429s
 (tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
+For this time, I wanna try with T=50. The updated bash shell script is as follows:  
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 2 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+#time python ./fasttext_tsetlin.py --mode train --T 800 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T800.model --epoch ${EPOCH}
+time python ./fasttext_tsetlin.py --mode train --T 50 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T50.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+#time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}.T800.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T800.hyp
+time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}.T50.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T50.hyp
 ```
 
-```
+running result with T=50 is as follows:  
 
 ```
 
