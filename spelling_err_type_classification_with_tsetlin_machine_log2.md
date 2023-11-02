@@ -83,13 +83,52 @@ Executing transaction: done
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
-```
+change to the new env:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ conda activate tsetlin_py3.8
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
+လိုအပ်တဲ့ library တွေကို installation လုပ်ခဲ့ ...  
+
 ```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ pip install fasttext pyTsetlinMachine scikit-learn joblib
+Collecting fasttext
+  Using cached fasttext-0.9.2-cp38-cp38-linux_x86_64.whl
+Collecting pyTsetlinMachine
+  Downloading pyTsetlinMachine-0.6.4.tar.gz (24 kB)
+  Preparing metadata (setup.py) ... done
+Collecting scikit-learn
+  Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting joblib
+  Using cached joblib-1.3.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting pybind11>=2.2 (from fasttext)
+  Downloading pybind11-2.11.1-py3-none-any.whl.metadata (9.5 kB)
+Requirement already satisfied: setuptools>=0.7.0 in /home/ye/anaconda3/envs/tsetlin_py3.8/lib/python3.8/site-packages (from fasttext) (68.0.0)
+Collecting numpy (from fasttext)
+  Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+Collecting scipy>=1.5.0 (from scikit-learn)
+  Using cached scipy-1.10.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+Collecting threadpoolctl>=2.0.0 (from scikit-learn)
+  Using cached threadpoolctl-3.2.0-py3-none-any.whl.metadata (10.0 kB)
+Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 41.9 MB/s eta 0:00:00
+Using cached joblib-1.3.2-py3-none-any.whl (302 kB)
+Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+Downloading pybind11-2.11.1-py3-none-any.whl (227 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.7/227.7 kB 3.5 MB/s eta 0:00:00
+Using cached threadpoolctl-3.2.0-py3-none-any.whl (15 kB)
+Building wheels for collected packages: pyTsetlinMachine
+  Building wheel for pyTsetlinMachine (setup.py) ... done
+  Created wheel for pyTsetlinMachine: filename=pyTsetlinMachine-0.6.4-cp38-cp38-linux_x86_64.whl size=66369 sha256=f1cfb46a4cd839922280f81b6aae282cd619189c2bae86e74a52c845bfce4258
+  Stored in directory: /home/ye/.cache/pip/wheels/49/e2/3d/371ca19e9f98d827e9d8898530bdffc49c7dab8cebd5aab77c
+Successfully built pyTsetlinMachine
+Installing collected packages: pyTsetlinMachine, threadpoolctl, pybind11, numpy, joblib, scipy, fasttext, scikit-learn
+Successfully installed fasttext-0.9.2 joblib-1.3.2 numpy-1.24.4 pyTsetlinMachine-0.6.4 pybind11-2.11.1 scikit-learn-1.3.2 scipy-1.10.1 threadpoolctl-3.2.0
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
+```
+
 
 ```
 
