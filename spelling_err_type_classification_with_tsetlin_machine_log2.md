@@ -899,8 +899,129 @@ time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}
 
 အထက်က shell script မှာက T value ကို 800 ထားခဲ့တယ်။ ပြီးတော့ မော်ဒယ်ဖိုင်နာမည်ကိုလည်း ခွဲခြားပြီး ထားချင်လို့ T800.model ဆိုပြီး extension ကို ပြင်ခဲ့တယ်။ Testing output ကိုလည်း T800.hyp ဆိုတဲ့ extension နဲ့ ထားခဲ့တယ်။  
 
-```
+Training/Testing results are as follows:  
 
+```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ ./run_play_Tvalue.sh 100 | tee exp2_100epoch_T800.log
+Training with 97K data ...
+Read 0M words
+Number of words:  2578
+Number of labels: 3
+Progress: 100.0% words/sec/thread:  817049 lr: -0.000006 avg.loss:  2.806322 ETA:   0h 0m Progress: 100.0% words/sec/thread:  813267 lr:  0.000000 avg.loss:  2.806322 ETA:   0h 0m 0s
+Epoch 1/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 2/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 3/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 4/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 5/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 6/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 7/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 8/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 9/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 10/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 11/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 12/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 13/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 14/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 15/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 16/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 17/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 18/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 19/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 20/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 21/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 22/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 23/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 24/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 25/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 26/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 27/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 28/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 29/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 30/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 31/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 32/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 33/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 34/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 35/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 36/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 37/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 38/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 39/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 40/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 41/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 42/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 43/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 44/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 45/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 46/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 47/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 48/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 49/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 50/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 51/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 52/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 53/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 54/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 55/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 56/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 57/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 58/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 59/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 60/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 61/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 62/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 63/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 64/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 65/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 66/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 67/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 68/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 69/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 70/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 71/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 72/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 73/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 74/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 75/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 76/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 77/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 78/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 79/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 80/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 81/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 82/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 83/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 84/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 85/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 86/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 87/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 88/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 89/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 90/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 91/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 92/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 93/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 94/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 95/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 96/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 97/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 98/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 99/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 100/100, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+
+real    1m19.034s
+user    1m20.660s
+sys     0m5.327s
+===============
+Testing with 10K errors ...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Accuracy: 0.47, F1 Score: 0.30, Precision: 0.22, Recall: 0.47
+Test results saved as ./error_type.epoch100.T800.hyp
+
+real    0m0.705s
+user    0m1.440s
+sys     0m3.429s
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
 ```
