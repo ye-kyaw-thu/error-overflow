@@ -840,9 +840,7 @@ Result ကို သုံးသပ်ကြည့်တော့ FastText န�
 
 Reference from ChatGPT:
 
-```
 In a Tsetlin Machine, the hyperparameters `T` and `s` play crucial roles, although the specifics of their functions are not always straightforwardly explained in the literature. However, a practical example can provide some insight. In one study, a Tsetlin Machine was configured with a threshold value (`T`) of 15 and an `s`-value of 3.9 for binary classification tasks, but for multi-class classification, a higher `T` value of 800 was used, likely due to the increased complexity of the task【7†(Springer)】. However, the `s` value was not mentioned for the multi-class scenario, which leaves some uncertainty.
-```
 
 လက်ရှိ ငါတို့ လုပ်နေတာက multiclass classification မို့လို့ T-value ကို မြှင့်ကြည့်မယ်။
 
