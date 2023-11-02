@@ -156,10 +156,23 @@ echo "Testing with 10K errors ..."
 time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}.model --test_data ./error_type.100.valid --hypothesis_filename ./error_type.epoch${EPOCH}.hyp
 ```
 
+When I made test run, I got following error:  
 
 ```
-
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Traceback (most recent call last):
+  File "./fasttext_tsetlin.py", line 107, in <module>
+    main()
+  File "./fasttext_tsetlin.py", line 80, in main
+    test_labels = mlb.transform(test_labels)
+  File "/home/ye/anaconda3/envs/tsetlin_py3.8/lib/python3.8/site-packages/sklearn/preprocessing/_label.py", line 853, in transform
+    check_is_fitted(self)
+  File "/home/ye/anaconda3/envs/tsetlin_py3.8/lib/python3.8/site-packages/sklearn/utils/validation.py", line 1461, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This MultiLabelBinarizer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
 ```
+
+Code debugging and run again ...  
 
 ```
 
