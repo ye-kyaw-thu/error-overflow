@@ -301,14 +301,66 @@ the 1st test run with fasttext feature successs! :)
 
 ## 2nd Test Run with More Epochs
 
+Test run with 200 epochs ...  
 
 ```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ ./test_run.sh 200 | tee test.log3
+...
+...
+...
+Epoch 194/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 195/200, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 196/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 197/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 198/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 199/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 200/200, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
 
+real    0m8.742s
+user    0m10.355s
+sys     0m3.696s
+===============
+Testing with 10K errors ...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Accuracy: 0.50, F1 Score: 0.33, Precision: 0.25, Recall: 0.50
+Test results saved as ./error_type.epoch200.hyp
+
+real    0m0.613s
+user    0m1.354s
+sys     0m3.424s
 ```
 
-```
+Test run with 500 epochs ...  
 
 ```
+(tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$ ./test_run.sh 500 | tee test.log2
+...
+...
+...
+Epoch 494/500, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 495/500, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 496/500, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 497/500, Accuracy: 0.34, F1 Score: 0.17, Precision: 0.11, Recall: 0.34
+Epoch 498/500, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 499/500, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+Epoch 500/500, Accuracy: 0.46, F1 Score: 0.29, Precision: 0.21, Recall: 0.46
+
+real    0m20.146s
+user    0m21.922s
+sys     0m3.596s
+===============
+Testing with 10K errors ...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Accuracy: 0.50, F1 Score: 0.33, Precision: 0.25, Recall: 0.50
+Test results saved as ./error_type.epoch500.hyp
+
+real    0m0.615s
+user    0m1.392s
+sys     0m3.385s
+```
+
+## Experiment with All Data 
+
 
 ```
 
