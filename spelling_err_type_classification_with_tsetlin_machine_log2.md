@@ -1176,7 +1176,7 @@ sys     0m3.830s
 (tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
-ရလဒ်က အပြောင်းအလဲ မရှီဘူး ...   
+ရလဒ်က အပြောင်းအလဲ မရှိဘူး ...   
 
 ## Playing with s value
 
