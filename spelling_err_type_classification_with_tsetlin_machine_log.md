@@ -1774,6 +1774,36 @@ epoch 100 နဲ့ 200 အကြားမှာ result က တိုးတက�
 - Tsetline Machine ရဲ့ အရေးကြီးတဲ့ parameter နှစ်ခုဖြစ်တဲ့ ...  T, S ကို ကစားကြည့်တာမျိုး
 - feature ထုတ်တာကို CountVectorizer အစား FAIR ရဲ့ fastText ကို သုံးကြည့်တာမျိုး လုပ်လို့ ရလိမ့်မယ်
 
+## Playing with T Value
+
+```
+
+```
+
+```
+
+```
+
+## Playing with s Value
+
+```
+
+```
+
+```
+
+```
+
+## Playing with T, s Values
+
+```
+
+```
+
+```
+
+```
+
 ## Reference
 
 1. [pyTsetlinMachine Link: https://github.com/cair/pyTsetlinMachine](https://github.com/cair/pyTsetlinMachine)
