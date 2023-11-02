@@ -834,7 +834,7 @@ __label__pho
 Result ကို သုံးသပ်ကြည့်တော့ FastText နဲ့ feature ထုတ်ပြီး Tsetlin ကို run တာက ရလဒ်က ပိုတောင် ကျသွားတယ်။  
 ဖြစ်နိုင်တဲ့ reason က syllable 5 လုံးရဲ့ အမှားတွေကိုပဲ fasttext embedding လုပ်ခဲ့တာမို့လို့ embedding အတွက် မလုံလောက်တာလဲ ဖြစ်နိုင်တယ်။  
 
-```
+
 
 ## Playing with T values
 
@@ -845,6 +845,8 @@ In a Tsetlin Machine, the hyperparameters `T` and `s` play crucial roles, althou
 ```
 
 လက်ရှိ ငါတို့ လုပ်နေတာက multiclass classification မို့လို့ T-value ကို မြှင့်ကြည့်မယ်။
+
+```
 
 ```
 
