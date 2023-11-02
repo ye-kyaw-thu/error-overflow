@@ -1742,13 +1742,29 @@ sys     0m2.197s
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
 ```
 
+### Comparing epoch 100 and 200  
+
+What I found ...  
+With epoch 100 result:  
+```
+Epoch 100/100, Accuracy: 0.54, F1 Score: 0.54, Precision: 0.57, Recall: 0.54
+Model trained and saved as tsetlin.exp1.model.joblib
+===============
+Testing with 10K errors ...
+Accuracy: 0.55, F1 Score: 0.54, Precision: 0.58, Recall: 0.55
+Test results saved as ./error_type.exp1.hyp
 ```
 
+with epoch 200 result:  
+```
+Epoch 200/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Model trained and saved as tsetlin.epoch200.model.joblib
+Testing with 10K errors ...
+Accuracy: 0.56, F1 Score: 0.54, Precision: 0.57, Recall: 0.56
+Test results saved as ./error_type.epoch200.hyp
 ```
 
-```
-
-```
+epoch 100 နဲ့ 200 အကြားမှာ result က တိုးတက်မှုတော့ ရှိတယ်။ သို့သော် ပြတ်ပြတ်သားသား အပြောင်းအလဲရှိတာတော့ မဟုတ်ဘူး။  
 
 ## Thinking
 
@@ -1757,47 +1773,6 @@ sys     0m2.197s
 - ngram ကို လက်ရှိမှာ 3 ထားထားတယ်။ အဲဒါထက် ပိုတိုးကြည့်တာမျိုး
 - Tsetline Machine ရဲ့ အရေးကြီးတဲ့ parameter နှစ်ခုဖြစ်တဲ့ ...  T, S ကို ကစားကြည့်တာမျိုး
 - feature ထုတ်တာကို CountVectorizer အစား FAIR ရဲ့ fastText ကို သုံးကြည့်တာမျိုး လုပ်လို့ ရလိမ့်မယ်
-
-## Feature Extraction with FastText
-
-လက်ရှိ စက်ထဲမှာ fastText python library ကတော့ ရှိပြီးသား ...  
-
-```
-(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$ pip install fasttext
-Requirement already satisfied: fasttext in /home/ye/anaconda3/lib/python3.9/site-packages (0.9.2)
-Requirement already satisfied: numpy in /home/ye/anaconda3/lib/python3.9/site-packages (from fasttext) (1.22.4)
-Requirement already satisfied: pybind11>=2.2 in /home/ye/anaconda3/lib/python3.9/site-packages (from fasttext) (2.11.1)
-Requirement already satisfied: setuptools>=0.7.0 in /home/ye/anaconda3/lib/python3.9/site-packages (from fasttext) (61.2.0)
-(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 
 ## Reference
 
