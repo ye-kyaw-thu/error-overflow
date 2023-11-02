@@ -1952,16 +1952,6 @@ Running result with 100 epochs, T=10:
 
 ```
 
-## Playing with s Value
-
-```
-
-```
-
-```
-
-```
-
 ## Playing with T, s Values
 
 ဒီတခါတော့ T=50, s=5.0 နဲ့ run မယ်။  
@@ -1992,6 +1982,39 @@ time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOC
 ```
 
 T=50, s=5.0 နဲ့ run ပြီးရလာတဲ့ ရလဒ် ...  
+
+```
+
+```
+
+ဒီတခေါက် experiment ကို T=100, s=5.0 နဲ့ run မယ်။  
+
+```
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 1 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+#time python ./tsetlin_classifier.py --mode train --T 50 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T50.model --epoch ${EPOCH}
+time python ./tsetlin_classifier.py --mode train --T 100 --s 5.0 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T100s5.0.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+#time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.T50.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T50.hyp
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.T100s5.0.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T100s5.0.hyp
+```
+
+T=100, s=5.0 နဲ့ run ပြီးရလာတဲ့ ရလဒ် ...  
 
 ```
 
