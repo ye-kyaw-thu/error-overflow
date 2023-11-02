@@ -129,10 +129,33 @@ Successfully installed fasttext-0.9.2 joblib-1.3.2 numpy-1.24.4 pyTsetlinMachine
 (tsetlin_py3.8) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/fasttext_feature$
 ```
 
+## Prepare test_run.sh
 
+အရင်ဆုံး ဒေတာဆိုက် သေးသေးနဲ့ပဲ test run လုပ်ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။ 
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 2 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+time python ./fasttext_tsetlin.py --mode train --train_data ./error_type.5k.train --model_name tsetlin.epoch${EPOCH}.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./fasttext_tsetlin.py --mode test --model_name tsetlin.epoch${EPOCH}.model --test_data ./error_type.100.valid --hypothesis_filename ./error_type.epoch${EPOCH}.hyp
 ```
 
-```
 
 ```
 
