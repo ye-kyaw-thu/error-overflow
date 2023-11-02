@@ -358,6 +358,129 @@ real    0m0.615s
 user    0m1.392s
 sys     0m3.385s
 ```
+## Updated Python Code
+
+Update လုပ်ထားတဲ့ code က အောက်ပါအတိုင်း။  
+ရှေ့က experiment မှာရေးထားခဲ့တဲ့ code နဲ့က အခြေခံအားဖြင့် အတူတူပါပဲ။  
+ဒီမှာက fastText ကို သုံးပြီးတော့ feature ထုတ်တဲ့အပိုင်းကို အဓိက update လုပ်ထားတာပါ။  
+
+```python
+## Written by Ye Kyaw Thu, LU Lab., Myanmar
+## For this time, extract feature with FAIR fastText
+## Last Updated: 2 Nov 2023
+
+
+import fasttext
+import numpy as np
+import argparse
+from pyTsetlinMachine.tm import MultiClassTsetlinMachine
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+import joblib
+
+def save_model(filename, tm, mlb):
+    joblib.dump({'tm': tm, 'mlb': mlb}, filename)
+
+def load_model(filename):
+    loaded_model = joblib.load(filename)
+    return loaded_model['tm'], loaded_model['mlb']
+
+def load_data(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    data, labels = [], []
+    for line in lines:
+        label, text = line.strip().split(' ', 1)
+        data.append(text)
+        labels.append(label.split())
+    return data, labels
+
+def train_fasttext(data):
+    with open('temp_train.txt', 'w', encoding='utf-8') as f:
+        for item in data:
+            f.write(item + '\n')
+    model = fasttext.train_unsupervised('temp_train.txt', minn=3, maxn=6, dim=100)
+    return model
+
+def transform_fasttext(model, data):
+    return np.array([model.get_sentence_vector(item) for item in data])
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mode', help='train or test', default='train')
+    parser.add_argument('--train_data', help='path to training data file', default='data/train.txt')
+    parser.add_argument('--test_data', help='path to test data file', default='data/test.txt')
+    parser.add_argument('--model_name', help='path to save/load model', default='model')
+    parser.add_argument('--hypothesis_filename', help='path to save hypothesis file', default='hypothesis.txt')
+    parser.add_argument('--clauses', help='number of clauses', type=int, default=20)
+    parser.add_argument('--T', help='threshold', type=int, default=15)
+    parser.add_argument('--s', help='s', type=float, default=3.9)
+    parser.add_argument('--epoch', help='number of epochs', type=int, default=100)
+    args = parser.parse_args()
+
+    if args.mode == 'train':
+        train_data, train_labels = load_data(args.train_data)
+        ft_model = train_fasttext(train_data)
+        train_data = transform_fasttext(ft_model, train_data)
+
+        mlb = MultiLabelBinarizer()
+        train_labels = mlb.fit_transform(train_labels)
+
+        num_classes = len(mlb.classes_)
+        tm = MultiClassTsetlinMachine(args.clauses, args.T, args.s)
+        for epoch in range(args.epoch):
+            tm.fit(train_data, np.argmax(train_labels, axis=1), epochs=1)  # Train for 1 epoch at a time
+            # Calculate and display metrics after each epoch
+            predictions = tm.predict(train_data)
+            accuracy = accuracy_score(np.argmax(train_labels, axis=1), predictions)
+            f1 = f1_score(np.argmax(train_labels, axis=1), predictions, average='weighted', zero_division=0)
+            precision = precision_score(np.argmax(train_labels, axis=1), predictions, average='weighted', zero_division=0)
+            recall = recall_score(np.argmax(train_labels, axis=1), predictions, average='weighted', zero_division=0)
+            print(f'Epoch {epoch + 1}/{args.epoch}, Accuracy: {accuracy:.2f}, F1 Score: {f1:.2f}, Precision: {precision:.2f}, Recall: {recall:.2f}')
+
+        # Save the fasttext and Tsetlin Machine model
+        ft_model.save_model(args.model_name + '_ft.bin')
+        save_model(args.model_name + '.joblib', tm, mlb)
+
+    elif args.mode == 'test':
+        if args.test_data is None:
+            print('Please provide the testing data path using --test_data argument')
+            return
+
+        test_data, test_labels = load_data(args.test_data)
+        ft_model = fasttext.load_model(args.model_name + '_ft.bin')
+        test_data = transform_fasttext(ft_model, test_data)
+
+        # Load the Tsetlin Machine and MultiLabelBinarizer
+        tm, mlb = load_model(args.model_name + '.joblib')  # Updated line
+
+        test_labels = mlb.transform(test_labels)
+
+        predictions = tm.predict(test_data)
+        # Convert numerical labels to binary matrix representation
+        binarized_predictions = np.zeros((len(predictions), len(mlb.classes_)))
+        for i, pred in enumerate(predictions):
+            binarized_predictions[i, pred] = 1
+        # Convert binary matrix representation to original labels
+        original_labels = mlb.inverse_transform(binarized_predictions)
+        # Calculate and display metrics
+        accuracy = accuracy_score(np.argmax(test_labels, axis=1), predictions)
+        f1 = f1_score(np.argmax(test_labels, axis=1), predictions, average='weighted', zero_division=0)
+        precision = precision_score(np.argmax(test_labels, axis=1), predictions, average='weighted', zero_division=0)
+        recall = recall_score(np.argmax(test_labels, axis=1), predictions, average='weighted', zero_division=0)
+        print(f'Accuracy: {accuracy:.2f}, F1 Score: {f1:.2f}, Precision: {precision:.2f}, Recall: {recall:.2f}')
+
+        # Save the hypothesis file
+        with open(args.hypothesis_filename, 'w') as f:
+            for label_set in original_labels:
+                f.write(' '.join(label_set) + '\n')
+
+        print(f'Test results saved as {args.hypothesis_filename}')
+        # ... rest of your testing code ...
+
+if __name__ == '__main__':
+    main()
+```
 
 ## Experiment with All Data 
 
