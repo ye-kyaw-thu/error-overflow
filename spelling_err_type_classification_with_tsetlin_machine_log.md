@@ -1918,6 +1918,34 @@ Test results saved as ./error_type.epoch100.T50.hyp
 ရလဒ်က drop ဖြစ်သွားတာ တွေ့ရတယ်။  
 ဒီတခါတော့ T value ကို လျှော့ပြီး run ကြည့်မယ်။  
 
+updated play_Ts.sh က အောက်ပါအတိုင်း ...  
+
+```bash
+#!/bin/bash
+
+## Written by Ye, LU Lab., Myanmar
+## for running tsetlin machine with several epoch values
+## last updated: 1 Nov 2023
+
+# Check if epoch argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <epoch>"
+    exit 1
+fi
+
+EPOCH=$1
+
+echo "Training with 97K data ..."
+#time python ./tsetlin_classifier.py --mode train --T 50 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T50.model --epoch ${EPOCH}
+time python ./tsetlin_classifier.py --mode train --T 10 --train_data ./error_type.train --model_name tsetlin.epoch${EPOCH}.T10.model --epoch ${EPOCH}
+
+echo "==============="
+echo "Testing with 10K errors ..."
+#time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.T50.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T50.hyp
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.epoch${EPOCH}.T10.model --test_data ./error_type.valid --hypothesis_filename ./error_type.epoch${EPOCH}.T10.hyp
+
+```
+
 Running result with 100 epochs, T=10:  
 
 ```
