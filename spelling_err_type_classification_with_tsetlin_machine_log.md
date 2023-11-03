@@ -2664,18 +2664,45 @@ optional arguments:
 
 ## Increasing ngram_range of CountVectorizer
 
+### ngram_range 1,4
+
+shell script တစ်ပုဒ် ပြင်ဆင်ခဲ့တယ်။  
+
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ cat ngram_range_1-4.sh
+
+```bash
+#!/bin/bash
+
+echo "Training with 97K data, ngram_range 1,4 ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.ngram_1-4.model --epoch 100 --ngram_range '1,4'
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.ngram_1-4.model --test_data ./error_type.valid --hypothesis_filename ./error_type.ngram_1-4.hyp
+```
+
+ngram_range 1,4 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
 ```
 
+### ngram_range 1,5
+
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ cat ngram_range_1-5.sh  
+
+```bash
+#!/bin/bash
+
+echo "Training with 97K data, ngram_range 1,5  ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.ngram_1-5.model --epoch 100 --ngram_range '1,5'
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.ngram_1-5.model --test_data ./error_type.valid --hypothesis_filename ./error_type.ngram_1-5.hyp
 ```
 
-```
-
-```
-
-```
+ngram_range 1,5 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
