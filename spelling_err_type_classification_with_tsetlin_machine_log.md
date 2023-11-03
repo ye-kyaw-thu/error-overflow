@@ -2743,6 +2743,7 @@ echo "Testing with 10K errors ..."
 time python ./tsetlin_classifier.py --mode test --model_name tsetlin.fit_3ep.model --test_data ./error_type.valid --hypothesis_filename ./error_type.fit_3ep.hyp
 ```
 
+command: (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ ./tm.fit_3epoch.sh 100 | tee fit_ep3.log  
 --fit_epochs 3 နဲ့ run ပြီးရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
@@ -2762,6 +2763,7 @@ echo "Testing with 10K errors ..."
 time python ./tsetlin_classifier.py --mode test --model_name tsetlin.fit_5ep.model --test_data ./error_type.valid --hypothesis_filename ./error_type.fit_5ep.hyp
 ```
 
+command: (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ ./tm.fit_5epoch.sh | tee fit_ep5.log  
 --fit_epochs 5 နဲ့ run ပြီးရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
