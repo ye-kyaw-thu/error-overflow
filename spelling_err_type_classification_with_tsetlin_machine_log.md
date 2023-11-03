@@ -2484,6 +2484,89 @@ Test results saved as ./error_type.epoch100.T100s5.0.hyp
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin$
 ```
 
+## Thinking 
+
+အထက်မှာ တွေ့ရတဲ့အတိုင်းပါပဲ T, s value တွေကို ကစားကြည့်ပေမဲ့ ရလဒ်က တက်မလာဘူး။  
+
+အဲဒါကြောင့် နောက်ထပ် လုပ်ကြည့်သင့်တာက 
+- CountVectorizer ရဲ့ ngram_range ကို (1, 3) ကနေ (1, 4), (1, 5) ကစားကြည့်တာမျိုး
+- tm.fit(train_data, np.argmax(train_labels, axis=1), epochs=1) ရဲ့ epochs ကို တိုးကြည့်တာမျိုး
+
+## Increasing ngram_range of CountVectorizer
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+## Increasing epochs value of tm.fit
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ## Reference
 
 1. [pyTsetlinMachine Link: https://github.com/cair/pyTsetlinMachine](https://github.com/cair/pyTsetlinMachine)
