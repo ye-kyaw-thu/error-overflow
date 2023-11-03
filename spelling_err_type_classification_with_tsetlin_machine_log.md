@@ -2518,7 +2518,7 @@ updated python code တစ်ပုဒ်လုံးက အောက်ပါ�
 ```python
 ## Tsetlin Machine for Burmese spelling error type classification
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
-## Last updated: 1 Nov 2023
+## Last updated: 3 Nov 2023
 ## Preparation for the 5th NLP/AI Workshop, Bangkok, Thailand
 
 import numpy as np
@@ -2730,17 +2730,39 @@ ngram_range 1,5 ရဲ့ ရလဒ်က အောက်ပါအတိုင�
 
 ## Increasing epochs value of tm.fit
 
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ cat tm.fit_3epoch.sh  
+
+```bash
+#!/bin/bash
+
+echo "Training with 97K data, fit_epochs 3 ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.fit_3ep.model --epoch 100 --fit_epochs 3
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.fit_3ep.model --test_data ./error_type.valid --hypothesis_filename ./error_type.fit_3ep.hyp
 ```
+
+--fit_epochs 3 နဲ့ run ပြီးရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
 
 ```
 
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ cat tm.fit_5epoch.sh  
+
+```bash
+#!/bin/bash
+
+echo "Training with 97K data, fit_epochs 5 ..."
+time python ./tsetlin_classifier.py --mode train --train_data ./error_type.train --model_name tsetlin.fit_5ep.model --epoch 100 --fit_epochs 5
+
+echo "==============="
+echo "Testing with 10K errors ..."
+time python ./tsetlin_classifier.py --mode test --model_name tsetlin.fit_5ep.model --test_data ./error_type.valid --hypothesis_filename ./error_type.fit_5ep.hyp
 ```
 
-```
-
-```
+--fit_epochs 5 နဲ့ run ပြီးရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
 
