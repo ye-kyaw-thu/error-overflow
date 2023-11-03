@@ -2681,6 +2681,8 @@ echo "Testing with 10K errors ..."
 time python ./tsetlin_classifier.py --mode test --model_name tsetlin.ngram_1-4.model --test_data ./error_type.valid --hypothesis_filename ./error_type.ngram_1-4.hyp
 ```
 
+training command: (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ ./ngram_range_1-4.sh 100 | tee 1to4.100epoch.log  
+
 ngram_range 1,4 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
@@ -2702,7 +2704,9 @@ echo "Testing with 10K errors ..."
 time python ./tsetlin_classifier.py --mode test --model_name tsetlin.ngram_1-5.model --test_data ./error_type.valid --hypothesis_filename ./error_type.ngram_1-5.hyp
 ```
 
-ngram_range 1,5 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
+training command:  (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ ./ngram_range_1-5.sh 100 | tee 1to5.100epoch.log   
+
+ngram_range 1,5 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...   
 
 ```
 
