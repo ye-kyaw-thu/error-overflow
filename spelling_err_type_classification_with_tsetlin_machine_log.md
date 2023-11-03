@@ -2628,11 +2628,42 @@ if __name__ == '__main__':
     main()
 ```
 
+--help ခေါ်ကြည့်ရင် argument အသစ်နှစ်ခု တိုးလာတာကို တွေ့ရလိမ့်မယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ python ./tsetlin_classifier.py --help
+usage: tsetlin_classifier.py [-h] [--mode MODE] [--train_data TRAIN_DATA]
+                             [--test_data TEST_DATA] [--model_name MODEL_NAME]
+                             [--hypothesis_filename HYPOTHESIS_FILENAME]
+                             [--clauses CLAUSES] [--T T] [--s S] [--epoch EPOCH]
+                             [--ngram_range NGRAM_RANGE] [--fit_epochs FIT_EPOCHS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mode MODE           train or test
+  --train_data TRAIN_DATA
+                        path to training data file
+  --test_data TEST_DATA
+                        path to test data file
+  --model_name MODEL_NAME
+                        path to save/load model
+  --hypothesis_filename HYPOTHESIS_FILENAME
+                        path to save hypothesis file
+  --clauses CLAUSES     number of clauses
+  --T T                 threshold
+  --s S                 s
+  --epoch EPOCH         number of epochs
+  --ngram_range NGRAM_RANGE
+                        ngram range for CountVectorizer
+  --fit_epochs FIT_EPOCHS
+                        number of epochs for tm.fit method
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$
+```
+
+တိုးထားတဲ့ argument နှစ်ခုနဲ့ experiment ထပ်လုပ်ကြည့်မယ်။ ဒီတစ်ခါတော့ Tsetlin machine ရဲ့ performance နည်းနည်းဖြစ်ဖြစ် တက်လာတာကို တွေ့ချင်တယ်။  
+
 ## Increasing ngram_range of CountVectorizer
 
-```
-
-```
 
 ```
 
