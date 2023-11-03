@@ -2770,8 +2770,22 @@ command: (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ ./tm.fit_5epoc
 
 ```
 
-```
+## Comments
 
+Running လုပ်နေစဉ်မှာ top command နဲ့ check လုပ်တော့ အောက်ပါအတိုင်း ngram_range ကိုတိုးရင်တော့ memory ပိုစားတာကို တွေ့ရတယ်။  
+
+```
+top - 14:46:27 up 2 days,  5:06,  9 users,  load average: 4.29, 4.29, 4.17
+Tasks: 583 total,   5 running, 578 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 13.6 us,  3.4 sy,  0.0 ni, 82.9 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  64127.2 total,   8400.2 free,  55053.7 used,    673.3 buff/cache
+MiB Swap: 286102.0 total, 213375.5 free,  72726.5 used.   8409.4 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 189192 ye        20   0  145.6g  24.8g   3072 R 100.0  39.6  90:56.40 python
+ 189984 ye        20   0   14.6g   8.1g   3456 R 100.0  12.9  90:55.67 python
+ 190168 ye        20   0   14.6g   7.8g   3456 R 100.0  12.5  92:17.40 python
+ 188950 ye        20   0   52.3g  11.5g   3264 R  98.3  18.4  85:00.72 python
 ```
 
 ```
