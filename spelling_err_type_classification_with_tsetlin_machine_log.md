@@ -2857,6 +2857,16 @@ Test results saved as ./error_type.fit_3ep.hyp
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$
 ```
 
+ခုအချိန်ထိ အမြင့်ဆုံးက အောက်ပါအတိုင်းမို့လို့ tm.fit_3epoch ရလဒ်ကတော့ F1-socre အမြင့်ဆုံး ပေးနိုင်သလားလို့ ...  
+
+```
+Epoch 200/200, Accuracy: 0.56, F1 Score: 0.55, Precision: 0.57, Recall: 0.56
+Model trained and saved as tsetlin.epoch200.model.joblib
+Testing with 10K errors ...
+Accuracy: 0.56, F1 Score: 0.54, Precision: 0.57, Recall: 0.56
+Test results saved as ./error_type.epoch200.hyp
+```
+
 (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ cat tm.fit_5epoch.sh  
 
 ```bash
