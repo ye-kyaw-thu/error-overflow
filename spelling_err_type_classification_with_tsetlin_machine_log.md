@@ -2788,12 +2788,24 @@ MiB Swap: 286102.0 total, 213375.5 free,  72726.5 used.   8409.4 avail Mem
  188950 ye        20   0   52.3g  11.5g   3264 R  98.3  18.4  85:00.72 python
 ```
 
+During the training server crush ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$ cat *.log
+Training with 97K data, fit_epochs 3 ...
+Training with 97K data, fit_epochs 5 ...
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_tmfit$
 ```
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ wc *.log
+ 1  7 44 1to4.100epoch.log
+ 1  7 45 1to5.100epoch.log
+ 2 14 89 total
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$
 ```
 
-```
+And thus, I have to rerun above 4 experiments again.  
 
 ```
 
