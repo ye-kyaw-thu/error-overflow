@@ -3428,6 +3428,34 @@ Class 0 (__label__con) Clause 0:   ရဲ ∧   လယ ∧  င ∧  ရ ယ ∧
 
 ```
 
+running time information with 100 sentences test data is as follows:
+
+
+```
+Epoch 94/100, Accuracy: 0.45, F1 Score: 0.42, Precision: 0.41, Recall: 0.45
+Epoch 95/100, Accuracy: 0.46, F1 Score: 0.42, Precision: 0.40, Recall: 0.46
+Epoch 96/100, Accuracy: 0.46, F1 Score: 0.41, Precision: 0.40, Recall: 0.46
+Epoch 97/100, Accuracy: 0.49, F1 Score: 0.45, Precision: 0.44, Recall: 0.49
+Epoch 98/100, Accuracy: 0.48, F1 Score: 0.45, Precision: 0.42, Recall: 0.48
+Epoch 99/100, Accuracy: 0.47, F1 Score: 0.44, Precision: 0.46, Recall: 0.47
+Epoch 100/100, Accuracy: 0.46, F1 Score: 0.44, Precision: 0.44, Recall: 0.46
+Model trained and saved as tsetlin.tst1.model.joblib
+
+real    3m1.148s
+user    2m56.603s
+sys     0m6.971s
+===============
+Testing with 100 errors ...
+Accuracy: 0.49, F1 Score: 0.48, Precision: 0.47, Recall: 0.49
+Decision information saved as decision_info.txt
+Test results saved as ./error_type.tst1.hyp
+
+real    80m18.399s
+user    80m18.525s
+sys     0m2.008s
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$
+```
+
 test sentence အကြောင်း တစ်ရာအတွက် decision_info.txt ဖိုင်ရဲ့ filesize က အောက်ပါအတိုင်း ...  
 
 ```
