@@ -3032,14 +3032,6 @@ Training with 97K data, fit_epochs 5 ...
 
 And thus, I have to rerun above 4 experiments again.  
 
-```
-
-```
-
-```
-
-```
-
 ## Decision Information or Interpretability
 
 Tsetlin Machine က ဘယ်လို spelling error class တွေကို ဘယ်လို ဆုံးဖြတ်သွားသလဲ ဆိုတာကို print out လုပ်ခိုင်းတဲ့ function အသစ်ကို ထပ်ဖြည့်ခဲ့တယ်။  
