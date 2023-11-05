@@ -2931,6 +2931,49 @@ And thus, I have to rerun above 4 experiments again.
 
 ```
 
+## Decision Information or Interpretability
+
+Tsetlin Machine က ဘယ်လို spelling error class တွေကို ဘယ်လို ဆုံးဖြတ်သွားသလဲ ဆိုတာကို print out လုပ်ခိုင်းတဲ့ function အသစ်ကို ထပ်ဖြည့်ခဲ့တယ်။  
+
+```python
+
+```
+
+--help ခေါ်ကြည့်ရင် အသစ်ထည့်ထားတဲ့ --decision_info ဆိုတဲ့ argument ကို တွေ့ရပါလိမ့်မယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$ python ./tsetlin_classifier.py --help
+usage: tsetlin_classifier.py [-h] [--mode MODE] [--train_data TRAIN_DATA]
+                             [--test_data TEST_DATA] [--model_name MODEL_NAME]
+                             [--hypothesis_filename HYPOTHESIS_FILENAME]
+                             [--clauses CLAUSES] [--T T] [--s S] [--epoch EPOCH]
+                             [--ngram_range NGRAM_RANGE] [--fit_epochs FIT_EPOCHS]
+                             [--decision_info]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mode MODE           train or test
+  --train_data TRAIN_DATA
+                        path to training data file
+  --test_data TEST_DATA
+                        path to test data file
+  --model_name MODEL_NAME
+                        path to save/load model
+  --hypothesis_filename HYPOTHESIS_FILENAME
+                        path to save hypothesis file
+  --clauses CLAUSES     number of clauses
+  --T T                 threshold
+  --s S                 s
+  --epoch EPOCH         number of epochs
+  --ngram_range NGRAM_RANGE
+                        ngram range for CountVectorizer
+  --fit_epochs FIT_EPOCHS
+                        number of epochs for tm.fit method
+  --decision_info       toggle to print decision info
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$
+```
+
+
 ## Reference
 
 1. [pyTsetlinMachine Link: https://github.com/cair/pyTsetlinMachine](https://github.com/cair/pyTsetlinMachine)
