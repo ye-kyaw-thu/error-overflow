@@ -3459,7 +3459,11 @@ sys     0m2.008s
 test sentence အကြောင်း တစ်ရာအတွက် decision_info.txt ဖိုင်ရဲ့ filesize က အောက်ပါအတိုင်း ...  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$ ll -h ./decision_info.txt
+-rw-rw-r-- 1 ye ye 104M พ.ย.   6 01:10 ./decision_info.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$ wc decision_info.txt
+    20200  18171900 109011190 decision_info.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/decision_info$
 ```
 
 ## Reference
