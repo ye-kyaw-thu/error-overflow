@@ -2683,10 +2683,142 @@ time python ./tsetlin_classifier.py --mode test --model_name tsetlin.ngram_1-4.m
 
 training command: (base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ ./ngram_range_1-4.sh 100 | tee 1to4.100epoch.log  
 
+training time ကတော့ အရမ်းကြာတယ်။ training time ချည်းပဲ ၁၁နာရီကျော် ကြာတယ်။   
+running log က အောက်ပါအတိုင်း ...  
+
+```
+Epoch 96/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 97/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 98/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 99/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 100/100, Accuracy: 0.54, F1 Score: 0.52, Precision: 0.53, Recall: 0.54
+Model trained and saved as tsetlin.ngram_1-4.model.joblib
+
+real    667m55.828s
+user    652m47.443s
+sys     15m5.087s
+===============
+Testing with 10K errors ...
+Accuracy: 0.55, F1 Score: 0.53, Precision: 0.53, Recall: 0.55
+Test results saved as ./error_type.ngram_1-4.hyp
+
+real    0m33.616s
+user    0m29.689s
+sys     0m3.020s
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$
+```
+
 ngram_range 1,4 ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$ cat ./1to4.100epoch.log
+Training with 97K data, ngram_range 1,4 ...
+Epoch 1/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.54, Recall: 0.53
+Epoch 2/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 3/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 4/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.54, Recall: 0.53
+Epoch 5/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 6/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.53, Recall: 0.53
+Epoch 7/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 8/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.54, Recall: 0.53
+Epoch 9/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.56, Recall: 0.53
+Epoch 10/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.54, Recall: 0.53
+Epoch 11/100, Accuracy: 0.53, F1 Score: 0.53, Precision: 0.54, Recall: 0.53
+Epoch 12/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 13/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 14/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.54, Recall: 0.52
+Epoch 15/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.53, Recall: 0.54
+Epoch 16/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 17/100, Accuracy: 0.55, F1 Score: 0.54, Precision: 0.55, Recall: 0.55
+Epoch 18/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 19/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 20/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 21/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.55, Recall: 0.54
+Epoch 22/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 23/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 24/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 25/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 26/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 27/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 28/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.54, Recall: 0.53
+Epoch 29/100, Accuracy: 0.50, F1 Score: 0.50, Precision: 0.52, Recall: 0.50
+Epoch 30/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 31/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 32/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 33/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 34/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 35/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.55, Recall: 0.53
+Epoch 36/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.51, Recall: 0.52
+Epoch 37/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 38/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.53, Recall: 0.52
+Epoch 39/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 40/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 41/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 42/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.52, Recall: 0.53
+Epoch 43/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.55, Recall: 0.53
+Epoch 44/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.52, Recall: 0.52
+Epoch 45/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.55, Recall: 0.52
+Epoch 46/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.53, Recall: 0.53
+Epoch 47/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 48/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.54, Recall: 0.53
+Epoch 49/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.54, Recall: 0.53
+Epoch 50/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.51, Recall: 0.52
+Epoch 51/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.51, Recall: 0.53
+Epoch 52/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.53, Recall: 0.52
+Epoch 53/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 54/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.54, Recall: 0.52
+Epoch 55/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.51, Recall: 0.52
+Epoch 56/100, Accuracy: 0.51, F1 Score: 0.50, Precision: 0.52, Recall: 0.51
+Epoch 57/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 58/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 59/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 60/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 61/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 62/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 63/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 64/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 65/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.51, Recall: 0.53
+Epoch 66/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 67/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.51, Recall: 0.53
+Epoch 68/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.51, Recall: 0.52
+Epoch 69/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.53, Recall: 0.53
+Epoch 70/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 71/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 72/100, Accuracy: 0.51, F1 Score: 0.50, Precision: 0.50, Recall: 0.51
+Epoch 73/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.53, Recall: 0.52
+Epoch 74/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 75/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.52, Recall: 0.52
+Epoch 76/100, Accuracy: 0.51, F1 Score: 0.50, Precision: 0.50, Recall: 0.51
+Epoch 77/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 78/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 79/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 80/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 81/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 82/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.53, Recall: 0.53
+Epoch 83/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 84/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 85/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.55, Recall: 0.53
+Epoch 86/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.56, Recall: 0.53
+Epoch 87/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.54, Recall: 0.52
+Epoch 88/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 89/100, Accuracy: 0.53, F1 Score: 0.51, Precision: 0.53, Recall: 0.53
+Epoch 90/100, Accuracy: 0.54, F1 Score: 0.52, Precision: 0.53, Recall: 0.54
+Epoch 91/100, Accuracy: 0.52, F1 Score: 0.52, Precision: 0.53, Recall: 0.52
+Epoch 92/100, Accuracy: 0.55, F1 Score: 0.53, Precision: 0.55, Recall: 0.55
+Epoch 93/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.53, Recall: 0.52
+Epoch 94/100, Accuracy: 0.52, F1 Score: 0.51, Precision: 0.55, Recall: 0.52
+Epoch 95/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.53, Recall: 0.54
+Epoch 96/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 97/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.52, Recall: 0.53
+Epoch 98/100, Accuracy: 0.54, F1 Score: 0.53, Precision: 0.54, Recall: 0.54
+Epoch 99/100, Accuracy: 0.53, F1 Score: 0.52, Precision: 0.53, Recall: 0.53
+Epoch 100/100, Accuracy: 0.54, F1 Score: 0.52, Precision: 0.53, Recall: 0.54
+Model trained and saved as tsetlin.ngram_1-4.model.joblib
+===============
+Testing with 10K errors ...
+Accuracy: 0.55, F1 Score: 0.53, Precision: 0.53, Recall: 0.55
+Test results saved as ./error_type.ngram_1-4.hyp
+(base) ye@lst-gpu-3090:~/exp/mySpell/tsetlin/play_ngram$
 ```
 
 ### ngram_range 1,5
