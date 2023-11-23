@@ -411,6 +411,7 @@ sys     0m0.000s
 
 -1 0.5 option တွေနဲ့ဆိုရင် multiple label ကိုပါ ခန့်မှန်းပေးနိုင်တယ်။  
 
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict model.error_type_ep100.bin - -1 0.5
 ပုန်း တေ ရှိ
 __label__typo __label__pho
@@ -432,9 +433,11 @@ __label__typo __label__pho
 __label__typo __label__pho
 ရ မာ မ
 __label__typo __label__pho
+```
 
 epoch 20 မော်ဒယ်နဲ့ စမ်းကြည့်ရင်လည်း အဆင်ပြေတယ် ...  
 
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict model.error_type_ep20.bin - -1 0.5
 ပုန်း တေ ရှိ
 __label__typo __label__pho
@@ -457,12 +460,16 @@ __label__typo __label__pho
 ရ မာ မ
 __label__typo __label__pho
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
+```
 
 ## Recounting Labels
 
-label တွေကို ပြန်ရေတွက်ကြည့်ဖို့ ဆုံးဖြတ်ခဲ့တယ်။ ဒီတစ်ခါတော့ multiple label တွေက ဘယ်လောက် ရာခိုင်နှုန်း ပါနေတာလဲ ဆိုတာကိုပါ သိအောင် code ကို ပြင်ရေးခဲ့တယ်။
+label တွေကို နောက်တစ်ခေါက် ပြန်ရေတွက်ကြည့်ဖို့ ဆုံးဖြတ်ခဲ့တယ်။   
+ဒီတစ်ခါတော့ multiple label တွေက ဘယ်လောက် ရာခိုင်နှုန်း ပါနေတာလဲ ဆိုတာကိုပါ သိအောင် code ကို ပြင်ရေးခဲ့တယ်။  
 
-(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ cat ./label_counter_multiple.py
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ cat ./label_counter_multiple.py  
+
+```
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
 ## for counting unique lables from the multi-label file
 ## __label__typo ကြည့် ရင် နဲ့
@@ -502,9 +509,11 @@ if __name__ == "__main__":
     main()
 
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$
+```
 
-multiple label တွေကိုပါ ရေတွက်ကြည့်တော့ "__label__pho __label__typo" တမျိုးပဲ 7.61% ရှိတာကိုတွေ့ရပြီး၊ ကျန်တဲ့ multiple label တွေကတော့ အောက်ပါအတိုင်း % က တအားနည်းတာကိုတော့ တွေ့ရတယ်။  
+multiple label တွေကိုပါ ရေတွက်ကြည့်တော့ "__label__pho __label__typo" တမျိုးပဲ 7.61% ရှိတာကိုတွေ့ရပြီး၊ ကျန်တဲ့ multiple label တွေကတော့ အောက်ပါအတိုင်း % က တအားနည်းတာကိုတော့ တွေ့ရတယ်။   
 
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ python ./label_counter_multiple.py ./error_type.all.shuf.txt
 __label__typo: 37933, 35.14%
 __label__seq: 4650, 4.31%
@@ -526,4 +535,6 @@ __label__pho___label__typo: 2, 0.00%
 __label__con __label__typo: 16, 0.01%
 __label__slang __label__seq: 3, 0.00%
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$
+```
+
 
