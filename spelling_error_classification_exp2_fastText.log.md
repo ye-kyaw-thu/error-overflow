@@ -704,6 +704,115 @@ __label__typo ဆု နိုင်
 __label__pho ထို အိမ် မက်
 ```
 
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ shuf ./error_type.valid | head -n 30 > 30_lines.valid
+```
+
+ဒီနေရာမှာ စိတ်ဝင်စားဖို့ ကောင်းတာက multi-label prediction လုပ်တဲ့အခါမှာ မော်ဒယ်ပေါ် မူတည်ပြီးတော့၊ testing လုပ်တဲ့အခါမှာ ပေးလိုက်တဲ့ option တွေအပေါ်ကို မူတည်ပြီးတော့ hyp ဖိုင်မှာက လေဘယ်က တစ်ခုတည်းလည်း ဖြစ်နိုင်တယ်၊ တစ်ခုထက် ပိုတာလည်း ဖြစ်နိုင်တယ်လေ။ အောက်ပါလိုမျိုး condition တွေကို စဉ်းစားဖို့ လိုအပ်တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.2
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo
+__label__con
+__label__pho
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq
+__label__pho
+__label__typo
+__label__typo
+__label__pho __label__typo
+__label__typo
+__label__typo __label__pho
+__label__pho
+__label__typo
+__label__pho __label__typo
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.5
+__label__typo
+__label__pho
+__label__typo
+__label__con
+__label__typo
+__label__typo
+__label__con
+__label__pho
+__label__typo
+__label__pho
+__label__typo
+__label__typo
+__label__slang
+__label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo
+__label__typo
+__label__typo
+__label__typo
+__label__seq
+__label__pho
+__label__typo
+__label__typo
+__label__pho
+__label__typo
+__label__typo
+__label__pho
+__label__typo
+__label__pho
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.01
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho __label__slang __label__typo
+__label__typo
+__label__pho __label__typo __label__seq
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq __label__pho
+__label__typo __label__pho __label__slang
+__label__pho __label__typo __label__slang
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
 Python script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
 
 ```
