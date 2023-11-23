@@ -813,55 +813,483 @@ __label__pho __label__typo
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-Python script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+multi-label classification အတွက် F1, P, R ကို တွက်တဲ့ပုံစံက လေဘယ်တစ်ခုချင်းစီအတွက် F1, P, R ကို တွက်ပြီးတော့မှ average ယူလို့ ရတယ်။ Accuracy က တွက်ရတာ ပိုခက်လိမ့်မယ်။ ဘာကြောင့်လည်း ဆိုတော့ label တစ်ခုစီအတွက် ဖြစ်နိုင်တဲ့ label တွေက multiple ဖြစ်နေလို့။ လေဘယ်တွေရဲ့ အစီအစဉ်ကတော့ အရေးမကြီးဘူး။ ဆိုလိုတာက "__label__pho __label__typo" နဲ့ "__label__typo __label__pho" က ပြဿနာ မဟုတ်ဘူး။ အဲဒါကြောင့် set ကို သုံးလိုက်လို့ ရတယ်။ Python script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။   
 
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat ./multi-label-eval.py  
+
+```python
+## Written by Ye Kyaw Thu, LU Lab., Myanmar
+## Evaluation with F-1, P, R for multi-label classification
+## Last updated: 24 Nov 2023
+
+import argparse
+from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.preprocessing import MultiLabelBinarizer
+
+def read_labels_and_text(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        labels, texts = [], []
+        for line in file:
+            parts = line.strip().split()
+            labels.append(set(part for part in parts if part.startswith("__label__")))
+            texts.append(" ".join(part for part in parts if not part.startswith("__label__")))
+        return labels, texts
+
+def read_labels(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [set(line.strip().split()) for line in file]
+
+def calculate_metrics_per_sentence(y_true, y_pred, mlb):
+    metrics = []
+    for true, pred in zip(y_true, y_pred):
+        true_binarized = mlb.transform([true])
+        pred_binarized = mlb.transform([pred])
+
+        precision = precision_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+        recall = recall_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+        f1 = f1_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+
+        metrics.append((precision, recall, f1))
+    return metrics
+
+def main(reference_file, hypothesis_file):
+    y_true, texts = read_labels_and_text(reference_file)
+    y_pred = read_labels(hypothesis_file)
+
+    all_labels = set().union(*y_true, *y_pred)
+
+    mlb = MultiLabelBinarizer()
+    mlb.fit([all_labels])
+
+    sentence_metrics = calculate_metrics_per_sentence(y_true, y_pred, mlb)
+
+    overall_precision = sum(m[0] for m in sentence_metrics) / len(sentence_metrics)
+    overall_recall = sum(m[1] for m in sentence_metrics) / len(sentence_metrics)
+    overall_f1 = sum(m[2] for m in sentence_metrics) / len(sentence_metrics)
+
+    for i, (prec, rec, f1) in enumerate(sentence_metrics, 1):
+        print(f"Sentence {i} ({texts[i-1]}) - Precision: {prec}, Recall: {rec}, F1 Score: {f1}")
+
+    print("\nOverall Metrics:")
+    print(f"Overall Precision: {overall_precision}")
+    print(f"Overall Recall: {overall_recall}")
+    print(f"Overall F1 Score: {overall_f1}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Evaluate multi-label classification")
+    parser.add_argument("reference_file", type=str, help="File path for reference labels and text")
+    parser.add_argument("hypothesis_file", type=str, help="File path for hypothesis labels")
+
+    args = parser.parse_args()
+    main(args.reference_file, args.hypothesis_file)
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.01 > hyp_0.01.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.02 > hyp_0.02.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.03 > hyp_0.03.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.04 > hyp_0.04.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ fasttext predict model.error_type_ep100.bin ./30_lines.valid -1 0.05 > hyp_0.05.txt
 ```
 
-```
+0.01 hyp file:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat hyp_0.01.txt
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho __label__slang __label__typo
+__label__typo
+__label__pho __label__typo __label__seq
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq __label__pho
+__label__typo __label__pho __label__slang
+__label__pho __label__typo __label__slang
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+0.02 hyp file:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat hyp_0.02.txt
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho __label__slang
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+0.03 hyp file:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat hyp_0.03.txt
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho __label__slang
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+0.04 hyp file:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat hyp_0.04.txt
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+0.05 hyp file:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ cat hyp_0.05.txt
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__con
+__label__typo
+__label__typo __label__pho
+__label__con __label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__slang __label__typo
+__label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__typo
+__label__seq __label__encode
+__label__pho __label__typo
+__label__typo __label__pho
+__label__typo
+__label__pho __label__typo
+__label__typo __label__seq
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+F1, P, R Calculation for 0.01 hyp file:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py ./30_lines.valid ./hyp_0.01.txt
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 0.6666666666666666, Recall: 1.0, F1 Score: 0.8
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
 
+Overall Metrics:
+Overall Precision: 0.6277777777777777
+Overall Recall: 1.0
+Overall F1 Score: 0.7433333333333335
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
 ```
 
-```
+F1, P, R Calculation for 0.02 hyp file:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py ./30_lines.valid ./hyp_0.02.txt
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+
+Overall Metrics:
+Overall Precision: 0.6611111111111111
+Overall Recall: 1.0
+Overall F1 Score: 0.7722222222222225
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+F1, P, R Calculation for 0.03 hyp file:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py ./30_lines.valid ./hyp_0.03.txt
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+
+Overall Metrics:
+Overall Precision: 0.6611111111111111
+Overall Recall: 1.0
+Overall F1 Score: 0.7722222222222225
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+F1, P, R Calculation for 0.04 hyp file:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py ./30_lines.valid ./hyp_0.04.txt
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.0, Recall: 0.0, F1 Score: 0.0
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+
+Overall Metrics:
+Overall Precision: 0.6444444444444444
+Overall Recall: 0.9666666666666667
+Overall F1 Score: 0.7500000000000002
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+F1, P, R Calculation for 0.05 hyp file:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py ./30_lines.valid ./hyp_0.05.txt
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.0, Recall: 0.0, F1 Score: 0.0
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.0, Recall: 0.0, F1 Score: 0.0
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+
+Overall Metrics:
+Overall Precision: 0.6277777777777778
+Overall Recall: 0.9333333333333333
+Overall F1 Score: 0.727777777777778
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+## Updating the Python Script
+
+--verbose mode option ကို ထည့်ပြီး တစ်ကြောင်းချင်းစီတွက်တာကို ပြမယ်၊ မပြဘူး control လုပ်လို့ ရအောင် လုပ်ခဲ့တယ်။  
 
 ```
 
