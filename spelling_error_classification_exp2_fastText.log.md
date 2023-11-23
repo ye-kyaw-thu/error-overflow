@@ -1290,96 +1290,182 @@ Overall F1 Score: 0.727777777777778
 ## Updating the Python Script
 
 --verbose mode option ကို ထည့်ပြီး တစ်ကြောင်းချင်းစီတွက်တာကို ပြမယ်၊ မပြဘူး control လုပ်လို့ ရအောင် လုပ်ခဲ့တယ်။  
+reference နဲ့ hypothesis ဖိုင် အစီအစဉ်လည်း user က မှားနိုင်တာမို့လို့ -rf or --reference, -hy or --hypothesis ဆိုပြီးလည်း command line argument ကို နာမည်ပေးခဲ့တယ်။  
+
+```python
+## Written by Ye Kyaw Thu, LU Lab., Myanmar
+## Evaluation with F-1, P, R for multi-label classification
+## Last updated: 24 Nov 2023
+
+import argparse
+from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.preprocessing import MultiLabelBinarizer
+
+def read_labels_and_text(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        labels, texts = [], []
+        for line in file:
+            parts = line.strip().split()
+            labels.append(set(part for part in parts if part.startswith("__label__")))
+            texts.append(" ".join(part for part in parts if not part.startswith("__label__")))
+        return labels, texts
+
+def read_labels(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [set(line.strip().split()) for line in file]
+
+def calculate_metrics_per_sentence(y_true, y_pred, mlb):
+    metrics = []
+    for true, pred in zip(y_true, y_pred):
+        true_binarized = mlb.transform([true])
+        pred_binarized = mlb.transform([pred])
+
+        precision = precision_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+        recall = recall_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+        f1 = f1_score(true_binarized, pred_binarized, average='micro', zero_division=0)
+
+        metrics.append((precision, recall, f1))
+    return metrics
+
+def main(reference_file, hypothesis_file, verbose):
+    y_true, texts = read_labels_and_text(reference_file)
+    y_pred = read_labels(hypothesis_file)
+
+    all_labels = set().union(*y_true, *y_pred)
+
+    mlb = MultiLabelBinarizer()
+    mlb.fit([all_labels])
+
+    sentence_metrics = calculate_metrics_per_sentence(y_true, y_pred, mlb)
+
+    overall_precision = sum(m[0] for m in sentence_metrics) / len(sentence_metrics)
+    overall_recall = sum(m[1] for m in sentence_metrics) / len(sentence_metrics)
+    overall_f1 = sum(m[2] for m in sentence_metrics) / len(sentence_metrics)
+
+    if verbose:
+        for i, (prec, rec, f1) in enumerate(sentence_metrics, 1):
+            print(f"Sentence {i} ({texts[i-1]}) - Precision: {prec}, Recall: {rec}, F1 Score: {f1}")
+
+    print("\nOverall Metrics:")
+    print(f"Overall Precision: {overall_precision}")
+    print(f"Overall Recall: {overall_recall}")
+    print(f"Overall F1 Score: {overall_f1}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Evaluate multi-label classification")
+    parser.add_argument("-rf", "--reference", type=str, required=True, help="File path for reference labels and text")
+    parser.add_argument("-hy", "--hypothesis", type=str, required=True, help="File path for hypothesis labels")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Show detailed metrics for each sentence")
+
+    args = parser.parse_args()
+    main(args.reference, args.hypothesis, args.verbose)
 
 ```
 
+running without --verbose mode ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py -rf ./30_lines.valid -hy ./hyp_0.05.txt
+
+Overall Metrics:
+Overall Precision: 0.6277777777777778
+Overall Recall: 0.9333333333333333
+Overall F1 Score: 0.727777777777778
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+running with --verbose mode ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$ python ./multi-label-eval.py -rf ./30_lines.valid -hy ./hyp_0.05.txt -v
+Sentence 1 (ကျော ငိး ဆ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 2 (မှီ တော့) - Precision: 0.0, Recall: 0.0, F1 Score: 0.0
+Sentence 3 (နား ညည်း တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 4 (ရ ဉီး မှာ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 5 (ဘာ ဆိူ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 6 (တွေ ပူိ့ လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 7 (ပြ သ နာ) - Precision: 0.3333333333333333, Recall: 1.0, F1 Score: 0.5
+Sentence 8 (က န ခမ်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 9 (မိ စွား တယ်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 10 (ပုံ ဖျတ် ဟ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 11 (စိတ် ဝင်း စား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 12 (ရည် ချင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 13 (ဟု တိ လား) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 14 (ကို ဖ ဘုတ် မှာ) - Precision: 0.0, Recall: 0.0, F1 Score: 0.0
+Sentence 15 (ပေါ တန်) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 16 (ပို ပီး ကျေ) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 17 (အောင် လှုင် အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 18 (လွန်း လိူ့ သူ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 19 (မ ပျက်် ဘူး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 20 (နဲ့ အ့) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 21 (ဘဲ ေ မွး လာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 22 (ကွန် ယက် မှာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 23 (တန့် အေင် လုပ်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 24 (ဖြား ပြေား ဆို) - Precision: 1.0, Recall: 1.0, F1 Score: 1.0
+Sentence 25 (အ နဲ ဆုံး) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 26 (အ ခွင် ့ အ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 27 (ဧည့် စ ရင်း) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 28 (ကိုယ် ကို ယုံ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 29 (တွက်) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+Sentence 30 (တွေး စွပ် တာ) - Precision: 0.5, Recall: 1.0, F1 Score: 0.6666666666666666
+
+Overall Metrics:
+Overall Precision: 0.6277777777777778
+Overall Recall: 0.9333333333333333
+Overall F1 Score: 0.727777777777778
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/eval$
+```
+
+## Evaluation for the Whole Testset Result
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict model.error_ty
+pe_ep100.bin ./error_type.valid -1 0.05 > hyp_0.05_100epoch.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ wc ./hyp_0.05_100epoch.txt
+ 10794  18603 253441 ./hyp_0.05_100epoch.txt
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ head ./hyp_0.05_100epoch.txt
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+__label__seq __label__typo
+__label__typo __label__pho
+__label__slang
+__label__pho __label__con
+__label__pho
+__label__pho
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
 ```
 
+အရင်ဆုံး fastText ရဲ့ test option နဲ့ P, R တွက်ကြည့်ခဲ့။  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext test model.error_type_ep100.bin ./error_type.valid -1 0.05
+N       10794
+P@-1    0.604
+R@-1    0.965
 ```
 
-```
+F1 score က ...  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python ./calc_f1.py -p 0.604 -r 0.965
+F1-score: 0.74
 ```
 
-```
+ရေးထားတဲ့ python code နဲ့ F1, P, R သုံးပြီး evaluation လုပ်ကြည့်ခဲ့ ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python ./multi-label-eval.py -rf ./error_type.valid -hy ./hyp_0.05_100epoch.txt
 
+Overall Metrics:
+Overall Precision: 0.6772358100179062
+Overall Recall: 0.9637298499166204
+Overall F1 Score: 0.7685843987400942
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+0.74 vs 0.77 မို့လို့ အတိအကျတော့ မတူဘူး။ အရမ်းကြီးကွာနေတာတော့ မဟုတ်ဘူး။ fastText က တွက်တာကို အသေးစိတ် ဝင်ကြည့်လို့ ရမှပဲ အကြောင်းအရင်းကို သိနိုင်လိမ့်မယ်။  
 
