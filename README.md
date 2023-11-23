@@ -212,4 +212,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 205. [evaluation_on_GPT-2_generated_my_hatespeech_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/evaluation_on_GPT-2_generated_my_hatespeech_log.md)
 206. [spelling_error_classification_exp1.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/spelling_error_classification_exp1.log.md)
 207. [spelling_err_type_classification_with_tsetlin_machine_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/spelling_err_type_classification_with_tsetlin_machine_log.md)
-208. [spelling_err_type_classification_with_tsetlin_machine_log2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/spelling_err_type_classification_with_tsetlin_machine_log2.md)
+208. [spelling_err_type_classification_with_tsetlin_machine_log2.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/spelling_err_type_classification_with_tsetlin_machine_log2.md)  
+209. [spelling_error_classification_exp2_fastText.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/spelling_error_classification_exp2_fastText.log.md)  
