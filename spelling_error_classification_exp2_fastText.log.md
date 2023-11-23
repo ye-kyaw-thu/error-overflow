@@ -407,6 +407,44 @@ sys     0m0.000s
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
 ```
 
+## F1-score Calculation
+
+for 10 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.85 -r 0.833
+F1-score: 0.84
+```
+
+for 20 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.847 -r 0.834
+F1-score: 0.84
+```
+
+for 30 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.848 -r 0.839
+F1-score: 0.84
+```
+
+for 40 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.847 -r 0.838
+F1-score: 0.84
+```
+
+for 50 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.846 -r 0.838
+F1-score: 0.84
+```
+
+for 100 epoch:  
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ python calc_f1.py -p 0.843 -r 0.839
+F1-score: 0.84
+```
+
 ## Online Prediction 
 
 -1 0.5 option တွေနဲ့ဆိုရင် multiple label ကိုပါ ခန့်မှန်းပေးနိုင်တယ်။  
