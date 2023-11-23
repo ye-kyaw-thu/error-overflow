@@ -655,5 +655,194 @@ __label__typo 0.877487 __label__pho 0.607673
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
 ```
 
+## Evaluation For Multi-Label
 
+Multilabel ကိုလည်း ပုံမှန်အားဖြင့်က P, R တွက်တာကို fasttext က test option ကို သုံးပြီး ထုတ်လို့ ရတယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext test model.error_type_
+ep20.bin ./2_labels.txt -1 0.5
+N       10
+P@-1    1
+R@-1    0.9
+```
+
+နောက်ပိုင်း အလုပ်တွေလုပ်ရတာ အဆင်ပြေအောင် multi-label အတွက် python script ရေးကြည့်မယ်။  
+အဲဒီအတွက် example test ဖိုင် တစ်ခုကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။ ဒီတစ်ခါတော့ 2 label တွေချည်းပဲ မဟုတ်ပဲ လက်တွေ့ ဒေတာထဲကအတိုင်းပဲ single label ရော multi-label ရောကို ရောထားတဲ့ ပုံစံ။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ shuf ./error_type.valid | head -n 30
+__label__pho အေး ဓ မြ တိုက်
+__label__typo မာ့ သတ် မ
+__label__pho စွဲ စေ့ ပြီး
+__label__con ပြ ဌာန်း နိုင်
+__label__typo လူ ကိူ လူ
+__label__typo အ ထဲ့ က
+__label__typo တစ် လှမ်း က
+__label__pho စီး နေ
+__label__pho __label__typo ပီ ကြမ္မာ
+__label__pho မြန် ယောက် ပါ
+__label__typo သီ ချ သ ငီး လေး
+__label__pho ပေ မ ယ့် အဲ
+__label__typo တစ် အင်္ကျ ီ လေး
+__label__pho ဘဲ မြန်
+__label__pho __label__typo မာ ပဲ
+__label__pho အတ် တို့
+__label__pho အ ကို
+__label__typo အ ကြုံး လေး
+__label__typo ဖြ တိ ပြီး
+__label__typo ကြောင် စီ
+__label__typo တယ် တော့် တော့်
+__label__pho ဖြူ ဖက် တွေ
+__label__typo တာ ကမ္ဘ္ာ တည်
+__label__pho သာ ဘို့ သာ
+__label__typo ပါ ဘုူး လို့
+__label__pho ကို ထပ် ကြပ်
+__label__pho __label__typo ကုန် ပီ ၊
+__label__pho __label__typo ရ မာ ကို
+__label__typo ဆု နိုင်
+__label__pho ထို အိမ် မက်
+```
+
+Python script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
