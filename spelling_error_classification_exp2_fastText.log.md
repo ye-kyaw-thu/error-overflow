@@ -1,3 +1,8 @@
+# Exp-2 for the Spelling Error Type Classification with fastText
+
+တကယ်က ငါတို့ ဒေတာထဲမှာ multiple label တွေ ရှိနေတာကြောင့် အဲဒါကို fastText နဲ့ classification လုပ်မယ် ဆိုရင် option ပြောင်းပြီး လုပ်တာမျိုး လုပ်လို့ ရတယ်။  
+
+```
 __label__pho __label__typo ပုန်း တေ ရှိ
 __label__pho __label__typo ရွာ တေ က
 __label__pho __label__typo ယ နစ် တက်
@@ -8,9 +13,13 @@ __label__pho __label__typo တီး မှု လက်
 __label__pho __label__typo ရ ပီး ပါ
 __label__pho __label__typo ကုန်း ပီး အော
 __label__pho __label__typo ရ မာ မ
+```
 
-Online Testing Result
+Experiment 1 တုန်းကလိုမျိုး fastText ကို မော်ဒယ် ဆောက်ခဲ့ရင်တော့ online testing လုပ်ကြည့်ရင် အောက်ပါလိုမျိုး single label ကိုပဲ predict လုပ်ပေးနိုင်လိမ့်မယ်။  
 
+Online Testing Result:  
+
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$ fasttext predict model.error_type.bin -
 ပုန်း တေ ရှိ
 __label__typo
@@ -32,11 +41,42 @@ __label__typo
 __label__typo
 ရ မာ မ
 __label__typo
+```
+
+option ကို multiple label ထုတ်ပေးနိုင်အောင် ကစားလည်း မရဘူး ဆိုတာကို confirm လုပ်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$ fasttext predict model.error_type_ep20.bin
+- -1 0.5
+ပုန်း တေ ရှိ
+__label__typo
+ရွာ တေ က
+__label__pho
+ယ နစ် တက်
+__label__pho
+ဆင် မှု လေး
+__label__typo
+နေ ပီး
+__label__typo
+ဲ့ ဖစ် တည်
+__label__typo
+တီး မှု လက်
+__label__typo
+ရ ပီး ပါ
+__label__typo
+ကုန်း ပီး အော
+__label__typo
+ရ မာ မ
+__label__typo
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$
+```
 
 ## Print Labels with P and R
 
-(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$ fasttext test-label model.error_type_ep20.b
-in error_type.valid
+label တစ်ခုချင်း အလိုက် F1, P, R ထုတ်ကြည့်တဲ့အခါမှာလည်း အောက်ပါလိုမျိုး result ရတယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$ fasttext test-label model.error_type_ep20.bin error_type.valid
 F1-Score : 0.818670  Precision : 0.840191  Recall : 0.798223   __label__pho
 F1-Score : 0.786107  Precision : 0.833995  Recall : 0.743420   __label__typo
 F1-Score : 0.917271  Precision : 0.911977  Recall : 0.922628   __label__con
@@ -52,10 +92,17 @@ N       10794
 P@1     0.842
 R@1     0.781
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext$
+```
+
+ဒီနေရာမှာ ငါတစ်ခု သတိထားမိတာက လေဘယ်နှစ်မျိုးက တစ်ခုတည်းအဖြစ် ဆက်နေတာက ငါတို့ test data ထဲမှာ ရှိနိုင်တယ် ဆိုတဲ့ အချက်။  
+"__label__pho___label__typo" ကို ပြောတာ။  
 
 ## Python Code for Label Counting
 
-(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ cat ./label_counter.py
+label counting လုပ်ဖို့ python code ကို ပြင်ဆင်ခဲ့ ...  
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ cat ./label_counter.py  
+
+```python
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
 ## for counting unique lables from the multi-label file
 ## __label__typo ကြည့် ရင် နဲ့
@@ -91,9 +138,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 	
 ## Label Counting on the Whole Dataset
 
+Counting လုပ်ကြည့်ခဲ့ ...  
+
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ python ./label_counter.py ./error_type.all.shuf.txt
 __label__typo: 46225
 __label__seq: 4730
@@ -106,9 +157,52 @@ __label__sensitive: 1347
 __label__short: 646
 __label__dialect: 131
 __label__pho___label__typo: 2
+```
+
+## Prepare a Shell Script for the Experiment-2
+
+အဓိကကတော့ multiple label အတွက် -loss one-vs-all ဆိုတဲ့ argument အသစ်ထပ်ဖြည့်ပြီး မော်ဒယ်ကို training လုပ်ခဲ့တဲ့ အပိုင်းနဲ့ testing လုပ်တဲ့ command မှာလည်း multiple label ကိုပါ ထုတ်ပေးနိုင်အောင် "-1 0.5" ဆိုတဲ့ option ကို ထပ်ဖြည့်ခဲ့တာပါ။  
+
+Reference: https://fasttext.cc/docs/en/supervised-tutorial.html#multi-label-classification  
+we want as many prediction as possible (argument -1) and we want only labels with probability higher or equal to 0.5  
+
+```bash
+#!/bin/bash
+
+## bash shell script for experiment 1 from epoch 10 to 100 with fastText model
+## this is for spelling error type classification
+## written by Ye Kyaw Thu, LU Lab., Myanmar
+## Last updated: 23 Nov 2023
+
+# Define the input and validation files
+train_file="error_type.train"
+valid_file="error_type.valid"
+
+# Loop through epochs 10 to 100 with increments of 10
+for epoch in $(seq 10 10 100)
+do
+    echo "Training with epoch $epoch"
+    model_file="model.error_type_ep${epoch}"
+
+    # Train the model
+    echo "Command: time fasttext supervised -input $train_file -output $model_file -loss one-vs-all -epoch $epoch"
+    time fasttext supervised -input $train_file -output $model_file -loss one-vs-all -epoch $epoch
+
+    echo "Testing with epoch $epoch"
+
+    # Test the model
+    echo "Command: time fasttext test ${model_file}.bin $valid_file -1 0.5"
+    time fasttext test ${model_file}.bin $valid_file -1 0.5
+
+    echo "=========="
+done
+```
 
 ## Run Exp2
 
+Run Experiment 2 ...  
+
+```
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ ./exp2.sh | tee exp2.results.txt
 Training with epoch 10
 Command: time fasttext supervised -input error_type.train -output model.error_type_ep10 -loss one-vs-all -epoch 10
@@ -311,6 +405,7 @@ user    0m0.020s
 sys     0m0.000s
 ==========
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
+```
 
 ## Online Prediction 
 
