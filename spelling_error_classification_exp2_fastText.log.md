@@ -577,4 +577,83 @@ __label__slang __label__seq: 3, 0.00%
 
 လက်ရှိ ဒေတာထဲမှာ ရှိနေတဲ့ label တွေရဲ့ distribution ကိုတော့ သေသေချာချာ သိရပြီ။ ဒီတစ်ခေါက် စာတမ်းအတွက်က ဘယ်လို သတ်မှတ်ပြီးသွားမလဲ ဆိုတာကို စဉ်းစားကြရလိမ့်မယ်။ Tsetlin မော်ဒယ်နဲ့ နှိုင်းယှဉ်ဖို့ ဆိုရင် Tsetline ဘက်မှာလည်း code ကို ဝင်ပြင်တာမျိုး လုပ်ရလိမ့်မယ်။ multiple label တွေကို label အသစ် တစ်ခုအနေနဲ့ သတ်မှတ်ပြီး handle လုပ်ကြမလား ဆိုတာကလည်း option တစ်ခုပါပဲ။ ဆိုလိုတာက multiple label နှစ်ခုအနေနဲ့ မဟုတ်ပဲ တစ်ခုအဖြစ် ဥပမာ "__label__slang __label__seq" ကို "__label_slang_sq" အဖြစ် သတ်မှတ်ပြီးသွားတာမျိုးကို ဆိုလိုတာ ...  
 
+## Revisiting --help
+
+predict နဲ့ predict-prob နဲ့ ဆိုင်တဲ့ command line argument တွေကို ပြန်ကြည့်ချင်လို့ --help နဲ့ ခေါ်ကြည့်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict --help
+usage: fasttext predict[-prob] <model> <test-data> [<k>] [<th>]
+
+  <model>      model filename
+  <test-data>  test data filename (if -, read from stdin)
+  <k>          (optional; 1 by default) predict top k labels
+  <th>         (optional; 0.0 by default) probability threshold
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict-prob --help
+usage: fasttext predict[-prob] <model> <test-data> [<k>] [<th>]
+
+  <model>      model filename
+  <test-data>  test data filename (if -, read from stdin)
+  <k>          (optional; 1 by default) predict top k labels
+  <th>         (optional; 0.0 by default) probability threshold
+
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
+```
+
+## Testing
+
+multi-label အတွက် test လုပ်ရတာ လွယ်အောင်လို့ multi-label ရှိတဲ့ error တချို့ကို ဖိုင်တစ်ဖိုင်အနေနဲ့ သိမ်းခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ cat ./2_labels.txt
+__label__pho __label__typo ပုန်း တေ ရှိ
+__label__pho __label__typo ရွာ တေ က
+__label__pho __label__typo ယ နစ် တက်
+__label__pho __label__typo ဆင် မှု လေး
+__label__pho __label__typo နေ ပီး
+__label__pho __label__typo ရဲ့ ဖစ် တည်
+__label__pho __label__typo တီး မှု လက်
+__label__pho __label__typo ရ ပီး ပါ
+__label__pho __label__typo ကုန်း ပီး အော
+__label__pho __label__typo ရ မာ မ
+```
+
+အထက်ပါဖိုင်ကို test ဖိုင်အနေနဲ့ထားပြီး predict or test လုပ်ခိုင်းကြည့်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict model.error_type_ep20.bin ./2_labels.txt -1 0.5
+__label__typo __label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+__label__typo
+__label__typo __label__pho
+__label__pho __label__typo
+__label__typo
+__label__typo __label__pho
+__label__typo __label__pho
+__label__typo __label__pho
+```
+
+probability ပါ ထုတ်ပြခိုင်းခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$ fasttext predict-prob model.err
+or_type_ep20.bin ./2_labels.txt -1 0.5
+__label__typo 0.988323 __label__pho 0.884049
+__label__typo 0.962683 __label__pho 0.955329
+__label__typo 0.798197 __label__pho 0.743178
+__label__typo 0.766304
+__label__typo 0.999566 __label__pho 0.998685
+__label__pho 0.979678 __label__typo 0.977724
+__label__typo 0.754925
+__label__typo 0.997295 __label__pho 0.989996
+__label__typo 0.994099 __label__pho 0.993106
+__label__typo 0.877487 __label__pho 0.607673
+(base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label$
+```
+
+
 
