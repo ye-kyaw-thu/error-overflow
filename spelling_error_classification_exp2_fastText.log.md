@@ -469,7 +469,7 @@ label တွေကို နောက်တစ်ခေါက် ပြန်ရ
 
 (base) ye@lst-gpu-3090:~/exp/mySpell/fasttext/multi-label/check_labels$ cat ./label_counter_multiple.py  
 
-```
+```python
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
 ## for counting unique lables from the multi-label file
 ## __label__typo ကြည့် ရင် နဲ့
