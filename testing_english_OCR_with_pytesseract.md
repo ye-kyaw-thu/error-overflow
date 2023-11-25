@@ -1,3 +1,8 @@
+# Testing English OCR with pytesseract
+
+## Git Clone
+
+```
 (base) ye@lst-gpu-3090:~/tool$ git clone https://github.com/tesseract-ocr/tesseract
 Cloning into 'tesseract'...
 remote: Enumerating objects: 47193, done.
@@ -6,6 +11,11 @@ remote: Compressing objects: 100% (314/314), done.
 remote: Total 47193 (delta 314), reused 415 (delta 259), pack-reused 46613
 Receiving objects: 100% (47193/47193), 51.89 MiB | 12.02 MiB/s, done.
 Resolving deltas: 100% (36830/36830), done.
+```
+
+## Run autogen.sh
+
+```
 (base) ye@lst-gpu-3090:~/tool$ cd tesseract/
 (base) ye@lst-gpu-3090:~/tool/tesseract$ ./autogen.sh
 Running aclocal
@@ -34,6 +44,11 @@ All done.
 To build the software now, do something like:
 
 $ ./configure [--enable-debug] [...other options]
+```
+
+## Run ./configure
+
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract$ ./configure --prefix=$HOME/local/
 checking for g++... g++
 checking whether the C++ compiler works... yes
@@ -358,9 +373,11 @@ You cannot build training tools because of missing dependency.
 Check configure output for details.
 
 (base) ye@lst-gpu-3090:~/tool/tesseract$
+```
 
 ## Run make
 
+```
 ...
 ...
   CXX      src/ccutil/libtesseract_ccutil_la-unicharcompress.lo
@@ -420,9 +437,11 @@ make[2]: Entering directory '/home/ye/tool/tesseract/tessdata'
 make[2]: Nothing to be done for 'all-am'.
 make[2]: Leaving directory '/home/ye/tool/tesseract/tessdata'
 make[1]: Leaving directory '/home/ye/tool/tesseract/tessdata'
+```
 
 ## Run make install
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract$ make install
 Making install in .
 make[1]: Entering directory '/home/ye/tool/tesseract'
@@ -491,9 +510,11 @@ make[3]: Leaving directory '/home/ye/tool/tesseract/tessdata'
 make[2]: Leaving directory '/home/ye/tool/tesseract/tessdata'
 make[1]: Leaving directory '/home/ye/tool/tesseract/tessdata'
 (base) ye@lst-gpu-3090:~/tool/tesseract$
+```
 
 ## Install Python Module
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ pip install pytesseract
 Collecting pytesseract
   Downloading pytesseract-0.3.10-py3-none-any.whl (14 kB)
@@ -503,21 +524,31 @@ Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /home/ye/anaconda3/li
 Installing collected packages: pytesseract
 Successfully installed pytesseract-0.3.10
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$
+```
 
 ## Add path
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract$ sudo nano ~/.bashrc
+```
 
+```
 #for Tesseract
 export PATH="$PATH:/home/ye/tool/tesseract";
+```
 
+run source...  
+
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract$ source ~/.bashrc
 (base) ye@lst-gpu-3090:~/tool/tesseract$ which tesseract
 /home/ye/tool/tesseract/tesseract
 (base) ye@lst-gpu-3090:~/tool/tesseract$
+```
 
 ## Coding for English
 
+```python
 ## Written by Ye Kyaw Thu, LU Lab., Myanmar
 ## for testing English OCR
 ## last updated: 25 Nov 2023
@@ -568,10 +599,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+```
 
 ## Called --help
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ python ./en_ocr.py --help
 usage: en_ocr.py [-h] [-o OUTPUT] image_path
 
@@ -584,9 +616,11 @@ optional arguments:
   -h, --help            show this help message and exit
   -o OUTPUT, --output OUTPUT
                         Output file to save the extracted text.
-						
+```
+					
 ## Testing
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./en_ocr.py
 Extracted Text:
  An error occurred: (1, 'Error opening data file /home/ye/local/share/tessdata/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory. Failed loading language \'eng\' Tesseract couldn\'t load any languages! Could not initialize tesseract.')
@@ -595,16 +629,21 @@ real    0m0.216s
 user    0m0.815s
 sys     0m1.955s
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$
-
+```
 
 Error fixing ...  
 
+```
 export TESSDATA_PREFIX=/home/ye/tool/tesseract/tessdata;
+```
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$ (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$ source ~/.bashrc
+```
 
 Run again ...  
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./en_ocr.py
 Extracted Text:
  An error occurred: (1, 'Error opening data file /home/ye/tool/tesseract/tessdata/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory. Failed loading language \'eng\' Tesseract couldn\'t load any languages! Could not initialize tesseract.')
@@ -612,16 +651,20 @@ Extracted Text:
 real    0m0.234s
 user    0m0.835s
 sys     0m1.953s
+```
 
-Check the data folder:
+Check the data folder:  
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$ ls
 configs            eng.user-words  Makefile.am  pdf.ttf
 eng.user-patterns  Makefile        Makefile.in  tessconfigs
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$
+```
 
-I need to download languge data file ...
+I need to download languge data file ...  
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$ wget https://github.com/tesseract-ocr/tessdata/raw/main/eng.traineddata -P /home/ye/tool/tesseract/tessdata/
 --2023-11-25 16:02:55--  https://github.com/tesseract-ocr/tessdata/raw/main/eng.traineddata
 Resolving github.com (github.com)... 20.205.243.166
@@ -641,47 +684,22 @@ eng.traineddata        100%[==========================>]  22.38M  31.4MB/s    in
 2023-11-25 16:02:58 (31.4 MB/s) - ‘/home/ye/tool/tesseract/tessdata/eng.traineddata’ saved [23466654/23466654]
 
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$
+```
+
+check the folder again:  
+
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$ ls
 configs          eng.user-patterns  Makefile     Makefile.in  tessconfigs
 eng.traineddata  eng.user-words     Makefile.am  pdf.ttf
 (base) ye@lst-gpu-3090:~/tool/tesseract/tessdata$
+```
 
-Run again ...  
-
-(base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./en_ocr.py
-Extracted Text:
- WS2 : Development of Synthesized Speech with a Focus on The Issue of
-Prosodic Elongation
-
-Aphiwich Sangpet and Natthapol Kritsuthikul
-
-WS3 : Myanmar Hate Speech Generation Using GPT-2: A Novel Technique for
-Corpus Expansion
-
-Nang Aeindray Kyaw, Ye Kyaw Thu, Thazin Myint Oo, Hutchatai Chanlekha,
-Manabu Okumura
-
-WS4 : myNER9: Development, Manual Annotation, and Evaluation of a 9-Tag
-Myanmar NER Corpus via XGBoost and Bi-LSTM
-
-Kaung Lwin Thant, Ye Kyaw Thu, Thazin Myint Oo, Kwankamol Nongpong
-
-WS5 : Myanmar Spelling Error Classification: An Empirical Study of Tsetlin
-Machine Techniques
-
-Ei Thandar Phyu, Ye Kyaw Thu, Thazin Myint Oo, Hutchatai Chanlekha
-
-
-
-real    0m0.507s
-user    0m1.666s
-sys     0m1.943s
-(base) ye@lst-gpu-3090:~/tool/tesseract/y$
-
-Now I can run it.
+Run again ... Now I can run it.   
 
 ## Results
 
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ python ./en_ocr.py ./ws_program.png
 Extracted Text:
  WS2 : Development of Synthesized Speech with a Focus on The Issue of
@@ -705,9 +723,18 @@ Machine Techniques
 
 Ei Thandar Phyu, Ye Kyaw Thu, Thazin Myint Oo, Hutchatai Chanlekha
 
+```
 
+output ဖိုင် ထုတ်ကြည့်မယ်။  
+
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ python ./en_ocr.py ./ws_program.png -o output.txt
 Extracted text written to output.txt
+```
+
+ထွက်လာတဲ့ဖိုင်ကို စစ်ကြည့်ခဲ့ ...  
+
+```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ cat output.txt
 WS2 : Development of Synthesized Speech with a Focus on The Issue of
 Prosodic Elongation
@@ -732,5 +759,5 @@ Ei Thandar Phyu, Ye Kyaw Thu, Thazin Myint Oo, Hutchatai Chanlekha
 
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$
 
-
+```
 
