@@ -158,7 +158,7 @@ sys     0m1.946s
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/comment_to_student.png" alt="input file for Myanmar language OCR testing" width="800"/>  
 </p>  
 <div align="center">
-  Fig.1 Input file for Testing Myanmar language OCR 
+  Fig.2 Input file for Testing Myanmar language OCR 
 </div> 
 
 <br />
