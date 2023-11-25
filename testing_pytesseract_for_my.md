@@ -27,6 +27,9 @@ mya.traineddata        100%[==========================>]   4.42M  11.6MB/s    in
 
 ## Updated Python Code
 
+```python
+
+```
 
 ## Called --help
 
@@ -50,8 +53,14 @@ optional arguments:
 
 ## Testing for English
 
-https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/ws_program.png
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/ws_program.png" alt="input file for English OCR" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Input file for Testing English OCR  
+</div> 
 
+<br />
 
 ```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./tesseract_ocr.py ./ws_program.png -l eng
