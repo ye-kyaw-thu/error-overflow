@@ -50,6 +50,9 @@ optional arguments:
 
 ## Testing for English
 
+https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/ws_program.png
+
+
 ```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./tesseract_ocr.py ./ws_program.png -l eng
 Extracted Text:
