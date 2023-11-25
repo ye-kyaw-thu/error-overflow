@@ -105,6 +105,8 @@ optional arguments:
 
 ## Testing for English
 
+အင်္ဂလိပ်စာ OCR အတွက် သုံးခဲ့တဲ့ input ဖိုင်က အောက်ပါအတိုင်းပါ။  
+
 <p align="center">
 <img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/ws_program.png" alt="input file for English OCR" width="800"/>  
 </p>  
@@ -113,6 +115,8 @@ optional arguments:
 </div> 
 
 <br />
+
+အင်္ဂလိပ်စာ အတွက် စမ်းကြည့်ပြီး ရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။ ရလဒ်က တော်တော်လေး ကောင်းပါတယ်။  
 
 ```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ time python ./tesseract_ocr.py ./ws_program.png -l eng
@@ -147,6 +151,19 @@ sys     0m1.946s
 ```
 
 ## Testing for Burmese
+
+အကြမ်း testing လုပ်ဖို့အတွက် သုံးခဲ့တဲ့ မြန်မာစာပါတဲ့ ပုံဖိုင်က အောက်ပါအတိုင်း ...  
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/tesseract_test/comment_to_student.png" alt="input file for Myanmar language OCR testing" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 Input file for Testing Myanmar language OCR 
+</div> 
+
+<br />
+
+Google's Tesseract က trained လုပ်ပေးထားတဲ့ မော်ဒယ်ကို သုံးပြီး ရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$ python ./tesseract_ocr.py ./comment_to_student.png -l mya
@@ -183,4 +200,6 @@ Extracted Text:
 
 (base) ye@lst-gpu-3090:~/tool/tesseract/y$
 ```
+
+အထက်မှာ မြင်ရတဲ့ အတိုင်းပါပဲ။ မြန်မာစာ OCR အတွက်က R&D အနေနဲ့ လုပ်စရာတွေ ကျန်ပါသေးတယ်။   
 
