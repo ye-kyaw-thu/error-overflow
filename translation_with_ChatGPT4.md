@@ -5,6 +5,7 @@ ChatGPT ရဲ့ machine translation က Google Translate ထက် သာတ�
 သို့သော် လက်တွေ့ စာကြောင်းတွေအများကြီးကို ဘာသာပြန်ခိုင်းပြီးတော့ parallel corpus ဆောက်ကြည့်တဲ့အခါမှာတော့ တွေ့ရတဲ့ အခက်အခဲတွေက အများကြီးပါပဲ။  
 အားလုံးကို ရှင်းပြဖို့ ခက်ပေမဲ့ တချို့အမှားတွေကိုတော့ ဒီနေရာမှာ log လုပ်ထားမယ်။ နောက်ပိုင်း လိုအပ်တဲ့အခါမှာ ရှင်းပြနိုင်အောင်လို့ ...   
 
+## Error-1
 ## Prompt
 
 ရှေ့မှာ လည်း ရှင်းပြထားပြီးသား၊ ပြီးတော့ ၁၀ခေါက်လောက်လည်း ဘာ instruction မှာ ထပ်မပေးတော့ပဲ အင်္ဂလိပ်စာကြောင်းကိုပဲ prompt အနေနဲ့ ပေးတဲ့အခါမှာ ဖြစ်တတ်တဲ့အမှားမျိုး။ သေသေချာချာ မကြည့်ပဲ copy/paste လုပ်မိရင်တော့ လွဲပြီ။  
@@ -61,7 +62,7 @@ Smoking causes spasm of the small vessels at the back of your eye and compromise
 This may increase the risk of developing diabetic complications of your eye.|||สิ่งนี้อาจเพิ่มความเสี่ยงของการเกิดภาวะแทรกซ้อนของเบาหวานที่ดวงตาของคุณ
 ```
 
-## Error
+## Error-2
 
 ဒီလိုမျိုးအမှားက Google Translate ကို သုံးရင်လည်း ကြုံရတတ်ပါတယ်။  
 တချို့နေရာတွေမှာ စာကြောင်းမပြီးခင် line break ဖြစ်သွားတဲ့ error မျိုးပါ။  
@@ -75,9 +76,20 @@ But if you follow our advice, the chances of you losing your vision are very low
 You need to control your blood sugar levels very well, as advised by the diabetic team.|||คุณจำเป็นต้องควบคุมระดับน้ำตาลในเลือดของคุณอย่างดีตามคำแนะนำของทีมดูแลเบาหวาน
 ```
 
+## Error-3
+
+time limite ကြောင့်လည်း ဖြစ်နိုင်တယ်။ တချို့ reply တွေမှာက ခိုင်းထားတဲ့ စာကြောင်း အကုန်မပြီးပဲ ဖြတ်ချလိုက်တာမျိုးလည်း ရှိတယ်။ အောက်ပါဥပမာ လိုမျိုး ...  
 
 ```
-
+...
+...
+...
+Depression (low mood, loss of interest in daily activities)|||ภาวะซึมเศร้า (อารมณ์ต่ำ, สูญเสียความสนใจในกิจกรรมประจำวัน)
+Polymyalgia rheumatica (weakness of muscles of the big joints i.e. shoulder pain and girdle muscles)|||โพลิมัยอัลเจียรูมาติกา (ความอ่อนแอของกล้ามเนื้อของข้อต่อใหญ่ เช่น ปวดบ่าและกล้ามเนื้อเอว)
+Connective tissue disease (e.g. SLE, RA. There will be polyarthritis, symmetrical or asymmetrical)|||โรคเนื้อเยื่อเกี่ยวพัน (เช่น โรคลูปัส, โรคข้ออักเสบรูมาตอยด์ จะมีการอักเสบของข้อต่อหลายข้อ, ความสมมาตรหรือไม่สมมาตร)
+Chronic renal failure (anuria, anaemia, tiredness)|||โรคไตเรื้อรัง (ไม่มีปัสสาวะ, โลหิตจาง, อ่อนเพลีย)
+Myeloencephalitis (confusion, headaches)|||โรคอักเสบของไขสันหลังและสมอง (สับสน, ปวดหัว)
+Shift workers (night shifts, poor sleep)|||ผู้ทำงานกะ (ก
 ```
 
 ```
