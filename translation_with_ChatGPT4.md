@@ -61,9 +61,20 @@ Smoking causes spasm of the small vessels at the back of your eye and compromise
 This may increase the risk of developing diabetic complications of your eye.|||สิ่งนี้อาจเพิ่มความเสี่ยงของการเกิดภาวะแทรกซ้อนของเบาหวานที่ดวงตาของคุณ
 ```
 
-```
+## Error
+
+ဒီလိုမျိုးအမှားက Google Translate ကို သုံးရင်လည်း ကြုံရတတ်ပါတယ်။  
+တချို့နေရာတွေမှာ စာကြောင်းမပြီးခင် line break ဖြစ်သွားတဲ့ error မျိုးပါ။  
 
 ```
+The majority of people with diabetic retinopathy do not lose their vision.|||ส่วนใหญ่ของผู้ป่วยที่มีโรคจอประสาทตาเบาหวานไม่สูญเสียการมองเห็น
+However, without treatment, diabetic retinopathy can become worse and lead to visual problems or even blindness.|||อย่างไรก็ตาม หากไม่ได้รับการรักษา โรคจอประสาทตาเบาหวานสามารถทำให้รุนแรงขึ้นและนำไปสู่ปัญหา
+
+การมองเห็นหรือแม้แต่การตาบอด
+But if you follow our advice, the chances of you losing your vision are very low.|||แต่ถ้าคุณปฏิบัติตามคำแนะนำของเรา โอกาสที่คุณจะสูญเสียการมองเห็นนั้นต่ำมาก
+You need to control your blood sugar levels very well, as advised by the diabetic team.|||คุณจำเป็นต้องควบคุมระดับน้ำตาลในเลือดของคุณอย่างดีตามคำแนะนำของทีมดูแลเบาหวาน
+```
+
 
 ```
 
