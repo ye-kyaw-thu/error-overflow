@@ -9,7 +9,7 @@ ChatGPT ရဲ့ machine translation က Google Translate ထက် သာတ�
 
 ရှေ့မှာ လည်း ရှင်းပြထားပြီးသား၊ ပြီးတော့ ၁၀ခေါက်လောက်လည်း ဘာ instruction မှာ ထပ်မပေးတော့ပဲ အင်္ဂလိပ်စာကြောင်းကိုပဲ prompt အနေနဲ့ ပေးတဲ့အခါမှာ ဖြစ်တတ်တဲ့အမှားမျိုး။ သေသေချာချာ မကြည့်ပဲ copy/paste လုပ်မိရင်တော့ လွဲပြီ။  
 
-'''
+```
 You walk your dog every day for five to ten minutes .
 You were advised to follow lifestyle modifications to control your diabetes , but you are not very compliant with this .
 What is diabetic retinopathy ?
@@ -35,11 +35,11 @@ Control and monitor your blood pressure .
 We will measure your blood pressure and if required we will start you on some medication .
 Smoking causes spasm of the small vessels at the back of your eye and compromises the blood flow to eye .
 This may increase the risk of developing diabetic complications of your eye .
-'''
+```
 
 ## Reply
 
-'''
+```
 Diabetic retinopathy is a condition where your longstanding high blood sugar condition has now affected your eyes.|||ภาวะแทรกซ้อนของเบาหวานที่จอประสาทตาคือสภาวะที่ภาวะน้ำตาลในเลือดสูงของคุณที่มีมายาวนานได้ส่งผลกระทบต่อดวงตาของคุณ
 It has caused damage to the small blood vessels at the back of your eyes.|||สภาวะนี้ได้ทำให้เส้นเลือดขนาดเล็กที่ด้านหลังของดวงตาของคุณเสียหาย
 Swelling of blood vessels (blow out, microaneurysm)|||การบวมของเส้นเลือด (การแตก, การเกิดลิ่มเลือดขนาดเล็ก)
@@ -59,5 +59,7 @@ Control and monitor your blood pressure.|||ควบคุมและติด�
 We will measure your blood pressure and if required, we will start you on some medication.|||เราจะวัดความดันโลหิตของคุณ และถ้าจำเป็น เราจะเริ่มให้ยากับคุณ
 Smoking causes spasm of the small vessels at the back of your eye and compromises blood flow to the eye.|||การสูบบุหรี่ทำให้เส้นเลือดขนาดเล็กที่ด้านหลังของดวงตาของคุณหดตัวและลดการไหลเวียนของเลือดไปยังดวงตา
 This may increase the risk of developing diabetic complications of your eye.|||สิ่งนี้อาจเพิ่มความเสี่ยงของการเกิดภาวะแทรกซ้อนของเบาหวานที่ดวงตาของคุณ
-'''
+```
+
+
 
