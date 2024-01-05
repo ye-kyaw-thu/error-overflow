@@ -145,13 +145,20 @@ Please advise the patient accordingly .
 มีสิ่งหนึ่งที่อาจต้องจัดการเพื่อให้รับมือกับสภ
 ```
 
+## Error-5
+## Prompt
+```
+Indications of surgical management if all these criteria are fulfilled
+BMI ≥ 40 or ≥ 35 with significant co-morbidities that could improve with weight reduction
 ```
 
-```
+အထက်ပါ နှစ်ကြောင်းကို၊ ထိုင်းဘာသာဘက် ဘာသာပြန်တဲ့အခါမှာ တစ်ကြောင်းတည်းပေါင်းလိုက်တဲ့ ပြဿနာ ...  
 
 ```
-
+Indications of surgical management if all these criteria are fulfilled: BMI ≥ 40 or ≥ 35 with significant co-morbidities that could improve with weight reduction.|||ตัวชี้วัดของการจัดการทางการผ่าตัดหากเงื่อนไขเหล่านี้ได้รับการเติมเต็ม: BMI ≥ 40 หรือ ≥ 35 พร้อมกับโรคร่วมที่สำคัญซึ่งสามารถปรับปรุงได้ด้วยการลดน้ำหนัก
 ```
+
+## Error-6
 
 ```
 
