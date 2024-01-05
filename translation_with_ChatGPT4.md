@@ -92,12 +92,57 @@ Myeloencephalitis (confusion, headaches)|||โรคอักเสบของ�
 Shift workers (night shifts, poor sleep)|||ผู้ทำงานกะ (ก
 ```
 
-```
+## Error-4
+## Prompt
 
 ```
+System: You are a machine translation system. Output Format: "Source_Language_Sentence|||Target_Language_Sentence" and no blank line each sentence translation. User: Please provide the Thai translation for the following sentences. No explanation!:
 
+The fact that you are anaemic tells us that your kidneys have not been working properly for a long time , which means that there is ongoing damage to your kidneys .
+Therefore , the anaemia is because of the kidneys which are not functioning properly .
+It will progressively get worse , but there are a few things we can do to try and slow down the damage .
+I was wondering what the cause could be of the damage to your kidneys .
+Can I ask you a few questions ?
+Drug history ? NSAIDs , ACE inhibitor , antibiotics etc .
+Renal stones ?
+Family history of kidney disease or polycystic kidney disease ?
+Urinary tract infections ( pyelonephritis ) ?
+Diabetes mellitus or hypertension ?
+Malignancy ?
+Autoimmune ( SLE )
+Ask for symptoms of anaemia ( light-headedness , dizziness , tiredness )
+From what you have told me , it is difficult to know the cause .
+We now need to perform some blood tests to find out what could have been the cause of this .
+We will also perform a scan of your kidneys and check the blood pressure and blood sugar levels .
+There are a few things that might need to be addressed in order to cope better with this condition :
+How is your diet ?
+Do you do regular exercise ?
+Please advise the patient accordingly .
 ```
 
+## Reply
+
+လိုချင်တာက Source|||Target, ChatGPT4 ကနေ reply လုပ်ပြီးထွက်လာတာက Target|||Source ဆိုတဲ့ အမှားမျိုး ...   
+မင်း ငါပြောနေတာကို တကယ်ကော နားလည်ရဲ့လား ChatGPT? :)  
+
+```
+ความจริงที่คุณเป็นโรคโลหิตจางบอกเราว่าไตของคุณทำงานไม่ดีมานานแล้ว ซึ่งหมายความว่ามีความเสียหายต่อไตของคุณอย่างต่อเนื่อง|||The fact that you are anaemic tells us that your kidneys have not been working properly for a long time, which means that there is ongoing damage to your kidneys.
+ดังนั้น โรคโลหิตจางเกิดขึ้นเพราะไตที่ทำงานไม่ดี|||Therefore, the anaemia is because of the kidneys which are not functioning properly.
+มันจะแย่ลงเรื่อยๆ แต่มีสิ่งหนึ่งที่เราทำได้เพื่อพยายามชะลอความเสียหาย|||It will progressively get worse, but there are a few things we can do to try and slow down the damage.
+ฉันสงสัยว่าสาเหตุของความเสียหายที่ไตของคุณอาจเกิดจากอะไร|||I was wondering what the cause could be of the damage to your kidneys.
+ฉันขอถามคุณสองสามคำถามได้ไหม?|||Can I ask you a few questions?
+ประวัติการใช้ยา? ยาแก้ปวดอักเสบ, ยายับยั้ง ACE, ยาปฏิชีวนะ เป็นต้น|||Drug history? NSAIDs, ACE inhibitor, antibiotics etc.
+มีนิ่วในไตหรือไม่?|||Renal stones?
+ประวัติครอบครัวเป็นโรคไตหรือโรคไตพองน้ำ?|||Family history of kidney disease or polycystic kidney disease?
+การติดเชื้อทางเดินปัสสาวะ (ไตอักเสบ)?|||Urinary tract infections (pyelonephritis)?
+เป็นโรคเบาหวานหรือความดันโลหิตสูงหรือไม่?|||Diabetes mellitus or hypertension?
+มะเร็ง?|||Malignancy?
+โรคภูมิต้านทาน (SLE)|||Autoimmune (SLE)
+ถามอาการของโรคโลหิตจาง (วิงเวียนศีรษะ, มึนงง, อ่อนเพลีย)|||Ask for symptoms of anaemia (light-headedness, dizziness, tiredness)
+จากสิ่งที่คุณบอกผมมา มันยากที่จะรู้สาเหตุ|||From what you have told me, it is difficult to know the cause.
+ตอนนี้เราต้องทำการตรวจเลือดเพื่อหาสาเหตุที่อาจเป็นไปได้|||We now need to perform some blood tests to find out what could have been the cause of this.
+เราจะทำการสแกนไตของคุณและตรวจวัดความดันโลหิตและระดับน้ำตาลในเลือด|||We will also perform a scan of your kidneys and check the blood pressure and blood sugar levels.
+มีสิ่งหนึ่งที่อาจต้องจัดการเพื่อให้รับมือกับสภ
 ```
 
 ```
