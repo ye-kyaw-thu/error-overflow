@@ -159,13 +159,46 @@ Indications of surgical management if all these criteria are fulfilled: BMI ≥ 
 ```
 
 ## Error-6
+## Prompt  
+
+```
+System: You are a machine translation system. Output Format: "Source_Language_Sentence|||Target_Language_Sentence" and no blank line each sentence translation. User: Please provide the Thai translation for the following sentences. No explanation!:
+
+No overriding / behavioural problems
+63 year-old Mrs. Daniel underwent a hysterectomy 6 days ago and was recovering well .
+She was to be discharged in a couple of days .
+She suddenly developed complications in the ward , resuscitation failed and she died .
+The cause of death is unknown .
+Break the news to Mr. Jim Daniel , the son of Mrs. Daniel and take consent from him for a post-mortem examination .
+You are Mrs. Daniel ’ s son , your mother had an operation and was doing fine , but then she developed some complications and died .
+You are not aware of her death .
+The doctor will come and speak to you about it .
+He / she will ask for your consent to perform a post-mortem examination .
+How is my mother doing ?
+What is the cause of her death ?
+
+==============
+
+ Be careful! the format that I want is as follows: 
+
+Involvement of a specialist obesity service.|||การมีส่วนร่วมของบริการโรคอ้วนเฉพาะทาง
 
 ```
 
-```
+## Reply
+
+အထက်ပါအတိုင်း သေသေချာချာ instruction လုပ်ပေးထားပေမဲ့၊ အောက်ပါလိုမျိုး အမှားတွေလည်း ဖြစ်တတ်တယ်။    
 
 ```
-
+ไม่มีปัญหาการควบคุมพฤติกรรมหรือปัญหาพฤติกรรม|||ไม่มีปัญหาในการควบคุมพฤติกรรมหรือปัญหาพฤติกรรม
+หญิงวัย 63 ปี นางแดเนียล ได้รับการผ่าตัดมดลูกไปเมื่อ 6 วันที่แล้วและกำลังฟื้นตัวได้ดี|||หญิงวัย 63 ปี นางแดเนียล ได้รับการผ่าตัดมดลูกไปเมื่อ 6 วันที่แล้วและกำลังอยู่ในช่วงฟื้นตัวได้ดี
+เธอจะได้รับการปล่อยตัวในอีกสองสามวัน|||เธอจะถูกปล่อยตัวในอีกสองสามวัน
+เธอได้พัฒนาภาวะแทรกซ้อนขึ้นอย่างกะทันหันในหอผู้ป่วย การช่วยชีวิตไม่สำเร็จและเธอเสียชีวิต|||เธอได้เกิดภาวะแทรกซ้อนขึ้นอย่างกะทันหันในหอผู้ป่วย การช่วยชีวิตไม่ประสบผลสำเร็จและเธอเสียชีวิต
+สาเหตุของการเสียชีวิตไม่ทราบ|||สาเหตุของการเสียชีวิตไม่ทราบ
+แจ้งข่าวให้นายจิมแดเนียล ลูกชายของนางแดเนียลทราบและขอความยินยอมจากเขาสำหรับการตรวจศพ|||แจ้งข่าวให้นายจิมแดเนียล ลูกชายของนางแดเนียลทราบและขอความยินยอมจากเขาเพื่อการทำการชันสูตรพลิกศพ
+คุณเป็นลูกชายของนางแดเนียล มารดาของคุณได้รับการผ่าตัดและกำลังดีขึ้น แต่แล้วเธอได้พัฒนาภาวะแทรกซ้อนขึ้นและเสียชีวิต|||คุณเป็นลูกชายของนางแดเนียล มารดาของคุณได้รับการผ่าตัดและอยู่ในภาวะที่ดี แต่แล้วเธอได้เกิดภาวะแทรกซ้อนและเสียชีวิต
+คุณไม่ทราบเรื่องการเสียชีวิตของเธอ|||คุณไม่ทราบว่าเธอเสียชีวิต
+แพทย์จะมาพูดคุยกับคุณเก
 ```
 
 ```
