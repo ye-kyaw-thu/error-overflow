@@ -2300,10 +2300,15 @@ file values which override defaults.
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
+## Recheck PyTorch Version Again
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.__version__)"
+1.6.0
+(opennmt) yekyaw.thu@gpu:~$
 ```
+
+1.6.0 တော့ ဖြစ်သွားတယ်။ run လို့ ရရင် အိုကေတယ်။ No problem!  
 
 ```
 
