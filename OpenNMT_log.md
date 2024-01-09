@@ -535,8 +535,12 @@ Successfully installed OpenNMT-py-3.4.3 annotated-types-0.6.0 blinker-1.7.0 blis
 ## Verify the Installation
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.cuda.is_available())"
+False
+(opennmt) yekyaw.thu@gpu:~$
 ```
+
+PyTorch က GPU ကို recognition မဖြစ်လို့ False လို့ ပေါ်နေတာ ...  
 
 ```
 
