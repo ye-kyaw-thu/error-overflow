@@ -1847,7 +1847,88 @@ False
 
 ## Try Again  
 
+Server မှာက GPU driver ကို installation လုပ်ဖို့က admin right လိုအပ်တယ်။ အဲဒါကြောင့် အထက်ပါအတိုင်းပဲ ထပ် try ယုံပဲ ရှိတယ်။  
+
 ```
+(opennmt) yekyaw.thu@gpu:~$ pip uninstall torch
+Found existing installation: torch 2.1.2
+Uninstalling torch-2.1.2:
+  Would remove:
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/convert-caffe2-to-onnx
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/convert-onnx-to-caffe2
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/torchrun
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/functorch/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/nvfuser/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torch-2.1.2.dist-info/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torch/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchgen/*
+Proceed (Y/n)? Y
+  Successfully uninstalled torch-2.1.2
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+```
+(opennmt) yekyaw.thu@gpu:~$ pip uninstall torchvision
+Found existing installation: torchvision 0.16.2
+Uninstalling torchvision-0.16.2:
+  Would remove:
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision-0.16.2.dist-info/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision.libs/libcudart.7ec1eba6.so.12
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision.libs/libjpeg.ceea7512.so.62
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision.libs/libnvjpeg.f00ca762.so.12
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision.libs/libpng16.7f72a3c5.so.16
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision.libs/libz.0ba23de2.so.1
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchvision/*
+Proceed (Y/n)? Y
+  Successfully uninstalled torchvision-0.16.2
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+```
+(opennmt) yekyaw.thu@gpu:~$ pip uninstall torchaudio
+Found existing installation: torchaudio 2.1.2
+Uninstalling torchaudio-2.1.2:
+  Would remove:
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchaudio-2.1.2.dist-info/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torchaudio/*
+Proceed (Y/n)? Y
+  Successfully uninstalled torchaudio-2.1.2
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+I hope following version might be OK ...  
+
+```
+(opennmt) yekyaw.thu@gpu:~$ pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+Collecting torch==1.9.0+cu111
+  Downloading https://download.pytorch.org/whl/cu111/torch-1.9.0%2Bcu111-cp38-cp38-linux_x86_64.whl (2041.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 GB 685.8 kB/s eta 0:00:00
+Collecting torchvision==0.10.0+cu111
+  Downloading https://download.pytorch.org/whl/cu111/torchvision-0.10.0%2Bcu111-cp38-cp38-linux_x86_64.whl (23.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.2/23.2 MB 3.0 MB/s eta 0:00:00
+Collecting torchaudio==0.9.0
+  Downloading torchaudio-0.9.0-cp38-cp38-manylinux1_x86_64.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 1.9 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch==1.9.0+cu111) (4.7.1)
+Requirement already satisfied: numpy in ./.local/lib/python3.8/site-packages (from torchvision==0.10.0+cu111) (1.24.1)
+Requirement already satisfied: pillow>=5.3.0 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torchvision==0.10.0+cu111) (10.0.1)
+Installing collected packages: torch, torchvision, torchaudio
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+opennmt-py 3.4.3 requires torch<2.2,>=2.0.1, but you have torch 1.9.0+cu111 which is incompatible.
+Successfully installed torch-1.9.0+cu111 torchaudio-0.9.0 torchvision-0.10.0+cu111
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+## Verify SUCCESS!  
+
+```
+(opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.cuda.is_available())"
+True
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+
 
 ```
 
@@ -1970,3 +2051,90 @@ False
 ```
 
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
