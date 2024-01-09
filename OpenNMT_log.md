@@ -1835,9 +1835,17 @@ Successfully installed nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.1
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
-```
+## Verify Again
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.cuda.is_available())"
+/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+False
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+## Try Again  
 
 ```
 
