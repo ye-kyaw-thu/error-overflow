@@ -1649,14 +1649,190 @@ Executing transaction: done
 False
 ```
 
-
-
-```
+## Uninstall, For this time Install with Pip
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ conda uninstall pytorch torchvision torchaudio
+Collecting package metadata (repodata.json): done
+Solving environment: -
+The environment is inconsistent, please check the package plan carefully
+The following packages are causing the inconsistency:
 
+  - defaults/linux-64::libstdcxx-ng==11.2.0=h1234567_1
+  - defaults/linux-64::libgcc-ng==11.2.0=h1234567_1
+  - defaults/linux-64::bzip2==1.0.8=h7b6447c_0
+  - defaults/linux-64::cudatoolkit==11.8.0=h6a678d5_0
+  - defaults/linux-64::giflib==5.2.1=h5eee18b_3
+  - defaults/linux-64::gmp==6.2.1=h295c915_3
+  - defaults/linux-64::jpeg==9e=h5eee18b_1
+  - defaults/linux-64::lame==3.100=h7b6447c_0
+  - defaults/linux-64::lerc==3.0=h295c915_0
+  - defaults/linux-64::libdeflate==1.17=h5eee18b_1
+  - defaults/linux-64::libffi==3.4.4=h6a678d5_0
+  - defaults/linux-64::libiconv==1.16=h7f8727e_2
+  - pytorch/linux-64::libjpeg-turbo==2.0.0=h9bf148f_0
+  - defaults/linux-64::libtasn1==4.19.0=h5eee18b_0
+  - defaults/linux-64::libunistring==0.9.10=h27cfd23_0
+  - defaults/linux-64::libwebp-base==1.3.2=h5eee18b_0
+  - defaults/linux-64::lz4-c==1.9.4=h6a678d5_0
+  - defaults/linux-64::ncurses==6.4=h6a678d5_0
+  - defaults/linux-64::openh264==2.1.1=h4ff587b_0
+  - defaults/linux-64::openssl==3.0.12=h7f8727e_0
+  - defaults/linux-64::tbb==2021.8.0=hdb19cb5_0
+  - defaults/linux-64::xz==5.4.5=h5eee18b_0
+  - defaults/linux-64::yaml==0.2.5=h7b6447c_0
+  - defaults/linux-64::zlib==1.2.13=h5eee18b_0
+  - defaults/linux-64::intel-openmp==2023.1.0=hdb19cb5_46306
+  - defaults/linux-64::libidn2==2.3.4=h5eee18b_0
+  - defaults/linux-64::libpng==1.6.39=h5eee18b_0
+  - defaults/linux-64::llvm-openmp==14.0.6=h9e868ea_0
+  - defaults/linux-64::mpfr==4.0.2=hb69a4c5_1
+  - defaults/linux-64::nettle==3.7.3=hbbd107a_1
+  - defaults/linux-64::readline==8.2=h5eee18b_0
+  - defaults/linux-64::tk==8.6.12=h1ccaba5_0
+  - defaults/linux-64::zstd==1.5.5=hc292b87_0
+  - defaults/linux-64::freetype==2.12.1=h4a9f257_0
+  - defaults/linux-64::gnutls==3.6.15=he1e5248_0
+  - defaults/linux-64::libtiff==4.5.1=h6a678d5_0
+  - defaults/linux-64::mkl==2023.1.0=h213fc3f_46344
+  - defaults/linux-64::mpc==1.1.0=h10f8cd9_1
+  - defaults/linux-64::sqlite==3.41.2=h5eee18b_0
+  - pytorch/linux-64::ffmpeg==4.3=hf484d3e_0
+  - defaults/linux-64::lcms2==2.12=h3be6417_0
+  - defaults/linux-64::libwebp==1.3.2=h11a3e52_0
+  - defaults/linux-64::openjpeg==2.4.0=h3ad879b_0
+  - defaults/linux-64::python==3.8.18=h955ad1f_0
+  - defaults/linux-64::brotli-python==1.0.9=py38h6a678d5_7
+  - defaults/linux-64::certifi==2023.11.17=py38h06a4308_0
+  - defaults/noarch::charset-normalizer==2.0.4=pyhd3eb1b0_0
+  - defaults/linux-64::filelock==3.13.1=py38h06a4308_0
+  - defaults/linux-64::gmpy2==2.1.2=py38heeb90bb_0
+  - defaults/linux-64::idna==3.4=py38h06a4308_0
+  - defaults/linux-64::markupsafe==2.1.3=py38h5eee18b_0
+  - defaults/linux-64::mkl-service==2.4.0=py38h5eee18b_1
+  - defaults/linux-64::mpmath==1.3.0=py38h06a4308_0
+  - defaults/linux-64::networkx==3.1=py38h06a4308_0
+  - defaults/linux-64::pillow==10.0.1=py38ha6cbd5a_0
+  - defaults/noarch::pycparser==2.21=pyhd3eb1b0_0
+  - defaults/linux-64::pysocks==1.7.1=py38h06a4308_0
+  - defaults/linux-64::pyyaml==6.0.1=py38h5eee18b_0
+  - defaults/linux-64::setuptools==68.2.2=py38h06a4308_0
+  - defaults/linux-64::typing_extensions==4.7.1=py38h06a4308_0
+  - defaults/linux-64::wheel==0.41.2=py38h06a4308_0
+  - defaults/linux-64::cffi==1.16.0=py38h5eee18b_0
+  - defaults/linux-64::jinja2==3.1.2=py38h06a4308_0
+  - defaults/linux-64::numpy-base==1.24.3=py38h060ed82_1
+  - defaults/linux-64::pip==23.3.1=py38h06a4308_0
+  - defaults/linux-64::sympy==1.12=py38h06a4308_0
+  - defaults/linux-64::cryptography==41.0.7=py38hdda0065_0
+  - defaults/linux-64::pyopenssl==23.2.0=py38h06a4308_0
+  - defaults/linux-64::urllib3==1.26.18=py38h06a4308_0
+  - defaults/linux-64::requests==2.31.0=py38h06a4308_0
+  - defaults/linux-64::mkl_fft==1.3.8=py38h5eee18b_0
+  - defaults/linux-64::mkl_random==1.2.4=py38hdb19cb5_0
+  - defaults/linux-64::numpy==1.24.3=py38hf6e8229_1
+done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 23.11.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/yekyaw.thu/.conda/envs/opennmt
+
+  removed specs:
+    - pytorch
+    - torchaudio
+    - torchvision
+
+
+The following packages will be REMOVED:
+
+  pytorch-2.1.2-py3.8_cpu_0
+  torchaudio-2.1.2-py38_cpu
+  torchvision-0.16.2-py38_cpu
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
+ဒီတခါတော့ pip နဲ့ installation လုပ်ကြည့်ခဲ့...  
+
+```
+(opennmt) yekyaw.thu@gpu:~$ pip install torch torchvision torchaudio
+Collecting torch
+  Downloading torch-2.1.2-cp38-cp38-manylinux1_x86_64.whl.metadata (25 kB)
+Collecting torchvision
+  Downloading torchvision-0.16.2-cp38-cp38-manylinux1_x86_64.whl.metadata (6.6 kB)
+Collecting torchaudio
+  Downloading torchaudio-2.1.2-cp38-cp38-manylinux1_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: filelock in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (3.13.1)
+Requirement already satisfied: typing-extensions in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (4.7.1)
+Requirement already satisfied: sympy in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (1.12)
+Requirement already satisfied: networkx in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (3.1)
+Requirement already satisfied: jinja2 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (3.1.2)
+Requirement already satisfied: fsspec in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch) (2023.12.2)
+Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch)
+  Using cached nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+Collecting nvidia-cudnn-cu12==8.9.2.26 (from torch)
+  Using cached nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu12==12.1.3.1 (from torch)
+  Using cached nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+Collecting nvidia-cufft-cu12==11.0.2.54 (from torch)
+  Using cached nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+Collecting nvidia-curand-cu12==10.3.2.106 (from torch)
+  Using cached nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch)
+  Using cached nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch)
+  Using cached nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+Collecting nvidia-nccl-cu12==2.18.1 (from torch)
+  Using cached nvidia_nccl_cu12-2.18.1-py3-none-manylinux1_x86_64.whl (209.8 MB)
+Collecting nvidia-nvtx-cu12==12.1.105 (from torch)
+  Using cached nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+Collecting triton==2.1.0 (from torch)
+  Using cached triton-2.1.0-0-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.3 kB)
+Collecting nvidia-nvjitlink-cu12 (from nvidia-cusolver-cu12==11.4.5.107->torch)
+  Downloading nvidia_nvjitlink_cu12-12.3.101-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Requirement already satisfied: numpy in ./.local/lib/python3.8/site-packages (from torchvision) (1.24.1)
+Requirement already satisfied: requests in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torchvision) (10.0.1)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.local/lib/python3.8/site-packages (from jinja2->torch) (2.1.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchvision) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchvision) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchvision) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchvision) (2023.11.17)
+Requirement already satisfied: mpmath>=0.19 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from sympy->torch) (1.3.0)
+Downloading torch-2.1.2-cp38-cp38-manylinux1_x86_64.whl (670.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 670.2/670.2 MB 1.6 MB/s eta 0:00:00
+Using cached nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl (731.7 MB)
+Using cached triton-2.1.0-0-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89.2 MB)
+Downloading torchvision-0.16.2-cp38-cp38-manylinux1_x86_64.whl (6.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 MB 5.6 MB/s eta 0:00:00
+Downloading torchaudio-2.1.2-cp38-cp38-manylinux1_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 5.7 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink_cu12-12.3.101-py3-none-manylinux1_x86_64.whl (20.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.5/20.5 MB 6.6 MB/s eta 0:00:00
+Installing collected packages: triton, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, nvidia-cusparse-cu12, nvidia-cudnn-cu12, nvidia-cusolver-cu12, torch, torchvision, torchaudio
+Successfully installed nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-8.9.2.26 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.18.1 nvidia-nvjitlink-cu12-12.3.101 nvidia-nvtx-cu12-12.1.105 torch-2.1.2 torchaudio-2.1.2 torchvision-0.16.2 triton-2.1.0
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
 ```
