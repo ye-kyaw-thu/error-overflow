@@ -541,6 +541,7 @@ False
 ```
 
 PyTorch က GPU ကို recognition မဖြစ်လို့ False လို့ ပေါ်နေတာ ...  
+Error ဖြစ်နိုင်ချေက အမျိုးမျိုးပဲ CUDA နဲ့ PyTorch ဗားရှင်းက မကိုက်တာ။ Anaconda environment ပြဿနာ ...  
 
 ```
 
