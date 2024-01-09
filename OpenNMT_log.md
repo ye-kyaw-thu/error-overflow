@@ -2697,14 +2697,37 @@ Tue Jan  9 16:25:01 2024
 (base) yekyaw.thu@gpu:~$
 ```
 
+## Check the Model and Outputs 
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ tree ./toy-ende
+./toy-ende
+├── run
+│   ├── example.vocab.src
+│   ├── example.vocab.tgt
+│   ├── model_step_1000.pt
+│   └── model_step_500.pt
+├── src-test.txt
+├── src-train.txt
+├── src-val.txt
+├── tgt-test.txt
+├── tgt-train.txt
+└── tgt-val.txt
 
+1 directory, 10 files
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
 ```
 
-```
+check the model filesize:  
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ ls -lh ./model_step_*
+-rw-r--r-- 1 yekyaw.thu domain users 224M Jan  9 16:26 ./model_step_1000.pt
+-rw-r--r-- 1 yekyaw.thu domain users 224M Jan  9 16:25 ./model_step_500.pt
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
+```
+
+## Testing or Translation with Built Model
 
 ```
 
