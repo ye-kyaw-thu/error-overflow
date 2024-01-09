@@ -2545,16 +2545,54 @@ Aufständen      1
 
 ## Training
 
+moved back to the folder that containing config file:  
+
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ ls
+toy-ende  toy-ende.tar.gz  toy_en_de.yaml
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+start training ...  
 
 ```
 
 ```
 
-```
+During training time, when I check the GPU usage:  
+
 
 ```
+(base) yekyaw.thu@gpu:~$ nvidia-smi
+Tue Jan  9 16:25:01 2024
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.223.02   Driver Version: 470.223.02   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 59%   64C    P2   234W / 300W |   3648MiB / 11019MiB |     74%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 54%   58C    P8    24W / 257W |      3MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 37%   57C    P8    32W / 250W |      3MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2521790      C   ...a/envs/opennmt/bin/python     3645MiB |
++-----------------------------------------------------------------------------+
+(base) yekyaw.thu@gpu:~$
 ```
 
 ```
