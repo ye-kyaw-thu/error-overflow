@@ -2312,65 +2312,239 @@ file values which override defaults.
 
 ```
 
+## Test Run OpenNMT with Example Parallel Data
+
+preparing folders:
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp$ mkdir opennmt
+(opennmt) yekyaw.thu@gpu:~/exp$ cd opennmt/
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt$ ls
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt$ mkdir test-run
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt$ cd test-run/
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+Download test data:
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ wget https://s3.amazonaws.com/opennmt-trainingdata/toy-ende.tar.gz
+--2024-01-09 16:00:28--  https://s3.amazonaws.com/opennmt-trainingdata/toy-ende.tar.gz
+Resolving s3.amazonaws.com (s3.amazonaws.com)... 54.231.135.56, 52.217.132.72, 52.216.41.200, ...
+Connecting to s3.amazonaws.com (s3.amazonaws.com)|54.231.135.56|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1662081 (1.6M) [application/x-gzip]
+Saving to: ‘toy-ende.tar.gz’
+
+toy-ende.tar.gz        100%[==========================>]   1.58M  1.07MB/s    in 1.5s
+
+2024-01-09 16:00:31 (1.07 MB/s) - ‘toy-ende.tar.gz’ saved [1662081/1662081]
+
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+Extracting tar.gz file ...
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ ls
+toy-ende.tar.gz
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ tar -xf ./toy-ende.tar.gz
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ ls
+toy-ende  toy-ende.tar.gz
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ tree
+.
+├── toy-ende
+│   ├── src-test.txt
+│   ├── src-train.txt
+│   ├── src-val.txt
+│   ├── tgt-test.txt
+│   ├── tgt-train.txt
+│   └── tgt-val.txt
+└── toy-ende.tar.gz
+
+1 directory, 7 files
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+## Check Data  
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ cd toy-ende/
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$ ls
+src-test.txt  src-train.txt  src-val.txt  tgt-test.txt  tgt-train.txt  tgt-val.txt
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$ wc *
+   2737   61376  344699 src-test.txt
+  10000  225069 1253552 src-train.txt
+   3000   72088  399012 src-val.txt
+   2737   57659  375812 tgt-test.txt
+  10000  213992 1414977 tgt-train.txt
+   3000   71666  463304 tgt-val.txt
+  31474  701850 4251356 total
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$
+```
+
+Check source ...  
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$ head -n 3 ./src-train.txt
+It is not acceptable that , with the help of the national bureaucracies , Parliament &apos;s legislative prerogative should be made null and void by means of implementing provisions whose content , purpose and extent are not laid down in advance .
+Federal Master Trainer and Senior Instructor of the Italian Federation of Aerobic Fitness , Group Fitness , Postural Gym , Stretching and Pilates; from 2004 , he has been collaborating with Antiche Terme as personal Trainer and Instructor of Stretching , Pilates and Postural Gym .
+&quot; Two soldiers came up to me and told me that if I refuse to sleep with them , they will kill me . They beat me and ripped my clothes .
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$
+```
+
+Check target ...
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$ head -n 3 ./tgt-train.txt
+Es geht nicht an , dass über Ausführungsbestimmungen , deren Inhalt , Zweck und Ausmaß vorher nicht bestimmt ist , zusammen mit den nationalen Bürokratien das Gesetzgebungsrecht des Europäischen Parlaments ausgehebelt wird .
+Meistertrainer und leitender Dozent des italienischen Fitnessverbands für Aerobic , Gruppenfitness , Haltungsgymnastik , Stretching und Pilates; arbeitet seit 2004 bei Antiche Terme als Personal Trainer und Lehrer für Stretching , Pilates und Rückengymnastik .
+Also kam ich nach Südafrika " , erzählte eine Frau namens Grace dem Human Rights Watch-Mitarbeiter Gerry Simpson , der die Probleme der zimbabwischen Flüchtlinge in Südafrika untersucht .
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$
+```
+
+## Preparing Configuration File
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ cat toy_en_de.yaml
+# toy_en_de.yaml
+
+## Where the samples will be written
+save_data: toy-ende/run/example
+## Where the vocab(s) will be written
+src_vocab: toy-ende/run/example.vocab.src
+tgt_vocab: toy-ende/run/example.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: toy-ende/src-train.txt
+        path_tgt: toy-ende/tgt-train.txt
+    valid:
+        path_src: toy-ende/src-val.txt
+        path_tgt: toy-ende/tgt-val.txt
+
+# Training
+
+# Vocabulary files that were just created
+src_vocab: toy-ende/run/example.vocab.src
+tgt_vocab: toy-ende/run/example.vocab.tgt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: toy-ende/run/model
+save_checkpoint_steps: 500
+train_steps: 1000
+valid_steps: 500
+
+
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+## Vocab Building
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ onmt_build_vocab -config toy_en_de.yaml -n_sample 10000
+Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2024-01-09 16:12:56,040 INFO] Counter vocab from 10000 samples.
+[2024-01-09 16:12:56,040 INFO] Build vocab on 10000 transformed examples/corpus.
+[2024-01-09 16:12:56,313 INFO] corpus_1's transforms: TransformPipe()
+[2024-01-09 16:12:56,313 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:12:56,482 INFO] Counters src:24995
+[2024-01-09 16:12:56,482 INFO] Counters tgt:35816
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
+```
+
+## Check Source Vocab File
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende$ cd run/
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ ls
+example.vocab.src  example.vocab.tgt
 ```
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ head example.vocab.src
+the     12670
+,       9710
+.       9647
+of      6634
+and     5787
+to      5610
+in      4072
+a       3655
+is      3138
+that    2286
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
 ```
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ tail example.vocab.src
+Icke    1
+Gallen  1
+Rheineck        1
+Opposing        1
+viewpoints      1
+reconciled      1
+Licence 1
+4038    1
+PZU     1
+insurgencies    1
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
+```
 
+Check file size:
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ wc ./example.vocab.src
+ 24995  49984 262665 ./example.vocab.src
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
+```
+
+## Check Target Vocab File
+
+```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ wc ./example.vocab.tgt
+ 35816  71627 462909 ./example.vocab.tgt
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
 ```
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ head ./example.vocab.tgt
+,       12063
+.       9782
+die     6032
+der     5786
+und     5615
+in      3018
+zu      2276
+von     2178
+den     2141
+ist     1985
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
 ```
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$ tail ./example.vocab.tgt
+Vermerk 1
+Icke    1
+Kaffeemaschine  1
+66      1
+Bodensee        1
+Entgegengesetzte        1
+4038    1
+Zivilhaftung    1
+PZU     1
+Aufständen      1
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run/toy-ende/run$
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+## Training
 
 ```
 
