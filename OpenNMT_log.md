@@ -1920,7 +1920,7 @@ Successfully installed torch-1.9.0+cu111 torchaudio-0.9.0 torchvision-0.10.0+cu1
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
-## Verify SUCCESS!  
+## Verify SUCCESS for PyTorch!  
 
 ```
 (opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.cuda.is_available())"
@@ -1928,35 +1928,378 @@ True
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
+## Verify OpenNMT
+
+```
+(opennmt) yekyaw.thu@gpu:~$ python -m onmt.bin.main --version
+Traceback (most recent call last):
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/runpy.py", line 185, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/runpy.py", line 111, in _get_module_details
+    __import__(pkg_name)
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/__init__.py", line 3, in <module>
+    import onmt.encoders
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/encoders/__init__.py", line 5, in <module>
+    from onmt.encoders.transformer import TransformerEncoder
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/encoders/transformer.py", line 8, in <module>
+    from onmt.modules import MultiHeadedAttention
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/modules/__init__.py", line 7, in <module>
+    from onmt.modules.multi_headed_attn import MultiHeadedAttention
+  File "/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/modules/multi_headed_attn.py", line 9, in <module>
+    from torch.nn.utils import skip_init
+ImportError: cannot import name 'skip_init' from 'torch.nn.utils' (/home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/torch/nn/utils/__init__.py)
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+## Uninstall, Install OpenNMT Again
+
+OpenNMT different version ကို install လုပ်ဖို့ လိုအပ်တယ်လို့ ယူဆတယ်။  
 
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ pip uninstall OpenNMT-py
+Found existing installation: OpenNMT-py 3.4.3
+Uninstalling OpenNMT-py-3.4.3:
+  Would remove:
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_average_models
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_build_vocab
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_release_model
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_server
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_train
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_translate
+    /home/yekyaw.thu/.conda/envs/opennmt/bin/onmt_translate_dynamic
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/OpenNMT_py-3.4.3.dist-info/*
+    /home/yekyaw.thu/.conda/envs/opennmt/lib/python3.8/site-packages/onmt/*
+Proceed (Y/n)? Y
+  Successfully uninstalled OpenNMT-py-3.4.3
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
-```
+Check torch version:  
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ python -c "import torch; print(torch.__version__)"
+1.9.0+cu111
 ```
 
-```
+## Reinstall OpenNMT Again
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ pip install OpenNMT-py==2.1.2
+Collecting OpenNMT-py==2.1.2
+  Downloading OpenNMT_py-2.1.2-py3-none-any.whl (212 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 213.0/213.0 kB 1.1 MB/s eta 0:00:00
+Requirement already satisfied: tqdm<5,>=4.51 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from OpenNMT-py==2.1.2) (4.66.1)
+Collecting torch==1.6.0 (from OpenNMT-py==2.1.2)
+  Downloading torch-1.6.0-cp38-cp38-manylinux1_x86_64.whl (748.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 748.8/748.8 MB 1.4 MB/s eta 0:00:00
+Collecting torchtext==0.5.0 (from OpenNMT-py==2.1.2)
+  Downloading torchtext-0.5.0-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.2/73.2 kB 1.2 MB/s eta 0:00:00
+Requirement already satisfied: configargparse<2,>=1.2.3 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from OpenNMT-py==2.1.2) (1.7)
+Requirement already satisfied: tensorboard<3,>=2.3 in ./.local/lib/python3.8/site-packages (from OpenNMT-py==2.1.2) (2.11.2)
+Collecting flask==1.1.2 (from OpenNMT-py==2.1.2)
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.6/94.6 kB 1.5 MB/s eta 0:00:00
+Collecting waitress==1.4.4 (from OpenNMT-py==2.1.2)
+  Downloading waitress-1.4.4-py2.py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.4/58.4 kB 1.0 MB/s eta 0:00:00
+Collecting pyyaml==5.4 (from OpenNMT-py==2.1.2)
+  Downloading PyYAML-5.4-cp38-cp38-manylinux1_x86_64.whl (662 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 662.2/662.2 kB 4.8 MB/s eta 0:00:00
+Requirement already satisfied: pyonmttok<2,>=1.23 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from OpenNMT-py==2.1.2) (1.37.1)
+Requirement already satisfied: Werkzeug>=0.15 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from flask==1.1.2->OpenNMT-py==2.1.2) (3.0.1)
+Requirement already satisfied: Jinja2>=2.10.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from flask==1.1.2->OpenNMT-py==2.1.2) (3.1.2)
+Requirement already satisfied: itsdangerous>=0.24 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from flask==1.1.2->OpenNMT-py==2.1.2) (2.1.2)
+Requirement already satisfied: click>=5.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from flask==1.1.2->OpenNMT-py==2.1.2) (8.1.7)
+Collecting future (from torch==1.6.0->OpenNMT-py==2.1.2)
+  Downloading future-0.18.3.tar.gz (840 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 840.9/840.9 kB 5.4 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: numpy in ./.local/lib/python3.8/site-packages (from torch==1.6.0->OpenNMT-py==2.1.2) (1.24.1)
+Requirement already satisfied: requests in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torchtext==0.5.0->OpenNMT-py==2.1.2) (2.31.0)
+Requirement already satisfied: six in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torchtext==0.5.0->OpenNMT-py==2.1.2) (1.16.0)
+Collecting sentencepiece (from torchtext==0.5.0->OpenNMT-py==2.1.2)
+  Downloading sentencepiece-0.1.99-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 6.4 MB/s eta 0:00:00
+Requirement already satisfied: absl-py>=0.4 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (1.4.0)
+Requirement already satisfied: grpcio>=1.24.3 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (1.51.1)
+Requirement already satisfied: google-auth<3,>=1.6.3 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (2.16.0)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (0.4.6)
+Requirement already satisfied: markdown>=2.6.8 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (3.4.1)
+Requirement already satisfied: protobuf<4,>=3.9.2 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (3.19.6)
+Requirement already satisfied: setuptools>=41.0.0 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (68.2.2)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (0.6.1)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in ./.local/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (1.8.1)
+Requirement already satisfied: wheel>=0.26 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (0.41.2)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in ./.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (5.2.1)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in ./.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in ./.local/lib/python3.8/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (1.3.1)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.local/lib/python3.8/site-packages (from Jinja2>=2.10.1->flask==1.1.2->OpenNMT-py==2.1.2) (2.1.1)
+Requirement already satisfied: importlib-metadata>=4.4 in ./.local/lib/python3.8/site-packages (from markdown>=2.6.8->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (6.0.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchtext==0.5.0->OpenNMT-py==2.1.2) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchtext==0.5.0->OpenNMT-py==2.1.2) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchtext==0.5.0->OpenNMT-py==2.1.2) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests->torchtext==0.5.0->OpenNMT-py==2.1.2) (2023.11.17)
+Requirement already satisfied: zipp>=0.5 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (3.17.0)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (0.5.1)
+Requirement already satisfied: oauthlib>=3.0.0 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<3,>=2.3->OpenNMT-py==2.1.2) (3.2.2)
+Building wheels for collected packages: future
+  Building wheel for future (setup.py) ... done
+  Created wheel for future: filename=future-0.18.3-py3-none-any.whl size=492024 sha256=bd1761dd8a91fdca3b13fabbc0e3348ffad7d66eb1c67b30197d3e7970c5759d
+  Stored in directory: /home/yekyaw.thu/.cache/pip/wheels/a0/0b/ee/e6994fadb42c1354dcccb139b0bf2795271bddfe6253ccdf11
+Successfully built future
+Installing collected packages: sentencepiece, waitress, pyyaml, future, torch, flask, torchtext, OpenNMT-py
+  Attempting uninstall: waitress
+    Found existing installation: waitress 2.1.2
+    Uninstalling waitress-2.1.2:
+      Successfully uninstalled waitress-2.1.2
+  Attempting uninstall: pyyaml
+    Found existing installation: PyYAML 6.0.1
+    Uninstalling PyYAML-6.0.1:
+      Successfully uninstalled PyYAML-6.0.1
+  Attempting uninstall: torch
+    Found existing installation: torch 1.9.0+cu111
+    Uninstalling torch-1.9.0+cu111:
+      Successfully uninstalled torch-1.9.0+cu111
+  Attempting uninstall: flask
+    Found existing installation: Flask 3.0.0
+    Uninstalling Flask-3.0.0:
+      Successfully uninstalled Flask-3.0.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 0.9.0 requires torch==1.9.0, but you have torch 1.6.0 which is incompatible.
+torchvision 0.10.0+cu111 requires torch==1.9.0, but you have torch 1.6.0 which is incompatible.
+Successfully installed OpenNMT-py-2.1.2 flask-1.1.2 future-0.18.3 pyyaml-5.4 sentencepiece-0.1.99 torch-1.6.0 torchtext-0.5.0 waitress-1.4.4
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
-```
+Check the installed version:  
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ python -m onmt.bin.main --version
+/home/yekyaw.thu/.conda/envs/opennmt/bin/python: No module named onmt.bin.main
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
-```
+Check OpenNMT commands:  
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ onmt_
+onmt_average_models  onmt_release_model   onmt_train
+onmt_build_vocab     onmt_server          onmt_translate
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+called --help for onmt_build_vocab command:  
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ onmt_build_vocab --help
+usage: onmt_build_vocab [-h] [-config CONFIG] [-save_config SAVE_CONFIG] -data DATA
+                        [-skip_empty_level {silent,warning,error}]
+                        [-transforms {sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} [{sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} ...]]
+                        -save_data SAVE_DATA [-overwrite] [-n_sample N_SAMPLE]
+                        [-dump_samples] [-num_threads NUM_THREADS]
+                        [-vocab_sample_queue_size VOCAB_SAMPLE_QUEUE_SIZE] -src_vocab
+                        SRC_VOCAB [-tgt_vocab TGT_VOCAB] [-share_vocab]
+                        [-src_subword_model SRC_SUBWORD_MODEL]
+                        [-tgt_subword_model TGT_SUBWORD_MODEL]
+                        [-src_subword_nbest SRC_SUBWORD_NBEST]
+                        [-tgt_subword_nbest TGT_SUBWORD_NBEST]
+                        [-src_subword_alpha SRC_SUBWORD_ALPHA]
+                        [-tgt_subword_alpha TGT_SUBWORD_ALPHA]
+                        [-src_subword_vocab SRC_SUBWORD_VOCAB]
+                        [-tgt_subword_vocab TGT_SUBWORD_VOCAB]
+                        [-src_vocab_threshold SRC_VOCAB_THRESHOLD]
+                        [-tgt_vocab_threshold TGT_VOCAB_THRESHOLD]
+                        [-src_subword_type {none,sentencepiece,bpe}]
+                        [-tgt_subword_type {none,sentencepiece,bpe}]
+                        [-src_onmttok_kwargs SRC_ONMTTOK_KWARGS]
+                        [-tgt_onmttok_kwargs TGT_ONMTTOK_KWARGS]
+                        [--src_seq_length SRC_SEQ_LENGTH]
+                        [--tgt_seq_length TGT_SEQ_LENGTH]
+                        [--permute_sent_ratio PERMUTE_SENT_RATIO]
+                        [--rotate_ratio ROTATE_RATIO] [--insert_ratio INSERT_RATIO]
+                        [--random_ratio RANDOM_RATIO] [--mask_ratio MASK_RATIO]
+                        [--mask_length {subword,word,span-poisson}]
+                        [--poisson_lambda POISSON_LAMBDA] [--replace_length {-1,0,1}]
+                        [-switchout_temperature SWITCHOUT_TEMPERATURE]
+                        [-tokendrop_temperature TOKENDROP_TEMPERATURE]
+                        [-tokenmask_temperature TOKENMASK_TEMPERATURE] [--seed SEED]
+
+build_vocab.py
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+Configuration:
+  -config CONFIG, --config CONFIG
+                        Path of the main YAML config file. (default: None)
+  -save_config SAVE_CONFIG, --save_config SAVE_CONFIG
+                        Path where to save the config. (default: None)
+
+Data:
+  -data DATA, --data DATA
+                        List of datasets and their specifications. See examples/*.yaml
+                        for further details. (default: None)
+  -skip_empty_level {silent,warning,error}, --skip_empty_level {silent,warning,error}
+                        Security level when encounter empty examples.silent: silently
+                        ignore/skip empty example;warning: warning when ignore/skip
+                        empty example;error: raise error & stop excution when encouter
+                        empty.) (default: warning)
+  -transforms {sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} [{sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} ...], --transforms {sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} [{sentencepiece,bpe,onmt_tokenize,filtertoolong,prefix,bart,switchout,tokendrop,tokenmask} ...]
+                        Default transform pipeline to apply to data. Can be specified in
+                        each corpus of data to override. (default: [])
+  -save_data SAVE_DATA, --save_data SAVE_DATA
+                        Output base path for objects that will be saved (vocab,
+                        transforms, embeddings, ...). (default: None)
+  -overwrite, --overwrite
+                        Overwrite existing objects if any. (default: False)
+  -n_sample N_SAMPLE, --n_sample N_SAMPLE
+                        Build vocab using this number of transformed samples/corpus. Can
+                        be [-1, 0, N>0]. Set to -1 to go full corpus, 0 to skip.
+                        (default: 5000)
+  -dump_samples, --dump_samples
+                        Dump samples when building vocab. Warning: this may slow down
+                        the process. (default: False)
+  -num_threads NUM_THREADS, --num_threads NUM_THREADS
+                        Number of parallel threads to build the vocab. (default: 1)
+  -vocab_sample_queue_size VOCAB_SAMPLE_QUEUE_SIZE, --vocab_sample_queue_size VOCAB_SAMPLE_QUEUE_SIZE
+                        Size of queues used in the build_vocab dump path. (default: 20)
+
+Vocab:
+  -src_vocab SRC_VOCAB, --src_vocab SRC_VOCAB
+                        Path to save src (or shared) vocabulary file. Format: one <word>
+                        or <word> <count> per line. (default: None)
+  -tgt_vocab TGT_VOCAB, --tgt_vocab TGT_VOCAB
+                        Path to save tgt vocabulary file. Format: one <word> or <word>
+                        <count> per line. (default: None)
+  -share_vocab, --share_vocab
+                        Share source and target vocabulary. (default: False)
+
+Transform/Subword/Common:
+  .. Attention:: Common options shared by all subword transforms. Including options
+  for indicate subword model path, `Subword Regularization
+  <https://arxiv.org/abs/1804.10959>`_/`BPE-Dropout
+  <https://arxiv.org/abs/1910.13267>`_, and `Vocabulary Restriction
+  <https://github.com/rsennrich/subword-nmt#best-practice-advice-for-byte-pair-
+  encoding-in-nmt>`__.
+
+Transform/Subword/Common:
+  .. Attention:: Common options shared by all subword transforms. Including options
+  for indicate subword model path, `Subword Regularization
+  <https://arxiv.org/abs/1804.10959>`_/`BPE-Dropout
+  <https://arxiv.org/abs/1910.13267>`_, and `Vocabulary Restriction
+  <https://github.com/rsennrich/subword-nmt#best-practice-advice-for-byte-pair-
+  encoding-in-nmt>`__.
+
+Transform/Subword/Common:
+  .. Attention:: Common options shared by all subword transforms. Including options
+  for indicate subword model path, `Subword Regularization
+  <https://arxiv.org/abs/1804.10959>`_/`BPE-Dropout
+  <https://arxiv.org/abs/1910.13267>`_, and `Vocabulary Restriction
+  <https://github.com/rsennrich/subword-nmt#best-practice-advice-for-byte-pair-
+  encoding-in-nmt>`__.
+
+  -src_subword_model SRC_SUBWORD_MODEL, --src_subword_model SRC_SUBWORD_MODEL
+                        Path of subword model for src (or shared). (default: None)
+  -tgt_subword_model TGT_SUBWORD_MODEL, --tgt_subword_model TGT_SUBWORD_MODEL
+                        Path of subword model for tgt. (default: None)
+  -src_subword_nbest SRC_SUBWORD_NBEST, --src_subword_nbest SRC_SUBWORD_NBEST
+                        Number of candidates in subword regularization. Valid for
+                        unigram sampling, invalid for BPE-dropout. (source side)
+                        (default: 1)
+  -tgt_subword_nbest TGT_SUBWORD_NBEST, --tgt_subword_nbest TGT_SUBWORD_NBEST
+                        Number of candidates in subword regularization. Valid for
+                        unigram sampling, invalid for BPE-dropout. (target side)
+                        (default: 1)
+  -src_subword_alpha SRC_SUBWORD_ALPHA, --src_subword_alpha SRC_SUBWORD_ALPHA
+                        Smoothing parameter for sentencepiece unigram sampling, and
+                        dropout probability for BPE-dropout. (source side) (default: 0)
+  -tgt_subword_alpha TGT_SUBWORD_ALPHA, --tgt_subword_alpha TGT_SUBWORD_ALPHA
+                        Smoothing parameter for sentencepiece unigram sampling, and
+                        dropout probability for BPE-dropout. (target side) (default: 0)
+  -src_subword_vocab SRC_SUBWORD_VOCAB, --src_subword_vocab SRC_SUBWORD_VOCAB
+                        Path to the vocabulary file for src subword. Format: <word>
+                        <count> per line. (default: )
+  -tgt_subword_vocab TGT_SUBWORD_VOCAB, --tgt_subword_vocab TGT_SUBWORD_VOCAB
+                        Path to the vocabulary file for tgt subword. Format: <word>
+                        <count> per line. (default: )
+  -src_vocab_threshold SRC_VOCAB_THRESHOLD, --src_vocab_threshold SRC_VOCAB_THRESHOLD
+                        Only produce src subword in src_subword_vocab with frequency >=
+                        src_vocab_threshold. (default: 0)
+  -tgt_vocab_threshold TGT_VOCAB_THRESHOLD, --tgt_vocab_threshold TGT_VOCAB_THRESHOLD
+                        Only produce tgt subword in tgt_subword_vocab with frequency >=
+                        tgt_vocab_threshold. (default: 0)
+
+Transform/Subword/ONMTTOK:
+  -src_subword_type {none,sentencepiece,bpe}, --src_subword_type {none,sentencepiece,bpe}
+                        Type of subword model for src (or shared) in pyonmttok.
+                        (default: none)
+  -tgt_subword_type {none,sentencepiece,bpe}, --tgt_subword_type {none,sentencepiece,bpe}
+                        Type of subword model for tgt in pyonmttok. (default: none)
+  -src_onmttok_kwargs SRC_ONMTTOK_KWARGS, --src_onmttok_kwargs SRC_ONMTTOK_KWARGS
+                        Other pyonmttok options for src in dict string, except subword
+                        related options listed earlier. (default: {'mode': 'none'})
+  -tgt_onmttok_kwargs TGT_ONMTTOK_KWARGS, --tgt_onmttok_kwargs TGT_ONMTTOK_KWARGS
+                        Other pyonmttok options for tgt in dict string, except subword
+                        related options listed earlier. (default: {'mode': 'none'})
+
+Transform/Filter:
+  --src_seq_length SRC_SEQ_LENGTH, -src_seq_length SRC_SEQ_LENGTH
+                        Maximum source sequence length. (default: 200)
+  --tgt_seq_length TGT_SEQ_LENGTH, -tgt_seq_length TGT_SEQ_LENGTH
+                        Maximum target sequence length. (default: 200)
+
+Transform/BART:
+  --permute_sent_ratio PERMUTE_SENT_RATIO, -permute_sent_ratio PERMUTE_SENT_RATIO
+                        Permute this proportion of sentences (boundaries defined by
+                        ['.', '?', '!']) in all inputs. (default: 0.0)
+  --rotate_ratio ROTATE_RATIO, -rotate_ratio ROTATE_RATIO
+                        Rotate this proportion of inputs. (default: 0.0)
+  --insert_ratio INSERT_RATIO, -insert_ratio INSERT_RATIO
+                        Insert this percentage of additional random tokens. (default:
+                        0.0)
+  --random_ratio RANDOM_RATIO, -random_ratio RANDOM_RATIO
+                        Instead of using <mask>, use random token this often. (default:
+                        0.0)
+  --mask_ratio MASK_RATIO, -mask_ratio MASK_RATIO
+                        Fraction of words/subwords that will be masked. (default: 0.0)
+  --mask_length {subword,word,span-poisson}, -mask_length {subword,word,span-poisson}
+                        Length of masking window to apply. (default: subword)
+  --poisson_lambda POISSON_LAMBDA, -poisson_lambda POISSON_LAMBDA
+                        Lambda for Poisson distribution to sample span length if
+                        `-mask_length` set to span-poisson. (default: 3.0)
+  --replace_length {-1,0,1}, -replace_length {-1,0,1}
+                        When masking N tokens, replace with 0, 1, or N tokens. (use -1
+                        for N) (default: -1)
+
+Transform/SwitchOut:
+  -switchout_temperature SWITCHOUT_TEMPERATURE, --switchout_temperature SWITCHOUT_TEMPERATURE
+                        Sampling temperature for SwitchOut. :math:`\tau^{-1}` in
+                        :cite:`DBLP:journals/corr/abs-1808-07512`. Smaller value makes
+                        data more diverse. (default: 1.0)
+
+Transform/Token_Drop:
+  -tokendrop_temperature TOKENDROP_TEMPERATURE, --tokendrop_temperature TOKENDROP_TEMPERATURE
+                        Sampling temperature for token deletion. (default: 1.0)
+
+Transform/Token_Mask:
+  -tokenmask_temperature TOKENMASK_TEMPERATURE, --tokenmask_temperature TOKENMASK_TEMPERATURE
+                        Sampling temperature for token masking. (default: 1.0)
+
+Reproducibility:
+  --seed SEED, -seed SEED
+                        Set random seed used for better reproducibility between
+                        experiments. (default: -1)
+
+Args that start with '--' can also be set in a config file (specified via -config). The
+config file uses YAML syntax and must represent a YAML 'mapping' (for details, see
+http://learn.getgrav.org/advanced/yaml). In general, command-line values override config
+file values which override defaults.
+(opennmt) yekyaw.thu@gpu:~$
+```
+
 
 ```
 
