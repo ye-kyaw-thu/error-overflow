@@ -543,17 +543,274 @@ False
 PyTorch က GPU ကို recognition မဖြစ်လို့ False လို့ ပေါ်နေတာ ...  
 Error ဖြစ်နိုင်ချေက အမျိုးမျိုးပဲ CUDA နဲ့ PyTorch ဗားရှင်းက မကိုက်တာ။ Anaconda environment ပြဿနာ ...  
 
-```
+အရင်ဆုံး nvidia-smi command ကို လက်ရှိ environment မှာ run လို့ ရမရ ပြန်စစ်ကြည့်တော့ အောက်ပါအတိုင်း အဆင်ပြေတာကို တွေ့ခဲ့ရတယ်။  
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ nvidia-smi
+Tue Jan  9 13:41:50 2024
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.223.02   Driver Version: 470.223.02   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:0A:00.0 Off |                  N/A |
+| 30%   41C    P0    57W / 300W |      0MiB / 11019MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:42:00.0 Off |                  N/A |
+| 60%   69C    P0    73W / 257W |      0MiB / 11019MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:43:00.0 Off |                  N/A |
+| 18%   64C    P0    71W / 250W |      0MiB / 11016MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+(opennmt) yekyaw.thu@gpu:~$
 ```
 
-```
+အဲဒါကြောင့် cudatoolkit=10.1 နဲ့ အဆင်မပြေဘူးလို့ ယူဆတယ်။   
+
+## Installation of cudatoolkit=11.4
+
+အရင်ဆုံး လက်ရှိ install လုပ်ထားတဲ့ cuda ကို uninstall လုပ်ခဲ့တယ်။  
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ conda uninstall pytorch torchvision torchaudio
+Collecting package metadata (repodata.json): done
+Solving environment: -
+The environment is inconsistent, please check the package plan carefully
+The following packages are causing the inconsistency:
+
+  - defaults/linux-64::libstdcxx-ng==11.2.0=h1234567_1
+  - defaults/linux-64::libgcc-ng==11.2.0=h1234567_1
+  - defaults/linux-64::bzip2==1.0.8=h7b6447c_0
+  - defaults/linux-64::giflib==5.2.1=h5eee18b_3
+  - defaults/linux-64::gmp==6.2.1=h295c915_3
+  - defaults/linux-64::jpeg==9e=h5eee18b_1
+  - defaults/linux-64::lame==3.100=h7b6447c_0
+  - defaults/linux-64::lerc==3.0=h295c915_0
+  - defaults/linux-64::libdeflate==1.17=h5eee18b_1
+  - defaults/linux-64::libffi==3.4.4=h6a678d5_0
+  - defaults/linux-64::libiconv==1.16=h7f8727e_2
+  - pytorch/linux-64::libjpeg-turbo==2.0.0=h9bf148f_0
+  - defaults/linux-64::libtasn1==4.19.0=h5eee18b_0
+  - defaults/linux-64::libunistring==0.9.10=h27cfd23_0
+  - defaults/linux-64::libwebp-base==1.3.2=h5eee18b_0
+  - defaults/linux-64::lz4-c==1.9.4=h6a678d5_0
+  - defaults/linux-64::ncurses==6.4=h6a678d5_0
+  - defaults/linux-64::openh264==2.1.1=h4ff587b_0
+  - defaults/linux-64::openssl==3.0.12=h7f8727e_0
+  - defaults/linux-64::tbb==2021.8.0=hdb19cb5_0
+  - defaults/linux-64::xz==5.4.5=h5eee18b_0
+  - defaults/linux-64::yaml==0.2.5=h7b6447c_0
+  - defaults/linux-64::zlib==1.2.13=h5eee18b_0
+  - defaults/linux-64::intel-openmp==2023.1.0=hdb19cb5_46306
+  - defaults/linux-64::libidn2==2.3.4=h5eee18b_0
+  - defaults/linux-64::libpng==1.6.39=h5eee18b_0
+  - defaults/linux-64::llvm-openmp==14.0.6=h9e868ea_0
+  - defaults/linux-64::mpfr==4.0.2=hb69a4c5_1
+  - defaults/linux-64::nettle==3.7.3=hbbd107a_1
+  - defaults/linux-64::readline==8.2=h5eee18b_0
+  - defaults/linux-64::tk==8.6.12=h1ccaba5_0
+  - defaults/linux-64::zstd==1.5.5=hc292b87_0
+  - defaults/linux-64::freetype==2.12.1=h4a9f257_0
+  - defaults/linux-64::gnutls==3.6.15=he1e5248_0
+  - defaults/linux-64::libtiff==4.5.1=h6a678d5_0
+  - defaults/linux-64::mkl==2023.1.0=h213fc3f_46344
+  - defaults/linux-64::mpc==1.1.0=h10f8cd9_1
+  - defaults/linux-64::sqlite==3.41.2=h5eee18b_0
+  - pytorch/linux-64::ffmpeg==4.3=hf484d3e_0
+  - defaults/linux-64::lcms2==2.12=h3be6417_0
+  - defaults/linux-64::libwebp==1.3.2=h11a3e52_0
+  - defaults/linux-64::openjpeg==2.4.0=h3ad879b_0
+  - defaults/linux-64::python==3.8.18=h955ad1f_0
+  - defaults/linux-64::brotli-python==1.0.9=py38h6a678d5_7
+  - defaults/linux-64::certifi==2023.11.17=py38h06a4308_0
+  - defaults/noarch::charset-normalizer==2.0.4=pyhd3eb1b0_0
+  - defaults/linux-64::filelock==3.13.1=py38h06a4308_0
+  - defaults/linux-64::gmpy2==2.1.2=py38heeb90bb_0
+  - defaults/linux-64::idna==3.4=py38h06a4308_0
+  - defaults/linux-64::markupsafe==2.1.3=py38h5eee18b_0
+  - defaults/linux-64::mkl-service==2.4.0=py38h5eee18b_1
+  - defaults/linux-64::mpmath==1.3.0=py38h06a4308_0
+  - defaults/linux-64::networkx==3.1=py38h06a4308_0
+  - defaults/linux-64::pillow==10.0.1=py38ha6cbd5a_0
+  - defaults/noarch::pycparser==2.21=pyhd3eb1b0_0
+  - defaults/linux-64::pysocks==1.7.1=py38h06a4308_0
+  - defaults/linux-64::pyyaml==6.0.1=py38h5eee18b_0
+  - defaults/linux-64::setuptools==68.2.2=py38h06a4308_0
+  - defaults/linux-64::typing_extensions==4.7.1=py38h06a4308_0
+  - defaults/linux-64::wheel==0.41.2=py38h06a4308_0
+  - defaults/linux-64::cffi==1.16.0=py38h5eee18b_0
+  - defaults/linux-64::jinja2==3.1.2=py38h06a4308_0
+  - defaults/linux-64::numpy-base==1.24.3=py38h060ed82_1
+  - defaults/linux-64::pip==23.3.1=py38h06a4308_0
+  - defaults/linux-64::sympy==1.12=py38h06a4308_0
+  - defaults/linux-64::cryptography==41.0.7=py38hdda0065_0
+  - defaults/linux-64::pyopenssl==23.2.0=py38h06a4308_0
+  - defaults/linux-64::urllib3==1.26.18=py38h06a4308_0
+  - defaults/linux-64::requests==2.31.0=py38h06a4308_0
+  - defaults/linux-64::mkl_fft==1.3.8=py38h5eee18b_0
+  - defaults/linux-64::mkl_random==1.2.4=py38hdb19cb5_0
+  - defaults/linux-64::numpy==1.24.3=py38hf6e8229_1
+done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 23.11.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/yekyaw.thu/.conda/envs/opennmt
+
+  removed specs:
+    - pytorch
+    - torchaudio
+    - torchvision
+
+
+The following packages will be REMOVED:
+
+  pytorch-2.1.2-py3.8_cpu_0
+  torchaudio-2.1.2-py38_cpu
+  torchvision-0.16.2-py38_cpu
+
+
+Proceed ([y]/n)? y
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/exceptions.py", line 1079, in __call__
+        return func(*args, **kwargs)
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/main.py", line 84, in _main
+        exit_code = do_call(args, p)
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/conda_argparse.py", line 82, in do_call
+        return getattr(module, func_name)(args, parser)
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/main_remove.py", line 87, in execute
+        handle_txn(txn, prefix, args, False, True)
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/install.py", line 334, in handle_txn
+        common.confirm_yn()
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/common.py", line 59, in confirm_yn
+        choice = confirm(message=message, choices=('yes', 'no'), default=default)
+      File "/opt/anaconda/anaconda3/lib/python3.7/site-packages/conda/cli/common.py", line 42, in confirm
+        user_choice = sys.stdin.readline().strip().lower()
+      File "/opt/anaconda/anaconda3/lib/python3.7/codecs.py", line 322, in decode
+        (result, consumed) = self._buffer_decode(data, self.errors, final)
+    UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 0-1: invalid continuation byte
+
+`$ /opt/anaconda/anaconda3/bin/conda uninstall pytorch torchvision torchaudio`
+
+  environment variables:
+                 CIO_TEST=<not set>
+        CONDA_DEFAULT_ENV=opennmt
+                CONDA_EXE=/opt/anaconda/anaconda3/bin/conda
+             CONDA_PREFIX=/home/yekyaw.thu/.conda/envs/opennmt
+           CONDA_PREFIX_1=/opt/anaconda/anaconda3
+    CONDA_PROMPT_MODIFIER=(opennmt)
+         CONDA_PYTHON_EXE=/opt/anaconda/anaconda3/bin/python
+               CONDA_ROOT=/opt/anaconda/anaconda3
+              CONDA_SHLVL=2
+                     PATH=/opt/anaconda/anaconda3/bin:/home/yekyaw.thu/.conda/envs/opennmt/bin:/
+                          opt/anaconda/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sb
+                          in:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+       REQUESTS_CA_BUNDLE=<not set>
+            SSL_CERT_FILE=<not set>
+
+     active environment : opennmt
+    active env location : /home/yekyaw.thu/.conda/envs/opennmt
+            shell level : 2
+       user config file : /home/yekyaw.thu/.condarc
+ populated config files :
+          conda version : 4.8.2
+    conda-build version : 3.18.11
+         python version : 3.7.6.final.0
+       virtual packages : __cuda=11.4
+                          __glibc=2.31
+       base environment : /opt/anaconda/anaconda3  (read only)
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /opt/anaconda/anaconda3/pkgs
+                          /home/yekyaw.thu/.conda/pkgs
+       envs directories : /home/yekyaw.thu/.conda/envs
+                          /opt/anaconda/anaconda3/envs
+               platform : linux-64
+             user-agent : conda/4.8.2 requests/2.25.1 CPython/3.7.6 Linux/5.4.0-166-generic ubuntu/20.04.3 glibc/2.31
+                UID:GID : 804601154:804600513
+             netrc file : None
+           offline mode : False
+
+
+An unexpected error has occurred. Conda has prepared the above report.
+
+If submitted, this report will be used by core maintainers to improve
+future releases of conda.
+Would you like conda to send this report to the core maintainers?
+
+[y/N]: N
+
+No report sent. To permanently opt-out, use
+
+    $ conda config --set report_errors false
+
+
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+conda install pytorch torchvision torchaudio cudatoolkit=11.4 -c pytorch  
 
 ```
+(opennmt) yekyaw.thu@gpu:~$ conda install pytorch torchvision torchaudio cudatoolkit=11.4 -c pytorch
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - cudatoolkit=11.4
+
+Current channels:
+
+  - https://conda.anaconda.org/pytorch/linux-64
+  - https://conda.anaconda.org/pytorch/noarch
+  - https://repo.anaconda.com/pkgs/main/linux-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/linux-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+(opennmt) yekyaw.thu@gpu:~$
+```
+
+အထက်ပါအတိုင်း အဆင်မပြေလို့ version ကို ဘာမှ assign မလုပ်ပဲ install လုပ်ကြည့်ခဲ့ ...  
+
 
 ```
 
