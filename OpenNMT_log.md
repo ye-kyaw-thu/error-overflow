@@ -94,7 +94,7 @@ Activate opennmt env:
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
-## OpenNMT Installation 
+## PyTorch Installation 
 
 Check nvcc version:  
 
@@ -319,6 +319,7 @@ Executing transaction: done
 (opennmt) yekyaw.thu@gpu:~$
 ```
 
+## OpenNMT Installation
 
 ```
 
