@@ -2556,11 +2556,113 @@ toy-ende  toy-ende.tar.gz  toy_en_de.yaml
 start training ...  
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ time onmt_train -config toy_en_de.yaml
+[2024-01-09 16:24:31,340 INFO] Missing transforms field for corpus_1 data, set to default: [].
+[2024-01-09 16:24:31,340 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2024-01-09 16:24:31,340 INFO] Missing transforms field for valid data, set to default: [].
+[2024-01-09 16:24:31,340 INFO] Parsed 2 corpora from -data.
+[2024-01-09 16:24:31,340 INFO] Get special vocabs from Transforms: {'src': set(), 'tgt': set()}.
+[2024-01-09 16:24:31,340 INFO] Loading vocab from text file...
+[2024-01-09 16:24:31,340 INFO] Loading src vocabulary from toy-ende/run/example.vocab.src
+[2024-01-09 16:24:31,370 INFO] Loaded src vocab has 24995 tokens.
+[2024-01-09 16:24:31,378 INFO] Loading tgt vocabulary from toy-ende/run/example.vocab.tgt
+[2024-01-09 16:24:31,427 INFO] Loaded tgt vocab has 35816 tokens.
+[2024-01-09 16:24:31,436 INFO] Building fields with vocab in counters...
+[2024-01-09 16:24:31,494 INFO]  * tgt vocab size: 35820.
+[2024-01-09 16:24:31,516 INFO]  * src vocab size: 24997.
+[2024-01-09 16:24:31,518 INFO]  * src vocab size = 24997
+[2024-01-09 16:24:31,518 INFO]  * tgt vocab size = 35820
+[2024-01-09 16:24:31,522 INFO] Building model...
+[2024-01-09 16:24:33,924 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(24997, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(35820, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=35820, bias=True)
+    (1): Cast()
+    (2): LogSoftmax(dim=-1)
+  )
+)
+[2024-01-09 16:24:33,925 INFO] encoder: 16506500
+[2024-01-09 16:24:33,925 INFO] decoder: 41613820
+[2024-01-09 16:24:33,925 INFO] * number of parameters: 58120320
+[2024-01-09 16:24:33,925 INFO] Starting training on GPU: [0]
+[2024-01-09 16:24:33,925 INFO] Start training loop and validate every 500 steps...
+[2024-01-09 16:24:33,925 INFO] corpus_1's transforms: TransformPipe()
+[2024-01-09 16:24:33,926 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:24:38,460 INFO] Step 50/ 1000; acc:   4.10; ppl: 330181.25; xent: 12.71; lr
+: 1.00000; 16410/16179 tok/s;      5 sec
+[2024-01-09 16:24:42,772 INFO] Step 100/ 1000; acc:   4.10; ppl: 24633.68; xent: 10.11; lr: 1.00000; 16245/16274 tok/s;      9 sec
+[2024-01-09 16:24:45,230 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:24:47,245 INFO] Step 150/ 1000; acc:   4.80; ppl: 5983.68; xent: 8.70; lr: 1.00000; 16495/16418 tok/s;     13 sec
+[2024-01-09 16:24:51,542 INFO] Step 200/ 1000; acc:   8.16; ppl: 2750.15; xent: 7.92; lr: 1.00000; 16082/16112 tok/s;     18 sec
+[2024-01-09 16:24:56,020 INFO] Step 250/ 1000; acc:   8.68; ppl: 2255.59; xent: 7.72; lr: 1.00000; 17014/16683 tok/s;     22 sec
+[2024-01-09 16:24:59,252 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:25:00,347 INFO] Step 300/ 1000; acc:   9.51; ppl: 1795.65; xent: 7.49; lr: 1.00000; 15361/15605 tok/s;     26 sec
+[2024-01-09 16:25:04,852 INFO] Step 350/ 1000; acc:   9.71; ppl: 1684.08; xent: 7.43; lr: 1.00000; 16815/16601 tok/s;     31 sec
+[2024-01-09 16:25:09,250 INFO] Step 400/ 1000; acc:  10.33; ppl: 1427.98; xent: 7.26; lr: 1.00000; 16399/16239 tok/s;     35 sec
+[2024-01-09 16:25:13,358 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:25:13,586 INFO] Step 450/ 1000; acc:  10.84; ppl: 1267.25; xent: 7.14; lr: 1.00000; 16229/16315 tok/s;     40 sec
+[2024-01-09 16:25:18,009 INFO] Step 500/ 1000; acc:  11.21; ppl: 1171.08; xent: 7.07; lr: 1.00000; 16724/16488 tok/s;     44 sec
+[2024-01-09 16:25:18,009 INFO] valid's transforms: TransformPipe()
+[2024-01-09 16:25:18,010 INFO] Loading ParallelCorpus(toy-ende/src-val.txt, toy-ende/tgt-val.txt, align=None)...
+[2024-01-09 16:25:21,858 INFO] Validation perplexity: 1605.39
+[2024-01-09 16:25:21,858 INFO] Validation accuracy: 9.05767
+[2024-01-09 16:25:21,996 INFO] Saving checkpoint toy-ende/run/model_step_500.pt
+[2024-01-09 16:25:26,965 INFO] Step 550/ 1000; acc:  12.06; ppl: 1025.17; xent: 6.93; lr: 1.00000; 7738/7737 tok/s;     53 sec
+[2024-01-09 16:25:31,410 INFO] Step 600/ 1000; acc:  12.16; ppl: 964.61; xent: 6.87; lr: 1.00000; 16999/16870 tok/s;     57 sec
+[2024-01-09 16:25:32,022 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:25:35,718 INFO] Step 650/ 1000; acc:  13.01; ppl: 845.17; xent: 6.74; lr: 1.00000; 15701/15788 tok/s;     62 sec
+[2024-01-09 16:25:40,159 INFO] Step 700/ 1000; acc:  13.18; ppl: 813.31; xent: 6.70; lr: 1.00000; 17012/16676 tok/s;     66 sec
+[2024-01-09 16:25:44,535 INFO] Step 750/ 1000; acc:  13.76; ppl: 746.08; xent: 6.61; lr: 1.00000; 16131/16178 tok/s;     71 sec
+[2024-01-09 16:25:46,096 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:25:48,849 INFO] Step 800/ 1000; acc:  14.55; ppl: 672.34; xent: 6.51; lr: 1
+.00000; 16639/16627 tok/s;     75 sec
+[2024-01-09 16:25:53,329 INFO] Step 850/ 1000; acc:  14.74; ppl: 639.98; xent: 6.46; lr: 1.00000; 16642/16360 tok/s;     79 sec
+[2024-01-09 16:25:57,758 INFO] Step 900/ 1000; acc:  14.78; ppl: 602.61; xent: 6.40; lr: 1.00000; 15670/15813 tok/s;     84 sec
+[2024-01-09 16:26:00,186 INFO] Loading ParallelCorpus(toy-ende/src-train.txt, toy-ende/tgt-train.txt, align=None)...
+[2024-01-09 16:26:02,117 INFO] Step 950/ 1000; acc:  15.47; ppl: 549.59; xent: 6.31; lr: 1.00000; 17000/16786 tok/s;     88 sec
+[2024-01-09 16:26:06,424 INFO] Step 1000/ 1000; acc:  15.59; ppl: 518.32; xent: 6.25; lr: 1.00000; 16155/16044 tok/s;     92 sec
+[2024-01-09 16:26:06,425 INFO] Loading ParallelCorpus(toy-ende/src-val.txt, toy-ende/tgt-val.txt, align=None)...
+[2024-01-09 16:26:10,245 INFO] Validation perplexity: 978.876
+[2024-01-09 16:26:10,245 INFO] Validation accuracy: 12.4863
+[2024-01-09 16:26:10,379 INFO] Saving checkpoint toy-ende/run/model_step_1000.pt
 
+real    1m42.295s
+user    1m38.546s
+sys     0m5.142s
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
 ```
 
-During training time, when I check the GPU usage:  
-
+During training time, when I check the GPU usage:   
 
 ```
 (base) yekyaw.thu@gpu:~$ nvidia-smi
@@ -2594,6 +2696,7 @@ Tue Jan  9 16:25:01 2024
 +-----------------------------------------------------------------------------+
 (base) yekyaw.thu@gpu:~$
 ```
+
 
 ```
 
