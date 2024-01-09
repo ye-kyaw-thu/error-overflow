@@ -2310,7 +2310,6 @@ file values which override defaults.
 
 1.6.0 တော့ ဖြစ်သွားတယ်။ run လို့ ရရင် အိုကေတယ်။ No problem!  
 
-```
 
 ## Test Run OpenNMT with Example Parallel Data
 
@@ -2658,5 +2657,5 @@ Aufständen      1
 
 ```
 
-```
+
 
