@@ -2730,96 +2730,153 @@ check the model filesize:
 ## Testing or Translation with Built Model
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ time onmt_translate -model toy-ende/run/model_step_1000.pt -src toy-ende/src-test.txt -output toy-ende/pred_1000.txt -gpu 0 -verbose | tee test.log.txt
 ```
 
-```
+let's see test.log.txt file.  
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ wc ./test.log.txt
+0 0 0 ./test.log.txt
 ```
 
-```
+tee နဲ့ log မှတ်တာ မဝင်တာမို့ အောက်ပါ command နဲ့ run ခဲ့တယ်။  
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ time onmt_translate -model toy-ende/run/model_step_1000.pt -src toy-ende/src-test.txt -output toy-ende/pred_1000.txt -gpu 0 -verbose |& tee test.log.txt
+...
+...
+...
+SENT 2736: ['A', 'travel', 'industry', 'group', 'welcomed', 'the', 'changes', ',', 'calling', 'them', 'common-sense', 'accommodations', 'for', 'a', 'traveling', 'public', 'now', 'bristling', 'with', 'technology', '.']
+PRED 2736: Sie können Sie in einem eigenen Kunden .
+PRED SCORE: -26.6787
 
+[2024-01-09 16:39:25,074 INFO]
+SENT 2737: ['&quot;', 'We', '&apos;re', 'pleased', 'the', 'FAA', 'recognizes', 'that', 'an', 'enjoyable', 'passenger', 'experience', 'is', 'not', 'incompatible', 'with', 'safety', 'and', 'security', ',', '&quot;', 'said', 'Roger', 'Dow', ',', 'CEO', 'of', 'the', 'U.S.', 'Travel', 'Association', '.']
+PRED 2737: Sie können , dass wir in die Mitgliedstaaten und die EU und die EU , die wir in den Mitgliedstaaten , die in den Mitgliedstaaten .
+PRED SCORE: -74.6370
+
+[2024-01-09 16:39:25,074 INFO] PRED AVG SCORE: -2.7373, PRED PPL: 15.4455
+
+real    0m16.388s
+user    0m14.566s
+sys     0m2.415s
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ 
 ```
 
-```
+Log file ကို စစ်ကြည့်ရအောင်။  
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ wc ./test.log.txt
+ 13687 126102 928576 ./test.log.txt
 ```
 
-```
+ဘာသာပြန်ထားတာကို စစ်ကြည့်ရအောင် ...  
 
 ```
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$ head -n 100 ./test.log.txt
+[2024-01-09 16:45:49,610 INFO] Translating shard 0.
+[2024-01-09 16:45:49,777 INFO]
+SENT 1: ['Orlando', 'Bloom', 'and', 'Miranda', 'Kerr', 'still', 'love', 'each', 'other']
+PRED 1: Sie ist in die Nähe .
+PRED SCORE: -18.8703
 
+[2024-01-09 16:45:49,777 INFO]
+SENT 2: ['Actors', 'Orlando', 'Bloom', 'and', 'Model', 'Miranda', 'Kerr', 'want', 'to', 'go', 'their', 'separate', 'ways', '.']
+PRED 2: Sie können , dass Sie in die Nähe des Verfügung .
+PRED SCORE: -31.5313
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 3: ['However', ',', 'in', 'an', 'interview', ',', 'Bloom', 'has', 'said', 'that', 'he', 'and', 'Kerr', 'still', 'love', 'each', 'other', '.']
+PRED 3: Es ist jedoch , dass wir in die Mitgliedstaaten und die EU .
+PRED SCORE: -30.9234
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 4: ['Miranda', 'Kerr', 'and', 'Orlando', 'Bloom', 'are', 'parents', 'to', 'two-year-old', 'Flynn', '.']
+PRED 4: Sie ist in die Nähe .
+PRED SCORE: -19.9957
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 5: ['Actor', 'Orlando', 'Bloom', 'announced', 'his', 'separation', 'from', 'his', 'wife', ',', 'supermodel', 'Miranda', 'Kerr', '.']
+PRED 5: Sie ist in die Nähe des Verfügung .
+PRED SCORE: -24.2305
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 6: ['In', 'an', 'interview', 'with', 'US', 'journalist', 'Katie', 'Couric', ',', 'which', 'is', 'to', 'be', 'broadcast', 'on', 'Friday', '(local', 'time),', 'Bloom', 'said', ',', '&quot;', 'sometimes', 'life', 'doesn', '&apos;t', 'go', 'exactly', 'as', 'we', 'plan', 'or', 'hope', 'for', '&quot;', '.']
+PRED 6: In diesem Grund ist in die EU und die EU , die wir in den Mitgliedstaaten und die EU und die EU und die EU .
+PRED SCORE: -71.9914
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 7: ['He', 'and', 'Kerr', 'still', 'love', 'each', 'other', ',', 'emphasised', 'the', '36-year-old', '.']
+PRED 7: Die Kommission ist in die EU .
+PRED SCORE: -20.3397
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 8: ['&quot;', 'We', '&apos;re', 'going', 'to', 'support', 'one', 'another', 'and', 'love', 'each', 'other', 'as', 'parents', 'to', 'Flynn', '&quot;', '.']
+PRED 8: Sie können , dass wir in den Mitgliedstaaten und die EU .
+PRED SCORE: -34.4519
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 9: ['Kerr', 'and', 'Bloom', 'have', 'been', 'married', 'since', '2010', '.', 'Their', 'son', 'Flynn', 'was', 'born', 'in', '2011', '.']
+PRED 9: Sie ist in die Nähe des Verfügung .
+PRED SCORE: -25.0556
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 10: ['Jet', 'makers', 'feud', 'over', 'seat', 'width', 'with', 'big', 'orders', 'at', 'stake']
+PRED 10: Sie können , dass Sie in die Nähe .
+PRED SCORE: -27.5332
+
+[2024-01-09 16:45:49,777 INFO]
+SENT 11: ['A', 'row', 'has', 'flared', 'up', 'between', 'leading', 'plane', 'makers', 'over', 'the', 'width', 'of', 'tourist-class', 'seats', 'on', 'long-distance', 'flights', ',', 'setting', 'the', 'tone', 'for', 'a', 'bitter', 'confrontation', 'at', 'this', 'month', '&apos;s', 'Dubai', 'Airshow', '.']
+PRED 11: Sie können Sie in einem eigenen Kunden , die sich in den Mitgliedstaaten , die sich in den Mitgliedstaaten .
+PRED SCORE: -62.9946
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 12: ['The', 'dispute', 'focuses', 'on', 'the', 'width', 'of', 'seats', 'provided', 'on', 'long-haul', 'flights', 'for', 'economy', 'passengers', '-', 'not', 'always', 'the', 'ones', 'most', 'courted', 'by', 'airlines', ',', 'but', 'whose', 'allocated', 'space', 'holds', 'the', 'key', 'to', 'efficiency', 'claims', 'for', 'the', 'latest', 'jets', 'offered', 'by', 'Airbus', 'SAS', 'and', 'Boeing', 'Co', '.']
+PRED 12: Die Europäische Union ist in die Mitgliedstaaten , die sich in den Mitgliedstaaten , die in den Mitgliedstaaten , die in den Mitgliedstaaten , die in den Mitgliedstaaten , die in den Mitgliedstaaten , die in den Mitgliedstaaten und die Mitgliedstaaten .
+PRED SCORE: -109.2568
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 13: ['Airbus', 'this', 'week', 'called', 'for', 'an', 'industry', 'standard', 'that', 'would', 'provide', 'for', 'a', 'seat', 'at', 'least', '18', 'inches', '(46', 'cm)', 'wide', 'in', 'economy', 'cabins', ',', 'but', 'its', 'U.S.', 'arch-rival', 'Boeing', 'says', 'it', 'should', 'be', 'for', 'airlines', 'to', 'decide', '.']
+PRED 13: Sie haben die Möglichkeit , dass Sie in einem Ebene in die Mitgliedstaaten und die EU und die EU .
+PRED SCORE: -63.0531
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 14: ['The', 'dispute', 'comes', 'as', 'plane', 'makers', 'vie', 'to', 'sell', 'ever-larger', 'versions', 'of', 'their', 'twin-engined', 'long-distance', 'aircraft', ',', 'with', 'potentially', 'record', 'orders', 'expected', 'at', 'the', 'November', '17-21', 'event', '.']
+PRED 14: Die Europäische Union ist in die Mitgliedstaaten , die sich in den Mitgliedstaaten , die sich in den Mitgliedstaaten und die Mitgliedstaaten .
+PRED SCORE: -58.4439
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 15: ['How', 'the', 'back', 'of', 'the', 'plane', 'is', 'laid', 'out', '-', 'particularly', 'whether', 'seating', 'is', '9', 'or', '10', 'abreast', '-', 'is', 'central', 'to', 'the', 'economic', 'performance', 'claims', 'being', 'made', 'for', 'new', '&quot;', 'mini-jumbo', '&quot;', 'jet', 'designs', '.']
+PRED 15: Wenn Sie in die EU .
+PRED SCORE: -18.1528
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 16: ['Boeing', 'says', 'its', 'revamped', '&quot;', '777X', '&quot;', 'will', 'hold', '406', 'people', 'based', 'on', 'economy', 'seats', 'more', 'than', '17', 'inches', 'wide', 'and', 'set', 'out', '10', 'in', 'each', 'row', '.']
+PRED 16: Sie können , dass Sie in die Nähe des Verfügung .
+PRED SCORE: -32.8629
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 17: ['Airbus', 'says', 'the', 'competing', 'version', 'of', 'its', 'A350', 'will', 'carry', '350', 'people', 'in', '18-inch-wide', 'economy', 'seat', 'laid', 'out', '9', 'abreast', '.']
+PRED 17: Sie können , dass Sie in die Nähe des Verfügung .
+PRED SCORE: -32.4685
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 18: ['Plane', 'giants', 'often', 'trade', 'blows', 'on', 'technical', 'matters', 'through', 'advertising', 'in', 'the', 'trade', 'press', '.']
+PRED 18: Sie können , dass Sie in die Nähe des Verfügung .
+PRED SCORE: -31.7048
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 19: ['Now', ',', 'Airbus', 'is', 'appealing', 'directly', 'to', 'the', 'public', 'ahead', 'of', 'the', 'Dubai', 'Airshow', ',', 'where', 'the', '777X', 'is', 'expected', 'to', 'dominate', 'with', 'more', 'than', '100', 'orders', '.']
+PRED 19: Sie ist eine Möglichkeit , dass wir in die Mitgliedstaaten und die EU , die sich in den Mitgliedstaaten .
+PRED SCORE: -59.3651
+
+[2024-01-09 16:45:49,778 INFO]
+SENT 20: ['It', 'recently', 'previewed', 'what', 'may', 'be', 'the', 'start', 'of', 'a', 'new', 'ad', 'war', 'by', 'showing', 'financiers', 'a', 'slide', 'illustrating', 'three', 'people', 'squashed', 'together', 'at', 'a', 'restaurant', ',', 'titled', '&quot;', 'Would', 'You', 'Accept', 'This', '?', '&quot;']
+PRED 20: Es ist in die EU , dass wir in den Mitgliedstaaten und die EU , die sich in den Mitgliedstaaten und die Mitgliedstaaten .
+PRED SCORE: -61.7216
+(opennmt) yekyaw.thu@gpu:~/exp/opennmt/test-run$
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
+ဒီ log က ခုမှစပြီး Neural Machine Translation ကို လုပ်မယ့်သူတွေအတွက် အထောက်အကူ ဖြစ်ပါလိမ့်မယ်။ Cheers!  
 
