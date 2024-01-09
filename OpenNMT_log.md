@@ -322,8 +322,217 @@ Executing transaction: done
 ## OpenNMT Installation
 
 ```
-
+(opennmt) yekyaw.thu@gpu:~$ pip install OpenNMT-py
+Collecting OpenNMT-py
+  Downloading OpenNMT_py-3.4.3-py3-none-any.whl.metadata (7.4 kB)
+Requirement already satisfied: torch<2.2,>=2.0.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from OpenNMT-py) (2.1.2)
+Collecting configargparse (from OpenNMT-py)
+  Downloading ConfigArgParse-1.7-py3-none-any.whl.metadata (23 kB)
+Collecting ctranslate2<4,>=3.17 (from OpenNMT-py)
+  Downloading ctranslate2-3.23.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: tensorboard>=2.3 in ./.local/lib/python3.8/site-packages (from OpenNMT-py) (2.11.2)
+Collecting flask (from OpenNMT-py)
+  Downloading flask-3.0.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting waitress (from OpenNMT-py)
+  Downloading waitress-2.1.2-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 99.9 kB/s eta 0:00:00
+Collecting pyonmttok<2,>=1.35 (from OpenNMT-py)
+  Downloading pyonmttok-1.37.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.0/17.0 MB 71.7 kB/s eta 0:00:00
+Requirement already satisfied: pyyaml in ./.conda/envs/opennmt/lib/python3.8/site-packages (from OpenNMT-py) (6.0.1)
+Collecting sacrebleu (from OpenNMT-py)
+  Downloading sacrebleu-2.4.0-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 89.9 kB/s eta 0:00:00
+Collecting rapidfuzz (from OpenNMT-py)
+  Downloading rapidfuzz-3.6.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting pyahocorasick (from OpenNMT-py)
+  Downloading pyahocorasick-2.0.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (104 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.5/104.5 kB 61.3 kB/s eta 0:00:00
+Collecting fasttext-wheel (from OpenNMT-py)
+  Downloading fasttext_wheel-0.9.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 73.4 kB/s eta 0:00:00
+Collecting spacy (from OpenNMT-py)
+  Downloading spacy-3.7.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+Collecting six (from OpenNMT-py)
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Requirement already satisfied: setuptools in ./.conda/envs/opennmt/lib/python3.8/site-packages (from ctranslate2<4,>=3.17->OpenNMT-py) (68.2.2)
+Requirement already satisfied: numpy in ./.local/lib/python3.8/site-packages (from ctranslate2<4,>=3.17->OpenNMT-py) (1.24.1)
+Requirement already satisfied: absl-py>=0.4 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (1.4.0)
+Requirement already satisfied: grpcio>=1.24.3 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (1.51.1)
+Requirement already satisfied: google-auth<3,>=1.6.3 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (2.16.0)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (0.4.6)
+Requirement already satisfied: markdown>=2.6.8 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (3.4.1)
+Requirement already satisfied: protobuf<4,>=3.9.2 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (3.19.6)
+Requirement already satisfied: requests<3,>=2.21.0 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (2.31.0)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (0.6.1)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (1.8.1)
+Requirement already satisfied: werkzeug>=1.0.1 in ./.local/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (2.2.2)
+Requirement already satisfied: wheel>=0.26 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from tensorboard>=2.3->OpenNMT-py) (0.41.2)
+Requirement already satisfied: filelock in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch<2.2,>=2.0.1->OpenNMT-py) (3.13.1)
+Requirement already satisfied: typing-extensions in ./.local/lib/python3.8/site-packages (from torch<2.2,>=2.0.1->OpenNMT-py) (4.4.0)
+Requirement already satisfied: sympy in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch<2.2,>=2.0.1->OpenNMT-py) (1.12)
+Requirement already satisfied: networkx in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch<2.2,>=2.0.1->OpenNMT-py) (3.1)
+Requirement already satisfied: jinja2 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from torch<2.2,>=2.0.1->OpenNMT-py) (3.1.2)
+Collecting fsspec (from torch<2.2,>=2.0.1->OpenNMT-py)
+  Downloading fsspec-2023.12.2-py3-none-any.whl.metadata (6.8 kB)
+Collecting pybind11>=2.2 (from fasttext-wheel->OpenNMT-py)
+  Downloading pybind11-2.11.1-py3-none-any.whl.metadata (9.5 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard>=2.3->OpenNMT-py)
+  Downloading werkzeug-3.0.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting itsdangerous>=2.1.2 (from flask->OpenNMT-py)
+  Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+Collecting click>=8.1.3 (from flask->OpenNMT-py)
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting blinker>=1.6.2 (from flask->OpenNMT-py)
+  Downloading blinker-1.7.0-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: importlib-metadata>=3.6.0 in ./.local/lib/python3.8/site-packages (from flask->OpenNMT-py) (6.0.0)
+Collecting portalocker (from sacrebleu->OpenNMT-py)
+  Downloading portalocker-2.8.2-py3-none-any.whl.metadata (8.5 kB)
+Collecting regex (from sacrebleu->OpenNMT-py)
+  Downloading regex-2023.12.25-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.9/40.9 kB 95.2 kB/s eta 0:00:00
+Collecting tabulate>=0.8.9 (from sacrebleu->OpenNMT-py)
+  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting colorama (from sacrebleu->OpenNMT-py)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting lxml (from sacrebleu->OpenNMT-py)
+  Downloading lxml-5.1.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy->OpenNMT-py)
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy->OpenNMT-py)
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy->OpenNMT-py)
+  Downloading murmurhash-1.0.10-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.0 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy->OpenNMT-py)
+  Downloading cymem-2.0.8-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.4 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy->OpenNMT-py)
+  Downloading preshed-3.0.9-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.2 kB)
+Collecting thinc<8.3.0,>=8.1.8 (from spacy->OpenNMT-py)
+  Downloading thinc-8.2.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (15 kB)
+Collecting wasabi<1.2.0,>=0.9.1 (from spacy->OpenNMT-py)
+  Downloading wasabi-1.1.2-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<3.0.0,>=2.4.3 (from spacy->OpenNMT-py)
+  Downloading srsly-2.4.8-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Collecting catalogue<2.1.0,>=2.0.6 (from spacy->OpenNMT-py)
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Collecting weasel<0.4.0,>=0.1.0 (from spacy->OpenNMT-py)
+  Downloading weasel-0.3.4-py3-none-any.whl.metadata (4.7 kB)
+Collecting typer<0.10.0,>=0.3.0 (from spacy->OpenNMT-py)
+  Downloading typer-0.9.0-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 kB 98.0 kB/s eta 0:00:00
+Collecting smart-open<7.0.0,>=5.2.1 (from spacy->OpenNMT-py)
+  Downloading smart_open-6.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting tqdm<5.0.0,>=4.38.0 (from spacy->OpenNMT-py)
+  Using cached tqdm-4.66.1-py3-none-any.whl.metadata (57 kB)
+Collecting pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 (from spacy->OpenNMT-py)
+  Downloading pydantic-2.5.3-py3-none-any.whl.metadata (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 kB 62.8 kB/s eta 0:00:00
+Requirement already satisfied: packaging>=20.0 in ./.local/lib/python3.8/site-packages (from spacy->OpenNMT-py) (23.0)
+Collecting langcodes<4.0.0,>=3.2.0 (from spacy->OpenNMT-py)
+  Downloading langcodes-3.3.0-py3-none-any.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 kB 50.9 kB/s eta 0:00:00
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in ./.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard>=2.3->OpenNMT-py) (5.2.1)
+Collecting pyasn1-modules>=0.2.1 (from google-auth<3,>=1.6.3->tensorboard>=2.3->OpenNMT-py)
+  Downloading pyasn1_modules-0.3.0-py2.py3-none-any.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 52.5 kB/s eta 0:00:00
+Requirement already satisfied: rsa<5,>=3.1.4 in ./.local/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard>=2.3->OpenNMT-py) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in ./.local/lib/python3.8/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard>=2.3->OpenNMT-py) (1.3.1)
+Collecting zipp>=0.5 (from importlib-metadata>=3.6.0->flask->OpenNMT-py)
+  Downloading zipp-3.17.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.local/lib/python3.8/site-packages (from jinja2->torch<2.2,>=2.0.1->OpenNMT-py) (2.1.1)
+Collecting annotated-types>=0.4.0 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->OpenNMT-py)
+  Downloading annotated_types-0.6.0-py3-none-any.whl.metadata (12 kB)
+Collecting pydantic-core==2.14.6 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->OpenNMT-py)
+  Downloading pydantic_core-2.14.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
+Collecting typing-extensions (from torch<2.2,>=2.0.1->OpenNMT-py)
+  Downloading typing_extensions-4.9.0-py3-none-any.whl.metadata (3.0 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard>=2.3->OpenNMT-py) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard>=2.3->OpenNMT-py) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard>=2.3->OpenNMT-py) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard>=2.3->OpenNMT-py) (2023.11.17)
+Collecting blis<0.8.0,>=0.7.8 (from thinc<8.3.0,>=8.1.8->spacy->OpenNMT-py)
+  Downloading blis-0.7.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.4 kB)
+Collecting confection<1.0.0,>=0.0.1 (from thinc<8.3.0,>=8.1.8->spacy->OpenNMT-py)
+  Downloading confection-0.1.4-py3-none-any.whl.metadata (19 kB)
+Collecting cloudpathlib<0.17.0,>=0.7.0 (from weasel<0.4.0,>=0.1.0->spacy->OpenNMT-py)
+  Downloading cloudpathlib-0.16.0-py3-none-any.whl.metadata (14 kB)
+Requirement already satisfied: mpmath>=0.19 in ./.conda/envs/opennmt/lib/python3.8/site-packages (from sympy->torch<2.2,>=2.0.1->OpenNMT-py) (1.3.0)
+Collecting pyasn1<0.6.0,>=0.4.6 (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard>=2.3->OpenNMT-py)
+  Downloading pyasn1-0.5.1-py2.py3-none-any.whl.metadata (8.6 kB)
+Collecting oauthlib>=3.0.0 (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard>=2.3->OpenNMT-py)
+  Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 51.4 kB/s eta 0:00:00
+Downloading OpenNMT_py-3.4.3-py3-none-any.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.3/257.3 kB 65.4 kB/s eta 0:00:00
+Downloading ctranslate2-3.23.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 36.8/36.8 MB 90.7 kB/s eta 0:00:00
+Downloading ConfigArgParse-1.7-py3-none-any.whl (25 kB)
+Downloading flask-3.0.0-py3-none-any.whl (99 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.7/99.7 kB 77.8 kB/s eta 0:00:00
+Downloading rapidfuzz-3.6.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 119.7 kB/s eta 0:00:00
+Downloading sacrebleu-2.4.0-py3-none-any.whl (106 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.3/106.3 kB 90.2 kB/s eta 0:00:00
+Downloading spacy-3.7.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 125.2 kB/s eta 0:00:00
+Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Downloading cymem-2.0.8-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (46 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 253.4 kB/s eta 0:00:00
+Downloading murmurhash-1.0.10-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (29 kB)
+Downloading preshed-3.0.9-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (154 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 154.2/154.2 kB 225.0 kB/s eta 0:00:00
+Downloading pybind11-2.11.1-py3-none-any.whl (227 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.7/227.7 kB 190.7 kB/s eta 0:00:00
+Downloading pydantic-2.5.3-py3-none-any.whl (381 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 381.9/381.9 kB 72.1 kB/s eta 0:00:00
+Downloading pydantic_core-2.14.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 89.0 kB/s eta 0:00:00
+Downloading smart_open-6.4.0-py3-none-any.whl (57 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.0/57.0 kB 152.6 kB/s eta 0:00:00
+Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Downloading srsly-2.4.8-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (494 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.3/494.3 kB 95.6 kB/s eta 0:00:00
+Downloading thinc-8.2.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (934 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 934.3/934.3 kB 297.7 kB/s eta 0:00:00
+Using cached tqdm-4.66.1-py3-none-any.whl (78 kB)
+Downloading typing_extensions-4.9.0-py3-none-any.whl (32 kB)
+Downloading wasabi-1.1.2-py3-none-any.whl (27 kB)
+Downloading weasel-0.3.4-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 kB 180.1 kB/s eta 0:00:00
+Downloading werkzeug-3.0.1-py3-none-any.whl (226 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.7/226.7 kB 134.9 kB/s eta 0:00:00
+Downloading fsspec-2023.12.2-py3-none-any.whl (168 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.0/169.0 kB 70.2 kB/s eta 0:00:00
+Downloading lxml-5.1.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 158.4 kB/s eta 0:00:00
+Downloading portalocker-2.8.2-py3-none-any.whl (17 kB)
+Downloading regex-2023.12.25-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (777 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 777.0/777.0 kB 138.1 kB/s eta 0:00:00
+Downloading annotated_types-0.6.0-py3-none-any.whl (12 kB)
+Downloading blis-0.7.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 150.7 kB/s eta 0:00:00
+Downloading cloudpathlib-0.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.0/45.0 kB 86.5 kB/s eta 0:00:00
+Downloading confection-0.1.4-py3-none-any.whl (35 kB)
+Downloading zipp-3.17.0-py3-none-any.whl (7.4 kB)
+Downloading pyasn1-0.5.1-py2.py3-none-any.whl (84 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.9/84.9 kB 91.7 kB/s eta 0:00:00
+Installing collected packages: cymem, zipp, werkzeug, wasabi, waitress, typing-extensions, tqdm, tabulate, spacy-loggers, spacy-legacy, smart-open, six, regex, rapidfuzz, pyonmttok, pybind11, pyasn1, pyahocorasick, portalocker, oauthlib, murmurhash, lxml, langcodes, itsdangerous, fsspec, ctranslate2, configargparse, colorama, click, catalogue, blis, blinker, typer, srsly, sacrebleu, pydantic-core, pyasn1-modules, preshed, fasttext-wheel, cloudpathlib, annotated-types, pydantic, flask, confection, weasel, thinc, spacy, OpenNMT-py
+  Attempting uninstall: werkzeug
+    Found existing installation: Werkzeug 2.2.2
+    Uninstalling Werkzeug-2.2.2:
+      Successfully uninstalled Werkzeug-2.2.2
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.4.0
+    Uninstalling typing_extensions-4.4.0:
+      Successfully uninstalled typing_extensions-4.4.0
+Successfully installed OpenNMT-py-3.4.3 annotated-types-0.6.0 blinker-1.7.0 blis-0.7.11 catalogue-2.0.10 click-8.1.7 cloudpathlib-0.16.0 colorama-0.4.6 confection-0.1.4 configargparse-1.7 ctranslate2-3.23.0 cymem-2.0.8 fasttext-wheel-0.9.2 flask-3.0.0 fsspec-2023.12.2 itsdangerous-2.1.2 langcodes-3.3.0 lxml-5.1.0 murmurhash-1.0.10 oauthlib-3.2.2 portalocker-2.8.2 preshed-3.0.9 pyahocorasick-2.0.0 pyasn1-0.5.1 pyasn1-modules-0.3.0 pybind11-2.11.1 pydantic-2.5.3 pydantic-core-2.14.6 pyonmttok-1.37.1 rapidfuzz-3.6.1 regex-2023.12.25 sacrebleu-2.4.0 six-1.16.0 smart-open-6.4.0 spacy-3.7.2 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.4.8 tabulate-0.9.0 thinc-8.2.2 tqdm-4.66.1 typer-0.9.0 typing-extensions-4.7.1 waitress-2.1.2 wasabi-1.1.2 weasel-0.3.4 werkzeug-3.0.1 zipp-3.17.0
+(opennmt) yekyaw.thu@gpu:~$
 ```
+
+## Verify the Installation
 
 ```
 
