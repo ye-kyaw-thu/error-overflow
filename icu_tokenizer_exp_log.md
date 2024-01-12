@@ -1,5 +1,7 @@
 # ICU based Word Tokenizations
 
+Actually, I tested ICU original C++ library around 2012 at the NICT. This is revisiting ICU based word tokenization with Python library.   
+
 ## Library Installation
 
 ```
