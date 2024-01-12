@@ -505,7 +505,6 @@ Confirmation as follows:
 
 Yes, working well. If we filled with name dictionary, the performance will better.  
 
-## LSTM based Approach
 
 
 
