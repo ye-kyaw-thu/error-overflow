@@ -218,3 +218,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 211. [testing_pytesseract_for_my.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/testing_pytesseract_for_my.md)  
 212. [translation_with_ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/translation_with_ChatGPT4.md)
 213. [OpenNMT_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/OpenNMT_log.md)  
+214. [icu_tokenizer_exp_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/icu_tokenizer_exp_log.md)   
