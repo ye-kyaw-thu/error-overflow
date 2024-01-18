@@ -1,5 +1,9 @@
 # Updating sylbreak tool
 
+လက်ရှိ sylbreak tool ရဲ့ output မှာက heading delimiter ပါနေတာ ပြီးတော့ input ဖိုင်မှာက space ပါလာရင် "delimiter+space+delimiter" ကို ရှင်းပေးရတဲ့ အပိုင်းတွေရှိတယ်။  
+ကိုယ်တိုင်ကတော့ အဲဒါတွေကို space delimiter or separator သုံးလိုက်ပြီး syllable segmentation လုပ်ပြီးထွက်လာတဲ့ output ကို space cleaning လုပ်တဲ့ perl or shell script နဲ့ ရှင်းလိုက်တာ။  
+သို့သော် user တွေအတွက်က ခက်နိုင်တယ်။ ပြီးတော့ လက်ရှိ Python code ကို ပိုပြီးဖတ်ရတာအဆင်ပြေအောင် ပြောင်းရေးချင်တယ်။  
+
 Input: 
 ဆရာမ နေကောင်း လား ။
 
