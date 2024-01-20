@@ -1,4 +1,4 @@
-# Language Detection for Languages of Myanmar Experiment Log
+# Language Detection for Languages of Myanmar (Experiment Log)
 
 ## Data Info
 
