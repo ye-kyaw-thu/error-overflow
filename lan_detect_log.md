@@ -2080,7 +2080,7 @@ Language detection completed for all files.
 
 ## To Do
 
--- Add Kachin, Rawang, Kayar-Li, Mizo Chin data and make experiment again
--- Testing with some mixed test file (e.g. 30% bamar, 10% Rakhine, 60% Shan)  
+-- Add Kachin, Rawang, Kayar-Li, Mizo Chin data and make experiment again  
+-- Testing with some mixed test file (e.g. 30% bamar, 10% Rakhine, 60% Shan)    
 
 
