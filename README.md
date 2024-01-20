@@ -219,5 +219,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 212. [translation_with_ChatGPT4.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/translation_with_ChatGPT4.md)
 213. [OpenNMT_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/OpenNMT_log.md)  
 214. [icu_tokenizer_exp_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/icu_tokenizer_exp_log.md)  
-215. [sylbreak_tool_updating_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sylbreak_tool_updating_log.md)
+215. [sylbreak_tool_updating_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sylbreak_tool_updating_log.md)  
+216. [lan_detect_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lan_detect_log.md)  
      
