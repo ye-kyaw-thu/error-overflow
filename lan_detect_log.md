@@ -3577,6 +3577,18 @@ sys     0m14.185s
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
+ထွက်လာတဲ့ မော်ဒယ်တွေရဲ့ filesize ကို လေ့လာခဲ့...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ ls *gram.model.bin -lh
+-rw-rw-r-- 1 ye ye 770M ม.ค.  22 19:44 3gram.model.bin
+-rw-rw-r-- 1 ye ye 770M ม.ค.  22 19:44 4gram.model.bin
+-rw-rw-r-- 1 ye ye 770M ม.ค.  22 19:44 5gram.model.bin
+-rw-rw-r-- 1 ye ye 770M ม.ค.  22 19:44 6gram.model.bin
+-rw-rw-r-- 1 ye ye 770M ม.ค.  22 19:45 7gram.model.bin
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
 ### Convert Test File Data Format
 
 test ဖိုင်တွေကိုလည်း FastText label format ပြောင်းဖို့လိုအပ်တယ်။   
