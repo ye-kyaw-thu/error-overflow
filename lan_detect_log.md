@@ -2112,10 +2112,79 @@ Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl
 Created syllable language profile for shan
 All language profiles have been created.
 
-real    0m3.473s
-user    0m2.764s
-sys     0m0.320s
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict$
+real    0m3.114s
+user    0m2.776s
+sys     0m0.337s
+```
+
+Check the dictionary json file:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict/profile$ jq . ./bamar_profile.json | head
+{
+  "နေ ": 0.010775065583404521,
+  "က ": 0.019714401691536862,
+  "မီး ": 0.0012071587391022495,
+  "ကျီး ": 1.8175539359130483e-05,
+  "ခဲ ": 0.00042561054665963877,
+  "လို ": 0.00487710306136668,
+  "ရဲ ": 0.000395317981061088,
+  "တောက် ": 0.00016660911079202943,
+  "ပြီး ": 0.00696426083110683,
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict/profile$ jq . ./shan_profile.json | head
+{
+  "ယွင်ႈ ၵုင်ႇ ၵူၼ်း ႁတ်း ႁၢၼ် ႁႃႉ ဢၼ် ၸႅတ်ႈ ": 1.3365231686291281e-05,
+  "တူၺ်း ": 0.0039694738108285105,
+  "သူ ႁေႃႈ ၵႃး ၼႆႉ ": 1.3365231686291281e-05,
+  "တွပ်ႇ ": 0.0012563317785113804,
+  "ယဝ်ႉ ": 0.011039681372876598,
+  "ယဝ်ႉ ႁႃႉ ": 0.0012162360834525067,
+  "လွင်ႈ ၶူင် ": 1.3365231686291281e-05,
+  "သၢင်ႈ ": 0.0002806698654121169,
+  "မႂ်း ဢမ်ႇ ႁိုင် ": 1.3365231686291281e-05,
+```
+
+Recheck the character level profile:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict/profile$ jq . ./bamar_profile.json | head
+{
+  "န": 0.023469469401902053,
+  "ေ": 0.03631757237178158,
+  " ": 0.2367811218853845,
+  "က": 0.03867437884023886,
+  "မ": 0.0258740566611921,
+  "ီ": 0.010828037313005514,
+  "း": 0.04465342430897031,
+  "ျ": 0.01338279277205567,
+  "ခ": 0.011615661936494779,
+```
+
+OK. Let's test it or make detection with syllable units ...  
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
+```
+
+```
+
+```
+
+
+```
+
 ```
 
 
