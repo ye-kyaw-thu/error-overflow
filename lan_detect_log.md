@@ -2631,9 +2631,21 @@ Predicted language: shan
 
 Warning message တော့ မပေးတော့ဘူး ...  
 
-```
+## Updating the Code
+
+လက်ရှိမှာက စာကြောင်း တစ်ကြောင်းချင်းစီ parse လုပ်ပြီးပဲ prediction or testing လုပ်ဖြစ်နေလို့ ဖိုင်နဲ့လည်း testing လုပ်လို့ ရအောင် code ကို update လုပ်ခဲ့တယ်။  
+အောက်ပါအတိုင်း လက်ရှိမှာတော့ စာကြောင်း တစ်ကြောင်းစီနဲ့လည်း predict လုပ်လို့ ရသလို ဖိုင်ကို input ပေးပြီးလည်း input လုပ်လို့ ရသွားပြီ။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/mon.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/bamar_burmese.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input "မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ််ႈ မႃး  ႁႃႉ ။"
+Predicted language: shan
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
 
 ```
 
