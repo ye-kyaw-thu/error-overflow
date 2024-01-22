@@ -3718,6 +3718,989 @@ dawei.fasttext          pao.fasttext      sgaw_kayin.fasttext
 Testing or Language Detection အတွက်လည်း bash script ကို update လုပ်ရလိမ့်မယ်။ 
 
 
+```bash
+#!/bin/bash
+
+# Define directories
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/fasttext"
+INPUT_DIR="$BASE_DIR/eg_input"
+PYTHON_SCRIPT="$BASE_DIR/fasttext_lang_detect.py"
+
+# Loop through each model file
+for model in "$BASE_DIR"/*gram.model.bin; do
+    echo "Processing with model: $(basename "$model")"
+
+    # Loop through each .fasttext file in the input directory
+    for file in "$INPUT_DIR"/*.fasttext; do
+        echo "Testing file: $(basename "$file") with model: $(basename "$model")"
+        time python "$PYTHON_SCRIPT" --mode test --model "$model" --input "$file"
+        
+        # Get a random sentence from the current .fasttext file
+        random_sentence=$(shuf -n 1 "$file")
+        echo "Predicting random sentence from $(basename "$file"): $random_sentence"
+        python "$PYTHON_SCRIPT" --mode predict --model "$model" --input "$random_sentence"
+        
+        echo ""
+    done
+    echo ""
+done
+
+echo "All processing completed."
+
+```
+
+### Testing or Language Detection with FastText Lib Approach
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test4exp.sh | tee test1.log
+Processing with model: 3gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 3gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m1.955s
+user    0m0.746s
+sys     0m2.358s
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.377s
+user    0m0.785s
+sys     0m2.144s
+Predicting random sentence from beik.fasttext: __label__beik    ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.361s
+user    0m0.661s
+sys     0m2.198s
+Predicting random sentence from dawei.fasttext: __label__dawei  အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.363s
+user    0m0.763s
+sys     0m2.153s
+Predicting random sentence from mon.fasttext: __label__mon      ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 3gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.363s
+user    0m0.686s
+sys     0m2.206s
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.359s
+user    0m0.748s
+sys     0m2.163s
+Predicting random sentence from pao.fasttext: __label__pao      နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.360s
+user    0m0.756s
+sys     0m2.153s
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.363s
+user    0m0.759s
+sys     0m2.150s
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.370s
+user    0m0.768s
+sys     0m2.153s
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.200
+Recall at 1: 0.200
+
+real    0m0.359s
+user    0m0.762s
+sys     0m2.124s
+Predicting random sentence from shan.fasttext: __label__shan    ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Predicted language: mon
+
+
+Processing with model: 4gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 4gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.437s
+user    0m0.738s
+sys     0m2.187s
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.366s
+user    0m0.673s
+sys     0m2.245s
+Predicting random sentence from beik.fasttext: __label__beik    ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.357s
+user    0m0.727s
+sys     0m2.182s
+Predicting random sentence from dawei.fasttext: __label__dawei  အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.363s
+user    0m0.762s
+sys     0m2.153s
+Predicting random sentence from mon.fasttext: __label__mon      အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 4gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.409s
+user    0m0.655s
+sys     0m2.213s
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.373s
+user    0m0.714s
+sys     0m2.179s
+Predicting random sentence from pao.fasttext: __label__pao      နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.369s
+user    0m0.789s
+sys     0m2.133s
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.369s
+user    0m0.695s
+sys     0m2.227s
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.371s
+user    0m0.745s
+sys     0m2.175s
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဘၣ် တဲ ပှၤ အ ဂ့ၢ် န့ၣ် သး ဟ့ လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+
+real    0m0.373s
+user    0m0.715s
+sys     0m2.209s
+Predicting random sentence from shan.fasttext: __label__shan    မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+
+
+Processing with model: 5gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 5gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.402s
+user    0m0.659s
+sys     0m2.296s
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  က လေး က အိမ် မှာ ပါ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.409s
+user    0m0.740s
+sys     0m2.214s
+Predicting random sentence from beik.fasttext: __label__beik    နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.390s
+user    0m0.852s
+sys     0m2.088s
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.394s
+user    0m0.721s
+sys     0m2.211s
+Predicting random sentence from mon.fasttext: __label__mon      ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 5gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.390s
+user    0m0.817s
+sys     0m2.126s
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.390s
+user    0m0.821s
+sys     0m2.121s
+Predicting random sentence from pao.fasttext: __label__pao      တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.391s
+user    0m0.738s
+sys     0m2.206s
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.388s
+user    0m0.679s
+sys     0m2.259s
+Predicting random sentence from rakhine.fasttext: __label__rakhine      မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.392s
+user    0m0.785s
+sys     0m2.160s
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+
+real    0m0.392s
+user    0m0.754s
+sys     0m2.180s
+Predicting random sentence from shan.fasttext: __label__shan    မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+
+
+Processing with model: 6gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 6gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.396s
+user    0m0.774s
+sys     0m2.152s
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.397s
+user    0m0.713s
+sys     0m2.236s
+Predicting random sentence from beik.fasttext: __label__beik    သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.389s
+user    0m0.829s
+sys     0m2.094s
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.399s
+user    0m0.804s
+sys     0m2.141s
+Predicting random sentence from mon.fasttext: __label__mon      လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 6gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.392s
+user    0m0.687s
+sys     0m2.257s
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.386s
+user    0m0.750s
+sys     0m2.163s
+Predicting random sentence from pao.fasttext: __label__pao      ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.389s
+user    0m0.748s
+sys     0m2.157s
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.387s
+user    0m0.709s
+sys     0m2.116s
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.395s
+user    0m0.714s
+sys     0m2.233s
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.200
+Recall at 1: 0.200
+
+real    0m0.390s
+user    0m0.706s
+sys     0m2.237s
+Predicting random sentence from shan.fasttext: __label__shan    တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Predicted language: mon
+
+
+Processing with model: 7gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 7gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.402s
+user    0m0.815s
+sys     0m2.137s
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.407s
+user    0m0.771s
+sys     0m2.184s
+Predicting random sentence from beik.fasttext: __label__beik    သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.389s
+user    0m0.626s
+sys     0m2.302s
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.384s
+user    0m0.792s
+sys     0m2.145s
+Predicting random sentence from mon.fasttext: __label__mon      ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 7gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+
+real    0m0.387s
+user    0m0.737s
+sys     0m2.202s
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.388s
+user    0m0.777s
+sys     0m2.161s
+Predicting random sentence from pao.fasttext: __label__pao      တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.386s
+user    0m0.747s
+sys     0m2.188s
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.386s
+user    0m0.717s
+sys     0m2.220s
+Predicting random sentence from rakhine.fasttext: __label__rakhine      မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+
+real    0m0.387s
+user    0m0.746s
+sys     0m2.191s
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+
+real    0m0.398s
+user    0m0.792s
+sys     0m2.125s
+Predicting random sentence from shan.fasttext: __label__shan    မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+Predicted language: mon
+
+
+All processing completed.
+
+real    0m40.096s
+user    1m13.572s
+sys     3m39.210s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+Let's Check the log file also:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ cat test1.log
+Processing with model: 3gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 3gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from beik.fasttext: __label__beik    ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from dawei.fasttext: __label__dawei  အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from mon.fasttext: __label__mon      ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 3gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from pao.fasttext: __label__pao      နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 3gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.200
+Recall at 1: 0.200
+Predicting random sentence from shan.fasttext: __label__shan    ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Predicted language: mon
+
+
+Processing with model: 4gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 4gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from beik.fasttext: __label__beik    ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from dawei.fasttext: __label__dawei  အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from mon.fasttext: __label__mon      အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 4gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from pao.fasttext: __label__pao      နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဘၣ် တဲ ပှၤ အ ဂ့ၢ် န့ၣ် သး ဟ့ လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 4gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+Predicting random sentence from shan.fasttext: __label__shan    မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+
+
+Processing with model: 5gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 5gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  က လေး က အိမ် မှာ ပါ
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from beik.fasttext: __label__beik    နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from mon.fasttext: __label__mon      ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 5gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from pao.fasttext: __label__pao      တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from rakhine.fasttext: __label__rakhine      မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 5gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+Predicting random sentence from shan.fasttext: __label__shan    မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+
+
+Processing with model: 6gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 6gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from beik.fasttext: __label__beik    သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from mon.fasttext: __label__mon      လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 6gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from pao.fasttext: __label__pao      ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from rakhine.fasttext: __label__rakhine      ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 6gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.200
+Recall at 1: 0.200
+Predicting random sentence from shan.fasttext: __label__shan    တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Predicted language: mon
+
+
+Processing with model: 7gram.model.bin
+Testing file: bamar_burmese.fasttext with model: 7gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from bamar_burmese.fasttext: __label__bamar_burmese  ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Predicted language: bamar
+
+Testing file: beik.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from beik.fasttext: __label__beik    သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Predicted language: beik
+
+Testing file: dawei.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from dawei.fasttext: __label__dawei  ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+
+Testing file: mon.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from mon.fasttext: __label__mon      ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+Predicted language: mon
+
+Testing file: mon_tst.fasttext with model: 7gram.model.bin
+Number of test examples: 0
+Precision at 1: nan
+Recall at 1: nan
+Predicting random sentence from mon_tst.fasttext: __label__mon_tst      လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+Testing file: pao.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from pao.fasttext: __label__pao      တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Predicted language: pao
+
+Testing file: po_kayin.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from po_kayin.fasttext: __label__po_kayin    ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Predicted language: po_kayin
+
+Testing file: rakhine.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from rakhine.fasttext: __label__rakhine      မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+Predicted language: rakhine
+
+Testing file: sgaw_kayin.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 1.000
+Recall at 1: 1.000
+Predicting random sentence from sgaw_kayin.fasttext: __label__sgaw_kayin        ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Predicted language: sgaw_kayin
+
+Testing file: shan.fasttext with model: 7gram.model.bin
+Number of test examples: 10
+Precision at 1: 0.100
+Recall at 1: 0.100
+Predicting random sentence from shan.fasttext: __label__shan    မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+Predicted language: mon
+
+
+All processing completed.
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -3730,4 +4713,29 @@ Testing or Language Detection အတွက်လည်း bash script ကို 
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
