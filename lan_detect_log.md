@@ -4689,30 +4689,351 @@ All processing completed.
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
+### Testing with Mixed Languages Data
 
+အထက်မှာ မြင်ရတဲ့အတိုင်း တချို့ language တွေအတွက် ဖိုင်အလိုက် detect လုပ်ကြည့်တော့ nan ဆိုတဲ့ Precision, Recall တွေ ရခဲ့တာကို တွေ့ရတယ်။  
+Fasttext ကို training လုပ်ထားတုန်းက ဘာသာစကားတွေ ရောထားတာတွေနဲ့ လုပ်ခဲ့တာ။  
+အဲဒါကြောင့် test ဖိုင်မှာလည်း ရောထားတာနဲ့ စမ်းကြည့်ချင်တယ်။  
+
+အောက်ပါအတိုင်း language အားလုံးကို ဖိုင်တစ်ဖိုင်အဖြစ် ရောခဲ့တယ်။  
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ cat *.fasttext > all_test.fasttext
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ wc *.fasttext
+   92  1033 10738 all_test.fasttext
+   10    85  1028 bamar_burmese.fasttext
+   10   113  1068 beik.fasttext
+   10   110  1162 dawei.fasttext
+   10   110  1098 mon.fasttext
+    2    13   171 mon_tst.fasttext
+   10   115  1360 pao.fasttext
+   10   143  1260 po_kayin.fasttext
+   10   113  1104 rakhine.fasttext
+   10   136  1224 sgaw_kayin.fasttext
+   10    95  1263 shan.fasttext
+  184  2066 21476 total
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$
+```
+
+Testing မလုပ်ခင်မှာ shuffle လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ shuf ./all_test.fasttext > ./all_test.fasttext.shuf
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ head all_test.fasttext.shuf
+__label__po_kayin       ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+__label__beik   မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+__label__rakhine        မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+__label__sgaw_kayin     ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+__label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
+__label__rakhine        ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+__label__dawei  အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+__label__mon    အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+__label__rakhine        ငါ အ လုပ် မ ပြီး သိ ပါ ။
+__label__po_kayin       ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ 
+```
+
+Shell script အသစ် တစ်ပုဒ်ကို ပြင်ဆင်ခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+# Define directories
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/fasttext"
+PYTHON_SCRIPT="$BASE_DIR/fasttext_lang_detect.py"
+
+# Define the test file
+TEST_FILE="$BASE_DIR/all_test.fasttext.shuf"
+
+# Loop through each model file
+for model in "$BASE_DIR"/*gram.model.bin; do
+    echo "Processing with model: $(basename "$model")"
+
+    # Test the model with the specific test file
+    echo "Testing with file: $(basename "$TEST_FILE") and model: $(basename "$model")"
+    time python "$PYTHON_SCRIPT" --mode test --model "$model" --input "$TEST_FILE"
+
+    # Get a random sentence from the test file
+    random_sentence=$(shuf -n 1 "$TEST_FILE")
+    echo "Predicting random sentence: $random_sentence"
+    python "$PYTHON_SCRIPT" --mode predict --model "$model" --input "$random_sentence"
+
+    echo ""
+done
+
+echo "All processing completed."
 
 ```
 
+Testing or Prediction with mixed test-data and the result is as follows: 
+
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test_mixed4exp.sh | tee test_mixed1.log
+Processing with model: 3gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 3gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.375s
+user    0m0.779s
+sys     0m2.149s
+Predicting random sentence: __label__pao        က ထိန်ꩻ‌ နွောင်ꩻ ဝွေꩻ နဝ်ꩻ အဝ်ႏ ဒျာႏ နာꩻ လွုမ်
+Predicted language: pao
+
+Processing with model: 4gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 4gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.360s
+user    0m0.843s
+sys     0m2.057s
+Predicting random sentence: __label__shan       ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+Predicted language: mon
+
+Processing with model: 5gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 5gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.375s
+user    0m0.778s
+sys     0m2.146s
+Predicting random sentence: __label__sgaw_kayin တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+
+Processing with model: 6gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 6gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.382s
+user    0m0.750s
+sys     0m2.185s
+Predicting random sentence: __label__rakhine    ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Predicted language: rakhine
+
+Processing with model: 7gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 7gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.370s
+user    0m0.734s
+sys     0m2.149s
+Predicting random sentence: __label__po_kayin   ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+
+All processing completed.
+
+real    0m3.737s
+user    0m7.522s
+sys     0m21.675s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+I updated the shell script for random test increasing for each ngram model as follows:  
+
+```bash
+#!/bin/bash
+
+# Define directories
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/fasttext"
+PYTHON_SCRIPT="$BASE_DIR/fasttext_lang_detect.py"
+
+# Define the test file
+TEST_FILE="$BASE_DIR/all_test.fasttext.shuf"
+
+# Number of random sentences to predict
+NUM_RANDOM_SENTENCES=10
+
+# Loop through each model file
+for model in "$BASE_DIR"/*gram.model.bin; do
+    echo "Processing with model: $(basename "$model")"
+
+    # Test the model with the specific test file
+    echo "Testing with file: $(basename "$TEST_FILE") and model: $(basename "$model")"
+    time python "$PYTHON_SCRIPT" --mode test --model "$model" --input "$TEST_FILE"
+
+    # Predict with random sentences from the test file
+    for i in $(seq 1 $NUM_RANDOM_SENTENCES); do
+        random_sentence=$(shuf -n 1 "$TEST_FILE")
+        echo "Predicting random sentence $i: $random_sentence"
+        python "$PYTHON_SCRIPT" --mode predict --model "$model" --input "$random_sentence"
+    done
+
+    echo ""
+done
+
+echo "All processing completed."
 
 ```
 
-```
+test ဖိုင်ကလည်း မြန်မာနိုင်ငံမှာ သုံးတဲ့ ဘာသာစကားတွေကို mixed လုပ်ထားတဲ့ ဖိုင်နဲ့ ပြီးတော့ စာကြောင်း တစ်ကြောင်းစီနဲ့ random testing ကိုလည်း ngram မော်ဒယ် တစ်ခုစီအတွက် ၁၀ခါစီ ထားပြီး experiment လုပ်ခဲ့တယ်။   
+ရလဒ်က အောက်ပါအတိုင်းပါ ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test_mixed_10random4exp.sh | tee test_mixed2_with_10_random.log
+Processing with model: 3gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 3gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
 
-```
+real    0m0.367s
+user    0m0.686s
+sys     0m2.229s
+Predicting random sentence 1: __label__bamar_burmese    က လေး က အိမ် မှာ ပါ
+Predicted language: bamar
+Predicting random sentence 2: __label__mon      ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Predicted language: mon
+Predicting random sentence 3: __label__mon      ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+Predicted language: mon
+Predicting random sentence 4: __label__rakhine  ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Predicted language: rakhine
+Predicting random sentence 5: __label__shan     ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+Predicted language: mon
+Predicting random sentence 6: __label__dawei    ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 7: __label__pao      နဝ်ꩻ နဝ်ꩻ ခွေ ယမ်း မာႏ ဗာႏ ဟောင်း
+Predicted language: pao
+Predicting random sentence 8: __label__pao      ဒေါ့ꩻ ဝင်ꩻ မဉ်ꩻ နဝ်ꩻ လွ ထီႏ ငါႏ
+Predicted language: pao
+Predicting random sentence 9: __label__beik     သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Predicted language: beik
+Predicting random sentence 10: __label__sgaw_kayin      ဘၣ် တဲ ပှၤ အ ဂ့ၢ် န့ၣ် သး ဟ့ လီၤ .
+Predicted language: sgaw_kayin
 
-```
+Processing with model: 4gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 4gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
 
-```
+real    0m0.355s
+user    0m0.742s
+sys     0m2.163s
+Predicting random sentence 1: __label__sgaw_kayin       ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 2: __label__beik     ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+Predicted language: beik
+Predicting random sentence 3: __label__shan     မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+Predicting random sentence 4: __label__po_kayin ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+Predicted language: po_kayin
+Predicting random sentence 5: __label__dawei    ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 6: __label__shan     တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Predicted language: mon
+Predicting random sentence 7: __label__pao      တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Predicted language: pao
+Predicting random sentence 8: __label__pao      ဒေါ့ꩻ ဝင်ꩻ မဉ်ꩻ နဝ်ꩻ လွ ထီႏ ငါႏ
+Predicted language: pao
+Predicting random sentence 9: __label__beik     နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Predicted language: beik
+Predicting random sentence 10: __label__po_kayin        နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
 
-```
+Processing with model: 5gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 5gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
 
-```
+real    0m0.375s
+user    0m0.785s
+sys     0m2.142s
+Predicting random sentence 1: __label__sgaw_kayin       ဒ် ယ ဆိ က မိၣ် အ သိး ဆိ က မိၣ် တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 2: __label__shan     တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+Predicted language: mon
+Predicting random sentence 3: __label__rakhine  မင်း တောင် တိ ကို တက် နီ ကျ လား ။
+Predicted language: rakhine
+Predicting random sentence 4: __label__dawei    နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Predicted language: dawei
+Predicting random sentence 5: __label__dawei    နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Predicted language: dawei
+Predicting random sentence 6: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 7: __label__rakhine  ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 8: __label__sgaw_kayin       ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 9: __label__po_kayin ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 10: __label__pao     ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Predicted language: pao
 
-```
+Processing with model: 6gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 6gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
 
+real    0m0.387s
+user    0m0.786s
+sys     0m2.154s
+Predicting random sentence 1: __label__rakhine  ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 2: __label__dawei    ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Predicted language: dawei
+Predicting random sentence 3: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+Predicting random sentence 4: __label__shan     ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Predicted language: dawei
+Predicting random sentence 5: __label__beik     အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Predicted language: beik
+Predicting random sentence 6: __label__beik     အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Predicted language: beik
+Predicting random sentence 7: __label__mon      အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Predicted language: mon
+Predicting random sentence 8: __label__po_kayin ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Predicted language: po_kayin
+Predicting random sentence 9: __label__dawei    အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Predicted language: dawei
+Predicting random sentence 10: __label__beik    အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Predicted language: beik
+
+Processing with model: 7gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 7gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.390s
+user    0m0.700s
+sys     0m2.227s
+Predicting random sentence 1: __label__pao      က ထိန်ꩻ‌ နွောင်ꩻ ဝွေꩻ နဝ်ꩻ အဝ်ႏ ဒျာႏ နာꩻ လွုမ်
+Predicted language: pao
+Predicting random sentence 2: __label__beik     ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Predicted language: beik
+Predicting random sentence 3: __label__beik     အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+Predicted language: beik
+Predicting random sentence 4: __label__bamar_burmese    ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Predicted language: bamar
+Predicting random sentence 5: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 6: __label__rakhine  ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 7: __label__beik     မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+Predicted language: beik
+Predicting random sentence 8: __label__rakhine  ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Predicted language: rakhine
+Predicting random sentence 9: __label__mon      ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+Predicted language: mon
+Predicting random sentence 10: __label__mon_tst လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+
+All processing completed.
+
+real    0m20.826s
+user    0m40.215s
+sys     2m0.335s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
