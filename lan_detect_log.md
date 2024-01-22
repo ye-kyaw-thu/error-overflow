@@ -3592,19 +3592,128 @@ sys     0m14.185s
 ### Convert Test File Data Format
 
 test ဖိုင်တွေကိုလည်း FastText label format ပြောင်းဖို့လိုအပ်တယ်။   
+shell script တစ်ပုဒ် ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။  
 
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ cat ./fasttext_format_converter_for_test_data.sh
+#!/bin/bash
+
+# Define the input directory
+INPUT_DIR="./eg_input"
+
+# Loop through each .txt file in the input directory
+for file in "$INPUT_DIR"/*.txt; do
+    # Extract the label from the filename (e.g., shan from shan.txt)
+    label=$(basename "$file" .txt)
+
+    # Define the output file with .fasttext extension
+    output_file="${INPUT_DIR}/${label}.fasttext"
+
+    # Process each line in the file
+    while IFS= read -r line; do
+        # Output the line in the format: __label__<label_name>\t<sentence>
+        echo -e "__label__$label\t$line" >> "$output_file"
+    done < "$file"
+done
+
+echo "Processing completed. Files saved in .fasttext format."
 ```
 
-```
+Convert လုပ်ပြီး ထွက်လာတဲ့ ဖိုင်တွေကို စစ်ကြည့်ခဲ့တယ်။  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ wc *.txt
+  10   75  798 bamar_burmese.txt
+  10  103  928 beik.txt
+  10  100 1012 dawei.txt
+   2   11  137 mon_tst.txt
+  10  100  968 mon.txt
+  10  105 1230 pao.txt
+  10  133 1080 po_kayin.txt
+  10  103  934 rakhine.txt
+  10  126 1024 sgaw_kayin.txt
+  10   85 1123 shan.txt
+  92  941 9234 total
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ wc *.fasttext
+   10    85  1028 bamar_burmese.fasttext
+   10   113  1068 beik.fasttext
+   10   110  1162 dawei.fasttext
+   10   110  1098 mon.fasttext
+    2    13   171 mon_tst.fasttext
+   10   115  1360 pao.fasttext
+   10   143  1260 po_kayin.fasttext
+   10   113  1104 rakhine.fasttext
+   10   136  1224 sgaw_kayin.fasttext
+   10    95  1263 shan.fasttext
+   92  1033 10738 total
 ```
 
-```
+ဖိုင် content ကိုလည်း confirm လုပ်ခဲ့တယ်။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$ head -n 3 *.fasttext
+==> bamar_burmese.fasttext <==
+__label__bamar_burmese  နေ ကောင်း လား
+__label__bamar_burmese  ကျန်း မာ တယ် ဒါ ပေ မဲ့ အ လုပ် များ တယ်
+__label__bamar_burmese  မင်္ဂ လာ ပါ ဆ ရာ မ
 
+==> beik.fasttext <==
+__label__beik   ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+__label__beik   သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+__label__beik   ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+
+==> dawei.fasttext <==
+__label__dawei  ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+__label__dawei  အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+__label__dawei  ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+
+==> mon.fasttext <==
+__label__mon    ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+__label__mon    ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+__label__mon    အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+
+==> mon_tst.fasttext <==
+__label__mon_tst        လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+__label__mon_tst        က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+
+==> pao.fasttext <==
+__label__pao    နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+__label__pao    ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+__label__pao    နဝ်ꩻ နဝ်ꩻ နီ အ တာႏ ယပ် ခုဲင်ႏ ငါႏ
+
+==> po_kayin.fasttext <==
+__label__po_kayin       ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+__label__po_kayin       အ ဝ့ၫ ထီး န့ၦၡၩ ဘၪ နး ဂၩ လၧၩ့ အ့ၬ .
+__label__po_kayin       ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+
+==> rakhine.fasttext <==
+__label__rakhine        သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+__label__rakhine        ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+__label__rakhine        ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+
+==> sgaw_kayin.fasttext <==
+__label__sgaw_kayin     တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+__label__sgaw_kayin     ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+__label__sgaw_kayin     တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+
+==> shan.fasttext <==
+__label__shan   မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+__label__shan   တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+__label__shan   တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing/eg_input$
+```
+
+အထက်ပါ ဖိုင်တွေကို experiment လုပ်မယ့် folder ဆီကိုရွှေ့ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ mkdir eg_input
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ cp ./preprocessing/eg_input/*.fasttext ./eg_input/
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ ls ./eg_input/
+bamar_burmese.fasttext  mon.fasttext      po_kayin.fasttext    shan.fasttext
+beik.fasttext           mon_tst.fasttext  rakhine.fasttext
+dawei.fasttext          pao.fasttext      sgaw_kayin.fasttext
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
 
 Testing or Language Detection အတွက်လည်း bash script ကို update လုပ်ရလိမ့်မယ်။ 
 
