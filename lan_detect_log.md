@@ -3226,25 +3226,252 @@ Detected language: shan
 ခုဆိုရင် Neural Network based approach code မှာလည်း file input ရော string input ရော စမ်းလို့ ရသွားပြီ။   
 ရလဒ်ကိုလည်း ပို confirm လုပ်လို့ ရတယ်။  
 
-```
+## Updating to Support Both Input filename and String for the Character Frequency Dictionary Based Approach
+
+စာတမ်း ဘာညာ ရေးချင်ရင်လည်း ရေးလို့ ရနိုင်အောင်လို့ experiment အားလုံးကို ညီတူညီမျှ လုပ်နိုင်အောင်၊ char_freq_lang_detect.py ကိုလည်း update လုပ်ခဲ့တယ်။  
+
+```python
+
+    elif args.mode == 'detect':
+        if not args.input or not args.profiles:
+            print("For detection, both --input and --profiles arguments are required.")
+        else:
+            profiles = load_profiles(args.profiles)
+
+            text = ''
+            if os.path.isfile(args.input):
+                with open(args.input, 'r', encoding='utf-8') as file:
+                    text = file.read()
+            else:
+                text = args.input
+
+            detected_language = detect_language(text, profiles)
+            print(f"Detected language: {detected_language}")
 
 ```
 
-```
+Experiment လုပ်ဖို့အတွက် shell script ကိုလည်း ပြင်ဆင်ခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+# Define the base directory, the Python script, and the input directory
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/freq_dict"
+PYTHON_SCRIPT="$BASE_DIR/char_freq_lang_detect.py"
+INPUT_DIR="$BASE_DIR/eg_input"
+PROFILE_DIR="$BASE_DIR/profile"
+
+# Loop through each file in the eg_input directory
+for file in "$INPUT_DIR"/*; do
+    # Extract the filename
+    filename=$(basename -- "$file")
+
+    # Run the Python script for language detection on the file
+    echo "Processing file $filename..."
+    detected_language_file=$(python3 "$PYTHON_SCRIPT" --mode detect --input "$file" --profiles "$PROFILE_DIR")
+    echo "File: $filename - Detected Language: $detected_language_file"
+
+    # Extract a random sentence from the file
+    random_sentence=$(shuf -n 1 "$file")
+
+    # Run the Python script for language detection on the random sentence
+    echo "Processing random sentence from $filename: $random_sentence"
+    detected_language_sentence=$(python3 "$PYTHON_SCRIPT" --mode detect --input "$random_sentence" --profiles "$PROFILE_DIR")
+    echo "Random sentence from $filename - Detected Language: $detected_language_sentence"
+
+    echo ""
+done
+
+echo "Language detection completed for all files."
 
 ```
 
-```
+Experiment-1 result with Character Frequency Dictionary Based Approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$ time ./detect_languages_exp.sh | tee exp1.log
+Processing file bamar_burmese.txt...
+File: bamar_burmese.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from bamar_burmese.txt: မင်္ဂ လာ ပါ ဆ ရာ မ
+Random sentence from bamar_burmese.txt - Detected Language: Detected language: beik_profile.json
 
+Processing file beik.txt...
+File: beik.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from beik.txt: ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Random sentence from beik.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file dawei.txt...
+File: dawei.txt - Detected Language: Detected language: beik_profile.json
+Processing random sentence from dawei.txt: သူး နို့ ဟှယ် လော့ သတ္တိ ရှိ ဟှယ် ။
+Random sentence from dawei.txt - Detected Language: Detected language: dawei_profile.json
+
+Processing file mon_tst.txt...
+File: mon_tst.txt - Detected Language: Detected language: mon_profile.json
+Processing random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Random sentence from mon_tst.txt - Detected Language: Detected language: mon_profile.json
+
+Processing file mon.txt...
+File: mon.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from mon.txt: သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Random sentence from mon.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Processing file pao.txt...
+File: pao.txt - Detected Language: Detected language: pao_profile.json
+Processing random sentence from pao.txt: ခွေ စ ဥ်ꩻ စာꩻ အ တွိုင်ꩻ စ ဥ်ꩻ စာꩻ ဟုဲင်း
+Random sentence from pao.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file po_kayin.txt...
+File: po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+Processing random sentence from po_kayin.txt: ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Random sentence from po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+
+Processing file rakhine.txt...
+File: rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Random sentence from rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file sgaw_kayin.txt...
+File: sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from sgaw_kayin.txt: လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Random sentence from sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Processing file shan.txt...
+File: shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from shan.txt: ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Random sentence from shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Language detection completed for all files.
+
+real    0m0.362s
+user    0m0.315s
+sys     0m0.051s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$
 ```
 
-```
+Experiment-2 Result with Character Frequency Dictionary Based Approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$ time ./detect_languages_exp.sh | tee exp2.log
+Processing file bamar_burmese.txt...
+File: bamar_burmese.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from bamar_burmese.txt: ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Random sentence from bamar_burmese.txt - Detected Language: Detected language: bamar_profile.json
+
+Processing file beik.txt...
+File: beik.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Random sentence from beik.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file dawei.txt...
+File: dawei.txt - Detected Language: Detected language: beik_profile.json
+Processing random sentence from dawei.txt: အဲ ဝယ် ဟှား ဟှို လက် ထပ် လိုက် ဇာ လား ။
+Random sentence from dawei.txt - Detected Language: Detected language: beik_profile.json
+
+Processing file mon_tst.txt...
+File: mon_tst.txt - Detected Language: Detected language: mon_profile.json
+Processing random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Random sentence from mon_tst.txt - Detected Language: Detected language: mon_profile.json
+
+Processing file mon.txt...
+File: mon.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from mon.txt: ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+Random sentence from mon.txt - Detected Language: Detected language: mon_profile.json
+
+Processing file pao.txt...
+File: pao.txt - Detected Language: Detected language: pao_profile.json
+Processing random sentence from pao.txt: ခွေ စ ဥ်ꩻ စာꩻ အ တွိုင်ꩻ စ ဥ်ꩻ စာꩻ ဟုဲင်း
+Random sentence from pao.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file po_kayin.txt...
+File: po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+Processing random sentence from po_kayin.txt: ဆီၫ့ မီၪ့ ဆၧ ကဲၪ ခိၬ ယ ဆီၫ့ မီၪ့ ဘီၪ .
+Random sentence from po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+
+Processing file rakhine.txt...
+File: rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from rakhine.txt: ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Random sentence from rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file sgaw_kayin.txt...
+File: sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from sgaw_kayin.txt: ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Random sentence from sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Processing file shan.txt...
+File: shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from shan.txt: ႁဝ်း မိူဝ်ႈၽုၵ်ႈ  ၵၢင်ၼႂ် တေဢွၵ်ႇ ပႆ တၢင်း  ဢိူဝ်ႈ ။
+Random sentence from shan.txt - Detected Language: Detected language: shan_profile.json
+
+Language detection completed for all files.
+
+real    0m0.367s
+user    0m0.298s
+sys     0m0.073s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$
+```
+
+Experiment-3 Result with Character Frequency Dictionary Based Approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$ time ./detect_languages_exp.sh | tee exp3.log
+Processing file bamar_burmese.txt...
+File: bamar_burmese.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from bamar_burmese.txt: ကျောင်း သား ကျောင်း သွား ပါ
+Random sentence from bamar_burmese.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file beik.txt...
+File: beik.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from beik.txt: မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+Random sentence from beik.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file dawei.txt...
+File: dawei.txt - Detected Language: Detected language: beik_profile.json
+Processing random sentence from dawei.txt: ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Random sentence from dawei.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file mon_tst.txt...
+File: mon_tst.txt - Detected Language: Detected language: mon_profile.json
+Processing random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Random sentence from mon_tst.txt - Detected Language: Detected language: mon_profile.json
+
+Processing file mon.txt...
+File: mon.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from mon.txt: ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+Random sentence from mon.txt - Detected Language: Detected language: mon_profile.json
+
+Processing file pao.txt...
+File: pao.txt - Detected Language: Detected language: pao_profile.json
+Processing random sentence from pao.txt: ခွေ စ ဥ်ꩻ စာꩻ အ တွိုင်ꩻ စ ဥ်ꩻ စာꩻ ဟုဲင်း
+Random sentence from pao.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file po_kayin.txt...
+File: po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+Processing random sentence from po_kayin.txt: ဆီၫ့ မီၪ့ ဆၧ ကဲၪ ခိၬ ယ ဆီၫ့ မီၪ့ ဘီၪ .
+Random sentence from po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+
+Processing file rakhine.txt...
+File: rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+Processing random sentence from rakhine.txt: ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Random sentence from rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+
+Processing file sgaw_kayin.txt...
+File: sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from sgaw_kayin.txt: ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Random sentence from sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Processing file shan.txt...
+File: shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Processing random sentence from shan.txt: ဢမ်ႇ မူတ်း သႂ်  ႁႃႉ ။
+Random sentence from shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+
+Language detection completed for all files.
+
+real    0m0.325s
+user    0m0.282s
+sys     0m0.047s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$
+```
+
 
 ```
 
