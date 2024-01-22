@@ -2460,6 +2460,135 @@ optional arguments:
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
+Training/Testing ခွဲပြီး experiment လုပ်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ head -n 200000 ./all_languages.fasttext > train.txt
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ tail -n 721 ./all_languages.fasttext > test.txt
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+Training with FastText model ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time python ./fasttext_lang_detect.py --mode train --input ./train.txt --output ./train.model.bin --epoch 25 --lr 1.0 --wordNgrams 3
+Read 2M words
+Number of words:  15381
+Number of labels: 9
+Progress:   4.9% words/sec/thread: 1556984 lr:  0.950655 avg.loss:  0.059528 ETA:   0h 0m Progress:   9.9% words/sec/thread: 1562792 lr:  0.901482 avg.loss:  0.032610 ETA:   0h 0m Progress:  14.8% words/sec/thread: 1564407 lr:  0.852362 avg.loss:  0.023593 ETA:   0h 0m Progress:  19.7% words/sec/thread: 1565109 lr:  0.803305 avg.loss:  0.018418 ETA:   0h 0m Progress:  24.6% words/sec/thread: 1565488 lr:  0.754252 avg.loss:  0.015274 ETA:   0h 0m Progress:  29.4% words/sec/thread: 1563239 lr:  0.705680 avg.loss:  0.013234 ETA:   0h 0m Progress:  34.3% words/sec/thread: 1563254 lr:  0.656738 avg.loss:  0.011585 ETA:   0h 0m Progress:  39.2% words/sec/thread: 1563258 lr:  0.607850 avg.loss:  0.010342 ETA:   0h 0m Progress:  44.1% words/sec/thread: 1563400 lr:  0.558921 avg.loss:  0.009394 ETA:   0h 0m Progress:  49.0% words/sec/thread: 1563438 lr:  0.510034 avg.loss:  0.008639 ETA:   0h 0m Progress:  53.9% words/sec/thread: 1563514 lr:  0.461112 avg.loss:  0.008095 ETA:   0h 0m Progress:  58.8% words/sec/thread: 1563698 lr:  0.412156 avg.loss:  0.007537 ETA:   0h 0m Progress:  63.7% words/sec/thread: 1563641 lr:  0.363284 avg.loss:  0.007074 ETA:   0h 0m Progress:  68.6% words/sec/thread: 1563688 lr:  0.314375 avg.loss:  0.006743 ETA:   0h 0m Progress:  73.4% words/sec/thread: 1563648 lr:  0.265504 avg.loss:  0.006355 ETA:   0h 0m Progress:  78.2% words/sec/thread: 1561739 lr:  0.217579 avg.loss:  0.006029 ETA:   0h 0m Progress:  83.1% words/sec/thread: 1561460 lr:  0.168874 avg.loss:  0.005785 ETA:   0h 0m Progress:  88.0% words/sec/thread: 1561408 lr:  0.120084 avg.loss:  0.005508 ETA:   0h 0m Progress:  92.9% words/sec/thread: 1561391 lr:  0.071268 avg.loss:  0.005261 ETA:   0h 0m Progress:  97.8% words/sec/thread: 1561403 lr:  0.022439 avg.loss:  0.005048 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1521270 lr: -0.000012 avg.loss:  0.004959 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1520959 lr:  0.000000 avg.loss:  0.004959 ETA:   0h 0m 0s
+Model saved to ./train.model.bin
+
+real    0m3.016s
+user    0m48.955s
+sys     0m2.642s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+Testing with 721 lines test data ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time python ./fasttext_
+lang_detect.py --mode test --model ./train.model.bin --input test.txt | tee test.log
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Number of test examples: 721
+Precision at 1: 0.997
+Recall at 1: 0.997
+
+real    0m0.385s
+user    0m0.708s
+sys     0m2.230s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
