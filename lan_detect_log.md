@@ -2719,9 +2719,27 @@ Predicted language: bamar
 
 File input only မဟုတ်ပဲ စာကြောင်း တစ်ကြောင်းတည်းနဲ့လည်း language detection လုပ်ပေးနိုင်အောင် code ကို ပြင်ရေးခဲ့တယ်။  
 
-```
+```python
+
+    elif args.mode == 'detect':
+        if not args.input or not args.profiles:
+            print("For detection, both --input and --profiles arguments are required.")
+        else:
+            profiles = load_profiles(args.profiles)
+            
+            text = ''
+            if os.path.isfile(args.input):
+                with open(args.input, 'r', encoding='utf-8') as file:
+                    text = file.read()
+            else:
+                text = args.input
+
+            detected_language = detect_language(text, profiles)
+            print(f"Detected language: {detected_language}")
 
 ```
+
+
 
 ```
 
