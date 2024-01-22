@@ -3472,10 +3472,14 @@ sys     0m0.047s
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$
 ```
 
+## Rename Experiment Log File of Neural Network Based Approach
+
+နောက်ပိုင်း ပြန်ကြည့်ရင် နားလည်လွယ်အောင်၊ experiment 1 မှန်း သိအောင် ဖိုင်နာမည်ကို အောက်ပါအတိုင်း ပြောင်းထားလိုက်တယ်။  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ mv experiment.log experiment1.log
 ```
+
 
 ```
 
