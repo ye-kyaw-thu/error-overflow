@@ -2163,16 +2163,54 @@ Recheck the character level profile:
   "ခ": 0.011615661936494779,
 ```
 
-OK. Let's test it or make detection with syllable units ...  
+For the comparison, the followings are the detection results for character freq dictionary approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$ time ./detect_languages.sh
+File: bamar_burmese.txt - Detected Language: Detected language: rakhine_profile.json
+File: beik.txt - Detected Language: Detected language: rakhine_profile.json
+File: dawei.txt - Detected Language: Detected language: beik_profile.json
+File: mon_tst.txt - Detected Language: Detected language: mon_profile.json
+File: mon.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+File: pao.txt - Detected Language: Detected language: pao_profile.json
+File: po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+File: rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+File: sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+File: shan.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+Language detection completed for all files.
 
+real    0m0.251s
+user    0m0.153s
+sys     0m0.023s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/freq_dict$
 ```
 
-```
+OK. Let's make detection with syllable units ...   
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict$ time ./detect_languages.sh
+File: bamar_burmese.txt - Detected Language: Detected language: bamar_profile.json
+File: beik.txt - Detected Language: Detected language: beik_profile.json
+File: dawei.txt - Detected Language: Detected language: dawei_profile.json
+File: mon_tst.txt - Detected Language: Detected language: mon_profile.json
+File: mon.txt - Detected Language: Detected language: mon_profile.json
+File: pao.txt - Detected Language: Detected language: pao_profile.json
+File: po_kayin.txt - Detected Language: Detected language: po_kayin_profile.json
+File: rakhine.txt - Detected Language: Detected language: rakhine_profile.json
+File: sgaw_kayin.txt - Detected Language: Detected language: sgaw_kayin_profile.json
+File: shan.txt - Detected Language: Detected language: beik_profile.json
+Language detection with syllable freq dictionary approach completed for all files.
 
+real    0m0.485s
+user    0m0.411s
+sys     0m0.075s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict$
+```
+
+Syllable freq dictionary apprach provide the better results. Happy! :)  
+ဒီတစ်ခါတော့ syllable freq dictionary based approach နဲ့ neural network classification approach နှစ်ခုရဲ့ ရလဒ်တွေကို နှိုင်းယှဉ်ကြည့်ချင်တယ်။  
+
+Neural network result are as follows:  
 
 ```
 
