@@ -2363,6 +2363,40 @@ For Beik language:
 ဒေတာဖိုင်တွေမှာတော့ အမှားမရှိဘူး။ freq, calculated probability တွေရဲ့ တန်ဖိုး နီးစပ်တာတွေကြောင့် ဖြစ်တဲ့ အမှားလို့ပဲ ယူဆတယ်။  
 ခေါင်းစားတယ်ကွာ ...  
 
+ဒီတခါတော့ FastText နဲ့ ကြိုးစားကြည့်မယ်။  
+
+## Format Conversion into FastText
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ python ./fasttext_format_converter.py --input ./all_languages.txt --output ./all_languages.fasttext
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ head ./all_languages.fasttext
+__label__bamar  ၁ ၀ စက္ကန့်
+__label__sgaw_kayin     သ လၣ် လီၤ ဖီ တ ဖၣ် ဧါ
+__label__beik   ကျွန် မ လာ ချင် ရယ် ပဲ့ လာ ဝို မ ရ က ။
+__label__pao    အဝ်ႏ အ ခန်ꩻ ဖဲ ချာ နဝ်ꩻ ဟွိုန် စဲင်း တဝ်း နာꩻ ငဝ်း
+__label__sgaw_kayin     တ သ့ ဖဲ အ သ့ တၢ် ဝဲ န့ၣ် ဆှၢ လီၤ ဒၣ် ချ့ ချ့ တ က့ၢ်
+__label__sgaw_kayin     အ ဝဲ လဲၤ ဝဲ ဖဲ လဲၣ် လဲၣ် န့ၣ် ယ တ သ့ၣ် ညါ ဝဲ တီ တီ ဘၣ်
+__label__rakhine        သူ က က ကောင်း ဟောင် နီ လို့ ငါ အိမ် နီး ချင်း တိ က ရက် ပြတ် က န့် ကွက် နီ ရေ ။
+__label__bamar  ငါ့ ဘ ဝ ရဲ့ အ ကောင်း ဆုံး ည ကို စွန့် ခွာ ရ တော့ မယ် ငါ ငို မိ တော့ မယ်
+__label__sgaw_kayin     နွံ က ထိ တ က ယၤ သၢ ဆံ
+__label__shan   ၶဝ် ဢမ်ႇ ၵူဝ် သူ
+```
+
+input and output ဖိုင်တွေရဲ့ line no. ကို confirmation လုပ်ခဲ့...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ wc all_languages.txt
+  200781  2755734 26058583 all_languages.txt
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ wc all_languages.fasttext
+  200721  2755674 27864739 all_languages.fasttext
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$
+```
+
+
 
 ```
 
