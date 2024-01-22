@@ -2083,4 +2083,39 @@ Language detection completed for all files.
 -- Add Kachin, Rawang, Kayar-Li, Mizo Chin data and make experiment again  
 -- Testing with some mixed test file (e.g. 30% bamar, 10% Rakhine, 60% Shan)    
 
+## Experiment with Syllable Frequency Dictionary
+
+Date: 22 Jan 2024  
+
+I updated the char_freq_lang_detect.py for syllable units.  
+Language profile buildings ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict$ time ./build_dict.sh
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/bamar_profile.json
+Created syllable language profile for bamar
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/beik_profile.json
+Created syllable language profile for beik
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/dawei_profile.json
+Created syllable language profile for dawei
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/mon_profile.json
+Created syllable language profile for mon
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/pao_profile.json
+Created syllable language profile for pao
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/po_kayin_profile.json
+Created syllable language profile for po_kayin
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/rakhine_profile.json
+Created syllable language profile for rakhine
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/sgaw_kayin_profile.json
+Created syllable language profile for sgaw_kayin
+Syllable frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/syl_freq_dict/profile/shan_profile.json
+Created syllable language profile for shan
+All language profiles have been created.
+
+real    0m3.473s
+user    0m2.764s
+sys     0m0.320s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/syl_freq_dict$
+```
+
 
