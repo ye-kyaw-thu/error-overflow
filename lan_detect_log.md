@@ -2738,14 +2738,111 @@ File input only မဟုတ်ပဲ စာကြောင်း တစ်က�
 ## Updating Syllable Frequency Dictionary Based Approach Code  
 
 File input only မဟုတ်ပဲ စာကြောင်း တစ်ကြောင်းတည်းနဲ့လည်း language detection လုပ်ပေးနိုင်အောင် code ကို ပြင်ရေးခဲ့တယ်။  
+ပြီးတော့ ဖိုင်ကနေ ရော string အနေနဲ့ရော testing လုပ်နိုင်ဖို့ shell script ကိုလည်း အောက်ပါအတိုင်း ပြင်ရေးခဲ့တယ်။  
 
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ cat detect_languages_exp.sh
+#!/bin/bash
+
+# Directory containing the language files
+input_dir="./eg_input/"
+
+# Directory of the trained model
+model_dir="model"
+
+# Loop through each .txt file in the input directory
+for file in "$input_dir"*.txt; do
+    echo "Processing file $file..."
+    python neural_lang_detect.py --mode detect --input "$file" --model_folder "$model_dir"
+
+    # Pick a random line from the file
+    random_string=$(shuf -n 1 "$file")
+    echo "Processing random string from $file: $random_string"
+    python neural_lang_detect.py --mode detect --input "$random_string" --model_folder "$model_dir"
+
+    echo ""
+done
 ```
 
-```
+Testing/Experiment ကို updated python code, updated shell script နဲ့ ထပ်လုပ်ခဲ့ပြီး ရလာတဲ့ log output က အောက်ပါအတိုင်း ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ cat ./experiment.log
+Processing file ./eg_input/bamar_burmese.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: bamar
+Processing random string from ./eg_input/bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+1/1 [==============================] - 0s 36ms/step
+Detected language: bamar
 
+Processing file ./eg_input/beik.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: beik
+Processing random string from ./eg_input/beik.txt: ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+1/1 [==============================] - 0s 41ms/step
+Detected language: beik
+
+Processing file ./eg_input/dawei.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: dawei
+Processing random string from ./eg_input/dawei.txt: ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: dawei
+
+Processing file ./eg_input/mon_tst.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing file ./eg_input/mon.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon.txt: ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing file ./eg_input/pao.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+Processing random string from ./eg_input/pao.txt: ဒေါ့ꩻ ဝင်ꩻ မဉ်ꩻ နဝ်ꩻ လွ ထီႏ ငါႏ
+1/1 [==============================] - 0s 42ms/step
+Detected language: pao
+
+Processing file ./eg_input/po_kayin.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: po_kayin
+Processing random string from ./eg_input/po_kayin.txt: ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+1/1 [==============================] - 0s 38ms/step
+Detected language: po_kayin
+
+Processing file ./eg_input/rakhine.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: rakhine
+Processing random string from ./eg_input/rakhine.txt: ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: rakhine
+
+Processing file ./eg_input/sgaw_kayin.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: sgaw_kayin
+Processing random string from ./eg_input/sgaw_kayin.txt: ဒ် ယ ဆိ က မိၣ် အ သိး ဆိ က မိၣ် တ က့ၢ် .
+1/1 [==============================] - 0s 37ms/step
+Detected language: sgaw_kayin
+
+Processing file ./eg_input/shan.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: mon
+Processing random string from ./eg_input/shan.txt: ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+1/1 [==============================] - 0s 35ms/step
+Detected language: shan
+
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
 ```
+
+String က input ဖိုင်ကနေ random ယူထားတာမို့လို့ သေချာအောင် နောက်ထပ် experiment နှစ်ခေါက် ထပ်လုပ်ကြည့်ခဲ့တယ်။  
+ဒုတိယမြောက် expeirment ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
