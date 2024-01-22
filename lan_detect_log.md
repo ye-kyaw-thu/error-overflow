@@ -2606,14 +2606,30 @@ Predicted language: shan
 
 အထက်ပါအတိုင်းပဲ FastText approach မှာလည်း ရှမ်းနဲ့ မွန်ကို input လုပ်တဲ့ စာကြောင်းပေါ် မူတည်ပြီးတော့ မှန်မှန်ကန်ကန် မခွဲခြားပေးနိုင်တာကို ရှာဖွေတွေ့ရှိရတယ်။  
 
+## Updating the FastText Code
 
+predicting လုပ်တဲ့အခါမှာ အထက်မှာ မြင်ရတဲ့အတိုင်း Warning တက်နေတယ်။  
+Stackoverflow မှာ အောက်ပါ လင့်ကိုတွေ့တယ်။  
+https://stackoverflow.com/questions/66353366/cant-suppress-fasttext-warning-load-model-does-not-return  
+
+အရမ်းကြီးကောင်းတဲ့ solution မဟုတ်ပေမဲ့ ...  
+အောက်ပါအတိုင်း update လုပ်ခဲ့ ...   
+
+```python
+import fasttext
+
+fasttext.FastText.eprint = lambda x: None
 ```
 
-```
+After updating the code, predict again ...   
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input "မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ််ႈ မႃး  ႁႃႉ ။"
+Predicted language: shan
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
+
+Warning message တော့ မပေးတော့ဘူး ...  
 
 ```
 
