@@ -2213,6 +2213,156 @@ Syllable freq dictionary apprach provide the better results. Happy! :)
 Neural network result are as follows:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ cat detect2.log
+Processing ./eg_input/bamar_burmese.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: bamar
+
+Processing ./eg_input/beik.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: beik
+
+Processing ./eg_input/dawei.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: dawei
+
+Processing ./eg_input/mon_tst.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing ./eg_input/mon.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: mon
+
+Processing ./eg_input/pao.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+
+Processing ./eg_input/po_kayin.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: po_kayin
+
+Processing ./eg_input/rakhine.txt...
+1/1 [==============================] - 0s 42ms/step
+Detected language: rakhine
+
+Processing ./eg_input/sgaw_kayin.txt...
+1/1 [==============================] - 0s 38ms/step
+Detected language: sgaw_kayin
+
+Processing ./eg_input/shan.txt...
+1/1 [==============================] - 0s 38ms/step
+Detected language: mon
+
+Language detection completed for all files.
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ Syllable-based Freq Dictionary ရော Neural Network Classification ရောက ရှမ်းဘာသာစကားကို detect လုပ်တဲ့အခါမှာ မှားနေတာကို သွားတွေ့ရတယ်။  
+Syllable-based freq က ရှမ်းကို ဘိတ်ဘာသာစကားလို့ detect ဖြစ်တယ်။  
+Neural Network Classification မှာကျတော့ ရှမ်းကို မွန် ဆိုပြီးတော့ detect သွားဖြစ်နေတယ်။  
+
+## Let's Check Training and Testing Data Files of Shan, Mon and Beik
+
+For Shan:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./syl_seg/shan.all.syl
+ယွင်ႈ ၵုင်ႇ ၵူၼ်း ႁတ်း ႁၢၼ် ႁႃႉ
+ဢၼ် ၸႅတ်ႈ တူၺ်း သူ ႁေႃႈ ၵႃး ၼႆႉ တွပ်ႇ ယဝ်ႉ ယဝ်ႉ ႁႃႉ
+လွင်ႈ ၶူင် သၢင်ႈ မႂ်း ဢမ်ႇ ႁိုင် သင် တေ ဢွင်ႇ မၢၼ် ယဝ်ႉ
+ဢၼ် ၼၼ်ႉ ပဵၼ် လွင်ႈ ၵိတ်ႇ ၶွင်ႈ သူ
+တေ ၵိၼ် သေ ဢၼ် ဢၼ် ႁႃႉ
+ဢွမ် မူင်း ၵဝ် ႁႃ ဢမ်ႇ ႁၼ်
+ပဵၼ် ၵူၼ်း ဢၼ် လဵၼ်ႈ ၸိူင်း ၶႅၼ်ႇႄ တႉ ယဝ်ႈ
+ၵုပ်ႉ ၵူႈ သူ ၼႆႉ တႄႇ ၽုၺ်ႇ သႅင်ႇ ၵိၼ် ယမ်ႉ ၼႆႉ မႃး တေႃႇ မိူဝ်ႈ လဵဝ် ဢၼ် ၽႅဝ် မႃး ၼႆႉ ပဵၼ် ႙ ႙ ႙ ၵူႈ ယဝ်ႉ
+ၼင်ႈ ႁွင်ႈ တၢင်း ၼႃႈ ဢဝ် ၼႄႈ
+လႆႈ ႁႅင်း လီ ၵႃႈ ႁိုဝ်
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./eg_input/shan.txt
+မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+ႁဝ်း မိူဝ်ႈၽုၵ်ႈ  ၵၢင်ၼႂ် တေဢွၵ်ႇ ပႆ တၢင်း  ဢိူဝ်ႈ ။
+ဢမ်ႇ မူတ်း သႂ်  ႁႃႉ ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+For Mon language:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./syl_seg/mon.all.syl
+၂ ၀ မိ ဏေတ် ပၠန် တှ်ေ ဘာ ရပ် ဏောၚ် ။
+ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./eg_input/mon.txt
+ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+For Beik language:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./syl_seg/beik.all.syl
+နင် ဘာ စီ စဉ် နေ ရယ် ဆို တာ ငါ့ ဝို ပြော သင့် ပေါ့ လန်း ။
+သူ လို့ စာ အုပ် သုံး ထောင် ကျော် ရောင်း ပီး ဟော ဘီ ။
+ငယ် ငယ် တည်း က မင်း သား လုပ် ဝို့ ဝါ သ နာ ပါ စ ။
+ငယ် ငယ် တည်း က မင်း သား လုပ် ဝို့ ဝါ သ နာ ပါ စ ။
+ဒယ် ကောင် မ ငယ် နင့် ဝို ဂ ရု စိုက် ရယ် လား ။
+ဘ ဇာ လောက် မြ င့် မြတ် ရိ ။
+နင် ဒယ် မှာ အ လုပ် လုပ် ဝယ် ။
+ဒယ် ကောင် မ ငယ် ဟ မင်း ဟက် သ ဘော တူ မှာ မ ဟုတ် ဝ ။
+နင့် ရဲ့ သွား နှစ် ချောင်း ကို နုတ် ပစ် ရ မရ် ။
+သူ့ ဆီ ကို နင် ဖုန်း ဆက် မယ် မ ဟုတ် ဝ လား ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ head ./eg_input/beik.txt
+ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+ဒေတာဖိုင်တွေမှာတော့ အမှားမရှိဘူး။ freq, calculated probability တွေရဲ့ တန်ဖိုး နီးစပ်တာတွေကြောင့် ဖြစ်တဲ့ အမှားလို့ပဲ ယူဆတယ်။  
+ခေါင်းစားတယ်ကွာ ...  
+
 
 ```
 
@@ -2220,9 +2370,13 @@ Neural network result are as follows:
 
 ```
 
+```
+
+```
 
 ```
 
 ```
 
+```
 
