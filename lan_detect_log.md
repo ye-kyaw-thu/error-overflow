@@ -2710,6 +2710,14 @@ Predicted language: bamar
 
 အဲဒီအထဲမှာမှ ငါ မှတ်မိသလောက် လက်တွေ့မှာ သုံးလို့ရနိုင်တာတွေက syllable freq dictionary based approach, neural network based classification နဲ့ FastText library based Classification သုံးမျိုးလားလို့ .... အချိန်ရတဲ့အခါမှာ formal experiment ထပ်လုပ်ချင်တယ်။  
 
+## To Do
+
+- neural network based approach code ကိုလည်း sentence level (ဆိုလိုတာက စာကြောင်းတစ်ကြောင်းတည်းကို command line ကနေ ပေးပြီး) နဲ့ predict/testing လုပ်လို့ ရအောင် code ကို update လုပ်ရန်
+- syllable frequency based approach code ကိုလည်း sentence level input ကို support လုပ်အောင် code ကို update လုပ်ရန်
+
+## Updating Neural Network Based Approach Code  
+
+File input only မဟုတ်ပဲ စာကြောင်း တစ်ကြောင်းတည်းနဲ့လည်း language detection လုပ်ပေးနိုင်အောင် code ကို ပြင်ရေးခဲ့တယ်။  
 
 ```
 
@@ -2726,6 +2734,10 @@ Predicted language: bamar
 ```
 
 ```
+
+## Updating Syllable Frequency Dictionary Based Approach Code  
+
+File input only မဟုတ်ပဲ စာကြောင်း တစ်ကြောင်းတည်းနဲ့လည်း language detection လုပ်ပေးနိုင်အောင် code ကို ပြင်ရေးခဲ့တယ်။  
 
 ```
 
