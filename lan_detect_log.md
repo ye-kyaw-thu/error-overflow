@@ -5036,17 +5036,502 @@ sys     2m0.335s
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
-```
+7gram နဲ့ စမ်းထားတဲ့ string random ရလဒ်တွေက အကုန် မှန်သလားလို့ ... 
+သေချာအောင် နောက်ထပ် တစ်ခေါက် ထပ် experiment လုပ်ကြည့်ခဲ့တယ်။ ရလဒ်က အောက်ပါအတိုင်းပါ။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test_mixed_10random4exp.sh | tee test_mixed3_with_10_random.log
+Processing with model: 3gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 3gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
 
+real    0m0.371s
+user    0m0.762s
+sys     0m2.159s
+Predicting random sentence 1: __label__mon      ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Predicted language: mon
+Predicting random sentence 2: __label__pao      ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Predicted language: pao
+Predicting random sentence 3: __label__dawei    ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 4: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 5: __label__rakhine  သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Predicted language: rakhine
+Predicting random sentence 6: __label__beik     သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Predicted language: beik
+Predicting random sentence 7: __label__bamar_burmese    တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Predicted language: bamar
+Predicting random sentence 8: __label__sgaw_kayin       ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 9: __label__beik     အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Predicted language: beik
+Predicting random sentence 10: __label__mon     ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+Predicted language: mon
+
+Processing with model: 4gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 4gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.353s
+user    0m0.644s
+sys     0m2.222s
+Predicting random sentence 1: __label__mon      ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+Predicted language: mon
+Predicting random sentence 2: __label__shan     တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Predicted language: mon
+Predicting random sentence 3: __label__po_kayin နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 4: __label__dawei    သူး နို့ ဟှယ် လော့ သတ္တိ ရှိ ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 5: __label__mon      သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+Predicting random sentence 6: __label__bamar_burmese    ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Predicted language: bamar
+Predicting random sentence 7: __label__bamar_burmese    ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+Predicting random sentence 8: __label__bamar_burmese    ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Predicted language: bamar
+Predicting random sentence 9: __label__rakhine  ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 10: __label__beik    မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+Predicted language: beik
+
+Processing with model: 5gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 5gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.378s
+user    0m0.663s
+sys     0m2.259s
+Predicting random sentence 1: __label__pao      နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Predicted language: pao
+Predicting random sentence 2: __label__sgaw_kayin       လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 3: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 4: __label__shan     တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Predicted language: mon
+Predicting random sentence 5: __label__shan     ဢမ်ႇ မူတ်း သႂ်  ႁႃႉ ။
+Predicted language: mon
+Predicting random sentence 6: __label__rakhine  သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Predicted language: rakhine
+Predicting random sentence 7: __label__dawei    ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+Predicting random sentence 8: __label__po_kayin ဆီၫ့ မီၪ့ ဆၧ ကဲၪ ခိၬ ယ ဆီၫ့ မီၪ့ ဘီၪ .
+Predicted language: po_kayin
+Predicting random sentence 9: __label__dawei    ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 10: __label__po_kayin        ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+Predicted language: po_kayin
+
+Processing with model: 6gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 6gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.387s
+user    0m0.672s
+sys     0m2.230s
+Predicting random sentence 1: __label__po_kayin ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+Predicted language: po_kayin
+Predicting random sentence 2: __label__beik     အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+Predicted language: beik
+Predicting random sentence 3: __label__mon      သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+Predicting random sentence 4: __label__beik     နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Predicted language: beik
+Predicting random sentence 5: __label__pao      နဝ်ꩻ နဝ်ꩻ နီ အ တာႏ ယပ် ခုဲင်ႏ ငါႏ
+Predicted language: pao
+Predicting random sentence 6: __label__bamar_burmese    ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Predicted language: bamar
+Predicting random sentence 7: __label__pao      ဒေါ့ꩻ ဝင်ꩻ မဉ်ꩻ နဝ်ꩻ လွ ထီႏ ငါႏ
+Predicted language: pao
+Predicting random sentence 8: __label__pao      ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Predicted language: pao
+Predicting random sentence 9: __label__sgaw_kayin       လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 10: __label__beik    ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Predicted language: beik
+
+Processing with model: 7gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 7gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.396s
+user    0m0.669s
+sys     0m2.226s
+Predicting random sentence 1: __label__sgaw_kayin       ဒ် ယ ဆိ က မိၣ် အ သိး ဆိ က မိၣ် တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 2: __label__rakhine  မိုး ချက် ချင်း ရွာ ရေ အ ခါ သူ ရို့ ဇာ တိ လုပ် နီ စွာ ။
+Predicted language: rakhine
+Predicting random sentence 3: __label__dawei    ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 4: __label__mon      ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+Predicted language: mon
+Predicting random sentence 5: __label__rakhine  သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Predicted language: rakhine
+Predicting random sentence 6: __label__pao      ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Predicted language: pao
+Predicting random sentence 7: __label__rakhine  သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Predicted language: rakhine
+Predicting random sentence 8: __label__dawei    ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+Predicting random sentence 9: __label__bamar_burmese    ပြော ပြ ပါ ဦး ဘာ တွေ ဖြစ် နေ တာ လဲ
+Predicted language: bamar
+Predicting random sentence 10: __label__po_kayin        ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+Predicted language: po_kayin
+
+All processing completed.
+
+real    0m20.781s
+user    0m39.862s
+sys     2m0.957s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
-```
+နောက်တစ်ခေါက် ထပ် experiment လုပ်ခဲ့တယ်။ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test_mixed_10random4exp.sh | tee test_mixed4_with_10_random.log
+Processing with model: 3gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 3gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.378s
+user    0m0.747s
+sys     0m2.184s
+Predicting random sentence 1: __label__bamar_burmese    ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Predicted language: bamar
+Predicting random sentence 2: __label__rakhine  ငါ အ လုပ် မ ပြီး သိ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 3: __label__rakhine  ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 4: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Predicted language: sgaw_kayin
+Predicting random sentence 5: __label__dawei    ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Predicted language: dawei
+Predicting random sentence 6: __label__rakhine  မင်း မိန်း စ ရာ မ လို ပါ ။
+Predicted language: rakhine
+Predicting random sentence 7: __label__po_kayin ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 8: __label__bamar_burmese    က လေး က အိမ် မှာ ပါ
+Predicted language: bamar
+Predicting random sentence 9: __label__rakhine  ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 10: __label__po_kayin        ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+Predicted language: po_kayin
+
+Processing with model: 4gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 4gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.356s
+user    0m0.698s
+sys     0m2.210s
+Predicting random sentence 1: __label__rakhine  ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 2: __label__dawei    နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Predicted language: dawei
+Predicting random sentence 3: __label__bamar_burmese    ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Predicted language: bamar
+Predicting random sentence 4: __label__shan     ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Predicted language: mon
+Predicting random sentence 5: __label__rakhine  ဆူ ပြီး ရီ ကို သောက် သင့် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 6: __label__shan     တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Predicted language: mon
+Predicting random sentence 7: __label__mon      ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+Predicted language: mon
+Predicting random sentence 8: __label__pao      ခွေ စ ဥ်ꩻ စာꩻ အ တွိုင်ꩻ စ ဥ်ꩻ စာꩻ ဟုဲင်း
+Predicted language: pao
+Predicting random sentence 9: __label__mon      ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+Predicted language: mon
+Predicting random sentence 10: __label__pao     ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Predicted language: pao
+
+Processing with model: 5gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 5gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.376s
+user    0m0.761s
+sys     0m2.164s
+Predicting random sentence 1: __label__rakhine  ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 2: __label__po_kayin ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+Predicted language: po_kayin
+Predicting random sentence 3: __label__sgaw_kayin       က ကွၢ် ထွဲ အီၤ အ ဂီၢ် က နၢၤ ဒၣ် နၤ လီၤ .
+Predicted language: sgaw_kayin
+Predicting random sentence 4: __label__pao      ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Predicted language: pao
+Predicting random sentence 5: __label__po_kayin ဆီၫ့ မီၪ့ ဆၧ ကဲၪ ခိၬ ယ ဆီၫ့ မီၪ့ ဘီၪ .
+Predicted language: po_kayin
+Predicting random sentence 6: __label__mon      သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+Predicting random sentence 7: __label__dawei    ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Predicted language: dawei
+Predicting random sentence 8: __label__shan     ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Predicted language: mon
+Predicting random sentence 9: __label__mon      ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+Predicted language: mon
+Predicting random sentence 10: __label__rakhine မိုး ချက် ချင်း ရွာ ရေ အ ခါ သူ ရို့ ဇာ တိ လုပ် နီ စွာ ။
+Predicted language: rakhine
+
+Processing with model: 6gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 6gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.392s
+user    0m0.784s
+sys     0m2.155s
+Predicting random sentence 1: __label__mon      လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Predicted language: mon
+Predicting random sentence 2: __label__mon      သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+Predicting random sentence 3: __label__po_kayin ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 4: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 5: __label__rakhine  ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Predicted language: rakhine
+Predicting random sentence 6: __label__rakhine  ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Predicted language: rakhine
+Predicting random sentence 7: __label__shan     ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Predicted language: dawei
+Predicting random sentence 8: __label__beik     ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Predicted language: beik
+Predicting random sentence 9: __label__sgaw_kayin       ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 10: __label__beik    အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+Predicted language: beik
+
+Processing with model: 7gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 7gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.386s
+user    0m0.799s
+sys     0m2.139s
+Predicting random sentence 1: __label__sgaw_kayin       ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 2: __label__shan     တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+Predicted language: mon
+Predicting random sentence 3: __label__rakhine  ငါ အ လုပ် မ ပြီး သိ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 4: __label__bamar_burmese    ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+Predicting random sentence 5: __label__shan     ဢမ်ႇ မူတ်း သႂ်  ႁႃႉ ။
+Predicted language: mon
+Predicting random sentence 6: __label__bamar_burmese    ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+Predicting random sentence 7: __label__rakhine  ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Predicted language: rakhine
+Predicting random sentence 8: __label__po_kayin ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 9: __label__shan     ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Predicted language: mon
+Predicting random sentence 10: __label__dawei   ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Predicted language: dawei
+
+All processing completed.
+
+real    0m20.705s
+user    0m40.384s
+sys     2m0.410s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ။ ဒီတစ်ခေါက် experiment ရလဒ်မှာတော့ 7gram model မှာ အထူးသဖြင့် ရှမ်း နဲ့ မွန်ကို မှန်မှန်ကန်ကန် classification မလုပ်ပေးနိုင်တာကို တွေ့ရတယ်။ နားလည်လိုက်တာက input လုပ်တဲ့ စာကြောင်းပေါ်ကိုလည်း မူတည်ပြီး language detection လုပ်တဲ့အခါမှာ လွဲနိုင်တယ်။ သိတဲ့အတိုင်းပဲ စာကြောင်း တစ်ကြောင်းတည်းမှာ ရှိတဲ့ စာလုံးကိုတချို့ကိုပဲ အခြေခံပြီး classification လုပ်ရတာမို့လို့ မော်ဒယ်အနေနဲ့လည်း ခက်ခဲတယ်။  
+
+
+၅ခေါက် ပြည့်သွားအောင် အထက်ပါလိုမျိုး experiment ကိုပဲ နောက်တစ်ခေါက် ထပ် run ပြီး လေ့လာခဲ့တယ်။ ရလဒ်ကတော့ အောက်ပါအတိုင်းပါပဲ။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./test_mixed_10random4exp.sh | tee test_mixed5_with_10_random.log
+Processing with model: 3gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 3gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.365s
+user    0m0.727s
+sys     0m2.191s
+Predicting random sentence 1: __label__po_kayin အ ဝ့ၫ ထီး န့ၦၡၩ ဘၪ နး ဂၩ လၧၩ့ အ့ၬ .
+Predicted language: po_kayin
+Predicting random sentence 2: __label__rakhine  ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Predicted language: rakhine
+Predicting random sentence 3: __label__bamar_burmese    ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+Predicting random sentence 4: __label__shan     တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Predicted language: mon
+Predicting random sentence 5: __label__mon      သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+Predicting random sentence 6: __label__pao      ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Predicted language: pao
+Predicting random sentence 7: __label__beik     နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Predicted language: beik
+Predicting random sentence 8: __label__dawei    အဲ မို ထဲ မှာ ဝေး ကို ဖုန်း ပြော ဇာ ရ တိုင်း များ ဟှယ် ။
+Predicted language: dawei
+Predicting random sentence 9: __label__sgaw_kayin       လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 10: __label__mon     သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Predicted language: mon
+
+Processing with model: 4gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 4gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.354s
+user    0m0.795s
+sys     0m2.111s
+Predicting random sentence 1: __label__sgaw_kayin       ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 2: __label__dawei    အဲ ဟှို သွား ဟှို့ နန့် ဟှို ငါ တိုက် တွန်း ဟှ ။
+Predicted language: dawei
+Predicting random sentence 3: __label__shan     ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Predicted language: mon
+Predicting random sentence 4: __label__po_kayin ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 5: __label__po_kayin ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Predicted language: po_kayin
+Predicting random sentence 6: __label__bamar_burmese    တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Predicted language: bamar
+Predicting random sentence 7: __label__po_kayin ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 8: __label__po_kayin ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 9: __label__beik     သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Predicted language: beik
+Predicting random sentence 10: __label__mon_tst က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+
+Processing with model: 5gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 5gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.378s
+user    0m0.769s
+sys     0m2.162s
+Predicting random sentence 1: __label__pao      ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Predicted language: pao
+Predicting random sentence 2: __label__dawei    အဲ ဟှို သွား ဟှို့ နန့် ဟှို ငါ တိုက် တွန်း ဟှ ။
+Predicted language: dawei
+Predicting random sentence 3: __label__po_kayin ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Predicted language: po_kayin
+Predicting random sentence 4: __label__rakhine  ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Predicted language: rakhine
+Predicting random sentence 5: __label__shan     ႁဝ်း မိူဝ်ႈၽုၵ်ႈ  ၵၢင်ၼႂ် တေဢွၵ်ႇ ပႆ တၢင်း  ဢိူဝ်ႈ ။
+Predicted language: mon
+Predicting random sentence 6: __label__mon_tst  က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+Predicting random sentence 7: __label__po_kayin ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+Predicted language: po_kayin
+Predicting random sentence 8: __label__pao      က ထိန်ꩻ‌ နွောင်ꩻ ဝွေꩻ နဝ်ꩻ အဝ်ႏ ဒျာႏ နာꩻ လွုမ်
+Predicted language: pao
+Predicting random sentence 9: __label__mon_tst  က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Predicted language: mon
+Predicting random sentence 10: __label__po_kayin        နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
+
+Processing with model: 6gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 6gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.900
+Recall at 1: 0.900
+
+real    0m0.385s
+user    0m0.723s
+sys     0m2.215s
+Predicting random sentence 1: __label__shan     တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Predicted language: mon
+Predicting random sentence 2: __label__dawei    အဲ ဟှို သွား ဟှို့ နန့် ဟှို ငါ တိုက် တွန်း ဟှ ။
+Predicted language: dawei
+Predicting random sentence 3: __label__sgaw_kayin       တၢ် ဝဲ န့ၣ် န့ၣ် မ့ၢ် ယ ထီၣ် ယီၢ် ဘၣ် ဧါ .
+Predicted language: sgaw_kayin
+Predicting random sentence 4: __label__sgaw_kayin       ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 5: __label__bamar_burmese    ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+Predicting random sentence 6: __label__beik     ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Predicted language: beik
+Predicting random sentence 7: __label__shan     မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+Predicting random sentence 8: __label__shan     မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Predicted language: shan
+Predicting random sentence 9: __label__pao      က ထိန်ꩻ‌ နွောင်ꩻ ဝွေꩻ နဝ်ꩻ အဝ်ႏ ဒျာႏ နာꩻ လွုမ်
+Predicted language: pao
+Predicting random sentence 10: __label__bamar_burmese   ပါ ပါ သ မီး ကို လွမ်း နေ တယ်
+Predicted language: bamar
+
+Processing with model: 7gram.model.bin
+Testing with file: all_test.fasttext.shuf and model: 7gram.model.bin
+Number of test examples: 80
+Precision at 1: 0.887
+Recall at 1: 0.887
+
+real    0m0.387s
+user    0m0.679s
+sys     0m2.260s
+Predicting random sentence 1: __label__mon      ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+Predicted language: mon
+Predicting random sentence 2: __label__rakhine  သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Predicted language: rakhine
+Predicting random sentence 3: __label__dawei    အဲ ဟှို သွား ဟှို့ နန့် ဟှို ငါ တိုက် တွန်း ဟှ ။
+Predicted language: dawei
+Predicting random sentence 4: __label__bamar_burmese    မင်္ဂ လာ ပါ ဆ ရာ မ
+Predicted language: bamar
+Predicting random sentence 5: __label__sgaw_kayin       ဒ် ယ ဆိ က မိၣ် အ သိး ဆိ က မိၣ် တ က့ၢ် .
+Predicted language: sgaw_kayin
+Predicting random sentence 6: __label__pao      ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Predicted language: pao
+Predicting random sentence 7: __label__shan     ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Predicted language: mon
+Predicting random sentence 8: __label__shan     တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Predicted language: mon
+Predicting random sentence 9: __label__po_kayin နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Predicted language: po_kayin
+Predicting random sentence 10: __label__mon     အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Predicted language: mon
+
+All processing completed.
+
+real    0m20.750s
+user    0m39.720s
+sys     2m1.126s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+## To Do
+
+- ကယားလီ၊ ကချင်၊ ရဝမ်၊ မီဇိုချင်း ဘာသာတွေပါ ထည့်ပြီး experiment လုပ်ရန် 
+(ဒေတာတွေက ရှိပြီးသားမို့လို့ အားလုံးစုံသွားအောင် ထည့်ပြီး စမ်းတာက စာတမ်းအတွက် ပိုကောင်းတာမို့လို့၊ သို့သော် အသစ်ထည့်မယ့် ဘာသာစကားတွေက လက်ရှိ စမ်းနေတဲ့ ဘာသာစကားတွေနဲ့ မတူပဲ alphabet ကို သုံးတာ၊ ကယားလီ ဆိုရင်လည်း သီးသန့် glyph မို့လို့ ကွဲကွဲပြားပြား ဖြစ်နေမှာမို့လို့ မော်ဒယ်အတွက် သက်ရောက်မှုက သိပ်မရှိနိုင်ဘူးလို့ ခန့်မှန်းထားတယ်)
+
+- Rule-based ကို စဉ်းစားလို့ ရနိုင်မလား ?!  
 
 ```
 
