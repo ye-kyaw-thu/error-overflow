@@ -2646,42 +2646,70 @@ Predicted language: shan
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
+ဖိုင် အားလုံးနဲ့ testing or prediction လုပ်ကြည့်ပြီးတော့ ရလာတဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input "./eg_input/bamar_burmese.txt
+Predicted language: bamar
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/beik.txt
+Predicted language: bamar
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/dawei.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/mon.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/pao.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/po_kayin.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/rakhine.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/sgaw_kayin.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --mode predict --model ./train.model.bin --input ./eg_input/shan.txt
+Predicted language: bamar
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
-```
+အထက်ပါအတိုင်းပဲ ဖိုင်တစ်ဖိုင်လုံးကို ထည့်ပြီး predict လုပ်တဲ့အခါမှာတော့ fasttext model ရဲ့ ရလဒ်တွေက အားလုံးကို ဗမာ အဖြစ်ပဲ predict လုပ်ချလိုက်တာကို တွေ့ရတယ်။ အကြောင်းအရင်းကတော့ training လုပ်တုန်းက sentence level လုပ်ပြီး predict လုပ်တဲ့အခါမှာ ဖိုင် အနေနဲ့ (very long sentence) လုပ်တာမို့လို့။ ပြီးတော့ text file တွေထဲမှာက ဗမာစာအတွက် training လုပ်ထားတဲ့ ဖိုင်ရဲ့ ပမာဏက ကြီးတာမို့လို့ စသည်ဖြင့် ...  
+
+## What I Learn Until Now
+
+လက်ရှိအထိ character ngram, syllable ngram, character freq dict, syllable freq dict, embedding (word2vec, fasttext) with Cosine similarity, neural network based classification, FastText library based classification ဆိုပြီး နည်းလည်း အမျိုးမျိုးနဲ့ experiment လုပ်ကြည့်ခဲ့တယ်။  
+
+ဗမာစာနဲ့ same Unicode table မှာ ရှဲလုပ်ပြီးသုံးထားတဲ့ တိုင်းရင်းသား ဘာသာစကားတွေနဲ့ dialect လို့ ခေါ်တဲ့ ဗမာနဲ့ ပိုနီးစပ်တဲ့ ရခိုင်၊ ထားဝယ်၊ ဘိတ် တို့ကို လက်ရှိ ရှိတဲ့ ဒေတာကို သုံးပြီး language identification or language classification experiment လုပ်ရတဲ့အခါမှာ 100% မှန်အောင် မလုပ်ပေးနိုင်သေးဘူး။  
+
+အဲဒီအထဲမှာမှ ငါ မှတ်မိသလောက် လက်တွေ့မှာ သုံးလို့ရနိုင်တာတွေက syllable freq dictionary based approach, neural network based classification နဲ့ FastText library based Classification သုံးမျိုးလားလို့ .... အချိန်ရတဲ့အခါမှာ formal experiment ထပ်လုပ်ချင်တယ်။  
+
 
 ```
 
