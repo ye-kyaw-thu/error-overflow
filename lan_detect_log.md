@@ -2845,12 +2845,159 @@ String က input ဖိုင်ကနေ random ယူထားတာမို�
 ဒုတိယမြောက် expeirment ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ cat ./experiment2.log
+Processing file ./eg_input/bamar_burmese.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: bamar
+Processing random string from ./eg_input/bamar_burmese.txt: ကျန်း မာ တယ် ဒါ ပေ မဲ့ အ လုပ် များ တယ်
+1/1 [==============================] - 0s 36ms/step
+Detected language: bamar
 
+Processing file ./eg_input/beik.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: beik
+Processing random string from ./eg_input/beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: beik
+
+Processing file ./eg_input/dawei.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: dawei
+Processing random string from ./eg_input/dawei.txt: ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: dawei
+
+Processing file ./eg_input/mon_tst.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing file ./eg_input/mon.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon.txt: ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing file ./eg_input/pao.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+Processing random string from ./eg_input/pao.txt: ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+
+Processing file ./eg_input/po_kayin.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: po_kayin
+Processing random string from ./eg_input/po_kayin.txt: ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+1/1 [==============================] - 0s 36ms/step
+Detected language: po_kayin
+
+Processing file ./eg_input/rakhine.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: rakhine
+Processing random string from ./eg_input/rakhine.txt: မင်း မိန်း စ ရာ မ လို ပါ ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: rakhine
+
+Processing file ./eg_input/sgaw_kayin.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: sgaw_kayin
+Processing random string from ./eg_input/sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+1/1 [==============================] - 0s 36ms/step
+Detected language: sgaw_kayin
+
+Processing file ./eg_input/shan.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+Processing random string from ./eg_input/shan.txt: ႁဝ်း မိူဝ်ႈၽုၵ်ႈ  ၵၢင်ၼႂ် တေဢွၵ်ႇ ပႆ တၢင်း  ဢိူဝ်ႈ ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: shan
+
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
 ```
 
-```
+တတိယမြောက် Neural Network approach နဲ့ စမ်းကြည့်ခဲ့တဲ့ experimental result က အောက်ပါအတိုင်းပါ။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ cat ./experiment3.log
+Processing file ./eg_input/bamar_burmese.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: bamar
+Processing random string from ./eg_input/bamar_burmese.txt: ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+1/1 [==============================] - 0s 36ms/step
+Detected language: bamar
+
+Processing file ./eg_input/beik.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: beik
+Processing random string from ./eg_input/beik.txt: ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: beik
+
+Processing file ./eg_input/dawei.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: dawei
+Processing random string from ./eg_input/dawei.txt: သူး နို့ ဟှယ် လော့ သတ္တိ ရှိ ဟှယ် ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: dawei
+
+Processing file ./eg_input/mon_tst.txt...
+1/1 [==============================] - 0s 37ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+1/1 [==============================] - 0s 36ms/step
+Detected language: mon
+
+Processing file ./eg_input/mon.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: mon
+Processing random string from ./eg_input/mon.txt: ပေါဲ ဂီ တ ဂှ် ဂိ တု ဂ တ မှ ကၠောန် ဏောၚ် ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: mon
+
+Processing file ./eg_input/pao.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+Processing random string from ./eg_input/pao.txt: ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+1/1 [==============================] - 0s 36ms/step
+Detected language: pao
+
+Processing file ./eg_input/po_kayin.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: po_kayin
+Processing random string from ./eg_input/po_kayin.txt: ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+1/1 [==============================] - 0s 44ms/step
+Detected language: po_kayin
+
+Processing file ./eg_input/rakhine.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: rakhine
+Processing random string from ./eg_input/rakhine.txt: မိုး ချက် ချင်း ရွာ ရေ အ ခါ သူ ရို့ ဇာ တိ လုပ် နီ စွာ ။
+1/1 [==============================] - 0s 37ms/step
+Detected language: rakhine
+
+Processing file ./eg_input/sgaw_kayin.txt...
+1/1 [==============================] - 0s 36ms/step
+Detected language: sgaw_kayin
+Processing random string from ./eg_input/sgaw_kayin.txt: ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+1/1 [==============================] - 0s 41ms/step
+Detected language: sgaw_kayin
+
+Processing file ./eg_input/shan.txt...
+1/1 [==============================] - 0s 35ms/step
+Detected language: mon
+Processing random string from ./eg_input/shan.txt: ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+1/1 [==============================] - 0s 36ms/step
+Detected language: shan
+
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$
+```
+
+ခုဆိုရင် Neural Network based approach code မှာလည်း file input ရော string input ရော စမ်းလို့ ရသွားပြီ။   
+ရလဒ်ကိုလည်း ပို confirm လုပ်လို့ ရတယ်။  
 
 ```
 
