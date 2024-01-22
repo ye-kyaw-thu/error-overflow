@@ -2396,18 +2396,68 @@ input and output ဖိုင်တွေရဲ့ line no. ကို confirmati
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$
 ```
 
-
-
-```
+လက်ရှိ စက်ထဲမှာက fasttext ကို ငါ install လုပ်ထားပြီးသား ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ fasttext --help
+usage: fasttext <command> <args>
 
+The commands supported by fasttext are:
+
+  supervised              train a supervised classifier
+  quantize                quantize a model to reduce the memory usage
+  test                    evaluate a supervised classifier
+  test-label              print labels with precision and recall scores
+  predict                 predict most likely labels
+  predict-prob            predict most likely labels with probabilities
+  skipgram                train a skipgram model
+  cbow                    train a cbow model
+  print-word-vectors      print word vectors given a trained model
+  print-sentence-vectors  print sentence vectors given a trained model
+  print-ngrams            print ngrams given a trained model and word
+  nn                      query for nearest neighbors
+  analogies               query for analogies
+  dump                    dump arguments,dictionary,input/output vectors
+
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
-```
+Python module လည်း ခေါ်သုံးတာ အိုကေမယ်လို့ ထင်တယ်။ import လုပ်ကြည့်တော့ အောက်ပါအတိုင်း ခေါ်သုံးလို့ ရတာကို တွေ့ရတယ်။  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python
+Python 3.8.18 (default, Sep 11 2023, 13:40:15)
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import fasttext as ft
+>>> print(dir(ft))
+['BOW', 'EOS', 'EOW', 'FastText', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'absolute_import', 'cbow', 'division', 'load_model', 'print_function', 'skipgram', 'supervised', 'tokenize', 'train_supervised', 'train_unsupervised', 'unicode_literals']
+>>>
+```
 
+Coding လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ python ./fasttext_lang_detect.py --help
+usage: fasttext_lang_detect.py [-h] --mode {train,test,predict} [--input INPUT]
+                               [--output OUTPUT] [--model MODEL] [--epoch EPOCH]
+                               [--lr LR] [--wordNgrams WORDNGRAMS]
+
+Language identification using FastText.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mode {train,test,predict}
+                        Mode of operation: train, test or predict
+  --input INPUT         Input file path for training or testing. Input text for
+                        prediction.
+  --output OUTPUT       Output file path for saving the model (train mode only).
+  --model MODEL         Model file path for testing or prediction.
+  --epoch EPOCH         Number of epochs for training (default: 25)
+  --lr LR               Learning rate for training (default: 1.0)
+  --wordNgrams WORDNGRAMS
+                        Max length of word ngram (default: 2)
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
 ```
 
 ```
