@@ -3480,6 +3480,122 @@ sys     0m0.047s
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/neural$ mv experiment.log experiment1.log
 ```
 
+## Producing Experiment-1, Experiment-2, Experiment-3 Results for the FastText Lib Approach
+
+လက်ရှိမှာ FastText Lib ကို သုံးပြီးတော့ experiment အကြမ်း လုပ်ခဲ့ပေမဲ့ စာတမ်းရေးဖို့အတွက် တခြား method တွေနဲ့ နှိုင်းယှဉ်ဖို့အတွက် ရလဒ်ကို မပြင်ဆင်ရသေးတာမို့ အဲဒီအတွက် ပြင်ဆင်ခဲ့တယ်။  
+
+အရင်ဆုံး training လုပ်တဲ့အခါမှာ ဒေတာအကုန်ကို သုံးရလိမ့်မယ်။ အဲဒါမှ တခြား method တွေနဲ့ နှိုင်းယှဉ်လို့ ရမှာမို့လို့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext/preprocessing$ wc all_languages.fasttext
+  200721  2755674 27864739 all_languages.fasttext
+```
+
+အထက်ပါ ဖိုင်ကို training အတွက် သုံးရလိမ့်မယ်။ 
+
+Experiment အတွက် အောက်ပါအတိုင်း shell script ကို ရေးခဲ့တယ်။ ngram ကို 3gram ကနေ 7gram အထိ ထားပြီး training လုပ်ခဲ့တယ်။  
+
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ cat train4exp.sh
+#!/bin/bash
+
+## Training with 3 gram
+time python ./fasttext_lang_detect.py --mode train --input ./all_languages.fasttext \
+--output ./3gram.model.bin --epoch 25 --lr 1.0 --wordNgrams 3
+
+## Training with 4 gram
+time python ./fasttext_lang_detect.py --mode train --input ./all_languages.fasttext \
+--output ./4gram.model.bin --epoch 25 --lr 1.0 --wordNgrams 4
+
+## Training with 5 gram
+time python ./fasttext_lang_detect.py --mode train --input ./all_languages.fasttext \
+--output ./5gram.model.bin --epoch 25 --lr 1.0 --wordNgrams 5
+
+## Training with 6 gram
+time python ./fasttext_lang_detect.py --mode train --input ./all_languages.fasttext \
+--output ./6gram.model.bin --epoch 25 --lr 1.0 --wordNgrams 6
+
+## Training with 7 gram
+time python ./fasttext_lang_detect.py --mode train --input ./all_languages.fasttext \
+--output ./7gram.model.bin --epoch 25 --lr 1.0 --wordNgrams 7
+
+```
+
+### Training Models for FastText Lib Based Approach  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$ time ./train4exp.sh | tee training4exp.log
+Read 2M words
+Number of words:  15399
+Number of labels: 9
+Progress:   4.9% words/sec/thread: 1565316 lr:  0.950535 avg.loss:  0.064191 ETA:   0h 0m Progress:   9.9% words/sec/thread: 1570717 lr:  0.901357 avg.loss:  0.034697 ETA:   0h 0m Progress:  14.8% words/sec/thread: 1571452 lr:  0.852311 avg.loss:  0.024052 ETA:   0h 0m Progress:  19.7% words/sec/thread: 1571361 lr:  0.803295 avg.loss:  0.019020 ETA:   0h 0m Progress:  24.6% words/sec/thread: 1571594 lr:  0.754250 avg.loss:  0.016184 ETA:   0h 0m Progress:  29.5% words/sec/thread: 1571572 lr:  0.705222 avg.loss:  0.014161 ETA:   0h 0m Progress:  34.4% words/sec/thread: 1571996 lr:  0.656120 avg.loss:  0.012337 ETA:   0h 0m Progress:  39.3% words/sec/thread: 1572164 lr:  0.607040 avg.loss:  0.010953 ETA:   0h 0m Progress:  44.2% words/sec/thread: 1571435 lr:  0.558216 avg.loss:  0.009918 ETA:   0h 0m Progress:  49.1% words/sec/thread: 1571511 lr:  0.509169 avg.loss:  0.009194 ETA:   0h 0m Progress:  54.0% words/sec/thread: 1571701 lr:  0.460086 avg.loss:  0.008495 ETA:   0h 0m Progress:  58.9% words/sec/thread: 1571693 lr:  0.411073 avg.loss:  0.007904 ETA:   0h 0m Progress:  63.8% words/sec/thread: 1571720 lr:  0.362045 avg.loss:  0.007420 ETA:   0h 0m Progress:  68.7% words/sec/thread: 1571631 lr:  0.313104 avg.loss:  0.007062 ETA:   0h 0m Progress:  73.6% words/sec/thread: 1571247 lr:  0.264257 avg.loss:  0.006667 ETA:   0h 0m Progress:  78.5% words/sec/thread: 1570923 lr:  0.215450 avg.loss:  0.006317 ETA:   0h 0m Progress:  83.3% words/sec/thread: 1570610 lr:  0.166660 avg.loss:  0.006022 ETA:   0h 0m Progress:  88.2% words/sec/thread: 1570403 lr:  0.117833 avg.loss:  0.005731 ETA:   0h 0m Progress:  93.1% words/sec/thread: 1570253 lr:  0.068980 avg.loss:  0.005470 ETA:   0h 0m Progress:  98.0% words/sec/thread: 1569995 lr:  0.020210 avg.loss:  0.005242 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1526029 lr: -0.000003 avg.loss:  0.005158 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1525717 lr:  0.000000 avg.loss:  0.005158 ETA:   0h 0m 0s
+Model saved to ./3gram.model.bin
+
+real    0m2.984s
+user    0m48.972s
+sys     0m2.656s
+Read 2M words
+Number of words:  15399
+Number of labels: 9
+Progress:   3.8% words/sec/thread: 1208165 lr:  0.961872 avg.loss:  0.075905 ETA:   0h 0m Progress:   7.6% words/sec/thread: 1213405 lr:  0.923856 avg.loss:  0.041515 ETA:   0h 0m Progress:  11.5% words/sec/thread: 1219157 lr:  0.885458 avg.loss:  0.029502 ETA:   0h 0m Progress:  15.2% words/sec/thread: 1217805 lr:  0.847591 avg.loss:  0.022728 ETA:   0h 0m Progress:  19.1% words/sec/thread: 1220902 lr:  0.809125 avg.loss:  0.019019 ETA:   0h 0m Progress:  22.9% words/sec/thread: 1222538 lr:  0.770741 avg.loss:  0.016393 ETA:   0h 0m Progress:  26.7% words/sec/thread: 1221875 lr:  0.732778 avg.loss:  0.014656 ETA:   0h 0m Progress:  30.5% words/sec/thread: 1222107 lr:  0.694633 avg.loss:  0.013468 ETA:   0h 0m Progress:  34.4% words/sec/thread: 1224880 lr:  0.655752 avg.loss:  0.012070 ETA:   0h 0m Progress:  38.3% words/sec/thread: 1227379 lr:  0.616792 avg.loss:  0.010959 ETA:   0h 0m Progress:  42.2% words/sec/thread: 1228615 lr:  0.578114 avg.loss:  0.010061 ETA:   0h 0m Progress:  46.1% words/sec/thread: 1230034 lr:  0.539281 avg.loss:  0.009692 ETA:   0h 0m Progress:  50.0% words/sec/thread: 1231785 lr:  0.500206 avg.loss:  0.009050 ETA:   0h 0m Progress:  53.8% words/sec/thread: 1230858 lr:  0.462193 avg.loss:  0.008483 ETA:   0h 0m Progress:  57.6% words/sec/thread: 1230175 lr:  0.424141 avg.loss:  0.008022 ETA:   0h 0m Progress:  61.4% words/sec/thread: 1229358 lr:  0.386197 avg.loss:  0.007835 ETA:   0h 0m Progress:  64.6% words/sec/thread: 1217468 lr:  0.354178 avg.loss:  0.007497 ETA:   0h 0m Progress:  67.7% words/sec/thread: 1205626 lr:  0.322880 avg.loss:  0.007299 ETA:   0h 0m Progress:  70.9% words/sec/thread: 1195501 lr:  0.291310 avg.loss:  0.007024 ETA:   0h 0m Progress:  74.0% words/sec/thread: 1186405 lr:  0.259727 avg.loss:  0.006752 ETA:   0h 0m Progress:  77.2% words/sec/thread: 1178799 lr:  0.227721 avg.loss:  0.006548 ETA:   0h 0m Progress:  80.4% words/sec/thread: 1171745 lr:  0.195812 avg.loss:  0.006318 ETA:   0h 0m Progress:  83.5% words/sec/thread: 1164102 lr:  0.164782 avg.loss:  0.006165 ETA:   0h 0m Progress:  86.6% words/sec/thread: 1156789 lr:  0.133981 avg.loss:  0.005967 ETA:   0h 0m Progress:  89.7% words/sec/thread: 1150047 lr:  0.103176 avg.loss:  0.005809 ETA:   0h 0m Progress:  92.8% words/sec/thread: 1144007 lr:  0.072205 avg.loss:  0.005638 ETA:   0h 0m Progress:  94.6% words/sec/thread: 1123657 lr:  0.053684 avg.loss:  0.005544 ETA:   0h 0m Progress:  97.9% words/sec/thread: 1120857 lr:  0.021104 avg.loss:  0.005387 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1105504 lr: -0.000006 avg.loss:  0.005301 ETA:   0h 0m Progress: 100.0% words/sec/thread: 1105376 lr:  0.000000 avg.loss:  0.005301 ETA:   0h 0m 0s
+Model saved to ./4gram.model.bin
+
+real    0m3.768s
+user    1m7.724s
+sys     0m2.782s
+Read 2M words
+Number of words:  15399
+Number of labels: 9
+Progress:   2.8% words/sec/thread:  873545 lr:  0.972256 avg.loss:  0.105095 ETA:   0h 0m Progress:   5.5% words/sec/thread:  875056 lr:  0.944917 avg.loss:  0.062621 ETA:   0h 0m Progress:   8.2% words/sec/thread:  869723 lr:  0.918144 avg.loss:  0.043468 ETA:   0h 0m Progress:  10.9% words/sec/thread:  869842 lr:  0.891023 avg.loss:  0.033486 ETA:   0h 0m Progress:  13.5% words/sec/thread:  864583 lr:  0.864720 avg.loss:  0.028732 ETA:   0h 0m Progress:  16.3% words/sec/thread:  866473 lr:  0.837407 avg.loss:  0.024119 ETA:   0h 0m Progress:  19.0% words/sec/thread:  867608 lr:  0.810153 avg.loss:  0.021417 ETA:   0h 0m Progress:  21.7% words/sec/thread:  868583 lr:  0.782862 avg.loss:  0.019610 ETA:   0h 0m Progress:  24.5% words/sec/thread:  871069 lr:  0.755098 avg.loss:  0.017907 ETA:   0h 0m Progress:  27.3% words/sec/thread:  873710 lr:  0.727118 avg.loss:  0.016229 ETA:   0h 0m Progress:  30.1% words/sec/thread:  875714 lr:  0.699201 avg.loss:  0.015240 ETA:   0h 0m Progress:  32.9% words/sec/thread:  877486 lr:  0.671242 avg.loss:  0.014064 ETA:   0h 0m Progress:  35.6% words/sec/thread:  878417 lr:  0.643521 avg.loss:  0.013128 ETA:   0h 0m Progress:  38.4% words/sec/thread:  878916 lr:  0.615921 avg.loss:  0.012320 ETA:   0h 0m Progress:  41.2% words/sec/thread:  879203 lr:  0.588383 avg.loss:  0.011564 ETA:   0h 0m Progress:  43.9% words/sec/thread:  879234 lr:  0.560971 avg.loss:  0.010965 ETA:   0h 0m Progress:  46.7% words/sec/thread:  880515 lr:  0.532882 avg.loss:  0.010584 ETA:   0h 0m Progress:  49.5% words/sec/thread:  881263 lr:  0.505018 avg.loss:  0.010102 ETA:   0h 0m Progress:  52.3% words/sec/thread:  882186 lr:  0.477004 avg.loss:  0.009605 ETA:   0h 0m Progress:  55.1% words/sec/thread:  883183 lr:  0.448884 avg.loss:  0.009194 ETA:   0h 0m Progress:  57.9% words/sec/thread:  883698 lr:  0.421027 avg.loss:  0.009057 ETA:   0h 0m Progress:  60.7% words/sec/thread:  884062 lr:  0.393230 avg.loss:  0.008679 ETA:   0h 0m Progress:  63.5% words/sec/thread:  884525 lr:  0.365348 avg.loss:  0.008494 ETA:   0h 0m Progress:  66.2% words/sec/thread:  884644 lr:  0.337684 avg.loss:  0.008237 ETA:   0h 0m Progress:  69.0% words/sec/thread:  884914 lr:  0.309903 avg.loss:  0.008048 ETA:   0h 0m Progress:  71.8% words/sec/thread:  884971 lr:  0.282281 avg.loss:  0.007775 ETA:   0h 0m Progress:  74.6% words/sec/thread:  885433 lr:  0.254316 avg.loss:  0.007527 ETA:   0h 0m Progress:  77.3% words/sec/thread:  885635 lr:  0.226544 avg.loss:  0.007287 ETA:   0h 0m Progress:  80.1% words/sec/thread:  885513 lr:  0.199037 avg.loss:  0.007065 ETA:   0h 0m Progress:  82.9% words/sec/thread:  885549 lr:  0.171403 avg.loss:  0.006860 ETA:   0h 0m Progress:  85.6% words/sec/thread:  885722 lr:  0.143643 avg.loss:  0.006664 ETA:   0h 0m Progress:  88.4% words/sec/thread:  885971 lr:  0.115788 avg.loss:  0.006479 ETA:   0h 0m Progress:  91.2% words/sec/thread:  885919 lr:  0.088233 avg.loss:  0.006340 ETA:   0h 0m Progress:  93.9% words/sec/thread:  885900 lr:  0.060645 avg.loss:  0.006182 ETA:   0h 0m Progress:  96.7% words/sec/thread:  886130 lr:  0.032790 avg.loss:  0.006029 ETA:   0h 0m Progress:  99.5% words/sec/thread:  886180 lr:  0.005117 avg.loss:  0.005885 ETA:   0h 0m Progress: 100.0% words/sec/thread:  866638 lr: -0.000010 avg.loss:  0.005860 ETA:   0h 0m Progress: 100.0% words/sec/thread:  866511 lr:  0.000000 avg.loss:  0.005860 ETA:   0h 0m 0s
+Model saved to ./5gram.model.bin
+
+real    0m4.695s
+user    1m24.919s
+sys     0m2.854s
+Read 2M words
+Number of words:  15399
+Number of labels: 9
+Progress:   2.3% words/sec/thread:  721993 lr:  0.977151 avg.loss:  0.146324 ETA:   0h 0m Progress:   4.5% words/sec/thread:  713804 lr:  0.955054 avg.loss:  0.092768 ETA:   0h 0m Progress:   6.8% words/sec/thread:  717733 lr:  0.932430 avg.loss:  0.061874 ETA:   0h 0m Progress:   9.0% words/sec/thread:  721004 lr:  0.909654 avg.loss:  0.046491 ETA:   0h 0m Progress:  11.3% words/sec/thread:  722419 lr:  0.886689 avg.loss:  0.038049 ETA:   0h 0m Progress:  13.6% words/sec/thread:  724009 lr:  0.863873 avg.loss:  0.032368 ETA:   0h 0m Progress:  15.9% words/sec/thread:  724911 lr:  0.841099 avg.loss:  0.028434 ETA:   0h 0m Progress:  18.0% words/sec/thread:  720829 lr:  0.819526 avg.loss:  0.025070 ETA:   0h 0m Progress:  20.3% words/sec/thread:  719547 lr:  0.797408 avg.loss:  0.023409 ETA:   0h 0m Progress:  22.5% words/sec/thread:  720869 lr:  0.774568 avg.loss:  0.021504 ETA:   0h 0m Progress:  24.8% words/sec/thread:  721772 lr:  0.751779 avg.loss:  0.019584 ETA:   0h 0m Progress:  27.1% words/sec/thread:  722260 lr:  0.729092 avg.loss:  0.018221 ETA:   0h 0m Progress:  29.4% words/sec/thread:  722872 lr:  0.706281 avg.loss:  0.017045 ETA:   0h 0m Progress:  31.6% words/sec/thread:  723205 lr:  0.683555 avg.loss:  0.016103 ETA:   0h 0m Progress:  33.9% words/sec/thread:  723453 lr:  0.660856 avg.loss:  0.015121 ETA:   0h 0m Progress:  36.2% words/sec/thread:  724011 lr:  0.637982 avg.loss:  0.014293 ETA:   0h 0m Progress:  38.5% words/sec/thread:  724453 lr:  0.615118 avg.loss:  0.013514 ETA:   0h 0m Progress:  40.8% words/sec/thread:  724688 lr:  0.592363 avg.loss:  0.012891 ETA:   0h 0m Progress:  43.0% words/sec/thread:  724304 lr:  0.569988 avg.loss:  0.012272 ETA:   0h 0m Progress:  45.3% words/sec/thread:  724701 lr:  0.547156 avg.loss:  0.011732 ETA:   0h 0m Progress:  47.6% words/sec/thread:  725340 lr:  0.524148 avg.loss:  0.011554 ETA:   0h 0m Progress:  49.9% words/sec/thread:  725694 lr:  0.501280 avg.loss:  0.011095 ETA:   0h 0m Progress:  52.1% words/sec/thread:  725485 lr:  0.478760 avg.loss:  0.010626 ETA:   0h 0m Progress:  54.5% words/sec/thread:  726337 lr:  0.455477 avg.loss:  0.010193 ETA:   0h 0m Progress:  56.8% words/sec/thread:  727181 lr:  0.432132 avg.loss:  0.009908 ETA:   0h 0m Progress:  59.1% words/sec/thread:  728074 lr:  0.408702 avg.loss:  0.009441 ETA:   0h 0m Progress:  61.5% words/sec/thread:  729208 lr:  0.385007 avg.loss:  0.008995 ETA:   0h 0m Progress:  63.9% words/sec/thread:  730498 lr:  0.361107 avg.loss:  0.008684 ETA:   0h 0m Progress:  66.3% words/sec/thread:  731679 lr:  0.337247 avg.loss:  0.008295 ETA:   0h 0m Progress:  68.7% words/sec/thread:  733520 lr:  0.312709 avg.loss:  0.007974 ETA:   0h 0m Progress:  71.1% words/sec/thread:  734573 lr:  0.288825 avg.loss:  0.007655 ETA:   0h 0m Progress:  73.5% words/sec/thread:  735683 lr:  0.264810 avg.loss:  0.007390 ETA:   0h 0m Progress:  75.9% words/sec/thread:  736064 lr:  0.241456 avg.loss:  0.007215 ETA:   0h 0m Progress:  78.2% words/sec/thread:  736748 lr:  0.217747 avg.loss:  0.007047 ETA:   0h 0m Progress:  80.6% words/sec/thread:  737490 lr:  0.193943 avg.loss:  0.006884 ETA:   0h 0m Progress:  83.0% words/sec/thread:  737918 lr:  0.170471 avg.loss:  0.006732 ETA:   0h 0m Progress:  85.3% words/sec/thread:  738391 lr:  0.146910 avg.loss:  0.006607 ETA:   0h 0m Progress:  87.6% words/sec/thread:  738628 lr:  0.123619 avg.loss:  0.006467 ETA:   0h 0m Progress:  90.0% words/sec/thread:  738883 lr:  0.100272 avg.loss:  0.006338 ETA:   0h 0m Progress:  92.3% words/sec/thread:  739324 lr:  0.076681 avg.loss:  0.006211 ETA:   0h 0m Progress:  94.7% words/sec/thread:  739598 lr:  0.053278 avg.loss:  0.006102 ETA:   0h 0m Progress:  97.0% words/sec/thread:  740068 lr:  0.029604 avg.loss:  0.006004 ETA:   0h 0m Progress:  99.4% words/sec/thread:  740638 lr:  0.005740 avg.loss:  0.005905 ETA:   0h 0m Progress: 100.0% words/sec/thread:  727979 lr: -0.000008 avg.loss:  0.005881 ETA:   0h 0m Progress: 100.0% words/sec/thread:  727906 lr:  0.000000 avg.loss:  0.005881 ETA:   0h 0m 0s
+Model saved to ./6gram.model.bin
+
+real    0m9.010s
+user    1m41.219s
+sys     0m2.949s
+Read 2M words
+Number of words:  15399
+Number of labels: 9
+Progress:   1.9% words/sec/thread:  612696 lr:  0.980641 avg.loss:  0.135104 ETA:   0h 0m Progress:   3.9% words/sec/thread:  614806 lr:  0.961361 avg.loss:  0.086207 ETA:   0h 0m Progress:   5.8% words/sec/thread:  614317 lr:  0.942200 avg.loss:  0.059502 ETA:   0h 0m Progress:   7.7% words/sec/thread:  614917 lr:  0.922941 avg.loss:  0.047796 ETA:   0h 0m Progress:   9.6% words/sec/thread:  615174 lr:  0.903699 avg.loss:  0.039604 ETA:   0h 0m Progress:  11.6% words/sec/thread:  615421 lr:  0.884442 avg.loss:  0.033929 ETA:   0h 0m Progress:  13.5% words/sec/thread:  616079 lr:  0.865086 avg.loss:  0.029394 ETA:   0h 0m Progress:  15.4% words/sec/thread:  613721 lr:  0.846469 avg.loss:  0.026471 ETA:   0h 0m Progress:  17.2% words/sec/thread:  612849 lr:  0.827540 avg.loss:  0.024603 ETA:   0h 0m Progress:  19.1% words/sec/thread:  612206 lr:  0.808602 avg.loss:  0.022777 ETA:   0h 0m Progress:  21.0% words/sec/thread:  610563 lr:  0.790080 avg.loss:  0.021210 ETA:   0h 0m Progress:  22.9% words/sec/thread:  610725 lr:  0.770984 avg.loss:  0.019890 ETA:   0h 0m Progress:  24.8% words/sec/thread:  611017 lr:  0.751822 avg.loss:  0.018525 ETA:   0h 0m Progress:  26.7% words/sec/thread:  611412 lr:  0.732599 avg.loss:  0.017402 ETA:   0h 0m Progress:  28.7% words/sec/thread:  611731 lr:  0.713391 avg.loss:  0.016484 ETA:   0h 0m Progress:  30.6% words/sec/thread:  611808 lr:  0.694277 avg.loss:  0.015738 ETA:   0h 0m Progress:  32.4% words/sec/thread:  610893 lr:  0.675694 avg.loss:  0.014903 ETA:   0h 0m Progress:  34.2% words/sec/thread:  608798 lr:  0.657822 avg.loss:  0.014249 ETA:   0h 0m Progress:  36.1% words/sec/thread:  609292 lr:  0.638538 avg.loss:  0.013554 ETA:   0h 0m Progress:  38.1% words/sec/thread:  610168 lr:  0.618994 avg.loss:  0.012940 ETA:   0h 0m Progress:  40.0% words/sec/thread:  610488 lr:  0.599755 avg.loss:  0.012378 ETA:   0h 0m Progress:  42.0% words/sec/thread:  611246 lr:  0.580196 avg.loss:  0.011847 ETA:   0h 0m Progress:  44.0% words/sec/thread:  612524 lr:  0.560224 avg.loss:  0.011378 ETA:   0h 0m Progress:  46.0% words/sec/thread:  613866 lr:  0.540090 avg.loss:  0.010960 ETA:   0h 0m Progress:  48.0% words/sec/thread:  615084 lr:  0.519967 avg.loss:  0.010746 ETA:   0h 0m Progress:  50.0% words/sec/thread:  616270 lr:  0.499803 avg.loss:  0.010395 ETA:   0h 0m Progress:  52.0% words/sec/thread:  617302 lr:  0.479695 avg.loss:  0.010035 ETA:   0h 0m Progress:  54.0% words/sec/thread:  618256 lr:  0.459576 avg.loss:  0.009700 ETA:   0h 0m Progress:  56.1% words/sec/thread:  619870 lr:  0.438815 avg.loss:  0.009428 ETA:   0h 0m Progress:  58.2% words/sec/thread:  621689 lr:  0.417768 avg.loss:  0.009295 ETA:   0h 0m Progress:  60.3% words/sec/thread:  623041 lr:  0.397057 avg.loss:  0.009044 ETA:   0h 0m Progress:  62.4% words/sec/thread:  624301 lr:  0.376376 avg.loss:  0.008802 ETA:   0h 0m Progress:  64.5% words/sec/thread:  626032 lr:  0.355133 avg.loss:  0.008571 ETA:   0h 0m Progress:  66.6% words/sec/thread:  627596 lr:  0.333964 avg.loss:  0.008384 ETA:   0h 0m Progress:  68.7% words/sec/thread:  629044 lr:  0.312821 avg.loss:  0.008207 ETA:   0h 0m Progress:  70.8% words/sec/thread:  630406 lr:  0.291688 avg.loss:  0.008121 ETA:   0h 0m Progress:  72.9% words/sec/thread:  631682 lr:  0.270577 avg.loss:  0.007927 ETA:   0h 0m Progress:  75.1% words/sec/thread:  633159 lr:  0.249130 avg.loss:  0.007747 ETA:   0h 0m Progress:  77.2% words/sec/thread:  634449 lr:  0.227827 avg.loss:  0.007678 ETA:   0h 0m Progress:  79.4% words/sec/thread:  635742 lr:  0.206446 avg.loss:  0.007531 ETA:   0h 0m Progress:  81.5% words/sec/thread:  636861 lr:  0.185207 avg.loss:  0.007392 ETA:   0h 0m Progress:  83.6% words/sec/thread:  638075 lr:  0.163759 avg.loss:  0.007237 ETA:   0h 0m Progress:  85.8% words/sec/thread:  639640 lr:  0.141771 avg.loss:  0.007088 ETA:   0h 0m Progress:  88.0% words/sec/thread:  641155 lr:  0.119759 avg.loss:  0.007016 ETA:   0h 0m Progress:  90.2% words/sec/thread:  642626 lr:  0.097713 avg.loss:  0.006877 ETA:   0h 0m Progress:  92.4% words/sec/thread:  643821 lr:  0.075970 avg.loss:  0.006746 ETA:   0h 0m Progress:  94.6% words/sec/thread:  644847 lr:  0.054403 avg.loss:  0.006617 ETA:   0h 0m Progress:  96.7% words/sec/thread:  645794 lr:  0.032879 avg.loss:  0.006515 ETA:   0h 0m Progress:  98.8% words/sec/thread:  646475 lr:  0.011723 avg.loss:  0.006401 ETA:   0h 0m Progress: 100.0% words/sec/thread:  641061 lr: -0.000008 avg.loss:  0.006340 ETA:   0h 0m Progress: 100.0% words/sec/thread:  641004 lr:  0.000000 avg.loss:  0.006340 ETA:   0h 0m 0s
+Model saved to ./7gram.model.bin
+
+real    0m5.954s
+user    1m55.381s
+sys     0m2.934s
+
+real    0m26.417s
+user    6m58.215s
+sys     0m14.185s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/fasttext$
+```
+
+### Convert Test File Data Format
+
+test ဖိုင်တွေကိုလည်း FastText label format ပြောင်းဖို့လိုအပ်တယ်။   
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+Testing or Language Detection အတွက်လည်း bash script ကို update လုပ်ရလိမ့်မယ်။ 
+
 
 ```
 
