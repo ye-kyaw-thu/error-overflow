@@ -6624,6 +6624,15 @@ What I learned:  char_syl frequency dictionary based နဲ့လည်း မ�
 ထပ် လုပ်လို့ ရနိုင်တာက Language Model ကို KenLM တို့လို strong statistical LM ဆောက်ပြီး PPL, Naive နှစ်မျိုးပေါင်းပြီး classification လုပ်တာမျိုး။    
 ပြီးတော့ language model ကိုလည်း character level, syllable level ဆောက်ပြီးမှ အဲဒီ LM နှစ်ခုနဲ့ PPL measure လုပ်ပြီးမှ language detection အတွက် decision လုပ်တာမျိုး။   
 
+## To Do
+
+- Embedding approach မှာလည်း လက်ရှိမှာက ဖိုင်တစ်ဖိုင်လုံး input လုပ်ပြီးပဲ testing or language detection လုပ်ထားတာမို့လို့ အဲဒီ Python code မှာလည်း both file input and string input လက်ခံနိုင်အောင် ပြင်ရန်
+- ပြီးရင် Embedding approach နဲ့ experiment ကို string ပါ ထည့်ပြီး ထပ် run ရန်
+- Ken LM library နဲ့ char, syl LM နှစ်ခုဆောက်ပြီးတော့ language detection လုပ်ကြည့်ရန်
+- တကယ်က Naive Based Language Dection မှာလည်း လက်ရှိက Syllable unit နဲ့ပဲ လုပ်ထားတာမို့လို၊ character Unit ပါ ထပ်ဖြည့်ပြီး run တာမျိုးလည်း လုပ်ကြည်လို့ ရတယ်။
+
+## Updating Embedding Approach  
+
 
 ```
 
