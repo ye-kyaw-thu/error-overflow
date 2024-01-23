@@ -8091,7 +8091,12 @@ sys     12m37.057s
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/embedding$
 ```
 
+compare လုပ်လို့ရအောင် string input ကိုလည်း ဖြည့်ထားလိုက်ပြီ။ ဒါပေမဲ့ အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ word2vec, fasttext with cosine similarity က ရလဒ် မကောင်းဘူး။  
+အထက်ပါ To Do မှာ ကျန်တာက ken-lm နဲ့ စမ်းကြည့်ဖို့ ကိစ္စ ...  
 
+- Ken LM library နဲ့ char, syl LM နှစ်ခုဆောက်ပြီးတော့ language detection လုပ်ကြည့်ရန်
+
+## KenLM Approach  
 
 ```
 
