@@ -5531,7 +5531,323 @@ sys     2m1.126s
 - ကယားလီ၊ ကချင်၊ ရဝမ်၊ မီဇိုချင်း ဘာသာတွေပါ ထည့်ပြီး experiment လုပ်ရန် 
 (ဒေတာတွေက ရှိပြီးသားမို့လို့ အားလုံးစုံသွားအောင် ထည့်ပြီး စမ်းတာက စာတမ်းအတွက် ပိုကောင်းတာမို့လို့၊ သို့သော် အသစ်ထည့်မယ့် ဘာသာစကားတွေက လက်ရှိ စမ်းနေတဲ့ ဘာသာစကားတွေနဲ့ မတူပဲ alphabet ကို သုံးတာ၊ ကယားလီ ဆိုရင်လည်း သီးသန့် glyph မို့လို့ ကွဲကွဲပြားပြား ဖြစ်နေမှာမို့လို့ မော်ဒယ်အတွက် သက်ရောက်မှုက သိပ်မရှိနိုင်ဘူးလို့ ခန့်မှန်းထားတယ်)
 
-- Rule-based ကို စဉ်းစားလို့ ရနိုင်မလား ?!  
+- Rule-based ကို စဉ်းစားလို့ ရနိုင်မလား ?!
+- Character frequency + Syllable frequency နှစ်မျိုးကို ပေါင်းပြီးမှ decision လုပ်ရင်ကော
+
+## Character and Syllable Frequency Approach 
+
+Python code အသစ် ရေးခဲ့တယ်။  
+ပြီးတော့ combined frequency dictionary တွေကို language အားလုံးအတွက် ဆောက်ဖို့လည်း shell script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ cat ./build_dict.sh
+#!/bin/bash
+
+# Define the base directory and the Python script
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/char_syl_freq"
+PYTHON_SCRIPT="$BASE_DIR/char_syl_freq_lang_detect.py"
+SYL_SEG_DIR="$BASE_DIR/syl_seg"
+PROFILE_DIR="$BASE_DIR/profile"
+
+# Create the profile directory if it doesn't exist
+mkdir -p "$PROFILE_DIR"
+
+# Loop through each .syl file in the syl_seg directory
+for file in "$SYL_SEG_DIR"/*.syl; do
+    # Extract the language name from the filename
+    filename=$(basename -- "$file")
+    language=${filename%%.*}
+
+    # Define the output profile filename
+    output_profile="$PROFILE_DIR/${language}_combined_profile.json"
+
+    # Run the Python script to create the profile
+    if python3 "$PYTHON_SCRIPT" --mode train --input "$file" --output "$output_profile"; then
+        echo "Created combined character and syllable language profile for $language."
+    else
+        echo "Error in creating profile for $language. Check the input file and script."
+        exit 1
+    fi
+done
+
+echo "All language profiles have been created."
+```
+
+Building combined freq dictionaries ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ time ./build_dict.sh
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/bamar_combined_profile.json
+Created combined character and syllable language profile for bamar.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/beik_combined_profile.json
+Created combined character and syllable language profile for beik.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/dawei_combined_profile.json
+Created combined character and syllable language profile for dawei.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/mon_combined_profile.json
+Created combined character and syllable language profile for mon.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/pao_combined_profile.json
+Created combined character and syllable language profile for pao.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/po_kayin_combined_profile.json
+Created combined character and syllable language profile for po_kayin.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/rakhine_combined_profile.json
+Created combined character and syllable language profile for rakhine.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/sgaw_kayin_combined_profile.json
+Created combined character and syllable language profile for sgaw_kayin.
+Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/shan_combined_profile.json
+Created combined character and syllable language profile for shan.
+All language profiles have been created.
+
+real    0m3.344s
+user    0m3.048s
+sys     0m0.295s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
+```
+
+output အဖြစ် ထွက်လာတဲ့ char+freq combined freq dictionary or profile ဖိုင်တွေက အောက်ပါအတိုင်း ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ tree ./profile/
+./profile/
+├── bamar_combined_profile.json
+├── beik_combined_profile.json
+├── dawei_combined_profile.json
+├── mon_combined_profile.json
+├── pao_combined_profile.json
+├── po_kayin_combined_profile.json
+├── rakhine_combined_profile.json
+├── sgaw_kayin_combined_profile.json
+└── shan_combined_profile.json
+
+0 directories, 9 files
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
+```
+
+json ဖိုင်တွေကို လေ့လာကြည့်ခဲ့ ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . bamar_combined_profile.json | head
+{
+  "char_freq": {
+    "န": 0.023469469401902053,
+    "ေ": 0.03631757237178158,
+    " ": 0.2367811218853845,
+    "က": 0.03867437884023886,
+    "မ": 0.0258740566611921,
+    "ီ": 0.010828037313005514,
+    "း": 0.04465342430897031,
+    "ျ": 0.01338279277205567,
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . bamar_combined_profile.json | tail
+    "ပေါ့် ": 1.51462827992754e-06,
+    "ဩတ္တပ္ပ ": 6.05851311971016e-06,
+    "ဩတ္တပ္တ ": 1.51462827992754e-06,
+    "နန္တ ": 1.51462827992754e-06,
+    "ဒေါ့် ": 1.51462827992754e-06,
+    "ယွမ့် ": 1.51462827992754e-06,
+    "ဆစ့် ": 1.51462827992754e-06,
+    "ပဲ": 1.51462827992754e-06
+  }
+}
+```
+
+for Mon profile ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . mon_combined_profile.json | head
+{
+  "char_freq": {
+    "၂": 6.177005524988275e-05,
+    " ": 0.2284279520938905,
+    "၀": 0.0004804337630546436,
+    "မ": 0.017865272646160533,
+    "ိ": 0.02155088594273687,
+    "ဏ": 0.0060534654144885095,
+    "ေ": 0.03999267910456298,
+    "တ": 0.028153418515002117,
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . mon_combined_profile.json | tail
+    "ရေင်အ္စာ ": 1.8390297279155518e-05,
+    "ယျေ ": 9.195148639577759e-06,
+    "။ ္အ္အ္အ္အ္အ္အ ": 9.195148639577759e-06,
+    "လဵု‌ ": 9.195148639577759e-06,
+    "မၠောန်သ္ၚိ ": 9.195148639577759e-06,
+    "ဗၠာဲက္ဍုဟ် ": 9.195148639577759e-06,
+    "မျိုင် ": 9.195148639577759e-06,
+    "။": 9.195148639577759e-06
+  }
+}
+```
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ```
 
