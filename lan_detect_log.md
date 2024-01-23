@@ -6665,7 +6665,24 @@ Language detection completed for all files.
 
 လောလောဆယ် input မှာ string ကိုလည်း လက်ခံနိုင်အောင် ပြင်ခဲ့တယ်။  
 
-```
+```python
+
+elif args.mode == 'detect':
+    if not args.input or not args.model_folder:
+        print("For detection, both --input and --model_folder arguments are required.")
+    else:
+        models = {fname.split('.')[0]: load_model(os.path.join(args.model_folder, fname))
+                  for fname in os.listdir(args.model_folder) if fname.endswith('.model')}
+
+        # Check if the input is a file path or a string
+        if os.path.isfile(args.input):
+            with open(args.input, 'r', encoding='utf-8') as file:
+                text = file.read()
+        else:
+            text = args.input
+
+        detected_language = detect_language(text, models)
+        print(f"Detected language: {detected_language}")
 
 ```
 
