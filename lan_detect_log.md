@@ -5536,8 +5536,110 @@ sys     2m1.126s
 
 ## Character and Syllable Frequency Approach 
 
-Python code အသစ် ရေးခဲ့တယ်။  
-ပြီးတော့ combined frequency dictionary တွေကို language အားလုံးအတွက် ဆောက်ဖို့လည်း shell script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+syllable segmented file, character segmented file ဆိုတာထက် segmentation ဘာမှ မလုပ်ထားတဲ့ ဖိုင်အနေနဲ့ သွားကြည့်မှာမို့လို့ python code တစ်ပုဒ်ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ cat ./rm_space.py
+"""
+
+A program to remove spaces from all files located in a specified input directory.
+Written by Ye Kyaw Thu, LU Lab., Myanmar.
+Last updated: 23 Jan 2024
+
+Usage:
+python ./rm_space.py --input ./syl_seg --output ./raw
+
+"""
+
+import os
+import argparse
+
+def process_files(input_dir, output_dir):
+    # Create output directory if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    for filename in os.listdir(input_dir):
+        input_file_path = os.path.join(input_dir, filename)
+        output_file_path = os.path.join(output_dir, f"{filename}.raw")
+
+        # Read the content and remove spaces
+        with open(input_file_path, 'r', encoding='utf-8') as file:
+            content = file.read().replace(' ', '')
+
+        # Write the content to the new file in the output directory
+        with open(output_file_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+
+        print(f"Processed: {input_file_path} -> {output_file_path}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process files to remove spaces and save with .raw extension.")
+    parser.add_argument('--input', type=str, required=True, help="Input directory path")
+    parser.add_argument('--output', type=str, required=True, help="Output directory path")
+
+    args = parser.parse_args()
+
+    process_files(args.input, args.output)
+```
+
+raw ဖိုင်အဖြစ် အောက်ပါအတိုင်း ပြောင်းခဲ့တယ်။ 
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ python ./rm_space.py --input ./syl_seg --output ./raw
+Processed: ./syl_seg/mon.all.syl -> ./raw/mon.all.syl.raw
+Processed: ./syl_seg/bamar.all.syl -> ./raw/bamar.all.syl.raw
+Processed: ./syl_seg/po_kayin.all.syl -> ./raw/po_kayin.all.syl.raw
+Processed: ./syl_seg/rakhine.all.syl -> ./raw/rakhine.all.syl.raw
+Processed: ./syl_seg/shan.all.syl -> ./raw/shan.all.syl.raw
+Processed: ./syl_seg/beik.all.syl -> ./raw/beik.all.syl.raw
+Processed: ./syl_seg/sgaw_kayin.all.syl -> ./raw/sgaw_kayin.all.syl.raw
+Processed: ./syl_seg/dawei.all.syl -> ./raw/dawei.all.syl.raw
+Processed: ./syl_seg/pao.all.syl -> ./raw/pao.all.syl.raw
+```
+
+Checked the output raw files ... 
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ ls ./syl_seg/
+bamar.all.syl  dawei.all.syl  pao.all.syl       rakhine.all.syl     shan.all.syl
+beik.all.syl   mon.all.syl    po_kayin.all.syl  sgaw_kayin.all.syl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ ls ./raw
+bamar.all.syl.raw  mon.all.syl.raw       rakhine.all.syl.raw
+beik.all.syl.raw   pao.all.syl.raw       sgaw_kayin.all.syl.raw
+dawei.all.syl.raw  po_kayin.all.syl.raw  shan.all.syl.raw
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
+```
+
+Check the output content ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/raw$ head bamar.all.syl.raw
+နေကမီးကျီးခဲလိုရဲရဲတောက်ပြီးတက်လာတယ်ပြီးတော့ငါတို့ရပ်နိုင်ရုံလောက်ပဲရှိပေမဲ့အခုဘယ်နည်းနဲ့မဆိုတိုက်ခိုက်ရတော့မယ်စစ်သည်ရဲမက်တွေမဟုတ်ဘူးတစ်ယောက်ချင်းတိုက်ခိုက်တာမဟုတ်ဘူးဒါကရန်ပွဲတစ်ပွဲ
+တောမီးတွေနဲ့ရေကြီးမှုတွေရဲ့ဘေးဒဏ်ကိုခံခဲ့ရတဲ့အမေရိကန်ပြည်ထောင်စုတစ်ခွင်ကမိသားစုတွေအတွက်ကြက်ခြေနီအဖွဲ့ကထောက်ပံ့မှုတွေပေးနေတယ်
+ဒီညနေကျွန်တော်တို့ရဲ့ပွဲကိုအစီအစဉ်မှူးအဖြစ်ဆောင်ရွက်ပေးသူကတော့ချစ်စရာကောင်းတဲ့ဖြစ်ပါတယ်
+ဒါကဘာအတွက်လဲဆိုတာမှန်းကြည့်
+မင်းရောငါရောမင်းရဲ့ခွေးလေးရောငါတို့ရဲ့သိမြင်နားလည်မှုစကြဝဠာနယ်ပယ်တစ်ခုထဲမှာပိတ်မိနေကြတယ်ငါတို့လွတ်မြောက်နိုင်ရင်အရာဝတ္ထုတွေကိုမြင်နိုင်တဲ့တခြားနည်းလမ်းတွေအများကြီးရှိလာမယ်
+သူတို့အလုပ်ခွင်ရဲ့သနားစရာအခြေအနေဟာအရင်ကထက်ပိုပြီးအခက်အခဲတွေနဲ့ရင်ဆိုင်လာရတယ်
+လုပ်ဖော်ကိုင်ဖက်အသစ်ဒီနေ့အပြင်မှာအရမ်းအေးတာတောင်မှပတ်ဝန်းကျင်ထိန်းသိမ်းရေးအတွက်ကြံ့ကြံ့ခံနေတုန်းပဲ
+တန်နဲ့ချီတဲ့ပိုးကောင်တွေငါ့ရှေ့ကနေရာတိုင်းမှာငါသေတော့မယ်လို့ငါထင်တယ်
+သို့ဟားဟားဟားမင်းငါ့ကိုလွမ်းနေမှာပဲအဲဒါကိုဝန်ခံလိုက်တာလုံးဝကောင်းပါတယ်
+အပြင်ကစာရွက်အရွယ်အစားထက်ကျော်လွန်ပြီးလျှံထွက်နေတဲ့စာသားတွေနဲ့ဖွဲ့ပြီးသားစာမျက်နှာတွေကိုခေါက်လိုက်အဲဒါကိုလို့လည်းခေါ်တယ်
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/raw$ head shan.all.syl.raw
+ယွင်ႈၵုင်ႇၵူၼ်းႁတ်းႁၢၼ်ႁႃႉ
+ဢၼ်ၸႅတ်ႈတူၺ်းသူႁေႃႈၵႃးၼႆႉတွပ်ႇယဝ်ႉယဝ်ႉႁႃႉ
+လွင်ႈၶူင်သၢင်ႈမႂ်းဢမ်ႇႁိုင်သင်တေဢွင်ႇမၢၼ်ယဝ်ႉ
+ဢၼ်ၼၼ်ႉပဵၼ်လွင်ႈၵိတ်ႇၶွင်ႈသူ
+တေၵိၼ်သေဢၼ်ဢၼ်ႁႃႉ
+ဢွမ်မူင်းၵဝ်ႁႃဢမ်ႇႁၼ်
+ပဵၼ်ၵူၼ်းဢၼ်လဵၼ်ႈၸိူင်းၶႅၼ်ႇႄတႉယဝ်ႈ
+ၵုပ်ႉၵူႈသူၼႆႉတႄႇၽုၺ်ႇသႅင်ႇၵိၼ်ယမ်ႉၼႆႉမႃးတေႃႇမိူဝ်ႈလဵဝ်ဢၼ်ၽႅဝ်မႃးၼႆႉပဵၼ်႙႙႙ၵူႈယဝ်ႉ
+ၼင်ႈႁွင်ႈတၢင်းၼႃႈဢဝ်ၼႄႈ
+လႆႈႁႅင်းလီၵႃႈႁိုဝ်
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/raw$
+```
+
+ပြီးတော့ character-based frequency, syllable-based frequency dictionary တွေကို language အားလုံးအတွက် ဆောက်ဖို့လည်း shell script ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
 
 ```bash
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ cat ./build_dict.sh
@@ -5576,104 +5678,25 @@ echo "All language profiles have been created."
 Building combined freq dictionaries ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ time ./build_dict.sh
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/bamar_combined_profile.json
-Created combined character and syllable language profile for bamar.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/beik_combined_profile.json
-Created combined character and syllable language profile for beik.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/dawei_combined_profile.json
-Created combined character and syllable language profile for dawei.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/mon_combined_profile.json
-Created combined character and syllable language profile for mon.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/pao_combined_profile.json
-Created combined character and syllable language profile for pao.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/po_kayin_combined_profile.json
-Created combined character and syllable language profile for po_kayin.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/rakhine_combined_profile.json
-Created combined character and syllable language profile for rakhine.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/sgaw_kayin_combined_profile.json
-Created combined character and syllable language profile for sgaw_kayin.
-Frequency profile saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_freq/profile/shan_combined_profile.json
-Created combined character and syllable language profile for shan.
-All language profiles have been created.
 
-real    0m3.344s
-user    0m3.048s
-sys     0m0.295s
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
 ```
 
 output အဖြစ် ထွက်လာတဲ့ char+freq combined freq dictionary or profile ဖိုင်တွေက အောက်ပါအတိုင်း ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ tree ./profile/
-./profile/
-├── bamar_combined_profile.json
-├── beik_combined_profile.json
-├── dawei_combined_profile.json
-├── mon_combined_profile.json
-├── pao_combined_profile.json
-├── po_kayin_combined_profile.json
-├── rakhine_combined_profile.json
-├── sgaw_kayin_combined_profile.json
-└── shan_combined_profile.json
 
-0 directories, 9 files
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
 ```
 
 json ဖိုင်တွေကို လေ့လာကြည့်ခဲ့ ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . bamar_combined_profile.json | head
-{
-  "char_freq": {
-    "န": 0.023469469401902053,
-    "ေ": 0.03631757237178158,
-    " ": 0.2367811218853845,
-    "က": 0.03867437884023886,
-    "မ": 0.0258740566611921,
-    "ီ": 0.010828037313005514,
-    "း": 0.04465342430897031,
-    "ျ": 0.01338279277205567,
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . bamar_combined_profile.json | tail
-    "ပေါ့် ": 1.51462827992754e-06,
-    "ဩတ္တပ္ပ ": 6.05851311971016e-06,
-    "ဩတ္တပ္တ ": 1.51462827992754e-06,
-    "နန္တ ": 1.51462827992754e-06,
-    "ဒေါ့် ": 1.51462827992754e-06,
-    "ယွမ့် ": 1.51462827992754e-06,
-    "ဆစ့် ": 1.51462827992754e-06,
-    "ပဲ": 1.51462827992754e-06
-  }
-}
+
 ```
 
 for Mon profile ...  
 
 ```
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . mon_combined_profile.json | head
-{
-  "char_freq": {
-    "၂": 6.177005524988275e-05,
-    " ": 0.2284279520938905,
-    "၀": 0.0004804337630546436,
-    "မ": 0.017865272646160533,
-    "ိ": 0.02155088594273687,
-    "ဏ": 0.0060534654144885095,
-    "ေ": 0.03999267910456298,
-    "တ": 0.028153418515002117,
-(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$ jq . mon_combined_profile.json | tail
-    "ရေင်အ္စာ ": 1.8390297279155518e-05,
-    "ယျေ ": 9.195148639577759e-06,
-    "။ ္အ္အ္အ္အ္အ္အ ": 9.195148639577759e-06,
-    "လဵု‌ ": 9.195148639577759e-06,
-    "မၠောန်သ္ၚိ ": 9.195148639577759e-06,
-    "ဗၠာဲက္ဍုဟ် ": 9.195148639577759e-06,
-    "မျိုင် ": 9.195148639577759e-06,
-    "။": 9.195148639577759e-06
-  }
-}
+
 ```
 
 
