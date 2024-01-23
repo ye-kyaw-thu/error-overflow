@@ -5772,30 +5772,842 @@ for Mon profile ...
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/profile$
 ```
 
+Make raw files for test-data:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ python ./rm_space.py --input ./eg_input/ --output ./eg_input_raw
+Processed: ./eg_input/sgaw_kayin.txt -> ./eg_input_raw/sgaw_kayin.txt.raw
+Processed: ./eg_input/po_kayin.txt -> ./eg_input_raw/po_kayin.txt.raw
+Processed: ./eg_input/mon.txt -> ./eg_input_raw/mon.txt.raw
+Processed: ./eg_input/pao.txt -> ./eg_input_raw/pao.txt.raw
+Processed: ./eg_input/shan.txt -> ./eg_input_raw/shan.txt.raw
+Processed: ./eg_input/mon_tst.txt -> ./eg_input_raw/mon_tst.txt.raw
+Processed: ./eg_input/bamar_burmese.txt -> ./eg_input_raw/bamar_burmese.txt.raw
+Processed: ./eg_input/rakhine.txt -> ./eg_input_raw/rakhine.txt.raw
+Processed: ./eg_input/beik.txt -> ./eg_input_raw/beik.txt.raw
+Processed: ./eg_input/dawei.txt -> ./eg_input_raw/dawei.txt.raw
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
+```
+
+Check the raw test-data files:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/eg_input_raw$ head -n 3 *.raw
+==> bamar_burmese.txt.raw <==
+နေကောင်းလား
+ကျန်းမာတယ်ဒါပေမဲ့အလုပ်များတယ်
+မင်္ဂလာပါဆရာမ
+
+==> beik.txt.raw <==
+ဖယ်သူလေကိုမေးရိလဲ။
+သူဒယ့်ဟာကိုလိုချင်မဟုတ်ဝ။
+ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+
+==> dawei.txt.raw <==
+ဟှယ်လူလေဟှိုမေးကေ့နူး။
+အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+
+==> mon_tst.txt.raw <==
+လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+ကသပ်ပ္ဍဲဗှ်ေဂှ်
+
+==> mon.txt.raw <==
+ဗှ်ေဟယျတုဲမာန်ဟာ။
+ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+
+==> pao.txt.raw <==
+နဝ်ꩻနဝ်ꩻနာꩻတအွဉ်ႏဖွို့ꩻတဝ်းဟောင်းတွမ်ႏအလင်တဗာႏ
+ဝွေꩻမူႏတတောင်ချာတဝ်းဒွုမ်ပါꩻမုဲင်ꩻမုဲင်ꩻ
+နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+
+==> po_kayin.txt.raw <==
+ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+
+==> rakhine.txt.raw <==
+သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+ဆူပြီးရီကိုသောက်သင့်ရေ။
+
+==> sgaw_kayin.txt.raw <==
+တၢ်ဝဲန့ၣ်နတဘျးစဲဒီးအဂၤတခါဧဲၣ်.
+ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+
+==> shan.txt.raw <==
+မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+တႃႇလုၵ်ႈႁဵၼ်းၶဝ်တေလႆႈဢဝ်ပပ်ႉလႂ်။
+တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq/eg_input_raw$
+```
+
+### Shell script for testing with char_syl_freq approach
+
+language detection experiment အတွက် shell script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+# Define directories
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/char_syl_freq"
+PYTHON_SCRIPT="$BASE_DIR/char_syl_freq_lang_detect.py"
+INPUT_DIR="$BASE_DIR/eg_input_raw"
+PROFILE_DIR="$BASE_DIR/profile"
+
+# Number of random sentences to test
+NUM_RANDOM_SENTENCES=10
+
+# Loop through each input file in the directory
+for input_file in "$INPUT_DIR"/*.raw; do
+    echo "Processing file: $(basename "$input_file")"
+    
+    # Run detection on the entire file
+    python "$PYTHON_SCRIPT" --input "$input_file" --mode detect --profiles "$PROFILE_DIR"
+    
+    # Extract and predict random sentences from the file
+    for i in $(seq 1 $NUM_RANDOM_SENTENCES); do
+        random_sentence=$(shuf -n 1 "$input_file")
+        echo "Predicting random sentence $i: $random_sentence"
+        python "$PYTHON_SCRIPT" --input "$random_sentence" --mode detect --profiles "$PROFILE_DIR"
+    done
+
+    echo ""
+done
+
+echo "All processing completed."
 
 ```
 
-```
+Language detection experiment no.1  with char_syl_freq approach ...  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ time ./test4exp.sh | tee test1.log
+Processing file: bamar_burmese.txt.raw
+Detected language: bamar_combined_profile.json
+Predicting random sentence 1: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 2: ကျောင်းသားကျောင်းသွားပါ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 3: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 4: ပါပါသမီးကိုလွမ်းနေတယ်
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: ကလေးကအိမ်မှာပါ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Detected language: bamar_combined_profile.json
+Predicting random sentence 7: နေကောင်းလား
+Detected language: beik_combined_profile.json
+Predicting random sentence 8: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Detected language: beik_combined_profile.json
+Predicting random sentence 9: ပုပ္ပါးတောင်ကိုထပ်တက်ချင်သေးတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 10: ကလေးကအိမ်မှာပါ
+Detected language: rakhine_combined_profile.json
 
+Processing file: beik.txt.raw
+Detected language: beik_combined_profile.json
+Predicting random sentence 1: ဖယ်သူလေကိုမေးရိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 2: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 3: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 4: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: သူဒယ့်ဟာကိုလိုချင်မဟုတ်ဝ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 6: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 7: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Detected language: beik_combined_profile.json
+Predicting random sentence 8: ဖယ်သူလေကိုမေးရိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 9: သူတို့ဘဇာလောက်သတ္တိရှိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 10: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+
+Processing file: dawei.txt.raw
+Detected language: dawei_combined_profile.json
+Predicting random sentence 1: အဲဝယ်ဟှားဟှိုလက်ထပ်လိုက်ဇာလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 2: အယ်ထဲမှာဝီးပြောဖောင်းပြောဇာရရာများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 3: အဲမိုထဲမှာဝေးကိုဖုန်းပြောဇာရတိုင်းများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 4: ခံဗျားခရီးထွပ်ဟှလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 5: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 6: အဲဝယ်ဟှားဟှိုလက်ထပ်လိုက်ဇာလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 7: အဲဟှိုသွားဟှို့နန့်ဟှိုငါတိုက်တွန်းဟှ။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 8: အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 9: အဲဟှိုသွားဟှို့နန့်ဟှိုငါတိုက်တွန်းဟှ။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 10: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Detected language: dawei_combined_profile.json
+
+Processing file: mon_tst.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+
+Processing file: mon.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: သွက်အဲဂွံအံၚ်ဇၞးရာဒနာကဵုညိ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: သွက်အဲဂွံအံၚ်ဇၞးရာဒနာကဵုညိ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: သွက်အဲဂွံအံၚ်ဇၞးရာဒနာကဵုညိ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Detected language: mon_combined_profile.json
+
+Processing file: pao.txt.raw
+Detected language: pao_combined_profile.json
+Predicting random sentence 1: နဝ်ꩻနဝ်ꩻနာꩻတအွဉ်ႏဖွို့ꩻတဝ်းဟောင်းတွမ်ႏအလင်တဗာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 2: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 3: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 4: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 5: နဝ်ꩻနဝ်ꩻနာꩻတအွဉ်ႏဖွို့ꩻတဝ်းဟောင်းတွမ်ႏအလင်တဗာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 6: နဝ်ꩻနဝ်ꩻနာꩻတအွဉ်ႏဖွို့ꩻတဝ်းဟောင်းတွမ်ႏအလင်တဗာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 7: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 8: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Detected language: pao_combined_profile.json
+Predicting random sentence 9: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 10: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Detected language: pao_combined_profile.json
+
+Processing file: po_kayin.txt.raw
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 1: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 2: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 3: ၦလၧဖီၪ့ဂုးထၬအဝ့ၫကန့နီၪမွဲဒၪနၧၩလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 4: ၦလၧဖီၪ့ဂုးထၬအဝ့ၫကန့နီၪမွဲဒၪနၧၩလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 5: အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 6: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 7: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 8: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 9: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 10: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+
+Processing file: rakhine.txt.raw
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 1: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 2: ငါအလုပ်မပြီးသိပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 3: ထိုမချေကိုသူအမှန်မမြတ်နိုးခပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 4: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: ငါအလုပ်မပြီးသိပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 7: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 8: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 9: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 10: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Detected language: rakhine_combined_profile.json
+
+Processing file: sgaw_kayin.txt.raw
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 1: တၢ်ဝဲန့ၣ်န့ၣ်မ့ၢ်ယထီၣ်ယီၢ်ဘၣ်ဧါ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 2: လၢခံကတၢၢ်တဘျီကတဲအီၤလၢယအဲၣ်အီၤန့ၣ်အခွဲးတန့ၢ်လၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 3: လၢခံကတၢၢ်တဘျီကတဲအီၤလၢယအဲၣ်အီၤန့ၣ်အခွဲးတန့ၢ်လၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 4: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 5: ပျဲတၢ်မၤစၢၤတက့ၢ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 6: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 7: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 8: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 9: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 10: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+
+Processing file: shan.txt.raw
+Detected language: shan_combined_profile.json
+Predicting random sentence 1: မိူဝ်ႈပူၼ်ႉမႃးဝၼ်းသုၵ်းၵၢင်ၼႂ်႑႑မွင်းၼၼ်ႉသူမီးယူႇတီႈလႂ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 2: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 3: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 4: မိူဝ်ႈပူၼ်ႉမႃးဝၼ်းသုၵ်းၵၢင်ၼႂ်႑႑မွင်းၼၼ်ႉသူမီးယူႇတီႈလႂ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 5: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 6: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 7: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 8: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 9: ဢမ်ႇမီးၶပ်းမၢႆတႃႇဢွၵ်ႇပၢႆႈႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 10: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Detected language: shan_combined_profile.json
+
+All processing completed.
+
+real    0m4.994s
+user    0m4.278s
+sys     0m0.715s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
 ```
 
-```
+Language detection experiment no.2  with char_syl_freq approach ... 
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ time ./test4exp.sh | tee test2.log
+Processing file: bamar_burmese.txt.raw
+Detected language: bamar_combined_profile.json
+Predicting random sentence 1: ကလေးကအိမ်မှာပါ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 2: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Detected language: beik_combined_profile.json
+Predicting random sentence 3: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Detected language: bamar_combined_profile.json
+Predicting random sentence 4: ပုပ္ပါးတောင်ကိုထပ်တက်ချင်သေးတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 5: မင်္ဂလာပါဆရာမ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: မင်္ဂလာပါဆရာမ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 7: ပါပါသမီးကိုလွမ်းနေတယ်
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 8: မင်္ဂလာပါဆရာမ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 9: နေကောင်းလား
+Detected language: beik_combined_profile.json
+Predicting random sentence 10: မင်္ဂလာပါဆရာမ
+Detected language: rakhine_combined_profile.json
 
+Processing file: beik.txt.raw
+Detected language: beik_combined_profile.json
+Predicting random sentence 1: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 2: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Detected language: bamar_combined_profile.json
+Predicting random sentence 3: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Detected language: beik_combined_profile.json
+Predicting random sentence 4: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: အဲဒီကိုသောဖို့ငါမင်းကိုငါမတိုက်တွန်းရ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: ဖယ်သူလေကိုမေးရိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 7: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Detected language: bamar_combined_profile.json
+Predicting random sentence 8: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Detected language: bamar_combined_profile.json
+Predicting random sentence 9: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 10: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Detected language: bamar_combined_profile.json
+
+Processing file: dawei.txt.raw
+Detected language: dawei_combined_profile.json
+Predicting random sentence 1: အဲမိုထဲမှာဝေးကိုဖုန်းပြောဇာရတိုင်းများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 2: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 3: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 4: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 5: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 6: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 7: အယ်ထဲမှာဝီးပြောဖောင်းပြောဇာရရာများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 8: အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 9: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 10: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Detected language: dawei_combined_profile.json
+
+Processing file: mon_tst.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+
+Processing file: mon.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: ၜိုတ်အဲကၠောန်မာန်အဲဂစာန်လဝ်ရ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: သွက်အဲဂွံအံၚ်ဇၞးရာဒနာကဵုညိ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+
+Processing file: pao.txt.raw
+Detected language: pao_combined_profile.json
+Predicting random sentence 1: ဒေါ့ꩻဝင်ꩻမဉ်ꩻနဝ်ꩻလွထီႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 2: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 3: ဒေါ့ꩻဝင်ꩻမဉ်ꩻနဝ်ꩻလွထီႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 4: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 5: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 6: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Detected language: pao_combined_profile.json
+Predicting random sentence 7: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Detected language: pao_combined_profile.json
+Predicting random sentence 8: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 9: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Detected language: pao_combined_profile.json
+Predicting random sentence 10: ဝွေꩻမူႏတတောင်ချာတဝ်းဒွုမ်ပါꩻမုဲင်ꩻမုဲင်ꩻ
+Detected language: pao_combined_profile.json
+
+Processing file: po_kayin.txt.raw
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 1: ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 2: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 3: ဆီၫ့မီၪ့ဆၧကဲၪခိၬယဆီၫ့မီၪ့ဘီၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 4: ၦလၧဖီၪ့ဂုးထၬအဝ့ၫကန့နီၪမွဲဒၪနၧၩလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 5: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 6: ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 7: အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 8: ဆီၫ့မီၪ့ဆၧကဲၪခိၬယဆီၫ့မီၪ့ဘီၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 9: ဆီၫ့မီၪ့ဆၧကဲၪခိၬယဆီၫ့မီၪ့ဘီၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 10: ဆီၫ့မီၪ့ဆၧကဲၪခိၬယဆီၫ့မီၪ့ဘီၪ.
+Detected language: po_kayin_combined_profile.json
+
+Processing file: rakhine.txt.raw
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 1: မင်းမိန်းစရာမလိုပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 2: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 3: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 4: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: မင်းမိန်းစရာမလိုပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 7: ထိုမချေကိုသူအမှန်မမြတ်နိုးခပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 8: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 9: ငါအလုပ်မပြီးသိပါ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 10: မင်းမိန်းစရာမလိုပါ။
+Detected language: rakhine_combined_profile.json
+
+Processing file: sgaw_kayin.txt.raw
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 1: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 2: လၢခံကတၢၢ်တဘျီကတဲအီၤလၢယအဲၣ်အီၤန့ၣ်အခွဲးတန့ၢ်လၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 3: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 4: တၢ်ဝဲန့ၣ်နတဘျးစဲဒီးအဂၤတခါဧဲၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 5: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 6: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 7: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 8: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 9: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 10: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+
+Processing file: shan.txt.raw
+Detected language: shan_combined_profile.json
+Predicting random sentence 1: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 2: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 3: တႃႇလုၵ်ႈႁဵၼ်းၶဝ်တေလႆႈဢဝ်ပပ်ႉလႂ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 4: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 5: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 6: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 7: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 8: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 9: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 10: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+
+All processing completed.
+
+real    0m5.003s
+user    0m4.275s
+sys     0m0.730s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
 ```
 
-```
+Language detection experiment no.3  with char_syl_freq approach ... 
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$ time ./test4exp.sh | tee test3.log
+Processing file: bamar_burmese.txt.raw
+Detected language: bamar_combined_profile.json
+Predicting random sentence 1: ပုပ္ပါးတောင်ကိုထပ်တက်ချင်သေးတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 2: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Detected language: bamar_combined_profile.json
+Predicting random sentence 3: နေကောင်းလား
+Detected language: beik_combined_profile.json
+Predicting random sentence 4: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 5: ကလေးကအိမ်မှာပါ
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: ပါပါသမီးကိုလွမ်းနေတယ်
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 7: ကျန်းမာတယ်ဒါပေမဲ့အလုပ်များတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 8: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Detected language: beik_combined_profile.json
+Predicting random sentence 9: ပုပ္ပါးတောင်ကိုထပ်တက်ချင်သေးတယ်
+Detected language: bamar_combined_profile.json
+Predicting random sentence 10: နေကောင်းလား
+Detected language: beik_combined_profile.json
 
+Processing file: beik.txt.raw
+Detected language: beik_combined_profile.json
+Predicting random sentence 1: ဖယ်သူလေကိုမေးရိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 2: သူတို့ဘဇာလောက်သတ္တိရှိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 3: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 4: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Detected language: beik_combined_profile.json
+Predicting random sentence 5: နင်ခရီးမထွက်ခဲ့ရလား။
+Detected language: beik_combined_profile.json
+Predicting random sentence 6: သူတို့ဘဇာလောက်သတ္တိရှိလဲ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 7: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Detected language: beik_combined_profile.json
+Predicting random sentence 8: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 9: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 10: နင်ခရီးမထွက်ခဲ့ရလား။
+Detected language: beik_combined_profile.json
+
+Processing file: dawei.txt.raw
+Detected language: dawei_combined_profile.json
+Predicting random sentence 1: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 2: အဲမိုထဲမှာဝေးကိုဖုန်းပြောဇာရတိုင်းများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 3: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 4: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 5: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 6: အယ်ထဲမှာဝီးပြောဖောင်းပြောဇာရရာများဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 7: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 8: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 9: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Detected language: dawei_combined_profile.json
+Predicting random sentence 10: အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+Detected language: dawei_combined_profile.json
+
+Processing file: mon_tst.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+
+Processing file: mon.txt.raw
+Detected language: mon_combined_profile.json
+Predicting random sentence 1: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 2: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 3: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 4: ၜိုတ်အဲကၠောန်မာန်အဲဂစာန်လဝ်ရ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 5: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 6: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 7: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 8: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Detected language: mon_combined_profile.json
+Predicting random sentence 9: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Detected language: mon_combined_profile.json
+Predicting random sentence 10: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Detected language: mon_combined_profile.json
+
+Processing file: pao.txt.raw
+Detected language: pao_combined_profile.json
+Predicting random sentence 1: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 2: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 3: နဝ်ꩻနဝ်ꩻနာꩻတအွဉ်ႏဖွို့ꩻတဝ်းဟောင်းတွမ်ႏအလင်တဗာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 4: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 5: ကထိန်ꩻ‌နွောင်ꩻဝွေꩻနဝ်ꩻအဝ်ႏဒျာႏနာꩻလွုမ်
+Detected language: pao_combined_profile.json
+Predicting random sentence 6: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Detected language: pao_combined_profile.json
+Predicting random sentence 7: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Detected language: pao_combined_profile.json
+Predicting random sentence 8: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Detected language: pao_combined_profile.json
+Predicting random sentence 9: ကထိန်ꩻ‌နွောင်ꩻဝွေꩻနဝ်ꩻအဝ်ႏဒျာႏနာꩻလွုမ်
+Detected language: pao_combined_profile.json
+Predicting random sentence 10: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Detected language: pao_combined_profile.json
+
+Processing file: po_kayin.txt.raw
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 1: ယဂဲၫထဲၩ့လီၩပျၩ့ထၬကဲၪခိၬနလီၩထၬဆ့လီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 2: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 3: ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 4: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 5: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 6: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 7: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 8: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 9: ယမ့ၬလဲၩချဲၩ့ၦဂူၫဂၩအလၩ.
+Detected language: po_kayin_combined_profile.json
+Predicting random sentence 10: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Detected language: po_kayin_combined_profile.json
+
+Processing file: rakhine.txt.raw
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 1: ငါဘတ်စ်ကားစီးဖို့အတွက်အကြွီလိုချင်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 2: ဆူပြီးရီကိုသောက်သင့်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 3: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 4: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 5: ဆူပြီးရီကိုသောက်သင့်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 6: မင်းတောင်တိကိုတက်နီကျလား။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 7: ငါဘတ်စ်ကားစီးဖို့အတွက်အကြွီလိုချင်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 8: ဆူပြီးရီကိုသောက်သင့်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 9: ဆူပြီးရီကိုသောက်သင့်ရေ။
+Detected language: rakhine_combined_profile.json
+Predicting random sentence 10: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Detected language: rakhine_combined_profile.json
+
+Processing file: sgaw_kayin.txt.raw
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 1: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 2: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 3: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 4: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 5: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 6: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 7: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 8: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 9: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Detected language: sgaw_kayin_combined_profile.json
+Predicting random sentence 10: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Detected language: sgaw_kayin_combined_profile.json
+
+Processing file: shan.txt.raw
+Detected language: shan_combined_profile.json
+Predicting random sentence 1: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 2: တႃႇမၼ်းၼၢင်းႁဝ်းတေထၢမ်ဢမ်ႇၸႂ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 3: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 4: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 5: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 6: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 7: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 8: ဢရသႃႇမၼ်းတႄႉမိူၼ်ၼမ်ႉလၢင်ႉဝၢၼ်ႇဝႆႉ။
+Detected language: shan_combined_profile.json
+Predicting random sentence 9: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Detected language: shan_combined_profile.json
+Predicting random sentence 10: ဢရသႃႇမၼ်းတႄႉမိူၼ်ၼမ်ႉလၢင်ႉဝၢၼ်ႇဝႆႉ။
+Detected language: shan_combined_profile.json
+
+All processing completed.
+
+real    0m4.951s
+user    0m4.257s
+sys     0m0.699s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_freq$
 ```
 
-```
-
-```
+What I learned:  char_syl frequency dictionary based နဲ့လည်း မြန်မြန်ဆန်ဆန် language detection လုပ်လို့ ရတယ်။ ရလဒ်လည်း အကြမ်းဖျဉ်းအားဖြင့် ကြည့်ကြည့်ရင် Neural Network, FastText approach တွေနဲ့ comparable လုပ်လို့ ရတယ်လို့ နားလည်တယ်။ သို့သော် formal comparison တော့ လုပ်ရဦးမယ်။ အဲဒါပြီးမှ အတိအကျ သိရမယ်။ လက်ရှိ char_syl freq dictionary based approach မှာက ကောင်းကောင်း language detection မလုပ်ပေးနိုင်တာက dialect language pair တွေဖြစ်တဲ့ ဗမာ၊ ဘိတ်၊ ထားဝယ်၊ ရခိုင် ဒီ ဘာသာစကားလေးမျိုးအကြားပဲ။ တခုကောင်းတာက မွန်နဲ့ ရှမ်းကို ရောတာမျိုး မဖြစ်တာကတော့ ကောင်းတယ်။   
 
 ```
 
