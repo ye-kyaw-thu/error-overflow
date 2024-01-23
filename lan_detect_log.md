@@ -8129,19 +8129,284 @@ echo "Language model training completed."
 
 ```
 
+Run shell script as follows:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ time ./build_lm.sh
+Training char level 3-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.3gram.lm.pkl
+Training char level 4-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.4gram.lm.pkl
+Training char level 5-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.char.5gram.lm.pkl
+Training syl level 3-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.3gram.lm.pkl
+Training syl level 4-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.4gram.lm.pkl
+Training syl level 5-gram model for bamar language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/bamar.syl.5gram.lm.pkl
+Training char level 3-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.3gram.lm.pkl
+Training char level 4-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.4gram.lm.pkl
+Training char level 5-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.char.5gram.lm.pkl
+Training syl level 3-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.3gram.lm.pkl
+Training syl level 4-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.4gram.lm.pkl
+Training syl level 5-gram model for beik language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/beik.syl.5gram.lm.pkl
+Training char level 3-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.3gram.lm.pkl
+Training char level 4-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.4gram.lm.pkl
+Training char level 5-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.char.5gram.lm.pkl
+Training syl level 3-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.3gram.lm.pkl
+Training syl level 4-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.4gram.lm.pkl
+Training syl level 5-gram model for dawei language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/dawei.syl.5gram.lm.pkl
+Training char level 3-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.3gram.lm.pkl
+Training char level 4-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.4gram.lm.pkl
+Training char level 5-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.char.5gram.lm.pkl
+Training syl level 3-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.3gram.lm.pkl
+Training syl level 4-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.4gram.lm.pkl
+Training syl level 5-gram model for mon language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/mon.syl.5gram.lm.pkl
+Training char level 3-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.3gram.lm.pkl
+Training char level 4-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.4gram.lm.pkl
+Training char level 5-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.char.5gram.lm.pkl
+Training syl level 3-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.3gram.lm.pkl
+Training syl level 4-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.4gram.lm.pkl
+Training syl level 5-gram model for pao language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/pao.syl.5gram.lm.pkl
+Training char level 3-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.3gram.lm.pkl
+Training char level 4-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.4gram.lm.pkl
+Training char level 5-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.char.5gram.lm.pkl
+Training syl level 3-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.3gram.lm.pkl
+Training syl level 4-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.4gram.lm.pkl
+Training syl level 5-gram model for po_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/po_kayin.syl.5gram.lm.pkl
+Training char level 3-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.3gram.lm.pkl
+Training char level 4-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.4gram.lm.pkl
+Training char level 5-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.char.5gram.lm.pkl
+Training syl level 3-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.3gram.lm.pkl
+Training syl level 4-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.4gram.lm.pkl
+Training syl level 5-gram model for rakhine language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/rakhine.syl.5gram.lm.pkl
+Training char level 3-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.3gram.lm.pkl
+Training char level 4-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.4gram.lm.pkl
+Training char level 5-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.char.5gram.lm.pkl
+Training syl level 3-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.3gram.lm.pkl
+Training syl level 4-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.4gram.lm.pkl
+Training syl level 5-gram model for sgaw_kayin language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/sgaw_kayin.syl.5gram.lm.pkl
+Training char level 3-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.3gram.lm.pkl
+Training char level 4-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.4gram.lm.pkl
+Training char level 5-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.char.5gram.lm.pkl
+Training syl level 3-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.3gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.3gram.lm.pkl
+Training syl level 4-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.4gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.4gram.lm.pkl
+Training syl level 5-gram model for shan language.
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.5gram.lm.pkl
+Language model saved to /home/ye/exp/sylbreak4all/lang_detection/char_syl_LM/lm/shan.syl.5gram.lm.pkl
+Language model training completed.
+
+real    5m57.618s
+user    6m47.999s
+sys     2m56.116s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
+```
+
 After running above shell script, I got char, syl LMs as follows:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ ls ./lm/*char*pkl
+./lm/bamar.char.3gram.lm.pkl  ./lm/pao.char.5gram.lm.pkl
+./lm/bamar.char.4gram.lm.pkl  ./lm/po_kayin.char.3gram.lm.pkl
+./lm/bamar.char.5gram.lm.pkl  ./lm/po_kayin.char.4gram.lm.pkl
+./lm/beik.char.3gram.lm.pkl   ./lm/po_kayin.char.5gram.lm.pkl
+./lm/beik.char.4gram.lm.pkl   ./lm/rakhine.char.3gram.lm.pkl
+./lm/beik.char.5gram.lm.pkl   ./lm/rakhine.char.4gram.lm.pkl
+./lm/dawei.char.3gram.lm.pkl  ./lm/rakhine.char.5gram.lm.pkl
+./lm/dawei.char.4gram.lm.pkl  ./lm/sgaw_kayin.char.3gram.lm.pkl
+./lm/dawei.char.5gram.lm.pkl  ./lm/sgaw_kayin.char.4gram.lm.pkl
+./lm/mon.char.3gram.lm.pkl    ./lm/sgaw_kayin.char.5gram.lm.pkl
+./lm/mon.char.4gram.lm.pkl    ./lm/shan.char.3gram.lm.pkl
+./lm/mon.char.5gram.lm.pkl    ./lm/shan.char.4gram.lm.pkl
+./lm/pao.char.3gram.lm.pkl    ./lm/shan.char.5gram.lm.pkl
+./lm/pao.char.4gram.lm.pkl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ ls ./lm/*syl*pkl
+./lm/bamar.syl.3gram.lm.pkl  ./lm/pao.syl.5gram.lm.pkl
+./lm/bamar.syl.4gram.lm.pkl  ./lm/po_kayin.syl.3gram.lm.pkl
+./lm/bamar.syl.5gram.lm.pkl  ./lm/po_kayin.syl.4gram.lm.pkl
+./lm/beik.syl.3gram.lm.pkl   ./lm/po_kayin.syl.5gram.lm.pkl
+./lm/beik.syl.4gram.lm.pkl   ./lm/rakhine.syl.3gram.lm.pkl
+./lm/beik.syl.5gram.lm.pkl   ./lm/rakhine.syl.4gram.lm.pkl
+./lm/dawei.syl.3gram.lm.pkl  ./lm/rakhine.syl.5gram.lm.pkl
+./lm/dawei.syl.4gram.lm.pkl  ./lm/sgaw_kayin.syl.3gram.lm.pkl
+./lm/dawei.syl.5gram.lm.pkl  ./lm/sgaw_kayin.syl.4gram.lm.pkl
+./lm/mon.syl.3gram.lm.pkl    ./lm/sgaw_kayin.syl.5gram.lm.pkl
+./lm/mon.syl.4gram.lm.pkl    ./lm/shan.syl.3gram.lm.pkl
+./lm/mon.syl.5gram.lm.pkl    ./lm/shan.syl.4gram.lm.pkl
+./lm/pao.syl.3gram.lm.pkl    ./lm/shan.syl.5gram.lm.pkl
+./lm/pao.syl.4gram.lm.pkl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 ```
 
-```
+filesize info for character LMs:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ ls ./lm/*char*pkl -lh
+-rw-rw-r-- 1 ye ye 229K ม.ค.  23 16:47 ./lm/bamar.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.4M ม.ค.  23 16:48 ./lm/bamar.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 5.6M ม.ค.  23 16:48 ./lm/bamar.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 101K ม.ค.  23 16:49 ./lm/beik.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 481K ม.ค.  23 16:49 ./lm/beik.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.5M ม.ค.  23 16:49 ./lm/beik.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 108K ม.ค.  23 16:49 ./lm/dawei.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 518K ม.ค.  23 16:49 ./lm/dawei.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.6M ม.ค.  23 16:49 ./lm/dawei.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 153K ม.ค.  23 16:49 ./lm/mon.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 709K ม.ค.  23 16:49 ./lm/mon.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.2M ม.ค.  23 16:49 ./lm/mon.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 153K ม.ค.  23 16:49 ./lm/pao.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 802K ม.ค.  23 16:49 ./lm/pao.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.8M ม.ค.  23 16:50 ./lm/pao.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 137K ม.ค.  23 16:50 ./lm/po_kayin.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 784K ม.ค.  23 16:50 ./lm/po_kayin.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.9M ม.ค.  23 16:50 ./lm/po_kayin.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 152K ม.ค.  23 16:50 ./lm/rakhine.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 809K ม.ค.  23 16:51 ./lm/rakhine.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.8M ม.ค.  23 16:51 ./lm/rakhine.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 165K ม.ค.  23 16:51 ./lm/sgaw_kayin.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.1M ม.ค.  23 16:52 ./lm/sgaw_kayin.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 4.2M ม.ค.  23 16:52 ./lm/sgaw_kayin.char.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye  99K ม.ค.  23 16:53 ./lm/shan.char.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 490K ม.ค.  23 16:53 ./lm/shan.char.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.8M ม.ค.  23 16:53 ./lm/shan.char.5gram.lm.pkl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 ```
 
+filesize information for syllable LMs:  
+
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ ls ./lm/*syl*pkl -lh
+-rw-rw-r-- 1 ye ye 6.9M ม.ค.  23 16:48 ./lm/bamar.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye  20M ม.ค.  23 16:48 ./lm/bamar.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  39M ม.ค.  23 16:49 ./lm/bamar.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 961K ม.ค.  23 16:49 ./lm/beik.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.2M ม.ค.  23 16:49 ./lm/beik.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 3.9M ม.ค.  23 16:49 ./lm/beik.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.2M ม.ค.  23 16:49 ./lm/dawei.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.5M ม.ค.  23 16:49 ./lm/dawei.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 4.4M ม.ค.  23 16:49 ./lm/dawei.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 1.8M ม.ค.  23 16:49 ./lm/mon.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 4.0M ม.ค.  23 16:49 ./lm/mon.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye 7.1M ม.ค.  23 16:49 ./lm/mon.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 3.0M ม.ค.  23 16:50 ./lm/pao.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 7.1M ม.ค.  23 16:50 ./lm/pao.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  13M ม.ค.  23 16:50 ./lm/pao.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.3M ม.ค.  23 16:50 ./lm/po_kayin.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 5.9M ม.ค.  23 16:50 ./lm/po_kayin.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  12M ม.ค.  23 16:50 ./lm/po_kayin.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 2.3M ม.ค.  23 16:51 ./lm/rakhine.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 5.9M ม.ค.  23 16:51 ./lm/rakhine.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  12M ม.ค.  23 16:51 ./lm/rakhine.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 4.1M ม.ค.  23 16:52 ./lm/sgaw_kayin.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye  13M ม.ค.  23 16:52 ./lm/sgaw_kayin.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  29M ม.ค.  23 16:53 ./lm/sgaw_kayin.syl.5gram.lm.pkl
+-rw-rw-r-- 1 ye ye 4.5M ม.ค.  23 16:53 ./lm/shan.syl.3gram.lm.pkl
+-rw-rw-r-- 1 ye ye 7.4M ม.ค.  23 16:53 ./lm/shan.syl.4gram.lm.pkl
+-rw-rw-r-- 1 ye ye  12M ม.ค.  23 16:53 ./lm/shan.syl.5gram.lm.pkl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
+```
+
 
 ```
 
