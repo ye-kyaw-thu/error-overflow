@@ -6609,6 +6609,22 @@ sys     0m0.699s
 
 What I learned:  char_syl frequency dictionary based နဲ့လည်း မြန်မြန်ဆန်ဆန် language detection လုပ်လို့ ရတယ်။ ရလဒ်လည်း အကြမ်းဖျဉ်းအားဖြင့် ကြည့်ကြည့်ရင် Neural Network, FastText approach တွေနဲ့ comparable လုပ်လို့ ရတယ်လို့ နားလည်တယ်။ သို့သော် formal comparison တော့ လုပ်ရဦးမယ်။ အဲဒါပြီးမှ အတိအကျ သိရမယ်။ လက်ရှိ char_syl freq dictionary based approach မှာက ကောင်းကောင်း language detection မလုပ်ပေးနိုင်တာက dialect language pair တွေဖြစ်တဲ့ ဗမာ၊ ဘိတ်၊ ထားဝယ်၊ ရခိုင် ဒီ ဘာသာစကားလေးမျိုးအကြားပဲ။ တခုကောင်းတာက မွန်နဲ့ ရှမ်းကို ရောတာမျိုး မဖြစ်တာကတော့ ကောင်းတယ်။   
 
+## Rethinking
+
+လက်ရှိအချိန်ထိ စမ်းခဲ့တဲ့ approach တွေက အောက်ပါအတိုင်း ...  
+
+1. Naive Based Language Detection with Syllable Ngram
+2. Character Frequency Dictionary
+3. Syllable Frequency Dictionary
+4. Character+Syllable Frequency Dictionary
+5. Embedding (both Word2Vec and FastText) and Cosine Similarity
+6. FastText Lib based Classification
+7. Neural Network based Classification
+
+ထပ် လုပ်လို့ ရနိုင်တာက Language Model ကို KenLM တို့လို strong statistical LM ဆောက်ပြီး PPL, Naive နှစ်မျိုးပေါင်းပြီး classification လုပ်တာမျိုး။    
+ပြီးတော့ language model ကိုလည်း character level, syllable level ဆောက်ပြီးမှ အဲဒီ LM နှစ်ခုနဲ့ PPL measure လုပ်ပြီးမှ language detection အတွက် decision လုပ်တာမျိုး။   
+
+
 ```
 
 ```
