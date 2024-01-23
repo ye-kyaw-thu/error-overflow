@@ -8407,34 +8407,222 @@ filesize information for syllable LMs:
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 ```
 
+### Confirmation on pkl Files
+
+သိတဲ့အတိုင်းပဲ ထွက်လာတဲ့ pkl ဖိုင်တွေကို မျက်စိနဲ့ confirm လုပ်ဖို့ လိုအပ်တယ်။ အဲဒါကြောင့် pkl lm တွေကို text ဖိုင်အဖြစ် ပြောင်းဖို့ လိုအပ်တယ်။ အဲဒီအတွက် python code ကို အောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```python
+"""
+For converting pkl file to text file.
+Written by Ye Kyaw Thu, LU Lab., Myanmar.
+Last updated: 23 Jan 2024
+
+Usage:
+    python ./pkl2txt_lm.py --input ./lm --output ./txt_lm
+"""
+
+import argparse
+import os
+import pickle
+import sys
+
+def load_language_model(model_path):
+    with open(model_path, 'rb') as file:
+        return pickle.load(file)
+
+def model_to_text(model):
+    model_text = ""
+    for n in range(1, model.order + 1):
+        model_text += f"=== {n}-grams ===\n"
+        for ngram in model.counts[n]:
+            # Construct the n-gram as a string
+            ngram_str = ' '.join(ngram)
+            count = model.counts[n][ngram]
+            model_text += f"{ngram_str}: {count}\n"
+    return model_text
+
+def save_text_model(text_model, output_path):
+    with open(output_path, 'w', encoding='utf-8') as file:
+        file.write(text_model)
+
+def convert_models(input_dir, output_dir):
+    for model_file in os.listdir(input_dir):
+        if model_file.endswith('.pkl'):
+            model_path = os.path.join(input_dir, model_file)
+            model = load_language_model(model_path)
+            model_text = model_to_text(model)
+
+            # Creating output filename by replacing .pkl with .txt
+            output_filename = model_file.replace('.pkl', '.txt')
+            output_path = os.path.join(output_dir, output_filename)
+            save_text_model(model_text, output_path)
+            print(f"Converted {model_file} to {output_filename}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Convert .pkl language models to text format.')
+    parser.add_argument('--input', type=str, required=True, help='Input folder path containing .pkl language models.')
+    parser.add_argument('--output', type=str, required=True, help='Output folder path to save text-based language models.')
+
+    args = parser.parse_args()
+
+    if not os.path.exists(args.input):
+        print(f"Input directory {args.input} does not exist.")
+        sys.exit(1)
+
+    if not os.path.exists(args.output):
+        os.makedirs(args.output)
+
+    convert_models(args.input, args.output)
 
 ```
 
+Converting ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ time python ./pkl2txt_lm.py --input ./lm --output ./txt_lm
+Converted beik.syl.4gram.lm.pkl to beik.syl.4gram.lm.txt
+Converted pao.syl.4gram.lm.pkl to pao.syl.4gram.lm.txt
+Converted dawei.char.4gram.lm.pkl to dawei.char.4gram.lm.txt
+Converted sgaw_kayin.char.4gram.lm.pkl to sgaw_kayin.char.4gram.lm.txt
+Converted bamar.syl.4gram.lm.pkl to bamar.syl.4gram.lm.txt
+Converted mon.char.3gram.lm.pkl to mon.char.3gram.lm.txt
+Converted sgaw_kayin.char.3gram.lm.pkl to sgaw_kayin.char.3gram.lm.txt
+Converted beik.char.3gram.lm.pkl to beik.char.3gram.lm.txt
+Converted sgaw_kayin.char.5gram.lm.pkl to sgaw_kayin.char.5gram.lm.txt
+Converted rakhine.syl.4gram.lm.pkl to rakhine.syl.4gram.lm.txt
+Converted pao.syl.5gram.lm.pkl to pao.syl.5gram.lm.txt
+Converted po_kayin.char.5gram.lm.pkl to po_kayin.char.5gram.lm.txt
+Converted sgaw_kayin.syl.5gram.lm.pkl to sgaw_kayin.syl.5gram.lm.txt
+Converted dawei.syl.3gram.lm.pkl to dawei.syl.3gram.lm.txt
+Converted mon.syl.5gram.lm.pkl to mon.syl.5gram.lm.txt
+Converted beik.char.4gram.lm.pkl to beik.char.4gram.lm.txt
+Converted shan.char.5gram.lm.pkl to shan.char.5gram.lm.txt
+Converted po_kayin.char.4gram.lm.pkl to po_kayin.char.4gram.lm.txt
+Converted beik.syl.5gram.lm.pkl to beik.syl.5gram.lm.txt
+Converted mon.syl.3gram.lm.pkl to mon.syl.3gram.lm.txt
+Converted po_kayin.char.3gram.lm.pkl to po_kayin.char.3gram.lm.txt
+Converted bamar.char.5gram.lm.pkl to bamar.char.5gram.lm.txt
+Converted bamar.char.3gram.lm.pkl to bamar.char.3gram.lm.txt
+Converted bamar.char.4gram.lm.pkl to bamar.char.4gram.lm.txt
+Converted bamar.syl.3gram.lm.pkl to bamar.syl.3gram.lm.txt
+Converted rakhine.syl.3gram.lm.pkl to rakhine.syl.3gram.lm.txt
+Converted pao.syl.3gram.lm.pkl to pao.syl.3gram.lm.txt
+Converted po_kayin.syl.4gram.lm.pkl to po_kayin.syl.4gram.lm.txt
+Converted rakhine.char.4gram.lm.pkl to rakhine.char.4gram.lm.txt
+Converted po_kayin.syl.5gram.lm.pkl to po_kayin.syl.5gram.lm.txt
+Converted dawei.syl.4gram.lm.pkl to dawei.syl.4gram.lm.txt
+Converted pao.char.5gram.lm.pkl to pao.char.5gram.lm.txt
+Converted beik.char.5gram.lm.pkl to beik.char.5gram.lm.txt
+Converted shan.char.4gram.lm.pkl to shan.char.4gram.lm.txt
+Converted dawei.char.5gram.lm.pkl to dawei.char.5gram.lm.txt
+Converted pao.char.4gram.lm.pkl to pao.char.4gram.lm.txt
+Converted shan.syl.4gram.lm.pkl to shan.syl.4gram.lm.txt
+Converted shan.syl.5gram.lm.pkl to shan.syl.5gram.lm.txt
+Converted rakhine.char.3gram.lm.pkl to rakhine.char.3gram.lm.txt
+Converted sgaw_kayin.syl.3gram.lm.pkl to sgaw_kayin.syl.3gram.lm.txt
+Converted mon.char.4gram.lm.pkl to mon.char.4gram.lm.txt
+Converted bamar.syl.5gram.lm.pkl to bamar.syl.5gram.lm.txt
+Converted pao.char.3gram.lm.pkl to pao.char.3gram.lm.txt
+Converted mon.char.5gram.lm.pkl to mon.char.5gram.lm.txt
+Converted shan.syl.3gram.lm.pkl to shan.syl.3gram.lm.txt
+Converted dawei.syl.5gram.lm.pkl to dawei.syl.5gram.lm.txt
+Converted rakhine.char.5gram.lm.pkl to rakhine.char.5gram.lm.txt
+Converted rakhine.syl.5gram.lm.pkl to rakhine.syl.5gram.lm.txt
+Converted shan.char.3gram.lm.pkl to shan.char.3gram.lm.txt
+Converted dawei.char.3gram.lm.pkl to dawei.char.3gram.lm.txt
+Converted mon.syl.4gram.lm.pkl to mon.syl.4gram.lm.txt
+Converted sgaw_kayin.syl.4gram.lm.pkl to sgaw_kayin.syl.4gram.lm.txt
+Converted beik.syl.3gram.lm.pkl to beik.syl.3gram.lm.txt
+Converted po_kayin.syl.3gram.lm.pkl to po_kayin.syl.3gram.lm.txt
+
+real    0m18.177s
+user    0m18.080s
+sys     0m3.966s
+```
+
+Check the converted text files:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$ ls
+bamar.char.3gram.lm.txt  mon.char.3gram.lm.txt       rakhine.char.3gram.lm.txt
+bamar.char.4gram.lm.txt  mon.char.4gram.lm.txt       rakhine.char.4gram.lm.txt
+bamar.char.5gram.lm.txt  mon.char.5gram.lm.txt       rakhine.char.5gram.lm.txt
+bamar.syl.3gram.lm.txt   mon.syl.3gram.lm.txt        rakhine.syl.3gram.lm.txt
+bamar.syl.4gram.lm.txt   mon.syl.4gram.lm.txt        rakhine.syl.4gram.lm.txt
+bamar.syl.5gram.lm.txt   mon.syl.5gram.lm.txt        rakhine.syl.5gram.lm.txt
+beik.char.3gram.lm.txt   pao.char.3gram.lm.txt       sgaw_kayin.char.3gram.lm.txt
+beik.char.4gram.lm.txt   pao.char.4gram.lm.txt       sgaw_kayin.char.4gram.lm.txt
+beik.char.5gram.lm.txt   pao.char.5gram.lm.txt       sgaw_kayin.char.5gram.lm.txt
+beik.syl.3gram.lm.txt    pao.syl.3gram.lm.txt        sgaw_kayin.syl.3gram.lm.txt
+beik.syl.4gram.lm.txt    pao.syl.4gram.lm.txt        sgaw_kayin.syl.4gram.lm.txt
+beik.syl.5gram.lm.txt    pao.syl.5gram.lm.txt        sgaw_kayin.syl.5gram.lm.txt
+dawei.char.3gram.lm.txt  po_kayin.char.3gram.lm.txt  shan.char.3gram.lm.txt
+dawei.char.4gram.lm.txt  po_kayin.char.4gram.lm.txt  shan.char.4gram.lm.txt
+dawei.char.5gram.lm.txt  po_kayin.char.5gram.lm.txt  shan.char.5gram.lm.txt
+dawei.syl.3gram.lm.txt   po_kayin.syl.3gram.lm.txt   shan.syl.3gram.lm.txt
+dawei.syl.4gram.lm.txt   po_kayin.syl.4gram.lm.txt   shan.syl.4gram.lm.txt
+dawei.syl.5gram.lm.txt   po_kayin.syl.5gram.lm.txt   shan.syl.5gram.lm.txt
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$ head bamar.char.3gram.lm.txt
+=== 1-grams ===
+်: 227563
+< s >: 143652
+< / s >: 143652
+ာ: 124614
+း: 117753
+တ: 102502
+က: 101986
+ေ: 95771
+ု: 93325
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$ head bamar.syl.3gram.lm.txt
+=== 1-grams ===
+< s >: 71826
+< / s >: 71826
+အ: 28883
+တ ယ ်: 17672
+ပ ါ: 14580
+က ိ ု: 14194
+မ: 13426
+က: 13016
+မ ှ ာ: 9821
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$ head shan.cha
+r.3gram.lm.txt
+=== 1-grams ===
+်: 94222
+< s >: 66220
+< / s >: 66220
+ၼ: 39516
+း: 35352
+ႈ: 35298
+မ: 23417
+ဝ: 23035
+ႉ: 22497
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM/txt_lm$ head shan.syl.3gram.lm.txt
+=== 1-grams ===
+< s >: 33110
+< / s >: 33110
+တ ေ: 2080
+ယ ူ ႇ: 1849
+လ ႆ ႈ: 1789
+ယ ဝ ် ႉ: 1428
+သ ူ: 1328
+မ ၼ ် း: 1157
+သ င ်: 897
 ```
 
-```
-
-```
-
-```
-
-```
+အထက်ပါ အတိုင်းပဲ syllable language model တွေကိုလည်း character level အတိုင်းပဲ ဆောက်ထားတယ် ဆိုတာကို သွားတွေ့ရတယ်။  
 
 ```
 
