@@ -7640,8 +7640,458 @@ sys     12m38.217s
 Experiment-3 Result for Embedding (Word2Vec, FastText, Cosine) Approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/embedding$ time ./detect_languages_exp.sh | tee lang_detection_exp3.log
+Running language detection using Word2Vec models...
+File: bamar_burmese.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from bamar_burmese.txt: ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 2 - Random sentence from bamar_burmese.txt: ပြော ပြ ပါ ဦး ဘာ တွေ ဖြစ် နေ တာ လဲ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 3 - Random sentence from bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from bamar_burmese.txt: မင်္ဂ လာ ပါ ဆ ရာ မ
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 5 - Random sentence from bamar_burmese.txt: နေ ကောင်း လား
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 6 - Random sentence from bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from bamar_burmese.txt: နေ ကောင်း လား
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 8 - Random sentence from bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from bamar_burmese.txt: က လေး က အိမ် မှာ ပါ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
 
+File: beik.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from beik.txt: မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 2 - Random sentence from beik.txt: အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 3 - Random sentence from beik.txt: သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 4 - Random sentence from beik.txt: အဲ့ အ မ ကို လက် ထပ် လိုက် ရယ် လား ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 5 - Random sentence from beik.txt: မင်း ငါ့ ကို ရှင်း ပြ နိုင် မ လား ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 6 - Random sentence from beik.txt: အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from beik.txt: အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 8 - Random sentence from beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from beik.txt: နင် ခ ရီး မ ထွက် ခဲ့ ရ လား ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+
+File: dawei.txt - Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 1 - Random sentence from dawei.txt: အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 2 - Random sentence from dawei.txt: ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 3 - Random sentence from dawei.txt: နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 4 - Random sentence from dawei.txt: သူး နို့ ဟှယ် လော့ သတ္တိ ရှိ ဟှယ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 5 - Random sentence from dawei.txt: ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 6 - Random sentence from dawei.txt: အဲ မို ထဲ မှာ ဝေး ကို ဖုန်း ပြော ဇာ ရ တိုင်း များ ဟှယ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from dawei.txt: ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 8 - Random sentence from dawei.txt: အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from dawei.txt: ဟှယ် လော့ စိ လှုပ် ရှား ဟှယ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 10 - Random sentence from dawei.txt: အဲ ဟှို သွား ဟှို့ နန့် ဟှို ငါ တိုက် တွန်း ဟှ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+
+File: mon_tst.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 3 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 5 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 6 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 8 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 9 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+Attempt 10 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: dawei_word2vec
+
+File: mon.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from mon.txt: အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from mon.txt: လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 3 - Random sentence from mon.txt: ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from mon.txt: အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 5 - Random sentence from mon.txt: လၟုဟ် အဲ  ဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 6 - Random sentence from mon.txt: ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from mon.txt: ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 8 - Random sentence from mon.txt: အဲ ဟ ယျ ဗှ်ေ တိၚ် ဂီ တာ လေပ် မံၚ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from mon.txt: ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from mon.txt: ဗှ်ေ ဟ ယျ တုဲ မာန် ဟာ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+
+File: pao.txt - Detected Language with Word2Vec: Detected language: beik_word2vec
+Attempt 1 - Random sentence from pao.txt: ခွေ စ ဥ်ꩻ စာꩻ အ တွိုင်ꩻ စ ဥ်ꩻ စာꩻ ဟုဲင်း
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from pao.txt: ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 3 - Random sentence from pao.txt: ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Detected Language with Word2Vec: Detected language: beik_word2vec
+Attempt 4 - Random sentence from pao.txt: ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 5 - Random sentence from pao.txt: ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Detected Language with Word2Vec: Detected language: beik_word2vec
+Attempt 6 - Random sentence from pao.txt: ဆုဲင်ꩻ သွတ် တ လဲင်ႏ ရက် ဒျာႏ ဝွေꩻ နဝ်ꩻ တဲ့ ဒေါ့ꩻ ခွင်ꩻ တ လ တဝ်း ဒွုမ်
+Detected Language with Word2Vec: Detected language: beik_word2vec
+Attempt 7 - Random sentence from pao.txt: တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 8 - Random sentence from pao.txt: ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 9 - Random sentence from pao.txt: ဒေါ့ꩻ ဝင်ꩻ မဉ်ꩻ နဝ်ꩻ လွ ထီႏ ငါႏ
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 10 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ နီ အ တာႏ ယပ် ခုဲင်ႏ ငါႏ
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+
+File: po_kayin.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from po_kayin.txt: ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 3 - Random sentence from po_kayin.txt: ယ မ့ၬ လဲၩ ချဲၩ့ၦ ဂူၫ ဂၩ အ လၩ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from po_kayin.txt: အ ဝ့ၫ ထီး န့ၦၡၩ ဘၪ နး ဂၩ လၧၩ့ အ့ၬ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 5 - Random sentence from po_kayin.txt: ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 6 - Random sentence from po_kayin.txt: ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 7 - Random sentence from po_kayin.txt: ယ ဂဲၫ ထဲၩ့ လီၩ ပျၩ့ ထၬ ကဲၪ ခိၬ န လီၩ ထၬ ဆ့ လီၫ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 8 - Random sentence from po_kayin.txt: နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from po_kayin.txt: ၦ လၧ ဖီၪ့ ဂုး ထၬ အ ဝ့ၫ က န့ နီၪ မွဲ ဒၪ နၧၩ လီၫ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from po_kayin.txt: ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+
+File: rakhine.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from rakhine.txt: ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from rakhine.txt: ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 3 - Random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 5 - Random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 6 - Random sentence from rakhine.txt: သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from rakhine.txt: သူ အ မှန် အ တိုင်း မ ကျိန် ဆို ရဲ ပါ လား ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 8 - Random sentence from rakhine.txt: ကိုယ် မင်း ကို နား လည် ပါ ရေ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 9 - Random sentence from rakhine.txt: မင်း မိန်း စ ရာ မ လို ပါ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from rakhine.txt: ငါ အ လုပ် မ ပြီး သိ ပါ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+
+File: sgaw_kayin.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from sgaw_kayin.txt: ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 2 - Random sentence from sgaw_kayin.txt: က ကွၢ် ထွဲ အီၤ အ ဂီၢ် က နၢၤ ဒၣ် နၤ လီၤ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 3 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 4 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 5 - Random sentence from sgaw_kayin.txt: ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 6 - Random sentence from sgaw_kayin.txt: ဒ် န တဲ တ့ၢ် အ သိး ယ တဲ နၢ် ပၢၢ် တ့ၢ် လီၤ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 7 - Random sentence from sgaw_kayin.txt: ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 8 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Detected Language with Word2Vec: Detected language: pao_word2vec
+Attempt 9 - Random sentence from sgaw_kayin.txt: ဒ် ယ ဆိ က မိၣ် အ သိး ဆိ က မိၣ် တ က့ၢ် .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 10 - Random sentence from sgaw_kayin.txt: ဘၣ် တဲ ပှၤ အ ဂ့ၢ် န့ၣ် သး ဟ့ လီၤ .
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+
+File: shan.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 1 - Random sentence from shan.txt: မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 2 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 3 - Random sentence from shan.txt: ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Attempt 4 - Random sentence from shan.txt: မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 5 - Random sentence from shan.txt: ဢမ်ႇ မီး  ၶပ်း မၢႆ တႃႇဢွၵ်ႇ ပၢႆႈ  ႁႃႉ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 6 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 7 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 8 - Random sentence from shan.txt: တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 9 - Random sentence from shan.txt: ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+Attempt 10 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with Word2Vec: Detected language: po_kayin_word2vec
+
+Running language detection using FastText models...
+File: bamar_burmese.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from bamar_burmese.txt: ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from bamar_burmese.txt: တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from bamar_burmese.txt: ကျန်း မာ တယ် ဒါ ပေ မဲ့ အ လုပ် များ တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from bamar_burmese.txt: နေ ကောင်း လား
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 5 - Random sentence from bamar_burmese.txt: ပုပ္ပါး တောင် ကို ထပ် တက် ချင် သေး တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from bamar_burmese.txt: ကျောင်း သား ကျောင်း သူ ကျောင်း မှာ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from bamar_burmese.txt: တက္က သိုလ် အ သွား အ ပြန် ကို သင်္ဘော စီး ပြီး သွား ရ တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from bamar_burmese.txt: ပြော ပြ ပါ ဦး ဘာ တွေ ဖြစ် နေ တာ လဲ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from bamar_burmese.txt: ကျန်း မာ တယ် ဒါ ပေ မဲ့ အ လုပ် များ တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from bamar_burmese.txt: ကျန်း မာ တယ် ဒါ ပေ မဲ့ အ လုပ် များ တယ်
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: beik.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from beik.txt: သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from beik.txt: ဖယ် သူ လေ ကို မေး ရိ လဲ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from beik.txt: သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from beik.txt: သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from beik.txt: သူ တို့ ဘ ဇာ လောက် သတ္တိ ရှိ လဲ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from beik.txt: သူ ဒယ့် ဟာ ကို လို ချင် မ ဟုတ် ဝ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from beik.txt: ဘ ဇာ လောက် စိတ် လှုပ် ရှား ရိ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from beik.txt: အဲ ဒီ ကို သော ဖို့ ငါ မင်း ကို ငါ မ တိုက် တွန်း ရ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from beik.txt: ဒါ ထဲ မှာ အ ဝေး ပြော ဖုန်း ပြော တ အား များ ရယ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: dawei.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from dawei.txt: အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 2 - Random sentence from dawei.txt: နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from dawei.txt: နန် ငါ့ ဟှို ရှင်း ပြ ပါ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from dawei.txt: အဲ မို ထဲ မှာ ဝေး ကို ဖုန်း ပြော ဇာ ရ တိုင်း များ ဟှယ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from dawei.txt: အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from dawei.txt: အယ် ထဲ မှာ ဝီး ပြော ဖောင်း ပြော ဇာ ရ ရာ များ ဟှယ် ။
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 7 - Random sentence from dawei.txt: ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from dawei.txt: ခံ ဗျား ခ ရီး ထွပ် ဟှ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from dawei.txt: အယ် ဝယ် ဟှား အဲ့ မာ ဂို လို ရှင် ဟှယ် မှု ဝ လား ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from dawei.txt: ဟှယ် လူ လေ ဟှို မေး ကေ့ နူး ။
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: mon_tst.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from mon_tst.txt: လၟုဟ် အဲဗ္တောန် တိၚ် မံၚ် ဂီ တာ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from mon_tst.txt: က သပ်ပ္ဍဲ ဗှ်ေ ဂှ်
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: mon.txt - Detected Language with FastText: Detected language: beik_fasttext
+Attempt 1 - Random sentence from mon.txt: ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from mon.txt: ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from mon.txt: ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from mon.txt: ပ္ဍဲ ဗှ်ေ ဂှ် က သပ် တၟေၚ်ၚ် နွံ မံၚ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from mon.txt: ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from mon.txt: သွက် အဲ ဂွံ အံၚ် ဇၞး ရာ ဒ နာ ကဵု ညိ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from mon.txt: ယဝ် ဗှ်ေ ဟွံ ပ ယှုက် အဲ ရ တှ်ေ တုဲ မာန် ဏောၚ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from mon.txt: ဂ လာန် ဗှ်ေ ပ တိုန် လဝ် နူ ဏေအ်ဗ္တံ ဂှ် ခိုဟ် ကွေံ ကွေံ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from mon.txt: ခိုဟ် ယျ ဆက် ဂ စာန် ညိ ပၠန် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from mon.txt: ၜိုတ် အဲ ကၠောန် မာန် အဲ ဂ စာန် လဝ် ရ ။
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: pao.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from pao.txt: ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ နာꩻ တ အွဉ်ႏ ဖွို့ꩻ တဝ်း ဟောင်း တွမ်ႏ အ လင် တ ဗာႏ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from pao.txt: ‌ နာꩻ က ဒေါ့ꩻ အ တွိုင်ꩻ ခွေ သျင်ꩻ ပျ ဗာႏ ဒျာႏ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ နီ အ တာႏ ယပ် ခုဲင်ႏ ငါႏ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ ခွေ ယမ်း မာႏ ဗာႏ ဟောင်း
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 6 - Random sentence from pao.txt: တယ်ႏ နာ ဆာ ဒုံး ပျံ ထင်ႏ စ ခိန်ႏ နဝ်ꩻ ဝွေꩻ တဲမ်း ဗာႏ ဒျာႏ မတ် တန်ꩻ
+Detected Language with FastText: Detected language: beik_fasttext
+Attempt 7 - Random sentence from pao.txt: ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ ခွေ ယမ်း မာႏ ဗာႏ ဟောင်း
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 9 - Random sentence from pao.txt: နဝ်ꩻ နဝ်ꩻ ခွေ ယမ်း မာႏ ဗာႏ ဟောင်း
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 10 - Random sentence from pao.txt: ဝွေꩻ မူႏ တ တောင် ချာ တဝ်း ဒွုမ် ပါꩻ မုဲင်ꩻ မုဲင်ꩻ
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: po_kayin.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from po_kayin.txt: ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from po_kayin.txt: ယ အဲၪ အ ဝ့ၫ နီၪ လ ခဲၫ့ ထုၬ က ဘျၩ့ မၬ ယ လီၩ ဘၪၥ့ၪ လၧၩ့ ထၧၩ့ ယၫ အ့ၬ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ မွဲ ဆၧ အ ကၪ လၧ ပ ဂး လီၫ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from po_kayin.txt: ဆၧ အ နီၪ န ထိၬ ဘုၬ ထဲၩ့ လၧ ဆၧ အ ဂူၫ ဂၩ က မံၩ့ အ့ၬ ဧၪ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from po_kayin.txt: နၫ ဆၫ အ ဆၧ ယူၩ ဖျိၬ ထၪ့ ကၠၧၫ့ , အ ဝ့ၫ ကွ့ၭ နဲၫ့ ဆၧ ကၠၧၫ့ လ့ၬ လီၫ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from po_kayin.txt: ယ ယဲး ထဲး ဘၪ ဆၧ အ နီၪ ဧၪ .
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: rakhine.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from rakhine.txt: ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from rakhine.txt: မင်း မိန်း စ ရာ မ လို ပါ ။
+Detected Language with FastText: Detected language: pao_fasttext
+Attempt 3 - Random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from rakhine.txt: ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from rakhine.txt: ငါ အ လုပ် မ ပြီး သိ ပါ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from rakhine.txt: မိုး ချက် ချင်း ရွာ ရေ အ ခါ သူ ရို့ ဇာ တိ လုပ် နီ စွာ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from rakhine.txt: ငါ ဘတ်စ် ကား စီး ဖို့ အ တွက် အ ကြွီ လို ချင် ရေ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from rakhine.txt: ထို မ ချေ ကို သူ အ မှန် မ မြတ် နိုး ခ ပါ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from rakhine.txt: ကျွန် တော် ဆို ကေ ပြန် ပီး လိုက် ဖို့ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from rakhine.txt: ငါ အ လုပ် မ ပြီး သိ ပါ ။
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: sgaw_kayin.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် လၢ ပ ဂီၢ် ကီ ခဲ ဝဲ ဒၣ် လီၤ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န တ ဘျး စဲ ဒီး အ ဂၤ တ ခါ ဧဲၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 5 - Random sentence from sgaw_kayin.txt: ပျဲ တၢ် မၤ စၢၤ တ က့ၢ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 6 - Random sentence from sgaw_kayin.txt: ပိာ် မုၣ် န့ၣ် တ တိၢ် နီၣ် ပှၤ နီ တ ဂၤ လၢၤ ဘၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န့ၣ် မ့ၢ် ယ ထီၣ် ယီၢ် ဘၣ် ဧါ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from sgaw_kayin.txt: တၢ် ဝဲ န့ၣ် န့ၣ် မ့ၢ် ယ ထီၣ် ယီၢ် ဘၣ် ဧါ .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from sgaw_kayin.txt: လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 10 - Random sentence from sgaw_kayin.txt: လၢ ခံ က တၢၢ် တ ဘျီ က တဲ အီၤ လၢ ယ အဲၣ် အီၤ န့ၣ် အ ခွဲး တ န့ၢ် လၢၤ ဘၣ် .
+Detected Language with FastText: Detected language: mon_fasttext
+
+File: shan.txt - Detected Language with FastText: Detected language: mon_fasttext
+Attempt 1 - Random sentence from shan.txt: ဢ ရ သႃႇ မၼ်း တႄႉ မိူၼ်ၼမ်ႉ လၢင်ႉ ဝၢၼ်ႇ ဝႆႉ ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 2 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 3 - Random sentence from shan.txt: တွင်း ပၢၼ်ႇၵဝ်  ဢမ်ႇ တွင်း ပၢၼ်ႇ  ၵဝ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 4 - Random sentence from shan.txt: မႂ်း လွင်ႈၼႆႉ လၢတ်ႈ မႃး  ႁိုဝ်  ဢမ်ႇ လၢတ်ႈ မႃး  ႁႃႉ ။
+Detected Language with FastText: Detected language: rakhine_fasttext
+Attempt 5 - Random sentence from shan.txt: တႃႇ မၼ်းၼၢင်း  ႁဝ်း တေ ထၢမ်  ဢမ်ႇ  ၸႂ်ႈ ။
+Detected Language with FastText: Detected language: rakhine_fasttext
+Attempt 6 - Random sentence from shan.txt: တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 7 - Random sentence from shan.txt: မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 8 - Random sentence from shan.txt: တႃႇ လုၵ်ႈႁဵၼ်းၶဝ် တေ လႆႈ  ဢဝ် ပပ်ႉ လႂ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+Attempt 9 - Random sentence from shan.txt: ဢၼ်ၼႆႉ တႃႇ မၼ်း ယၢပ်ႇ  ဢိူဝ်ႈ ။
+Detected Language with FastText: Detected language: rakhine_fasttext
+Attempt 10 - Random sentence from shan.txt: မိူဝ်ႈ ပူၼ်ႉ မႃး ဝၼ်း သုၵ်း  ၵၢင်ၼႂ်  ႑႑ မွင်း  ၼၼ်ႉ သူ မီး ယူႇ တီႈ လႂ် ။
+Detected Language with FastText: Detected language: mon_fasttext
+
+Language detection completed for all files.
+
+real    4m27.666s
+user    4m38.407s
+sys     12m37.057s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/embedding$
 ```
+
+
 
 ```
 
