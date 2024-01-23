@@ -8624,33 +8624,131 @@ r.3gram.lm.txt
 
 အထက်ပါ အတိုင်းပဲ syllable language model တွေကိုလည်း character level အတိုင်းပဲ ဆောက်ထားတယ် ဆိုတာကို သွားတွေ့ရတယ်။  
 
+char_syl_lm_lang_detect.py python code မှာလည်း --text_lm option ကို ထည့်ပြီး pkl နဲ့ မသိမ်းပဲ၊ text file LM အဖြစ် သိမ်းအောင် update လုပ်ခဲ့တယ်။  
+ပြီးတော့ အဲဒီကနေလည်း syllable LM က ဘယ်လိုဖြစ်နေလဲ၊ syllable segmentation လုပ်တာ လွဲနေသလား ဆိုတာကို လေ့လာကြည့်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ python ./char_syl_lm_lang_detect.py --mode train --level char --n 3 --input ./raw/shan.all.syl.raw --output ./shan.char.3gram.lm.txt --text_lm
+Language model saved to ./shan.char.3gram.lm.txt
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ python ./char_syl_lm_lang_detect.py --mode train --level syl --n 3 --input ./raw/shan.all.syl.raw --output ./s
+han.syl.3gram.lm.txt --text_lm
+Language model saved to ./shan.syl.3gram.lm.txt
+```
+
+Check the character level LM:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ head ./shan.char.3gram.lm.txt
+ ်: 94222
+< s >: 66220
+< / s >: 66220
+ ၼ: 39516
+ း: 35352
+ ႈ: 35298
+ မ: 23417
+ ဝ: 23035
+ ႉ: 22497
+ ႃ: 21942
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ tail ./shan.char.3gram.lm.txt
+တ ယ: <FreqDist with 1 samples and 1 outcomes>
+ႂ 8: <FreqDist with 1 samples and 1 outcomes>
+ႉ 6: <FreqDist with 1 samples and 1 outcomes>
+း ႗: <FreqDist with 1 samples and 1 outcomes>
+႗ ဝ: <FreqDist with 1 samples and 1 outcomes>
+့ ၵ: <FreqDist with 1 samples and 1 outcomes>
+့ ၶ: <FreqDist with 1 samples and 1 outcomes>
+4 1: <FreqDist with 1 samples and 1 outcomes>
+ႈ ​: <FreqDist with 1 samples and 1 outcomes>
+​ ႄ: <FreqDist with 1 samples and 1 outcomes>
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
+```
+
+Check the syllable level LM:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ head ./shan.syl.3gra
+m.lm.txt
+< s >: 33110
+< / s >: 33110
+တ ေ: 2080
+ယ ူ ႇ: 1849
+လ ႆ ႈ: 1789
+ယ ဝ ် ႉ: 1428
+သ ူ: 1328
+မ ၼ ် း: 1157
+သ င ်: 897
+တ ီ ႈ: 855
 ```
 
 ```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ tail ./shan.syl.3gra
+m.lm.txt
+ၼမ်ႉ တႃၶႃႈ: <FreqDist with 1 samples and 1 outcomes>
+တႃၶႃႈ လႆႈ: <FreqDist with 1 samples and 1 outcomes>
+လႆႈ တူၵ်းႁႃႉ: <FreqDist with 1 samples and 1 outcomes>
+မိူဝ်ႈၶမ်ႈ ဝႃးၶီႇ: <FreqDist with 1 samples and 1 outcomes>
+ဝႃးၶီႇ မေႃႇၼမ်ႉၵမ်းၼိုင်ႈ: <FreqDist with 1 samples and 1 outcomes>
+မေႃႇၼမ်ႉၵမ်းၼိုင်ႈ ပဵၼ်ႁိုဝ်: <FreqDist with 1 samples and 1 outcomes>
+ပဵၼ်ႁိုဝ် လၢတ်ႈ​ႄၼေႁဝ်း: <FreqDist with 1 samples and 1 outcomes>
+လၢတ်ႈ​ႄၼေႁဝ်း တူၺ်း: <FreqDist with 1 samples and 1 outcomes>
+<s> သူဢမ်ႇႁဵတ်း: <FreqDist with 1 samples and 1 outcomes>
+သူဢမ်ႇႁဵတ်း သင်ႁႃႉ: <FreqDist with 1 samples and 1 outcomes>
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 
 ```
 
-```
+ဗမာစာဖိုင်နဲ့လည်း confirm လုပ်ခဲ့ ... 
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ python ./char_syl_lm_lang_detect.py --mode train --level char --n 3 --input ./raw/bamar.all.syl.raw --output .
+/bamar.char.3gram.lm.txt --text_lm
+Language model saved to ./bamar.char.3gram.lm.txt
 ```
 
-```
+Check char level LM of Bamar language:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ head ./bamar.char.3gram.lm.txt
+ ်: 227563
+< s >: 143652
+< / s >: 143652
+ ာ: 124614
+ း: 117753
+ တ: 102502
+ က: 101986
+ ေ: 95771
+ ု: 93325
+ ိ: 80112
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ tail ./bamar.char.3gram.lm.txt
+ဪ ဘ: <FreqDist with 1 samples and 1 outcomes>
+ဂ ဃ: <FreqDist with 1 samples and 1 outcomes>
+ဃ န: <FreqDist with 1 samples and 1 outcomes>
+န ဏ: <FreqDist with 1 samples and 1 outcomes>
+ဲ ဪ: <FreqDist with 1 samples and 1 outcomes>
+ဟ ံ: <FreqDist with 1 samples and 1 outcomes>
+၁ ဥ: <FreqDist with 1 samples and 1 outcomes>
+၂ ဥ: <FreqDist with 1 samples and 1 outcomes>
+ိ ဩ: <FreqDist with 1 samples and 5 outcomes>
+ဖ သ: <FreqDist with 1 samples and 1 outcomes>
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 ```
 
-```
+For the syllable level ...  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ python ./char_syl_lm_lang_detect.py --mode train --level syl --n 3 --input ./raw/bamar.all.syl.raw --output ./bamar.syl.3gram.lm.txt --text_lm
+Traceback (most recent call last):
+  File "./char_syl_lm_lang_detect.py", line 150, in <module>
+    save_language_model(model, args.output, text_output=args.text_lm)
+  File "./char_syl_lm_lang_detect.py", line 59, in save_language_model
+    token = ngram[-1]
+IndexError: string index out of range
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$ python ./char_syl_lm_lang_detect.py --mode train --level syl --n 3 --input ./raw/bamar.all.syl.raw --output ./bamar.syl.3gram.lm.pkl
+Language model saved to ./bamar.syl.3gram.lm.pkl
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_LM$
 ```
 
-```
-
-```
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ .txt format နဲ့ LM ဆောက်တဲ့အခါမှာ error ပေးတယ်။ .pkl အတွက်ကျ error မပေးဘူး။  
 
 ```
 
