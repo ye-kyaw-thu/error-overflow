@@ -6633,10 +6633,37 @@ What I learned:  char_syl frequency dictionary based နဲ့လည်း မ�
 
 ## Updating Embedding Approach  
 
+လက်ရှိ ရလဒ်တွေက အောက်ပါအတိုင်းပဲ။ Word2Vec, FastText with Cosine Similarity နဲ့ language detection ရလဒ်တွေကတော့ မကောင်းဘူး။   
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/embedding$ ./detect_languages.sh
+Running language detection using Word2Vec models...
+File: bamar_burmese.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: beik.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: dawei.txt - Detected Language with Word2Vec: Detected language: pao_word2vec
+File: mon_tst.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: mon.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: pao.txt - Detected Language with Word2Vec: Detected language: beik_word2vec
+File: po_kayin.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: rakhine.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: sgaw_kayin.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+File: shan.txt - Detected Language with Word2Vec: Detected language: rakhine_word2vec
+Running language detection using FastText models...
+File: bamar_burmese.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: beik.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: dawei.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: mon_tst.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: mon.txt - Detected Language with FastText: Detected language: beik_fasttext
+File: pao.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: po_kayin.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: rakhine.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: sgaw_kayin.txt - Detected Language with FastText: Detected language: mon_fasttext
+File: shan.txt - Detected Language with FastText: Detected language: mon_fasttext
+Language detection completed for all files.
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/embedding$
 ```
+
+လောလောဆယ် input မှာ string ကိုလည်း လက်ခံနိုင်အောင် ပြင်ခဲ့တယ်။  
 
 ```
 
