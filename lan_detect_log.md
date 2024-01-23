@@ -8096,11 +8096,40 @@ compare လုပ်လို့ရအောင် string input ကိုလည�
 
 - Ken LM library နဲ့ char, syl LM နှစ်ခုဆောက်ပြီးတော့ language detection လုပ်ကြည့်ရန်
 
-## KenLM Approach  
+## char+syl LM Approach  
+
+python code အရင် ရေးခဲ့တယ်။ ပြီးတော့ အဲဒီ python code နဲ့ run ဖို့အတွက် shell script ကို အောက်ပါအတိုင်း ပြင်ဆင်ခဲ့တယ်။  
+
+```bash
+#!/bin/bash
+
+# Define base directory and script paths
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/char_syl_LM"
+PYTHON_SCRIPT="$BASE_DIR/char_syl_lm_lang_detect.py"
+RAW_DIR="$BASE_DIR/raw"
+LM_DIR="$BASE_DIR/lm"
+
+# Loop through each raw file
+for raw_file in "$RAW_DIR"/*; do
+    # Extract the language name (first part of the filename)
+    lang_name=$(basename -- "$raw_file" | cut -d '.' -f 1)
+
+    # Train models for character level and syllable level for 3, 4, and 5-grams
+    for level in char syl; do
+        for n in 3 4 5; do
+            output_file="$LM_DIR/${lang_name}.${level}.${n}gram.lm.pkl"
+            echo "Training $level level $n-gram model for $lang_name language."
+            python "$PYTHON_SCRIPT" --mode train --level "$level" --n "$n" --input "$raw_file" --output "$output_file"
+            echo "Language model saved to $output_file"
+        done
+    done
+done
+
+echo "Language model training completed."
 
 ```
 
-```
+After running above shell script, I got char, syl LMs as follows:  
 
 ```
 
