@@ -20286,7 +20286,10745 @@ sys     1m12.785s
 Experiment-2 (with char, syl, char+syl Ngram, Naive Bayes) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
+Processing file: bamar_burmese.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 100.00%
 
+Syllable-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 50.00%
+Running with ngram=3 on random sentence 1: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Character-based Detection:
+beik: 1.96%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 23.45%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 74.59%
+
+Syllable-based Detection:
+beik: 53.34%
+mon: 0.06%
+shan: 0.35%
+pao: 0.01%
+rakhine: 0.21%
+po_kayin: 0.01%
+sgaw_kayin: 0.02%
+dawei: 44.79%
+bamar: 1.21%
+
+Combined Character and Syllable-based Detection:
+beik: 27.65%
+mon: 0.03%
+shan: 0.18%
+pao: 0.00%
+rakhine: 11.83%
+po_kayin: 0.00%
+sgaw_kayin: 0.01%
+dawei: 22.40%
+bamar: 37.90%
+Running with ngram=3 on random sentence 2: ကျောင်းသားကျောင်းသွားပါ
+Character-based Detection:
+beik: 0.38%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.11%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 99.50%
+
+Syllable-based Detection:
+beik: 11.24%
+mon: 10.81%
+shan: 3.84%
+pao: 50.03%
+rakhine: 6.41%
+po_kayin: 3.84%
+sgaw_kayin: 2.92%
+dawei: 8.99%
+bamar: 1.91%
+
+Combined Character and Syllable-based Detection:
+beik: 5.81%
+mon: 5.41%
+shan: 1.92%
+pao: 25.01%
+rakhine: 3.26%
+po_kayin: 1.92%
+sgaw_kayin: 1.46%
+dawei: 4.50%
+bamar: 50.71%
+Running with ngram=3 on random sentence 3: ကျန်းမာတယ်ဒါပေမဲ့အလုပ်များတယ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 100.00%
+
+Syllable-based Detection:
+beik: 99.66%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.34%
+
+Combined Character and Syllable-based Detection:
+beik: 49.83%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 50.17%
+Running with ngram=3 on random sentence 4: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 100.00%
+
+Syllable-based Detection:
+beik: 59.70%
+mon: 0.00%
+shan: 0.00%
+pao: 0.20%
+rakhine: 0.02%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 40.07%
+
+Combined Character and Syllable-based Detection:
+beik: 29.85%
+mon: 0.00%
+shan: 0.00%
+pao: 0.10%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 70.03%
+Running with ngram=3 on random sentence 5: ကလေးကအိမ်မှာပါ
+Character-based Detection:
+beik: 0.69%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.32%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 98.99%
+
+Syllable-based Detection:
+beik: 66.89%
+mon: 4.24%
+shan: 0.33%
+pao: 1.72%
+rakhine: 0.19%
+po_kayin: 0.10%
+sgaw_kayin: 0.03%
+dawei: 26.37%
+bamar: 0.12%
+
+Combined Character and Syllable-based Detection:
+beik: 33.79%
+mon: 2.12%
+shan: 0.17%
+pao: 0.86%
+rakhine: 0.25%
+po_kayin: 0.05%
+sgaw_kayin: 0.01%
+dawei: 13.18%
+bamar: 49.56%
+Running with ngram=3 on random sentence 6: နေကောင်းလား
+Character-based Detection:
+beik: 44.89%
+mon: 0.00%
+shan: 0.00%
+pao: 0.07%
+rakhine: 35.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 6.83%
+bamar: 12.41%
+
+Syllable-based Detection:
+beik: 1.01%
+mon: 0.48%
+shan: 0.48%
+pao: 1.58%
+rakhine: 47.41%
+po_kayin: 0.48%
+sgaw_kayin: 0.48%
+dawei: 47.01%
+bamar: 1.09%
+
+Combined Character and Syllable-based Detection:
+beik: 22.95%
+mon: 0.24%
+shan: 0.24%
+pao: 0.82%
+rakhine: 41.60%
+po_kayin: 0.24%
+sgaw_kayin: 0.24%
+dawei: 26.92%
+bamar: 6.75%
+Running with ngram=3 on random sentence 7: ကလေးကအိမ်မှာပါ
+Character-based Detection:
+beik: 0.69%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.32%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 98.99%
+
+Syllable-based Detection:
+beik: 66.89%
+mon: 4.24%
+shan: 0.33%
+pao: 1.72%
+rakhine: 0.19%
+po_kayin: 0.10%
+sgaw_kayin: 0.03%
+dawei: 26.37%
+bamar: 0.12%
+
+Combined Character and Syllable-based Detection:
+beik: 33.79%
+mon: 2.12%
+shan: 0.17%
+pao: 0.86%
+rakhine: 0.25%
+po_kayin: 0.05%
+sgaw_kayin: 0.01%
+dawei: 13.18%
+bamar: 49.56%
+Running with ngram=3 on random sentence 8: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 100.00%
+
+Syllable-based Detection:
+beik: 99.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 50.00%
+Running with ngram=3 on random sentence 9: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 100.00%
+
+Syllable-based Detection:
+beik: 99.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 50.00%
+Running with ngram=3 on random sentence 10: နေကောင်းလား
+Character-based Detection:
+beik: 44.89%
+mon: 0.00%
+shan: 0.00%
+pao: 0.07%
+rakhine: 35.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 6.83%
+bamar: 12.41%
+
+Syllable-based Detection:
+beik: 1.01%
+mon: 0.48%
+shan: 0.48%
+pao: 1.58%
+rakhine: 47.41%
+po_kayin: 0.48%
+sgaw_kayin: 0.48%
+dawei: 47.01%
+bamar: 1.09%
+
+Combined Character and Syllable-based Detection:
+beik: 22.95%
+mon: 0.24%
+shan: 0.24%
+pao: 0.82%
+rakhine: 41.60%
+po_kayin: 0.24%
+sgaw_kayin: 0.24%
+dawei: 26.92%
+bamar: 6.75%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 100.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 50.00%
+beik: 50.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 100.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 10.13%
+mon: 0.00%
+bamar: 2.61%
+beik: 85.59%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.67%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.06%
+mon: 0.00%
+bamar: 51.30%
+beik: 42.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.84%
+shan: 0.00%
+Running with ngram=4 on random sentence 2: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 98.77%
+beik: 1.23%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.71%
+mon: 0.01%
+bamar: 0.04%
+beik: 97.50%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.73%
+shan: 0.01%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.35%
+mon: 0.00%
+bamar: 49.40%
+beik: 49.37%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.86%
+shan: 0.01%
+Running with ngram=4 on random sentence 3: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 100.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 10.13%
+mon: 0.00%
+bamar: 2.61%
+beik: 85.59%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.67%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.06%
+mon: 0.00%
+bamar: 51.30%
+beik: 42.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.84%
+shan: 0.00%
+Running with ngram=4 on random sentence 4: ကျောင်းသားကျောင်းသွားပါ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 99.82%
+beik: 0.18%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 40.67%
+mon: 1.54%
+bamar: 4.22%
+beik: 48.70%
+po_kayin: 0.55%
+sgaw_kayin: 0.06%
+pao: 0.15%
+rakhine: 3.57%
+shan: 0.55%
+
+Combined Character and Syllable-based Detection:
+dawei: 20.34%
+mon: 0.77%
+bamar: 52.02%
+beik: 24.44%
+po_kayin: 0.27%
+sgaw_kayin: 0.03%
+pao: 0.07%
+rakhine: 1.79%
+shan: 0.27%
+Running with ngram=4 on random sentence 5: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 56.81%
+beik: 0.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 42.39%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.86%
+mon: 0.75%
+bamar: 2.18%
+beik: 93.40%
+po_kayin: 1.08%
+sgaw_kayin: 0.13%
+pao: 0.29%
+rakhine: 0.80%
+shan: 0.50%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.43%
+mon: 0.38%
+bamar: 29.50%
+beik: 47.10%
+po_kayin: 0.54%
+sgaw_kayin: 0.06%
+pao: 0.14%
+rakhine: 21.60%
+shan: 0.25%
+Running with ngram=4 on random sentence 6: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 98.77%
+beik: 1.23%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.71%
+mon: 0.01%
+bamar: 0.04%
+beik: 97.50%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.73%
+shan: 0.01%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.35%
+mon: 0.00%
+bamar: 49.40%
+beik: 49.37%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.86%
+shan: 0.01%
+Running with ngram=4 on random sentence 7: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 56.81%
+beik: 0.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 42.39%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.86%
+mon: 0.75%
+bamar: 2.18%
+beik: 93.40%
+po_kayin: 1.08%
+sgaw_kayin: 0.13%
+pao: 0.29%
+rakhine: 0.80%
+shan: 0.50%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.43%
+mon: 0.38%
+bamar: 29.50%
+beik: 47.10%
+po_kayin: 0.54%
+sgaw_kayin: 0.06%
+pao: 0.14%
+rakhine: 21.60%
+shan: 0.25%
+Running with ngram=4 on random sentence 8: ကလေးကအိမ်မှာပါ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 97.13%
+beik: 2.86%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.76%
+mon: 2.42%
+bamar: 6.31%
+beik: 55.83%
+po_kayin: 1.23%
+sgaw_kayin: 0.14%
+pao: 0.37%
+rakhine: 30.71%
+shan: 1.23%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.88%
+mon: 1.21%
+bamar: 51.72%
+beik: 29.34%
+po_kayin: 0.62%
+sgaw_kayin: 0.07%
+pao: 0.19%
+rakhine: 15.36%
+shan: 0.62%
+Running with ngram=4 on random sentence 9: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 100.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 10.13%
+mon: 0.00%
+bamar: 2.61%
+beik: 85.59%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.67%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.06%
+mon: 0.00%
+bamar: 51.30%
+beik: 42.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.84%
+shan: 0.00%
+Running with ngram=4 on random sentence 10: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 98.77%
+beik: 1.23%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.71%
+mon: 0.01%
+bamar: 0.04%
+beik: 97.50%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 1.73%
+shan: 0.01%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.35%
+mon: 0.00%
+bamar: 49.40%
+beik: 49.37%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.86%
+shan: 0.01%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.79%
+mon: 0.00%
+shan: 0.00%
+beik: 99.21%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.04%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 99.96%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.02%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.40%
+mon: 0.00%
+shan: 0.00%
+beik: 99.58%
+Running with ngram=5 on random sentence 1: တက္ကသိုလ်အသွားအပြန်ကိုသင်္ဘောစီးပြီးသွားရတယ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 99.93%
+mon: 0.00%
+shan: 0.00%
+beik: 0.07%
+
+Syllable-based Detection:
+sgaw_kayin: 0.04%
+rakhine: 4.14%
+dawei: 22.34%
+pao: 0.03%
+po_kayin: 0.24%
+bamar: 0.00%
+mon: 0.23%
+shan: 0.83%
+beik: 72.15%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.02%
+rakhine: 2.07%
+dawei: 11.17%
+pao: 0.01%
+po_kayin: 0.12%
+bamar: 49.96%
+mon: 0.12%
+shan: 0.41%
+beik: 36.11%
+Running with ngram=5 on random sentence 2: နေကောင်းလား
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 46.39%
+dawei: 0.02%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 20.07%
+mon: 0.00%
+shan: 0.00%
+beik: 33.52%
+Running with ngram=5 on random sentence 3: ပြောပြပါဦးဘာတွေဖြစ်နေတာလဲ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 71.58%
+mon: 0.00%
+shan: 0.00%
+beik: 28.42%
+
+Syllable-based Detection:
+sgaw_kayin: 4.55%
+rakhine: 0.64%
+dawei: 3.27%
+pao: 0.20%
+po_kayin: 34.26%
+bamar: 0.00%
+mon: 11.72%
+shan: 38.81%
+beik: 6.54%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 2.27%
+rakhine: 0.32%
+dawei: 1.64%
+pao: 0.10%
+po_kayin: 17.13%
+bamar: 35.79%
+mon: 5.86%
+shan: 19.41%
+beik: 17.48%
+Running with ngram=5 on random sentence 4: ကျောင်းသားကျောင်းသွားပါ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 99.99%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 2.62%
+rakhine: 6.08%
+dawei: 13.66%
+pao: 5.99%
+po_kayin: 22.39%
+bamar: 2.81%
+mon: 9.70%
+shan: 22.39%
+beik: 14.35%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.31%
+rakhine: 3.04%
+dawei: 6.83%
+pao: 3.00%
+po_kayin: 11.20%
+bamar: 51.40%
+mon: 4.85%
+shan: 11.20%
+beik: 7.18%
+Running with ngram=5 on random sentence 5: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 15.49%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 84.33%
+mon: 0.00%
+shan: 0.00%
+beik: 0.17%
+
+Syllable-based Detection:
+sgaw_kayin: 13.78%
+rakhine: 11.36%
+dawei: 8.40%
+pao: 13.78%
+po_kayin: 13.78%
+bamar: 1.73%
+mon: 9.61%
+shan: 13.78%
+beik: 13.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.89%
+rakhine: 13.43%
+dawei: 4.20%
+pao: 6.89%
+po_kayin: 6.89%
+bamar: 43.03%
+mon: 4.81%
+shan: 6.89%
+beik: 6.98%
+Running with ngram=5 on random sentence 6: ကျန်းမာတယ်ဒါပေမဲ့အလုပ်များတယ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 100.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 6.73%
+rakhine: 1.53%
+dawei: 33.38%
+pao: 1.44%
+po_kayin: 16.71%
+bamar: 1.42%
+mon: 7.51%
+shan: 7.69%
+beik: 23.58%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 3.36%
+rakhine: 0.77%
+dawei: 16.69%
+pao: 0.72%
+po_kayin: 8.35%
+bamar: 50.71%
+mon: 3.76%
+shan: 3.85%
+beik: 11.79%
+Running with ngram=5 on random sentence 7: ကျောင်းသားကျောင်းသွားပါ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 99.99%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 2.62%
+rakhine: 6.08%
+dawei: 13.66%
+pao: 5.99%
+po_kayin: 22.39%
+bamar: 2.81%
+mon: 9.70%
+shan: 22.39%
+beik: 14.35%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.31%
+rakhine: 3.04%
+dawei: 6.83%
+pao: 3.00%
+po_kayin: 11.20%
+bamar: 51.40%
+mon: 4.85%
+shan: 11.20%
+beik: 7.18%
+Running with ngram=5 on random sentence 8: ကျောင်းသားကျောင်းသူကျောင်းမှာ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 15.49%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 84.33%
+mon: 0.00%
+shan: 0.00%
+beik: 0.17%
+
+Syllable-based Detection:
+sgaw_kayin: 13.78%
+rakhine: 11.36%
+dawei: 8.40%
+pao: 13.78%
+po_kayin: 13.78%
+bamar: 1.73%
+mon: 9.61%
+shan: 13.78%
+beik: 13.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.89%
+rakhine: 13.43%
+dawei: 4.20%
+pao: 6.89%
+po_kayin: 6.89%
+bamar: 43.03%
+mon: 4.81%
+shan: 6.89%
+beik: 6.98%
+Running with ngram=5 on random sentence 9: ပုပ္ပါးတောင်ကိုထပ်တက်ချင်သေးတယ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 39.04%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 15.32%
+mon: 0.00%
+shan: 0.00%
+beik: 45.64%
+
+Syllable-based Detection:
+sgaw_kayin: 16.47%
+rakhine: 4.19%
+dawei: 11.34%
+pao: 9.31%
+po_kayin: 16.47%
+bamar: 0.01%
+mon: 15.20%
+shan: 16.47%
+beik: 10.55%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 8.23%
+rakhine: 21.61%
+dawei: 5.67%
+pao: 4.65%
+po_kayin: 8.23%
+bamar: 7.66%
+mon: 7.60%
+shan: 8.23%
+beik: 28.10%
+Running with ngram=5 on random sentence 10: နေကောင်းလား
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 46.39%
+dawei: 0.02%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 20.07%
+mon: 0.00%
+shan: 0.00%
+beik: 33.52%
+
+Processing file: beik.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.78%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.22%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 99.89%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.11%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Character-based Detection:
+beik: 62.50%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 37.44%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.06%
+
+Syllable-based Detection:
+beik: 0.78%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.02%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.20%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 31.64%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 18.73%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 49.60%
+bamar: 0.03%
+Running with ngram=3 on random sentence 2: ဖယ်သူလေကိုမေးရိလဲ။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 11.92%
+mon: 0.09%
+shan: 0.03%
+pao: 0.98%
+rakhine: 24.13%
+po_kayin: 0.07%
+sgaw_kayin: 0.03%
+dawei: 1.31%
+bamar: 61.44%
+
+Combined Character and Syllable-based Detection:
+beik: 55.96%
+mon: 0.05%
+shan: 0.02%
+pao: 0.49%
+rakhine: 12.06%
+po_kayin: 0.04%
+sgaw_kayin: 0.01%
+dawei: 0.66%
+bamar: 30.72%
+Running with ngram=3 on random sentence 3: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.12%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.88%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.06%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 49.94%
+bamar: 0.00%
+Running with ngram=3 on random sentence 4: ဖယ်သူလေကိုမေးရိလဲ။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 11.92%
+mon: 0.09%
+shan: 0.03%
+pao: 0.98%
+rakhine: 24.13%
+po_kayin: 0.07%
+sgaw_kayin: 0.03%
+dawei: 1.31%
+bamar: 61.44%
+
+Combined Character and Syllable-based Detection:
+beik: 55.96%
+mon: 0.05%
+shan: 0.02%
+pao: 0.49%
+rakhine: 12.06%
+po_kayin: 0.04%
+sgaw_kayin: 0.01%
+dawei: 0.66%
+bamar: 30.72%
+Running with ngram=3 on random sentence 5: ဖယ်သူလေကိုမေးရိလဲ။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 11.92%
+mon: 0.09%
+shan: 0.03%
+pao: 0.98%
+rakhine: 24.13%
+po_kayin: 0.07%
+sgaw_kayin: 0.03%
+dawei: 1.31%
+bamar: 61.44%
+
+Combined Character and Syllable-based Detection:
+beik: 55.96%
+mon: 0.05%
+shan: 0.02%
+pao: 0.49%
+rakhine: 12.06%
+po_kayin: 0.04%
+sgaw_kayin: 0.01%
+dawei: 0.66%
+bamar: 30.72%
+Running with ngram=3 on random sentence 6: သူဒယ့်ဟာကိုလိုချင်မဟုတ်ဝ။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 3.53%
+mon: 0.01%
+shan: 0.00%
+pao: 0.03%
+rakhine: 8.18%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 88.25%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 51.76%
+mon: 0.01%
+shan: 0.00%
+pao: 0.01%
+rakhine: 4.09%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 44.12%
+bamar: 0.00%
+Running with ngram=3 on random sentence 7: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Character-based Detection:
+beik: 99.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.69%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.05%
+po_kayin: 0.01%
+sgaw_kayin: 0.01%
+dawei: 0.01%
+bamar: 0.21%
+
+Combined Character and Syllable-based Detection:
+beik: 99.84%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.03%
+po_kayin: 0.01%
+sgaw_kayin: 0.01%
+dawei: 0.01%
+bamar: 0.10%
+Running with ngram=3 on random sentence 8: ဖယ်သူလေကိုမေးရိလဲ။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 11.92%
+mon: 0.09%
+shan: 0.03%
+pao: 0.98%
+rakhine: 24.13%
+po_kayin: 0.07%
+sgaw_kayin: 0.03%
+dawei: 1.31%
+bamar: 61.44%
+
+Combined Character and Syllable-based Detection:
+beik: 55.96%
+mon: 0.05%
+shan: 0.02%
+pao: 0.49%
+rakhine: 12.06%
+po_kayin: 0.04%
+sgaw_kayin: 0.01%
+dawei: 0.66%
+bamar: 30.72%
+Running with ngram=3 on random sentence 9: နင်ခရီးမထွက်ခဲ့ရလား။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.84%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 5.59%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 92.57%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.92%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 2.80%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 46.29%
+bamar: 0.00%
+Running with ngram=3 on random sentence 10: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Character-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.12%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.88%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.06%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 49.94%
+bamar: 0.00%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: သူတို့ဘဇာလောက်သတ္တိရှိလဲ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.54%
+mon: 0.39%
+bamar: 0.03%
+beik: 97.38%
+po_kayin: 0.60%
+sgaw_kayin: 0.08%
+pao: 0.05%
+rakhine: 0.25%
+shan: 0.68%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.27%
+mon: 0.19%
+bamar: 0.01%
+beik: 98.69%
+po_kayin: 0.30%
+sgaw_kayin: 0.04%
+pao: 0.02%
+rakhine: 0.12%
+shan: 0.34%
+Running with ngram=4 on random sentence 2: သူတို့ဘဇာလောက်သတ္တိရှိလဲ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.54%
+mon: 0.39%
+bamar: 0.03%
+beik: 97.38%
+po_kayin: 0.60%
+sgaw_kayin: 0.08%
+pao: 0.05%
+rakhine: 0.25%
+shan: 0.68%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.27%
+mon: 0.19%
+bamar: 0.01%
+beik: 98.69%
+po_kayin: 0.30%
+sgaw_kayin: 0.04%
+pao: 0.02%
+rakhine: 0.12%
+shan: 0.34%
+Running with ngram=4 on random sentence 3: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 74.83%
+mon: 0.32%
+bamar: 10.94%
+beik: 10.99%
+po_kayin: 0.05%
+sgaw_kayin: 0.58%
+pao: 0.06%
+rakhine: 2.06%
+shan: 0.17%
+
+Combined Character and Syllable-based Detection:
+dawei: 37.41%
+mon: 0.16%
+bamar: 5.47%
+beik: 55.50%
+po_kayin: 0.02%
+sgaw_kayin: 0.29%
+pao: 0.03%
+rakhine: 1.03%
+shan: 0.08%
+Running with ngram=4 on random sentence 4: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 3.81%
+mon: 0.89%
+bamar: 0.79%
+beik: 86.65%
+po_kayin: 0.18%
+sgaw_kayin: 0.18%
+pao: 0.07%
+rakhine: 7.24%
+shan: 0.18%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.91%
+mon: 0.44%
+bamar: 0.40%
+beik: 93.32%
+po_kayin: 0.09%
+sgaw_kayin: 0.09%
+pao: 0.04%
+rakhine: 3.62%
+shan: 0.09%
+Running with ngram=4 on random sentence 5: အဲဒီကိုသောဖို့ငါမင်းကိုငါမတိုက်တွန်းရ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.43%
+beik: 99.51%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.06%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.05%
+mon: 0.00%
+bamar: 0.03%
+beik: 3.04%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 96.88%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.03%
+mon: 0.00%
+bamar: 0.23%
+beik: 51.27%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 48.47%
+shan: 0.00%
+Running with ngram=4 on random sentence 6: အဲဒီကိုသောဖို့ငါမင်းကိုငါမတိုက်တွန်းရ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.43%
+beik: 99.51%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.06%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.05%
+mon: 0.00%
+bamar: 0.03%
+beik: 3.04%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 96.88%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.03%
+mon: 0.00%
+bamar: 0.23%
+beik: 51.27%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 48.47%
+shan: 0.00%
+Running with ngram=4 on random sentence 7: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 74.83%
+mon: 0.32%
+bamar: 10.94%
+beik: 10.99%
+po_kayin: 0.05%
+sgaw_kayin: 0.58%
+pao: 0.06%
+rakhine: 2.06%
+shan: 0.17%
+
+Combined Character and Syllable-based Detection:
+dawei: 37.41%
+mon: 0.16%
+bamar: 5.47%
+beik: 55.50%
+po_kayin: 0.02%
+sgaw_kayin: 0.29%
+pao: 0.03%
+rakhine: 1.03%
+shan: 0.08%
+Running with ngram=4 on random sentence 8: နင်ခရီးမထွက်ခဲ့ရလား။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.24%
+mon: 0.05%
+bamar: 0.00%
+beik: 98.72%
+po_kayin: 0.05%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 0.86%
+shan: 0.05%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.12%
+mon: 0.03%
+bamar: 0.00%
+beik: 99.36%
+po_kayin: 0.03%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 0.43%
+shan: 0.03%
+Running with ngram=4 on random sentence 9: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 74.83%
+mon: 0.32%
+bamar: 10.94%
+beik: 10.99%
+po_kayin: 0.05%
+sgaw_kayin: 0.58%
+pao: 0.06%
+rakhine: 2.06%
+shan: 0.17%
+
+Combined Character and Syllable-based Detection:
+dawei: 37.41%
+mon: 0.16%
+bamar: 5.47%
+beik: 55.50%
+po_kayin: 0.02%
+sgaw_kayin: 0.29%
+pao: 0.03%
+rakhine: 1.03%
+shan: 0.08%
+Running with ngram=4 on random sentence 10: သူဒယ့်ဟာကိုလိုချင်မဟုတ်ဝ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 2.14%
+mon: 0.01%
+bamar: 0.12%
+beik: 6.32%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.23%
+rakhine: 91.17%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.07%
+mon: 0.00%
+bamar: 0.06%
+beik: 53.16%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.12%
+rakhine: 45.59%
+shan: 0.00%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+Running with ngram=5 on random sentence 1: သူဒယ့်ဟာကိုလိုချင်မဟုတ်ဝ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.19%
+rakhine: 9.05%
+dawei: 17.82%
+pao: 0.19%
+po_kayin: 1.18%
+bamar: 0.17%
+mon: 1.05%
+shan: 0.54%
+beik: 69.80%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.10%
+rakhine: 4.53%
+dawei: 8.91%
+pao: 0.09%
+po_kayin: 0.59%
+bamar: 0.09%
+mon: 0.52%
+shan: 0.27%
+beik: 84.90%
+Running with ngram=5 on random sentence 2: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.04%
+dawei: 0.30%
+pao: 0.00%
+po_kayin: 0.04%
+bamar: 0.00%
+mon: 0.02%
+shan: 0.04%
+beik: 99.55%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.02%
+dawei: 0.15%
+pao: 0.00%
+po_kayin: 0.02%
+bamar: 0.00%
+mon: 0.01%
+shan: 0.02%
+beik: 99.77%
+Running with ngram=5 on random sentence 3: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.36%
+rakhine: 64.31%
+dawei: 31.33%
+pao: 0.02%
+po_kayin: 0.36%
+bamar: 0.01%
+mon: 1.47%
+shan: 0.36%
+beik: 1.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.18%
+rakhine: 32.15%
+dawei: 15.67%
+pao: 0.01%
+po_kayin: 0.18%
+bamar: 0.00%
+mon: 0.73%
+shan: 0.18%
+beik: 50.89%
+Running with ngram=5 on random sentence 4: ဘဇာလောက်စိတ်လှုပ်ရှားရိ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.01%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 99.99%
+
+Syllable-based Detection:
+sgaw_kayin: 3.86%
+rakhine: 2.51%
+dawei: 78.00%
+pao: 1.03%
+po_kayin: 1.12%
+bamar: 0.38%
+mon: 0.72%
+shan: 1.11%
+beik: 11.26%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.93%
+rakhine: 1.26%
+dawei: 39.00%
+pao: 0.52%
+po_kayin: 0.56%
+bamar: 0.19%
+mon: 0.36%
+shan: 0.56%
+beik: 55.63%
+Running with ngram=5 on random sentence 5: နင်ခရီးမထွက်ခဲ့ရလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 1.94%
+rakhine: 7.53%
+dawei: 10.08%
+pao: 4.42%
+po_kayin: 4.81%
+bamar: 0.26%
+mon: 3.10%
+shan: 4.77%
+beik: 63.10%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.97%
+rakhine: 3.76%
+dawei: 5.04%
+pao: 2.21%
+po_kayin: 2.40%
+bamar: 0.13%
+mon: 1.55%
+shan: 2.38%
+beik: 81.55%
+Running with ngram=5 on random sentence 6: မင်းငါ့ကိုရှင်းပြနိုင်မလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.12%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.03%
+mon: 0.00%
+shan: 0.00%
+beik: 99.86%
+
+Syllable-based Detection:
+sgaw_kayin: 0.05%
+rakhine: 33.10%
+dawei: 33.42%
+pao: 0.27%
+po_kayin: 0.31%
+bamar: 1.21%
+mon: 0.30%
+shan: 1.07%
+beik: 30.25%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.03%
+rakhine: 16.61%
+dawei: 16.71%
+pao: 0.14%
+po_kayin: 0.16%
+bamar: 0.62%
+mon: 0.15%
+shan: 0.54%
+beik: 65.06%
+Running with ngram=5 on random sentence 7: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.04%
+dawei: 0.30%
+pao: 0.00%
+po_kayin: 0.04%
+bamar: 0.00%
+mon: 0.02%
+shan: 0.04%
+beik: 99.55%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.02%
+dawei: 0.15%
+pao: 0.00%
+po_kayin: 0.02%
+bamar: 0.00%
+mon: 0.01%
+shan: 0.02%
+beik: 99.77%
+Running with ngram=5 on random sentence 8: ဖယ်သူလေကိုမေးရိလဲ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.57%
+rakhine: 1.62%
+dawei: 17.41%
+pao: 1.57%
+po_kayin: 5.64%
+bamar: 0.04%
+mon: 4.12%
+shan: 2.94%
+beik: 64.10%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.29%
+rakhine: 0.81%
+dawei: 8.70%
+pao: 0.79%
+po_kayin: 2.82%
+bamar: 0.02%
+mon: 2.06%
+shan: 1.47%
+beik: 82.05%
+Running with ngram=5 on random sentence 9: အဲ့အမကိုလက်ထပ်လိုက်ရယ်လား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.36%
+rakhine: 64.31%
+dawei: 31.33%
+pao: 0.02%
+po_kayin: 0.36%
+bamar: 0.01%
+mon: 1.47%
+shan: 0.36%
+beik: 1.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.18%
+rakhine: 32.15%
+dawei: 15.67%
+pao: 0.01%
+po_kayin: 0.18%
+bamar: 0.00%
+mon: 0.73%
+shan: 0.18%
+beik: 50.89%
+Running with ngram=5 on random sentence 10: ဒါထဲမှာအဝေးပြောဖုန်းပြောတအားများရယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.04%
+dawei: 0.30%
+pao: 0.00%
+po_kayin: 0.04%
+bamar: 0.00%
+mon: 0.02%
+shan: 0.04%
+beik: 99.55%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 0.02%
+dawei: 0.15%
+pao: 0.00%
+po_kayin: 0.02%
+bamar: 0.00%
+mon: 0.01%
+shan: 0.02%
+beik: 99.77%
+
+Processing file: dawei.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: အဲဟှိုသွားဟှို့နန့်ဟှိုငါတိုက်တွန်းဟှ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.82%
+mon: 0.01%
+shan: 0.01%
+pao: 0.01%
+rakhine: 0.47%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 98.57%
+bamar: 0.10%
+
+Combined Character and Syllable-based Detection:
+beik: 0.41%
+mon: 0.00%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.24%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 99.28%
+bamar: 0.05%
+Running with ngram=3 on random sentence 2: အယ်ထဲမှာဝီးပြောဖောင်းပြောဇာရရာများဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 4.55%
+mon: 0.01%
+shan: 0.00%
+pao: 0.00%
+rakhine: 93.53%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.86%
+bamar: 0.05%
+
+Combined Character and Syllable-based Detection:
+beik: 2.28%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 46.77%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 50.93%
+bamar: 0.02%
+Running with ngram=3 on random sentence 3: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.38%
+mon: 0.01%
+shan: 0.00%
+pao: 0.25%
+rakhine: 1.93%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 96.38%
+bamar: 0.05%
+
+Combined Character and Syllable-based Detection:
+beik: 0.69%
+mon: 0.01%
+shan: 0.00%
+pao: 0.13%
+rakhine: 0.96%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 98.19%
+bamar: 0.02%
+Running with ngram=3 on random sentence 4: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.08%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.79%
+bamar: 0.11%
+
+Combined Character and Syllable-based Detection:
+beik: 0.04%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.90%
+bamar: 0.05%
+Running with ngram=3 on random sentence 5: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.24%
+mon: 0.69%
+shan: 0.35%
+pao: 0.32%
+rakhine: 1.17%
+po_kayin: 0.10%
+sgaw_kayin: 0.16%
+dawei: 94.57%
+bamar: 1.40%
+
+Combined Character and Syllable-based Detection:
+beik: 0.62%
+mon: 0.34%
+shan: 0.17%
+pao: 0.16%
+rakhine: 0.59%
+po_kayin: 0.05%
+sgaw_kayin: 0.08%
+dawei: 97.29%
+bamar: 0.70%
+Running with ngram=3 on random sentence 6: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.08%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.79%
+bamar: 0.11%
+
+Combined Character and Syllable-based Detection:
+beik: 0.04%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 99.90%
+bamar: 0.05%
+Running with ngram=3 on random sentence 7: အဲဟှိုသွားဟှို့နန့်ဟှိုငါတိုက်တွန်းဟှ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.82%
+mon: 0.01%
+shan: 0.01%
+pao: 0.01%
+rakhine: 0.47%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 98.57%
+bamar: 0.10%
+
+Combined Character and Syllable-based Detection:
+beik: 0.41%
+mon: 0.00%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.24%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 99.28%
+bamar: 0.05%
+Running with ngram=3 on random sentence 8: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.24%
+mon: 0.69%
+shan: 0.35%
+pao: 0.32%
+rakhine: 1.17%
+po_kayin: 0.10%
+sgaw_kayin: 0.16%
+dawei: 94.57%
+bamar: 1.40%
+
+Combined Character and Syllable-based Detection:
+beik: 0.62%
+mon: 0.34%
+shan: 0.17%
+pao: 0.16%
+rakhine: 0.59%
+po_kayin: 0.05%
+sgaw_kayin: 0.08%
+dawei: 97.29%
+bamar: 0.70%
+Running with ngram=3 on random sentence 9: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.38%
+mon: 0.01%
+shan: 0.00%
+pao: 0.25%
+rakhine: 1.93%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 96.38%
+bamar: 0.05%
+
+Combined Character and Syllable-based Detection:
+beik: 0.69%
+mon: 0.01%
+shan: 0.00%
+pao: 0.13%
+rakhine: 0.96%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 98.19%
+bamar: 0.02%
+Running with ngram=3 on random sentence 10: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 100.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.24%
+mon: 0.69%
+shan: 0.35%
+pao: 0.32%
+rakhine: 1.17%
+po_kayin: 0.10%
+sgaw_kayin: 0.16%
+dawei: 94.57%
+bamar: 1.40%
+
+Combined Character and Syllable-based Detection:
+beik: 0.62%
+mon: 0.34%
+shan: 0.17%
+pao: 0.16%
+rakhine: 0.59%
+po_kayin: 0.05%
+sgaw_kayin: 0.08%
+dawei: 97.29%
+bamar: 0.70%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 27.58%
+mon: 1.52%
+bamar: 28.63%
+beik: 14.61%
+po_kayin: 3.51%
+sgaw_kayin: 3.51%
+pao: 0.94%
+rakhine: 16.19%
+shan: 3.51%
+
+Combined Character and Syllable-based Detection:
+dawei: 63.79%
+mon: 0.76%
+bamar: 14.32%
+beik: 7.31%
+po_kayin: 1.75%
+sgaw_kayin: 1.75%
+pao: 0.47%
+rakhine: 8.09%
+shan: 1.75%
+Running with ngram=4 on random sentence 2: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 87.64%
+mon: 0.39%
+bamar: 4.90%
+beik: 0.92%
+po_kayin: 0.89%
+sgaw_kayin: 0.89%
+pao: 2.73%
+rakhine: 0.74%
+shan: 0.89%
+
+Combined Character and Syllable-based Detection:
+dawei: 93.82%
+mon: 0.19%
+bamar: 2.45%
+beik: 0.46%
+po_kayin: 0.45%
+sgaw_kayin: 0.45%
+pao: 1.37%
+rakhine: 0.37%
+shan: 0.45%
+Running with ngram=4 on random sentence 3: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 79.53%
+mon: 1.56%
+bamar: 2.04%
+beik: 4.91%
+po_kayin: 3.59%
+sgaw_kayin: 3.59%
+pao: 0.96%
+rakhine: 0.27%
+shan: 3.57%
+
+Combined Character and Syllable-based Detection:
+dawei: 89.76%
+mon: 0.78%
+bamar: 1.02%
+beik: 2.45%
+po_kayin: 1.80%
+sgaw_kayin: 1.80%
+pao: 0.48%
+rakhine: 0.13%
+shan: 1.78%
+Running with ngram=4 on random sentence 4: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 87.64%
+mon: 0.39%
+bamar: 4.90%
+beik: 0.92%
+po_kayin: 0.89%
+sgaw_kayin: 0.89%
+pao: 2.73%
+rakhine: 0.74%
+shan: 0.89%
+
+Combined Character and Syllable-based Detection:
+dawei: 93.82%
+mon: 0.19%
+bamar: 2.45%
+beik: 0.46%
+po_kayin: 0.45%
+sgaw_kayin: 0.45%
+pao: 1.37%
+rakhine: 0.37%
+shan: 0.45%
+Running with ngram=4 on random sentence 5: အဲမိုထဲမှာဝေးကိုဖုန်းပြောဇာရတိုင်းများဟှယ်။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.44%
+mon: 0.00%
+bamar: 1.04%
+beik: 77.46%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 21.03%
+shan: 0.01%
+
+Combined Character and Syllable-based Detection:
+dawei: 50.22%
+mon: 0.00%
+bamar: 0.52%
+beik: 38.73%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 10.51%
+shan: 0.00%
+Running with ngram=4 on random sentence 6: ဟှယ်လူလေဟှိုမေးကေ့နူး။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 79.53%
+mon: 1.56%
+bamar: 2.04%
+beik: 4.91%
+po_kayin: 3.59%
+sgaw_kayin: 3.59%
+pao: 0.96%
+rakhine: 0.27%
+shan: 3.57%
+
+Combined Character and Syllable-based Detection:
+dawei: 89.76%
+mon: 0.78%
+bamar: 1.02%
+beik: 2.45%
+po_kayin: 1.80%
+sgaw_kayin: 1.80%
+pao: 0.48%
+rakhine: 0.13%
+shan: 1.78%
+Running with ngram=4 on random sentence 7: အဲဝယ်ဟှားဟှိုလက်ထပ်လိုက်ဇာလား။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 80.26%
+mon: 3.08%
+bamar: 0.09%
+beik: 10.04%
+po_kayin: 0.64%
+sgaw_kayin: 0.64%
+pao: 0.24%
+rakhine: 4.37%
+shan: 0.64%
+
+Combined Character and Syllable-based Detection:
+dawei: 90.13%
+mon: 1.54%
+bamar: 0.05%
+beik: 5.02%
+po_kayin: 0.32%
+sgaw_kayin: 0.32%
+pao: 0.12%
+rakhine: 2.19%
+shan: 0.32%
+Running with ngram=4 on random sentence 8: အဲမိုထဲမှာဝေးကိုဖုန်းပြောဇာရတိုင်းများဟှယ်။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.44%
+mon: 0.00%
+bamar: 1.04%
+beik: 77.46%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 21.03%
+shan: 0.01%
+
+Combined Character and Syllable-based Detection:
+dawei: 50.22%
+mon: 0.00%
+bamar: 0.52%
+beik: 38.73%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 10.51%
+shan: 0.00%
+Running with ngram=4 on random sentence 9: အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 81.95%
+mon: 0.02%
+bamar: 0.01%
+beik: 17.88%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+pao: 0.07%
+rakhine: 0.02%
+shan: 0.04%
+
+Combined Character and Syllable-based Detection:
+dawei: 90.97%
+mon: 0.01%
+bamar: 0.00%
+beik: 8.94%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+pao: 0.03%
+rakhine: 0.01%
+shan: 0.02%
+Running with ngram=4 on random sentence 10: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Character-based Detection:
+dawei: 100.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 31.86%
+mon: 1.03%
+bamar: 0.00%
+beik: 50.00%
+po_kayin: 0.08%
+sgaw_kayin: 0.00%
+pao: 0.02%
+rakhine: 16.75%
+shan: 0.26%
+
+Combined Character and Syllable-based Detection:
+dawei: 65.93%
+mon: 0.51%
+bamar: 0.00%
+beik: 25.00%
+po_kayin: 0.04%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 8.38%
+shan: 0.13%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 1: အဲဟှိုသွားဟှို့နန့်ဟှိုငါတိုက်တွန်းဟှ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.27%
+rakhine: 9.89%
+dawei: 25.23%
+pao: 0.42%
+po_kayin: 2.27%
+bamar: 9.41%
+mon: 4.97%
+shan: 2.27%
+beik: 45.27%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.13%
+rakhine: 4.95%
+dawei: 62.62%
+pao: 0.21%
+po_kayin: 1.13%
+bamar: 4.71%
+mon: 2.48%
+shan: 1.13%
+beik: 22.64%
+Running with ngram=5 on random sentence 2: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.05%
+rakhine: 1.05%
+dawei: 88.35%
+pao: 0.27%
+po_kayin: 1.08%
+bamar: 0.01%
+mon: 0.30%
+shan: 3.71%
+beik: 5.18%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.03%
+rakhine: 0.52%
+dawei: 94.18%
+pao: 0.13%
+po_kayin: 0.54%
+bamar: 0.01%
+mon: 0.15%
+shan: 1.86%
+beik: 2.59%
+Running with ngram=5 on random sentence 3: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 6.83%
+rakhine: 5.86%
+dawei: 53.45%
+pao: 7.00%
+po_kayin: 6.83%
+bamar: 1.54%
+mon: 2.06%
+shan: 6.83%
+beik: 9.62%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 3.41%
+rakhine: 2.93%
+dawei: 76.72%
+pao: 3.50%
+po_kayin: 3.41%
+bamar: 0.77%
+mon: 1.03%
+shan: 3.41%
+beik: 4.81%
+Running with ngram=5 on random sentence 4: အယ်ထဲမှာဝီးပြောဖောင်းပြောဇာရရာများဟှယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.91%
+rakhine: 0.09%
+dawei: 92.65%
+pao: 0.07%
+po_kayin: 2.25%
+bamar: 0.04%
+mon: 0.93%
+shan: 2.23%
+beik: 0.83%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.45%
+rakhine: 0.04%
+dawei: 96.33%
+pao: 0.04%
+po_kayin: 1.12%
+bamar: 0.02%
+mon: 0.47%
+shan: 1.11%
+beik: 0.42%
+Running with ngram=5 on random sentence 5: သူးနို့ဟှယ်လော့သတ္တိရှိဟှယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 6.83%
+rakhine: 5.86%
+dawei: 53.45%
+pao: 7.00%
+po_kayin: 6.83%
+bamar: 1.54%
+mon: 2.06%
+shan: 6.83%
+beik: 9.62%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 3.41%
+rakhine: 2.93%
+dawei: 76.72%
+pao: 3.50%
+po_kayin: 3.41%
+bamar: 0.77%
+mon: 1.03%
+shan: 3.41%
+beik: 4.81%
+Running with ngram=5 on random sentence 6: ခံဗျားခရီးထွပ်ဟှလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.79%
+rakhine: 6.63%
+dawei: 77.62%
+pao: 2.79%
+po_kayin: 2.79%
+bamar: 0.57%
+mon: 1.21%
+shan: 2.79%
+beik: 2.79%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.40%
+rakhine: 3.31%
+dawei: 88.81%
+pao: 1.40%
+po_kayin: 1.40%
+bamar: 0.28%
+mon: 0.60%
+shan: 1.40%
+beik: 1.40%
+Running with ngram=5 on random sentence 7: အဲဝယ်ဟှားဟှိုလက်ထပ်လိုက်ဇာလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.33%
+rakhine: 36.54%
+dawei: 1.72%
+pao: 0.02%
+po_kayin: 0.33%
+bamar: 0.01%
+mon: 0.94%
+shan: 0.33%
+beik: 59.79%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.16%
+rakhine: 18.27%
+dawei: 50.86%
+pao: 0.01%
+po_kayin: 0.16%
+bamar: 0.00%
+mon: 0.47%
+shan: 0.16%
+beik: 29.90%
+Running with ngram=5 on random sentence 8: နန်ငါ့ဟှိုရှင်းပြပါလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.05%
+rakhine: 1.05%
+dawei: 88.35%
+pao: 0.27%
+po_kayin: 1.08%
+bamar: 0.01%
+mon: 0.30%
+shan: 3.71%
+beik: 5.18%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.03%
+rakhine: 0.52%
+dawei: 94.18%
+pao: 0.13%
+po_kayin: 0.54%
+bamar: 0.01%
+mon: 0.15%
+shan: 1.86%
+beik: 2.59%
+Running with ngram=5 on random sentence 9: ဟှယ်လော့စိလှုပ်ရှားဟှယ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 9.76%
+rakhine: 9.76%
+dawei: 35.99%
+pao: 9.76%
+po_kayin: 9.76%
+bamar: 1.23%
+mon: 4.23%
+shan: 9.76%
+beik: 9.76%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 4.88%
+rakhine: 4.88%
+dawei: 68.00%
+pao: 4.88%
+po_kayin: 4.88%
+bamar: 0.61%
+mon: 2.11%
+shan: 4.88%
+beik: 4.88%
+Running with ngram=5 on random sentence 10: အယ်ဝယ်ဟှားအဲ့မာဂိုလိုရှင်ဟှယ်မှုဝလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 100.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.04%
+rakhine: 0.07%
+dawei: 88.96%
+pao: 0.05%
+po_kayin: 0.83%
+bamar: 0.00%
+mon: 0.09%
+shan: 0.38%
+beik: 9.57%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.02%
+rakhine: 0.04%
+dawei: 94.48%
+pao: 0.03%
+po_kayin: 0.41%
+bamar: 0.00%
+mon: 0.05%
+shan: 0.19%
+beik: 4.78%
+
+Processing file: mon_tst.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 38.04%
+mon: 59.24%
+shan: 0.83%
+pao: 0.20%
+rakhine: 0.12%
+po_kayin: 1.03%
+sgaw_kayin: 0.23%
+dawei: 0.19%
+bamar: 0.12%
+
+Combined Character and Syllable-based Detection:
+beik: 19.02%
+mon: 79.62%
+shan: 0.41%
+pao: 0.10%
+rakhine: 0.06%
+po_kayin: 0.52%
+sgaw_kayin: 0.12%
+dawei: 0.09%
+bamar: 0.06%
+Running with ngram=3 on random sentence 1: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 7.47%
+mon: 6.13%
+shan: 8.51%
+pao: 3.67%
+rakhine: 4.62%
+po_kayin: 36.54%
+sgaw_kayin: 20.30%
+dawei: 3.17%
+bamar: 9.58%
+
+Combined Character and Syllable-based Detection:
+beik: 3.73%
+mon: 53.07%
+shan: 4.26%
+pao: 1.84%
+rakhine: 2.31%
+po_kayin: 18.27%
+sgaw_kayin: 10.15%
+dawei: 1.59%
+bamar: 4.79%
+Running with ngram=3 on random sentence 2: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.66%
+mon: 94.68%
+shan: 0.66%
+pao: 0.66%
+rakhine: 0.66%
+po_kayin: 0.66%
+sgaw_kayin: 0.66%
+dawei: 0.66%
+bamar: 0.66%
+
+Combined Character and Syllable-based Detection:
+beik: 0.33%
+mon: 97.34%
+shan: 0.33%
+pao: 0.33%
+rakhine: 0.33%
+po_kayin: 0.33%
+sgaw_kayin: 0.33%
+dawei: 0.33%
+bamar: 0.33%
+Running with ngram=3 on random sentence 3: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 7.47%
+mon: 6.13%
+shan: 8.51%
+pao: 3.67%
+rakhine: 4.62%
+po_kayin: 36.54%
+sgaw_kayin: 20.30%
+dawei: 3.17%
+bamar: 9.58%
+
+Combined Character and Syllable-based Detection:
+beik: 3.73%
+mon: 53.07%
+shan: 4.26%
+pao: 1.84%
+rakhine: 2.31%
+po_kayin: 18.27%
+sgaw_kayin: 10.15%
+dawei: 1.59%
+bamar: 4.79%
+Running with ngram=3 on random sentence 4: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 7.47%
+mon: 6.13%
+shan: 8.51%
+pao: 3.67%
+rakhine: 4.62%
+po_kayin: 36.54%
+sgaw_kayin: 20.30%
+dawei: 3.17%
+bamar: 9.58%
+
+Combined Character and Syllable-based Detection:
+beik: 3.73%
+mon: 53.07%
+shan: 4.26%
+pao: 1.84%
+rakhine: 2.31%
+po_kayin: 18.27%
+sgaw_kayin: 10.15%
+dawei: 1.59%
+bamar: 4.79%
+Running with ngram=3 on random sentence 5: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 7.47%
+mon: 6.13%
+shan: 8.51%
+pao: 3.67%
+rakhine: 4.62%
+po_kayin: 36.54%
+sgaw_kayin: 20.30%
+dawei: 3.17%
+bamar: 9.58%
+
+Combined Character and Syllable-based Detection:
+beik: 3.73%
+mon: 53.07%
+shan: 4.26%
+pao: 1.84%
+rakhine: 2.31%
+po_kayin: 18.27%
+sgaw_kayin: 10.15%
+dawei: 1.59%
+bamar: 4.79%
+Running with ngram=3 on random sentence 6: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.66%
+mon: 94.68%
+shan: 0.66%
+pao: 0.66%
+rakhine: 0.66%
+po_kayin: 0.66%
+sgaw_kayin: 0.66%
+dawei: 0.66%
+bamar: 0.66%
+
+Combined Character and Syllable-based Detection:
+beik: 0.33%
+mon: 97.34%
+shan: 0.33%
+pao: 0.33%
+rakhine: 0.33%
+po_kayin: 0.33%
+sgaw_kayin: 0.33%
+dawei: 0.33%
+bamar: 0.33%
+Running with ngram=3 on random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 7.47%
+mon: 6.13%
+shan: 8.51%
+pao: 3.67%
+rakhine: 4.62%
+po_kayin: 36.54%
+sgaw_kayin: 20.30%
+dawei: 3.17%
+bamar: 9.58%
+
+Combined Character and Syllable-based Detection:
+beik: 3.73%
+mon: 53.07%
+shan: 4.26%
+pao: 1.84%
+rakhine: 2.31%
+po_kayin: 18.27%
+sgaw_kayin: 10.15%
+dawei: 1.59%
+bamar: 4.79%
+Running with ngram=3 on random sentence 8: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.66%
+mon: 94.68%
+shan: 0.66%
+pao: 0.66%
+rakhine: 0.66%
+po_kayin: 0.66%
+sgaw_kayin: 0.66%
+dawei: 0.66%
+bamar: 0.66%
+
+Combined Character and Syllable-based Detection:
+beik: 0.33%
+mon: 97.34%
+shan: 0.33%
+pao: 0.33%
+rakhine: 0.33%
+po_kayin: 0.33%
+sgaw_kayin: 0.33%
+dawei: 0.33%
+bamar: 0.33%
+Running with ngram=3 on random sentence 9: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.66%
+mon: 94.68%
+shan: 0.66%
+pao: 0.66%
+rakhine: 0.66%
+po_kayin: 0.66%
+sgaw_kayin: 0.66%
+dawei: 0.66%
+bamar: 0.66%
+
+Combined Character and Syllable-based Detection:
+beik: 0.33%
+mon: 97.34%
+shan: 0.33%
+pao: 0.33%
+rakhine: 0.33%
+po_kayin: 0.33%
+sgaw_kayin: 0.33%
+dawei: 0.33%
+bamar: 0.33%
+Running with ngram=3 on random sentence 10: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.66%
+mon: 94.68%
+shan: 0.66%
+pao: 0.66%
+rakhine: 0.66%
+po_kayin: 0.66%
+sgaw_kayin: 0.66%
+dawei: 0.66%
+bamar: 0.66%
+
+Combined Character and Syllable-based Detection:
+beik: 0.33%
+mon: 97.34%
+shan: 0.33%
+pao: 0.33%
+rakhine: 0.33%
+po_kayin: 0.33%
+sgaw_kayin: 0.33%
+dawei: 0.33%
+bamar: 0.33%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.28%
+mon: 87.31%
+bamar: 0.01%
+beik: 3.17%
+po_kayin: 1.02%
+sgaw_kayin: 0.08%
+pao: 0.65%
+rakhine: 0.83%
+shan: 5.64%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.64%
+mon: 93.65%
+bamar: 0.01%
+beik: 1.59%
+po_kayin: 0.51%
+sgaw_kayin: 0.04%
+pao: 0.33%
+rakhine: 0.42%
+shan: 2.82%
+Running with ngram=4 on random sentence 1: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 2: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 3: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 11.11%
+mon: 11.11%
+bamar: 11.11%
+beik: 11.11%
+po_kayin: 11.11%
+sgaw_kayin: 11.11%
+pao: 11.11%
+rakhine: 11.11%
+shan: 11.11%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.56%
+mon: 55.56%
+bamar: 5.56%
+beik: 5.56%
+po_kayin: 5.56%
+sgaw_kayin: 5.56%
+pao: 5.56%
+rakhine: 5.56%
+shan: 5.56%
+Running with ngram=4 on random sentence 4: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 5: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 6: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 8: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 11.11%
+mon: 11.11%
+bamar: 11.11%
+beik: 11.11%
+po_kayin: 11.11%
+sgaw_kayin: 11.11%
+pao: 11.11%
+rakhine: 11.11%
+shan: 11.11%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.56%
+mon: 55.56%
+bamar: 5.56%
+beik: 5.56%
+po_kayin: 5.56%
+sgaw_kayin: 5.56%
+pao: 5.56%
+rakhine: 5.56%
+shan: 5.56%
+Running with ngram=4 on random sentence 9: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 10: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.16%
+rakhine: 0.60%
+dawei: 2.59%
+pao: 0.82%
+po_kayin: 0.97%
+bamar: 0.02%
+mon: 80.41%
+shan: 11.43%
+beik: 3.01%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.08%
+rakhine: 0.30%
+dawei: 1.30%
+pao: 0.41%
+po_kayin: 0.48%
+bamar: 0.01%
+mon: 90.20%
+shan: 5.72%
+beik: 1.50%
+Running with ngram=5 on random sentence 1: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 2: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 3: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 4: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.48%
+rakhine: 2.19%
+dawei: 11.06%
+pao: 7.96%
+po_kayin: 8.65%
+bamar: 0.47%
+mon: 24.25%
+shan: 29.73%
+beik: 12.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.74%
+rakhine: 1.10%
+dawei: 5.53%
+pao: 3.98%
+po_kayin: 4.32%
+bamar: 0.23%
+mon: 62.13%
+shan: 14.87%
+beik: 6.10%
+Running with ngram=5 on random sentence 5: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.48%
+rakhine: 2.19%
+dawei: 11.06%
+pao: 7.96%
+po_kayin: 8.65%
+bamar: 0.47%
+mon: 24.25%
+shan: 29.73%
+beik: 12.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.74%
+rakhine: 1.10%
+dawei: 5.53%
+pao: 3.98%
+po_kayin: 4.32%
+bamar: 0.23%
+mon: 62.13%
+shan: 14.87%
+beik: 6.10%
+Running with ngram=5 on random sentence 6: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.48%
+rakhine: 2.19%
+dawei: 11.06%
+pao: 7.96%
+po_kayin: 8.65%
+bamar: 0.47%
+mon: 24.25%
+shan: 29.73%
+beik: 12.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.74%
+rakhine: 1.10%
+dawei: 5.53%
+pao: 3.98%
+po_kayin: 4.32%
+bamar: 0.23%
+mon: 62.13%
+shan: 14.87%
+beik: 6.10%
+Running with ngram=5 on random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.48%
+rakhine: 2.19%
+dawei: 11.06%
+pao: 7.96%
+po_kayin: 8.65%
+bamar: 0.47%
+mon: 24.25%
+shan: 29.73%
+beik: 12.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.74%
+rakhine: 1.10%
+dawei: 5.53%
+pao: 3.98%
+po_kayin: 4.32%
+bamar: 0.23%
+mon: 62.13%
+shan: 14.87%
+beik: 6.10%
+Running with ngram=5 on random sentence 8: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 9: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 10: ကသပ်ပ္ဍဲဗှ်ေဂှ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Processing file: mon.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 87.38%
+mon: 5.07%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.11%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 7.42%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 43.69%
+mon: 52.53%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.05%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 3.71%
+bamar: 0.00%
+Running with ngram=3 on random sentence 2: ဗှ်ေဟယျတုဲမာန်ဟာ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.19%
+mon: 82.34%
+shan: 1.85%
+pao: 1.50%
+rakhine: 1.07%
+po_kayin: 1.85%
+sgaw_kayin: 1.85%
+dawei: 1.85%
+bamar: 6.49%
+
+Combined Character and Syllable-based Detection:
+beik: 0.59%
+mon: 91.17%
+shan: 0.93%
+pao: 0.75%
+rakhine: 0.54%
+po_kayin: 0.93%
+sgaw_kayin: 0.93%
+dawei: 0.93%
+bamar: 3.24%
+Running with ngram=3 on random sentence 3: အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 5.10%
+mon: 35.93%
+shan: 5.81%
+pao: 2.51%
+rakhine: 3.15%
+po_kayin: 24.94%
+sgaw_kayin: 13.85%
+dawei: 2.17%
+bamar: 6.54%
+
+Combined Character and Syllable-based Detection:
+beik: 2.55%
+mon: 67.96%
+shan: 2.91%
+pao: 1.25%
+rakhine: 1.58%
+po_kayin: 12.47%
+sgaw_kayin: 6.93%
+dawei: 1.08%
+bamar: 3.27%
+Running with ngram=3 on random sentence 4: ၜိုတ်အဲကၠောန်မာန်အဲဂစာန်လဝ်ရ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 9.30%
+mon: 90.36%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.06%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.23%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 4.65%
+mon: 95.18%
+shan: 0.02%
+pao: 0.00%
+rakhine: 0.03%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.11%
+bamar: 0.00%
+Running with ngram=3 on random sentence 5: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 84.52%
+mon: 3.82%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+dawei: 11.62%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 42.26%
+mon: 51.91%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 5.81%
+bamar: 0.00%
+Running with ngram=3 on random sentence 6: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.32%
+mon: 99.33%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.28%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.16%
+mon: 99.67%
+shan: 0.03%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.14%
+bamar: 0.00%
+Running with ngram=3 on random sentence 7: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 84.52%
+mon: 3.82%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+dawei: 11.62%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 42.26%
+mon: 51.91%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 5.81%
+bamar: 0.00%
+Running with ngram=3 on random sentence 8: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 84.52%
+mon: 3.82%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+dawei: 11.62%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 42.26%
+mon: 51.91%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 5.81%
+bamar: 0.00%
+Running with ngram=3 on random sentence 9: ပ္ဍဲဗှ်ေဂှ်ကသပ်တၟေၚ်ၚ်နွံမံၚ်။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 76.25%
+mon: 16.53%
+shan: 2.06%
+pao: 0.18%
+rakhine: 0.36%
+po_kayin: 1.00%
+sgaw_kayin: 2.61%
+dawei: 0.97%
+bamar: 0.06%
+
+Combined Character and Syllable-based Detection:
+beik: 38.12%
+mon: 58.26%
+shan: 1.03%
+pao: 0.09%
+rakhine: 0.18%
+po_kayin: 0.50%
+sgaw_kayin: 1.30%
+dawei: 0.49%
+bamar: 0.03%
+Running with ngram=3 on random sentence 10: ၜိုတ်အဲကၠောန်မာန်အဲဂစာန်လဝ်ရ။
+Character-based Detection:
+beik: 0.00%
+mon: 100.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 9.30%
+mon: 90.36%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.06%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.23%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 4.65%
+mon: 95.18%
+shan: 0.02%
+pao: 0.00%
+rakhine: 0.03%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.11%
+bamar: 0.00%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 24.19%
+bamar: 0.00%
+beik: 75.81%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 62.10%
+bamar: 0.00%
+beik: 37.90%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.43%
+mon: 14.16%
+bamar: 0.36%
+beik: 19.84%
+po_kayin: 14.05%
+sgaw_kayin: 2.65%
+pao: 5.59%
+rakhine: 12.28%
+shan: 22.64%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.22%
+mon: 57.08%
+bamar: 0.18%
+beik: 9.92%
+po_kayin: 7.02%
+sgaw_kayin: 1.33%
+pao: 2.79%
+rakhine: 6.14%
+shan: 11.32%
+Running with ngram=4 on random sentence 2: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.67%
+mon: 6.59%
+bamar: 0.08%
+beik: 86.06%
+po_kayin: 0.18%
+sgaw_kayin: 0.02%
+pao: 0.14%
+rakhine: 4.63%
+shan: 0.62%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.84%
+mon: 53.29%
+bamar: 0.04%
+beik: 43.03%
+po_kayin: 0.09%
+sgaw_kayin: 0.01%
+pao: 0.07%
+rakhine: 2.31%
+shan: 0.31%
+Running with ngram=4 on random sentence 3: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 4: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 6.26%
+mon: 79.23%
+bamar: 0.35%
+beik: 6.58%
+po_kayin: 2.99%
+sgaw_kayin: 0.14%
+pao: 0.74%
+rakhine: 0.76%
+shan: 2.96%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.13%
+mon: 89.61%
+bamar: 0.17%
+beik: 3.29%
+po_kayin: 1.49%
+sgaw_kayin: 0.07%
+pao: 0.37%
+rakhine: 0.38%
+shan: 1.48%
+Running with ngram=4 on random sentence 5: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.14%
+mon: 16.71%
+bamar: 0.34%
+beik: 19.15%
+po_kayin: 13.56%
+sgaw_kayin: 2.56%
+pao: 5.85%
+rakhine: 11.85%
+shan: 21.85%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.07%
+mon: 58.35%
+bamar: 0.17%
+beik: 9.57%
+po_kayin: 6.78%
+sgaw_kayin: 1.28%
+pao: 2.92%
+rakhine: 5.92%
+shan: 10.92%
+Running with ngram=4 on random sentence 6: ပေါဲဂီတဂှ်ဂိတုဂတမှကၠောန်ဏောၚ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 33.85%
+mon: 52.94%
+bamar: 0.00%
+beik: 8.69%
+po_kayin: 1.68%
+sgaw_kayin: 0.01%
+pao: 0.99%
+rakhine: 0.21%
+shan: 1.65%
+
+Combined Character and Syllable-based Detection:
+dawei: 16.92%
+mon: 76.47%
+bamar: 0.00%
+beik: 4.34%
+po_kayin: 0.84%
+sgaw_kayin: 0.00%
+pao: 0.49%
+rakhine: 0.10%
+shan: 0.82%
+Running with ngram=4 on random sentence 7: ပ္ဍဲဗှ်ေဂှ်ကသပ်တၟေၚ်ၚ်နွံမံၚ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 11.03%
+mon: 12.08%
+bamar: 2.27%
+beik: 11.58%
+po_kayin: 2.47%
+sgaw_kayin: 32.05%
+pao: 7.79%
+rakhine: 4.91%
+shan: 15.81%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.51%
+mon: 56.04%
+bamar: 1.14%
+beik: 5.79%
+po_kayin: 1.23%
+sgaw_kayin: 16.02%
+pao: 3.90%
+rakhine: 2.46%
+shan: 7.91%
+Running with ngram=4 on random sentence 8: အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.43%
+mon: 14.16%
+bamar: 0.36%
+beik: 19.84%
+po_kayin: 14.05%
+sgaw_kayin: 2.65%
+pao: 5.59%
+rakhine: 12.28%
+shan: 22.64%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.22%
+mon: 57.08%
+bamar: 0.18%
+beik: 9.92%
+po_kayin: 7.02%
+sgaw_kayin: 1.33%
+pao: 2.79%
+rakhine: 6.14%
+shan: 11.32%
+Running with ngram=4 on random sentence 9: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 6.26%
+mon: 79.23%
+bamar: 0.35%
+beik: 6.58%
+po_kayin: 2.99%
+sgaw_kayin: 0.14%
+pao: 0.74%
+rakhine: 0.76%
+shan: 2.96%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.13%
+mon: 89.61%
+bamar: 0.17%
+beik: 3.29%
+po_kayin: 1.49%
+sgaw_kayin: 0.07%
+pao: 0.37%
+rakhine: 0.38%
+shan: 1.48%
+Running with ngram=4 on random sentence 10: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Character-based Detection:
+dawei: 0.00%
+mon: 100.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 6.26%
+mon: 79.23%
+bamar: 0.35%
+beik: 6.58%
+po_kayin: 2.99%
+sgaw_kayin: 0.14%
+pao: 0.74%
+rakhine: 0.76%
+shan: 2.96%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.13%
+mon: 89.61%
+bamar: 0.17%
+beik: 3.29%
+po_kayin: 1.49%
+sgaw_kayin: 0.07%
+pao: 0.37%
+rakhine: 0.38%
+shan: 1.48%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 99.93%
+shan: 0.06%
+beik: 0.01%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 99.97%
+shan: 0.03%
+beik: 0.00%
+Running with ngram=5 on random sentence 1: ပ္ဍဲဗှ်ေဂှ်ကသပ်တၟေၚ်ၚ်နွံမံၚ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.84%
+rakhine: 15.02%
+dawei: 15.02%
+pao: 15.02%
+po_kayin: 4.37%
+bamar: 15.02%
+mon: 10.70%
+shan: 6.98%
+beik: 15.02%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.42%
+rakhine: 7.51%
+dawei: 7.51%
+pao: 7.51%
+po_kayin: 2.19%
+bamar: 7.51%
+mon: 55.35%
+shan: 3.49%
+beik: 7.51%
+Running with ngram=5 on random sentence 2: ဂလာန်ဗှ်ေပတိုန်လဝ်နူဏေအ်ဗ္တံဂှ်ခိုဟ်ကွေံကွေံ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.20%
+rakhine: 5.10%
+dawei: 18.78%
+pao: 5.03%
+po_kayin: 18.78%
+bamar: 2.36%
+mon: 10.20%
+shan: 18.78%
+beik: 18.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.10%
+rakhine: 2.55%
+dawei: 9.39%
+pao: 2.51%
+po_kayin: 9.39%
+bamar: 1.18%
+mon: 55.10%
+shan: 9.39%
+beik: 9.39%
+Running with ngram=5 on random sentence 3: ပ္ဍဲဗှ်ေဂှ်ကသပ်တၟေၚ်ၚ်နွံမံၚ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.84%
+rakhine: 15.02%
+dawei: 15.02%
+pao: 15.02%
+po_kayin: 4.37%
+bamar: 15.02%
+mon: 10.70%
+shan: 6.98%
+beik: 15.02%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.42%
+rakhine: 7.51%
+dawei: 7.51%
+pao: 7.51%
+po_kayin: 2.19%
+bamar: 7.51%
+mon: 55.35%
+shan: 3.49%
+beik: 7.51%
+Running with ngram=5 on random sentence 4: အဲဟယျဗှ်ေတိၚ်ဂီတာလေပ်မံၚ်။
+Character-based Detection:
+sgaw_kayin: 0.37%
+rakhine: 0.04%
+dawei: 0.23%
+pao: 0.37%
+po_kayin: 0.37%
+bamar: 0.01%
+mon: 97.84%
+shan: 0.37%
+beik: 0.37%
+
+Syllable-based Detection:
+sgaw_kayin: 3.65%
+rakhine: 2.30%
+dawei: 11.58%
+pao: 8.33%
+po_kayin: 9.05%
+bamar: 0.49%
+mon: 20.71%
+shan: 31.12%
+beik: 12.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 2.01%
+rakhine: 1.17%
+dawei: 5.90%
+pao: 4.35%
+po_kayin: 4.71%
+bamar: 0.25%
+mon: 59.28%
+shan: 15.75%
+beik: 6.58%
+Running with ngram=5 on random sentence 5: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 1.19%
+rakhine: 1.08%
+dawei: 20.06%
+pao: 3.86%
+po_kayin: 4.56%
+bamar: 0.23%
+mon: 31.33%
+shan: 15.55%
+beik: 22.14%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.60%
+rakhine: 0.54%
+dawei: 10.03%
+pao: 1.93%
+po_kayin: 2.28%
+bamar: 0.11%
+mon: 65.67%
+shan: 7.77%
+beik: 11.07%
+Running with ngram=5 on random sentence 6: ခိုဟ်ယျဆက်ဂစာန်ညိပၠန်။
+Character-based Detection:
+sgaw_kayin: 0.12%
+rakhine: 0.12%
+dawei: 0.12%
+pao: 0.12%
+po_kayin: 0.12%
+bamar: 0.12%
+mon: 99.05%
+shan: 0.12%
+beik: 0.12%
+
+Syllable-based Detection:
+sgaw_kayin: 2.97%
+rakhine: 15.76%
+dawei: 15.76%
+pao: 4.22%
+po_kayin: 15.76%
+bamar: 1.98%
+mon: 12.01%
+shan: 15.76%
+beik: 15.76%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.55%
+rakhine: 7.94%
+dawei: 7.94%
+pao: 2.17%
+po_kayin: 7.94%
+bamar: 1.05%
+mon: 55.53%
+shan: 7.94%
+beik: 7.94%
+Running with ngram=5 on random sentence 7: လၟုဟ်အဲဗ္တောန်တိၚ်မံၚ်ဂီတာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.48%
+rakhine: 2.19%
+dawei: 11.06%
+pao: 7.96%
+po_kayin: 8.65%
+bamar: 0.47%
+mon: 24.25%
+shan: 29.73%
+beik: 12.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.74%
+rakhine: 1.10%
+dawei: 5.53%
+pao: 3.98%
+po_kayin: 4.32%
+bamar: 0.23%
+mon: 62.13%
+shan: 14.87%
+beik: 6.10%
+Running with ngram=5 on random sentence 8: ၜိုတ်အဲကၠောန်မာန်အဲဂစာန်လဝ်ရ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.06%
+rakhine: 0.44%
+dawei: 5.00%
+pao: 0.42%
+po_kayin: 0.54%
+bamar: 0.09%
+mon: 81.30%
+shan: 6.35%
+beik: 5.80%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.03%
+rakhine: 0.22%
+dawei: 2.50%
+pao: 0.21%
+po_kayin: 0.27%
+bamar: 0.05%
+mon: 90.65%
+shan: 3.18%
+beik: 2.90%
+Running with ngram=5 on random sentence 9: သွက်အဲဂွံအံၚ်ဇၞးရာဒနာကဵုညိ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.11%
+rakhine: 1.32%
+dawei: 9.29%
+pao: 0.21%
+po_kayin: 11.91%
+bamar: 0.01%
+mon: 25.45%
+shan: 40.94%
+beik: 10.77%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.05%
+rakhine: 0.66%
+dawei: 4.64%
+pao: 0.10%
+po_kayin: 5.95%
+bamar: 0.01%
+mon: 62.73%
+shan: 20.47%
+beik: 5.38%
+Running with ngram=5 on random sentence 10: ယဝ်ဗှ်ေဟွံပယှုက်အဲရတှ်ေတုဲမာန်ဏောၚ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 100.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 1.19%
+rakhine: 1.08%
+dawei: 20.06%
+pao: 3.86%
+po_kayin: 4.56%
+bamar: 0.23%
+mon: 31.33%
+shan: 15.55%
+beik: 22.14%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.60%
+rakhine: 0.54%
+dawei: 10.03%
+pao: 1.93%
+po_kayin: 2.28%
+bamar: 0.11%
+mon: 65.67%
+shan: 7.77%
+beik: 11.07%
+
+Processing file: pao.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.00%
+mon: 0.00%
+shan: 0.00%
+pao: 50.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.46%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.53%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.73%
+mon: 0.00%
+shan: 0.00%
+pao: 50.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.26%
+bamar: 0.00%
+Running with ngram=3 on random sentence 2: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 94.31%
+mon: 0.71%
+shan: 0.13%
+pao: 3.73%
+rakhine: 0.02%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+dawei: 1.08%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 47.16%
+mon: 0.35%
+shan: 0.07%
+pao: 51.86%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.54%
+bamar: 0.00%
+Running with ngram=3 on random sentence 3: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.46%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.53%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.73%
+mon: 0.00%
+shan: 0.00%
+pao: 50.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.26%
+bamar: 0.00%
+Running with ngram=3 on random sentence 4: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.39%
+mon: 0.01%
+shan: 0.01%
+pao: 99.57%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.20%
+mon: 0.00%
+shan: 0.01%
+pao: 99.79%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 5: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.39%
+mon: 0.01%
+shan: 0.01%
+pao: 99.57%
+rakhine: 0.01%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.20%
+mon: 0.00%
+shan: 0.01%
+pao: 99.79%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 6: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 94.31%
+mon: 0.71%
+shan: 0.13%
+pao: 3.73%
+rakhine: 0.02%
+po_kayin: 0.02%
+sgaw_kayin: 0.00%
+dawei: 1.08%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 47.16%
+mon: 0.35%
+shan: 0.07%
+pao: 51.86%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.54%
+bamar: 0.00%
+Running with ngram=3 on random sentence 7: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.46%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.53%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.73%
+mon: 0.00%
+shan: 0.00%
+pao: 50.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.26%
+bamar: 0.00%
+Running with ngram=3 on random sentence 8: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 14.16%
+mon: 6.25%
+shan: 0.64%
+pao: 70.71%
+rakhine: 0.49%
+po_kayin: 0.10%
+sgaw_kayin: 0.42%
+dawei: 6.74%
+bamar: 0.50%
+
+Combined Character and Syllable-based Detection:
+beik: 7.08%
+mon: 3.12%
+shan: 0.32%
+pao: 85.35%
+rakhine: 0.24%
+po_kayin: 0.05%
+sgaw_kayin: 0.21%
+dawei: 3.37%
+bamar: 0.25%
+Running with ngram=3 on random sentence 9: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 25.86%
+mon: 3.38%
+shan: 3.38%
+pao: 32.17%
+rakhine: 8.51%
+po_kayin: 3.38%
+sgaw_kayin: 3.38%
+dawei: 5.38%
+bamar: 14.55%
+
+Combined Character and Syllable-based Detection:
+beik: 12.93%
+mon: 1.69%
+shan: 1.69%
+pao: 66.08%
+rakhine: 4.26%
+po_kayin: 1.69%
+sgaw_kayin: 1.69%
+dawei: 2.69%
+bamar: 7.27%
+Running with ngram=3 on random sentence 10: ဆုဲင်ꩻသွတ်တလဲင်ႏရက်ဒျာႏဝွေꩻနဝ်ꩻတဲ့ဒေါ့ꩻခွင်ꩻတလတဝ်းဒွုမ်
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.46%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.53%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.73%
+mon: 0.00%
+shan: 0.00%
+pao: 50.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.26%
+bamar: 0.00%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 18.89%
+mon: 5.91%
+bamar: 2.75%
+beik: 20.85%
+po_kayin: 2.67%
+sgaw_kayin: 0.43%
+pao: 1.92%
+rakhine: 15.10%
+shan: 31.48%
+
+Combined Character and Syllable-based Detection:
+dawei: 9.45%
+mon: 2.95%
+bamar: 1.38%
+beik: 10.43%
+po_kayin: 1.33%
+sgaw_kayin: 0.22%
+pao: 50.96%
+rakhine: 7.55%
+shan: 15.74%
+Running with ngram=4 on random sentence 2: ကထိန်ꩻ‌နွောင်ꩻဝွေꩻနဝ်ꩻအဝ်ႏဒျာႏနာꩻလွုမ်
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 3: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 18.89%
+mon: 5.91%
+bamar: 2.75%
+beik: 20.85%
+po_kayin: 2.67%
+sgaw_kayin: 0.43%
+pao: 1.92%
+rakhine: 15.10%
+shan: 31.48%
+
+Combined Character and Syllable-based Detection:
+dawei: 9.45%
+mon: 2.95%
+bamar: 1.38%
+beik: 10.43%
+po_kayin: 1.33%
+sgaw_kayin: 0.22%
+pao: 50.96%
+rakhine: 7.55%
+shan: 15.74%
+Running with ngram=4 on random sentence 4: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.91%
+mon: 0.60%
+bamar: 0.16%
+beik: 2.18%
+po_kayin: 0.93%
+sgaw_kayin: 0.15%
+pao: 92.65%
+rakhine: 0.51%
+shan: 0.92%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.96%
+mon: 0.30%
+bamar: 0.08%
+beik: 1.09%
+po_kayin: 0.46%
+sgaw_kayin: 0.08%
+pao: 96.32%
+rakhine: 0.26%
+shan: 0.46%
+Running with ngram=4 on random sentence 5: နဝ်ꩻနဝ်ꩻနီအတာႏယပ်ခုဲင်ႏငါႏ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 2.90%
+mon: 2.06%
+bamar: 0.19%
+beik: 3.04%
+po_kayin: 1.38%
+sgaw_kayin: 0.56%
+pao: 83.83%
+rakhine: 1.29%
+shan: 4.75%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.45%
+mon: 1.03%
+bamar: 0.10%
+beik: 1.52%
+po_kayin: 0.69%
+sgaw_kayin: 0.28%
+pao: 91.92%
+rakhine: 0.65%
+shan: 2.37%
+Running with ngram=4 on random sentence 6: နဝ်ꩻနဝ်ꩻခွေယမ်းမာႏဗာႏဟောင်း
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 13.13%
+mon: 13.13%
+bamar: 7.52%
+beik: 13.13%
+po_kayin: 13.13%
+sgaw_kayin: 13.13%
+pao: 3.81%
+rakhine: 5.75%
+shan: 17.26%
+
+Combined Character and Syllable-based Detection:
+dawei: 6.57%
+mon: 6.57%
+bamar: 3.76%
+beik: 6.57%
+po_kayin: 6.57%
+sgaw_kayin: 6.57%
+pao: 51.90%
+rakhine: 2.88%
+shan: 8.63%
+Running with ngram=4 on random sentence 7: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 9.10%
+mon: 4.53%
+bamar: 0.35%
+beik: 56.77%
+po_kayin: 0.89%
+sgaw_kayin: 0.14%
+pao: 19.47%
+rakhine: 5.73%
+shan: 3.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.55%
+mon: 2.26%
+bamar: 0.18%
+beik: 28.39%
+po_kayin: 0.44%
+sgaw_kayin: 0.07%
+pao: 59.73%
+rakhine: 2.87%
+shan: 1.51%
+Running with ngram=4 on random sentence 8: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.91%
+mon: 0.60%
+bamar: 0.16%
+beik: 2.18%
+po_kayin: 0.93%
+sgaw_kayin: 0.15%
+pao: 92.65%
+rakhine: 0.51%
+shan: 0.92%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.96%
+mon: 0.30%
+bamar: 0.08%
+beik: 1.09%
+po_kayin: 0.46%
+sgaw_kayin: 0.08%
+pao: 96.32%
+rakhine: 0.26%
+shan: 0.46%
+Running with ngram=4 on random sentence 9: ဒေါ့ꩻဝင်ꩻမဉ်ꩻနဝ်ꩻလွထီႏငါႏ
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 22.07%
+mon: 4.55%
+bamar: 1.32%
+beik: 10.85%
+po_kayin: 3.06%
+sgaw_kayin: 31.38%
+pao: 1.89%
+rakhine: 21.84%
+shan: 3.03%
+
+Combined Character and Syllable-based Detection:
+dawei: 11.04%
+mon: 2.28%
+bamar: 0.66%
+beik: 5.43%
+po_kayin: 1.53%
+sgaw_kayin: 15.69%
+pao: 50.95%
+rakhine: 10.92%
+shan: 1.51%
+Running with ngram=4 on random sentence 10: ခွေစဥ်ꩻစာꩻအတွိုင်ꩻစဥ်ꩻစာꩻဟုဲင်း
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 100.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 18.89%
+mon: 5.91%
+bamar: 2.75%
+beik: 20.85%
+po_kayin: 2.67%
+sgaw_kayin: 0.43%
+pao: 1.92%
+rakhine: 15.10%
+shan: 31.48%
+
+Combined Character and Syllable-based Detection:
+dawei: 9.45%
+mon: 2.95%
+bamar: 1.38%
+beik: 10.43%
+po_kayin: 1.33%
+sgaw_kayin: 0.22%
+pao: 50.96%
+rakhine: 7.55%
+shan: 15.74%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 99.77%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.23%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 99.89%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.11%
+Running with ngram=5 on random sentence 1: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.46%
+rakhine: 2.31%
+dawei: 7.60%
+pao: 2.86%
+po_kayin: 2.84%
+bamar: 0.07%
+mon: 14.51%
+shan: 9.66%
+beik: 59.68%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.23%
+rakhine: 1.16%
+dawei: 3.80%
+pao: 51.43%
+po_kayin: 1.42%
+bamar: 0.03%
+mon: 7.26%
+shan: 4.83%
+beik: 29.84%
+Running with ngram=5 on random sentence 2: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.46%
+rakhine: 2.31%
+dawei: 7.60%
+pao: 2.86%
+po_kayin: 2.84%
+bamar: 0.07%
+mon: 14.51%
+shan: 9.66%
+beik: 59.68%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.23%
+rakhine: 1.16%
+dawei: 3.80%
+pao: 51.43%
+po_kayin: 1.42%
+bamar: 0.03%
+mon: 7.26%
+shan: 4.83%
+beik: 29.84%
+Running with ngram=5 on random sentence 3: ဒေါ့ꩻဝင်ꩻမဉ်ꩻနဝ်ꩻလွထီႏငါႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.57%
+rakhine: 8.28%
+dawei: 18.58%
+pao: 3.45%
+po_kayin: 8.86%
+bamar: 3.83%
+mon: 13.19%
+shan: 8.78%
+beik: 31.45%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.78%
+rakhine: 4.14%
+dawei: 9.29%
+pao: 51.73%
+po_kayin: 4.43%
+bamar: 1.91%
+mon: 6.60%
+shan: 4.39%
+beik: 15.73%
+Running with ngram=5 on random sentence 4: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.46%
+rakhine: 2.31%
+dawei: 7.60%
+pao: 2.86%
+po_kayin: 2.84%
+bamar: 0.07%
+mon: 14.51%
+shan: 9.66%
+beik: 59.68%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.23%
+rakhine: 1.16%
+dawei: 3.80%
+pao: 51.43%
+po_kayin: 1.42%
+bamar: 0.03%
+mon: 7.26%
+shan: 4.83%
+beik: 29.84%
+Running with ngram=5 on random sentence 5: တယ်ႏနာဆာဒုံးပျံထင်ႏစခိန်ႏနဝ်ꩻဝွေꩻတဲမ်းဗာႏဒျာႏမတ်တန်ꩻ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 1.28%
+rakhine: 5.26%
+dawei: 21.48%
+pao: 2.78%
+po_kayin: 16.80%
+bamar: 0.44%
+mon: 10.83%
+shan: 16.65%
+beik: 24.48%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.64%
+rakhine: 2.63%
+dawei: 10.74%
+pao: 51.39%
+po_kayin: 8.40%
+bamar: 0.22%
+mon: 5.41%
+shan: 8.32%
+beik: 12.24%
+Running with ngram=5 on random sentence 6: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.46%
+rakhine: 2.31%
+dawei: 7.60%
+pao: 2.86%
+po_kayin: 2.84%
+bamar: 0.07%
+mon: 14.51%
+shan: 9.66%
+beik: 59.68%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.23%
+rakhine: 1.16%
+dawei: 3.80%
+pao: 51.43%
+po_kayin: 1.42%
+bamar: 0.03%
+mon: 7.26%
+shan: 4.83%
+beik: 29.84%
+Running with ngram=5 on random sentence 7: ကထိန်ꩻ‌နွောင်ꩻဝွေꩻနဝ်ꩻအဝ်ႏဒျာႏနာꩻလွုမ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.16%
+rakhine: 0.16%
+dawei: 0.16%
+pao: 98.75%
+po_kayin: 0.16%
+bamar: 0.16%
+mon: 0.16%
+shan: 0.16%
+beik: 0.16%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.08%
+rakhine: 0.08%
+dawei: 0.08%
+pao: 99.37%
+po_kayin: 0.08%
+bamar: 0.08%
+mon: 0.08%
+shan: 0.08%
+beik: 0.08%
+Running with ngram=5 on random sentence 8: ဒေါ့ꩻဝင်ꩻမဉ်ꩻနဝ်ꩻလွထီႏငါႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.57%
+rakhine: 8.28%
+dawei: 18.58%
+pao: 3.45%
+po_kayin: 8.86%
+bamar: 3.83%
+mon: 13.19%
+shan: 8.78%
+beik: 31.45%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.78%
+rakhine: 4.14%
+dawei: 9.29%
+pao: 51.73%
+po_kayin: 4.43%
+bamar: 1.91%
+mon: 6.60%
+shan: 4.39%
+beik: 15.73%
+Running with ngram=5 on random sentence 9: ကထိန်ꩻ‌နွောင်ꩻဝွေꩻနဝ်ꩻအဝ်ႏဒျာႏနာꩻလွုမ်
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.16%
+rakhine: 0.16%
+dawei: 0.16%
+pao: 98.75%
+po_kayin: 0.16%
+bamar: 0.16%
+mon: 0.16%
+shan: 0.16%
+beik: 0.16%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.08%
+rakhine: 0.08%
+dawei: 0.08%
+pao: 99.37%
+po_kayin: 0.08%
+bamar: 0.08%
+mon: 0.08%
+shan: 0.08%
+beik: 0.08%
+Running with ngram=5 on random sentence 10: ‌နာꩻကဒေါ့ꩻအတွိုင်ꩻခွေသျင်ꩻပျဗာႏဒျာႏ
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 100.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.46%
+rakhine: 2.31%
+dawei: 7.60%
+pao: 2.86%
+po_kayin: 2.84%
+bamar: 0.07%
+mon: 14.51%
+shan: 9.66%
+beik: 59.68%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.23%
+rakhine: 1.16%
+dawei: 3.80%
+pao: 51.43%
+po_kayin: 1.42%
+bamar: 0.03%
+mon: 7.26%
+shan: 4.83%
+beik: 29.84%
+
+Processing file: po_kayin.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.01%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 50.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 12.56%
+mon: 4.66%
+shan: 8.73%
+pao: 1.01%
+rakhine: 11.39%
+po_kayin: 32.86%
+sgaw_kayin: 0.68%
+dawei: 16.73%
+bamar: 11.38%
+
+Combined Character and Syllable-based Detection:
+beik: 6.28%
+mon: 2.33%
+shan: 4.36%
+pao: 0.51%
+rakhine: 5.70%
+po_kayin: 66.43%
+sgaw_kayin: 0.34%
+dawei: 8.36%
+bamar: 5.69%
+Running with ngram=3 on random sentence 2: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 1.07%
+mon: 0.01%
+shan: 0.02%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 98.86%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.54%
+mon: 0.01%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 99.43%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+Running with ngram=3 on random sentence 3: ယမ့ၬလဲၩချဲၩ့ၦဂူၫဂၩအလၩ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 89.88%
+mon: 0.87%
+shan: 2.00%
+pao: 0.14%
+rakhine: 0.54%
+po_kayin: 4.85%
+sgaw_kayin: 0.23%
+dawei: 1.22%
+bamar: 0.25%
+
+Combined Character and Syllable-based Detection:
+beik: 44.94%
+mon: 0.43%
+shan: 1.00%
+pao: 0.07%
+rakhine: 0.27%
+po_kayin: 52.43%
+sgaw_kayin: 0.12%
+dawei: 0.61%
+bamar: 0.13%
+Running with ngram=3 on random sentence 4: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.63%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.35%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.82%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 50.18%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+Running with ngram=3 on random sentence 5: အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 12.56%
+mon: 4.66%
+shan: 8.73%
+pao: 1.01%
+rakhine: 11.39%
+po_kayin: 32.86%
+sgaw_kayin: 0.68%
+dawei: 16.73%
+bamar: 11.38%
+
+Combined Character and Syllable-based Detection:
+beik: 6.28%
+mon: 2.33%
+shan: 4.36%
+pao: 0.51%
+rakhine: 5.70%
+po_kayin: 66.43%
+sgaw_kayin: 0.34%
+dawei: 8.36%
+bamar: 5.69%
+Running with ngram=3 on random sentence 6: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.63%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.35%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.82%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 50.18%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+Running with ngram=3 on random sentence 7: ယမ့ၬလဲၩချဲၩ့ၦဂူၫဂၩအလၩ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 89.88%
+mon: 0.87%
+shan: 2.00%
+pao: 0.14%
+rakhine: 0.54%
+po_kayin: 4.85%
+sgaw_kayin: 0.23%
+dawei: 1.22%
+bamar: 0.25%
+
+Combined Character and Syllable-based Detection:
+beik: 44.94%
+mon: 0.43%
+shan: 1.00%
+pao: 0.07%
+rakhine: 0.27%
+po_kayin: 52.43%
+sgaw_kayin: 0.12%
+dawei: 0.61%
+bamar: 0.13%
+Running with ngram=3 on random sentence 8: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.87%
+mon: 0.01%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.05%
+sgaw_kayin: 0.00%
+dawei: 0.02%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.93%
+mon: 0.00%
+shan: 0.02%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 50.03%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+Running with ngram=3 on random sentence 9: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.63%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.35%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.82%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 50.18%
+sgaw_kayin: 0.00%
+dawei: 0.01%
+bamar: 0.00%
+Running with ngram=3 on random sentence 10: ၦလၧဖီၪ့ဂုးထၬအဝ့ၫကန့နီၪမွဲဒၪနၧၩလီၫ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 15.64%
+mon: 0.12%
+shan: 0.01%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 84.24%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 7.82%
+mon: 0.06%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 92.12%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 12.12%
+mon: 0.57%
+bamar: 0.00%
+beik: 37.70%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 49.61%
+
+Combined Character and Syllable-based Detection:
+dawei: 6.06%
+mon: 0.28%
+bamar: 0.00%
+beik: 18.85%
+po_kayin: 50.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 24.81%
+Running with ngram=4 on random sentence 1: ၦလၧဖီၪ့ဂုးထၬအဝ့ၫကန့နီၪမွဲဒၪနၧၩလီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 11.18%
+mon: 40.45%
+bamar: 0.15%
+beik: 12.34%
+po_kayin: 2.66%
+sgaw_kayin: 0.05%
+pao: 0.93%
+rakhine: 2.22%
+shan: 30.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.59%
+mon: 20.23%
+bamar: 0.08%
+beik: 6.17%
+po_kayin: 51.33%
+sgaw_kayin: 0.02%
+pao: 0.46%
+rakhine: 1.11%
+shan: 15.01%
+Running with ngram=4 on random sentence 2: အဝ့ၫထီးန့ၦၡၩဘၪနးဂၩလၧၩ့အ့ၬ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 15.86%
+mon: 15.86%
+bamar: 15.86%
+beik: 15.86%
+po_kayin: 0.37%
+sgaw_kayin: 0.22%
+pao: 4.25%
+rakhine: 15.86%
+shan: 15.86%
+
+Combined Character and Syllable-based Detection:
+dawei: 7.93%
+mon: 7.93%
+bamar: 7.93%
+beik: 7.93%
+po_kayin: 50.19%
+sgaw_kayin: 0.11%
+pao: 2.12%
+rakhine: 7.93%
+shan: 7.93%
+Running with ngram=4 on random sentence 3: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.52%
+mon: 2.82%
+bamar: 0.02%
+beik: 0.58%
+po_kayin: 95.51%
+sgaw_kayin: 0.02%
+pao: 0.03%
+rakhine: 0.10%
+shan: 0.41%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.26%
+mon: 1.41%
+bamar: 0.01%
+beik: 0.29%
+po_kayin: 97.75%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 0.05%
+shan: 0.20%
+Running with ngram=4 on random sentence 4: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.52%
+mon: 2.82%
+bamar: 0.02%
+beik: 0.58%
+po_kayin: 95.51%
+sgaw_kayin: 0.02%
+pao: 0.03%
+rakhine: 0.10%
+shan: 0.41%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.26%
+mon: 1.41%
+bamar: 0.01%
+beik: 0.29%
+po_kayin: 97.75%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 0.05%
+shan: 0.20%
+Running with ngram=4 on random sentence 5: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 3.67%
+mon: 2.61%
+bamar: 1.97%
+beik: 3.86%
+po_kayin: 79.11%
+sgaw_kayin: 0.70%
+pao: 0.43%
+rakhine: 1.64%
+shan: 6.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.84%
+mon: 1.30%
+bamar: 0.98%
+beik: 1.93%
+po_kayin: 89.55%
+sgaw_kayin: 0.35%
+pao: 0.22%
+rakhine: 0.82%
+shan: 3.01%
+Running with ngram=4 on random sentence 6: ယဂဲၫထဲၩ့လီၩပျၩ့ထၬကဲၪခိၬနလီၩထၬဆ့လီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 19.17%
+mon: 13.61%
+bamar: 3.95%
+beik: 20.14%
+po_kayin: 0.48%
+sgaw_kayin: 0.43%
+pao: 2.25%
+rakhine: 8.54%
+shan: 31.42%
+
+Combined Character and Syllable-based Detection:
+dawei: 9.59%
+mon: 6.81%
+bamar: 1.97%
+beik: 10.07%
+po_kayin: 50.24%
+sgaw_kayin: 0.22%
+pao: 1.13%
+rakhine: 4.27%
+shan: 15.71%
+Running with ngram=4 on random sentence 7: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 3.67%
+mon: 2.61%
+bamar: 1.97%
+beik: 3.86%
+po_kayin: 79.11%
+sgaw_kayin: 0.70%
+pao: 0.43%
+rakhine: 1.64%
+shan: 6.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.84%
+mon: 1.30%
+bamar: 0.98%
+beik: 1.93%
+po_kayin: 89.55%
+sgaw_kayin: 0.35%
+pao: 0.22%
+rakhine: 0.82%
+shan: 3.01%
+Running with ngram=4 on random sentence 8: ဆၧအနီၪမွဲဆၧအကၪလၧပဂးလီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.52%
+mon: 2.82%
+bamar: 0.02%
+beik: 0.58%
+po_kayin: 95.51%
+sgaw_kayin: 0.02%
+pao: 0.03%
+rakhine: 0.10%
+shan: 0.41%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.26%
+mon: 1.41%
+bamar: 0.01%
+beik: 0.29%
+po_kayin: 97.75%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 0.05%
+shan: 0.20%
+Running with ngram=4 on random sentence 9: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 17.56%
+mon: 12.46%
+bamar: 9.40%
+beik: 18.44%
+po_kayin: 0.12%
+sgaw_kayin: 3.37%
+pao: 2.06%
+rakhine: 7.82%
+shan: 28.77%
+
+Combined Character and Syllable-based Detection:
+dawei: 8.78%
+mon: 6.23%
+bamar: 4.70%
+beik: 9.22%
+po_kayin: 50.06%
+sgaw_kayin: 1.69%
+pao: 1.03%
+rakhine: 3.91%
+shan: 14.38%
+Running with ngram=4 on random sentence 10: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 100.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 3.67%
+mon: 2.61%
+bamar: 1.97%
+beik: 3.86%
+po_kayin: 79.11%
+sgaw_kayin: 0.70%
+pao: 0.43%
+rakhine: 1.64%
+shan: 6.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.84%
+mon: 1.30%
+bamar: 0.98%
+beik: 1.93%
+po_kayin: 89.55%
+sgaw_kayin: 0.35%
+pao: 0.22%
+rakhine: 0.82%
+shan: 3.01%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 15.38%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.18%
+shan: 38.91%
+beik: 45.53%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 7.69%
+pao: 0.00%
+po_kayin: 50.00%
+bamar: 0.00%
+mon: 0.09%
+shan: 19.45%
+beik: 22.77%
+Running with ngram=5 on random sentence 1: ယယဲးထဲးဘၪဆၧအနီၪဧၪ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.23%
+rakhine: 7.48%
+dawei: 16.80%
+pao: 1.97%
+po_kayin: 9.95%
+bamar: 3.46%
+mon: 11.92%
+shan: 27.54%
+beik: 17.65%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.61%
+rakhine: 3.74%
+dawei: 8.40%
+pao: 0.99%
+po_kayin: 54.97%
+bamar: 1.73%
+mon: 5.96%
+shan: 13.77%
+beik: 8.82%
+Running with ngram=5 on random sentence 2: ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.62%
+rakhine: 8.63%
+dawei: 16.71%
+pao: 0.86%
+po_kayin: 0.66%
+bamar: 0.71%
+mon: 8.42%
+shan: 44.94%
+beik: 18.45%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.31%
+rakhine: 4.31%
+dawei: 8.36%
+pao: 0.43%
+po_kayin: 50.33%
+bamar: 0.35%
+mon: 4.21%
+shan: 22.47%
+beik: 9.22%
+Running with ngram=5 on random sentence 3: ယဂဲၫထဲၩ့လီၩပျၩ့ထၬကဲၪခိၬနလီၩထၬဆ့လီၫ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.42%
+rakhine: 8.36%
+dawei: 18.76%
+pao: 2.20%
+po_kayin: 0.24%
+bamar: 6.22%
+mon: 13.32%
+shan: 30.76%
+beik: 19.71%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.21%
+rakhine: 4.18%
+dawei: 9.38%
+pao: 1.10%
+po_kayin: 50.12%
+bamar: 3.11%
+mon: 6.66%
+shan: 15.38%
+beik: 9.85%
+Running with ngram=5 on random sentence 4: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.58%
+rakhine: 8.31%
+dawei: 18.65%
+pao: 2.19%
+po_kayin: 0.01%
+bamar: 3.84%
+mon: 13.24%
+shan: 30.58%
+beik: 19.59%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.79%
+rakhine: 4.15%
+dawei: 9.33%
+pao: 1.09%
+po_kayin: 50.01%
+bamar: 1.92%
+mon: 6.62%
+shan: 15.29%
+beik: 9.80%
+Running with ngram=5 on random sentence 5: ယအဲၪအဝ့ၫနီၪလခဲၫ့ထုၬကဘျၩ့မၬယလီၩဘၪၥ့ၪလၧၩ့ထၧၩ့ယၫအ့ၬ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.22%
+rakhine: 7.29%
+dawei: 31.72%
+pao: 0.72%
+po_kayin: 0.02%
+bamar: 0.28%
+mon: 11.35%
+shan: 11.62%
+beik: 36.78%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.11%
+rakhine: 3.65%
+dawei: 15.86%
+pao: 0.36%
+po_kayin: 50.01%
+bamar: 0.14%
+mon: 5.67%
+shan: 5.81%
+beik: 18.39%
+Running with ngram=5 on random sentence 6: ယမ့ၬလဲၩချဲၩ့ၦဂူၫဂၩအလၩ.
+Character-based Detection:
+sgaw_kayin: 4.10%
+rakhine: 4.10%
+dawei: 4.10%
+pao: 4.10%
+po_kayin: 67.23%
+bamar: 4.10%
+mon: 4.10%
+shan: 4.10%
+beik: 4.10%
+
+Syllable-based Detection:
+sgaw_kayin: 3.53%
+rakhine: 8.18%
+dawei: 18.36%
+pao: 2.16%
+po_kayin: 1.57%
+bamar: 3.78%
+mon: 13.03%
+shan: 30.10%
+beik: 19.29%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 3.81%
+rakhine: 6.14%
+dawei: 11.23%
+pao: 3.13%
+po_kayin: 34.40%
+bamar: 3.94%
+mon: 8.57%
+shan: 17.10%
+beik: 11.69%
+Running with ngram=5 on random sentence 7: ယဂဲၫထဲၩ့လီၩပျၩ့ထၬကဲၪခိၬနလီၩထၬဆ့လီၫ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.42%
+rakhine: 8.36%
+dawei: 18.76%
+pao: 2.20%
+po_kayin: 0.24%
+bamar: 6.22%
+mon: 13.32%
+shan: 30.76%
+beik: 19.71%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.21%
+rakhine: 4.18%
+dawei: 9.38%
+pao: 1.10%
+po_kayin: 50.12%
+bamar: 3.11%
+mon: 6.66%
+shan: 15.38%
+beik: 9.85%
+Running with ngram=5 on random sentence 8: ယမ့ၬလဲၩချဲၩ့ၦဂူၫဂၩအလၩ.
+Character-based Detection:
+sgaw_kayin: 4.10%
+rakhine: 4.10%
+dawei: 4.10%
+pao: 4.10%
+po_kayin: 67.23%
+bamar: 4.10%
+mon: 4.10%
+shan: 4.10%
+beik: 4.10%
+
+Syllable-based Detection:
+sgaw_kayin: 3.53%
+rakhine: 8.18%
+dawei: 18.36%
+pao: 2.16%
+po_kayin: 1.57%
+bamar: 3.78%
+mon: 13.03%
+shan: 30.10%
+beik: 19.29%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 3.81%
+rakhine: 6.14%
+dawei: 11.23%
+pao: 3.13%
+po_kayin: 34.40%
+bamar: 3.94%
+mon: 8.57%
+shan: 17.10%
+beik: 11.69%
+Running with ngram=5 on random sentence 9: နၫဆၫအဆၧယူၩဖျိၬထၪ့ကၠၧၫ့,အဝ့ၫကွ့ၭနဲၫ့ဆၧကၠၧၫ့လ့ၬလီၫ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 3.58%
+rakhine: 8.31%
+dawei: 18.65%
+pao: 2.19%
+po_kayin: 0.01%
+bamar: 3.84%
+mon: 13.24%
+shan: 30.58%
+beik: 19.59%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 1.79%
+rakhine: 4.15%
+dawei: 9.33%
+pao: 1.09%
+po_kayin: 50.01%
+bamar: 1.92%
+mon: 6.62%
+shan: 15.29%
+beik: 9.80%
+Running with ngram=5 on random sentence 10: ဆၧအနီၪနထိၬဘုၬထဲၩ့လၧဆၧအဂူၫဂၩကမံၩ့အ့ၬဧၪ.
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 100.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.62%
+rakhine: 8.63%
+dawei: 16.71%
+pao: 0.86%
+po_kayin: 0.66%
+bamar: 0.71%
+mon: 8.42%
+shan: 44.94%
+beik: 18.45%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.31%
+rakhine: 4.31%
+dawei: 8.36%
+pao: 0.43%
+po_kayin: 50.33%
+bamar: 0.35%
+mon: 4.21%
+shan: 22.47%
+beik: 9.22%
+
+Processing file: rakhine.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 50.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Character-based Detection:
+beik: 0.48%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 99.41%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.12%
+
+Syllable-based Detection:
+beik: 2.16%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 97.40%
+bamar: 0.44%
+
+Combined Character and Syllable-based Detection:
+beik: 1.32%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 49.70%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 48.70%
+bamar: 0.28%
+Running with ngram=3 on random sentence 2: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.11%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.84%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.04%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.55%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 50.42%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.02%
+bamar: 0.00%
+Running with ngram=3 on random sentence 3: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 93.18%
+mon: 0.00%
+shan: 0.00%
+pao: 1.05%
+rakhine: 2.53%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 3.20%
+bamar: 0.04%
+
+Combined Character and Syllable-based Detection:
+beik: 46.59%
+mon: 0.00%
+shan: 0.00%
+pao: 0.53%
+rakhine: 51.26%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.60%
+bamar: 0.02%
+Running with ngram=3 on random sentence 4: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Character-based Detection:
+beik: 0.48%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 99.41%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.12%
+
+Syllable-based Detection:
+beik: 2.16%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 97.40%
+bamar: 0.44%
+
+Combined Character and Syllable-based Detection:
+beik: 1.32%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 49.70%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 48.70%
+bamar: 0.28%
+Running with ngram=3 on random sentence 5: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 99.99%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 92.34%
+mon: 0.12%
+shan: 0.11%
+pao: 1.36%
+rakhine: 0.23%
+po_kayin: 0.03%
+sgaw_kayin: 0.11%
+dawei: 5.48%
+bamar: 0.22%
+
+Combined Character and Syllable-based Detection:
+beik: 46.17%
+mon: 0.06%
+shan: 0.05%
+pao: 0.68%
+rakhine: 50.11%
+po_kayin: 0.02%
+sgaw_kayin: 0.05%
+dawei: 2.74%
+bamar: 0.11%
+Running with ngram=3 on random sentence 6: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 92.20%
+mon: 0.00%
+shan: 0.00%
+pao: 0.02%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 2.08%
+bamar: 5.70%
+
+Combined Character and Syllable-based Detection:
+beik: 46.10%
+mon: 0.00%
+shan: 0.00%
+pao: 0.01%
+rakhine: 50.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.04%
+bamar: 2.85%
+Running with ngram=3 on random sentence 7: ငါဘတ်စ်ကားစီးဖို့အတွက်အကြွီလိုချင်ရေ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 81.81%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.18%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.29%
+bamar: 16.72%
+
+Combined Character and Syllable-based Detection:
+beik: 40.90%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 50.09%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.64%
+bamar: 8.36%
+Running with ngram=3 on random sentence 8: ငါဘတ်စ်ကားစီးဖို့အတွက်အကြွီလိုချင်ရေ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 81.81%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.18%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.29%
+bamar: 16.72%
+
+Combined Character and Syllable-based Detection:
+beik: 40.90%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 50.09%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.64%
+bamar: 8.36%
+Running with ngram=3 on random sentence 9: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 93.18%
+mon: 0.00%
+shan: 0.00%
+pao: 1.05%
+rakhine: 2.53%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 3.20%
+bamar: 0.04%
+
+Combined Character and Syllable-based Detection:
+beik: 46.59%
+mon: 0.00%
+shan: 0.00%
+pao: 0.53%
+rakhine: 51.26%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 1.60%
+bamar: 0.02%
+Running with ngram=3 on random sentence 10: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 99.99%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 92.34%
+mon: 0.12%
+shan: 0.11%
+pao: 1.36%
+rakhine: 0.23%
+po_kayin: 0.03%
+sgaw_kayin: 0.11%
+dawei: 5.48%
+bamar: 0.22%
+
+Combined Character and Syllable-based Detection:
+beik: 46.17%
+mon: 0.06%
+shan: 0.05%
+pao: 0.68%
+rakhine: 50.11%
+po_kayin: 0.02%
+sgaw_kayin: 0.05%
+dawei: 2.74%
+bamar: 0.11%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 100.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 50.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 50.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: ထိုမချေကိုသူအမှန်မမြတ်နိုးခပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 3.44%
+mon: 0.00%
+bamar: 0.00%
+beik: 96.50%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.05%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 1.72%
+mon: 0.00%
+bamar: 0.00%
+beik: 48.25%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 50.03%
+shan: 0.00%
+Running with ngram=4 on random sentence 2: မင်းမိန်းစရာမလိုပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.70%
+beik: 0.13%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 99.17%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.03%
+mon: 1.00%
+bamar: 0.55%
+beik: 67.72%
+po_kayin: 0.33%
+sgaw_kayin: 0.02%
+pao: 0.22%
+rakhine: 21.65%
+shan: 0.49%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.01%
+mon: 0.50%
+bamar: 0.63%
+beik: 33.93%
+po_kayin: 0.16%
+sgaw_kayin: 0.01%
+pao: 0.11%
+rakhine: 60.41%
+shan: 0.25%
+Running with ngram=4 on random sentence 3: မင်းမိန်းစရာမလိုပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.70%
+beik: 0.13%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 99.17%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 8.03%
+mon: 1.00%
+bamar: 0.55%
+beik: 67.72%
+po_kayin: 0.33%
+sgaw_kayin: 0.02%
+pao: 0.22%
+rakhine: 21.65%
+shan: 0.49%
+
+Combined Character and Syllable-based Detection:
+dawei: 4.01%
+mon: 0.50%
+bamar: 0.63%
+beik: 33.93%
+po_kayin: 0.16%
+sgaw_kayin: 0.01%
+pao: 0.11%
+rakhine: 60.41%
+shan: 0.25%
+Running with ngram=4 on random sentence 4: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.57%
+mon: 0.20%
+bamar: 0.01%
+beik: 97.77%
+po_kayin: 0.05%
+sgaw_kayin: 0.02%
+pao: 0.02%
+rakhine: 0.03%
+shan: 0.34%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.79%
+mon: 0.10%
+bamar: 0.00%
+beik: 48.88%
+po_kayin: 0.02%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 50.02%
+shan: 0.17%
+Running with ngram=4 on random sentence 5: ငါအလုပ်မပြီးသိပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.11%
+beik: 2.83%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 97.05%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 24.54%
+mon: 0.48%
+bamar: 0.18%
+beik: 72.98%
+po_kayin: 0.38%
+sgaw_kayin: 0.00%
+pao: 0.03%
+rakhine: 1.30%
+shan: 0.11%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.27%
+mon: 0.24%
+bamar: 0.15%
+beik: 37.91%
+po_kayin: 0.19%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 49.18%
+shan: 0.05%
+Running with ngram=4 on random sentence 6: သူအမှန်အတိုင်းမကျိန်ဆိုရဲပါလား။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.02%
+beik: 23.37%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 76.61%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 6.60%
+mon: 2.83%
+bamar: 0.01%
+beik: 89.51%
+po_kayin: 0.20%
+sgaw_kayin: 0.00%
+pao: 0.02%
+rakhine: 0.15%
+shan: 0.68%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.30%
+mon: 1.41%
+bamar: 0.02%
+beik: 56.44%
+po_kayin: 0.10%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 38.38%
+shan: 0.34%
+Running with ngram=4 on random sentence 7: ကိုယ်မင်းကိုနားလည်ပါရေ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 5.41%
+mon: 2.51%
+bamar: 0.08%
+beik: 77.46%
+po_kayin: 2.96%
+sgaw_kayin: 0.35%
+pao: 0.54%
+rakhine: 7.74%
+shan: 2.96%
+
+Combined Character and Syllable-based Detection:
+dawei: 2.70%
+mon: 1.26%
+bamar: 0.04%
+beik: 38.73%
+po_kayin: 1.48%
+sgaw_kayin: 0.17%
+pao: 0.27%
+rakhine: 53.87%
+shan: 1.48%
+Running with ngram=4 on random sentence 8: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 100.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 1.57%
+mon: 0.20%
+bamar: 0.01%
+beik: 97.77%
+po_kayin: 0.05%
+sgaw_kayin: 0.02%
+pao: 0.02%
+rakhine: 0.03%
+shan: 0.34%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.79%
+mon: 0.10%
+bamar: 0.00%
+beik: 48.88%
+po_kayin: 0.02%
+sgaw_kayin: 0.01%
+pao: 0.01%
+rakhine: 50.02%
+shan: 0.17%
+Running with ngram=4 on random sentence 9: ငါအလုပ်မပြီးသိပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.11%
+beik: 2.83%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 97.05%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 24.54%
+mon: 0.48%
+bamar: 0.18%
+beik: 72.98%
+po_kayin: 0.38%
+sgaw_kayin: 0.00%
+pao: 0.03%
+rakhine: 1.30%
+shan: 0.11%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.27%
+mon: 0.24%
+bamar: 0.15%
+beik: 37.91%
+po_kayin: 0.19%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 49.18%
+shan: 0.05%
+Running with ngram=4 on random sentence 10: ငါအလုပ်မပြီးသိပါ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.11%
+beik: 2.83%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 97.05%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 24.54%
+mon: 0.48%
+bamar: 0.18%
+beik: 72.98%
+po_kayin: 0.38%
+sgaw_kayin: 0.00%
+pao: 0.03%
+rakhine: 1.30%
+shan: 0.11%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.27%
+mon: 0.24%
+bamar: 0.15%
+beik: 37.91%
+po_kayin: 0.19%
+sgaw_kayin: 0.00%
+pao: 0.01%
+rakhine: 49.18%
+shan: 0.05%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 100.00%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 50.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 50.00%
+Running with ngram=5 on random sentence 1: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 99.99%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 0.89%
+rakhine: 2.22%
+dawei: 15.05%
+pao: 2.90%
+po_kayin: 5.52%
+bamar: 0.02%
+mon: 7.00%
+shan: 40.47%
+beik: 25.93%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.45%
+rakhine: 51.11%
+dawei: 7.53%
+pao: 1.45%
+po_kayin: 2.76%
+bamar: 0.01%
+mon: 3.50%
+shan: 20.23%
+beik: 12.97%
+Running with ngram=5 on random sentence 2: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.67%
+rakhine: 0.40%
+dawei: 53.76%
+pao: 0.05%
+po_kayin: 0.67%
+bamar: 3.33%
+mon: 0.33%
+shan: 0.19%
+beik: 40.60%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.34%
+rakhine: 50.20%
+dawei: 26.88%
+pao: 0.02%
+po_kayin: 0.34%
+bamar: 1.66%
+mon: 0.16%
+shan: 0.10%
+beik: 20.30%
+Running with ngram=5 on random sentence 3: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 99.99%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 0.89%
+rakhine: 2.22%
+dawei: 15.05%
+pao: 2.90%
+po_kayin: 5.52%
+bamar: 0.02%
+mon: 7.00%
+shan: 40.47%
+beik: 25.93%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.45%
+rakhine: 51.11%
+dawei: 7.53%
+pao: 1.45%
+po_kayin: 2.76%
+bamar: 0.01%
+mon: 3.50%
+shan: 20.23%
+beik: 12.97%
+Running with ngram=5 on random sentence 4: ငါအလုပ်မပြီးသိပါ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 40.75%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 59.25%
+
+Syllable-based Detection:
+sgaw_kayin: 0.57%
+rakhine: 4.04%
+dawei: 9.34%
+pao: 2.95%
+po_kayin: 41.19%
+bamar: 2.54%
+mon: 5.39%
+shan: 11.87%
+beik: 22.11%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.28%
+rakhine: 22.39%
+dawei: 4.67%
+pao: 1.48%
+po_kayin: 20.60%
+bamar: 1.27%
+mon: 2.69%
+shan: 5.94%
+beik: 40.68%
+Running with ngram=5 on random sentence 5: ထိုမချေကိုသူအမှန်မမြတ်နိုးခပါ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 22.36%
+dawei: 40.42%
+pao: 0.22%
+po_kayin: 3.94%
+bamar: 0.00%
+mon: 2.44%
+shan: 13.31%
+beik: 17.30%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 61.18%
+dawei: 20.21%
+pao: 0.11%
+po_kayin: 1.97%
+bamar: 0.00%
+mon: 1.22%
+shan: 6.66%
+beik: 8.65%
+Running with ngram=5 on random sentence 6: မင်းတောင်တိကိုတက်နီကျလား။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 99.99%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 0.89%
+rakhine: 2.22%
+dawei: 15.05%
+pao: 2.90%
+po_kayin: 5.52%
+bamar: 0.02%
+mon: 7.00%
+shan: 40.47%
+beik: 25.93%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.45%
+rakhine: 51.11%
+dawei: 7.53%
+pao: 1.45%
+po_kayin: 2.76%
+bamar: 0.01%
+mon: 3.50%
+shan: 20.23%
+beik: 12.97%
+Running with ngram=5 on random sentence 7: ကျွန်တော်ဆိုကေပြန်ပီးလိုက်ဖို့။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.67%
+rakhine: 0.40%
+dawei: 53.76%
+pao: 0.05%
+po_kayin: 0.67%
+bamar: 3.33%
+mon: 0.33%
+shan: 0.19%
+beik: 40.60%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.34%
+rakhine: 50.20%
+dawei: 26.88%
+pao: 0.02%
+po_kayin: 0.34%
+bamar: 1.66%
+mon: 0.16%
+shan: 0.10%
+beik: 20.30%
+Running with ngram=5 on random sentence 8: ထိုမချေကိုသူအမှန်မမြတ်နိုးခပါ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 22.36%
+dawei: 40.42%
+pao: 0.22%
+po_kayin: 3.94%
+bamar: 0.00%
+mon: 2.44%
+shan: 13.31%
+beik: 17.30%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 61.18%
+dawei: 20.21%
+pao: 0.11%
+po_kayin: 1.97%
+bamar: 0.00%
+mon: 1.22%
+shan: 6.66%
+beik: 8.65%
+Running with ngram=5 on random sentence 9: ငါဘတ်စ်ကားစီးဖို့အတွက်အကြွီလိုချင်ရေ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 99.99%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.01%
+
+Syllable-based Detection:
+sgaw_kayin: 0.73%
+rakhine: 0.28%
+dawei: 41.10%
+pao: 0.08%
+po_kayin: 4.48%
+bamar: 0.00%
+mon: 1.72%
+shan: 24.57%
+beik: 27.05%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.36%
+rakhine: 50.14%
+dawei: 20.55%
+pao: 0.04%
+po_kayin: 2.24%
+bamar: 0.00%
+mon: 0.86%
+shan: 12.28%
+beik: 13.53%
+Running with ngram=5 on random sentence 10: မိုးချက်ချင်းရွာရေအခါသူရို့ဇာတိလုပ်နီစွာ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 100.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 1.36%
+dawei: 30.88%
+pao: 0.02%
+po_kayin: 9.29%
+bamar: 0.00%
+mon: 1.73%
+shan: 14.57%
+beik: 42.14%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 50.68%
+dawei: 15.44%
+pao: 0.01%
+po_kayin: 4.64%
+bamar: 0.00%
+mon: 0.87%
+shan: 7.28%
+beik: 21.07%
+
+Processing file: sgaw_kayin.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 100.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 50.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 50.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.61%
+mon: 0.03%
+shan: 0.11%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 98.69%
+dawei: 0.54%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.31%
+mon: 0.02%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 99.35%
+dawei: 0.27%
+bamar: 0.00%
+Running with ngram=3 on random sentence 2: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 82.28%
+mon: 0.04%
+shan: 0.05%
+pao: 0.28%
+rakhine: 0.11%
+po_kayin: 0.10%
+sgaw_kayin: 0.36%
+dawei: 16.78%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 41.14%
+mon: 0.02%
+shan: 0.02%
+pao: 0.14%
+rakhine: 0.05%
+po_kayin: 0.05%
+sgaw_kayin: 50.18%
+dawei: 8.39%
+bamar: 0.00%
+Running with ngram=3 on random sentence 3: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.97%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.03%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 50.01%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 4: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 52.79%
+mon: 0.36%
+shan: 0.05%
+pao: 0.02%
+rakhine: 0.02%
+po_kayin: 0.01%
+sgaw_kayin: 46.28%
+dawei: 0.46%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 26.39%
+mon: 0.18%
+shan: 0.03%
+pao: 0.01%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 73.14%
+dawei: 0.23%
+bamar: 0.00%
+Running with ngram=3 on random sentence 5: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.61%
+mon: 0.03%
+shan: 0.11%
+pao: 0.00%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 98.69%
+dawei: 0.54%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.31%
+mon: 0.02%
+shan: 0.05%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 99.35%
+dawei: 0.27%
+bamar: 0.00%
+Running with ngram=3 on random sentence 6: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 99.97%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.03%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 49.99%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 50.01%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 7: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 93.46%
+mon: 0.90%
+shan: 2.08%
+pao: 0.15%
+rakhine: 0.57%
+po_kayin: 0.28%
+sgaw_kayin: 1.01%
+dawei: 1.27%
+bamar: 0.26%
+
+Combined Character and Syllable-based Detection:
+beik: 46.73%
+mon: 0.45%
+shan: 1.04%
+pao: 0.07%
+rakhine: 0.28%
+po_kayin: 0.14%
+sgaw_kayin: 50.51%
+dawei: 0.64%
+bamar: 0.13%
+Running with ngram=3 on random sentence 8: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 52.79%
+mon: 0.36%
+shan: 0.05%
+pao: 0.02%
+rakhine: 0.02%
+po_kayin: 0.01%
+sgaw_kayin: 46.28%
+dawei: 0.46%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 26.39%
+mon: 0.18%
+shan: 0.03%
+pao: 0.01%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 73.14%
+dawei: 0.23%
+bamar: 0.00%
+Running with ngram=3 on random sentence 9: ပျဲတၢ်မၤစၢၤတက့ၢ်.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 54.32%
+mon: 1.19%
+shan: 1.28%
+pao: 0.32%
+rakhine: 1.20%
+po_kayin: 2.75%
+sgaw_kayin: 13.85%
+dawei: 24.73%
+bamar: 0.35%
+
+Combined Character and Syllable-based Detection:
+beik: 27.16%
+mon: 0.60%
+shan: 0.64%
+pao: 0.16%
+rakhine: 0.60%
+po_kayin: 1.38%
+sgaw_kayin: 56.93%
+dawei: 12.37%
+bamar: 0.17%
+Running with ngram=3 on random sentence 10: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 93.46%
+mon: 0.90%
+shan: 2.08%
+pao: 0.15%
+rakhine: 0.57%
+po_kayin: 0.28%
+sgaw_kayin: 1.01%
+dawei: 1.27%
+bamar: 0.26%
+
+Combined Character and Syllable-based Detection:
+beik: 46.73%
+mon: 0.45%
+shan: 1.04%
+pao: 0.07%
+rakhine: 0.28%
+po_kayin: 0.14%
+sgaw_kayin: 50.51%
+dawei: 0.64%
+bamar: 0.13%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 99.73%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.27%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 49.87%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.13%
+po_kayin: 0.00%
+sgaw_kayin: 50.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+Running with ngram=4 on random sentence 1: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 17.74%
+mon: 12.59%
+bamar: 9.50%
+beik: 18.64%
+po_kayin: 2.46%
+sgaw_kayin: 0.02%
+pao: 2.08%
+rakhine: 7.90%
+shan: 29.06%
+
+Combined Character and Syllable-based Detection:
+dawei: 8.87%
+mon: 6.30%
+bamar: 4.75%
+beik: 9.32%
+po_kayin: 1.23%
+sgaw_kayin: 50.01%
+pao: 1.04%
+rakhine: 3.95%
+shan: 14.53%
+Running with ngram=4 on random sentence 2: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 25.95%
+mon: 9.13%
+bamar: 2.86%
+beik: 28.64%
+po_kayin: 2.77%
+sgaw_kayin: 5.06%
+pao: 0.36%
+rakhine: 5.15%
+shan: 20.09%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.97%
+mon: 4.56%
+bamar: 1.43%
+beik: 14.32%
+po_kayin: 1.38%
+sgaw_kayin: 52.53%
+pao: 0.18%
+rakhine: 2.57%
+shan: 10.05%
+Running with ngram=4 on random sentence 3: ပျဲတၢ်မၤစၢၤတက့ၢ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 27.59%
+mon: 12.16%
+bamar: 3.53%
+beik: 17.99%
+po_kayin: 8.17%
+sgaw_kayin: 11.61%
+pao: 3.24%
+rakhine: 7.63%
+shan: 8.09%
+
+Combined Character and Syllable-based Detection:
+dawei: 13.80%
+mon: 6.08%
+bamar: 1.76%
+beik: 9.00%
+po_kayin: 4.08%
+sgaw_kayin: 55.80%
+pao: 1.62%
+rakhine: 3.81%
+shan: 4.05%
+Running with ngram=4 on random sentence 4: တၢ်ဝဲန့ၣ်န့ၣ်မ့ၢ်ယထီၣ်ယီၢ်ဘၣ်ဧါ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 22.31%
+mon: 15.84%
+bamar: 4.59%
+beik: 23.44%
+po_kayin: 10.64%
+sgaw_kayin: 0.06%
+pao: 2.62%
+rakhine: 9.94%
+shan: 10.54%
+
+Combined Character and Syllable-based Detection:
+dawei: 11.16%
+mon: 7.92%
+bamar: 2.30%
+beik: 11.72%
+po_kayin: 5.32%
+sgaw_kayin: 50.03%
+pao: 1.31%
+rakhine: 4.97%
+shan: 5.27%
+Running with ngram=4 on random sentence 5: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 50.32%
+mon: 9.93%
+bamar: 0.10%
+beik: 21.76%
+po_kayin: 2.10%
+sgaw_kayin: 0.04%
+pao: 0.71%
+rakhine: 10.64%
+shan: 4.40%
+
+Combined Character and Syllable-based Detection:
+dawei: 25.16%
+mon: 4.97%
+bamar: 0.05%
+beik: 10.88%
+po_kayin: 1.05%
+sgaw_kayin: 50.02%
+pao: 0.35%
+rakhine: 5.32%
+shan: 2.20%
+Running with ngram=4 on random sentence 6: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 24.89%
+mon: 2.12%
+bamar: 0.00%
+beik: 19.77%
+po_kayin: 0.13%
+sgaw_kayin: 35.09%
+pao: 0.09%
+rakhine: 0.58%
+shan: 17.34%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.44%
+mon: 1.06%
+bamar: 0.00%
+beik: 9.88%
+po_kayin: 0.06%
+sgaw_kayin: 67.54%
+pao: 0.05%
+rakhine: 0.29%
+shan: 8.67%
+Running with ngram=4 on random sentence 7: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 50.32%
+mon: 9.93%
+bamar: 0.10%
+beik: 21.76%
+po_kayin: 2.10%
+sgaw_kayin: 0.04%
+pao: 0.71%
+rakhine: 10.64%
+shan: 4.40%
+
+Combined Character and Syllable-based Detection:
+dawei: 25.16%
+mon: 4.97%
+bamar: 0.05%
+beik: 10.88%
+po_kayin: 1.05%
+sgaw_kayin: 50.02%
+pao: 0.35%
+rakhine: 5.32%
+shan: 2.20%
+Running with ngram=4 on random sentence 8: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 25.95%
+mon: 9.13%
+bamar: 2.86%
+beik: 28.64%
+po_kayin: 2.77%
+sgaw_kayin: 5.06%
+pao: 0.36%
+rakhine: 5.15%
+shan: 20.09%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.97%
+mon: 4.56%
+bamar: 1.43%
+beik: 14.32%
+po_kayin: 1.38%
+sgaw_kayin: 52.53%
+pao: 0.18%
+rakhine: 2.57%
+shan: 10.05%
+Running with ngram=4 on random sentence 9: ပျဲတၢ်မၤစၢၤတက့ၢ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 27.59%
+mon: 12.16%
+bamar: 3.53%
+beik: 17.99%
+po_kayin: 8.17%
+sgaw_kayin: 11.61%
+pao: 3.24%
+rakhine: 7.63%
+shan: 8.09%
+
+Combined Character and Syllable-based Detection:
+dawei: 13.80%
+mon: 6.08%
+bamar: 1.76%
+beik: 9.00%
+po_kayin: 4.08%
+sgaw_kayin: 55.80%
+pao: 1.62%
+rakhine: 3.81%
+shan: 4.05%
+Running with ngram=4 on random sentence 10: လၢခံကတၢၢ်တဘျီကတဲအီၤလၢယအဲၣ်အီၤန့ၣ်အခွဲးတန့ၢ်လၢၤဘၣ်.
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 0.00%
+
+Syllable-based Detection:
+dawei: 62.28%
+mon: 3.02%
+bamar: 0.02%
+beik: 30.70%
+po_kayin: 0.28%
+sgaw_kayin: 0.00%
+pao: 1.32%
+rakhine: 0.42%
+shan: 1.96%
+
+Combined Character and Syllable-based Detection:
+dawei: 31.14%
+mon: 1.51%
+bamar: 0.01%
+beik: 15.35%
+po_kayin: 0.14%
+sgaw_kayin: 50.00%
+pao: 0.66%
+rakhine: 0.21%
+shan: 0.98%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.96%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 99.04%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 0.00%
+dawei: 0.48%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 49.52%
+Running with ngram=5 on random sentence 1: ပိာ်မုၣ်န့ၣ်တတိၢ်နီၣ်ပှၤနီတဂၤလၢၤဘၣ်.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 12.92%
+dawei: 17.00%
+pao: 0.88%
+po_kayin: 6.23%
+bamar: 0.72%
+mon: 19.79%
+shan: 13.18%
+beik: 29.28%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 6.46%
+dawei: 8.50%
+pao: 0.44%
+po_kayin: 3.12%
+bamar: 0.36%
+mon: 9.89%
+shan: 6.59%
+beik: 14.64%
+Running with ngram=5 on random sentence 2: ဘၣ်တဲပှၤအဂ့ၢ်န့ၣ်သးဟ့လီၤ.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.02%
+rakhine: 15.24%
+dawei: 15.24%
+pao: 4.08%
+po_kayin: 4.43%
+bamar: 15.24%
+mon: 15.24%
+shan: 15.24%
+beik: 15.24%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.01%
+rakhine: 7.62%
+dawei: 7.62%
+pao: 2.04%
+po_kayin: 2.22%
+bamar: 7.62%
+mon: 7.62%
+shan: 7.62%
+beik: 7.62%
+Running with ngram=5 on random sentence 3: ပျဲတၢ်မၤစၢၤတက့ၢ်.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 2.99%
+rakhine: 9.65%
+dawei: 21.66%
+pao: 2.54%
+po_kayin: 10.33%
+bamar: 4.46%
+mon: 15.38%
+shan: 10.24%
+beik: 22.75%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 51.50%
+rakhine: 4.82%
+dawei: 10.83%
+pao: 1.27%
+po_kayin: 5.16%
+bamar: 2.23%
+mon: 7.69%
+shan: 5.12%
+beik: 11.38%
+Running with ngram=5 on random sentence 4: ကကွၢ်ထွဲအီၤအဂီၢ်ကနၢၤဒၣ်နၤလီၤ.
+Character-based Detection:
+sgaw_kayin: 99.97%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 8.42%
+dawei: 16.30%
+pao: 0.84%
+po_kayin: 3.71%
+bamar: 0.69%
+mon: 8.22%
+shan: 43.83%
+beik: 17.99%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 49.99%
+rakhine: 4.21%
+dawei: 8.15%
+pao: 0.42%
+po_kayin: 1.86%
+bamar: 0.35%
+mon: 4.11%
+shan: 21.92%
+beik: 9.00%
+Running with ngram=5 on random sentence 5: ဒ်ယဆိကမိၣ်အသိးဆိကမိၣ်တက့ၢ်.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.06%
+rakhine: 2.85%
+dawei: 13.07%
+pao: 0.13%
+po_kayin: 0.68%
+bamar: 0.02%
+mon: 7.67%
+shan: 27.23%
+beik: 48.30%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.03%
+rakhine: 1.43%
+dawei: 6.53%
+pao: 0.06%
+po_kayin: 0.34%
+bamar: 0.01%
+mon: 3.83%
+shan: 13.61%
+beik: 24.15%
+Running with ngram=5 on random sentence 6: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 7.31%
+dawei: 28.32%
+pao: 0.24%
+po_kayin: 0.86%
+bamar: 0.01%
+mon: 20.11%
+shan: 13.39%
+beik: 29.75%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 3.65%
+dawei: 14.16%
+pao: 0.12%
+po_kayin: 0.43%
+bamar: 0.01%
+mon: 10.05%
+shan: 6.69%
+beik: 14.88%
+Running with ngram=5 on random sentence 7: ဒ်နတဲတ့ၢ်အသိးယတဲနၢ်ပၢၢ်တ့ၢ်လီၤ.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.19%
+rakhine: 5.52%
+dawei: 27.79%
+pao: 0.38%
+po_kayin: 2.96%
+bamar: 1.18%
+mon: 9.77%
+shan: 21.54%
+beik: 30.67%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.09%
+rakhine: 2.76%
+dawei: 13.89%
+pao: 0.19%
+po_kayin: 1.48%
+bamar: 0.59%
+mon: 4.89%
+shan: 10.77%
+beik: 15.34%
+Running with ngram=5 on random sentence 8: လၢခံကတၢၢ်တဘျီကတဲအီၤလၢယအဲၣ်အီၤန့ၣ်အခွဲးတန့ၢ်လၢၤဘၣ်.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 1.79%
+dawei: 39.26%
+pao: 0.07%
+po_kayin: 0.45%
+bamar: 0.01%
+mon: 4.94%
+shan: 3.21%
+beik: 50.25%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 0.90%
+dawei: 19.63%
+pao: 0.04%
+po_kayin: 0.23%
+bamar: 0.01%
+mon: 2.47%
+shan: 1.61%
+beik: 25.12%
+Running with ngram=5 on random sentence 9: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 7.31%
+dawei: 28.32%
+pao: 0.24%
+po_kayin: 0.86%
+bamar: 0.01%
+mon: 20.11%
+shan: 13.39%
+beik: 29.75%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 3.65%
+dawei: 14.16%
+pao: 0.12%
+po_kayin: 0.43%
+bamar: 0.01%
+mon: 10.05%
+shan: 6.69%
+beik: 14.88%
+Running with ngram=5 on random sentence 10: တၢ်ဝဲန့ၣ်လၢပဂီၢ်ကီခဲဝဲဒၣ်လီၤ.
+Character-based Detection:
+sgaw_kayin: 100.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 0.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.01%
+rakhine: 7.31%
+dawei: 28.32%
+pao: 0.24%
+po_kayin: 0.86%
+bamar: 0.01%
+mon: 20.11%
+shan: 13.39%
+beik: 29.75%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 50.00%
+rakhine: 3.65%
+dawei: 14.16%
+pao: 0.12%
+po_kayin: 0.43%
+bamar: 0.01%
+mon: 10.05%
+shan: 6.69%
+beik: 14.88%
+
+Processing file: shan.txt.raw
+Running with ngram=3 on full file
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Combined Character and Syllable-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 1: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.18%
+mon: 0.08%
+shan: 98.69%
+pao: 0.18%
+rakhine: 0.18%
+po_kayin: 0.18%
+sgaw_kayin: 0.18%
+dawei: 0.18%
+bamar: 0.18%
+
+Combined Character and Syllable-based Detection:
+beik: 0.09%
+mon: 0.04%
+shan: 99.34%
+pao: 0.09%
+rakhine: 0.09%
+po_kayin: 0.09%
+sgaw_kayin: 0.09%
+dawei: 0.09%
+bamar: 0.09%
+Running with ngram=3 on random sentence 2: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.01%
+mon: 0.00%
+shan: 99.95%
+pao: 0.01%
+rakhine: 0.01%
+po_kayin: 0.01%
+sgaw_kayin: 0.01%
+dawei: 0.01%
+bamar: 0.01%
+
+Combined Character and Syllable-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 99.97%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+Running with ngram=3 on random sentence 3: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.18%
+mon: 0.08%
+shan: 98.69%
+pao: 0.18%
+rakhine: 0.18%
+po_kayin: 0.18%
+sgaw_kayin: 0.18%
+dawei: 0.18%
+bamar: 0.18%
+
+Combined Character and Syllable-based Detection:
+beik: 0.09%
+mon: 0.04%
+shan: 99.34%
+pao: 0.09%
+rakhine: 0.09%
+po_kayin: 0.09%
+sgaw_kayin: 0.09%
+dawei: 0.09%
+bamar: 0.09%
+Running with ngram=3 on random sentence 4: ဢရသႃႇမၼ်းတႄႉမိူၼ်ၼမ်ႉလၢင်ႉဝၢၼ်ႇဝႆႉ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.51%
+mon: 0.22%
+shan: 96.21%
+pao: 0.51%
+rakhine: 0.51%
+po_kayin: 0.51%
+sgaw_kayin: 0.51%
+dawei: 0.51%
+bamar: 0.51%
+
+Combined Character and Syllable-based Detection:
+beik: 0.26%
+mon: 0.11%
+shan: 98.10%
+pao: 0.26%
+rakhine: 0.26%
+po_kayin: 0.26%
+sgaw_kayin: 0.26%
+dawei: 0.26%
+bamar: 0.26%
+Running with ngram=3 on random sentence 5: ဢရသႃႇမၼ်းတႄႉမိူၼ်ၼမ်ႉလၢင်ႉဝၢၼ်ႇဝႆႉ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.51%
+mon: 0.22%
+shan: 96.21%
+pao: 0.51%
+rakhine: 0.51%
+po_kayin: 0.51%
+sgaw_kayin: 0.51%
+dawei: 0.51%
+bamar: 0.51%
+
+Combined Character and Syllable-based Detection:
+beik: 0.26%
+mon: 0.11%
+shan: 98.10%
+pao: 0.26%
+rakhine: 0.26%
+po_kayin: 0.26%
+sgaw_kayin: 0.26%
+dawei: 0.26%
+bamar: 0.26%
+Running with ngram=3 on random sentence 6: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 6.23%
+mon: 2.70%
+shan: 53.72%
+pao: 6.23%
+rakhine: 6.23%
+po_kayin: 6.23%
+sgaw_kayin: 6.23%
+dawei: 6.23%
+bamar: 6.23%
+
+Combined Character and Syllable-based Detection:
+beik: 3.11%
+mon: 1.35%
+shan: 76.86%
+pao: 3.11%
+rakhine: 3.11%
+po_kayin: 3.11%
+sgaw_kayin: 3.11%
+dawei: 3.11%
+bamar: 3.11%
+Running with ngram=3 on random sentence 7: တႃႇလုၵ်ႈႁဵၼ်းၶဝ်တေလႆႈဢဝ်ပပ်ႉလႂ်။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 3.60%
+mon: 0.80%
+shan: 84.36%
+pao: 1.94%
+rakhine: 1.91%
+po_kayin: 0.76%
+sgaw_kayin: 0.76%
+dawei: 2.73%
+bamar: 3.13%
+
+Combined Character and Syllable-based Detection:
+beik: 1.80%
+mon: 0.40%
+shan: 92.18%
+pao: 0.97%
+rakhine: 0.96%
+po_kayin: 0.38%
+sgaw_kayin: 0.38%
+dawei: 1.37%
+bamar: 1.57%
+Running with ngram=3 on random sentence 8: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 6.23%
+mon: 2.70%
+shan: 53.72%
+pao: 6.23%
+rakhine: 6.23%
+po_kayin: 6.23%
+sgaw_kayin: 6.23%
+dawei: 6.23%
+bamar: 6.23%
+
+Combined Character and Syllable-based Detection:
+beik: 3.11%
+mon: 1.35%
+shan: 76.86%
+pao: 3.11%
+rakhine: 3.11%
+po_kayin: 3.11%
+sgaw_kayin: 3.11%
+dawei: 3.11%
+bamar: 3.11%
+Running with ngram=3 on random sentence 9: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 0.18%
+mon: 0.08%
+shan: 98.69%
+pao: 0.18%
+rakhine: 0.18%
+po_kayin: 0.18%
+sgaw_kayin: 0.18%
+dawei: 0.18%
+bamar: 0.18%
+
+Combined Character and Syllable-based Detection:
+beik: 0.09%
+mon: 0.04%
+shan: 99.34%
+pao: 0.09%
+rakhine: 0.09%
+po_kayin: 0.09%
+sgaw_kayin: 0.09%
+dawei: 0.09%
+bamar: 0.09%
+Running with ngram=3 on random sentence 10: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+beik: 0.00%
+mon: 0.00%
+shan: 100.00%
+pao: 0.00%
+rakhine: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+dawei: 0.00%
+bamar: 0.00%
+
+Syllable-based Detection:
+beik: 6.23%
+mon: 2.70%
+shan: 53.72%
+pao: 6.23%
+rakhine: 6.23%
+po_kayin: 6.23%
+sgaw_kayin: 6.23%
+dawei: 6.23%
+bamar: 6.23%
+
+Combined Character and Syllable-based Detection:
+beik: 3.11%
+mon: 1.35%
+shan: 76.86%
+pao: 3.11%
+rakhine: 3.11%
+po_kayin: 3.11%
+sgaw_kayin: 3.11%
+dawei: 3.11%
+bamar: 3.11%
+Running with ngram=4 on full file
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+Running with ngram=4 on random sentence 1: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 0.27%
+mon: 0.12%
+bamar: 0.27%
+beik: 0.27%
+po_kayin: 0.27%
+sgaw_kayin: 0.27%
+pao: 0.27%
+rakhine: 0.27%
+shan: 98.02%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.13%
+mon: 0.06%
+bamar: 0.13%
+beik: 0.13%
+po_kayin: 0.13%
+sgaw_kayin: 0.13%
+pao: 0.13%
+rakhine: 0.13%
+shan: 99.01%
+Running with ngram=4 on random sentence 2: တႃႇလုၵ်ႈႁဵၼ်းၶဝ်တေလႆႈဢဝ်ပပ်ႉလႂ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 11.77%
+mon: 3.42%
+bamar: 0.41%
+beik: 15.49%
+po_kayin: 3.28%
+sgaw_kayin: 3.28%
+pao: 0.88%
+rakhine: 8.25%
+shan: 53.22%
+
+Combined Character and Syllable-based Detection:
+dawei: 5.88%
+mon: 1.71%
+bamar: 0.21%
+beik: 7.75%
+po_kayin: 1.64%
+sgaw_kayin: 1.64%
+pao: 0.44%
+rakhine: 4.12%
+shan: 76.61%
+Running with ngram=4 on random sentence 3: ႁဝ်းမိူဝ်ႈၽုၵ်ႈၵၢင်ၼႂ်တေဢွၵ်ႇပႆတၢင်းဢိူဝ်ႈ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 24.47%
+mon: 7.12%
+bamar: 0.86%
+beik: 32.21%
+po_kayin: 6.82%
+sgaw_kayin: 6.82%
+pao: 1.83%
+rakhine: 17.14%
+shan: 2.74%
+
+Combined Character and Syllable-based Detection:
+dawei: 12.23%
+mon: 3.56%
+bamar: 0.43%
+beik: 16.10%
+po_kayin: 3.41%
+sgaw_kayin: 3.41%
+pao: 0.91%
+rakhine: 8.57%
+shan: 51.37%
+Running with ngram=4 on random sentence 4: တွင်းပၢၼ်ႇၵဝ်ဢမ်ႇတွင်းပၢၼ်ႇၵဝ်။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 0.03%
+mon: 0.01%
+bamar: 0.03%
+beik: 0.03%
+po_kayin: 0.03%
+sgaw_kayin: 0.03%
+pao: 0.03%
+rakhine: 0.03%
+shan: 99.77%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.02%
+mon: 0.01%
+bamar: 0.02%
+beik: 0.02%
+po_kayin: 0.02%
+sgaw_kayin: 0.02%
+pao: 0.02%
+rakhine: 0.02%
+shan: 99.89%
+Running with ngram=4 on random sentence 5: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 12.02%
+mon: 5.21%
+bamar: 12.02%
+beik: 12.02%
+po_kayin: 12.02%
+sgaw_kayin: 12.02%
+pao: 12.02%
+rakhine: 12.02%
+shan: 10.68%
+
+Combined Character and Syllable-based Detection:
+dawei: 6.01%
+mon: 2.60%
+bamar: 6.01%
+beik: 6.01%
+po_kayin: 6.01%
+sgaw_kayin: 6.01%
+pao: 6.01%
+rakhine: 6.01%
+shan: 55.34%
+Running with ngram=4 on random sentence 6: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 12.02%
+mon: 5.21%
+bamar: 12.02%
+beik: 12.02%
+po_kayin: 12.02%
+sgaw_kayin: 12.02%
+pao: 12.02%
+rakhine: 12.02%
+shan: 10.68%
+
+Combined Character and Syllable-based Detection:
+dawei: 6.01%
+mon: 2.60%
+bamar: 6.01%
+beik: 6.01%
+po_kayin: 6.01%
+sgaw_kayin: 6.01%
+pao: 6.01%
+rakhine: 6.01%
+shan: 55.34%
+Running with ngram=4 on random sentence 7: ဢရသႃႇမၼ်းတႄႉမိူၼ်ၼမ်ႉလၢင်ႉဝၢၼ်ႇဝႆႉ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 1.70%
+mon: 0.74%
+bamar: 1.70%
+beik: 1.70%
+po_kayin: 1.70%
+sgaw_kayin: 1.70%
+pao: 1.70%
+rakhine: 1.70%
+shan: 87.37%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.85%
+mon: 0.37%
+bamar: 0.85%
+beik: 0.85%
+po_kayin: 0.85%
+sgaw_kayin: 0.85%
+pao: 0.85%
+rakhine: 0.85%
+shan: 93.69%
+Running with ngram=4 on random sentence 8: ဢမ်ႇမီးၶပ်းမၢႆတႃႇဢွၵ်ႇပၢႆႈႁႃႉ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 7.23%
+mon: 3.13%
+bamar: 7.23%
+beik: 7.23%
+po_kayin: 7.23%
+sgaw_kayin: 7.23%
+pao: 7.23%
+rakhine: 7.23%
+shan: 46.27%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.61%
+mon: 1.57%
+bamar: 3.61%
+beik: 3.61%
+po_kayin: 3.61%
+sgaw_kayin: 3.61%
+pao: 3.61%
+rakhine: 3.61%
+shan: 73.13%
+Running with ngram=4 on random sentence 9: တႃႇမၼ်းၼၢင်းႁဝ်းတေထၢမ်ဢမ်ႇၸႂ်ႈ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 0.74%
+mon: 0.22%
+bamar: 0.03%
+beik: 0.98%
+po_kayin: 0.21%
+sgaw_kayin: 0.21%
+pao: 0.06%
+rakhine: 0.52%
+shan: 97.05%
+
+Combined Character and Syllable-based Detection:
+dawei: 0.37%
+mon: 0.11%
+bamar: 0.01%
+beik: 0.49%
+po_kayin: 0.10%
+sgaw_kayin: 0.10%
+pao: 0.03%
+rakhine: 0.26%
+shan: 98.53%
+Running with ngram=4 on random sentence 10: ဢမ်ႇမီးၶပ်းမၢႆတႃႇဢွၵ်ႇပၢႆႈႁႃႉ။
+Character-based Detection:
+dawei: 0.00%
+mon: 0.00%
+bamar: 0.00%
+beik: 0.00%
+po_kayin: 0.00%
+sgaw_kayin: 0.00%
+pao: 0.00%
+rakhine: 0.00%
+shan: 100.00%
+
+Syllable-based Detection:
+dawei: 7.23%
+mon: 3.13%
+bamar: 7.23%
+beik: 7.23%
+po_kayin: 7.23%
+sgaw_kayin: 7.23%
+pao: 7.23%
+rakhine: 7.23%
+shan: 46.27%
+
+Combined Character and Syllable-based Detection:
+dawei: 3.61%
+mon: 1.57%
+bamar: 3.61%
+beik: 3.61%
+po_kayin: 3.61%
+sgaw_kayin: 3.61%
+pao: 3.61%
+rakhine: 3.61%
+shan: 73.13%
+Running with ngram=5 on full file
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+Running with ngram=5 on random sentence 1: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 12.23%
+rakhine: 12.23%
+dawei: 12.23%
+pao: 12.23%
+po_kayin: 12.23%
+bamar: 12.23%
+mon: 5.30%
+shan: 9.08%
+beik: 12.23%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.12%
+rakhine: 6.12%
+dawei: 6.12%
+pao: 6.12%
+po_kayin: 6.12%
+bamar: 6.12%
+mon: 2.65%
+shan: 54.54%
+beik: 6.12%
+Running with ngram=5 on random sentence 2: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 12.23%
+rakhine: 12.23%
+dawei: 12.23%
+pao: 12.23%
+po_kayin: 12.23%
+bamar: 12.23%
+mon: 5.30%
+shan: 9.08%
+beik: 12.23%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.12%
+rakhine: 6.12%
+dawei: 6.12%
+pao: 6.12%
+po_kayin: 6.12%
+bamar: 6.12%
+mon: 2.65%
+shan: 54.54%
+beik: 6.12%
+Running with ngram=5 on random sentence 3: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 12.23%
+rakhine: 12.23%
+dawei: 12.23%
+pao: 12.23%
+po_kayin: 12.23%
+bamar: 12.23%
+mon: 5.30%
+shan: 9.08%
+beik: 12.23%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.12%
+rakhine: 6.12%
+dawei: 6.12%
+pao: 6.12%
+po_kayin: 6.12%
+bamar: 6.12%
+mon: 2.65%
+shan: 54.54%
+beik: 6.12%
+Running with ngram=5 on random sentence 4: မႂ်းလွင်ႈၼႆႉလၢတ်ႈမႃးႁိုဝ်ဢမ်ႇလၢတ်ႈမႃးႁႃႉ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 0.36%
+rakhine: 0.36%
+dawei: 0.36%
+pao: 0.36%
+po_kayin: 0.36%
+bamar: 0.36%
+mon: 0.16%
+shan: 97.31%
+beik: 0.36%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 0.18%
+rakhine: 0.18%
+dawei: 0.18%
+pao: 0.18%
+po_kayin: 0.18%
+bamar: 0.18%
+mon: 0.08%
+shan: 98.66%
+beik: 0.18%
+Running with ngram=5 on random sentence 5: တႃႇလုၵ်ႈႁဵၼ်းၶဝ်တေလႆႈဢဝ်ပပ်ႉလႂ်။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 18.17%
+rakhine: 14.98%
+dawei: 11.08%
+pao: 4.86%
+po_kayin: 18.17%
+bamar: 2.28%
+mon: 3.41%
+shan: 8.30%
+beik: 18.76%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 9.08%
+rakhine: 7.49%
+dawei: 5.54%
+pao: 2.43%
+po_kayin: 9.08%
+bamar: 1.14%
+mon: 1.70%
+shan: 54.15%
+beik: 9.38%
+Running with ngram=5 on random sentence 6: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+sgaw_kayin: 0.09%
+rakhine: 0.09%
+dawei: 0.09%
+pao: 0.09%
+po_kayin: 0.09%
+bamar: 0.09%
+mon: 0.09%
+shan: 99.24%
+beik: 0.09%
+
+Syllable-based Detection:
+sgaw_kayin: 11.86%
+rakhine: 11.86%
+dawei: 11.86%
+pao: 11.86%
+po_kayin: 11.86%
+bamar: 11.86%
+mon: 5.13%
+shan: 11.86%
+beik: 11.86%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 5.98%
+rakhine: 5.98%
+dawei: 5.98%
+pao: 5.98%
+po_kayin: 5.98%
+bamar: 5.98%
+mon: 2.61%
+shan: 55.55%
+beik: 5.98%
+Running with ngram=5 on random sentence 7: ဢမ်ႇမီးၶပ်းမၢႆတႃႇဢွၵ်ႇပၢႆႈႁႃႉ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 11.21%
+rakhine: 11.21%
+dawei: 11.21%
+pao: 11.21%
+po_kayin: 11.21%
+bamar: 11.21%
+mon: 4.86%
+shan: 16.65%
+beik: 11.21%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 5.61%
+rakhine: 5.61%
+dawei: 5.61%
+pao: 5.61%
+po_kayin: 5.61%
+bamar: 5.61%
+mon: 2.43%
+shan: 58.32%
+beik: 5.61%
+Running with ngram=5 on random sentence 8: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+sgaw_kayin: 0.09%
+rakhine: 0.09%
+dawei: 0.09%
+pao: 0.09%
+po_kayin: 0.09%
+bamar: 0.09%
+mon: 0.09%
+shan: 99.24%
+beik: 0.09%
+
+Syllable-based Detection:
+sgaw_kayin: 11.86%
+rakhine: 11.86%
+dawei: 11.86%
+pao: 11.86%
+po_kayin: 11.86%
+bamar: 11.86%
+mon: 5.13%
+shan: 11.86%
+beik: 11.86%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 5.98%
+rakhine: 5.98%
+dawei: 5.98%
+pao: 5.98%
+po_kayin: 5.98%
+bamar: 5.98%
+mon: 2.61%
+shan: 55.55%
+beik: 5.98%
+Running with ngram=5 on random sentence 9: ဢမ်ႇမူတ်းသႂ်ႁႃႉ။
+Character-based Detection:
+sgaw_kayin: 0.09%
+rakhine: 0.09%
+dawei: 0.09%
+pao: 0.09%
+po_kayin: 0.09%
+bamar: 0.09%
+mon: 0.09%
+shan: 99.24%
+beik: 0.09%
+
+Syllable-based Detection:
+sgaw_kayin: 11.86%
+rakhine: 11.86%
+dawei: 11.86%
+pao: 11.86%
+po_kayin: 11.86%
+bamar: 11.86%
+mon: 5.13%
+shan: 11.86%
+beik: 11.86%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 5.98%
+rakhine: 5.98%
+dawei: 5.98%
+pao: 5.98%
+po_kayin: 5.98%
+bamar: 5.98%
+mon: 2.61%
+shan: 55.55%
+beik: 5.98%
+Running with ngram=5 on random sentence 10: ဢၼ်ၼႆႉတႃႇမၼ်းယၢပ်ႇဢိူဝ်ႈ။
+Character-based Detection:
+sgaw_kayin: 0.00%
+rakhine: 0.00%
+dawei: 0.00%
+pao: 0.00%
+po_kayin: 0.00%
+bamar: 0.00%
+mon: 0.00%
+shan: 100.00%
+beik: 0.00%
+
+Syllable-based Detection:
+sgaw_kayin: 12.23%
+rakhine: 12.23%
+dawei: 12.23%
+pao: 12.23%
+po_kayin: 12.23%
+bamar: 12.23%
+mon: 5.30%
+shan: 9.08%
+beik: 12.23%
+
+Combined Character and Syllable-based Detection:
+sgaw_kayin: 6.12%
+rakhine: 6.12%
+dawei: 6.12%
+pao: 6.12%
+po_kayin: 6.12%
+bamar: 6.12%
+mon: 2.65%
+shan: 54.54%
+beik: 6.12%
+
+All processing completed.
+
+real    12m29.376s
+user    11m13.991s
+sys     1m15.194s
 ```
 
 Experiment-3 (with char, syl, char+syl Ngram, Naive Bayes) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
