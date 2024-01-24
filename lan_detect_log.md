@@ -9122,6 +9122,8 @@ Syllable segmentation ဖြတ်တာ မှန်ပါတယ်။
 
 ## Note for Me
 
+Date: 23 Jan 2024  
+
 မနေ့က language model ကို NLTK library ကိုသုံးပြီး ဆောက် ပြီးတော့ detect လုပ်ဖို့ ကြိုးစားပေမဲ့ အချိန်တော်တော်ကြာ debug လုပ်ပြီး ပင်ပန်းသွားတယ်။   
 အဲဒါနဲ့ အိပ်လိုက်တယ်။  
 
@@ -9129,6 +9131,8 @@ Syllable segmentation ဖြတ်တာ မှန်ပါတယ်။
 ဆိုလိုတာက char only, syl only, char+syl combination သုံးမျိုးသုံးပြီး language detection decision ကို လုပ်ဖို့ပါ။  
 
 ## Developing Char, Syl, Char+Syl Ngrams with Bayes Approach
+
+Date: 24 Jan 2024  
 
 python code --help screen ...  
 
@@ -9424,17 +9428,27 @@ tail command နဲ့လည်း check လုပ်ခဲ့တယ်။
 (base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/5gram_profile$
 ```
 
+Test or Experiment လုပ်တဲ့အခါမှာ file တစ်ဖိုင်လုံး input လုပ်ပြီးလည်း evaluate လုပ်ချင်တယ်။ တခြား အထက်က expeirment တွေမှာ လုပ်ခဲ့တဲ့အတိုင်းပဲ random sentence ၁၀ကြောင်းနဲ့လည်း စမ်းချင်တယ်။  
+ပြီးတော့ ngram ကိုလည်း 3gram, 4gram, 5gram အားလုံးနဲ့ စမ်းချင်တယ်။  
+Testing လုပ်ဖို့အတွက် shell script ကိုအောက်ပါအတိုင်း ရေးခဲ့တယ်။  
+
+```bash
+
 ```
+
+Experiment-1 (with char, syl, char+syl Ngram, Naive Bayes) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
 ```
 
-```
+Experiment-2 (with char, syl, char+syl Ngram, Naive Bayes) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
 ```
+
+Experiment-3 (with char, syl, char+syl Ngram, Naive Bayes) ရဲ့ ရလဒ်က အောက်ပါအတိုင်း ...  
 
 ```
 
