@@ -41779,7 +41779,7 @@ sys     1m14.548s
 - Library ဆောက်မလား (လက်ရှိ စမ်းထားပြီးသား method တွေကို library တစ်ခုအနေနဲ့ သုံးလို့ ရအောင် အားလုံးပေါင်းမလားလို့ စဉ်းစားနေတာ)
 - Formal Evaluation or Scoring ဘယ်လို လုပ်မလဲ။ လက်ရှိမှာလည်း ဘယ် language ဖြစ်နိုင်သလဲ ဆိုတာကို တွက်ပေးနေပေမဲ့ approach တစ်ခုနဲ့တစ်ခု နှိုင်းယှဉ်ဖို့အတွက်တော့ language တစ်ခုချင်းစီအတွက် detection accuracy, random string ၁၀ကြောင်းအတွက် accuracy တန်ဖိုးတွေကို ထုတ်ထားမှ စာတမ်းရေးတဲ့အခါမှာ အဆင်ပြေလိမ့်မယ်။ comparison လုပ်လို့ အဆင်ပြေလိမ့်မယ်။
 - Rule based approach proposal တင်နိုင်မလား ?!
--  
+  
 ## What Should I do?    
 
 
