@@ -9120,8 +9120,334 @@ Language model saved to ./bamar.syl.3gram.lm.txt
 
 Syllable segmentation ဖြတ်တာ မှန်ပါတယ်။  
 
+## Note for Me
+
+မနေ့က language model ကို NLTK library ကိုသုံးပြီး ဆောက် ပြီးတော့ detect လုပ်ဖို့ ကြိုးစားပေမဲ့ အချိန်တော်တော်ကြာ debug လုပ်ပြီး ပင်ပန်းသွားတယ်။   
+အဲဒါနဲ့ အိပ်လိုက်တယ်။  
+
+ဒီနေ့တော့ ပထမဆုံး ရေးခဲ့တဲ့ ngram, naive bayes approach ကိုပဲ syllable unit တစ်မျိုးတည်း မဟုတ်ပဲ character ngram ကိုပါ ဖြည့်ပြီး language detection လုပ်ဖို့ အိုက်ဒီယာ ရခဲ့တယ်။  
+ဆိုလိုတာက char only, syl only, char+syl combination သုံးမျိုးသုံးပြီး language detection decision ကို လုပ်ဖို့ပါ။  
+
+## Developing Char, Syl, Char+Syl Ngrams with Bayes Approach
+
+python code --help screen ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ python ./char_syl_ngram.py --help
+usage: char_syl_ngram.py [-h] --mode {build,detect} -i INPUT [-o OUTPUT]
+                         [-p PROFILE_FOLDER] [-n NGRAM] [-v]
+
+Naive Bayes based language detection and profile creation.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mode {build,detect}
+                        Mode of operation: build or detect
+  -i INPUT, --input INPUT
+                        Input file path.
+  -o OUTPUT, --output OUTPUT
+                        Output file path (only for profile creation).
+  -p PROFILE_FOLDER, --profile_folder PROFILE_FOLDER
+                        Folder path containing language profiles (only for detection).
+  -n NGRAM, --ngram NGRAM
+                        Maximum n-gram value (default: 3).
+  -v, --verbose         Display warning messages.
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$
+```
+
+အဓိက update လုပ်ခဲ့တာက filename တစ်ခုတည်း မဟုတ်ပဲ --input option က string input ကိုလည်း လက်ခံဖို့။ ပြီးတော့ profile ကိုလည်း character ngram ရော syllable ngram ရော နှစ်ခုစလုံး ဆောက်ထားဖို့။ ပြီးတော့ original code မှာတုန်းကလို --profile_build, --detect တစ်ခုစီခွဲပြီး မထားတော့ပဲနဲ့ နှစ်ခုစလုံးကို --mode ဆိုတဲ့ option နဲ့ပဲ control လုပ်ဖို့ (အဲဒါကတော့ တခြားကုဒ်တွေနဲ့ တူအောင် ညှိတဲ့ အပိုင်းပါ) နောက်ပိုင်း library အနေနဲ့သုံးဖို့ ပြောင်းတဲ့အခါမှာ အဆင်ပြေအောင်လို့ပါ။  
+
+Bash shell script for building for all TainYinThar languages ...  
+
+```bash
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ cat ./build_ngram_profiles.sh
+#!/bin/bash
+
+# Define the base directory and the Python script
+BASE_DIR="$HOME/exp/sylbreak4all/lang_detection/char_syl_ngram"
+PYTHON_SCRIPT="$BASE_DIR/char_syl_ngram.py"
+TEXT_DIR="$BASE_DIR/raw"  # Assuming you have raw text files for training
+OUTPUT_BASE_DIR="$BASE_DIR"  # Base directory for output profiles
+
+# Define the n-gram values to iterate through
+NGRAM_VALUES=(3 4 5)
+
+# Loop through each n-gram value
+for ngram_value in "${NGRAM_VALUES[@]}"; do
+    # Create the output directory for this n-gram value
+    OUTPUT_DIR="$OUTPUT_BASE_DIR/${ngram_value}gram_profile"
+    mkdir -p "$OUTPUT_DIR"
+
+    # Loop through each text file in the text_files directory
+    for file in "$TEXT_DIR"/*.raw; do
+        # Extract the language name from the filename
+        filename=$(basename -- "$file")
+        language=${filename%%.*}
+
+        # Define the output profile filename based on n-gram value
+        output_profile="$OUTPUT_DIR/${language}.${ngram_value}gram"
+
+        # Run the Python script to create the profile
+        if python3 "$PYTHON_SCRIPT" --mode build --ngram "$ngram_value" --input "$file" --output "$output_profile"; then
+            echo "Created ${ngram_value}-gram language profile for $language."
+        else
+            echo "Error in creating ${ngram_value}-gram profile for $language. Check the input file and script."
+            exit 1
+        fi
+    done
+done
+
+echo "All language profiles have been created."
+```
+
+Building profiles for 3gram to 5gram ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ time ./build_ngram_profiles.sh
+Created 3-gram language profile for bamar.
+Created 3-gram language profile for beik.
+Created 3-gram language profile for dawei.
+Created 3-gram language profile for mon.
+Created 3-gram language profile for pao.
+Created 3-gram language profile for po_kayin.
+Created 3-gram language profile for rakhine.
+Created 3-gram language profile for sgaw_kayin.
+Created 3-gram language profile for shan.
+Created 4-gram language profile for bamar.
+Created 4-gram language profile for beik.
+Created 4-gram language profile for dawei.
+Created 4-gram language profile for mon.
+Created 4-gram language profile for pao.
+Created 4-gram language profile for po_kayin.
+Created 4-gram language profile for rakhine.
+Created 4-gram language profile for sgaw_kayin.
+Created 4-gram language profile for shan.
+Created 5-gram language profile for bamar.
+Created 5-gram language profile for beik.
+Created 5-gram language profile for dawei.
+Created 5-gram language profile for mon.
+Created 5-gram language profile for pao.
+Created 5-gram language profile for po_kayin.
+Created 5-gram language profile for rakhine.
+Created 5-gram language profile for sgaw_kayin.
+Created 5-gram language profile for shan.
+All language profiles have been created.
+
+real    0m12.952s
+user    0m11.756s
+sys     0m1.191s
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$
+```
+
+Check the 3gram language profiles ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ tree ./3gram_profile/
+./3gram_profile/
+├── bamar.3gram
+├── beik.3gram
+├── dawei.3gram
+├── mon.3gram
+├── pao.3gram
+├── po_kayin.3gram
+├── rakhine.3gram
+├── sgaw_kayin.3gram
+└── shan.3gram
+
+0 directories, 9 files
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$
+```
+
+အစပိုင်းမှာ character unit နဲ့ 3gram ဆောက်ပြီး နောက်ပိုင်းမှာတော့ syllable unit နဲ့ ဆောက်သွားတာကို အောက်ပါအတိုင်း မြင်ရတယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/3gram_profile$ head bamar.3gram
+နေက     0.0002653000215549747
+ေကမ     4.2730388670518105e-05
+ကမီ     8.450690748581713e-06
+မီး     0.00039596031943134097
+ီးက     0.0005618939296621635
+းကျ     0.0006905669986734899
+ကျီ     9.78759896753723e-05
+ျီး     6.111225567213618e-05
+ီးခ     0.00023052351641677835
+းခဲ     0.00025536387722977573
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/3gram_profile$ tail ./bamar.3gram
+ပြည် က ခင်      1.5227715866140115e-06
+အ သီး စား       1.5227715866140115e-06
+သီး စား ရ       1.5227715866140115e-06
+က စ တော်        1.5227715866140115e-06
+ဘယ် ရီ စား      1.5227715866140115e-06
+ရီ စား ရ        1.5227715866140115e-06
+တော် လည်း စ     1.5227715866140115e-06
+လည်း စ တော်     1.5227715866140115e-06
+ဘယ် ရီ ကြိုက်   1.5227715866140115e-06
+ရီ ကြိုက် တယ်   1.5227715866140115e-06
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/3gram_profile$
+```
+
+4gram language profile တွေကိုလည်း လေ့လာခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ tree ./4gram_profile/
+./4gram_profile/
+├── bamar.4gram
+├── beik.4gram
+├── dawei.4gram
+├── mon.4gram
+├── pao.4gram
+├── po_kayin.4gram
+├── rakhine.4gram
+├── sgaw_kayin.4gram
+└── shan.4gram
+
+0 directories, 9 files
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$
+```
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/4gram_profile$ head ./sgaw_kayin.4gram
+နဘၣ်    0.00020427661610139886
+ဘၣ်သ    0.0006640011383928484
+ၣ်သံ    8.799863634213576e-05
+်သံက    0.0001746459340005828
+သံကွ    0.0004148340389087131
+ံကွၢ    0.00041214034053591167
+ကွၢ်    0.0014487652643356743
+ွၢ်တ    0.0002761085727094378
+ၢ်တၢ    0.0011883744216315331
+်တၢ်    0.004368734300452459
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/4gram_profile$ tail ./sgaw_kayin.4gram
+မူး န့ၣ် မၤ သးဒ်        1.1926234186935242e-06
+မၤ သးဒ် လဲၣ် ပိာ်       1.1926234186935242e-06
+ဖိ လၢ အ အဲၣ်    1.1926234186935242e-06
+အဲၣ် ယၤ န့ၣ် န  1.1926234186935242e-06
+မိၣ်ဒ် လဲၣ် တၢ် ကူ      1.1926234186935242e-06
+ကၤ တ ဖၣ် နာ်    1.1926234186935242e-06
+နာ် က့ အ လီၤ    1.1926234186935242e-06
+က့ အ လီၤ အဲၣ်   1.1926234186935242e-06
+အ လီၤ အဲၣ် ဖိ   1.1926234186935242e-06
+လီၤ အဲၣ် ဖိ သ့ၣ်        1.1926234186935242e-06
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/4gram_profile$
+```
+
+5gram language profile တွေကိုလည်း ဝင်စစ်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$ tree ./5gram_profile/
+./5gram_profile/
+├── bamar.5gram
+├── beik.5gram
+├── dawei.5gram
+├── mon.5gram
+├── pao.5gram
+├── po_kayin.5gram
+├── rakhine.5gram
+├── sgaw_kayin.5gram
+└── shan.5gram
+
+0 directories, 9 files
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram$
 ```
 
+ဖိုင်တွေရဲ့ အထဲကိုဝင် ဝင်စစ်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/5gram_profile$ head -n 30 ./pao.5gram
+လိုမူ   0.00010200778097201457
+ိုမူႏ   0.00013748360684258913
+ုမူႏပ   3.844692628723517e-05
+မူႏပေ   0.00015226520095532853
+ူႏပေႏ   0.00016409047624552003
+ႏပေႏမ   2.971100416660618e-06
+ပေႏမာ   7.405578650482437e-06
+ေႏမာꩻ   1.1840056884304255e-05
+ႏမာꩻတ   4.288140452105699e-05
+မာꩻတမ   0.00012270201272984973
+ာꩻတမု   0.00015374336036660247
+ꩻတမုဲ   0.0004212902138071855
+တမုဲင   0.0011248940935735807
+မုဲင်   0.005219395662802394
+ုဲင်ꩻ   0.005568241283863043
+ဲင်ꩻဟ   0.001633380931051816
+င်ꩻဟေ   0.0017072889016155129
+်ꩻဟော   0.0019304909727178778
+ꩻဟောင   0.0027227844171607094
+ဟောင်   0.007967294008360647
+ောင်း   0.008718198989287808
+ာင်း
+        0.007526802503801013
+င်း
+ဝ       0.001287491628813714
+်း
+ဝွ      0.0017427647274860874
+း
+ဝွေ     0.001924578335072782
+
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/5gram_profile$
+```
+
+tail command နဲ့လည်း check လုပ်ခဲ့တယ်။  
+
+```
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/5gram_profile$ tail -n 30 ./pao.5gram
+အဂ် လိပ် ငဝ်း အွိုး အ   5.381683084618761e-06
+လိပ် ငဝ်း အွိုး အ မွူး  5.381683084618761e-06
+ငဝ်း အွိုး အ မွူး လောင်း        5.381683084618761e-06
+အွိုး အ မွူး လောင်း သူꩻ 5.381683084618761e-06
+အ မွူး လောင်း သူꩻ အ     5.381683084618761e-06
+မွူး လောင်း သူꩻ အ ရာႏ   5.381683084618761e-06
+လောင်း သူꩻ အ ရာႏ တ      5.381683084618761e-06
+သူꩻ အ ရာႏ တ ဖြုံႏ       5.381683084618761e-06
+အ ရာႏ တ ဖြုံႏ ငါꩻ       5.381683084618761e-06
+ရာႏ တ ဖြုံႏ ငါꩻ တဲ့     5.381683084618761e-06
+တ အဝ်ႏ တဝ်း နာꩻ ထူႏ     5.381683084618761e-06
+အဝ်ႏ တဝ်း နာꩻ ထူႏ က     5.381683084618761e-06
+တဝ်း နာꩻ ထူႏ က ဟန်      5.381683084618761e-06
+နာꩻ ထူႏ က ဟန် အို       5.381683084618761e-06
+ထူႏ က ဟန် အို ထ 5.381683084618761e-06
+က ဟန် အို ထ ပေႏ 5.381683084618761e-06
+ပေႏ ဆေ့ ဆေ့ ဟောင်း ဟန်  5.381683084618761e-06
+ဆေ့ ဆေ့ ဟောင်း ဟန် နေင်ႏ        5.381683084618761e-06
+ဆေ့ ဟောင်း ဟန် နေင်ႏ လို့       5.381683084618761e-06
+ဟောင်း ဟန် နေင်ႏ လို့ ထိုꩻ      5.381683084618761e-06
+ဟန် နေင်ႏ လို့ ထိုꩻ နောဝ်ႏ      5.381683084618761e-06
+နေင်ႏ လို့ ထိုꩻ နောဝ်ႏ မွိုင်   5.381683084618761e-06
+လို့ ထိုꩻ နောဝ်ႏ မွိုင် မွေး    5.381683084618761e-06
+ထိုꩻ နောဝ်ႏ မွိုင် မွေး ငါႏ     5.381683084618761e-06
+နောဝ်ႏ မွိုင် မွေး ငါႏ နောႏ     5.381683084618761e-06
+မွိုင် မွေး ငါႏ နောႏ ထွ 5.381683084618761e-06
+မွေး ငါႏ နောႏ ထွ မုဲင်ꩻ 5.381683084618761e-06
+ငါႏ နောႏ ထွ မုဲင်ꩻ မွော့        5.381683084618761e-06
+နောႏ ထွ မုဲင်ꩻ မွော့ အွဉ်ႏ      5.381683084618761e-06
+ထွ မုဲင်ꩻ မွော့ အွဉ်ႏ ဖေင်ꩻ     5.381683084618761e-06
+(base) ye@lst-gpu-3090:~/exp/sylbreak4all/lang_detection/char_syl_ngram/5gram_profile$
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -9332,3 +9658,36 @@ Syllable segmentation ဖြတ်တာ မှန်ပါတယ်။
 
 ```
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
