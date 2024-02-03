@@ -180,12 +180,16 @@ Sat Feb  3 11:54:56 2024
 (opennmt-tf) ye@lst-gpu-3090:~/exp/myNLP$ 
 ```
 
-```
+## JupyterLab Installation
 
 ```
-
+pip install jupyterlab
 ```
 
+Test Jupyter Lab ...  
+
+```
+(opennmt-tf) ye@lst-gpu-3090:~/exp/opennmt/notebook$ jupyter lab
 ```
 
 ```
