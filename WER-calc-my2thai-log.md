@@ -79,8 +79,8 @@ Written by Ye Kyaw Thu, LU Lab., Myanmar.
 Last updated: 7 Feb 2024
 
 How to run:
-$ python ./extract_src_tgt_hyp.py --help
-$ python ./extract_src_tgt_hyp.py --input ./1_baseline.txt --output baseline
+$ python ./extract_src_ref_hyp.py --help
+$ python ./extract_src_ref_hyp.py --input ./1_baseline.txt --output baseline
 
 Input file format:
 $ head -n 7 ./1_baseline.txt
@@ -143,9 +143,9 @@ def main():
     if "baseline" in input_file:
         extract_sentences(input_file, output_folder, "src_baseline.txt", "ref_baseline.txt", "hyp_baseline.txt")
     elif "finetuned_tagged" in input_file:
-        extract_sentences(input_file, output_folder, "src_ft_tag.txt", "tgt_ft_tag.txt", "hyp_ft_tag.txt")
+        extract_sentences(input_file, output_folder, "src_ft_tag.txt", "ref_ft_tag.txt", "hyp_ft_tag.txt")
     elif "finetuned-notagged" in input_file:
-        extract_sentences(input_file, output_folder, "src_ft_notag.txt", "tgt_ft_notag.txt", "hyp_ft_notag.txt")
+        extract_sentences(input_file, output_folder, "src_ft_notag.txt", "ref_ft_notag.txt", "hyp_ft_notag.txt")
     else:
         print("Unrecognized file type. Please ensure the file name contains either 'baseline', 'finetuned_tagged', or 'finetuned-notagged'.")
 
@@ -157,8 +157,8 @@ if __name__ == "__main__":
 ## Check --help
 
 ```
-(base) ye@lst-gpu-3090:~/exp/wer-calc$ python ./extract.py --help
-usage: extract.py [-h] -i INPUT -o OUTPUT
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ python ./extract_src_ref_hyp.py --help
+usage: extract_src_ref_hyp.py [-h] -i INPUT -o OUTPUT
 
 Extract source, target, and prediction sentences from translation files.
 
@@ -174,7 +174,7 @@ optional arguments:
 
 
 ```
-(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./1_baseline.txt --output baseline
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract_src_ref_hyp.py --input ./1_baseline.txt --output baseline
 
 real    0m0.036s
 user    0m0.032s
@@ -182,7 +182,7 @@ sys     0m0.004s
 ```
 
 ```
-(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./2_finetuned_tagged.txt --output ft_tag
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract_src_ref_hyp.py --input ./2_finetuned_tagged.txt --output ft_tag
 
 real    0m0.034s
 user    0m0.023s
@@ -190,7 +190,7 @@ sys     0m0.011s
 ```
 
 ```
-(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./3_finetuned-notagged.txt --output ft_no_tag
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract_src_ref_hyp.py --input ./3_finetuned-notagged.txt --output ft_no_tag
 
 real    0m0.036s
 user    0m0.032s
@@ -225,8 +225,8 @@ Check the ./ft_tag/ folder:
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ tree ./ft_tag/
 ./ft_tag/
 ├── hyp_ft_tag.txt
-├── src_ft_tag.txt
-└── tgt_ft_tag.txt
+├── ref_ft_tag.txt
+└── src_ft_tag.txt
 
 0 directories, 3 files
 ```
@@ -237,8 +237,8 @@ Check the ./ft_no_tag/ folder:
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ tree ./ft_no_tag/
 ./ft_no_tag/
 ├── hyp_ft_notag.txt
-├── src_ft_notag.txt
-└── tgt_ft_notag.txt
+├── ref_ft_notag.txt
+└── src_ft_notag.txt
 
 0 directories, 3 files
 ```
@@ -258,8 +258,8 @@ Check no. of sentences:
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc ./ft_tag/*
    8063  130459 1519421 ./ft_tag/hyp_ft_tag.txt
+   8063   56900  661580 ./ft_tag/ref_ft_tag.txt
    8063  100145  930383 ./ft_tag/src_ft_tag.txt
-   8063   56900  661580 ./ft_tag/tgt_ft_tag.txt
   24189  287504 3111384 total
 ```
 
@@ -268,8 +268,8 @@ Check no. of sentences:
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc ./ft_no_tag/*
    8063  146954 1706467 ./ft_no_tag/hyp_ft_notag.txt
+   8063   56900  661580 ./ft_no_tag/ref_ft_notag.txt
    8063  100145  930383 ./ft_no_tag/src_ft_notag.txt
-   8063   56900  661580 ./ft_no_tag/tgt_ft_notag.txt
   24189  303999 3298430 total
 ```
 
@@ -332,6 +332,18 @@ Check the extracted output files for the ft_tag approach:
 เดี๋ยว
 น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ ใช่ ไหม ครับ ต้อง ใส่
 
+==> ref_ft_tag.txt <==
+รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ
+ยินยอม เข้า รับ การ รักษา คะ
+ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจำ เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจำ เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ ความ รู้สึก ไม่ สบาย นั้น เรียก ว่า ประจำ เดือน ดิมัดโนลียา
+ตา เป็น สี แดง
+พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง
+จาก ภาพ x- ray
+ยินยอม
+และ ฉีด วัคซีน ป้องกัน โควิด ครับ
+เดี๋ยว film ซ้ำ ดู ตำแหน่ง หน่อย
+น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ
+
 ==> src_ft_tag.txt <==
 ဆ ရာ ဝန် နဲ့ အ သေး စိတ် ဆွေး နွေး လိုက် ကောင်း ပါ တယ် ရှင်
 ရော ဂါ ကု သ မှာ ကို လက် ခံ ပါ တယ် ဒေါက် တာ
@@ -343,18 +355,6 @@ Check the extracted output files for the ft_tag approach:
 ဒါ့ အ ပြင် ကို ဗစ် ဆေး လည်း ထိုး သေး တယ် ဗျ ။
 ဓာတ် မှန် ထဲ က အ နေ အ ထား ကို ပြန် ကြ ည့် ပါ ။
 ပုံ ထဲ က လို မျိုး အ ရောင် ကြည် ကြည် မြင် လိုက် ရ သ လား ။
-
-==> tgt_ft_tag.txt <==
-รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ
-ยินยอม เข้า รับ การ รักษา คะ
-ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจำ เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจำ เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ ความ รู้สึก ไม่ สบาย นั้น เรียก ว่า ประจำ เดือน ดิมัดโนลียา
-ตา เป็น สี แดง
-พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง
-จาก ภาพ x- ray
-ยินยอม
-และ ฉีด วัคซีน ป้องกัน โควิด ครับ
-เดี๋ยว film ซ้ำ ดู ตำแหน่ง หน่อย
-น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_tag$
 ```
 
@@ -374,6 +374,18 @@ Check the extracted output files for the ft_no_tag approach:
 เดี๋ยว
 น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ ต้อง มอง เห็น ไหม ครับ น้อง ต้อง ใส่
 
+==> ref_ft_notag.txt <==
+รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ
+ยินยอม เข้า รับ การ รักษา คะ
+ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจำ เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจำ เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ ความ รู้สึก ไม่ สบาย นั้น เรียก ว่า ประจำ เดือน ดิมัดโนลียา
+ตา เป็น สี แดง
+พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง
+จาก ภาพ x- ray
+ยินยอม
+และ ฉีด วัคซีน ป้องกัน โควิด ครับ
+เดี๋ยว film ซ้ำ ดู ตำแหน่ง หน่อย
+น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ
+
 ==> src_ft_notag.txt <==
 ဆ ရာ ဝန် နဲ့ အ သေး စိတ် ဆွေး နွေး လိုက် ကောင်း ပါ တယ် ရှင်
 ရော ဂါ ကု သ မှာ ကို လက် ခံ ပါ တယ် ဒေါက် တာ
@@ -385,18 +397,6 @@ Check the extracted output files for the ft_no_tag approach:
 ဒါ့ အ ပြင် ကို ဗစ် ဆေး လည်း ထိုး သေး တယ် ဗျ ။
 ဓာတ် မှန် ထဲ က အ နေ အ ထား ကို ပြန် ကြ ည့် ပါ ။
 ပုံ ထဲ က လို မျိုး အ ရောင် ကြည် ကြည် မြင် လိုက် ရ သ လား ။
-
-==> tgt_ft_notag.txt <==
-รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ
-ยินยอม เข้า รับ การ รักษา คะ
-ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจำ เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจำ เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ ความ รู้สึก ไม่ สบาย นั้น เรียก ว่า ประจำ เดือน ดิมัดโนลียา
-ตา เป็น สี แดง
-พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง
-จาก ภาพ x- ray
-ยินยอม
-และ ฉีด วัคซีน ป้องกัน โควิด ครับ
-เดี๋ยว film ซ้ำ ดู ตำแหน่ง หน่อย
-น้อง ใช่ เจอ แบบ ใน รูป สี ใส ๆ
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
