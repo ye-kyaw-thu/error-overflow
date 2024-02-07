@@ -402,7 +402,7 @@ Check the extracted output files for the ft_no_tag approach:
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
-## Preparing a Python Script for Speaker ID Tagging
+## Preparing a Python Script for Speaker-ID Tagging
 
 I prepared a Python script: tag_speaker_id.py  
 
@@ -1079,23 +1079,134 @@ Successful Completion
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
-## Analysis Roughly on Top Errors of Baseline  
+## Analysis Roughly on Top Confusion Pairs of the Baseline  
+
+Here, you have to check .dtl file for analysis on top errors or confusion pairs.  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$ ls
+hyp_baseline.tag      hyp_baseline.tag.pra  ref_baseline.tag  src_baseline.txt
+hyp_baseline.tag.dtl  hyp_baseline.txt      ref_baseline.txt
+(base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$
 ```
 
-## Analysis Roughly on Top Errors of Finetuned without Tags  
+Let's check top 30 errors for the baseline approach:  
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$ awk '/^[[:space:]]*([1-9]|1[0-9]|2[0-9]|30):/ { if (!seen[$1]++) print }' ./hyp_baseline.tag.dtl
+   1:  316  ->  ทำ ==> ทํา
+   2:  126  ->  น้ำ ==> น้ํา
+   3:   69  ->  ประจำ ==> ประจํา
+   4:   36  ->  กำลัง ==> กําลัง
+   5:   35  ->  น้ำหนัก ==> น้ําหนัก
+   6:   28  ->  แนะนำ ==> แนะนํา
+   7:   26  ->  ลำ ==> ลํา
+   8:   20  ->  ครับ ==> ค่ะ
+   9:   20  ->  ค่ะ ==> ครับ
+  10:   19  ->  สำหรับ ==> สําหรับ
+  11:   17  ->  คำ ==> คํา
+  12:   17  ->  จำ ==> จํา
+  13:   16  ->  นำ ==> นํา
+  14:   16  ->  น้ำมูก ==> น้ํามูก
+  15:   16  ->  หมอ ==> ครับ
+  16:   15  ->  จำเป็น ==> จําเป็น
+  17:   14  ->  น้ำลาย ==> น้ําลาย
+  18:   14  ->  หมอ ==> ค่ะ
+  19:   13  ->  ต่ำ ==> ต่ํา
+  20:   13  ->  สำคัญ ==> สําคัญ
+  21:   12  ->  คะ ==> ค่ะ
+  22:   12  ->  คุณ ==> ค่ะ
+  23:   12  ->  ตำแหน่ง ==> ตําแหน่ง
+  24:   11  ->  ซ้ำ ==> ซ้ํา
+  25:   11  ->  ลำบาก ==> ลําบาก
+  26:   11  ->  โอเค ==> ครับ
+  27:   11  ->  โอเค ==> ค่ะ
+  28:    9  ->  ได้ ==> ค่ะ
+  29:    9  ->  ๆ ==> ค่ะ
+  30:    8  ->  กำหนด ==> กําหนด
+(base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$
 ```
 
-## Analysis Roughly on Top Errors of Finetuned with Tags
+Note: You should check the whole ./hyp_baseline.tag.dtl for detail analysis.  
+
+## Analysis Roughly on Top Confusion Pairs of Finetuned without Tags  
+
+Let's see the top 30 errors for the Finetuned without Tags approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$ awk '/^[[:space:]]*([1-9]|1[0-9]|2[0-9]|30):/ { if (!seen[$1]++) print }' ./hyp_ft_notag.tag.dtl
+   1:  310  ->  ทำ ==> ทํา
+   2:  127  ->  น้ำ ==> น้ํา
+   3:   63  ->  ประจำ ==> ประจํา
+   4:   35  ->  กำลัง ==> กําลัง
+   5:   35  ->  น้ำหนัก ==> น้ําหนัก
+   6:   28  ->  ค่ะ ==> ครับ
+   7:   28  ->  แนะนำ ==> แนะนํา
+   8:   24  ->  ลำ ==> ลํา
+   9:   20  ->  สำหรับ ==> สําหรับ
+  10:   17  ->  คำ ==> คํา
+  11:   17  ->  จำ ==> จํา
+  12:   17  ->  น้ำมูก ==> น้ํามูก
+  13:   16  ->  นำ ==> นํา
+  14:   16  ->  หมอ ==> ครับ
+  15:   15  ->  จำเป็น ==> จําเป็น
+  16:   14  ->  น้ำลาย ==> น้ําลาย
+  17:   13  ->  ครับ ==> ค่ะ
+  18:   13  ->  ต่ำ ==> ต่ํา
+  19:   12  ->  ค่ะ ==> คะ
+  20:   12  ->  ตำแหน่ง ==> ตําแหน่ง
+  21:   12  ->  สำคัญ ==> สําคัญ
+  22:   11  ->  ลำบาก ==> ลําบาก
+  23:   11  ->  ใช่ ==> ครับ
+  24:   10  ->  คะ ==> ครับ
+  25:   10  ->  คุณ ==> ครับ
+  26:   10  ->  ซ้ำ ==> ซ้ํา
+  27:   10  ->  ดำ ==> ดํา
+  28:   10  ->  ได้ ==> ครับ
+  29:    8  ->  ครับ ==> คะ
+  30:    8  ->  ผม ==> ฉัน
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
+```
+
+## Analysis Roughly on Top Confusion Pairs of Finetuned with Tags
+
+Let's see top 30 errors of the Finetuned with Tags approach:  
 
 ```
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_tag$ awk '/^[[:space:]]*([1-9]|1[0-9]|2[0-9]|30):/ { if (!seen[$1]++) print }' ./hyp_ft_tag.tag.dtl
+   1:  315  ->  ทำ ==> ทํา
+   2:  135  ->  น้ำ ==> น้ํา
+   3:   67  ->  ประจำ ==> ประจํา
+   4:   34  ->  น้ำหนัก ==> น้ําหนัก
+   5:   33  ->  กำลัง ==> กําลัง
+   6:   29  ->  แนะนำ ==> แนะนํา
+   7:   27  ->  ค่ะ ==> ครับ
+   8:   26  ->  หมอ ==> ครับ
+   9:   25  ->  ลำ ==> ลํา
+  10:   21  ->  สำหรับ ==> สําหรับ
+  11:   18  ->  จำ ==> จํา
+  12:   18  ->  น้ำมูก ==> น้ํามูก
+  13:   17  ->  คำ ==> คํา
+  14:   17  ->  นำ ==> นํา
+  15:   15  ->  ค่ะ ==> คะ
+  16:   15  ->  จำเป็น ==> จําเป็น
+  17:   14  ->  ลำบาก ==> ลําบาก
+  18:   13  ->  ครับ ==> ค่ะ
+  19:   13  ->  น้ำลาย ==> น้ําลาย
+  20:   13  ->  สำคัญ ==> สําคัญ
+  21:   12  ->  ต่ำ ==> ต่ํา
+  22:   11  ->  ซ้ำ ==> ซ้ํา
+  23:   11  ->  ตำแหน่ง ==> ตําแหน่ง
+  24:   11  ->  โอเค ==> ครับ
+  25:   10  ->  คุณ ==> ครับ
+  26:   10  ->  หมอ ==> ค่ะ
+  27:    9  ->  ทำลาย ==> ทําลาย
+  28:    8  ->  ครับ ==> คะ
+  29:    8  ->  คะ ==> ครับ
+  30:    8  ->  คุณ ==> ค่ะ
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_tag$
+```
+
 
 ```
 
