@@ -1,6 +1,10 @@
 # Log File for WER calculation for my2thai
 
+The log file for WER calculation for my2thai, medical domain.  
+
 ## Check the Files
+
+Check the filesize:  
 
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc *
@@ -10,6 +14,8 @@
    96777  1073309 11283381 total
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
+
+check the file content of 1_baseline.txt:  
 
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ head -n 11 ./1_baseline.txt
@@ -27,6 +33,8 @@ prediction:  ครับ มัน เพิ่ง เริ่ม มี อ�
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
+Check the file content of ./2_finetuned_tagged.txt:  
+
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ head -n 11 ./2_finetuned_tagged.txt
 source: translate Myanmar to Thai: ဆ ရာ ဝန် နဲ့ အ သေး စိတ် ဆွေး နွေး လိုက် ကောင်း ပါ တယ် ရှင်
@@ -42,6 +50,8 @@ target: ครับ มัน เพิ่ง เริ่ม มี อาก�
 prediction:  ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจํา เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจํา เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ รู้สึก ไม่ สบาย
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
+
+Check the file content of 3_finetuned-notagged.txt:  
 
 ```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ head -n 11 ./3_finetuned-notagged.txt
@@ -60,6 +70,89 @@ prediction:  ครับ มัน เพิ่ง เริ่ม มี อ�
 ```
 
 ## Write a Python Code
+
+```python
+"""
+
+for extraction of source, target (i.e. reference) and prediction (i.e. hypothesis).
+Written by Ye Kyaw Thu, LU Lab., Myanmar.
+Last updated: 7 Feb 2024
+
+How to run:
+$ python ./extract_src_tgt_hyp.py --help
+$ python ./extract_src_tgt_hyp.py --input ./1_baseline.txt --output baseline
+
+Input file format:
+$ head -n 7 ./1_baseline.txt
+source: translate Myanmar to Thai: ဆ ရာ ဝန် နဲ့ အ သေး စိတ် ဆွေး နွေး လိုက် ကောင်း ပါ တယ် ရှင်
+target: รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ
+prediction:  รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ โดย ตรง นะ คะ คุณ หมอ ปรึกษา คุณ หมอ
+
+source: translate Myanmar to Thai: ရော ဂါ ကု သ မှာ ကို လက် ခံ ပါ တယ် ဒေါက် တာ
+target: ยินยอม เข้า รับ การ รักษา คะ
+prediction:  ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า
+
+
+"""
+
+import argparse
+import os
+
+def extract_sentences(input_file, output_folder, src_filename, tgt_filename, hyp_filename):
+    with open(input_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    # Initialize lists to hold the extracted sentences
+    sources = []
+    targets = []
+    predictions = []
+
+    # Extract sentences
+    for line in lines:
+        if line.startswith("source: translate Myanmar to Thai: "):
+            sources.append(line.replace("source: translate Myanmar to Thai: ", "").strip())
+        elif line.startswith("target: "):
+            targets.append(line.replace("target: ", "").strip())
+        elif line.startswith("prediction: "):
+            predictions.append(line.replace("prediction: ", "").strip())
+
+    # Save the extracted sentences
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    with open(os.path.join(output_folder, src_filename), 'w', encoding='utf-8') as src_file:
+        src_file.write('\n'.join(sources) + '\n')
+
+    with open(os.path.join(output_folder, tgt_filename), 'w', encoding='utf-8') as tgt_file:
+        tgt_file.write('\n'.join(targets) + '\n')
+
+    with open(os.path.join(output_folder, hyp_filename), 'w', encoding='utf-8') as hyp_file:
+        hyp_file.write('\n'.join(predictions) + '\n')
+
+def main():
+    parser = argparse.ArgumentParser(description="Extract source, target, and prediction sentences from translation files.")
+    parser.add_argument("-i", "--input", required=True, help="Input file path.")
+    parser.add_argument("-o", "--output", required=True, help="Output folder path.")
+
+    args = parser.parse_args()
+
+    input_file = args.input
+    output_folder = args.output
+
+    # Determine the file type and set the output filenames accordingly
+    if "baseline" in input_file:
+        extract_sentences(input_file, output_folder, "src_baseline.txt", "ref_baseline.txt", "hyp_baseline.txt")
+    elif "finetuned_tagged" in input_file:
+        extract_sentences(input_file, output_folder, "src_ft_tag.txt", "tgt_ft_tag.txt", "hyp_ft_tag.txt")
+    elif "finetuned-notagged" in input_file:
+        extract_sentences(input_file, output_folder, "src_ft_notag.txt", "tgt_ft_notag.txt", "hyp_ft_notag.txt")
+    else:
+        print("Unrecognized file type. Please ensure the file name contains either 'baseline', 'finetuned_tagged', or 'finetuned-notagged'.")
+
+if __name__ == "__main__":
+    main()
+
+```
 
 ## Check --help
 
@@ -81,8 +174,7 @@ optional arguments:
 
 
 ```
-(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./1_baseline.txt -
--output baseline
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./1_baseline.txt --output baseline
 
 real    0m0.036s
 user    0m0.032s
