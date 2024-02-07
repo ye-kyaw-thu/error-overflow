@@ -400,77 +400,6 @@ Check the extracted output files for the ft_no_tag approach:
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
-## Check the SCLITE Command  
-
-I already installed on my machine and thus, just checked able to run or not as follows:  
-
-```
-(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$ sclite
-sclite: <OPTIONS>
-sclite Version: 2.10, SCTK Version: 1.3
-Input Options:
-    -r reffile [ <rfmt> ]
-                Define the reference file, and it's format
-    -h hypfile [ <hfmt> <title> ]
-                Define the hypothesis file, it's format, and a 'title' used
-                for reports.  The default title is 'hypfile'.  This option
-                may be used more than once.
-    -i <ids>    Set the utterance id type.   (for transcript mode only)
-    -P          Accept the piped input from another utility.
-    -e gb|euc|utf-8 [ case-conversion-localization ]
-                Interpret characters as GB, EUC, utf-8, or the default, 8-bit ASCII.
-                Optionally, case conversion localization can be set to either 'generic',
-                'babel_turkish', or 'babel_vietnamese', 'ukranian'
-Alignment Options:
-    -s          Do Case-sensitive alignments.
-    -d          Use GNU diff for alignments.
-    -c [ NOASCII DH ]
-                Do the alignment on characters not on words as usual by split-
-                ting words into chars. The optional argument NOASCII does not
-                split ASCII words and the optional arg. DH deletes hyphens from
-                both the ref and hyp before alingment.   Exclusive with -d.
-    -L LM       CMU-Cambridge SLM Language model file to use in alignment and scoring.
-    -S algo1 lexicon [ ASCIITOO ]
-    -S algo2 lexicon [ ASCIITOO ]
-                Instead of performing word alignments, infer the word segmenta-
-                tion using algo1 or algo2.  See sclite(1) for algorithm details.
-    -F          Score fragments as correct.  Options -F and -d are exclusive.
-    -D          Score words marked optionally deletable as correct if deleted.
-                Options -D and -d are exclusive.
-    -T          Use time information, (if available), to calculated word-to-
-                word distances based on times. Options -F and -d are exlc.
-    -w wwl      Perform Word-Weight Mediated alignments, using the WWL file 'wwl'.
-                IF wwl is 'unity' use weight 1.o for all words.
-    -m [ ref | hyp ]
-                Only used for scoring a hyp/ctm file, against a ref/stm file.
-                When the 'ref' option is used, reduce the reference segments
-                to time range of the hyp file's words.  When the 'hyp' option
-                is used, reduce the hyp words to the time range of the ref
-                segments.  The two may be used together.  The argument -m
-                by itself defaults to '-m ref'.  Exclusive with -d.
-Output Options:
-    -O output_dir
-                Writes all output files into output_dir. Defaults to the
-                hypfile's directory.
-    -f level    Defines feedback mode, default is 1
-    -l width    Defines the line width.
-    -p          Pipe the alignments to another sclite utility.  Sets -f to 0.
-Scoring Report Options:
-    -o [ sum | rsum | pralign | all | sgml | stdout | lur | snt | spk |
-         dtl | prf | wws | nl.sgml | none ]
-                Defines the output reports. Default: 'sum stdout'
-    -C [ det | bhist | sbhist | hist | none ]
-                Defines the output formats for analysis of confidence scores.
-                Default: 'none'
-    -n name     Writes all outputs using 'name' as a root filename instead of
-                'hypfile'.  For multiple hypothesis files, the root filename
-                is 'name'.'hypfile'
-
-sclite: Error, Arguments reguired
-
-(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
-```
-
 ## Preparing a BASH Shell Script  
 
 ```bash
@@ -702,6 +631,78 @@ Check the speaker-ID tagged output files ...
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
+## Check the SCLITE Command  
+
+I already installed on my machine and thus, just checked able to run or not as follows:  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$ sclite
+sclite: <OPTIONS>
+sclite Version: 2.10, SCTK Version: 1.3
+Input Options:
+    -r reffile [ <rfmt> ]
+                Define the reference file, and it's format
+    -h hypfile [ <hfmt> <title> ]
+                Define the hypothesis file, it's format, and a 'title' used
+                for reports.  The default title is 'hypfile'.  This option
+                may be used more than once.
+    -i <ids>    Set the utterance id type.   (for transcript mode only)
+    -P          Accept the piped input from another utility.
+    -e gb|euc|utf-8 [ case-conversion-localization ]
+                Interpret characters as GB, EUC, utf-8, or the default, 8-bit ASCII.
+                Optionally, case conversion localization can be set to either 'generic',
+                'babel_turkish', or 'babel_vietnamese', 'ukranian'
+Alignment Options:
+    -s          Do Case-sensitive alignments.
+    -d          Use GNU diff for alignments.
+    -c [ NOASCII DH ]
+                Do the alignment on characters not on words as usual by split-
+                ting words into chars. The optional argument NOASCII does not
+                split ASCII words and the optional arg. DH deletes hyphens from
+                both the ref and hyp before alingment.   Exclusive with -d.
+    -L LM       CMU-Cambridge SLM Language model file to use in alignment and scoring.
+    -S algo1 lexicon [ ASCIITOO ]
+    -S algo2 lexicon [ ASCIITOO ]
+                Instead of performing word alignments, infer the word segmenta-
+                tion using algo1 or algo2.  See sclite(1) for algorithm details.
+    -F          Score fragments as correct.  Options -F and -d are exclusive.
+    -D          Score words marked optionally deletable as correct if deleted.
+                Options -D and -d are exclusive.
+    -T          Use time information, (if available), to calculated word-to-
+                word distances based on times. Options -F and -d are exlc.
+    -w wwl      Perform Word-Weight Mediated alignments, using the WWL file 'wwl'.
+                IF wwl is 'unity' use weight 1.o for all words.
+    -m [ ref | hyp ]
+                Only used for scoring a hyp/ctm file, against a ref/stm file.
+                When the 'ref' option is used, reduce the reference segments
+                to time range of the hyp file's words.  When the 'hyp' option
+                is used, reduce the hyp words to the time range of the ref
+                segments.  The two may be used together.  The argument -m
+                by itself defaults to '-m ref'.  Exclusive with -d.
+Output Options:
+    -O output_dir
+                Writes all output files into output_dir. Defaults to the
+                hypfile's directory.
+    -f level    Defines feedback mode, default is 1
+    -l width    Defines the line width.
+    -p          Pipe the alignments to another sclite utility.  Sets -f to 0.
+Scoring Report Options:
+    -o [ sum | rsum | pralign | all | sgml | stdout | lur | snt | spk |
+         dtl | prf | wws | nl.sgml | none ]
+                Defines the output reports. Default: 'sum stdout'
+    -C [ det | bhist | sbhist | hist | none ]
+                Defines the output formats for analysis of confidence scores.
+                Default: 'none'
+    -n name     Writes all outputs using 'name' as a root filename instead of
+                'hypfile'.  For multiple hypothesis files, the root filename
+                is 'name'.'hypfile'
+
+sclite: Error, Arguments reguired
+
+(base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
+```
+
+## 
 
 ```
 
