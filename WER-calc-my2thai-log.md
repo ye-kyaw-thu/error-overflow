@@ -170,7 +170,7 @@ optional arguments:
                         Output folder path.
 ```
 
-## Cut Target and Prediction
+## Cut Source, Target and Prediction
 
 
 ```
