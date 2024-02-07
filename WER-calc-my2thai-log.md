@@ -474,11 +474,76 @@ sclite: Error, Arguments reguired
 ## Preparing a BASH Shell Script  
 
 ```bash
+#!/bin/bash
+
+# Function to display help message
+show_help() {
+    echo "Usage: $0 --folder <input_folder> [--output <output_folder>] [--tag <tag_prefix>]"
+    echo "Options:"
+    echo "  -f, --folder    Specify the folder containing files to be processed."
+    echo "  -o, --output    (Optional) Specify the folder where output files should be saved."
+    echo "  -t, --tag       (Optional) Specify the tag prefix to be used with the Python script."
+    echo "  --help          Display this help message."
+}
+
+# Default values
+tag="zen" # Default tag value
+
+# Parse command-line arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -f|--folder) input_folder="$2"; shift ;;
+        -o|--output) output_folder="$2"; shift ;;
+        -t|--tag) tag="$2"; shift ;;
+        --help) show_help; exit 0 ;;
+        *) echo "Unknown parameter: $1"; show_help; exit 1 ;;
+    esac
+    shift
+done
+
+# Check if input folder is specified
+if [[ -z "$input_folder" ]]; then
+    echo "Error: Input folder is not specified."
+    show_help
+    exit 1
+fi
+
+# Default output folder to input folder if not specified
+if [[ -z "$output_folder" ]]; then
+    output_folder="$input_folder"
+else
+    # Check if the output folder exists, create it if not
+    if [[ ! -d "$output_folder" ]]; then
+        echo "Output folder does not exist, creating it..."
+        mkdir -p "$output_folder"
+    fi
+fi
+
+# Process files
+for file in "$input_folder"/*; do
+    if [[ $file =~ ref|hyp ]] && [[ ! $file =~ \.tag$ ]]; then
+        filename=$(basename "$file")
+        output="${filename%.*}.tag"
+        echo "Processing $file with tag $tag..."
+        python ./tag_speaker_id.py --input "$file" --output "$output_folder/$output" --tag "$tag"
+    fi
+done
+
+echo "Processing completed."
 
 ```
 
-```
+Call --help ...  
 
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ ./tag_all_ref_hyp.sh --help
+Usage: ./tag_all_ref_hyp.sh --folder <input_folder> [--output <output_folder>] [--tag <tag_prefix>]
+Options:
+  -f, --folder    Specify the folder containing files to be processed.
+  -o, --output    (Optional) Specify the folder where output files should be saved.
+  -t, --tag       (Optional) Specify the tag prefix to be used with the Python script.
+  --help          Display this help message.
+(base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
 ## Tagging for Baseline Reference and Hypothesis Files
@@ -522,13 +587,30 @@ Check the tagged hypothesis files ...
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
+Check with tail command ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ tail -n 5 ./baseline/ref_baseline.tag
+การ ตรวจ ภาย ใน (zen_8059)
+การ บำบัด ความ คิด และ พฤติกรรม (zen_8060)
+เจ็บ มาก เลย (zen_8061)
+คุณ จะ มี เลนส์ และ แว่นตา ที่ แตกต่าง กัน ทั้ง ด้าน ซ้าย และ ด้าน ขวา ของ คุณ (zen_8062)
+เรียก ญาติ คุณปราโมท เข้า มา ให้ หน่อย ค่ะ (zen_8063)
+(base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
 ```
-
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ tail -n 5 ./baseline/hyp_baseline.tag
+ตรวจ ภาย ใน (zen_8059)
+เดี๋ยว รอ คุย กับ แพทย์ เฉพาะ ทาง ต่อ ไป ค่ะ วิธี การ รักษา (zen_8060)
+เจ็บ จี๊ด มา เลย อ่ะ เจ็บ มาก (zen_8061)
+คุณ จะ มี เลนส์ และ แว่นตา ที่ แตกต่าง กัน ทั้ง ด้าน ซ้าย และ ด้าน ขวา ของ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ คุณ (zen_8062)
+เรียก ญาติ คุณปราโมท เข้า มา ให้ หน่อย ค่ะ ญาติ ค่ะ ญาติ ค่ะ ญาติ ค่ะ ญาติ ค่ะ ญาติ ค่ะ ญาติ ค่ะ ญาติ คุณปราโมท เข้า มา ให้ หน่อย ค่ะ ญาติ ค่ะ (zen_8063)
+(base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
-```
+## Tagging for  Reference and Hypothesis Files
+
 
 ```
 
