@@ -59,8 +59,11 @@ prediction:  ครับ มัน เพิ่ง เริ่ม มี อ�
 (base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
-## Cut Target and Prediction
+## Write a Python Code
 
+## Check --help
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ python ./extract.py --help
 usage: extract.py [-h] -i INPUT -o OUTPUT
 
@@ -72,25 +75,45 @@ optional arguments:
                         Input file path.
   -o OUTPUT, --output OUTPUT
                         Output folder path.
+```
+
+## Cut Target and Prediction
+
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./1_baseline.txt -
 -output baseline
 
 real    0m0.036s
 user    0m0.032s
 sys     0m0.004s
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./2_finetuned_tagged.txt --output ft_tag
 
 real    0m0.034s
 user    0m0.023s
 sys     0m0.011s
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ time python ./extract.py --input ./3_finetuned-notagged.txt --output ft_no_tag
 
 real    0m0.036s
 user    0m0.032s
 sys     0m0.004s
+```
+
+## Check the Output Folders and Files
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ ls
 1_baseline.txt          3_finetuned-notagged.txt  extract.py  ft_tag
 2_finetuned_tagged.txt  baseline                  ft_no_tag
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ tree ./baseline/
 ./baseline/
 ├── hyp_baseline.txt
@@ -98,6 +121,9 @@ sys     0m0.004s
 └── src_baseline.txt
 
 0 directories, 3 files
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ tree ./ft_tag/
 ./ft_tag/
 ├── hyp_ft_tag.txt
@@ -105,6 +131,9 @@ sys     0m0.004s
 └── tgt_ft_tag.txt
 
 0 directories, 3 files
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ tree ./ft_no_tag/
 ./ft_no_tag/
 ├── hyp_ft_notag.txt
@@ -112,22 +141,33 @@ sys     0m0.004s
 └── tgt_ft_notag.txt
 
 0 directories, 3 files
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc ./baseline/*
    8063  155222 1802632 ./baseline/hyp_baseline.txt
    8063   56900  661580 ./baseline/ref_baseline.txt
    8063  100145  930383 ./baseline/src_baseline.txt
   24189  312267 3394595 total
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc ./ft_tag/*
    8063  130459 1519421 ./ft_tag/hyp_ft_tag.txt
    8063  100145  930383 ./ft_tag/src_ft_tag.txt
    8063   56900  661580 ./ft_tag/tgt_ft_tag.txt
   24189  287504 3111384 total
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ wc ./ft_no_tag/*
    8063  146954 1706467 ./ft_no_tag/hyp_ft_notag.txt
    8063  100145  930383 ./ft_no_tag/src_ft_notag.txt
    8063   56900  661580 ./ft_no_tag/tgt_ft_notag.txt
   24189  303999 3298430 total
-(base) ye@lst-gpu-3090:~/exp/wer-calc$
+```
+
+```
 (base) ye@lst-gpu-3090:~/exp/wer-calc$ cd baseline/
 (base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$ head *
 ==> hyp_baseline.txt <==
@@ -166,6 +206,8 @@ sys     0m0.004s
 ဓာတ် မှန် ထဲ က အ နေ အ ထား ကို ပြန် ကြ ည့် ပါ ။
 ပုံ ထဲ က လို မျိုး အ ရောင် ကြည် ကြည် မြင် လိုက် ရ သ လား ။
 (base) ye@lst-gpu-3090:~/exp/wer-calc/baseline$
+```
+
 
 ```
 
