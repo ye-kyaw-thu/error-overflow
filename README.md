@@ -221,4 +221,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 214. [icu_tokenizer_exp_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/icu_tokenizer_exp_log.md)  
 215. [sylbreak_tool_updating_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sylbreak_tool_updating_log.md)  
 216. [lan_detect_log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/lan_detect_log.md)  
-217. [opennmt-tf_preparation.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/opennmt-tf_preparation.log.md)
+217. [opennmt-tf_preparation.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/opennmt-tf_preparation.log.md)  
+218. [WER-calc-my2thai-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/WER-calc-my2thai-log.md)  
+
