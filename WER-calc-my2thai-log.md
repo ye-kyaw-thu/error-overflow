@@ -481,8 +481,45 @@ sclite: Error, Arguments reguired
 
 ```
 
+## Tagging for Baseline Reference and Hypothesis Files
+
+Run shell script for Baseline ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ ./tag_all_ref_hyp.sh --folder ./baseline --tag "zen"
+Processing ./baseline/hyp_baseline.txt with tag zen...
+Processing ./baseline/ref_baseline.txt with tag zen...
+Processing completed.
 ```
 
+Check the output files ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ ls ./baseline/
+hyp_baseline.tag  hyp_baseline.txt  ref_baseline.tag  ref_baseline.txt  src_baseline.txt
+```
+
+Check the tagged reference files ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ head -n 5 ./baseline/ref_baseline.tag
+รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ (zen_1)
+ยินยอม เข้า รับ การ รักษา คะ (zen_2)
+ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจำ เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจำ เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ ความ รู้สึก ไม่ สบาย นั้น เรียก ว่า ประจำ เดือน ดิมัดโนลียา (zen_3)
+ตา เป็น สี แดง (zen_4)
+พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง (zen_5)
+```
+
+Check the tagged hypothesis files ...  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ head -n 5 ./baseline/hyp_baseline.tag
+รอ คุย รายละเอียด กับ แพทย์ ผู้ ตรวจ อีก ครั้ง นะ คะ โดย ตรง นะ คะ คุณ หมอ ปรึกษา คุณ หมอ (zen_1)
+ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า รับ การ รักษา คะ ยินยอม เข้า (zen_2)
+ครับ มัน เพิ่ง เริ่ม มี อาการ ปวด ประจํา เดือน แต่ ใน กรณี ของ คุณ เรียก ว่า ความ เครียด ก่อน มี ประจํา เดือน และ ช่วง เวลา ที่ มา พร้อม กับ ความ เจ็บปวด และ (zen_3)
+ตา แดง ตา ของ ฉัน แดง ตา ตา ตา ตา ตา (zen_4)
+พี่ หมอ อยาก เห็น ว่า ข้าง ใน ฟัน มัน เป็น ยัง ไง คือ คือ พี่ หมอ คือ พี่ หมอ พี่ หมอ พี่ หมอ พี่ หมอ อยาก เห็น พี่ หมอ พี่ หมอ พี่ หมอ พี่ หมอ พี่ (zen_5)
+(base) ye@lst-gpu-3090:~/exp/wer-calc$
 ```
 
 ```
