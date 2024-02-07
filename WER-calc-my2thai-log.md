@@ -71,6 +71,8 @@ prediction:  ครับ มัน เพิ่ง เริ่ม มี อ�
 
 ## Write a Python Code
 
+Python script name: extract_src_ref_hyp.py  
+
 ```python
 """
 
@@ -400,7 +402,73 @@ Check the extracted output files for the ft_no_tag approach:
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
+## Preparing a Python Script for Speaker ID Tagging
+
+I prepared a Python script: tag_speaker_id.py  
+
+```python
+"""
+
+for tagging speaker ID.
+Written by Ye Kyaw Thu, LU Lab., Myanmar.
+Last updated date: 7 Feb 2024.
+
+How to run:
+    $ python ./tag_speaker_id.py --help
+
+
+"""
+
+import argparse
+import sys
+
+def tag_lines(input_stream, tag_prefix, output_stream):
+    line_count = 1
+    for line in input_stream:
+        tagged_line = f"{line.strip()} ({tag_prefix}_{line_count})\n"
+        output_stream.write(tagged_line)
+        line_count += 1
+
+def main():
+    parser = argparse.ArgumentParser(description="Tag each line of the input with a unique identifier.")
+    parser.add_argument("--tag", type=str, default="ye", help="Prefix for the tag to be added to each line.")
+    parser.add_argument("-i", "--input", type=str, help="Input filename. If not provided, reads from stdin.")
+    parser.add_argument("-o", "--output", type=str, help="Output filename. If not provided, prints to stdout.")
+    args = parser.parse_args()
+
+    # Handling input
+    if args.input:
+        try:
+            input_stream = open(args.input, 'r', encoding='utf-8')
+        except FileNotFoundError:
+            print(f"Error: The file {args.input} was not found.")
+            sys.exit(1)
+    else:
+        input_stream = sys.stdin
+
+    # Handling output
+    if args.output:
+        output_stream = open(args.output, 'w', encoding='utf-8')
+    else:
+        output_stream = sys.stdout
+
+    # Tagging process
+    tag_lines(input_stream, args.tag, output_stream)
+
+    # Closing files if needed
+    if args.input:
+        input_stream.close()
+    if args.output:
+        output_stream.close()
+
+if __name__ == "__main__":
+    main()
+
+```
+
 ## Preparing a BASH Shell Script  
+
+I wrote a Bash shell script: tag_all_ref_hyp.sh  
 
 ```bash
 #!/bin/bash
@@ -702,23 +770,328 @@ sclite: Error, Arguments reguired
 (base) ye@lst-gpu-3090:~/exp/wer-calc/ft_no_tag$
 ```
 
-## 
+## Preparing a Bash Script For WER Calculations
+
+I wrote a shell script named: wer_calc.sh.  
+
+```bash
+#!/bin/bash
+
+echo "## WER Calculation for Baseline";
+echo "See some SYSTEM SUMMARY PERCENTAGES on screen ...";
+sclite -r ./baseline/ref_baseline.tag -h ./baseline/hyp_baseline.tag -i spu_id;
+echo -e "==========\n";
+
+echo "Running with pra option ...";
+sclite -r ./baseline/ref_baseline.tag -h ./baseline/hyp_baseline.tag -i spu_id -o pra;
+echo -e "==========\n";
+
+echo "Running with dtl option ...";
+sclite -r ./baseline/ref_baseline.tag -h ./baseline/hyp_baseline.tag -i spu_id -o dtl;
+echo -e "==========\n";
+
+echo "## WER Calculation for Finetuned with Tag";
+echo "See some SYSTEM SUMMARY PERCENTAGES on screen ...";
+sclite -r ./ft_tag/ref_ft_tag.tag -h ./ft_tag/hyp_ft_tag.tag -i spu_id;
+echo -e "==========\n";
+
+echo "Running with pra option ...";
+sclite -r ./ft_tag/ref_ft_tag.tag -h ./ft_tag/hyp_ft_tag.tag -i spu_id -o pra;
+echo -e "==========\n";
+
+echo "Running with dtl option ...";
+sclite -r ./ft_tag/ref_ft_tag.tag -h ./ft_tag/hyp_ft_tag.tag -i spu_id -o dtl;
+echo -e "==========\n";
+
+echo "## WER Calculation for Finetuned with No-Tag";
+echo "See some SYSTEM SUMMARY PERCENTAGES on screen ...";
+sclite -r ./ft_no_tag/ref_ft_notag.tag -h ./ft_no_tag/hyp_ft_notag.tag -i spu_id;
+echo -e "==========\n";
+
+echo "Running with pra option ...";
+sclite -r ./ft_no_tag/ref_ft_notag.tag -h ./ft_no_tag/hyp_ft_notag.tag -i spu_id -o pra;
+echo -e "==========\n";
+
+echo "Running with dtl option ...";
+sclite -r ./ft_no_tag/ref_ft_notag.tag -h ./ft_no_tag/hyp_ft_notag.tag -i spu_id -o dtl;
+echo -e "==========\n";
+
+```
+
+## WER Calculations for All Three Approaches
+
+I run as follows and saved the running log with tee command.  
+
+```
+(base) ye@lst-gpu-3090:~/exp/wer-calc$ ./wer_calc.sh | tee wer_calc_running.log
+## WER Calculation for Baseline
+See some SYSTEM SUMMARY PERCENTAGES on screen ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './baseline/ref_baseline.tag' and Hyp File: './baseline/hyp_baseline.tag'
+    Alignment# 8063 for speaker zen
+
+
+
+
+                     SYSTEM SUMMARY PERCENTAGES by SPEAKER
+
+     ,-------------------------------------------------------------------.
+     |                    ./baseline/hyp_baseline.tag                    |
+     |-------------------------------------------------------------------|
+     | SPKR   | # Snt   # Wrd  | Corr    Sub    Del    Ins    Err  S.Err |
+     |--------+----------------+-----------------------------------------|
+     | zen    |  8063   56900  | 92.2    5.7    2.1  174.9  182.7   88.5 |
+     |===================================================================|
+     | Sum/Avg|  8063   56900  | 92.2    5.7    2.1  174.9  182.7   88.5 |
+     |===================================================================|
+     |  Mean  |8063.0  56900.0 | 92.2    5.7    2.1  174.9  182.7   88.5 |
+     |  S.D.  |  0.0      0.0  |  0.0    0.0    0.0    0.0    0.0    0.0 |
+     | Median |8063.0  56900.0 | 92.2    5.7    2.1  174.9  182.7   88.5 |
+     `-------------------------------------------------------------------'
+
+Successful Completion
+==========
+
+Running with pra option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './baseline/ref_baseline.tag' and Hyp File: './baseline/hyp_baseline.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing string alignments to './baseline/hyp_baseline.tag.pra'
+
+Successful Completion
+==========
+
+Running with dtl option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './baseline/ref_baseline.tag' and Hyp File: './baseline/hyp_baseline.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing overall detailed scoring report './baseline/hyp_baseline.tag.dtl'
+
+Successful Completion
+==========
+
+## WER Calculation for Finetuned with Tag
+See some SYSTEM SUMMARY PERCENTAGES on screen ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_tag/ref_ft_tag.tag' and Hyp File: './ft_tag/hyp_ft_tag.tag'
+    Alignment# 8063 for speaker zen
+
+
+
+
+                     SYSTEM SUMMARY PERCENTAGES by SPEAKER
+
+     ,-------------------------------------------------------------------.
+     |                      ./ft_tag/hyp_ft_tag.tag                      |
+     |-------------------------------------------------------------------|
+     | SPKR   | # Snt   # Wrd  | Corr    Sub    Del    Ins    Err  S.Err |
+     |--------+----------------+-----------------------------------------|
+     | zen    |  8063   56900  | 90.8    6.8    2.5  131.7  140.9   81.8 |
+     |===================================================================|
+     | Sum/Avg|  8063   56900  | 90.8    6.8    2.5  131.7  140.9   81.8 |
+     |===================================================================|
+     |  Mean  |8063.0  56900.0 | 90.8    6.8    2.5  131.7  140.9   81.8 |
+     |  S.D.  |  0.0      0.0  |  0.0    0.0    0.0    0.0    0.0    0.0 |
+     | Median |8063.0  56900.0 | 90.8    6.8    2.5  131.7  140.9   81.8 |
+     `-------------------------------------------------------------------'
+
+Successful Completion
+==========
+
+Running with pra option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_tag/ref_ft_tag.tag' and Hyp File: './ft_tag/hyp_ft_tag.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing string alignments to './ft_tag/hyp_ft_tag.tag.pra'
+
+Successful Completion
+==========
+
+Running with dtl option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_tag/ref_ft_tag.tag' and Hyp File: './ft_tag/hyp_ft_tag.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing overall detailed scoring report './ft_tag/hyp_ft_tag.tag.dtl'
+
+Successful Completion
+==========
+
+## WER Calculation for Finetuned with No-Tag
+See some SYSTEM SUMMARY PERCENTAGES on screen ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_no_tag/ref_ft_notag.tag' and Hyp File: './ft_no_tag/hyp_ft_notag.tag'
+    Alignment# 8063 for speaker zen
+
+
+
+
+                     SYSTEM SUMMARY PERCENTAGES by SPEAKER
+
+     ,-------------------------------------------------------------------.
+     |                   ./ft_no_tag/hyp_ft_notag.tag                    |
+     |-------------------------------------------------------------------|
+     | SPKR   | # Snt   # Wrd  | Corr    Sub    Del    Ins    Err  S.Err |
+     |--------+----------------+-----------------------------------------|
+     | zen    |  8063   56900  | 90.9    6.8    2.3  160.6  169.7   86.5 |
+     |===================================================================|
+     | Sum/Avg|  8063   56900  | 90.9    6.8    2.3  160.6  169.7   86.5 |
+     |===================================================================|
+     |  Mean  |8063.0  56900.0 | 90.9    6.8    2.3  160.6  169.7   86.5 |
+     |  S.D.  |  0.0      0.0  |  0.0    0.0    0.0    0.0    0.0    0.0 |
+     | Median |8063.0  56900.0 | 90.9    6.8    2.3  160.6  169.7   86.5 |
+     `-------------------------------------------------------------------'
+
+Successful Completion
+==========
+
+Running with pra option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_no_tag/ref_ft_notag.tag' and Hyp File: './ft_no_tag/hyp_ft_notag.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing string alignments to './ft_no_tag/hyp_ft_notag.tag.pra'
+
+Successful Completion
+==========
+
+Running with dtl option ...
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ฉีด ยาชา* (zen_441)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ตรวจ ใน ช่อง ปาก * (zen_2654)
+
+Warning: The comment designation is now **, the line below
+         has only one comment info character, this may be an error
+         * ผ่า ฟัน ออก * (zen_7097)
+
+sclite: 2.10 TK Version 1.3
+Begin alignment of Ref File: './ft_no_tag/ref_ft_notag.tag' and Hyp File: './ft_no_tag/hyp_ft_notag.tag'
+    Alignment# 8063 for speaker zen
+
+    Writing overall detailed scoring report './ft_no_tag/hyp_ft_notag.tag.dtl'
+
+Successful Completion
+==========
+
+(base) ye@lst-gpu-3090:~/exp/wer-calc$
+```
+
+## Analysis Roughly on Top Errors of Baseline  
 
 ```
 
 ```
 
-```
+## Analysis Roughly on Top Errors of Finetuned without Tags  
 
 ```
 
 ```
 
-```
-
-```
-
-```
+## Analysis Roughly on Top Errors of Finetuned with Tags
 
 ```
 
