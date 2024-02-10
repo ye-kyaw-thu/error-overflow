@@ -1858,53 +1858,6 @@ Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
  ```
 
-## MIT-LM ?!
-
-Statistical LM က ငါသိရသလောက်က Python library အနေနဲ့ ခေါ်သုံးဖို့က အရမ်းအဆင်ပြေကြီး မဟုတ်ဘူး။  
-
-SRILM LM က Python အနေနဲ့ wrapper လုပ်သုံးရင်တော့ ရပေမဲ့ library အနေနဲ့ မရှိဘူး။  
-SRILM က သုံးဖို့အတွက် registration လုပ်ရတယ်။ Commercial အတွက် အဆင်မပြေဘူး။  
-
-KenLM ကလည်း Python အနေနဲ့ သုံးလို့ရပေမဲ့ မော်ဒယ်ဆောက်တဲ့အပိုင်း မပါဘူး။ ဆောက်ပြီးသား KenLM မော်ဒယ်ကိုပဲ load လုပ်ပြီး သုံးဖို့လောက်ပဲ အဆင်ပြေတယ်။  
-
-MITLM ကလည်း အရမ်းကြာနေပြီ update လည်း နောက်ပိုင်း မလုပ်တော့ဘူးလားလို့ ...  
-
-
-
-
-
-
-
-## Corpus Cleaning
-
-https://github.com/ye-kyaw-thu/tools/blob/master/python/clean_non_burmese.py
-
-နဲ့ corpus ထဲက မမြင်ရတဲ့ ZWNJ, ZWJ, နိုင်ငံခြားဘာသာစကားရဲ့ စာလုံးတွေ၊ ဂဏန်းတွေကိုလည်း ဖျက်ခဲ့တယ်။ 
-
-## Training and Testing  with Cleaned Corpus
-
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ shuf ./myNovelv1_wordseg.txt > ./myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$
-
-Combined two monolingual corpora:  
-
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ cat ./myWord_myPOS_myPara.merged.shuf ./myNovelv1_wordseg.shuf > myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ wc ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-  358047  7554252 96329489 ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$
-
-
-
-
-## Reference
-
-https://alphacephei.com/nsh/2020/12/13/lm-toolkits.html
-https://github.com/alphacep/vosk-space/blob/master/lm.md
-
-https://github.com/mmz33/N-Gram-Language-Model
-
-https://github.com/shayan09/Text-Generation-using-NGRAM-models/blob/master/ngram.py
-
 ## KenLM
 
 ဒီတခါတော့ KenLM နဲ့ LM model ဆောက်ဖို့ ပြင်ဆင်မယ်။   
@@ -2575,3 +2528,50 @@ Type "help", "copyright", "credits" or "license" for more information.
 ['ARPALoadComplain', 'Config', 'FullScoreReturn', 'LanguageModel', 'LoadMethod', 'Model', 'State', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '__test__', 'os']
 >>> 
 ```
+
+## MIT-LM ?!
+
+Statistical LM က ငါသိရသလောက်က Python library အနေနဲ့ ခေါ်သုံးဖို့က အရမ်းအဆင်ပြေကြီး မဟုတ်ဘူး။  
+
+SRILM LM က Python အနေနဲ့ wrapper လုပ်သုံးရင်တော့ ရပေမဲ့ library အနေနဲ့ မရှိဘူး။  
+SRILM က သုံးဖို့အတွက် registration လုပ်ရတယ်။ Commercial အတွက် အဆင်မပြေဘူး။  
+
+KenLM ကလည်း Python အနေနဲ့ သုံးလို့ရပေမဲ့ မော်ဒယ်ဆောက်တဲ့အပိုင်း မပါဘူး။ ဆောက်ပြီးသား KenLM မော်ဒယ်ကိုပဲ load လုပ်ပြီး သုံးဖို့လောက်ပဲ အဆင်ပြေတယ်။  
+
+MITLM ကလည်း အရမ်းကြာနေပြီ update လည်း နောက်ပိုင်း မလုပ်တော့ဘူးလားလို့ ...  
+
+
+
+
+
+
+
+## Corpus Cleaning
+
+https://github.com/ye-kyaw-thu/tools/blob/master/python/clean_non_burmese.py
+
+နဲ့ corpus ထဲက မမြင်ရတဲ့ ZWNJ, ZWJ, နိုင်ငံခြားဘာသာစကားရဲ့ စာလုံးတွေ၊ ဂဏန်းတွေကိုလည်း ဖျက်ခဲ့တယ်။ 
+
+## Training and Testing  with Cleaned Corpus
+
+(base) yekyaw.thu@gpu:~/exp/lm/corpus$ shuf ./myNovelv1_wordseg.txt > ./myNovelv1_wordseg.shuf
+(base) yekyaw.thu@gpu:~/exp/lm/corpus$
+
+Combined two monolingual corpora:  
+
+(base) yekyaw.thu@gpu:~/exp/lm/corpus$ cat ./myWord_myPOS_myPara.merged.shuf ./myNovelv1_wordseg.shuf > myWord_myPOS_myPara_myNovelv1_wordseg.shuf
+(base) yekyaw.thu@gpu:~/exp/lm/corpus$ wc ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
+  358047  7554252 96329489 ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
+(base) yekyaw.thu@gpu:~/exp/lm/corpus$
+
+
+
+
+## Reference
+
+https://alphacephei.com/nsh/2020/12/13/lm-toolkits.html
+https://github.com/alphacep/vosk-space/blob/master/lm.md
+
+https://github.com/mmz33/N-Gram-Language-Model
+
+https://github.com/shayan09/Text-Generation-using-NGRAM-models/blob/master/ngram.py
