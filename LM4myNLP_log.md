@@ -1907,20 +1907,23 @@ https://github.com/shayan09/Text-Generation-using-NGRAM-models/blob/master/ngram
 
 ## KenLM
 
-ဒီတခါတော့ KenLM နဲ့ LM model ဆောက်ဖို့ ပြင်ဆင်မယ်။  
+ဒီတခါတော့ KenLM နဲ့ LM model ဆောက်ဖို့ ပြင်ဆင်မယ်။   
 
 ## Installation of conda-forge boost cmake gcc
 
 The followings are about my Python version:  
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ which python
 /home/yekyaw.thu/.conda/envs/LM/bin/python
 (LM) yekyaw.thu@gpu:~/exp/lm$ python --version
 Python 3.8.18
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
-Install build dependencies: KenLM requires boost, cmake, and gcc to compile. 
+Install build dependencies: KenLM requires boost, cmake, and gcc to compile.  
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ conda install -c conda-forge boost cmake gcc
 Collecting package metadata (current_repodata.json): done
 Solving environment: -
@@ -2108,11 +2111,13 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Installation of KenLM
 
-I got following error:  
+I got following error:   
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ pip install kenlm
 Collecting kenlm
   Using cached kenlm-0.2.0.tar.gz (427 kB)
@@ -2212,11 +2217,13 @@ Building wheels for collected packages: kenlm
 Failed to build kenlm
 ERROR: Could not build wheels for kenlm, which is required to install pyproject.toml-based projects
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 g++ ကို မတွေ့တာ ...  
 
 ## KenLM Installation with GitHub Repository
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ git clone https://github.com/kpu/kenlm.git
 Cloning into 'kenlm'...
 remote: Enumerating objects: 14161, done.
@@ -2226,7 +2233,9 @@ remote: Total 14161 (delta 162), reused 406 (delta 131), pack-reused 13687
 Receiving objects: 100% (14161/14161), 5.91 MiB | 3.17 MiB/s, done.
 Resolving deltas: 100% (8042/8042), done.
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ cd kenlm/
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ ls
 BUILDING             compile_query_only.sh  Doxyfile     pyproject.toml  util
@@ -2234,7 +2243,9 @@ clean_query_only.sh  COPYING                LICENSE      python
 cmake                COPYING.3              lm           README.md
 CMakeLists.txt       COPYING.LESSER.3       MANIFEST.in  setup.py
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm$
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ mkdir build
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ cd build
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ cmake ..
@@ -2263,15 +2274,20 @@ CMake Error at CMakeLists.txt:14 (project):
 
 -- Configuring incomplete, errors occurred!
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
-
+```
 
 ## Clean Conda Env and Install Again
 
 
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda update -n base -c defaults conda
+```
+(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda update -n base -c defaults conda  
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda clean --all
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda install -c conda-forge gxx_linux-64
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -2379,9 +2395,11 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Generating done (0.0s)
 -- Build files have been written to: /home/yekyaw.thu/exp/lm/kenlm/build
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
+```
 
-Run make got 2 errors as follows:  
+Run make got 2 errors as follows:    
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ make -j 20
 ...
 ...
@@ -2397,11 +2415,13 @@ collect2: error: ld returned 1 exit status
 make[2]: *** [lm/CMakeFiles/kenlm_benchmark.dir/build.make:106: bin/kenlm_benchmark] Error 1
 make[1]: *** [CMakeFiles/Makefile2:404: lm/CMakeFiles/kenlm_benchmark.dir/all] Error 2
 make: *** [Makefile:136: all] Error 2
+```
 
-Hope it will be OK! ...
+Hope it will be OK! ...  
 
-Not OK. and Run again and Error Information is as follows:  
+Not OK. and Run again and Error Information is as follows:   
 
+```
 /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/normalize.cc:50:33: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
    50 | struct PtrGreater : public std::binary_function<const BackoffQueueEntry *, const BackoffQueueEntry *, bool> {
       |                                 ^~~~~~~~~~~~~~~
@@ -2517,11 +2537,13 @@ make[2]: *** [lm/CMakeFiles/kenlm_benchmark.dir/build.make:106: bin/kenlm_benchm
 make[1]: *** [CMakeFiles/Makefile2:404: lm/CMakeFiles/kenlm_benchmark.dir/all] Error 2
 make: *** [Makefile:136: all] Error 2
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
+```
 
 ## Finally 
 
 မည်သို့ မည်ပုံ ပြုလုပ်လိုက်သည် မသိ ...  
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ pip install https://github.com/kpu/kenlm/archive/master.zip
 Collecting https://github.com/kpu/kenlm/archive/master.zip
   Downloading https://github.com/kpu/kenlm/archive/master.zip (553 kB)
@@ -2537,11 +2559,13 @@ Successfully built kenlm
 Installing collected packages: kenlm
 Successfully installed kenlm-0.2.0
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 Note: တကယ်ကတော့ make clean လုပ်ပြီး နောက်မှာ make -j 20 ပြန် run လိုက်တာမှာ အထက်ပါအတိုင်း pip ကိုသုံးပြီး လုပ်တဲ့ installation က အဆင်ပြေသွားတဲ့ပုံရှိတယ်။  
 
 ## Check import KenLM
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python
 Python 3.8.18 (default, Sep 11 2023, 13:40:15)
 [GCC 11.2.0] :: Anaconda, Inc. on linux
@@ -2550,4 +2574,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> print(dir(kenlm))
 ['ARPALoadComplain', 'Config', 'FullScoreReturn', 'LanguageModel', 'LoadMethod', 'Model', 'State', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '__test__', 'os']
 >>> 
-
+```
