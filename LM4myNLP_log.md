@@ -701,9 +701,9 @@ Word: ခင်ဘုန်း, Score: 0.49523523449897766
 
 I wanna add interactive mode for testing ...  
 
-Current version:  
+Current version:   
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py  
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py   
  
  ```python
 import argparse
@@ -1007,6 +1007,7 @@ Word: စကားနာထိုး, Score: 0.4858129024505615
 
 ## Testing Interactive Mode
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1027,7 +1028,9 @@ Enter word or analogy (Ctrl+D or 'quit' to exit): ကျား
 Error: Analogy query should be in the form 'A B C'
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
+ ```
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1053,7 +1056,9 @@ Vector for 'ကျား မ အထီး':
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1082,7 +1087,9 @@ Score: 0.6792703866958618, Word: ဘာ
 Score: 0.6725432276725769, Word: လည်း
 Score: 0.6678541302680969, Word: “ဂီး”
 Enter word or analogy (Ctrl+D or 'quit' to exit):
+ ```
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1115,12 +1122,15 @@ Word: စိန်တုံး, Score: 0.47321921586990356
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
 ## Testing with File
 
-I prepared python code as follows:  
+I prepared python code as follows:   
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./ftlm_test_with_file.py
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./ftlm_test_with_file.py  
+
+```python
 """
 python code for running fasttext_lm.py with test file.
 Written by Ye Kyaw Thu, LU Lab., Myanmar
@@ -1212,10 +1222,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+ ```
 
-I also preapred a shell script as follows:  
+I also preapred a shell script as follows:   
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_test_with_file.sh
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_test_with_file.sh  
+
+ ```bash
 #!/bin/bash
 
 # for word_vector
@@ -1226,11 +1239,12 @@ python ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbor
 
 # for word_analogies
 python ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
+ ```
 
-I used two test files: test1.txt (one word, one line) and test2.txt (three words, one line).
+I used two test files: test1.txt (one word, one line) and test2.txt (three words, one line).  
+Test file for word_vector and nearest_neighbors testing:  
 
-Test file for word_vector and nearest_neighbors testing:
-
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ cat test1.txt
 စိတ္တဇ
 ရည်းစား
@@ -1243,9 +1257,11 @@ Test file for word_vector and nearest_neighbors testing:
 ဇာတ်ပို့
 တင်္ခဏုပ္ပတ္တိဉာဏ်
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
-Test file for word_analogies testing:  
+Test file for word_analogies testing:   
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ cat test2.txt
 ဝက် ဝက်သား ကြက်
 ဘုရင် မိဖုရား ဘုန်းကြီး
@@ -1254,9 +1270,11 @@ Test file for word_analogies testing:
 လက်ရှည် လက်တို ဘောင်းဘီရှည်
 အချစ် အမုန်း အပြုံး
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
 Run the shell script:  
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ ./run_ftlm_test_with_file.sh | tee test_with_file_input.log
 Running command: python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word စိတ္တဇ --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -1747,10 +1765,13 @@ Word: စိတ်ကူးယဉ်သမား, Score: 0.5030249953269958
 Word: စိတ်ကူးယဉ်, Score: 0.5015185475349426
 
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
 ## Prepared a Shell Script for Interactive Mode
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_interactive_test.sh
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_interactive_test.sh  
+
+ ```bash
 #!/bin/bash
 
 # Interactive testing for word_vector
@@ -1764,11 +1785,11 @@ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 # Interactive testing for word_analogies
 python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 --operation word_analogies --interactive
-
-(LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
 ## Testing interactive mode with above shell script
 
+ ```
 (LM) yekyaw.thu@gpu:~/exp/lm$ ./run_ftlm_interactive_test.sh
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1835,8 +1856,20 @@ Word: ဂျုံး, Score: 0.4343375265598297
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
+ ```
 
 ## MIT-LM ?!
+
+Statistical LM က ငါသိရသလောက်က Python library အနေနဲ့ ခေါ်သုံးဖို့က အရမ်းအဆင်ပြေကြီး မဟုတ်ဘူး။  
+
+SRILM LM က Python အနေနဲ့ wrapper လုပ်သုံးရင်တော့ ရပေမဲ့ library အနေနဲ့ မရှိဘူး။  
+SRILM က သုံးဖို့အတွက် registration လုပ်ရတယ်။ Commercial အတွက် အဆင်မပြေဘူး။  
+
+KenLM ကလည်း Python အနေနဲ့ သုံးလို့ရပေမဲ့ မော်ဒယ်ဆောက်တဲ့အပိုင်း မပါဘူး။ ဆောက်ပြီးသား KenLM မော်ဒယ်ကိုပဲ load လုပ်ပြီး သုံးဖို့လောက်ပဲ အဆင်ပြေတယ်။  
+
+MITLM ကလည်း အရမ်းကြာနေပြီ update လည်း နောက်ပိုင်း မလုပ်တော့ဘူးလားလို့ ...  
+
+
 
 
 
