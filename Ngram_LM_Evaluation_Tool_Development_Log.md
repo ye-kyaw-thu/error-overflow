@@ -1053,7 +1053,7 @@ optional arguments:
 (LM) yekyaw.thu@gpu:~/exp/lm/kenlm$
 ```
 
-## Confirmation of <s> and </s> Tags
+## Confirmation of "\<s\>" and "\<\/s\>" Tags
 
 ```
 (base) yekyaw.thu@gpu:~/exp/lm/kenlm/model$ grep -E "\<s\>|\<\/s\>" ./5gram.arpa | head -n 30
