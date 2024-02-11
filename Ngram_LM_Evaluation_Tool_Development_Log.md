@@ -1055,6 +1055,7 @@ optional arguments:
 
 ## Confirmation of <s> and </s> Tags
 
+```
 (base) yekyaw.thu@gpu:~/exp/lm/kenlm/model$ grep -E "\<s\>|\<\/s\>" ./5gram.arpa | head -n 30
 0       <s>     -1.1136011
 -2.0540004      </s>    0
@@ -1087,7 +1088,7 @@ optional arguments:
 -2.498015       နိုင်ငံတော် </s>        0
 -1.9355946      အစိုးရ </s>     0
 (base) yekyaw.thu@gpu:~/exp/lm/kenlm/model$
-
+```
 
 ## Evaluation 5gram LM with 10 Lines of Test File
 
