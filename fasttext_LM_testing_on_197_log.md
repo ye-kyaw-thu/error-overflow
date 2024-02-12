@@ -446,9 +446,101 @@ Word: ကာသာ, Score: 0.4840039908885956
 ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$
 ```
 
-ကမ္ဘောဒီးယားဘက်က ဆာဗာက အရေးထဲမှာ ဒေါင်းသွားခဲ့လို့...  
-python နဲ့ shell script တွေက local machine မှာ log မှတ်ထားတာလို့ တော်သေးတယ်။  
-အဲဒါနဲ့ log ကနေပဲ script တွေကို ကော်ပီကူးပြီး ကမမ်းကတမ်း Lab ရဲ့ ဆာဗာနောက်တစ်လုံးမှာ ပြန် training/testing လုပ်ခဲ့ရတာ။ အဆင်ပြေတာကို ဝမ်းသာတယ်။  
+## Prepared a Python code for Testing with Input File
+
+```python
+"""
+python code for running fasttext_lm.py with test file.
+Written by Ye Kyaw Thu, LU Lab., Myanmar
+Last updated: 10 Feb 2024
+
+How to run:
+# for word_vector
+python ./ftlm_test_with_file.py --input ./test1.txt --operation word_vector
+
+# for nearest_neighbors
+python ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbors
+
+# for word_analogies
+python ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
+
+"""
+
+import argparse
+import subprocess
+import sys
+
+def process_word(word, model_path, operation, k, output_file=None):
+    command = [
+        "python", "./fasttext_lm.py", "test",
+        "--model", model_path,
+        "--operation", operation,
+        "--word", word,
+        "--k", str(k)
+    ]
+    print(f"Running command: {' '.join(command)}")
+    # Updated subprocess.run call without using capture_output
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    output = result.stdout  # Captures both stdout and stderr
+    if output:
+        if output_file:
+            with open(output_file, "a", encoding="utf-8") as f:
+                f.write(output)
+        else:
+            print(output)
+
+def process_analogy(words, model_path, operation, k, output_file=None):
+    if len(words) != 3:
+        print("Error: Analogy query should be in the form 'A B C'")
+        return
+    command = [
+        "python", "./fasttext_lm.py", "test",
+        "--model", model_path,
+        "--operation", operation,
+        "--analogy", " ".join(words),
+        "--k", str(k)
+    ]
+    print(f"Running command: {' '.join(command)}")
+    # Updated subprocess.run call without using capture_output
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    output = result.stdout  # Captures both stdout and stderr
+    if output:
+        if output_file:
+            with open(output_file, "a", encoding="utf-8") as f:
+                f.write(output)
+        else:
+            print(output)
+
+def main():
+    parser = argparse.ArgumentParser(description="Process each word from a file or stdin.")
+    parser.add_argument("-i", "--input", type=str, help="Input file name.")
+    parser.add_argument("-o", "--output", type=str, help="Output file name.")
+    parser.add_argument("--model", type=str, default="./model/fasttext.5gram.30ep.model", help="Path to the model.")
+    parser.add_argument("--operation", type=str, default="nearest_neighbors", help="Operation to perform.")
+    parser.add_argument("--k", type=int, default=10, help="Number of nearest neighbors.")
+
+    args = parser.parse_args()
+
+    # Clear the output file if it exists
+    if args.output:
+        open(args.output, "w").close()
+
+    input_stream = open(args.input, "r", encoding="utf-8") if args.input else sys.stdin
+
+    for line in input_stream:
+        words = line.strip().split()
+        if args.operation == 'word_analogies':
+            process_analogy(words, args.model, args.operation, args.k, args.output)
+        else:
+            for word in words:
+                process_word(word, args.model, args.operation, args.k, args.output)
+
+    if args.input:
+        input_stream.close()
+
+if __name__ == "__main__":
+    main()
+```
 
 ## Prepared a Shell Script for Testing with Input File
 
@@ -458,13 +550,13 @@ ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ chmod +x ./run_ftlm_test_with_file.s
 #!/bin/bash
 
 # for word_vector
-python ./ftlm_test_with_file.py --input ./test1.txt --operation word_vector
+python3 ./ftlm_test_with_file.py --input ./test1.txt --operation word_vector
 
 # for nearest_neighbors
-python ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbors
+python3 ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbors
 
 # for word_analogies
-python ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
+python3 ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
 ```
 
 ## Prepare Test-Data Files
@@ -499,7 +591,471 @@ ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ cat test2.txt
 
 ## Testing with Input Files
 
+Run the shell script ...  
+
 ```
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ ./run_ftlm_test_with_file.sh | tee test_with_file_input.log
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word စိတ္တဇ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'စိတ္တဇ':
+[-4.61243570e-01  3.59516054e-01  1.10111272e+00 -1.23498619e+00
+  3.86580616e-01  5.50562680e-01 -1.95744246e-01 -2.79098004e-01
+ -1.44110814e-01  9.07426238e-01 -4.88572121e-01 -4.17411894e-01
+  1.00684807e-01 -9.90772426e-01 -6.27999067e-01  2.06491128e-01
+ -9.92151022e-01  7.98848689e-01 -1.02826461e-01 -3.88897002e-01
+  1.43366873e-01  6.96307480e-01  6.34460151e-01 -6.80318326e-02
+  3.43423218e-01  1.33263171e-01 -1.76689804e-01 -4.79032725e-01
+  2.44270056e-01 -8.68480504e-01 -2.20922649e-01 -6.12425148e-01
+ -1.37158945e-01 -2.37383783e-01 -4.00406092e-01 -2.30984315e-01
+ -6.60826713e-02 -4.75721478e-01  1.65775210e-01 -1.35185510e-01
+ -5.29746175e-01  1.20370224e-01  1.86605245e-01  2.71222740e-01
+  1.00021839e+00  4.97763038e-01  7.00700760e-01  4.74556625e-01
+  6.33076787e-01  1.05251156e-01 -6.10619962e-01  2.18991712e-01
+  1.62523985e-01 -7.88495421e-01 -4.81464297e-01 -3.55965160e-02
+  8.40244353e-01 -3.93840551e-01  4.57118094e-01 -9.46300402e-02
+  2.93241948e-01 -2.59939373e-01  1.12112188e+00  6.88830853e-01
+ -2.17285514e-01  6.46571219e-01  5.36031365e-01  7.53298402e-04
+ -1.40864700e-01 -5.04136860e-01 -8.68239462e-01  4.94253695e-01
+ -1.31907329e-01 -3.78319740e-01 -7.06739843e-01  9.14467126e-02
+  1.85969010e-01  1.95539474e-01  4.16892767e-02 -5.42600930e-01
+ -1.55656934e-01  3.72658372e-01 -1.78509764e-02 -7.73138851e-02
+  5.80567122e-03  1.16516851e-01  1.71922848e-01  8.15192163e-02
+  1.69001177e-01  5.57840526e-01 -3.68318856e-01  1.48532495e-01
+ -2.22696349e-01 -3.37793052e-01 -6.00888729e-01  6.78536892e-02
+  9.48494673e-02  4.21288311e-02  5.31411320e-02 -6.39567494e-01]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word ရည်းစား --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'ရည်းစား':
+[ 0.18350312  0.11539231  0.72136104  0.43853816  0.1774953   0.04232936
+ -0.03577008  0.04299934  0.03878647  0.884873    0.03926616  0.20777826
+  0.31533027 -0.61309564 -0.26909956 -0.65250427  0.1314337   0.33463043
+ -0.2678067  -0.96479785 -0.20676254 -0.01190126 -0.28153118 -0.23327512
+ -0.23918214  0.10819263 -0.6776352  -0.1775321   0.10618776  0.10535552
+ -0.4467323  -0.3828028  -0.2735994  -0.5214353  -0.36003298  0.39651796
+  0.01039605 -0.34373754 -0.14448686 -0.25234994 -0.01796346 -0.3464214
+  0.7556571   0.40079516  0.3995157   0.56787354  0.05639415  0.33831933
+ -0.40227887  0.17785409 -0.3384434   0.47514674 -0.22792937 -0.16378747
+ -0.49558538 -0.15207076  0.3190234   0.5221266   0.4660445  -0.38964435
+ -0.83155626  0.19413783  0.6262      0.34703618  0.08021066  0.11998545
+  0.25351274  0.3859742  -0.45298553 -0.51110256 -0.48014316  0.3036761
+  0.2107512   0.26069978 -0.33036503 -0.30511546 -0.35517168 -0.15387945
+ -0.10906395 -0.71284795  0.35965884 -0.14760953  0.12717156  0.59973615
+  0.0996118   0.41719234 -0.32435372  0.26942688 -0.5197583   0.05725256
+  0.19144583 -0.7555786   0.306573   -0.72335994 -0.2389975   0.16689983
+ -0.1940737  -0.03712358  0.24944346 -0.18530971]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word အမေ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'အမေ':
+[ 0.03071883 -0.25971985  0.40830743  0.11242703 -0.12839618 -0.00550127
+  0.05469747 -0.10745972 -0.15699431  0.3023142  -0.29259813  0.16690251
+  0.07785437 -0.58479047 -0.7412099  -0.04547881 -0.03287222 -0.11044414
+ -0.08638554 -0.02459145 -0.08973993 -0.02339625 -0.28159484  0.24005242
+  0.0358529  -0.6657557   0.27617294 -0.59123087  0.1455806   0.18249877
+  0.12091456 -0.4804478  -0.00294562 -0.56233424  0.278252    0.11192498
+  0.14295132  0.05967402 -0.12034112  0.05577437 -0.293318   -0.31646758
+  0.21822222 -0.40633217  0.17665516  0.2565288  -0.14461318 -0.08262646
+  0.4971917   0.3262872   0.09940107  0.18980542 -0.04641127  0.9501322
+  0.08271138  0.02752739 -0.17911749 -0.22868471  0.34966385  0.13285655
+ -0.06082508 -0.1977889   0.9427577   0.50436085  0.2823574  -0.19498166
+  0.1311327  -0.09055237  0.31270525  0.13989182 -0.84258276  0.30009115
+ -0.3908675   0.14674334 -0.4403673  -0.3262866  -0.26670656  0.24394107
+  0.18048933 -0.23953764  0.02176909 -0.29563728  0.10838298  0.12806904
+  0.09947888  0.0433741  -0.11379734  0.20521459  0.01840506  0.24994595
+  0.24415538 -0.19377986 -0.1143683  -0.30197594  0.12075205 -0.24896991
+ -0.11793793  0.49135238  0.0792672   0.16126719]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word သာဓု --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'သာဓု':
+[-0.98352873 -0.0695949   0.3714132   0.5298216   0.05769559  0.12682979
+ -1.0482336  -0.27413246  0.36196014  0.4132363  -1.5299553   0.23318763
+  0.48894048 -0.47652707  0.20415807 -0.4201265  -0.19519183 -0.54136795
+  0.1900705  -1.2804891  -0.40513307 -0.06873322 -0.33222723 -0.5652567
+ -0.54555476 -0.47325775  0.52416986  0.01625465 -0.16371305 -0.16311078
+  0.37537968  0.1431944  -0.37065732 -1.0512786  -0.22825406 -0.6039058
+ -0.23366335  0.54515165  0.05307398 -0.2989023  -0.38226736 -0.60125357
+ -0.60638714  0.17668483  0.5587475  -0.34886274 -0.07461213  0.18462121
+  0.7460933   0.576233   -0.76363945 -0.7422677  -0.56196225 -0.04852536
+  0.6577258   0.14395425  0.38339487  0.37458548  0.18185237 -0.3491058
+ -0.52669203 -0.53742     0.5456631   0.0324105  -0.522795   -0.15123408
+  0.521301   -0.07944807 -0.18765166  0.08098649 -0.25905928  0.32374802
+ -0.38589165  0.10780024  0.13277574 -0.50468236 -0.70396155 -0.76891667
+  0.8336255  -0.09163614 -0.00314118  1.0390295  -0.4873732  -0.22306018
+  0.16167276  0.25150904 -0.11911882 -0.4026206   0.21783903 -0.35505015
+  0.03703986 -0.2567889   0.15904881 -0.45394665 -0.21197641 -1.5640644
+ -0.14581154  1.1145556  -0.31788006 -0.01123831]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word မုန့်ဟင်းခါး --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'မုန့်ဟင်းခါး':
+[ 0.02072911 -0.33968386 -0.00712556  0.3429807   0.38542584 -0.8341492
+  0.29026207  0.2922137   0.04039382  0.44566974 -0.10547614 -0.11653781
+  0.2035024  -0.22189981 -0.26649544 -0.02591226 -0.20875455 -0.49668196
+  0.02908725  0.0972037  -0.28819057  0.6714998   0.25353217  0.07176629
+ -0.6297372   0.04526541 -0.80546224 -0.300375    0.42683533  0.50956
+ -0.4328399   0.37141195  0.09998427 -0.9005982   0.09338199  0.7211069
+ -0.03976711 -0.16917999 -0.50410086  0.23897766  0.38801482 -0.09667145
+ -0.5514925  -0.68928313  0.86968315  0.58271474  0.44007394 -0.35681865
+  0.06056396  0.4614208   0.9760795   0.16010152 -0.50962526  0.11868954
+  0.58964235 -0.11125648 -0.17581423  0.23699535 -0.01459764 -0.18870556
+ -0.8227549   0.3161526   1.0388361   0.85891026 -0.45570007 -0.070025
+  0.7118411  -0.02797711 -0.13516368 -0.15966047 -0.7897511   0.95739925
+  0.5297775   0.6391254  -0.3390045  -0.3692309   0.2724196   1.0055679
+  0.62526786  0.22983114 -0.39362374  0.4997484  -0.36732307  0.24460736
+ -0.40372536  0.5350609  -0.8402607  -0.33668005  1.2955524   0.5557153
+ -0.1464518  -0.28226998  0.27271658 -0.34058365 -0.05151579 -0.0763374
+  0.30214277 -0.30948433 -0.1329393  -0.43750456]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word အင်တာနက် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'အင်တာနက်':
+[ 0.02461799 -0.4431483   0.40922284  0.12563924  0.2722572  -1.288857
+  0.06817558 -0.03444771 -0.081062   -0.27401862  0.29866892  0.20236981
+  0.58547574 -0.5498527  -0.41020113  0.05787311  0.3199483  -0.59399354
+  0.34097305  0.06043766 -0.37805536  0.26828137  0.98806375 -0.00550441
+ -0.39155293 -0.74719656 -0.00755718 -0.4063354  -0.1110691  -0.37200257
+  0.15717864 -0.26558068  0.26360613 -0.9740983  -0.3815031  -0.41300339
+  0.26984027 -0.18501376  0.8520442   0.631234    0.14000505  1.0974772
+  0.15302046  0.10405287 -0.6867668  -0.20986141  0.1332902   0.05378478
+ -0.07629456 -0.29041228  0.18000452 -0.6115938  -0.44820562 -0.54375345
+ -0.33489463  0.72252595  0.12722687  0.5527463   0.6825161  -0.6390982
+ -0.06817158  0.2984414   0.2557105   0.13732181  0.5614249   0.25027475
+  0.46363178  0.39790303  0.06236941 -0.03253197 -0.03003915  0.73207664
+  0.26094547  0.5225181  -0.41999203  0.4743654   0.3807453  -0.2704268
+  0.14386329  0.19669594  0.24841078  0.07408433 -0.47021824  0.8097635
+  0.4291805   0.38897836 -0.02447556 -0.07200308  0.34446022  0.09325077
+ -0.19339983 -0.5036389   0.04551039 -0.2953481   0.8242626  -0.40197667
+  0.6710595  -0.09562401  0.37285838  0.13070965]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word ရန်ကုန် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'ရန်ကုန်':
+[ 0.1290069  -0.03592684 -0.11867675  0.2257954  -0.473563   -0.35239777
+ -0.57181484 -0.03475319 -0.23708783  0.65030825 -0.10124014 -0.13400957
+  0.35240486 -0.31402165 -0.06719279 -0.13503654 -0.3156866   0.26883408
+  0.21558973 -0.19340332  0.08023257  0.2563325  -0.4438472   0.0402977
+ -0.02622619 -0.02527681 -0.1377785  -0.14589903  0.07671191  0.20021753
+  0.06076101 -0.21933049  0.31538692 -0.51681095 -0.46547598  0.27212393
+  0.18232009 -0.25668526  0.3435244   0.5222832   0.25110954  0.1394268
+  0.61469513  0.01020287  0.19071501  0.02437381  0.15632175  0.5767516
+  0.04862933  0.53299165  0.13623665  0.33232126 -0.33950406  0.13628983
+  0.01701202 -0.16348657  0.11445231  0.14815888  0.80946743 -0.21395455
+ -0.07798062 -0.13582835  0.5317322  -0.33269858  0.294773   -0.26937526
+  0.27690625  0.34209117  0.02261608  0.49219635  0.21363184  0.07988419
+ -0.05811987  0.02318041  0.13980088  0.04466502  0.50008696 -0.48551032
+  0.0749235   0.10014639 -0.27442455  0.15959047  0.03612575  0.10304827
+  0.10890328  0.31755283  0.26686567 -0.18268637  0.30847842  0.00947756
+ -0.59516424  0.630735   -0.1476929  -0.36211884  0.61772114 -0.2904968
+ -0.48713648  0.10415425 -0.03689265 -0.02923396]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word ဆီးသွား --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'ဆီးသွား':
+[ 0.30889457 -0.24022423  0.6738354  -0.09143853  0.0238545  -0.39983255
+  0.12452907  0.1890093   0.24707654  0.2498872  -0.30960083 -0.7372539
+  0.42957556 -0.34163505  0.11622167 -0.7438044  -0.34981978 -0.51832503
+ -0.39606157 -0.05553234  0.00231808  0.6269972   0.10348926  0.33396992
+  0.12302213 -0.11410822  0.24557325  0.00379447  0.4236756   0.12663548
+  0.18407924  0.02252115  0.13579771 -0.6514597  -0.53494865  0.33799398
+ -0.6177018  -0.22036874 -0.12875856  0.6231622  -0.5091494   0.13618074
+ -0.01086953 -0.19985373  0.19994856  0.39508855  0.11878891  0.05710852
+  0.05556532 -0.3811469   0.2926302   0.18426585  0.24741025  0.20425892
+ -0.08479438 -0.02059691 -0.07126204  0.51409423 -0.17675117  0.39609286
+ -0.3106801  -0.22710319  0.93982136 -0.08874829  0.31514803 -0.25552866
+  0.18808317 -0.1803307  -0.16162358 -0.20018442 -0.08266675  0.96403706
+  0.37243214  0.61621135 -0.5130176   0.45905706  0.63896435 -0.16088215
+  0.36281252 -0.5353707  -0.37864256  0.4023435  -0.75810784  0.27769092
+  0.40118644  0.19029775 -0.08754174  0.17557608  0.22842206 -0.45689037
+ -0.5243021   0.19055322  0.05155192 -0.5410387  -0.1626779  -0.7710871
+  0.06063039 -0.7033961   0.2709069   0.81557333]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word ဇာတ်ပို့ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'ဇာတ်ပို့':
+[ 0.42967802  0.06222415  0.32258934  0.74104357  0.6136585   0.5638834
+ -0.19919515 -0.62080586  0.14988399  0.77782017 -0.290407    0.13919571
+  0.7496261  -0.11823046 -0.38165146  0.46824044 -0.34447688  0.10193388
+  0.21913485 -0.4019656   0.13324502  0.67584676 -0.25668386  0.30223966
+ -0.4505775  -0.69542354  0.00951281 -0.14878854  0.10965131 -0.340871
+  0.26378822 -0.3833829   0.167806   -0.906731    0.59496224  0.55628663
+  0.26787353 -0.23471022  0.6428358   0.8261384  -0.6044568  -0.29376
+ -0.15058315 -0.387981    0.34866467 -0.63532734  0.44170386  0.05479419
+ -0.24394608 -0.6073834   0.04890009  0.30766934 -0.33786878 -0.34087625
+ -0.33116215 -0.07938308  0.25266856  0.21834025 -0.5017361  -0.17699541
+ -0.09011719  0.07833123  0.649292   -0.5736984  -0.43354297 -0.39860043
+  0.724592    0.35849246 -0.07274796 -0.94739145 -0.08727514  0.73910064
+  0.08633166  0.70521563 -0.9183612   0.04892223 -0.7648514  -0.28440505
+  0.08033073  0.06013325  0.74668765  0.388712   -0.19079779  0.47967753
+  0.38138676  1.3278297  -0.43962085 -0.5748396   0.40653312  0.0720482
+  0.35342944 -0.69833887  0.7918739   0.12838788 -0.6222508  -0.314533
+  0.8493724   0.35461915  0.50917065  0.22309946]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word တင်္ခဏုပ္ပတ္တိဉာဏ် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Vector for 'တင်္ခဏုပ္ပတ္တိဉာဏ်':
+[-3.6252519e-01 -3.0949891e-01 -2.7171924e-04  1.6744243e-01
+ -1.8561958e-01  3.5400495e-02  6.5129362e-02 -4.2849746e-01
+  8.3449000e-01  9.5084769e-01  1.2962839e-01 -1.8867044e-01
+ -1.5725384e-02 -4.7682467e-01 -1.7319387e-01 -2.1641649e-01
+ -8.9325339e-02  3.3020240e-01  6.3709714e-02  2.8195310e-01
+ -1.7241758e-01 -6.9780841e-02 -6.9425836e-02  2.7824530e-02
+ -1.8123594e-01 -3.0149928e-01  1.9423731e-01 -2.4474090e-01
+  5.0549179e-01 -2.4687904e-01  1.7687345e-01  1.1030598e-01
+ -3.3118302e-01 -5.7657820e-01 -2.1268226e-01  8.4286436e-02
+  4.2713130e-01 -2.2583288e-01  3.0705658e-01  2.5753587e-01
+  2.1591781e-01 -2.2626346e-02 -5.1623034e-01  1.4342192e-01
+ -4.2802465e-01  4.8864338e-01  4.5662701e-02 -1.3786264e-01
+  2.4476588e-01 -1.5040088e-01 -1.8311977e-01  3.4235847e-01
+ -3.8464418e-01 -4.3917122e-01  1.4084108e-01 -2.5692081e-01
+  4.0236440e-01  2.8275117e-01 -5.7646304e-01 -2.5643867e-01
+  8.4712775e-03  2.0903388e-01  1.7546982e-01 -2.6228231e-01
+  7.0875943e-01  3.6593717e-02  1.8138285e-01 -4.6774086e-02
+ -5.9045102e-03 -2.1474726e-01 -5.2226430e-01  7.2871947e-01
+  2.1999292e-01  3.7599854e-02 -5.0268906e-01 -1.0626889e-01
+ -3.8652360e-01  2.3077419e-01  2.1548398e-01 -3.0149430e-01
+ -5.0856608e-01  1.0031799e-01  3.4728828e-01 -1.4690076e-01
+  6.2533629e-01  1.3482949e-01 -3.0025688e-01  6.3554621e-01
+  1.7992024e-01  2.3680243e-01  2.0809354e-01 -1.3708320e-01
+  5.7401109e-02  4.1160006e-02 -7.3975539e-01 -2.1292947e-01
+ -3.1068232e-02  1.1903800e+00 -1.0617174e-01  2.9745075e-01]
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word စိတ္တဇ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'စိတ္တဇ':
+Score: 0.6108500957489014, Word: စိတ္တ
+Score: 0.5902635455131531, Word: စိတ္တဗေဒ
+Score: 0.5444585680961609, Word: စွဲလမ်း
+Score: 0.5171483755111694, Word: အစွဲ
+Score: 0.4977812170982361, Word: စိတ္တသုခ
+Score: 0.49112340807914734, Word: အစွဲအလမ်း
+Score: 0.4869803786277771, Word: စိတ်တုံးတုံးချ
+Score: 0.48271381855010986, Word: ခေါင်းထဲစွဲ
+Score: 0.47994092106819153, Word: တွေးမိတွေးရာ
+Score: 0.4793800115585327, Word: နစ်မြှုပ်
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word ရည်းစား --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'ရည်းစား':
+Score: 0.7490476965904236, Word: ရည်းစားစာ
+Score: 0.6610181927680969, Word: တောဂေါ်လီ
+Score: 0.6460698246955872, Word: သမီးရည်းစား
+Score: 0.6383684873580933, Word: ရည်းစားဟောင်း
+Score: 0.6370531320571899, Word: ဒိတ်ဒိတ်ကျဲ
+Score: 0.6323522925376892, Word: အနမ်း
+Score: 0.6254004836082458, Word: လရိပ်ချို
+Score: 0.5798743367195129, Word: ရွှေရင်အေး
+Score: 0.5657164454460144, Word: သူငယ်ချင်း
+Score: 0.5643782615661621, Word: သူငယ်ချင်းလေး
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word အမေ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'အမေ':
+Score: 0.770022988319397, Word: အဖေ
+Score: 0.7500655055046082, Word: အမေ့
+Score: 0.7253955602645874, Word: အမေအမေ
+Score: 0.6909012198448181, Word: ကအမေ
+Score: 0.6774681210517883, Word: သမီး
+Score: 0.6317156553268433, Word: အမေစု
+Score: 0.6112778782844543, Word: အမေကြီး
+Score: 0.5977816581726074, Word: အဖေ့
+Score: 0.5932369828224182, Word: အောင်အောင်
+Score: 0.5837813019752502, Word: အောင်အောင့်
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word သာဓု --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'သာဓု':
+Score: 0.8327741622924805, Word: သာဓုပါ
+Score: 0.7131559252738953, Word: မွန်မြတ်
+Score: 0.7059281468391418, Word: လှူနိုင်
+Score: 0.6986103057861328, Word: နေယံ
+Score: 0.6942534446716309, Word: ကိုနေယံ
+Score: 0.688531219959259, Word: ဒါနအလှူ
+Score: 0.6542786955833435, Word: ဆထက်
+Score: 0.645128607749939, Word: လှူနိုင်တန်းနိုင်
+Score: 0.6399545669555664, Word: သုထု
+Score: 0.6270649433135986, Word: မက
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word မုန့်ဟင်းခါး --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'မုန့်ဟင်းခါး':
+Score: 0.7990289330482483, Word: ဟင်းခါး
+Score: 0.7077637314796448, Word: ကြက်ဟင်းခါး
+Score: 0.6973205804824829, Word: လက်ဖက်သုပ်
+Score: 0.6608697175979614, Word: သံပရာသီး
+Score: 0.6341961622238159, Word: မုန့်
+Score: 0.6330466866493225, Word: မုန့်ဖုတ်
+Score: 0.6302824020385742, Word: ငါးဟင်း
+Score: 0.628375768661499, Word: မုန့်ဟင်းခါး
+Score: 0.6252753138542175, Word: ကြက်ဟင်းခါးသီး
+Score: 0.6249695420265198, Word: မုန့်တီ
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word အင်တာနက် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'အင်တာနက်':
+Score: 0.697070837020874, Word: မြန်မာနက်
+Score: 0.6930655837059021, Word: တာနကာ
+Score: 0.6491116881370544, Word: ဘောနက်
+Score: 0.6279654502868652, Word: အင်တာနာ
+Score: 0.6255528926849365, Word: တာဝါတိုင်
+Score: 0.609035849571228, Word: ကွန်ရက်လိုင်း
+Score: 0.598670482635498, Word: ဖေ့စဘုတ်
+Score: 0.5967662334442139, Word: မိုဘိုင်းဖုန်း
+Score: 0.5892794132232666, Word: ဒေတာ
+Score: 0.5861119627952576, Word: လူမှုကွန်ရက်
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word ရန်ကုန် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'ရန်ကုန်':
+Score: 0.7396889328956604, Word: ရန်ကုန်သား
+Score: 0.708025336265564, Word: မန္တလေး
+Score: 0.6985551118850708, Word: ရန်ကုန်သူ
+Score: 0.6839996576309204, Word: မြို့
+Score: 0.6617465019226074, Word: တက္ကသိုလ်ရိပ်သာ
+Score: 0.6561608910560608, Word: မင်္ဂလာဒုံ
+Score: 0.6377002000808716, Word: ပန်းဘဲတန်း
+Score: 0.625712513923645, Word: ချမ်းမြသာစည်
+Score: 0.6229033470153809, Word: မိုးမခ
+Score: 0.6081750392913818, Word: လှိုင်သာယာ
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word ဆီးသွား --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'ဆီးသွား':
+Score: 0.7424295544624329, Word: စီးသွား
+Score: 0.6789516806602478, Word: ဆီးသီး
+Score: 0.6463682651519775, Word: ပြီးသွား
+Score: 0.6091898679733276, Word: ခရီးသွားချက်လက်မှတ်
+Score: 0.6015713810920715, Word: ခရီးသွား
+Score: 0.5920159816741943, Word: ချောင်းဆိုးပျောက်ဆေး
+Score: 0.5881614089012146, Word: ဆီးသား
+Score: 0.5750332474708557, Word: သံပရာရည်
+Score: 0.5727888345718384, Word: ဝမ်းသွား
+Score: 0.5692495703697205, Word: သွားနာပျောက်ဆေး
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word ဇာတ်ပို့ --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'ဇာတ်ပို့':
+Score: 0.7363746762275696, Word: ဇာတ်ဆောင်
+Score: 0.7230051755905151, Word: ဇာတ်ဆောင်ဆု
+Score: 0.6887322664260864, Word: ဇာတ်ရှိန်
+Score: 0.6832404136657715, Word: ဇာတ်ပျက်
+Score: 0.6633386611938477, Word: ဇာတ်ရံ
+Score: 0.6571233868598938, Word: သရုပ်ဆောင်
+Score: 0.6473250985145569, Word: ဇာတ်ကြီး
+Score: 0.6449819207191467, Word: ဇာတ်နာ
+Score: 0.6347267627716064, Word: ဇာတ်ပေါင်း
+Score: 0.6328849792480469, Word: ဇာတ်သမား
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word တင်္ခဏုပ္ပတ္တိဉာဏ် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Nearest neighbors for 'တင်္ခဏုပ္ပတ္တိဉာဏ်':
+Score: 0.6440856456756592, Word: ဝိပ္ပတ္တိ
+Score: 0.6375711560249329, Word: ကမ္မည်း
+Score: 0.6332984566688538, Word: အရာထင်
+Score: 0.6266775131225586, Word: စိတ်ကူးဉာဏ်
+Score: 0.616396427154541, Word: ကဗျာစု
+Score: 0.614463746547699, Word: ဥဿဟ
+Score: 0.6117307543754578, Word: ကဗျာစာပေ
+Score: 0.6089282631874084, Word: သမ္ပတ္တိ
+Score: 0.6034379005432129, Word: ဉာဏ်
+Score: 0.6027851104736328, Word: ဖခမည်းတော်
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy ဝက် ဝက်သား ကြက် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: ဝက် - ဝက်သား + ကြက်
+Analogies result:
+Word: တောကြက်, Score: 0.5436771512031555
+Word: ဥစားကြက်, Score: 0.5163474082946777
+Word: ခဘဲ, Score: 0.5094403028488159
+Word: ကြက်ကလေး, Score: 0.49058791995048523
+Word: ရေကြက်, Score: 0.48684030771255493
+Word: အသားစားကြက်, Score: 0.4804704189300537
+Word: ကြိုးကြာငှက်, Score: 0.478249728679657
+Word: တိန်ညင်, Score: 0.47800424695014954
+Word: ငမြှောင်တောင်, Score: 0.4747859537601471
+Word: ကြက်ကြီး, Score: 0.4715502858161926
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy ဘုရင် မိဖုရား ဘုန်းကြီး --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: ဘုရင် - မိဖုရား + ဘုန်းကြီး
+Analogies result:
+Word: ဘုန်းကြီးကျောင်းသား, Score: 0.4998887777328491
+Word: ဘုန်းတော်ကြီး, Score: 0.4904579818248749
+Word: ကိုနီ, Score: 0.48667111992836
+Word: ကိုပါကြီး, Score: 0.4843829274177551
+Word: ဘုန်းတော်, Score: 0.48367300629615784
+Word: ဘုန်းကြီးကျောင်းဝင်း, Score: 0.47713154554367065
+Word: သံဃာ, Score: 0.46965277194976807
+Word: ရခီး, Score: 0.46067744493484497
+Word: အရှင်ဗုဒ္ဓဉာဏ, Score: 0.4575707018375397
+Word: ဘုန်းဘုန်း, Score: 0.4531809091567993
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy အထီး အမ ယောက်ျား --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: အထီး - အမ + ယောက်ျား
+Analogies result:
+Word: ကျွဲရိုင်း, Score: 0.5402471423149109
+Word: ယောက်ျားသား, Score: 0.5387493371963501
+Word: ယောက်ျားကြီး, Score: 0.5383455157279968
+Word: လင်ယောက်ျား, Score: 0.5317496657371521
+Word: မိန်းမ, Score: 0.5178396105766296
+Word: မိမိရရ, Score: 0.4896197021007538
+Word: မဆီမဆိုင်, Score: 0.47792020440101624
+Word: ရန်မူ, Score: 0.4776657521724701
+Word: အမျက်ထွက်, Score: 0.47466450929641724
+Word: ယောက်ျားပျို, Score: 0.47288307547569275
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy ရေ ရေခွက် အရက် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: ရေ - ရေခွက် + အရက်
+Analogies result:
+Word: ဘီယာ, Score: 0.5928601622581482
+Word: လရည်, Score: 0.5563825964927673
+Word: အားပါး, Score: 0.5348815321922302
+Word: ကိုရခိုင်, Score: 0.5229480862617493
+Word: သောက်, Score: 0.5224330425262451
+Word: ဗိုက်ပူ, Score: 0.5142745971679688
+Word: တမြမြ, Score: 0.5138983726501465
+Word: ဂျူးဂျူး, Score: 0.4900066554546356
+Word: မွှမွှ, Score: 0.4892961084842682
+Word: ကိုချမ်း, Score: 0.48911252617836
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy လက်ရှည် လက်တို ဘောင်းဘီရှည် --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: လက်ရှည် - လက်တို + ဘောင်းဘီရှည်
+Analogies result:
+Word: ဝတ်, Score: 0.5567076206207275
+Word: ဖိုသီဖတ်သီ, Score: 0.5551380515098572
+Word: အင်္ကျီ, Score: 0.5383158326148987
+Word: ထိုင်မသိမ်း, Score: 0.5366981625556946
+Word: ထဘီ, Score: 0.5333731174468994
+Word: အဝါနု, Score: 0.5322700142860413
+Word: ညအိပ်ဝတ်ရုံ, Score: 0.5307892560958862
+Word: ဝတ်ဆင်, Score: 0.5197224020957947
+Word: အကျီ, Score: 0.519253671169281
+Word: ရေညှိရောင်, Score: 0.5191075205802917
+
+Running command: python3 ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy အချစ် အမုန်း အပြုံး --k 10
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Querying analogy for: အချစ် - အမုန်း + အပြုံး
+Analogies result:
+Word: အပြုံးရိပ်, Score: 0.5692172646522522
+Word: အချစ်စစ်, Score: 0.5567272305488586
+Word: ရည်းစား, Score: 0.5194999575614929
+Word: စိတ်ကလေး, Score: 0.5109435319900513
+Word: နှင်းဆီပန်း, Score: 0.5032280683517456
+Word: နူးညံ, Score: 0.49851325154304504
+Word: အချစ်ရူး, Score: 0.4959734082221985
+Word: အချစ်ကလေး, Score: 0.49558645486831665
+Word: အနမ်း, Score: 0.4931322932243347
+Word: နှလုံးသား, Score: 0.4912441074848175
+
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$
+```
+
+## 
+
 
 ```
 
@@ -585,7 +1141,9 @@ ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ cat test2.txt
 
 ```
 
-```
+ကမ္ဘောဒီးယားဘက်က ဆာဗာက အရေးထဲမှာ ဒေါင်းသွားခဲ့လို့...  
+python နဲ့ shell script တွေက local machine မှာ log မှတ်ထားတာလို့ တော်သေးတယ်။  
+အဲဒါနဲ့ log ကနေပဲ script တွေကို ကော်ပီကူးပြီး ကမမ်းကတမ်း Lab ရဲ့ ဆာဗာနောက်တစ်လုံးမှာ ပြန် training/testing လုပ်ခဲ့ရတာ။ အဆင်ပြေတာကို ဝမ်းသာတယ်။  
 
 ## To Do
 
