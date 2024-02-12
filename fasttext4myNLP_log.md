@@ -1,9 +1,10 @@
 # FastText LM for myNLP Framework
 
-At first, fasttext LM for similarity measurements ...
+At first, fasttext LM for similarity measurements ...  
 
 ## Preparing LM Conda Env
 
+```
 (base) yekyaw.thu@gpu:~/exp$ conda create --name LM python=3.8
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -63,14 +64,18 @@ Executing transaction: done
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
+```
 
+```
 (base) yekyaw.thu@gpu:~/exp$ conda activate LM
 (LM) yekyaw.thu@gpu:~/exp$
+```
 
 ## FastText Installation
 
 pip install fasttext က g++ မရှိဘူးဆိုတဲ့ error ပေးတယ်။ ငါ ဒီ server မှာ sudo right လည်းမရှိတော့ conda နဲ့ ပြောင်းပြီး fasttext ကို install လုပ်ကြည့်ခဲ့တယ်။  
 
+```
 (LM) yekyaw.thu@gpu:~/exp$ conda install -c conda-forge fasttext
 Collecting package metadata (current_repodata.json): done
 Solving environment: -
@@ -167,9 +172,11 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 (LM) yekyaw.thu@gpu:~/exp$
+```
 
 ## Import fasttext
 
+```
 (LM) yekyaw.thu@gpu:~/exp$ python
 Python 3.8.18 (default, Sep 11 2023, 13:40:15)
 [GCC 11.2.0] :: Anaconda, Inc. on linux
@@ -178,13 +185,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> print(dir(fasttext))
 ['BOW', 'EOS', 'EOW', 'FastText', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'absolute_import', 'cbow', 'division', 'load_model', 'print_function', 'skipgram', 'supervised', 'tokenize', 'train_supervised', 'train_unsupervised', 'unicode_literals']
 >>>
+```
 
 ## For Testing
 
-The difference between word vector based testing and nearest neighbors based testing primarily lies in the purpose and outcome of each method when analyzing word embeddings or vectors, such as those produced by FastText models.
+```
+The difference between word vector based testing and nearest neighbors based testing primarily lies in the purpose and outcome of each method when analyzing word embeddings or vectors, such as those produced by FastText models.  
 
 ### Word Vector Based Testing:
-
 - **Purpose:** Word vector based testing is aimed at understanding the numerical representation (embedding) of a word within the vector space created by the model. It is focused on the specific properties of a single word's vector.
 - **Outcome:** The outcome is the vector itself, which is a list of numbers (coordinates in the model's vector space). Each dimension of this vector captures some aspect of the word's meaning or usage based on the training data. This vector can be analyzed to understand the word's positioning in the semantic space relative to other words, but on its own, it provides a more abstract representation.
 - **Usage:** These vectors can be used in further NLP tasks such as computing similarity between words, clustering, or as features in machine learning models for tasks like sentiment analysis or document classification.
@@ -202,12 +210,14 @@ The difference between word vector based testing and nearest neighbors based tes
 - **Application:** Word vectors are more about leveraging the embedding for further NLP tasks, while nearest neighbors offer a way to validate or explore the semantic understanding encapsulated by the model.
 
 In summary, word vector based testing gives you the raw building blocks of semantic representation, while nearest neighbors based testing shows you how those representations interact within the model's learned semantic space.
+```
 
 ## Python Code Development
 
 ## Training
 
-time python ./fasttext_lm.py train --input ./corpus/myWord_myPOS_myPara.merged.shuf --output ./model/fasttext.5gram.30ep.model --model_type skipgram --min_count 3 --max_ngram 5 --epochs 30
+```
+time python ./fasttext_lm.py train --input ./corpus/myWord_myPOS_myPara.merged.shuf --output ./model/fasttext.5gram.30ep.model --model_type skipgram --min_count 3 --max_ngram 5 --epochs 30  
 
 ...
 ...
@@ -218,9 +228,11 @@ real    1m43.183s
 user    37m48.646s
 sys     0m5.276s
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Testing Word Vector
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ time python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 > --operation word_vector --word "အိပ်မက်"
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -247,12 +259,14 @@ real    0m0.614s
 user    0m0.498s
 sys     0m1.646s
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Testing Nearest Neighbors
 
 time python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
---operation nearest_neighbors --word "အိပ်မက်" --k 10
+--operation nearest_neighbors --word "အိပ်မက်" --k 10  
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ time python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 > --operation nearest_neighbors --word "အိပ်မက်" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -272,14 +286,16 @@ real    0m0.690s
 user    0m0.677s
 sys     0m1.635s
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Some more testing
 
 time python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
---operation nearest_neighbors --word "အိပ်မက်" --k 10
+--operation nearest_neighbors --word "အိပ်မက်" --k 10  
 
-အောက်ပါ စာလုံးတွေကို ဖိုင်တစ်ဖိုင်တည်းမှာ ထည့်ထားပြီး ...  
+အောက်ပါ စာလုံးတွေကို ဖိုင်တစ်ဖိုင်တည်းမှာ ထည့်ထားပြီး ...   
 
+```
 စိတ္တဇ
 ရည်းစား
 အမေ
@@ -290,10 +306,11 @@ time python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 ဆီးသွား
 ဇာတ်ပို့
 တင်္ခဏုပ္ပတ္တိဉာဏ်
+```
 
-testing လုပ်ကြည့်ခဲ့တယ်။  
+testing လုပ်ကြည့်ခဲ့တယ်။   
 
-
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ time python ./run_ftlm_nearest.py --input ./test1.txt --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --k 10
 Running command: python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --word စိတ္တဇ --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -440,9 +457,11 @@ real    0m6.734s
 user    0m6.360s
 sys     0m16.137s
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Update the Python Code
 
+```python
 import argparse
 import fasttext
 
@@ -519,9 +538,11 @@ def main():
 		
 if __name__ == '__main__':
     main()
+```
 
 ## Called --help
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python ./fasttext_lm.py --help
 usage: fasttext_lm.py [-h] {train,test} ...
 
@@ -555,6 +576,9 @@ optional arguments:
                         Maximum length of word ngram
   --dim DIM             Size of word vectors
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
+
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --help
 usage: fasttext_lm.py test [-h] --model MODEL --operation
                            {word_vector,nearest_neighbors,word_analogies} [--word WORD]
@@ -572,14 +596,14 @@ optional arguments:
                         word_analogies)
   --k K                 Number of results to return
 (LM) yekyaw.thu@gpu:~/exp/lm$
-
-===========
+```
 
 # Testing Mode Example (Nearest Neighbors):
+
 time python ./fasttext_lm.py test  ./model/fasttext.5gram.30ep.model \
---operation nearest_neighbors --word "အိပ်မက်" --k 10
+--operation nearest_neighbors --word "အိပ်မက်" --k 10  
 
-
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "ရန်ကုန် မန္တလေး ပဲခူး" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Querying analogy for: ရန်ကုန် - မန္တလေး + ပဲခူး
@@ -595,8 +619,9 @@ Word: သနပ်ပင်, Score: 0.4939956068992615
 Word: တိုင်း, Score: 0.49334079027175903
 Word: ဥက္ကလာပ၊, Score: 0.4922102093696594
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
-
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "အချစ် အမုန်း စိတ်ဆိုး" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Querying analogy for: အချစ် - အမုန်း + စိတ်ဆိုး
@@ -611,7 +636,9 @@ Word: စိတ်ဆိုးမာန်ဆိုး, Score: 0.512314975261688
 Word: ပူလောင်, Score: 0.5031462907791138
 Word: စိတ်ကောက်, Score: 0.5015113949775696
 Word: အချစ်ရေး, Score: 0.5004758834838867
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "အဖိုး အဖွား အဖေ" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Querying analogy for: အဖိုး - အဖွား + အဖေ
@@ -627,7 +654,9 @@ Word: မမမြ, Score: 0.4944083094596863
 Word: မောင်အုန်းမောင်, Score: 0.49041005969047546
 Word: ပဲဝက်, Score: 0.49010178446769714
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "အရက် မိန်းမ လောင်းကစား" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Querying analogy for: အရက် - မိန်းမ + လောင်းကစား
@@ -643,6 +672,8 @@ Word: ဆေးလိပ်ဖိုး, Score: 0.440635085105896
 Word: အရက်နာကျ, Score: 0.4390476942062378
 Word: ရောင်းရငွေ, Score: 0.43038254976272583
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
+
 
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "ဆိုင်ကယ် ကား ဆိုက်ကား" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
