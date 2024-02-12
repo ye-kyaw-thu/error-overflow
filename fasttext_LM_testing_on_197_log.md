@@ -450,6 +450,143 @@ ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$
 python နဲ့ shell script တွေက local machine မှာ log မှတ်ထားတာလို့ တော်သေးတယ်။  
 အဲဒါနဲ့ log ကနေပဲ script တွေကို ကော်ပီကူးပြီး ကမမ်းကတမ်း Lab ရဲ့ ဆာဗာနောက်တစ်လုံးမှာ ပြန် training/testing လုပ်ခဲ့ရတာ။ အဆင်ပြေတာကို ဝမ်းသာတယ်။  
 
+## Prepared a Shell Script for Testing with Input File
+
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ chmod +x ./run_ftlm_test_with_file.sh  
+
+```bash
+#!/bin/bash
+
+# for word_vector
+python ./ftlm_test_with_file.py --input ./test1.txt --operation word_vector
+
+# for nearest_neighbors
+python ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbors
+
+# for word_analogies
+python ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
+```
+
+## Prepare Test-Data Files
+
+test1.txt is as follows:  
+
+```
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ cat test1.txt
+စိတ္တဇ
+ရည်းစား
+အမေ
+သာဓု
+မုန့်ဟင်းခါး
+အင်တာနက်
+ရန်ကုန်
+ဆီးသွား
+ဇာတ်ပို့
+တင်္ခဏုပ္ပတ္တိဉာဏ်
+```
+
+Test file (test2.txt) for word_analogies testing:  
+
+```
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ cat test2.txt
+ဝက် ဝက်သား ကြက်
+ဘုရင် မိဖုရား ဘုန်းကြီး
+အထီး အမ ယောက်ျား
+ရေ ရေခွက် အရက်
+လက်ရှည် လက်တို ဘောင်းဘီရှည်
+အချစ် အမုန်း အပြုံး
+```
+
+## Testing with Input Files
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ## To Do
 
 - Add more monolingual data
