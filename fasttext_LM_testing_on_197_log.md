@@ -1054,19 +1054,139 @@ Word: နှလုံးသား, Score: 0.4912441074848175
 ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$
 ```
 
-## 
+## Prepared a Shell Script for Testing Interactive Mode
 
+```bash
+#!/bin/bash
 
+# Interactive testing for word_vector
+python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
+--operation word_vector --interactive
+
+# Interactive testing for nearest_neighbors
+python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
+--operation nearest_neighbors --interactive
+
+# Interactive testing for word_analogies
+python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
+--operation word_analogies --interactive
 ```
 
-```
+## Testing interactive mode with above shell script on 197 Server
+
+Results of testing interactively with the trained FastText LM model:  
 
 ```
-
-```
-
-```
-
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$ ./run_ftlm_interactive_test.sh
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Entering interactive mode...
+Enter word or analogy (Ctrl+D or 'quit' to exit): ငြိမ်းချမ်းရေး
+Vector for 'ငြိမ်းချမ်းရေး':
+[ 0.09019148 -0.01960137  0.2569467   0.38976547 -0.31092373 -0.15332252
+ -0.30632052 -0.21447527  0.3296599   1.0983757  -0.31802794 -0.28116792
+ -0.05917757  0.08754324 -0.11376742 -0.2332934   0.03384474 -0.14380324
+ -0.46496373  0.36183578 -0.30610856  0.36684886 -0.6988009   0.16636996
+  0.03131565 -0.0034734  -0.04295224 -0.4501159  -0.22021197 -0.16217521
+ -0.3270543  -0.13563952  0.05130111 -0.7868437  -0.5418598  -0.45402437
+  0.06534928  0.05430216  0.08712118  0.5603811  -0.25525302  0.10072706
+ -0.26798603 -0.14316739 -0.12512895  0.24595232  0.26982608  0.17504571
+  0.3884824   0.01866618  0.14008282  0.07917123  0.33030948 -0.22486301
+  0.04919017 -0.01522301 -0.38999376  0.2403936  -0.7351026  -0.0499537
+  0.14640345  0.31977755  0.24091582  0.6769453   0.18631817 -0.05112279
+ -0.40215665  0.2745652   0.03602925  0.39117286  0.08957123  0.4116364
+  0.32594427  0.18975691  0.45594773  0.2109034   0.12114381 -0.2824832
+  0.07604205 -0.28073722 -0.25546253 -0.6957502   0.06869821  0.5669182
+  0.65264636  0.58202857  0.00158503  0.4985524   0.19716214 -0.17365934
+ -0.32187817 -0.24929409 -0.29349452 -0.1685136  -0.05888272 -0.4737351
+ -0.08975589  0.70425934  0.10582624  0.07150444]
+Enter word or analogy (Ctrl+D or 'quit' to exit): quit
+Exiting interactive mode...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Entering interactive mode...
+Enter word or analogy (Ctrl+D or 'quit' to exit): ငြိမ်းချမ်းရေး
+Nearest neighbors for 'ငြိမ်းချမ်းရေး':
+Score: 0.8256531357765198, Word: ငြိမ်းချမ်းပါ
+Score: 0.7763380408287048, Word: ငြိမ်းချမ်း
+Score: 0.7754710912704468, Word: ငြိမ်းငြိမ်းချမ်းချမ်း
+Score: 0.7691569328308105, Word: ငြိမ်းချမ်းစွာ
+Score: 0.7418473958969116, Word: ငြိမ်းချမ်းသာယာ
+Score: 0.7276175022125244, Word: ဦးငြိမ်းချမ်းဖြိုး
+Score: 0.6876803040504456, Word: ငြိမ်းချမ်းအောင်
+Score: 0.6364005208015442, Word: အတွင်းရေး
+Score: 0.6126285195350647, Word: ခင်ငြိမ်းချမ်း
+Score: 0.5829322934150696, Word: ကိုငြိမ်းချမ်းစိုး
+Enter word or analogy (Ctrl+D or 'quit' to exit): quit
+Exiting interactive mode...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Entering interactive mode...
+Enter word or analogy (Ctrl+D or 'quit' to exit): ခေါက်ဆွဲ ခေါက်ဆွဲကြော် ထမင်း
+Querying analogy for: ခေါက်ဆွဲ - ခေါက်ဆွဲကြော် + ထမင်း
+Analogies result:
+Word: ထမင်းဗူး, Score: 0.6233041882514954
+Word: စား, Score: 0.6202290654182434
+Word: ဟင်း, Score: 0.6037296652793884
+Word: ခေါက်ဆွဲပြုတ်, Score: 0.5885267853736877
+Word: ထမင်းစား, Score: 0.5807790160179138
+Word: ငတ်, Score: 0.5805908441543579
+Word: ထမင်းနပ်, Score: 0.5801066756248474
+Word: ထမင်းအိုး, Score: 0.5789756774902344
+Word: ဆီကျန်ရေကျန်, Score: 0.5699730515480042
+Word: ထမင်းပေါင်းအိုး, Score: 0.5618475675582886
+Enter word or analogy (Ctrl+D or 'quit' to exit): အမေ သမီး အဖေ
+Querying analogy for: အမေ - သမီး + အဖေ
+Analogies result:
+Word: အဖေ့, Score: 0.6298395991325378
+Word: အောင်အောင်, Score: 0.6093142628669739
+Word: အောင်အောင့်, Score: 0.5858247876167297
+Word: အမေ့, Score: 0.5792707204818726
+Word: အမေအမေ, Score: 0.5743736028671265
+Word: အောင်အောင့်, Score: 0.5402972102165222
+Word: မောင်အောင်, Score: 0.5393268465995789
+Word: တစ်ထေရာတည်း, Score: 0.5258970260620117
+Word: အမေက, Score: 0.5168067216873169
+Word: ပက်လက်ကုလားထိုင်, Score: 0.4823192358016968
+Enter word or analogy (Ctrl+D or 'quit' to exit): အရက် အမြည်း ဝိုင်
+Querying analogy for: အရက် - အမြည်း + ဝိုင်
+Analogies result:
+Word: ဘီယာ, Score: 0.5908976197242737
+Word: အရက်သေစာ, Score: 0.556129515171051
+Word: ဝိုင်အနီ, Score: 0.5386541485786438
+Word: ဆေးလိပ်ငွေ့, Score: 0.520714521408081
+Word: သောက်, Score: 0.5195865631103516
+Word: ဆေးလိပ်သောက်, Score: 0.5083991289138794
+Word: အရက်ငွေ့, Score: 0.5051696300506592
+Word: သောက်လာ, Score: 0.49392056465148926
+Word: ဝီစကီ, Score: 0.4925500750541687
+Word: အရက်သောက်, Score: 0.4839438498020172
+Enter word or analogy (Ctrl+D or 'quit' to exit): ေ လ ရွှေ
+Querying analogy for: ေ - လ + ရွှေ
+Analogies result:
+Word: လှပတဲ့, Score: 0.45698538422584534
+Word: မဆိုး, Score: 0.4501241147518158
+Word: ဖုတ်ဖက်ခါ, Score: 0.4482864737510681
+Word: ရွှေရွှေ, Score: 0.4473031163215637
+Word: သူဋ္ဌေး, Score: 0.4465283453464508
+Word: လန့်ဖျပ်, Score: 0.44632688164711
+Word: သောက်ကျင့်ယုတ်, Score: 0.44516438245773315
+Word: တောင့်တောင့်ကြီး, Score: 0.44474005699157715
+Word: ရေအိုးစင်, Score: 0.44430360198020935
+Word: ကျံ, Score: 0.44383561611175537
+Enter word or analogy (Ctrl+D or 'quit' to exit): ေပူ ချွေးထွက် အေး
+Querying analogy for: ေပူ - ချွေးထွက် + အေး
+Analogies result:
+Word: ရေပူ, Score: 0.47151610255241394
+Word: မုံ, Score: 0.46925902366638184
+Word: နွယ်, Score: 0.4589884579181671
+Word: ချမ်း, Score: 0.4580356478691101
+Word: ငမှုန်, Score: 0.4447804093360901
+Word: ပါ့, Score: 0.4375360608100891
+Word: အိုပါး, Score: 0.43096235394477844
+Word: ခ်ခ်, Score: 0.4298093318939209
+Word: ကာဖီ, Score: 0.4278886914253235
+Word: အယ်, Score: 0.4254662096500397
+Enter word or analogy (Ctrl+D or 'quit' to exit): quit
+Exiting interactive mode...
+ye@lst-gpu-server-197:~/ye/exp/lm/fasttext$
 ```
 
 ```
