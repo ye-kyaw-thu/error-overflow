@@ -674,7 +674,7 @@ Word: ရောင်းရငွေ, Score: 0.43038254976272583
 (LM) yekyaw.thu@gpu:~/exp/lm$
 ```
 
-
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --analogy "ဆိုင်ကယ် ကား ဆိုက်ကား" --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Querying analogy for: ဆိုင်ကယ် - ကား + ဆိုက်ကား
@@ -690,14 +690,16 @@ Word: ဆိုင်ကယ်ကြီး, Score: 0.5095804929733276
 Word: ဆိုင်ကယ်သံ, Score: 0.5038426518440247
 Word: ခင်ဘုန်း, Score: 0.49523523449897766
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Updating the Python Script
 
-I wanna add interactive mode for testing ...
+I wanna add interactive mode for testing ...  
 
-Current version:
+Current version:  
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py  
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py
+```python
 import argparse
 import fasttext
 
@@ -774,11 +776,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+```
 
+I updated as follows:    
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py  
 
-I updated as follows:  
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat fasttext_lm.py
+```python
 import argparse
 import fasttext
 
@@ -897,13 +900,15 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+```
 
 ## Train/Test Again
 
 Prepared shell script as follows:  
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm.sh
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm.sh  
+
+```bash
 #!/bin/bash
 
 set -x
@@ -927,10 +932,11 @@ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 --operation word_analogies --analogy "အချစ် အမုန်း စိတ်ဆိုး" --k 10
 
 set +x
-(LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
-The running result is as follows:  
+The running result is as follows:   
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ ./run_ftlm.sh
 + python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word အိပ်မက် --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -989,10 +995,11 @@ Word: စိတ်ဆိုးမာန်ဆိုး, Score: 0.488971441984176
 Word: စကားနာထိုး, Score: 0.4858129024505615
 + set +x
 (LM) yekyaw.thu@gpu:~/exp/lm$
-
+```
 
 ## Testing Interactive Mode
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1013,7 +1020,9 @@ Enter word or analogy (Ctrl+D or 'quit' to exit): ကျား
 Error: Analogy query should be in the form 'A B C'
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1039,7 +1048,9 @@ Vector for 'ကျား မ အထီး':
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation nearest_neighbors --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1068,7 +1079,9 @@ Score: 0.6792703866958618, Word: ဘာ
 Score: 0.6725432276725769, Word: လည်း
 Score: 0.6678541302680969, Word: “ဂီး”
 Enter word or analogy (Ctrl+D or 'quit' to exit):
+```
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_analogies --interactive
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1101,12 +1114,15 @@ Word: စိန်တုံး, Score: 0.47321921586990356
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Testing with File
 
-I prepared python code as follows:  
+I prepared python code as follows:   
 
 (LM) yekyaw.thu@gpu:~/exp/lm$ cat ./ftlm_test_with_file.py
+
+```python
 """
 python code for running fasttext_lm.py with test file.
 Written by Ye Kyaw Thu, LU Lab., Myanmar
@@ -1198,10 +1214,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 I also preapred a shell script as follows:  
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_test_with_file.sh
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_test_with_file.sh  
+
+```bash
 #!/bin/bash
 
 # for word_vector
@@ -1212,11 +1231,13 @@ python ./ftlm_test_with_file.py --input ./test1.txt --operation nearest_neighbor
 
 # for word_analogies
 python ./ftlm_test_with_file.py --input ./test2.txt --operation word_analogies
+```
 
-I used two test files: test1.txt (one word, one line) and test2.txt (three words, one line).
+I used two test files: test1.txt (one word, one line) and test2.txt (three words, one line).  
 
-Test file for word_vector and nearest_neighbors testing:
+Test file for word_vector and nearest_neighbors testing:  
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ cat test1.txt
 စိတ္တဇ
 ရည်းစား
@@ -1229,9 +1250,11 @@ Test file for word_vector and nearest_neighbors testing:
 ဇာတ်ပို့
 တင်္ခဏုပ္ပတ္တိဉာဏ်
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
-Test file for word_analogies testing:  
+Test file for word_analogies testing:   
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ cat test2.txt
 ဝက် ဝက်သား ကြက်
 ဘုရင် မိဖုရား ဘုန်းကြီး
@@ -1240,9 +1263,11 @@ Test file for word_analogies testing:
 လက်ရှည် လက်တို ဘောင်းဘီရှည်
 အချစ် အမုန်း အပြုံး
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
-Run the shell script:  
+Run the shell script:   
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ ./run_ftlm_test_with_file.sh | tee test_with_file_input.log
 Running command: python ./fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model --operation word_vector --word စိတ္တဇ --k 10
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
@@ -1733,10 +1758,13 @@ Word: စိတ်ကူးယဉ်သမား, Score: 0.5030249953269958
 Word: စိတ်ကူးယဉ်, Score: 0.5015185475349426
 
 (LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Prepared a Shell Script for Interactive Mode
 
-(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_interactive_test.sh
+(LM) yekyaw.thu@gpu:~/exp/lm$ cat ./run_ftlm_interactive_test.sh  
+
+```bash
 #!/bin/bash
 
 # Interactive testing for word_vector
@@ -1750,11 +1778,11 @@ python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 # Interactive testing for word_analogies
 python fasttext_lm.py test --model ./model/fasttext.5gram.30ep.model \
 --operation word_analogies --interactive
-
-(LM) yekyaw.thu@gpu:~/exp/lm$
+```
 
 ## Testing interactive mode with above shell script
 
+```
 (LM) yekyaw.thu@gpu:~/exp/lm$ ./run_ftlm_interactive_test.sh
 Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
 Entering interactive mode...
@@ -1821,1040 +1849,5 @@ Word: ဂျုံး, Score: 0.4343375265598297
 Enter word or analogy (Ctrl+D or 'quit' to exit): quit
 Exiting interactive mode...
 (LM) yekyaw.thu@gpu:~/exp/lm$
-
-## MIT-LM ?!
-
 ```
-
-
-https://www.cs.cmu.edu/~dorcas/toolkit_documentation.html
-
-***
-https://pub.towardsai.net/exploration-of-statistical-language-models-8a9dac14dddc
-
-Paper: 
-https://github.com/benlipkin/probsem/tree/CogSci2023
-
-
-## LSTM LM Code
-
-https://machinelearningmastery.com/how-to-develop-a-word-level-neural-language-model-in-keras/
-
-from numpy import array
-from pickle import dump
-from keras.preprocessing.text import Tokenizer
-from keras.utils import to_categorical
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from keras.layers import Embedding
-
-# load doc into memory
-def load_doc(filename):
-	# open the file as read only
-	file = open(filename, 'r')
-	# read all text
-	text = file.read()
-	# close the file
-	file.close()
-	return text
-
-# load
-in_filename = 'republic_sequences.txt'
-doc = load_doc(in_filename)
-lines = doc.split('\n')
-
-# integer encode sequences of words
-tokenizer = Tokenizer()
-tokenizer.fit_on_texts(lines)
-sequences = tokenizer.texts_to_sequences(lines)
-# vocabulary size
-vocab_size = len(tokenizer.word_index) + 1
-
-# separate into input and output
-sequences = array(sequences)
-X, y = sequences[:,:-1], sequences[:,-1]
-y = to_categorical(y, num_classes=vocab_size)
-seq_length = X.shape[1]
-
-# define model
-model = Sequential()
-model.add(Embedding(vocab_size, 50, input_length=seq_length))
-model.add(LSTM(100, return_sequences=True))
-model.add(LSTM(100))
-model.add(Dense(100, activation='relu'))
-model.add(Dense(vocab_size, activation='softmax'))
-print(model.summary())
-# compile model
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-# fit model
-model.fit(X, y, batch_size=128, epochs=100)
-
-# save the model to file
-model.save('model.h5')
-# save the tokenizer
-dump(tokenizer, open('tokenizer.pkl', 'wb'))
-
-==========
-
-from random import randint
-from pickle import load
-from keras.models import load_model
-from keras.preprocessing.sequence import pad_sequences
-
-# load doc into memory
-def load_doc(filename):
-	# open the file as read only
-	file = open(filename, 'r')
-	# read all text
-	text = file.read()
-	# close the file
-	file.close()
-	return text
-
-# generate a sequence from a language model
-def generate_seq(model, tokenizer, seq_length, seed_text, n_words):
-	result = list()
-	in_text = seed_text
-	# generate a fixed number of words
-	for _ in range(n_words):
-		# encode the text as integer
-		encoded = tokenizer.texts_to_sequences([in_text])[0]
-		# truncate sequences to a fixed length
-		encoded = pad_sequences([encoded], maxlen=seq_length, truncating='pre')
-		# predict probabilities for each word
-		yhat = model.predict_classes(encoded, verbose=0)
-		# map predicted word index to word
-		out_word = ''
-		for word, index in tokenizer.word_index.items():
-			if index == yhat:
-				out_word = word
-				break
-		# append to input
-		in_text += ' ' + out_word
-		result.append(out_word)
-	return ' '.join(result)
-
-# load cleaned text sequences
-in_filename = 'republic_sequences.txt'
-doc = load_doc(in_filename)
-lines = doc.split('\n')
-seq_length = len(lines[0].split()) - 1
-
-# load the model
-model = load_model('model.h5')
-
-# load the tokenizer
-tokenizer = load(open('tokenizer.pkl', 'rb'))
-
-# select a seed text
-seed_text = lines[randint(0,len(lines))]
-print(seed_text + '\n')
-
-# generate new text
-generated = generate_seq(model, tokenizer, seq_length, seed_text, 50)
-print(generated)
-
-https://machinelearningmastery.com/develop-word-based-neural-language-models-python-keras/
-
-https://machinelearningmastery.com/develop-character-based-neural-language-model-keras/
-
-from numpy import array
-from pickle import dump
-from keras.utils import to_categorical
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-
-# load doc into memory
-def load_doc(filename):
-	# open the file as read only
-	file = open(filename, 'r')
-	# read all text
-	text = file.read()
-	# close the file
-	file.close()
-	return text
-
-# load
-in_filename = 'char_sequences.txt'
-raw_text = load_doc(in_filename)
-lines = raw_text.split('\n')
-
-# integer encode sequences of characters
-chars = sorted(list(set(raw_text)))
-mapping = dict((c, i) for i, c in enumerate(chars))
-sequences = list()
-for line in lines:
-	# integer encode line
-	encoded_seq = [mapping[char] for char in line]
-	# store
-	sequences.append(encoded_seq)
-
-# vocabulary size
-vocab_size = len(mapping)
-print('Vocabulary Size: %d' % vocab_size)
-
-# separate into input and output
-sequences = array(sequences)
-X, y = sequences[:,:-1], sequences[:,-1]
-sequences = [to_categorical(x, num_classes=vocab_size) for x in X]
-X = array(sequences)
-y = to_categorical(y, num_classes=vocab_size)
-
-# define model
-model = Sequential()
-model.add(LSTM(75, input_shape=(X.shape[1], X.shape[2])))
-model.add(Dense(vocab_size, activation='softmax'))
-print(model.summary())
-# compile model
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-# fit model
-model.fit(X, y, epochs=100, verbose=2)
-
-# save the model to file
-model.save('model.h5')
-# save the mapping
-dump(mapping, open('mapping.pkl', 'wb'))
-
-============
-
-from pickle import load
-from keras.models import load_model
-from keras.utils import to_categorical
-from keras.preprocessing.sequence import pad_sequences
-
-# generate a sequence of characters with a language model
-def generate_seq(model, mapping, seq_length, seed_text, n_chars):
-	in_text = seed_text
-	# generate a fixed number of characters
-	for _ in range(n_chars):
-		# encode the characters as integers
-		encoded = [mapping[char] for char in in_text]
-		# truncate sequences to a fixed length
-		encoded = pad_sequences([encoded], maxlen=seq_length, truncating='pre')
-		# one hot encode
-		encoded = to_categorical(encoded, num_classes=len(mapping))
-		# predict character
-		yhat = model.predict_classes(encoded, verbose=0)
-		# reverse map integer to character
-		out_char = ''
-		for char, index in mapping.items():
-			if index == yhat:
-				out_char = char
-				break
-		# append to input
-		in_text += char
-	return in_text
-
-# load the model
-model = load_model('model.h5')
-# load the mapping
-mapping = load(open('mapping.pkl', 'rb'))
-
-# test start of rhyme
-print(generate_seq(model, mapping, 10, 'Sing a son', 20))
-# test mid-line
-print(generate_seq(model, mapping, 10, 'king was i', 20))
-# test not in original
-print(generate_seq(model, mapping, 10, 'hello worl', 20))
-
-===========
-
-## Coding Tensorflow bi-LSTM LM training/testing
-
-export TF_FORCE_GPU_ALLOW_GROWTH=true
-
-Training on CPU:  
-(LM) yekyaw.thu@gpu:~/exp/lm/nn/bi-lstm$ time CUDA_VISIBLE_DEVICES= python ./bi_lstm_lm.py --input ../../corpus/myWord_myPOS_myPara_myNovelv1_wordseg.shuf --model ./model/tf_lm.model
-
-https://lilianweng.github.io/posts/2019-01-31-lm/
-
-https://github.com/KushwahaDK/Neural-Language-Model
-
-https://github.com/antoine-hochart/language_models/tree/main
-
-## ngram LM
-
-(LM) yekyaw.thu@gpu:~/exp/lm/ngram$ ./run.sh
-Loading and preprocessing corpus...
-Training n-gram language model...
-Calculating probabilities...
-Saving model to ARPA format: ./model/5gram/model.arpa
-Saving model to binary format: ./model/5gram/model.bin
-Loading and preprocessing test data...
-Calculating perplexity...
-Perplexity: 1.41900803032983
-
-real    8m20.608s
-user    8m10.274s
-sys     0m8.981s
-(LM) yekyaw.thu@gpu:~/exp/lm/ngram$
-
-\2-grams:
-\3-grams:
-\4-grams:
-\5-grams:
-! ! ! ! !       0.64429530
-! ! ! ! .???????        0.00671141
-! ! ! ! ?       0.00671141
-! ! ! ! က       0.00671141
-! ! ! ! ကိုကို  0.00671141
-! ! ! ! ကိုလွမ်းနောင်   0.00671141
-! ! ! ! ကြိုးစား        0.00671141
-! ! ! ! ကွက်တိ  0.00671141
-! ! ! ! ချစ်    0.00671141
-! ! ! ! ချပေါကြီး       0.00671141
-! ! ! ! ခြေ     0.00671141
-! ! ! ! ခွေး    0.00671141
-! ! ! ! ဂိုး    0.01342282
-! ! ! ! ဂုဏ်ယူ  0.00671141
-! ! ! ! စာတိုက် 0.00671141
-! ! ! ! ဆက်     0.00671141
-! ! ! ! ဆရာဝန်  0.00671141
-! ! ! ! ဆု      0.00671141
-
-(LM) yekyaw.thu@gpu:~/exp/lm/ngram/model/5gram$ tail -n 30 ./model.arpa
-🤩 သား သမီး လေး တွေ     1.00000000
-🤩 😁 😁 😁     ပုဂံ    1.00000000
-🤩 🤩 ရှယ် ဗျို့        ရှယ်    1.00000000
-🤩 🤩 🤩 ရှယ်   ဗျို့   1.00000000
-🤪 ကာကာ ပြ ထား  တဲ့     1.00000000
-🤪 ဆိုင် မှတ်ထား ဗိုက်  တွေ     1.00000000
-🤪 ဖြစ် ရ တယ်   😂      1.00000000
-🤪 ဘာ လို့ လဲ   မ       1.00000000
-🤪 ရည်းစား စာ 💚        စိတ်ကူးယဉ်      1.00000000
-🤪 😍 😍 😍     အရမ်း   1.00000000
-🤪 🤣 သီဟတင်စိုး အမှု   မို့    1.00000000
-🤪 🤪 ကာကာ ပြ   ထား     1.00000000
-🤪 🤪 ရည်းစား စာ        💚      1.00000000
-🤪 🤪 😍 😍     😍      1.00000000
-🤫 ဘော နက်ကြီး ချိုင့်  မှာ     1.00000000
-🤭 မင်း လောက် လှ        ဘူး     1.00000000
-🤭 😁 😁 😁     😝      1.00000000
-🤭 😘 😛 😍     🤩      1.00000000
-🤭 😝 မင်္ဂလာ ပါ        ရှင်    1.00000000
-🤭 🤔 အဲ့လို သဲလေး      လို     1.00000000
-🤲🏻 👫 ပရိတ် ကြိုး     အရမ်း   1.00000000
-🥊 ။ နည်းပြ ဒါလစ်       က       1.00000000
-🥊 🥊 ။ နည်းပြ  ဒါလစ်   1.00000000
-🥚 လူကြုံ ရှိ တယ်       ပို့ပေး 1.00000000
-🥚 🥚 လူကြုံ ရှိ        တယ်     1.00000000
-🥚 🥚 🥚 လူကြုံ ရှိ     1.00000000
-🥚 🥚 🥚 🥚     လူကြုံ  0.50000000
-🥚 🥚 🥚 🥚     🥚      0.50000000
-🧝‍ ♀ ပရိသတ် တို့      ရေ      1.00000000
-🧝‍ ♀ 🧝‍ ♀   ပရိသတ်  1.00000000
-(LM) yekyaw.thu@gpu:~/exp/lm/ngram/model/5gram$
-
-===========
-
-
-def load_model(model_path):
-    vocab = set()
-    if os.path.isdir(model_path):
-        # If model_path is a directory, look for model files within that directory
-        # Example: ./model/5gram
-        model_files = [f for f in os.listdir(model_path) if os.path.isfile(os.path.join(model_path, f))]
-        for file in model_files:
-            if file.endswith('.arpa') or file.endswith('.bin'):
-                return os.path.join(model_path, file), vocab
-    elif os.path.isfile(model_path):
-        # If model_path is a file, use it directly
-        # Example: ./model/5gram/model.arpa
-
-        # Load probabilities from ARPA or binary format based on extension
-        if model_path.endswith('.arpa'):
-            with open(model_path, 'r', encoding='utf-8') as file:
-                # Parse ARPA file and populate ngram_model.probabilities
-                # ... (implementation for parsing probabilities from ARPA format)
-        else:
-            with open(model_path, 'rb') as file:
-                # Load model data from binary file and update ngram_model
-                # ... (implementation for loading from binary format)
-        return model_path, vocab
-
-    return None, vocab
-
-
-=============
-
-
-
-
-## Corpus Cleaning
-
-https://github.com/ye-kyaw-thu/tools/blob/master/python/clean_non_burmese.py
-
-နဲ့ corpus ထဲက မမြင်ရတဲ့ ZWNJ, ZWJ, နိုင်ငံခြားဘာသာစကားရဲ့ စာလုံးတွေ၊ ဂဏန်းတွေကိုလည်း ဖျက်ခဲ့တယ်။ 
-
-## Training and Testing  with Cleaned Corpus
-
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ shuf ./myNovelv1_wordseg.txt > ./myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$
-
-Combined two monolingual corpora:  
-
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ cat ./myWord_myPOS_myPara.merged.shuf ./myNovelv1_wordseg.shuf > myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$ wc ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-  358047  7554252 96329489 ./myWord_myPOS_myPara_myNovelv1_wordseg.shuf
-(base) yekyaw.thu@gpu:~/exp/lm/corpus$
-
-
-
-
-## Reference
-
-https://alphacephei.com/nsh/2020/12/13/lm-toolkits.html
-https://github.com/alphacep/vosk-space/blob/master/lm.md
-
-https://github.com/mmz33/N-Gram-Language-Model
-
-https://github.com/shayan09/Text-Generation-using-NGRAM-models/blob/master/ngram.py
-
-## KenLM
-
-ဒီတခါတော့ KenLM နဲ့ LM model ဆောက်ဖို့ ပြင်ဆင်မယ်။  
-
-## Installation of conda-forge boost cmake gcc
-
-The followings are about my Python version:  
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ which python
-/home/yekyaw.thu/.conda/envs/LM/bin/python
-(LM) yekyaw.thu@gpu:~/exp/lm$ python --version
-Python 3.8.18
-(LM) yekyaw.thu@gpu:~/exp/lm$
-
-Install build dependencies: KenLM requires boost, cmake, and gcc to compile. 
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ conda install -c conda-forge boost cmake gcc
-Collecting package metadata (current_repodata.json): done
-Solving environment: -
-The environment is inconsistent, please check the package plan carefully
-The following packages are causing the inconsistency:
-
-  - defaults/linux-64::pip==23.3.1=py38h06a4308_0
-  - conda-forge/linux-64::numpy==1.22.3=py38h99721a1_2
-  - defaults/linux-64::tk==8.6.12=h1ccaba5_0
-  - defaults/linux-64::setuptools==68.2.2=py38h06a4308_0
-  - conda-forge/linux-64::libopenblas==0.3.20=pthreads_h78a6416_0
-  - conda-forge/linux-64::python_abi==3.8=2_cp38
-  - defaults/linux-64::python==3.8.18=h955ad1f_0
-  - defaults/linux-64::ncurses==6.4=h6a678d5_0
-  - defaults/linux-64::zlib==1.2.13=h5eee18b_0
-  - conda-forge/linux-64::fasttext==0.9.2=py38h43d8883_4
-  - defaults/linux-64::openssl==3.0.13=h7f8727e_0
-  - defaults/linux-64::libgcc-ng==11.2.0=h1234567_1
-  - conda-forge/linux-64::libblas==3.9.0=15_linux64_openblas
-  - conda-forge/linux-64::libcblas==3.9.0=15_linux64_openblas
-  - defaults/linux-64::xz==5.4.5=h5eee18b_0
-  - defaults/linux-64::wheel==0.41.2=py38h06a4308_0
-  - defaults/linux-64::libffi==3.4.4=h6a678d5_0
-  - defaults/linux-64::readline==8.2=h5eee18b_0
-  - conda-forge/linux-64::pybind11==2.6.1=py38h82cb98a_0
-  - defaults/linux-64::sqlite==3.41.2=h5eee18b_0
-  - conda-forge/linux-64::liblapack==3.9.0=15_linux64_openblas
-  - defaults/linux-64::libstdcxx-ng==11.2.0=h1234567_1
-done
-
-
-==> WARNING: A newer version of conda exists. <==
-  current version: 4.8.2
-  latest version: 24.1.0
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
-
-## Package Plan ##
-
-  environment location: /home/yekyaw.thu/.conda/envs/LM
-
-  added / updated specs:
-    - boost
-    - cmake
-    - gcc
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    _libgcc_mutex-0.1          |      conda_forge           3 KB  conda-forge
-    _openmp_mutex-4.5          |            2_gnu          23 KB  conda-forge
-    binutils_impl_linux-64-2.40|       hf600244_0         5.2 MB  conda-forge
-    boost-1.84.0               |       hb563948_0          13 KB  conda-forge
-    bzip2-1.0.8                |       hd590300_5         248 KB  conda-forge
-    c-ares-1.26.0              |       hd590300_0         159 KB  conda-forge
-    cmake-3.28.3               |       hcfe8598_0        17.9 MB  conda-forge
-    gcc-13.2.0                 |       h574f8da_2          26 KB  conda-forge
-    gcc_impl_linux-64-13.2.0   |       h338b0a0_5        50.8 MB  conda-forge
-    icu-73.2                   |       h59595ed_0        11.5 MB  conda-forge
-    kernel-headers_linux-64-2.6.32|      he073ed8_16         692 KB  conda-forge
-    keyutils-1.6.1             |       h166bdaf_0         115 KB  conda-forge
-    krb5-1.20.1                |       h81ceb04_0         1.3 MB  conda-forge
-    ld_impl_linux-64-2.40      |       h41732ed_0         688 KB  conda-forge
-    libboost-1.84.0            |       h6fcfa73_0         2.6 MB  conda-forge
-    libboost-devel-1.84.0      |       h00ab1b0_0          35 KB  conda-forge
-    libboost-headers-1.84.0    |       ha770c72_0        13.1 MB  conda-forge
-    libboost-python-1.84.0     |   py38hae673b5_0         116 KB  conda-forge
-    libboost-python-devel-1.84.0|   py38hb563948_0          16 KB  conda-forge
-    libcurl-8.5.0              |       h251f7ec_0         416 KB
-    libedit-3.1.20191231       |       he28a2e2_2         121 KB  conda-forge
-    libev-4.33                 |       hd590300_2         110 KB  conda-forge
-    libexpat-2.5.0             |       hcb278e6_1          76 KB  conda-forge
-    libgcc-devel_linux-64-13.2.0|     ha9c7c90_105         2.5 MB  conda-forge
-    libgcc-ng-13.2.0           |       h807b86a_5         752 KB  conda-forge
-    libgomp-13.2.0             |       h807b86a_5         410 KB  conda-forge
-    libnghttp2-1.57.0          |       h2d74bed_0         674 KB
-    libsanitizer-13.2.0        |       h7e041cc_5         3.9 MB  conda-forge
-    libssh2-1.10.0             |       hdbd6064_2         292 KB
-    libstdcxx-ng-13.2.0        |       h7e041cc_5         3.7 MB  conda-forge
-    libuv-1.47.0               |       hd590300_0         872 KB  conda-forge
-    libzlib-1.2.13             |       hd590300_5          60 KB  conda-forge
-    numpy-1.24.4               |   py38h59b608b_0         6.4 MB  conda-forge
-    rhash-1.4.4                |       hd590300_0         181 KB  conda-forge
-    sysroot_linux-64-2.12      |      he073ed8_16        14.6 MB  conda-forge
-    zlib-1.2.13                |       hd590300_5          91 KB  conda-forge
-    zstd-1.5.5                 |       hfc55251_0         532 KB  conda-forge
-    ------------------------------------------------------------
-                                           Total:       139.9 MB
-
-The following NEW packages will be INSTALLED:
-
-  binutils_impl_lin~ conda-forge/linux-64::binutils_impl_linux-64-2.40-hf600244_0
-  boost              conda-forge/linux-64::boost-1.84.0-hb563948_0
-  bzip2              conda-forge/linux-64::bzip2-1.0.8-hd590300_5
-  c-ares             conda-forge/linux-64::c-ares-1.26.0-hd590300_0
-  cmake              conda-forge/linux-64::cmake-3.28.3-hcfe8598_0
-  gcc                conda-forge/linux-64::gcc-13.2.0-h574f8da_2
-  gcc_impl_linux-64  conda-forge/linux-64::gcc_impl_linux-64-13.2.0-h338b0a0_5
-  icu                conda-forge/linux-64::icu-73.2-h59595ed_0
-  kernel-headers_li~ conda-forge/noarch::kernel-headers_linux-64-2.6.32-he073ed8_16
-  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0
-  krb5               conda-forge/linux-64::krb5-1.20.1-h81ceb04_0
-  libboost           conda-forge/linux-64::libboost-1.84.0-h6fcfa73_0
-  libboost-devel     conda-forge/linux-64::libboost-devel-1.84.0-h00ab1b0_0
-  libboost-headers   conda-forge/linux-64::libboost-headers-1.84.0-ha770c72_0
-  libboost-python    conda-forge/linux-64::libboost-python-1.84.0-py38hae673b5_0
-  libboost-python-d~ conda-forge/linux-64::libboost-python-devel-1.84.0-py38hb563948_0
-  libcurl            pkgs/main/linux-64::libcurl-8.5.0-h251f7ec_0
-  libedit            conda-forge/linux-64::libedit-3.1.20191231-he28a2e2_2
-  libev              conda-forge/linux-64::libev-4.33-hd590300_2
-  libexpat           conda-forge/linux-64::libexpat-2.5.0-hcb278e6_1
-  libgcc-devel_linu~ conda-forge/noarch::libgcc-devel_linux-64-13.2.0-ha9c7c90_105
-  libnghttp2         pkgs/main/linux-64::libnghttp2-1.57.0-h2d74bed_0
-  libsanitizer       conda-forge/linux-64::libsanitizer-13.2.0-h7e041cc_5
-  libssh2            pkgs/main/linux-64::libssh2-1.10.0-hdbd6064_2
-  libuv              conda-forge/linux-64::libuv-1.47.0-hd590300_0
-  libzlib            conda-forge/linux-64::libzlib-1.2.13-hd590300_5
-  rhash              conda-forge/linux-64::rhash-1.4.4-hd590300_0
-  sysroot_linux-64   conda-forge/noarch::sysroot_linux-64-2.12-he073ed8_16
-  zstd               conda-forge/linux-64::zstd-1.5.5-hfc55251_0
-
-The following packages will be UPDATED:
-
-  ld_impl_linux-64   pkgs/main::ld_impl_linux-64-2.38-h118~ --> conda-forge::ld_impl_linux-64-2.40-h41732ed_0
-  libgcc-ng          pkgs/main::libgcc-ng-11.2.0-h1234567_1 --> conda-forge::libgcc-ng-13.2.0-h807b86a_5
-  libgomp              pkgs/main::libgomp-11.2.0-h1234567_1 --> conda-forge::libgomp-13.2.0-h807b86a_5
-  libstdcxx-ng       pkgs/main::libstdcxx-ng-11.2.0-h12345~ --> conda-forge::libstdcxx-ng-13.2.0-h7e041cc_5
-  numpy                               1.22.3-py38h99721a1_2 --> 1.24.4-py38h59b608b_0
-  zlib                    pkgs/main::zlib-1.2.13-h5eee18b_0 --> conda-forge::zlib-1.2.13-hd590300_5
-
-The following packages will be SUPERSEDED by a higher-priority channel:
-
-  _libgcc_mutex           pkgs/main::_libgcc_mutex-0.1-main --> conda-forge::_libgcc_mutex-0.1-conda_forge
-  _openmp_mutex          pkgs/main::_openmp_mutex-5.1-1_gnu --> conda-forge::_openmp_mutex-4.5-2_gnu
-
-
-Proceed ([y]/n)? y
-
-
-Downloading and Extracting Packages
-rhash-1.4.4          | 181 KB    | ############################################### | 100%
-gcc_impl_linux-64-13 | 50.8 MB   | ############################################### | 100%
-libev-4.33           | 110 KB    | ############################################### | 100%
-libnghttp2-1.57.0    | 674 KB    | ############################################### | 100%
-numpy-1.24.4         | 6.4 MB    | ############################################### | 100%
-libgcc-ng-13.2.0     | 752 KB    | ############################################### | 100%
-libsanitizer-13.2.0  | 3.9 MB    | ############################################### | 100%
-libuv-1.47.0         | 872 KB    | ############################################### | 100%
-libedit-3.1.20191231 | 121 KB    | ############################################### | 100%
-libssh2-1.10.0       | 292 KB    | ############################################### | 100%
-sysroot_linux-64-2.1 | 14.6 MB   | ############################################### | 100%
-krb5-1.20.1          | 1.3 MB    | ############################################### | 100%
-bzip2-1.0.8          | 248 KB    | ############################################### | 100%
-_libgcc_mutex-0.1    | 3 KB      | ############################################### | 100%
-zstd-1.5.5           | 532 KB    | ############################################### | 100%
-keyutils-1.6.1       | 115 KB    | ############################################### | 100%
-libboost-headers-1.8 | 13.1 MB   | ############################################### | 100%
-ld_impl_linux-64-2.4 | 688 KB    | ############################################### | 100%
-libzlib-1.2.13       | 60 KB     | ############################################### | 100%
-zlib-1.2.13          | 91 KB     | ############################################### | 100%
-libexpat-2.5.0       | 76 KB     | ############################################### | 100%
-gcc-13.2.0           | 26 KB     | ############################################### | 100%
-libboost-python-1.84 | 116 KB    | ############################################### | 100%
-libgcc-devel_linux-6 | 2.5 MB    | ############################################### | 100%
-kernel-headers_linux | 692 KB    | ############################################### | 100%
-libboost-devel-1.84. | 35 KB     | ############################################### | 100%
-libcurl-8.5.0        | 416 KB    | ############################################### | 100%
-libboost-python-deve | 16 KB     | ############################################### | 100%
-cmake-3.28.3         | 17.9 MB   | ############################################### | 100%
-libboost-1.84.0      | 2.6 MB    | ############################################### | 100%
-c-ares-1.26.0        | 159 KB    | ############################################### | 100%
-boost-1.84.0         | 13 KB     | ############################################### | 100%
-libstdcxx-ng-13.2.0  | 3.7 MB    | ############################################### | 100%
-libgomp-13.2.0       | 410 KB    | ############################################### | 100%
-_openmp_mutex-4.5    | 23 KB     | ############################################### | 100%
-binutils_impl_linux- | 5.2 MB    | ############################################### | 100%
-icu-73.2             | 11.5 MB   | ############################################### | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-(LM) yekyaw.thu@gpu:~/exp/lm$
-
-## Installation of KenLM
-
-I got following error:  
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ pip install kenlm
-Collecting kenlm
-  Using cached kenlm-0.2.0.tar.gz (427 kB)
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Preparing metadata (pyproject.toml) ... done
-Building wheels for collected packages: kenlm
-  Building wheel for kenlm (pyproject.toml) ... error
-  error: subprocess-exited-with-error
-
-  × Building wheel for kenlm (pyproject.toml) did not run successfully.
-  │ exit code: 1
-  ╰─> [79 lines of output]
-      bash: /home/yekyaw.thu/.conda/envs/sentence-transformer/lib/libtinfo.so.6: no version information available (required by bash)
-      bash: /home/yekyaw.thu/.conda/envs/sentence-transformer/lib/libtinfo.so.6: no version information available (required by bash)
-      bash: /home/yekyaw.thu/.conda/envs/sentence-transformer/lib/libtinfo.so.6: no version information available (required by bash)
-      Will build with KenLM max_order set to 6
-      running bdist_wheel
-      running build
-      running build_ext
-      CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
-        Compatibility with CMake < 3.5 will be removed from a future version of
-        CMake.
-
-        Update the VERSION argument <min> value or use a ...<max> suffix to tell
-        CMake that the project does not need compatibility with older versions.
-
-
-      -- The C compiler identification is GNU 13.2.0
-      -- The CXX compiler identification is unknown
-      -- Detecting C compiler ABI info
-      -- Detecting C compiler ABI info - done
-      -- Check for working C compiler: /home/yekyaw.thu/.conda/envs/LM/bin/cc - skipped
-      -- Detecting C compile features
-      -- Detecting C compile features - done
-      CMake Error at CMakeLists.txt:14 (project):
-        No CMAKE_CXX_COMPILER could be found.
-
-        Tell CMake where to find the compiler by setting either the environment
-        variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
-        to the compiler, or to the compiler name if it is in the PATH.
-
-
-      -- Configuring incomplete, errors occurred!
-      Traceback (most recent call last):
-        File "/home/yekyaw.thu/.conda/envs/LM/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
-          main()
-        File "/home/yekyaw.thu/.conda/envs/LM/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
-          json_out['return_val'] = hook(**hook_input['kwargs'])
-        File "/home/yekyaw.thu/.conda/envs/LM/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 251, in build_wheel
-          return _build_backend().build_wheel(wheel_directory, config_settings,
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 404, in build_wheel
-          return self._build_with_temp_dir(
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 389, in _build_with_temp_dir
-          self.run_setup()
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 480, in run_setup
-          super(_BuildMetaLegacyBackend, self).run_setup(setup_script=setup_script)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 311, in run_setup
-          exec(code, locals())
-        File "<string>", line 124, in <module>
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/__init__.py", line 103, in setup
-          return distutils.core.setup(**attrs)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 185, in setup
-          return run_commands(dist)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 201, in run_commands
-          dist.run_commands()
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 969, in run_commands
-          self.run_command(cmd)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
-          super().run_command(command)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
-          cmd_obj.run()
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/wheel/bdist_wheel.py", line 368, in run
-          self.run_command("build")
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 318, in run_command
-          self.distribution.run_command(command)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
-          super().run_command(command)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
-          cmd_obj.run()
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build.py", line 131, in run
-          self.run_command(cmd_name)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 318, in run_command
-          self.distribution.run_command(command)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
-          super().run_command(command)
-        File "/tmp/pip-build-env-qempws8l/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
-          cmd_obj.run()
-        File "<string>", line 104, in run
-        File "/home/yekyaw.thu/.conda/envs/LM/lib/python3.8/subprocess.py", line 364, in check_call
-          raise CalledProcessError(retcode, cmd)
-      subprocess.CalledProcessError: Command '['cmake', '/tmp/pip-install-nf1rsnq3/kenlm_ca75faa9bb3c4fd0ad6a73f91e8f98ba', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/tmp/pip-install-nf1rsnq3/kenlm_ca75faa9bb3c4fd0ad6a73f91e8f98ba/build/lib.linux-x86_64-cpython-38', '-DBUILD_SHARED_LIBS=ON', '-DBUILD_PYTHON_STANDALONE=ON', '-DKENLM_MAX_ORDER=6', '-DCMAKE_BUILD_TYPE=Release']' returned non-zero exit status 1.
-      [end of output]
-
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-  ERROR: Failed building wheel for kenlm
-Failed to build kenlm
-ERROR: Could not build wheels for kenlm, which is required to install pyproject.toml-based projects
-(LM) yekyaw.thu@gpu:~/exp/lm$
-
-g++ ကို မတွေ့တာ ...  
-
-## KenLM Installation with GitHub Repository
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ git clone https://github.com/kpu/kenlm.git
-Cloning into 'kenlm'...
-remote: Enumerating objects: 14161, done.
-remote: Counting objects: 100% (474/474), done.
-remote: Compressing objects: 100% (329/329), done.
-remote: Total 14161 (delta 162), reused 406 (delta 131), pack-reused 13687
-Receiving objects: 100% (14161/14161), 5.91 MiB | 3.17 MiB/s, done.
-Resolving deltas: 100% (8042/8042), done.
-(LM) yekyaw.thu@gpu:~/exp/lm$
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ cd kenlm/
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ ls
-BUILDING             compile_query_only.sh  Doxyfile     pyproject.toml  util
-clean_query_only.sh  COPYING                LICENSE      python
-cmake                COPYING.3              lm           README.md
-CMakeLists.txt       COPYING.LESSER.3       MANIFEST.in  setup.py
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm$
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ mkdir build
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm$ cd build
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ cmake ..
-CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-
-
--- The C compiler identification is GNU 13.2.0
--- The CXX compiler identification is unknown
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /home/yekyaw.thu/.conda/envs/LM/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
-CMake Error at CMakeLists.txt:14 (project):
-  No CMAKE_CXX_COMPILER could be found.
-
-  Tell CMake where to find the compiler by setting either the environment
-  variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
-  to the compiler, or to the compiler name if it is in the PATH.
-
-
--- Configuring incomplete, errors occurred!
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
-
-
-## Clean Conda Env and Install Again
-
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda update -n base -c defaults conda
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda clean --all
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ conda install -c conda-forge gxx_linux-64
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-
-==> WARNING: A newer version of conda exists. <==
-  current version: 4.8.2
-  latest version: 24.1.0
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
-
-## Package Plan ##
-
-  environment location: /home/yekyaw.thu/.conda/envs/LM
-
-  added / updated specs:
-    - gxx_linux-64
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    binutils_linux-64-2.40     |       hbdbef99_2          28 KB  conda-forge
-    gcc_linux-64-13.2.0        |       h112eaf3_2          30 KB  conda-forge
-    gxx_impl_linux-64-13.2.0   |       h338b0a0_5        13.0 MB  conda-forge
-    gxx_linux-64-13.2.0        |       hc53e3bf_2          28 KB  conda-forge
-    libstdcxx-devel_linux-64-13.2.0|     ha9c7c90_105        12.4 MB  conda-forge
-    openssl-3.2.1              |       hd590300_0         2.7 MB  conda-forge
-    ------------------------------------------------------------
-                                           Total:        28.2 MB
-
-The following NEW packages will be INSTALLED:
-
-  binutils_linux-64  conda-forge/linux-64::binutils_linux-64-2.40-hbdbef99_2
-  gcc_linux-64       conda-forge/linux-64::gcc_linux-64-13.2.0-h112eaf3_2
-  gxx_impl_linux-64  conda-forge/linux-64::gxx_impl_linux-64-13.2.0-h338b0a0_5
-  gxx_linux-64       conda-forge/linux-64::gxx_linux-64-13.2.0-hc53e3bf_2
-  libstdcxx-devel_l~ conda-forge/noarch::libstdcxx-devel_linux-64-13.2.0-ha9c7c90_105
-
-The following packages will be UPDATED:
-
-  openssl              pkgs/main::openssl-3.0.13-h7f8727e_0 --> conda-forge::openssl-3.2.1-hd590300_0
-
-
-Proceed ([y]/n)? y
-
-
-Downloading and Extracting Packages
-libstdcxx-devel_linu | 12.4 MB   | ############################################### | 100%
-gxx_linux-64-13.2.0  | 28 KB     | ############################################### | 100%
-openssl-3.2.1        | 2.7 MB    | ############################################### | 100%
-binutils_linux-64-2. | 28 KB     | ############################################### | 100%
-gxx_impl_linux-64-13 | 13.0 MB   | ############################################### | 100%
-gcc_linux-64-13.2.0  | 30 KB     | ############################################### | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
-
-## Install KenLM from Repository Again
-
-I need to rerun cmake again ...  
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ cmake ..
-CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-
-
--- The CXX compiler identification is GNU 13.2.0
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /home/yekyaw.thu/.conda/envs/LM/bin/x86_64-conda-linux-gnu-c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found Boost: /home/yekyaw.thu/.conda/envs/LM/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found suitable version "1.84.0", minimum required is "1.41.0") found components: program_options system thread unit_test_framework
--- Check if compiler accepts -pthread
--- Check if compiler accepts -pthread - yes
--- Found Threads: TRUE
--- Found ZLIB: /home/yekyaw.thu/.conda/envs/LM/lib/libz.so (found version "1.2.13")
--- Found BZip2: /home/yekyaw.thu/.conda/envs/LM/lib/libbz2.so (found version "1.0.8")
--- Looking for BZ2_bzCompressInit
--- Looking for BZ2_bzCompressInit - found
--- Looking for lzma_auto_decoder in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so
--- Looking for lzma_auto_decoder in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so - found
--- Looking for lzma_easy_encoder in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so
--- Looking for lzma_easy_encoder in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so - found
--- Looking for lzma_lzma_preset in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so
--- Looking for lzma_lzma_preset in /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so - found
--- Found LibLZMA: /home/yekyaw.thu/.conda/envs/LM/lib/liblzma.so (found version "5.4.5")
--- Looking for clock_gettime in rt
--- Looking for clock_gettime in rt - found
--- Found OpenMP_C: -fopenmp (found version "4.5")
--- Found OpenMP_CXX: -fopenmp (found version "4.5")
--- Found OpenMP: TRUE (found version "4.5")
--- Configuring done (1.4s)
--- Generating done (0.0s)
--- Build files have been written to: /home/yekyaw.thu/exp/lm/kenlm/build
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
-
-Run make got 2 errors as follows:  
-
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$ make -j 20
-...
-...
-...
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `memcpy@GLIBC_2.14'
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `clock_gettime@GLIBC_2.17'
-collect2: error: ld returned 1 exit status
-make[2]: *** [lm/filter/CMakeFiles/filter.dir/build.make:107: bin/filter] Error 1
-make[1]: *** [CMakeFiles/Makefile2:541: lm/filter/CMakeFiles/filter.dir/all] Error 2
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `memcpy@GLIBC_2.14'
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `clock_gettime@GLIBC_2.17'
-collect2: error: ld returned 1 exit status
-make[2]: *** [lm/CMakeFiles/kenlm_benchmark.dir/build.make:106: bin/kenlm_benchmark] Error 1
-make[1]: *** [CMakeFiles/Makefile2:404: lm/CMakeFiles/kenlm_benchmark.dir/all] Error 2
-make: *** [Makefile:136: all] Error 2
-
-Hope it will be OK! ...
-
-Not OK. and Run again and Error Information is as follows:  
-
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/normalize.cc:50:33: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-   50 | struct PtrGreater : public std::binary_function<const BackoffQueueEntry *, const BackoffQueueEntry *, bool> {
-      |                                 ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-[ 87%] Linking CXX executable ../../bin/phrase_table_vocab
-/home/yekyaw.thu/exp/lm/kenlm/lm/builder/../../util/stream/sort.hh:203:33: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-  203 |     class Greater : public std::binary_function<const Entry &, const Entry &, bool> {
-      |                                 ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `memcpy@GLIBC_2.14'
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `clock_gettime@GLIBC_2.17'
-collect2: error: ld returned 1 exit status
-make[2]: *** [lm/filter/CMakeFiles/phrase_table_vocab.dir/build.make:107: bin/phrase_table_vocab] Error 1
-make[1]: *** [CMakeFiles/Makefile2:569: lm/filter/CMakeFiles/phrase_table_vocab.dir/all] Error 2
-In file included from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_instances.cc:20:
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../common/compare.hh:15:55: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-   15 | template <class Child> class Comparator : public std::binary_function<const void *, const void *, bool> {
-      |                                                       ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/string:49,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/locale_classes.h:40,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/ios_base.h:41,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/ios:44,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/istream:40,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/sstream:40,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/complex:45,
-                 from /usr/include/eigen3/Eigen/Core:96,
-                 from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_matrix.hh:7,
-                 from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_instances.hh:4,
-                 from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_instances.cc:18:
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../common/compare.hh:173:69: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-  173 | template <class Range> struct SuffixLexicographicLess : public std::binary_function<const Range, const Range, bool> {
-      |                                                                     ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/exp/lm/kenlm/lm/filter/vocab.hh:6,
-                 from /home/yekyaw.thu/exp/lm/kenlm/lm/filter/filter_main.cc:7:
-/home/yekyaw.thu/exp/lm/kenlm/lm/filter/../../util/multi_intersection.hh:14:61: warning:
-template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-   14 | template <class Range> struct RangeLessBySize : public std::binary_function<const Range &, const Range &, bool> {
-      |                                                             ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/string:49:
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/exp/lm/kenlm/lm/filter/vocab.hh:8:
-/home/yekyaw.thu/exp/lm/kenlm/lm/filter/../../util/string_piece_hash.hh:24:48: warning: 'template<class _Arg, class _Result> struct std::unary_function' is deprecated [-Wdeprecated-declarations]
-   24 | struct StringPieceCompatibleHash : public std::unary_function<const StringPiece &, size_t> {
-      |                                                ^~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:117:12: note: declared here
-  117 |     struct unary_function
-      |            ^~~~~~~~~~~~~~
-/home/yekyaw.thu/exp/lm/kenlm/lm/filter/../../util/string_piece_hash.hh:30:50: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-   30 | struct StringPieceCompatibleEquals : public std::binary_function<const StringPiece &, const std::string &, bool> {
-      |                                                  ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../../util/stream/sort.hh:29,
-                 from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_instances.cc:33:
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../../util/stream/../sized_iterator.hh:130:86: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-  130 | template <class Delegate, class Proxy = SizedProxy> class SizedCompare : public std::binary_function<const Proxy &, const Proxy &, bool> {
-      |                                                                                      ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../../util/stream/../sized_iterator.hh:157:71: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-  157 | template <class Delegate, unsigned Size> class JustPODDelegate : std::binary_function<const JustPOD<Size> &, const JustPOD<Size> &, bool> {
-      |                                                                       ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../../util/stream/sort.hh:203:33: warning: 'template<class _Arg1, class _Arg2, class _Result> struct std::binary_function' is deprecated [-Wdeprecated-declarations]
-  203 |     class Greater : public std::binary_function<const Entry &, const Entry &, bool> {
-      |                                 ^~~~~~~~~~~~~~~
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_function.h:131:12: note: declared here
-  131 |     struct binary_function
-      |            ^~~~~~~~~~~~~~~
-In file included from /home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/tune_instances.cc:34:
-/home/yekyaw.thu/exp/lm/kenlm/lm/interpolate/../../util/tokenize_piece.hh:99:77: warning:
-'template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator' is deprecated [-Wdeprecated-declarations]
-   99 | template <class Find, bool SkipEmpty = false> class TokenIter : public std::iterator<std::forward_iterator_tag, const StringPiece, std::ptrdiff_t, const StringPiece *, const StringPiece &> {
-      |                                                                             ^~~~~~~~
-In file included from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_algobase.h:65,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/specfun.h:43,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/cmath:3699,
-                 from /home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/complex:44:
-/home/yekyaw.thu/.conda/envs/LM/x86_64-conda-linux-gnu/include/c++/13.2.0/bits/stl_iterator_base_types.h:127:34: note: declared here
-  127 |     struct _GLIBCXX17_DEPRECATED iterator
-      |                                  ^~~~~~~~
-[ 88%] Linking CXX static library ../../lib/libkenlm_builder.a
-[ 88%] Built target kenlm_builder
-[ 89%] Linking CXX static library ../../lib/libkenlm_interpolate.a
-[ 89%] Built target kenlm_interpolate
-[ 90%] Linking CXX executable ../../bin/filter
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `memcpy@GLIBC_2.14'
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `clock_gettime@GLIBC_2.17'
-collect2: error: ld returned 1 exit status
-make[2]: *** [lm/filter/CMakeFiles/filter.dir/build.make:107: bin/filter] Error 1
-make[1]: *** [CMakeFiles/Makefile2:541: lm/filter/CMakeFiles/filter.dir/all] Error 2
-[ 91%] Linking CXX executable ../bin/kenlm_benchmark
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `memcpy@GLIBC_2.14'
-/home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../x86_64-conda-linux-gnu/bin/ld: /home/yekyaw.thu/.conda/envs/LM/bin/../lib/gcc/x86_64-conda-linux-gnu/13.2.0/../../../../lib/liblzma.so: undefined reference to `clock_gettime@GLIBC_2.17'
-collect2: error: ld returned 1 exit status
-make[2]: *** [lm/CMakeFiles/kenlm_benchmark.dir/build.make:106: bin/kenlm_benchmark] Error 1
-make[1]: *** [CMakeFiles/Makefile2:404: lm/CMakeFiles/kenlm_benchmark.dir/all] Error 2
-make: *** [Makefile:136: all] Error 2
-(LM) yekyaw.thu@gpu:~/exp/lm/kenlm/build$
-
-## Finally 
-
-မည်သို့ မည်ပုံ ပြုလုပ်လိုက်သည် မသိ ...  
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ pip install https://github.com/kpu/kenlm/archive/master.zip
-Collecting https://github.com/kpu/kenlm/archive/master.zip
-  Downloading https://github.com/kpu/kenlm/archive/master.zip (553 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 553.6/553.6 kB 495.6 kB/s eta 0:00:00
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Preparing metadata (pyproject.toml) ... done
-Building wheels for collected packages: kenlm
-  Building wheel for kenlm (pyproject.toml) ... done
-  Created wheel for kenlm: filename=kenlm-0.2.0-cp38-cp38-linux_x86_64.whl size=595588 sha256=20ebd3b500fc26b796e57c785e1381d295307d8408037e25c5ef24abc72e2c73
-  Stored in directory: /tmp/pip-ephem-wheel-cache-bl3g4iz5/wheels/ff/08/4e/a3ddc0e786e0f3c1fcd2e7a82c4324c02fc3ae2638471406d2
-Successfully built kenlm
-Installing collected packages: kenlm
-Successfully installed kenlm-0.2.0
-(LM) yekyaw.thu@gpu:~/exp/lm$
-
-Note: တကယ်ကတော့ make clean လုပ်ပြီး နောက်မှာ make -j 20 ပြန် run လိုက်တာမှာ အထက်ပါအတိုင်း pip ကိုသုံးပြီး လုပ်တဲ့ installation က အဆင်ပြေသွားတဲ့ပုံရှိတယ်။  
-
-## Check import KenLM
-
-(LM) yekyaw.thu@gpu:~/exp/lm$ python
-Python 3.8.18 (default, Sep 11 2023, 13:40:15)
-[GCC 11.2.0] :: Anaconda, Inc. on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import kenlm
->>> print(dir(kenlm))
-['ARPALoadComplain', 'Config', 'FullScoreReturn', 'LanguageModel', 'LoadMethod', 'Model', 'State', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '__test__', 'os']
->>> 
 
