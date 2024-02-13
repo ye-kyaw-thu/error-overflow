@@ -3882,6 +3882,8 @@ ye@lst-gpu-server-197:~/ye/exp/normalization$ cat ./real_err1.syl.normalized
 ## Note
 
 - Syllable ဖြတ်ထားတဲ့ ဖိုင်ကို input လုပ်ရန် မမေ့ပါနဲ့ ...
+- ဒီပရိုဂရမ်က Normalization အပိုင်းကိုပဲ အဓိကရေးထားတာပါ။ နိုင်ငံခြားဘာသာစကား စာလုံးတွေ နဲ့ တခြား cleaning အတွက်က rm_non_burmese.py လို code မျိုးနဲ့ သပ်သပ် ရေးထားပါတယ်
+- ပရိုတပုဒ်ထဲမှာ အလုပ်အမျိုးမျိုး စုပြုံရေးထားတထက် Linux ပရိုဂရမ်တွေလိုပဲ pipe line နဲ့ ကိုလိုချင်တဲ့ task ကို တွဲပြီး လုပ်သွားဖို့ ရည်ရွယ်ပါတယ်
 - လက်ရှိ ပရိုဂရမ်က NLP Researcher, Developer တွေအတွက်ကို ရည်ရွယ်ပါတယ်။
 
 ## To Do
