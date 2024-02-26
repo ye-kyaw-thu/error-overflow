@@ -2,6 +2,7 @@
 
 ## Installation with pip
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ pip install --verbose kaldifst
 Using pip 24.0 from /home/ye/.local/lib/python3.10/site-packages/pip (python 3.10)
 Defaulting to user installation because normal site-packages is not writeable
@@ -13,9 +14,11 @@ Downloading kaldifst-1.7.10-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_
 Installing collected packages: kaldifst
 Successfully installed kaldifst-1.7.10
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
+```
 
 ## Installation of graphviz
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ pip install graphviz
 Defaulting to user installation because normal site-packages is not writeable
 Collecting graphviz
@@ -25,9 +28,11 @@ Downloading graphviz-0.20.1-py3-none-any.whl (47 kB)
 Installing collected packages: graphviz
 Successfully installed graphviz-0.20.1
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
+```
 
 ## Facing Eror Even I Installed Graphviz
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ pip show graphviz
 Name: graphviz
 Version: 0.20.1
@@ -40,9 +45,11 @@ Location: /home/ye/.local/lib/python3.10/site-packages
 Requires:
 Required-by:
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
+```
 
 ## I Have To Install Graphviz From Source
 
+```
 ye@lst-gpu-server-197:~/ye/tool/graphviz-10.0.1/bin$ ./configure --prefix=$HOME/ye/tool/graphviz-10.0.1
 make
 make install
@@ -50,20 +57,24 @@ make install
 ye@lst-gpu-server-197:~/ye/tool/graphviz-10.0.1/bin$ nano ../../../../.bashrc
 
 export PATH=/home/ye/ye/tool/graphviz-10.0.1/bin;$PATH;
+```
 
 ## Test Run
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ python3 ./string2fst.py
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ ls
 binary-2.fst  note.txt  quick-start-2.gv  quick-start-2.svg  string2fst.py
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 
 Now OK. I got SVG file.
+```
 
 =========
 
 ## Making FST with Constructors and Mutators
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ python3 constructors-and-mutators.py
 0      1      a      x      0.5
 0      1      b      y      1.5
@@ -91,20 +102,20 @@ nodesep = "0.25";
 }
 
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
+```
 
 ## Testing Iterating Code
 
+```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ python3 ./iterating.py
 0 (ilabel: 1, olabel: 1, weight: 0.6, nextstate: 1)
 0 (ilabel: 2, olabel: 2, weight: 1.8, nextstate: 1)
 1 (ilabel: 3, olabel: 3, weight: 1.25, nextstate: 2)
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
-
+```
 
 
 ## Reference
 
 https://graphviz.org/download/source/
 
-
-ye@lst-gpu-server-197:~/ye/exp/kaldifst$
