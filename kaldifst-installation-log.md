@@ -112,6 +112,16 @@ nodesep = "0.25";
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 ```
 
+Output:  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg" alt="output quick-start.svg" width="500"/>  
+</p>  
+<div align="center">
+  Fig.2 quick-start.svg  
+</div> 
+
+<br />
+
 ## Testing Iterating Code
 
 ```
@@ -122,6 +132,15 @@ ye@lst-gpu-server-197:~/ye/exp/kaldifst$ python3 ./iterating.py
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 ```
 
+Output:  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg" alt="output quick-start-3.svg" width="500"/>  
+</p>  
+<div align="center">
+  Fig.3 quick-start-3.svg  
+</div> 
+
+<br />
 
 ## Reference
 
