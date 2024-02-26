@@ -70,8 +70,15 @@ ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 Now OK. I got SVG file.
 ```
 
-![Output SVG File](quick-start-2.svg)<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg">
+Output:  
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg" alt="output quick-start-2.svg" width="800"/>  
+</p>  
+<div align="center">
+  Fig.1 quick-start-2.svg  
+</div> 
 
+<br />
 
 ## Making FST with Constructors and Mutators
 
