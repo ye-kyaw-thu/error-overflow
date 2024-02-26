@@ -18,6 +18,8 @@ ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 
 ## Installation of graphviz
 
+fst, fsa ပုံတွေကို ထုတ်ဖို့အတွက်က graphviz library က လိုအပ်တယ်။ အရင်ဆုံး pip နဲ့ပဲ အဆင်ပြေမလားလို့ install လုပ်ကြည့်ခဲ့တယ်။  
+
 ```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ pip install graphviz
 Defaulting to user installation because normal site-packages is not writeable
@@ -31,6 +33,8 @@ ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 ```
 
 ## Facing Eror Even I Installed Graphviz
+
+pip နဲ့ installation လုပ်တဲ့အခါမှာ အထက်မှာ မြင်ခဲ့ရတဲ့အတိုင်းပဲ ဘာ error မှ မပြခဲ့ပေမဲ့ တကယ်တမ်း python code ကို run တဲ့အခါမှာ dot ဖိုင် မထုတ်ပေးနိုင်ခဲ့ ...  
 
 ```
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ pip show graphviz
@@ -49,6 +53,9 @@ ye@lst-gpu-server-197:~/ye/exp/kaldifst$
 
 ## I Have To Install Graphviz From Source
 
+pip နဲ့ အဆင်မပြေတာနဲ့ source ကိုပဲ download လုပ်ယူပြီး၊ source ကနေပဲ အောက်ပါအတိုင်း installation လုပ်ခဲ့တယ်။  
+--prefix ထည့်ရတာက လက်ရှိ သုံးနေတဲ့ linux server မှာက sudo right မရှိလို့ ...  
+
 ```
 ye@lst-gpu-server-197:~/ye/tool/graphviz-10.0.1/bin$ ./configure --prefix=$HOME/ye/tool/graphviz-10.0.1
 make
@@ -60,6 +67,8 @@ export PATH=/home/ye/ye/tool/graphviz-10.0.1/bin;$PATH;
 ```
 
 ## Test Run
+
+အရင်ဆုံး example program နံပါတ် ၂ ကို run ကြည့်ခဲ့တယ်။  
 
 ye@lst-gpu-server-197:~/ye/exp/kaldifst$ cat string2fst.py  
 
@@ -318,5 +327,11 @@ Output:
 
 ## Reference
 
-https://graphviz.org/download/source/
+1. https://github.com/k2-fsa/kaldifst
+2. https://graphviz.org/download/source/
+
+## To Do
+
+- to do something ... :)
+  
 
