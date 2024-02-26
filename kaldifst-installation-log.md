@@ -72,7 +72,7 @@ Now OK. I got SVG file.
 
 Output:  
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg" alt="output quick-start-2.svg" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/quick-start-2.svg" alt="output quick-start-2.svg" width="500"/>  
 </p>  
 <div align="center">
   Fig.1 quick-start-2.svg  
