@@ -1,7 +1,7 @@
 # 2 FastText Model Experiment Log
 
-By Ye Kyaw Thu.
-Last updated: 23 Mar 2024
+By Ye Kyaw Thu.  
+Last updated: 23 Mar 2024  
 
 ## Create New Conda Env
 
