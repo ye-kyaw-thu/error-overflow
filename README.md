@@ -231,3 +231,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 224. [kaldifst-installation-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/kaldifst-installation-log.md)  
 225. [2fasttext-model-exp.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/2fasttext-model-exp.md)  
 226. [hs-classi-xgboost-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/hs-classi-xgboost-log.md)  
+227. [marian-installation-on-ubuntu23.10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/marian-installation-on-ubuntu23.10.md)  
