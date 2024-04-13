@@ -277,7 +277,7 @@ traceroute to facebook.com (163.70.149.35), 30 hops max, 60 byte packets
 
 The traceroute to Facebook (facebook.com) also seems to be functioning normally.  
 
-testing with the problem link on my computer ...   
+testing with the problem link repo.anaconda.com  ...   
 
 ```
 (base) ye@lst-hpc3090:~/tool/traceroute-2.1.0$ traceroute repo.anaconda.com
