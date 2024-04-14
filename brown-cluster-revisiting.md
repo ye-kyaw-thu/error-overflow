@@ -547,7 +547,7 @@ sys     0m0.042s
 ## Learn Brown Word Clusters
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brown-word-cluster-viewer.png" alt="Brown word cluster viewer" width="800"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/brown-word-cluster-viewer.png" alt="Brown word cluster viewer" width="1200"/>  
 </p>  
 <div align="center">
   Fig.1 Brown Word Cluster Viewer 
