@@ -640,4 +640,5 @@ sys     0m2.294s
 ## Reference
 
 https://nagisa.readthedocs.io/en/latest/tutorial.html  
+https://github.com/taishi-i/nagisa-tutorial-pycon2019  
 
