@@ -1,0 +1,12924 @@
+# Revisiting SentencePiece
+
+ဒီနေ့တော့ SentencePiece ကို ပြန်လေ့လာခဲ့။ 1k sentences corpus နဲ့ပဲ စမ်းပြီး ထွက်လာတဲ့ vocab တွေကို ကြည့်ပြီး စဉ်းစား...  
+
+Date: 25 April 2024  
+
+## Install
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ /home/ye/anaconda3/envs/hs-fasttext/bin/python -m pip install sentencepiece
+Requirement already satisfied: sentencepiece in /home/ye/.local/lib/python3.10/site-packages (0.1.99)
+```
+
+## 1K Corpus Preparation  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ wc 1k*
+   999  75656 302623 1k.char
+  1000  25418 252391 1k.syl
+  1000  18083 245051 1k.word
+  2999 119157 800065 total
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+Different segmentation units as follows:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ head -n 3 ./1k.char
+က ြ ိ ု း စ ာ း န ေ ပ ါ တ ယ ်
+အ ာ း လ ု ံ း ည ှ စ ် တ ယ ်
+လ ယ ် ယ ာ လ ု ပ ် င န ် း က ိ ု အ ဓ ိ က လ ု ပ ် က ိ ု င ် ပ ြ ီ း မ ြ န ် မ ာ ့ ဓ လ ေ ့ ဝ ါ း ဓ န ိ အ ိ မ ် မ ျ ာ း အ မ ျ ာ း စ ု စ ု ဖ ွ ဲ ့ တ ည ် ရ ှ ိ န ေ သ ည ် ့ အ ေ း က ျ ေ း ရ ွ ာ ၏ အ ဓ ိ က ရ ေ အ ရ င ် း အ မ ြ စ ် အ ဖ ြ စ ် စ ပ ါ း ရ ေ သ ွ င ် း စ ိ ု က ် ပ ျ ိ ု း ရ န ် အ တ ွ က ် န ိ ု င ် င ံ တ ေ ာ ် အ စ ိ ု း ရ က တ ူ း မ ြ ေ ာ င ် း တ စ ် ခ ု ဆ ေ ာ က ် လ ု ပ ် က ာ ဧ ရ ာ ဝ တ ီ မ ြ စ ် မ ှ ရ ေ က ိ ု သ ွ ယ ် ယ ူ ပ ေ း ထ ာ း ပ ြ ီ း က ျ ေ း ရ ွ ာ လ ူ ထ ု သ ေ ာ က ် သ ု ံ း ရ န ် ခ ျ က ် ပ ြ ု တ ် ရ ာ တ ွ င ် အ သ ု ံ း ပ ြ ု ရ န ် အ တ ွ က ် မ ူ အ ဝ ီ စ ိ ရ ေ သ ွ ယ ် ယ ူ သ ည ် ့ ပ ိ ု က ် တ စ ် ခ ု သ ာ လ ျ ှ င ် ရ ှ ိ ပ ါ သ ည ်
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ head -n 3 ./1k.syl
+ကြိုး စား နေ ပါ တယ်
+အား လုံး ညှစ် တယ်
+လယ် ယာ လုပ် ငန်း ကို အ ဓိ က လုပ် ကိုင် ပြီး မြန် မာ့ ဓ လေ့ ဝါး ဓ နိ အိမ် များ အ များ စု စု ဖွဲ့ တည် ရှိ နေ သည့် အေး ကျေး ရွာ ၏ အ ဓိ က ရေ အ ရင်း အ မြစ် အ ဖြစ် စ ပါး ရေ သွင်း စိုက် ပျိုး ရန် အ တွက် နိုင် ငံ တော် အ စိုး ရ က တူး မြောင်း တစ် ခု ဆောက် လုပ် ကာ ဧ ရာ ဝ တီ မြစ် မှ ရေ ကို သွယ် ယူ ပေး ထား ပြီး ကျေး ရွာ လူ ထု သောက် သုံး ရန် ချက် ပြုတ် ရာ တွင် အ သုံး ပြု ရန် အ တွက် မူ အ ဝီ စိ ရေ သွယ် ယူ သည့် ပိုက် တစ် ခု သာ လျှင် ရှိ ပါ သည်
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ head -n 3 ./1k.word
+ကြိုးစား နေ ပါ တယ်
+အားလုံး ညှစ် တယ်
+လယ်ယာ လုပ်ငန်း ကို အဓိက လုပ်ကိုင် ပြီး မြန်မာ့ ဓလေ့ ဝါးဓနိ အိမ် များ အများစု စုဖွဲ့ တည်ရှိ နေ သည့် အေး ကျေးရွာ ၏ အဓိက ရေ အရင်းအမြစ် အဖြစ် စပါး ရေသွင်း စိုက်ပျိုး ရန် အတွက် နိုင်ငံတော် အစိုးရ က တူးမြောင်း တစ် ခု ဆောက်လုပ် ကာ ဧရာဝတီ မြစ် မှ ရေ ကို သွယ်ယူ ပေး ထား ပြီး ကျေးရွာလူထု သောက်သုံး ရန် ချက်ပြုတ် ရာ တွင် အသုံးပြု ရန် အတွက် မူ အဝီစိရေ သွယ်ယူ သည့် ပိုက် တစ် ခု သာ လျှင် ရှိ ပါ သည်
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+## Coding
+
+```python
+import os
+import argparse
+import sentencepiece as spm
+
+def train_sentencepiece(corpus, output_prefix, vocab_size=8000, model_type='unigram', character_coverage=1.0):
+    spm.SentencePieceTrainer.train(input=corpus, model_prefix=output_prefix, vocab_size=vocab_size, model_type=model_type, character_coverage=character_coverage)
+
+def main():
+    parser = argparse.ArgumentParser(description="Train SentencePiece models with different model types.")
+    parser.add_argument("--corpus", type=str, required=True, help="Path to the corpus file.")
+    parser.add_argument("--output_prefix", type=str, default=None, help="Prefix for the output model files.")
+    parser.add_argument("--vocab_size", type=int, default=8000, help="Vocabulary size for the models.")
+    parser.add_argument("--model_type", type=str, default='unigram', choices=['unigram', 'bpe', 'char', 'word'], help="Model type.")
+    parser.add_argument("--character_coverage", type=float, default=1.0, help="Character coverage for the models.")
+    args = parser.parse_args()
+
+    if args.output_prefix is None:
+        args.output_prefix = os.path.splitext(args.corpus)[0]
+
+    output_prefix = f"{args.output_prefix}.{args.model_type}"
+    train_sentencepiece(args.corpus, output_prefix, args.vocab_size, args.model_type, args.character_coverage)
+
+if __name__ == "__main__":
+    main()
+
+```
+
+call --help  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ python ./build_spm.py --help
+usage: build_spm.py [-h] --corpus CORPUS [--output_prefix OUTPUT_PREFIX]
+                    [--vocab_size VOCAB_SIZE] [--model_type {unigram,bpe,char,word}]
+                    [--character_coverage CHARACTER_COVERAGE]
+
+Train SentencePiece models with different model types.
+
+options:
+  -h, --help            show this help message and exit
+  --corpus CORPUS       Path to the corpus file.
+  --output_prefix OUTPUT_PREFIX
+                        Prefix for the output model files.
+  --vocab_size VOCAB_SIZE
+                        Vocabulary size for the models.
+  --model_type {unigram,bpe,char,word}
+                        Model type.
+  --character_coverage CHARACTER_COVERAGE
+                        Character coverage for the models.
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+## Building Char Unit SentencePiece Unigram Models  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.char --output_prefix ./char/1k.char --model_type unigram --vocab_size 80
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.char
+  input_format:
+  model_prefix: ./char/1k.char.unigram
+  model_type: UNIGRAM
+  vocab_size: 80
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.char
+trainer_interface.cc(378) LOG(WARNING) Found too long line (4335 > 4192).
+trainer_interface.cc(380) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(381) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(407) LOG(INFO) Loaded all 999 sentences
+trainer_interface.cc(414) LOG(INFO) Skipped 1 too long sentences.
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=149144
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 999 sentences.
+unigram_model_trainer.cc(222) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(226) LOG(INFO) Extracting frequent sub strings... node_num=67632
+unigram_model_trainer.cc(274) LOG(INFO) Initialized 85 seed sentencepieces
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 999
+trainer_interface.cc(608) LOG(INFO) Done! 61
+unigram_model_trainer.cc(564) LOG(INFO) Using 61 sentences for EM training
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=0 size=85 obj=4.40316 num_tokens=99 num_tokens/piece=1.16471
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=1 size=84 obj=4.17294 num_tokens=99 num_tokens/piece=1.17857
+trainer_interface.cc(686) LOG(INFO) Saving model: ./char/1k.char.unigram.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./char/1k.char.unigram.vocab
+
+real    0m0.130s
+user    0m0.129s
+sys     0m0.019s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+Check the output models ...  
+
+```
+(base) ye@lst-gpu-server-197:~/ye/exp/sp/char$ cat ./1k.char.unigram.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁       -1.37861
+▁်      -2.48839
+▁း      -3.0981
+▁ာ      -3.11206
+▁က      -3.28211
+▁ေ      -3.28288
+▁ု      -3.37668
+▁တ      -3.4446
+▁ိ      -3.49342
+▁မ      -3.60381
+င       -3.60895
+ပ       -3.61527
+န       -3.79265
+လ       -3.86557
+▁့      -3.88308
+▁ြ      -4.01697
+ရ       -4.02008
+သ       -4.0629
+စ       -4.17839
+အ       -4.2433
+▁ွ      -4.31782
+▁ှ      -4.37733
+▁ျ      -4.38194
+ခ       -4.43439
+▁ဲ      -4.45129
+ယ       -4.46968
+ည       -4.68812
+ဆ       -5.14761
+ဘ       -5.20807
+ဖ       -5.24163
+ထ       -5.30219
+်       -5.65832
+ဒ       -5.71829
+ဝ       -5.99836
+္       -6.25489
+း       -6.26952
+ာ       -6.28352
+က       -6.45417
+ေ       -6.45495
+ဂ       -6.53649
+ု       -6.54914
+တ       -6.61735
+ိ       -6.66641
+ဗ       -6.71812
+မ       -6.77736
+့       -7.05837
+ဇ       -7.13401
+ြ       -7.19328
+ဉ       -7.25416
+ဦ       -7.26844
+ွ       -7.49699
+ဓ       -7.51156
+ှ       -7.55719
+ျ       -7.56185
+ဲ       -7.63204
+ဥ       -7.80845
+၍       -7.80845
+ါ       -7.82707
+ီ       -7.86432
+ူ       -8.09182
+ံ       -8.38148
+၌       -8.83543
+ဟ       -9.20757
+ဌ       -9.25802
+ဈ       -9.36913
+ဤ       -9.49413
+ဿ       -9.63699
+ဧ       -10.0037
+ဩ       -10.2537
+၏       -10.4453
+၎       -10.587
+ဏ       -10.8487
+ဠ       -11.087
+ဃ       -12.087
+ဋ       -12.087
+ဍ       -12.087
+ဪ       -12.087
+(base) ye@lst-gpu-server-197:~/ye/exp/sp/char$
+```
+
+## Building Char Unit SentencePiece BPE Model  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.char --output_prefix ./char/1k.char --model_type bpe --vocab_size 126
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.char
+  input_format:
+  model_prefix: ./char/1k.char.bpe
+  model_type: BPE
+  vocab_size: 126
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.char
+trainer_interface.cc(378) LOG(WARNING) Found too long line (4335 > 4192).
+trainer_interface.cc(380) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(381) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(407) LOG(INFO) Loaded all 999 sentences
+trainer_interface.cc(414) LOG(INFO) Skipped 1 too long sentences.
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=149144
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 999 sentences.
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 999
+trainer_interface.cc(608) LOG(INFO) Done! 61
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=8627 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1385 size=20 all=104 active=42 piece=▁ွ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=121 size=40 all=84 active=22 piece=▁ဗ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=60 all=64 active=2 piece=▁ဍ
+trainer_interface.cc(686) LOG(INFO) Saving model: ./char/1k.char.bpe.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./char/1k.char.bpe.vocab
+
+real    0m0.080s
+user    0m0.077s
+sys     0m0.019s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$ cat 1k.char.bpe.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁်      -0
+▁း      -1
+▁ာ      -2
+▁က      -3
+▁ေ      -4
+▁ု      -5
+▁တ      -6
+▁ိ      -7
+▁မ      -8
+▁င      -9
+▁ပ      -10
+▁န      -11
+▁့      -12
+▁လ      -13
+▁ြ      -14
+▁ရ      -15
+▁သ      -16
+▁စ      -17
+▁အ      -18
+▁ွ      -19
+▁ှ      -20
+▁ျ      -21
+▁ဲ      -22
+▁ခ      -23
+▁ယ      -24
+▁ါ      -25
+▁ီ      -26
+▁ည      -27
+▁ူ      -28
+▁ံ      -29
+▁ဆ      -30
+▁ဘ      -31
+▁ဖ      -32
+▁ထ      -33
+▁ဒ      -34
+▁ဟ      -35
+▁ဝ      -36
+▁္      -37
+▁ဂ      -38
+▁ဗ      -39
+▁၏      -40
+▁ဇ      -41
+▁ဉ      -42
+▁ဦ      -43
+▁ဏ      -44
+▁ဓ      -45
+▁ဥ      -46
+▁၍      -47
+▁၌      -48
+▁ဌ      -49
+▁ဈ      -50
+▁ဤ      -51
+▁ဿ      -52
+▁ဃ      -53
+▁ဧ      -54
+▁ဩ      -55
+▁၎      -56
+▁ဠ      -57
+▁ဋ      -58
+▁ဍ      -59
+▁ဪ      -60
+▁       -61
+်       -62
+း       -63
+ာ       -64
+က       -65
+ေ       -66
+ု       -67
+တ       -68
+ိ       -69
+မ       -70
+င       -71
+ပ       -72
+န       -73
+့       -74
+လ       -75
+ြ       -76
+ရ       -77
+သ       -78
+စ       -79
+အ       -80
+ွ       -81
+ှ       -82
+ျ       -83
+ဲ       -84
+ခ       -85
+ယ       -86
+ါ       -87
+ီ       -88
+ည       -89
+ူ       -90
+ံ       -91
+ဆ       -92
+ဘ       -93
+ဖ       -94
+ထ       -95
+ဒ       -96
+ဟ       -97
+ဝ       -98
+္       -99
+ဂ       -100
+ဗ       -101
+၏       -102
+ဇ       -103
+ဉ       -104
+ဦ       -105
+ဏ       -106
+ဓ       -107
+ဥ       -108
+၍       -109
+၌       -110
+ဌ       -111
+ဈ       -112
+ဤ       -113
+ဿ       -114
+ဃ       -115
+ဧ       -116
+ဩ       -117
+၎       -118
+ဠ       -119
+ဋ       -120
+ဍ       -121
+ဪ       -122
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$
+```
+
+## Building Char Unit SentencePiece Word Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.char --output_prefix ./char/1k.char --model_type word --vocab_size 64
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.char
+  input_format:
+  model_prefix: ./char/1k.char.word
+  model_type: WORD
+  vocab_size: 64
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.char
+trainer_interface.cc(378) LOG(WARNING) Found too long line (4335 > 4192).
+trainer_interface.cc(380) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(381) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(407) LOG(INFO) Loaded all 999 sentences
+trainer_interface.cc(414) LOG(INFO) Skipped 1 too long sentences.
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=149144
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 999 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./char/1k.char.word.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./char/1k.char.word.vocab
+
+real    0m0.063s
+user    0m0.074s
+sys     0m0.008s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$ cat ./1k.char.word.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁်      -2.15687
+▁း      -2.76655
+▁ာ      -2.78051
+▁က      -2.95053
+▁ေ      -2.9513
+▁ု      -3.0451
+▁တ      -3.11301
+▁ိ      -3.16183
+▁မ      -3.2722
+▁င      -3.31851
+▁ပ      -3.32483
+▁န      -3.50217
+▁့      -3.55143
+▁လ      -3.57508
+▁ြ      -3.68529
+▁ရ      -3.72955
+▁သ      -3.77235
+▁စ      -3.88781
+▁အ      -3.95269
+▁ွ      -3.98607
+▁ှ      -4.04556
+▁ျ      -4.05017
+▁ဲ      -4.11949
+▁ခ      -4.14371
+▁ယ      -4.17898
+▁ါ      -4.31177
+▁ီ      -4.34843
+▁ည      -4.39732
+▁ူ      -4.57183
+▁ံ      -4.85477
+▁ဆ      -4.85649
+▁ဘ      -4.9169
+▁ဖ      -4.95042
+▁ထ      -5.01093
+▁ဒ      -5.42651
+▁ဟ      -5.64737
+▁ဝ      -5.70609
+▁္      -5.96203
+▁ဂ      -6.24279
+▁ဗ      -6.42373
+▁၏      -6.75361
+▁ဇ      -6.83749
+▁ဉ      -6.95684
+▁ဦ      -6.97103
+▁ဏ      -7.07639
+▁ဓ      -7.21219
+▁ဥ      -7.50595
+▁၍      -7.50595
+▁၌      -8.51147
+▁ဌ      -8.91693
+▁ဈ      -9.0223
+▁ဤ      -9.14008
+▁ဿ      -9.27361
+▁ဃ      -9.42776
+▁ဧ      -9.61008
+▁ဩ      -9.83323
+▁၎      -10.1209
+▁ဠ      -10.5264
+▁ဋ      -11.2195
+▁ဍ      -11.2195
+▁ဪ      -11.2195
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$
+```
+
+## Building Char Unit SentencePiece Char Model  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.char --output_prefix ./char/1k.char --model_type char
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.char
+  input_format:
+  model_prefix: ./char/1k.char.char
+  model_type: CHAR
+  vocab_size: 8000
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.char
+trainer_interface.cc(378) LOG(WARNING) Found too long line (4335 > 4192).
+trainer_interface.cc(380) LOG(WARNING) Too long lines are skipped in the training.
+trainer_interface.cc(381) LOG(WARNING) The maximum length can be changed with --max_sentence_length=<size> flag.
+trainer_interface.cc(407) LOG(INFO) Loaded all 999 sentences
+trainer_interface.cc(414) LOG(INFO) Skipped 1 too long sentences.
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=149144
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 999 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./char/1k.char.char.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./char/1k.char.char.vocab
+
+real    0m0.056s
+user    0m0.057s
+sys     0m0.016s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$ cat ./1k.char.char.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁       -0.693147
+်       -2.85002
+း       -3.45969
+ာ       -3.47365
+က       -3.64368
+ေ       -3.64445
+ု       -3.73825
+တ       -3.80615
+ိ       -3.85497
+မ       -3.96534
+င       -4.01166
+ပ       -4.01798
+န       -4.19532
+့       -4.24457
+လ       -4.26823
+ြ       -4.37844
+ရ       -4.4227
+သ       -4.4655
+စ       -4.58095
+အ       -4.64584
+ွ       -4.67921
+ှ       -4.73871
+ျ       -4.74332
+ဲ       -4.81264
+ခ       -4.83686
+ယ       -4.87213
+ါ       -5.00491
+ီ       -5.04158
+ည       -5.09047
+ူ       -5.26498
+ံ       -5.54792
+ဆ       -5.54964
+ဘ       -5.61005
+ဖ       -5.64357
+ထ       -5.70408
+ဒ       -6.11965
+ဟ       -6.34051
+ဝ       -6.39924
+္       -6.65517
+ဂ       -6.93593
+ဗ       -7.11688
+၏       -7.44676
+ဇ       -7.53064
+ဉ       -7.64999
+ဦ       -7.66417
+ဏ       -7.76953
+ဓ       -7.90533
+ဥ       -8.19909
+၍       -8.19909
+၌       -9.20462
+ဌ       -9.61008
+ဈ       -9.71544
+ဤ       -9.83323
+ဿ       -9.96676
+ဃ       -10.1209
+ဧ       -10.3032
+ဩ       -10.5264
+၎       -10.8141
+ဠ       -11.2195
+ဋ       -11.9127
+ဍ       -11.9127
+ဪ       -11.9127
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/char$
+```
+
+## Building Syl Unit SentencePiece Unigram Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.syl --output_prefix ./syl/1k.syl --model_type unigram --vocab_size 695
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.syl
+  input_format:
+  model_prefix: ./syl/1k.syl.unigram
+  model_type: UNIGRAM
+  vocab_size: 695
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.syl
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=101056
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+unigram_model_trainer.cc(222) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(226) LOG(INFO) Extracting frequent sub strings... node_num=48939
+unigram_model_trainer.cc(274) LOG(INFO) Initialized 1352 seed sentencepieces
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(608) LOG(INFO) Done! 1404
+unigram_model_trainer.cc(564) LOG(INFO) Using 1404 sentences for EM training
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=0 size=982 obj=7.99022 num_tokens=2470 num_tokens/piece=2.51527
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=1 size=683 obj=7.01849 num_tokens=2475 num_tokens/piece=3.62372
+trainer_interface.cc(686) LOG(INFO) Saving model: ./syl/1k.syl.unigram.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./syl/1k.syl.unigram.vocab
+
+real    0m0.123s
+user    0m0.135s
+sys     0m0.021s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/syl$ cat ./1k.syl.unigram.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁အ      -3.26039
+▁မ      -3.61125
+း       -3.63223
+▁က      -3.74966
+▁ရ      -3.87229
+▁တ      -3.92824
+▁ပါ     -4.01062
+▁သ      -4.02779
+စ်      -4.02927
+က်      -4.06441
+▁ကို    -4.06868
+့       -4.13647
+ား      -4.13913
+▁စ      -4.34886
+▁နေ     -4.35727
+▁တယ်    -4.42467
+ပ်      -4.57053
+▁ပ      -4.58991
+▁တာ     -4.59777
+▁လ      -4.68178
+▁တွေ    -4.68831
+တ်      -4.70636
+ေး      -4.79705
+▁သည်    -4.79804
+▁ထ      -4.80389
+▁မှာ    -4.84746
+▁သူ     -4.87917
+▁ဖြ     -4.95768
+်       -4.9675
+င်း     -4.9736
+▁ကြ     -4.97647
+ို့     -5.07495
+ောက်    -5.11328
+▁န      -5.1151
+▁ချ     -5.11546
+▁တော့   -5.1608
+▁ရှိ    -5.18305
+မ်း     -5.18897
+▁များ   -5.20705
+▁နဲ့    -5.21979
+▁တဲ့    -5.23737
+ံ       -5.24358
+▁ဆ      -5.24789
+▁ပြီး   -5.29169
+န်း     -5.29709
+▁တော်   -5.30418
+ိုး     -5.31289
+▁လာ     -5.3252
+▁ဘူး    -5.35775
+▁ဆို    -5.3704
+▁ကြီး   -5.39413
+▁နိုင်  -5.40697
+▁ရာ     -5.41937
+▁ည      -5.4293
+ဲ       -5.44516
+▁ပဲ     -5.44582
+▁မှ     -5.45449
+့်      -5.45757
+▁လား    -5.46373
+▁လို့   -5.46768
+▁ကျ     -5.4692
+▁လေး    -5.48946
+▁င့်    -5.49215
+▁ဒီ     -5.50648
+▁ရင်    -5.5493
+▁ဝ      -5.55944
+▁       -5.57947
+▁လဲ     -5.57989
+▁လို    -5.58455
+င်      -5.5963
+▁ပြော   -5.60452
+▁လု     -5.60536
+▁ခ      -5.60547
+▁ခဲ့    -5.60829
+ာ       -5.61773
+ယ်      -5.62598
+▁ဖ      -5.64997
+▁လည်    -5.65905
+▁သာ     -5.66543
+▁ကျွန်  -5.69778
+▁ပြ     -5.7036
+▁ပေ     -5.70992
+▁လိုက်  -5.72102
+▁နှ     -5.72219
+ည်း     -5.72526
+ီး      -5.74155
+▁ယ      -5.74235
+▁ဘယ်    -5.75429
+ုံး     -5.78162
+▁စာ     -5.78697
+▁မယ်    -5.80543
+▁ကောင်း -5.83659
+▁သွား   -5.85353
+▁ချင်   -5.89017
+▁ဘ      -5.90647
+▁သိ     -5.90934
+▁မြ     -5.92079
+▁လေ     -5.92894
+▁မိ     -5.92959
+▁တွင်   -5.93086
+ွဲ      -5.94505
+ော်     -5.94697
+▁ရေ     -5.95278
+▁ခု     -5.96019
+▁၏      -5.96734
+▁ဘာ     -5.96767
+▁ဦး     -5.96797
+▁မာ     -5.98063
+ီ       -5.99933
+▁သော    -6.01534
+ဲ့      -6.01552
+▁မှု    -6.02509
+▁င      -6.0829
+▁ပေါ    -6.086
+▁မင်း   -6.0939
+▁စေ     -6.13033
+န်      -6.13481
+▁ပြီ    -6.13642
+ိုက်    -6.14214
+▁လူ     -6.15249
+▁နှင်   -6.18406
+▁ရှ     -6.19213
+▁ဟုတ်   -6.20584
+▁မျ     -6.22632
+▁ခံ     -6.24243
+▁ဒါ     -6.24606
+ူး      -6.25053
+▁ရဲ့    -6.25103
+▁ဟာ     -6.258
+▁နာ     -6.2707
+▁နော်   -6.27136
+▁စိုင်း -6.27283
+▁ခြင်း  -6.34692
+▁ပြန်   -6.34754
+▁ခင်    -6.35233
+▁ငါ     -6.36239
+▁ဆုံး   -6.37197
+▁လှ     -6.3739
+▁အောင်  -6.39105
+▁ရှင်   -6.43813
+▁စု     -6.45335
+▁တွက်   -6.47197
+ိတ်     -6.48369
+ု       -6.48841
+▁မြန်   -6.49663
+▁ယူ     -6.51323
+▁မြင်   -6.52058
+▁ဖို့   -6.52192
+▁မေ     -6.52588
+▁ပြည်   -6.5277
+▁တို    -6.53288
+ိုင်း   -6.55059
+▁ယောက်  -6.55802
+▁ဆောင်  -6.5699
+▁ဒ      -6.60008
+▁ပင်    -6.61225
+▁တိ     -6.63229
+▁ကာ     -6.63365
+▁ဂ      -6.63642
+▁လုံ    -6.65552
+▁တင်    -6.65719
+▁ကိုယ်  -6.65945
+▁သေ     -6.6624
+▁ပြု    -6.68035
+▁ဗျာ    -6.69098
+▁မည်    -6.7122
+၍       -6.72546
+▁ကြောင်း        -6.72705
+▁ဝင်    -6.73916
+ုတ်     -6.74184
+▁လောက်  -6.77967
+ွက်     -6.80388
+▁ခါ     -6.80491
+▁သင်    -6.80696
+▁ချိန်  -6.83247
+▁ပေါ့   -6.83375
+ိမ်     -6.83417
+▁ဟ      -6.84523
+▁လျှ    -6.85201
+▁ပျော   -6.8594
+▁စဉ်    -6.86204
+▁ခြ     -6.8692
+ုံ      -6.89288
+▁ခွ     -6.90851
+▁ဟု     -6.914
+▁လျ     -6.91519
+▁သေး    -6.92639
+▁ထိ     -6.93466
+▁တိုင်  -6.94918
+▁စီ     -6.95958
+▁နည်း   -6.97338
+ွေး     -6.97946
+▁ရီ     -6.99297
+▁တူ     -7.00025
+▁တောင်  -7.00259
+လ       -7.00741
+▁ဖွ     -7.00809
+▁ခေါ    -7.02191
+▁စိ     -7.02367
+▁ကုန်   -7.02404
+ွာ      -7.02988
+▁ထင်    -7.03284
+ောင်း   -7.04796
+▁အဲ     -7.0482
+▁ကောင်  -7.07134
+ိုင်    -7.07422
+▁ညာ     -7.09439
+▁ခန်း   -7.1094
+▁ကြို   -7.11139
+▁ပုံ    -7.11866
+▁ရဲ     -7.12759
+▁ငွေ    -7.13467
+▁ထာ     -7.14034
+▁ဝန်    -7.14569
+▁ဆင်    -7.15102
+▁ရား    -7.15801
+ေ့      -7.15865
+▁ရပ်    -7.16216
+▁မောင်  -7.1671
+▁ဗ      -7.16786
+▁တိုက်  -7.16987
+▁ပွ     -7.17662
+▁ထို    -7.17854
+▁သီ     -7.1812
+▁လွှ    -7.18973
+▁စော    -7.19765
+ူ       -7.19788
+▁ပို    -7.21151
+▁လိ     -7.21152
+▁ဆိုင်  -7.22897
+▁ဓု     -7.22932
+▁ပျ     -7.23138
+▁ရု     -7.23527
+▁ကြည်   -7.23585
+▁ကျောင်း        -7.24095
+▁မှန်   -7.25124
+▁ထွ     -7.25507
+▁ကွာ    -7.25656
+▁ယာ     -7.25792
+▁ချော   -7.26397
+▁ထိုင်  -7.27073
+▁ဘော    -7.29482
+▁ရယ်    -7.30573
+စ္စ     -7.31363
+▁နယ်    -7.3141
+▁နံ     -7.32106
+▁မူ     -7.32978
+▁လီ     -7.3337
+▁တီ     -7.34857
+▁ကန်    -7.35073
+▁ကွ     -7.35103
+▁ဗျ     -7.35274
+▁ဇ      -7.35876
+ဏ်      -7.36787
+▁ကျေး   -7.37448
+ွယ်     -7.37511
+▁ဆီ     -7.37747
+▁ရိ     -7.38025
+▁လွ     -7.39221
+▁ရော    -7.40027
+▁ကြာ    -7.40263
+▁ဒေါ    -7.40777
+▁ဏ      -7.41043
+▁မီ     -7.42713
+▁ပြင်   -7.42854
+▁ကြောင် -7.4421
+▁ကူ     -7.44562
+ို      -7.44703
+▁ဇူ     -7.4496
+▁ဥ      -7.45618
+▁တည်    -7.47191
+▁ငယ်    -7.47265
+▁ခြေ    -7.47926
+▁ရွှ    -7.49645
+▁ထု     -7.50831
+▁ဝါ     -7.51201
+▁မျှ    -7.52244
+▁ဖု     -7.53534
+▁ပူ     -7.55287
+▁ခိုင်  -7.56399
+▁ရုံ    -7.56689
+▁ဒေ     -7.56848
+▁ထောင်  -7.57577
+▁အု     -7.59479
+ိ       -7.60413
+င်္ဂ    -7.61121
+▁ဘု     -7.62643
+ွန်     -7.65532
+▁ကျင်   -7.66224
+▁ရွေး   -7.67429
+▁ဂျ     -7.67625
+▁ကျန်   -7.67808
+▁ငြိမ်  -7.68688
+▁ကမ္ဘာ  -7.69063
+▁ဇာ     -7.69996
+▁ရောင်  -7.70068
+▁လွန်   -7.70864
+▁ဟို    -7.71812
+▁စွ     -7.73203
+▁တုန်   -7.7444
+၌       -7.75244
+▁ဂါ     -7.75672
+▁ဝေ     -7.757
+▁ဖြေ    -7.76244
+▁ကြော   -7.77042
+▁တန်    -7.78907
+▁ငေး    -7.79228
+▁ဗို    -7.79422
+▁လယ်    -7.80494
+▁တောင်း -7.81752
+▁ဆု     -7.82824
+▁အာ     -7.85189
+▁ကွယ်   -7.85675
+ုပ      -7.8889
+▁ရွ     -7.9079
+▁သို    -7.91213
+▁လျှော  -7.91256
+န္တ     -7.92469
+▁ရည်    -7.92635
+▁ပေါင်  -7.92652
+ေ       -7.94787
+▁ပြေ    -7.94847
+▁မြေ    -7.95674
+▁ဆယ်    -7.96203
+က္က     -7.97063
+ောင်    -7.97704
+မ္မ     -7.9841
+▁ပိုင်  -7.99715
+▁ရှာ    -7.9977
+▁ပန်    -8.01213
+▁နီ     -8.01693
+ော      -8.01925
+▁စောင်  -8.04074
+▁ဘီ     -8.04144
+ုဏ်     -8.06586
+က္ခ     -8.07503
+▁ငှ     -8.07985
+ဉ်      -8.08253
+▁မိန်   -8.08297
+▁ထည်    -8.09276
+ာက်     -8.10639
+▁အိ     -8.11095
+▁ဓိ     -8.11739
+▁ချီ    -8.13735
+▁မြတ်   -8.14577
+▁ဖြတ်   -8.14667
+▁အန်    -8.14772
+ျဉ်     -8.15333
+▁ပု     -8.15545
+▁ကု     -8.16024
+▁ကော    -8.18126
+▁ပျို   -8.20301
+▁ဖျ     -8.20947
+▁ခေတ    -8.23326
+▁ကိ     -8.23338
+ွား     -8.23847
+▁ဟော    -8.24316
+▁နု     -8.24841
+▁ကျွ    -8.25179
+▁တပ်    -8.26557
+▁ခုန်   -8.26929
+ဈ       -8.28615
+▁ဆုံ    -8.28929
+▁ဝှ     -8.29186
+▁ခို    -8.29464
+▁ကျပ်   -8.3043
+▁ဘွ     -8.30584
+▁သွ     -8.31415
+▁လင်း   -8.31821
+▁လော    -8.34086
+▁ခဲ     -8.34983
+ည်      -8.35128
+▁မု     -8.37316
+▁ကိုင်  -8.37727
+▁တု     -8.38724
+▁နှု    -8.4035
+▁ကြွ    -8.40724
+ဤ       -8.41115
+▁ဌာ     -8.41163
+▁ဖိ     -8.42168
+▁လွင်   -8.44413
+ါ       -8.44897
+▁နွေ    -8.45828
+▁တွ     -8.47367
+▁ပို့   -8.48505
+ွေ့     -8.49264
+မ်      -8.49946
+▁ဖြူ    -8.50804
+▁ကျော   -8.51698
+▁ဓာ     -8.51984
+▁မော    -8.53092
+▁စို    -8.53101
+▁ကျေ    -8.53293
+▁ဖန်    -8.53829
+▁ဒို    -8.55347
+ဿ       -8.554
+▁တမ်း   -8.55681
+▁ပါ့    -8.55909
+▁သု     -8.56406
+▁သတ္တ   -8.57011
+▁ကြံ    -8.57036
+▁နှိ    -8.57468
+▁ဉ      -8.57545
+▁နိ     -8.58594
+ျား     -8.59747
+▁ရို    -8.60409
+▁ကိုး   -8.611
+▁လိမ်   -8.6143
+▁ဟင်    -8.61698
+▁နင်    -8.6173
+▁ဟူ     -8.6239
+▁ခွေ    -8.64418
+ွင်     -8.65485
+ိန်     -8.66249
+တ္တ     -8.67094
+င်္က    -8.68207
+▁ညှ     -8.68732
+▁ယို    -8.71638
+▁ဃ      -8.72067
+▁ဂိုဏ်း -8.72069
+▁ယဉ်    -8.72741
+▁ရှေ    -8.72843
+▁တံ     -8.72936
+▁ရွှေ   -8.7318
+▁ကြေ    -8.73213
+▁ဘိ     -8.74897
+▁ဇော    -8.77491
+▁ဟန်    -8.7921
+▁ခုံ    -8.80387
+▁ဂျင်   -8.81933
+▁မြို   -8.82173
+▁ခေ     -8.83012
+▁ဆန်    -8.83244
+▁မို    -8.83532
+▁ခေါင်  -8.84562
+▁ညံ     -8.8496
+▁သွေး   -8.85861
+▁အေ     -8.86214
+▁ငို    -8.86674
+▁နဲ     -8.86977
+▁ဓ      -8.8715
+▁လင်    -8.87334
+▁လှန်   -8.87627
+▁ချေ    -8.87737
+▁ယု     -8.8778
+▁ချို   -8.87936
+န္ဒ     -8.88617
+▁ဖို    -8.89345
+▁အင်    -8.89955
+▁သုံ    -8.90378
+ဧ       -8.92067
+▁ညွှန်  -8.92076
+▁တော    -8.92716
+▁အို    -8.92829
+▁လှေ    -8.9321
+▁ဆွေ    -8.93556
+▁ဆေ     -8.93726
+▁ခန်    -8.97851
+▁နောင်  -8.98182
+▁မိုင်  -8.9849
+ခ်      -8.98908
+▁ဂု     -8.98914
+▁နော    -9.01559
+▁ရိုင်  -9.01569
+▁ရှိုး  -9.01865
+ှာ      -9.03085
+▁မင်    -9.04389
+▁ဘွန်   -9.05136
+▁မဲ     -9.05372
+▁ဗီ     -9.0709
+▁စည်    -9.07646
+▁ဆော    -9.08121
+ော့     -9.08388
+▁ဂီ     -9.09723
+▁ထွေ    -9.09952
+▁မြူ    -9.10537
+▁ဇင်    -9.11396
+▁ဂို    -9.1149
+▁ဟေ     -9.11571
+▁ဟောင်  -9.11656
+▁မွန်   -9.13362
+ဇ       -9.13519
+▁ဘတ်    -9.13569
+▁ချယ်   -9.13959
+ြ       -9.1411
+ျေး     -9.15832
+▁ကမ္ဘ   -9.16035
+ဩ       -9.17067
+▁ယှ     -9.18319
+▁နှောင် -9.19514
+▁ဗြ     -9.21156
+▁ဒု     -9.21227
+ှ       -9.21798
+▁ဆွ     -9.21903
+▁သွင်   -9.23174
+ပ္ပ     -9.24138
+ျ       -9.25635
+▁မန်    -9.26473
+▁ညွ     -9.27222
+▁ဖော    -9.27913
+▁ရှု    -9.30703
+▁ဝမ်    -9.30933
+ေတ္တ    -9.31338
+ဒ       -9.31541
+▁ပစ်    -9.32053
+▁ခွန်   -9.33095
+▁လှိုင် -9.353
+ိပ္ပ    -9.41404
+▁ဗေ     -9.41848
+▁ဂိ     -9.43283
+ွမ်း    -9.43377
+ဂ       -9.44893
+▁ဒက်    -9.46201
+▁ဆဲ     -9.46248
+▁ကြွေ   -9.46601
+ဟ       -9.46624
+▁ရူ     -9.4788
+▁ကင်    -9.48068
+▁ဟိ     -9.48854
+စ္      -9.50119
+ဒ္ဒ     -9.504
+၎       -9.504
+ုဒ္ဓ    -9.50401
+▁ပုဂ္ဂ  -9.5042
+▁လွှာ   -9.5048
+▁ဓမ္မ   -9.50496
+▁ဂေါ    -9.50548
+▁ဥက္က   -9.50692
+ုန်     -9.54234
+▁ရွံ    -9.55552
+▁မွှ    -9.56148
+▁ယော    -9.56393
+▁စက္က   -9.56501
+ိန္ဒ    -9.57074
+ွ       -9.57506
+▁လှည်   -9.59285
+▁တမ်    -9.6165
+▁ဆိ     -9.6201
+▁ပြောင် -9.63121
+ဆာ      -9.63142
+▁ပိ     -9.65155
+ျူ      -9.67426
+▁မြော   -9.67453
+▁လောင်  -9.69859
+▁ပြို   -9.70724
+ှင်     -9.71084
+▁နွ     -9.73596
+ွေ      -9.77806
+ု့      -9.79877
+ပ       -9.80343
+▁ဘင်    -9.84543
+က       -9.84858
+▁မွ     -9.85217
+▁နို    -9.85768
+ျီ      -9.85863
+▁ဖာ     -9.8745
+▁ရော့   -9.88015
+▁သန်    -9.89821
+▁ဂုံ    -9.90061
+တ       -9.91993
+္       -9.95384
+▁ဖေ     -9.95762
+▁ဂျိ    -9.95918
+▁ညှိ    -9.97438
+▁ဝိ     -9.98228
+▁ကဲ     -10.002
+ဂ္ဂ     -10.0037
+ဗ္ဗ     -10.004
+ဠ       -10.004
+▁ဘူ     -10.0042
+ဇ္ဇ     -10.0042
+ဏ္      -10.0095
+▁လန်    -10.0393
+▁နွမ်း  -10.0412
+္မ      -10.0427
+▁ဘင်္ဂ  -10.0442
+▁သင်္   -10.0504
+ြိမ်    -10.0948
+▁ဆည်    -10.0983
+ေါ      -10.1063
+▁ချည်   -10.1087
+▁သင်္က  -10.1234
+▁မျော   -10.1337
+ုး      -10.1459
+▁သိပ    -10.1828
+▁ဒိုက်  -10.1873
+▁အုံ    -10.222
+▁ရွေ့   -10.2563
+▁ကျု    -10.26
+န       -10.274
+ုဒ      -10.2751
+စ       -10.2914
+▁ထူ     -10.3071
+▁ပြာ    -10.3171
+ြီး     -10.3437
+▁ငွေ့   -10.3566
+ြုံ     -10.3865
+▁ညှို   -10.3868
+▁မွေ    -10.3962
+▁ချန်   -10.4415
+▁တိမ်   -10.4514
+▁ဟေး    -10.4577
+ြန်     -10.4698
+ြောင်း  -10.5181
+ြာ      -10.5232
+မ       -10.5248
+▁အော    -10.5783
+▁ဝတ္    -10.6064
+ာန်     -10.6287
+▁ဖျာ    -10.6342
+▁ချောင် -10.6413
+ဉ       -10.7372
+▁ငြ     -10.7769
+ဝ       -10.8067
+▁ဒုံ    -10.8106
+ံး      -10.8153
+ဏ       -10.8287
+အ       -10.8408
+ဘ       -10.848
+▁ဖျော   -10.8498
+▁တြ     -10.8507
+▁ရိတ်   -10.8812
+▁လွမ်   -10.892
+▁သိမ်   -10.9036
+ြေ      -10.9153
+ဘော     -10.9228
+ြို     -10.9234
+▁ဇွ     -10.9451
+မ္ဘ     -10.9509
+ဌ       -10.9559
+▁ဦ      -10.9565
+ဇူ      -10.9597
+ထု      -10.9621
+ကျ      -10.9676
+▁ဒိ     -10.9752
+ုမ္     -11.0037
+္ဓ      -11.004
+ဋ       -11.004
+ဍ       -11.004
+ဪ       -11.004
+ဇ္      -11.0045
+▁တွန်   -11.0109
+မ္ဘာ    -11.0111
+▁ဘေ     -11.0301
+▁ဇေ     -11.0402
+▁ဌ      -11.048
+စျ      -11.0945
+ွှ      -11.0977
+ှု      -11.1686
+ဂါ      -11.1885
+▁ဝတ     -11.2037
+▁ခြင်   -11.2038
+▁ဂေ     -11.2301
+▁မျာ    -11.2416
+▁စိမ်   -11.2427
+▁လက     -11.2438
+▁အင်္   -11.2535
+▁နည်    -11.2711
+▁ချွ    -11.3154
+င       -11.4366
+▁တေ     -11.4689
+ာ့      -11.5423
+ကို     -11.5516
+▁ပြူ    -11.5648
+ြင်း    -11.5786
+▁လိုင်  -11.599
+ည       -11.6155
+ပါ      -11.6484
+ျာ      -11.6757
+▁သွန်   -11.858
+ြင်     -11.8938
+ယ       -11.9083
+ရ       -11.9913
+ဆ       -11.9938
+▁ညို    -12.0185
+▁သတ     -12.0333
+ျှ      -12.1165
+▁နန်    -12.2475
+▁ပြုံ   -12.2891
+တယ်     -12.3381
+▁လျော   -12.3402
+ဃ       -12.3602
+ဥ       -12.3603
+ဓ       -12.3604
+၏       -12.3605
+ဦ       -12.3606
+ဗ       -12.3607
+ထ       -12.3608
+ာင်း    -12.3609
+ဖ       -12.3609
+ခ       -12.361
+သ       -12.361
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/syl$
+```
+
+## Building Syl Unit SentencePiece BPE Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.syl --output_prefix ./syl/1k.syl --model_type bpe --vocab_size 2916
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.syl
+  input_format:
+  model_prefix: ./syl/1k.syl.bpe
+  model_type: BPE
+  vocab_size: 2916
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.syl
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=101056
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(608) LOG(INFO) Done! 1404
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=2806 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=720 size=20 all=1162 active=1100 piece=ည်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=408 size=40 all=1442 active=1380 piece=▁တယ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=257 size=60 all=1677 active=1615 piece=ူး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=183 size=80 all=1936 active=1874 piece=▁တစ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=134 size=100 all=1962 active=1900 piece=▁ဒီ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=134 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=106 size=120 all=2024 active=1062 piece=▁ရေး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=84 size=140 all=2043 active=1081 piece=▁မင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=67 size=160 all=2100 active=1138 piece=▁နှင့်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=54 size=180 all=2120 active=1158 piece=▁မေ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=45 size=200 all=2139 active=1177 piece=▁ပေါ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=44 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=40 size=220 all=2136 active=998 piece=▁ဝင်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=36 size=240 all=2144 active=1006 piece=▁သုံး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=30 size=260 all=2138 active=1000 piece=လ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=28 size=280 all=2162 active=1024 piece=ေ့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=25 size=300 all=2168 active=1030 piece=ည့်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=25 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=23 size=320 all=2180 active=1008 piece=▁လီ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=21 size=340 all=2175 active=1003 piece=▁ထို
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=19 size=360 all=2166 active=994 piece=▁ငြ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=18 size=380 all=2169 active=997 piece=▁ပါး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=17 size=400 all=2162 active=990 piece=▁စိုး
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=17 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=15 size=420 all=2157 active=996 piece=▁ငေး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=14 size=440 all=2145 active=984 piece=▁စပ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=13 size=460 all=2131 active=970 piece=န္တ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=13 size=480 all=2139 active=978 piece=▁ချုပ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=500 all=2134 active=973 piece=▁ကံ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=11 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=520 all=2123 active=990 piece=▁ပြိုင်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=540 all=2114 active=981 piece=▁ကျပ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=560 all=2104 active=971 piece=▁ဌ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=580 all=2093 active=960 piece=▁စမ်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=600 all=2088 active=955 piece=▁ပစ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=8 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=620 all=2070 active=983 piece=ပ္
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=640 all=2069 active=982 piece=▁အို
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=660 all=2051 active=964 piece=▁ခြောက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=680 all=2045 active=958 piece=▁ဟူ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=700 all=2031 active=944 piece=▁ဓာတ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=6 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=5 size=720 all=2011 active=981 piece=ခ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=5 size=740 all=2011 active=981 piece=▁မက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=5 size=760 all=1993 active=963 piece=▁ဘွဲ့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=5 size=780 all=1973 active=943 piece=▁ရိုင်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=4 size=800 all=1961 active=931 piece=▁ဆူ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=4 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=4 size=820 all=1951 active=991 piece=▁ဖယ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=4 size=840 all=1933 active=973 piece=▁တုတ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=4 size=860 all=1913 active=953 piece=▁ကမ္ဘော
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=880 all=1914 active=954 piece=▁ဆာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=900 all=1903 active=943 piece=▁စွဲ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=3 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=920 all=1888 active=986 piece=▁ကြွေ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=940 all=1871 active=969 piece=▁ယှဉ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=960 all=1857 active=955 piece=▁ဂိမ်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=3 size=980 all=1838 active=936 piece=▁သစ္စာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1000 all=1825 active=923 piece=မာ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=2 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1020 all=1826 active=1001 piece=▁ဠာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1040 all=1811 active=986 piece=▁ညှာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1060 all=1791 active=966 piece=▁ယဇ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1080 all=1773 active=948 piece=▁ကြပ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1100 all=1753 active=928 piece=▁တည့်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=2 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1120 all=1734 active=982 piece=▁ပွတ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1140 all=1714 active=962 piece=▁ယဉ်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1160 all=1694 active=942 piece=▁အန္တ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1180 all=1676 active=924 piece=▁ဘွန်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=2 size=1200 all=1658 active=906 piece=▁မှောင်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=2 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1220 all=1649 active=992 piece=ဝ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1240 all=1648 active=991 piece=▁ဃု
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1260 all=1630 active=973 piece=ဇ္စျ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1280 all=1622 active=965 piece=▁ဂီး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1300 all=1602 active=945 piece=▁ညို
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=1 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1320 all=1582 active=981 piece=▁ပျာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1340 all=1564 active=963 piece=▁ရှူ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1360 all=1547 active=946 piece=ပ္ပား
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1380 all=1530 active=929 piece=▁ချဲ့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1400 all=1510 active=909 piece=▁ဆွယ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=1 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1420 all=1490 active=981 piece=▁နှက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1440 all=1470 active=961 piece=▁မော့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1460 all=1450 active=941 piece=▁လျစ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1480 all=1431 active=922 piece=▁ဟော်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1500 all=1413 active=904 piece=▁ချွတ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=1 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1520 all=1393 active=981 piece=▁ဓမ္မေ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1540 all=1373 active=961 piece=▁ဘောလ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1560 all=1353 active=941 piece=▁လွင့်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1580 all=1333 active=921 piece=▁ပို့စ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=1 size=1600 all=1313 active=901 piece=▁ဟမ္မက်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=1 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1620 all=1294 active=982 piece=ကက
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1640 all=1274 active=962 piece=ခင
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1660 all=1254 active=942 piece=ဂါ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1680 all=1234 active=922 piece=င့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1700 all=1214 active=902 piece=ဆက
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1720 all=1194 active=981 piece=ဇာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1740 all=1174 active=961 piece=ဏန
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1760 all=1154 active=941 piece=တွ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1780 all=1134 active=921 piece=ဒိ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1800 all=1114 active=901 piece=နု
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1820 all=1094 active=981 piece=န့
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1840 all=1074 active=961 piece=ပံ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1860 all=1054 active=941 piece=ဗင
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1880 all=1034 active=921 piece=ဘု
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1900 all=1014 active=901 piece=မူ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1920 all=994 active=932 piece=ယိ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1940 all=974 active=912 piece=ရီ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1960 all=954 active=892 piece=လု
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=1980 all=934 active=872 piece=ဝူ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2000 all=914 active=852 piece=သံ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2020 all=894 active=832 piece=အင
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2040 all=874 active=812 piece=ါန
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2060 all=854 active=792 piece=ိဇ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2080 all=834 active=772 piece=ုလ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2100 all=814 active=752 piece=္ထ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2120 all=794 active=732 piece=ျပ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2140 all=774 active=712 piece=ြဟ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2160 all=754 active=692 piece=ွံ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2180 all=734 active=672 piece=က်စ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2200 all=714 active=652 piece=စင်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2220 all=694 active=632 piece=ဈေး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2240 all=674 active=612 piece=ဒန်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2260 all=654 active=592 piece=ဖို
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2280 all=634 active=572 piece=မ့်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2300 all=614 active=552 piece=ဝတ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2320 all=594 active=532 piece=ဟီး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2340 all=574 active=512 piece=ိုယ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2360 all=554 active=492 piece=်စ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2380 all=534 active=472 piece=ြား
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2400 all=514 active=452 piece=ှပ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2420 all=494 active=432 piece=▁ခန
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2440 all=474 active=412 piece=▁စဝ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2460 all=454 active=392 piece=▁တမ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2480 all=434 active=372 piece=▁နျ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2500 all=414 active=352 piece=▁မဏ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2520 all=394 active=332 piece=▁လတ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2540 all=374 active=312 piece=▁အတ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2560 all=354 active=292 piece=ဇင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2580 all=334 active=272 piece=ါန်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2600 all=314 active=252 piece=္ဒော
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2620 all=294 active=232 piece=ှည်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2640 all=274 active=212 piece=▁ကြီ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2660 all=254 active=192 piece=▁တုံ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2680 all=234 active=172 piece=▁ပြစ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2700 all=214 active=152 piece=▁မြိ
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2720 all=194 active=132 piece=▁လျဉ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2740 all=174 active=112 piece=င်္ကြ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2760 all=154 active=92 piece=▁ကပ္ပ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2780 all=134 active=72 piece=▁ပုပ္
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2800 all=114 active=52 piece=▁ရှော
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=0 min_freq=0
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2820 all=94 active=32 piece=ြောင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=0 size=2840 all=74 active=12 piece=▁အင်္က
+trainer_interface.cc(686) LOG(INFO) Saving model: ./syl/1k.syl.bpe.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./syl/1k.syl.bpe.vocab
+
+real    0m0.261s
+user    0m0.258s
+sys     0m0.018s
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁တ	-0
+▁က	-1
+▁မ	-2
+ို	-3
+င်	-4
+▁ပ	-5
+▁လ	-6
+▁ရ	-7
+ော	-8
+▁သ	-9
+▁အ	-10
+▁န	-11
+က်	-12
+▁ခ	-13
+ား	-14
+ယ်	-15
+▁စ	-16
+င်း	-17
+န်	-18
+ည်	-19
+ေး	-20
+▁ပြ	-21
+ဲ့	-22
+▁ကို	-23
+▁ပါ	-24
+စ်	-25
+▁ဆ	-26
+▁ကြ	-27
+▁ဖ	-28
+▁ဘ	-29
+▁မှ	-30
+တ်	-31
+▁ထ	-32
+ီး	-33
+▁တွ	-34
+ို့	-35
+▁နေ	-36
+▁တော	-37
+ပ်	-38
+▁တယ်	-39
+▁ချ	-40
+▁င	-41
+▁ကျ	-42
+▁တာ	-43
+▁ရှ	-44
+ောက်	-45
+ုံ	-46
+▁တွေ	-47
+▁ဒ	-48
+့်	-49
+ိုင်	-50
+မ်	-51
+▁သည်	-52
+▁မျ	-53
+▁ဖြ	-54
+▁မှာ	-55
+▁ဟ	-56
+န်း	-57
+▁သူ	-58
+ူး	-59
+▁ယ	-60
+▁ဝ	-61
+ိုက်	-62
+ောင်	-63
+ောင်း	-64
+ည်း	-65
+ိုး	-66
+▁မြ	-67
+မ်း	-68
+ုံး	-69
+ော်	-70
+▁ည	-71
+▁နှ	-72
+ုပ်	-73
+▁ရှိ	-74
+ေါ	-75
+▁တော့	-76
+▁များ	-77
+▁နဲ့	-78
+▁တစ်	-79
+▁တဲ့	-80
+▁ဖြစ်	-81
+▁ပြီး	-82
+▁တော်	-83
+▁လာ	-84
+ိုင်း	-85
+▁ဘူး	-86
+▁ကြီး	-87
+▁လား	-88
+▁ရာ	-89
+▁ပေး	-90
+▁ပဲ	-91
+ွန်	-92
+▁လို့	-93
+▁နိုင်	-94
+▁လေး	-95
+င့်	-96
+▁င့်	-97
+▁ဆို	-98
+▁ဒီ	-99
+▁လည်း	-100
+▁လဲ	-101
+▁ပေါ	-102
+▁သွ	-103
+▁တို့	-104
+ုတ်	-105
+▁ခဲ့	-106
+▁ရင်	-107
+▁လုပ်	-108
+▁လို	-109
+▁ဗ	-110
+▁ခြ	-111
+▁လိုက်	-112
+▁ဂ	-113
+▁ပြော	-114
+▁စား	-115
+▁ကျွန်	-116
+▁ဘယ်	-117
+▁မယ်	-118
+▁ရေး	-119
+▁မိ	-120
+▁ကောင်း	-121
+▁သာ	-122
+▁အား	-123
+▁သွား	-124
+▁သိ	-125
+▁ထား	-126
+▁ခု	-127
+▁လေ	-128
+ွဲ	-129
+▁မာ	-130
+▁လုံး	-131
+▁ဦ	-132
+▁ရွ	-133
+▁၏	-134
+▁ဘာ	-135
+▁လျ	-136
+▁ဦး	-137
+▁သား	-138
+▁မင်း	-139
+▁မှု	-140
+▁ည့်	-141
+▁တွင်	-142
+ိတ်	-143
+▁လှ	-144
+▁ကား	-145
+▁စေ	-146
+▁ပျ	-147
+▁ပြီ	-148
+▁သော	-149
+▁ချင်	-150
+▁ဇ	-151
+▁စာ	-152
+▁လူ	-153
+▁ကွ	-154
+▁ဟုတ်	-155
+▁ရဲ့	-156
+▁ခံ	-157
+▁လွ	-158
+▁နှင့်	-159
+▁ဒါ	-160
+▁ဗျ	-161
+▁နော်	-162
+▁စိုင်း	-163
+▁ဟာ	-164
+▁နှစ်	-165
+ဉ်	-166
+▁လက်	-167
+▁ပြန်	-168
+▁ခြင်း	-169
+▁ငါ	-170
+▁ဆုံး	-171
+▁ငံ	-172
+▁အောင်	-173
+▁နာ	-174
+▁ခင်	-175
+▁ရောက်	-176
+ိမ်	-177
+ွေး	-178
+▁မေ	-179
+ုန်း	-180
+▁တွက်	-181
+▁ဓ	-182
+▁စု	-183
+▁ရေ	-184
+▁ပွဲ	-185
+▁ဖို့	-186
+▁မြန်	-187
+▁လျှ	-188
+▁ပြည်	-189
+ွေ	-190
+▁ယူ	-191
+▁သို့	-192
+▁ယောက်	-193
+▁စိတ်	-194
+▁ပင်	-195
+▁ထဲ	-196
+▁ကိုယ်	-197
+▁သေ	-198
+▁ပေါ်	-199
+▁တိ	-200
+▁မျိုး	-201
+▁တင်	-202
+▁သူ့	-203
+▁ချစ်	-204
+▁မြင်	-205
+ိန်	-206
+▁ကာ	-207
+▁ပေ	-208
+▁မည်	-209
+▁ကြောင်း	-210
+▁၍	-211
+▁ပြု	-212
+▁ရှင်	-213
+▁လောက်	-214
+▁တိုင်း	-215
+ေါ်	-216
+▁ထွ	-217
+▁ဆက်	-218
+▁ဝင်	-219
+▁ချင်း	-220
+▁ဆောင်	-221
+▁နောက်	-222
+ဏ်	-223
+▁ကု	-224
+▁သေး	-225
+▁တိုး	-226
+မ္	-227
+▁ခါ	-228
+▁နေ့	-229
+▁မီး	-230
+▁ရား	-231
+▁ပေါ့	-232
+▁ရမ်း	-233
+▁စွ	-234
+▁စဉ်	-235
+▁ချက်	-236
+▁တွေ့	-237
+▁လမ်း	-238
+▁သုံး	-239
+▁ညီ	-240
+▁ထွက်	-241
+▁ဟု	-242
+▁ယ့်	-243
+▁သက်	-244
+▁သတ်	-245
+▁ချိန်	-246
+ိပ်	-247
+▁ဖွ	-248
+▁အဲ	-249
+▁ကယ်	-250
+▁နည်း	-251
+▁ပျော်	-252
+▁ရပ်	-253
+▁တူ	-254
+▁ထိ	-255
+▁ထင်	-256
+▁လည်	-257
+▁တောင်	-258
+လ်	-259
+္တ	-260
+င်္	-261
+▁ခွ	-262
+▁ရဲ	-263
+▁တက်	-264
+▁တတ်	-265
+▁ရက်	-266
+▁မှတ်	-267
+က္	-268
+▁ညာ	-269
+▁ငွေ	-270
+▁စီး	-271
+▁နား	-272
+▁မဲ့	-273
+▁လွှ	-274
+▁ခန်း	-275
+▁ဗျား	-276
+▁ကောင်	-277
+▁တိုက်	-278
+ေ့	-279
+▁ရီ	-280
+▁ပုံ	-281
+▁သီ	-282
+▁ထက်	-283
+▁ရန်	-284
+▁ကုန်	-285
+▁စည်း	-286
+▁တင်း	-287
+▁သင်း	-288
+▁မြို့	-289
+စ္	-290
+▁ပွ	-291
+▁သံ	-292
+▁စွာ	-293
+▁နက်	-294
+▁ရယ်	-295
+▁ရွှ	-296
+▁အိမ်	-297
+▁အောက်	-298
+ည့်	-299
+▁ဓု	-300
+▁ကွာ	-301
+▁မြဲ	-302
+▁ဆိုင်	-303
+▁မောင်	-304
+▁ကျောင်း	-305
+▁ဂျ	-306
+▁နံ	-307
+ိုလ်	-308
+▁ကန်	-309
+▁စစ်	-310
+▁နယ်	-311
+ောင့်	-312
+▁ရင်း	-313
+▁လျက်	-314
+▁ဥ	-315
+စ္စ	-316
+▁စီ	-317
+▁မူ	-318
+▁လီ	-319
+▁စော	-320
+▁ဆေး	-321
+▁န့်	-322
+▁လေ့	-323
+▁ဝန်	-324
+▁သင်	-325
+▁ကျေး	-326
+▁ကြား	-327
+▁မှန်	-328
+▁ရိုက်	-329
+မ္ဘ	-330
+▁တီ	-331
+▁ယာ	-332
+▁အေး	-333
+▁ချော	-334
+▁အုပ်	-335
+▁ကြိုက်	-336
+▁ပေါင်း	-337
+▁ဏ	-338
+▁ထို	-339
+▁ပတ်	-340
+▁ဗျာ	-341
+▁ဘော	-342
+▁ရီး	-343
+▁သစ်	-344
+▁ခြား	-345
+▁ပြင်	-346
+▁မျက်	-347
+▁ကြိုး	-348
+▁တိုင်	-349
+▁ထိုင်	-350
+င်္ဂ	-351
+▁ငယ်	-352
+▁ပို	-353
+▁မေး	-354
+▁ကမ္ဘ	-355
+▁ခေါ်	-356
+▁တည်း	-357
+▁ထုတ်	-358
+▁ငြ	-359
+▁ရိ	-360
+▁ဝါ	-361
+▁ကြာ	-362
+▁ခြေ	-363
+▁ဇူး	-364
+▁ဖက်	-365
+▁မျှ	-366
+▁တန်း	-367
+▁ပန်း	-368
+▁ရွက်	-369
+▁ဖြင့်	-370
+▁လျှင်	-371
+က္က	-372
+ာတ်	-373
+▁ကူ	-374
+▁ဆီ	-375
+▁ဒေ	-376
+▁လိ	-377
+▁ထပ်	-378
+▁ပါး	-379
+▁ဘက်	-380
+▁ဝယ်	-381
+▁အစ်	-382
+▁ခွေး	-383
+▁ဆိုး	-384
+▁ဖွဲ့	-385
+▁သည့်	-386
+▁ချမ်း	-387
+▁ရှင်း	-388
+တ္တ	-389
+▁ခေ	-390
+▁ပူ	-391
+▁မီ	-392
+▁ချာ	-393
+▁ငါ့	-394
+▁ဆင်	-395
+▁ရုံ	-396
+▁ရော	-397
+▁ကိုး	-398
+▁စိုး	-399
+▁ဒေါ်	-400
+▁ရွေး	-401
+▁ထောင်	-402
+▁သောက်	-403
+▁ကြောင့်	-404
+▁ပြောင်း	-405
+▁ခေါ	-406
+▁မား	-407
+▁လယ်	-408
+▁လွတ်	-409
+▁သော်	-410
+▁ကမ္ဘာ	-411
+▁ခိုင်	-412
+▁ဖုန်း	-413
+▁တောင်း	-414
+▁၌	-415
+မ္မ	-416
+▁ဂါ	-417
+▁ဂု	-418
+▁ငေး	-419
+▁ဆွဲ	-420
+▁တည်	-421
+▁ဖြေ	-422
+▁ဝေး	-423
+▁ဟို	-424
+▁အပ်	-425
+▁သိပ်	-426
+▁ကြည့်	-427
+▁စိုက်	-428
+▁တုန်း	-429
+▁တွင်း	-430
+▁ထောက်	-431
+▁လျှောက်	-432
+▁စံ	-433
+▁ဆု	-434
+▁ပု	-435
+▁ဘဲ	-436
+ိမ်း	-437
+▁ကူး	-438
+▁စပ်	-439
+▁တန်	-440
+▁တပ်	-441
+▁နီး	-442
+▁ယုံ	-443
+▁ဝတ်	-444
+▁အဲ့	-445
+▁ကင်း	-446
+▁ကွယ်	-447
+▁ဂုဏ်	-448
+▁ပါတ်	-449
+▁ပျက်	-450
+▁ပွား	-451
+▁ဖော်	-452
+▁ရုပ်	-453
+▁ကျန်း	-454
+▁စောက်	-455
+▁ရောင်	-456
+▁ရွှင်	-457
+ဉ်း	-458
+န္တ	-459
+န့်	-460
+ှက်	-461
+▁ဆံ	-462
+▁ဖျ	-463
+▁ဘွ	-464
+▁ကပ်	-465
+▁ကဲ့	-466
+▁ကျွ	-467
+▁ဆယ်	-468
+▁နပ်	-469
+▁ပါ့	-470
+▁မတ်	-471
+▁ရည်	-472
+▁ရွာ	-473
+▁ကြော	-474
+▁ခေတ်	-475
+▁ရှား	-476
+▁သင့်	-477
+▁ခိုက်	-478
+▁ချုပ်	-479
+▁ပေါက်	-480
+▁ဓိ	-481
+▁အာ	-482
+▁စက်	-483
+▁အန်	-484
+▁ကော်	-485
+▁ခိုး	-486
+▁ဆင်း	-487
+▁ဇာတ်	-488
+▁ဖြတ်	-489
+▁လင်း	-490
+▁လွန်	-491
+▁အော်	-492
+▁ကိုင်	-493
+▁မိန်း	-494
+▁လွှတ်	-495
+▁ကျွန်ုပ်	-496
+္ဒ	-497
+က္ခ	-498
+▁ကံ	-499
+▁ညှ	-500
+▁ဘု	-501
+▁မု	-502
+▁တီး	-503
+▁ဘေး	-504
+▁မြေ	-505
+▁ရူး	-506
+▁ကျက်	-507
+▁ကျန်	-508
+▁ပြား	-509
+▁ဖမ်း	-510
+▁မြတ်	-511
+▁ရှေ့	-512
+▁လွှဲ	-513
+▁အိပ်	-514
+▁ဗိုလ်	-515
+▁လှမ်း	-516
+▁သိုလ်	-517
+▁ခေါင်း	-518
+▁ပြိုင်	-519
+ံ့	-520
+▁ကိ	-521
+▁တု	-522
+▁ထု	-523
+▁နု	-524
+▁ဘီ	-525
+▁ရု	-526
+▁ဝေ	-527
+▁ကြွ	-528
+▁ကွဲ	-529
+▁စုံ	-530
+▁ဒဏ်	-531
+▁ပန်	-532
+▁ပြေ	-533
+▁ဖူး	-534
+▁မေ့	-535
+▁မ့်	-536
+▁ယား	-537
+▁ရှာ	-538
+▁ကျပ်	-539
+▁ကြည်	-540
+▁ကြို	-541
+▁တက္က	-542
+▁တမ်း	-543
+▁နွေး	-544
+▁ပို့	-545
+▁မိုး	-546
+▁မွေး	-547
+▁ရုံး	-548
+▁သမ္မ	-549
+▁ကိစ္စ	-550
+▁ချို့	-551
+▁တော့်	-552
+▁ပိုင်	-553
+▁ဆောင်း	-554
+▁ပိုင်း	-555
+▁ရောင်း	-556
+ွှ	-557
+▁ဈ	-558
+▁ဌ	-559
+▁ခဲ	-560
+▁တံ	-561
+▁နီ	-562
+င်္က	-563
+▁ကော	-564
+▁ချီ	-565
+▁ခွဲ	-566
+▁စင်	-567
+▁ဆီး	-568
+▁ဆုံ	-569
+▁ဈေး	-570
+▁နစ်	-571
+▁ဖတ်	-572
+▁လော	-573
+▁အင်	-574
+▁ကမ်း	-575
+▁ကွက်	-576
+▁ခုန်	-577
+▁စဉ်း	-578
+▁စမ်း	-579
+▁မန္တ	-580
+▁ဝမ်း	-581
+▁သန်း	-582
+▁သွယ်	-583
+▁ကျော်	-584
+▁ခွင့်	-585
+▁ငြိမ်	-586
+▁သွင်း	-587
+▁မြောက်	-588
+▁ဤ	-589
+န္ဒ	-590
+▁စိ	-591
+▁ဌာ	-592
+▁နွ	-593
+▁သု	-594
+▁ဂို	-595
+▁တား	-596
+▁ထူး	-597
+▁နှာ	-598
+▁ပစ်	-599
+▁ပယ်	-600
+▁မော	-601
+▁ငန်း	-602
+▁ဇော်	-603
+▁ပစ္စ	-604
+▁ပိတ်	-605
+▁ပြစ်	-606
+▁ပြေး	-607
+▁မယ့်	-608
+▁မော်	-609
+▁လိပ်	-610
+▁ဝန်း	-611
+▁ကျင့်	-612
+▁ကျင်း	-613
+▁ကျိုး	-614
+▁ပိုက်	-615
+▁သိန်း	-616
+▁နှုန်း	-617
+▁ပစ္စည်း	-618
+ပ္	-619
+▁ဉ	-620
+▁ဿ	-621
+ပ္ပ	-622
+▁နိ	-623
+▁ဖိ	-624
+▁ဖီ	-625
+ိမ့်	-626
+▁ကျေ	-627
+▁ကြံ	-628
+▁ခါး	-629
+▁ငါး	-630
+▁နတ်	-631
+▁ဖန်	-632
+▁ဖြူ	-633
+▁မင်	-634
+▁ယက်	-635
+▁ရစ်	-636
+▁လပ်	-637
+▁ဟော	-638
+▁အို	-639
+▁ကျင်	-640
+▁ကျယ်	-641
+▁ချီး	-642
+▁ဆင့်	-643
+▁ထိုး	-644
+▁ပိုး	-645
+▁မို့	-646
+▁ရုတ်	-647
+▁ရှက်	-648
+▁လွင်	-649
+▁ဝှက်	-650
+▁သတ္တ	-651
+▁အင်း	-652
+▁ကောက်	-653
+▁ကွင်း	-654
+▁တော့်	-655
+▁နှိပ်	-656
+▁ပျိုး	-657
+▁မင်္ဂ	-658
+▁ခြောက်	-659
+▁ငြိမ်း	-660
+▁ထိုင်း	-661
+▁နိုင်း	-662
+▁မောင်း	-663
+▁မျှော်	-664
+▁လျှို့	-665
+▁ချောင်း	-666
+▁ဃ	-667
+ဏ်း	-668
+ော့	-669
+ွတ်	-670
+ှား	-671
+▁ထာ	-672
+▁နဲ	-673
+▁ပီ	-674
+▁ဘိ	-675
+▁မဲ	-676
+▁ရံ	-677
+▁သဲ	-678
+▁ဟူ	-679
+က္ခာ	-680
+ိန်း	-681
+ွန့်	-682
+▁ကင်	-683
+▁ကြေ	-684
+▁ခုံ	-685
+▁ထည်	-686
+▁နင်	-687
+▁မို	-688
+▁ယို	-689
+▁ဝါး	-690
+▁သပ်	-691
+▁ဟင်	-692
+▁ခင်း	-693
+▁ငှား	-694
+▁စို့	-695
+▁ဆန်း	-696
+▁ဆွေး	-697
+▁ထမ်း	-698
+▁ဓာတ်	-699
+▁ပြတ်	-700
+▁ဖိုး	-701
+▁ဖြန်	-702
+▁မှူး	-703
+▁ရွယ်	-704
+▁သွေး	-705
+▁ကြိမ်	-706
+▁စောင်	-707
+▁ဆောက်	-708
+▁ညွန့်	-709
+▁ထိန်း	-710
+▁ဖြည်း	-711
+▁မိုင်	-712
+▁မြင်း	-713
+▁လှုပ်	-714
+▁အင်္ဂ	-715
+▁ကမ္ဘာ့	-716
+▁ဂိုဏ်း	-717
+▁ဟောင်း	-718
+ခ်	-719
+ဂ္	-720
+ဒ်	-721
+▁ဧ	-722
+ဂ္ဂ	-723
+ာဏ်	-724
+ာန်	-725
+ျား	-726
+▁ဏာ	-727
+▁ထံ	-728
+▁အေ	-729
+▁ခက်	-730
+▁ခတ်	-731
+▁ချေ	-732
+▁ငို	-733
+▁ဆန်	-734
+▁ညွှ	-735
+▁ဒို	-736
+▁ပူး	-737
+▁ဘတ်	-738
+▁မက်	-739
+▁မန်	-740
+▁မာ့	-741
+▁ရို	-742
+▁လင်	-743
+▁လှေ	-744
+▁အက်	-745
+▁ကြုံ	-746
+▁ကွန်	-747
+▁ခန့်	-748
+▁ချယ်	-749
+▁ခြုံ	-750
+▁ဂိုး	-751
+▁ငှက်	-752
+▁ဉာဏ်	-753
+▁ထည့်	-754
+▁ထို့	-755
+▁နန်း	-756
+▁ပျို	-757
+▁ဘွား	-758
+▁ဘွဲ့	-759
+▁မှား	-760
+▁ယာဉ်	-761
+▁ရိုး	-762
+▁ရှေး	-763
+▁လွယ်	-764
+▁လှန်	-765
+▁လှယ်	-766
+▁အိတ်	-767
+▁ကျွတ်	-768
+▁ကြမ်း	-769
+▁ချိုး	-770
+▁စွမ်း	-771
+▁ထွန်း	-772
+▁ဒိုင်	-773
+▁နောင်	-774
+▁ပေါင်	-775
+▁ပြည့်	-776
+▁ဖွင့်	-777
+▁မိုက်	-778
+▁ရိုင်	-779
+▁ရွှေ့	-780
+▁ရှိုး	-781
+▁ရှုံး	-782
+▁လိမ့်	-783
+▁လွန်း	-784
+▁ကြောက်	-785
+▁စောင့်	-786
+▁ပျောက်	-787
+▁ရိုင်း	-788
+▁ဝိုင်း	-789
+▁သိက္ခာ	-790
+▁ယောက်ျား	-791
+ဇ်	-792
+္ဓ	-793
+▁ဩ	-794
+ျေး	-795
+▁ကီ	-796
+▁ကဲ	-797
+▁ဂီ	-798
+▁ဆူ	-799
+▁ဆဲ	-800
+▁ဇာ	-801
+▁ညံ	-802
+▁တြ	-803
+▁ဒု	-804
+▁ဗီ	-805
+▁ဗြ	-806
+▁မံ	-807
+▁ဝီ	-808
+▁ဝဲ	-809
+▁ဆတ်	-810
+▁ဇင်	-811
+▁ညစ်	-812
+▁တွဲ	-813
+▁ထွေ	-814
+▁ဒက်	-815
+▁ဒီး	-816
+▁ဒေါ	-817
+▁နွေ	-818
+▁ဖယ်	-819
+▁ဖား	-820
+▁ဘီး	-821
+▁ဘုံ	-822
+▁မြူ	-823
+▁မှီ	-824
+▁ယဉ်	-825
+▁လစ်	-826
+▁လုံ	-827
+▁လူး	-828
+▁လွဲ	-829
+▁ဟန်	-830
+▁ဟယ်	-831
+င်္ကာ	-832
+▁ကျော	-833
+▁ကြက်	-834
+▁ချို	-835
+▁ချေး	-836
+▁ဂျင်	-837
+▁စျေး	-838
+▁တုတ်	-839
+▁တုံး	-840
+▁ပင်း	-841
+▁ဖျက်	-842
+▁ယမ်း	-843
+▁လိုး	-844
+▁သုတ်	-845
+▁အိုး	-846
+▁ကုန်း	-847
+▁ခေါက်	-848
+▁ခွန်း	-849
+▁တောက်	-850
+▁တွန်း	-851
+▁နှင်း	-852
+▁ဖောက်	-853
+▁ဘုန်း	-854
+▁မြင့်	-855
+▁မှန်း	-856
+▁သတ္တိ	-857
+▁သိမ်း	-858
+▁ကမ္ဘော	-859
+▁ကျောက်	-860
+▁ကျွန်း	-861
+▁ကျွမ်း	-862
+▁ခိုင်း	-863
+▁လင်္ကာ	-864
+▁လျှော်	-865
+▁နှိုင်း	-866
+ဂ်	-867
+ဇ္	-868
+ျီ	-869
+▁၎	-870
+စ္ဆ	-871
+ဒ္ဒ	-872
+ဒ္ဓ	-873
+ါယ်	-874
+ွေ့	-875
+ှဉ်	-876
+▁ဂံ	-877
+▁ဃာ	-878
+▁ဆာ	-879
+▁ဇူ	-880
+▁ဖာ	-881
+▁ဖု	-882
+▁ဗေ	-883
+▁မွ	-884
+▁ယု	-885
+▁ယံ	-886
+▁ရူ	-887
+▁လု	-888
+▁လံ	-889
+▁ဟိ	-890
+▁ဟေ	-891
+▁အီ	-892
+စ္စာ	-893
+တ္တာ	-894
+▁ကစ်	-895
+▁ကတ်	-896
+▁ခပ်	-897
+▁ချ်	-898
+▁စွဲ	-899
+▁ဆွေ	-900
+▁တမ်	-901
+▁တူး	-902
+▁နံ့	-903
+▁ဘင်	-904
+▁ဘဏ်	-905
+▁မူး	-906
+▁မြှ	-907
+▁မွှ	-908
+▁လန်	-909
+▁လူ့	-910
+▁လှူ	-911
+▁ဝက်	-912
+▁သီး	-913
+▁အယ်	-914
+▁အုံ	-915
+င်္ဂါ	-916
+▁ကန့်	-917
+▁ကျူး	-918
+▁ကြွေ	-919
+▁စက္က	-920
+▁ဆန္ဒ	-921
+▁ဆယ့်	-922
+▁ဆော်	-923
+▁တြေး	-924
+▁တွေး	-925
+▁ဓမ္မ	-926
+▁နွယ်	-927
+▁ဖိတ်	-928
+▁ဖျား	-929
+▁ဖွား	-930
+▁ဘော်	-931
+▁ဘွန်	-932
+▁မည့်	-933
+▁မိတ်	-934
+▁မိန်	-935
+▁မုခ်	-936
+▁မြစ်	-937
+▁မွန်	-938
+▁ယှဉ်	-939
+▁ရစ္ဆ	-940
+▁ရိပ်	-941
+▁ရိမ်	-942
+▁ရော့	-943
+▁ရော်	-944
+▁ရွှဲ	-945
+▁ရှည်	-946
+▁လန်း	-947
+▁လိဂ်	-948
+▁လွှာ	-949
+▁ဟင်း	-950
+▁ဥက္က	-951
+▁၎င်း	-952
+င်္ကျီ	-953
+ပ္ပါယ်	-954
+▁ကျဉ်း	-955
+▁ကျမ်း	-956
+▁ကျွေး	-957
+▁ကြော်	-958
+▁ဂိမ်း	-959
+▁ဂျင်း	-960
+▁ညွှန်	-961
+▁ဌာန်း	-962
+▁ထုန်း	-963
+▁ဒက်စ်	-964
+▁ပုဂ္ဂ	-965
+▁ပြုတ်	-966
+▁ဖိုက်	-967
+▁ဖိုင်	-968
+▁မိန့်	-969
+▁မျဉ်း	-970
+▁ယောင်	-971
+▁ရပ်စ်	-972
+▁ရှိန်	-973
+▁ရှုပ်	-974
+▁လောင်	-975
+▁လျဉ်း	-976
+▁လှည်း	-977
+▁လှော်	-978
+▁သစ္စာ	-979
+▁အိုင်	-980
+▁ကိုင်း	-981
+▁ကြောင်	-982
+▁ချိန်း	-983
+▁စောင်း	-984
+▁ဆိုင်း	-985
+▁နှောက်	-986
+▁နှောင်	-987
+▁ဗိုင်း	-988
+▁မြိုင်	-989
+▁ရှောက်	-990
+▁လိုင်း	-991
+▁လှိုင်	-992
+▁မြှောက်	-993
+▁ရစ္ဆာန်	-994
+▁အင်္ကျီ	-995
+▁ဓိပ္ပါယ်	-996
+ဏ္	-997
+ဗ္	-998
+မာ	-999
+ဟ္	-1000
+ဠာ	-1001
+ုး	-1002
+ျူ	-1003
+ှာ	-1004
+ဇ္ဇ	-1005
+ဗ္ဗ	-1006
+ုန်	-1007
+ှေ့	-1008
+▁ငူ	-1009
+▁ဆွ	-1010
+▁ပိ	-1011
+▁ဖေ	-1012
+▁ဗု	-1013
+▁ဘူ	-1014
+▁ယွ	-1015
+▁ဝိ	-1016
+▁ဟဲ	-1017
+▁ဟံ	-1018
+▁ဠာ	-1019
+▁အိ	-1020
+▁အူ	-1021
+န္ဒိ	-1022
+ပ္ပံ	-1023
+ဟ္မာ	-1024
+▁ကက်	-1025
+▁ကဒ်	-1026
+▁ခစ်	-1027
+▁ခို	-1028
+▁ဂတ်	-1029
+▁ဂုံ	-1030
+▁ဂေါ	-1031
+▁ဂျီ	-1032
+▁င်း	-1033
+▁စေ့	-1034
+▁ဆည်	-1035
+▁ဆော	-1036
+▁ဉ့်	-1037
+▁ညံ့	-1038
+▁ညှာ	-1039
+▁ညှိ	-1040
+▁ဏှာ	-1041
+▁တို	-1042
+▁ဒန်	-1043
+▁ဒမ်	-1044
+▁ဓား	-1045
+▁နို	-1046
+▁နျူ	-1047
+▁နှံ	-1048
+▁ပြာ	-1049
+▁ဖင်	-1050
+▁ဖို	-1051
+▁ဖျံ	-1052
+▁ဗစ်	-1053
+▁ဗား	-1054
+▁ဗျူ	-1055
+▁ဘန်	-1056
+▁မစ်	-1057
+▁ယစ်	-1058
+▁ယဇ်	-1059
+▁ယပ်	-1060
+▁ယူး	-1061
+▁ယော	-1062
+▁လတ်	-1063
+▁လီး	-1064
+▁ဝမ်	-1065
+▁သန်	-1066
+▁သယ်	-1067
+▁ဟစ်	-1068
+▁ဟား	-1069
+▁ဟေ့	-1070
+▁ဟေး	-1071
+▁အံ့	-1072
+မ္မက်	-1073
+▁ကန်း	-1074
+▁ကို့	-1075
+▁ကုံး	-1076
+▁ကျုး	-1077
+▁ကြင်	-1078
+▁ကြပ်	-1079
+▁ကြယ်	-1080
+▁ကြေး	-1081
+▁ခုပ်	-1082
+▁ချဉ်	-1083
+▁ချည်	-1084
+▁ချန်	-1085
+▁ခွက်	-1086
+▁ခွန်	-1087
+▁ဂုတ်	-1088
+▁ငွေ့	-1089
+▁စိန်	-1090
+▁စော်	-1091
+▁စွပ်	-1092
+▁စွယ်	-1093
+▁ဆိတ်	-1094
+▁ဆိပ်	-1095
+▁ဆို့	-1096
+▁ဇုန်	-1097
+▁ညွတ်	-1098
+▁တည့်	-1099
+▁တိတ်	-1100
+▁တိမ်	-1101
+▁တုန်	-1102
+▁ထင်း	-1103
+▁ထိပ်	-1104
+▁ထွေး	-1105
+▁ဒုံး	-1106
+▁နက္ခ	-1107
+▁နင့်	-1108
+▁နင်း	-1109
+▁နိုး	-1110
+▁နုတ်	-1111
+▁နွဲ့	-1112
+▁နှယ်	-1113
+▁နှေး	-1114
+▁ပမ်း	-1115
+▁ပိန်	-1116
+▁ပုဒ်	-1117
+▁ပြို	-1118
+▁ပွတ်	-1119
+▁ပွေ့	-1120
+▁ဖန်း	-1121
+▁ဖေါ်	-1122
+▁ဖြီး	-1123
+▁ဖြူး	-1124
+▁ဖွယ်	-1125
+▁ဖွေး	-1126
+▁ဖွံ့	-1127
+▁ဘိုး	-1128
+▁ဘုတ်	-1129
+▁မဂ္ဂ	-1130
+▁မစ္စ	-1131
+▁မန်း	-1132
+▁မျော	-1133
+▁မြား	-1134
+▁မြော	-1135
+▁မြေး	-1136
+▁မှို	-1137
+▁ယင်း	-1138
+▁ယဉ်း	-1139
+▁ယုတ်	-1140
+▁ရည်း	-1141
+▁ရာယ်	-1142
+▁ရိတ်	-1143
+▁ရွတ်	-1144
+▁ရွန်	-1145
+▁ရွေ့	-1146
+▁ရွံ့	-1147
+▁ရွှေ	-1148
+▁ရှပ်	-1149
+▁ရှယ်	-1150
+▁လင့်	-1151
+▁လိတ်	-1152
+▁ဝင်း	-1153
+▁ဝှေ့	-1154
+▁သည်း	-1155
+▁သွေ့	-1156
+▁ဟန်း	-1157
+▁အတ္တ	-1158
+▁အန္တ	-1159
+▁အွန်	-1160
+ိုက်စ်	-1161
+▁ကိုက်	-1162
+▁ကျုပ်	-1163
+▁ခေတ္တ	-1164
+▁ချွေး	-1165
+▁စက္ကူ	-1166
+▁စိမ်း	-1167
+▁ညှင်း	-1168
+▁ညှိုး	-1169
+▁ဒေါက်	-1170
+▁ဓမ္မာ	-1171
+▁နင်္ဂ	-1172
+▁နွမ်း	-1173
+▁နှုတ်	-1174
+▁ပျဉ်း	-1175
+▁ဖြိုး	-1176
+▁ဗိုက်	-1177
+▁ဗုဒ္ဓ	-1178
+▁ဘွန်း	-1179
+▁မွန်း	-1180
+▁မွှေး	-1181
+▁ယွင်း	-1182
+▁ရုန်း	-1183
+▁ရှင့်	-1184
+▁လိမ်း	-1185
+▁လိုင်	-1186
+▁လျော့	-1187
+▁လျှပ်	-1188
+▁လှည့်	-1189
+▁သင်္က	-1190
+▁ဟောင်	-1191
+▁ချယ်လ်	-1192
+▁ဂျိန်း	-1193
+▁ညွှန်း	-1194
+▁ပြောင်	-1195
+▁ဖောင်း	-1196
+▁ဖျောက်	-1197
+▁ဗြဟ္မာ	-1198
+▁မှောင်	-1199
+▁ရွှန်း	-1200
+▁ရှောင်	-1201
+▁လောင်း	-1202
+▁လွှမ်း	-1203
+▁သင်္ဂါ	-1204
+▁သိပ္ပံ	-1205
+▁သေတ္တာ	-1206
+▁သောင်း	-1207
+▁အိန္ဒိ	-1208
+▁နက္ခတ္တ	-1209
+▁ပျောင်း	-1210
+▁ပုဂ္ဂိုလ်	-1211
+စျ	-1212
+ဇူ	-1213
+ဉ္	-1214
+ဋ္	-1215
+တ္	-1216
+ထု	-1217
+ဘ်	-1218
+ဝ်	-1219
+ဟ်	-1220
+ါး	-1221
+ျှ	-1222
+▁ဪ	-1223
+ဋ္ဌ	-1224
+ဍပ်	-1225
+ဏ္ဏ	-1226
+န္ဓ	-1227
+ဘော	-1228
+မ္ပ	-1229
+ုံ့	-1230
+့ဇ်	-1231
+်ခ်	-1232
+ြန်	-1233
+ြပ်	-1234
+ြို	-1235
+ွှဲ	-1236
+▁ဂူ	-1237
+▁ဂေ	-1238
+▁ဃု	-1239
+▁စူ	-1240
+▁ဇိ	-1241
+▁ဇီ	-1242
+▁ဇေ	-1243
+▁ညွ	-1244
+▁ဏိ	-1245
+▁ဏီ	-1246
+▁ဏု	-1247
+▁တေ	-1248
+▁တဲ	-1249
+▁ထီ	-1250
+▁ထူ	-1251
+▁ဖဲ	-1252
+▁ဘျ	-1253
+▁ယျ	-1254
+▁ဝု	-1255
+▁သြ	-1256
+▁အု	-1257
+က္ကာ	-1258
+ဇ္စျ	-1259
+ဇ္ဇာ	-1260
+ဉ္ဇူ	-1261
+တ္တု	-1262
+တ္ထု	-1263
+ဒ္ဓါ	-1264
+န္ဒူ	-1265
+ပ္ပိ	-1266
+ဗ္ဗေ	-1267
+မ္ဘီ	-1268
+ျှင်	-1269
+▁ကျီ	-1270
+▁ကျဲ	-1271
+▁ခူး	-1272
+▁ခံ့	-1273
+▁ခွာ	-1274
+▁ခွေ	-1275
+▁ခွံ	-1276
+▁ဂစ်	-1277
+▁ဂါး	-1278
+▁ဂီး	-1279
+▁ဂျာ	-1280
+▁ဂျူ	-1281
+▁ငင်	-1282
+▁ငတ်	-1283
+▁ငဲ့	-1284
+▁ငြာ	-1285
+▁စည်	-1286
+▁စဝ်	-1287
+▁စူး	-1288
+▁စေး	-1289
+▁ဆပ်	-1290
+▁ဆမ်	-1291
+▁ဆေ့	-1292
+▁ဇက်	-1293
+▁ဇန်	-1294
+▁ဇော	-1295
+▁ဇွဲ	-1296
+▁ညင်	-1297
+▁ညား	-1298
+▁ညို	-1299
+▁ညှီ	-1300
+▁တေး	-1301
+▁တြာ	-1302
+▁ထန်	-1303
+▁ဒတ်	-1304
+▁ဒယ်	-1305
+▁ဒါ့	-1306
+▁ဒါး	-1307
+▁ဒီ့	-1308
+▁ဒုံ	-1309
+▁ဒဲ့	-1310
+▁ဓါး	-1311
+▁နည်	-1312
+▁နန်	-1313
+▁နမ်	-1314
+▁နော	-1315
+▁ပက်	-1316
+▁ပေ့	-1317
+▁ပံ့	-1318
+▁ပျာ	-1319
+▁ပျံ	-1320
+▁ပြူ	-1321
+▁ဖဲ့	-1322
+▁ဖျာ	-1323
+▁ဗင်	-1324
+▁ဗယ်	-1325
+▁ဗီး	-1326
+▁ဗုံ	-1327
+▁ဗူး	-1328
+▁ဗော	-1329
+▁ဗြိ	-1330
+▁ဘား	-1331
+▁မဏ္	-1332
+▁မျာ	-1333
+▁မွေ	-1334
+▁ယင်	-1335
+▁ရာ့	-1336
+▁ရွံ	-1337
+▁ရှု	-1338
+▁ရှူ	-1339
+▁လဲ့	-1340
+▁လျူ	-1341
+▁လျံ	-1342
+▁လွေ	-1343
+▁လှဲ	-1344
+▁ဝဏ်	-1345
+▁ဝပ်	-1346
+▁ဝူး	-1347
+▁ဝေ့	-1348
+▁သေ့	-1349
+▁ဟက်	-1350
+▁ဟပ်	-1351
+▁ဟမ်	-1352
+▁ဟိံ	-1353
+▁ဟီး	-1354
+▁ဟူး	-1355
+င်္ဂေ	-1356
+ဒ္ဒန်	-1357
+န္ဒော	-1358
+ပ္ပား	-1359
+ို့စ်	-1360
+ြိုဟ်	-1361
+▁ကန္တ	-1362
+▁ကုတ်	-1363
+▁ကုပ်	-1364
+▁ကော့	-1365
+▁ကျစ်	-1366
+▁ကျည်	-1367
+▁ကျား	-1368
+▁ကြံ့	-1369
+▁ကွပ်	-1370
+▁ကွမ်	-1371
+▁ကွေ့	-1372
+▁ကွေး	-1373
+▁ခမ်း	-1374
+▁ခုတ်	-1375
+▁ခုံး	-1376
+▁ခ်ခ်	-1377
+▁ချပ်	-1378
+▁ချဲ့	-1379
+▁ခြင်	-1380
+▁ခြယ်	-1381
+▁ခြွေ	-1382
+▁ဂန္ဓ	-1383
+▁ဂိတ်	-1384
+▁ဂုံး	-1385
+▁ဂေါ်	-1386
+▁ဂျက်	-1387
+▁ဂျစ်	-1388
+▁ဂျို	-1389
+▁ငြီး	-1390
+▁စန္ဒ	-1391
+▁စုတ်	-1392
+▁စွတ်	-1393
+▁ဆည်း	-1394
+▁ဆိန်	-1395
+▁ဆုတ်	-1396
+▁ဆော့	-1397
+▁ဆွတ်	-1398
+▁ဆွယ်	-1399
+▁ဇင်း	-1400
+▁ဇာက်	-1401
+▁ဇွတ်	-1402
+▁ညည်း	-1403
+▁ညိုး	-1404
+▁ညှစ်	-1405
+▁ဏန်း	-1406
+▁တိန်	-1407
+▁တွန်	-1408
+▁တွား	-1409
+▁ထိတ်	-1410
+▁ထုပ်	-1411
+▁ဒိန်	-1412
+▁ဒိုး	-1413
+▁ဒေါ့	-1414
+▁ဒြပ်	-1415
+▁နို့	-1416
+▁နွား	-1417
+▁နွှဲ	-1418
+▁နှက်	-1419
+▁နှင်	-1420
+▁ပည့်	-1421
+▁ပုပ်	-1422
+▁ပုံး	-1423
+▁ပဲလ်	-1424
+▁ပြုံ	-1425
+▁ပြူး	-1426
+▁ပွန်	-1427
+▁ပွို	-1428
+▁ဖုံး	-1429
+▁ဖြော	-1430
+▁ဗြား	-1431
+▁ဘယ့်	-1432
+▁ဘွတ်	-1433
+▁မက္က	-1434
+▁မည်း	-1435
+▁မဒ္ဒ	-1436
+▁မန့်	-1437
+▁မုတ်	-1438
+▁မော့	-1439
+▁မြီး	-1440
+▁မြူး	-1441
+▁မြေ့	-1442
+▁မွတ်	-1443
+▁မွေ့	-1444
+▁မွှာ	-1445
+▁ယာန်	-1446
+▁ယိုး	-1447
+▁ယော်	-1448
+▁ယှက်	-1449
+▁ရင့်	-1450
+▁ရဇ္ဇ	-1451
+▁ရာဇ်	-1452
+▁လက္ခ	-1453
+▁လယ့်	-1454
+▁လာဘ်	-1455
+▁လိခ်	-1456
+▁လိမ်	-1457
+▁လုတ်	-1458
+▁လျစ်	-1459
+▁လျား	-1460
+▁လျှာ	-1461
+▁လွမ်	-1462
+▁လှီး	-1463
+▁ဝဏ္ဏ	-1464
+▁ဝိန်	-1465
+▁ဝိုး	-1466
+▁သင်္	-1467
+▁သန့်	-1468
+▁သမ်း	-1469
+▁သာန်	-1470
+▁သိမ်	-1471
+▁သုပ်	-1472
+▁သုံ့	-1473
+▁သော့	-1474
+▁သွင်	-1475
+▁သွန်	-1476
+▁ဟန့်	-1477
+▁ဟုန်	-1478
+▁ဟော်	-1479
+▁အန့်	-1480
+▁အန်း	-1481
+▁အုံး	-1482
+ဗ္ဗာန်	-1483
+မ္ဘာန်	-1484
+▁ကပ္ပိ	-1485
+▁ကုမ္ပ	-1486
+▁ကြန့်	-1487
+▁ကြိတ်	-1488
+▁ကြွက်	-1489
+▁ကြွယ်	-1490
+▁ကြွား	-1491
+▁ကြွေး	-1492
+▁ခုန်း	-1493
+▁ခေါင်	-1494
+▁ချည်း	-1495
+▁ချန်း	-1496
+▁ချိတ်	-1497
+▁ချော့	-1498
+▁ချွတ်	-1499
+▁ခြမ်း	-1500
+▁ဂမ္ဘီ	-1501
+▁ဂေါက်	-1502
+▁ဂျော်	-1503
+▁ငိုက်	-1504
+▁ငိုင်	-1505
+▁ငြင်း	-1506
+▁စိမ့်	-1507
+▁စွန်း	-1508
+▁ဆိုက်	-1509
+▁ဆွမ်း	-1510
+▁ညှို့	-1511
+▁တပ်စ်	-1512
+▁တိမ်း	-1513
+▁ထိုက်	-1514
+▁ဒါန်း	-1515
+▁ဒိမ်း	-1516
+▁ဒိုက်	-1517
+▁ဒုက္ခ	-1518
+▁ဓမ္မေ	-1519
+▁နယ်လ်	-1520
+▁နိမ့်	-1521
+▁ပုန်း	-1522
+▁ပျင်း	-1523
+▁ပျမ်း	-1524
+▁ပျော့	-1525
+▁ပြက္ခ	-1526
+▁ပြင်း	-1527
+▁ပြန့်	-1528
+▁ပြို့	-1529
+▁ပြုံး	-1530
+▁ပွင့်	-1531
+▁ဖျော်	-1532
+▁ဖြုတ်	-1533
+▁ဗျည်း	-1534
+▁ဗျို့	-1535
+▁ဘင်္ဂ	-1536
+▁ဘတ်စ်	-1537
+▁ဘောက်	-1538
+▁ဘောလ်	-1539
+▁ဘျမ်း	-1540
+▁မဉ္ဇူ	-1541
+▁မုဒ္ဒ	-1542
+▁မုန်း	-1543
+▁မောက်	-1544
+▁မျှင်	-1545
+▁မြန်း	-1546
+▁မြိန်	-1547
+▁မြုပ်	-1548
+▁မှုတ်	-1549
+▁မှုန်	-1550
+▁ရှမ်း	-1551
+▁ရှို့	-1552
+▁ရှော့	-1553
+▁လင်မ်	-1554
+▁လိန်း	-1555
+▁လု့ဇ်	-1556
+▁လျော်	-1557
+▁လျှော	-1558
+▁လွင့်	-1559
+▁လွမ်း	-1560
+▁လွှား	-1561
+▁လှန်း	-1562
+▁ဝတ္တု	-1563
+▁ဝတ္ထု	-1564
+▁သတ္တု	-1565
+▁သျှင်	-1566
+▁သွန်း	-1567
+▁ဟိန်း	-1568
+▁ဥက္ကာ	-1569
+▁ကိုယ့်	-1570
+▁ချောင်	-1571
+▁ခြိမ်း	-1572
+▁ဂို့စ်	-1573
+▁ဂြိုဟ်	-1574
+▁ငြိမ့်	-1575
+▁ဆဒ္ဒန်	-1576
+▁ထောင့်	-1577
+▁နောင်း	-1578
+▁ပို့စ်	-1579
+▁ပွတ္တာ	-1580
+▁ဖို့ဒ်	-1581
+▁ဘင်္ဂါ	-1582
+▁ဘောင်း	-1583
+▁မဏ္ဍပ်	-1584
+▁မန္ဒော	-1585
+▁မိုင်း	-1586
+▁မျောက်	-1587
+▁မွိုင်	-1588
+▁မှောက်	-1589
+▁ယုဗ္ဗေ	-1590
+▁ရမ္မက်	-1591
+▁ရိက္ခာ	-1592
+▁ရော့စ်	-1593
+▁လျှော့	-1594
+▁လှိုက်	-1595
+▁လှောင်	-1596
+▁ဝိဇ္ဇာ	-1597
+▁သုဒ္ဓါ	-1598
+▁ဟမ္မက်	-1599
+▁ဟိန္ဒူ	-1600
+▁ဟိုင်း	-1601
+▁ဒိုက်စ်	-1602
+▁နှောင့်	-1603
+▁ပုပ္ပား	-1604
+▁ဗောဇ္စျ	-1605
+▁ဗျိုင်း	-1606
+▁မြောင်း	-1607
+▁ရှိုးလ်	-1608
+▁လှိုင်း	-1609
+▁သင်္ဘော	-1610
+▁အိုက်စ်	-1611
+▁ဥက္ကဋ္ဌ	-1612
+▁ကျောက္ကာ	-1613
+▁ဂုမ္ဘာန်	-1614
+▁နိဗ္ဗာန်	-1615
+▁သင်္ကန္တ	-1616
+▁သင်္ကြန်	-1617
+▁ဗောဇ္စျင်္ဂေ	-1618
+ကက	-1619
+ကင	-1620
+ကဋ	-1621
+ကတ	-1622
+ကဒ	-1623
+ကန	-1624
+ကပ	-1625
+ကမ	-1626
+ကယ	-1627
+ကာ	-1628
+ကိ	-1629
+ကီ	-1630
+ကု	-1631
+ကူ	-1632
+ကေ	-1633
+ကဲ	-1634
+ကံ	-1635
+ကျ	-1636
+ကြ	-1637
+ခက	-1638
+ခင	-1639
+ခစ	-1640
+ခတ	-1641
+ခန	-1642
+ခပ	-1643
+ခမ	-1644
+ခါ	-1645
+ခိ	-1646
+ခု	-1647
+ခူ	-1648
+ခေ	-1649
+ခဲ	-1650
+ခံ	-1651
+ချ	-1652
+ခြ	-1653
+ခွ	-1654
+ဂစ	-1655
+ဂတ	-1656
+ဂန	-1657
+ဂမ	-1658
+ဂါ	-1659
+ဂိ	-1660
+ဂီ	-1661
+ဂု	-1662
+ဂူ	-1663
+ဂေ	-1664
+ဂံ	-1665
+ဂျ	-1666
+ဂြ	-1667
+ဃာ	-1668
+ဃု	-1669
+ငင	-1670
+ငတ	-1671
+ငန	-1672
+ငယ	-1673
+ငါ	-1674
+ငူ	-1675
+ငေ	-1676
+ငဲ	-1677
+ငံ	-1678
+င့	-1679
+ငြ	-1680
+ငွ	-1681
+ငှ	-1682
+စက	-1683
+စင	-1684
+စစ	-1685
+စဉ	-1686
+စည	-1687
+စန	-1688
+စပ	-1689
+စမ	-1690
+စဝ	-1691
+စိ	-1692
+စီ	-1693
+စု	-1694
+စူ	-1695
+စေ	-1696
+စံ	-1697
+စွ	-1698
+ဆက	-1699
+ခာ	-1700
+စာ	-1701
+ဆင	-1702
+ဆည	-1703
+ဆတ	-1704
+ဆဒ	-1705
+ဆန	-1706
+ဆပ	-1707
+ဆမ	-1708
+ဆယ	-1709
+ဆာ	-1710
+ဆိ	-1711
+ဆု	-1712
+ဆူ	-1713
+ဆေ	-1714
+ဆဲ	-1715
+ဆံ	-1716
+ဆွ	-1717
+ဇင	-1718
+ဇာ	-1719
+ဇိ	-1720
+ဇီ	-1721
+ဇု	-1722
+ဇေ	-1723
+ဇွ	-1724
+ဈေ	-1725
+ဉာ	-1726
+ဉ့	-1727
+ညင	-1728
+ညစ	-1729
+ညည	-1730
+ညာ	-1731
+ညိ	-1732
+ညံ	-1733
+ည့	-1734
+ညွ	-1735
+ညှ	-1736
+ဌာ	-1737
+ဍပ	-1738
+ဏန	-1739
+ဏု	-1740
+ဏှ	-1741
+တက	-1742
+တင	-1743
+တစ	-1744
+တည	-1745
+တတ	-1746
+တန	-1747
+တပ	-1748
+တယ	-1749
+တာ	-1750
+တိ	-1751
+တီ	-1752
+တု	-1753
+တူ	-1754
+တေ	-1755
+တဲ	-1756
+တံ	-1757
+တြ	-1758
+တွ	-1759
+ထက	-1760
+ထင	-1761
+ထည	-1762
+ထန	-1763
+ထပ	-1764
+ထမ	-1765
+ထာ	-1766
+ထိ	-1767
+ထီ	-1768
+ထူ	-1769
+ထေ	-1770
+ထဲ	-1771
+ထံ	-1772
+ဒဏ	-1773
+ဒတ	-1774
+ဒန	-1775
+ဒမ	-1776
+ဒယ	-1777
+ဒါ	-1778
+ဒိ	-1779
+ဒီ	-1780
+ဒု	-1781
+ဒူ	-1782
+ဒဲ	-1783
+ဒ္	-1784
+ဒြ	-1785
+ဓမ	-1786
+ဓါ	-1787
+ဓာ	-1788
+နက	-1789
+နင	-1790
+နည	-1791
+နတ	-1792
+နန	-1793
+နပ	-1794
+နမ	-1795
+နာ	-1796
+နိ	-1797
+နီ	-1798
+နု	-1799
+ကွ	-1800
+ငိ	-1801
+ဆီ	-1802
+ဇက	-1803
+ဇန	-1804
+ညီ	-1805
+ဏာ	-1806
+ဏိ	-1807
+ဏီ	-1808
+တမ	-1809
+ထွ	-1810
+ဒက	-1811
+ဓိ	-1812
+ဓု	-1813
+နစ	-1814
+နယ	-1815
+နေ	-1816
+နဲ	-1817
+နံ	-1818
+န့	-1819
+န္	-1820
+နျ	-1821
+နွ	-1822
+နှ	-1823
+ပက	-1824
+ပင	-1825
+ပစ	-1826
+ပည	-1827
+ပတ	-1828
+ပန	-1829
+ပမ	-1830
+ပယ	-1831
+ပါ	-1832
+ပာ	-1833
+ပီ	-1834
+ပု	-1835
+ပူ	-1836
+ပေ	-1837
+ပဲ	-1838
+ပံ	-1839
+ပျ	-1840
+ပြ	-1841
+ပွ	-1842
+ဖက	-1843
+ဖင	-1844
+ဖတ	-1845
+ဖန	-1846
+ဖမ	-1847
+ဖယ	-1848
+ဖာ	-1849
+ဖိ	-1850
+ဖီ	-1851
+ဖု	-1852
+ဖူ	-1853
+ဖေ	-1854
+ဖဲ	-1855
+ဖျ	-1856
+ဖြ	-1857
+ဖွ	-1858
+ဗင	-1859
+ဗစ	-1860
+ဗယ	-1861
+ဗာ	-1862
+ဗိ	-1863
+ဗီ	-1864
+ဗု	-1865
+ဗူ	-1866
+ဗေ	-1867
+ဗျ	-1868
+ဗြ	-1869
+ဘက	-1870
+ဘင	-1871
+ဘဏ	-1872
+ဘတ	-1873
+ဘန	-1874
+ဘယ	-1875
+ဘာ	-1876
+ဘိ	-1877
+ဘီ	-1878
+ဘု	-1879
+ဘူ	-1880
+ဘေ	-1881
+ဘဲ	-1882
+ဘျ	-1883
+ဘွ	-1884
+မက	-1885
+မဂ	-1886
+မင	-1887
+မစ	-1888
+မဉ	-1889
+မည	-1890
+မဏ	-1891
+မတ	-1892
+မဒ	-1893
+မန	-1894
+မယ	-1895
+မိ	-1896
+မီ	-1897
+မု	-1898
+မူ	-1899
+ကစ	-1900
+ဒေ	-1901
+ပိ	-1902
+မေ	-1903
+မဲ	-1904
+မံ	-1905
+မ့	-1906
+မျ	-1907
+မြ	-1908
+မွ	-1909
+မှ	-1910
+ယက	-1911
+ယင	-1912
+ယစ	-1913
+ယဇ	-1914
+ယဉ	-1915
+ယပ	-1916
+ယမ	-1917
+ယာ	-1918
+ယိ	-1919
+ယု	-1920
+ယူ	-1921
+ယေ	-1922
+ယံ	-1923
+ယ့	-1924
+ယျ	-1925
+ယွ	-1926
+ယှ	-1927
+ရက	-1928
+ရင	-1929
+ရစ	-1930
+ရဇ	-1931
+ရည	-1932
+ရန	-1933
+ရပ	-1934
+ရမ	-1935
+ရယ	-1936
+ရာ	-1937
+ရိ	-1938
+ရီ	-1939
+ရု	-1940
+ရူ	-1941
+ရေ	-1942
+ရဲ	-1943
+ရံ	-1944
+ရွ	-1945
+ရှ	-1946
+လက	-1947
+လင	-1948
+လစ	-1949
+လည	-1950
+လတ	-1951
+လန	-1952
+လပ	-1953
+လမ	-1954
+လယ	-1955
+လာ	-1956
+လိ	-1957
+လီ	-1958
+လု	-1959
+လူ	-1960
+လေ	-1961
+လဲ	-1962
+လံ	-1963
+လျ	-1964
+လွ	-1965
+လှ	-1966
+ဝက	-1967
+ဝင	-1968
+ဝဏ	-1969
+ဝတ	-1970
+ဝန	-1971
+ဝပ	-1972
+ဝမ	-1973
+ဝယ	-1974
+ဝါ	-1975
+ဝိ	-1976
+ဝီ	-1977
+ဝု	-1978
+ဝူ	-1979
+ဝေ	-1980
+ဝဲ	-1981
+ဝှ	-1982
+သက	-1983
+သင	-1984
+သစ	-1985
+သည	-1986
+သတ	-1987
+သန	-1988
+သပ	-1989
+သမ	-1990
+သယ	-1991
+သာ	-1992
+သိ	-1993
+သီ	-1994
+သု	-1995
+သူ	-1996
+သေ	-1997
+သဲ	-1998
+သံ	-1999
+သျ	-2000
+သြ	-2001
+သွ	-2002
+ဟက	-2003
+ဟင	-2004
+ဟစ	-2005
+ဟန	-2006
+ဟပ	-2007
+ဟမ	-2008
+ဟယ	-2009
+ဟာ	-2010
+ဟိ	-2011
+ဟီ	-2012
+ဟု	-2013
+ဟူ	-2014
+ဟေ	-2015
+ဟဲ	-2016
+ဟံ	-2017
+အက	-2018
+အင	-2019
+အစ	-2020
+အတ	-2021
+အန	-2022
+အပ	-2023
+အယ	-2024
+အာ	-2025
+အိ	-2026
+အီ	-2027
+အု	-2028
+အူ	-2029
+အေ	-2030
+အဲ	-2031
+အံ	-2032
+အွ	-2033
+ဥက	-2034
+ဦး	-2035
+ါက	-2036
+ါင	-2037
+ါတ	-2038
+ါန	-2039
+ါယ	-2040
+ါ့	-2041
+ါ်	-2042
+ာက	-2043
+ာင	-2044
+ာဇ	-2045
+ာဉ	-2046
+ာဏ	-2047
+ာတ	-2048
+ာန	-2049
+ာဘ	-2050
+ာယ	-2051
+ာလ	-2052
+ာ့	-2053
+ာ်	-2054
+ိက	-2055
+ိခ	-2056
+ိဂ	-2057
+ိစ	-2058
+ိဇ	-2059
+ိတ	-2060
+ိန	-2061
+ိပ	-2062
+ိဗ	-2063
+ိမ	-2064
+ိံ	-2065
+ီ့	-2066
+ုက	-2067
+ုခ	-2068
+ုဂ	-2069
+ုင	-2070
+ုဏ	-2071
+ုတ	-2072
+ုဒ	-2073
+ုန	-2074
+ုပ	-2075
+ုဗ	-2076
+ုမ	-2077
+ုယ	-2078
+ုလ	-2079
+ုဟ	-2080
+ု့	-2081
+ူ့	-2082
+ေတ	-2083
+ဲလ	-2084
+ံး	-2085
+့စ	-2086
+့ဇ	-2087
+့ဒ	-2088
+းလ	-2089
+္က	-2090
+္ခ	-2091
+္ဂ	-2092
+္စ	-2093
+္ဆ	-2094
+္ဇ	-2095
+္ဌ	-2096
+္ဍ	-2097
+္ဏ	-2098
+္ထ	-2099
+္ပ	-2100
+္ဗ	-2101
+္ဘ	-2102
+္မ	-2103
+်ခ	-2104
+်စ	-2105
+်မ	-2106
+်လ	-2107
+်ု	-2108
+့်	-2109
+်း	-2110
+်္	-2111
+်ျ	-2112
+ျက	-2113
+ျင	-2114
+ျစ	-2115
+ျဉ	-2116
+ျည	-2117
+ျန	-2118
+ျပ	-2119
+ျမ	-2120
+ျယ	-2121
+ျာ	-2122
+ျိ	-2123
+ျု	-2124
+ျေ	-2125
+ျဲ	-2126
+ျံ	-2127
+ျ်	-2128
+ျွ	-2129
+ြက	-2130
+ြင	-2131
+ြစ	-2132
+ြည	-2133
+ြတ	-2134
+ြန	-2135
+ြပ	-2136
+ြမ	-2137
+ြယ	-2138
+ြဟ	-2139
+ြာ	-2140
+ြိ	-2141
+ြီ	-2142
+ြု	-2143
+ြူ	-2144
+ြေ	-2145
+ြဲ	-2146
+ြံ	-2147
+ြွ	-2148
+ြှ	-2149
+ွက	-2150
+ွင	-2151
+ွတ	-2152
+ွန	-2153
+ွပ	-2154
+ွမ	-2155
+ွယ	-2156
+ွာ	-2157
+ွိ	-2158
+ွံ	-2159
+ှက	-2160
+ှင	-2161
+ှစ	-2162
+ှဉ	-2163
+ှည	-2164
+ှတ	-2165
+ှန	-2166
+ှပ	-2167
+ှမ	-2168
+ှယ	-2169
+ှိ	-2170
+ှီ	-2171
+ှု	-2172
+ှူ	-2173
+ှေ	-2174
+ှဲ	-2175
+ှံ	-2176
+၎င	-2177
+▁ဠ	-2178
+က်စ	-2179
+က်ျ	-2180
+ခက်	-2181
+ခင်	-2182
+ခို	-2183
+ဂစ်	-2184
+ဂတ်	-2185
+ဂို	-2186
+ဂီး	-2187
+ဂုံ	-2188
+ဂေါ	-2189
+ငင်	-2190
+ငတ်	-2191
+ငန်	-2192
+ငယ်	-2193
+ငို	-2194
+ငေး	-2195
+ငဲ့	-2196
+င်မ	-2197
+စက်	-2198
+စင်	-2199
+စည်	-2200
+စား	-2201
+စို	-2202
+စော	-2203
+ဆက်	-2204
+ဆင်	-2205
+ဆည်	-2206
+ဆန်	-2207
+ဆယ်	-2208
+ဆို	-2209
+ဆော	-2210
+ဆေး	-2211
+ဇက်	-2212
+ဇင်	-2213
+ဇန်	-2214
+ဇူး	-2215
+ဇော	-2216
+ဇ္စ	-2217
+ဇွဲ	-2218
+ဈေး	-2219
+ဉ့်	-2220
+ညင်	-2221
+ညစ်	-2222
+ညည်	-2223
+ညား	-2224
+ညို	-2225
+ည့်	-2226
+ဏန်	-2227
+ဏ္ဍ	-2228
+တ္ထ	-2229
+ထက်	-2230
+ထင်	-2231
+ထည်	-2232
+ထန်	-2233
+ထား	-2234
+ထို	-2235
+ထော	-2236
+ဒက်	-2237
+ဒတ်	-2238
+ဒန်	-2239
+ဒယ်	-2240
+ဒို	-2241
+ဒီး	-2242
+ဒုံ	-2243
+ဒော	-2244
+ဒဲ့	-2245
+ဓား	-2246
+နင်	-2247
+နို	-2248
+နော	-2249
+န်ု	-2250
+ပင်	-2251
+ပား	-2252
+ပို	-2253
+ဖက်	-2254
+ဖင်	-2255
+ဖန်	-2256
+ဖယ်	-2257
+ဖား	-2258
+ဖို	-2259
+ဖော	-2260
+ဖဲ့	-2261
+ဗင်	-2262
+ဗစ်	-2263
+ဗယ်	-2264
+ဗား	-2265
+ဗို	-2266
+ဗီး	-2267
+ဗုံ	-2268
+ဗူး	-2269
+ဗော	-2270
+ဘက်	-2271
+ဘင်	-2272
+ဘန်	-2273
+ဘယ်	-2274
+ဘား	-2275
+ဘို	-2276
+ဘေး	-2277
+မက်	-2278
+မ့်	-2279
+ယက်	-2280
+ယင်	-2281
+ယစ်	-2282
+ယပ်	-2283
+ယမ်	-2284
+ယား	-2285
+ယို	-2286
+ယုံ	-2287
+ယူး	-2288
+ယော	-2289
+ယ့်	-2290
+ယ်လ	-2291
+ယ့်	-2292
+ရင်	-2293
+ရို	-2294
+လင်	-2295
+လို	-2296
+ဝက်	-2297
+ဝင်	-2298
+ဝတ်	-2299
+ဝန်	-2300
+ဝပ်	-2301
+ဝမ်	-2302
+ဝယ်	-2303
+ဝို	-2304
+ဝူး	-2305
+ဝေး	-2306
+သင်	-2307
+သို	-2308
+သော	-2309
+ဟက်	-2310
+ဟင်	-2311
+ဟစ်	-2312
+ဟန်	-2313
+ဟပ်	-2314
+ဟမ်	-2315
+ဟယ်	-2316
+ဟား	-2317
+ဟို	-2318
+ဟီး	-2319
+ဟော	-2320
+ဟေး	-2321
+အင်	-2322
+အို	-2323
+အော	-2324
+ဥက္	-2325
+ါက်	-2326
+ါင်	-2327
+ါန်	-2328
+ာက်	-2329
+ာင်	-2330
+ာဉ်	-2331
+ာယ်	-2332
+ိက္	-2333
+ိစ္	-2334
+ိဇ္	-2335
+ိုက	-2336
+ိုင	-2337
+ိုဏ	-2338
+ိုယ	-2339
+ိုလ	-2340
+ိုဟ	-2341
+ုက္	-2342
+ုဏ်	-2343
+ုမ္	-2344
+ေတ်	-2345
+ေါ့	-2346
+ောက	-2347
+ောဇ	-2348
+ောလ	-2349
+့စ်	-2350
+္ဇူ	-2351
+္တာ	-2352
+္တိ	-2353
+္တု	-2354
+္ဒိ	-2355
+္ဒူ	-2356
+္ဓါ	-2357
+္မာ	-2358
+်စ်	-2359
+ျက်	-2360
+ျင်	-2361
+ျစ်	-2362
+ျည်	-2363
+ျန်	-2364
+ျပ်	-2365
+ျမ်	-2366
+ျယ်	-2367
+ျို	-2368
+ျီး	-2369
+ျော	-2370
+ျဲ့	-2371
+ြက်	-2372
+ြင်	-2373
+ြစ်	-2374
+ြည်	-2375
+ြတ်	-2376
+ြမ်	-2377
+ြယ်	-2378
+ြား	-2379
+ြီး	-2380
+ြုံ	-2381
+ြူး	-2382
+ြော	-2383
+ြေး	-2384
+ွက်	-2385
+ွင်	-2386
+ွပ်	-2387
+ွမ်	-2388
+ွယ်	-2389
+ွား	-2390
+ွို	-2391
+ွဲ့	-2392
+ွှာ	-2393
+ှင်	-2394
+ှစ်	-2395
+ှည်	-2396
+ှတ်	-2397
+ှန်	-2398
+ှပ်	-2399
+ှမ်	-2400
+ှယ်	-2401
+ှို	-2402
+ှီး	-2403
+ှော	-2404
+ှေး	-2405
+၎င်	-2406
+▁ကက	-2407
+▁ကင	-2408
+▁ကစ	-2409
+▁ကတ	-2410
+▁ကဒ	-2411
+▁ကန	-2412
+▁ကပ	-2413
+▁ကမ	-2414
+▁ကယ	-2415
+▁ကေ	-2416
+▁ခစ	-2417
+▁ခတ	-2418
+▁ခန	-2419
+▁ခပ	-2420
+▁ခမ	-2421
+▁ခူ	-2422
+▁ခ်	-2423
+▁ဂန	-2424
+▁ဂမ	-2425
+▁ဂိ	-2426
+▁ဂြ	-2427
+▁င့	-2428
+▁င်	-2429
+▁ငွ	-2430
+▁ငှ	-2431
+▁စက	-2432
+▁စစ	-2433
+▁စဉ	-2434
+▁စည	-2435
+▁စန	-2436
+▁စပ	-2437
+▁စမ	-2438
+▁စဝ	-2439
+▁စျ	-2440
+▁ဆတ	-2441
+▁ဆဒ	-2442
+▁ဆန	-2443
+▁ဆပ	-2444
+▁ဆမ	-2445
+▁ဆိ	-2446
+▁ဆေ	-2447
+▁ဇု	-2448
+▁ဇွ	-2449
+▁ဉာ	-2450
+▁ဏှ	-2451
+▁တက	-2452
+▁တင	-2453
+▁တစ	-2454
+▁တည	-2455
+▁တတ	-2456
+▁တန	-2457
+▁တပ	-2458
+▁တမ	-2459
+▁တယ	-2460
+▁ထပ	-2461
+▁ထမ	-2462
+▁ဒဏ	-2463
+▁ဒမ	-2464
+▁ဒိ	-2465
+▁ဒြ	-2466
+▁ဓမ	-2467
+▁ဓါ	-2468
+▁ဓာ	-2469
+▁နက	-2470
+▁နစ	-2471
+▁နည	-2472
+▁နတ	-2473
+▁နန	-2474
+▁နပ	-2475
+▁နမ	-2476
+▁နယ	-2477
+▁န့	-2478
+▁နျ	-2479
+▁ပက	-2480
+▁ပစ	-2481
+▁ပည	-2482
+▁ပတ	-2483
+▁ပန	-2484
+▁ပမ	-2485
+▁ပယ	-2486
+▁ပံ	-2487
+▁ဖတ	-2488
+▁ဖမ	-2489
+▁ဖူ	-2490
+▁ဘဏ	-2491
+▁ဘတ	-2492
+▁မက	-2493
+▁မဂ	-2494
+▁မင	-2495
+▁မစ	-2496
+▁မဉ	-2497
+▁မည	-2498
+▁မဏ	-2499
+▁မတ	-2500
+▁မဒ	-2501
+▁မန	-2502
+▁မယ	-2503
+▁မ့	-2504
+▁ယဇ	-2505
+▁ယဉ	-2506
+▁ယှ	-2507
+▁ရက	-2508
+▁ရစ	-2509
+▁ရဇ	-2510
+▁ရည	-2511
+▁ရန	-2512
+▁ရပ	-2513
+▁ရမ	-2514
+▁ရယ	-2515
+▁လက	-2516
+▁လစ	-2517
+▁လည	-2518
+▁လတ	-2519
+▁လန	-2520
+▁လပ	-2521
+▁လမ	-2522
+▁လယ	-2523
+▁ဝဏ	-2524
+▁ဝတ	-2525
+▁ဝှ	-2526
+▁သက	-2527
+▁သစ	-2528
+▁သည	-2529
+▁သတ	-2530
+▁သန	-2531
+▁သပ	-2532
+▁သမ	-2533
+▁သယ	-2534
+▁သျ	-2535
+▁ဟမ	-2536
+▁အက	-2537
+▁အစ	-2538
+▁အတ	-2539
+▁အန	-2540
+▁အပ	-2541
+▁အယ	-2542
+▁အံ	-2543
+▁အွ	-2544
+ကန္တ	-2545
+က္ကဋ	-2546
+က္ကူ	-2547
+က်စ်	-2548
+ခတ္တ	-2549
+ဂို့	-2550
+ဂိုး	-2551
+ဂုတ်	-2552
+ဂုံး	-2553
+င်မ်	-2554
+င်္ဘ	-2555
+စည်း	-2556
+ဆင်း	-2557
+ဆာန်	-2558
+ဇင်း	-2559
+ဇော်	-2560
+ညည်း	-2561
+ညိုး	-2562
+ဏန်း	-2563
+တ္တိ	-2564
+တ်စ်	-2565
+ထင်း	-2566
+ပ္ပါ	-2567
+ပ်စ်	-2568
+ဗာန်	-2569
+မ္ဘာ	-2570
+မ္မာ	-2571
+မ္မေ	-2572
+ယင်း	-2573
+ယ်လ်	-2574
+ဝင်း	-2575
+ဝန်း	-2576
+ဟင်း	-2577
+ါင်း	-2578
+ါန်း	-2579
+ာန်း	-2580
+ိစ္စ	-2581
+ိဇ္ဇ	-2582
+ိန္ဒ	-2583
+ိုဏ်	-2584
+ိုယ်	-2585
+ိုဟ်	-2586
+ို့ဒ	-2587
+ိုးလ	-2588
+ုက္ခ	-2589
+ုဒ္ဓ	-2590
+ုမ္ဘ	-2591
+ေတ္တ	-2592
+ေါက်	-2593
+ေါင်	-2594
+ောက္	-2595
+ောဇ္	-2596
+ောလ်	-2597
+္ဒန်	-2598
+္ဒော	-2599
+ျင်း	-2600
+ျင်္	-2601
+ျည်း	-2602
+ျမ်း	-2603
+ျို့	-2604
+ျိုး	-2605
+ျော်	-2606
+ြင်း	-2607
+ြန်း	-2608
+ြမ်း	-2609
+ြိမ်	-2610
+ြို့	-2611
+ွင့်	-2612
+ွင်း	-2613
+ွန်း	-2614
+ွမ်း	-2615
+ွှန်	-2616
+ွှေး	-2617
+ှင်း	-2618
+ှည်း	-2619
+ှန်း	-2620
+ှမ်း	-2621
+ှို့	-2622
+ှိုး	-2623
+ှုပ်	-2624
+ှော်	-2625
+၎င်း	-2626
+▁ကပ္	-2627
+▁ကမ္	-2628
+▁ကမ်	-2629
+▁ကုမ	-2630
+▁ကုံ	-2631
+▁ကျဉ	-2632
+▁ကျမ	-2633
+▁ကျု	-2634
+▁ကျူ	-2635
+▁ကြပ	-2636
+▁ကြမ	-2637
+▁ကြိ	-2638
+▁ကြီ	-2639
+▁ကြု	-2640
+▁ကွေ	-2641
+▁ခန်	-2642
+▁ခမ်	-2643
+▁ချဉ	-2644
+▁ချမ	-2645
+▁ချိ	-2646
+▁ချု	-2647
+▁ချွ	-2648
+▁ခြိ	-2649
+▁ခြွ	-2650
+▁ဂမ္	-2651
+▁ဂျိ	-2652
+▁ငန်	-2653
+▁ငြိ	-2654
+▁စက္	-2655
+▁စမ်	-2656
+▁စို	-2657
+▁တက္	-2658
+▁တုံ	-2659
+▁ထမ်	-2660
+▁ထော	-2661
+▁ဓမ္	-2662
+▁ဓိပ	-2663
+▁နက္	-2664
+▁နိဗ	-2665
+▁နွှ	-2666
+▁နှိ	-2667
+▁နှု	-2668
+▁ပစ္	-2669
+▁ပည်	-2670
+▁ပမ်	-2671
+▁ပါတ	-2672
+▁ပုဂ	-2673
+▁ပုဒ	-2674
+▁ပုပ	-2675
+▁ပဲလ	-2676
+▁ပျဉ	-2677
+▁ပြက	-2678
+▁ပြစ	-2679
+▁ပြတ	-2680
+▁ပွတ	-2681
+▁ပွေ	-2682
+▁ဖမ်	-2683
+▁ဖုံ	-2684
+▁ဖေါ	-2685
+▁ဖော	-2686
+▁ဖြု	-2687
+▁ဖွံ	-2688
+▁ဗို	-2689
+▁ဗြဟ	-2690
+▁ဘို	-2691
+▁မက္	-2692
+▁မဂ္	-2693
+▁မစ္	-2694
+▁မဉ္	-2695
+▁မုခ	-2696
+▁မုဒ	-2697
+▁မျဉ	-2698
+▁မြိ	-2699
+▁မြု	-2700
+▁မှတ	-2701
+▁မှူ	-2702
+▁ယမ်	-2703
+▁ယုဗ	-2704
+▁ရစ္	-2705
+▁ရဇ္	-2706
+▁ရမ္	-2707
+▁ရမ်	-2708
+▁ရာဇ	-2709
+▁ရွေ	-2710
+▁ရှမ	-2711
+▁ရှေ	-2712
+▁လက္	-2713
+▁လမ်	-2714
+▁လာဘ	-2715
+▁လိခ	-2716
+▁လိဂ	-2717
+▁လု့	-2718
+▁လျဉ	-2719
+▁ဝဏ္	-2720
+▁ဝတ္	-2721
+▁ဝို	-2722
+▁သစ္	-2723
+▁သမ္	-2724
+▁သမ်	-2725
+▁သိက	-2726
+▁သိပ	-2727
+▁သို	-2728
+▁သုဒ	-2729
+▁သုံ	-2730
+▁သေတ	-2731
+▁သျှ	-2732
+▁သွေ	-2733
+▁ဟမ္	-2734
+▁အော	-2735
+▁ဥက္	-2736
+ဂိုလ်	-2737
+င်္ကျ	-2738
+င်္ကြ	-2739
+ဏ္ဍပ်	-2740
+န်ုပ်	-2741
+ဗိုက်	-2742
+မ္ဘော	-2743
+ယောက်	-2744
+ိုးလ်	-2745
+ေါင်း	-2746
+ောက္က	-2747
+ောက်ျ	-2748
+ျင်္ဂ	-2749
+ျောက်	-2750
+ြိုင်	-2751
+ြောက်	-2752
+ွိုင်	-2753
+ွှန်း	-2754
+ှိုက်	-2755
+ှိုင်	-2756
+ှောက်	-2757
+ှောင်	-2758
+▁ကပ္ပ	-2759
+▁ကုမ္	-2760
+▁ကျဉ်	-2761
+▁ကျမ်	-2762
+▁ကျို	-2763
+▁ကြန်	-2764
+▁ကြမ်	-2765
+▁ချမ်	-2766
+▁ဂမ္ဘ	-2767
+▁ဂို့	-2768
+▁ဂြို	-2769
+▁စိမ်	-2770
+▁ဆဒ္ဒ	-2771
+▁ညွန်	-2772
+▁ဓိပ္	-2773
+▁နင်္	-2774
+▁နိဗ္	-2775
+▁နိမ်	-2776
+▁နှို	-2777
+▁ပုဂ္	-2778
+▁ပုပ္	-2779
+▁ပျဉ်	-2780
+▁ပျော	-2781
+▁ပြက္	-2782
+▁ဖြင်	-2783
+▁ဖြည်	-2784
+▁ဖြို	-2785
+▁ဗြဟ္	-2786
+▁ဘင်္	-2787
+▁မင်္	-2788
+▁မန္ဒ	-2789
+▁မျဉ်	-2790
+▁မျို	-2791
+▁မှော	-2792
+▁ယုဗ္	-2793
+▁ရမ္မ	-2794
+▁ရိက္	-2795
+▁ရှမ်	-2796
+▁ရှို	-2797
+▁ရှုံ	-2798
+▁ရှော	-2799
+▁လင်္	-2800
+▁လျဉ်	-2801
+▁လျော	-2802
+▁လှည်	-2803
+▁ဝတ္တ	-2804
+▁သစ္စ	-2805
+▁သိက္	-2806
+▁သိပ္	-2807
+▁ဟမ္မ	-2808
+▁အင်္	-2809
+က္ခတ္တ	-2810
+င်္ဘော	-2811
+စ္စည်း	-2812
+စ္ဆာန်	-2813
+စျင်္ဂ	-2814
+ဗိုင်း	-2815
+ောဇ္စျ	-2816
+ျိုင်း	-2817
+ျောင်း	-2818
+ြောင်း	-2819
+ွန်ုပ်	-2820
+ှိုင်း	-2821
+▁ဂိုဏ်	-2822
+▁ဂုမ္ဘ	-2823
+▁ဓိပ္ပ	-2824
+▁နိဗ္ဗ	-2825
+▁ပုပ္ပ	-2826
+▁ပွတ္တ	-2827
+▁ဖို့ဒ	-2828
+▁ယုဗ္ဗ	-2829
+▁ရိက္ခ	-2830
+▁လင်္က	-2831
+▁ဝိဇ္ဇ	-2832
+▁သင်္ဂ	-2833
+▁သိက္ခ	-2834
+▁သိပ္ပ	-2835
+▁သုဒ္ဓ	-2836
+▁သေတ္တ	-2837
+▁ဟိန္ဒ	-2838
+▁အင်္က	-2839
+▁အိန္ဒ	-2840
+▁အိုက်	-2841
+▁ဥက္ကဋ	-2842
+ဂ္ဂိုလ်	-2843
+င်္ကန္တ	-2844
+▁ယောက်ျ	-2845
+▁သင်္ကြ	-2846
+▁ဥက္ကဋ္	-2847
+ဇ္စျင်္ဂ	-2848
+▁ကျောက္က	-2849
+ဇ္စျင်္ဂေ	-2850
+▁	-2851
+်	-2852
+း	-2853
+ာ	-2854
+ေ	-2855
+က	-2856
+ု	-2857
+တ	-2858
+ိ	-2859
+မ	-2860
+င	-2861
+ပ	-2862
+န	-2863
+့	-2864
+လ	-2865
+ြ	-2866
+ရ	-2867
+သ	-2868
+စ	-2869
+အ	-2870
+ွ	-2871
+ျ	-2872
+ှ	-2873
+ဲ	-2874
+ခ	-2875
+ယ	-2876
+ါ	-2877
+ီ	-2878
+ည	-2879
+ူ	-2880
+ံ	-2881
+ဆ	-2882
+ဘ	-2883
+ဖ	-2884
+ထ	-2885
+ဒ	-2886
+ဟ	-2887
+ဝ	-2888
+္	-2889
+ဂ	-2890
+ဗ	-2891
+ဦ	-2892
+၏	-2893
+ဇ	-2894
+ဉ	-2895
+ဏ	-2896
+ဓ	-2897
+၍	-2898
+ဥ	-2899
+၌	-2900
+ဌ	-2901
+ဈ	-2902
+ဤ	-2903
+ဿ	-2904
+ဃ	-2905
+ဧ	-2906
+ဩ	-2907
+၎	-2908
+ဠ	-2909
+ဋ	-2910
+ဍ	-2911
+ဪ	-2912
+```
+
+## Building Syl Unit SentencePiece Char Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.syl --output_prefix ./syl/1k.syl --model_type char
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.syl
+  input_format:
+  model_prefix: ./syl/1k.syl.char
+  model_type: CHAR
+  vocab_size: 8000
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.syl
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=101056
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./syl/1k.syl.char.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./syl/1k.syl.char.vocab
+
+real    0m0.052s
+user    0m0.052s
+sys     0m0.012s
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/syl$ cat ./1k.syl.char.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁       -1.38022
+်       -2.44925
+း       -3.04873
+ာ       -3.06939
+ေ       -3.23289
+က       -3.2364
+ု       -3.32397
+တ       -3.40433
+ိ       -3.4435
+မ       -3.56976
+င       -3.61027
+ပ       -3.61688
+န       -3.78625
+့       -3.84649
+လ       -3.86332
+ြ       -3.97857
+ရ       -4.02456
+သ       -4.06755
+စ       -4.17356
+အ       -4.24067
+ွ       -4.28135
+ျ       -4.33729
+ှ       -4.34565
+ဲ       -4.4111
+ခ       -4.43419
+ယ       -4.45867
+ါ       -4.60177
+ီ       -4.66487
+ည       -4.69688
+ူ       -4.87186
+ံ       -5.11986
+ဆ       -5.15182
+ဘ       -5.20807
+ဖ       -5.25055
+ထ       -5.31283
+ဒ       -5.72737
+ဟ       -5.94748
+ဝ       -6.00197
+္       -6.26593
+ဂ       -6.5467
+ဗ       -6.72764
+ဦ       -7.04609
+၏       -7.05752
+ဇ       -7.1414
+ဉ       -7.26075
+ဏ       -7.3803
+ဓ       -7.5161
+၍       -7.80986
+ဥ       -8.38794
+၌       -8.81538
+ဌ       -9.22084
+ဈ       -9.32621
+ဤ       -9.44399
+ဿ       -9.57752
+ဃ       -9.73167
+ဧ       -9.91399
+ဩ       -10.1371
+၎       -10.4248
+ဠ       -10.8303
+ဋ       -11.5234
+ဍ       -11.5234
+ဪ       -11.5234
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/syl$
+```
+
+## Building Syl Unit SentencePiece Word Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.syl --output_prefix ./syl/1k.syl --model_type word --vocab_size 1407
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.syl
+  input_format:
+  model_prefix: ./syl/1k.syl.word
+  model_type: WORD
+  vocab_size: 1407
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.syl
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=101056
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./syl/1k.syl.word.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./syl/1k.syl.word.vocab
+
+real    0m0.060s
+user    0m0.049s
+sys     0m0.024s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁အ	-3.23947
+▁မ	-3.65401
+▁ပါ	-3.78884
+▁ကို	-3.81349
+▁က	-3.86657
+▁တယ်	-4.13195
+▁နေ	-4.18221
+▁တာ	-4.31133
+▁ရ	-4.42948
+▁တွေ	-4.52644
+▁မှာ	-4.57106
+▁သည်	-4.58253
+▁သ	-4.73604
+▁သူ	-4.77258
+▁တော့	-4.90677
+▁များ	-4.9121
+▁ရှိ	-4.9121
+▁နဲ့	-4.92828
+▁တစ်	-4.93373
+▁တဲ့	-4.93921
+▁ဖြစ်	-4.96143
+▁ပြီး	-4.98992
+▁လာ	-5.05562
+▁တော်	-5.06804
+▁ဘူး	-5.06804
+▁ကြီး	-5.09979
+▁လား	-5.11278
+▁ကြ	-5.13927
+▁ပေး	-5.13927
+▁ပဲ	-5.15278
+▁ရာ	-5.15278
+▁လို့	-5.15278
+▁နိုင်	-5.15961
+▁လေး	-5.16648
+▁င့်	-5.20157
+▁ဆို	-5.21596
+▁တ	-5.24537
+▁လည်း	-5.24537
+▁ဒီ	-5.25286
+▁လဲ	-5.2834
+▁တို့	-5.30693
+▁ခဲ့	-5.3149
+▁ရင်	-5.3149
+▁လုပ်	-5.34742
+▁လို	-5.36409
+▁စ	-5.37253
+▁လိုက်	-5.40701
+▁ပြော	-5.42471
+▁စား	-5.44273
+▁ဘယ်	-5.47038
+▁ရေး	-5.47977
+▁ကောင်း	-5.52809
+▁ကျွန်	-5.55825
+▁မယ်	-5.55825
+▁သာ	-5.55825
+▁သွား	-5.55825
+▁အား	-5.55825
+▁ထား	-5.57887
+▁မှ	-5.58934
+▁ပ	-5.59992
+▁လုံး	-5.65458
+▁ဘာ	-5.67731
+▁ဦး	-5.67731
+▁၏	-5.67731
+▁မာ	-5.70056
+▁ခု	-5.7124
+▁မင်း	-5.7124
+▁သား	-5.7124
+▁မိ	-5.72437
+▁ည့်	-5.74876
+▁မှု	-5.74876
+▁တွင်	-5.79941
+▁ကား	-5.82573
+▁ကျ	-5.85275
+▁စေ	-5.86655
+▁ပြီ	-5.86655
+▁ချင်	-5.88053
+▁လေ	-5.88053
+▁စာ	-5.89472
+▁သော	-5.89472
+▁ဟုတ်	-5.90911
+▁ရဲ့	-5.92371
+▁နှင့်	-5.93852
+▁လူ	-5.93852
+▁ခံ	-5.95356
+▁စိုင်း	-5.96883
+▁နော်	-5.96883
+▁နှစ်	-5.98433
+▁ဟာ	-5.98433
+▁ဒါ	-6.00008
+▁သိ	-6.01608
+▁ပြ	-6.03234
+▁ခြင်း	-6.04887
+▁လက်	-6.04887
+▁ဆုံး	-6.06568
+▁ပြန်	-6.06568
+▁ခ	-6.08277
+▁ငံ	-6.08277
+▁အောင်	-6.08277
+▁ခင်	-6.10016
+▁နာ	-6.10016
+▁ရောက်	-6.13588
+▁တွက်	-6.15423
+▁ဝ	-6.19197
+▁စု	-6.21139
+▁ပွဲ	-6.21139
+▁မြန်	-6.21139
+▁ရေ	-6.21139
+▁ဖို့	-6.23119
+▁ယူ	-6.25139
+▁သို့	-6.25139
+▁စိတ်	-6.27201
+▁ပင်	-6.29307
+▁ထဲ	-6.31457
+▁ကိုယ်	-6.33655
+▁ပေါ်	-6.33655
+▁ပြည်	-6.33655
+▁မေ	-6.35902
+▁မျိုး	-6.35902
+▁ယောက်	-6.35902
+▁ချစ်	-6.38201
+▁တင်	-6.38201
+▁မြင်	-6.38201
+▁လ	-6.38201
+▁သူ့	-6.38201
+▁ကာ	-6.40554
+▁ကြောင်း	-6.40554
+▁တိ	-6.40554
+▁သေ	-6.40554
+▁တိုင်း	-6.42964
+▁ပေ	-6.42964
+▁ပြု	-6.42964
+▁ရှင်	-6.42964
+▁လောက်	-6.42964
+▁၍	-6.42964
+▁ချင်း	-6.45433
+▁ဆက်	-6.45433
+▁ဆောင်	-6.45433
+▁နောက်	-6.45433
+▁ဝင်	-6.45433
+▁တိုး	-6.47965
+▁မည်	-6.47965
+▁သေး	-6.47965
+▁နေ့	-6.50563
+▁ပေါ့	-6.50563
+▁မီး	-6.50563
+▁ရမ်း	-6.50563
+▁ရား	-6.50563
+▁ချက်	-6.55969
+▁တွေ့	-6.55969
+▁လမ်း	-6.55969
+▁သုံး	-6.55969
+▁ငါ	-6.58786
+▁ညီ	-6.58786
+▁ထွက်	-6.58786
+▁ချိန်	-6.61685
+▁ယ့်	-6.61685
+▁သက်	-6.61685
+▁သတ်	-6.61685
+▁ကယ်	-6.64671
+▁နည်း	-6.64671
+▁ပျော်	-6.64671
+▁ဟု	-6.64671
+▁အဲ	-6.64671
+▁ခါ	-6.70923
+▁တူ	-6.70923
+▁တောင်	-6.70923
+▁ထင်	-6.70923
+▁လည်	-6.70923
+▁ဆ	-6.74202
+▁တက်	-6.74202
+▁တတ်	-6.74202
+▁မှတ်	-6.74202
+▁ရက်	-6.74202
+▁ရဲ	-6.74202
+▁ကောင်	-6.77592
+▁ခန်း	-6.77592
+▁စီး	-6.77592
+▁ညာ	-6.77592
+▁တိုက်	-6.77592
+▁ထ	-6.77592
+▁နား	-6.77592
+▁ဗျား	-6.77592
+▁မဲ့	-6.77592
+▁ရပ်	-6.77592
+▁ပုံ	-6.81101
+▁ရီ	-6.81101
+▁ကုန်	-6.84738
+▁ငွေ	-6.84738
+▁စဉ်	-6.84738
+▁စည်း	-6.84738
+▁တင်း	-6.84738
+▁ထက်	-6.84738
+▁ဘ	-6.84738
+▁မြို့	-6.84738
+▁ရန်	-6.84738
+▁သင်း	-6.84738
+▁သီ	-6.84738
+▁စွာ	-6.88512
+▁နက်	-6.88512
+▁ရယ်	-6.88512
+▁သံ	-6.88512
+▁အိမ်	-6.88512
+▁အောက်	-6.88512
+▁ကျောင်း	-6.92434
+▁ကွာ	-6.92434
+▁ဆိုင်	-6.92434
+▁ထိ	-6.92434
+▁ဓု	-6.92434
+▁မောင်	-6.92434
+▁မြဲ	-6.92434
+▁စစ်	-6.96516
+▁ရင်း	-6.96516
+▁လျက်	-6.96516
+▁လှ	-6.96516
+▁ကျေး	-7.00772
+▁ကြား	-7.00772
+▁စီ	-7.00772
+▁စော	-7.00772
+▁ဆေး	-7.00772
+▁နယ်	-7.00772
+▁န့်	-7.00772
+▁မူ	-7.00772
+▁မှန်	-7.00772
+▁ယ	-7.00772
+▁ရိုက်	-7.00772
+▁လီ	-7.00772
+▁လေ့	-7.00772
+▁ဝန်	-7.00772
+▁သင်	-7.00772
+▁ကြိုက်	-7.05217
+▁တီ	-7.05217
+▁န	-7.05217
+▁နှ	-7.05217
+▁ပေါင်း	-7.05217
+▁အုပ်	-7.05217
+▁အေး	-7.05217
+▁ကန်	-7.09869
+▁ကြိုး	-7.09869
+▁ချော	-7.09869
+▁ခြား	-7.09869
+▁တိုင်	-7.09869
+▁ထို	-7.09869
+▁ထိုင်	-7.09869
+▁နံ	-7.09869
+▁ပတ်	-7.09869
+▁ပြင်	-7.09869
+▁ဗျာ	-7.09869
+▁မျက်	-7.09869
+▁ရီး	-7.09869
+▁သစ်	-7.09869
+▁ခေါ်	-7.14748
+▁ငယ်	-7.14748
+▁တည်း	-7.14748
+▁ထုတ်	-7.14748
+▁ဒ	-7.14748
+▁ပို	-7.14748
+▁ဖြ	-7.14748
+▁ဘော	-7.14748
+▁မေး	-7.14748
+▁ဥ	-7.14748
+▁ကြာ	-7.19877
+▁ချ	-7.19877
+▁ခြေ	-7.19877
+▁ဇူး	-7.19877
+▁တန်း	-7.19877
+▁ပန်း	-7.19877
+▁ဖက်	-7.19877
+▁ဖြင့်	-7.19877
+▁ရွက်	-7.19877
+▁လျှင်	-7.19877
+▁ကူ	-7.25284
+▁ချမ်း	-7.25284
+▁ခွေး	-7.25284
+▁ဆိုး	-7.25284
+▁ဆီ	-7.25284
+▁ထပ်	-7.25284
+▁ဒေ	-7.25284
+▁ပါး	-7.25284
+▁ဖွဲ့	-7.25284
+▁ဘက်	-7.25284
+▁ရိ	-7.25284
+▁ရှင်း	-7.25284
+▁ဝယ်	-7.25284
+▁သည့်	-7.25284
+▁အစ်	-7.25284
+▁ကိုး	-7.31
+▁ကြောင့်	-7.31
+▁ချာ	-7.31
+▁ငါ့	-7.31
+▁စိုး	-7.31
+▁ဆင်	-7.31
+▁ည	-7.31
+▁ထောင်	-7.31
+▁ဒေါ်	-7.31
+▁ပူ	-7.31
+▁ပြောင်း	-7.31
+▁မီ	-7.31
+▁မြ	-7.31
+▁ရုံ	-7.31
+▁ရွေး	-7.31
+▁သောက်	-7.31
+▁ခိုင်	-7.37062
+▁ဂ	-7.37062
+▁တောင်း	-7.37062
+▁ဖုန်း	-7.37062
+▁မား	-7.37062
+▁ယာ	-7.37062
+▁လွတ်	-7.37062
+▁သော်	-7.37062
+▁ကြည့်	-7.43516
+▁ငေး	-7.43516
+▁စိုက်	-7.43516
+▁ဆွဲ	-7.43516
+▁တည်	-7.43516
+▁တုန်း	-7.43516
+▁တွင်း	-7.43516
+▁ထောက်	-7.43516
+▁ဖြေ	-7.43516
+▁လယ်	-7.43516
+▁လျှောက်	-7.43516
+▁ဝေး	-7.43516
+▁သိပ်	-7.43516
+▁ဟို	-7.43516
+▁အပ်	-7.43516
+▁၌	-7.43516
+▁ကင်း	-7.50416
+▁ကူး	-7.50416
+▁ကျန်း	-7.50416
+▁ကွယ်	-7.50416
+▁ဂါ	-7.50416
+▁ဂုဏ်	-7.50416
+▁စပ်	-7.50416
+▁စောက်	-7.50416
+▁စံ	-7.50416
+▁ဆု	-7.50416
+▁တန်	-7.50416
+▁နီး	-7.50416
+▁ပါတ်	-7.50416
+▁ပျက်	-7.50416
+▁ပွား	-7.50416
+▁ဖော်	-7.50416
+▁ဘဲ	-7.50416
+▁ယုံ	-7.50416
+▁ရုပ်	-7.50416
+▁ရော	-7.50416
+▁ရောင်	-7.50416
+▁ရွှင်	-7.50416
+▁ရှ	-7.50416
+▁ဝတ်	-7.50416
+▁အဲ့	-7.50416
+▁ကပ်	-7.57826
+▁ကဲ့	-7.57826
+▁ကြော	-7.57826
+▁ခိုက်	-7.57826
+▁ခေတ်	-7.57826
+▁ချုပ်	-7.57826
+▁ခွ	-7.57826
+▁ဆံ	-7.57826
+▁တပ်	-7.57826
+▁နပ်	-7.57826
+▁ပါ့	-7.57826
+▁ပေါက်	-7.57826
+▁ဗ	-7.57826
+▁မတ်	-7.57826
+▁ရည်	-7.57826
+▁ရွာ	-7.57826
+▁ရှား	-7.57826
+▁ဝါ	-7.57826
+▁သင့်	-7.57826
+▁ကိုင်	-7.65831
+▁ကော်	-7.65831
+▁ကျွန်ုပ်	-7.65831
+▁ခိုး	-7.65831
+▁စက်	-7.65831
+▁ဆင်း	-7.65831
+▁ဇာတ်	-7.65831
+▁ဖ	-7.65831
+▁ဖြတ်	-7.65831
+▁မိန်း	-7.65831
+▁လင်း	-7.65831
+▁လွန်	-7.65831
+▁လွှတ်	-7.65831
+▁အန်	-7.65831
+▁အာ	-7.65831
+▁အော်	-7.65831
+▁ကု	-7.74532
+▁ကံ	-7.74532
+▁ကျက်	-7.74532
+▁ကျန်	-7.74532
+▁ခေါင်း	-7.74532
+▁တီး	-7.74532
+▁ပြား	-7.74532
+▁ပြိုင်	-7.74532
+▁ဖမ်း	-7.74532
+▁ဗိုလ်	-7.74532
+▁ဘု	-7.74532
+▁ဘေး	-7.74532
+▁မျှ	-7.74532
+▁မြတ်	-7.74532
+▁မြေ	-7.74532
+▁ရူး	-7.74532
+▁ရှေ့	-7.74532
+▁လိ	-7.74532
+▁လွှဲ	-7.74532
+▁လှမ်း	-7.74532
+▁သိုလ်	-7.74532
+▁ဟ	-7.74532
+▁အိပ်	-7.74532
+▁ကမ္ဘာ	-7.84063
+▁ကိစ္စ	-7.84063
+▁ကျပ်	-7.84063
+▁ကြည်	-7.84063
+▁ကြို	-7.84063
+▁ကွ	-7.84063
+▁ကွဲ	-7.84063
+▁ချို့	-7.84063
+▁စုံ	-7.84063
+▁ဆယ်	-7.84063
+▁ဆောင်း	-7.84063
+▁ဏ	-7.84063
+▁တက္က	-7.84063
+▁တမ်း	-7.84063
+▁တော့်	-7.84063
+▁ထု	-7.84063
+▁ဒဏ်	-7.84063
+▁နု	-7.84063
+▁နွေး	-7.84063
+▁ပန်	-7.84063
+▁ပိုင်	-7.84063
+▁ပိုင်း	-7.84063
+▁ပြေ	-7.84063
+▁ဖူး	-7.84063
+▁ဗျ	-7.84063
+▁ဘီ	-7.84063
+▁မိုး	-7.84063
+▁မေ့	-7.84063
+▁မ့်	-7.84063
+▁မွေး	-7.84063
+▁ယား	-7.84063
+▁ရု	-7.84063
+▁ရုံး	-7.84063
+▁ရောင်း	-7.84063
+▁ရှာ	-7.84063
+▁ဝေ	-7.84063
+▁သမ္မ	-7.84063
+▁ကမ်း	-7.94599
+▁ကျော်	-7.94599
+▁ကွက်	-7.94599
+▁ခုန်	-7.94599
+▁ခဲ	-7.94599
+▁ချီ	-7.94599
+▁ခွင့်	-7.94599
+▁ခွဲ	-7.94599
+▁စင်	-7.94599
+▁စဉ်း	-7.94599
+▁စမ်း	-7.94599
+▁ဆီး	-7.94599
+▁ဆုံ	-7.94599
+▁ဇ	-7.94599
+▁ဈေး	-7.94599
+▁တံ	-7.94599
+▁ဓိ	-7.94599
+▁နစ်	-7.94599
+▁နီ	-7.94599
+▁ပို့	-7.94599
+▁ဖတ်	-7.94599
+▁မန္တ	-7.94599
+▁မြောက်	-7.94599
+▁လော	-7.94599
+▁ဝမ်း	-7.94599
+▁သန်း	-7.94599
+▁သွင်း	-7.94599
+▁သွယ်	-7.94599
+▁အင်	-7.94599
+▁ကော	-8.06377
+▁ကျင့်	-8.06377
+▁ကျင်း	-8.06377
+▁ကျိုး	-8.06377
+▁ငန်း	-8.06377
+▁ငြိမ်	-8.06377
+▁စိ	-8.06377
+▁ဇော်	-8.06377
+▁တား	-8.06377
+▁တု	-8.06377
+▁ထူး	-8.06377
+▁နှာ	-8.06377
+▁နှုန်း	-8.06377
+▁ပစ္စည်း	-8.06377
+▁ပစ်	-8.06377
+▁ပယ်	-8.06377
+▁ပိတ်	-8.06377
+▁ပိုက်	-8.06377
+▁ပု	-8.06377
+▁ပြစ်	-8.06377
+▁ပြေး	-8.06377
+▁မယ့်	-8.06377
+▁မော်	-8.06377
+▁လိပ်	-8.06377
+▁ဝန်း	-8.06377
+▁သိန်း	-8.06377
+▁ဤ	-8.06377
+▁ကောက်	-8.1973
+▁ကျင်	-8.1973
+▁ကျယ်	-8.1973
+▁ကျေ	-8.1973
+▁ကြံ	-8.1973
+▁ကြွ	-8.1973
+▁ကွင်း	-8.1973
+▁ခါး	-8.1973
+▁ချီး	-8.1973
+▁ချောင်း	-8.1973
+▁ခြောက်	-8.1973
+▁ဂျ	-8.1973
+▁ငါး	-8.1973
+▁ငြိမ်း	-8.1973
+▁ဆင့်	-8.1973
+▁တော့်	-8.1973
+▁ထိုင်း	-8.1973
+▁ထိုး	-8.1973
+▁နတ်	-8.1973
+▁နိုင်း	-8.1973
+▁နှိပ်	-8.1973
+▁ပိုး	-8.1973
+▁ပျိုး	-8.1973
+▁ပွ	-8.1973
+▁ဖန်	-8.1973
+▁ဖိ	-8.1973
+▁ဖီ	-8.1973
+▁ဖြူ	-8.1973
+▁မင်	-8.1973
+▁မင်္ဂ	-8.1973
+▁မို့	-8.1973
+▁မု	-8.1973
+▁မော	-8.1973
+▁မောင်း	-8.1973
+▁မျှော်	-8.1973
+▁ယက်	-8.1973
+▁ရစ်	-8.1973
+▁ရုတ်	-8.1973
+▁ရှက်	-8.1973
+▁လပ်	-8.1973
+▁လျှို့	-8.1973
+▁လွင်	-8.1973
+▁ဝှက်	-8.1973
+▁သု	-8.1973
+▁ဟော	-8.1973
+▁အင်း	-8.1973
+▁အို	-8.1973
+▁ဿ	-8.1973
+▁ကင်	-8.35145
+▁ကမ္ဘာ့	-8.35145
+▁ကြိမ်	-8.35145
+▁ကြေ	-8.35145
+▁ခင်း	-8.35145
+▁ခုံ	-8.35145
+▁ဂိုဏ်း	-8.35145
+▁ငှား	-8.35145
+▁စို့	-8.35145
+▁စောင်	-8.35145
+▁ဆန်း	-8.35145
+▁ဆောက်	-8.35145
+▁ဆွေး	-8.35145
+▁ညွန့်	-8.35145
+▁ထည်	-8.35145
+▁ထမ်း	-8.35145
+▁ထာ	-8.35145
+▁ထိန်း	-8.35145
+▁ဓာတ်	-8.35145
+▁နင်	-8.35145
+▁နိ	-8.35145
+▁နဲ	-8.35145
+▁ပီ	-8.35145
+▁ပြတ်	-8.35145
+▁ဖိုး	-8.35145
+▁ဖြည်း	-8.35145
+▁ဖြန်	-8.35145
+▁ဘိ	-8.35145
+▁မို	-8.35145
+▁မိုင်	-8.35145
+▁မဲ	-8.35145
+▁မြင်း	-8.35145
+▁မှူး	-8.35145
+▁ယို	-8.35145
+▁ရံ	-8.35145
+▁ရွယ်	-8.35145
+▁လှုပ်	-8.35145
+▁ဝါး	-8.35145
+▁သပ်	-8.35145
+▁သဲ	-8.35145
+▁သွေး	-8.35145
+▁ဟင်	-8.35145
+▁ဟူ	-8.35145
+▁ဟောင်း	-8.35145
+▁အင်္ဂ	-8.35145
+▁ကျွတ်	-8.53378
+▁ကြမ်း	-8.53378
+▁ကြုံ	-8.53378
+▁ကြောက်	-8.53378
+▁ကွန်	-8.53378
+▁ခက်	-8.53378
+▁ခတ်	-8.53378
+▁ခန့်	-8.53378
+▁ချိုး	-8.53378
+▁ချေ	-8.53378
+▁ခြုံ	-8.53378
+▁ဂိုး	-8.53378
+▁ငို	-8.53378
+▁ငှက်	-8.53378
+▁စောင့်	-8.53378
+▁စွမ်း	-8.53378
+▁ဆန်	-8.53378
+▁ဉာဏ်	-8.53378
+▁ဌာ	-8.53378
+▁ဏာ	-8.53378
+▁ထည့်	-8.53378
+▁ထို့	-8.53378
+▁ထံ	-8.53378
+▁ထွန်း	-8.53378
+▁ဒို	-8.53378
+▁ဒိုင်	-8.53378
+▁နန်း	-8.53378
+▁နောင်	-8.53378
+▁ပူး	-8.53378
+▁ပေါင်	-8.53378
+▁ပျို	-8.53378
+▁ပျောက်	-8.53378
+▁ပြည့်	-8.53378
+▁ဖွင့်	-8.53378
+▁ဘွား	-8.53378
+▁ဘွဲ့	-8.53378
+▁မက်	-8.53378
+▁မန်	-8.53378
+▁မာ့	-8.53378
+▁မိုက်	-8.53378
+▁မှား	-8.53378
+▁ယာဉ်	-8.53378
+▁ယောက်ျား	-8.53378
+▁ရို	-8.53378
+▁ရိုင်	-8.53378
+▁ရိုင်း	-8.53378
+▁ရိုး	-8.53378
+▁ရွှေ့	-8.53378
+▁ရှုံး	-8.53378
+▁ရှေး	-8.53378
+▁လိမ့်	-8.53378
+▁လွန်း	-8.53378
+▁လွယ်	-8.53378
+▁လှန်	-8.53378
+▁လှယ်	-8.53378
+▁လှေ	-8.53378
+▁ဝိုင်း	-8.53378
+▁သိက္ခာ	-8.53378
+▁အက်	-8.53378
+▁အိတ်	-8.53378
+▁အေ	-8.53378
+▁ဧ	-8.53378
+▁ကမ္ဘော	-8.75692
+▁ကီ	-8.75692
+▁ကုန်း	-8.75692
+▁ကဲ	-8.75692
+▁ကျောက်	-8.75692
+▁ကျွန်း	-8.75692
+▁ကျွမ်း	-8.75692
+▁ကြက်	-8.75692
+▁ခိုင်း	-8.75692
+▁ခေါက်	-8.75692
+▁ချို	-8.75692
+▁ချေး	-8.75692
+▁ခွန်း	-8.75692
+▁ဂီ	-8.75692
+▁ဂျင်	-8.75692
+▁စျေး	-8.75692
+▁ဆတ်	-8.75692
+▁ဆူ	-8.75692
+▁ဆဲ	-8.75692
+▁ဇင်	-8.75692
+▁ညစ်	-8.75692
+▁ညံ	-8.75692
+▁တုတ်	-8.75692
+▁တုံး	-8.75692
+▁တော	-8.75692
+▁တောက်	-8.75692
+▁တွန်း	-8.75692
+▁တွဲ	-8.75692
+▁ထွေ	-8.75692
+▁ဒီး	-8.75692
+▁နွေ	-8.75692
+▁နှင်း	-8.75692
+▁နှိုင်း	-8.75692
+▁ပင်း	-8.75692
+▁ပေါ	-8.75692
+▁ဖယ်	-8.75692
+▁ဖား	-8.75692
+▁ဖောက်	-8.75692
+▁ဖျက်	-8.75692
+▁ဗီ	-8.75692
+▁ဘတ်	-8.75692
+▁ဘီး	-8.75692
+▁ဘုန်း	-8.75692
+▁ဘုံ	-8.75692
+▁မံ	-8.75692
+▁မြင့်	-8.75692
+▁မြူ	-8.75692
+▁မှန်း	-8.75692
+▁မှီ	-8.75692
+▁ယဉ်	-8.75692
+▁ယမ်း	-8.75692
+▁ရှိုး	-8.75692
+▁လင်	-8.75692
+▁လင်္ကာ	-8.75692
+▁လစ်	-8.75692
+▁လိုး	-8.75692
+▁လုံ	-8.75692
+▁လူး	-8.75692
+▁လျှော်	-8.75692
+▁လွဲ	-8.75692
+▁ဝီ	-8.75692
+▁ဝဲ	-8.75692
+▁သတ္တိ	-8.75692
+▁သိမ်း	-8.75692
+▁သုတ်	-8.75692
+▁ဟန်	-8.75692
+▁ဟယ်	-8.75692
+▁အိုး	-8.75692
+▁ဩ	-8.75692
+▁ကစ်	-9.0446
+▁ကတ်	-9.0446
+▁ကန့်	-9.0446
+▁ကိုင်း	-9.0446
+▁ကျဉ်း	-9.0446
+▁ကျမ်း	-9.0446
+▁ကျူး	-9.0446
+▁ကျော	-9.0446
+▁ကျွေး	-9.0446
+▁ကြောင်	-9.0446
+▁ကြော်	-9.0446
+▁ကြွေ	-9.0446
+▁ခပ်	-9.0446
+▁ချယ်	-9.0446
+▁ချိန်း	-9.0446
+▁ချ်	-9.0446
+▁ဂိမ်း	-9.0446
+▁ဂံ	-9.0446
+▁ဂျင်း	-9.0446
+▁ဃာ	-9.0446
+▁စောင်း	-9.0446
+▁စွဲ	-9.0446
+▁ဆန္ဒ	-9.0446
+▁ဆယ့်	-9.0446
+▁ဆာ	-9.0446
+▁ဆိုင်း	-9.0446
+▁ဆော်	-9.0446
+▁ဆွေ	-9.0446
+▁ဇာ	-9.0446
+▁ဇူ	-9.0446
+▁ညွှန်	-9.0446
+▁ဌာန်း	-9.0446
+▁တမ်	-9.0446
+▁တူး	-9.0446
+▁တြေး	-9.0446
+▁တွေး	-9.0446
+▁ထုန်း	-9.0446
+▁ဒက်စ်	-9.0446
+▁ဒု	-9.0446
+▁ဓိပ္ပါယ်	-9.0446
+▁နံ့	-9.0446
+▁နွယ်	-9.0446
+▁နှောက်	-9.0446
+▁နှောင်	-9.0446
+▁ပြုတ်	-9.0446
+▁ဖာ	-9.0446
+▁ဖိတ်	-9.0446
+▁ဖိုက်	-9.0446
+▁ဖိုင်	-9.0446
+▁ဖု	-9.0446
+▁ဖျား	-9.0446
+▁ဖွ	-9.0446
+▁ဖွား	-9.0446
+▁ဗိုင်း	-9.0446
+▁ဗေ	-9.0446
+▁ဘင်	-9.0446
+▁ဘဏ်	-9.0446
+▁ဘော်	-9.0446
+▁ဘွန်	-9.0446
+▁မည့်	-9.0446
+▁မိတ်	-9.0446
+▁မိန်	-9.0446
+▁မိန့်	-9.0446
+▁မုခ်	-9.0446
+▁မူး	-9.0446
+▁မျဉ်း	-9.0446
+▁မြစ်	-9.0446
+▁မြိုင်	-9.0446
+▁မြှောက်	-9.0446
+▁မွန်	-9.0446
+▁ယောင်	-9.0446
+▁ယံ	-9.0446
+▁ယှဉ်	-9.0446
+▁ရစ္ဆာန်	-9.0446
+▁ရပ်စ်	-9.0446
+▁ရိပ်	-9.0446
+▁ရိမ်	-9.0446
+▁ရူ	-9.0446
+▁ရော်	-9.0446
+▁ရွှဲ	-9.0446
+▁ရှည်	-9.0446
+▁ရှိန်	-9.0446
+▁ရှုပ်	-9.0446
+▁ရှောက်	-9.0446
+▁လန်	-9.0446
+▁လန်း	-9.0446
+▁လိဂ်	-9.0446
+▁လိုင်း	-9.0446
+▁လူ့	-9.0446
+▁လောင်	-9.0446
+▁လံ	-9.0446
+▁လျ	-9.0446
+▁လျဉ်း	-9.0446
+▁လွှာ	-9.0446
+▁လှည်း	-9.0446
+▁လှိုင်	-9.0446
+▁လှူ	-9.0446
+▁လှော်	-9.0446
+▁ဝက်	-9.0446
+▁သစ္စာ	-9.0446
+▁သီး	-9.0446
+▁ဟင်း	-9.0446
+▁ဟေ	-9.0446
+▁အင်္ကျီ	-9.0446
+▁အယ်	-9.0446
+▁အိုင်	-9.0446
+▁အီ	-9.0446
+▁အုံ	-9.0446
+▁၎င်း	-9.0446
+▁ကက်	-9.45007
+▁ကဒ်	-9.45007
+▁ကန်း	-9.45007
+▁ကိုက်	-9.45007
+▁ကို့	-9.45007
+▁ကုံး	-9.45007
+▁ကျုပ်	-9.45007
+▁ကျုး	-9.45007
+▁ကြင်	-9.45007
+▁ကြပ်	-9.45007
+▁ကြယ်	-9.45007
+▁ကြေး	-9.45007
+▁ခစ်	-9.45007
+▁ခို	-9.45007
+▁ခုပ်	-9.45007
+▁ခေ	-9.45007
+▁ခေတ္တ	-9.45007
+▁ချဉ်	-9.45007
+▁ချည်	-9.45007
+▁ချန်	-9.45007
+▁ချယ်လ်	-9.45007
+▁ချွေး	-9.45007
+▁ခွက်	-9.45007
+▁ခွန်	-9.45007
+▁ဂတ်	-9.45007
+▁ဂို	-9.45007
+▁ဂုတ်	-9.45007
+▁ဂုံ	-9.45007
+▁ဂျိန်း	-9.45007
+▁ဂျီ	-9.45007
+▁ဃ	-9.45007
+▁င	-9.45007
+▁ငူ	-9.45007
+▁င်း	-9.45007
+▁ငွေ့	-9.45007
+▁စက္ကူ	-9.45007
+▁စိန်	-9.45007
+▁စိမ်း	-9.45007
+▁စော်	-9.45007
+▁စေ့	-9.45007
+▁စွပ်	-9.45007
+▁စွယ်	-9.45007
+▁ဆည်	-9.45007
+▁ဆိတ်	-9.45007
+▁ဆိပ်	-9.45007
+▁ဆို့	-9.45007
+▁ဆော	-9.45007
+▁ဇုန်	-9.45007
+▁ဉ့်	-9.45007
+▁ညံ့	-9.45007
+▁ညွတ်	-9.45007
+▁ညွှန်း	-9.45007
+▁ညှင်း	-9.45007
+▁ညှာ	-9.45007
+▁ညှိ	-9.45007
+▁ညှိုး	-9.45007
+▁ဏှာ	-9.45007
+▁တည့်	-9.45007
+▁တိတ်	-9.45007
+▁တိမ်	-9.45007
+▁တို	-9.45007
+▁တုန်	-9.45007
+▁ထင်း	-9.45007
+▁ထိပ်	-9.45007
+▁ထွေး	-9.45007
+▁ဒန်	-9.45007
+▁ဒမ်	-9.45007
+▁ဒုံး	-9.45007
+▁ဒေါက်	-9.45007
+▁ဓ	-9.45007
+▁ဓမ္မာ	-9.45007
+▁ဓား	-9.45007
+▁နက္ခတ္တ	-9.45007
+▁နင့်	-9.45007
+▁နင်း	-9.45007
+▁နင်္ဂ	-9.45007
+▁နို	-9.45007
+▁နိုး	-9.45007
+▁နုတ်	-9.45007
+▁နျူ	-9.45007
+▁နွမ်း	-9.45007
+▁နွဲ့	-9.45007
+▁နှယ်	-9.45007
+▁နှုတ်	-9.45007
+▁နှေး	-9.45007
+▁နှံ	-9.45007
+▁ပမ်း	-9.45007
+▁ပိ	-9.45007
+▁ပိန်	-9.45007
+▁ပုဂ္ဂိုလ်	-9.45007
+▁ပုဒ်	-9.45007
+▁ပျဉ်း	-9.45007
+▁ပျောင်း	-9.45007
+▁ပြာ	-9.45007
+▁ပြို	-9.45007
+▁ပြောင်	-9.45007
+▁ပွတ်	-9.45007
+▁ပွေ့	-9.45007
+▁ဖင်	-9.45007
+▁ဖန်း	-9.45007
+▁ဖို	-9.45007
+▁ဖေ	-9.45007
+▁ဖေါ်	-9.45007
+▁ဖောင်း	-9.45007
+▁ဖျောက်	-9.45007
+▁ဖျံ	-9.45007
+▁ဖြိုး	-9.45007
+▁ဖြီး	-9.45007
+▁ဖြူး	-9.45007
+▁ဖွယ်	-9.45007
+▁ဖွေး	-9.45007
+▁ဖွံ့	-9.45007
+▁ဗစ်	-9.45007
+▁ဗား	-9.45007
+▁ဗိုက်	-9.45007
+▁ဗုဒ္ဓ	-9.45007
+▁ဗျူ	-9.45007
+▁ဗြဟ္မာ	-9.45007
+▁ဘန်	-9.45007
+▁ဘိုး	-9.45007
+▁ဘုတ်	-9.45007
+▁ဘူ	-9.45007
+▁ဘွန်း	-9.45007
+▁မဂ္ဂ	-9.45007
+▁မစ္စ	-9.45007
+▁မစ်	-9.45007
+▁မန်း	-9.45007
+▁မျော	-9.45007
+▁မြား	-9.45007
+▁မြော	-9.45007
+▁မြေး	-9.45007
+▁မွန်း	-9.45007
+▁မွှေး	-9.45007
+▁မှို	-9.45007
+▁မှောင်	-9.45007
+▁ယင်း	-9.45007
+▁ယစ်	-9.45007
+▁ယဇ်	-9.45007
+▁ယဉ်း	-9.45007
+▁ယပ်	-9.45007
+▁ယု	-9.45007
+▁ယုတ်	-9.45007
+▁ယူး	-9.45007
+▁ယော	-9.45007
+▁ယွင်း	-9.45007
+▁ရည်း	-9.45007
+▁ရာယ်	-9.45007
+▁ရိတ်	-9.45007
+▁ရုန်း	-9.45007
+▁ရော့	-9.45007
+▁ရွတ်	-9.45007
+▁ရွန်	-9.45007
+▁ရွေ့	-9.45007
+▁ရွံ့	-9.45007
+▁ရွှန်း	-9.45007
+▁ရွှေ	-9.45007
+▁ရှင့်	-9.45007
+▁ရှပ်	-9.45007
+▁ရှယ်	-9.45007
+▁ရှောင်	-9.45007
+▁လင့်	-9.45007
+▁လတ်	-9.45007
+▁လိတ်	-9.45007
+▁လိမ်း	-9.45007
+▁လိုင်	-9.45007
+▁လီး	-9.45007
+▁လု	-9.45007
+▁လောင်း	-9.45007
+▁လျော့	-9.45007
+▁လျှပ်	-9.45007
+▁လွှမ်း	-9.45007
+▁လှည့်	-9.45007
+▁ဝင်း	-9.45007
+▁ဝမ်	-9.45007
+▁ဝှေ့	-9.45007
+▁သင်္ဂါ	-9.45007
+▁သည်း	-9.45007
+▁သတ္တ	-9.45007
+▁သန်	-9.45007
+▁သယ်	-9.45007
+▁သိပ္ပံ	-9.45007
+▁သေတ္တာ	-9.45007
+▁သောင်း	-9.45007
+▁သွေ့	-9.45007
+▁ဟစ်	-9.45007
+▁ဟန်း	-9.45007
+▁ဟား	-9.45007
+▁ဟောင်	-9.45007
+▁ဟေ့	-9.45007
+▁ဟေး	-9.45007
+▁ဟဲ	-9.45007
+▁ဟံ	-9.45007
+▁ဠာ	-9.45007
+▁အတ္တ	-9.45007
+▁အန္တ	-9.45007
+▁အိန္ဒိ	-9.45007
+▁အူ	-9.45007
+▁အံ့	-9.45007
+▁အွန်	-9.45007
+▁ကန္တ	-10.1432
+▁ကပ္ပိ	-10.1432
+▁ကိုယ့်	-10.1432
+▁ကုတ်	-10.1432
+▁ကုပ်	-10.1432
+▁ကုမ္ပ	-10.1432
+▁ကော့	-10.1432
+▁ကျစ်	-10.1432
+▁ကျည်	-10.1432
+▁ကျား	-10.1432
+▁ကျီ	-10.1432
+▁ကျောက္ကာ	-10.1432
+▁ကျဲ	-10.1432
+▁ကြန့်	-10.1432
+▁ကြိတ်	-10.1432
+▁ကြံ့	-10.1432
+▁ကြွက်	-10.1432
+▁ကြွယ်	-10.1432
+▁ကြွား	-10.1432
+▁ကြွေး	-10.1432
+▁ကွပ်	-10.1432
+▁ကွမ်	-10.1432
+▁ကွေ့	-10.1432
+▁ကွေး	-10.1432
+▁ခမ်း	-10.1432
+▁ခုတ်	-10.1432
+▁ခုန်း	-10.1432
+▁ခုံး	-10.1432
+▁ခူး	-10.1432
+▁ခေါင်	-10.1432
+▁ခံ့	-10.1432
+▁ခ်ခ်	-10.1432
+▁ချည်း	-10.1432
+▁ချန်း	-10.1432
+▁ချပ်	-10.1432
+▁ချိတ်	-10.1432
+▁ချောင်	-10.1432
+▁ချော့	-10.1432
+▁ချဲ့	-10.1432
+▁ချွတ်	-10.1432
+▁ခြင်	-10.1432
+▁ခြမ်း	-10.1432
+▁ခြယ်	-10.1432
+▁ခြိမ်း	-10.1432
+▁ခြွေ	-10.1432
+▁ခွာ	-10.1432
+▁ခွေ	-10.1432
+▁ခွံ	-10.1432
+▁ဂစ်	-10.1432
+▁ဂန္ဓ	-10.1432
+▁ဂမ္ဘီ	-10.1432
+▁ဂါး	-10.1432
+▁ဂိတ်	-10.1432
+▁ဂို့စ်	-10.1432
+▁ဂီး	-10.1432
+▁ဂုမ္ဘာန်	-10.1432
+▁ဂုံး	-10.1432
+▁ဂူ	-10.1432
+▁ဂေ	-10.1432
+▁ဂေါ	-10.1432
+▁ဂေါက်	-10.1432
+▁ဂေါ်	-10.1432
+▁ဂျက်	-10.1432
+▁ဂျစ်	-10.1432
+▁ဂျာ	-10.1432
+▁ဂျို	-10.1432
+▁ဂျူ	-10.1432
+▁ဂျော်	-10.1432
+▁ဂြိုဟ်	-10.1432
+▁ဃု	-10.1432
+▁ငင်	-10.1432
+▁ငတ်	-10.1432
+▁ငိုက်	-10.1432
+▁ငိုင်	-10.1432
+▁ငဲ့	-10.1432
+▁ငြင်း	-10.1432
+▁ငြာ	-10.1432
+▁ငြိမ့်	-10.1432
+▁ငြီး	-10.1432
+▁စက္က	-10.1432
+▁စည်	-10.1432
+▁စန္ဒ	-10.1432
+▁စဝ်	-10.1432
+▁စိမ့်	-10.1432
+▁စုတ်	-10.1432
+▁စူ	-10.1432
+▁စူး	-10.1432
+▁စေး	-10.1432
+▁စွတ်	-10.1432
+▁စွန်း	-10.1432
+▁ဆည်း	-10.1432
+▁ဆဒ္ဒန်	-10.1432
+▁ဆပ်	-10.1432
+▁ဆမ်	-10.1432
+▁ဆိန်	-10.1432
+▁ဆိုက်	-10.1432
+▁ဆုတ်	-10.1432
+▁ဆော့	-10.1432
+▁ဆေ့	-10.1432
+▁ဆွတ်	-10.1432
+▁ဆွမ်း	-10.1432
+▁ဆွယ်	-10.1432
+▁ဇက်	-10.1432
+▁ဇင်း	-10.1432
+▁ဇန်	-10.1432
+▁ဇာက်	-10.1432
+▁ဇိ	-10.1432
+▁ဇီ	-10.1432
+▁ဇေ	-10.1432
+▁ဇော	-10.1432
+▁ဇွတ်	-10.1432
+▁ဇွဲ	-10.1432
+▁ညင်	-10.1432
+▁ညည်း	-10.1432
+▁ညား	-10.1432
+▁ညို	-10.1432
+▁ညိုး	-10.1432
+▁ညွ	-10.1432
+▁ညှစ်	-10.1432
+▁ညှို့	-10.1432
+▁ညှီ	-10.1432
+▁ဌ	-10.1432
+▁ဏန်း	-10.1432
+▁ဏိ	-10.1432
+▁ဏီ	-10.1432
+▁ဏု	-10.1432
+▁တပ်စ်	-10.1432
+▁တိန်	-10.1432
+▁တိမ်း	-10.1432
+▁တေ	-10.1432
+▁တေး	-10.1432
+▁တဲ	-10.1432
+▁တြာ	-10.1432
+▁တွ	-10.1432
+▁တွန်	-10.1432
+▁တွား	-10.1432
+▁ထန်	-10.1432
+▁ထိတ်	-10.1432
+▁ထိုက်	-10.1432
+▁ထီ	-10.1432
+▁ထုပ်	-10.1432
+▁ထူ	-10.1432
+▁ထောင့်	-10.1432
+▁ဒက်	-10.1432
+▁ဒတ်	-10.1432
+▁ဒယ်	-10.1432
+▁ဒါန်း	-10.1432
+▁ဒါ့	-10.1432
+▁ဒါး	-10.1432
+▁ဒိန်	-10.1432
+▁ဒိမ်း	-10.1432
+▁ဒိုက်	-10.1432
+▁ဒိုက်စ်	-10.1432
+▁ဒိုး	-10.1432
+▁ဒီ့	-10.1432
+▁ဒုက္ခ	-10.1432
+▁ဒုံ	-10.1432
+▁ဒေါ	-10.1432
+▁ဒေါ့	-10.1432
+▁ဒဲ့	-10.1432
+▁ဒြပ်	-10.1432
+▁ဓမ္မေ	-10.1432
+▁ဓါး	-10.1432
+▁နည်	-10.1432
+▁နန်	-10.1432
+▁နမ်	-10.1432
+▁နယ်လ်	-10.1432
+▁နိဗ္ဗာန်	-10.1432
+▁နိမ့်	-10.1432
+▁နို့	-10.1432
+▁နော	-10.1432
+▁နောင်း	-10.1432
+▁နွား	-10.1432
+▁နွှဲ	-10.1432
+▁နှက်	-10.1432
+▁နှင်	-10.1432
+▁နှောင့်	-10.1432
+▁ပက်	-10.1432
+▁ပည့်	-10.1432
+▁ပို့စ်	-10.1432
+▁ပုဂ္ဂ	-10.1432
+▁ပုန်း	-10.1432
+▁ပုပ္ပား	-10.1432
+▁ပုပ်	-10.1432
+▁ပုံး	-10.1432
+▁ပေ့	-10.1432
+▁ပဲလ်	-10.1432
+▁ပံ့	-10.1432
+▁ပျင်း	-10.1432
+▁ပျမ်း	-10.1432
+▁ပျာ	-10.1432
+▁ပျော့	-10.1432
+▁ပျံ	-10.1432
+▁ပြက္ခ	-10.1432
+▁ပြင်း	-10.1432
+▁ပြန့်	-10.1432
+▁ပြို့	-10.1432
+▁ပြုံ	-10.1432
+▁ပြုံး	-10.1432
+▁ပြူ	-10.1432
+▁ပြူး	-10.1432
+▁ပွင့်	-10.1432
+▁ပွတ္တာ	-10.1432
+▁ပွန်	-10.1432
+▁ပွို	-10.1432
+▁ဖို့ဒ်	-10.1432
+▁ဖုံး	-10.1432
+▁ဖဲ	-10.1432
+▁ဖဲ့	-10.1432
+▁ဖျာ	-10.1432
+▁ဖျော်	-10.1432
+▁ဖြုတ်	-10.1432
+▁ဖြော	-10.1432
+▁ဗင်	-10.1432
+▁ဗယ်	-10.1432
+▁ဗီး	-10.1432
+▁ဗုံ	-10.1432
+▁ဗူး	-10.1432
+▁ဗောဇ္စျင်္ဂေ	-10.1432
+▁ဗျည်း	-10.1432
+▁ဗျိုင်း	-10.1432
+▁ဗျို့	-10.1432
+▁ဗြား	-10.1432
+▁ဗြိ	-10.1432
+▁ဘင်္ဂ	-10.1432
+▁ဘင်္ဂါ	-10.1432
+▁ဘတ်စ်	-10.1432
+▁ဘယ့်	-10.1432
+▁ဘား	-10.1432
+▁ဘောက်	-10.1432
+▁ဘောင်း	-10.1432
+▁ဘောလ်	-10.1432
+▁ဘျမ်း	-10.1432
+▁ဘွတ်	-10.1432
+▁မက္က	-10.1432
+▁မဉ္ဇူ	-10.1432
+▁မည်း	-10.1432
+▁မဏ္ဍပ်	-10.1432
+▁မဒ္ဒ	-10.1432
+▁မန္ဒော	-10.1432
+▁မန့်	-10.1432
+▁မိုင်း	-10.1432
+▁မုတ်	-10.1432
+▁မုဒ္ဒ	-10.1432
+▁မုန်း	-10.1432
+▁မောက်	-10.1432
+▁မော့	-10.1432
+▁မျာ	-10.1432
+▁မျောက်	-10.1432
+▁မျှင်	-10.1432
+▁မြန်း	-10.1432
+▁မြိန်	-10.1432
+▁မြီး	-10.1432
+▁မြုပ်	-10.1432
+▁မြူး	-10.1432
+▁မြောင်း	-10.1432
+▁မြေ့	-10.1432
+▁မွတ်	-10.1432
+▁မွိုင်	-10.1432
+▁မွေ	-10.1432
+▁မွေ့	-10.1432
+▁မွှာ	-10.1432
+▁မှုတ်	-10.1432
+▁မှုန်	-10.1432
+▁မှောက်	-10.1432
+▁ယင်	-10.1432
+▁ယာန်	-10.1432
+▁ယိုး	-10.1432
+▁ယုဗ္ဗေ	-10.1432
+▁ယော်	-10.1432
+▁ယျ	-10.1432
+▁ယှက်	-10.1432
+▁ရင့်	-10.1432
+▁ရဇ္ဇ	-10.1432
+▁ရမ္မက်	-10.1432
+▁ရာဇ်	-10.1432
+▁ရာ့	-10.1432
+▁ရိက္ခာ	-10.1432
+▁ရော့စ်	-10.1432
+▁ရွံ	-10.1432
+▁ရှမ်း	-10.1432
+▁ရှို့	-10.1432
+▁ရှိုးလ်	-10.1432
+▁ရှု	-10.1432
+▁ရှူ	-10.1432
+▁ရှော့	-10.1432
+▁လက္ခ	-10.1432
+▁လင်မ်	-10.1432
+▁လယ့်	-10.1432
+▁လာဘ်	-10.1432
+▁လိခ်	-10.1432
+▁လိန်း	-10.1432
+▁လိမ်	-10.1432
+▁လုတ်	-10.1432
+▁လု့ဇ်	-10.1432
+▁လဲ့	-10.1432
+▁လျစ်	-10.1432
+▁လျား	-10.1432
+▁လျူ	-10.1432
+▁လျော်	-10.1432
+▁လျံ	-10.1432
+▁လျှာ	-10.1432
+▁လျှော	-10.1432
+▁လျှော့	-10.1432
+▁လွ	-10.1432
+▁လွင့်	-10.1432
+▁လွမ်	-10.1432
+▁လွမ်း	-10.1432
+▁လွေ	-10.1432
+▁လွှား	-10.1432
+▁လှန်း	-10.1432
+▁လှိုက်	-10.1432
+▁လှိုင်း	-10.1432
+▁လှီး	-10.1432
+▁လှောင်	-10.1432
+▁လှဲ	-10.1432
+▁ဝဏ္ဏ	-10.1432
+▁ဝဏ်	-10.1432
+▁ဝတ္တု	-10.1432
+▁ဝတ္ထု	-10.1432
+▁ဝပ်	-10.1432
+▁ဝိ	-10.1432
+▁ဝိဇ္ဇာ	-10.1432
+▁ဝိန်	-10.1432
+▁ဝိုး	-10.1432
+▁ဝု	-10.1432
+▁ဝူး	-10.1432
+▁ဝေ့	-10.1432
+▁သင်္ကန္တ	-10.1432
+▁သင်္ကြန်	-10.1432
+▁သင်္ဘော	-10.1432
+▁သတ္တု	-10.1432
+▁သန့်	-10.1432
+▁သမ်း	-10.1432
+▁သာန်	-10.1432
+▁သိမ်	-10.1432
+▁သုဒ္ဓါ	-10.1432
+▁သုပ်	-10.1432
+▁သုံ့	-10.1432
+▁သော့	-10.1432
+▁သေ့	-10.1432
+▁သျှင်	-10.1432
+▁သြ	-10.1432
+▁သွင်	-10.1432
+▁သွန်	-10.1432
+▁သွန်း	-10.1432
+▁ဟက်	-10.1432
+▁ဟန့်	-10.1432
+▁ဟပ်	-10.1432
+▁ဟမ္မက်	-10.1432
+▁ဟမ်	-10.1432
+▁ဟိ	-10.1432
+▁ဟိန္ဒူ	-10.1432
+▁ဟိန်း	-10.1432
+▁ဟိုင်း	-10.1432
+▁ဟိံ	-10.1432
+▁ဟီး	-10.1432
+▁ဟုန်	-10.1432
+▁ဟူး	-10.1432
+▁ဟော်	-10.1432
+▁အန့်	-10.1432
+▁အန်း	-10.1432
+▁အိုက်စ်	-10.1432
+▁အု	-10.1432
+▁အုံး	-10.1432
+▁ဥက္က	-10.1432
+▁ဥက္ကဋ္ဌ	-10.1432
+▁ဥက္ကာ	-10.1432
+▁ဦ	-10.1432
+▁ဪ	-10.1432
+
+```
+
+## Building Syl Unit SentencePiece Word, Vocab=100 Model
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.syl --output_prefix ./syl/1k.syl.vcab100 --model_type word --vocab_size 100
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.syl
+  input_format:
+  model_prefix: ./syl/1k.syl.vcab100.word
+  model_type: WORD
+  vocab_size: 100
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.syl
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=101056
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./syl/1k.syl.vcab100.word.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./syl/1k.syl.vcab100.word.vocab
+
+real    0m0.056s
+user    0m0.055s
+sys     0m0.015s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁အ	-3.23947
+▁မ	-3.65401
+▁ပါ	-3.78884
+▁ကို	-3.81349
+▁က	-3.86657
+▁တယ်	-4.13195
+▁နေ	-4.18221
+▁တာ	-4.31133
+▁ရ	-4.42948
+▁တွေ	-4.52644
+▁မှာ	-4.57106
+▁သည်	-4.58253
+▁သ	-4.73604
+▁သူ	-4.77258
+▁တော့	-4.90677
+▁များ	-4.9121
+▁ရှိ	-4.9121
+▁နဲ့	-4.92828
+▁တစ်	-4.93373
+▁တဲ့	-4.93921
+▁ဖြစ်	-4.96143
+▁ပြီး	-4.98992
+▁လာ	-5.05562
+▁တော်	-5.06804
+▁ဘူး	-5.06804
+▁ကြီး	-5.09979
+▁လား	-5.11278
+▁ကြ	-5.13927
+▁ပေး	-5.13927
+▁ပဲ	-5.15278
+▁ရာ	-5.15278
+▁လို့	-5.15278
+▁နိုင်	-5.15961
+▁လေး	-5.16648
+▁င့်	-5.20157
+▁ဆို	-5.21596
+▁တ	-5.24537
+▁လည်း	-5.24537
+▁ဒီ	-5.25286
+▁လဲ	-5.2834
+▁တို့	-5.30693
+▁ခဲ့	-5.3149
+▁ရင်	-5.3149
+▁လုပ်	-5.34742
+▁လို	-5.36409
+▁စ	-5.37253
+▁လိုက်	-5.40701
+▁ပြော	-5.42471
+▁စား	-5.44273
+▁ဘယ်	-5.47038
+▁ရေး	-5.47977
+▁ကောင်း	-5.52809
+▁ကျွန်	-5.55825
+▁မယ်	-5.55825
+▁သာ	-5.55825
+▁သွား	-5.55825
+▁အား	-5.55825
+▁ထား	-5.57887
+▁မှ	-5.58934
+▁ပ	-5.59992
+▁လုံး	-5.65458
+▁ဘာ	-5.67731
+▁ဦး	-5.67731
+▁၏	-5.67731
+▁မာ	-5.70056
+▁ခု	-5.7124
+▁မင်း	-5.7124
+▁သား	-5.7124
+▁မိ	-5.72437
+▁ည့်	-5.74876
+▁မှု	-5.74876
+▁တွင်	-5.79941
+▁ကား	-5.82573
+▁ကျ	-5.85275
+▁စေ	-5.86655
+▁ပြီ	-5.86655
+▁ချင်	-5.88053
+▁လေ	-5.88053
+▁စာ	-5.89472
+▁သော	-5.89472
+▁ဟုတ်	-5.90911
+▁ရဲ့	-5.92371
+▁နှင့်	-5.93852
+▁လူ	-5.93852
+▁ခံ	-5.95356
+▁စိုင်း	-5.96883
+▁နော်	-5.96883
+▁နှစ်	-5.98433
+▁ဟာ	-5.98433
+▁ဒါ	-6.00008
+▁သိ	-6.01608
+▁ပြ	-6.03234
+▁ခြင်း	-6.04887
+▁လက်	-6.04887
+▁ဆုံး	-6.06568
+▁ပြန်	-6.06568
+▁ခ	-6.08277
+
+```
+
+## Building Word Unit SentencePiece Unigram Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.word --output_prefix ./word/1k.word --model_type unigram --vocab_size 2349
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.word
+  input_format:
+  model_prefix: ./word/1k.word.unigram
+  model_type: UNIGRAM
+  vocab_size: 2349
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.word
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=93721
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+unigram_model_trainer.cc(222) LOG(INFO) Making suffix array...
+unigram_model_trainer.cc(226) LOG(INFO) Extracting frequent sub strings... node_num=45055
+unigram_model_trainer.cc(274) LOG(INFO) Initialized 5905 seed sentencepieces
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(608) LOG(INFO) Done! 3332
+unigram_model_trainer.cc(564) LOG(INFO) Using 3332 sentences for EM training
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=0 size=2713 obj=9.97833 num_tokens=7020 num_tokens/piece=2.58754
+unigram_model_trainer.cc(580) LOG(INFO) EM sub_iter=1 size=2342 obj=8.81189 num_tokens=7049 num_tokens/piece=3.00982
+trainer_interface.cc(686) LOG(INFO) Saving model: ./word/1k.word.unigram.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./word/1k.word.unigram.vocab
+
+real    0m0.169s
+user    0m0.231s
+sys     0m0.027s
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁ပါ	-3.88547
+▁က	-3.9032
+▁မ	-3.94667
+▁ကို	-3.97293
+▁တယ်	-4.11851
+▁	-4.13388
+▁နေ	-4.25527
+▁တာ	-4.38469
+▁ရ	-4.44645
+▁တွေ	-4.50525
+▁သည်	-4.50645
+▁မှာ	-4.57209
+▁အ	-4.74383
+း	-4.87447
+▁တော့	-4.91826
+▁သူ	-4.95078
+▁များ	-4.95712
+▁တဲ့	-4.95839
+▁နဲ့	-4.96339
+့	-4.96488
+▁တစ်	-5.01454
+▁ရှိ	-5.03821
+▁ပြီး	-5.03911
+▁ဖြစ်	-5.05529
+▁ဘူး	-5.0656
+▁ပဲ	-5.14579
+▁လို့	-5.15621
+▁လ	-5.15702
+▁ဆို	-5.30374
+▁ကြ	-5.30711
+မ	-5.33681
+▁တို့	-5.33775
+▁ရင်	-5.34553
+▁လာ	-5.35423
+▁ခဲ့	-5.36291
+▁လား	-5.41875
+▁လိုက်	-5.43493
+▁ပြော	-5.47208
+▁မှ	-5.49743
+▁မယ်	-5.50193
+▁သ	-5.55124
+▁ပေး	-5.56538
+▁သွား	-5.61366
+ည်း	-5.63632
+▁၏	-5.65733
+▁လုပ်	-5.66334
+▁လဲ	-5.68649
+▁နိုင်	-5.69981
+▁ဒီ	-5.70071
+▁ရေး	-5.7412
+▁အား	-5.74692
+ောက်	-5.75619
+▁တွင်	-5.77366
+▁ကျွန်တော်	-5.78545
+▁ထား	-5.78964
+▁လေ	-5.79755
+▁ကောင်း	-5.86524
+▁ပြီ	-5.86985
+▁လည်	-5.87113
+▁သိ	-5.87642
+▁မှု	-5.88013
+▁ဘယ်	-5.89431
+▁သော	-5.92898
+▁လေး	-5.93594
+▁ဘာ	-5.94465
+▁ချင်	-5.95005
+ကြီး	-5.95621
+▁ရဲ့	-5.9799
+က်	-5.99021
+မ်း	-5.99602
+▁နော်	-6.00022
+▁တ	-6.00789
+▁ဟုတ်	-6.02025
+▁ခြင်း	-6.03192
+င်း	-6.03632
+▁ကြီး	-6.04736
+▁ဦး	-6.07513
+▁ကျ	-6.07755
+▁ပြန်	-6.08739
+▁နှင်	-6.09262
+▁မင်း	-6.09918
+ာ	-6.11041
+▁အရ	-6.14397
+▁လို	-6.14426
+▁ဟာ	-6.14992
+▁လူ	-6.15397
+င်	-6.17511
+▁အတွက်	-6.19649
+ပေး	-6.21505
+ပ်	-6.21782
+▁ဘ	-6.22369
+▁ခု	-6.25427
+▁ကြည့်	-6.28075
+▁စ	-6.2861
+ဖို့	-6.28992
+▁ထဲ	-6.32373
+စား	-6.3244
+▁အောင်	-6.32582
+လေး	-6.32659
+န်	-6.33891
+ား	-6.34528
+ဲ့	-6.36986
+▁ရေ	-6.37063
+▁နှစ်	-6.37558
+င့်	-6.37722
+လို	-6.39117
+▁ပါစေ	-6.39495
+▁လက်	-6.39871
+စ်	-6.40861
+၍	-6.41584
+▁ယောက်	-6.41919
+▁ပြ	-6.41952
+▁နိုင်ငံ	-6.41953
+ရာ	-6.4255
+လုံး	-6.43399
+▁မြန်မာ	-6.44142
+▁ကိုယ်	-6.44779
+▁သေး	-6.47594
+က	-6.47926
+▁မိ	-6.48696
+▁ပေါ့	-6.49419
+▁ဒါ	-6.49984
+ဆုံး	-6.51264
+▁ခံ	-6.51683
+တော်	-6.51683
+▁သို့	-6.53188
+▁ရာ	-6.53779
+▁ငါ	-6.53987
+▁ချစ်	-6.55258
+့်	-6.55267
+ဝ	-6.57292
+▁သူ့	-6.57834
+▁ခ	-6.60364
+င့်	-6.60819
+▁ဖ	-6.61697
+ရ	-6.64321
+ကျ	-6.66237
+တ်	-6.66366
+▁ဟု	-6.66907
+▁သာ	-6.68091
+ဲ	-6.68134
+▁မည်	-6.69857
+▁ပ	-6.70694
+▁ပေါ်	-6.70794
+▁ပင်	-6.71645
+▁တွေ့	-6.72334
+ိုး	-6.72494
+▁တောင်	-6.72829
+တိုး	-6.73047
+▁စိတ်	-6.73977
+▁လုံး	-6.74617
+ို့	-6.75107
+ု	-6.75649
+ချင်း	-6.75655
+▁သား	-6.7675
+▁ခင်ဗျား	-6.80441
+ယ်	-6.80502
+▁ထ	-6.80504
+ံ	-6.80622
+▁စရာ	-6.80699
+▁ကား	-6.8104
+သား	-6.81174
+သာ	-6.81177
+▁တတ်	-6.81285
+▁တော်	-6.83892
+▁နောက်	-6.8423
+ရှိ	-6.84606
+▁တိုင်း	-6.85007
+လည်	-6.85112
+▁ဆက်	-6.85774
+▁စာ	-6.86613
+▁ထင်	-6.87128
+စု	-6.87565
+ဆောင်	-6.88277
+▁သုံး	-6.88752
+▁ထွက်	-6.88989
+▁ရယ်	-6.90038
+ီ	-6.90914
+ူ	-6.91523
+▁စား	-6.91547
+▁သာဓု	-6.9187
+▁ကျွန်	-6.91912
+▁ထို	-6.9204
+▁စကား	-6.92156
+▁စေ	-6.93065
+ယူ	-6.93094
+စွာ	-6.93928
+▁အဲဒီ	-6.96068
+▁အခ	-6.96117
+▁ကိုစိုင်း	-6.96205
+▁ငွေ	-6.96319
+ျက်	-6.96744
+▁မျိုး	-6.97465
+▁ရန်	-6.98272
+ခ	-6.99096
+▁မြို့	-6.99878
+စ္စ	-7.01085
+▁ကြောင်း	-7.01578
+▁ချက်	-7.0184
+လ	-7.02203
+ပါ	-7.03032
+သ	-7.03245
+▁ယူ	-7.0354
+▁လှ	-7.04192
+▁ဟ	-7.04251
+်	-7.05079
+▁ကွာ	-7.05742
+ကောင်း	-7.05987
+▁သေ	-7.06485
+▁လျှ	-7.07052
+န်း	-7.07249
+▁လမ်း	-7.07518
+▁ဘယ်လ	-7.08244
+့်	-7.08403
+▁အောက်	-7.08794
+▁ပြု	-7.08797
+▁လောက်	-7.09369
+▁တင်	-7.09706
+ပ	-7.09921
+▁ဆ	-7.1062
+ပွဲ	-7.10731
+တ	-7.11104
+ခံ	-7.12504
+အ	-7.12701
+နာ	-7.12828
+▁ပေ	-7.14087
+▁ကလေး	-7.14742
+▁ဗ	-7.15204
+းစား	-7.15212
+▁ရက်	-7.15985
+လာ	-7.16157
+▁အိမ်	-7.16255
+▁နေ့	-7.16317
+ခု	-7.16547
+▁ဝင်	-7.17141
+▁မြင်	-7.17618
+▁ပွဲ	-7.1791
+ရှင်	-7.18136
+▁နည်း	-7.18496
+ုပ်	-7.18574
+ထား	-7.18733
+▁ထိုင်	-7.18929
+▁ပို	-7.19451
+▁ခေါ်	-7.20138
+▁ကြိုက်	-7.21072
+ို	-7.21488
+▁ရဲ	-7.22751
+▁ည	-7.22784
+ိုက်	-7.23719
+တာ	-7.24149
+စာ	-7.25263
+▁တရား	-7.25389
+▁ပျော်	-7.2558
+▁မလဲ	-7.26489
+▁ကိုယ့်	-7.26567
+▁ပုံ	-7.29523
+▁ကျောင်း	-7.29772
+မာ	-7.30125
+ဆို	-7.30978
+▁သတင်း	-7.3152
+ါ	-7.31919
+▁ဘယ်သူ	-7.32573
+▁ငါ့	-7.32708
+▁မောင်	-7.32962
+▁ကြို	-7.34047
+▁ရိုက်	-7.34172
+စဉ်	-7.34215
+မြင်	-7.34259
+▁ချော	-7.34851
+▁န	-7.36635
+ဝင်	-7.36875
+▁ဖြ	-7.37005
+ကို	-7.37073
+▁အကြောင်း	-7.3778
+▁ဖုန်း	-7.37859
+▁ထိ	-7.38184
+▁ရပ်	-7.38276
+▁စု	-7.38753
+ခြား	-7.38888
+▁တက်	-7.39107
+▁မလား	-7.39315
+▁ဘက်	-7.39416
+▁ရှင်	-7.3992
+ောင်း	-7.40076
+▁ပြည်	-7.40274
+▁ဗျာ	-7.40785
+ိုင်	-7.41138
+▁ဒါပေမ	-7.41901
+ဖြစ်	-7.41942
+ပြ	-7.42538
+▁သင်	-7.42558
+ိ	-7.42813
+သတ်	-7.44161
+၌	-7.44282
+▁ငေး	-7.44342
+▁တိုက်	-7.44379
+▁အမြဲ	-7.44387
+▁တကယ်	-7.44476
+▁ပြည်သူ	-7.44551
+▁ဝယ်	-7.44595
+▁အချိန်	-7.44857
+▁အလုပ်	-7.45078
+▁ခွေး	-7.45091
+▁သလို	-7.45638
+ယ့်	-7.46505
+ောင့်	-7.47116
+ုံး	-7.47446
+▁သီ	-7.47896
+▁ချ	-7.48004
+▁ဆောင်	-7.48803
+▁ဗျ	-7.49286
+▁ကုန်	-7.49453
+▁အေး	-7.49585
+▁ဂျ	-7.50353
+▁ကော	-7.50467
+▁ပညာ	-7.51234
+▁ဂုဏ်	-7.51425
+▁နံပါတ်	-7.51425
+▁ကျန်းမာ	-7.51425
+▁အမေ	-7.51842
+▁လေ့	-7.51873
+▁တုန်း	-7.52053
+▁ဆရာ	-7.52132
+▁ဒ	-7.53023
+▁ကာ	-7.5327
+▁ကောင်	-7.53818
+ယာ	-7.54253
+နက်	-7.54722
+▁အဲ့	-7.54918
+▁မေ	-7.5537
+▁နား	-7.55458
+ရွက်	-7.56329
+▁ဆီ	-7.56419
+ပြု	-7.57515
+▁မေး	-7.57598
+▁နာရီ	-7.57628
+မင်း	-7.58143
+ပြည်	-7.58592
+▁သဘော	-7.58694
+ထက်	-7.58797
+ဒီ	-7.5899
+နပ်	-7.59503
+ယ	-7.59674
+ချုပ်	-7.59941
+စိုင်းစိုင်း	-7.59954
+ဒ	-7.60381
+ပါး	-7.60623
+▁အုပ်	-7.60714
+ချ	-7.60755
+▁ဟို	-7.61176
+ဒေ	-7.61604
+▁သောက်	-7.61698
+▁ကိုနေ	-7.61771
+▁နှ	-7.63392
+▁ဝ	-7.63854
+ကြား	-7.64438
+ိုင်း	-7.64602
+ကာ	-7.64759
+▁အသ	-7.64811
+ုတ်	-7.64969
+▁သတိ	-7.65001
+▁မြေ	-7.65173
+ကုန်	-7.65247
+ခါ	-7.66215
+ခန်း	-7.66758
+ေး	-7.67369
+▁ခရီး	-7.67726
+▁ဥပ	-7.67735
+တင်	-7.67835
+မှု	-7.67854
+▁အတူ	-7.67926
+▁မူ	-7.67968
+▁အစ်ကို	-7.67986
+ဆိုင်	-7.67995
+▁အော်	-7.68261
+▁သလဲ	-7.68377
+ပျော်ရွှင်	-7.68643
+▁ရွေး	-7.68822
+ဘ	-7.69721
+တီ	-7.70084
+▁ပေါင်း	-7.70442
+ကား	-7.70742
+▁မိန်း	-7.71571
+လုပ်	-7.71822
+▁ချိန်	-7.71931
+▁စဉ်	-7.72221
+တည်း	-7.73044
+▁စစ်	-7.73339
+တိုင်	-7.73353
+▁ဆိုင်	-7.73621
+▁ကွ	-7.74814
+လမ်း	-7.75309
+ဖြ	-7.75515
+▁အသင်	-7.75892
+ည့်	-7.75906
+▁ကြိုး	-7.76149
+▁လွှဲ	-7.76609
+▁ရှင့်	-7.76744
+ိတ်	-7.76754
+▁ရခိုင်	-7.76764
+▁ဖြေ	-7.76782
+▁တာဝန်	-7.76786
+သက်	-7.7694
+▁သလား	-7.77145
+▁သဖြင	-7.7728
+▁သမီး	-7.77393
+▁ညီမ	-7.77577
+▁စိုင်း	-7.77816
+ရုံ	-7.78115
+ပုံ	-7.78226
+▁မနက်	-7.78384
+ဆ	-7.79238
+▁စောက်	-7.79382
+▁သတ်	-7.794
+▁ဆေး	-7.79607
+နယ်	-7.80159
+ပြင်	-7.80612
+▁မမ	-7.81461
+ရီ	-7.81498
+ချင်	-7.82065
+ကဲ့	-7.829
+ရပ်	-7.82968
+ွန်း	-7.83026
+သင်း	-7.83091
+ြည့်	-7.83198
+ဆက်	-7.83576
+ူး	-7.83787
+နည်း	-7.83801
+ီး	-7.84043
+▁ပတ်	-7.84226
+▁ပါ့	-7.84235
+▁ကြာ	-7.84575
+သူ	-7.84647
+န	-7.85755
+နောက်	-7.86412
+▁သမ္မတ	-7.86541
+ဟ	-7.8673
+▁ခေါင်း	-7.86736
+▁ရှေ့	-7.86777
+▁ခေတ်	-7.86818
+▁ဖူး	-7.86821
+စိုးရ	-7.86852
+▁အက	-7.87068
+▁အတိုင်း	-7.87133
+▁ကမ္ဘာ	-7.87148
+▁ဘေး	-7.87597
+▁အခန်း	-7.87807
+▁စိတ်မ	-7.88012
+▁ဆွဲ	-7.88107
+▁ဆုံး	-7.88202
+ောင်	-7.88221
+▁ထုတ်	-7.88289
+ုန်း	-7.88641
+▁ဖက်	-7.90019
+▁မီး	-7.90458
+▁ကိ	-7.90478
+▁ထပ်	-7.90652
+ပေါ်	-7.91494
+ပြီး	-7.91537
+▁မြ	-7.91802
+▁ဂ	-7.91829
+ဆိုး	-7.9226
+စ	-7.93215
+▁ရော	-7.93283
+▁ယ	-7.93571
+ငယ်	-7.94105
+အပ်	-7.94178
+ိမ့်	-7.94432
+နှစ်	-7.94657
+ထွက်	-7.95062
+မှာ	-7.95341
+▁မှန်	-7.96074
+မြတ်	-7.96096
+▁အိပ်	-7.96484
+▁လျ	-7.96973
+▁ယုံ	-7.97361
+▁ဈေး	-7.97652
+▁တက္ကသိုလ်	-7.97653
+က္ခ	-7.97653
+▁အထိ	-7.97711
+▁အဓိက	-7.97732
+▁စီးပွား	-7.9797
+▁ရှာ	-7.9805
+▁အတွင်း	-7.9807
+▁လွှတ်	-7.98141
+▁ဝမ်း	-7.98148
+▁လွတ်	-7.98245
+▁နိုင်ငံတော်	-7.98255
+▁အများ	-7.98682
+အမေရိက	-7.98999
+င်းပ	-7.99003
+လွန်	-7.9928
+မီ	-7.99652
+▁ဒေါ်	-7.99878
+▁ခါ	-8.00448
+▁လျှောက်	-8.00661
+▁အကယ်	-8.00755
+▁ပို့	-8.00985
+ွင့်	-8.01324
+နေ	-8.01407
+▁ကူး	-8.02288
+ဒါ	-8.02458
+▁ပန်း	-8.02993
+န္တ	-8.03038
+▁ပြောင်း	-8.0307
+▁အဆင်	-8.03367
+ပြား	-8.03567
+လှ	-8.03666
+▁သော်	-8.05617
+ွန်	-8.05619
+ဟုတ်	-8.06548
+▁ဖိ	-8.06563
+လား	-8.06566
+ပျို	-8.06579
+ခဲ့	-8.06629
+ပန်	-8.06917
+ကွယ်	-8.07407
+တူ	-8.07424
+ပြေ	-8.07732
+▁တူ	-8.08816
+▁ပြင်	-8.09106
+ုံ	-8.09356
+ပေါက်	-8.09414
+▁မှတ်	-8.09485
+▁ကျေးဇူး	-8.10055
+ဉ	-8.10131
+ဤ	-8.10153
+▁မျက်နှာ	-8.10153
+▁ဘုရား	-8.10153
+▁လုပ်ငန်း	-8.10153
+▁စာအုပ်	-8.10167
+ဆံ	-8.10216
+ဌာန	-8.10221
+▁အကျိုး	-8.10277
+▁ကိုကြီး	-8.10443
+▁စောင့်	-8.10579
+နှုန်း	-8.1059
+▁ခြေ	-8.10687
+▁နှင့်	-8.10872
+▁ဘာသာ	-8.10941
+သမား	-8.11002
+န့်	-8.11232
+ေ	-8.11513
+▁အရေး	-8.11672
+▁သေချာ	-8.11881
+▁စီး	-8.11918
+▁ဖမ်း	-8.12396
+▁ပစ်	-8.12482
+▁ဝေ	-8.12842
+မှန်	-8.13275
+ည့်	-8.13342
+▁ထောင်	-8.13621
+▁ပရိ	-8.13645
+တက်	-8.13811
+▁မြန်	-8.14071
+ပတ်	-8.14616
+မျိုး	-8.14694
+ရှ	-8.15256
+ွယ်	-8.15309
+▁အန	-8.15701
+▁နယ်	-8.16119
+▁ပိတ်	-8.1659
+ခင်	-8.16742
+ဖော်	-8.16983
+စီ	-8.17097
+ညီ	-8.17445
+▁စိုက်	-8.17762
+▁တောင်း	-8.18174
+န့်	-8.18624
+ရေး	-8.18696
+ရင်း	-8.18867
+စပ်	-8.19138
+ကွက်	-8.19235
+▁ကျွန်တော	-8.19474
+တန်း	-8.19511
+တိ	-8.19598
+သွင်း	-8.19923
+နီး	-8.19966
+စော	-8.20028
+▁အကို	-8.20142
+ံ့	-8.20164
+ိန်	-8.20345
+တိုက်	-8.20489
+မိမိ	-8.20502
+▁အစ	-8.20965
+နဲ့	-8.21145
+စိုက်	-8.21555
+▁တပ်	-8.21672
+မျှ	-8.2179
+တရား	-8.21895
+သစ်	-8.22061
+ျှင်	-8.22216
+▁အခြေ	-8.22329
+▁တည်	-8.22391
+ဖြူ	-8.22396
+ု့	-8.22501
+▁အင်	-8.22618
+ဂ	-8.22982
+စေ	-8.23266
+▁မျက်	-8.2352
+ပင်	-8.23624
+▁မိုး	-8.23876
+ိပ်	-8.23911
+ဦး	-8.24147
+▁မင်္ဂလာ	-8.24439
+▁ပထမ	-8.24439
+▁တရုတ်	-8.2444
+▁နာမည်	-8.24442
+▁ဂရု	-8.24446
+▁ဆုံးဖြတ်	-8.24448
+လွင်	-8.24461
+▁ကျေးဇူးပြု	-8.24494
+စုံ	-8.24569
+တဲ့	-8.246
+ဘာ	-8.24789
+▁ဗိုလ်	-8.24834
+▁ဝန်	-8.24846
+ကယ်	-8.2492
+▁ကူညီ	-8.24999
+▁ကျေ	-8.25068
+▁ရှ	-8.25222
+▁ခွင့်	-8.25377
+▁အစီ	-8.25421
+ဂါ	-8.25488
+နှ	-8.25523
+▁ခွဲ	-8.25534
+ည	-8.25588
+▁ကံ	-8.25616
+▁နှလုံး	-8.25828
+▁ဒဏ်	-8.25903
+▁သိန်း	-8.26061
+▁ကျန်	-8.2637
+▁မဟာ	-8.26431
+ကျင်	-8.26449
+▁ကျော်	-8.26916
+လီ	-8.26962
+▁ညီ	-8.27291
+ကြောင်	-8.27595
+▁ပိုင်း	-8.2764
+အား	-8.27647
+မေ	-8.27853
+▁ဖတ်	-8.27886
+▁ကျပ်	-8.27921
+▁ကျက်	-8.28046
+▁ချမ်း	-8.28368
+▁မေ့	-8.28444
+ချက်	-8.28502
+ဏ	-8.28634
+မှတ်	-8.2899
+▁တန်	-8.29337
+▁အဆို	-8.29473
+ဏ်	-8.29946
+▁အမျိုးသ	-8.29946
+ဇ	-8.29958
+▁ရွာ	-8.30131
+▁စည်း	-8.30935
+ရဲ	-8.31666
+▁ကစား	-8.32028
+လဲ	-8.32259
+▁ယခ	-8.32281
+▁နင်	-8.32623
+▁တန်း	-8.32941
+▁သစ်	-8.33014
+▁ခုန်	-8.33057
+▁ကာလ	-8.33703
+▁ငို	-8.34556
+▁သံ	-8.34717
+တော့	-8.35519
+▁မောင်း	-8.3561
+လောက်	-8.35802
+▁ကိုင်	-8.35826
+ထောက်	-8.36511
+ရှား	-8.36584
+ပ္ပ	-8.36703
+▁ချောင်း	-8.369
+ချမ်း	-8.36996
+သွယ်	-8.37281
+ကွဲ	-8.37425
+▁အန်	-8.37441
+မြ	-8.37509
+လျှောက်	-8.37799
+သို့	-8.3836
+မြင့်	-8.38441
+တို့	-8.3849
+▁ကင်း	-8.38756
+မြောက်	-8.38861
+▁ခင်	-8.39071
+▁အရာ	-8.39085
+ငြိမ်	-8.39102
+ိယ	-8.39293
+▁ကြေ	-8.39442
+စင်	-8.3967
+ရိုက်	-8.4008
+ဗ	-8.40321
+▁ဇာတ်က	-8.40409
+ရှင်း	-8.40458
+▁ဆုံ	-8.40574
+ဇော်	-8.40888
+▁ဟင်	-8.40957
+▁မိသားစု	-8.41105
+▁သို့သော်	-8.41107
+▁ရှင်းလင်း	-8.4111
+▁ပျက်စီး	-8.4111
+▁ဆွေးနွေး	-8.41116
+မူ	-8.41232
+▁ထည့်	-8.41377
+▁ဖွဲ့စည်း	-8.41558
+▁သတ္တ	-8.41569
+ဖြည်း	-8.4174
+ငှား	-8.41823
+▁အမတ်	-8.41922
+▁ဇာတ်	-8.41967
+▁အားဖြင	-8.42028
+▁မင်းသား	-8.42095
+▁အဖွဲ့	-8.42119
+ျဉ်း	-8.42343
+▁ငါး	-8.42429
+▁ကြောင်	-8.42457
+▁အထက်	-8.42553
+ဿန	-8.42611
+▁ဆု	-8.42717
+ရည်	-8.42911
+ကမ်း	-8.43193
+▁ဝတ်	-8.43206
+ဝန်း	-8.43261
+▁အလ	-8.43446
+▁လှမ်း	-8.43599
+ဆယ်	-8.43827
+▁ငယ်	-8.44339
+▁ပြိုင်	-8.44444
+ပန်း	-8.44766
+ထုတ်	-8.45151
+တပ်	-8.45525
+▁ပူ	-8.45552
+တည်	-8.45645
+▁ရောင်	-8.46144
+အစည်း	-8.46346
+ဖိုး	-8.46577
+နိုင်	-8.47007
+ဆီ	-8.4716
+▁မြင်း	-8.47226
+ထပ်	-8.48144
+ထွေ	-8.48227
+▁ရှင်း	-8.48378
+▁တချိ	-8.48459
+▁ရုံ	-8.48853
+▁ငြိမ်	-8.48905
+▁ကွယ်	-8.4891
+ကြာ	-8.49249
+▁အို	-8.49834
+ဝါ	-8.50147
+▁တိုက်ခ	-8.50446
+ော်တော်	-8.50517
+▁ရွက်	-8.50788
+ဆေး	-8.50972
+စိ	-8.50993
+ခုံ	-8.51255
+စက်	-8.5169
+တိရ	-8.52045
+▁မဲ	-8.5263
+တီး	-8.52655
+▁ပြေး	-8.52772
+ဝှ	-8.53026
+ော့	-8.53157
+ရင်	-8.53361
+တွေ	-8.53539
+▁ဖော်	-8.53681
+▁အကျ	-8.54705
+▁အမျိုး	-8.54978
+ဟာ	-8.55029
+ိမ့်	-8.55073
+ချိန်	-8.55089
+င	-8.5511
+ွဲ	-8.55708
+ှောက်	-8.55972
+်ဖီ	-8.56227
+▁ကျောင်းသ	-8.56484
+ထိုင်	-8.56892
+ရောင်	-8.56913
+မှ	-8.56959
+အဝေး	-8.57082
+နေ့	-8.57346
+သံ	-8.57442
+ပေါင်း	-8.57643
+ဖက်	-8.57972
+ယို	-8.58138
+▁အပ်	-8.58758
+▁ဟော	-8.58935
+မင်	-8.594
+အစဉ်	-8.59576
+▁အဲ	-8.59918
+ခွင့်	-8.6056
+▁ဟူ	-8.60761
+အခ	-8.60806
+▁ပူးပေါင်း	-8.61105
+▁သဘာဝ	-8.61106
+▁စံပယ်	-8.61107
+▁ဆုတောင်း	-8.61109
+ယာဉ်	-8.6111
+▁လေ့ကျင့်	-8.61123
+▁တိတိ	-8.61129
+▁ငှက်	-8.61159
+▁ပြောင်းလဲ	-8.61173
+▁ရောဂါ	-8.61199
+▁လှေ	-8.61212
+▁အကြံ	-8.61225
+▁ယောက်ျား	-8.61276
+▁မျက်လုံး	-8.61307
+▁အပြစ်	-8.61368
+▁ခန့်	-8.6142
+▁ရှေး	-8.61515
+▁စာမေးပွဲ	-8.6159
+▁ဂိုဏ်း	-8.61644
+ကျွတ်	-8.61686
+▁စတင်	-8.61696
+▁ခြောက်	-8.61778
+ယုံကြည်	-8.61786
+▁ပိုက်	-8.61803
+▁ထည့်	-8.61816
+▁နယ်စ	-8.61866
+ကူ	-8.61912
+▁အသုံး	-8.62115
+▁သွေး	-8.62429
+▁အသံ	-8.62453
+▁အသိ	-8.62483
+▁ချီ	-8.62633
+▁မှတ်မ	-8.62816
+ပညာ	-8.62854
+▁စောင်	-8.62899
+▁မြဲ	-8.63408
+▁အသက်	-8.63529
+▁အနား	-8.63571
+▁စမ်း	-8.63585
+ြိမ်	-8.6367
+▁ပြတ်	-8.63706
+ချစ်	-8.6385
+ူထု	-8.63859
+တမ်း	-8.63926
+ပိုင်	-8.6405
+ွတ်	-8.6426
+▁ပြည့်	-8.64292
+▁လာရ	-8.64514
+ဆွဲ	-8.64795
+▁မွေး	-8.64974
+အေး	-8.65027
+▁ဆင်း	-8.65153
+▁စော	-8.65165
+▁ဝေး	-8.65239
+ရွယ်	-8.65845
+▁ပျက်	-8.66031
+ခို	-8.66291
+ရံ	-8.66606
+ရုံး	-8.6665
+▁ကြွ	-8.66806
+ပူ	-8.67146
+▁နီး	-8.67157
+▁ပိုင်	-8.67183
+မြူ	-8.67454
+▁ရုပ်	-8.67484
+▁ရူး	-8.67535
+▁တီး	-8.67557
+▁သန်း	-8.67927
+်မတီ	-8.67934
+ပြိုင်	-8.68084
+ှက်	-8.68094
+လော	-8.68137
+ျ	-8.68427
+နား	-8.68828
+▁ဟေ	-8.69519
+ည်	-8.70077
+▁လယ်	-8.71071
+ရေ	-8.71779
+▁ရုံး	-8.71911
+ွေ	-8.72246
+▁အနေ	-8.72618
+▁နတ်	-8.72708
+ချာ	-8.73962
+▁ရောင်း	-8.73986
+ကလေး	-8.74215
+▁ခရ	-8.7438
+ညာ	-8.74397
+▁အမ	-8.7448
+▁အကောင်	-8.74617
+ုန်	-8.74811
+▁ဟန်	-8.75024
+▁တိုးတ	-8.75027
+ော	-8.75233
+ဇင်	-8.75429
+တန်	-8.75471
+▁င	-8.75793
+▁သည	-8.75999
+တယ်	-8.7604
+▁စက	-8.76405
+ကောင်	-8.77623
+တွင်း	-8.77711
+ရွေး	-8.77973
+▁ပေါ	-8.78795
+▁သု	-8.79152
+▁စံ	-8.79335
+ဆင်	-8.79485
+နစ်	-8.79622
+ကြည်	-8.79906
+ုခ	-8.79977
+▁ခရို	-8.80617
+▁အချ	-8.80739
+သော	-8.81246
+▁ပါရ	-8.81325
+သီ	-8.8165
+ဆာ	-8.82451
+▁အကြ	-8.82586
+သေချာ	-8.8261
+းဆုံး	-8.83014
+ထမ်း	-8.83083
+စံ	-8.83103
+အရေး	-8.83112
+အရာ	-8.83158
+တိုင်း	-8.8322
+အနေ	-8.8339
+▁နှစ်သ	-8.83779
+သန်း	-8.84059
+▁ဒေါ	-8.84264
+ရဲ့	-8.84329
+ဖွဲ့	-8.85178
+ိမ်း	-8.8535
+တွေ့	-8.85356
+▁ခင်ဗျာ	-8.85404
+▁စက်	-8.85533
+စည်း	-8.85956
+▁ဒီမိုကရ	-8.86105
+▁ကျန်ရစ်	-8.86105
+▁စျေး	-8.86105
+▁ဆံပင်	-8.86106
+▁ပင်လယ်	-8.86106
+▁အထောက်အ	-8.8611
+▁အနုပညာ	-8.8611
+▁အာဏာ	-8.86112
+အောင်ဆန်း	-8.86114
+▁သံဃ	-8.86116
+▁လွတ်လပ်	-8.8612
+▁ဆင်းရဲ	-8.86135
+▁နားထောင်	-8.8614
+▁အစ်မ	-8.8617
+▁စစ်ဆ	-8.86176
+▁ရုပ်ရှင်	-8.86189
+▁အန်တီ	-8.86206
+▁အဖြေ	-8.86209
+▁သရုပ်	-8.86254
+ဘုန်း	-8.8626
+ကွင်း	-8.86267
+▁အနှိပ်ခ	-8.86323
+▁အထင်	-8.86543
+▁အမြန်	-8.86604
+▁ကောင်းကင်	-8.86656
+▁ခြုံ	-8.86724
+▁အဝတ်	-8.86764
+▁ထမင်း	-8.8682
+သည်	-8.86861
+▁စွ	-8.86897
+▁လူသတ်	-8.86916
+သုံး	-8.86955
+▁ဇူ	-8.8704
+▁ကုလား	-8.87055
+▁ဝါ	-8.8707
+▁ပျောက်	-8.87183
+▁ဆဲ	-8.87517
+▁အမှတ်	-8.87634
+▁လွယ်	-8.87826
+▁စောင့်	-8.87988
+▁ဦးခ	-8.88117
+▁ခဏ	-8.88146
+▁မျှ	-8.88252
+▁ထိန်း	-8.88446
+▁အလှ	-8.88697
+▁ဆောက်	-8.88791
+ထိုး	-8.89025
+▁ဖယ်	-8.8908
+▁ကမ္ဘော	-8.89119
+မော	-8.89149
+▁ခါး	-8.89241
+▁နံ	-8.89567
+▁ပု	-8.89585
+▁နောင်	-8.89771
+ဖ	-8.89831
+▁လူကြီး	-8.90002
+▁ဘိ	-8.90173
+ွေး	-8.90413
+▁အမြင်	-8.90568
+ညွန့်	-8.9061
+▁အချက်	-8.90852
+▁ခွင့်	-8.90906
+ပါဝင်	-8.91024
+ွင့်	-8.91702
+▁ဘီ	-8.91798
+▁ဖား	-8.91904
+▁အာ	-8.91961
+စစ်	-8.92371
+▁ဖို	-8.92684
+▁ဒု	-8.9288
+ကြ	-8.9333
+နိုင်း	-8.93365
+▁မြင့်	-8.93478
+▁စီ	-8.93607
+▁ဆောင်း	-8.93688
+သိ	-8.93954
+▁အရင်	-8.94337
+▁အဆ	-8.94483
+▁ဇ	-8.94728
+ဘီ	-8.94758
+ရက်	-8.95543
+▁နိ	-8.95958
+▁ဆင်	-8.95961
+▁ဖန်	-8.96279
+ရော	-8.96381
+ထောင်	-8.96448
+▁အဲဒ	-8.96955
+▁ကျောက်	-8.97206
+ောင်မလေး	-8.97321
+▁အင်း	-8.97404
+▁ကော်မ	-8.97882
+ခနဲ	-8.98673
+ာရှ	-8.98686
+ဇ်	-8.98901
+းချမ်း	-8.99042
+လှမ်း	-8.99187
+▁ကြောက်	-8.99227
+ီးယား	-8.99581
+မိ	-8.99672
+▁ချေ	-8.99943
+ကန်	-9.00515
+▁လွန်	-9.01455
+ပွား	-9.01621
+▁အိုး	-9.01859
+▁ခြ	-9.02049
+က်အခ	-9.02364
+▁ဆယ်	-9.0263
+တ်မှတ်	-9.02907
+▁နာ	-9.04063
+ွက်	-9.04347
+▁ချေး	-9.04992
+▁နှင	-9.05112
+ဝရ	-9.05192
+▁ထု	-9.05409
+▁လက်ထ	-9.06095
+တား	-9.06653
+▁စိ	-9.06794
+▁တော	-9.06934
+ချီ	-9.07109
+▁တိုး	-9.07762
+▁အနေန	-9.07878
+စိုင်း	-9.0797
+▁ကြက်	-9.07983
+များ	-9.08446
+▁မိုက်	-9.08946
+ရူး	-9.08978
+▁အနီ	-9.09007
+ဂို	-9.10599
+်း	-9.10895
+▁ငြိမ်း	-9.11168
+လူ	-9.11183
+▁အနာ	-9.11284
+ဘူး	-9.12428
+ဖန်	-9.12508
+▁ထောက်	-9.12716
+ကြွ	-9.12788
+▁စပ	-9.13133
+ပြော	-9.13245
+စ္	-9.13255
+▁တံ	-9.13568
+ကိုး	-9.13586
+▁ဘွန်	-9.13816
+ခံစာ	-9.13968
+▁မိန	-9.14203
+ွဲ့	-9.14454
+နှောင်	-9.14512
+တစ်	-9.14901
+နိုင်ငံ	-9.15008
+ပဲ	-9.15078
+ဆင့်	-9.15127
+အောင်	-9.15139
+တု	-9.1535
+ရွှေ့	-9.1536
+▁ကျော	-9.15373
+ငွေ	-9.15431
+ဓာတ်	-9.15521
+စွမ်း	-9.15748
+အိမ်	-9.1587
+ခွေး	-9.16001
+ဒဏ်	-9.16026
+သင်	-9.16099
+▁အဘ	-9.16156
+ကမ္ဘာ	-9.16215
+▁ပေါင်	-9.16237
+တုံး	-9.16338
+အလာ	-9.1637
+လှန်	-9.16525
+ဟို	-9.16549
+ဝေး	-9.16621
+ဝေ	-9.1682
+ယောက်	-9.1692
+ျား	-9.1696
+င်ကြား	-9.17478
+လို့	-9.17767
+ဒို	-9.18504
+ကျပ်	-9.18787
+င်္ဂ	-9.18989
+▁မျှော်	-9.19215
+▁အဓိ	-9.19236
+ဖျ	-9.19367
+ဖြစ်ပေါ်	-9.1937
+ဗေဒ	-9.19375
+▁ဧ	-9.19391
+▁သမ	-9.19397
+▁အင်္ဂလ	-9.1941
+ကိုးဆယ့်ကိုး	-9.19438
+ယှဉ်	-9.19438
+ုဒ္ဓ	-9.19438
+၎	-9.19438
+▁ရာသီဥတု	-9.19438
+▁အကောင်အထည်	-9.19438
+▁ကျေးရွာ	-9.19438
+▁ပုဂ္ဂ	-9.19438
+▁ပုဂံ	-9.19438
+▁စည်းမျဉ်း	-9.19439
+▁စိုးရိမ်	-9.19439
+▁ဥက္က	-9.19443
+▁ဆေးလိပ်	-9.19452
+▁ဗိုလ်မှူး	-9.19453
+▁အင်္	-9.19464
+▁အင်္ဂလိပ်	-9.19467
+လှုပ်ရှား	-9.19471
+▁မုန့်	-9.19472
+▁စိတ်ကူး	-9.19472
+▁ဟောပြော	-9.19474
+▁သမိန်	-9.19478
+▁မွေးနေ့	-9.19479
+▁ထို့ကြောင	-9.19491
+ရွှဲ	-9.19505
+▁ဘောလုံး	-9.19515
+▁တိုင်ကြား	-9.19517
+▁ဆန္ဒ	-9.19525
+▁အမြဲတမ်း	-9.19528
+▁ကျေးဇူးတင်	-9.19587
+▁ဦးစီး	-9.19605
+▁အမူအ	-9.19607
+ာယု	-9.19796
+▁လှည့်	-9.19833
+▁ဂေါ	-9.19887
+▁ညနေ	-9.19895
+▁ရှုပ်	-9.19916
+▁စာရေး	-9.19959
+▁ထွန်း	-9.19977
+▁ထည်	-9.20008
+▁အထူး	-9.2004
+ောင့်	-9.20041
+▁ဝန်ကြီး	-9.20087
+▁ကျွေး	-9.2013
+မ်ဘ	-9.20175
+▁ဒီနေ့	-9.20204
+ပွ	-9.20233
+▁လှော်	-9.20296
+▁ဩ	-9.20334
+▁လင်္ကာ	-9.20338
+▁နိုင်ငံခြား	-9.2034
+▁ခေါက်	-9.2053
+▁အချော	-9.20546
+▁အကြမ်း	-9.20564
+ဆီး	-9.2061
+▁မြို့တော်	-9.20668
+ချယ်	-9.20744
+ပြည့်	-9.20767
+▁အပြ	-9.20783
+▁ချီး	-9.20883
+▁နှိုင်း	-9.2098
+▁လျှော်	-9.21011
+▁သံသ	-9.21062
+ဒေဝ	-9.21093
+ိန္ဒ	-9.21112
+▁အတည်	-9.21113
+ွား	-9.21129
+▁တချိန်	-9.21173
+▁ကြော	-9.21427
+ျိုး	-9.2146
+▁အသေ	-9.21492
+▁နှစ်သက်	-9.21652
+မ်	-9.21678
+▁အမှန်	-9.21751
+▁အလင်း	-9.21833
+▁သခင်	-9.22087
+စက္က	-9.22096
+▁ဝိုင်း	-9.22284
+▁ဝက်	-9.22545
+▁အဆင့်	-9.22574
+▁သာမ	-9.22616
+မီး	-9.22658
+စောင်း	-9.22686
+နှင်	-9.22709
+မီးဖို	-9.22803
+ြား	-9.22818
+▁သဘ	-9.22955
+▁ကြုံ	-9.23025
+▁အမိန	-9.2313
+▁ချို	-9.23267
+▁ချိုး	-9.23399
+▁ဓ	-9.23623
+ကျက်	-9.23684
+▁လုံ	-9.23704
+ီဒီ	-9.23836
+▁ဓာတ်	-9.24096
+ိဂ	-9.2419
+▁မနေ့	-9.24265
+▁ရှိုး	-9.24469
+▁တုတ်	-9.24473
+▁နီ	-9.24602
+▁အနည်း	-9.24724
+နှိပ်	-9.2483
+ကိုင်	-9.24945
+▁အစော	-9.25256
+ပျက်	-9.25318
+▁အတိအ	-9.25385
+▁ကိုယ်ချင်း	-9.25461
+မြင့်	-9.26166
+လိ	-9.26414
+ဝတ်	-9.26624
+ဆတ်	-9.26704
+ပြန်	-9.26803
+▁ထာ	-9.26826
+▁ဘတ်	-9.27149
+▁တိမ်	-9.27337
+▁ခိုင်	-9.27401
+ဘွား	-9.27768
+▁ပြစ်	-9.27808
+▁ကွန်	-9.28651
+စိုး	-9.29093
+မွှ	-9.29375
+▁မြောက်	-9.29695
+ယား	-9.29758
+▁အေ	-9.29892
+လိုက်	-9.30035
+က်တာ	-9.30243
+လပ်	-9.30255
+လက်	-9.30271
+▁စုံ	-9.30297
+▁ပမာ	-9.30299
+စို့	-9.30359
+တင်း	-9.30362
+ဆုံ	-9.30384
+▁သွယ်	-9.30549
+▁ပေမ	-9.30958
+▁ညှ	-9.31006
+▁ကောက်	-9.31362
+▁ရိုင်း	-9.32152
+▁အဖ	-9.32488
+လွှာ	-9.33433
+မကြီး	-9.33844
+တန်ဆ	-9.34191
+▁အတော်	-9.34542
+ရှက်က	-9.34826
+▁တိုင်	-9.35092
+▁အိုင်	-9.35613
+ေ့	-9.36087
+▁ထုတ်ပ	-9.36427
+လင်း	-9.36572
+▁အလေး	-9.37346
+ပြောင်း	-9.37398
+▁စောက်ရ	-9.37615
+▁ဒေ	-9.37686
+့လာ	-9.38191
+မှူး	-9.39293
+▁ကွဲ	-9.39333
+▁လိုင်း	-9.39722
+▁ပေါက်	-9.40113
+ြ	-9.40458
+ော်	-9.40654
+▁အကြီး	-9.40698
+းဂိ	-9.40748
+ဂုံ	-9.41185
+▁ဘွ	-9.41457
+ွင်း	-9.42486
+ထ	-9.42504
+ကြောင်း	-9.42898
+ရိုး	-9.43011
+ူငယ်	-9.43033
+ယ်ချင်း	-9.43867
+▁ဟောင်	-9.43997
+▁ဒေါ်လ	-9.44579
+ြစ်	-9.44592
+▁လှိုင်	-9.44707
+▁ရင့်	-9.44874
+▁စာရ	-9.45294
+▁နတ်သ	-9.4564
+▁အလို	-9.46237
+ခိုင်	-9.46522
+ခုန်	-9.46632
+ချ်	-9.46774
+▁ဆိုင်း	-9.4715
+ဆန်	-9.47217
+ှင်	-9.47492
+စတ	-9.4999
+▁စင်	-9.50596
+▁ဆော်	-9.51056
+ဒမ	-9.5109
+ပိုင်း	-9.51152
+ြေးလ	-9.51336
+လောင်	-9.51654
+▁ဦးချ	-9.51952
+ိုလ်	-9.52182
+▁ကူ	-9.52209
+▁လှန်	-9.52817
+ျမ်း	-9.52994
+ရို	-9.53663
+ခ်	-9.5481
+သပ်	-9.5509
+ီလီ	-9.55136
+စွဲ	-9.55469
+▁မီ	-9.55737
+ဆောင်း	-9.5616
+▁ကံက	-9.56255
+▁ရှက်	-9.57383
+▁အပ	-9.57431
+▁အဖွ	-9.57626
+င်မ	-9.58549
+▁မု	-9.58777
+▁သွားလာ	-9.59046
+ီယ	-9.59135
+ဆင်း	-9.59922
+ိန်း	-9.60867
+▁မိုင်	-9.61289
+္	-9.61469
+သမီး	-9.61649
+ပြီ	-9.61801
+▁အပေါ	-9.61827
+▁ထပ်တ	-9.62103
+ူညံ	-9.62582
+▁နိုင်ငံတ	-9.62689
+▁ကြံ	-9.62799
+ပရ	-9.62911
+ဒက်	-9.6292
+င်ညွန့်	-9.62943
+နှောက်	-9.63025
+▁ခုန	-9.63618
+မြဲ	-9.63813
+နွေ	-9.63824
+ဝဏ	-9.63919
+ဗျာ	-9.63962
+ထူး	-9.64107
+လူး	-9.6418
+ြင်	-9.64251
+ကြည့်	-9.64303
+ချော	-9.64359
+ော်ဒ	-9.64494
+ညွှန်	-9.64557
+ကကျွန်း	-9.6472
+▁ဇန	-9.64922
+အုံ	-9.64942
+▁ဂို	-9.65308
+အန	-9.65368
+အောက်	-9.65468
+အပြ	-9.65471
+အစ်ကို	-9.65591
+ဝန်	-9.65689
+ဥ	-9.65754
+ထိန်း	-9.65779
+ခဏ	-9.66103
+သလဲ	-9.66302
+ပေါင်	-9.66335
+နှလုံး	-9.66411
+ရှိုး	-9.66596
+ခွဲ	-9.66629
+ဆရာ	-9.66656
+ဖတ်	-9.66883
+ကျော်	-9.67007
+▁အဖေ	-9.6713
+ဝါး	-9.67165
+ဘတ်	-9.67186
+ဓ	-9.67217
+ဒီပ	-9.67232
+▁ဖွ	-9.67587
+ပီ	-9.67713
+ွေ့	-9.67755
+ေစီ	-9.67976
+ရွှင်	-9.67985
+စ်က	-9.68146
+မွေး	-9.68305
+နော်	-9.68316
+ဝိုင်း	-9.68628
+ချီး	-9.68693
+▁ရွှေ	-9.68703
+ယမ်း	-9.68758
+ဘက်	-9.68801
+လွှတ်	-9.68886
+ဂျင်	-9.689
+▁ခန်	-9.68951
+▁ကုလ	-9.69017
+ဌ	-9.69107
+▁မာရ	-9.69394
+ဃ	-9.69412
+ဗြဟ္မာ	-9.69438
+ဇ္ဇ	-9.69438
+မဂ္ဂ	-9.69438
+ဠ	-9.69438
+▁ချယ်လ်ဆီး	-9.69438
+▁ပရီးမီးယားလ	-9.69438
+▁ယဉ်ကျေး	-9.69438
+▁ဂီရော့	-9.69438
+▁တဏှာ	-9.69438
+▁လက်ဖက်ရည်	-9.69438
+▁ခဲတံ	-9.69438
+▁နဲတကာ	-9.69438
+▁မိဖုရား	-9.69438
+▁မူးယစ်	-9.69438
+▁ဦးထွန်း	-9.69439
+▁လျှပ်စစ်	-9.69439
+▁အဆောက်အ	-9.69439
+▁ကာတွန်း	-9.69439
+▁နျူ	-9.69439
+▁တစ်ခါတစ်	-9.69439
+မ္မ	-9.6944
+▁နက္ခတ္တ	-9.69441
+▁နန်းဆု	-9.69442
+▁ပုဒ်	-9.69442
+▁နေ့လယ်	-9.69442
+▁တံခါး	-9.69442
+ရွှန်း	-9.69443
+▁လက်ခုပ်	-9.69443
+▁ဦးကိုကို	-9.69443
+▁ရောင်းဝယ်	-9.69446
+ဂရိတ်	-9.69446
+ိုးနွမ်း	-9.69449
+ယက်ကန်	-9.69449
+▁စီမံ	-9.69452
+ကျယ်ကျယ်	-9.69458
+▁ဘုရင်	-9.69461
+▁နယူး	-9.69461
+▁သက်တမ်း	-9.69462
+▁အပူချိန်	-9.69465
+ဗီယက်	-9.69467
+သေနာပ	-9.69469
+▁မာရီယ	-9.69478
+▁သေတ္တာ	-9.69479
+မ်းခြေ	-9.69484
+▁လယ်သမား	-9.69508
+▁ဧည့်	-9.69515
+ဝှေ့	-9.69518
+▁မျှော်လင့်	-9.69524
+▁အောင်လအ	-9.69543
+▁စုဆောင်း	-9.69544
+ဗ္ဗ	-9.69549
+▁ခေတ်သစ်	-9.69564
+▁ညှိ	-9.69566
+▁ဒေါ်မိမိ	-9.6957
+▁ခရီးသွား	-9.69571
+▁စားသောက်	-9.69581
+ဖွယ်	-9.6959
+▁ပန်းကန်	-9.69591
+▁အိမ်ထောင်	-9.69596
+▁အတ္တ	-9.69615
+သွေ့	-9.6962
+▁စိတ်လှုပ်ရှား	-9.69641
+▁ရာဇဝ	-9.69659
+▁ဝတ္	-9.69682
+▁ဖဝါး	-9.69694
+ညှင်း	-9.69707
+▁အဘိုး	-9.69713
+▁ပြတင်း	-9.69804
+ပြန့်	-9.69816
+▁ဟရောင်	-9.69827
+▁အသက်ရှင်	-9.69839
+▁မင်းသမီး	-9.69844
+▁ချွေး	-9.6989
+ယဉ်း	-9.69917
+ဝမ်	-9.69918
+▁သက်ကြီး	-9.69939
+▁အရာရှိ	-9.69967
+▁အနှစ်	-9.69969
+ချဉ်	-9.70016
+▁ကဒ်	-9.70037
+▁ပွေ့	-9.70043
+စမ်း	-9.70054
+▁အကွာ	-9.70136
+▁အပျော်	-9.7016
+▁လှည့်	-9.70194
+▁အယ်လ	-9.70218
+▁ဆွေ	-9.70234
+▁လွှ	-9.70248
+ကင်း	-9.70252
+ေတ္တ	-9.70269
+တတ်	-9.70367
+▁ဦးဇော်	-9.70438
+မောင်မောင်	-9.7048
+ကြမ်း	-9.70498
+▁သိပ	-9.70501
+▁ကြီးကြ	-9.70504
+မေ့	-9.70511
+▁သီတာ	-9.70517
+▁ပျဉ်း	-9.70591
+▁အလယ်	-9.70593
+ောင့်ကြ	-9.70657
+▁နောက်ဆက်	-9.70674
+▁ခွင့်လွ	-9.7076
+▁အဘွား	-9.70762
+မယ်	-9.70835
+▁ပွတ်	-9.70862
+ွံ့	-9.70885
+ဟင်း	-9.70982
+လွန်း	-9.70983
+▁ဘင်္ဂ	-9.71023
+▁ပေးလိုက်	-9.71039
+▁ကမ္ဘာကြီး	-9.71068
+▁ယောင်	-9.71077
+▁ကကျွမ်း	-9.71115
+▁ဗိုက်	-9.71155
+▁တုန်	-9.71201
+▁ပွဲတော်	-9.71397
+ဖြတ်	-9.71435
+ပိုက်	-9.71519
+က်တစ်	-9.71565
+▁တစ်ဖက်	-9.71604
+▁နှစ်စဉ်	-9.71626
+းမား	-9.71693
+▁ခန်းမ	-9.71836
+▁ရှည်	-9.71848
+▁ရွေ့	-9.71883
+▁လည်ပ	-9.71942
+▁ဖြီး	-9.72012
+မသိ	-9.72034
+င်္ဂါ	-9.72119
+းငွေ့	-9.7212
+▁မအေ	-9.72142
+▁ပြေ	-9.72326
+▁ပုလ	-9.72384
+▁အတု	-9.72474
+▁ရော်	-9.72517
+▁စားပွဲ	-9.72558
+ရည်းစား	-9.7259
+▁စာလုံး	-9.72623
+▁ဥ	-9.72641
+▁အောင်လ	-9.72797
+ဘိ	-9.7286
+ညွတ်	-9.72863
+▁အဝါ	-9.7288
+တို	-9.72881
+ဒီး	-9.73064
+ဂျင်မီ	-9.7308
+▁အတ	-9.73177
+▁မတ်	-9.73291
+ဖန်း	-9.73496
+ံသာ	-9.73716
+က်တမ်	-9.73719
+▁ကိုး	-9.73719
+▁ကြွေ	-9.73753
+▁ကွန်ဒ	-9.74186
+▁ကကျွန်း	-9.74424
+▁နန်း	-9.74446
+▁ချီးကျ	-9.74601
+▁အတိုင်	-9.74602
+▁နွေ	-9.74604
+▁ဝဲ	-9.74633
+ဓမ္မာ	-9.75015
+▁စမ်းသ	-9.75197
+▁ဂျင်း	-9.75277
+န်းန	-9.75283
+တရ	-9.75376
+္တရာယ	-9.75537
+▁အရောင်း	-9.75623
+ပ်ရပ်	-9.75686
+ော်လီ	-9.75699
+ကြီးမား	-9.75701
+▁ဟေး	-9.75755
+သွား	-9.75858
+်လ	-9.76326
+ဏ္	-9.76329
+▁ဦးဝ	-9.76532
+▁တစ်စ	-9.76797
+▁စစ်သ	-9.76974
+▁ထူး	-9.77003
+ပူညံ	-9.77089
+▁ရွှေ့	-9.77262
+ောက်ခံ	-9.77263
+▁ယမ်း	-9.77322
+သင်တန်း	-9.77358
+▁ဖြတ်	-9.77613
+▁အနိုင်	-9.77656
+▁ခဲ	-9.77666
+▁စွမ်း	-9.77815
+ရီး	-9.77967
+▁တန	-9.7807
+▁ပြည့်	-9.78173
+ဂုတ်	-9.784
+▁တွဲ	-9.78727
+ပြေး	-9.78796
+▁ကြော်	-9.78878
+ုး	-9.79281
+▁အပူ	-9.79328
+နွဲ့	-9.79394
+လီမ	-9.79445
+ခွင့်	-9.79502
+အက	-9.79517
+မိုင်	-9.79799
+▁ဘီလ	-9.79816
+▁မှန်မှန်	-9.80838
+▁ကျယ်	-9.80852
+▁ပျ	-9.80915
+▁အမှ	-9.80939
+▁မော်	-9.8125
+▁ကြောင	-9.8164
+▁မခင်	-9.81747
+လ်	-9.8175
+▁အရေးမ	-9.82169
+ကြိုက်	-9.82289
+▁ရန်က	-9.82615
+▁နှုတ်	-9.83029
+▁အထ	-9.83119
+▁အစား	-9.8326
+▁ပညာရ	-9.83357
+▁မွန်	-9.83501
+စီး	-9.83781
+ျံ	-9.83862
+မိုး	-9.84334
+ကောက်	-9.84398
+န်ပ	-9.844
+▁ဖောက်	-9.84403
+▁အယူ	-9.84426
+ယ့်	-9.84498
+▁အနု	-9.84528
+▁အဝေး	-9.84612
+ိတ	-9.84997
+သေ	-9.85063
+ဦးပေါက်	-9.85334
+▁ဝါး	-9.85482
+ယုတ်	-9.85533
+းလ	-9.85613
+▁နု	-9.85773
+ဖီ	-9.85936
+အယ	-9.8603
+ာဏ	-9.86341
+▁ဖြင	-9.86341
+▁ထမ်း	-9.86571
+▁သံခ	-9.86931
+ာက်	-9.86933
+င်မောင်	-9.87025
+လီလီ	-9.87205
+န္ဒ	-9.87473
+ူးဗ	-9.87527
+နိ	-9.87622
+▁ဝန်း	-9.87783
+မံ	-9.87963
+▁ငြ	-9.88121
+ပျောင်း	-9.88219
+ွာ	-9.88244
+▁ထို့	-9.88364
+ကျင့်	-9.88392
+▁တွက်	-9.88742
+▁အဝ	-9.89512
+ဇယ	-9.89785
+ဖမ်း	-9.89883
+▁ဂါ	-9.90344
+သိုလ်	-9.90347
+▁အရက်	-9.90847
+▁အဟ	-9.9111
+▁မီးရ	-9.91996
+▁ဖာ	-9.92589
+▁အက်	-9.92673
+▁လည်က	-9.93004
+ီးရ	-9.93393
+▁သွင်း	-9.93591
+ထု	-9.93839
+▁ဒေါ်မ	-9.93924
+တောက်	-9.94929
+▁အပြုံ	-9.95858
+တော	-9.9657
+▁ကွင်း	-9.96902
+စွပ်	-9.97104
+ာန်	-9.9834
+▁ပီ	-9.98444
+▁သရ	-9.98661
+▁ယာ	-9.99125
+▁လျှော	-9.99268
+▁တူး	-9.99606
+နီ	-9.99646
+ရွံ့	-9.99979
+မော်ဒ	-10.0007
+▁အပို	-10.0027
+ိုးရာ	-10.0078
+ိပ်တန်း	-10.009
+ဆိပ်	-10.0105
+ဖွေး	-10.0118
+ဝဲ	-10.0144
+လိုင်	-10.016
+က်ရ	-10.016
+▁အပြီး	-10.0204
+ညွှန်း	-10.0255
+▁သေန	-10.0333
+ံတော်	-10.0375
+တောင်း	-10.0385
+▁အစာ	-10.0397
+▁မြတ်	-10.0413
+▁အလာ	-10.0413
+ထာ	-10.0425
+းထိုး	-10.0476
+▁ရှား	-10.0492
+▁သက်သ	-10.0519
+▁အားက	-10.0528
+▁အကြို	-10.0565
+ုဇာ	-10.0636
+▁အကူ	-10.0653
+ဒ္ဒန	-10.0676
+ြန်	-10.0689
+တွဲ	-10.0726
+▁ပန်	-10.0757
+▁အမွ	-10.077
+▁လော	-10.0784
+ပေမ	-10.081
+▁သီး	-10.0837
+က်လှမ်း	-10.085
+ာမန်	-10.0859
+ဒ္ဒ	-10.0942
+▁ဦးန	-10.1103
+▁ရူ	-10.1153
+▁စိတ်အာ	-10.1166
+လိုး	-10.1243
+င်းထ	-10.1276
+▁မက	-10.1344
+▁ခန်း	-10.1376
+င်းဝ	-10.1405
+ူအ	-10.1416
+▁ပွ	-10.1427
+တစ်ချက်	-10.1462
+▁ပြို	-10.1468
+▁ခြား	-10.1502
+ဒီဂ	-10.1516
+ချေ	-10.1524
+▁လမ်းကြ	-10.1527
+ူကြီး	-10.1556
+▁ဆီး	-10.1606
+အံ့	-10.1611
+▁ဟိ	-10.162
+▁ပါး	-10.1627
+▁နို	-10.1724
+ဖြူး	-10.1793
+မိန့်	-10.1796
+မည်	-10.1839
+ော့မ	-10.1966
+▁ခွ	-10.202
+▁လက်ရ	-10.2059
+ိမ်	-10.2068
+▁ရည်	-10.2097
+▁ခို	-10.2113
+းထ	-10.2114
+▁ညွှန်	-10.2184
+ဗစ်	-10.2207
+သောအ	-10.2224
+▁အတွ	-10.2225
+ရွတ်	-10.2392
+▁တင်း	-10.2405
+▁ကင်းက	-10.2406
+▁တတ	-10.249
+င်ပြ	-10.2512
+▁လိမ်	-10.2608
+▁သက်	-10.2639
+▁မှတ်ထ	-10.2704
+နှေး	-10.2722
+▁လမ်းပ	-10.2742
+ကလ	-10.2761
+ရိ	-10.2765
+ရု	-10.2823
+်လွှာ	-10.2894
+▁သဲ	-10.291
+▁အောင်မ	-10.2953
+ဒိုက်	-10.2953
+ရွာ	-10.2957
+ဖောက်	-10.2976
+▁ကုသ	-10.2992
+▁ထုတ်ဖေ	-10.3072
+▁မြင်က	-10.311
+ဟဲ	-10.3144
+ဘော	-10.315
+▁ကြယ်	-10.3162
+ဖျာ	-10.318
+်ဒို	-10.3218
+သားရ	-10.3244
+ဆည်	-10.334
+ယ်ဒ	-10.3353
+▁ရွာသ	-10.3377
+ီဂ	-10.3391
+ခွန်	-10.3448
+▁ဖျော	-10.3504
+ချိုး	-10.3517
+▁တရားရ	-10.3689
+ပြည်သ	-10.3756
+ြီး	-10.3927
+▁တို	-10.394
+▁လိမ	-10.4045
+နို	-10.405
+းရှ	-10.4089
+ဝိ	-10.4123
+▁အိမ်န	-10.4126
+ဆု	-10.4128
+လေ	-10.4129
+က်စ်	-10.4154
+▁ဖျ	-10.4157
+ှို့	-10.4187
+ဖွား	-10.4237
+ယ်စား	-10.4253
+ြင့်	-10.432
+မြော	-10.4478
+▁အပြောင်	-10.4515
+တောင်	-10.4602
+ောက်သုံး	-10.461
+ီစိ	-10.4624
+ာက	-10.4664
+အမာ	-10.4689
+သင်္က	-10.4716
+▁ဂီ	-10.4826
+▁ပတ	-10.4862
+ှတ်	-10.4883
+ကြောင	-10.4907
+▁မမမ	-10.491
+ခဲ	-10.4981
+▁ရွံ	-10.5099
+ကျူး	-10.5104
+ပယ်	-10.5121
+ဆိတ်	-10.5226
+▁ဇေ	-10.5239
+စလင်	-10.5244
+တွင်	-10.5277
+▁အလွ	-10.5299
+ချို	-10.5313
+▁သင်္	-10.534
+ရိုင်း	-10.5347
+ယက်	-10.539
+နု	-10.5393
+နောင်	-10.5416
+▁အမိ	-10.5423
+ောဇ	-10.5442
+က္က	-10.5607
+ပို	-10.5627
+▁ဓာ	-10.5627
+▁ဓမ္မ	-10.5641
+ဿ	-10.5664
+▁ထုန	-10.5691
+ယ်ပ	-10.5786
+ြေ	-10.5789
+ျော်	-10.5842
+အေ	-10.5871
+ကူး	-10.5919
+ဟောင်	-10.5921
+်တမ်	-10.5934
+▁ဘော	-10.6019
+က်ဆိုင်	-10.6037
+အတွက်	-10.6046
+်ကောင်	-10.606
+▁ညီလ	-10.607
+ပေ	-10.6115
+အဆ	-10.6129
+▁မျ	-10.6133
+ကွ	-10.6136
+မန်	-10.614
+▁အစောက	-10.6201
+ပျော်	-10.6209
+▁စသည	-10.6212
+ညှ	-10.6221
+ခြေ	-10.6225
+နော	-10.6231
+▁အရည်	-10.625
+ယဉ်	-10.6271
+ေဒ	-10.6291
+▁မက်ဆ	-10.6335
+▁အကု	-10.6335
+ကီလိ	-10.634
+ွမ်းက	-10.6358
+▁ပလ	-10.6402
+ကျွန်	-10.6415
+မ္ဘ	-10.6423
+ခေါ်	-10.6427
+ပြူ	-10.6474
+ဒေါ်	-10.6486
+စီးပွား	-10.6519
+ခရီး	-10.6522
+ကကျွမ်း	-10.6528
+လုံ	-10.6528
+ရာသီ	-10.6529
+ခေတ်	-10.6532
+▁မော်လ	-10.654
+စကား	-10.6543
+ဂိုဏ်း	-10.6551
+ဗိုလ်	-10.6551
+ဖွဲ့စည်း	-10.6557
+လျှော်	-10.6561
+ဥပ	-10.6563
+သတ္တ	-10.6563
+ခေါက်	-10.6565
+စိတ်	-10.657
+ကုလား	-10.6571
+အခြေ	-10.6577
+လင်္ကာ	-10.6577
+ဩ	-10.6579
+အုပ်	-10.6581
+လီမိ	-10.6587
+စာမေးပွဲ	-10.659
+ပရိ	-10.6594
+ဘုတ်	-10.6598
+မျှော်	-10.6604
+အမတ်	-10.6611
+ေ့မြော	-10.6612
+ပျောက်	-10.6618
+အမ	-10.6621
+ခြုံ	-10.6622
+အဖွဲ့	-10.6631
+ဘော်	-10.6636
+နှိုင်း	-10.6646
+ကောင်းကင်	-10.6647
+န္တရ	-10.6667
+လှိုင်	-10.667
+သဖြင	-10.6673
+လွမ်	-10.6678
+သိန်း	-10.6687
+လက်ထ	-10.6691
+အိပ်	-10.6691
+စရာ	-10.671
+သခင်	-10.6725
+ရှည်	-10.6757
+ဟစ်	-10.6757
+ဇူ	-10.6761
+ုတ်ခ	-10.6775
+ခေါင်	-10.6782
+ဂီ	-10.6788
+ကျောင်း	-10.6792
+်ရထာ	-10.6806
+ပိ	-10.6808
+အမြင်	-10.681
+နီက	-10.6819
+အားဖြင	-10.6832
+ြို	-10.6833
+ေါ်ပြ	-10.6833
+ချည်	-10.6835
+▁ထုတ	-10.6835
+လောက	-10.684
+ွှဲ	-10.6842
+ခေါင်း	-10.6843
+ကိုယ်	-10.6844
+▁ကန်	-10.6846
+ဂျင်း	-10.6848
+▁ခင်ဗျ	-10.686
+ဦ	-10.6861
+သွေး	-10.6867
+ဘေး	-10.6873
+အနာ	-10.6874
+အချက်	-10.6908
+က်ဆီ	-10.6908
+အနား	-10.6912
+ထူးခ	-10.6913
+ုမ္	-10.6921
+စောင်	-10.6924
+ောင်ခို	-10.6933
+▁မြန	-10.6937
+ကြိုး	-10.6943
+ဋ	-10.6944
+ဪ	-10.6944
+ဍ	-10.6944
+စောင့်	-10.6947
+မျော	-10.6948
+▁အသက်ရှ	-10.695
+တီမို	-10.6953
+ဒုံ	-10.6963
+▁ဘောလ	-10.6965
+တ္တာ	-10.6972
+အလင်	-10.6981
+▁ညှိုး	-10.6988
+▁မန	-10.6995
+မျာ	-10.7
+္စ	-10.7001
+▁လှည	-10.7017
+▁သိမ်	-10.7018
+လေ့	-10.7026
+လက်ဖ	-10.7032
+▁ဖခ	-10.7035
+စ်လျ	-10.7037
+မှန်ကန်	-10.7049
+လွတ်မ	-10.7055
+ွေးနွေး	-10.7056
+▁ချစ်ရ	-10.7056
+▁ယော	-10.7058
+▁ဒေါ်အေ	-10.706
+င့်အရ	-10.7062
+▁အပြော	-10.7063
+သင်ပ	-10.7069
+▁တက္က	-10.7072
+▁ဦးစိုင်း	-10.7078
+ရဟ	-10.7081
+ီးသတ်	-10.7083
+ဟံ	-10.7086
+ကြီးကျယ်	-10.7088
+န္	-10.709
+န်းဆက်	-10.7091
+လိမ်	-10.7093
+▁ချည်	-10.7094
+စကာ	-10.7108
+▁ပျော	-10.7132
+▁ခွေ	-10.7147
+ဲကွဲ	-10.7147
+သဘော	-10.7155
+မ္ဘာ	-10.7155
+▁ထိပ်	-10.7156
+ခြင်	-10.7156
+အားလ	-10.7164
+ဘူ	-10.7164
+နည်	-10.7169
+်ပင်	-10.7169
+က္ကာ	-10.7175
+▁မန္	-10.7176
+ရုပ်	-10.7188
+ကြေး	-10.7194
+ကရက်	-10.7196
+▁တိုင်က	-10.7199
+တုတ်	-10.7199
+က်ညှ	-10.7204
+ာခဲ	-10.7274
+တေ	-10.7274
+▁ဂေ	-10.728
+တစ်ဝ	-10.7293
+အားသ	-10.7299
+သိက	-10.7299
+ဂု	-10.73
+န်ဇ	-10.7309
+▁ပြောပြ	-10.7314
+သောက	-10.7316
+ါလီ	-10.7326
+အစား	-10.7358
+ကြိုက	-10.7359
+မလား	-10.7366
+ဖု	-10.7395
+်နံ	-10.7402
+ပျ	-10.7421
+ည်သူ	-10.7428
+ရှေ့	-10.7432
+သယ	-10.7432
+ီဂျ	-10.7442
+▁မျှော်လင	-10.7444
+▁လှုပ်	-10.746
+ငြိမ်း	-10.7471
+်ဆံ	-10.7484
+ချောင်	-10.7492
+ယ်လီ	-10.7492
+▁ပန်းက	-10.751
+▁လောက	-10.7551
+▁ယဉ်	-10.7554
+▁ကမ္ဘာက	-10.7568
+▁ရာသီ	-10.7598
+န်ရေ	-10.76
+ွားမ	-10.761
+စ်စဉ်	-10.7622
+▁ဘူ	-10.7667
+မွန်	-10.7688
+က်ဖ	-10.7697
+င်းဦး	-10.7704
+အောက်ခ	-10.7707
+▁အကြာ	-10.7709
+ဘာက	-10.7712
+တုန်း	-10.7712
+▁ဗြ	-10.7726
+ဏာ	-10.7729
+စေ့	-10.774
+ခေ	-10.7759
+လီစ	-10.7767
+▁ခေ	-10.7768
+န်မာ	-10.7774
+ောင်းဆို	-10.7789
+အို	-10.7793
+ခန်းမ	-10.7803
+ဖာ	-10.7808
+ရာယ	-10.781
+အမိန	-10.7816
+န့်ရ	-10.783
+ိုလီ	-10.7858
+ရှာ	-10.7864
+ုတ်ထ	-10.7869
+မဏ	-10.7875
+မှန်မ	-10.7882
+းကြည်	-10.7909
+▁ချမ်းမ	-10.7921
+ိတ်အ	-10.7924
+ခါး	-10.793
+▁အရေ	-10.7936
+▁နွေး	-10.7944
+▁ပေးဆ	-10.7944
+ာဂါ	-10.7957
+▁ဂျိ	-10.7969
+မြင့်မ	-10.7991
+့နှ	-10.8006
+▁ဆူ	-10.8016
+င့်အ	-10.8017
+▁မျော	-10.8036
+နှစ်သက်	-10.8037
+▁လွ	-10.8041
+ကတိ	-10.8076
+င်မီက	-10.8083
+ဘန်	-10.8144
+တ်မတ	-10.8162
+ုပ	-10.8177
+▁ဝိ	-10.8201
+ဝယ်	-10.8213
+▁တရားတ	-10.8222
+ော်ကား	-10.8234
+တတ	-10.8253
+ရာဝ	-10.8328
+ရောင်း	-10.8337
+ပြာ	-10.8347
+သောက်	-10.8381
+▁အရောင်	-10.8389
+▁သဘောတ	-10.8428
+▁အကျင	-10.8445
+▁အခြ	-10.8454
+်ရည်	-10.8456
+နံန	-10.8464
+ူရာ	-10.8471
+ကူညီ	-10.8478
+ီးပွ	-10.8579
+▁ထူ	-10.8595
+▁စလ	-10.8608
+▁ဖင်	-10.867
+န်းက	-10.8679
+မောင်	-10.8702
+လု	-10.8704
+ခွ	-10.8798
+▁မြို့ပ	-10.8802
+ီရ	-10.8828
+လင်	-10.8846
+ကျော	-10.8847
+က်ပ	-10.887
+▁အနော	-10.8905
+တ်ပြ	-10.8919
+▁ပိ	-10.8929
+▁အဖြ	-10.8936
+က်ပြား	-10.8975
+ှာ	-10.8993
+ိတ်လ	-10.9005
+ယ်လ	-10.9006
+ါး	-10.9007
+းဝါ	-10.9022
+စ်ကျ	-10.9062
+ဒ်	-10.912
+စ်ခ	-10.9159
+ရှက်	-10.916
+င်းအမ	-10.9162
+ာဒို	-10.9186
+ည်ကြည်	-10.925
+▁ဖဲ	-10.9251
+်ငြ	-10.9263
+▁လက်တွ	-10.927
+▁သွားရ	-10.9281
+ာလာ	-10.9306
+▁လင်	-10.9371
+သမ	-10.9421
+မပြ	-10.9424
+မုဒ	-10.9477
+▁ပျို	-10.9518
+တပ	-10.9518
+စစ	-10.9539
+▁ဘော်	-10.9544
+းလဲ	-10.9557
+▁တစ်ချ	-10.9557
+လွ	-10.9595
+▁တဲ	-10.9596
+ရင့်	-10.9624
+ြင့်	-10.963
+တူး	-10.9638
+▁ဘု	-10.9682
+မဖြစ်	-10.9686
+▁နန်	-10.9724
+ဘယ်	-10.9725
+ွံ	-10.9731
+▁လူမ	-10.9751
+ီရှ	-10.9755
+လင့်	-10.9782
+▁တပ	-10.9823
+▁ဇာတ	-10.9833
+▁အပြု	-10.9839
+စ်ကြ	-10.9996
+▁သပ်	-11.0008
+ုဟ	-11.0022
+ကန္တ	-11.0046
+▁တခ	-11.0067
+ါ်	-11.0085
+▁လက်မ	-11.0092
+▁သီရ	-11.0145
+က်တင်	-11.0159
+တ်ကူး	-11.021
+ရရ	-11.0247
+ိတ်ဆွ	-11.0311
+မန်း	-11.0349
+ူးရ	-11.0369
+မတ်	-11.0405
+ကွင်းကွ	-11.0458
+တကာ	-11.0487
+ါဒ	-11.0539
+▁နာရီမှ	-11.0581
+ပ်တန်း	-11.0679
+▁ပိုက	-11.0699
+်နေ	-11.0803
+္ဘော	-11.0868
+▁ရေစ	-11.0897
+▁ကျောင်းက	-11.0955
+စီစ	-11.0961
+ိတ်ဆ	-11.097
+ခြောက်	-11.1021
+▁အီ	-11.1091
+ိုယ	-11.1107
+စ်လ	-11.1124
+ွန်ဒ	-11.1156
+▁အတို	-11.1194
+ရူ	-11.1212
+▁ဆွ	-11.1215
+▁မာ	-11.1287
+ောက်ကျ	-11.1358
+ကု	-11.1408
+▁သုံ	-11.1421
+လွတ်	-11.1474
+ိမိ	-11.1488
+▁သင	-11.1505
+ထဲ	-11.1516
+န်ကန်	-11.1524
+▁ထော	-11.1585
+▁တယ	-11.1645
+▁မယ	-11.1667
+ာကြာ	-11.1679
+့ခ	-11.168
+ည်းက	-11.1739
+ြစ	-11.1742
+▁စိုး	-11.1912
+ိုကို	-11.1943
+ိပ္ပ	-11.2045
+တွန်	-11.2093
+ျပ်	-11.2122
+ရန်	-11.2122
+သီး	-11.2142
+ွ	-11.2192
+▁သယ်	-11.2208
+▁အန်တ	-11.2301
+ူညီ	-11.232
+်န	-11.2371
+ကန့်	-11.2392
+ုခုံ	-11.2458
+ေးရ	-11.2555
+ိတ်ဆိ	-11.2569
+ီချ	-11.2586
+▁ရသ	-11.2591
+▁တစ်ခ	-11.2736
+▁အစု	-11.2872
+▁အုံ	-11.2993
+တ်ခ	-11.3112
+▁ဗီ	-11.3146
+ူဝ	-11.316
+▁သန်	-11.3182
+ပမာ	-11.3194
+▁မဟ	-11.3296
+▁လိ	-11.3377
+စားပွဲ	-11.3413
+▁ခုတ	-11.348
+ဇော	-11.352
+င်းလ	-11.3539
+ရွာသ	-11.3602
+ကဲ	-11.3619
+းမ	-11.3842
+▁လု	-11.3898
+ျော့	-11.3899
+▁ချောင်းဆ	-11.403
+်တော်	-11.405
+ွမ်း	-11.4093
+ောက်ပ	-11.4101
+ာင	-11.4224
+▁လှို	-11.4232
+▁ဇာ	-11.4381
+ကယာ	-11.4721
+▁အဆင	-11.4723
+့ကြောင	-11.483
+်နက်	-11.4852
+▁ဒါပေမယ	-11.4931
+လိပ်	-11.494
+ွန	-11.4972
+ကြော	-11.5026
+မက်	-11.5056
+▁စိတ်လ	-11.5105
+▁အချို	-11.5129
+▁ကိုန	-11.5321
+▁သီတ	-11.5342
+လျ	-11.5377
+ျောက်	-11.557
+ြောက်	-11.566
+▁ကလ	-11.5716
+းဗ	-11.5815
+ြာ	-11.5828
+ဟု	-11.5856
+သွင်	-11.5906
+▁ကျွ	-11.5975
+▁တရားသ	-11.6037
+က်လှ	-11.6056
+အကြ	-11.6109
+ကိုင်း	-11.6159
+▁မိန်	-11.6309
+ပေမယ	-11.6937
+ယ်တ	-11.7016
+အလ	-11.7029
+ပ်သ	-11.72
+နွေး	-11.7338
+ားရဲ	-11.7502
+▁ခိုက	-11.7588
+ဲဆို	-11.7746
+ာချေ	-11.781
+တ်ရ	-11.7967
+ကြုံ	-11.7989
+ွင်	-11.8036
+ိုကျ	-11.8065
+▁ရပ်တ	-11.8079
+▁မိတ်	-11.8308
+▁ကျောင်းတ	-11.8376
+နဲ	-11.8418
+ူမ	-11.8485
+င်းမ	-11.8503
+ုဂ	-11.8508
+▁ပြောင်	-11.8579
+▁စမ	-11.8673
+်ခ	-11.8777
+ရိပ်	-11.9013
+ကွာ	-11.9188
+▁တစ်က	-11.9429
+က်သ	-11.9479
+ံတ	-11.9534
+်သက်	-11.9718
+ြိုင်	-11.9757
+န်းမ	-11.9924
+မျိုးစ	-11.9942
+းပ	-12.0064
+ာန	-12.0197
+▁မီးဖ	-12.0239
+ဝတ	-12.0401
+်ဆန်း	-12.041
+ြိမ်းခ	-12.0425
+ိဘ	-12.0558
+▁မူး	-12.0607
+ြောင်း	-12.0631
+ောကြာ	-12.0708
+ဧ	-12.0738
+ဈ	-12.0739
+၏	-12.074
+ိုက်တ	-12.0741
+ှ	-12.0741
+
+```
+
+## Building Word Unit SentencePiece BPE Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.word --output_prefix ./word/1k.word --model_type bpe --vocab_size 1000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.word
+  input_format:
+  model_prefix: ./word/1k.word.bpe
+  model_type: BPE
+  vocab_size: 1000
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.word
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=93721
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(597) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(608) LOG(INFO) Done! 3332
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=2430 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=694 size=20 all=1784 active=1689 piece=ေး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=343 size=40 all=2289 active=2194 piece=▁ဆ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=220 size=60 all=2830 active=2735 piece=▁ချ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=161 size=80 all=3209 active=3114 piece=▁ဖြစ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=117 size=100 all=3508 active=3413 piece=▁ဆို
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=114 min_freq=6
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=92 size=120 all=3773 active=1263 piece=▁လေ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=76 size=140 all=4029 active=1519 piece=▁ကောင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=64 size=160 all=4222 active=1712 piece=ွှ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=54 size=180 all=4420 active=1910 piece=▁လက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=47 size=200 all=4678 active=2168 piece=▁စိတ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=47 min_freq=6
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=41 size=220 all=4838 active=1148 piece=လား
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=35 size=240 all=5003 active=1313 piece=▁အချ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=31 size=260 all=5138 active=1448 piece=▁သား
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=28 size=280 all=5332 active=1642 piece=▁စရာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=26 size=300 all=5449 active=1759 piece=▁ထွက်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=26 min_freq=5
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=24 size=320 all=5560 active=1110 piece=▁ငွေ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=23 size=340 all=5667 active=1217 piece=▁ကြောင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=21 size=360 all=5789 active=1339 piece=ေါင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=20 size=380 all=5920 active=1470 piece=ရောက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=18 size=400 all=6019 active=1569 piece=ာတ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=18 min_freq=4
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=17 size=420 all=6082 active=1056 piece=ချာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=16 size=440 all=6188 active=1162 piece=▁ပညာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=15 size=460 all=6236 active=1210 piece=ခင်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=14 size=480 all=6308 active=1282 piece=မီ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=14 size=500 all=6385 active=1359 piece=▁ရင်း
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=14 min_freq=4
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=13 size=520 all=6475 active=1091 piece=ှက်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=12 size=540 all=6516 active=1132 piece=ဒါ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=12 size=560 all=6590 active=1206 piece=▁ကော်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=580 all=6627 active=1243 piece=ိမ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=600 all=6721 active=1337 piece=တန်း
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=11 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=620 all=6784 active=1051 piece=▁သမီး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=640 all=6836 active=1103 piece=▁မု
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=660 all=6915 active=1182 piece=▁စည်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=680 all=6937 active=1204 piece=▁စိုင်းစိုင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=700 all=7051 active=1318 piece=ွင်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=9 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=720 all=7107 active=1052 piece=▁အရာ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=740 all=7119 active=1064 piece=▁ကိုကြီး
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=760 all=7147 active=1092 piece=ဝတ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=780 all=7188 active=1133 piece=▁လည်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=800 all=7216 active=1161 piece=▁ဘုရား
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=8 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=820 all=7212 active=994 piece=▁စိတ်မကောင်း
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=840 all=7302 active=1084 piece=လွှ
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=860 all=7349 active=1131 piece=▁ဒဏ်
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=880 all=7391 active=1173 piece=▁ကြား
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=900 all=7407 active=1189 piece=▁သူငယ်
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=920 all=7409 active=1002 piece=▁လျှို့ဝှက်
+trainer_interface.cc(686) LOG(INFO) Saving model: ./word/1k.word.bpe.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./word/1k.word.bpe.vocab
+
+real    0m0.157s
+user    0m0.158s
+sys     0m0.012s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+ို	-0
+င်	-1
+▁တ	-2
+▁က	-3
+▁မ	-4
+▁ပ	-5
+ော	-6
+▁လ	-7
+▁သ	-8
+▁အ	-9
+က်	-10
+ား	-11
+▁ရ	-12
+▁န	-13
+ယ်	-14
+င်း	-15
+န်	-16
+▁ခ	-17
+ည်	-18
+ေး	-19
+ဲ့	-20
+စ်	-21
+▁ကို	-22
+▁ပါ	-23
+▁ပြ	-24
+တ်	-25
+ီး	-26
+▁စ	-27
+▁မှ	-28
+ို့	-29
+▁ဘ	-30
+ပ်	-31
+▁တယ်	-32
+▁တွ	-33
+ော်	-34
+▁နေ	-35
+▁ဖ	-36
+▁ကြ	-37
+▁ထ	-38
+▁ဆ	-39
+ောက်	-40
+ုံ	-41
+▁တာ	-42
+▁တွေ	-43
+့်	-44
+ိုင်	-45
+▁ကျ	-46
+မ်	-47
+▁သည်	-48
+ောင်	-49
+န်း	-50
+ူး	-51
+ောင်း	-52
+▁မှာ	-53
+ိုး	-54
+▁ရှ	-55
+ိုက်	-56
+ည်း	-57
+▁မျ	-58
+▁ချ	-59
+▁ဟ	-60
+မ်း	-61
+ုံး	-62
+▁သူ	-63
+ော့	-64
+ုပ်	-65
+ကြ	-66
+▁ဖြ	-67
+▁ဒ	-68
+ေါ	-69
+▁တော့	-70
+▁တဲ့	-71
+▁များ	-72
+▁တစ်	-73
+▁နဲ့	-74
+ချ	-75
+ိုင်း	-76
+▁ရှိ	-77
+▁ပြီး	-78
+▁ဖြစ်	-79
+▁ဘူး	-80
+ွန်	-81
+▁နှ	-82
+▁ပဲ	-83
+▁လို့	-84
+▁မြ	-85
+င့်	-86
+င့်	-87
+တော်	-88
+▁င	-89
+▁နိုင်	-90
+ပြ	-91
+▁လည်း	-92
+ုတ်	-93
+ွား	-94
+▁လာ	-95
+▁တို့	-96
+ွက်	-97
+▁ခဲ့	-98
+▁ဆို	-99
+▁ယ	-100
+▁ရင်	-101
+▁လား	-102
+▁ကျွန်	-103
+▁လိုက်	-104
+▁ဘယ်	-105
+ရာ	-106
+▁ဝ	-107
+▁အမ	-108
+▁ပြော	-109
+▁အတ	-110
+▁မယ်	-111
+▁ပေး	-112
+ရှ	-113
+ွဲ	-114
+▁လုပ်	-115
+ကျ	-116
+▁သွား	-117
+▁ဒီ	-118
+▁လေ	-119
+▁ပေါ	-120
+ကြီး	-121
+▁အား	-122
+ဦး	-123
+▁၏	-124
+▁လဲ	-125
+▁သိ	-126
+▁ခြ	-127
+မာ	-128
+ည့်	-129
+▁ရေး	-130
+စား	-131
+ိတ်	-132
+ွေး	-133
+▁အရ	-134
+▁ဦး	-135
+▁ထား	-136
+▁ကျွန်တော်	-137
+▁တွင်	-138
+▁ကောင်း	-139
+ဖြ	-140
+လေး	-141
+▁ဘာ	-142
+▁အခ	-143
+▁မိ	-144
+▁လျ	-145
+▁ပြီ	-146
+▁မှု	-147
+▁လေး	-148
+▁ဂ	-149
+ေ့	-150
+▁ဗ	-151
+လို	-152
+▁လူ	-153
+▁မင်း	-154
+▁နှင့်	-155
+ွာ	-156
+▁သော	-157
+▁ကြီး	-158
+ွှ	-159
+▁ရဲ့	-160
+ဉ်	-161
+▁နော်	-162
+မြ	-163
+▁သာ	-164
+▁ချင်	-165
+▁ဟုတ်	-166
+▁အသ	-167
+▁ခြင်း	-168
+▁ငါ	-169
+ငံ	-170
+လုံး	-171
+▁ခု	-172
+▁ပြန်	-173
+ုန်း	-174
+▁နိုင်ငံ	-175
+ိမ်	-176
+ေါ်	-177
+▁ဒါ	-178
+▁လက်	-179
+နှ	-180
+▁လို	-181
+ပါ	-182
+သား	-183
+▁ပျ	-184
+▁လှ	-185
+▁ဟာ	-186
+▁နှစ်	-187
+▁အောင်	-188
+▁အတွက်	-189
+မှ	-190
+ွေ	-191
+▁ည	-192
+ိန်	-193
+ျား	-194
+ပေး	-195
+စေ	-196
+▁ဖို့	-197
+▁စာ	-198
+▁စိတ်	-199
+▁မြန်	-200
+▁ကြည့်	-201
+▁ယောက်	-202
+သူ	-203
+ကား	-204
+▁ထဲ	-205
+▁ရာ	-206
+▁ကိုယ်	-207
+လဲ	-208
+စိုင်း	-209
+ွယ်	-210
+▁ရေ	-211
+▁အက	-212
+▁အန	-213
+▁လျှ	-214
+▁သို့	-215
+ဒီ	-216
+▁သတ	-217
+▁ပါစေ	-218
+လား	-219
+ဆုံး	-220
+▁ခင်	-221
+လာ	-222
+▁မြန်မာ	-223
+ဏ်	-224
+▁သေး	-225
+▁အားပေး	-226
+မ္	-227
+သာ	-228
+ရား	-229
+▁ခံ	-230
+▁အစ	-231
+▁အလ	-232
+▁ပေါ့	-233
+▁ချစ်	-234
+▁သူ့	-235
+▁ပြည်	-236
+▁ပင်	-237
+▁အကြ	-238
+▁အချ	-239
+▁ရောက်	-240
+▁၍	-241
+ယ့်	-242
+ုန်	-243
+▁သေ	-244
+ကို	-245
+ိပ်	-246
+ွတ်	-247
+▁အဲ	-248
+▁မည်	-249
+▁ခင်ဗ	-250
+▁တော်	-251
+▁အရမ်း	-252
+စု	-253
+▁ဟု	-254
+▁တွေ့	-255
+▁အထ	-256
+ွင်း	-257
+▁စား	-258
+▁သား	-259
+▁ပေါ်	-260
+▁လုံး	-261
+ဘာ	-262
+လ်	-263
+္တ	-264
+င်္	-265
+▁ကား	-266
+ောင့်	-267
+▁တောင်	-268
+▁နောက်	-269
+က္	-270
+ညာ	-271
+နေ	-272
+ပွဲ	-273
+▁ဗျ	-274
+ခံ	-275
+နာ	-276
+ရီ	-277
+တိုး	-278
+▁စရာ	-279
+▁တတ်	-280
+▁ပျော်	-281
+▁ခင်ဗျား	-282
+▁ဇ	-283
+▁အဆ	-284
+ွန်း	-285
+▁ဆက်	-286
+ချင်း	-287
+▁မြို့	-288
+▁တိုင်း	-289
+စ္	-290
+ယူ	-291
+▁မန	-292
+ရှင်	-293
+ျိုး	-294
+▁ထင်	-295
+▁ရန်	-296
+▁ရယ်	-297
+▁အမြ	-298
+▁ထွက်	-299
+▁သုံး	-300
+▁ကိုစိုင်း	-301
+စာ	-302
+ဓု	-303
+ည့်	-304
+ရှိ	-305
+ွဲ့	-306
+▁ကာ	-307
+▁နာ	-308
+▁အပ	-309
+▁အခု	-310
+ဆောင်	-311
+▁စကား	-312
+▁လမ်း	-313
+▁သာဓု	-314
+ေမ	-315
+▁ခရ	-316
+▁စေ	-317
+ိုလ်	-318
+▁ငွေ	-319
+▁နေ့	-320
+▁သူမ	-321
+ောင့်	-322
+▁လျက်	-323
+▁အဲဒီ	-324
+▁မျိုး	-325
+▁ကျောင်း	-326
+ကာ	-327
+ကယ်	-328
+န့်	-329
+လည်	-330
+▁ယူ	-331
+▁သမ	-332
+▁တင်	-333
+▁ချက်	-334
+▁အိမ်	-335
+ကောင်း	-336
+▁အောက်	-337
+▁ဘယ်လို	-338
+▁ကြောင်း	-339
+တာ	-340
+မိ	-341
+စဉ်	-342
+▁ကွာ	-343
+▁ပွဲ	-344
+▁လေ့	-345
+▁လွှ	-346
+▁အပြ	-347
+▁အမေ	-348
+▁လောက်	-349
+ဉ်း	-350
+ဘော	-351
+ဝင်	-352
+စည်း	-353
+ွင့်	-354
+▁စွာ	-355
+▁ထို	-356
+▁ပြု	-357
+▁ရက်	-358
+ေါင်း	-359
+▁ကလေး	-360
+▁ကျေး	-361
+▁တရား	-362
+▁မျက်	-363
+▁မြင်	-364
+▁တိုက်	-365
+▁အသင်း	-366
+▁စိုင်း	-367
+တီ	-368
+လီ	-369
+လှ	-370
+ိက	-371
+တင်	-372
+ရွှ	-373
+ြား	-374
+▁ထိ	-375
+▁အဖ	-376
+င်္ဂ	-377
+▁အဖြ	-378
+ရောက်	-379
+▁နည်း	-380
+▁ကြိုး	-381
+ယာ	-382
+ထား	-383
+ပြု	-384
+▁ညီ	-385
+▁ပေ	-386
+▁ရဲ	-387
+ိမ်း	-388
+▁ပို	-389
+▁ဝင်	-390
+လောက်	-391
+▁ခေါ်	-392
+▁လျှင်	-393
+▁ကြိုက်	-394
+သမ	-395
+ဇူး	-396
+ပေမ	-397
+သတ်	-398
+ာတ်	-399
+▁ဂျ	-400
+▁စု	-401
+▁နံ	-402
+▁သီ	-403
+မင်း	-404
+မြင်	-405
+▁စစ်	-406
+▁တက်	-407
+▁နား	-408
+▁မလဲ	-409
+▁ရပ်	-410
+▁ဆုံး	-411
+▁သည့်	-412
+▁အမြဲ	-413
+▁မောင်	-414
+▁ကိုယ့်	-415
+▁ကျေးဇူး	-416
+▁ကြိုးစား	-417
+▁ဥ	-418
+ချာ	-419
+မ္ဘာ	-420
+ေါက်	-421
+▁ငါ့	-422
+▁စီး	-423
+▁ပုံ	-424
+▁အကျ	-425
+▁ကောင်	-426
+▁ဘယ်သူ	-427
+▁ရိုက်	-428
+▁သတင်း	-429
+ညီ	-430
+တိ	-431
+လျ	-432
+က္က	-433
+ဆို	-434
+သက်	-435
+▁ဘဝ	-436
+▁သံ	-437
+ွင့်	-438
+▁ပညာ	-439
+▁ဘက်	-440
+▁မီး	-441
+▁သင်	-442
+▁အစ်	-443
+▁အေး	-444
+▁ချော	-445
+▁ဒေါ်	-446
+▁မလား	-447
+▁မှတ်	-448
+▁သင့်	-449
+▁ထိုင်	-450
+▁ဒါပေမ	-451
+▁ဖုန်း	-452
+▁အားလုံး	-453
+▁ဘယ်လောက်	-454
+▁အကြောင်း	-455
+ခါ	-456
+ဒေ	-457
+▁၌	-458
+ခင်	-459
+န့်	-460
+ရေး	-461
+▁ခေ	-462
+▁မမ	-463
+ကြား	-464
+ခန်း	-465
+▁ငေး	-466
+▁ထက်	-467
+▁ဗျာ	-468
+▁ဝယ်	-469
+▁သတိ	-470
+▁ခွေး	-471
+▁တကယ်	-472
+▁ရှင်	-473
+▁သလို	-474
+▁သိပ်	-475
+▁ဆောင်	-476
+▁အလုပ်	-477
+▁ပြည်သူ	-478
+မီ	-479
+ငယ်	-480
+ုဏ်	-481
+ွေ့	-482
+▁ပု	-483
+▁ဘဲ	-484
+ပါတ်	-485
+ပြည်	-486
+ိုးရ	-487
+▁ဆရာ	-488
+▁ဆေး	-489
+▁မေး	-490
+▁သတ်	-491
+▁အဲ့	-492
+န်းမာ	-493
+▁ကုန်	-494
+▁ခရီး	-495
+▁ဂုဏ်	-496
+▁ထုတ်	-497
+▁နာရီ	-498
+▁ရင်း	-499
+▁သဘော	-500
+▁စောက်	-501
+▁တုန်း	-502
+▁သောက်	-503
+▁နံပါတ်	-504
+▁အချိန်	-505
+▁ကျန်းမာ	-506
+▁ဒါပေမဲ့	-507
+▁ပြောင်း	-508
+ဂါ	-509
+မတ	-510
+ဝါ	-511
+ံ့	-512
+ဆက်	-513
+နက်	-514
+နပ်	-515
+ပါး	-516
+ရပ်	-517
+ဝန်	-518
+ှက်	-519
+▁ခါ	-520
+▁မူ	-521
+ရွက်	-522
+ွမ်း	-523
+▁နယ်	-524
+▁ပါ့	-525
+▁ယုံ	-526
+ခိုင်	-527
+ဆိုင်	-528
+ရွှင်	-529
+▁လွတ်	-530
+▁သည့်	-531
+▁အုပ်	-532
+▁ကမ္ဘာ	-533
+▁ကိုနေ	-534
+▁ကြည့်	-535
+▁ကျွန်မ	-536
+▁နေတိုး	-537
+▁အောင်မြင်	-538
+ဒါ	-539
+ဟာ	-540
+စီး	-541
+စ္စ	-542
+တက်	-543
+သစ်	-544
+▁အဓ	-545
+▁ဥပ	-546
+ခြား	-547
+နှစ်	-548
+ပွား	-549
+▁ထပ်	-550
+▁ပတ်	-551
+▁ရော	-552
+▁သလဲ	-553
+▁ဟို	-554
+▁အတူ	-555
+▁အမှ	-556
+တိုင်	-557
+မ်းသာ	-558
+▁ကော်	-559
+▁ခေတ်	-560
+▁ဇာတ်	-561
+▁တည်း	-562
+▁နေရာ	-563
+▁ပန်း	-564
+▁မှန်	-565
+▁ရွေး	-566
+▁သင့်	-567
+▁အော်	-568
+▁ချင်း	-569
+▁ဆိုင်	-570
+▁မိန်း	-571
+▁ရှင်း	-572
+▁ပေါင်း	-573
+▁အမျိုး	-574
+▁သီချင်း	-575
+▁ကျွန်ုပ်	-576
+ပျ	-577
+ရဲ	-578
+ိမ	-579
+္ဒ	-580
+ြေ	-581
+က္ခ	-582
+စပ်	-583
+နယ်	-584
+နေ့	-585
+ပင်	-586
+ပုံ	-587
+ရုံ	-588
+▁ကွ	-589
+▁ငြ	-590
+▁ဆီ	-591
+▁ဆု	-592
+▁ပရ	-593
+▁ဘု	-594
+▁မာ	-595
+▁မေ	-596
+▁အာ	-597
+င်းပ	-598
+တန်း	-599
+ရှား	-600
+လမ်း	-601
+လုပ်	-602
+ော်လ	-603
+▁ကြာ	-604
+▁ညီမ	-605
+▁ဖြေ	-606
+▁မျှ	-607
+▁မြေ	-608
+▁သဖြ	-609
+▁အန်	-610
+ခိုက်	-611
+ချုပ်	-612
+သိုလ်	-613
+▁ကျန်	-614
+▁ပျက်	-615
+▁မနက်	-616
+▁မယ့်	-617
+▁လွှဲ	-618
+▁သမီး	-619
+▁သလား	-620
+▁တာဝန်	-621
+▁ရှင့်	-622
+▁အဖြစ်	-623
+▁ရခိုင်	-624
+▁အစ်ကို	-625
+▁ဆောင်ရွက်	-626
+စီ	-627
+တူ	-628
+ကန်	-629
+ကဲ့	-630
+နဲ့	-631
+ဝေး	-632
+အခါ	-633
+အား	-634
+▁ကိ	-635
+▁ကူ	-636
+▁ကံ	-637
+▁စံ	-638
+▁မု	-639
+ကိုး	-640
+ကြည်	-641
+ချင်	-642
+တမ်း	-643
+ပြား	-644
+မ္မတ	-645
+မှတ်	-646
+ိန်း	-647
+ိမ့်	-648
+▁ဆွဲ	-649
+▁ဖက်	-650
+▁ဖူး	-651
+▁ဘေး	-652
+▁ဝန်	-653
+▁သက်	-654
+▁အခါ	-655
+ချိန်	-656
+ထောင်	-657
+▁ကင်း	-658
+▁စည်း	-659
+▁တက္က	-660
+▁ရှေ့	-661
+▁အကယ်	-662
+▁အရေး	-663
+▁အိပ်	-664
+▁ဥပဒေ	-665
+ပေါင်း	-666
+▁ကိစ္စ	-667
+▁ချိန်	-668
+▁စိတ်မ	-669
+▁ဖြင့်	-670
+▁ဗိုလ်	-671
+▁သမ္မတ	-672
+▁အခန်း	-673
+▁ခေါင်း	-674
+▁အစိုးရ	-675
+▁အတိုင်း	-676
+▁ကျွန်တော့်	-677
+▁ပျော်ရွှင်	-678
+▁စိုင်းစိုင်း	-679
+ခု	-680
+ဆံ	-681
+မျ	-682
+သီ	-683
+▁ဈ	-684
+▁ဓ	-685
+ဆယ်	-686
+ဆေး	-687
+တစ်	-688
+တော	-689
+တ္တ	-690
+ပညာ	-691
+ဖက်	-692
+မှာ	-693
+မှု	-694
+ယား	-695
+ရည်	-696
+ရိက	-697
+အပ်	-698
+ွင်	-699
+▁ကု	-700
+▁တူ	-701
+ကုန်	-702
+ချက်	-703
+ဆိုး	-704
+နည်း	-705
+ပြီး	-706
+ဖြတ်	-707
+မြတ်	-708
+လင်း	-709
+သမား	-710
+အုပ်	-711
+▁ကပ်	-712
+▁ကူး	-713
+▁ဈေး	-714
+▁မဲ့	-715
+▁ရှာ	-716
+▁အင်	-717
+▁အထိ	-718
+▁အရာ	-719
+နောက်	-720
+္တလေး	-721
+ှောက်	-722
+▁ဆင်း	-723
+▁တိုး	-724
+▁ပို့	-725
+▁ပြင်	-726
+▁ရုပ်	-727
+▁အဓိက	-728
+▁ကိုင်	-729
+▁ခံစား	-730
+▁ခွင့်	-731
+▁ဒီလို	-732
+▁ဖြင့်	-733
+▁လေ့လာ	-734
+▁လွှတ်	-735
+▁အများ	-736
+▁တောင်း	-737
+▁အတွင်း	-738
+▁ကိုကြီး	-739
+▁ကြောင့်	-740
+▁စီးပွား	-741
+▁မန္တလေး	-742
+▁လျှောက်	-743
+▁တော်တော်	-744
+▁ကိုနေတိုး	-745
+▁တက္ကသိုလ်	-746
+▁ကိုယ်တိုင်	-747
+▁နိုင်ငံတော်	-748
+ငြ	-749
+ဌာ	-750
+ရု	-751
+▁ဤ	-752
+ခဲ့	-753
+ဒမီ	-754
+နီး	-755
+နှာ	-756
+ပန်	-757
+ပြေ	-758
+ဝတ်	-759
+▁တိ	-760
+▁အဘ	-761
+ကွယ်	-762
+ခိုး	-763
+ငန်း	-764
+တည်း	-765
+ထွက်	-766
+မှန်	-767
+ရင်း	-768
+လိပ်	-769
+ဟုတ်	-770
+ိမ့်	-771
+▁ခြေ	-772
+▁တပ်	-773
+▁ပစ္	-774
+▁ပစ်	-775
+▁ဗမာ	-776
+▁မေ့	-777
+▁ရွာ	-778
+▁လည်	-779
+▁အနေ	-780
+ချမ်း	-781
+နိုင်	-782
+မျိုး	-783
+ရိကန်	-784
+▁ကစား	-785
+▁ကျက်	-786
+▁ကြို	-787
+▁စဉ်း	-788
+▁ပိတ်	-789
+▁ဖမ်း	-790
+▁ဘာသာ	-791
+▁မိမိ	-792
+▁မွေး	-793
+▁အဆင်	-794
+▁အသက်	-795
+▁ကော်မ	-796
+▁စိုက်	-797
+▁နှင့်	-798
+▁ဘုရား	-799
+▁လိမ့်	-800
+▁သေချာ	-801
+▁အပေါ်	-802
+ကြောင့်	-803
+▁ကျင်းပ	-804
+▁စာအုပ်	-805
+▁စောင့်	-806
+▁မိန်းမ	-807
+▁အကျိုး	-808
+▁ကြောင့်	-809
+▁စဉ်းစား	-810
+▁ပစ္စည်း	-811
+▁ပြုလုပ်	-812
+▁မျက်နှာ	-813
+▁ဟုတ်ကဲ့	-814
+▁အကယ်ဒမီ	-815
+▁လုပ်ငန်း	-816
+▁အမေရိကန်	-817
+▁ကျောင်းသား	-818
+▁စိတ်မကောင်း	-819
+ထမ	-820
+ပ္	-821
+ဖီ	-822
+မူ	-823
+ရေ	-824
+သေ	-825
+ီရ	-826
+ူအ	-827
+ျာ	-828
+ကြာ	-829
+ကွဲ	-830
+နစ်	-831
+န္ဒ	-832
+ပတ်	-833
+ပယ်	-834
+မည်	-835
+ရက်	-836
+လပ်	-837
+လယ်	-838
+လွှ	-839
+▁တရ	-840
+▁ပူ	-841
+▁ဖိ	-842
+▁ဝေ	-843
+▁သု	-844
+ကျင်	-845
+ကွက်	-846
+ဇော်	-847
+တရား	-848
+နွေး	-849
+ပိုး	-850
+ဝှက်	-851
+သမီး	-852
+ိသတ်	-853
+▁ကျေ	-854
+▁ခွဲ	-855
+▁ဂရု	-856
+▁ငါး	-857
+▁တန်	-858
+▁ဒဏ်	-859
+▁နတ်	-860
+▁ပထမ	-861
+▁ဖတ်	-862
+▁မဟာ	-863
+▁ယခု	-864
+▁လယ်	-865
+▁သစ်	-866
+▁ဟော	-867
+ချို့	-868
+စိုက်	-869
+တိုက်	-870
+တော့်	-871
+ပေါက်	-872
+မဟုတ်	-873
+သွင်း	-874
+ောက်အ	-875
+▁ကိုး	-876
+▁ကူညီ	-877
+▁ကျပ်	-878
+▁ကြား	-879
+▁ခုန်	-880
+▁စမ်း	-881
+▁ဆိုး	-882
+▁တန်း	-883
+▁မယ့်	-884
+▁မို့	-885
+▁မိုး	-886
+▁ရရှိ	-887
+▁အကို	-888
+▁အခြေ	-889
+င်္ဂလာ	-890
+တောင်း	-891
+နှုန်း	-892
+▁တရုတ်	-893
+▁တိုင်	-894
+▁ထောင်	-895
+▁နာမည်	-896
+▁ပါဝင်	-897
+▁သိန်း	-898
+▁သူငယ်	-899
+▁အခြား	-900
+ို့ဝှက်	-901
+ွေးနွေး	-902
+ွဲ့စည်း	-903
+▁နားလည်	-904
+▁နှလုံး	-905
+▁ပရိသတ်	-906
+▁ပိုင်း	-907
+▁မောင်း	-908
+▁ရောင်း	-909
+▁ချောင်း	-910
+▁နှစ်သစ်	-911
+▁ပညာရှင်	-912
+▁မင်္ဂလာ	-913
+▁ရန်ကုန်	-914
+▁ဆုံးဖြတ်	-915
+▁လွှတ်တော်	-916
+▁ကျေးဇူးပြု	-917
+▁ကျွန်တော့်	-918
+▁လျှို့ဝှက်	-919
+▁သူငယ်ချင်း	-920
+ဂျ	-921
+ဆာ	-922
+တု	-923
+ထု	-924
+ပူ	-925
+ဘီ	-926
+မေ	-927
+စက်	-928
+စင်	-929
+စစ်	-930
+စုံ	-931
+စော	-932
+ဏ်း	-933
+တည်	-934
+▁	-935
+်	-936
+း	-937
+ာ	-938
+ေ	-939
+က	-940
+ု	-941
+တ	-942
+ိ	-943
+မ	-944
+င	-945
+ပ	-946
+န	-947
+့	-948
+လ	-949
+ြ	-950
+ရ	-951
+သ	-952
+စ	-953
+အ	-954
+ွ	-955
+ျ	-956
+ှ	-957
+ဲ	-958
+ခ	-959
+ယ	-960
+ါ	-961
+ီ	-962
+ည	-963
+ူ	-964
+ံ	-965
+ဆ	-966
+ဘ	-967
+ဖ	-968
+ထ	-969
+ဒ	-970
+ဟ	-971
+ဝ	-972
+္	-973
+ဂ	-974
+ဗ	-975
+ဦ	-976
+၏	-977
+ဇ	-978
+ဉ	-979
+ဏ	-980
+ဓ	-981
+၍	-982
+ဥ	-983
+၌	-984
+ဌ	-985
+ဈ	-986
+ဤ	-987
+ဿ	-988
+ဃ	-989
+ဧ	-990
+ဩ	-991
+၎	-992
+ဠ	-993
+ဋ	-994
+ဍ	-995
+ဪ	-996
+
+```
+
+## Building Word Unit SentencePiece Char Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.word --output_prefix ./word/1k.word --model_type char
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.word
+  input_format:
+  model_prefix: ./word/1k.word.char
+  model_type: CHAR
+  vocab_size: 8000
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.word
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=93721
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./word/1k.word.char.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./word/1k.word.char.vocab
+
+real    0m0.051s
+user    0m0.055s
+sys     0m0.010s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/word$ cat ./1k.word.char.vocab
+<unk>   0
+<s>     0
+</s>    0
+▁       -1.64535
+်       -2.3739
+း       -2.97337
+ာ       -2.99404
+ေ       -3.15753
+က       -3.16105
+ု       -3.24861
+တ       -3.32898
+ိ       -3.36815
+မ       -3.49441
+င       -3.53492
+ပ       -3.54153
+န       -3.7109
+့       -3.77114
+လ       -3.78796
+ြ       -3.90322
+ရ       -3.94921
+သ       -3.9922
+စ       -4.0982
+အ       -4.16532
+ွ       -4.20599
+ျ       -4.26193
+ှ       -4.27029
+ဲ       -4.33575
+ခ       -4.35883
+ယ       -4.38332
+ါ       -4.52642
+ီ       -4.58951
+ည       -4.62153
+ူ       -4.79651
+ံ       -5.0445
+ဆ       -5.07647
+ဘ       -5.13272
+ဖ       -5.1752
+ထ       -5.23748
+ဒ       -5.65202
+ဟ       -5.87213
+ဝ       -5.92662
+္       -6.19058
+ဂ       -6.47134
+ဗ       -6.65229
+ဦ       -6.97074
+၏       -6.98217
+ဇ       -7.06605
+ဉ       -7.1854
+ဏ       -7.30494
+ဓ       -7.44074
+၍       -7.73451
+ဥ       -8.31258
+၌       -8.74003
+ဌ       -9.14549
+ဈ       -9.25085
+ဤ       -9.36864
+ဿ       -9.50217
+ဃ       -9.65632
+ဧ       -9.83864
+ဩ       -10.0618
+၎       -10.3495
+ဠ       -10.7549
+ဋ       -11.4481
+ဍ       -11.4481
+ဪ       -11.4481
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp/word$
+```
+
+## Building Word Unit SentencePiece Word Model 
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.word --output_prefix ./word/1k.word --model_type word --vocab_size 1000
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.word
+  input_format:
+  model_prefix: ./word/1k.word.word
+  model_type: WORD
+  vocab_size: 1000
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.word
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=93721
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./word/1k.word.word.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./word/1k.word.word.vocab
+
+real    0m0.057s
+user    0m0.054s
+sys     0m0.017s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁ပါ	-3.60832
+▁ကို	-3.72509
+▁က	-3.79146
+▁တယ်	-3.80379
+▁မ	-3.90832
+▁တာ	-4.08242
+▁နေ	-4.10563
+▁တွေ	-4.20431
+▁သည်	-4.25755
+▁မှာ	-4.28127
+▁ရ	-4.42283
+▁တော့	-4.59872
+▁တဲ့	-4.63794
+▁နဲ့	-4.64367
+▁များ	-4.67283
+▁ဘူး	-4.75287
+▁ရှိ	-4.75287
+▁ပြီး	-4.76578
+▁ဖြစ်	-4.79878
+▁လို့	-4.83988
+▁ပဲ	-4.8469
+▁တစ်	-4.89007
+▁သူ	-4.91238
+▁လည်း	-4.9507
+▁တို့	-5.03204
+▁ခဲ့	-5.0578
+▁ဆို	-5.06653
+▁လာ	-5.0932
+▁လား	-5.10225
+▁ရင်	-5.11138
+▁လိုက်	-5.168
+▁ကြ	-5.22802
+▁မယ်	-5.25943
+▁ပြော	-5.27013
+▁ပေး	-5.28094
+▁မှ	-5.28094
+▁သွား	-5.32539
+▁၏	-5.33682
+▁လဲ	-5.37191
+▁နိုင်	-5.45892
+▁လုပ်	-5.45892
+▁တွင်	-5.47199
+▁ထား	-5.47199
+▁ရေး	-5.49866
+▁ပြီ	-5.55423
+▁ဒီ	-5.58322
+▁ကောင်း	-5.59803
+▁ကျွန်တော်	-5.59803
+▁မှု	-5.59803
+▁နှင့်	-5.61307
+▁ရဲ့	-5.64384
+▁လေ	-5.65959
+▁နော်	-5.69185
+▁ကြီး	-5.70838
+▁ချင်	-5.70838
+▁လေး	-5.70838
+▁ဘာ	-5.72519
+▁သော	-5.75968
+▁ခြင်း	-5.77738
+▁မင်း	-5.81374
+▁ဟာ	-5.85148
+▁အတွက်	-5.8709
+▁သိ	-5.8907
+▁ဟုတ်	-5.8907
+▁ဖို့	-5.93153
+▁ကြည့်	-5.97409
+▁ပြန်	-5.99607
+▁ထဲ	-6.06506
+▁ပါစေ	-6.06506
+▁ဘယ်	-6.06506
+▁ခု	-6.08916
+▁ယောက်	-6.08916
+▁နိုင်ငံ	-6.11385
+▁ဦး	-6.11385
+▁လို	-6.13917
+▁သေး	-6.13917
+▁အားပေး	-6.13917
+▁ပေါ့	-6.19181
+▁နှစ်	-6.21921
+▁လူ	-6.21921
+▁ကျ	-6.24738
+▁မြန်မာ	-6.24738
+▁ရောက်	-6.24738
+▁ငါ	-6.27637
+▁သူ့	-6.27637
+▁၍	-6.27637
+▁မိ	-6.30622
+▁ရေ	-6.30622
+▁အရမ်း	-6.30622
+▁ရာ	-6.33699
+▁ဟု	-6.33699
+▁အောင်	-6.33699
+▁သို့	-6.40153
+▁ချစ်	-6.43543
+▁မည်	-6.43543
+▁သာ	-6.43543
+▁စရာ	-6.47052
+▁ပင်	-6.47052
+▁လုံး	-6.47052
+▁ခင်ဗျား	-6.50689
+▁တွေ့	-6.50689
+▁ကား	-6.54463
+▁ပေါ်	-6.54463
+▁သား	-6.54463
+▁ကိုယ်	-6.58385
+▁ဒါ	-6.58385
+▁ရယ်	-6.58385
+▁သာဓု	-6.58385
+▁အခု	-6.58385
+▁ကိုစိုင်း	-6.62467
+▁စား	-6.62467
+▁တတ်	-6.62467
+▁တောင်	-6.62467
+▁ထွက်	-6.62467
+▁လျက်	-6.62467
+▁သုံး	-6.62467
+▁သူမ	-6.62467
+▁ငွေ	-6.66723
+▁စေ	-6.66723
+▁ထင်	-6.66723
+▁ဘယ်လို	-6.66723
+▁အဲဒီ	-6.66723
+▁ကြောင်း	-6.71169
+▁ခံ	-6.71169
+▁စကား	-6.75821
+▁စွာ	-6.75821
+▁ပြ	-6.75821
+▁လောက်	-6.75821
+▁အသင်း	-6.75821
+▁ကွာ	-6.807
+▁ချက်	-6.807
+▁တိုင်း	-6.807
+▁မျိုး	-6.807
+▁ကလေး	-6.85829
+▁လက်	-6.85829
+▁လျှင်	-6.85829
+▁ကြိုက်	-6.91236
+▁ကြိုးစား	-6.91236
+▁စာ	-6.91236
+▁တော်	-6.91236
+▁နေ့	-6.91236
+▁ပို	-6.91236
+▁ပေ	-6.91236
+▁ယူ	-6.91236
+▁သည့်	-6.91236
+▁ကိုယ့်	-6.96951
+▁ခေါ်	-6.96951
+▁ပျော်	-6.96951
+▁ပွဲ	-6.96951
+▁မလဲ	-6.96951
+▁ရက်	-6.96951
+▁သေ	-6.96951
+▁စိတ်	-7.03014
+▁ထို	-7.03014
+▁ဘယ်လောက်	-7.03014
+▁ဘဝ	-7.03014
+▁မလား	-7.03014
+▁မြင်	-7.03014
+▁ရန်	-7.03014
+▁ဝင်	-7.03014
+▁သင့်	-7.03014
+▁အားလုံး	-7.03014
+▁ငါ့	-7.09468
+▁စ	-7.09468
+▁ဆက်	-7.09468
+▁တင်	-7.09468
+▁ထက်	-7.09468
+▁ဗျာ	-7.09468
+▁မြို့	-7.09468
+▁ရိုက်	-7.09468
+▁လှ	-7.09468
+▁သိပ်	-7.09468
+▁အမြဲ	-7.09468
+▁အိမ်	-7.09468
+▁၌	-7.09468
+▁ချော	-7.16367
+▁တကယ်	-7.16367
+▁ဒါပေမဲ့	-7.16367
+▁နောက်	-7.16367
+▁ဘက်	-7.16367
+▁ဘဲ	-7.16367
+▁ရင်း	-7.16367
+▁ရပ်	-7.16367
+▁ဝယ်	-7.16367
+▁သလို	-7.16367
+▁ကျန်းမာ	-7.23778
+▁ကျွန်မ	-7.23778
+▁ကြည့်	-7.23778
+▁ငေး	-7.23778
+▁စု	-7.23778
+▁တုန်း	-7.23778
+▁နေတိုး	-7.23778
+▁နံပါတ်	-7.23778
+▁ပါ့	-7.23778
+▁မေး	-7.23778
+▁သည့်	-7.23778
+▁သောက်	-7.23778
+▁အချိန်	-7.23778
+▁အောင်မြင်	-7.23778
+▁ကျွန်ုပ်	-7.31782
+▁ချင်း	-7.31782
+▁ခွေး	-7.31782
+▁တက်	-7.31782
+▁တည်း	-7.31782
+▁ထိုင်	-7.31782
+▁နာရီ	-7.31782
+▁နေရာ	-7.31782
+▁ပုံ	-7.31782
+▁ဘယ်သူ	-7.31782
+▁ရဲ	-7.31782
+▁ရှင်	-7.31782
+▁သင့်	-7.31782
+▁သလဲ	-7.31782
+▁သီချင်း	-7.31782
+▁အလုပ်	-7.31782
+▁အား	-7.31782
+▁အောက်	-7.31782
+▁ကောင်	-7.40483
+▁စိုင်း	-7.40483
+▁ဆောင်ရွက်	-7.40483
+▁တရား	-7.40483
+▁မယ့်	-7.40483
+▁ရခိုင်	-7.40483
+▁ရှင့်	-7.40483
+▁သတင်း	-7.40483
+▁သလား	-7.40483
+▁အစ်ကို	-7.40483
+▁အဖြစ်	-7.40483
+▁ကိစ္စ	-7.50014
+▁ကုန်	-7.50014
+▁ကျောင်း	-7.50014
+▁ကျွန်တော့်	-7.50014
+▁ကြာ	-7.50014
+▁စိုင်းစိုင်း	-7.50014
+▁ထိ	-7.50014
+▁ပေါင်း	-7.50014
+▁ပျော်ရွှင်	-7.50014
+▁ဖုန်း	-7.50014
+▁ဖြင့်	-7.50014
+▁မမ	-7.50014
+▁သတ်	-7.50014
+▁ဟို	-7.50014
+▁အခန်း	-7.50014
+▁အခါ	-7.50014
+▁အစိုးရ	-7.50014
+▁အတူ	-7.50014
+▁အော်	-7.50014
+▁ဥပဒေ	-7.50014
+▁ကပ်	-7.6055
+▁ကာ	-7.6055
+▁ကိုနေတိုး	-7.6055
+▁ကိုယ်တိုင်	-7.6055
+▁ကြောင့်	-7.6055
+▁ကွ	-7.6055
+▁ခေတ်	-7.6055
+▁ခံစား	-7.6055
+▁ချိန်	-7.6055
+▁စောက်	-7.6055
+▁ဆရာ	-7.6055
+▁ဆီ	-7.6055
+▁ည	-7.6055
+▁တာဝန်	-7.6055
+▁တိုက်	-7.6055
+▁တော်တော်	-7.6055
+▁ဒီလို	-7.6055
+▁နိုင်ငံတော်	-7.6055
+▁ပြည်	-7.6055
+▁ပြည်သူ	-7.6055
+▁ပြု	-7.6055
+▁ဖက်	-7.6055
+▁ဖြင့်	-7.6055
+▁ဗျ	-7.6055
+▁ဘေး	-7.6055
+▁မန္တလေး	-7.6055
+▁မဲ့	-7.6055
+▁မှန်	-7.6055
+▁ရှာ	-7.6055
+▁လ	-7.6055
+▁လေ့လာ	-7.6055
+▁လွှဲ	-7.6055
+▁သမီး	-7.6055
+▁အကြောင်း	-7.6055
+▁အတိုင်း	-7.6055
+▁အမေ	-7.6055
+▁အေး	-7.6055
+▁ကိုကြီး	-7.72329
+▁ကိုင်	-7.72329
+▁ကျင်းပ	-7.72329
+▁ကျောင်းသား	-7.72329
+▁ကြောင့်	-7.72329
+▁ခါ	-7.72329
+▁စဉ်းစား	-7.72329
+▁စိတ်မကောင်း	-7.72329
+▁ဆုံး	-7.72329
+▁ဆွဲ	-7.72329
+▁တက္ကသိုလ်	-7.72329
+▁နည်း	-7.72329
+▁ပစ္စည်း	-7.72329
+▁ပစ်	-7.72329
+▁ပြုလုပ်	-7.72329
+▁ဗမာ	-7.72329
+▁မိန်းမ	-7.72329
+▁မိမိ	-7.72329
+▁လိမ့်	-7.72329
+▁လေ့	-7.72329
+▁ဟုတ်ကဲ့	-7.72329
+▁အကယ်ဒမီ	-7.72329
+▁အတွင်း	-7.72329
+▁အထိ	-7.72329
+▁အပေါ်	-7.72329
+▁အမေရိကန်	-7.72329
+▁အဲ့	-7.72329
+▁ဤ	-7.72329
+▁ကျေးဇူး	-7.85682
+▁ကျွန်တော့်	-7.85682
+▁ကြား	-7.85682
+▁ချ	-7.85682
+▁စာအုပ်	-7.85682
+▁စီး	-7.85682
+▁စီးပွား	-7.85682
+▁ဆိုး	-7.85682
+▁ဆုံးဖြတ်	-7.85682
+▁တူ	-7.85682
+▁ထ	-7.85682
+▁နားလည်	-7.85682
+▁နှင့်	-7.85682
+▁နှစ်သစ်	-7.85682
+▁ပညာ	-7.85682
+▁ပညာရှင်	-7.85682
+▁ပရိသတ်	-7.85682
+▁ပါဝင်	-7.85682
+▁ပြောင်း	-7.85682
+▁ဖူး	-7.85682
+▁မယ့်	-7.85682
+▁မို့	-7.85682
+▁မူ	-7.85682
+▁မျက်နှာ	-7.85682
+▁မြန်	-7.85682
+▁ယခု	-7.85682
+▁ယုံ	-7.85682
+▁ရန်ကုန်	-7.85682
+▁ရရှိ	-7.85682
+▁ရော	-7.85682
+▁ရွေး	-7.85682
+▁လမ်း	-7.85682
+▁လျှို့ဝှက်	-7.85682
+▁လွတ်	-7.85682
+▁လွှတ်တော်	-7.85682
+▁သူငယ်ချင်း	-7.85682
+▁သေချာ	-7.85682
+▁အကို	-7.85682
+▁အခြား	-7.85682
+▁အဓိက	-7.85682
+▁အရ	-7.85682
+▁အိပ်	-7.85682
+▁ကမ္ဘာ့	-8.01097
+▁ကာကွယ်	-8.01097
+▁ကာလ	-8.01097
+▁ကူညီ	-8.01097
+▁ကော်မတီ	-8.01097
+▁ကျန်	-8.01097
+▁ကျပ်	-8.01097
+▁ကျေနပ်	-8.01097
+▁ကျော်	-8.01097
+▁ကျေးဇူးပြုပြီး	-8.01097
+▁ခင်	-8.01097
+▁ခုနှစ်	-8.01097
+▁ခွဲ	-8.01097
+▁ဂုဏ်ယူ	-8.01097
+▁ဂျပန်	-8.01097
+▁စိုက်ပျိုး	-8.01097
+▁စောင့်	-8.01097
+▁ဆု	-8.01097
+▁ဇာတ်ကား	-8.01097
+▁ညီမ	-8.01097
+▁တချို့	-8.01097
+▁ထိုင်း	-8.01097
+▁ဒဏ်ရာ	-8.01097
+▁နင်	-8.01097
+▁ပတ်သက်	-8.01097
+▁ပန်း	-8.01097
+▁ပြန်လည်	-8.01097
+▁ပြီးနောက်	-8.01097
+▁ဖမ်း	-8.01097
+▁ဖိနပ်	-8.01097
+▁မနက်ဖြန်	-8.01097
+▁မိသားစု	-8.01097
+▁မောင်	-8.01097
+▁မောင်လေး	-8.01097
+▁မေ့	-8.01097
+▁မှတ်မိ	-8.01097
+▁ရောင်	-8.01097
+▁ရွာ	-8.01097
+▁လက်ရှိ	-8.01097
+▁ဝ	-8.01097
+▁သင်	-8.01097
+▁သတိရ	-8.01097
+▁သဖြင့်	-8.01097
+▁သမ္မတ	-8.01097
+▁သောအခါ	-8.01097
+▁သော်	-8.01097
+▁ဟင်	-8.01097
+▁အချစ်	-8.01097
+▁အစ	-8.01097
+▁အပြင်	-8.01097
+▁အရာ	-8.01097
+▁ကချင်	-8.19329
+▁ကင်း	-8.19329
+▁ကော	-8.19329
+▁ကြိုတင်	-8.19329
+▁ခန့်	-8.19329
+▁ခရိုင်	-8.19329
+▁ခရီး	-8.19329
+▁ခေါင်း	-8.19329
+▁ချမ်းသာ	-8.19329
+▁ချီ	-8.19329
+▁ချောင်း	-8.19329
+▁ဂရုစိုက်	-8.19329
+▁ငယ်	-8.19329
+▁ငါး	-8.19329
+▁ငြိမ်းချမ်း	-8.19329
+▁ငှား	-8.19329
+▁စစ်	-8.19329
+▁စမ်း	-8.19329
+▁ဆင်း	-8.19329
+▁ဆိုင်	-8.19329
+▁ဆေး	-8.19329
+▁ဆွေးနွေး	-8.19329
+▁ဈေး	-8.19329
+▁တန်ဖိုး	-8.19329
+▁တရုတ်	-8.19329
+▁တိုင်းပြည်	-8.19329
+▁တောင်း	-8.19329
+▁ထည့်	-8.19329
+▁ထပ်	-8.19329
+▁ထောင်	-8.19329
+▁ထံ	-8.19329
+▁ဒိုင်	-8.19329
+▁နည်းနည်း	-8.19329
+▁နယ်စပ်	-8.19329
+▁နာမည်	-8.19329
+▁နားမလည်	-8.19329
+▁နောက်ဆုံး	-8.19329
+▁ပိတ်	-8.19329
+▁ပိုင်း	-8.19329
+▁ပျက်စီး	-8.19329
+▁ပြဿနာ	-8.19329
+▁ဖုန်းဆက်	-8.19329
+▁ဖြေ	-8.19329
+▁ဘာသာ	-8.19329
+▁ဘွဲ့	-8.19329
+▁မင်းသား	-8.19329
+▁မင်္ဂလာ	-8.19329
+▁မနက်	-8.19329
+▁မီး	-8.19329
+▁မေ	-8.19329
+▁မြင်း	-8.19329
+▁မြန်မာ့	-8.19329
+▁မြို့နယ်	-8.19329
+▁ရုပ်	-8.19329
+▁ရုံ	-8.19329
+▁ရှင်းလင်း	-8.19329
+▁ရှိခိုး	-8.19329
+▁ရှေ့	-8.19329
+▁လက်ထက်	-8.19329
+▁လာရောက်	-8.19329
+▁လိမ့်	-8.19329
+▁လိုက်နာ	-8.19329
+▁လိုလို	-8.19329
+▁လိုအပ်	-8.19329
+▁လုပ်ငန်း	-8.19329
+▁လေးစား	-8.19329
+▁လျှောက်	-8.19329
+▁ဝတ်	-8.19329
+▁ဝမ်းသာ	-8.19329
+▁သဖြင့်	-8.19329
+▁သိန်း	-8.19329
+▁သို့သော်	-8.19329
+▁သူတို့	-8.19329
+▁ဟ	-8.19329
+▁အကျိုး	-8.19329
+▁အဆင်ပြေ	-8.19329
+▁အထက်	-8.19329
+▁အမျိုးသား	-8.19329
+▁အသက်	-8.19329
+▁အုပ်စု	-8.19329
+▁အဲဒါ	-8.19329
+▁ကစား	-8.41643
+▁ကတည်းက	-8.41643
+▁ကမ္ဘာ	-8.41643
+▁ကိုနေ	-8.41643
+▁ကိုယ်စားလှယ်	-8.41643
+▁ကိုး	-8.41643
+▁ကော်ဖီ	-8.41643
+▁ကံကောင်း	-8.41643
+▁ကျက်	-8.41643
+▁ခ	-8.41643
+▁ခင်ဗျာ	-8.41643
+▁ခနဲ	-8.41643
+▁ခိုင်း	-8.41643
+▁ခိုး	-8.41643
+▁ခြင်းလုံး	-8.41643
+▁ခြေထောက်	-8.41643
+▁ခြောက်	-8.41643
+▁ခွင့်	-8.41643
+▁ဂိုး	-8.41643
+▁ငှက်	-8.41643
+▁စစ်ဆေး	-8.41643
+▁စဉ်	-8.41643
+▁စတင်	-8.41643
+▁စလုံး	-8.41643
+▁စာမေးပွဲ	-8.41643
+▁စာရင်း	-8.41643
+▁စို့	-8.41643
+▁စောင်	-8.41643
+▁စောစော	-8.41643
+▁စံပယ်	-8.41643
+▁ဆက်သွယ်	-8.41643
+▁ဆန်	-8.41643
+▁ဆိုင်ကယ်	-8.41643
+▁ဆုတောင်း	-8.41643
+▁ဆုံ	-8.41643
+▁ဆောင်	-8.41643
+▁ဆဲ	-8.41643
+▁ညီမလေး	-8.41643
+▁တက်ရောက်	-8.41643
+▁တင်ပြ	-8.41643
+▁တည်ငြိမ်	-8.41643
+▁တန်း	-8.41643
+▁တပ်	-8.41643
+▁တိတိကျကျ	-8.41643
+▁တိုက်ခိုက်	-8.41643
+▁တိုးတက်	-8.41643
+▁တီး	-8.41643
+▁ထည့်	-8.41643
+▁ထိခိုက်	-8.41643
+▁ထိုအခါ	-8.41643
+▁ထုတ်	-8.41643
+▁ဒါကြောင့်	-8.41643
+▁နည်းပညာ	-8.41643
+▁နယ်	-8.41643
+▁နေထိုင်	-8.41643
+▁နောက်ထပ်	-8.41643
+▁နှလုံးသား	-8.41643
+▁ပထမ	-8.41643
+▁ပါရစေ	-8.41643
+▁ပါးစပ်	-8.41643
+▁ပိုက်ဆံ	-8.41643
+▁ပို့	-8.41643
+▁ပူဇော်	-8.41643
+▁ပူးပေါင်း	-8.41643
+▁ပေါ	-8.41643
+▁ပျက်	-8.41643
+▁ပြင်	-8.41643
+▁ပြည့်	-8.41643
+▁ပြတ်	-8.41643
+▁ပြသ	-8.41643
+▁ပြိုင်ပွဲ	-8.41643
+▁ပြောကြား	-8.41643
+▁ပြောင်းလဲ	-8.41643
+▁ပြောဆို	-8.41643
+▁ပြေး	-8.41643
+▁ပွင့်	-8.41643
+▁ဖတ်	-8.41643
+▁ဖလား	-8.41643
+▁ဖျက်	-8.41643
+▁ဖြေရှင်း	-8.41643
+▁ဘယ်သူ့	-8.41643
+▁ဘိ	-8.41643
+▁ဘုရား	-8.41643
+▁မဟာ	-8.41643
+▁မိနစ်	-8.41643
+▁မောင်း	-8.41643
+▁မဲ	-8.41643
+▁မျက်လုံး	-8.41643
+▁မြဲ	-8.41643
+▁မှတ်တမ်း	-8.41643
+▁မှား	-8.41643
+▁ယုံကြည်	-8.41643
+▁ယောက်ျား	-8.41643
+▁ရူး	-8.41643
+▁ရွက်	-8.41643
+▁ရှင်း	-8.41643
+▁လက်ရွေးစင်	-8.41643
+▁လူထု	-8.41643
+▁လူမျိုး	-8.41643
+▁လေယာဉ်	-8.41643
+▁လွန်း	-8.41643
+▁လှမ်း	-8.41643
+▁ဝေး	-8.41643
+▁သင်ကြား	-8.41643
+▁သတင်းစာ	-8.41643
+▁သတဲ့	-8.41643
+▁သတ္တိ	-8.41643
+▁သန်း	-8.41643
+▁သဘာဝ	-8.41643
+▁သဘော	-8.41643
+▁သဘောထား	-8.41643
+▁သို့မဟုတ်	-8.41643
+▁သူက	-8.41643
+▁သေသေချာချာ	-8.41643
+▁သော်လည်း	-8.41643
+▁သံ	-8.41643
+▁ဟန်	-8.41643
+▁ဟယ်	-8.41643
+▁ဟော	-8.41643
+▁အကုန်	-8.41643
+▁အကျင့်	-8.41643
+▁အကြောင်းအရာ	-8.41643
+▁အခြေခံ	-8.41643
+▁အစည်းအဝေး	-8.41643
+▁အစီအစဉ်	-8.41643
+▁အစ်မ	-8.41643
+▁အနား	-8.41643
+▁အနေနဲ့	-8.41643
+▁အပ်	-8.41643
+▁အဖြူ	-8.41643
+▁အဖြေ	-8.41643
+▁အမတ်	-8.41643
+▁အမေစု	-8.41643
+▁အမျိုးသမီး	-8.41643
+▁အရွယ်	-8.41643
+▁အလွန်	-8.41643
+▁အသံ	-8.41643
+▁အိတ်	-8.41643
+▁အို	-8.41643
+▁အုပ်	-8.41643
+▁အုပ်ချုပ်	-8.41643
+▁ဦးဆောင်	-8.41643
+▁ကိုကို	-8.70411
+▁ကိုမြင့်မြတ်	-8.70411
+▁ကုလား	-8.70411
+▁ကူ	-8.70411
+▁ကူး	-8.70411
+▁ကူးစက်	-8.70411
+▁ကောင်စီ	-8.70411
+▁ကောင်မလေး	-8.70411
+▁ကဲ့သို့	-8.70411
+▁ကျန်ရစ်	-8.70411
+▁ကြိမ်	-8.70411
+▁ကြေညာ	-8.70411
+▁ကြွ	-8.70411
+▁ကွယ်	-8.70411
+▁ကွယ်လွန်	-8.70411
+▁ခဏ	-8.70411
+▁ခပ်	-8.70411
+▁ခရီးစဉ်	-8.70411
+▁ခံတပ်	-8.70411
+▁ခြုံ	-8.70411
+▁ခြေ	-8.70411
+▁ခွင့်လွှတ်	-8.70411
+▁ခွင့်	-8.70411
+▁ဂိုဏ်း	-8.70411
+▁ငို	-8.70411
+▁စည်းကမ်း	-8.70411
+▁စည်းရုံး	-8.70411
+▁စပ်လျဉ်း၍	-8.70411
+▁စိစစ်	-8.70411
+▁ဆင်းရဲ	-8.70411
+▁ဆီးဂိမ်း	-8.70411
+▁ဆုံးရှုံး	-8.70411
+▁ဆောင်းပါး	-8.70411
+▁ဆံပင်	-8.70411
+▁ဇာတ်လမ်း	-8.70411
+▁ဈေးနှုန်း	-8.70411
+▁ညီလေး	-8.70411
+▁ဌာန	-8.70411
+▁တင်သွင်း	-8.70411
+▁တစ်ကမ္ဘာလုံး	-8.70411
+▁တစ်ရာ	-8.70411
+▁တပ်မတော်	-8.70411
+▁တဖြည်းဖြည်း	-8.70411
+▁တလွဲ	-8.70411
+▁တိရစ္ဆာန်	-8.70411
+▁တိုး	-8.70411
+▁တော်လှန်	-8.70411
+▁တံတား	-8.70411
+▁တွေး	-8.70411
+▁ထာဝရ	-8.70411
+▁ထိုင်ခုံ	-8.70411
+▁ထုန်း	-8.70411
+▁ထောက်လှမ်း	-8.70411
+▁ဒါမှမဟုတ်	-8.70411
+▁ဒေသ	-8.70411
+▁ဒေါ်လာ	-8.70411
+▁နားထောင်	-8.70411
+▁နိုင်ငံတကာ	-8.70411
+▁နိုင်းနိုင်း	-8.70411
+▁နေထွက်	-8.70411
+▁နေမင်း	-8.70411
+▁နောင်	-8.70411
+▁နံရံ	-8.70411
+▁နှလုံး	-8.70411
+▁ပ	-8.70411
+▁ပင်ပန်း	-8.70411
+▁ပင်လယ်	-8.70411
+▁ပတ်ဝန်းကျင်	-8.70411
+▁ပထမဆုံး	-8.70411
+▁ပါတီ	-8.70411
+▁ပိုင်ဆိုင်	-8.70411
+▁ပုံစံ	-8.70411
+▁ပေးအပ်	-8.70411
+▁ပြင်ဆင်	-8.70411
+▁ပြည်ထောင်စု	-8.70411
+▁ပြည်သူပြည်သား	-8.70411
+▁ပြည်သူ့	-8.70411
+▁ပြဌာန်း	-8.70411
+▁ပြန်ရောက်	-8.70411
+▁ဖန်တီး	-8.70411
+▁ဖယ်	-8.70411
+▁ဖိုက်တင်း	-8.70411
+▁ဖော်ပြ	-8.70411
+▁ဖြစ်ပေါ်	-8.70411
+▁ဖွင့်	-8.70411
+▁ဖွင့်	-8.70411
+▁ဖွဲ့စည်း	-8.70411
+▁ဖွဲ့စည်းပုံ	-8.70411
+▁ဘဏ်	-8.70411
+▁ဘယ်တော့	-8.70411
+▁ဘယ်နှ	-8.70411
+▁ဘီယာ	-8.70411
+▁ဘီး	-8.70411
+▁ဘွန်ဒက်စ်လီဂါ	-8.70411
+▁မက	-8.70411
+▁မဆို	-8.70411
+▁မည့်	-8.70411
+▁မိန်းကလေး	-8.70411
+▁မိဘ	-8.70411
+▁မိုက်	-8.70411
+▁မုခ်	-8.70411
+▁မေဘုန်းရှိန်	-8.70411
+▁မေမေ	-8.70411
+▁မောင့်	-8.70411
+▁မျက်မှန်	-8.70411
+▁များများ	-8.70411
+▁မြင့်မြတ်	-8.70411
+▁မြင်ကွင်း	-8.70411
+▁မြေ	-8.70411
+▁မြှောက်	-8.70411
+▁မွေး	-8.70411
+▁မှီ	-8.70411
+▁ယူဆ	-8.70411
+▁ရက်နေ့	-8.70411
+▁ရုံး	-8.70411
+▁ရေဒီယို	-8.70411
+▁ရောဂါ	-8.70411
+▁ရောင်း	-8.70411
+▁ရွေးချယ်	-8.70411
+▁ရှေ့နေ	-8.70411
+▁ရှေးဟောင်း	-8.70411
+▁လက်နက်	-8.70411
+▁လက်မှတ်	-8.70411
+▁လစ်	-8.70411
+▁လမ်းမ	-8.70411
+▁လမ်းလျှောက်	-8.70411
+▁လယ်ယာ	-8.70411
+▁လိုချင်	-8.70411
+▁လုပ်ငန်းစဉ်	-8.70411
+▁လုပ်ပိုင်ခွင့်	-8.70411
+▁လူသတ်	-8.70411
+▁လူ့	-8.70411
+▁လေ့ကျင့်ခန်း	-8.70411
+▁လျှောက်ထား	-8.70411
+▁လွတ်လပ်	-8.70411
+▁လှုပ်ရှား	-8.70411
+▁လှေ	-8.70411
+▁ဝင်ရောက်	-8.70411
+▁ဝန်ထမ်း	-8.70411
+▁ဝေ	-8.70411
+▁ဝေဖန်	-8.70411
+▁သင်း	-8.70411
+▁သစ္စာ	-8.70411
+▁သစ်	-8.70411
+▁သတိထား	-8.70411
+▁သတ်မှတ်	-8.70411
+▁သနား	-8.70411
+▁သဘင်	-8.70411
+▁သမ္မတနိုင်ငံ	-8.70411
+▁သမျှ	-8.70411
+▁သရုပ်ဆောင်	-8.70411
+▁သာမက	-8.70411
+▁သာယာ	-8.70411
+▁သိက္ခာ	-8.70411
+▁သိမြင်	-8.70411
+▁သံဃာ	-8.70411
+▁ဟူသော	-8.70411
+▁ဟေ	-8.70411
+▁အကောင်	-8.70411
+▁အကြိုက်ဆုံး	-8.70411
+▁အကြံဉာဏ်	-8.70411
+▁အခက်အခဲ	-8.70411
+▁အချက်	-8.70411
+▁အချို့	-8.70411
+▁အခြေအနေ	-8.70411
+▁အခွင့်အရေး	-8.70411
+▁အင်ဒိုနီးရှား	-8.70411
+▁အင်း	-8.70411
+▁အင်္ကျီ	-8.70411
+▁အင်္ဂလန်	-8.70411
+▁အစီရင်ခံစာ	-8.70411
+▁အဆင်မပြေ	-8.70411
+▁အညီ	-8.70411
+▁အဓိပ္ပါယ်	-8.70411
+▁အနုပညာ	-8.70411
+▁အနံ့	-8.70411
+▁အန်	-8.70411
+▁အန်ကယ်	-8.70411
+▁အန်တီ	-8.70411
+▁အနှိပ်ခံ	-8.70411
+▁အပြစ်	-8.70411
+▁အဖမ်း	-8.70411
+▁အဖော်	-8.70411
+▁အဖွဲ့	-8.70411
+▁အဖွဲ့အစည်း	-8.70411
+▁အဘ	-8.70411
+▁အမိန့်	-8.70411
+▁အများကြီး	-8.70411
+▁အများစု	-8.70411
+▁အမြင်	-8.70411
+▁အမြန်ဆုံး	-8.70411
+▁အမြဲတမ်း	-8.70411
+▁အမှု	-8.70411
+▁အရင်	-8.70411
+▁အရေးကြီး	-8.70411
+▁အလံ	-8.70411
+▁အဝတ်	-8.70411
+▁အသုံးပြု	-8.70411
+▁အသဲ	-8.70411
+▁အားကိုး	-8.70411
+▁အားကျ	-8.70411
+▁အားဖြင့်	-8.70411
+▁အားဖြင့်	-8.70411
+▁အေးချမ်း	-8.70411
+▁အဲ့ဒါ	-8.70411
+▁အဲ့လို	-8.70411
+▁ဦးခိုက်	-8.70411
+▁၎င်း	-8.70411
+▁ကင်းမဲ့	-9.10958
+▁ကစားသမား	-9.10958
+▁ကန်	-9.10958
+▁ကန့်ကွက်	-9.10958
+▁ကဗျာ	-9.10958
+▁ကမ္ဘောဇ	-9.10958
+▁ကမ္ဘောဒီးယား	-9.10958
+▁ကမ်းခြေ	-9.10958
+▁ကလပ်	-9.10958
+▁ကားလမ်း	-9.10958
+▁ကိုက်	-9.10958
+▁ကိုစိုင်းစိုင်း	-9.10958
+▁ကိုတိုး	-9.10958
+▁ကိုယ်ချင်းစာ	-9.10958
+▁ကိုရဲ	-9.10958
+▁ကုန်ကျ	-9.10958
+▁ကုန်း	-9.10958
+▁ကောက်	-9.10958
+▁ကောင်းကင်	-9.10958
+▁ကောင်းကင်ဘုံ	-9.10958
+▁ကောင်းကောင်း	-9.10958
+▁ကော်မရှင်	-9.10958
+▁ကံဆိုး	-9.10958
+▁ကျက်စား	-9.10958
+▁ကျက်သရေ	-9.10958
+▁ကျင့်	-9.10958
+▁ကျဉ်း	-9.10958
+▁ကျနော်	-9.10958
+▁ကျမ်း	-9.10958
+▁ကျုပ်	-9.10958
+▁ကျေးဇူးတင်	-9.10958
+▁ကျေးရွာ	-9.10958
+▁ကျွေး	-9.10958
+▁ကြက်ဥ	-9.10958
+▁ကြင်နာ	-9.10958
+▁ကြို	-9.10958
+▁ကြိုးပမ်း	-9.10958
+▁ကြီးကြပ်	-9.10958
+▁ကြုံ	-9.10958
+▁ကြေကွဲ	-9.10958
+▁ကြောက်	-9.10958
+▁ကြံ	-9.10958
+▁ကွဲ	-9.10958
+▁ခက်	-9.10958
+▁ခင်ညွန့်	-9.10958
+▁ခန့်မှန်း	-9.10958
+▁ခရီးထွက်	-9.10958
+▁ခရု	-9.10958
+▁ခါးပတ်	-9.10958
+▁ခိုက်	-9.10958
+▁ခုန်	-9.10958
+▁ခုန်ချ	-9.10958
+▁ခေတ္တ	-9.10958
+▁ခေါက်	-9.10958
+▁ခေါင်းဆောင်	-9.10958
+▁ခေါင်းမာ	-9.10958
+▁ခဲတံ	-9.10958
+▁ခဲ့သလဲ	-9.10958
+▁ခံယူ	-9.10958
+▁ချစ်ခင်	-9.10958
+▁ချန်ပီယံ	-9.10958
+▁ချမှတ်	-9.10958
+▁ချိန်း	-9.10958
+▁ချိုး	-9.10958
+▁ချီး	-9.10958
+▁ချေ	-9.10958
+▁ချေး	-9.10958
+▁ခွေးမသား	-9.10958
+▁ဂုဏ်တော်	-9.10958
+▁ဂုဏ်သိက္ခာ	-9.10958
+▁ဂျိန်း	-9.10958
+▁ဂျီဒီပီ	-9.10958
+▁င်း	-9.10958
+▁စကားပုံ	-9.10958
+▁စက္ကူ	-9.10958
+▁စက်ရုံ	-9.10958
+▁စကြဝဠာ	-9.10958
+▁စခန်း	-9.10958
+▁စစ်သား	-9.10958
+▁စည်းမျဉ်းစည်းကမ်း	-9.10958
+▁စပိန်	-9.10958
+▁စာရေး	-9.10958
+▁စိတ်ကူး	-9.10958
+▁စိတ်ညစ်	-9.10958
+▁စိတ်နှလုံး	-9.10958
+▁စိတ်ပျက်	-9.10958
+▁စိတ်ဝင်စား	-9.10958
+▁စိုက်	-9.10958
+▁စီ	-9.10958
+▁စီစဉ်	-9.10958
+▁စုံစမ်း	-9.10958
+▁စောင့်	-9.10958
+▁စံ	-9.10958
+▁စျေး	-9.10958
+▁စွယ်စုံ	-9.10958
+▁ဆက်ဆံ	-9.10958
+▁ဆက်လက်	-9.10958
+▁ဆင့်	-9.10958
+▁ဆတ်	-9.10958
+▁ဆန္ဒ	-9.10958
+▁ဆယ်	-9.10958
+▁ဆရာတော်	-9.10958
+▁ဆရာမ	-9.10958
+▁ဆိုင်ရာ	-9.10958
+▁ဆီမီးဖိုင်နယ်	-9.10958
+▁ဆူညံ	-9.10958
+▁ဆောက်	-9.10958
+▁ဆောက်လုပ်	-9.10958
+▁ဆောင့်ကြောင့်	-9.10958
+▁ဆော်	-9.10958
+▁ဆေးလိပ်	-9.10958
+▁ဆွေမျိုးစု	-9.10958
+▁ဇနီး	-9.10958
+▁ဇူကာဘတ်	-9.10958
+▁ညစ်	-9.10958
+▁ညဉ့်နက်	-9.10958
+▁ညနေ	-9.10958
+▁ညီအစ်ကို	-9.10958
+▁တချိန်	-9.10958
+▁တခြား	-9.10958
+▁တစ်စ	-9.10958
+▁တည်ရှိ	-9.10958
+▁တည့်	-9.10958
+▁တတိယ	-9.10958
+▁တတ်မြောက်	-9.10958
+▁တတွေ	-9.10958
+▁တနင်္ဂနွေ	-9.10958
+▁တန်းစီ	-9.10958
+▁တမင်	-9.10958
+▁တရားလို	-9.10958
+▁တာချီလိတ်	-9.10958
+▁တားဆီး	-9.10958
+▁တိမ်	-9.10958
+▁တိုက်ဆိုင်	-9.10958
+▁တိုက်ရိုက်	-9.10958
+▁တိုင်	-9.10958
+▁တိုင်ကြား	-9.10958
+▁တုတ်	-9.10958
+▁တောင်ကြီး	-9.10958
+▁တောင်ငူ	-9.10958
+▁တောင်းဆို	-9.10958
+▁တောင်းပန်	-9.10958
+▁တော်ကြာ	-9.10958
+▁တွင်း	-9.10958
+▁တွေ့ဆုံ	-9.10958
+▁တွေ့ရှိ	-9.10958
+▁ထည်	-9.10958
+▁ထပ်တူ	-9.10958
+▁ထပ်မံ	-9.10958
+▁ထမင်း	-9.10958
+▁ထိရောက်	-9.10958
+▁ထို့ကြောင့်	-9.10958
+▁ထို့နောက်	-9.10958
+▁ထိုး	-9.10958
+▁ထု	-9.10958
+▁ထုတ်ပေး	-9.10958
+▁ထုတ်ဖော်	-9.10958
+▁ထဲက	-9.10958
+▁ဒဂုံ	-9.10958
+▁ဒမ်ဘီလီ	-9.10958
+
+```
+
+## word, word ကိုပဲ vocab_size 1500 ထားကြည့်
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$ time python ./build_spm.py --corpus ./1k.word --output_prefix ./word/1k.word.vc1500 --model_type word --vocab_size 1500
+sentencepiece_trainer.cc(77) LOG(INFO) Starts training with :
+trainer_spec {
+  input: ./1k.word
+  input_format:
+  model_prefix: ./word/1k.word.vc1500.word
+  model_type: WORD
+  vocab_size: 1500
+  self_test_sample_size: 0
+  character_coverage: 1
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter:
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars:
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv:
+}
+denormalizer_spec {}
+trainer_interface.cc(351) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(183) LOG(INFO) Loading corpus: ./1k.word
+trainer_interface.cc(407) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(423) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(428) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(537) LOG(INFO) all chars count=93721
+trainer_interface.cc(558) LOG(INFO) Alphabet size=62
+trainer_interface.cc(559) LOG(INFO) Final character coverage=1
+trainer_interface.cc(591) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(686) LOG(INFO) Saving model: ./word/1k.word.vc1500.word.model
+trainer_interface.cc(698) LOG(INFO) Saving vocabs: ./word/1k.word.vc1500.word.vocab
+
+real    0m0.059s
+user    0m0.058s
+sys     0m0.015s
+(hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/sp$
+```
+
+```
+<unk>	0
+<s>	0
+</s>	0
+▁ပါ	-3.60832
+▁ကို	-3.72509
+▁က	-3.79146
+▁တယ်	-3.80379
+▁မ	-3.90832
+▁တာ	-4.08242
+▁နေ	-4.10563
+▁တွေ	-4.20431
+▁သည်	-4.25755
+▁မှာ	-4.28127
+▁ရ	-4.42283
+▁တော့	-4.59872
+▁တဲ့	-4.63794
+▁နဲ့	-4.64367
+▁များ	-4.67283
+▁ဘူး	-4.75287
+▁ရှိ	-4.75287
+▁ပြီး	-4.76578
+▁ဖြစ်	-4.79878
+▁လို့	-4.83988
+▁ပဲ	-4.8469
+▁တစ်	-4.89007
+▁သူ	-4.91238
+▁လည်း	-4.9507
+▁တို့	-5.03204
+▁ခဲ့	-5.0578
+▁ဆို	-5.06653
+▁လာ	-5.0932
+▁လား	-5.10225
+▁ရင်	-5.11138
+▁လိုက်	-5.168
+▁ကြ	-5.22802
+▁မယ်	-5.25943
+▁ပြော	-5.27013
+▁ပေး	-5.28094
+▁မှ	-5.28094
+▁သွား	-5.32539
+▁၏	-5.33682
+▁လဲ	-5.37191
+▁နိုင်	-5.45892
+▁လုပ်	-5.45892
+▁တွင်	-5.47199
+▁ထား	-5.47199
+▁ရေး	-5.49866
+▁ပြီ	-5.55423
+▁ဒီ	-5.58322
+▁ကောင်း	-5.59803
+▁ကျွန်တော်	-5.59803
+▁မှု	-5.59803
+▁နှင့်	-5.61307
+▁ရဲ့	-5.64384
+▁လေ	-5.65959
+▁နော်	-5.69185
+▁ကြီး	-5.70838
+▁ချင်	-5.70838
+▁လေး	-5.70838
+▁ဘာ	-5.72519
+▁သော	-5.75968
+▁ခြင်း	-5.77738
+▁မင်း	-5.81374
+▁ဟာ	-5.85148
+▁အတွက်	-5.8709
+▁သိ	-5.8907
+▁ဟုတ်	-5.8907
+▁ဖို့	-5.93153
+▁ကြည့်	-5.97409
+▁ပြန်	-5.99607
+▁ထဲ	-6.06506
+▁ပါစေ	-6.06506
+▁ဘယ်	-6.06506
+▁ခု	-6.08916
+▁ယောက်	-6.08916
+▁နိုင်ငံ	-6.11385
+▁ဦး	-6.11385
+▁လို	-6.13917
+▁သေး	-6.13917
+▁အားပေး	-6.13917
+▁ပေါ့	-6.19181
+▁နှစ်	-6.21921
+▁လူ	-6.21921
+▁ကျ	-6.24738
+▁မြန်မာ	-6.24738
+▁ရောက်	-6.24738
+▁ငါ	-6.27637
+▁သူ့	-6.27637
+▁၍	-6.27637
+▁မိ	-6.30622
+▁ရေ	-6.30622
+▁အရမ်း	-6.30622
+▁ရာ	-6.33699
+▁ဟု	-6.33699
+▁အောင်	-6.33699
+▁သို့	-6.40153
+▁ချစ်	-6.43543
+▁မည်	-6.43543
+▁သာ	-6.43543
+▁စရာ	-6.47052
+▁ပင်	-6.47052
+▁လုံး	-6.47052
+▁ခင်ဗျား	-6.50689
+▁တွေ့	-6.50689
+▁ကား	-6.54463
+▁ပေါ်	-6.54463
+▁သား	-6.54463
+▁ကိုယ်	-6.58385
+▁ဒါ	-6.58385
+▁ရယ်	-6.58385
+▁သာဓု	-6.58385
+▁အခု	-6.58385
+▁ကိုစိုင်း	-6.62467
+▁စား	-6.62467
+▁တတ်	-6.62467
+▁တောင်	-6.62467
+▁ထွက်	-6.62467
+▁လျက်	-6.62467
+▁သုံး	-6.62467
+▁သူမ	-6.62467
+▁ငွေ	-6.66723
+▁စေ	-6.66723
+▁ထင်	-6.66723
+▁ဘယ်လို	-6.66723
+▁အဲဒီ	-6.66723
+▁ကြောင်း	-6.71169
+▁ခံ	-6.71169
+▁စကား	-6.75821
+▁စွာ	-6.75821
+▁ပြ	-6.75821
+▁လောက်	-6.75821
+▁အသင်း	-6.75821
+▁ကွာ	-6.807
+▁ချက်	-6.807
+▁တိုင်း	-6.807
+▁မျိုး	-6.807
+▁ကလေး	-6.85829
+▁လက်	-6.85829
+▁လျှင်	-6.85829
+▁ကြိုက်	-6.91236
+▁ကြိုးစား	-6.91236
+▁စာ	-6.91236
+▁တော်	-6.91236
+▁နေ့	-6.91236
+▁ပို	-6.91236
+▁ပေ	-6.91236
+▁ယူ	-6.91236
+▁သည့်	-6.91236
+▁ကိုယ့်	-6.96951
+▁ခေါ်	-6.96951
+▁ပျော်	-6.96951
+▁ပွဲ	-6.96951
+▁မလဲ	-6.96951
+▁ရက်	-6.96951
+▁သေ	-6.96951
+▁စိတ်	-7.03014
+▁ထို	-7.03014
+▁ဘယ်လောက်	-7.03014
+▁ဘဝ	-7.03014
+▁မလား	-7.03014
+▁မြင်	-7.03014
+▁ရန်	-7.03014
+▁ဝင်	-7.03014
+▁သင့်	-7.03014
+▁အားလုံး	-7.03014
+▁ငါ့	-7.09468
+▁စ	-7.09468
+▁ဆက်	-7.09468
+▁တင်	-7.09468
+▁ထက်	-7.09468
+▁ဗျာ	-7.09468
+▁မြို့	-7.09468
+▁ရိုက်	-7.09468
+▁လှ	-7.09468
+▁သိပ်	-7.09468
+▁အမြဲ	-7.09468
+▁အိမ်	-7.09468
+▁၌	-7.09468
+▁ချော	-7.16367
+▁တကယ်	-7.16367
+▁ဒါပေမဲ့	-7.16367
+▁နောက်	-7.16367
+▁ဘက်	-7.16367
+▁ဘဲ	-7.16367
+▁ရင်း	-7.16367
+▁ရပ်	-7.16367
+▁ဝယ်	-7.16367
+▁သလို	-7.16367
+▁ကျန်းမာ	-7.23778
+▁ကျွန်မ	-7.23778
+▁ကြည့်	-7.23778
+▁ငေး	-7.23778
+▁စု	-7.23778
+▁တုန်း	-7.23778
+▁နေတိုး	-7.23778
+▁နံပါတ်	-7.23778
+▁ပါ့	-7.23778
+▁မေး	-7.23778
+▁သည့်	-7.23778
+▁သောက်	-7.23778
+▁အချိန်	-7.23778
+▁အောင်မြင်	-7.23778
+▁ကျွန်ုပ်	-7.31782
+▁ချင်း	-7.31782
+▁ခွေး	-7.31782
+▁တက်	-7.31782
+▁တည်း	-7.31782
+▁ထိုင်	-7.31782
+▁နာရီ	-7.31782
+▁နေရာ	-7.31782
+▁ပုံ	-7.31782
+▁ဘယ်သူ	-7.31782
+▁ရဲ	-7.31782
+▁ရှင်	-7.31782
+▁သင့်	-7.31782
+▁သလဲ	-7.31782
+▁သီချင်း	-7.31782
+▁အလုပ်	-7.31782
+▁အား	-7.31782
+▁အောက်	-7.31782
+▁ကောင်	-7.40483
+▁စိုင်း	-7.40483
+▁ဆောင်ရွက်	-7.40483
+▁တရား	-7.40483
+▁မယ့်	-7.40483
+▁ရခိုင်	-7.40483
+▁ရှင့်	-7.40483
+▁သတင်း	-7.40483
+▁သလား	-7.40483
+▁အစ်ကို	-7.40483
+▁အဖြစ်	-7.40483
+▁ကိစ္စ	-7.50014
+▁ကုန်	-7.50014
+▁ကျောင်း	-7.50014
+▁ကျွန်တော့်	-7.50014
+▁ကြာ	-7.50014
+▁စိုင်းစိုင်း	-7.50014
+▁ထိ	-7.50014
+▁ပေါင်း	-7.50014
+▁ပျော်ရွှင်	-7.50014
+▁ဖုန်း	-7.50014
+▁ဖြင့်	-7.50014
+▁မမ	-7.50014
+▁သတ်	-7.50014
+▁ဟို	-7.50014
+▁အခန်း	-7.50014
+▁အခါ	-7.50014
+▁အစိုးရ	-7.50014
+▁အတူ	-7.50014
+▁အော်	-7.50014
+▁ဥပဒေ	-7.50014
+▁ကပ်	-7.6055
+▁ကာ	-7.6055
+▁ကိုနေတိုး	-7.6055
+▁ကိုယ်တိုင်	-7.6055
+▁ကြောင့်	-7.6055
+▁ကွ	-7.6055
+▁ခေတ်	-7.6055
+▁ခံစား	-7.6055
+▁ချိန်	-7.6055
+▁စောက်	-7.6055
+▁ဆရာ	-7.6055
+▁ဆီ	-7.6055
+▁ည	-7.6055
+▁တာဝန်	-7.6055
+▁တိုက်	-7.6055
+▁တော်တော်	-7.6055
+▁ဒီလို	-7.6055
+▁နိုင်ငံတော်	-7.6055
+▁ပြည်	-7.6055
+▁ပြည်သူ	-7.6055
+▁ပြု	-7.6055
+▁ဖက်	-7.6055
+▁ဖြင့်	-7.6055
+▁ဗျ	-7.6055
+▁ဘေး	-7.6055
+▁မန္တလေး	-7.6055
+▁မဲ့	-7.6055
+▁မှန်	-7.6055
+▁ရှာ	-7.6055
+▁လ	-7.6055
+▁လေ့လာ	-7.6055
+▁လွှဲ	-7.6055
+▁သမီး	-7.6055
+▁အကြောင်း	-7.6055
+▁အတိုင်း	-7.6055
+▁အမေ	-7.6055
+▁အေး	-7.6055
+▁ကိုကြီး	-7.72329
+▁ကိုင်	-7.72329
+▁ကျင်းပ	-7.72329
+▁ကျောင်းသား	-7.72329
+▁ကြောင့်	-7.72329
+▁ခါ	-7.72329
+▁စဉ်းစား	-7.72329
+▁စိတ်မကောင်း	-7.72329
+▁ဆုံး	-7.72329
+▁ဆွဲ	-7.72329
+▁တက္ကသိုလ်	-7.72329
+▁နည်း	-7.72329
+▁ပစ္စည်း	-7.72329
+▁ပစ်	-7.72329
+▁ပြုလုပ်	-7.72329
+▁ဗမာ	-7.72329
+▁မိန်းမ	-7.72329
+▁မိမိ	-7.72329
+▁လိမ့်	-7.72329
+▁လေ့	-7.72329
+▁ဟုတ်ကဲ့	-7.72329
+▁အကယ်ဒမီ	-7.72329
+▁အတွင်း	-7.72329
+▁အထိ	-7.72329
+▁အပေါ်	-7.72329
+▁အမေရိကန်	-7.72329
+▁အဲ့	-7.72329
+▁ဤ	-7.72329
+▁ကျေးဇူး	-7.85682
+▁ကျွန်တော့်	-7.85682
+▁ကြား	-7.85682
+▁ချ	-7.85682
+▁စာအုပ်	-7.85682
+▁စီး	-7.85682
+▁စီးပွား	-7.85682
+▁ဆိုး	-7.85682
+▁ဆုံးဖြတ်	-7.85682
+▁တူ	-7.85682
+▁ထ	-7.85682
+▁နားလည်	-7.85682
+▁နှင့်	-7.85682
+▁နှစ်သစ်	-7.85682
+▁ပညာ	-7.85682
+▁ပညာရှင်	-7.85682
+▁ပရိသတ်	-7.85682
+▁ပါဝင်	-7.85682
+▁ပြောင်း	-7.85682
+▁ဖူး	-7.85682
+▁မယ့်	-7.85682
+▁မို့	-7.85682
+▁မူ	-7.85682
+▁မျက်နှာ	-7.85682
+▁မြန်	-7.85682
+▁ယခု	-7.85682
+▁ယုံ	-7.85682
+▁ရန်ကုန်	-7.85682
+▁ရရှိ	-7.85682
+▁ရော	-7.85682
+▁ရွေး	-7.85682
+▁လမ်း	-7.85682
+▁လျှို့ဝှက်	-7.85682
+▁လွတ်	-7.85682
+▁လွှတ်တော်	-7.85682
+▁သူငယ်ချင်း	-7.85682
+▁သေချာ	-7.85682
+▁အကို	-7.85682
+▁အခြား	-7.85682
+▁အဓိက	-7.85682
+▁အရ	-7.85682
+▁အိပ်	-7.85682
+▁ကမ္ဘာ့	-8.01097
+▁ကာကွယ်	-8.01097
+▁ကာလ	-8.01097
+▁ကူညီ	-8.01097
+▁ကော်မတီ	-8.01097
+▁ကျန်	-8.01097
+▁ကျပ်	-8.01097
+▁ကျေနပ်	-8.01097
+▁ကျော်	-8.01097
+▁ကျေးဇူးပြုပြီး	-8.01097
+▁ခင်	-8.01097
+▁ခုနှစ်	-8.01097
+▁ခွဲ	-8.01097
+▁ဂုဏ်ယူ	-8.01097
+▁ဂျပန်	-8.01097
+▁စိုက်ပျိုး	-8.01097
+▁စောင့်	-8.01097
+▁ဆု	-8.01097
+▁ဇာတ်ကား	-8.01097
+▁ညီမ	-8.01097
+▁တချို့	-8.01097
+▁ထိုင်း	-8.01097
+▁ဒဏ်ရာ	-8.01097
+▁နင်	-8.01097
+▁ပတ်သက်	-8.01097
+▁ပန်း	-8.01097
+▁ပြန်လည်	-8.01097
+▁ပြီးနောက်	-8.01097
+▁ဖမ်း	-8.01097
+▁ဖိနပ်	-8.01097
+▁မနက်ဖြန်	-8.01097
+▁မိသားစု	-8.01097
+▁မောင်	-8.01097
+▁မောင်လေး	-8.01097
+▁မေ့	-8.01097
+▁မှတ်မိ	-8.01097
+▁ရောင်	-8.01097
+▁ရွာ	-8.01097
+▁လက်ရှိ	-8.01097
+▁ဝ	-8.01097
+▁သင်	-8.01097
+▁သတိရ	-8.01097
+▁သဖြင့်	-8.01097
+▁သမ္မတ	-8.01097
+▁သောအခါ	-8.01097
+▁သော်	-8.01097
+▁ဟင်	-8.01097
+▁အချစ်	-8.01097
+▁အစ	-8.01097
+▁အပြင်	-8.01097
+▁အရာ	-8.01097
+▁ကချင်	-8.19329
+▁ကင်း	-8.19329
+▁ကော	-8.19329
+▁ကြိုတင်	-8.19329
+▁ခန့်	-8.19329
+▁ခရိုင်	-8.19329
+▁ခရီး	-8.19329
+▁ခေါင်း	-8.19329
+▁ချမ်းသာ	-8.19329
+▁ချီ	-8.19329
+▁ချောင်း	-8.19329
+▁ဂရုစိုက်	-8.19329
+▁ငယ်	-8.19329
+▁ငါး	-8.19329
+▁ငြိမ်းချမ်း	-8.19329
+▁ငှား	-8.19329
+▁စစ်	-8.19329
+▁စမ်း	-8.19329
+▁ဆင်း	-8.19329
+▁ဆိုင်	-8.19329
+▁ဆေး	-8.19329
+▁ဆွေးနွေး	-8.19329
+▁ဈေး	-8.19329
+▁တန်ဖိုး	-8.19329
+▁တရုတ်	-8.19329
+▁တိုင်းပြည်	-8.19329
+▁တောင်း	-8.19329
+▁ထည့်	-8.19329
+▁ထပ်	-8.19329
+▁ထောင်	-8.19329
+▁ထံ	-8.19329
+▁ဒိုင်	-8.19329
+▁နည်းနည်း	-8.19329
+▁နယ်စပ်	-8.19329
+▁နာမည်	-8.19329
+▁နားမလည်	-8.19329
+▁နောက်ဆုံး	-8.19329
+▁ပိတ်	-8.19329
+▁ပိုင်း	-8.19329
+▁ပျက်စီး	-8.19329
+▁ပြဿနာ	-8.19329
+▁ဖုန်းဆက်	-8.19329
+▁ဖြေ	-8.19329
+▁ဘာသာ	-8.19329
+▁ဘွဲ့	-8.19329
+▁မင်းသား	-8.19329
+▁မင်္ဂလာ	-8.19329
+▁မနက်	-8.19329
+▁မီး	-8.19329
+▁မေ	-8.19329
+▁မြင်း	-8.19329
+▁မြန်မာ့	-8.19329
+▁မြို့နယ်	-8.19329
+▁ရုပ်	-8.19329
+▁ရုံ	-8.19329
+▁ရှင်းလင်း	-8.19329
+▁ရှိခိုး	-8.19329
+▁ရှေ့	-8.19329
+▁လက်ထက်	-8.19329
+▁လာရောက်	-8.19329
+▁လိမ့်	-8.19329
+▁လိုက်နာ	-8.19329
+▁လိုလို	-8.19329
+▁လိုအပ်	-8.19329
+▁လုပ်ငန်း	-8.19329
+▁လေးစား	-8.19329
+▁လျှောက်	-8.19329
+▁ဝတ်	-8.19329
+▁ဝမ်းသာ	-8.19329
+▁သဖြင့်	-8.19329
+▁သိန်း	-8.19329
+▁သို့သော်	-8.19329
+▁သူတို့	-8.19329
+▁ဟ	-8.19329
+▁အကျိုး	-8.19329
+▁အဆင်ပြေ	-8.19329
+▁အထက်	-8.19329
+▁အမျိုးသား	-8.19329
+▁အသက်	-8.19329
+▁အုပ်စု	-8.19329
+▁အဲဒါ	-8.19329
+▁ကစား	-8.41643
+▁ကတည်းက	-8.41643
+▁ကမ္ဘာ	-8.41643
+▁ကိုနေ	-8.41643
+▁ကိုယ်စားလှယ်	-8.41643
+▁ကိုး	-8.41643
+▁ကော်ဖီ	-8.41643
+▁ကံကောင်း	-8.41643
+▁ကျက်	-8.41643
+▁ခ	-8.41643
+▁ခင်ဗျာ	-8.41643
+▁ခနဲ	-8.41643
+▁ခိုင်း	-8.41643
+▁ခိုး	-8.41643
+▁ခြင်းလုံး	-8.41643
+▁ခြေထောက်	-8.41643
+▁ခြောက်	-8.41643
+▁ခွင့်	-8.41643
+▁ဂိုး	-8.41643
+▁ငှက်	-8.41643
+▁စစ်ဆေး	-8.41643
+▁စဉ်	-8.41643
+▁စတင်	-8.41643
+▁စလုံး	-8.41643
+▁စာမေးပွဲ	-8.41643
+▁စာရင်း	-8.41643
+▁စို့	-8.41643
+▁စောင်	-8.41643
+▁စောစော	-8.41643
+▁စံပယ်	-8.41643
+▁ဆက်သွယ်	-8.41643
+▁ဆန်	-8.41643
+▁ဆိုင်ကယ်	-8.41643
+▁ဆုတောင်း	-8.41643
+▁ဆုံ	-8.41643
+▁ဆောင်	-8.41643
+▁ဆဲ	-8.41643
+▁ညီမလေး	-8.41643
+▁တက်ရောက်	-8.41643
+▁တင်ပြ	-8.41643
+▁တည်ငြိမ်	-8.41643
+▁တန်း	-8.41643
+▁တပ်	-8.41643
+▁တိတိကျကျ	-8.41643
+▁တိုက်ခိုက်	-8.41643
+▁တိုးတက်	-8.41643
+▁တီး	-8.41643
+▁ထည့်	-8.41643
+▁ထိခိုက်	-8.41643
+▁ထိုအခါ	-8.41643
+▁ထုတ်	-8.41643
+▁ဒါကြောင့်	-8.41643
+▁နည်းပညာ	-8.41643
+▁နယ်	-8.41643
+▁နေထိုင်	-8.41643
+▁နောက်ထပ်	-8.41643
+▁နှလုံးသား	-8.41643
+▁ပထမ	-8.41643
+▁ပါရစေ	-8.41643
+▁ပါးစပ်	-8.41643
+▁ပိုက်ဆံ	-8.41643
+▁ပို့	-8.41643
+▁ပူဇော်	-8.41643
+▁ပူးပေါင်း	-8.41643
+▁ပေါ	-8.41643
+▁ပျက်	-8.41643
+▁ပြင်	-8.41643
+▁ပြည့်	-8.41643
+▁ပြတ်	-8.41643
+▁ပြသ	-8.41643
+▁ပြိုင်ပွဲ	-8.41643
+▁ပြောကြား	-8.41643
+▁ပြောင်းလဲ	-8.41643
+▁ပြောဆို	-8.41643
+▁ပြေး	-8.41643
+▁ပွင့်	-8.41643
+▁ဖတ်	-8.41643
+▁ဖလား	-8.41643
+▁ဖျက်	-8.41643
+▁ဖြေရှင်း	-8.41643
+▁ဘယ်သူ့	-8.41643
+▁ဘိ	-8.41643
+▁ဘုရား	-8.41643
+▁မဟာ	-8.41643
+▁မိနစ်	-8.41643
+▁မောင်း	-8.41643
+▁မဲ	-8.41643
+▁မျက်လုံး	-8.41643
+▁မြဲ	-8.41643
+▁မှတ်တမ်း	-8.41643
+▁မှား	-8.41643
+▁ယုံကြည်	-8.41643
+▁ယောက်ျား	-8.41643
+▁ရူး	-8.41643
+▁ရွက်	-8.41643
+▁ရှင်း	-8.41643
+▁လက်ရွေးစင်	-8.41643
+▁လူထု	-8.41643
+▁လူမျိုး	-8.41643
+▁လေယာဉ်	-8.41643
+▁လွန်း	-8.41643
+▁လှမ်း	-8.41643
+▁ဝေး	-8.41643
+▁သင်ကြား	-8.41643
+▁သတင်းစာ	-8.41643
+▁သတဲ့	-8.41643
+▁သတ္တိ	-8.41643
+▁သန်း	-8.41643
+▁သဘာဝ	-8.41643
+▁သဘော	-8.41643
+▁သဘောထား	-8.41643
+▁သို့မဟုတ်	-8.41643
+▁သူက	-8.41643
+▁သေသေချာချာ	-8.41643
+▁သော်လည်း	-8.41643
+▁သံ	-8.41643
+▁ဟန်	-8.41643
+▁ဟယ်	-8.41643
+▁ဟော	-8.41643
+▁အကုန်	-8.41643
+▁အကျင့်	-8.41643
+▁အကြောင်းအရာ	-8.41643
+▁အခြေခံ	-8.41643
+▁အစည်းအဝေး	-8.41643
+▁အစီအစဉ်	-8.41643
+▁အစ်မ	-8.41643
+▁အနား	-8.41643
+▁အနေနဲ့	-8.41643
+▁အပ်	-8.41643
+▁အဖြူ	-8.41643
+▁အဖြေ	-8.41643
+▁အမတ်	-8.41643
+▁အမေစု	-8.41643
+▁အမျိုးသမီး	-8.41643
+▁အရွယ်	-8.41643
+▁အလွန်	-8.41643
+▁အသံ	-8.41643
+▁အိတ်	-8.41643
+▁အို	-8.41643
+▁အုပ်	-8.41643
+▁အုပ်ချုပ်	-8.41643
+▁ဦးဆောင်	-8.41643
+▁ကိုကို	-8.70411
+▁ကိုမြင့်မြတ်	-8.70411
+▁ကုလား	-8.70411
+▁ကူ	-8.70411
+▁ကူး	-8.70411
+▁ကူးစက်	-8.70411
+▁ကောင်စီ	-8.70411
+▁ကောင်မလေး	-8.70411
+▁ကဲ့သို့	-8.70411
+▁ကျန်ရစ်	-8.70411
+▁ကြိမ်	-8.70411
+▁ကြေညာ	-8.70411
+▁ကြွ	-8.70411
+▁ကွယ်	-8.70411
+▁ကွယ်လွန်	-8.70411
+▁ခဏ	-8.70411
+▁ခပ်	-8.70411
+▁ခရီးစဉ်	-8.70411
+▁ခံတပ်	-8.70411
+▁ခြုံ	-8.70411
+▁ခြေ	-8.70411
+▁ခွင့်လွှတ်	-8.70411
+▁ခွင့်	-8.70411
+▁ဂိုဏ်း	-8.70411
+▁ငို	-8.70411
+▁စည်းကမ်း	-8.70411
+▁စည်းရုံး	-8.70411
+▁စပ်လျဉ်း၍	-8.70411
+▁စိစစ်	-8.70411
+▁ဆင်းရဲ	-8.70411
+▁ဆီးဂိမ်း	-8.70411
+▁ဆုံးရှုံး	-8.70411
+▁ဆောင်းပါး	-8.70411
+▁ဆံပင်	-8.70411
+▁ဇာတ်လမ်း	-8.70411
+▁ဈေးနှုန်း	-8.70411
+▁ညီလေး	-8.70411
+▁ဌာန	-8.70411
+▁တင်သွင်း	-8.70411
+▁တစ်ကမ္ဘာလုံး	-8.70411
+▁တစ်ရာ	-8.70411
+▁တပ်မတော်	-8.70411
+▁တဖြည်းဖြည်း	-8.70411
+▁တလွဲ	-8.70411
+▁တိရစ္ဆာန်	-8.70411
+▁တိုး	-8.70411
+▁တော်လှန်	-8.70411
+▁တံတား	-8.70411
+▁တွေး	-8.70411
+▁ထာဝရ	-8.70411
+▁ထိုင်ခုံ	-8.70411
+▁ထုန်း	-8.70411
+▁ထောက်လှမ်း	-8.70411
+▁ဒါမှမဟုတ်	-8.70411
+▁ဒေသ	-8.70411
+▁ဒေါ်လာ	-8.70411
+▁နားထောင်	-8.70411
+▁နိုင်ငံတကာ	-8.70411
+▁နိုင်းနိုင်း	-8.70411
+▁နေထွက်	-8.70411
+▁နေမင်း	-8.70411
+▁နောင်	-8.70411
+▁နံရံ	-8.70411
+▁နှလုံး	-8.70411
+▁ပ	-8.70411
+▁ပင်ပန်း	-8.70411
+▁ပင်လယ်	-8.70411
+▁ပတ်ဝန်းကျင်	-8.70411
+▁ပထမဆုံး	-8.70411
+▁ပါတီ	-8.70411
+▁ပိုင်ဆိုင်	-8.70411
+▁ပုံစံ	-8.70411
+▁ပေးအပ်	-8.70411
+▁ပြင်ဆင်	-8.70411
+▁ပြည်ထောင်စု	-8.70411
+▁ပြည်သူပြည်သား	-8.70411
+▁ပြည်သူ့	-8.70411
+▁ပြဌာန်း	-8.70411
+▁ပြန်ရောက်	-8.70411
+▁ဖန်တီး	-8.70411
+▁ဖယ်	-8.70411
+▁ဖိုက်တင်း	-8.70411
+▁ဖော်ပြ	-8.70411
+▁ဖြစ်ပေါ်	-8.70411
+▁ဖွင့်	-8.70411
+▁ဖွင့်	-8.70411
+▁ဖွဲ့စည်း	-8.70411
+▁ဖွဲ့စည်းပုံ	-8.70411
+▁ဘဏ်	-8.70411
+▁ဘယ်တော့	-8.70411
+▁ဘယ်နှ	-8.70411
+▁ဘီယာ	-8.70411
+▁ဘီး	-8.70411
+▁ဘွန်ဒက်စ်လီဂါ	-8.70411
+▁မက	-8.70411
+▁မဆို	-8.70411
+▁မည့်	-8.70411
+▁မိန်းကလေး	-8.70411
+▁မိဘ	-8.70411
+▁မိုက်	-8.70411
+▁မုခ်	-8.70411
+▁မေဘုန်းရှိန်	-8.70411
+▁မေမေ	-8.70411
+▁မောင့်	-8.70411
+▁မျက်မှန်	-8.70411
+▁များများ	-8.70411
+▁မြင့်မြတ်	-8.70411
+▁မြင်ကွင်း	-8.70411
+▁မြေ	-8.70411
+▁မြှောက်	-8.70411
+▁မွေး	-8.70411
+▁မှီ	-8.70411
+▁ယူဆ	-8.70411
+▁ရက်နေ့	-8.70411
+▁ရုံး	-8.70411
+▁ရေဒီယို	-8.70411
+▁ရောဂါ	-8.70411
+▁ရောင်း	-8.70411
+▁ရွေးချယ်	-8.70411
+▁ရှေ့နေ	-8.70411
+▁ရှေးဟောင်း	-8.70411
+▁လက်နက်	-8.70411
+▁လက်မှတ်	-8.70411
+▁လစ်	-8.70411
+▁လမ်းမ	-8.70411
+▁လမ်းလျှောက်	-8.70411
+▁လယ်ယာ	-8.70411
+▁လိုချင်	-8.70411
+▁လုပ်ငန်းစဉ်	-8.70411
+▁လုပ်ပိုင်ခွင့်	-8.70411
+▁လူသတ်	-8.70411
+▁လူ့	-8.70411
+▁လေ့ကျင့်ခန်း	-8.70411
+▁လျှောက်ထား	-8.70411
+▁လွတ်လပ်	-8.70411
+▁လှုပ်ရှား	-8.70411
+▁လှေ	-8.70411
+▁ဝင်ရောက်	-8.70411
+▁ဝန်ထမ်း	-8.70411
+▁ဝေ	-8.70411
+▁ဝေဖန်	-8.70411
+▁သင်း	-8.70411
+▁သစ္စာ	-8.70411
+▁သစ်	-8.70411
+▁သတိထား	-8.70411
+▁သတ်မှတ်	-8.70411
+▁သနား	-8.70411
+▁သဘင်	-8.70411
+▁သမ္မတနိုင်ငံ	-8.70411
+▁သမျှ	-8.70411
+▁သရုပ်ဆောင်	-8.70411
+▁သာမက	-8.70411
+▁သာယာ	-8.70411
+▁သိက္ခာ	-8.70411
+▁သိမြင်	-8.70411
+▁သံဃာ	-8.70411
+▁ဟူသော	-8.70411
+▁ဟေ	-8.70411
+▁အကောင်	-8.70411
+▁အကြိုက်ဆုံး	-8.70411
+▁အကြံဉာဏ်	-8.70411
+▁အခက်အခဲ	-8.70411
+▁အချက်	-8.70411
+▁အချို့	-8.70411
+▁အခြေအနေ	-8.70411
+▁အခွင့်အရေး	-8.70411
+▁အင်ဒိုနီးရှား	-8.70411
+▁အင်း	-8.70411
+▁အင်္ကျီ	-8.70411
+▁အင်္ဂလန်	-8.70411
+▁အစီရင်ခံစာ	-8.70411
+▁အဆင်မပြေ	-8.70411
+▁အညီ	-8.70411
+▁အဓိပ္ပါယ်	-8.70411
+▁အနုပညာ	-8.70411
+▁အနံ့	-8.70411
+▁အန်	-8.70411
+▁အန်ကယ်	-8.70411
+▁အန်တီ	-8.70411
+▁အနှိပ်ခံ	-8.70411
+▁အပြစ်	-8.70411
+▁အဖမ်း	-8.70411
+▁အဖော်	-8.70411
+▁အဖွဲ့	-8.70411
+▁အဖွဲ့အစည်း	-8.70411
+▁အဘ	-8.70411
+▁အမိန့်	-8.70411
+▁အများကြီး	-8.70411
+▁အများစု	-8.70411
+▁အမြင်	-8.70411
+▁အမြန်ဆုံး	-8.70411
+▁အမြဲတမ်း	-8.70411
+▁အမှု	-8.70411
+▁အရင်	-8.70411
+▁အရေးကြီး	-8.70411
+▁အလံ	-8.70411
+▁အဝတ်	-8.70411
+▁အသုံးပြု	-8.70411
+▁အသဲ	-8.70411
+▁အားကိုး	-8.70411
+▁အားကျ	-8.70411
+▁အားဖြင့်	-8.70411
+▁အားဖြင့်	-8.70411
+▁အေးချမ်း	-8.70411
+▁အဲ့ဒါ	-8.70411
+▁အဲ့လို	-8.70411
+▁ဦးခိုက်	-8.70411
+▁၎င်း	-8.70411
+▁ကင်းမဲ့	-9.10958
+▁ကစားသမား	-9.10958
+▁ကန်	-9.10958
+▁ကန့်ကွက်	-9.10958
+▁ကဗျာ	-9.10958
+▁ကမ္ဘောဇ	-9.10958
+▁ကမ္ဘောဒီးယား	-9.10958
+▁ကမ်းခြေ	-9.10958
+▁ကလပ်	-9.10958
+▁ကားလမ်း	-9.10958
+▁ကိုက်	-9.10958
+▁ကိုစိုင်းစိုင်း	-9.10958
+▁ကိုတိုး	-9.10958
+▁ကိုယ်ချင်းစာ	-9.10958
+▁ကိုရဲ	-9.10958
+▁ကုန်ကျ	-9.10958
+▁ကုန်း	-9.10958
+▁ကောက်	-9.10958
+▁ကောင်းကင်	-9.10958
+▁ကောင်းကင်ဘုံ	-9.10958
+▁ကောင်းကောင်း	-9.10958
+▁ကော်မရှင်	-9.10958
+▁ကံဆိုး	-9.10958
+▁ကျက်စား	-9.10958
+▁ကျက်သရေ	-9.10958
+▁ကျင့်	-9.10958
+▁ကျဉ်း	-9.10958
+▁ကျနော်	-9.10958
+▁ကျမ်း	-9.10958
+▁ကျုပ်	-9.10958
+▁ကျေးဇူးတင်	-9.10958
+▁ကျေးရွာ	-9.10958
+▁ကျွေး	-9.10958
+▁ကြက်ဥ	-9.10958
+▁ကြင်နာ	-9.10958
+▁ကြို	-9.10958
+▁ကြိုးပမ်း	-9.10958
+▁ကြီးကြပ်	-9.10958
+▁ကြုံ	-9.10958
+▁ကြေကွဲ	-9.10958
+▁ကြောက်	-9.10958
+▁ကြံ	-9.10958
+▁ကွဲ	-9.10958
+▁ခက်	-9.10958
+▁ခင်ညွန့်	-9.10958
+▁ခန့်မှန်း	-9.10958
+▁ခရီးထွက်	-9.10958
+▁ခရု	-9.10958
+▁ခါးပတ်	-9.10958
+▁ခိုက်	-9.10958
+▁ခုန်	-9.10958
+▁ခုန်ချ	-9.10958
+▁ခေတ္တ	-9.10958
+▁ခေါက်	-9.10958
+▁ခေါင်းဆောင်	-9.10958
+▁ခေါင်းမာ	-9.10958
+▁ခဲတံ	-9.10958
+▁ခဲ့သလဲ	-9.10958
+▁ခံယူ	-9.10958
+▁ချစ်ခင်	-9.10958
+▁ချန်ပီယံ	-9.10958
+▁ချမှတ်	-9.10958
+▁ချိန်း	-9.10958
+▁ချိုး	-9.10958
+▁ချီး	-9.10958
+▁ချေ	-9.10958
+▁ချေး	-9.10958
+▁ခွေးမသား	-9.10958
+▁ဂုဏ်တော်	-9.10958
+▁ဂုဏ်သိက္ခာ	-9.10958
+▁ဂျိန်း	-9.10958
+▁ဂျီဒီပီ	-9.10958
+▁င်း	-9.10958
+▁စကားပုံ	-9.10958
+▁စက္ကူ	-9.10958
+▁စက်ရုံ	-9.10958
+▁စကြဝဠာ	-9.10958
+▁စခန်း	-9.10958
+▁စစ်သား	-9.10958
+▁စည်းမျဉ်းစည်းကမ်း	-9.10958
+▁စပိန်	-9.10958
+▁စာရေး	-9.10958
+▁စိတ်ကူး	-9.10958
+▁စိတ်ညစ်	-9.10958
+▁စိတ်နှလုံး	-9.10958
+▁စိတ်ပျက်	-9.10958
+▁စိတ်ဝင်စား	-9.10958
+▁စိုက်	-9.10958
+▁စီ	-9.10958
+▁စီစဉ်	-9.10958
+▁စုံစမ်း	-9.10958
+▁စောင့်	-9.10958
+▁စံ	-9.10958
+▁စျေး	-9.10958
+▁စွယ်စုံ	-9.10958
+▁ဆက်ဆံ	-9.10958
+▁ဆက်လက်	-9.10958
+▁ဆင့်	-9.10958
+▁ဆတ်	-9.10958
+▁ဆန္ဒ	-9.10958
+▁ဆယ်	-9.10958
+▁ဆရာတော်	-9.10958
+▁ဆရာမ	-9.10958
+▁ဆိုင်ရာ	-9.10958
+▁ဆီမီးဖိုင်နယ်	-9.10958
+▁ဆူညံ	-9.10958
+▁ဆောက်	-9.10958
+▁ဆောက်လုပ်	-9.10958
+▁ဆောင့်ကြောင့်	-9.10958
+▁ဆော်	-9.10958
+▁ဆေးလိပ်	-9.10958
+▁ဆွေမျိုးစု	-9.10958
+▁ဇနီး	-9.10958
+▁ဇူကာဘတ်	-9.10958
+▁ညစ်	-9.10958
+▁ညဉ့်နက်	-9.10958
+▁ညနေ	-9.10958
+▁ညီအစ်ကို	-9.10958
+▁တချိန်	-9.10958
+▁တခြား	-9.10958
+▁တစ်စ	-9.10958
+▁တည်ရှိ	-9.10958
+▁တည့်	-9.10958
+▁တတိယ	-9.10958
+▁တတ်မြောက်	-9.10958
+▁တတွေ	-9.10958
+▁တနင်္ဂနွေ	-9.10958
+▁တန်းစီ	-9.10958
+▁တမင်	-9.10958
+▁တရားလို	-9.10958
+▁တာချီလိတ်	-9.10958
+▁တားဆီး	-9.10958
+▁တိမ်	-9.10958
+▁တိုက်ဆိုင်	-9.10958
+▁တိုက်ရိုက်	-9.10958
+▁တိုင်	-9.10958
+▁တိုင်ကြား	-9.10958
+▁တုတ်	-9.10958
+▁တောင်ကြီး	-9.10958
+▁တောင်ငူ	-9.10958
+▁တောင်းဆို	-9.10958
+▁တောင်းပန်	-9.10958
+▁တော်ကြာ	-9.10958
+▁တွင်း	-9.10958
+▁တွေ့ဆုံ	-9.10958
+▁တွေ့ရှိ	-9.10958
+▁ထည်	-9.10958
+▁ထပ်တူ	-9.10958
+▁ထပ်မံ	-9.10958
+▁ထမင်း	-9.10958
+▁ထိရောက်	-9.10958
+▁ထို့ကြောင့်	-9.10958
+▁ထို့နောက်	-9.10958
+▁ထိုး	-9.10958
+▁ထု	-9.10958
+▁ထုတ်ပေး	-9.10958
+▁ထုတ်ဖော်	-9.10958
+▁ထဲက	-9.10958
+▁ဒဂုံ	-9.10958
+▁ဒမ်ဘီလီ	-9.10958
+▁ဒီဂရီ	-9.10958
+▁ဒီဇင်ဘာ	-9.10958
+▁ဒီနေ့	-9.10958
+▁ဒီမိုကရက်တစ်	-9.10958
+▁ဒီမိုကရေစီ	-9.10958
+▁ဒုတိယ	-9.10958
+▁ဒေါက်တာ	-9.10958
+▁ဒေါ်အောင်ဆန်းစုကြည်	-9.10958
+▁ဓာတ်	-9.10958
+▁ဓား	-9.10958
+▁နင့်	-9.10958
+▁နင့်	-9.10958
+▁နတ်ဒေဝတာ	-9.10958
+▁နာ	-9.10958
+▁နာမည်ကြီး	-9.10958
+▁နား	-9.10958
+▁နိုင်ငံခြား	-9.10958
+▁နီး	-9.10958
+▁နီးပါး	-9.10958
+▁နု	-9.10958
+▁နုတ်ထွက်	-9.10958
+▁နေခဲ့	-9.10958
+▁နေပြည်တော်	-9.10958
+▁နောက်ကျ	-9.10958
+▁နှစ်သက်	-9.10958
+▁နှိပ်	-9.10958
+▁နှိုင်း	-9.10958
+▁ပတ်	-9.10958
+▁ပမာဏ	-9.10958
+▁ပါနဲ့	-9.10958
+▁ပိတ်ဆို့	-9.10958
+▁ပိုက်	-9.10958
+▁ပိုင်းခြား	-9.10958
+▁ပို့ကုန်	-9.10958
+▁ပို့ဆောင်	-9.10958
+▁ပုဂံ	-9.10958
+▁ပုဂ္ဂိုလ်	-9.10958
+▁ပုလိပ်	-9.10958
+▁ပုံမှန်	-9.10958
+▁ပူ	-9.10958
+▁ပေမဲ့	-9.10958
+▁ပေါက်	-9.10958
+▁ပေါင်	-9.10958
+▁ပေးလိုက်	-9.10958
+▁ပျောက်	-9.10958
+▁ပြိုကျ	-9.10958
+▁ပြုစု	-9.10958
+▁ပြုတ်	-9.10958
+▁ပြုမူ	-9.10958
+▁ပြောင်းရွှေ့	-9.10958
+▁ပြောပြော	-9.10958
+▁ပွား	-9.10958
+▁ဖား	-9.10958
+▁ဖားဆောင်း	-9.10958
+▁ဖိတ်	-9.10958
+▁ဖူးစာရှင်	-9.10958
+▁ဖော်	-9.10958
+▁ဖျား	-9.10958
+▁ဖြစ်စေ	-9.10958
+▁ဖြစ်ပွား	-9.10958
+▁ဖွံ့ဖြိုး	-9.10958
+▁ဗိုင်းရပ်စ်	-9.10958
+▁ဗိုလ်ချုပ်	-9.10958
+▁ဗိုလ်မှူး	-9.10958
+▁ဗုဒ္ဓ	-9.10958
+▁ဗျူဟာ	-9.10958
+▁ဘက်လိုက်	-9.10958
+▁ဘယ်မှာ	-9.10958
+▁ဘာဖြစ်လို့	-9.10958
+▁ဘုရားတန်ဆောင်း	-9.10958
+▁ဘောလုံး	-9.10958
+▁ဘွန်း	-9.10958
+▁မင်းကြီး	-9.10958
+▁မစ္စတာ	-9.10958
+▁မည့်	-9.10958
+▁မတ်မတ်	-9.10958
+▁မနေ့	-9.10958
+▁မာယုသာ	-9.10958
+▁မိန့်ခွန်း	-9.10958
+▁မိုင်	-9.10958
+▁မိုး	-9.10958
+▁မီ	-9.10958
+▁မီးမွှေး	-9.10958
+▁မုဆိုး	-9.10958
+▁မုန့်	-9.10958
+▁မူကြမ်း	-9.10958
+▁မူဝါဒ	-9.10958
+▁မော်ချီး	-9.10958
+▁မော်တော်ကားလမ်း	-9.10958
+▁မျက်စိ	-9.10958
+▁မျက်ရည်	-9.10958
+▁မျှ	-9.10958
+▁မျှော်	-9.10958
+▁မြကန်	-9.10958
+▁မြား	-9.10958
+▁မြို့တော်	-9.10958
+▁မြေအောက်ခန်း	-9.10958
+▁မြောက်	-9.10958
+▁မြေး	-9.10958
+▁မွေးမြူ	-9.10958
+▁မှတ်ချက်	-9.10958
+▁မှာလဲ	-9.10958
+▁မှို	-9.10958
+▁မှုခင်း	-9.10958
+▁ယခင်	-9.10958
+▁ယင်း	-9.10958
+▁ယဇ်ပူဇော်	-9.10958
+▁ယဉ်ကျေး	-9.10958
+▁ယာ	-9.10958
+▁ယှဉ်ပြိုင်	-9.10958
+▁ရင့်ကျက်	-9.10958
+▁ရင်ခုန်	-9.10958
+▁ရင်ဆိုင်	-9.10958
+▁ရထား	-9.10958
+▁ရန်သူ	-9.10958
+▁ရပ်တည်	-9.10958
+▁ရယူ	-9.10958
+▁ရဟန်း	-9.10958
+▁ရာသီဥတု	-9.10958
+▁ရိုင်း	-9.10958
+▁ရုန်း	-9.10958
+▁ရုပ်ရှင်	-9.10958
+▁ရုပ်ရှင်ရုံ	-9.10958
+▁ရေစက်	-9.10958
+▁ရောဂါပိုး	-9.10958
+▁ရောင်းချ	-9.10958
+▁ရေးဆွဲ	-9.10958
+▁ရေးဖွဲ့	-9.10958
+▁ရွေးကောက်ပွဲ	-9.10958
+▁ရွှေ	-9.10958
+▁ရှက်ကိုးရှက်ကန်း	-9.10958
+▁ရှင့်	-9.10958
+▁ရှင်းပြ	-9.10958
+▁ရှုပ်	-9.10958
+▁ရှေး	-9.10958
+▁လင်	-9.10958
+▁လင်္ကာဒီပ	-9.10958
+▁လစာ	-9.10958
+▁လည်	-9.10958
+▁လည်ပင်း	-9.10958
+▁လမ်းကြောင်း	-9.10958
+▁လမ်းညွှန်	-9.10958
+▁လယ်	-9.10958
+▁လားရှိုး	-9.10958
+▁လိဂ်	-9.10958
+▁လိုင်း	-9.10958
+▁လိုး	-9.10958
+▁လီး	-9.10958
+▁လုပ်ကိုင်	-9.10958
+▁လုပ်ဆောင်	-9.10958
+▁လုံးဝ	-9.10958
+▁လူကြီးမင်း	-9.10958
+▁လူငယ်	-9.10958
+▁လေ့ကျင့်	-9.10958
+▁လေးနက်	-9.10958
+▁လျော့	-9.10958
+▁လျှော်	-9.10958
+▁လွင်မိုး	-9.10958
+▁လွန်	-9.10958
+▁လွယ်	-9.10958
+▁လွှမ်း	-9.10958
+▁လှည့်	-9.10958
+▁လှန်	-9.10958
+▁လှူ	-9.10958
+▁လှေကား	-9.10958
+▁လှော်ခတ်	-9.10958
+▁ဝန်ကြီး	-9.10958
+▁ဝန်ခံ	-9.10958
+▁ဝမ်းနည်း	-9.10958
+▁ဝဝ	-9.10958
+▁ဝါ	-9.10958
+▁ဝိုင်း	-9.10958
+▁သ	-9.10958
+▁သကဲ့သို့	-9.10958
+▁သခင်	-9.10958
+▁သင်ပေး	-9.10958
+▁သင်္ဂါယနာ	-9.10958
+▁သစ်ပင်	-9.10958
+▁သတင်းထောက်	-9.10958
+▁သတိ	-9.10958
+▁သတိပေး	-9.10958
+▁သဘောတရား	-9.10958
+▁သဘောတူ	-9.10958
+▁သမင်	-9.10958
+▁သမိန်ပရမ်း	-9.10958
+▁သားတော်	-9.10958
+▁သားရဲတွင်း	-9.10958
+▁သိပ္ပံ	-9.10958
+▁သိမ်း	-9.10958
+▁သုတ်	-9.10958
+▁သုံးသပ်	-9.10958
+▁သူခိုး	-9.10958
+▁သေနက	-9.10958
+▁သောကြာ	-9.10958
+▁သောင်း	-9.10958
+▁သံသရာ	-9.10958
+▁သွယ်ယူ	-9.10958
+▁သွားလာ	-9.10958
+▁သွေး	-9.10958
+▁ဟရောင်	-9.10958
+▁ဟား	-9.10958
+▁ဟိုဟိုဒီဒီ	-9.10958
+▁ဟူ	-9.10958
+▁ဟောင်း	-9.10958
+▁ဟောပြော	-9.10958
+▁ဟေ့	-9.10958
+▁ဟေး	-9.10958
+▁အ	-9.10958
+▁အက	-9.10958
+▁အကယ်၍	-9.10958
+▁အကူအညီ	-9.10958
+▁အကောင့်	-9.10958
+▁အကောင်အထည်ဖော်	-9.10958
+▁အကောင်းဆုံး	-9.10958
+▁အက်တမ်	-9.10958
+▁အကြမ်း	-9.10958
+▁အကြိမ်	-9.10958
+▁အကြီးအကဲ	-9.10958
+▁အကြံပြု	-9.10958
+▁အချော	-9.10958
+▁အခွန်	-9.10958
+▁အင်မတန်	-9.10958
+▁အင်အား	-9.10958
+▁အင်းဝ	-9.10958
+▁အင်္ဂလိပ်	-9.10958
+▁အစဉ်အလာ	-9.10958
+▁အစားထိုး	-9.10958
+▁အဆင့်	-9.10958
+▁အဆင့်	-9.10958
+▁အဆိုးဆုံး	-9.10958
+▁အဆီ	-9.10958
+▁အတည်	-9.10958
+▁အတိအကျ	-9.10958
+▁အတိုးနှုန်း	-9.10958
+▁အတူတူ	-9.10958
+▁အတော်	-9.10958
+▁အထင်ကြီး	-9.10958
+▁အထူး	-9.10958
+▁အထောက်အကူ	-9.10958
+▁အဓိကကျ	-9.10958
+▁အနက်	-9.10958
+▁အနည်းဆုံး	-9.10958
+▁အနာဂတ်	-9.10958
+▁အနီ	-9.10958
+▁အနေ	-9.10958
+▁အန္တရာယ်	-9.10958
+▁အနှစ်	-9.10958
+▁အပိုင်း	-9.10958
+▁အပေါက်	-9.10958
+▁အပြိုင်	-9.10958
+▁အဖေ	-9.10958
+▁အဖွင့်	-9.10958
+▁အမည်	-9.10958
+▁အမတ်ကြီး	-9.10958
+▁အမာခံ	-9.10958
+▁အမူအရာ	-9.10958
+▁အများ	-9.10958
+▁အမှတ်	-9.10958
+▁အမှန်တရား	-9.10958
+▁အရိပ်	-9.10958
+▁အရူး	-9.10958
+▁အရေးပါ	-9.10958
+▁အရေးယူ	-9.10958
+▁အလကား	-9.10958
+▁အလင်းရောင်	-9.10958
+▁အလိုလို	-9.10958
+▁အလေးချိန်	-9.10958
+▁အသစ်	-9.10958
+▁အသတ်	-9.10958
+▁အသိ	-9.10958
+▁အသိဉာဏ်	-9.10958
+▁အသေ	-9.10958
+▁အာဏာ	-9.10958
+▁အာဏာရှင်	-9.10958
+▁အာရှ	-9.10958
+▁အားရ	-9.10958
+▁အားသာ	-9.10958
+▁အိန္ဒိယ	-9.10958
+▁အိုင်ရင်း	-9.10958
+▁အောက်ခံ	-9.10958
+▁အောက်ဆီဂျင်	-9.10958
+▁အောက်မေ့	-9.10958
+▁အောင်လ	-9.10958
+▁အဲ	-9.10958
+▁ဥပမာ	-9.10958
+▁ဥရောပ	-9.10958
+▁ဦးချ	-9.10958
+▁ဦးစီးချုပ်	-9.10958
+▁ဦးနှောက်	-9.10958
+▁ဦးရီးတော်	-9.10958
+▁ဩစတြေးလျ	-9.10958
+▁ကက်ဖတေးရီးယား	-9.80273
+▁ကက်ဘိနက်	-9.80273
+▁ကကျွတ်	-9.80273
+▁ကကျွန်း	-9.80273
+▁ကကျွန်းစု	-9.80273
+▁ကကျွမ်းကျင်	-9.80273
+▁ကကျွမ်းဝင်	-9.80273
+▁ကင်မရာ	-9.80273
+▁ကင်းကင်း	-9.80273
+▁ကင်းကွာ	-9.80273
+▁ကင်းတပ်	-9.80273
+▁ကစားတယ်	-9.80273
+▁ကစားပွဲ	-9.80273
+▁ကစ်	-9.80273
+▁ကစ်ကစ်	-9.80273
+▁ကတိ	-9.80273
+▁ကတီပါ	-9.80273
+▁ကတော်	-9.80273
+▁ကဒ်	-9.80273
+▁ကဒ်ပြား	-9.80273
+▁ကနေ	-9.80273
+▁ကန့်သတ်	-9.80273
+▁ကန္တရ	-9.80273
+▁ကန်ရေ	-9.80273
+▁ကပ္ပိယ	-9.80273
+▁ကပျာကယာ	-9.80273
+▁ကမ္ဘာကပ်	-9.80273
+▁ကမ္ဘာကြီး	-9.80273
+▁ကမ္ဘာကြီးရဲ့	-9.80273
+▁ကမ်း	-9.80273
+▁ကယား	-9.80273
+▁ကရင်	-9.80273
+▁ကလည်း	-9.80273
+▁ကလား	-9.80273
+▁ကလော	-9.80273
+▁ကလေးကြီး	-9.80273
+▁ကလေးမ	-9.80273
+▁ကသိကအောက်	-9.80273
+▁ကာတွန်း	-9.80273
+▁ကာတွန်းလေး	-9.80273
+▁ကာမဏိ	-9.80273
+▁ကာလာ	-9.80273
+▁ကားကို	-9.80273
+▁ကားခ	-9.80273
+▁ကိုကျော်မျိုးလွင်	-9.80273
+▁ကိုကြီးစိုင်း	-9.80273
+▁ကိုကွက်ကြီး	-9.80273
+▁ကိုခင်မောင်ဦး	-9.80273
+▁ကိုဂျင်မီ	-9.80273
+▁ကိုင်ယက်တာနို	-9.80273
+▁ကိုင်းကကျွန်း	-9.80273
+▁ကိုနန်းနွယ်	-9.80273
+▁ကိုနိုင်းကြီး	-9.80273
+▁ကိုမြင့်မြတ်	-9.80273
+▁ကိုယ့်ကို	-9.80273
+▁ကိုယ်ချင်းမစာ	-9.80273
+▁ကိုယ်ပေါ်	-9.80273
+▁ကိုယ်ရံတော်	-9.80273
+▁ကိုယ်လုံး	-9.80273
+▁ကိုယ့်	-9.80273
+▁ကိုရိုနာ	-9.80273
+▁ကိုလေးဖြူ	-9.80273
+▁ကိုအောင်ခိုင်	-9.80273
+▁ကိုးကား	-9.80273
+▁ကိုးဆယ့်ကိုး	-9.80273
+▁ကိုးရာကိုးဆယ့်ကိုး	-9.80273
+▁ကီလို	-9.80273
+▁ကုန်စုံဆိုင်	-9.80273
+▁ကုန်ဆုံးရက်မှာ	-9.80273
+▁ကုမ္ပဏီ	-9.80273
+▁ကုလ	-9.80273
+▁ကုလသမဂ္ဂ	-9.80273
+▁ကုလားမ	-9.80273
+▁ကုသ	-9.80273
+▁ကုသိုလ်	-9.80273
+▁ကူညီမှု	-9.80273
+▁ကူးပြောင်း	-9.80273
+▁ကူးလူး	-9.80273
+▁ကူးသန်း	-9.80273
+▁ကောက်ကျစ်စဉ်းလဲ	-9.80273
+▁ကောက်ဆွဲ	-9.80273
+▁ကောက်ညှင်း	-9.80273
+▁ကောင်းဆုံး	-9.80273
+▁ကောင်းတဲ့	-9.80273
+▁ကောင်းမွန်	-9.80273
+▁ကောမန့်	-9.80273
+▁ကဲ	-9.80273
+▁ကံ	-9.80273
+▁ကံကံ	-9.80273
+▁ကံခေ	-9.80273
+▁ကံအားလျော်စွာ	-9.80273
+▁ကျင့်သားရ	-9.80273
+▁ကျဆင်း	-9.80273
+▁ကျည်တောက်	-9.80273
+▁ကျန်စစ်သား	-9.80273
+▁ကျန်ရစ်သူ	-9.80273
+▁ကျန်းမာချမ်းသာ	-9.80273
+▁ကျပ်ချွတ်	-9.80273
+▁ကျယ်	-9.80273
+▁ကျယ်ကျယ်ပြန့်ပြန့်	-9.80273
+▁ကျယ်ဝန်း	-9.80273
+▁ကျားသစ်	-9.80273
+▁ကျုးလွန်	-9.80273
+▁ကျူးရင့်	-9.80273
+▁ကျေပွန်	-9.80273
+▁ကျော	-9.80273
+▁ကျောက္ကာ	-9.80273
+▁ကျောက်ကြီး	-9.80273
+▁ကျောက်စိမ်း	-9.80273
+▁ကျောက်ဆည်	-9.80273
+▁ကျောက်သင်ပုန်း	-9.80273
+▁ကျောင်းကုန်း	-9.80273
+▁ကျောင်းကြိုကား	-9.80273
+▁ကျောင်းတက်	-9.80273
+▁ကျောင်းတိုက်	-9.80273
+▁ကျောင်းသူ	-9.80273
+▁ကျောင်းအမ	-9.80273
+▁ကျောပိုး	-9.80273
+▁ကျော်လွန်	-9.80273
+▁ကျေးဇူးတင်ပါ	-9.80273
+▁ကျေးဇူးပြု၍	-9.80273
+▁ကျေးဇူးရှင်	-9.80273
+▁ကျေးရွာလူထု	-9.80273
+▁ကျဲ	-9.80273
+▁ကျွမ်းကျင်	-9.80273
+▁ကျွေးမွေး	-9.80273
+▁ကြက်တူရွေး	-9.80273
+▁ကြက်သီး	-9.80273
+▁ကြည့်ကြည့်	-9.80273
+▁ကြန့်ကြာ	-9.80273
+▁ကြမလား	-9.80273
+▁ကြယ်	-9.80273
+▁ကြယ်ပွင့်	-9.80273
+▁ကြာကြာ	-9.80273
+▁ကြိုက်ဆုံး	-9.80273
+▁ကြိုဆို	-9.80273
+▁ကြီးကျယ်	-9.80273
+▁ကြီးကြီးကျယ်ကျယ်	-9.80273
+▁ကြီးမား	-9.80273
+▁ကြုံတွေ့	-9.80273
+▁ကြေ	-9.80273
+▁ကြောက်စရာကောင်းလောက်	-9.80273
+▁ကြောက်ရွံ့	-9.80273
+▁ကြောင်	-9.80273
+▁ကြောင်းလမ်း	-9.80273
+▁ကြော်	-9.80273
+▁ကြော်ငြာ	-9.80273
+▁ကြော်စား	-9.80273
+▁ကြေးတီး	-9.80273
+▁ကြံ့ခိုင်	-9.80273
+▁ကြွက်	-9.80273
+▁ကြွစောင်းစောင်း	-9.80273
+▁ကြွယ်	-9.80273
+▁ကြွား	-9.80273
+▁ကြွေ	-9.80273
+▁ကြွေပြား	-9.80273
+▁ကွက်	-9.80273
+▁ကွင်းကွင်းကွက်ကွက်	-9.80273
+▁ကွင်းပြင်	-9.80273
+▁ကွန်ဂို	-9.80273
+▁ကွန်ဒို	-9.80273
+▁ကွန်ဒုံး	-9.80273
+▁ကွန်ဖြူးရှပ်	-9.80273
+▁ကွန်ရက်	-9.80273
+▁ကွပ်ကဲ	-9.80273
+▁ကွမ်တမ်	-9.80273
+▁ကွာတား	-9.80273
+▁ကွာဟ	-9.80273
+▁ကွဲလွဲ	-9.80273
+▁ခကျွတ်	-9.80273
+▁ခင်ဗျ	-9.80273
+▁ခင်ဗျားရဲ့	-9.80273
+▁ခင်း	-9.80273
+▁ခဏခဏ	-9.80273
+▁ခတ်	-9.80273
+▁ခန့်က	-9.80273
+▁ခန့်ချောကြီး	-9.80273
+▁ခန့်စည်သူ	-9.80273
+▁ခန်း	-9.80273
+▁ခန်းနား	-9.80273
+▁ခန်းမ	-9.80273
+▁ခန်းမဆောင်	-9.80273
+▁ခမျာ	-9.80273
+▁ခရင်း	-9.80273
+▁ခရစ်ယာန်	-9.80273
+▁ခရိုအေးရှား	-9.80273
+▁ခရီးဆောင်အိတ်	-9.80273
+▁ခရီးသည်	-9.80273
+▁ခရီးသွား	-9.80273
+▁ခရီးသွားလာ	-9.80273
+▁ခလုတ်နှိပ်	-9.80273
+▁ခါတိုင်း	-9.80273
+▁ခါးတူး	-9.80273
+▁ခါးနာ	-9.80273
+▁ခိုကလေး	-9.80273
+▁ခိုင်ခံ့	-9.80273
+▁ခိုင်လုံ	-9.80273
+▁ခုတလော	-9.80273
+▁ခုတ်	-9.80273
+▁ခုန	-9.80273
+▁ခုနစ်	-9.80273
+▁ခုန်ကူး	-9.80273
+▁ခုန်ဆင်း	-9.80273
+▁ခုန်လွှား	-9.80273
+▁ခုံ	-9.80273
+▁ခေ	-9.80273
+▁ခေတ်စား	-9.80273
+▁ခေတ်သစ်	-9.80273
+▁ခေတ်သစ်ပျို	-9.80273
+
+```
