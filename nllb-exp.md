@@ -578,24 +578,6 @@ Your height is 170 centimeters.
 (base) ye@lst-gpu-server-197:~/ye/exp/gpt-mt/nllb$
 ```
 
-```
-
-```
-
-```
-
-```
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 ## Prepare SCB Th-My Corpus 
 
 ```
@@ -1888,3 +1870,5 @@ data       output_th-my.txt          run4ReMeDi_fromZh.sh     run4scb.sh
 (base) ye@lst-gpu-server-197:~/ye/exp/gpt-mt/nllb$
 ```
 
+နှစ်ရက်လောက် အချိန်ပေးပြီး စာကြောင်း အများကြီးကို မှန်မှန်ကန်ကန် translation ဘယ်လောက် လုပ်ပေးနိုင်သလဲ ဆိုတာကို confirmation လုပ်နိုင်ခဲ့။   
+စာကြောင်းတိုတာတွေလောက်ပဲ ဘာသာပြန်လို့ အဆင်ပြေလိမ့်မယ်။ parallel corpus ဆောက်ဖို့အတွက်က သုံးလို့ အဆင်မပြေသေးဘူး။  
