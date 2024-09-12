@@ -239,3 +239,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 232. [nllb-exp.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/nllb-exp.md)  
 233. [my-th_th-my_zen_chk1_transformer.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/my-th_th-my_zen_chk1_transformer.md)  
 234. [nl2bash-data-preparation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/nl2bash-data-preparation.md)  
+235. [sox-installation-from-source-for-Ubuntu-23.10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sox-installation-from-source-for-Ubuntu-23.10.md)  
