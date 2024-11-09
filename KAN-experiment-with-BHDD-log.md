@@ -2115,6 +2115,9 @@ https://github.com/ale93111/pykan_mnist
 Ziming Liu Homepage:  
 https://kindxiaoming.github.io/  
 
+MNIST and PyKan:  
+https://www.kaggle.com/code/minsithu/mnist-and-pykan  
+
 ## Lectures/Talks
 
 KAN: Kolmogorov-Arnold Networks, Ziming Liu, MIT 2024  
