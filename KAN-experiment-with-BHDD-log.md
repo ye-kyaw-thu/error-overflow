@@ -1886,6 +1886,23 @@ Epoch 10, Val Loss: 0.03880443601592391, Val Accuracy: 0.9910817864046296
 (opennmt) ye@lst-hpc3090:~/exp/fast-kan$
 ```
 
+## Summary of Experiment Results
+### Comparison Between Efficient-KAN and Fast-KAN for Myanmar MNIST (BHDD) on CPU  
+
+| **Epoch** | **Efficient-KAN Val Accuracy** | **Fast-KAN Val Accuracy** |
+|-----------|--------------------------------|---------------------------|
+| 1         | 0.9835                         | 0.9779                    |
+| 2         | 0.9848                         | 0.9862                    |
+| 3         | 0.9891                         | 0.9808                    |
+| 4         | 0.9871                         | 0.9870                    |
+| 5         | 0.9884                         | 0.9870                    |
+| 6         | 0.9896                         | 0.9913                    |
+| 7         | 0.9908                         | 0.9905                    |
+| 8         | 0.9909                         | 0.9908                    |
+| 9         | 0.9907                         | 0.9913                    |
+| 10        | 0.9908                         | 0.9913                    |
+
+
 
 ## Reference Link
 
