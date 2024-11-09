@@ -2181,6 +2181,31 @@ Epoch 30, Train Loss: 0.0053, Test Loss: 0.0805, Test Acc: 0.98
 (opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$
 ```
 
+### Code Edited
+
+Test Acc ကို တခြား Efficient, Fast တို့နဲ့ နှိုင်းယှဉ်တဲ့အခါမှာ ညီအောင်လို့ decimal ၄နေရာထားဖို့ နဲ့ 10 epoch နဲ့ ပဲ run ဖို့ code ကို ဝင်ပြင်ခဲ့...  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$ time /home/ye/miniforge3/envs/opennmt/bin/python ./chebyKan-mnist-edited.py | tee che
+byKan-my-MNIST.log2
+Total trainable parameters: 128896
+Epoch 1, Train Loss: 0.8835, Test Loss: 0.2178, Test Acc: 0.9762
+Epoch 2, Train Loss: 0.1360, Test Loss: 0.1011, Test Acc: 0.9823
+Epoch 3, Train Loss: 0.0706, Test Loss: 0.0743, Test Acc: 0.9827
+Epoch 4, Train Loss: 0.0460, Test Loss: 0.0614, Test Acc: 0.9845
+Epoch 5, Train Loss: 0.0376, Test Loss: 0.0655, Test Acc: 0.9814
+Epoch 6, Train Loss: 0.0306, Test Loss: 0.0896, Test Acc: 0.9734
+Epoch 7, Train Loss: 0.0247, Test Loss: 0.0698, Test Acc: 0.9797
+Epoch 8, Train Loss: 0.0234, Test Loss: 0.0409, Test Acc: 0.9888
+Epoch 9, Train Loss: 0.0210, Test Loss: 0.0460, Test Acc: 0.9872
+Epoch 10, Train Loss: 0.0161, Test Loss: 0.0474, Test Acc: 0.9868
+
+real    0m46.137s
+user    0m48.701s
+sys     0m2.818s
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$
+```
+
 ## Summary of Experiment Results
 
 ## Runnning Time Log  
@@ -2245,16 +2270,16 @@ Fast-KAN, GPU: 0m50.572s
 
 | **Epoch** | **MLP** | **Efficient-KAN** | **Fast-KAN** | **Cheby-KAN** |
 |-----------|-----------------------|--------------------------------|---------------------------|---------------------------|
-| 1         | 0.9633               | 0.9814                         | 0.9787                    | 0.98                    |
-| 2         | 0.9772               | 0.9869                         | 0.9736                    | 0.99                    |
-| 3         | 0.9740               | 0.9893                         | 0.9869                    | 0.99                    |
-| 4         | 0.9831               | 0.9869                         | 0.9890                    | 0.98                    |
-| 5         | 0.9848               | 0.9895                         | 0.9875                    | 0.99                    |
-| 6         | 0.9854               | 0.9903                         | 0.9916                    | 0.99                    |
-| 7         | 0.9836               | 0.9907                         | 0.9900                    | 0.99                    |
-| 8         | 0.9879               | 0.9917                         | 0.9896                    | 0.99                    |
-| 9         | 0.9869               | 0.9904                         | 0.9913                    | 0.98                    |
-| 10        | 0.9869               | 0.9911                         | 0.9911                    | 0.98                    |
+| 1         | 0.9633               | 0.9814                         | 0.9787                    | 0.9762                    |
+| 2         | 0.9772               | 0.9869                         | 0.9736                    | 0.9823                    |
+| 3         | 0.9740               | 0.9893                         | 0.9869                    | 0.9827                    |
+| 4         | 0.9831               | 0.9869                         | 0.9890                    | 0.9845                    |
+| 5         | 0.9848               | 0.9895                         | 0.9875                    | 0.9814                    |
+| 6         | 0.9854               | 0.9903                         | 0.9916                    | 0.9734                    |
+| 7         | 0.9836               | 0.9907                         | 0.9900                    | 0.9797                    |
+| 8         | 0.9879               | 0.9917                         | 0.9896                    | 0.9888                    |
+| 9         | 0.9869               | 0.9904                         | 0.9913                    | 0.9872                    |
+| 10        | 0.9869               | 0.9911                         | 0.9911                    | 0.9868                    |
 
 
 ## Reference Link
