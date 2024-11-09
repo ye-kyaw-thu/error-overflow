@@ -1960,15 +1960,15 @@ https://kindxiaoming.github.io/
 
 ## Lectures/Talks
 
-KAN: Kolmogorov-Arnold Networks, Ziming Liu, MIT 2024
-About 10 min. 
+KAN: Kolmogorov-Arnold Networks, Ziming Liu, MIT 2024  
+(About 10 min)   
 https://www.youtube.com/watch?v=ljgaYuYAQyY  
 
-"KAN: Kolmogorov-Arnold Networks" by Ziming Liu,
-about 58 min.
-https://www.youtube.com/watch?v=uupyXjSnZiA
+"KAN: Kolmogorov-Arnold Networks" by Ziming Liu    
+(about 58 min)  
+https://www.youtube.com/watch?v=uupyXjSnZiA  
 
-https://www.youtube.com/watch?v=AUDHb-tnlB0
+https://www.youtube.com/watch?v=AUDHb-tnlB0  
 
 ## Some Previous Works
 
