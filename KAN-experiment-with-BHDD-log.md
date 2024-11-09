@@ -1887,6 +1887,20 @@ Epoch 10, Val Loss: 0.03880443601592391, Val Accuracy: 0.9910817864046296
 ```
 
 ## Summary of Experiment Results
+
+## Runnning Time Log  
+
+(py3.8) ye@lst-gpu-server-197:~/ye/exp/fast-kan$ time python ./examples/train_mlp_mydigit_mnist.py | tee mlp_my_train1.log  
+
+MLP, CPU: 8m16.909s  
+
+Efficient-KAN, CPU: 5m45.985s  
+Fast-KAN, CPU: 9m36.818s  
+
+Efficient-KAN, GPU: 0m55.070s  
+Fast-KAN, GPU: 0m50.572s  
+
+
 ### Comparison Between Efficient-KAN and Fast-KAN for Myanmar MNIST (BHDD) on CPU  
 
 | **Epoch** | **Efficient-KAN Val Accuracy** | **Fast-KAN Val Accuracy** |
