@@ -2380,6 +2380,20 @@ sys     0m2.777s
 (opennmt) ye@lst-hpc3090:~/exp/fast-kan$
 ```
 
+## Loss Graphs
+
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/mlp-my-mnist-loss.png" alt="60-40 graph" width="500"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/chebyKAN-my-mnist.png" alt="70-30 graph" width="500"/>
+</p>  
+<div align="center">
+  Fig.1 Loss graph <br />
+  (Left: for MLP, Right: Cheby-KAN)
+</div> 
+
+
 ## Reference Link
 
 Quick Intro to KAN:  
