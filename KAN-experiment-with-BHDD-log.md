@@ -682,7 +682,7 @@ user    45m14.405s
 sys     0m6.674s
 ```
 
-The whole log of training with traditional MLP on GHDD dataset:  
+The whole log of training with traditional MLP on BHDD dataset:  
 
 ```
 (py3.8) ye@lst-gpu-server-197:~/ye/exp/fast-kan$ cat ./mlp_my_train1.log
