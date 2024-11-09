@@ -2385,8 +2385,8 @@ sys     0m2.777s
 <br />
 
 <p align="center">
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/mlp-my-mnist-loss.png" alt="MLP" width="300"/>  
-<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/chebyKAN-my-mnist.png" alt="Cheby-KAN" width="300"/>
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/mlp-my-mnist-loss.png" alt="MLP" width="450"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/chebyKAN-my-mnist.png" alt="Cheby-KAN" width="450"/>
 </p>  
 <div align="center">
   Fig.1 Loss graph <br />
