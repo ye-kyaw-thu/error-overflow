@@ -1887,6 +1887,131 @@ Epoch 10, Val Loss: 0.03880443601592391, Val Accuracy: 0.9910817864046296
 (opennmt) ye@lst-hpc3090:~/exp/fast-kan$
 ```
 
+## MLP Training with BHDD on GPU
+
+Training result:  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/fast-kan$ time /home/ye/miniforge3/envs/opennmt/bin/python ./train_mlp_mydigit_mnist.py | tee train_mlp_my_mnist.log
+...
+...
+...
+Epoch 8, Val Loss: 0.0507286353477843, Val Accuracy: 0.9878552782839799
+100%|██████████████████████████████████████████████| 938/938 [00:06<00:00, 142.27it/s, accuracy=0.938, loss=0.125, lr=0.00043]
+Epoch 9, Val Loss: 0.052350924623330075, Val Accuracy: 0.9869127028779474
+100%|████████████████████████████████████████████████| 938/938 [00:07<00:00, 130.96it/s, accuracy=1, loss=0.0132, lr=0.000387]
+Epoch 10, Val Loss: 0.05195265141582622, Val Accuracy: 0.9869127028779474
+100%|████████████████████████████████████████████████| 938/938 [00:07<00:00, 125.32it/s, accuracy=1, loss=0.0322, lr=0.000349]
+Epoch 11, Val Loss: 0.0462392206798608, Val Accuracy: 0.9890153710914046
+100%|████████████████████████████████████████████████| 938/938 [00:05<00:00, 182.56it/s, accuracy=1, loss=0.0101, lr=0.000314]
+Epoch 12, Val Loss: 0.0459311623210001, Val Accuracy: 0.9891603826923326
+100%|███████████████████████████████████████████████| 938/938 [00:04<00:00, 190.33it/s, accuracy=1, loss=0.00499, lr=0.000282]
+Epoch 13, Val Loss: 0.046083818829949004, Val Accuracy: 0.9889428652909406
+100%|████████████████████████████████████████████████| 938/938 [00:04<00:00, 192.37it/s, accuracy=1, loss=0.0277, lr=0.000254]
+Epoch 14, Val Loss: 0.04589189210039047, Val Accuracy: 0.9892328884927967
+100%|█████████████████████████████████████████████| 938/938 [00:05<00:00, 185.87it/s, accuracy=0.938, loss=0.118, lr=0.000229]
+Epoch 15, Val Loss: 0.045461541470388715, Val Accuracy: 0.9897766819962769
+100%|███████████████████████████████████████████████| 938/938 [00:04<00:00, 189.05it/s, accuracy=1, loss=0.00417, lr=0.000206]
+Epoch 16, Val Loss: 0.04390160738300908, Val Accuracy: 0.9901754638988292
+100%|███████████████████████████████████████████████| 938/938 [00:05<00:00, 166.96it/s, accuracy=1, loss=0.00757, lr=0.000185]
+Epoch 17, Val Loss: 0.04456612090557206, Val Accuracy: 0.9898491877967409
+100%|████████████████████████████████████████████████| 938/938 [00:05<00:00, 157.91it/s, accuracy=1, loss=0.0216, lr=0.000167]
+Epoch 18, Val Loss: 0.04330025613415995, Val Accuracy: 0.9904654871006853
+100%|█████████████████████████████████████████████████| 938/938 [00:05<00:00, 176.92it/s, accuracy=1, loss=0.0194, lr=0.00015]
+Epoch 19, Val Loss: 0.04605526185540208, Val Accuracy: 0.9896679232955808
+100%|███████████████████████████████████████████████| 938/938 [00:07<00:00, 121.44it/s, accuracy=1, loss=0.00293, lr=0.000135]
+Epoch 20, Val Loss: 0.04234921921814658, Val Accuracy: 0.9906104987016133
+
+real    2m45.505s
+user    2m49.766s
+sys     0m2.534s
+```
+
+```
+(base) ye@lst-hpc3090:~$ nvidia-smi
+Sat Nov  9 16:02:45 2024
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.171.04             Driver Version: 535.171.04   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3090 Ti     Off | 00000000:01:00.0 Off |                  Off |
+| 40%   68C    P2             228W / 480W |  14064MiB / 24564MiB |     60%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A     38513      G   /usr/lib/xorg/Xorg                           16MiB |
+|    0   N/A  N/A    114721      G   /usr/lib/xorg/Xorg                           33MiB |
+|    0   N/A  N/A    114934      G   /usr/bin/gnome-shell                         15MiB |
+|    0   N/A  N/A    250997      C   python                                    13510MiB |
+|    0   N/A  N/A    262404      C   .../miniforge3/envs/opennmt/bin/python      346MiB |
++---------------------------------------------------------------------------------------+
+(base) ye@lst-hpc3090:~$
+```
+
+```
+(base) ye@lst-hpc3090:~$ nvidia-smi
+Sat Nov  9 16:04:35 2024
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.171.04             Driver Version: 535.171.04   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3090 Ti     Off | 00000000:01:00.0 Off |                  Off |
+| 44%   72C    P2             292W / 480W |  12696MiB / 24564MiB |     98%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A     38513      G   /usr/lib/xorg/Xorg                           16MiB |
+|    0   N/A  N/A    114721      G   /usr/lib/xorg/Xorg                           33MiB |
+|    0   N/A  N/A    114934      G   /usr/bin/gnome-shell                         15MiB |
+|    0   N/A  N/A    250997      C   python                                    12142MiB |
+|    0   N/A  N/A    262404      C   .../miniforge3/envs/opennmt/bin/python      346MiB |
++---------------------------------------------------------------------------------------+
+(base) ye@lst-hpc3090:~$
+```
+
+The whole log ...  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/fast-kan$ cat ./train_mlp_my_mnist.log
+Epoch 1, Val Loss: 0.11971162100972958, Val Accuracy: 0.9632554749878266
+Epoch 2, Val Loss: 0.08309285057030116, Val Accuracy: 0.977156251738077
+Epoch 3, Val Loss: 0.08929499804005546, Val Accuracy: 0.9740225863567361
+Epoch 4, Val Loss: 0.06953242195666424, Val Accuracy: 0.9831424012538176
+Epoch 5, Val Loss: 0.06144784629564266, Val Accuracy: 0.9847737817642583
+Epoch 6, Val Loss: 0.057038711576523765, Val Accuracy: 0.9853900810682027
+Epoch 7, Val Loss: 0.06414103208665073, Val Accuracy: 0.9835774360566018
+Epoch 8, Val Loss: 0.0507286353477843, Val Accuracy: 0.9878552782839799
+Epoch 9, Val Loss: 0.052350924623330075, Val Accuracy: 0.9869127028779474
+Epoch 10, Val Loss: 0.05195265141582622, Val Accuracy: 0.9869127028779474
+Epoch 11, Val Loss: 0.0462392206798608, Val Accuracy: 0.9890153710914046
+Epoch 12, Val Loss: 0.0459311623210001, Val Accuracy: 0.9891603826923326
+Epoch 13, Val Loss: 0.046083818829949004, Val Accuracy: 0.9889428652909406
+Epoch 14, Val Loss: 0.04589189210039047, Val Accuracy: 0.9892328884927967
+Epoch 15, Val Loss: 0.045461541470388715, Val Accuracy: 0.9897766819962769
+Epoch 16, Val Loss: 0.04390160738300908, Val Accuracy: 0.9901754638988292
+Epoch 17, Val Loss: 0.04456612090557206, Val Accuracy: 0.9898491877967409
+Epoch 18, Val Loss: 0.04330025613415995, Val Accuracy: 0.9904654871006853
+Epoch 19, Val Loss: 0.04605526185540208, Val Accuracy: 0.9896679232955808
+Epoch 20, Val Loss: 0.04234921921814658, Val Accuracy: 0.9906104987016133
+(opennmt) ye@lst-hpc3090:~/exp/fast-kan$
+```
+
 ## Summary of Experiment Results
 
 ## Runnning Time Log  
