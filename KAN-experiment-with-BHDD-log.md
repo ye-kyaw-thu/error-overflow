@@ -2142,6 +2142,8 @@ by Ahmed Dawod Mohammed IbrahumORCID,Zhengyu Shang andJang-Eui Hong:
 
 https://www.mdpi.com/2076-3417/14/22/10173
 
-KAN: Kolmogorov-Arnold Networks  
+KAN: Kolmogorov-Arnold Networks:    
 https://arxiv.org/abs/2404.19756  
 
+Kolmogorov-Arnold Network Autoencoders:  
+https://arxiv.org/abs/2410.02077  
