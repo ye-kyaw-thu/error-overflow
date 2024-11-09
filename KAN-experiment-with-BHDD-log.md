@@ -2393,6 +2393,16 @@ sys     0m2.777s
   (Left: for MLP, Right: Cheby-KAN)
 </div> 
 
+<br />
+
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/efficientKAN-my-mnist.png" alt="Efficient-KAN" width="450"/>  
+<img src="https://github.com/ye-kyaw-thu/error-overflow/blob/master/fig/KAN-exp-BHDD/fastKAN-mnist-loss.png" alt="Fast-KAN" width="450"/>
+</p>  
+<div align="center">
+  Fig.2 Loss graph <br />
+  (Left: for Efficient-KAN, Right: Fast-KAN)
+</div> 
 
 ## Reference Link
 
