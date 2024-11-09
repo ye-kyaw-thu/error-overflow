@@ -2012,6 +2012,175 @@ Epoch 20, Val Loss: 0.04234921921814658, Val Accuracy: 0.9906104987016133
 (opennmt) ye@lst-hpc3090:~/exp/fast-kan$
 ```
 
+## ChebyKAN
+
+```
+(opennmt) ye@lst-hpc3090:~/exp$ git clone https://github.com/SynodicMonth/ChebyKAN
+Cloning into 'ChebyKAN'...
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (37/37), done.
+remote: Total 45 (delta 18), reused 30 (delta 7), pack-reused 0 (from 0)
+Receiving objects: 100% (45/45), 1.96 MiB | 2.90 MiB/s, done.
+Resolving deltas: 100% (18/18), done.
+(opennmt) ye@lst-hpc3090:~/exp$
+```
+
+```
+Epoch 23, Train Loss: 0.0231, Test Loss: 0.1156, Test Acc: 0.97
+Epoch 24, Train Loss: 0.0261, Test Loss: 0.1218, Test Acc: 0.97
+Epoch 25, Train Loss: 0.0240, Test Loss: 0.1254, Test Acc: 0.97
+Epoch 26, Train Loss: 0.0244, Test Loss: 0.1255, Test Acc: 0.97
+Epoch 27, Train Loss: 0.0192, Test Loss: 0.1307, Test Acc: 0.97
+Epoch 28, Train Loss: 0.0202, Test Loss: 0.1283, Test Acc: 0.97
+Epoch 29, Train Loss: 0.0162, Test Loss: 0.1375, Test Acc: 0.96
+Epoch 30, Train Loss: 0.0214, Test Loss: 0.1273, Test Acc: 0.97
+
+real    2m18.388s
+user    2m8.082s
+sys     0m3.150s
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$ time /home/ye/miniforge3/envs/opennmt/bin/python ./chebyKan-mnist.py | tee chebyKan-en-MNIST.log
+```
+
+Check the whole log:  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$ cat ./chebyKan-en-MNIST.log
+...
+...
+...
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw
+
+Total trainable parameters: 128896
+Epoch 1, Train Loss: 1.0977, Test Loss: 0.4405, Test Acc: 0.92
+Epoch 2, Train Loss: 0.3236, Test Loss: 0.2533, Test Acc: 0.94
+Epoch 3, Train Loss: 0.2066, Test Loss: 0.2107, Test Acc: 0.95
+Epoch 4, Train Loss: 0.1637, Test Loss: 0.1779, Test Acc: 0.95
+Epoch 5, Train Loss: 0.1363, Test Loss: 0.1383, Test Acc: 0.96
+Epoch 6, Train Loss: 0.1166, Test Loss: 0.1395, Test Acc: 0.96
+Epoch 7, Train Loss: 0.1010, Test Loss: 0.1543, Test Acc: 0.96
+Epoch 8, Train Loss: 0.0904, Test Loss: 0.1296, Test Acc: 0.96
+Epoch 9, Train Loss: 0.0808, Test Loss: 0.1230, Test Acc: 0.96
+Epoch 10, Train Loss: 0.0745, Test Loss: 0.1232, Test Acc: 0.96
+Epoch 11, Train Loss: 0.0666, Test Loss: 0.1317, Test Acc: 0.96
+Epoch 12, Train Loss: 0.0600, Test Loss: 0.1228, Test Acc: 0.97
+Epoch 13, Train Loss: 0.0555, Test Loss: 0.1346, Test Acc: 0.96
+Epoch 14, Train Loss: 0.0508, Test Loss: 0.1306, Test Acc: 0.96
+Epoch 15, Train Loss: 0.0456, Test Loss: 0.1168, Test Acc: 0.97
+Epoch 16, Train Loss: 0.0434, Test Loss: 0.1237, Test Acc: 0.97
+Epoch 17, Train Loss: 0.0389, Test Loss: 0.1129, Test Acc: 0.97
+Epoch 18, Train Loss: 0.0367, Test Loss: 0.1271, Test Acc: 0.96
+Epoch 19, Train Loss: 0.0369, Test Loss: 0.1386, Test Acc: 0.96
+Epoch 20, Train Loss: 0.0350, Test Loss: 0.1270, Test Acc: 0.96
+Epoch 21, Train Loss: 0.0284, Test Loss: 0.1291, Test Acc: 0.96
+Epoch 22, Train Loss: 0.0280, Test Loss: 0.1123, Test Acc: 0.97
+Epoch 23, Train Loss: 0.0231, Test Loss: 0.1156, Test Acc: 0.97
+Epoch 24, Train Loss: 0.0261, Test Loss: 0.1218, Test Acc: 0.97
+Epoch 25, Train Loss: 0.0240, Test Loss: 0.1254, Test Acc: 0.97
+Epoch 26, Train Loss: 0.0244, Test Loss: 0.1255, Test Acc: 0.97
+Epoch 27, Train Loss: 0.0192, Test Loss: 0.1307, Test Acc: 0.97
+Epoch 28, Train Loss: 0.0202, Test Loss: 0.1283, Test Acc: 0.97
+Epoch 29, Train Loss: 0.0162, Test Loss: 0.1375, Test Acc: 0.96
+Epoch 30, Train Loss: 0.0214, Test Loss: 0.1273, Test Acc: 0.97
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$
+```
+
+## Preparing for Cheby-KAN experiment with BHDD Dataset  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ mv raw eng_raw
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ cp ../../../fast-kan/data/MNIST/raw . -r
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$
+```
+
+Make confirmation ...  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ ls
+eng_raw  raw
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ ls ./raw/
+t10k-images-idx3-ubyte  t10k-labels-idx1-ubyte  train-images-idx3-ubyte  train-labels-idx1-ubyte
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ wc ./raw/*ubyte
+   58093   230240 21607840 ./raw/t10k-images-idx3-ubyte
+       0        1    27569 ./raw/t10k-labels-idx1-ubyte
+  121880   484576 47040016 ./raw/train-images-idx3-ubyte
+       0        1    60008 ./raw/train-labels-idx1-ubyte
+  179973   714818 68735433 total
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$ wc ./eng_raw/*ubyte
+    6055    30268  7840016 ./eng_raw/t10k-images-idx3-ubyte
+       0        1    10008 ./eng_raw/t10k-labels-idx1-ubyte
+   35282   180029 47040016 ./eng_raw/train-images-idx3-ubyte
+       0        1    60008 ./eng_raw/train-labels-idx1-ubyte
+   41337   210299 54950048 total
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN/data/MNIST$
+```
+
+## Cheby-KAN with BHDD, GPU 
+
+Training, testing ...  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$ time /home/ye/miniforge3/envs/opennmt/bin/python ./chebyKan-mnist.py | tee chebyKan-my-MNIST.log
+...
+...
+...
+Epoch 20, Train Loss: 0.0089, Test Loss: 0.0484, Test Acc: 0.99
+Epoch 21, Train Loss: 0.0056, Test Loss: 0.0377, Test Acc: 0.99
+Epoch 22, Train Loss: 0.0041, Test Loss: 0.0449, Test Acc: 0.99
+Epoch 23, Train Loss: 0.0052, Test Loss: 0.0363, Test Acc: 0.99
+Epoch 24, Train Loss: 0.0062, Test Loss: 0.0328, Test Acc: 0.99
+Epoch 25, Train Loss: 0.0013, Test Loss: 0.0811, Test Acc: 0.98
+Epoch 26, Train Loss: 0.0066, Test Loss: 0.0427, Test Acc: 0.99
+Epoch 27, Train Loss: 0.0016, Test Loss: 0.0362, Test Acc: 0.99
+Epoch 28, Train Loss: 0.0053, Test Loss: 0.0345, Test Acc: 0.99
+Epoch 29, Train Loss: 0.0043, Test Loss: 0.0358, Test Acc: 0.99
+Epoch 30, Train Loss: 0.0053, Test Loss: 0.0805, Test Acc: 0.98
+
+real    2m35.907s
+user    2m42.217s
+sys     0m2.970s
+```
+
+Check the whole training log file:  
+
+```
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$ cat ./chebyKan-my-MNIST.log
+Total trainable parameters: 128896
+Epoch 1, Train Loss: 0.9244, Test Loss: 0.2245, Test Acc: 0.98
+Epoch 2, Train Loss: 0.1351, Test Loss: 0.0776, Test Acc: 0.99
+Epoch 3, Train Loss: 0.0660, Test Loss: 0.0622, Test Acc: 0.99
+Epoch 4, Train Loss: 0.0458, Test Loss: 0.0673, Test Acc: 0.98
+Epoch 5, Train Loss: 0.0352, Test Loss: 0.0531, Test Acc: 0.99
+Epoch 6, Train Loss: 0.0266, Test Loss: 0.0497, Test Acc: 0.99
+Epoch 7, Train Loss: 0.0223, Test Loss: 0.0403, Test Acc: 0.99
+Epoch 8, Train Loss: 0.0210, Test Loss: 0.0442, Test Acc: 0.99
+Epoch 9, Train Loss: 0.0163, Test Loss: 0.0738, Test Acc: 0.98
+Epoch 10, Train Loss: 0.0175, Test Loss: 0.0714, Test Acc: 0.98
+Epoch 11, Train Loss: 0.0135, Test Loss: 0.0387, Test Acc: 0.99
+Epoch 12, Train Loss: 0.0130, Test Loss: 0.0428, Test Acc: 0.99
+Epoch 13, Train Loss: 0.0089, Test Loss: 0.0412, Test Acc: 0.99
+Epoch 14, Train Loss: 0.0110, Test Loss: 0.0764, Test Acc: 0.98
+Epoch 15, Train Loss: 0.0104, Test Loss: 0.0506, Test Acc: 0.99
+Epoch 16, Train Loss: 0.0085, Test Loss: 0.0372, Test Acc: 0.99
+Epoch 17, Train Loss: 0.0043, Test Loss: 0.0630, Test Acc: 0.98
+Epoch 18, Train Loss: 0.0111, Test Loss: 0.0438, Test Acc: 0.99
+Epoch 19, Train Loss: 0.0052, Test Loss: 0.0488, Test Acc: 0.99
+Epoch 20, Train Loss: 0.0089, Test Loss: 0.0484, Test Acc: 0.99
+Epoch 21, Train Loss: 0.0056, Test Loss: 0.0377, Test Acc: 0.99
+Epoch 22, Train Loss: 0.0041, Test Loss: 0.0449, Test Acc: 0.99
+Epoch 23, Train Loss: 0.0052, Test Loss: 0.0363, Test Acc: 0.99
+Epoch 24, Train Loss: 0.0062, Test Loss: 0.0328, Test Acc: 0.99
+Epoch 25, Train Loss: 0.0013, Test Loss: 0.0811, Test Acc: 0.98
+Epoch 26, Train Loss: 0.0066, Test Loss: 0.0427, Test Acc: 0.99
+Epoch 27, Train Loss: 0.0016, Test Loss: 0.0362, Test Acc: 0.99
+Epoch 28, Train Loss: 0.0053, Test Loss: 0.0345, Test Acc: 0.99
+Epoch 29, Train Loss: 0.0043, Test Loss: 0.0358, Test Acc: 0.99
+Epoch 30, Train Loss: 0.0053, Test Loss: 0.0805, Test Acc: 0.98
+(opennmt) ye@lst-hpc3090:~/exp/ChebyKAN$
+```
+
 ## Summary of Experiment Results
 
 ## Runnning Time Log  
