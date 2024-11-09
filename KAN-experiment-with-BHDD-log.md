@@ -1,3 +1,4 @@
+# Kolmogorov-Arnold Networks (KAN) Experiment Log with Myanmar MNIST Dataset (BHDD)  
 
 Data Path:
 /home/ye/ye/exp/cpp-mnist/cpp/data/BHDD/mnist2img/data/  
