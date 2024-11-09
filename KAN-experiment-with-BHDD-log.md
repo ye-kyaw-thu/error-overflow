@@ -2118,6 +2118,9 @@ https://kindxiaoming.github.io/
 MNIST and PyKan:  
 https://www.kaggle.com/code/minsithu/mnist-and-pykan  
 
+Dissecting Kolmogorov-Arnold Network:  
+https://feicheung2016.medium.com/dissecting-kolmogorov-arnold-network-f1bee719d949
+
 ## Lectures/Talks
 
 KAN: Kolmogorov-Arnold Networks, Ziming Liu, MIT 2024  
