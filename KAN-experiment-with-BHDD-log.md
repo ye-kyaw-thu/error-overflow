@@ -2072,9 +2072,9 @@ Fast-KAN, GPU: 0m50.572s
 | 9     | 0.0507                | 0.9872                    | 0.0524                | 0.9869                    |
 | 10    | 0.0541                | 0.9872                    | 0.0520                | 0.9869                    |
 
-## MLP, Efficient-KAN and Fast-KAN Results
+## Validation Accuracy of MLP, Efficient-KAN and Fast-KAN Results
 
-| **Epoch** | **MLP Val Accuracy** | **Efficient-KAN Val Accuracy** | **Fast-KAN Val Accuracy** |
+| **Epoch** | **MLP** | **Efficient-KAN** | **Fast-KAN** |
 |-----------|-----------------------|--------------------------------|---------------------------|
 | 1         | 0.9633               | 0.9814                         | 0.9787                    |
 | 2         | 0.9772               | 0.9869                         | 0.9736                    |
