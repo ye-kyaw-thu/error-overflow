@@ -242,3 +242,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 235. [sox-installation-from-source-for-Ubuntu-23.10.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sox-installation-from-source-for-Ubuntu-23.10.md)  
 236. [KAN-experiment-with-BHDD-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/KAN-experiment-with-BHDD-log.md)  
 237. [fasttext-tree-sentence-segmentation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fasttext-tree-sentence-segmentation.md)  
+238. [fasttext-ml-experiments.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fasttext-ml-experiments.md)  
