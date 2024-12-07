@@ -957,3 +957,793 @@ echo "All training and testing completed."
 ရှေ့မှာလည်း ML experiment တွေက ငါတို့ အများကြီး လုပ်ခဲ့ကြတယ်။ သို့သော် tool က လိုနေတာမို့ ထပ် experiment  လုပ်ဖြစ်ခဲ့တယ်။   
 ဒီ experiments အရ sentence segmentation အတွက် ML method တွေအကြားမှာ CRF က strong အဖြစ်ဆုံးပဲ။ Accuracy 0.85 ရတယ်။  
 
+## Updating Python Code
+
+--evaluate option မထည့်ပဲ run တဲ့အခါမှာ test output ကို ထုတ်ပေးပေမဲ့ ဖိုင်အနေနဲ့ output ထုတ်ချင်တယ်။ ပြီးတော့ column format ဖြစ်နေတာကို line by line format အဖြစ် ပြောင်းချင်တယ်။  
+
+```python
+def test_model(test_file, ft_model_file, trained_model_file, evaluate, method, logger):
+    """Test the model on the provided test data."""
+    logger.info(f"Testing {method} model...")
+    if evaluate:
+        sentences, labels = load_tagged_data(test_file)
+    else:
+        sentences = load_raw_data(test_file)
+        labels = None
+
+    ft_model = fasttext.load_model(ft_model_file)
+    model = joblib.load(trained_model_file)
+
+    logger.info(f"Preparing features for {method} testing...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        predictions = model.predict(X)[0]
+    else:
+        X = prepare_features(sentences, ft_model)
+        predictions = model.predict(X)
+
+    if evaluate:
+        if method == "CRF":
+            logger.info(flat_classification_report([labels], [predictions]))
+        else:
+            logger.info(classification_report(labels, predictions))
+    else:
+        # Save results to a text file instead of printing to stdout
+        output_file = f"{test_file}.results.txt"
+        with open(output_file, "w", encoding="utf-8") as f:
+            for word, label in zip(sentences, predictions):
+                f.write(f"{word}/{label}\n")
+        logger.info(f"Test results saved to {output_file}")
+
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./models/CRF.model --method CRF
+2024-12-07 23:10:44,067 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-07 23:10:44,864 - Preparing features for CRF testing...
+2024-12-07 23:10:58,805 - Test results saved to ./data/syl/bone/test.tagged.bone.results.txt
+
+real    0m16.281s
+user    0m16.522s
+sys     0m6.691s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ ll -h ./data/syl/bone/test.
+tagged.bone.results.txt
+-rw-rw-r-- 1 ye ye 2.0M Dec  7 23:10 ./data/syl/bone/test.tagged.bone.results.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc ./data/syl/bone/test.tag
+ged.bone.results.txt
+ 143773  143788 2001809 ./data/syl/bone/test.tagged.bone.results.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+compare with input test data filesize:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc ./data/syl/bone/test.tagged.bone
+   5512  143788 1714263 ./data/syl/bone/test.tagged.bone
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+ထွက်လာတဲ့ test output file ကို ဝင်လေ့လာ..  
+
+```
+$ head ./data/syl/bone/test.tagged.bone.results.txt
+ရင်/B/O
+ဘတ်/O/O
+အောင့်/O/O
+လာ/O/O
+ရင်/O/O
+သ/N/O
+တိ/N/O
+ထား/N/O
+ပါ/E/O
+ဘယ်/B/O
+```
+
+အထက်မှာ မြင်ရတဲ့အတိုင်းပဲ ဖြစ်နေသေး  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./models/CRF.model --method CRF
+2024-12-07 23:25:23,124 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-07 23:25:23,917 - Preparing features for CRF testing...
+2024-12-07 23:30:21,420 - Test results saved to ./data/syl/bone/test.tagged.bone.results.txt
+
+real    5m4.544s
+user    4m57.805s
+sys     0m13.659s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Check the test output file:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head ./data/syl/bone/test.tagged.bone.results.txt
+ရင်/B/O ဘတ်/O/O အောင့်/O/O လာ/O/O ရင်/O/O သ/N/O တိ/N/O ထား/N/O ပါ/E/O
+ဘယ်/B/N လောက်/O/E နောက်/N/B ကျ/N/O သ/N/O လဲ/E/O
+ကြို/B/O ပို့/O/O ဘတ်စ်/O/O ကား/O/O က/O/O အ/O/O ဆင်/O/O အ/N/O ပြေ/N/O ဆုံး/N/O ပဲ/E/O
+အဲ/B/O ဒီ/O/O အ/O/O ဖွဲ့/O/O ရဲ့/O/O ဥက္ကဋ္ဌ/O/O ဖြစ်/O/O တဲ့/O/O ယို/O/O ကို/O/O ယာ/O/O မာ့/O/O အာ/O/O ကိ/O/O ဟီ/O/O တို/O/O YokoyamaAkihito/O/O က/O/O တ/O/O ခြား/O/O နိုင်/O/O ငံ/O/O တွေ/O/O မှာ/O/O ဖြစ်/O/O ပွား/O/O တဲ့/O/O လူ/O/O နာ/O/O တွေ/O/O ရဲ့/O/O အ/O/O ဆုတ်/O/O လုပ်/O/O ဆောင်/O/O ပုံ/O/O တွေ/O/O က/O/O ဗိုင်း/O/O ရပ်စ်/O/O ကူး/O/O စက်/O/O ခံ/O/O ရ/O/O ပြီး/O/O ကု/O/O သ/O/O လိုက်/O/O လို့/O/O ရော/O/O ဂါ/O/O ပိုး/O/O မ/O/O ရှိ/O/O တော့/O/O ဘူး/O/O လို့/O/O စစ်/O/O ဆေး/O/O ပြီး/O/O နောက်/O/O မှာ/O/O တောင်/O/O မှ/O/O အ/O/O ဆုတ်/O/O က/O/O အ/O/O ပြည့်/O/O အ/O/O ဝ/O/O ပုံ/O/O မှန်/O/O ပြန်/O/O ဖြစ်/O/O မ/O/O လာ/O/O တဲ့/O/O လူ/O/O နာ/O/O တွေ/O/O အ/O/O များ/O/O အ/O/O ပြား/O/O တွေ့/O/O ရ/O/O တယ်/O/O လို့/N/O ပြော/N/O ပါ/N/O တယ်/E/O
+အ/B/N ဆင့်/O/N အေ/O/E ဝင်/O/B ငွေ/O/O ခွန်/O/O ကို/O/O လ/O/O စာ/O/O မှ/N/O ဖြတ်/N/O တောက်/N/O သည်/E/O
+လို/B/E ကီ/O/B က/O/O အတ်/O/O ဂါ/O/O ဒါ/O/O လို/O/O ကီ/O/O ရဲ့/O/O မျက်/O/O လုံး/O/O တွေ/O/O ကို/O/O သေ/O/O ချာ/O/O တည့်/O/O တည့်/O/O ကြည့်/O/O ရင်း/O/O ငါ/N/O က/N/O လို/N/O ကီ/E/O
+ခင်/B/E ဗျား/O/B ကြိုက်/O/O တဲ့/O/O အ/O/O ရောင်/N/O က/N/O ဘာ/N/O လဲ/E/O
+သူ/B/O သီ/O/O ချင်း/O/O ဆို/O/O တတ်/O/O သ/O/O လို/O/O က/O/O လည်း/N/O က/N/O တတ်/N/O သည်/E/O
+ထို့/B/O ကြောင့်/O/O ဥ/O/O ပါယ်/O/O ဂို့/O/O ဟု/O/O ခေါ်/O/O ကာ/O/O ကာ/O/O လ/O/O ကြာ/O/O သော်/O/O ဥ/O/O ပါယ်/O/O ဂို့/O/O မှ/O/O ပ/O/O ဂိုး/O/O ဟု/O/O ပြောင်း/O/O လဲ/O/O ခေါ်/N/O လာ/N/O ကြ/N/O သည်/E/O
+ဒီ/B/E နေ့/O/B ခင်/O/O ဗျား/O/O ဘယ်/O/O လို/O/O ဖြစ်/N/O နေ/N/N တာ/N/E လဲ/E/B
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Debugging ...  
+
+```
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-07 23:58:01,183 - Preparing features for Decision-Tree testing...
+Sentence: ['ရင်/B', 'ဘတ်/O', 'အောင့်/O', 'လာ/O', 'ရင်/O', 'သ/N', 'တိ/N', 'ထား/N', 'ပါ/E']
+Tags: ['O' 'B' 'O' 'O' 'B' 'O' 'O' 'O' 'O']
+Sentence: ['ဘယ်/B', 'လောက်/O', 'နောက်/N', 'ကျ/N', 'သ/N', 'လဲ/E']
+Tags: ['E' 'O' 'O' 'O' 'O' 'O']
+```
+
+## Debugged on File Loading, Feature Extractions
+
+code ကို အစအဆုံး ပြန်ဖတ်ကြည့်ပြီး ကြားထဲမှာ file loading, splitting word, tag, feature extraction အပိုင်းတွေကို အကုန် ပြန်ပြင်ရေးခဲ့ရ။ လက်ရှိ အချိန်ထိ updated လုပ်ထားခဲ့တဲ့ code က အောက်ပါအတိုင်း...  
+
+```python
+import argparse
+import os
+import fasttext
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn_crfsuite import CRF
+from sklearn_crfsuite.metrics import flat_classification_report
+from sklearn.metrics import classification_report
+import joblib
+import logging
+
+
+#def load_tagged_data(file_path):
+#    """Load tagged corpus and return sentences and labels."""
+#    sentences, labels = [], []
+#    with open(file_path, "r", encoding="utf-8") as f:
+#        for line in f:
+#            tokens = line.strip().split()
+#            for token in tokens:
+#                if "/" in token:
+#                    word, label = token.rsplit("/", 1)
+#                    sentences.append(word)
+#                    labels.append(label)
+#    return sentences, labels
+
+#def load_tagged_data(file_path):
+#    """
+#    Load tagged corpus and return sentences and labels for each line.
+#    Each sentence is a list of words, and each label is a list of corresponding tags.
+#    """
+#    sentences, labels = [], []
+#    with open(file_path, "r", encoding="utf-8") as f:
+#        for line in f:
+#            line_sentences = []
+#            line_labels = []
+#            tokens = line.strip().split()
+#            for token in tokens:
+#                if "/" in token:
+#                    word, label = token.rsplit("/", 1)
+#                    line_sentences.append(word)
+#                    line_labels.append(label)
+#            if line_sentences and line_labels:  # Avoid empty lines
+#                sentences.append(line_sentences)
+#                labels.append(line_labels)
+#    return sentences, labels
+
+def load_tagged_data(filepath):
+    """Load tagged data and return sentences and labels."""
+    sentences = []
+    labels = []
+
+    with open(filepath, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+
+            words, tags = [], []
+            for token in line.split():
+                word, tag = token.rsplit('/', 1)  # Split word and tag
+                words.append(word)
+                tags.append(tag)
+            
+            sentences.append(words)
+            labels.append(tags)
+
+    return sentences, labels
+
+
+def load_raw_data(file_path):
+    """Load raw text without tags."""
+    sentences = []
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            sentences.extend(line.strip().split())
+    return sentences
+
+
+#def prepare_features(sentences, ft_model):
+#    """Generate embeddings for sentences using FastText."""
+#    return np.array([ft_model.get_word_vector(word) for word in sentences])
+
+#def prepare_features(sentences, ft_model):
+#    """Generate embeddings for sentences using FastText."""
+    # Flatten the list of sentences (list of lists of words) into a single list of words
+#    flat_sentences = [word for sentence in sentences for word in sentence]
+#    return np.array([ft_model.get_word_vector(word) for word in flat_sentences])
+
+def prepare_features(sentences, ft_model):
+    """Prepare feature vectors for each word in the sentences."""
+    features = []
+    for sentence in sentences:
+        for word in sentence:
+            features.append(ft_model.get_word_vector(word))  # Word-level features
+    return features
+
+#def prepare_features_for_crf(sentences, ft_model):
+#    """Prepare features for CRF."""
+#    return [[{'dim_' + str(i): val for i, val in enumerate(ft_model.get_word_vector(word))} for word in sentences]]
+
+def prepare_features_for_crf(sentences, ft_model):
+    # Ensure sentences is a list of lists (tokenized sentences)
+    return [
+        [{'dim_' + str(i): val for i, val in enumerate(ft_model.get_word_vector(word))} for word in sentence]
+        for sentence in sentences
+    ]
+
+def flatten_labels(labels):
+    """Flatten sentence-level labels into a single sequence for word-level alignment."""
+    return [label for sentence_labels in labels for label in sentence_labels]
+
+def train_model(train_file, ft_model_file, output_model_file, method, logger):
+    """Train the model based on the selected method."""
+    logger.info(f"Loading training data for {method}...")
+    sentences, labels = load_tagged_data(train_file)
+
+    # Check if the FastText model already exists
+    if os.path.exists(ft_model_file):
+        logger.info(f"Loading existing FastText model from {ft_model_file}...")
+        ft_model = fasttext.load_model(ft_model_file)
+    else:
+        logger.info(f"Training FastText model for {method}...")
+        ft_model = fasttext.train_unsupervised(train_file, model='skipgram')
+        ft_model.save_model(ft_model_file)
+
+    logger.info(f"Preparing features for {method}...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        y = labels  # No flattening needed for CRF
+    else:
+        X = prepare_features(sentences, ft_model)
+        y = flatten_labels(labels)  # Flatten labels for other models
+
+    logger.info(f"Training {method} model...")
+    if method == "Decision-Tree":
+        model = DecisionTreeClassifier()
+    elif method == "Random-Forest":
+        model = RandomForestClassifier()
+    elif method == "Logistic-Regression":
+        model = LogisticRegression(max_iter=1000)
+    elif method == "CRF":
+        model = CRF(algorithm='lbfgs', max_iterations=100, all_possible_transitions=True)
+    elif method == "AdaBoost":
+        model = AdaBoostClassifier(n_estimators=50)
+    elif method == "GradientBoosting":
+        model = GradientBoostingClassifier()
+    elif method == "Voting":
+        model = VotingClassifier(estimators=[
+            ('rf', RandomForestClassifier()),
+            ('lr', LogisticRegression(max_iter=1000)),
+            ('dt', DecisionTreeClassifier())
+        ], voting='hard')
+    else:
+        raise ValueError(f"Unsupported method: {method}")
+
+    # Train the model
+    model.fit(X, y)
+    logger.info(f"Saving trained model to {output_model_file}...")
+    
+    # Save model and confirm file creation
+    try:
+        joblib.dump(model, output_model_file)
+        if os.path.exists(output_model_file):
+            logger.info(f"Model saved successfully: {output_model_file}")
+        else:
+            logger.error(f"Failed to save model: {output_model_file}")
+    except Exception as e:
+        logger.error(f"Error saving model: {e}")
+
+    logger.info(f"Training for {method} completed.")
+
+
+#def test_model(test_file, ft_model_file, trained_model_file, evaluate, method, logger):
+#    """Test the model on the provided test data."""
+#    logger.info(f"Testing {method} model...")
+#    sentences, labels = load_tagged_data(test_file)
+#    if evaluate:
+#        sentences, labels = load_tagged_data(test_file)
+#    else:
+#        sentences = load_raw_data(test_file)
+#        labels = None
+
+#    ft_model = fasttext.load_model(ft_model_file)
+#    model = joblib.load(trained_model_file)
+
+#    logger.info(f"Preparing features for {method} testing...")
+#    if method == "CRF":
+#        X = prepare_features_for_crf(sentences, ft_model)
+#        predictions = model.predict(X)[0]
+#    else:
+#        X = prepare_features(sentences, ft_model)
+#        predictions = model.predict(X)
+
+#    if evaluate:
+#        if method == "CRF":
+#            logger.info(flat_classification_report([labels], [predictions]))
+#        else:
+#            logger.info(classification_report(labels, predictions))
+#    else:
+#        for word, label in zip(sentences, predictions):
+#            logger.info(f"{word}/{label}")
+
+def test_model(test_file, ft_model_file, trained_model_file, evaluate, method, logger):
+    """Test the model on the provided test data."""
+    logger.info(f"Testing {method} model...")
+    
+    # Load data
+    if evaluate:
+        sentences, labels = load_tagged_data(test_file)
+    else:
+        sentences = load_raw_data(test_file)
+        labels = None
+
+    # Load FastText model and trained ML model
+    ft_model = fasttext.load_model(ft_model_file)
+    model = joblib.load(trained_model_file)
+
+    logger.info(f"Preparing features for {method} testing...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        predictions = model.predict(X)  # CRF predictions remain structured (list of sequences)
+        
+        if evaluate:
+            # Ensure both labels and predictions are sequences of sequences
+            logger.info("Calculating evaluation metrics for CRF...")
+            report = flat_classification_report(labels, predictions)
+            logger.info("\n" + report)
+        else:
+            logger.info("CRF predictions generated.")
+    else:
+        X = prepare_features(sentences, ft_model)
+        predictions = model.predict(X)
+
+        if evaluate:
+            logger.info("Calculating evaluation metrics for non-CRF model...")
+            flat_labels = flatten_labels(labels)  # Flatten labels for evaluation
+            logger.info(classification_report(flat_labels, predictions))
+        else:
+            logger.info(f"{method} predictions generated.")
+
+    logger.info(f"Testing for {method} completed.")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="FastText + ML Models for Sentence Segmentation.")
+    parser.add_argument("--train", help="Train the model. Provide the training corpus file path.")
+    parser.add_argument("--test", help="Test the model. Provide the test corpus file path.")
+    parser.add_argument("--ft-model", default="fasttext_model.bin", help="FastText model file (default: fasttext_model.bin).")
+    parser.add_argument("--model", default="model.pkl", help="Trained model file (default: model.pkl).")
+    parser.add_argument("--method", "-m", default="Decision-Tree",
+                        choices=["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting", "all"],
+                        help="Choose the classification method (default: Decision-Tree).")
+    parser.add_argument("--evaluate", action="store_true", help="Evaluate the model during testing if reference data is provided.")
+
+    args = parser.parse_args()
+
+    logging.basicConfig(filename="all-training-testing.log" if args.method == "all" else None,
+                        level=logging.INFO,
+                        format="%(asctime)s - %(message)s")
+    logger = logging.getLogger()
+
+    # Check for a single method or 'all'
+    if args.method == "all":
+        methods = ["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting"]
+    else:
+        methods = [args.method]
+
+    if args.train:
+        for method in methods:
+            model_file = f"models/{method}.model"  # Save models to 'models' directory
+            train_model(args.train, args.ft_model, model_file, method, logger)
+    elif args.test:
+        for method in methods:
+            model_file = f"models/{method}.model"  # Load models from 'models' directory
+            test_model(args.test, args.ft_model, model_file, args.evaluate, method, logger)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
+
+
+```
+
+ဝမ်းသာစရာကောင်းတာက CRF ရဲ့ ရလဒ်လည်း 0.91 အထိ တက်လာပြီ။ :)  
+
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --evaluate
+2024-12-08 04:51:41,191 - Testing Decision-Tree model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 04:51:42,025 - Preparing features for Decision-Tree testing...
+2024-12-08 04:51:43,125 - Calculating evaluation metrics for non-CRF model...
+2024-12-08 04:51:44,036 -               precision    recall  f1-score   support
+
+           B       0.56      0.19      0.28      6861
+           E       0.71      0.77      0.74      6829
+           N       0.60      0.18      0.28     19728
+           O       0.83      0.96      0.89    110355
+
+    accuracy                           0.81    143773
+   macro avg       0.67      0.53      0.55    143773
+weighted avg       0.78      0.81      0.77    143773
+
+2024-12-08 04:51:44,037 - Testing for Decision-Tree completed.
+
+real    0m3.773s
+user    0m6.301s
+sys     0m4.413s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./CRF.model --method CRF --evaluate
+2024-12-08 04:56:40,427 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 04:56:41,266 - Preparing features for CRF testing...
+2024-12-08 04:56:54,681 - Calculating evaluation metrics for CRF...
+2024-12-08 04:56:55,658 -
+              precision    recall  f1-score   support
+
+           B       0.99      0.86      0.92      6861
+           E       0.99      0.86      0.92      6829
+           N       0.94      0.47      0.63     19728
+           O       0.90      0.99      0.94    110355
+
+    accuracy                           0.91    143773
+   macro avg       0.95      0.79      0.85    143773
+weighted avg       0.91      0.91      0.90    143773
+
+2024-12-08 04:56:55,658 - Testing for CRF completed.
+
+real    0m16.891s
+user    0m17.968s
+sys     0m5.863s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+## Coding/Updating for Predicted Result Saving as File
+
+တော်တော်လေး ပြင်လိုက်တယ်။ Resuls for Decision-Tree:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --evaluate
+2024-12-08 05:15:36,047 - Testing Decision-Tree model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 05:15:36,881 - Preparing features for Decision-Tree testing...
+2024-12-08 05:15:38,005 - Saving predictions to predictions_Decision-Tree.txt...
+2024-12-08 05:15:38,149 - Predictions saved successfully.
+              precision    recall  f1-score   support
+
+           B     0.5571    0.1876    0.2807      6861
+           E     0.7088    0.7720    0.7390      6829
+           N     0.6030    0.1841    0.2820     19728
+           O     0.8262    0.9583    0.8874    110355
+
+    accuracy                         0.8065    143773
+   macro avg     0.6738    0.5255    0.5473    143773
+weighted avg     0.7772    0.8065    0.7683    143773
+
+
+real    0m3.979s
+user    0m6.357s
+sys     0m4.563s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+
+```
+
+test input, predicted output နှစ်ဖိုင်ရဲ့ လိုင်းအရေအတွက်လည်း တူသွားပြီ။  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc predictions_Decision-Tre
+e.txt
+   5512  143788 1719775 predictions_Decision-Tree.txt
+
+```
+
+တခြား method တွေ အားလုံးအတွက် မစမ်းကြည့်ရသေးပေမဲ့ CRF အတွက်တော့ စမ်းကြည့်မယ်။  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./CRF.model --method CRF --evaluate
+2024-12-08 05:19:24,734 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 05:19:25,570 - Preparing features for CRF testing...
+2024-12-08 05:19:39,065 - Saving predictions to predictions_CRF.txt...
+2024-12-08 05:19:39,094 - Predictions saved successfully.
+              precision    recall  f1-score   support
+
+           B     0.9884    0.8575    0.9183      6861
+           E     0.9874    0.8581    0.9182      6829
+           N     0.9371    0.4692    0.6253     19728
+           O     0.8991    0.9941    0.9442    110355
+
+    accuracy                         0.9091    143773
+   macro avg     0.9530    0.7947    0.8515    143773
+weighted avg     0.9128    0.9091    0.8980    143773
+
+
+real    0m17.127s
+user    0m18.108s
+sys     0m5.959s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+predicted file ကို စစ်ကြည့်ခဲ့...  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc predictions_CRF.txt
+  5512 143773 784663 predictions_CRF.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+သို့သော် လက်ရှိ CRF output က အောက်ပါအတိုင်း list နဲ့ ထုတ်တယ်။ အဆင်မပြေသေးဘူး ...   
+
+```
+ရင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဘတ်/['B', 'O', 'O', 'O', 'N', 'E'] အောင့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ရင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] သ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တိ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ထား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပါ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] 
+ဘယ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လောက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] နောက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ကျ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'E'] သ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] လဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] 
+ကြို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ပို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဘတ်စ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆင်/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပြေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆုံး/['B', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] 
+အဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဒီ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဖွဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ရဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဥက္ကဋ္ဌ/['B', 'O', 'O', 'O', 'O', 'N', 'E'] ဖြစ်/['B', 'N', 'N', 'N', 'E'] တဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ယို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ကို/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ယာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မာ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အာ/['B', 'N', 'N', 'N', 'N', 'E'] ကိ/['B', 'N', 'N', 'N', 'N', 'E'] ဟီ/['B', 'O', 'O', 'O', 'N', 'E'] တို/['B', 'O', 'O', 'N', 'E'] YokoyamaAkihito/['B', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'E'] တ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ခြား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] နိုင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ငံ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] တွေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မှာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဖြစ်/['B', 'O', 'O', 'N', 'N', 'E'] ပွား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လူ/['B', 'O', 'O', 'O', 'O', 'N', 'E'] နာ/['B', 'O', 'O', 'O', 'O', 'N', 'E'] တွေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ရဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆုတ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လုပ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆောင်/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပုံ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] တွေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'N', 'E'] ဗိုင်း/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ရပ်စ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကူး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] စက်/['B', 'O', 'O', 'N', 'E'] ခံ/['B', 'O', 'O', 'O', 'O', 'N', 'E'] ရ/['B', 'N', 'N', 'N', 'E'] ပြီး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကု/['B', 'O', 'O', 'O', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] သ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လိုက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'E'] ရော/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ဂါ/['B', 'N', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'N', 'N', 'E'] ပိုး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] မ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'] ရှိ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] တော့/['B', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဘူး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] စစ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆေး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပြီး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] နောက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မှာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တောင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မှ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆုတ်/['B', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ပြည့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'N', 'E'] ဝ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပုံ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မှန်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ပြန်/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဖြစ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တဲ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လူ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] နာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] တွေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] များ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ပြား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တွေ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ရ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တယ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပြော/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ပါ/['B', 'O', 'O', 'O', 'N', 'E'] တယ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] 
+အ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဆင့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဝင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ငွေ/['B', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'N', 'N', 'E'] ခွန်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ကို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] စာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] မှ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဖြတ်/['B', 'N', 'N', 'N', 'E'] တောက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] သည်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] 
+လို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကီ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] အတ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ဂါ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဒါ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ကီ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ရဲ့/['B', 'O', 'O', 'N', 'N', 'E'] မျက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လုံး/['B', 'N', 'E'] တွေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ကို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] သေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E', 'B', 'E'] ချာ/['B', 'O', 'O', 'O', 'N', 'N', 'E'] တည့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တည့်/['B', 'O', 'O', 'O', 'O', 'N', 'E'] ကြည့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ရင်း/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ငါ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ကီ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] 
+ခင်/['B', 'N', 'N', 'N', 'E'] ဗျား/['B', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ကြိုက်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တဲ့/['B', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] အ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ရောင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဘာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] လဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] 
+သူ/['B', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] သီ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ချင်း/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဆို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] တတ်/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] သ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လည်း/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] က/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] တတ်/['B', 'N', 'N', 'E', 'B', 'N', 'E', 'B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] သည်/['B', 'N', 'N', 'E'] 
+ထို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကြောင့်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'N', 'E'] ဥ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပါယ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဂို့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဟု/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ခေါ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ကြာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] သော်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဥ/['B', 'N', 'E'] ပါယ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဂို့/['B', 'O', 'O', 'O', 'O', 'N', 'E'] မှ/['B', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဂိုး/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဟု/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ပြောင်း/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] လဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] ခေါ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] လာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ကြ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] သည်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] 
+ဒီ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] နေ့/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ခင်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဗျား/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] ဘယ်/['B', 'O', 'O', 'N', 'E'] လို/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] ဖြစ်/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] နေ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'E'] တာ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'E'] လဲ/['B', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'N', 'N', 'N', 'E'] 
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
+
+
