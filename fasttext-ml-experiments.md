@@ -1472,6 +1472,22 @@ e.txt
 
 ```
 
+line by line print လုပ်ပေးတယ်။  
+
+```
+$ head ./predictions_Decision-Tree.txt
+ရင်/O ဘတ်/O အောင့်/O လာ/O ရင်/O သ/O တိ/O ထား/O ပါ/N
+ဘယ်/O လောက်/O နောက်/O ကျ/O သ/O လဲ/E
+ကြို/O ပို့/O ဘတ်စ်/O ကား/O က/O အ/O ဆင်/O အ/O ပြေ/O ဆုံး/O ပဲ/O
+အဲ/B ဒီ/O အ/O ဖွဲ့/O ရဲ့/O ဥက္ကဋ္ဌ/O ဖြစ်/O တဲ့/O ယို/O ကို/O ယာ/O မာ့/O အာ/O ကိ/O ဟီ/O တို/O YokoyamaAkihito/O က/O တ/O ခြား/O နိုင်/O ငံ/O တွေ/O မှာ/O ဖြစ်/O ပွား/O တဲ့/O လူ/O နာ/O တွေ/O ရဲ့/O အ/O ဆုတ်/O လုပ်/O ဆောင်/O ပုံ/O တွေ/O က/O ဗိုင်း/O ရပ်စ်/O ကူး/O စက်/O ခံ/O ရ/O ပြီး/O ကု/O သ/O လိုက်/N လို့/O ရော/O ဂါ/O ပိုး/O မ/O ရှိ/O တော့/O ဘူး/E လို့/O စစ်/O ဆေး/O ပြီး/O နောက်/O မှာ/O တောင်/O မှ/O အ/O ဆုတ်/O က/O အ/O ပြည့်/O အ/O ဝ/O ပုံ/O မှန်/O ပြန်/O ဖြစ်/O မ/O လာ/O တဲ့/O လူ/O နာ/O တွေ/O အ/O များ/O အ/O ပြား/O တွေ့/O ရ/O တယ်/E လို့/O ပြော/N ပါ/N တယ်/E
+အ/O ဆင့်/O အေ/O ဝင်/O ငွေ/O ခွန်/O ကို/O လ/O စာ/O မှ/O ဖြတ်/O တောက်/O သည်/E
+လို/O ကီ/O က/O အတ်/O ဂါ/O ဒါ/B လို/O ကီ/O ရဲ့/O မျက်/O လုံး/O တွေ/O ကို/O သေ/O ချာ/O တည့်/O တည့်/O ကြည့်/O ရင်း/O ငါ/O က/O လို/O ကီ/O
+ခင်/B ဗျား/O ကြိုက်/N တဲ့/O အ/O ရောင်/O က/O ဘာ/O လဲ/E
+သူ/O သီ/O ချင်း/O ဆို/O တတ်/O သ/O လို/O က/O လည်း/O က/O တတ်/O သည်/E
+ထို့/B ကြောင့်/O ဥ/O ပါယ်/O ဂို့/O ဟု/O ခေါ်/O ကာ/O ကာ/O လ/O ကြာ/O သော်/O ဥ/O ပါယ်/O ဂို့/O မှ/O ပ/O ဂိုး/O ဟု/O ပြောင်း/O လဲ/E ခေါ်/O လာ/O ကြ/N သည်/E
+ဒီ/O နေ့/O ခင်/B ဗျား/O ဘယ်/O လို/O ဖြစ်/O နေ/O တာ/O လဲ/E
+```
+
 တခြား method တွေ အားလုံးအတွက် မစမ်းကြည့်ရသေးပေမဲ့ CRF အတွက်တော့ စမ်းကြည့်မယ်။  
 
 ```
@@ -1523,227 +1539,936 @@ predicted file ကို စစ်ကြည့်ခဲ့...
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+## Updating the Code
+
+```python
+def test_model(test_file, ft_model_file, trained_model_file, evaluate, method, output_file, logger):
+    """Test the model on the provided test data."""
+    logger.info(f"Testing {method} model...")
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+    if evaluate:
+        sentences, labels = load_tagged_data(test_file)
+    else:
+        sentences = load_raw_data(test_file)
+        labels = None
+
+    ft_model = fasttext.load_model(ft_model_file)
+    model = joblib.load(trained_model_file)
+
+    logger.info(f"Preparing features for {method} testing...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        predictions = model.predict(X)
+    else:
+        X = prepare_features(sentences, ft_model)
+        predictions = model.predict(X)
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+    # Ensure predictions are human-readable
+    logger.info(f"Saving predictions to {output_file}...")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for sentence, sentence_predictions in zip(sentences, predictions):
+            if method == "CRF":
+                # CRF predictions are already sentence-aligned
+                formatted_sentence = " ".join(f"{word}/{tag}" for word, tag in zip(sentence, sentence_predictions))
+            else:
+                # Flattened predictions, need to realign to sentences
+                formatted_sentence = " ".join(f"{word}/{tag}" for word, tag in zip(sentence, sentence_predictions[:len(sentence)]))
+            f.write(f"{formatted_sentence}\n")
+
+    logger.info(f"Predictions saved successfully.")
+
+    # Calculate and display metrics if labels are provided
+    if evaluate and labels:
+        flattened_true = flatten_labels(labels)
+        flattened_predictions = (
+            predictions if method != "CRF" else flatten_labels(predictions)
+        )
+
+        if method == "CRF":
+            report = flat_classification_report(labels, predictions)
+        else:
+            report = classification_report(flattened_true, flattened_predictions)
+
+        logger.info(f"Evaluation Results:\n{report}")
+        print(report)
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+```
+
+Run testing for DT and CRF again and check predicted output files:  
 
 ```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --evaluate
+2024-12-08 05:35:44,424 - Testing Decision-Tree model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 05:35:45,258 - Preparing features for Decision-Tree testing...
+2024-12-08 05:35:46,389 - Saving predictions to predictions_Decision-Tree.txt...
+2024-12-08 05:35:46,400 - Predictions saved successfully.
+2024-12-08 05:35:47,318 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.56      0.19      0.28      6861
+           E       0.71      0.77      0.74      6829
+           N       0.60      0.18      0.28     19728
+           O       0.83      0.96      0.89    110355
+
+    accuracy                           0.81    143773
+   macro avg       0.67      0.53      0.55    143773
+weighted avg       0.78      0.81      0.77    143773
 
-```
-
-```
-
-```
-
-```
+              precision    recall  f1-score   support
 
-```
-
-```
+           B       0.56      0.19      0.28      6861
+           E       0.71      0.77      0.74      6829
+           N       0.60      0.18      0.28     19728
+           O       0.83      0.96      0.89    110355
+
+    accuracy                           0.81    143773
+   macro avg       0.67      0.53      0.55    143773
+weighted avg       0.78      0.81      0.77    143773
+
+
+real    0m3.822s
+user    0m6.355s
+sys     0m4.407s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc ./data/syl/bone/test.tagged.bone
+   5512  143788 1714263 ./data/syl/bone/test.tagged.bone
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc ./predictions_Decision-Tree.txt
+ 5512  5512 64240 ./predictions_Decision-Tree.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
 
 ```
-
-
-
-
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head ./predictions_Decision-Tree.txt
+ရင်/O
+ဘယ်/O
+ကြို/O
+အဲ/O
+အ/O
+လို/O
+ခင်/O
+သူ/O
+ထို့/N
+ဒီ/O
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Testing for CRF:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./CRF.model --method CRF --evaluate
+2024-12-08 05:38:25,665 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 05:38:26,501 - Preparing features for CRF testing...
+2024-12-08 05:38:39,674 - Saving predictions to predictions_CRF.txt...
+2024-12-08 05:38:39,726 - Predictions saved successfully.
+2024-12-08 05:38:40,711 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.99      0.86      0.92      6861
+           E       0.99      0.86      0.92      6829
+           N       0.94      0.47      0.63     19728
+           O       0.90      0.99      0.94    110355
+
+    accuracy                           0.91    143773
+   macro avg       0.95      0.79      0.85    143773
+weighted avg       0.91      0.91      0.90    143773
+
+              precision    recall  f1-score   support
+
+           B       0.99      0.86      0.92      6861
+           E       0.99      0.86      0.92      6829
+           N       0.94      0.47      0.63     19728
+           O       0.90      0.99      0.94    110355
+
+    accuracy                           0.91    143773
+   macro avg       0.95      0.79      0.85    143773
+weighted avg       0.91      0.91      0.90    143773
+
+
+real    0m16.716s
+user    0m17.699s
+sys     0m5.957s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc predictions_CRF.txt
+   5512  143788 1714263 predictions_CRF.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head predictions_CRF.txt
+ရင်/B ဘတ်/O အောင့်/O လာ/O ရင်/O သ/O တိ/O ထား/N ပါ/E
+ဘယ်/B လောက်/O နောက်/O ကျ/O သ/N လဲ/E
+ကြို/B ပို့/O ဘတ်စ်/O ကား/O က/O အ/O ဆင်/O အ/O ပြေ/N ဆုံး/N ပဲ/E
+အဲ/B ဒီ/O အ/O ဖွဲ့/O ရဲ့/O ဥက္ကဋ္ဌ/O ဖြစ်/O တဲ့/O ယို/O ကို/O ယာ/O မာ့/O အာ/O ကိ/O ဟီ/O တို/O YokoyamaAkihito/O က/O တ/O ခြား/O နိုင်/O ငံ/O တွေ/O မှာ/O ဖြစ်/O ပွား/O တဲ့/O လူ/O နာ/O တွေ/O ရဲ့/O အ/O ဆုတ်/O လုပ်/O ဆောင်/O ပုံ/O တွေ/O က/O ဗိုင်း/O ရပ်စ်/O ကူး/O စက်/O ခံ/O ရ/O ပြီး/O ကု/O သ/O လိုက်/O လို့/O ရော/O ဂါ/O ပိုး/O မ/O ရှိ/O တော့/O ဘူး/O လို့/O စစ်/O ဆေး/O ပြီး/O နောက်/O မှာ/O တောင်/O မှ/O အ/O ဆုတ်/O က/O အ/O ပြည့်/O အ/O ဝ/O ပုံ/O မှန်/O ပြန်/O ဖြစ်/O မ/O လာ/O တဲ့/O လူ/O နာ/O တွေ/O အ/O များ/O အ/O ပြား/O တွေ့/O ရ/O တယ်/O လို့/O ပြော/N ပါ/N တယ်/E
+အ/B ဆင့်/O အေ/O ဝင်/O ငွေ/O ခွန်/O ကို/O လ/O စာ/O မှ/O ဖြတ်/O တောက်/N သည်/E
+လို/B ကီ/O က/O အတ်/O ဂါ/O ဒါ/O လို/O ကီ/O ရဲ့/O မျက်/O လုံး/O တွေ/O ကို/O သေ/O ချာ/O တည့်/O တည့်/O ကြည့်/O ရင်း/O ငါ/O က/O လို/N ကီ/E
+ခင်/B ဗျား/O ကြိုက်/O တဲ့/O အ/O ရောင်/O က/O ဘာ/N လဲ/E
+သူ/B သီ/O ချင်း/O ဆို/O တတ်/O သ/O လို/O က/O လည်း/O က/O တတ်/N သည်/E
+ထို့/B ကြောင့်/O ဥ/O ပါယ်/O ဂို့/O ဟု/O ခေါ်/O ကာ/O ကာ/O လ/O ကြာ/O သော်/O ဥ/O ပါယ်/O ဂို့/O မှ/O ပ/O ဂိုး/O ဟု/O ပြောင်း/O လဲ/O ခေါ်/N လာ/N ကြ/N သည်/E
+ဒီ/B နေ့/O ခင်/O ဗျား/O ဘယ်/O လို/O ဖြစ်/O နေ/O တာ/N လဲ/E
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+## Debugging the Code  
+
+Version 1.0 တော့ ရလာပြီ။  
+
+```python
+import argparse
+import os
+import fasttext
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn_crfsuite import CRF
+from sklearn_crfsuite.metrics import flat_classification_report
+from sklearn.metrics import classification_report
+import joblib
+import logging
+
+def load_tagged_data(filepath):
+    """Load tagged data and return sentences and labels."""
+    sentences = []
+    labels = []
+
+    with open(filepath, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+
+            words, tags = [], []
+            for token in line.split():
+                word, tag = token.rsplit('/', 1)  # Split word and tag
+                words.append(word)
+                tags.append(tag)
+            
+            sentences.append(words)
+            labels.append(tags)
+
+    return sentences, labels
+
+
+def load_raw_data(file_path):
+    """Load raw text without tags."""
+    sentences = []
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            sentences.extend(line.strip().split())
+    return sentences
+
+def prepare_features(sentences, ft_model):
+    """Prepare feature vectors for each word in the sentences."""
+    features = []
+    for sentence in sentences:
+        for word in sentence:
+            features.append(ft_model.get_word_vector(word))  # Word-level features
+    return features
+
+def prepare_features_for_crf(sentences, ft_model):
+    """Prepare features for CRF."""
+    return [
+        [{'dim_' + str(i): val for i, val in enumerate(ft_model.get_word_vector(word))} for word in sentence]
+        for sentence in sentences
+    ]
+
+def flatten_labels(labels):
+    """Flatten sentence-level labels into a single sequence for word-level alignment."""
+    return [label for sentence_labels in labels for label in sentence_labels]
+
+def train_model(train_file, ft_model_file, output_model_file, method, logger):
+    """Train the model based on the selected method."""
+    logger.info(f"Loading training data for {method}...")
+    sentences, labels = load_tagged_data(train_file)
+
+    if os.path.exists(ft_model_file):
+        logger.info(f"Loading existing FastText model from {ft_model_file}...")
+        ft_model = fasttext.load_model(ft_model_file)
+    else:
+        logger.info(f"Training FastText model for {method}...")
+        ft_model = fasttext.train_unsupervised(train_file, model='skipgram')
+        ft_model.save_model(ft_model_file)
+
+    logger.info(f"Preparing features for {method}...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        y = labels
+    else:
+        X = prepare_features(sentences, ft_model)
+        y = flatten_labels(labels)
+
+    logger.info(f"Training {method} model...")
+    if method == "Decision-Tree":
+        model = DecisionTreeClassifier()
+    elif method == "Random-Forest":
+        model = RandomForestClassifier()
+    elif method == "Logistic-Regression":
+        model = LogisticRegression(max_iter=1000)
+    elif method == "CRF":
+        model = CRF(algorithm='lbfgs', max_iterations=100, all_possible_transitions=True)
+    elif method == "AdaBoost":
+        model = AdaBoostClassifier(n_estimators=50)
+    elif method == "GradientBoosting":
+        model = GradientBoostingClassifier()
+    elif method == "Voting":
+        model = VotingClassifier(estimators=[
+            ('rf', RandomForestClassifier()),
+            ('lr', LogisticRegression(max_iter=1000)),
+            ('dt', DecisionTreeClassifier())
+        ], voting='hard')
+    else:
+        raise ValueError(f"Unsupported method: {method}")
+
+    model.fit(X, y)
+    logger.info(f"Saving trained model to {output_model_file}...")
+    joblib.dump(model, output_model_file)
+    logger.info(f"Training for {method} completed.")
+
+def test_model(test_file, ft_model_file, trained_model_file, evaluate, method, output_file, logger):
+    """Test the model on the provided test data."""
+    logger.info(f"Testing {method} model...")
+
+    if evaluate:
+        sentences, labels = load_tagged_data(test_file)
+    else:
+        sentences = load_raw_data(test_file)
+        labels = None
+
+    ft_model = fasttext.load_model(ft_model_file)
+    model = joblib.load(trained_model_file)
+
+    logger.info(f"Preparing features for {method} testing...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        predictions = model.predict(X)
+    else:
+        X = prepare_features(sentences, ft_model)
+        predictions = model.predict(X)
+
+        # Realign flat predictions to sentence structure
+        sentence_lengths = [len(sentence) for sentence in sentences]
+        predictions = [predictions[start:start + length] for start, length in zip(np.cumsum([0] + sentence_lengths[:-1]), sentence_lengths)]
+
+    # Ensure predictions are human-readable
+    logger.info(f"Saving predictions to {output_file}...")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for sentence, sentence_predictions in zip(sentences, predictions):
+            formatted_sentence = " ".join(f"{word}/{tag}" for word, tag in zip(sentence, sentence_predictions))
+            f.write(f"{formatted_sentence}\n")
+
+    logger.info(f"Predictions saved successfully.")
+
+    # Calculate and display metrics if labels are provided
+    if evaluate and labels:
+        flattened_true = flatten_labels(labels)
+        flattened_predictions = flatten_labels(predictions)  # Ensure flattening here as well
+
+        # Ensure that flattened_true and flattened_predictions have the same length
+        if len(flattened_true) != len(flattened_predictions):
+            logger.error(f"Length mismatch: true labels ({len(flattened_true)}) vs predictions ({len(flattened_predictions)})")
+            raise ValueError(f"Length mismatch: true labels and predictions have different lengths!")
+
+        if method == "CRF":
+            report = flat_classification_report(labels, predictions)
+        else:
+            report = classification_report(flattened_true, flattened_predictions)
+
+        logger.info(f"Evaluation Results:\n{report}")
+        print(report)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="FastText + ML Models for Sentence Segmentation.")
+    parser.add_argument("--train", help="Train the model. Provide the training corpus file path.")
+    parser.add_argument("--test", help="Test the model. Provide the test corpus file path.")
+    parser.add_argument("--ft-model", default="fasttext_model.bin", help="FastText model file (default: fasttext_model.bin).")
+    parser.add_argument("--model", default="model.pkl", help="Trained model file (default: model.pkl).")
+    parser.add_argument("--method", "-m", default="Decision-Tree",
+                        choices=["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting", "all"],
+                        help="Choose the classification method (default: Decision-Tree).")
+    parser.add_argument("--evaluate", action="store_true", help="Evaluate the model during testing if reference data is provided.")
+    parser.add_argument("--output", help="Specify the output file for predictions.")
+
+    args = parser.parse_args()
+
+    logging.basicConfig(filename="all-training-testing.log" if args.method == "all" else None,
+                        level=logging.INFO,
+                        format="%(asctime)s - %(message)s")
+    logger = logging.getLogger()
+
+    if args.method == "all":
+        methods = ["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting"]
+    else:
+        methods = [args.method]
+
+    if args.train:
+        for method in methods:
+            model_file = f"models/{method}.model"
+            train_model(args.train, args.ft_model, model_file, method, logger)
+    elif args.test:
+        for method in methods:
+            model_file = f"models/{method}.model"
+            default_output_file = f"predictions_{method}.txt"
+            output_file = args.output or default_output_file
+            test_model(args.test, args.ft_model, model_file, args.evaluate, method, output_file, logger)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
+
+
+```
+
+Testing Results with Version 1.0 Code:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --evaluate
+2024-12-08 05:59:55,706 - Testing Decision-Tree model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 05:59:56,541 - Preparing features for Decision-Tree testing...
+2024-12-08 05:59:57,692 - Saving predictions to predictions_Decision-Tree.txt...
+2024-12-08 05:59:57,799 - Predictions saved successfully.
+2024-12-08 05:59:58,833 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.56      0.19      0.28      6861
+           E       0.71      0.77      0.74      6829
+           N       0.60      0.18      0.28     19728
+           O       0.83      0.96      0.89    110355
+
+    accuracy                           0.81    143773
+   macro avg       0.67      0.53      0.55    143773
+weighted avg       0.78      0.81      0.77    143773
+
+              precision    recall  f1-score   support
+
+           B       0.56      0.19      0.28      6861
+           E       0.71      0.77      0.74      6829
+           N       0.60      0.18      0.28     19728
+           O       0.83      0.96      0.89    110355
+
+    accuracy                           0.81    143773
+   macro avg       0.67      0.53      0.55    143773
+weighted avg       0.78      0.81      0.77    143773
+
+
+real    0m4.064s
+user    0m6.595s
+sys     0m4.407s
+```
+
+Check predicted file of Decision-Tree:  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head predictions_Decision-Tree.txt
+ရင်/O ဘတ်/O အောင့်/O လာ/O ရင်/O သ/O တိ/O ထား/O ပါ/N
+ဘယ်/O လောက်/O နောက်/O ကျ/O သ/O လဲ/E
+ကြို/O ပို့/O ဘတ်စ်/O ကား/O က/O အ/O ဆင်/O အ/O ပြေ/O ဆုံး/O ပဲ/O
+အဲ/B ဒီ/O အ/O ဖွဲ့/O ရဲ့/O ဥက္ကဋ္ဌ/O ဖြစ်/O တဲ့/O ယို/O ကို/O ယာ/O မာ့/O အာ/O ကိ/O ဟီ/O တို/O YokoyamaAkihito/O က/O တ/O ခြား/O နိုင်/O ငံ/O တွေ/O မှာ/O ဖြစ်/O ပွား/O တဲ့/O လူ/O နာ/O တွေ/O ရဲ့/O အ/O ဆုတ်/O လုပ်/O ဆောင်/O ပုံ/O တွေ/O က/O ဗိုင်း/O ရပ်စ်/O ကူး/O စက်/O ခံ/O ရ/O ပြီး/O ကု/O သ/O လိုက်/N လို့/O ရော/O ဂါ/O ပိုး/O မ/O ရှိ/O တော့/O ဘူး/E လို့/O စစ်/O ဆေး/O ပြီး/O နောက်/O မှာ/O တောင်/O မှ/O အ/O ဆုတ်/O က/O အ/O ပြည့်/O အ/O ဝ/O ပုံ/O မှန်/O ပြန်/O ဖြစ်/O မ/O လာ/O တဲ့/O လူ/O နာ/O တွေ/O အ/O များ/O အ/O ပြား/O တွေ့/O ရ/O တယ်/E လို့/O ပြော/N ပါ/N တယ်/E
+အ/O ဆင့်/O အေ/O ဝင်/O ငွေ/O ခွန်/O ကို/O လ/O စာ/O မှ/O ဖြတ်/O တောက်/O သည်/E
+လို/O ကီ/O က/O အတ်/O ဂါ/O ဒါ/B လို/O ကီ/O ရဲ့/O မျက်/O လုံး/O တွေ/O ကို/O သေ/O ချာ/O တည့်/O တည့်/O ကြည့်/O ရင်း/O ငါ/O က/O လို/O ကီ/O
+ခင်/B ဗျား/O ကြိုက်/N တဲ့/O အ/O ရောင်/O က/O ဘာ/O လဲ/E
+သူ/O သီ/O ချင်း/O ဆို/O တတ်/O သ/O လို/O က/O လည်း/O က/O တတ်/O သည်/E
+ထို့/B ကြောင့်/O ဥ/O ပါယ်/O ဂို့/O ဟု/O ခေါ်/O ကာ/O ကာ/O လ/O ကြာ/O သော်/O ဥ/O ပါယ်/O ဂို့/O မှ/O ပ/O ဂိုး/O ဟု/O ပြောင်း/O လဲ/E ခေါ်/O လာ/O ကြ/N သည်/E
+ဒီ/O နေ့/O ခင်/B ဗျား/O ဘယ်/O လို/O ဖြစ်/O နေ/O တာ/O လဲ/E
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Test Run for CRF (အမွှေစိန်):  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./CRF.model --method CRF --evaluate
+2024-12-08 06:01:41,183 - Testing CRF model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 06:01:42,019 - Preparing features for CRF testing...
+2024-12-08 06:01:55,137 - Saving predictions to predictions_CRF.txt...
+2024-12-08 06:01:55,189 - Predictions saved successfully.
+2024-12-08 06:01:56,175 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.99      0.86      0.92      6861
+           E       0.99      0.86      0.92      6829
+           N       0.94      0.47      0.63     19728
+           O       0.90      0.99      0.94    110355
+
+    accuracy                           0.91    143773
+   macro avg       0.95      0.79      0.85    143773
+weighted avg       0.91      0.91      0.90    143773
+
+              precision    recall  f1-score   support
+
+           B       0.99      0.86      0.92      6861
+           E       0.99      0.86      0.92      6829
+           N       0.94      0.47      0.63     19728
+           O       0.90      0.99      0.94    110355
+
+    accuracy                           0.91    143773
+   macro avg       0.95      0.79      0.85    143773
+weighted avg       0.91      0.91      0.90    143773
+
+
+real    0m16.658s
+user    0m17.855s
+sys     0m5.742s
+```
+
+CRF method ရဲ့ရလဒ်ဖိုင်ကိုလည်း စစ်ကြည့်ခဲ့...  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head predictions_CRF.txt
+ရင်/B ဘတ်/O အောင့်/O လာ/O ရင်/O သ/O တိ/O ထား/N ပါ/E
+ဘယ်/B လောက်/O နောက်/O ကျ/O သ/N လဲ/E
+ကြို/B ပို့/O ဘတ်စ်/O ကား/O က/O အ/O ဆင်/O အ/O ပြေ/N ဆုံး/N ပဲ/E
+အဲ/B ဒီ/O အ/O ဖွဲ့/O ရဲ့/O ဥက္ကဋ္ဌ/O ဖြစ်/O တဲ့/O ယို/O ကို/O ယာ/O မာ့/O အာ/O ကိ/O ဟီ/O တို/O YokoyamaAkihito/O က/O တ/O ခြား/O နိုင်/O ငံ/O တွေ/O မှာ/O ဖြစ်/O ပွား/O တဲ့/O လူ/O နာ/O တွေ/O ရဲ့/O အ/O ဆုတ်/O လုပ်/O ဆောင်/O ပုံ/O တွေ/O က/O ဗိုင်း/O ရပ်စ်/O ကူး/O စက်/O ခံ/O ရ/O ပြီး/O ကု/O သ/O လိုက်/O လို့/O ရော/O ဂါ/O ပိုး/O မ/O ရှိ/O တော့/O ဘူး/O လို့/O စစ်/O ဆေး/O ပြီး/O နောက်/O မှာ/O တောင်/O မှ/O အ/O ဆုတ်/O က/O အ/O ပြည့်/O အ/O ဝ/O ပုံ/O မှန်/O ပြန်/O ဖြစ်/O မ/O လာ/O တဲ့/O လူ/O နာ/O တွေ/O အ/O များ/O အ/O ပြား/O တွေ့/O ရ/O တယ်/O လို့/O ပြော/N ပါ/N တယ်/E
+အ/B ဆင့်/O အေ/O ဝင်/O ငွေ/O ခွန်/O ကို/O လ/O စာ/O မှ/O ဖြတ်/O တောက်/N သည်/E
+လို/B ကီ/O က/O အတ်/O ဂါ/O ဒါ/O လို/O ကီ/O ရဲ့/O မျက်/O လုံး/O တွေ/O ကို/O သေ/O ချာ/O တည့်/O တည့်/O ကြည့်/O ရင်း/O ငါ/O က/O လို/N ကီ/E
+ခင်/B ဗျား/O ကြိုက်/O တဲ့/O အ/O ရောင်/O က/O ဘာ/N လဲ/E
+သူ/B သီ/O ချင်း/O ဆို/O တတ်/O သ/O လို/O က/O လည်း/O က/O တတ်/N သည်/E
+ထို့/B ကြောင့်/O ဥ/O ပါယ်/O ဂို့/O ဟု/O ခေါ်/O ကာ/O ကာ/O လ/O ကြာ/O သော်/O ဥ/O ပါယ်/O ဂို့/O မှ/O ပ/O ဂိုး/O ဟု/O ပြောင်း/O လဲ/O ခေါ်/N လာ/N ကြ/N သည်/E
+ဒီ/B နေ့/O ခင်/O ဗျား/O ဘယ်/O လို/O ဖြစ်/O နေ/O တာ/N လဲ/E
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+## Adding One More Facility
+
+Online testing or Testing with Raw data အတွက် code ကို update လုပ်ခဲ့တယ်။  
+
+အရင်ဆုံး tag မပါတဲ့ test data ဖိုင်ကို ပြင်ဆင်ခဲ့တယ်။  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ perl ./mk-wordtag.pl ./data/syl/bone/test.tagged.bone "\/" w > ./data/syl/bone/test.tagged.bone.word
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head ./data/syl/bone/test.tagged.bone.word
+ရင် ဘတ် အောင့် လာ ရင် သ တိ ထား ပါ
+ဘယ် လောက် နောက် ကျ သ လဲ
+ကြို ပို့ ဘတ်စ် ကား က အ ဆင် အ ပြေ ဆုံး ပဲ
+အဲ ဒီ အ ဖွဲ့ ရဲ့ ဥက္ကဋ္ဌ ဖြစ် တဲ့ ယို ကို ယာ မာ့ အာ ကိ ဟီ တို YokoyamaAkihito က တ ခြား နိုင် ငံ တွေ မှာ ဖြစ် ပွား တဲ့ လူ နာ တွေ ရဲ့ အ ဆုတ် လုပ် ဆောင် ပုံ တွေ က ဗိုင်း ရပ်စ် ကူး စက် ခံ ရ ပြီး ကု သ လိုက် လို့ ရော ဂါ ပိုး မ ရှိ တော့ ဘူး လို့ စစ် ဆေး ပြီး နောက် မှာ တောင် မှ အ ဆုတ် က အ ပြည့် အ ဝ ပုံ မှန် ပြန် ဖြစ် မ လာ တဲ့ လူ နာ တွေ အ များ အ ပြား တွေ့ ရ တယ် လို့ ပြော ပါ တယ်
+အ ဆင့် အေ ဝင် ငွေ ခွန် ကို လ စာ မှ ဖြတ် တောက် သည်
+လို ကီ က အတ် ဂါ ဒါ လို ကီ ရဲ့ မျက် လုံး တွေ ကို သေ ချာ တည့် တည့် ကြည့် ရင်း ငါ က လို ကီ
+ခင် ဗျား ကြိုက် တဲ့ အ ရောင် က ဘာ လဲ
+သူ သီ ချင်း ဆို တတ် သ လို က လည်း က တတ် သည်
+ထို့ ကြောင့် ဥ ပါယ် ဂို့ ဟု ခေါ် ကာ ကာ လ ကြာ သော် ဥ ပါယ် ဂို့ မှ ပ ဂိုး ဟု ပြောင်း လဲ ခေါ် လာ ကြ သည်
+ဒီ နေ့ ခင် ဗျား ဘယ် လို ဖြစ် နေ တာ လဲ
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+code ကို update လုပ်ခဲ့...  
+
+```python
+"""
+This code is designed for well-studied machine learning-based sequence-to-sequence tagging tasks. It can be used for various NLP tasks such as POS tagging, NER tagging, word segmentation, and sentence breaking.
+
+Written by Ye Kyaw Thu, Lab Leader, Language Understanding Lab., Myanmar.
+Last updated: 8 Dec 2024
+
+How to run:
+
+For training:
+  time python ./fasttext-ml.py --train ./data/syl/bone/train-valid.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree
+
+For testing/evaluation with tagged data:
+  time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --evaluate
+
+For testing with raw data:
+  time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --model ./Decision-Tree.model --method Decision-Tree --raw_test --output prediction_DT.txt
+
+For training with all 7 machine learning methods:
+  time python ./fasttext-ml.py --train ./data/syl/bone/train-valid.tagged.bone --ft-model ./fasttext_model.bin --method all
+
+For testing with all methods:
+  time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --ft-model ./fasttext_model.bin --method all --evaluate
+"""
+
+import argparse
+import os
+import fasttext
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn_crfsuite import CRF
+from sklearn_crfsuite.metrics import flat_classification_report
+from sklearn.metrics import classification_report
+import joblib
+import logging
+
+def load_tagged_data(filepath):
+    """Load tagged data and return sentences and labels."""
+    sentences = []
+    labels = []
+
+    with open(filepath, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+
+            words, tags = [], []
+            for token in line.split():
+                word, tag = token.rsplit('/', 1)  # Split word and tag
+                words.append(word)
+                tags.append(tag)
+            
+            sentences.append(words)
+            labels.append(tags)
+
+    return sentences, labels
+
+
+def load_raw_data(file_path):
+    """Load raw text without tags."""
+    sentences = []
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            sentences.append(line.strip().split())  # Split words by space
+    return sentences
+
+def prepare_features(sentences, ft_model):
+    """Prepare feature vectors for each word in the sentences."""
+    features = []
+    for sentence in sentences:
+        for word in sentence:
+            features.append(ft_model.get_word_vector(word))  # Word-level features
+    return features
+
+def prepare_features_for_crf(sentences, ft_model):
+    """Prepare features for CRF."""
+    return [
+        [{'dim_' + str(i): val for i, val in enumerate(ft_model.get_word_vector(word))} for word in sentence]
+        for sentence in sentences
+    ]
+
+def flatten_labels(labels):
+    """Flatten sentence-level labels into a single sequence for word-level alignment."""
+    return [label for sentence_labels in labels for label in sentence_labels]
+
+def train_model(train_file, ft_model_file, output_model_file, method, logger):
+    """Train the model based on the selected method."""
+    logger.info(f"Loading training data for {method}...")
+    sentences, labels = load_tagged_data(train_file)
+
+    if os.path.exists(ft_model_file):
+        logger.info(f"Loading existing FastText model from {ft_model_file}...")
+        ft_model = fasttext.load_model(ft_model_file)
+    else:
+        logger.info(f"Training FastText model for {method}...")
+        ft_model = fasttext.train_unsupervised(train_file, model='skipgram')
+        ft_model.save_model(ft_model_file)
+
+    logger.info(f"Preparing features for {method}...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        y = labels
+    else:
+        X = prepare_features(sentences, ft_model)
+        y = flatten_labels(labels)
+
+    logger.info(f"Training {method} model...")
+    if method == "Decision-Tree":
+        model = DecisionTreeClassifier()
+    elif method == "Random-Forest":
+        model = RandomForestClassifier()
+    elif method == "Logistic-Regression":
+        model = LogisticRegression(max_iter=1000)
+    elif method == "CRF":
+        model = CRF(algorithm='lbfgs', max_iterations=100, all_possible_transitions=True)
+    elif method == "AdaBoost":
+        model = AdaBoostClassifier(n_estimators=50)
+    elif method == "GradientBoosting":
+        model = GradientBoostingClassifier()
+    elif method == "Voting":
+        model = VotingClassifier(estimators=[
+            ('rf', RandomForestClassifier()),
+            ('lr', LogisticRegression(max_iter=1000)),
+            ('dt', DecisionTreeClassifier())
+        ], voting='hard')
+    else:
+        raise ValueError(f"Unsupported method: {method}")
+
+    model.fit(X, y)
+    logger.info(f"Saving trained model to {output_model_file}...")
+    joblib.dump(model, output_model_file)
+    logger.info(f"Training for {method} completed.")
+
+def test_model(test_file, ft_model_file, trained_model_file, evaluate, raw_test, method, output_file, logger):
+    """Test the model on the provided test data."""
+    logger.info(f"Testing {method} model...")
+
+    if evaluate:
+        sentences, labels = load_tagged_data(test_file)
+    elif raw_test:
+        sentences = load_raw_data(test_file)
+        labels = None
+    else:
+        sentences, labels = load_raw_data(test_file), None  # Default case when no evaluation is required
+
+    ft_model = fasttext.load_model(ft_model_file)
+    model = joblib.load(trained_model_file)
+
+    logger.info(f"Preparing features for {method} testing...")
+    if method == "CRF":
+        X = prepare_features_for_crf(sentences, ft_model)
+        predictions = model.predict(X)
+    else:
+        X = prepare_features(sentences, ft_model)
+        predictions = model.predict(X)
+
+        # Realign flat predictions to sentence structure
+        sentence_lengths = [len(sentence) for sentence in sentences]
+        predictions = [predictions[start:start + length] for start, length in zip(np.cumsum([0] + sentence_lengths[:-1]), sentence_lengths)]
+
+    # Ensure predictions are human-readable
+    logger.info(f"Saving predictions to {output_file}...")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for sentence, sentence_predictions in zip(sentences, predictions):
+            formatted_sentence = " ".join(f"{word}/{tag}" for word, tag in zip(sentence, sentence_predictions))
+            f.write(f"{formatted_sentence}\n")
+
+    logger.info(f"Predictions saved successfully.")
+
+    # Calculate and display metrics if labels are provided
+    if evaluate and labels:
+        flattened_true = flatten_labels(labels)
+        flattened_predictions = flatten_labels(predictions)  # Ensure flattening here as well
+
+        # Ensure that flattened_true and flattened_predictions have the same length
+        if len(flattened_true) != len(flattened_predictions):
+            logger.error(f"Length mismatch: true labels ({len(flattened_true)}) vs predictions ({len(flattened_predictions)})")
+            raise ValueError(f"Length mismatch: true labels and predictions have different lengths!")
+
+        if method == "CRF":
+            report = flat_classification_report(labels, predictions)
+        else:
+            report = classification_report(flattened_true, flattened_predictions)
+
+        logger.info(f"Evaluation Results:\n{report}")
+        print(report)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="FastText + ML Models for Sentence Segmentation.")
+    parser.add_argument("--train", help="Train the model. Provide the training corpus file path.")
+    parser.add_argument("--test", help="Test the model. Provide the test corpus file path.")
+    parser.add_argument("--ft-model", default="fasttext_model.bin", help="FastText model file (default: fasttext_model.bin).")
+    parser.add_argument("--model", default="model.pkl", help="Trained model file (default: model.pkl).")
+    parser.add_argument("--method", "-m", default="Decision-Tree",
+                        choices=["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting", "all"],
+                        help="Choose the classification method (default: Decision-Tree).")
+    parser.add_argument("--evaluate", action="store_true", help="Evaluate the model during testing if reference data is provided.")
+    parser.add_argument("--raw_test", action="store_true", help="Test the model with raw input (no tags).")
+    parser.add_argument("--output", help="Specify the output file for predictions.")
+
+    args = parser.parse_args()
+
+    logging.basicConfig(filename="all-training-testing.log" if args.method == "all" else None,
+                        level=logging.INFO,
+                        format="%(asctime)s - %(message)s")
+    logger = logging.getLogger()
+
+    if args.method == "all":
+        methods = ["Decision-Tree", "Random-Forest", "Logistic-Regression", "CRF", "AdaBoost", "GradientBoosting", "Voting"]
+    else:
+        methods = [args.method]
+
+    if args.train:
+        for method in methods:
+            model_file = f"models/{method}.model"
+            train_model(args.train, args.ft_model, model_file, method, logger)
+    elif args.test:
+        for method in methods:
+            model_file = f"models/{method}.model"
+            default_output_file = f"predictions_{method}.txt"
+            output_file = args.output or default_output_file
+            test_model(args.test, args.ft_model, model_file, args.evaluate, args.raw_test, method, output_file, logger)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ time python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone.word --ft-model ./fasttext_model.bin --model ./Decision-Tree.mo
+del --method Decision-Tree --raw_test --output prediction-raw-DT.txt
+2024-12-08 06:26:14,326 - Testing Decision-Tree model...
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+2024-12-08 06:26:15,112 - Preparing features for Decision-Tree testing...
+2024-12-08 06:26:16,267 - Saving predictions to prediction-raw-DT.txt...
+2024-12-08 06:26:16,369 - Predictions saved successfully.
+
+real    0m2.954s
+user    0m5.404s
+sys     0m4.491s
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Check the predicted output file with raw test data (i.e word only).  
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ wc ./prediction-raw-DT.txt
+   5512  143788 1714263 ./prediction-raw-DT.txt
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ head ./prediction-raw-DT.txt
+ရင်/O ဘတ်/O အောင့်/O လာ/O ရင်/O သ/O တိ/O ထား/O ပါ/N
+ဘယ်/O လောက်/O နောက်/O ကျ/O သ/O လဲ/E
+ကြို/O ပို့/O ဘတ်စ်/O ကား/O က/O အ/O ဆင်/O အ/O ပြေ/O ဆုံး/O ပဲ/O
+အဲ/B ဒီ/O အ/O ဖွဲ့/O ရဲ့/O ဥက္ကဋ္ဌ/O ဖြစ်/O တဲ့/O ယို/O ကို/O ယာ/O မာ့/O အာ/O ကိ/O ဟီ/O တို/O YokoyamaAkihito/O က/O တ/O ခြား/O နိုင်/O ငံ/O တွေ/O မှာ/O ဖြစ်/O ပွား/O တဲ့/O လူ/O နာ/O တွေ/O ရဲ့/O အ/O ဆုတ်/O လုပ်/O ဆောင်/O ပုံ/O တွေ/O က/O ဗိုင်း/O ရပ်စ်/O ကူး/O စက်/O ခံ/O ရ/O ပြီး/O ကု/O သ/O လိုက်/N လို့/O ရော/O ဂါ/O ပိုး/O မ/O ရှိ/O တော့/O ဘူး/E လို့/O စစ်/O ဆေး/O ပြီး/O နောက်/O မှာ/O တောင်/O မှ/O အ/O ဆုတ်/O က/O အ/O ပြည့်/O အ/O ဝ/O ပုံ/O မှန်/O ပြန်/O ဖြစ်/O မ/O လာ/O တဲ့/O လူ/O နာ/O တွေ/O အ/O များ/O အ/O ပြား/O တွေ့/O ရ/O တယ်/E လို့/O ပြော/N ပါ/N တယ်/E
+အ/O ဆင့်/O အေ/O ဝင်/O ငွေ/O ခွန်/O ကို/O လ/O စာ/O မှ/O ဖြတ်/O တောက်/O သည်/E
+လို/O ကီ/O က/O အတ်/O ဂါ/O ဒါ/B လို/O ကီ/O ရဲ့/O မျက်/O လုံး/O တွေ/O ကို/O သေ/O ချာ/O တည့်/O တည့်/O ကြည့်/O ရင်း/O ငါ/O က/O လို/O ကီ/O
+ခင်/B ဗျား/O ကြိုက်/N တဲ့/O အ/O ရောင်/O က/O ဘာ/O လဲ/E
+သူ/O သီ/O ချင်း/O ဆို/O တတ်/O သ/O လို/O က/O လည်း/O က/O တတ်/O သည်/E
+ထို့/B ကြောင့်/O ဥ/O ပါယ်/O ဂို့/O ဟု/O ခေါ်/O ကာ/O ကာ/O လ/O ကြာ/O သော်/O ဥ/O ပါယ်/O ဂို့/O မှ/O ပ/O ဂိုး/O ဟု/O ပြောင်း/O လဲ/E ခေါ်/O လာ/O ကြ/N သည်/E
+ဒီ/O နေ့/O ခင်/B ဗျား/O ဘယ်/O လို/O ဖြစ်/O နေ/O တာ/O လဲ/E
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+## Training/Testing with --method all
+
+```
+time python ./fasttext-ml.py --train ./data/syl/bone/train-valid.tagged.bone --ft-model ./models/fasttext_model.bin --method all
+```
+
+```
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$ python ./fasttext-ml.py --test ./data/syl/bone/test.tagged.bone --method all --evaluate | tee test-all.log
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+(hs-fasttext) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based$
+```
+
+Checked log file:  
+
+```
+2024-12-08 20:21:48,833 - Testing Decision-Tree model...
+2024-12-08 20:21:49,641 - Preparing features for Decision-Tree testing...
+2024-12-08 20:21:50,763 - Saving predictions to predictions_Decision-Tree.txt...
+2024-12-08 20:21:50,871 - Predictions saved successfully.
+2024-12-08 20:21:51,930 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.06      0.10      0.07      6861
+           E       0.12      0.06      0.08      6829
+           N       0.12      0.07      0.09     19728
+           O       0.77      0.81      0.79    110355
+
+    accuracy                           0.64    143773
+   macro avg       0.27      0.26      0.26    143773
+weighted avg       0.61      0.64      0.62    143773
+
+2024-12-08 20:21:52,007 - Testing Random-Forest model...
+2024-12-08 20:21:52,909 - Preparing features for Random-Forest testing...
+2024-12-08 20:21:56,370 - Saving predictions to predictions_Random-Forest.txt...
+2024-12-08 20:21:56,484 - Predictions saved successfully.
+2024-12-08 20:21:57,505 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.63      0.01      0.01      6861
+           E       0.76      0.00      0.01      6829
+           N       0.00      0.00      0.00     19728
+           O       0.77      1.00      0.87    110355
+
+    accuracy                           0.77    143773
+   macro avg       0.54      0.25      0.22    143773
+weighted avg       0.66      0.77      0.67    143773
+
+2024-12-08 20:21:57,598 - Testing Logistic-Regression model...
+2024-12-08 20:21:58,366 - Preparing features for Logistic-Regression testing...
+2024-12-08 20:21:59,504 - Saving predictions to predictions_Logistic-Regression.txt...
+2024-12-08 20:21:59,669 - Predictions saved successfully.
+2024-12-08 20:22:00,697 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.06      0.01      0.01      6861
+           E       0.00      0.00      0.00      6829
+           N       0.17      0.01      0.01     19728
+           O       0.77      0.98      0.86    110355
+
+    accuracy                           0.76    143773
+   macro avg       0.25      0.25      0.22    143773
+weighted avg       0.61      0.76      0.66    143773
+
+2024-12-08 20:22:00,770 - Testing CRF model...
+2024-12-08 20:22:01,564 - Preparing features for CRF testing...
+2024-12-08 20:22:14,647 - Saving predictions to predictions_CRF.txt...
+2024-12-08 20:22:14,697 - Predictions saved successfully.
+2024-12-08 20:22:15,688 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.97      0.80      0.88      6861
+           E       0.97      0.78      0.86      6829
+           N       0.95      0.30      0.45     19728
+           O       0.87      1.00      0.93    110355
+
+    accuracy                           0.88    143773
+   macro avg       0.94      0.72      0.78    143773
+weighted avg       0.89      0.88      0.86    143773
+
+2024-12-08 20:22:16,244 - Testing AdaBoost model...
+2024-12-08 20:22:17,069 - Preparing features for AdaBoost testing...
+2024-12-08 20:22:19,159 - Saving predictions to predictions_AdaBoost.txt...
+2024-12-08 20:22:19,266 - Predictions saved successfully.
+2024-12-08 20:22:20,298 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.01      0.00      0.01      6861
+           E       0.00      0.00      0.00      6829
+           N       0.33      0.00      0.00     19728
+           O       0.76      0.97      0.86    110355
+
+    accuracy                           0.75    143773
+   macro avg       0.28      0.24      0.22    143773
+weighted avg       0.63      0.75      0.66    143773
+
+2024-12-08 20:22:20,370 - Testing GradientBoosting model...
+2024-12-08 20:22:21,164 - Preparing features for GradientBoosting testing...
+2024-12-08 20:22:24,165 - Saving predictions to predictions_GradientBoosting.txt...
+2024-12-08 20:22:24,274 - Predictions saved successfully.
+2024-12-08 20:22:25,301 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.09      0.02      0.04      6861
+           E       0.47      0.00      0.01      6829
+           N       0.05      0.00      0.00     19728
+           O       0.77      0.99      0.86    110355
+
+    accuracy                           0.76    143773
+   macro avg       0.35      0.25      0.23    143773
+weighted avg       0.62      0.76      0.67    143773
+
+2024-12-08 20:22:25,386 - Testing Voting model...
+2024-12-08 20:22:26,242 - Preparing features for Voting testing...
+2024-12-08 20:22:30,839 - Saving predictions to predictions_Voting.txt...
+2024-12-08 20:22:30,946 - Predictions saved successfully.
+2024-12-08 20:22:31,969 - Evaluation Results:
+              precision    recall  f1-score   support
+
+           B       0.19      0.01      0.02      6861
+           E       0.29      0.00      0.01      6829
+           N       0.13      0.00      0.00     19728
+           O       0.77      1.00      0.87    110355
+
+    accuracy                           0.77    143773
+   macro avg       0.34      0.25      0.22    143773
+weighted avg       0.63      0.77      0.67    143773
+
+```
+
+## To Do
+
+Plan to add RDR and train/test again.
 
