@@ -954,3 +954,47 @@ user    1m43.474s
 sys     1m2.427s
 ```
 
+## Error Analysis  
+
+```
+(base) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based/models/fasttext/wordtag/models$ head MLP.hyp
+ရင်_O/O ဘတ်_O/O အောင့်_O/O လာ_O/O ရင်_O/O သ_O/O တိ_O/O ထား_O/O ပါ_N/N
+ဘယ်_O/O လောက်_O/O နောက်_O/O ကျ_O/O သ_O/O လဲ_E/E
+ကြို_O/O ပို့_O/O ဘတ်စ်_O/O ကား_O/O က_O/O အ_O/O ဆင်_O/O အ_O/O ပြေ_N/O ဆုံး_O/O ပဲ_O/O
+အဲ_B/B ဒီ_O/O အ_O/O ဖွဲ့_O/O ရဲ့_O/O ဥက္ကဋ္ဌ_O/O ဖြစ်_O/O တဲ့_O/O ယို_O/O ကို_O/O ယာ_O/O မာ့_O/O အာ_O/O ကိ_O/O ဟီ_O/O တို_O/O YokoyamaAkihito_O/O က_O/O တ_O/O ခြား_O/O နိုင်_O/O ငံ_O/O တွေ_O/O မှာ_O/O ဖြစ်_O/O ပွား_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O ရဲ့_O/O အ_O/O ဆုတ်_O/O လုပ်_O/O ဆောင်_O/O ပုံ_O/O တွေ_O/O က_O/O ဗိုင်း_O/O ရပ်စ်_O/O ကူး_O/O စက်_O/O ခံ_O/O ရ_O/O ပြီး_O/O ကု_O/O သ_O/O လိုက်_N/N လို့_O/O ရော_O/O ဂါ_O/O ပိုး_O/O မ_O/O ရှိ_O/O တော့_O/O ဘူး_E/E လို့_O/O စစ်_O/O ဆေး_O/O ပြီး_O/O နောက်_O/O မှာ_O/O တောင်_O/O မှ_O/O အ_O/O ဆုတ်_O/O က_O/O အ_O/O ပြည့်_O/O အ_O/O ဝ_O/O ပုံ_O/O မှန်_O/O ပြန်_O/O ဖြစ်_O/O မ_O/O လာ_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O အ_O/O များ_O/O အ_O/O ပြား_O/O တွေ့_O/O ရ_O/O တယ်_E/E လို့_O/O ပြော_N/N ပါ_N/N တယ်_E/E
+အ_O/O ဆင့်_O/O အေ_O/O ဝင်_O/O ငွေ_O/O ခွန်_O/O ကို_O/O လ_O/O စာ_O/O မှ_O/O ဖြတ်_O/O တောက်_O/O သည်_E/E
+လို_O/O ကီ_O/O က_O/O အတ်_O/O ဂါ_O/O ဒါ_B/B လို_O/O ကီ_O/O ရဲ့_O/O မျက်_O/O လုံး_O/O တွေ_O/O ကို_O/O သေ_O/O ချာ_O/O တည့်_O/O တည့်_O/O ကြည့်_O/O ရင်း_O/O ငါ_O/O က_O/O လို_O/O ကီ_O/O
+ခင်_B/O ဗျား_O/O ကြိုက်_N/N တဲ့_O/O အ_O/O ရောင်_O/O က_O/O ဘာ_O/O လဲ_E/E
+သူ_O/O သီ_O/O ချင်း_O/O ဆို_O/O တတ်_O/O သ_O/O လို_O/O က_O/O လည်း_O/O က_O/O တတ်_O/O သည်_E/E
+ထို့_B/B ကြောင့်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O ဟု_O/O ခေါ်_O/O ကာ_O/O ကာ_O/O လ_O/O ကြာ_O/O သော်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O မှ_O/O ပ_O/O ဂိုး_O/O ဟု_O/O ပြောင်း_O/O လဲ_E/E ခေါ်_O/O လာ_O/O ကြ_N/N သည်_E/E
+ဒီ_O/O နေ့_O/O ခင်_B/O ဗျား_O/O ဘယ်_O/O လို_O/O ဖြစ်_O/O နေ_O/O တာ_O/O လဲ_E/E
+```
+
+```
+(base) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based/models/fasttext/wordtag/models$ head Random-Forest.hyp
+ရင်_O/O ဘတ်_O/O အောင့်_O/O လာ_O/O ရင်_O/O သ_O/O တိ_O/O ထား_O/O ပါ_N/N
+ဘယ်_O/O လောက်_O/O နောက်_O/O ကျ_O/O သ_O/O လဲ_E/E
+ကြို_O/O ပို့_O/O ဘတ်စ်_O/O ကား_O/O က_O/O အ_O/O ဆင်_O/O အ_O/O ပြေ_O/O ဆုံး_O/O ပဲ_O/O
+အဲ_B/B ဒီ_O/O အ_O/O ဖွဲ့_O/O ရဲ့_O/O ဥက္ကဋ္ဌ_O/O ဖြစ်_O/O တဲ့_O/O ယို_O/O ကို_O/O ယာ_O/O မာ့_O/O အာ_O/O ကိ_O/O ဟီ_O/O တို_O/O YokoyamaAkihito_O/O က_O/O တ_O/O ခြား_O/O နိုင်_O/O ငံ_O/O တွေ_O/O မှာ_O/O ဖြစ်_O/O ပွား_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O ရဲ့_O/O အ_O/O ဆုတ်_O/O လုပ်_O/O ဆောင်_O/O ပုံ_O/O တွေ_O/O က_O/O ဗိုင်း_O/O ရပ်စ်_O/O ကူး_O/O စက်_O/O ခံ_O/O ရ_O/O ပြီး_O/O ကု_O/O သ_O/O လိုက်_N/N လို့_O/O ရော_O/O ဂါ_O/O ပိုး_O/O မ_O/O ရှိ_O/O တော့_O/O ဘူး_E/E လို့_O/O စစ်_O/O ဆေး_O/O ပြီး_O/O နောက်_O/O မှာ_O/O တောင်_O/O မှ_O/O အ_O/O ဆုတ်_O/O က_O/O အ_O/O ပြည့်_O/O အ_O/O ဝ_O/O ပုံ_O/O မှန်_O/O ပြန်_O/O ဖြစ်_O/O မ_O/O လာ_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O အ_O/O များ_O/O အ_O/O ပြား_O/O တွေ့_O/O ရ_O/O တယ်_E/E လို့_O/O ပြော_N/N ပါ_N/N တယ်_E/E
+အ_O/O ဆင့်_O/O အေ_O/O ဝင်_O/O ငွေ_O/O ခွန်_O/O ကို_O/O လ_O/O စာ_O/O မှ_O/O ဖြတ်_O/O တောက်_O/O သည်_E/E
+လို_O/O ကီ_O/O က_O/O အတ်_O/O ဂါ_O/O ဒါ_B/B လို_O/O ကီ_O/O ရဲ့_O/O မျက်_O/O လုံး_O/O တွေ_O/O ကို_O/O သေ_O/O ချာ_O/O တည့်_O/O တည့်_O/O ကြည့်_O/O ရင်း_O/O ငါ_O/O က_O/O လို_O/O ကီ_O/O
+ခင်_B/B ဗျား_O/O ကြိုက်_N/N တဲ့_O/O အ_O/O ရောင်_O/O က_O/O ဘာ_O/O လဲ_E/E
+သူ_O/O သီ_O/O ချင်း_O/O ဆို_O/O တတ်_O/O သ_O/O လို_O/O က_O/O လည်း_O/O က_O/O တတ်_O/O သည်_E/E
+ထို့_B/B ကြောင့်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O ဟု_O/O ခေါ်_O/O ကာ_O/O ကာ_O/O လ_O/O ကြာ_O/O သော်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O မှ_O/O ပ_O/O ဂိုး_O/O ဟု_O/O ပြောင်း_O/O လဲ_E/E ခေါ်_O/O လာ_O/O ကြ_N/N သည်_E/E
+ဒီ_O/O နေ့_O/O ခင်_B/B ဗျား_O/O ဘယ်_O/O လို_O/O ဖြစ်_O/O နေ_O/O တာ_O/O လဲ_E/E
+```
+
+```
+(base) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based/models/fasttext/wordtag/models$ head CRF.hyp
+ရင်_B/B ဘတ်_O/O အောင့်_O/O လာ_O/O ရင်_O/O သ_O/O တိ_O/O ထား_N/N ပါ_E/E
+ဘယ်_B/B လောက်_N/N နောက်_N/N ကျ_N/N သ_N/N လဲ_E/E
+ကြို_B/B ပို့_O/O ဘတ်စ်_O/O ကား_O/O က_O/O အ_O/O ဆင်_O/O အ_O/O ပြေ_N/N ဆုံး_N/N ပဲ_E/E
+အဲ_B/B ဒီ_O/O အ_O/O ဖွဲ့_O/O ရဲ့_O/O ဥက္ကဋ္ဌ_O/O ဖြစ်_O/O တဲ့_O/O ယို_O/O ကို_O/O ယာ_O/O မာ့_O/O အာ_O/O ကိ_O/O ဟီ_O/O တို_O/O YokoyamaAkihito_O/O က_O/O တ_O/O ခြား_O/O နိုင်_O/O ငံ_O/O တွေ_O/O မှာ_O/O ဖြစ်_O/O ပွား_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O ရဲ့_O/O အ_O/O ဆုတ်_O/O လုပ်_O/O ဆောင်_O/O ပုံ_O/O တွေ_O/O က_O/O ဗိုင်း_O/O ရပ်စ်_O/O ကူး_O/O စက်_O/O ခံ_O/O ရ_O/O ပြီး_O/O ကု_O/O သ_O/O လိုက်_O/O လို့_O/O ရော_O/O ဂါ_O/O ပိုး_O/O မ_O/O ရှိ_O/O တော့_O/O ဘူး_O/O လို့_O/O စစ်_O/O ဆေး_O/O ပြီး_O/O နောက်_O/O မှာ_O/O တောင်_O/O မှ_O/O အ_O/O ဆုတ်_O/O က_O/O အ_O/O ပြည့်_O/O အ_O/O ဝ_O/O ပုံ_O/O မှန်_O/O ပြန်_O/O ဖြစ်_O/O မ_O/O လာ_O/O တဲ့_O/O လူ_O/O နာ_O/O တွေ_O/O အ_O/O များ_O/O အ_O/O ပြား_O/O တွေ့_O/O ရ_O/O တယ်_O/O လို့_O/O ပြော_N/N ပါ_N/N တယ်_E/E
+အ_B/B ဆင့်_O/O အေ_O/O ဝင်_O/O ငွေ_O/O ခွန်_O/O ကို_O/O လ_O/O စာ_O/O မှ_O/O ဖြတ်_N/N တောက်_N/N သည်_E/E
+လို_B/B ကီ_O/O က_O/O အတ်_O/O ဂါ_O/O ဒါ_O/O လို_O/O ကီ_O/O ရဲ့_O/O မျက်_O/O လုံး_O/O တွေ_O/O ကို_O/O သေ_O/O ချာ_O/O တည့်_O/O တည့်_O/O ကြည့်_O/O ရင်း_O/O ငါ_O/O က_O/O လို_N/N ကီ_E/E
+ခင်_B/B ဗျား_O/O ကြိုက်_O/O တဲ့_O/O အ_O/O ရောင်_O/O က_O/O ဘာ_N/N လဲ_E/E
+သူ_B/B သီ_O/O ချင်း_O/O ဆို_O/O တတ်_O/O သ_O/O လို_O/O က_O/O လည်း_O/O က_O/O တတ်_N/N သည်_E/E
+ထို့_B/B ကြောင့်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O ဟု_O/O ခေါ်_O/O ကာ_O/O ကာ_O/O လ_O/O ကြာ_O/O သော်_O/O ဥ_O/O ပါယ်_O/O ဂို့_O/O မှ_O/O ပ_O/O ဂိုး_O/O ဟု_N/N ပြောင်း_N/N လဲ_N/N ခေါ်_N/N လာ_N/N ကြ_N/N သည်_E/E
+ဒီ_B/B နေ့_O/O ခင်_O/O ဗျား_O/O ဘယ်_O/O လို_N/N ဖြစ်_N/N နေ_N/N တာ_N/N လဲ_E/E
+```
+
