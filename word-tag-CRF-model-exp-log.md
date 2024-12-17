@@ -998,3 +998,32 @@ sys     1m2.427s
 ဒီ_B/B နေ့_O/O ခင်_O/O ဗျား_O/O ဘယ်_O/O လို_N/N ဖြစ်_N/N နေ_N/N တာ_N/N လဲ_E/E
 ```
 
+```
+(base) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based/models/fasttext/wordtag/models$ tail CRF.hyp
+အိမ်_B/B မှာ_O/O ဆ_O/O ရာ_O/O မ_O/O ကြီး_O/O အိမ်_O/O က_O/O ဝယ်_O/O ထား_O/O တာ_O/O ဘာ_O/O ရှိ_N/N လဲ_E/E
+ကျွန်_B/B တော့်_O/O အ_O/O တွက်_O/O နည်း_O/O နည်း_O/O ကျပ်_N/N တယ်_E/E
+စား_B/B သောက်_O/O ဆိုင်_O/O မှာ_O/O လုပ်_O/O တာ_N/N ပါ_E/E
+ဆွဲ_B/B ဆွဲ_O/O ငင်_O/O ငင်_O/O အော်_O/O ကာ_O/O ဖြတ်_O/O သွား_O/O သော_O/O ကောင်_O/O မ_O/O လေး_O/O တစ်_O/O ယောက်_O/O ကို_O/O မြင်_N/N သည်_E/E
+အ_B/B သေး_O/O စား_O/O အ_O/O လို_O/O အ_O/O လျောက်_O/O ဂီ_O/O ယာ_O/O ထိုး_O/O တဲ့_O/O ကား_O/O ကို_O/O ဆောင်_N/O ရွက်_N/N ပေး_N/N ပါ_E/E
+အဲ_B/B ဒီ_O/O အ_O/O ရပ်_O/O က_O/O တိုင်_O/O ဖွန်း_O/O မုန်_O/O တိုင်း_O/O ကြောင့်_O/O အ_O/O တော်_O/O လေး_O/O ပျက်_O/O စီး_O/O ဆုံး_O/O ရှုံး_O/O ခဲ့_N/N ရ_N/N တယ်_E/E
+သူ_B/B က_O/O သာ_O/O ယာ_O/O ကြည်_O/O နူး_O/O ဖွယ်_O/O ကောင်း_O/O သော_O/O ကျေး_O/O လက်_O/O သီ_O/O ချင်း_O/O ကို_O/O သီ_O/O ဆို_O/N ခဲ့_N/N တယ်_E/N မ_B/N ဟုတ်_N/N လား_E/E
+အ_B/B ပင်_O/O တို့_O/O တွင်_O/O မူ_O/O အယ်_O/O လ_O/O ဂျေ_O/O ပင်_O/O များ_O/O ဖြစ်_O/O သော_O/O ယူ_O/O ဂ_O/O လီ_O/O နား_O/O နှင့်_O/O ဩ_O/O စီ_O/O လေ_O/O တို_O/O ရီး_O/O ယား_O/O ၌_O/O တွေ့_O/N ရ_N/N သည်_E/E
+သုံး_B/B နှစ်_O/O ပျမ်း_O/O မျှ_O/O တစ်_O/O ဦး_O/O ချင်း_O/O တစ်_O/O နှစ်_O/O စု_O/O စု_O/O ပေါင်း_O/O ဝင်_O/O ငွေ_O/O အ_O/O မေ_O/O ရိ_O/O ကန်_O/O ဒေါ်_O/O လာ_O/O ၇_O/O ၅_O/O ဝ_O/O ထက်_O/O လျော့_O/O နည်း_O/O ရ_O/O မည်_O/O ဖြစ်_N/N သည်_E/E
+သူ_B/B ၏_O/O ကြွယ်_O/O ဝ_O/O ချမ်း_O/O သာ_O/O မှု_O/O များ_O/O အ_O/O နက်_O/O ထက်_O/O ဝက်_O/O ကျော်_O/O ကို_O/O အာ_O/O မ_O/O ခံ_O/O ရင်း_O/O နှီး_O/O မြှုပ်_O/O နှံ_O/O ခြင်း_O/O ၌_O/O သာ_O/O ထည့်_O/N သွင်း_O/N ခဲ့_N/N သည်_E/E
+```
+
+```
+(base) ye@lst-gpu-server-197:~/data/hello-sayarwon/coding/model-based/models/fasttext/wordtag/models$ shuf CRF.hyp | head
+ခင်_B/B ဗျား_O/O လေ_O/O ယာဉ်_O/O အ_O/O ကြာ_O/O ကြီး_O/O စီး_O/O ပြီး_O/O အ_O/O တော်_O/O ပင်_O/O ပန်း_O/O နေ_O/O ပြီ_O/O လို့_O/O ကျွန်_O/O တော်_O/O ထင်_N/N တယ်_E/E
+စောင့်_B/B ကြပ်_O/O မှု_O/O တာ_O/O ဝန်_O/O ကို_O/O ယူ_N/N သည်_E/E
+အ_B/B သေ_O/O အ_O/O ချာ_N/N ပဲ_E/E
+ဝါ_B/B ဆို_O/O သည်_O/O မြန်_O/O မာ_O/O ပကြ္ခ_O/O ဒိန်_O/O ၏_O/O စ_O/O တုတ္ထ_O/O လ_O/O ဖြစ်_N/N သည်_E/E
+ပို_B/B သေ_O/O ချာ_O/O အောင်_O/O ခင်_O/O ဗျား_O/O ကို_O/O ဓာတ်_O/O မှန်_O/O ရိုက်_O/O ကြည့်_N/N မယ်_N/N နော်_E/E
+မိုး_B/B နေ_N/N တယ်_E/E
+ကျွန်_B/B တော်_N/N သိ_N/N ပါ_N/N တယ်_E/E ဒီ_B/B နာ_O/O မည်_O/O က_O/O ရန်_O/O ကုန်_O/O က_O/O လူ_O/O တွေ_O/O ပေး_O/O ကြ_O/O တဲ့_O/O နာ_O/O မည်_O/O တွေ_O/O လို_O/O မ_O/O လှ_O/O ပါ_N/N ဘူး_E/E ဒါ_B/B ပေ_O/O မယ့်_O/O ကျွန်_O/O တော်_O/O သူ့_O/O ကို_O/O တ_O/O ကယ်_O/O ခဈ်_O/O တာ_O/O ပါ_O/O ဗျာ_O/O သူ့_O/O ကို_O/O တွေ့_O/O က_O/O တည်း_O/O က_O/O တစ်_O/O လျှောက်_O/O လုံး_O/O ကျွန်_O/O တော်_O/O သိ_O/O စေ_O/O ချင်_O/O တာ_O/O က_O/O ကျွန်_O/O တော့်_O/O အ_O/O ခဈ်_O/O ပါ_O/O မ_O/O သိ_O/O စေ_O/O ချင်_O/O တာ_O/O က_O/O ကျွန်_O/O တော့်_O/O နာ_O/O မည်_N/N ပါ_E/E
+သွား_B/B ကြည့်_N/N ကြ_N/N စို့_E/E
+နေ_B/B ပြည်_O/O တော်_O/O ရှိ_O/O လမ်း_O/O ဆုံ_O/O ဗ_O/O ဟို_O/O ကုန်_O/O တိုက်_O/O တွင်_O/O ရုပ်_O/O ရှင်_O/O ရုံ_O/O တစ်_O/O ရုံ_O/O နှင့်_O/O ပျဉ်း_O/O မ_O/O နား_O/O နှင့်_O/O တပ်_O/O ကုန်း_O/O တို့_O/O တွင်_O/O တစ်_O/O ရုံ_O/O စီ_O/O ရှိ_N/N သည်_E/E
+The_B/B Way_O/O We_O/O Were_O/O ဆို_O/N ရင်_N/N ကော_E/E
+```
+
+CRF model က ကောင်းကောင်း အလုပ်လုပ်ပေးပေမဲ့ လက်ရှိ ရလဒ်ထက် မြှင့်နိုင်ဖို့ နည်းလမ်းရှာရန်။  
