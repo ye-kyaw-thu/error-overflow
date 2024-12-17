@@ -244,3 +244,4 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 237. [fasttext-tree-sentence-segmentation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fasttext-tree-sentence-segmentation.md)  
 238. [fasttext-ml-experiments.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/fasttext-ml-experiments.md)
 239. [adding-MLP-to-fasttext-ml-program-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/adding-MLP-to-fasttext-ml-program-log.md)  
+240. [word-tag-CRF-model-exp-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word-tag-CRF-model-exp-log.md)  
