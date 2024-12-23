@@ -1594,3 +1594,5 @@ percentile အစား တခြား approach တွေလည်း သုံ
 The 5 Levels Of Text Splitting For Retrieval by Greg Kamradt, (Accessed date: 23 Dec 2024):  
 https://www.youtube.com/watch?v=8OJC21T2SL4&t=2112s    
 
+Test Data that I used, article: 'တိုက်ပွဲဝင် ခြင်တွေ'နဲ့ စကူတာဗုံး - မော်စကိုအထိရောက်နေတဲ့ ယူကရိန်းထောက်လှမ်းရေး,  
+https://www.bbc.com/burmese/articles/crl35en7nz3o    
