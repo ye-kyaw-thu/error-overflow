@@ -1589,3 +1589,8 @@ Experiment အောင်မြင်တယ်။
 Syllable ဖြတ်ထားတာတွေကို ပြန်ပူးပေးချင်ရင်လည်း ပေးလို့ ရတယ်။  
 percentile အစား တခြား approach တွေလည်း သုံးလို့ ရလိမ့်မယ်။    
 
+## Reference
+
+The 5 Levels Of Text Splitting For Retrieval by Greg Kamradt, (Accessed date: 23 Dec 2024):  
+https://www.youtube.com/watch?v=8OJC21T2SL4&t=2112s    
+
