@@ -1,10 +1,11 @@
 # Myanmar Name Generation with Simple GPT Model Experiment
 
-Run by Ye, LU Lab., Myanmar.
-Last updated: 16 Jan 2025
+Run by Ye, LU Lab., Myanmar.  
+Last updated: 16 Jan 2025  
 
 ## Error for 1st Run
 
+```
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/bi_lstm_ner/bin/python ./gpt_lm.py --help
 Traceback (most recent call last):
   File "./gpt_lm.py", line 1, in <module>
@@ -15,9 +16,11 @@ Traceback (most recent call last):
     from typing_extensions import ParamSpec
 ImportError: cannot import name 'ParamSpec' from 'typing_extensions' (/home/ye/anaconda3/envs/bi_lstm_ner/lib/python3.8/site-packages/typing_extensions.py)
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Update typing_extensions
 
+```
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/bi_lstm_ner/bin/python -m pip install --upgrade typing_extensions
 Requirement already satisfied: typing_extensions in /home/ye/anaconda3/envs/bi_lstm_ner/lib/python3.8/site-packages (3.7.4.3)
 Collecting typing_extensions
@@ -33,9 +36,11 @@ tensorflow-gpu 2.5.0 requires numpy~=1.19.2, but you have numpy 1.23.0 which is 
 tensorflow-gpu 2.5.0 requires typing-extensions~=3.7.4, but you have typing-extensions 4.12.2 which is incompatible.
 Successfully installed typing_extensions-4.12.2
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Try Again
 
+```
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/bi_lstm_ner/bin/python ./gpt_lm.py --help
 Traceback (most recent call last):
   File "/home/ye/anaconda3/envs/bi_lstm_ner/lib/python3.8/site-packages/torch-2.4.1-py3.8-linux-x86_64.egg/torch/__init__.py", line 226, in _load_global_deps
@@ -59,16 +64,19 @@ Traceback (most recent call last):
     self._handle = _dlopen(self._name, mode)
 OSError: libnvJitLink.so.12: cannot open shared object file: No such file or directory
 (bi_lstm_ner) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
-
+```
 
 ## Switch Conda Env and Uninstall/Install Pytorch
 
 
-Switched to hs-fasttext env and uninstall/install pytorch:
+Switched to hs-fasttext env and uninstall/install pytorch:  
 
+```
 /home/ye/anaconda3/envs/bi_lstm_ner/bin/python -m pip uninstall torch
 /home/ye/anaconda3/envs/bi_lstm_ner/bin/python -m pip install torch
+```
 
+```
 3.8/site-packages/nvidia_nccl_cu12-2.20.5-py3.8-linux-x86_64.egg (from torch) (2.20.5)
 Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /home/ye/anaconda3/envs/bi_lstm_ner/lib/python3.8/site-packages/nvidia_nvtx_cu12-12.1.105-py3.8-linux-x86_64.egg (from torch) (12.1.105)
 Requirement already satisfied: triton==3.0.0 in /home/ye/anaconda3/envs/bi_lstm_ner/lib/python3.8/site-packages/triton-3.0.0-py3.8-linux-x86_64.egg (from torch) (3.0.0)
@@ -79,10 +87,11 @@ Using cached torch-2.4.1-cp38-cp38-manylinux1_x86_64.whl (797.1 MB)
 Installing collected packages: torch
 Successfully installed torch-2.4.1
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Try Again
 
-
+```
 Traceback (most recent call last):  File "/home/ye/ye/exp/name-lm/gpt/./gpt_lm.py", line 1, in <module>
     import torch
   File "/home/ye/.local/lib/python3.10/site-packages/torch/__init__.py", line 1471, in <module>
@@ -124,9 +133,11 @@ options:
                         Number of transformer layers.
   --ff_dim FF_DIM       Feedforward dimension.
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Uninstall/Install Numpy
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/hs-fasttext/bin/python
 -m pip uninstall numpy
 Found existing installation: numpy 2.2.1
@@ -142,7 +153,9 @@ Uninstalling numpy-2.2.1:
 Proceed (Y/n)? Y
   Successfully uninstalled numpy-2.2.1
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/hs-fasttext/bin/python -m pip install numpy --force-reinstall
 Collecting numpy
   Using cached numpy-2.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
@@ -163,15 +176,16 @@ tensorflow 2.18.0 requires numpy<2.1.0,>=1.26.0, but you have numpy 2.2.1 which 
 transformer-smaller-training-vocab 0.4.0 requires numpy<2.0.0,>=1.21.0; python_version >= "3.9", but you have numpy 2.2.1 which is incompatible.
 Successfully installed numpy-2.2.1
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Try Again
 
-Still facing error and decided to uninstall/install torch.
-What I mean I wanna use new numpy.  
-
+Still facing error and decided to uninstall/install torch.  
+What I mean I wanna use new numpy.   
+ 
 ## Uninstall/Install Torch
 
-
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/hs-fasttext/bin/python -m pip install torch
 ...
 ...
@@ -196,21 +210,24 @@ ERROR: pip's dependency resolver does not currently take into account all the pa
 transformer-smaller-training-vocab 0.4.0 requires numpy<2.0.0,>=1.21.0; python_version >= "3.9", but you have numpy 2.2.1 which is incompatible.
 Successfully installed nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 sympy-1.13.1 torch-2.5.1 triton-3.1.0
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
-
+```
 
 ## Check Installed numpy and torch
 
-Finally, I got it!
+Finally, I got it!  
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/hs-fasttext/bin/python  -c "import numpy; print(numpy.__version__)"
 2.2.1
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ /home/ye/anaconda3/envs/hs-fasttext/bin/python  -c "import torch; print(torch.__version__)"
 2.5.1+cu124
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Run Again
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--seq_len SEQ_LEN] [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
@@ -239,10 +256,11 @@ options:
                         Number of transformer layers.
   --ff_dim FF_DIM       Feedforward dimension.
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
-
+```
 
 ## Training
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --train --data ../data/train/train.txt --model ./model/gpt.model
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -271,9 +289,11 @@ real    11m44.086s
 user    183m38.505s
 sys     2m15.577s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-Check the output model and vocab files:  
+Check the output model and vocab files:   
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ ls ./model/ -lh
 total 11M
 -rw-rw-r-- 1 ye ye 11M Jan 15 14:56 gpt.model
@@ -295,7 +315,9 @@ total 11M
 ဘွား    8
 ဒေါ်    9
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ tail ./model/gpt.model.vocab
 ဒုလ်    1441
 သဉ္ဇူ   1442
@@ -311,9 +333,11 @@ total 11M
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ wc ./model/gpt.model.vocab
  1451  2902 24737 ./model/gpt.model.vocab
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Debugging on Generation
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --prompt မောင်
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -325,7 +349,9 @@ real    0m2.319s
 user    0m7.350s
 sys     0m0.240s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --prompt "မောင်"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -337,11 +363,13 @@ real    0m2.219s
 user    0m5.695s
 sys     0m0.208s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "မောင်"
+time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "မောင်"  
 
-time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "လှ"
+time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "လှ"  
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "လှ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -352,7 +380,9 @@ Generated Text: လှ နိုင် ဝေ ရီ လှိုင် ထိ�
 real    0m2.223s
 user    0m5.799s
 sys     0m0.232s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -363,7 +393,9 @@ Generated Text: ဆွေ ထိပ် ထိပ် ထိပ် ထိပ် �
 real    0m2.227s
 user    0m5.831s
 sys     0m0.205s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "အေး"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -374,7 +406,9 @@ Generated Text: အေး ထိပ် ထိပ် ထိပ် ထိပ် �
 real    0m2.242s
 user    0m5.822s
 sys     0m0.225s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ ဆွေ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -385,15 +419,17 @@ Generated Text: ဆွေ ဆွေ ထိပ် ထိပ် ထိပ် ထ�
 real    0m2.217s
 user    0m5.787s
 sys     0m0.245s
+```
 
-time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ"
+time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ"  
 
 ===========
 
-အထက်ပါ ကိစ္စမှာ debugging လုပ်ရတာ တော်တော် အချိန်ပေးလိုက်ရတယ်။  
+အထက်ပါ ကိစ္စမှာ debugging လုပ်ရတာ တော်တော် အချိန်ပေးလိုက်ရတယ်။   
 
-ရလဒ်က မကောင်းလို့ model ရဲ့ checkpoint သိမ်းတဲ့ parameter တွေကို ပြင်၊ tokenization အပိုင်းကိုလည်း generation လုပ်တဲ့အပိုင်းမှာပါ ညီအောင်ညှိ၊ generation မလုပ်ခင်လည်း မော်ဒယ် loading အပိုင်းကိုလည်း ပြင်တာတွေလုပ်ပြီးမှ နောက်ဆုံး ရလဒ်ကောင်းလာတယ်။ အောက်ပါအတိုင်း...  
+ရလဒ်က မကောင်းလို့ model ရဲ့ checkpoint သိမ်းတဲ့ parameter တွေကို ပြင်၊ tokenization အပိုင်းကိုလည်း generation လုပ်တဲ့အပိုင်းမှာပါ ညီအောင်ညှိ၊ generation မလုပ်ခင်လည်း မော်ဒယ် loading အပိုင်းကိုလည်း ပြင်တာတွေလုပ်ပြီးမှ နောက်ဆုံး ရလဒ်ကောင်းလာတယ်။ အောက်ပါအတိုင်း...   
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -406,7 +442,9 @@ real    0m2.245s
 user    0m6.100s
 sys     0m0.243s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ဆွေ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -418,7 +456,9 @@ Generated Text: ဆွေ ဘန့် ချမ်း မဲန် အာဖ်
 real    0m2.259s
 user    0m6.135s
 sys     0m0.215s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ရဲ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -431,7 +471,9 @@ real    0m2.262s
 user    0m6.082s
 sys     0m0.255s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 1 3 --prompt "ရဲ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -443,7 +485,9 @@ Generated Text: ရဲ ငိုက် ငြိမ့် ရိုင်
 real    0m2.235s
 user    0m5.984s
 sys     0m0.220s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 1 --prompt "ရဲ ကျော်"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -455,7 +499,9 @@ Generated Text: ရဲ ကျော် ကျုံး
 real    0m2.227s
 user    0m5.718s
 sys     0m0.221s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 31 --prompt "ရဲ ကျော်"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -468,11 +514,13 @@ real    0m2.197s
 user    0m5.619s
 sys     0m0.201s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
 ## Current Version 
 
-the 1st version for working both gpt model building and text generation:  
+the 1st version for working both gpt model building and text generation:   
 
+```python
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -765,9 +813,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 ## --help of Current Code
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--seq_len SEQ_LEN] [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
@@ -799,12 +849,14 @@ options:
                         Sampling temperature (higher = more random).
   --top_k TOP_K         Top-k sampling.
   --top_p TOP_P         Top-p (nucleus) sampling.
+```
 
 ## Code Updating
 
-I updated the code for running without --prompt (i.e. random) 
-and --output (for saving generated text into a file)
+I updated the code for running without --prompt (i.e. random)   
+and --output (for saving generated text into a file)  
 
+```python
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -1097,12 +1149,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 ## Text Generation with Updated Code
 
+run with --prompt argument:   
 
-run with --prompt argument:  
-
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ရဲ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1114,9 +1167,11 @@ real    0m2.287s
 user    0m5.834s
 sys     0m0.261s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-run without --prompt argument:  
+run without --prompt argument:   
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --prompt "ရဲ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1128,9 +1183,11 @@ real    0m2.287s
 user    0m5.834s
 sys     0m0.261s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-run with --output argument:  
+run with --output argument:   
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 50 --output gen.txt
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1143,17 +1200,21 @@ real    0m2.528s
 user    0m9.154s
 sys     0m0.220s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-Let's check gen.txt file:  
+Let's check gen.txt file:    
 
-ဇိ ထီး သျှမ်း ကင် ဘွဲ့ ကြ လု ကင် ဂျန် ယိန်း တောင်း အဂ္ဂ ဝိုင်း သိဓ္ဓတ် မိုး နံ့ ဝေး ဟွ ပြည် တာ ပွင့်် လဒ် တေး အိုး တို ဟန် ရို ဝ ဓါန် ကြိုင် ကံ သိပ္ပံ ကွ ဗား ဘွား သူ ဆုန် လည်း ရှယ် ဂေါင် စေ ဒိန်း တက္ခ ထဲ ခေါလ် ခေါမ်း ဝိုက် ဘ တုန် ပို လျှန်
+ဇိ ထီး သျှမ်း ကင် ဘွဲ့ ကြ လု ကင် ဂျန် ယိန်း တောင်း အဂ္ဂ ဝိုင်း သိဓ္ဓတ် မိုး နံ့ ဝေး ဟွ ပြည် တာ ပွင့်် လဒ် တေး အိုး တို ဟန် ရို ဝ ဓါန် ကြိုင် ကံ သိပ္ပံ ကွ ဗား ဘွား သူ ဆုန် လည်း ရှယ် ဂေါင် စေ ဒိန်း တက္ခ ထဲ ခေါလ် ခေါမ်း ဝိုက် ဘ တုန် ပို လျှန်  
 
 ## Backup
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ cp gpt_lm.py gpt_lm.v1.0.py
+```
 
 ## --help of Current Version
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--seq_len SEQ_LEN] [--output OUTPUT] [--epochs EPOCHS] [--batch_size BATCH_SIZE]
@@ -1187,10 +1248,11 @@ options:
   --top_k TOP_K         Top-k sampling.
   --top_p TOP_P         Top-p (nucleus) sampling.
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
-
+```
 
 ## Running/Testing
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --top_k 10 --prompt "သူ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1201,7 +1263,9 @@ Generated Text: သူ သဲ ထီ ဘု ချွန် ကွေ
 real    0m2.288s
 user    0m5.870s
 sys     0m0.249s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 5 --top_p 10 --prompt "သူ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1212,11 +1276,13 @@ Generated Text: သူ ကျက် ဆောမ်း မန်း ယောင
 real    0m2.351s
 user    0m5.981s
 sys     0m0.292s
+```
 
 ## Updating Code
 
-Now, I already added no. of generation command line argument.
+Now, I already added no. of generation command line argument.  
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--seq_len SEQ_LEN] [--output OUTPUT] [--no_of_generation NO_OF_GENERATION]
@@ -1252,9 +1318,11 @@ options:
                         Sampling temperature (higher = more random).
   --top_k TOP_K         Top-k sampling.
   --top_p TOP_P         Top-p (nucleus) sampling.
+```
 
 ## Testing with --no_of_generation
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 3 --no_of_generation 10 --prompt "ရဲ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1274,7 +1342,9 @@ Generated Text 10: ရဲ နည် ဖယ် သင့်
 real    0m2.417s
 user    0m7.315s
 sys     0m0.245s
+```
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --no_of_generation 10 --prompt "သ"
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1294,11 +1364,13 @@ Generated Text 10: သ ကုံး ဘိုင်
 real    0m2.325s
 user    0m6.623s
 sys     0m0.297s
+```
 
 So far, so good! :)
 
 ## Updating the Code
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--input INPUT] [--seq_len SEQ_LEN] [--output OUTPUT]
@@ -1335,11 +1407,13 @@ options:
                         Sampling temperature (higher = more random).
   --top_k TOP_K         Top-k sampling.
   --top_p TOP_P         Top-p (nucleus) sampling.
+```
 
 ## Current Version
 
-I added --input for accepting prompt or starting words through input file.  
+I added --input for accepting prompt or starting words through input file.   
 
+```python
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -1649,9 +1723,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 ## Text Generation with Updated Code
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ cat prompt.txt
 ကျော်
 မ မ
@@ -1660,9 +1736,10 @@ if __name__ == "__main__":
 
 မြ အေး
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-
-time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --no_of_generation 10 --input prompt.txt
+```
+time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --no_of_generation 10 --input prompt.txt  
 
 Random Prompt Generated: ကျဲရ်
 Generated Text 1: ကျော် ဝါ ခြိမ့်
@@ -1699,9 +1776,11 @@ Generated Text 30: မြ အေး ပို ပေ
 real    0m2.489s
 user    0m8.972s
 sys     0m0.327s
+```
 
-for this time I will run with both --input, --output arguments as follows:  
+for this time I will run with both --input, --output arguments as follows:    
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ time python ./gpt_lm.py --generate --model ./model/gpt.model --seq_len 2 --no_of_generation 10 --input prompt.txt --output prompt.out.txt
 /home/ye/anaconda3/envs/hs-fasttext/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
   return torch._C._cuda_getDeviceCount() > 0
@@ -1714,9 +1793,11 @@ real    0m2.775s
 user    0m12.474s
 sys     0m0.390s
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
+```
 
-Let's check prompt.out.txt file:  
+Let's check prompt.out.txt file:   
 
+```
 ကျော် သန္တာ သစ္စာ
 ကျော် မိုက် ကု
 ကျော် မှု သို
@@ -1777,16 +1858,17 @@ Let's check prompt.out.txt file:
 မြ အေး ပန်း နှင်း‌
 မြ အေး အိစ် လျန်
 မြ အေး ချမ်း‌ ရုပ်
+```
 
 ## Note
 
-I need to make syllable checking or cleaning for myRoman dataset.
+I need to make syllable checking or cleaning for myRoman dataset.  
 
 ## Code Updating
 
-added default values to show when user run with --help option.
+added default values to show when user run with --help option.  
 
-
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$ python ./gpt_lm.py --help
 usage: gpt_lm.py [-h] [--train] [--generate] [--data DATA] [--model MODEL] [--prompt PROMPT]
                  [--input INPUT] [--seq_len SEQ_LEN] [--output OUTPUT]
@@ -1824,16 +1906,20 @@ options:
   --top_k TOP_K         Top-k sampling (default: 30).
   --top_p TOP_P         Top-p (nucleus) sampling (default: 0.9).
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt$
-
+```
 
 ## Checking Again
 
-Copied dataset and code to final-check\ folder.
-I prepared a shell script.
+Copied dataset and code to final-check\ folder.  
+I prepared a shell script.  
 
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt/final-check$ ls
 check.log  check.sh  data  generated_texts.txt  gpt_lm.py  gpt.model  gpt.model.vocab  start_words.txt
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt/final-check$
+```
+
+```bash
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt/final-check$ cat check.sh
 #!/bin/bash
 
@@ -1849,9 +1935,11 @@ echo "Batch Text Generation from File:";
 time python gpt_lm.py --generate --model gpt.model --seq_len 2 --input start_words.txt \
 --no_of_generation 5 --output generated_texts.txt;
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt/final-check$
+```
 
-The following is the output filename: generated_texts.txt:  
+The following is the output filename: generated_texts.txt:    
 
+```
 ကျော် လျှမ် အောင်
 ကျော် လျာ မောင်
 ကျော် လိ တု
@@ -1882,10 +1970,11 @@ The following is the output filename: generated_texts.txt:
 မြ အေး နောင့် ကြင်
 မြ အေး ခိ မြတ်
 မြ အေး ဇွန် ဖူး
+```
 
+for this time I changed --temperature option:  
 
-for this time I changed --temperature option:
-
+```
 (hs-fasttext) ye@lst-gpu-server-197:~/ye/exp/name-lm/gpt/final-check$ time python gpt_lm.py --generate --model gpt.model --seq_len 2 --input start_words.txt --no_of_generation 5 --temperature 0.1 --output gener
 ated_texts.txt;
 
@@ -1921,8 +2010,9 @@ output file:
 မြ အေး စင်္ကြာ ဟံ
 မြ အေး လာန်း ဉာဏ်
 မြ အေး သိမ့် ကွေ
+```
 
-
+```
 time python gpt_lm.py --generate --model gpt.model --seq_len 2 --input start_words.txt --no_of_generation 5 --temperature 0.3 --output gener
 ated_texts.txt;
 
@@ -1956,5 +2046,5 @@ ated_texts.txt;
 မြ အေး စွန်း ဇီ
 မြ အေး တင် တုန်း
 မြ အေး ညို့ ခြူ
-
+```
 
