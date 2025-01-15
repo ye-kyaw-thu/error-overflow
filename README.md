@@ -246,4 +246,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 239. [adding-MLP-to-fasttext-ml-program-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/adding-MLP-to-fasttext-ml-program-log.md)  
 240. [word-tag-CRF-model-exp-log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word-tag-CRF-model-exp-log.md)  
 241. [semantic_chunking.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/semantic_chunking.md)  
+242. [name_gen_with_gpt_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/name_gen_with_gpt_exp1.md)
 
