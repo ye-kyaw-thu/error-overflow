@@ -2,6 +2,7 @@
 
 ## Data  
 
+```  
 (base) ye@lst-hpc3090:~/data/mono$ wc mywiki_20230720_clean.txt
    678869   7084564 250761391 mywiki_20230720_clean.txt
 (base) ye@lst-hpc3090:~/data/mono$ head mywiki_20230720_clean.txt
@@ -16,11 +17,14 @@
 ရုံးပင်ကန်ရွာ၊ စစ်ကိုင်းမြို့နယ်
 ရုံးပင်ကန်ရွာ သည် စစ်ကိုင်းတိုင်းဒေသကြီး၊ စစ်ကိုင်းခရိုင်၊ စစ်ကိုင်းမြို့နယ်၊ စမွန်းကျေးရွာအုပ်စု၌ တည်ရှိသည်။ ရွာနေရာကုတ်မှာ ၁၇၁၀၉၃ ဖြစ်သည်။
 (base) ye@lst-hpc3090:~/data/mono$
+```
 
-
+```
 (base) ye@lst-hpc3090:~/data/mono/mywiki-latest$ wc mywiki_latest.txt
    678199   7709062 342381549 mywiki_latest.txt
-   
+```
+
+```
 (base) ye@lst-hpc3090:~/data/mono/mywiki-latest$ wc mywiki_latest_clean.txt
    678218   7277151 257610837 mywiki_latest_clean.txt
 (base) ye@lst-hpc3090:~/data/mono/mywiki-latest$
@@ -37,9 +41,11 @@
 ၂၀၁၈ ဟွာလီယန် ငလျင်
 ၂၀၁၈ ခုနှစ် ဖေဖော်ဝါရီလ ၆ ရက်နေ့၊ ဒေသစံတော်ချိန် ၂၃:၅၀ အချိန်တွင် ပြင်းအား ရစ်ချက်စတာ စကေး ၆.၄ ရှိ ငလျင်တစ်ခုသည် ထိုင်ဝမ်နိုင်ငံတွင် လှုပ်ခတ်သွားခဲ့သည်။ မြေငလျင်ဗဟိုချက်သည် ဟွာလီယန်မြို့အနီးရှိ ပင်လယ်ကမ်းရိုးတန်းတွင် ဖြစ်ပြီး ဟွာလီယန်မြို့သည် ပျက်စီးမှုဒဏ်အများဆုံး ခံခဲ့ရကာ မာကာလ်လီ ပြင်းအားအဆင့် ၇ (အလွန်ပြင်းထန်) အဆင့်ဖြင့် ငလျင်ဒဏ် ခံခဲ့ရသည်။ ငလျင်ကြောင့် အနည်းဆုံး လူ ၁၀ ဦး သေဆုံးခဲ့ပြီး ၂၇၂ ဦးကျော် ဒဏ်ရာရရှိခဲ့သည်ဟု ဆိုသည်။
 (base) ye@lst-hpc3090:~/data/mono/mywiki-latest$
+```
 
 ## Coding
 
+```python
 import argparse
 import re
 
@@ -107,9 +113,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 ## Test-Run
 
+```  
 (base) ye@lst-hpc3090:~/data/mono/script$ cat file1.txt
 This is a test.
 Hello world!
@@ -120,7 +128,9 @@ This is a test.
 Python is great.
 Hello world!
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
+```
 (base) ye@lst-hpc3090:~/data/mono/script$ python ./chk_overlap.py ./file1.txt ./file2.txt --write
 Number of overlapping words: 6
 Number of overlapping sentences: 2
@@ -136,9 +146,11 @@ world
 Hello world!
 This is a test.
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
 ## Update Code
 
+```python
 import argparse
 import re
 from collections import Counter
@@ -209,9 +221,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 ## Test Run Again
 
+```
 (base) ye@lst-hpc3090:~/data/mono/script$ python ./chk_overlap.py ./file1.txt ./file2.txt --write
 Number of overlapping words: 6
 Number of overlapping sentences: 2
@@ -229,9 +243,11 @@ world   1       1
 Hello world!    1       1
 This is a test. 2       1
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
 ## Compare Two Wiki Files
 
+```
 (base) ye@lst-hpc3090:~/data/mono/script$ time python ./chk_overlap.py ../mywiki_20230720_clean.txt ../mywiki-latest/mywiki_latest_clean.txt --write
 Number of overlapping words: 173471
 Number of overlapping sentences: 55510
@@ -245,7 +261,9 @@ sys     0m1.781s
 (base) ye@lst-hpc3090:~/data/mono/script$ wc ./overlap_sentences.txt
    355622   4241673 147760540 ./overlap_sentences.txt
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
+```
 (base) ye@lst-hpc3090:~/data/mono/script$ head ./overlap_words.txt
 0       1196    1160
 00      99      105
@@ -293,9 +311,11 @@ sys     0m1.781s
 !*နိဿယပစ္စယော
 !*ဥပနိဿယပစ္စယော
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
 ## Code Updating
 
+```python
 import argparse
 from collections import Counter
 
@@ -361,9 +381,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-	
+```	
 
-
+```
 (base) ye@lst-hpc3090:~/data/mono/script$ python ./chk_overlap.py ./file1.txt ./file2.txt --write
 Number of overlapping words: 6
 Number of overlapping sentences: 2
@@ -387,6 +407,7 @@ world!  1       1
 Hello world!    1       1
 This is a test. 2       1
 (base) ye@lst-hpc3090:~/data/mono/script$
+```
 
 ## Run with Wiki
 
