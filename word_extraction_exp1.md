@@ -210,7 +210,7 @@ sys     0m1.968s
 
 ## Run with 3, 5
 
-
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ time python3.10 ./morfessor_ngram.py --input ./burmese_corpus.txt --output ./words_3_5.txt
 2025-04-14 22:01:16,034 - INFO - Loading corpus from ./burmese_corpus.txt
 2025-04-14 22:01:16,180 - WARNING - Skipping empty or invalid line 34875: ၁ ၀ ၂
@@ -227,9 +227,11 @@ real    0m0.704s
 user    0m1.286s
 sys     0m1.968s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
 ## Install torch_geometric
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ pip install torch_geometric
 ...
 ...
@@ -256,9 +258,11 @@ Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.16 aiosignal-1.3.2 as
 [notice] A new release of pip is available: 24.3.1 -> 25.0.1
 [notice] To update, run: pip install --upgrade pip
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$
+```
 
 ## GNN --help
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ python3.10 ./gnn.py --help
 usage: gnn.py [-h] [--input INPUT] [--output OUTPUT] [--max-sentences MAX_SENTENCES]
 
@@ -272,9 +276,11 @@ options:
   --max-sentences MAX_SENTENCES
                         Maximum number of sentences to use for GNN training (default: 10000)
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$
+```
 
 ## GNN Running No. 1
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ time python3.10 ./gnn.py --input ./burmese_corpus.txt --outpu
 t words.10k.txt
 2025-04-15 00:14:33,894 - INFO - Loading corpus from ./burmese_corpus.txt
@@ -303,12 +309,11 @@ t words.10k.txt
 real    9m31.130s
 user    9m30.767s
 sys     0m2.749s
-
-## Check Extracted Words with GNN
-
+```
 
 ## Train GNN with --max-sentences 44000
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ time python3.10 ./gnn.py --input ./burmese_corpus.txt --output words.44k.txt --max-sentences 44000
 2025-04-15 00:30:57,432 - INFO - Loading corpus from ./burmese_corpus.txt
 2025-04-15 00:30:57,628 - WARNING - Skipping empty or invalid line 34875: ၁ ၀ ၂
@@ -336,18 +341,22 @@ real    42m31.452s
 user    42m29.105s
 sys     0m5.073s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$
+```
 
---max-sentences 44000 ကို ထားပြီး word ဆွဲထုတ်တော့ စာလုံးရေအရေအတွက်က ပိုများလာတယ်။  
+--max-sentences 44000 ကို ထားပြီး word ဆွဲထုတ်တော့ စာလုံးရေအရေအတွက်က ပိုများလာတယ်။    
 
+```
 words.10k_flat.txt  words.10k.txt       words.44k_flat.txt  words.44k.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ wc words.10k.txt
   9168   9168 174097 words.10k.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$ wc words.44k.txt
  22593  22593 468287 words.44k.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/gnn$
+```
 
 ## Running BPE-GPT2
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ time python3.10 ./bpe_gpt2.py
 2025-04-15 09:31:53.434908: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 2025-04-15 09:31:53.435969: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
@@ -380,9 +389,11 @@ real    0m17.104s
 user    0m39.783s
 sys     0m10.017s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
 ## Check BPE-GPT Extracted Words
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ wc ./burmese_words_bpe.txt
  3081  3081 41962 ./burmese_words_bpe.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ head burmese_words_bpe.txt
@@ -408,7 +419,9 @@ hō
 昭和の時代に得た南の島
 缅甸
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ shuf ./burmese_words_bpe.txt | head -n 30
 ဂါတ်
 ကော
@@ -441,7 +454,9 @@ aí
 ဂွင်
 သိမ်း
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ shuf ./burmese_words_bpe.txt | head -n 30
 လွမ်း
 စုန်း
@@ -474,6 +489,7 @@ aí
 နော်
 လုံ
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
 ## Run BPE_GPT2 with --max-sentences 44000
 
