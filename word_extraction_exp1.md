@@ -493,6 +493,7 @@ aí
 
 ## Run BPE_GPT2 with --max-sentences 44000
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ time python3.10 ./bpe_gpt2.py --input ./burmese_corpus.t
 xt --output words.44k.txt --max-sentences 44000
 2025-04-15 10:09:11.960663: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
@@ -522,19 +523,23 @@ real    0m10.372s
 user    0m35.512s
 sys     0m8.446s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
-စာလုံး ဘယ်နှစ်လုံး ဆွဲထုတ်နိုင်သလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်တော့ ...
+စာလုံး ဘယ်နှစ်လုံး ဆွဲထုတ်နိုင်သလဲ ဆိုတာကို နှိုင်းယှဉ်ကြည့်တော့ ...  
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ wc burmese_words_bpe.txt
  3081  3081 41962 burmese_words_bpe.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ wc words.44k.txt
  3081  3081 41962 words.44k.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
-စာလုံးအရေအတွက်ကတော့ အပြောင်းအလဲ မရှိတာကို တွေ့ရ။  
+စာလုံးအရေအတွက်ကတော့ အပြောင်းအလဲ မရှိတာကို တွေ့ရ။   
 
 ## BPE-GPT2 Code Updated
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ python3.10 ./bpe_gpt2.py --help
 2025-04-15 10:23:55.405285: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 2025-04-15 10:23:55.406366: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
@@ -562,9 +567,11 @@ options:
   --sample-size SAMPLE_SIZE
                         Sentences to sample for GPT-2 extraction (default: 1000)
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
 ## Run/Check BPE-GPT2 Again
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ time python3.10 ./bpe_gpt2.py --input ./burmese_corpus.txt --output words.44k.txt --max-sentences 44000
 ...
 ...
@@ -608,9 +615,11 @@ The new embeddings will be initialized from a multivariate normal distribution t
 real    24m5.005s
 user    24m5.453s
 sys     0m2.597s
+```
 
 ## Check
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ wc ./words.44k.txt
   6740   6740 143024 ./words.44k.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
@@ -647,7 +656,9 @@ sys     0m2.597s
 ဟမ်းဘတ်
 စိမ်ဥစ္စာ
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ shuf ./words.44k.txt | head -n 30
 မြော်
 ဒြပ်မည်း
@@ -680,7 +691,9 @@ sys     0m2.597s
 ဘိုဇိုင်းမ်
 ဖါ့စ်
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ shuf ./words.44k.txt | head -n 30
 ရင့်
 ကျေညက်
@@ -713,7 +726,9 @@ sys     0m2.597s
 ကမ်းရိုး
 ရု
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$ shuf ./words.44k.txt | head -n 30
 ဇစ်မြစ်
 ရှားဝေါလ်
@@ -746,13 +761,14 @@ sys     0m2.597s
 ချဲန်
 မိဘ
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/bpe_gpt2$
+```
 
-Word unit တွေတော့ ပါလာပြီ။
-Extracted word တွေကို အသေးစိတ် လေ့လာသွားရန်။  
+Word unit တွေတော့ ပါလာပြီ။  
+Extracted word တွေကို အသေးစိတ် လေ့လာသွားရန်။    
 
 ============
 
-Saving Current Codes ...  
+Saving Current Codes ...    
 
 ## Current Version of morfessor_ngram.py
 
