@@ -248,4 +248,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 241. [semantic_chunking.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/semantic_chunking.md)  
 242. [name_gen_with_gpt_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/name_gen_with_gpt_exp1.md)  
 243. [myMono_Preparation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/myMono_Preparation.md)  
+244. [word_extraction_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word_extraction_exp1.md)  
 
