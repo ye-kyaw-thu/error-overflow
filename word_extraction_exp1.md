@@ -2,6 +2,7 @@
 
 ## Syllable Breaking
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/data$ python3.10 ./sylbreak.py --input ./mypos-ver.3.0.shuf.notag.nopunc.txt --separator " " --output burmese_corpus.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/data$ head burmese_corpus.txt
 ၁ ၉ ၆ ၂ ခု နှစ် ခန့် မှန်း သန်း ခေါင် စာ ရင်း အ ရ လူ ဦး ရေ ၁ ၁ ၅ ၉ ၃ ၁ ယောက် ရှိ သည်
@@ -15,9 +16,11 @@
 က လေး မီး ဖွား ဖို့ ခ န့် မှန်း ရက် က ဘယ် တော့ ပါ လဲ
 အ ရိုး ရှင်း ဆုံး ကာ ဗို ဟိုက် ဒ ရိတ် မှာ ဂ လူး ကို့စ် ဂ လက် တို့စ် ဖ ရပ် တို့စ် စ သည့် မို နို ဆက် က ရိုက် များ ဖြစ် သည်
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/data$
+```
 
 ## Check Installed Morfessor Version
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ pip show morfessor
 Name: Morfessor
 Version: 2.0.6
@@ -30,9 +33,11 @@ Location: /home/ye/miniforge3/envs/py3.10/lib/python3.10/site-packages
 Requires:
 Required-by:
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
 ## Mofessor-Ngram
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ time python3.10 ./morfessor_ngram.py --input ./burmese_corpus.txt --output ./words.txt
 2025-04-14 21:49:03,570 - INFO - Loading corpus from ./burmese_corpus.txt
 2025-04-14 21:49:03,716 - WARNING - Skipping empty or invalid line 34875: ၁ ၀ ၂
@@ -49,12 +54,16 @@ real    0m0.704s
 user    0m1.342s
 sys     0m1.904s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ wc ./words.txt
  2433  2433 48253 ./words.txt
+```
 
 ## Checking Extracted Words
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ head ./words.txt
 ''
 .%
@@ -78,7 +87,9 @@ Ap
 ’ဟု
 ’ဟူ
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ shuf words.txt | head -n 25
 ဂုဏ်ယူ
 Ma
@@ -106,7 +117,9 @@ Op
 တူးဖော်
 အိပ်ခန်း
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ shuf words.txt | head -n 25
 ထည်ပစ္စည်း
 ft
@@ -134,11 +147,13 @@ Mo
 uk
 သုံးဆယ်
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
 ## Run Again
 
-I updated as follows:
+I updated as follows:  
 
+```
 def extract_ngram_words(sentences, pmi_threshold=5.0, min_freq=5):
 
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ time python3.10 ./morfessor_ngram.py --input ./burmese_corpus.txt --output ./words_minfreq_5.txt
@@ -157,17 +172,24 @@ real    0m0.701s
 user    0m1.296s
 sys     0m1.949s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
+
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ wc ./words_minfreq_5.txt
  2433  2433 48253 ./words_minfreq_5.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ diff words_minfreq_10.txt words_minfreq_5.txt
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
-ဆွဲထုတ်ပြီး ရလာတဲ့ စာလုံးအရေအတွက်က အတူတူပဲ။  
+ဆွဲထုတ်ပြီး ရလာတဲ့ စာလုံးအရေအတွက်က အတူတူပဲ။   
 
 ## Run with 9, 5
 
+```
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ time python3.10 ./morfessor_ngram.py --input ./burmese_corpus.txt --output ./words_9_5.txt
 2025-04-14 21:59:16,752 - INFO - Loading corpus from ./burmese_corpus.txt
 2025-04-14 21:59:16,897 - WARNING - Skipping empty or invalid line 34875: ၁ ၀ ၂
@@ -184,8 +206,10 @@ real    0m0.735s
 user    0m1.289s
 sys     0m1.968s
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$
+```
 
 ## Run with 3, 5
+
 
 (py3.10) ye@lst-hpc3090:~/exp/word_ext/morfessor_ngram$ time python3.10 ./morfessor_ngram.py --input ./burmese_corpus.txt --output ./words_3_5.txt
 2025-04-14 22:01:16,034 - INFO - Loading corpus from ./burmese_corpus.txt
