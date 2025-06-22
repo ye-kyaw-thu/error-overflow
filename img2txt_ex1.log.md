@@ -6220,3 +6220,7 @@ Semantic Analysis:
 
 ```
 
+## To Do
+
+- Transformer-based models
+- Better Myanmar language support
