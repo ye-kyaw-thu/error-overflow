@@ -249,5 +249,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 242. [name_gen_with_gpt_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/name_gen_with_gpt_exp1.md)  
 243. [myMono_Preparation.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/myMono_Preparation.md)  
 244. [word_extraction_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word_extraction_exp1.md)  
-245. [img2txt_ex1.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/img2txt_ex1.log.md)
+245. [img2txt_ex1.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/img2txt_ex1.log.md)  
+246. [ipynb2latex_conversion.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ipynb2latex_conversion.md)
 
