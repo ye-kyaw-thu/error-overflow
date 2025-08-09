@@ -180,7 +180,9 @@ Reporting related arguments:
 
 ```
 
-```
+## Example Usage
+
+အချိန်ရတဲ့အခါမှာ MT experiment တချို့က ရလဒ်တွေနဲ့ အသုံးပြုပုံကို ရှင်းပြမယ်။  
 
 ```
 
@@ -209,5 +211,8 @@ Reporting related arguments:
 ```
 
 ```
+
+```
+
 
 ```
