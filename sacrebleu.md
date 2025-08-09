@@ -182,6 +182,19 @@ Reporting related arguments:
 
 ## Example Usage
 
+
+အလွယ်ဆုံး အသုံးပြုပုံက အောက်ပါအတိုင်း...  
+
+```
+sacrebleu reference.txt -i hypothesis.txt -m bleu -b -w 4
+```
+
+- `reference.txt`: File with reference translations (one per line)
+- `hypothesis.txt`: File with system translations (one per line)
+- `-m bleu`: Compute BLEU score (default)
+- `-b`: Print only the BLEU score (no verbose output)
+- `-w 4`: Use 4 decimal places for the score
+
 အချိန်ရတဲ့အခါမှာ MT experiment တချို့က ရလဒ်တွေနဲ့ အသုံးပြုပုံကို ရှင်းပြမယ်။  
 
 ```
@@ -210,9 +223,6 @@ Reporting related arguments:
 
 ```
 
-```
 
 ```
 
-
-```
