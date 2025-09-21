@@ -3356,6 +3356,7 @@ if __name__ == "__main__":
 
 ## Conclusion
 
+- OCR testing အတွက် သုံးခဲ့တဲ့ image ဖိုင်တွေက [https://github.com/ye-kyaw-thu/error-overflow/tree/master/fig/multilingual_OCR](https://github.com/ye-kyaw-thu/error-overflow/tree/master/fig/multilingual_OCR) မှာ သိမ်းထားတယ်
 - Chinese, English, Japanese OCR အတွက်ကတော့ EasyOCR နဲ့ PaddleOCR ကို offline သုံးလို့ ရလိမ့်မယ်။
 - စာမျက်နှာ ဘယ်လောက် အများကြီးထဲ ပေးလုပ်သလဲ ဆိုတာကတော့ မစမ်းရသေး
 - multilingual OCR ကို စမ်းကြည့်တာ အရမ်းကြီး အဆင်မပြေဘူး။ သို့သော် အင်္ဂလိပ်၊ တရုတ် အတွဲလိုမျိုးကတော့ ရနိုင်တယ်
