@@ -251,5 +251,6 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 244. [word_extraction_exp1.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/word_extraction_exp1.md)  
 245. [img2txt_ex1.log.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/img2txt_ex1.log.md)  
 246. [ipynb2latex_conversion.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ipynb2latex_conversion.md)  
-247. [sacrebleu.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sacrebleu.md)
+247. [sacrebleu.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sacrebleu.md)  
+248. [Small_OCR_test.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Small_OCR_test.md)  
 
