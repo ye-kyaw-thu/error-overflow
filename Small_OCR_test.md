@@ -7,7 +7,7 @@ NICT မှာ အလုပ်လုပ်စဉ်က မြန်မာစာ 
 ဒီနေ့တော့ OCR အခြေအနေကို သိချင်တာနဲ့ coding/testing တချို့ လုပ်ဖြစ်ခဲ့။  
 မြန်မာစာအပြင် multilingual OCR အခြေအနေကို လေ့လာဖြစ်။  
 
-21 Sept 2025
+21 Sept 2025  
 y
 
 ## Library Installation
