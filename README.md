@@ -253,5 +253,5 @@ Linux OS အပေါ်မှာ ပရိုဂရမ်တွေကို ins
 246. [ipynb2latex_conversion.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/ipynb2latex_conversion.md)  
 247. [sacrebleu.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/sacrebleu.md)  
 248. [Small_OCR_test.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/Small_OCR_test.md)  
-249. [arxiv_latex_submission_error_solved.md](https://github.arxiv_latex_submission_error_solved.mdcom/ye-kyaw-thu/error-overflow/blob/master/arxiv_latex_submission_error_solved.md)  
+249. [arxiv_latex_submission_error_solved.md](https://github.com/ye-kyaw-thu/error-overflow/blob/master/arxiv_latex_submission_error_solved.md)  
 
